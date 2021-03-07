@@ -20,9 +20,7 @@
 
 Иногда стандартного предпросмотра маркдауна недостаточно и нужно посмотреть на статью в оформлении сайта. 
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/150f5c7124c94ce497fc49fb8596a013" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-Мы сделали такой предпросмотр удобным:
+Мы сделали такой предпросмотр удобным. Посмотрите [видеоинструкцию](https://www.loom.com/share/150f5c7124c94ce497fc49fb8596a013) или выполните команды:
 
 1. установите [Docker Desktop](https://www.docker.com/products/docker-desktop)
 1. откройте консоль и перейдите в папку с контентом
