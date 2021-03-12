@@ -904,11 +904,11 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ```css
 .container {
-	align-items: stretch;
+  align-items: stretch;
 }
 
 .item1 {
-	align-self: start;
+  align-self: start;
 }
 ```
 
