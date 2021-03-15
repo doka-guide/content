@@ -30,5 +30,3 @@ nums.forEach((num, index, arr) => {
 // 4
 // 10
 ```
-
----
