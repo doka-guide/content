@@ -11,7 +11,7 @@ const fs = require('fs')
 const path = require('path')
 const readline = require('readline')
 
-RELATIVE_DOKA_PATH = path.join('..','y-doka.site')
+RELATIVE_DOKA_PATH = path.join('../..','y-doka.site')
 
 if (!fs.statSync(RELATIVE_DOKA_PATH).isDirectory()) {
   console.log(`Неверный относительный путь до старого репозитория. Указан ${RELATIVE_DOKA_PATH}`)
