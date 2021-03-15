@@ -35,8 +35,9 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   if (!fs.existsSync(contentSrc)) console.error(`Файл со статьей не найден. ${contentSrc}`)
   fs.mkdirSync(targetFolder, { recursive: true })
   const content = fs.readFileSync(contentSrc, 'utf8')
+
   const captureImageRegexp = /!\[(.*?)\]\((\S+?)\)/ig
-  const adjustedContent = content.replace(captureImageRegexp, (match, description, url) => {
+  const contentWithFixedImageLinks = content.replace(captureImageRegexp, (match, description, url) => {
     if (!path.isAbsolute(url)) {
       return match
     }
@@ -44,7 +45,16 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
     const filename = url.split('/').pop()
     return `![${description}](images/${filename})`
   })
-  fs.writeFileSync(path.join(targetFolder, 'index.md'), adjustedContent)
+
+  const [mainContent, practice] = contentWithFixedImageLinks.split('## В работе')
+  if (practice.length > 0) {
+    console.log('Есть раздел «В работе», выношу в отдельный файл...')
+    fs.mkdirSync(path.join(targetFolder, 'practice'), {recursive: true})
+    fs.writeFileSync(path.join(targetFolder, 'practice', 'author.md'), practice.trim() + '\n')
+  }
+
+  fs.writeFileSync(path.join(targetFolder, 'index.md'), mainContent.trim() + '\n')
+
   console.log('Готово\n')
 
   console.log('Копирую изображения')
@@ -60,8 +70,8 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
     const imageTarget = path.join(targetFolder, '/images/')
     const isCopied = copyRecursiveSync(imageSrc, imageTarget)
     console.log(isCopied ? 'Готово' : `"${imageSrc}" не существует, либо это не папка`)
-    console.log()
   }
+  console.log()
 
   console.log('Копирую демки')
   const demoSrc = path.join(RELATIVE_DOKA_PATH, `/src/demos/${titleSlug}/`)
