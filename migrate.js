@@ -23,7 +23,7 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   let pathname
   try {
     const url = new URL(maybeUrl.trim())
-    pathname = url.pathname.substring(1, url.pathname.length - 1)
+    pathname = url.pathname.substring(1, url.pathname.endsWith('/') ? url.pathname.length - 1 : url.pathname.length)
   } catch (e) {
     console.error('Это не URL. Вставь полную ссылку с сайта. Например, http://y-doka.site/js/tools/bundlers')
   }
@@ -37,13 +37,17 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   const content = fs.readFileSync(contentSrc, 'utf8')
 
   const captureImageRegexp = /!\[(.*?)\]\((\S+?)\)/ig
-  const contentWithFixedImageLinks = content.replace(captureImageRegexp, (match, description, url) => {
+  let contentWithFixedImageLinks = content.replace(captureImageRegexp, (match, description, url) => {
     if (!path.isAbsolute(url)) {
       return match
     }
 
     const filename = url.split('/').pop()
     return `![${description}](images/${filename})`
+  })
+  contentWithFixedImageLinks = contentWithFixedImageLinks.replace(/desktop: '(\S+?)'/gi, (match, url) => {
+    const filename = url.split('/').pop()
+    return `desktop: 'images/${filename}'`
   })
 
   const [mainContent, practice] = contentWithFixedImageLinks.split('## В работе')
