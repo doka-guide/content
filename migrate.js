@@ -33,7 +33,7 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   console.log('\nКопирую контент...')
   const contentSrc = path.join(RELATIVE_DOKA_PATH,`src/posts/${pathname}.md`)
   if (!fs.existsSync(contentSrc)) console.error(`Файл со статьей не найден. ${contentSrc}`)
-  fs.mkdirSync(pathname.substr(1), { recursive: true })
+  fs.mkdirSync(targetFolder, { recursive: true })
   const content = fs.readFileSync(contentSrc, 'utf8')
   const captureImageRegexp = /!\[(.*?)\]\((\S+?)\)/ig
   const adjustedContent = content.replace(captureImageRegexp, (match, description, url) => {
