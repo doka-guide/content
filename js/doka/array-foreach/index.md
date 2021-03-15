@@ -2,10 +2,6 @@
 title: "Array.forEach"
 name: array-foreach
 author: windrushfarer
-co-authors:
-designers:
-contributors:
-summary:
 ---
 
 ## Кратко
