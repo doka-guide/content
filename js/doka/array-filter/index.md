@@ -2,10 +2,7 @@
 title: "Array.filter"
 name: array-filter
 author: windrushfarer
-co-authors:
-designers:
 contributors: skorobaeus
-summary:
 ---
 
 ## Кратко
