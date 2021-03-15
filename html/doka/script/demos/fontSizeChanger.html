@@ -2,8 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport"
-				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>JavaScript меняет размер шрифта — script — Дока</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -30,14 +29,14 @@
 	<p id="blinking">Скрипты можно подключить разными способами. Например, описать их прямо внутри HTML-страницы. Но лучше всё же в отдельном файле.</p>
 
 	<script>
-	 var p = document.getElementById("blinking")
-	 setInterval(function () {
-		if (p.style.fontSize !== "10px") {
-		 p.style.fontSize = "10px"
-		} else {
-		 p.style.fontSize = "20px"
-		}
-	 }, 2000)
+		var p = document.getElementById("blinking")
+		setInterval(function () {
+			if (p.style.fontSize !== "10px") {
+				p.style.fontSize = "10px"
+			} else {
+				p.style.fontSize = "20px"
+			}
+		}, 2000)
 	</script>
 </body>
 </html>
