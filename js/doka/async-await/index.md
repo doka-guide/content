@@ -2,9 +2,6 @@
 title: "async/await"
 name: async-await
 author: N_Lopin
-co-authors:
-designers:
-contributors:
 summary:
   - асинхронный вызов
   - api
