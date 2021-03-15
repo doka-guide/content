@@ -2,10 +2,7 @@
 title: "Array.map"
 name: array-map
 author: windrushfarer
-co-authors:
-designers:
 contributors: skorobaeus
-summary:
 ---
 
 ## Кратко
