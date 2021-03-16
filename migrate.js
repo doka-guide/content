@@ -50,8 +50,11 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
     return `desktop: 'images/${filename}'`
   })
 
+  console.log('Копирую советы')
   const [mainContent, practice] = contentWithFixedImageLinks.split('## В работе')
-  if (practice.length > 0) {
+  if (practice === undefined) {
+    console.log('советов не найдено')
+  } else if (practice.length > 0) {
     console.log('Есть раздел «В работе», выношу в отдельный файл...')
     fs.mkdirSync(path.join(targetFolder, 'practice'), {recursive: true})
     fs.writeFileSync(path.join(targetFolder, 'practice', 'author.md'), practice.trim() + '\n')
@@ -81,7 +84,7 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   const demoSrc = path.join(RELATIVE_DOKA_PATH, `/src/demos/${titleSlug}/`)
   const demoTarget = path.join(targetFolder,'/demos/')
   const isCopied = copyRecursiveSync(demoSrc, demoTarget)
-  console.log(isCopied ? 'Готово' : 'Демок нет')
+  console.log(isCopied ? 'Готово' : 'Демок не найдено')
   console.log()
 
   console.log('☝️ Скрипт только помогает переезжать. Он не умеет чинить демки и выносить разделы «в работе».\n' +
