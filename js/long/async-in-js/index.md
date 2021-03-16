@@ -14,6 +14,8 @@ summary:
   - promise промис
   - then
   - catch
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
