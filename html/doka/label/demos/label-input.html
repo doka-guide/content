@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Связь между <label> и <input> — <label> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .article__code {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background-color: #18191c;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+      background-color: #49a16c;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .form-row {
+      margin-bottom: 1em;
+    }
+
+    label + input {
+      min-width: 300px;
+      padding: 10px 12px;
+      border: 1px solid #ffffff;
+      vertical-align: middle;
+      background-color: transparent;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    label + input:focus {
+      border-color: #18191c;
+      outline: none;
+    }
+
+    label input {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="article__code">
+    <form action="">
+      <div class="form-row">
+        <label for="phone">Ваш телефон:</label>
+        <input type="tel" name="phone" id="phone">
+      </div>
+      <div class="form-row">
+        <label>
+          <input type="checkbox" name="agree">Согласен на обработку данных
+        </label>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
