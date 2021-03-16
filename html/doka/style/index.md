@@ -69,7 +69,7 @@ summary:
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Кулинаный блог Марфы</title>
     <style type="text/css">
       h1 {
@@ -99,8 +99,9 @@ summary:
         background-color: #1a5ad7;
       }
     </style>
+    <!-- Будет работать на экранах шириной до 500px -->
     <style media="all and (max-width: 500px)">
-      <!-- Будет работать на экранах шириной до 500px -- > p {
+      p {
         color: #ed6742;
         background-color: #ffd829;
       }
