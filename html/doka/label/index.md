@@ -1,6 +1,6 @@
 ---
 title: "<label>"
-author: ezhkov_d
+author: ezhkov
 contributors: skorobaeus
 tags:
   - sprint-4
