@@ -1,4 +1,8 @@
-{% include "authors/vindi-r/in-work.njk" %}
+---
+tags:
+  - practice
+permalink: false
+---
 
 🛠 Базовая обработка событий клавиатуры:
 
@@ -16,5 +20,3 @@
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-{% include "authors/vindi-r/author.njk" %}
