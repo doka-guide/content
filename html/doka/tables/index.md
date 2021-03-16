@@ -2,16 +2,16 @@
 title: "Таблицы"
 author: solarrust
 summary:
-- "table"
-- "thead"
-- "tbody"
-- "th"
-- "td"
-- "tr"
-- "tfoot"
-- "caption"
-- "colspan"
-- "rowspan"
+  - table
+  - thead
+  - tbody
+  - th
+  - td
+  - tr
+  - tfoot
+  - caption
+  - colspan
+  - rowspan
 ---
 
 ## Кратко
