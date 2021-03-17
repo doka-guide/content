@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Хлебные крошки — <nav> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .article__code {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    nav {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ed6742;
+    }
+
+    .crumbs ol {
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    .crumb {
+      display: inline-block;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .crumb a {
+      color: #ed6742;
+      text-decoration-color: #ffffff;
+    }
+
+    .crumb a:hover {
+      text-decoration-color: #ed6742;
+    }
+
+    .crumb a::after {
+      content: ">";
+      display: inline-block;
+      padding: 0 5px;
+      color: #ffffff;
+      font-size: 80%;
+    }
+
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      font-size: 26px;
+    }
+  </style>
+</head>
+<body>
+  <div class="article__code">
+    <nav class="crumbs">
+      <ol>
+        <li class="crumb"><a href="bikes">Велосипеды</a></li><li class="crumb"><a href="bikes/bmx">BMX</a></li><li class="crumb">Jump Bike 3000</li>
+      </ol>
+    </nav>
+
+    <h1>Jump Bike 3000</h1>
+    <p>Отличный вариант для профессионалов. С ним вы отточите свои навыки.</p>
+  </div>
+</body>
+</html>
