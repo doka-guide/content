@@ -1,10 +1,9 @@
 ---
 title: "DOM"
 name: dom
-author: N_Lopin
-co-authors:
-designers:
+author: nlopin
 contributors:
+  - furtivite
 summary:
 ---
 
