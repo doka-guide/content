@@ -2,6 +2,8 @@
 title: "Boolean"
 name: boolean
 author: bespoyasov
+contributors:
+  - nlopin
 summary:
   - логический тип
   - тру фолс
