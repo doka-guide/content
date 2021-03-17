@@ -2,6 +2,8 @@
 title: "confirm()"
 name: confirm
 author: vindi-r
+contributors:
+  - nlopin
 ---
 
 ## Кратко
@@ -24,7 +26,7 @@ author: vindi-r
 
 `confirm()` принимает один аргумент — это текст, который появится в модальном окне.
 
-Результат работы confirm() можно записать в переменную:
+Результат работы `confirm()` можно записать в переменную:
 
 ```js
 var answer1 = confirm("Подтвердите удаление")
