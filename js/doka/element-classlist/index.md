@@ -4,6 +4,8 @@ name: element-classlist
 author: windrushfarer
 tags:
   - sprint-4
+contributors:
+  - nlopin
 summary:
   - классы
   - className
