@@ -58,7 +58,7 @@ npm install express // добавим пакет для создания веб-
 
 Теперь нужно создать файл с кодом приложения, назовём его `server.js`:
 
-```javascript
+```js
 // express — фреймворк для создания веб-приложений
 const express = require("express")
 
