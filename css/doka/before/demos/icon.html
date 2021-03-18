@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Добавление иконки — ::before — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    .message {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .message p {
+      padding: 15px;
+    }
+
+    .warning {
+      background-color: #ed6742;
+    }
+
+    .warning::before {
+      content: "⚠";
+      margin-right: 0.5em;
+    }
+
+    .info {
+      background-color: #1a5ad7;
+    }
+
+    .info:before {
+      content: "ℹ️";
+      margin-right: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <p class="warning">Внимание! Этот абзац является важным предупреждением!</p>
+  </div>
+
+  <div class="message">
+    <p class="info">Этот абзац является информационным.</p>
+  </div>
+</body>
+</html>
