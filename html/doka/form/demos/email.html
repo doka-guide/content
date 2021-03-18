@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма с отправкой на email — <form> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .article__code {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background-color: #18191c;
+    }
+
+    form {
+      padding: 30px;
+      background-color: #49a16c;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      vertical-align: middle;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .button:hover {
+      border: 1px solid #000000;
+      color: #ffffff;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    .button:focus {
+      outline: 1px solid #ffffff;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .input {
+      min-width: 300px;
+      padding: 10px 12px;
+      border: 1px solid #ffffff;
+      vertical-align: middle;
+      background-color: transparent;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #18191c;
+      outline: none;
+    }
+
+    .input:-internal-autofill-selected {
+      -webkit-text-fill-color: #000000;
+    }
+
+    .form-example + .form-example {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="article__code">
+    <form action="mailto:html@yandex.ru" enctype="text/plain">
+      <div class="form-example">
+        <label for="name">Ваше имя</label>
+        <input type="text" class="input" name="name" id="name" required>
+      </div>
+      <div class="form-example">
+        <label for="order">Что вы хотите заказать?</label>
+        <input type="text" class="input" name="order" id="order" required>
+      </div>
+      <input type="submit" class="button" value="Сделать заказ">
+    </form>
+  </div>
+</body>
+</html>
