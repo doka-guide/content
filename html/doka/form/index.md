@@ -106,7 +106,7 @@ summary:
 </form>
 ```
 
-<iframe title="Три формы" src="demos/rest.html"></iframe>
+<iframe title="Три формы" src="demos/forms.html"></iframe>
 
 Попробуем отправить данные, которые введёт пользователь, на почту. Для этого, вместо URL-ссылки, мы пропишем `action="mailto:html@yandex.ru"`. Ключевое слово `mailto:` позволяет отправить что угодно на электронную почту. Не забудь добавить атрибут `enctype="text/plain"` в теге `<form>`, чтобы письмо отображалось корректно:
 
@@ -135,4 +135,4 @@ summary:
 </html>
 ```
 
-<iframe title="Форма с отправкой на email" src="demos/tomail.html"></iframe>
+<iframe title="Форма с отправкой на email" src="demos/email.html"></iframe>
