@@ -2,6 +2,8 @@
 title: "Array.filter"
 name: array-filter
 author: windrushfarer
+contributors:
+  - nlopin
 contributors: skorobaeus
 ---
 
