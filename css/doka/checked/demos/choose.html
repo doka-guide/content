@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выпадающее меню — :checked — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .dropdown {
+      position: relative; /* Относительное позиционирование */
+    }
+    .dropdown input,
+    .dropdown ul {
+      display: none; /* Прячем */
+    }
+    .dropdown label {
+      cursor: pointer; /* Вид курсора */
+      border-bottom: 3px dashed #1a5ad7; /* Пунктир снизу */
+    }
+    .dropdown ul {
+      position: absolute; /* Абсолютное позиционирование */
+      left: 0;
+      top: 1.4em; /* Положение меню */
+      margin: 0;
+      padding: 5px; /* Убираем отступы и поля */
+      list-style: none; /* Убираем маркеры списка */
+      background: #1a5ad7; /* Цвет фона */
+      font-size: 20px;
+    }
+    .dropdown a {
+      color: #fff; /* Цвет ссылок */
+    }
+    .dropdown :checked ~ ul {
+      display: inline-block; /* Показываем меню */
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <input type="checkbox" id="menu">
+    <label for="menu">Выбери меня</label>
+    <ul>
+      <li><a href="#">Леонардо</a></li>
+      <li><a href="#">Рафаэль</a></li>
+      <li><a href="#">Донателло</a></li>
+      <li><a href="#">Микеланджело</a></li>
+    </ul>
+  </div>
+</body>
+</html>
