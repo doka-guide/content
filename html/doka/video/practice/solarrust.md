@@ -40,7 +40,7 @@ permalink: false
 }
 ```
 
-<iframe title="Видео на фоне" src="demos/background.html"></iframe>
+<iframe title="Видео на фоне" src="../demos/background.html"></iframe>
 
 🛠 Обрати внимание на пару важных моментов, чтобы видео работало:
 
