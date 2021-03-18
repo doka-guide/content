@@ -14,7 +14,6 @@ permalink: false
 element.addEventListener('touchstart', (event) => {
   // События мыши теперь не будут вызываться
   event.preventDefault()
-  ...
 })
 ```
 
