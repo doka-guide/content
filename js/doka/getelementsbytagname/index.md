@@ -2,10 +2,6 @@
 title: "getElementsByTagName()"
 name: getelementsbytagname
 author: nlopin
-co-authors:
-designers:
-contributors:
-summary:
 ---
 
 ## Кратко
