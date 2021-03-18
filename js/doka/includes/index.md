@@ -2,10 +2,6 @@
 title: "includes"
 name: includes
 author: nlopin
-co-authors:
-designers:
-contributors:
-summary:
 ---
 
 ## Кратко
