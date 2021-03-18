@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Название — Статья — Дока</title>
+  <title>Проверка наличия элемента в массиве — includes — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -121,54 +121,54 @@
   </style>
 </head>
 <body>
-<div class="article__code">
-  <div class="demo-container">
-    <div class="form">
-      <input type="text" id="newGuest" placeholder="Введите имя" class="input"/>
-      <button id="add" class="button green">Пропустить гостя</button>
-    </div>
-    <div class="text-container">
-      <h3>Пришедшие гости:</h3>
-      <p id="empty-list">Никто еще не пришел</p>
-      <ul>
-      </ul>
-      <p id="police" class="hide lie">Лжец! Этот гость уже зашел! Мы вызываем полицию!</p>
+  <div class="article__code">
+    <div class="demo-container">
+      <div class="form">
+        <input type="text" id="newGuest" placeholder="Введите имя" class="input"/>
+        <button id="add" class="button green">Пропустить гостя</button>
+      </div>
+      <div class="text-container">
+        <h3>Пришедшие гости:</h3>
+        <p id="empty-list">Никто еще не пришел</p>
+        <ul>
+        </ul>
+        <p id="police" class="hide lie">Лжец! Этот гость уже зашел! Мы вызываем полицию!</p>
+      </div>
     </div>
   </div>
-</div>
-<script>
-  let guestList = []
-  let guestNameInput = document.getElementById('newGuest')
-  let guestListElement = document.querySelector('.article__code ul')
-  let emptyList = document.getElementById('empty-list')
-  let police = document.getElementById('police')
+  <script>
+    let guestList = []
+    let guestNameInput = document.getElementById('newGuest')
+    let guestListElement = document.querySelector('.article__code ul')
+    let emptyList = document.getElementById('empty-list')
+    let police = document.getElementById('police')
 
-  document.getElementById('add').addEventListener('click', function () {
-    let guestName = guestNameInput.value
-    if (!guestName) {
-      return
+    document.getElementById('add').addEventListener('click', function () {
+      let guestName = guestNameInput.value
+      if (!guestName) {
+        return
+      }
+
+      // проверяем, пришел ли уже гость
+      if (guestList.includes(guestName)) {
+        police.classList.remove('hide')
+        guestNameInput.classList.add('lie')
+      } else {
+        police.classList.add('hide')
+        guestNameInput.classList.remove('lie')
+        emptyList.classList.add('hide')
+        guestList.push(guestName)
+        addGuest(guestName)
+      }
+    })
+
+    function addGuest(name) {
+      let mask = ['👻', '💀', '🤖', '🤡', '🐶']
+      let item = document.createElement('li')
+      let maskIndex = Math.floor(Math.random() * mask.length)
+      item.textContent = mask[maskIndex] + ' ' + name
+      guestListElement.appendChild(item)
     }
-
-    // проверяем, пришел ли уже гость
-    if (guestList.includes(guestName)) {
-      police.classList.remove('hide')
-      guestNameInput.classList.add('lie')
-    } else {
-      police.classList.add('hide')
-      guestNameInput.classList.remove('lie')
-      emptyList.classList.add('hide')
-      guestList.push(guestName)
-      addGuest(guestName)
-    }
-  })
-
-  function addGuest(name) {
-    let mask = ['👻', '💀', '🤖', '🤡', '🐶']
-    let item = document.createElement('li')
-    let maskIndex = Math.floor(Math.random() * mask.length)
-    item.textContent = mask[maskIndex] + ' ' + name
-    guestListElement.appendChild(item)
-  }
-</script>
+  </script>
 </body>
 </html>
