@@ -41,7 +41,7 @@ li {
   position: relative;
 }
 
-li:before {
+li::before {
   /* не забываем о свойстве content */
   content: "";
   width: 15px;
