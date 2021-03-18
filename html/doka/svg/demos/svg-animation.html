@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация SVG — <svg> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    .article__code {
+      padding: 5%;
+      background-color: #18191c;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 250px;
+      margin: auto;
+    }
+
+    .dots-icon {
+      flex-grow: 1;
+      transition: fill 0.2s;
+      cursor: pointer;
+      animation: animation 3s infinite alternate;
+    }
+
+    @keyframes animation {
+      0% {
+        fill: #ffd829;
+      }
+      50% {
+        fill: #ed6742;
+      }
+      100% {
+        fill: #f498ad;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="article__code">
+    <div class="dots">
+      <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 24 24" class="dots-icon">
+        <path d="M16 12a3.001 3.001 0 016 0 3.001 3.001 0 01-6 0zm1 0a2 2 0
+                114.001.001A2 2 0 0117 12zm-8 0a3.001 3.001 0 016 0 3.001 3.001 0
+                01-6 0zm1 0a2 2 0 114.001.001A2 2 0 0110 12zm-8 0a3.001 3.001 0 016
+                0 3.001 3.001 0 01-6 0zm1 0a2 2 0 114.001.001A2 2 0 013 12z" />
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
