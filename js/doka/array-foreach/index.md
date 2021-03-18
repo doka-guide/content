@@ -2,6 +2,8 @@
 title: "Array.forEach"
 name: array-foreach
 author: windrushfarer
+contributors:
+  - nlopin
 ---
 
 ## Кратко
