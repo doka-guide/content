@@ -18,8 +18,8 @@ summary:
 
 [События](/js/doka/events) на HTML элементе. Когда пользователь нажимает на клавишу клавиатуры, происходит событие `keydown`, как только пользователь отпустил клавишу — произойдёт событие `keyup`.
 
-<video autoplay muted loop>
-  <source src="video/1.mp4" type="video/mp4" width="580" poster="images/poster.png">
+<video controls width="580" poster="images/poster.png">
+  <source src="video/1.mp4" type="video/mp4">
 </video>
 
 Событие `keydown` фиксирует момент нажатия клавиши, до того как эта клавиша будет отпущена, что, по сути, является первой фазой нажатия. Продолжением является событие `keyup` — момент, когда клавиша будет отпущена.
