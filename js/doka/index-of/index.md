@@ -2,7 +2,6 @@
 title: "indexOf()"
 name: index-of
 author: nlopin
-summary:
 ---
 
 ## Кратко
