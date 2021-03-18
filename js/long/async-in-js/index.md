@@ -2,6 +2,8 @@
 title: "Асинхронность в JS"
 name: async-in-js
 author: bespoyasov
+contributors:
+  - nlopin
 tags:
   - sprint-10
   - sprint-12
