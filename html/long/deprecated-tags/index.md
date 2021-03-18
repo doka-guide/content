@@ -1,0 +1,423 @@
+---
+title: Устаревшие теги
+author: realetive
+contributors: skorobaeus
+summary:
+  - теги
+  - разметка текста
+  - acronym
+  - <acronym>
+  - abbr
+  - <abbr>
+  - blink
+  - <blink>
+  - animation
+  - animation-play-state
+  - font
+  - <font>
+  - nobr
+  - <nobr>
+  - '&nbsp;'
+  - '&thinsp;'
+  - white-space
+  - nowrap
+  - <nowrap>
+  - strike
+  - <strike>
+  - del
+  - <del>
+  - ins
+  - <ins>
+  - s
+  - <s>
+  - applet
+  - <applet>
+  - object
+  - <object>
+  - bgsound
+  - <bgsound>
+  - embed
+  - <embed>
+  - audio
+  - <audio>
+  - center
+  - <center>
+  - text-align
+  - marquee
+  - <marquee>
+---
+
+По мере развития веб-технологий появляются новые теги и CSS-свойства. Но некоторые теги устаревают и их использование уже не является хорошей практикой. Есть и такие, которые уже не поддерживаются браузером или никогда не были частью спецификации W3C.
+
+Что делать, если в вашем проекте встретится один из таких тегов? Есть ли современная замена или альтернатива?
+
+Попробуем разобраться.
+
+Список всех устаревших тегов и свойств [в спецификации HTML](https://html.spec.whatwg.org/multipage/obsolete.html).
+
+## Разметка текста
+
+### `<acronym>` — акронимы и аббревиатуры
+
+Акро́ним — вид аббревиатуры. Акронимы образуются начальными звуками. Фактически, акроним представляет собой слово, являющееся сокращением, которое можно произнести слитно, в отличие от других видов аббревиатур, которые произносят «по буквам», например: КГБ — [ка-гэ-бэ], МВД — [эм-вэ-дэ].
+
+#### Когда использовалось
+
+Для опциональной расшифровки аббревиатуры или целого текста — пояснение отображается во всплывающем подсказке при наведении курсора.
+
+#### Пример
+
+```html
+<acronym title="Graphics Interchange Format">
+  GIF
+</acronym> — устаревший формат графики
+```
+
+Несмотря на то, что слово GIF очень похоже на аббревиатуру, произносят его одним словом «гиф», а не «джи-ай-эф» — даже в английском языке.
+
+#### Чем заменить
+
+Для `<acronym>` есть современная альтернатива — `<abbr>`.
+
+### `<blink>` — мигающий текст
+
+#### Когда использовалось
+
+Для визуального выделения текста, который в результате буквально будет мигать.
+
+#### Пример
+
+```html
+<blink>Зачем кому-либо так делать? Выглядит не гуманно.</blink>
+```
+
+#### Чем заменить
+
+Сложно придумать реальный случай, когда подобное визуальное поведение не будет иметь явно отвлекающий эффект, но если очень хочется, можно повторить подобное с помощью CSS:
+
+```css
+blink {
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+```
+
+### `<font>` — стилизация текста
+
+#### Когда использовалось
+
+До полноценной поддержки браузерами стилизации текста с помощью CSS это был единственный способ изменить цвет, шрифт или размер. К сожалению, для вёрстки писем под клиентов, не поддерживающих CSS, это остаётся единственной возможностью изменить внешний вид текста.
+
+#### Пример
+
+```html
+Летели два <font size="+1">крокодила</font>.
+Один — <font color="green">зелёный</font>, а другой — в Африку.
+```
+
+#### Чем заменить
+
+Современные возможности CSS предоставляют гораздо больше возможностей для стилизации текста:
+
+```css
+h1 {
+  font-family: Arial, Helvetica, Verdana, sans-serif; /* Гарнитура шрифта */
+  font-size: 150%; /* Размер текста */
+  font-weight: lighter; /* Светлое начертание */
+}
+
+.text_color_green {
+  color: green; /* Цвет текста */
+}
+
+.text_style_italic {
+  font-style: oblique; /* Наклонный шрифт */
+}
+
+.text_transform_uppercase {
+  text-transform: uppercase; /* Все буквы — заглавные */
+}
+
+.text_emphasis {
+  letter-spacing: .5em; /* Межбуквенный интервал (трекинг) */
+  word-spacing: 2em; /* Расстояние между словами (ширина пробела) */
+  text-shadow: 3px 5px 6px #6C9; /* Тень */
+}
+```
+
+### `<nobr>` — неразрывный текст
+
+Тег `<nobr>` использовался для запрета переноса текста на новую строку. По умолчанию, если текст не помещается по ширине, он автоматически разбивается на ближайшем пробельном символе и переносится на новую строку. Текст, помещённый в тег `<nobr>` будет сохранять свою однострочность и может привести к появлению полосы прокрутки.
+
+Тег никогда не был частью спецификации W3C, его поддержка — личная инициатива каждого браузера.
+
+#### Когда использовалось
+
+Хорошим тоном считается использование склеивания союзов и предлогов с последующим словом, единиц измерения.
+
+#### Пример
+
+```html
+Современные технологии достигли
+<nobr>такого уровня…</nobr>
+кластеризации усилий.
+```
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="y-doka" data-slug-hash="abZgMaz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;nobr&amp;gt;">
+  <span>See the Pen <a href="https://codepen.io/y-doka/pen/abZgMaz">
+  &lt;nobr&gt;</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+#### Чем заменить
+
+Для коротких текстов, когда нужно соединить пару слов или символов, можно использовать неразрывный пробел (`&nbsp;`, `&thinsp;` и другие):
+
+```html
+В&nbsp;вашей корзине товаров на&nbsp;1&thinsp;200&nbsp;₽
+```
+
+Для остальных случаев есть соответствующее CSS-свойство:
+
+```html
+Современные технологии достигли
+<span style="white-space: nowrap">такого уровня…</span>
+кластеризации усилий.
+```
+
+Для больших объёмов текста проще воспользоваться программами-типографами, которые могут автоматически расставить символы неразрывного пробела, например [типограф Артемия Лебедева](https://www.artlebedev.ru/typograf/) или [типограф Евгения Лепёшкина](https://www.typograf.ru).
+
+### `<strike>` — зачёркнутый текст
+
+#### Когда использовалось
+
+Для обозначения текста, который потерял свою актуальность, например, изменения цены: «Распродажа: ~~1200~~ 990 ₽»
+
+#### Пример
+
+```html
+Распродажа: <strike>1200</strike> 990 ₽
+```
+
+#### Чем заменить
+
+В HTML 5 добавили семантичный тег: `<del>`, который отлично дополняется тегом `<ins>`, содержащим обновлённую информацию:
+
+```html
+Распродажа: <del>1200 ₽</del> <ins>990 ₽</ins>
+```
+
+А для ситуации, когда нужно просто зачеркнуть текст, добавили более сокращённую запись: `<s>`:
+
+```html
+Список покупок:
+<ol>
+  <li><s>Молоко</s></li>
+  <li><s>Хлеб</s></li>
+  <li><s>Яйца</s></li>
+  <li>Сыр</li>
+</ol>
+```
+
+Список покупок:
+
+1. ~~Молоко~~
+2. ~~Хлеб~~
+3. ~~Яйца~~
+4. Сыр
+
+## Блочные элементы
+
+### `<applet>` — встраиваемый Java-апплет
+
+Поддержка этого тега сохранилась только в Internet Explorer и Safari.
+
+#### Когда использовалось
+
+До заката эпохи Adobe Flash возможности динамического контента в браузере были весьма ограничены. Тег `<applet>` позволял встроить в страницу целую программу со своим интерфейсом, написанную на Java.
+
+#### Пример
+
+```html
+<applet code="game.class" archive="game.zip" height="250" width="350">
+  <param name="difficulty" value="easy">
+  <p>Извините, у вас не установленна Java
+    или ваш браузер не поддерживает встраиваемые Java-апплеты.</p>
+</applet>
+```
+
+#### Чем заменить
+
+Современные браузеры поддерживают «встраиваемое содержимое» с помощью тега `<object>`:
+
+```html
+<object type="application/pdf"
+  data="/media/examples/In-CC0.pdf"
+  width="250"
+  height="200">
+</object>
+```
+
+### `<bgsound>` — фоновая музыка
+
+#### Когда использовалось
+
+Для автоматического воспроизведения музыкального файла. В отличие от современного использования встраивания аудио-контента с помощью `<embed>` или [`<audio>`](/posts/html/doka/audio), не отображает на странице кнопок управления (стоп, пауза, громкость). Такая бесконтрольность допускала злоупотребление этим эффектом. Поддержка тега была реализована только в Internet Explorer.
+
+#### Пример
+
+```html
+<bgsound src="sound2.mid" loop="infinite">
+```
+
+#### Чем заменить
+
+Для контролируемого воспроизведения аудиофайлов —  `<embed>` или `<audio>`.
+
+### `<center>` — центрирование контента
+
+Достаточно популярный тег даже в наши дни, например, при вёрстке писем — почтовые клиенты могут не поддерживать или просто вырезать стили и порой это единственный способ центрирования.
+
+#### Когда использовалось
+
+Для выравнивания содержимого по центру родительского блока.
+
+#### Пример
+
+```html
+<center>Мама, смотри — я в центре!</center>
+```
+
+#### Чем заменить
+
+```html
+<div class="title-center">Мама, смотри — я в центре!</div>
+
+<div class="parent">
+  <div class="child">
+    Этот вложенный блок отцентрирован по горизонтали.
+  </div>
+</div>
+```
+
+```css
+.title-center {
+  text-align: center;
+}
+
+.parent {
+  width: 500px;
+  border: solid;
+}
+
+.child {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: solid;
+}
+```
+
+### `<marquee>` — бегущая строка
+
+Тег `<marquee>` позволяет задать область, в которой содержимое будет зациклено двигаться по заданной траектории (горизонтально, вертикально или отражаясь от краёв).
+
+#### Когда использовалось
+
+Чётких рекомендаций, когда был бы полезен этот приём, нет. Скорее всего именно поэтому `<marquee>` был в последствии удалён из спецификации. Была идея перенести эффект в CSS, но от неё отказались.
+
+#### Пример
+
+```html
+<marquee>Этот текст будет двигаться справа налево</marquee>
+
+<marquee direction="up">Этот текст будет двигаться снизу вверх</marquee>
+
+<marquee direction="down" width="250" height="200" behavior="alternate" style="border:solid">
+  <marquee behavior="alternate">
+    Этот текст будет отражаться от стенок
+  </marquee>
+</marquee>
+```
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="xxOoBaG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="marquee">
+  <span>See the Pen <a href="https://codepen.io/y-doka/pen/xxOoBaG">
+  marquee</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+#### Чем заменить
+
+Современных аналогов нет, можно сымитировать анимацию с помощью JavaScript или CSS.
+
+```html
+<div class="marquee">
+  <div class="marquee__inner" aria-hidden="true">
+    <span class="marquee__content">Showreel</span>
+    <span class="marquee__content">Showreel</span>
+    <span class="marquee__content">Showreel</span>
+    <span class="marquee__content">Showreel</span>
+  </div>
+</div>
+```
+
+
+```css
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.marquee__content {
+  font-size: 10vw;
+  padding: 0 2vw;
+}
+
+.marquee:hover .marquee__inner {
+  animation-play-state: running;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+```
+
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="oNLrVPL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="marquee fallback">
+  <span>See the Pen <a href="https://codepen.io/y-doka/pen/oNLrVPL">
+  marquee fallback</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+## Вывод
+
+Авторы спецификаций постоянно ведут работу над улучшением пользовательского и разработческого опыта (UX и DX), потенциально вредные теги (`<blink>`, `<marquee>`, `<bgsound>`) удаляются из спецификации, заменяются на более семантичные (`<del>` вместо `<strike>`) или переносят управление на уровень CSS (`<nobr>`, `<center>`). Некоторые из таких тегов можно встретить в коде и сейчас, но разработчики браузеров не гарантируют, что в скором времени сохранится их поддержка — их лучше заменить на современный аналог или пересмотреть, на сколько целесообразно его использование в принципе.
