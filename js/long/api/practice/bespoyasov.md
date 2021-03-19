@@ -32,25 +32,19 @@ localStorage.setItem("key", "value")
 
 Например, чтобы [получить список твитов](https://developer.twitter.com/en/docs/twitter-api/tweets/lookup/api-reference/get-tweets):
 
-```js
-// 1. Чтобы получить список твитов, надо использовать метод GET.
-// 2. URL для запроса — https://api.twitter.com/2/tweets.
-// 3. Обязательный аргумент — ids,
-//    чтобы указать, какие именно твиты надо получить.
-//
-// Технически вот этот адрес:
-// https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330
-// запрошенный через GET должен сработать,
-// но нужно использовать HHTP-заголовки для аутентификации
-// 4. Authorization: Bearer $BEARER_TOKEN
-//
-// И только при выполнении всех эти условий
-// можно получить ответ на запрос
+1. Надо использовать метод GET.
+2. URL для запроса — `https://api.twitter.com/2/tweets`.
+3. Обязательный аргумент — `ids`, чтобы указать, какие именно твиты надо получить. Технически вот этот адрес: `https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330` запрошенный через GET должен сработать, но нужно использовать HTTP-заголовки для аутентификации
+4. `Authorization: Bearer $BEARER_TOKEN`
 
+И только при выполнении всех эти условий, можно получить ответ на запрос:
+
+```js
 const response = await fetch(
   "https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330",
   {
-    method: "GET", // можно не указывать, так как он по умолчанию
+    // можно не указывать, так как он по умолчанию
+    method: "GET",
     headers: {
       Authorization: `Bearer ${BEARER_TOKEN}`,
     },
@@ -58,8 +52,11 @@ const response = await fetch(
 )
 
 await response.json()
+```
 
-/*
+Ответ:
+
+```json
 {
   "data": [
     {
@@ -72,5 +69,4 @@ await response.json()
     }
   ]
 }
-*/
 ```
