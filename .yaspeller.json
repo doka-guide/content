@@ -1,6 +1,7 @@
 {
   "lang": "ru",
   "ignoreUrls": true,
+  "ignoreDigits": true,
   "checkYo": true,
   "dictionary": [
     "Аймарский",
