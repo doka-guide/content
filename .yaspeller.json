@@ -1,6 +1,9 @@
 {
   "lang": "ru",
   "ignoreUrls": true,
+  "ignoreText": [
+    "\\d+-(го|е|й|м|ми|му|х|ю|я)"
+  ],
   "checkYo": true,
   "dictionary": [
     "автоформатирование",
