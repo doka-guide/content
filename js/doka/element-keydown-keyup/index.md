@@ -12,7 +12,7 @@ summary:
   - клавиатура
 ---
 
-Эта статья связана с обработкой событий в JavaScript. Зачем нужны события и как с ними работать читайте в статье [События](/js/doka/events)
+Эта статья связана с обработкой событий в JavaScript. Зачем нужны события и как с ними работать читайте в статье [События](/js/doka/events).
 
 ## Кратко
 
@@ -53,9 +53,9 @@ spy.addEventListener("keyup", function (event) {
 - `code` — название клавиши. `KeyS`, `KeyZ`, `KeyU` и т.д.
 - `key` — символьное значение. *`s`, `Я` , `U`* и т.д.
 - `keyCode` — код нажатой клавиши. `83`*,* `90`*,* `85` и т.д.
-- `altKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша Alt
-- `ctrlKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша Ctrl
-- `shiftKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша Shift
+- `altKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Alt</kbd>
+- `ctrlKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Ctrl</kbd>
+- `shiftKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Shift</kbd>
 
 ### Пример Keydown
 
@@ -69,7 +69,7 @@ spy.addEventListener("keyup", function (event) {
 
 ### Пример Keyup
 
-В следующем демо, квадрат будет сохранять красный цвет до тех пор пока не будет зафиксировано событие `keyup` на клавише "Shift"
+В следующем демо, квадрат будет сохранять красный цвет до тех пор пока не будет зафиксировано событие `keyup` на клавише <kbd>Shift</kbd>.
 
 <p class="codepen" data-height="448" data-theme-id="light" data-default-tab="result" data-user="Stegur" data-slug-hash="poyEKpL" style="height: 448px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Keyup">
   <span>See the Pen <a href="https://codepen.io/Stegur/pen/poyEKpL">
