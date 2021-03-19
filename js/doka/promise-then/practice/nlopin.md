@@ -13,4 +13,4 @@ getPasswords().then(function (result) {
 })
 ```
 
-Для обработки ошибок используют метод [`catch`](/js/doka/promise-catch)
+Для обработки ошибок используют метод [`catch`](/js/doka/promise-catch).
