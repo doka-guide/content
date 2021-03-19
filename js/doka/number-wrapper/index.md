@@ -2,9 +2,6 @@
 title: "Number"
 name: number-wrapper
 author: nlopin
-co-authors:
-designers:
-contributors:
 summary:
   - число
   - обёртка числа
