@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стиль и цвет линии декора текста — text-decoration — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      position: relative;
+      padding: 30px;
+      margin: 0;
+      border: 1px solid #3b3e44;
+      font-size: 18px;
+    }
+
+    p + p {
+      margin-top: 35px;
+    }
+
+    p::after {
+      content: "text-decoration: " attr(class);
+      position: absolute;
+      left: 30px;
+      top: -13px;
+      display: block;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      font-family: monospace;
+      color: #afc9da;
+      background: #282a2e;
+    }
+
+    .none {
+      text-decoration: none;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    .overline {
+      text-decoration: overline;
+    }
+
+    .dotted {
+      text-decoration-style: dotted;
+    }
+
+    .double {
+      text-decoration-style: double;
+    }
+
+    .wavy {
+      text-decoration-style: wavy;
+    }
+
+    .blue {
+      text-decoration-color: #1a5ad7;
+    }
+
+    .red {
+      text-decoration-color: #ed6742;
+    }
+
+    .green {
+      text-decoration-color: #49a16c;
+    }
+  </style>
+</head>
+<body>
+
+<p class="none">В греческой политонической орфографии тильда над гласной обозначает облечённое ударение  и является шрифтовым вариантом круглой шапочки над буквой. </p>
+<p class="underline dotted blue">В графике польского рукописного шрифта строчная буква L с тильдой над ней используется вместо буквы Ł, означающей твёрдый звук [л], переходящий в неслоговое [у].</p>
+<p class="line-through double red">В текстах на венгерском языке тильда может использоваться в качестве суррогатного заменителя двойного акута над буквами O и U, если тот недоступен по техническим ограничениям.</p>
+<p class="overline wavy green">В языках C/C++, Java, Python, Verilog и др. тильда — одноместный префиксный оператор, означающий побитовое отрицание (в отличие от логического отрицания, обозначаемого восклицательным знаком).</p>
+
+</body>
+</html>

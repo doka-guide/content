@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стиль линии декора текста — text-decoration — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      position: relative;
+      padding: 30px;
+      margin: 0;
+      border: 1px solid #3b3e44;
+      font-size: 18px;
+    }
+
+    p + p {
+      margin-top: 35px;
+    }
+
+    p::after {
+      content: "text-decoration: " attr(class);
+      position: absolute;
+      left: 30px;
+      top: -13px;
+      display: block;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      font-family: monospace;
+      color: #afc9da;
+      background: #282a2e;
+    }
+
+    .none {
+      text-decoration: none;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    .overline {
+      text-decoration: overline;
+    }
+
+    .dotted {
+      text-decoration-style: dotted;
+    }
+
+    .double {
+      text-decoration-style: double;
+    }
+
+    .wavy {
+      text-decoration-style: wavy;
+    }
+  </style>
+</head>
+<body>
+
+<p class="none">Тильда над буквой Ñ в испанском языке употребляется для обозначения мягкого звука, близкого к «нь».</p>
+<p class="underline dotted">Õ — в эстонском языке обозначает неогубленный гласный заднего ряда средне-верхнего подъёма.</p>
+<p class="line-through double">Ã и Õ — в португальском языке обозначают носовое произношение гласных.</p>
+<p class="overline wavy">В некоторых системах фонетической транскрипции (в том числе в МФА) тильда над гласной вообще является показателем носового произношения.</p>
+
+</body>
+</html>

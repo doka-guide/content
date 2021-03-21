@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Рамка вместо подчеркивания — text-decoration — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      position: relative;
+      min-height: 100vh;
+      background-color: #000000;
+      background-image: url("../images/landscape.jpg");
+      background-size: cover;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+
+    header::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ed6742;
+      opacity: 0.6;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .top {
+      background-color: #ffffff;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .navigation__item + .navigation__item {
+      margin-left: 40px;
+    }
+
+    .navigation__link,
+    .navigation__link:visited {
+      display: inline-block; /* делаем элементы строчно-блочными */
+      color: #18191c;
+      text-decoration: none; /* убираем подчеркивание */
+      padding-top: 16px;
+      padding-bottom: 16px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .navigation__link:hover {
+      padding-bottom: 14px; /* нивелируем размеры рамки */
+      border-bottom: 2px solid #18191c; /* добавляем рамку снизу */
+    }
+
+    h1 {
+      width: 90%;
+      margin: 160px auto;
+      text-transform: uppercase;
+      text-align: center;
+      color: #ffffff;
+      font-size: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container top">
+    <nav>
+      <ul class="navigation">
+        <li class="navigation__item">
+          <a href="#" class="navigation__link">О магазине</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#" class="navigation__link">Новости</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#" class="navigation__link">Акции</a>
+        </li>
+        <li class="navigation__item">
+          <a href="#" class="navigation__link">Личный кабинет</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container">
+    <h1>Магазин «лето»</h1>
+  </div>
+</header>
+
+</body>
+</html>
