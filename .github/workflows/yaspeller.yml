@@ -23,7 +23,7 @@ jobs:
         run: node .github/scripts/sort.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Отсортировать словарь исключений
+          commit_message: Сортирует словарь исключений
           file_pattern: .yaspeller.json
           commit_user_name: Doka Dog
           commit_user_email: feedback@y-doka.site
