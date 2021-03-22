@@ -28,7 +28,7 @@
     - на Ubuntu Linux [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
     - на других Lunux-дистрибутивах не тестировалось, но [искать их тут](https://docs.docker.com/engine/install/)
 1. откройте консоль и перейдите в папку с контентом
-1. выполните команду `docker run --rm -p 127.0.0.1:80:8080/tcp -v "$(pwd)"/:/platform/content ydoka/platform`
+1. выполните команду `sh start.sh` на Mac и Linux, либо `bash -c "./start.sh"` на Windows
 1. дождитесь, когда в консоли появится заголовок `Access URLs`
 1. перейдите по адресу [127.0.0.1/](127.0.0.1/) на вашу локальную копию сайта
 
