@@ -18,7 +18,7 @@ case $RESPONSE in
 
                 WS_IP=127.0.0.1
                 WS_PORT=8000
-                    
+
                 ;;
             *)
 
@@ -33,7 +33,7 @@ case $RESPONSE in
         docker pull ydoka/platform && docker run --rm -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content ydoka/platform
 
         echo $YELLOW$BOLD"Спасибо за ваш труд!$RESET"
-    
+
         ;;
     *)
 
