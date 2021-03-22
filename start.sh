@@ -11,13 +11,13 @@ read -r -p "$(echo $YELLOW$BOLD"Вы запускаете платформу Д�
 case $RESPONSE in
     [yY][eE][sS]|[yY])
 
-        read -r -p "$(echo $YELLOW$BOLD"Запустить веб-сервер на http://localhost:8000? (y/n) "$RESET)" DEFAULT
+        read -r -p "$(echo $YELLOW$BOLD"Запустить веб-сервер на http://localhost:8080? (y/n) "$RESET)" DEFAULT
 
         case $DEFAULT in
             [yY][eE][sS]|[yY])
 
                 WS_IP=127.0.0.1
-                WS_PORT=8000
+                WS_PORT=8080
 
                 ;;
             *)
