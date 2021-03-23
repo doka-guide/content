@@ -4,7 +4,7 @@ name: array-filter
 author: windrushfarer
 contributors:
   - nlopin
-contributors: skorobaeus
+  - skorobaeus
 ---
 
 ## Кратко
