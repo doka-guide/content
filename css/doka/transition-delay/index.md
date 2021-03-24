@@ -66,11 +66,11 @@ summary:
 
 ```css
 .box {
-	color: red;
-	padding: 12px;
-	transition-property: color, padding;
-	transition-duration: .5s, .5s;
-	transition-delay: .5s, 0s
+  color: red;
+  padding: 12px;
+  transition-property: color, padding;
+  transition-duration: .5s, .5s;
+  transition-delay: .5s, 0s
 }
 ```
 
@@ -78,10 +78,10 @@ summary:
 
 ```css
 .box:hover {
-	color: green;
-	padding: 24px;
-	transition-property: color, padding;
-	transition-duration: .5s, .5s;
-	transition-delay: 0s, .5s
+  color: green;
+  padding: 24px;
+  transition-property: color, padding;
+  transition-duration: .5s, .5s;
+  transition-delay: 0s, .5s
 }
 ```
