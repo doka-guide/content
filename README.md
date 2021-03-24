@@ -29,7 +29,7 @@
         - на других Lunux-дистрибутивах не тестировалось, но [искать их тут](https://docs.docker.com/engine/install/)
         - на всех Linux-дистрибутивах, чтобы Docker не требовал прав супер-пользователя, его необходимо добавить в группу с правами после установки ([инструкция](https://docs.docker.com/engine/install/linux-postinstall/)).
 1. откройте консоль и перейдите в папку с контентом
-1. выполните команду `sh start.sh` на Mac и Linux, либо `bash -c "./start.sh"` на Windows
+1. выполните команду `sh ./start.sh` на Mac или Linux, либо `bash -c "./start.sh"` на Windows
 1. дождитесь, когда в консоли появится заголовок `Access URLs`
 1. перейдите по адресу [http://localhost:8080](http://localhost:8080) на вашу локальную копию сайта
 
