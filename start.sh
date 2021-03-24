@@ -1,43 +1,37 @@
-#!/bin/sh#
-# Определеяет цвета для консоли
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-YELLOW="\033[38;5;11m"
-RESET="\033[0m"
-BOLD="\033[1m"
+#!/bin/bash
 
-read -r -p "$(echo $YELLOW$BOLD"Вы запускаете платформу Доки. Docker уже запущен? (y/n) "$RESET)" RESPONSE
+read -r -p "$(echo "Вы запускаете платформу Доки. Docker уже запущен? (y/n) ")" RESPONSE
 
 case $RESPONSE in
     [yY][eE][sS]|[yY])
 
-        read -r -p "$(echo $YELLOW$BOLD"Запустить веб-сервер на http://localhost:8080? (y/n) "$RESET)" DEFAULT
+        read -r -p "$(echo "Запустить веб-сервер на http://localhost:8000? (y/n) ")" DEFAULT
 
         case $DEFAULT in
             [yY][eE][sS]|[yY])
 
                 WS_IP=127.0.0.1
-                WS_PORT=8080
+                WS_PORT=8000
 
                 ;;
             *)
 
-                read -r -p "$(echo $GREEN$BOLD"Укажите IP-адрес: "$RESET)" WS_IP
-                read -r -p "$(echo $GREEN$BOLD"Укажите порт: "$RESET)" WS_PORT
-                echo $YELLOW$BOLD"Вы сможете открыть Доку в браузере по адресу: http://$WS_IP:$WS_PORT$RESET"
+                read -r -p "$(echo "Укажите IP-адрес: ")" WS_IP
+                read -r -p "$(echo "Укажите порт: ")" WS_PORT
+                echo "Вы сможете открыть Доку в браузере по адресу: http://$WS_IP:$WS_PORT"
 
                 ;;
         esac
-        echo $YELLOW$BOLD"Остановить веб-сервер можно с помощью клавиш: Ctrl + c$RESET"
+        echo "Остановить веб-сервер можно с помощью клавиш: Ctrl + c$"
 
         docker pull ydoka/platform && docker run --rm -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content ydoka/platform
 
-        echo $YELLOW$BOLD"Спасибо за ваш труд!$RESET"
+        echo "Спасибо за ваш труд!"
 
         ;;
     *)
 
-        echo $RED$BOLD"Пожалуйста, запустите Docker и обязательно возвращайтесь!"
+        echo "Пожалуйста, запустите Docker и обязательно возвращайтесь!"
 
         ;;
 esac
