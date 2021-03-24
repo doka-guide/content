@@ -41,5 +41,3 @@ summary:
 Полный список свойств гридов можно посмотреть в [гайде по grid](/css/long/grid-guide/).
 
 :::
-
-{% include "authors/ABatickaya/author.njk" %}
