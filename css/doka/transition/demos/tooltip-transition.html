@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация подсказки при помощи transition — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 10% 5%;
+      overflow: hidden;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: center;
+    }
+
+    .col + .col {
+      margin-top: 70px;
+    }
+
+    .title {
+      width: 30%;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .tooltip-cnt {
+      width: 70%;
+      text-align: center;
+    }
+
+    .tooltip-target {
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-color: #1a5ad7;
+      text-decoration-thickness: 2px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tooltip-cnt {
+      position: relative;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: -50%;
+      left: 70%;
+      box-sizing: border-box;
+      width: 70%;
+      padding: 15px 10px;
+      border: 1px solid #1a5ad7;
+      box-shadow: 8px 8px 0px #1a5ad7;
+      color: #ffffff;
+      background-color: #18191c;
+      text-align: center;
+      z-index: 10;
+
+      /* Описываем переход */
+      transition: opacity 0.4s, visibility 0.4s, transform 0.4s;
+      /* прячем элемент */
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .transitioned .tooltip {
+      /* Другой тултип еще опускаем вниз */
+      transform: translateY(20px);
+    }
+
+    .tooltip-target:hover + .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .transitioned .tooltip-target:hover + .tooltip {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="col">
+    <h2 class="title">Fade in</h2>
+    <div class="tooltip-cnt">
+      <span class="tooltip-target">Наведи на меня</span>
+      <div class="tooltip">Ты — супер!</div>
+    </div>
+
+  </div>
+  <div class="col transitioned">
+    <h2 class="title">Slide up</h2>
+    <div class="tooltip-cnt">
+      <span class="tooltip-target">Наведи на меня</span>
+      <div class="tooltip">Неожиданно, да? :)</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

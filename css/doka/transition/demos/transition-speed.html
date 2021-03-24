@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разная скорость transition — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 10% 5%;
+      overflow: hidden;
+      background-color: #f498ad;
+      color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: center;
+    }
+
+    .col + .col {
+      margin-top: 70px;
+    }
+
+    .title {
+      width: 50%;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .button-container {
+      width: 50%;
+      text-align: center;
+    }
+
+    .button {
+      min-width: 170px;
+      padding: 10px 15px;
+      border: 1px solid #18191c;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+      transition: background-color 0.6s;
+      cursor: pointer;
+    }
+
+    .transitioned .button {
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: transparent;
+    }
+
+    .button:focus {
+      border-radius: 0;
+      outline: 1px solid #ffffff;
+    }
+
+    .transitioned .button:hover {
+      background-color: transparent;
+      transition: background-color 3s;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="col">
+    <h2 class="title">Симметрично</h2>
+    <div class="button-container">
+      <button class="button">Скачать быстро</button>
+    </div>
+  </div>
+  <div class="col transitioned">
+    <h2 class="title">Асимметрично</h2>
+    <div class="button-container">
+      <button class="button">Скачать медленно</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

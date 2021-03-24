@@ -2,6 +2,7 @@
 title: "transition"
 name: transition
 author: ezhkov
+contributors: skorobaeus
 tags:
   - sprint-2
 summary:
@@ -14,11 +15,7 @@ summary:
 
 ## Пример
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="vYLxgGz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition 1">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/vYLxgGz">
-  transition 1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Color transition" src="demos/color-transition.html"></iframe>
 
 ## Подробно
 
@@ -68,13 +65,13 @@ transition: all 0.5s ease-out;
 ```css
 /* Стили для базового состояния */
 .button {
-  padding: 5px 10px;
-  background-color: navy;
+  padding: 10px 15px;
+  background-color: #18191c;
 }
 
 /* Стили для hover-состояния */
 .button:hover {
-  background-color: red;
+  background-color: transparent;
 }
 ```
 
@@ -83,37 +80,33 @@ transition: all 0.5s ease-out;
 ```css
 /* Стили для базового состояния */
 .button {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  background-color: #18191c;
   transition: background-color 0.4s;
-  background-color: navy;
 }
 
 /* Стили для hover-состояния */
 .button:hover {
-  background-color: red;
+  background-color: transparent;
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="wvMJJBW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition 2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/wvMJJBW">
-  transition 2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Transition одного или двух свойств" src="demos/transition-of-properties.html"></iframe>
 
 Если мы хотим плавно изменить два и более свойств, нужно просто перечислить их через запятую:
 
 ```css
 /* Стили для базового состояния */
 .button {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  background-color: #18191c;
   transition: background-color 0.4s, padding 0.5s;
-  background-color: navy;
 }
 
 /* Стили для hover-состояния */
 .button:hover {
-  background-color: red;
-  padding: 5px 20px;
+  padding: 10px 30px;
+  background-color: transparent;
 }
 ```
 
@@ -131,27 +124,23 @@ transition: all 0.5s ease-out;
 
 💡 Вторым состоянием не обязательно должно быть состояние при наведении. Это может быть состояние `:focus`, `:active`, `:checked` или, например, появление дополнительного класса.
 
-💡 Мы можем настроить `transition` таким образом, что при изменении состояния переход будет выполняться с одной скоростью, а при обратном изменении состояния - с другой:
+💡 Мы можем настроить `transition` таким образом, что при изменении состояния переход будет выполняться с одной скоростью, а при обратном изменении состояния — с другой:
 
 ```css
 /* Стили для базового состояния */
 .button {
-  padding: 5px 10px;
-  transition: padding 0.3s;
+  background-color: #18191c;
+  transition: background-color .3s;
 }
 
 /* Стили для hover-состояния */
 .button:hover {
-  padding: 5px 20px;
-  transition: padding 3s;
+  background-color: transparent;
+  transition: background-color 3s;
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="KKVWWgX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition 3">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/KKVWWgX">
-  transition 3</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Разная скорость transition" src="demos/transition-speed.html"></iframe>
 
 Обрати внимание, в этом случае свойство `transition` задаётся для обоих состояний.
 
@@ -163,12 +152,55 @@ transition: all 0.5s ease-out;
 
 💡 Кроме использования для изменения внешнего вида элемента, `transition` прекрасно подходит для решения задач с появлением элементов. Например при реализации тултипов или всплывающих меню:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="yLeMbjm" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition 4">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/yLeMbjm">
-  transition 4</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```html
+<div>
+  <h2>Fade in</h2>
+  <div class="tooltip-cnt">
+    <span class="tooltip-target">Наведи на меня</span>
+    <div class="tooltip">Ты — супер!</div>
+  </div>
+</div>
+
+<div class="transitioned">
+  <h2>Slide up</h2>
+  <div class="tooltip-cnt">
+    <span class="tooltip-target">Наведи на меня</span>
+    <div class="tooltip">Неожиданно, да? :)</div>
+  </div>
+</div>
+```
+
+```css
+.tooltip-cnt {
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  /* Описываем переход */
+  transition: opacity 0.4s, visibility 0.4s, transform 0.4s;
+  /* Прячем элемент */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.transitioned .tooltip {
+  /* Второй тултип еще опускаем вниз */
+  transform: translateY(20px);
+}
+
+.tooltip-target:hover + .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.transitioned .tooltip-target:hover + .tooltip {
+  /* Поднимаем второй тултип обратно вверх при появлении */
+  transform: translateY(0);
+}
+```
+
+<iframe title="Анимация подсказки при помощи transition" src="demos/tooltip-transition.html"></iframe>
 
 **Обрати внимание**, что мы прописали `visibility` как одно из свойств, которое нужно плавно изменить. Это работает в связке с `opacity` и обеспечивает возможность плавного появления/скрытия элемента:
 
