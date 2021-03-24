@@ -182,7 +182,6 @@ li:before {
 ### Результат
 
 <iframe title="Кастомные маркеры" src="demos/custom.html"></iframe>
-{% demo "/list-style-type/custom", "", 270 %}
 
 ### Результат в Mozilla Firefox
 
