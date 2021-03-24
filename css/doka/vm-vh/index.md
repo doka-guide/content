@@ -13,8 +13,8 @@ summary:
 
 ```css
 .block {
-	min-width: 30vw;
-	height: 50vh;
+  min-width: 30vw;
+  height: 50vh;
 }
 ```
 
