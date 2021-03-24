@@ -15,9 +15,9 @@ summary:
 
 ```css
 .box {
-	transition-property: color;
-	transition-duration: .3s;
-	transition-timing-function: linear;
+  transition-property: color;
+  transition-duration: .3s;
+  transition-timing-function: linear;
 }
 ```
 
