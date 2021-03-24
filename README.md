@@ -26,7 +26,8 @@
     - на компьютер Windows или Mac (intel) [Docker Desktop](https://www.docker.com/products/docker-desktop)
     - на Mac (M1) [Docker Desktop (beta)](https://docs.docker.com/docker-for-mac/apple-m1/)
     - на Ubuntu Linux [Docker Engine](https://docs.docker.com/engine/install/ubuntu/)
-    - на других Lunux-дистрибутивах не тестировалось, но [искать их тут](https://docs.docker.com/engine/install/)
+        - на других Lunux-дистрибутивах не тестировалось, но [искать их тут](https://docs.docker.com/engine/install/)
+        - на всех Linux-дистрибутивах, чтобы Docker не требовал прав супер-пользователя, его необходимо добавить в группу с правами после установки ([инструкция](https://docs.docker.com/engine/install/linux-postinstall/)).
 1. откройте консоль и перейдите в папку с контентом
 1. выполните команду `sh start.sh` на Mac и Linux, либо `bash -c "./start.sh"` на Windows
 1. дождитесь, когда в консоли появится заголовок `Access URLs`
