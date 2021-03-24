@@ -5,13 +5,13 @@ read -r -p "$(echo "Вы запускаете платформу Доки. Docke
 case $RESPONSE in
     [yY][eE][sS]|[yY])
 
-        read -r -p "$(echo "Запустить веб-сервер на http://localhost:8000? (y/n) ")" DEFAULT
+        read -r -p "$(echo "Запустить веб-сервер на http://localhost:8080? (y/n) ")" DEFAULT
 
         case $DEFAULT in
             [yY][eE][sS]|[yY])
 
                 WS_IP=127.0.0.1
-                WS_PORT=8000
+                WS_PORT=8080
 
                 ;;
             *)
