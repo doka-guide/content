@@ -14,8 +14,8 @@ summary:
 ```css
 @font-face {
   font-family: MyGreatFont;
-  src: url(/some/path/my-great-font.woff) format('woff'),
-       url(/some/path/my-great-font.eot) format('eot');
+  src:  url(/some/path/my-great-font.woff) format('woff'),
+        url(/some/path/my-great-font.eot) format('eot');
   font-weight: 400;
   font-style: normal;
   font-display: fallback;
