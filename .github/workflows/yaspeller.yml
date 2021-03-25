@@ -18,7 +18,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Проверка правописания
-        run: npx yaspeller {html,css,js,tools}/**/*.md
+        run: URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/pulls/${{ github.event.pull_request.number }}/files"
+          FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
+          echo $FILES
+          | npx yaspeller $FILES
       - name: Сортировка словаря исключений
         run: node .github/scripts/sort.js
       - uses: stefanzweifel/git-auto-commit-action@v4

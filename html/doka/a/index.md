@@ -3,7 +3,6 @@ title: "<a>"
 author: grachev
 co-authors:
   - solarrust
-designers:
 contributors:
   - solarrust
   - grachev
