@@ -33,5 +33,3 @@ const ticketPrice = {
 1 + ticketPrice // 1 + 20 -> 21
 console.log(ticketPrice) // $20
 ```
-
-{% include "authors/bespoyasov/author.njk" %}
