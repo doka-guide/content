@@ -19,9 +19,9 @@ summary:
 
 ```css
 .element {
-	padding: 35px;
-	border-style: solid; /* Без свойства border рамка показана не будет */
-	border-image: url(img.png) 40 / 50px space;
+  padding: 35px;
+  border-style: solid; /* Без свойства border рамка показана не будет */
+  border-image: url(img.png) 40 / 50px space;
 }
 ```
 
