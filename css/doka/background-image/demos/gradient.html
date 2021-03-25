@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Радиальные градиенты — background-image — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .parent {
+      background-color: #1a5ad7;
+      display: flex;
+      justify-content: space-around;
+      padding: 5%;
+    }
+
+    .spread-gradient {
+      width: 200px;
+      height: 200px;
+      background-image: radial-gradient(#e6e6e6, #1a5ad7);
+    }
+
+    .smooth-circle {
+      width: 200px;
+      height: 200px;
+      background-image: radial-gradient(#e6e6e6, #1a5ad7 70%);
+    }
+
+    .sharp-circle {
+      width: 200px;
+      height: 200px;
+      background-image: radial-gradient(#e6e6e6 70%, #1a5ad7 70%);
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="spread-gradient"></div>
+    <div class="smooth-circle"></div>
+    <div class="sharp-circle"></div>
+  </div>
+</body>
+</html>
