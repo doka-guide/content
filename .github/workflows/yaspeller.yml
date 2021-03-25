@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - uses: jitterbit/get-changed-files@v1
-      - run: |
-          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+        run: |
+          mapfile -d ',' -t added_modified_files
               for added_modified_file in "${added_modified_files[@]}"; do
                 echo npx yaspeller ${added_modified_files}
               done
