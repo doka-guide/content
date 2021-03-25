@@ -49,7 +49,7 @@ section h2::before {
 }
 ```
 
-<iframe title="Кастомный счётчик" src="demos/counter.html"></iframe>
+<iframe title="Кастомный счётчик" src="../demos/counter.html"></iframe>
 
 🛠 ...или красиво оформить нумерованный перечень
 
@@ -83,4 +83,4 @@ section h2::before {
 }
 ```
 
-<iframe title="Нумерованный перечень" src="demos/list.html"></iframe>
+<iframe title="Нумерованный перечень" src="../demos/list.html"></iframe>
