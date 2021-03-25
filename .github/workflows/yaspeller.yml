@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Составление списка изменённых файлов
-        run: URL="https://api.github.com/repos/content/pulls/${{ github.event.pull_request.number }}/files"
+        run: URL="https://api.github.com/repos/Y-Doka/content/pulls/${{ github.event.pull_request.number }}/files"
           FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
           echo $FILES
       - name: Проверка правописания
