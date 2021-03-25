@@ -1,6 +1,5 @@
 ---
 title: "Стиль написания кода в команде"
-name: code-style
 author: bespoyasov
 summary:
   - code-style
@@ -48,12 +47,9 @@ summary:
 
 Когда код набран в разных стилях, мы прилагаем больше усилий на его чтение. Это очень похоже на приём шумного сигнала или чтение неразборчивого почерка — нам нужно сперва разобрать конкретную букву, потом найти их соединение, и только потом мы сможем прочесть всё слово целиком.
 
-<figure>
-  <img src="images/bad-script.jpg" width="1020" height="611">
-  <figcaption>
-    «Пример неразборчивого почерка. Такое читать очень трудно, потому что надо тратить время на “парсинг” каждой буквы.»
-  </figcaption>
-</figure>
+![Пример неразборчивого почерка](images/bad-script.jpg)
+
+Пример неразборчивого почерка. Такое читать очень трудно, потому что надо тратить время на «парсинг» каждой буквы.
 
 Так же трудно читать и код, написанный в нескольких стилях одновременно:
 
@@ -238,10 +234,9 @@ class SomeClass {
 
 Если нам нужно проследить, чтобы названия переменных были написаны в `camelCase`, мы используем линтер. При неправильном написании линтер подсветит название переменной, а при наведении скажет, в чём проблема.
 
-<figure>
-  <img src="images/linter-at-work.png" width="1159" height="132">
-  <figcaption>Если мы укажем в правилах, что нам нужен <code>camelCase</code> в названии, линтер <a href="https://eslint.org/demo#eyJ0ZXh0IjoidmFyIHNvbWVfZXhhbXBsZSA9ICdiYXInOyIsIm9wdGlvbnMiOnsicGFyc2VyT3B0aW9ucyI6eyJlY21hVmVyc2lvbiI6NSwic291cmNlVHlwZSI6InNjcmlwdCIsImVjbWFGZWF0dXJlcyI6e319LCJydWxlcyI6eyJjb25zdHJ1Y3Rvci1zdXBlciI6MiwiZm9yLWRpcmVjdGlvbiI6MiwiZ2V0dGVyLXJldHVybiI6Miwibm8tYXN5bmMtcHJvbWlzZS1leGVjdXRvciI6Miwibm8tY2FzZS1kZWNsYXJhdGlvbnMiOjIsIm5vLWNsYXNzLWFzc2lnbiI6Miwibm8tY29tcGFyZS1uZWctemVybyI6Miwibm8tY29uZC1hc3NpZ24iOjIsIm5vLWNvbnN0LWFzc2lnbiI6Miwibm8tY29uc3RhbnQtY29uZGl0aW9uIjoyLCJuby1jb250cm9sLXJlZ2V4IjoyLCJuby1kZWJ1Z2dlciI6Miwibm8tZGVsZXRlLXZhciI6Miwibm8tZHVwZS1hcmdzIjoyLCJuby1kdXBlLWNsYXNzLW1lbWJlcnMiOjIsIm5vLWR1cGUtZWxzZS1pZiI6Miwibm8tZHVwZS1rZXlzIjoyLCJuby1kdXBsaWNhdGUtY2FzZSI6Miwibm8tZW1wdHkiOjIsIm5vLWVtcHR5LWNoYXJhY3Rlci1jbGFzcyI6Miwibm8tZW1wdHktcGF0dGVybiI6Miwibm8tZXgtYXNzaWduIjoyLCJuby1leHRyYS1ib29sZWFuLWNhc3QiOjIsIm5vLWV4dHJhLXNlbWkiOjIsIm5vLWZhbGx0aHJvdWdoIjoyLCJuby1mdW5jLWFzc2lnbiI6Miwibm8tZ2xvYmFsLWFzc2lnbiI6Miwibm8taW1wb3J0LWFzc2lnbiI6Miwibm8taW5uZXItZGVjbGFyYXRpb25zIjoyLCJuby1pbnZhbGlkLXJlZ2V4cCI6Miwibm8taXJyZWd1bGFyLXdoaXRlc3BhY2UiOjIsIm5vLW1pc2xlYWRpbmctY2hhcmFjdGVyLWNsYXNzIjoyLCJuby1taXhlZC1zcGFjZXMtYW5kLXRhYnMiOjIsIm5vLW5ldy1zeW1ib2wiOjIsIm5vLW9iai1jYWxscyI6Miwibm8tb2N0YWwiOjIsIm5vLXByb3RvdHlwZS1idWlsdGlucyI6Miwibm8tcmVkZWNsYXJlIjoyLCJuby1yZWdleC1zcGFjZXMiOjIsIm5vLXNlbGYtYXNzaWduIjoyLCJuby1zZXR0ZXItcmV0dXJuIjoyLCJuby1zaGFkb3ctcmVzdHJpY3RlZC1uYW1lcyI6Miwibm8tc3BhcnNlLWFycmF5cyI6Miwibm8tdGhpcy1iZWZvcmUtc3VwZXIiOjIsIm5vLXVuZGVmIjoyLCJuby11bmV4cGVjdGVkLW11bHRpbGluZSI6Miwibm8tdW5yZWFjaGFibGUiOjIsIm5vLXVuc2FmZS1maW5hbGx5IjoyLCJuby11bnNhZmUtbmVnYXRpb24iOjIsIm5vLXVudXNlZC1sYWJlbHMiOjIsIm5vLXVudXNlZC12YXJzIjoyLCJuby11c2VsZXNzLWNhdGNoIjoyLCJuby11c2VsZXNzLWVzY2FwZSI6Miwibm8td2l0aCI6MiwicmVxdWlyZS15aWVsZCI6MiwidXNlLWlzbmFuIjoyLCJ2YWxpZC10eXBlb2YiOjIsImNhbWVsY2FzZSI6Mn0sImVudiI6e319fQ==">найдёт неправильные написания</a></figcaption>
-</figure>
+![Ошибка линтера](images/linter-at-work.png)
+
+Если мы укажем в правилах, что нам нужен `camelCase` в названии, линтер [найдёт неправильные написания](https://eslint.org/demo#eyJ0ZXh0IjoidmFyIHNvbWVfZXhhbXBsZSA9ICdiYXInOyIsIm9wdGlvbnMiOnsicGFyc2VyT3B0aW9ucyI6eyJlY21hVmVyc2lvbiI6NSwic291cmNlVHlwZSI6InNjcmlwdCIsImVjbWFGZWF0dXJlcyI6e319LCJydWxlcyI6eyJjb25zdHJ1Y3Rvci1zdXBlciI6MiwiZm9yLWRpcmVjdGlvbiI6MiwiZ2V0dGVyLXJldHVybiI6Miwibm8tYXN5bmMtcHJvbWlzZS1leGVjdXRvciI6Miwibm8tY2FzZS1kZWNsYXJhdGlvbnMiOjIsIm5vLWNsYXNzLWFzc2lnbiI6Miwibm8tY29tcGFyZS1uZWctemVybyI6Miwibm8tY29uZC1hc3NpZ24iOjIsIm5vLWNvbnN0LWFzc2lnbiI6Miwibm8tY29uc3RhbnQtY29uZGl0aW9uIjoyLCJuby1jb250cm9sLXJlZ2V4IjoyLCJuby1kZWJ1Z2dlciI6Miwibm8tZGVsZXRlLXZhciI6Miwibm8tZHVwZS1hcmdzIjoyLCJuby1kdXBlLWNsYXNzLW1lbWJlcnMiOjIsIm5vLWR1cGUtZWxzZS1pZiI6Miwibm8tZHVwZS1rZXlzIjoyLCJuby1kdXBsaWNhdGUtY2FzZSI6Miwibm8tZW1wdHkiOjIsIm5vLWVtcHR5LWNoYXJhY3Rlci1jbGFzcyI6Miwibm8tZW1wdHktcGF0dGVybiI6Miwibm8tZXgtYXNzaWduIjoyLCJuby1leHRyYS1ib29sZWFuLWNhc3QiOjIsIm5vLWV4dHJhLXNlbWkiOjIsIm5vLWZhbGx0aHJvdWdoIjoyLCJuby1mdW5jLWFzc2lnbiI6Miwibm8tZ2xvYmFsLWFzc2lnbiI6Miwibm8taW1wb3J0LWFzc2lnbiI6Miwibm8taW5uZXItZGVjbGFyYXRpb25zIjoyLCJuby1pbnZhbGlkLXJlZ2V4cCI6Miwibm8taXJyZWd1bGFyLXdoaXRlc3BhY2UiOjIsIm5vLW1pc2xlYWRpbmctY2hhcmFjdGVyLWNsYXNzIjoyLCJuby1taXhlZC1zcGFjZXMtYW5kLXRhYnMiOjIsIm5vLW5ldy1zeW1ib2wiOjIsIm5vLW9iai1jYWxscyI6Miwibm8tb2N0YWwiOjIsIm5vLXByb3RvdHlwZS1idWlsdGlucyI6Miwibm8tcmVkZWNsYXJlIjoyLCJuby1yZWdleC1zcGFjZXMiOjIsIm5vLXNlbGYtYXNzaWduIjoyLCJuby1zZXR0ZXItcmV0dXJuIjoyLCJuby1zaGFkb3ctcmVzdHJpY3RlZC1uYW1lcyI6Miwibm8tc3BhcnNlLWFycmF5cyI6Miwibm8tdGhpcy1iZWZvcmUtc3VwZXIiOjIsIm5vLXVuZGVmIjoyLCJuby11bmV4cGVjdGVkLW11bHRpbGluZSI6Miwibm8tdW5yZWFjaGFibGUiOjIsIm5vLXVuc2FmZS1maW5hbGx5IjoyLCJuby11bnNhZmUtbmVnYXRpb24iOjIsIm5vLXVudXNlZC1sYWJlbHMiOjIsIm5vLXVudXNlZC12YXJzIjoyLCJuby11c2VsZXNzLWNhdGNoIjoyLCJuby11c2VsZXNzLWVzY2FwZSI6Miwibm8td2l0aCI6MiwicmVxdWlyZS15aWVsZCI6MiwidXNlLWlzbmFuIjoyLCJ2YWxpZC10eXBlb2YiOjIsImNhbWVsY2FzZSI6Mn0sImVudiI6e319fQ==").
 
 Самый популярный линтер JS-кода сейчас — это [ESLint](https://eslint.org/docs/user-guide/configuring/). Его можно интегрировать с IDE или редактором, чтобы узнавать об ошибках мгновенно при наборе текста. Кроме этого ESLint умеет встраиваться в процесс проверки и тестирования кода так, что если в коде есть ошибки, новый релиз или сборка будут отменены, а некоторые ошибки линтер может даже починить самостоятельно.
 
@@ -260,7 +255,7 @@ class SomeClass {
 
 ### Надо договориться о стиле 🤷‍♀️
 
-Договариваться о стиле кода — это спорить о вкусах. Не всегда можно привести объективные аргументы в пользу любимого стиля. Точка с запятой влияет на интерпретацию, а вот табы или пробелы — нет. В любом случае, лучше один раз договориться на старте проекта, чем потом каждый раз спорить в комментариях к ревью.
+Договариваться о стиле кода — это спорить о вкусах. Не всегда можно привести объективные аргументы в пользу любимого стиля. Точка с запятой влияет на интерпретацию, а вот табы или пробелы — нет. В любом случае лучше один раз договориться на старте проекта, чем потом каждый раз спорить в комментариях к ревью.
 
 ### Приходится переучиваться, если стиль не совпадает с вашим
 
