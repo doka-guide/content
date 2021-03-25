@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стрелки для слайдера — border — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    .arrows {
+      position: relative;
+      height: 250px;
+      margin: 0 auto;
+      background-color: #1a5ad7;
+    }
+
+    .arrow {
+      position: absolute;
+      top: calc(50% - 25px);
+      width: 50px;
+      height: 50px;
+      border-left: 5px solid #ffffff;
+      border-bottom: 5px solid #ffffff;
+    }
+
+    .arrow._prew {
+      left: 50px;
+      transform: rotate(45deg);
+    }
+
+    .arrow._next {
+      right: 50px;
+      transform: rotate(-135deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="arrows">
+    <div class="arrow _prew"></div>
+    <div class="arrow _next"></div>
+  </div>
+</body>
+</html>
