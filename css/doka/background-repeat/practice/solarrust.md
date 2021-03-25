@@ -29,4 +29,4 @@ permalink: false
 }
 ```
 
-<iframe title="Паттерн градиентом" src="demos/gradient.html"></iframe>
+<iframe title="Паттерн градиентом" src="../demos/gradient.html"></iframe>
