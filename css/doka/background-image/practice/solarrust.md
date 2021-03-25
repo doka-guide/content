@@ -35,7 +35,7 @@ permalink: false
 }
 ```
 
-<iframe title="Ошибка загрузки" src="demos/fix.html"></iframe>
+<iframe title="Ошибка загрузки" src="../demos/fix.html"></iframe>
 
 Чиним одной строкой:
 
@@ -49,7 +49,7 @@ permalink: false
 }
 ```
 
-<iframe title="Ошибка загрузки" src="demos/fix-2.html"></iframe>
+<iframe title="Ошибка загрузки" src="../demos/fix-2.html"></iframe>
 
 Да, будет не так красиво, как нарисовал дизайнер, но вся информация будет доступна.
 
@@ -91,4 +91,4 @@ permalink: false
 }
 ```
 
-<iframe title="Радиальные градиенты" src="demos/gradient.html"></iframe>
+<iframe title="Радиальные градиенты" src="../demos/gradient.html"></iframe>
