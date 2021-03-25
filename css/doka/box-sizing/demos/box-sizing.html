@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация работы свойства — box-sizing — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      text-align: center;
+    }
+
+    .element {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      padding: 25px;
+      border: 10px solid #ffffff;
+    }
+
+    .element + .element {
+      margin-left: 20px;
+    }
+
+    .first {
+      box-sizing: content-box;
+      background-color: #ed6742;
+    }
+
+    .second {
+      box-sizing: border-box;
+      background-color: #f498ad;
+    }
+  </style>
+</head>
+<body>
+  <div class="element first"></div>
+  <div class="element second"></div>
+</body>
+</html>
