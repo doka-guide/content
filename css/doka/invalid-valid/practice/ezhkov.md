@@ -52,5 +52,3 @@ input:valid:placeholder-shown + .validity-icon::before {
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-{% include "authors/ezhkov_d/author.njk" %}
