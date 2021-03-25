@@ -3,7 +3,6 @@ title: ":not"
 author: solarrust
 summary:
   - псевдокласс
-  - :not
 ---
 
 ## Кратко
