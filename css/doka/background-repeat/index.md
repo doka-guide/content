@@ -19,7 +19,7 @@ summary:
 ```css
 .element {
   height: 100vh;
-  background-image: url(pattern.png);
+  background-image: url(images/pattern.png);
   background-size: 64px auto; /* Размер изображения */
 }
 ```
