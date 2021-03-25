@@ -17,12 +17,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Составление списка изменённых файлов
-        run: URL="https://api.github.com/repos/Y-Doka/content/pulls/${{ github.event.pull_request.number }}/files"
-          FILES=$(curl -s -X GET -G $URL | jq -r '.[] | .filename')
-          echo $FILES
-      - name: Проверка правописания
-        run: npx yaspeller {$FILES}
+      - uses: jitterbit/get-changed-files@v1
+      - run: |
+          mapfile -d ',' -t added_modified_files < <(printf '%s,' '${{ steps.files.outputs.added_modified }}')
+              for added_modified_file in "${added_modified_files[@]}"; do
+                echo npx yaspeller ${added_modified_files}
+              done
       - name: Сортировка словаря исключений
         run: node .github/scripts/sort.js
       - uses: stefanzweifel/git-auto-commit-action@v4
