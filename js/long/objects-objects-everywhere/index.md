@@ -1,6 +1,5 @@
 ---
 title: "Почти всё в JavaScript — объект"
-name: objects-objects-everywhere
 author: windrushfarer
 tags:
   - sprint-4
