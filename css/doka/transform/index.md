@@ -1,6 +1,5 @@
 ---
 title: "transform"
-name: transform
 author: ezhkov
 tags:
   - sprint-2
@@ -14,48 +13,69 @@ summary:
 
 ## Пример
 
+Смещаем визуальное представление элемента на 120 пикселей вправо:
+
 ```css
-/* смещаем визуальное представление элемента на 120 пикселей вправо */
-transform: translateX(120px);
+.selector {
+  transform: translateX(120px);
+}
 ```
 
 ## Как пишется
 
+Ключевые слова:
+
 ```css
-/* Ключевые слова */
-transform: none;
+.selector {
+  transform: none;
+}
+```
 
-/* Функции в качестве значения */
-transform: matrix(1, 2, 3, 4, 5, 6);
-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-transform: perspective(100px);
-transform: rotate(0.25turn);
-transform: rotate3d(1, 2, 3, 10deg);
-transform: rotateX(10deg);
-transform: rotateY(1.55rad);
-transform: rotateZ(10deg);
-transform: translate(12px, 50%);
-transform: translate3d(12px, 50%, 3em);
-transform: translateX(2em);
-transform: translateY(3in);
-transform: translateZ(2px);
-transform: scale(2, 0.5);
-transform: scale3d(2.5, 1.2, 0.3);
-transform: scaleX(2);
-transform: scaleY(0.5);
-transform: scaleZ(0.3);
-transform: skew(90deg, 120deg);
-transform: skewX(10deg);
-transform: skewY(0.7rad);
+Функции в качестве значения:
 
-/* Несколько значений */
-transform: translateX(10px) rotate(10deg) translateY(5px);
-transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
+```css
+.selector {
+  transform: matrix(1, 2, 3, 4, 5, 6);
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform: perspective(100px);
+  transform: rotate(0.25turn);
+  transform: rotate3d(1, 2, 3, 10deg);
+  transform: rotateX(10deg);
+  transform: rotateY(1.55rad);
+  transform: rotateZ(10deg);
+  transform: translate(12px, 50%);
+  transform: translate3d(12px, 50%, 3em);
+  transform: translateX(2em);
+  transform: translateY(3in);
+  transform: translateZ(2px);
+  transform: scale(2, 0.5);
+  transform: scale3d(2.5, 1.2, 0.3);
+  transform: scaleX(2);
+  transform: scaleY(0.5);
+  transform: scaleZ(0.3);
+  transform: skew(90deg, 120deg);
+  transform: skewX(10deg);
+  transform: skewY(0.7rad);
+}
+```
 
-/* Глобальные значения */
-transform: inherit;
-transform: initial;
-transform: unset;
+Несколько значений:
+
+```css
+.selector {
+  transform: translateX(10px) rotate(10deg) translateY(5px);
+  transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
+}
+```
+
+Глобальные значения:
+
+```css
+.selector {
+  transform: inherit;
+  transform: initial;
+  transform: unset;
+}
 ```
 
 ## Как это понять
@@ -67,6 +87,7 @@ transform: unset;
   transform interactive</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 Стоит обратить особое внимание на тот факт, что трансформируемый элемент при трансформациях никак не взаимодействует с соседними элементами. Он как бы «приподнимается» над остальным содержимым. При этом он не уходит из потока документа, и остальные элементы располагаются так, как располагались до применения трансформаций.
 
@@ -78,24 +99,32 @@ transform: unset;
 
 ```css
 /* Неправильно */
-transform: translate(10px, 0, 20px) rotateY(3deg) perspective(500px);
+.selector {
+  transform: translate(10px, 0, 20px) rotateY(3deg) perspective(500px);
+}
 
 /* Правильно */
-transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
+.selector {
+  transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
+}
 ```
 
 💡 Можно применять трансформации сразу к нескольким осям, используя сокращённые функции:
 
 ```css
-transform: translateX(10px) translateY(0) translateZ(20px);
+.selector {
+  transform: translateX(10px) translateY(0) translateZ(20px);
+}
 
 /* Можно собрать в кучку: */
-transform: translate(10px, 0, 20px);
+.selector {
+  transform: translate(10px, 0, 20px);
+}
 ```
 
-❗ Если свойство `transform` имеет значение, отличное от `none`, то создаётся новый контекст наложения. Это означает, что относительно этого элемента теперь будут позиционироваться все дочерние элементы, у которых `position: fixed` или `position: absolute`.
+💡 Если свойство `transform` имеет значение, отличное от `none`, то создаётся новый контекст наложения. Это означает, что относительно этого элемента теперь будут позиционироваться все дочерние элементы, у которых `position: fixed` или `position: absolute`.
 
-❗Чтобы трансформации вдоль оси Z работали и выглядели максимально естественно, трансформируемый элемент должен лежать в родителе, которому задано свойство `perspective`:
+💡 Чтобы трансформации вдоль оси Z работали и выглядели максимально естественно, трансформируемый элемент должен лежать в родителе, которому задано свойство `perspective`:
 
 ```css
 .parent {
