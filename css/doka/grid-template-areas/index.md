@@ -1,6 +1,5 @@
 ---
 title: "grid-template-areas"
-name: grid-template-areas
 author: solarrust
 summary:
   - имена областей
@@ -75,7 +74,7 @@ summary:
 
 Получится такая раскладка:
 
-![Пример реализации свойства grid-template-areas](images/grid_13.png)
+![Пример реализации свойства grid-template-areas](images/1.png)
 
 ## Подсказки
 
