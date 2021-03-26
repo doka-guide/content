@@ -50,7 +50,7 @@ permalink: false
 }
 ```
 
-<iframe title="Кастомизация маркеров" src="demos/custom-markers.html"></iframe>
+<iframe title="Кастомизация маркеров" src="../demos/custom-markers.html"></iframe>
 
 Подобным образом можно менять стили маркеров так, как заблагорассудится.
 
@@ -58,4 +58,4 @@ permalink: false
 
 Эти маленькие друзья верстальщика могут удивить тебя своей могущественностью.
 
-Их возможности заслуживают отдельной статьи. Например, такой, которую написал Крис Койер: [https://css-tricks.com/pseudo-element-roundup/](https://css-tricks.com/pseudo-element-roundup/)
+Их возможности заслуживают отдельной статьи. Например, такой, которую написал Крис Койер: [https://css-tricks.com/pseudo-element-roundup/](https://css-tricks.com/pseudo-element-roundup/).
