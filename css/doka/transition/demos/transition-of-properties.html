@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Transition одного или двух свойств — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 10% 5%;
+      overflow: hidden;
+      background-color: #f498ad;
+      color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: center;
+    }
+
+    .col + .col {
+      margin-top: 70px;
+    }
+
+    .title {
+      width: 50%;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .button-container {
+      width: 50%;
+      text-align: center;
+    }
+
+    .button {
+      min-width: 140px;
+      border: 1px solid #18191c;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+      transition: background-color 0.6s;
+      cursor: pointer;
+    }
+
+    .transitioned .button {
+      transition: background-color 0.6s, padding 0.5s;
+    }
+
+    .button:hover {
+      background-color: transparent;
+    }
+
+    .button:focus {
+      border-radius: 0;
+      outline: 1px solid #ffffff;
+    }
+
+    .transitioned .button:hover {
+      padding: 10px 30px;
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="col">
+      <h2 class="title">Одно свойство</h2>
+      <div class="button-container">
+        <button class="button">В избранное</button>
+      </div>
+    </div>
+    <div class="col transitioned">
+      <h2 class="title">Два свойства</h2>
+      <div class="button-container">
+        <button class="button">Купить скорее!</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
