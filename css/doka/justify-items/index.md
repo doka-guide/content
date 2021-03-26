@@ -1,6 +1,5 @@
 ---
 title: "justify-items"
-name: justify-items
 author: solarrust
 summary:
   - выравнивание по горизонтальной оси
@@ -27,7 +26,7 @@ summary:
 }
 ```
 
-![Пример реализации свойства justify-items со значением start](images/grid_15.png)
+![Пример реализации свойства justify-items со значением start](images/1.png)
 
 ## Как пишется
 
