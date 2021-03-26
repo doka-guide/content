@@ -1,6 +1,5 @@
 ---
 title: "justify-self"
-name: justify-self
 author: solarrust
 summary:
   - выравнивание грид-элемента
@@ -22,7 +21,7 @@ summary:
 }
 ```
 
-![Пример реализации свойства justify-self](images/grid_26.png)
+![Пример реализации свойства justify-self](images/1.png)
 
 ## Как пишется
 
