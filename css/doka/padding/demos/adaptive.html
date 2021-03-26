@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптив через padding — padding — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #ed6742;
+      padding: 5%;
+      margin: 0;
+    }
+
+    .image-box {
+      width: 70%;
+      height: 500px;
+      margin: 50px auto;
+      border: 1px solid #000000;
+      background: url("../images/eyes.png") no-repeat center / contain;
+    }
+
+    .responsive {
+      height: 0;
+      padding-bottom: 56.25%;
+    }
+  </style>
+</head>
+<body>
+  <div class="responsive image-box"></div>
+
+  <div class="image-box"></div>
+</body>
+</html>
