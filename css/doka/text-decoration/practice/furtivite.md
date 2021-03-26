@@ -8,8 +8,6 @@ permalink: false
 
 К сожалению, этот способ подходит не всегда. Например, когда дизайнер задумал элемент несколько иначе. На примере ниже отказываемся от `text-decoration` и используем `border-bottom`.
 
-HTML
-
 ```html
 <header>
   <div class="container top">
@@ -36,8 +34,6 @@ HTML
 </header>
 ```
 
-CSS
-
 ```css
 .navigation__link, .navigation__link:visited {
   display: inline-block; /* делаем элементы строчно-блочными */
@@ -56,4 +52,4 @@ CSS
 }
 ```
 
-<iframe title="Рамка вместо подчёркивания" src="demos/header.html"></iframe>
+<iframe title="Рамка вместо подчёркивания" src="../demos/header.html"></iframe>
