@@ -1,6 +1,5 @@
 ---
 title: "white-space"
-name: white-space
 author: ezhkov
 summary:
   - пробел
@@ -101,13 +100,15 @@ a {
 
 Поведение аналогично `pre-wrap`, за исключением одного отличия. Мы помним, что при значении `pre-wrap` слова переносятся, учитывая границы элемента, но если за крайним словом у границы следуют несколько пробелов, то они сохраняются в той же строке. В варианте с `break-spaces` эти пробелы поведут себя сложнее. Какая-то их часть останется на той же строке, дополняя ширину элемента до максимально допустимой, а вторая часть пробелов перенесётся на новую строку.
 
-<img src="images/white-space.png" width="800" height="397" alt="Сравнение рендеринга значений break-spaces и pre-wrap в браузере">
+![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="BaQKOKz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space">
   <span>See the Pen <a href="https://codepen.io/ezhkov/pen/BaQKOKz">
   white-space</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Подсказки
 
