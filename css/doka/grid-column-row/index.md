@@ -1,6 +1,5 @@
 ---
 title: "grid-column, grid-row"
-name: grid-column-row
 author: solarrust
 summary:
   - грид-колонка
@@ -26,7 +25,7 @@ summary:
 }
 ```
 
-![Пример реализации свойств-шорткатов grid-column, grid-row](images/grid_25.png)
+![Пример реализации свойств-шорткатов grid-column, grid-row](images/1.png)
 
 ## Как пишется
 
