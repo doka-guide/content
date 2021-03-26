@@ -1,6 +1,5 @@
 ---
 title: "order"
-name: order
 author: solarrust
 summary:
   - порядок флекс-элементов
