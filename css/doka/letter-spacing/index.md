@@ -1,6 +1,5 @@
 ---
 title: "letter-spacing"
-name: letter-spacing
 author: grachev
 co-authors:
   - vladimir
@@ -16,19 +15,32 @@ summary:
 
 ## Пример
 
+Стандартное расстояние между символами:
+
 ```css
-/* Стандартное расстояние между символами */
-letter-spacing: normal;
+.selector {
+  letter-spacing: normal;
+}
+```
 
-/* Расстояние, заданное вручную с помощью значений длины */
-letter-spacing: 0.3em;
-letter-spacing: 3px;
-letter-spacing: 0.3px;
+Расстояние, заданное вручную с помощью значений длины:
 
-/* Значение, относительно другого элемента */
-letter-spacing: inherit;
-letter-spacing: initial;
-letter-spacing: unset;
+```css
+.selector {
+  letter-spacing: 0.3em;
+  letter-spacing: 3px;
+  letter-spacing: 0.3px;
+}
+```
+
+Значение, относительно другого элемента:
+
+```css
+.selector {
+  letter-spacing: inherit;
+  letter-spacing: initial;
+  letter-spacing: unset;
+}
 ```
 
 ## Как это понять
