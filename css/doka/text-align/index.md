@@ -1,6 +1,5 @@
 ---
 title: "text-align"
-name: text-align
 author: solarrust
 contributors: skorobaeus
 summary:
@@ -15,31 +14,49 @@ summary:
 
 ## Примеры
 
+Ключевые слова:
+
 ```css
-/* Ключевые значения */
-text-align: left; /* Значение по умолчанию */
-text-align: start;
-text-align: right;
-text-align: end;
-text-align: center;
-text-align: justify;
-text-align: justify-all;
-text-align: start;
-text-align: end;
-text-align: match-parent;
+.selector {
+  text-align: left; /* Значение по умолчанию */
+  text-align: start;
+  text-align: right;
+  text-align: end;
+  text-align: center;
+  text-align: justify;
+  text-align: justify-all;
+  text-align: start;
+  text-align: end;
+  text-align: match-parent;
+}
+```
 
-/* Специальные значения для столбца в таблице */
-text-align: ".";
-text-align: "." center;
+Специальные значения для столбца в таблице:
 
-/* Выравнивание блока (нестандартный синтаксис) */
-text-align: -moz-center;
-text-align: -webkit-center;
+```css
+.selector {
+  text-align: ".";
+  text-align: "." center;
+}
+```
 
-/* Общие значения */
-text-align: inherit;
-text-align: initial;
-text-align: unset;
+Выравнивание блока (нестандартный синтаксис):
+
+```css
+.selector {
+  text-align: -moz-center;
+  text-align: -webkit-center;
+}
+```
+
+Глобальные значения:
+
+```css
+.selector {
+  text-align: inherit;
+  text-align: initial;
+  text-align: unset;
+}
 ```
 
 ## Как пишется
@@ -72,8 +89,6 @@ text-align: unset;
 
 Вот сразу три варианта выравнивания текста внутри контейнера `<div>`. В этом примере мы задаём выравнивание в CSS-стилях, привязывая их к классам `.left`, `.right`, `.center`, так что в HTML остаётся только добавить элементу атрибут класса с нужным именем, вроде `class="left"`:
 
-HTML
-
 ```html
 <div class="left">
   <div class="content">Выравнивание по левому краю</div>
@@ -85,8 +100,6 @@ HTML
   <div class="content">Выравнивание по правому краю</div>
 </div>
 ```
-
-CSS
 
 ```css
 .left {
@@ -111,4 +124,4 @@ div {
 }
 ```
 
-<iframe title="Выравнивание текста в контейнере" src="demos/index.html"></iframe>
+<iframe title="Выравнивание текста в контейнере" src="demos/text-align.html"></iframe>
