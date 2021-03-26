@@ -1,6 +1,5 @@
 ---
 title: "grid-template"
-name: grid-template
 author: solarrust
 summary:
   - шорткат
