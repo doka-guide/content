@@ -1,6 +1,5 @@
 ---
 title: "place-self"
-name: place-self
 author: solarrust
 summary:
   - выравнивание грид-элемента
