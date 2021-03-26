@@ -1,6 +1,5 @@
 ---
 title: "transform-origin"
-name: transform-origin
 author: ezhkov
 summary:
   - трансформация
@@ -35,6 +34,7 @@ summary:
   transform-origin 1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Как пишется
 
@@ -105,4 +105,4 @@ summary:
 
 :::
 
-💡 Свойство не наследуется
+💡 Свойство не наследуется.
