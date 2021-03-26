@@ -1,6 +1,5 @@
 ---
 title: "Селектор по тегу"
-name: tag-selector
 author: ezhkov
 summary:
   - селектор
