@@ -1,6 +1,5 @@
 ---
 title: "transform-style"
-name: transform-style
 author: ezhkov
 summary:
   - трансформация
@@ -40,6 +39,7 @@ summary:
   transform-style</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## Как пишется
 
