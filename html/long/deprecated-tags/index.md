@@ -174,11 +174,7 @@ h1 {
 кластеризации усилий.
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="y-doka" data-slug-hash="abZgMaz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;nobr&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/abZgMaz">
-  &lt;nobr&gt;</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Тег nobr" src="demos/nobr.html"></iframe>
 
 #### Чем заменить
 
@@ -351,11 +347,7 @@ h1 {
 </marquee>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="xxOoBaG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="marquee">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/xxOoBaG">
-  marquee</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Тег marquee" src="demos/marquee.html"></iframe>
 
 #### Чем заменить
 
@@ -411,12 +403,7 @@ h1 {
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="oNLrVPL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="marquee fallback">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/oNLrVPL">
-  marquee fallback</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Имитация marquee" src="demos/marquee-fallback.html"></iframe>
 
 ## Вывод
 
