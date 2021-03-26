@@ -1,6 +1,5 @@
 ---
 title: "text-rendering"
-name: text-rendering
 author: ezhkov
 summary:
   - render
@@ -34,19 +33,14 @@ summary:
 
 Рендеринг текста — это процесс отрисовки символов шрифта в пиксельной сетке. При этом для обеспечения более естественного вида текста браузер может выполнять дополнительные вычисления и модификации символов: изменять **кернинг** (межсимвольное расстояние), объединять пары и даже тройки символов в **лигатуры**.
 
-<figure>
-  <img src="images/kerning.png" width="260" height="247" alt="Пример кернинговых пар">
-  <figcaption>
-    Яркий пример кернинговой пары — сочетание символов <strong>AV</strong> или <strong>VA</strong>.
-  </figcaption>
-</figure>
+![Пример кернинговых пар](images/kerning.png)
 
-<figure>
-  <img src="images/ligatures.png" width="500" height="463" alt="Пример лигатур">
-  <figcaption>
-    Яркий пример кернинговой пары — сочетание символов <strong>fi</strong>, <strong>fl</strong>, <strong>at</strong>.
-  </figcaption>
-</figure>
+Яркий пример кернинговой пары — сочетание символов **AV** или **VA**.
+
+
+![Пример лигатур](images/ligatures.png)
+
+Яркий пример кернинговой пары — сочетание символов **fi**, **fl**, **at**.
 
 Не все шрифты имеют богатый набор кернинговых пар или лигатуры, поэтому употребление свойства `text-rendering` уместно не для каждого дизайна.
 
@@ -62,17 +56,25 @@ summary:
 
 ## Как пишется
 
-```css
-/* Ключевые слова */
-text-rendering: auto; /* По умолчанию */
-text-rendering: optimizeSpeed;
-text-rendering: optimizeLegibility;
-text-rendering: geometricPrecision;
+Ключевые слова:
 
-/* Глобальные значения */
-text-rendering: inherit;
-text-rendering: initial;
-text-rendering: unset;
+```css
+.seelctor {
+  text-rendering: auto; /* По умолчанию */
+  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+}
+```
+
+Глобальные значения:
+
+```css
+.selector {
+  text-rendering: inherit;
+  text-rendering: initial;
+  text-rendering: unset;
+}
 ```
 
 ### `auto`
