@@ -1,6 +1,5 @@
 ---
 title: "place-items"
-name: place-items
 author: solarrust
 summary:
   - выравнивание в гридах
