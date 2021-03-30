@@ -9,6 +9,8 @@ summary:
   - тэг
   - тег
   - див
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
