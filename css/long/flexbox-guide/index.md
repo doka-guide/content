@@ -5,6 +5,7 @@ co-authors:
   - furtivite
 contributors:
   - skorobaeus
+editor: tachisis
 tags:
   - sprint-1
   - sprint-4
