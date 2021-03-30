@@ -1,6 +1,7 @@
 ---
 title: "align-items"
 author: solarrust
+editor: tachisis
 summary:
   - выравнивание вдоль поперечной оси
   - flexbox

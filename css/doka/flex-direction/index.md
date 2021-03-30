@@ -1,6 +1,7 @@
 ---
 title: "flex-direction"
 author: solarrust
+editor: tachisis
 summary:
   - выравнивание по основной оси
   - flexbox

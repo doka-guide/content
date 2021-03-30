@@ -1,6 +1,7 @@
 ---
 title: "order"
 author: solarrust
+editor: tachisis
 summary:
   - порядок флекс-элементов
   - flexbox

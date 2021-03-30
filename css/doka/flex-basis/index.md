@@ -1,6 +1,7 @@
 ---
 title: "flex-basis"
 author: solarrust
+editor: tachisis
 summary:
   - размер флекс-элементов
   - flexbox
