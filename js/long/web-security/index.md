@@ -9,6 +9,8 @@ summary:
   - xss
   - csrf
   - SQL-инъекции
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
