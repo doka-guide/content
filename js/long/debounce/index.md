@@ -7,6 +7,8 @@ summary:
   - delay
   - search
   - form
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
