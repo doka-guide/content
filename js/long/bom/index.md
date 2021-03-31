@@ -9,6 +9,8 @@ summary:
   - history
   - fetch
   - localstorage
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
