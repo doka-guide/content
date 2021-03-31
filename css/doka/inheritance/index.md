@@ -33,19 +33,11 @@ summary:
 
 Например, в отличие от `color`, ненаследуемое свойство `border` не будет применено к вложенным элементам:
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="Realetive" data-slug-hash="pobKOjo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="inherit color">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/pobKOjo">
-  inherit color</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Наследование цвета" src="demos/color-inheritance.html"></iframe>
 
 Но если мы укажем у `<p>` свойство `border` как `inherit` (т. е. наследуемое):
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="Realetive" data-slug-hash="eYzKLJZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="inherit border">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/eYzKLJZ">
-  inherit border</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Наследование рамки" src="demos/border-inheritance.html"></iframe>
 
 ## Подсказки
 
