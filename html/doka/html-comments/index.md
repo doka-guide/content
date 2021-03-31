@@ -3,6 +3,8 @@ title: "Комментарии в HTML"
 author: solarrust
 summary:
   - комментарии
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
