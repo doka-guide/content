@@ -2,7 +2,7 @@
   "lang": "ru",
   "ignoreUrls": true,
   "ignoreText": [
-    "(\\d+|\\w+)-(го|е|й|м|ми|му|х|ю|я)",
+    "(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)",
     ""
   ],
   "checkYo": true,
