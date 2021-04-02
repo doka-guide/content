@@ -29,7 +29,7 @@ rl.question('Вставь URL статьи:', (maybeUrl) => {
   }
 
   const titleSlug = pathname.split('/').pop()
-  const targetFolder = pathname
+  const targetFolder = pathname === 'long' ? 'articles' : pathname
   console.log('\nКопирую контент...')
   const contentSrc = path.join(RELATIVE_DOKA_PATH,`src/posts/${pathname}.md`)
   if (!fs.existsSync(contentSrc)) console.error(`Файл со статьей не найден. ${contentSrc}`)
