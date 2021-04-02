@@ -5,6 +5,8 @@ summary:
   - :focus
   - LVHA
   - псевдокласс
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
