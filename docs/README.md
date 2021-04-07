@@ -4,7 +4,7 @@
 
 ## Содержание:
 
-1. [Контрибьютинг](docs/contributing.md)
+1. [Чем вы можете помочь](docs/contributing.md)
 1. [Руководство по стилю](docs/styleguide.md)
 1. [Руководство по оформлению](docs/typography.md)
 1. [Инструкция по предпросмотру](docs/preview.md)
