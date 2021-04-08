@@ -21,7 +21,7 @@ summary:
   - Альтернативные теги для работы поиска
 cover:
   desktop: 'images/desktop.png'
-  mobile: 'mobile.png'
+  mobile: 'images/mobile.png'
   alt: 'Альтернативное описание для обложки'
 ---
 ```
