@@ -150,11 +150,11 @@ button.classList.toggle("hidden")
 // На кнопке есть класс submit, предположим что он единственный
 const button = document.querySelector("button.submit")
 
-// Передаем вторым аргументом false и будет работать как .remove()
+// Передаём вторым аргументом false и будет работать как .remove()
 button.classList.toggle("submit", false)
 button.classList[0] // undefined, потому что класса больше нет
 
-// Передаем true и теперь класс добавится
+// Передаём true и теперь класс добавится
 button.classList.toggle("submit", true)
 ```
 

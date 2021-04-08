@@ -62,7 +62,7 @@ npm install express // добавим пакет для создания веб-
 // express — фреймворк для создания веб-приложений
 const express = require("express")
 
-// создаем express-приложение
+// создаём express-приложение
 const app = express()
 // оно будет слушать определенный порт на компьютере
 const port = 3000
