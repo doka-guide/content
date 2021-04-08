@@ -10,4 +10,4 @@
 1. [Инструкция по предпросмотру](preview.md)
 1. [Шаблон доки](examples/doka.md)
 1. [Шаблон статьи](examples/article.md)
-1. [О демках](demos.md)
+1. [Про демки](demos.md)
