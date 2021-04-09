@@ -11,18 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [ 14.x ]
     steps:
       - uses: actions/checkout@v2
-        with:
-          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+      - name: Сортировка словаря исключений
+          run: node .github/scripts/sort.js
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: Проверка правописания
         run: npx yaspeller **/*.{md,html}
-      - name: Сортировка словаря исключений
-        run: node .github/scripts/sort.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Сортирует словарь исключений
