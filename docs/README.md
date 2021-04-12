@@ -4,10 +4,10 @@
 
 ## Содержание:
 
-1. [Чем вы можете помочь](contributing.md)
-1. [Руководство по стилю](styleguide.md)
-1. [Руководство по оформлению](typography.md)
-1. [Инструкция по предпросмотру](preview.md)
-1. [Шаблон доки](examples/doka.md)
-1. [Шаблон статьи](examples/article.md)
-1. [Про демки](demos.md)
+- [Чем вы можете помочь](contributing.md)
+- [Руководство по стилю](styleguide.md)
+- [Руководство по оформлению](typography.md)
+- [Инструкция по предпросмотру](preview.md)
+- [Шаблон доки](examples/doka.md)
+- [Шаблон статьи](examples/article.md)
+- [Про демки](demos.md)

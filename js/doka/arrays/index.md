@@ -117,7 +117,7 @@ for (let i = 1; i <= 1000; ++i) {
   numbers.push(i)
 }
 
-// создаем массив четных чисел от 0 до 1000
+// создаём массив четных чисел от 0 до 1000
 let evenNumbers = []
 for (let i = 0; i <= 1000; i += 2) {
   evenNumbers.push(i)

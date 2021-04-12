@@ -69,9 +69,9 @@ cover:
 
     ### Ссылки
 
-1. [Как реально работает `flex-grow`](https://medium.com/p/557d406be844)
-2. [Как реально работает `flex-shrink`](https://medium.com/p/c41e40767194)
-3. [Песочница Флексбоксов](https://yoksel.github.io/flex-cheatsheet/)
+1. [Как реально работает `flex-grow`](https://medium.com/p/557d406be844).
+2. [Как реально работает `flex-shrink`](https://medium.com/p/c41e40767194).
+3. [Песочница Флексбоксов](https://yoksel.github.io/flex-cheatsheet/).
 
 </details>
 
