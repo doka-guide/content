@@ -52,7 +52,7 @@ const promise = new Promise(function (resolve, reject) {
   const data = resolve(data) // запрос в БД, API, etc. // переводим промис в состояние fulfilled и отдаём наружу результат операции
 })
 
-const errorPromise = new Promist(function (resolve, reject) {
+const errorPromise = new Promise(function (resolve, reject) {
   reject(new Error("ошибка")) // переводим промис в состояние rejected и отдаём наружу ошибку
 })
 ```
