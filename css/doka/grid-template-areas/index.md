@@ -35,10 +35,10 @@ summary:
 
 ```css
 .container {
-  display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  grid-template-rows: repeat(4, 150px);
-  grid-template-areas:
+	display: grid;
+	grid-template-columns: 1fr 200px 1fr;
+	grid-template-rows: repeat(4, 150px);
+	grid-template-areas:
     "header header header"
     "content content 👾"
     "content content ."
@@ -46,27 +46,23 @@ summary:
 }
 
 .item1 {
-  grid-area: header;
-  background-color: purple;
+	grid-area: header;
+	background-color: purple;
 }
 
-.item2,
-.item3,
+.item2 {
+	grid-area: content;
+	background-color: gray;
+}
+
+.item3 {
+	grid-area: 👾;
+	background-color: pink;
+}
+
 .item4 {
-  grid-area: content;
-  background-color: gray;
-}
-
-.item5,
-.item6,
-.item7 {
-  grid-area: 👾;
-  background-color: pink;
-}
-
-.item9 {
-  grid-area: footer;
-  background-color: #bada55;
+	grid-area: footer;
+	background-color: #bada55;
 }
 ```
 
