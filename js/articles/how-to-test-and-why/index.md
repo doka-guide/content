@@ -14,6 +14,8 @@ summary:
   - quality
   - jest
   - cypress
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко

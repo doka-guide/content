@@ -9,6 +9,8 @@ summary:
   - javascript
   - ecmascript
   - es
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко

@@ -6,6 +6,8 @@ summary:
   - тег
   - footer
   - футер
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
