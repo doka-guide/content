@@ -7,6 +7,8 @@ summary:
   - resize
   - lazy
   - прокрутка
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
