@@ -9,6 +9,8 @@ summary:
   - frontend фронтенд
   - клиент сервер
   - model view controller mvc
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
