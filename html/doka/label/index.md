@@ -1,7 +1,7 @@
 ---
 title: "<label>"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 tags:

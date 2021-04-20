@@ -1,7 +1,7 @@
 ---
 title: "<dl>, <dd>, <dt>"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 summary:

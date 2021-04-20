@@ -1,7 +1,7 @@
 ---
 title: "Функции CSS-трансформации"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - трансформация
   - transform-function

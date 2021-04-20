@@ -1,7 +1,7 @@
 ---
 title: "transform-style"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - трансформация
   - preserve-3d

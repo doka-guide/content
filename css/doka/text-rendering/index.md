@@ -1,7 +1,7 @@
 ---
 title: "text-rendering"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - render
   - рендер

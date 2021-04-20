@@ -1,7 +1,7 @@
 ---
 title: ":empty"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
 - псевдокласс
 - пусто

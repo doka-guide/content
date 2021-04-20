@@ -1,7 +1,7 @@
 ---
 title: "position"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - позиционирование
 ---

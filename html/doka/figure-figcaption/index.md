@@ -1,7 +1,7 @@
 ---
 title: "<figure>, <figcaption>"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - figure
   - figcaption

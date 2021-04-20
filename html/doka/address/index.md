@@ -1,7 +1,7 @@
 ---
 title: "<address>"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - pepelsbey
   - furtivite

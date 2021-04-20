@@ -1,7 +1,7 @@
 ---
 title: "Поток документа"
 author:
-  -  ezhkov_d
+  - ezhkov_d
 summary:
   - раскладка
   - схлопывание

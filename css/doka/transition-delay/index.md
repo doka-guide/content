@@ -1,7 +1,7 @@
 ---
 title: "transition-delay"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - задержка
 ---

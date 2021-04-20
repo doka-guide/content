@@ -1,7 +1,7 @@
 ---
 title: "list-style-position"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 summary:

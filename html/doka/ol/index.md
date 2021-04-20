@@ -1,7 +1,7 @@
 ---
 title: "<ol>"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - список
   - упорядоченный список

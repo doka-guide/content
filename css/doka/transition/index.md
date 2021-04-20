@@ -1,7 +1,7 @@
 ---
 title: "transition"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 tags:

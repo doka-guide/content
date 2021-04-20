@@ -1,7 +1,7 @@
 ---
 title: "<option>"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - тэг
   - тег

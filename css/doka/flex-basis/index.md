@@ -1,6 +1,6 @@
 ---
 title: "flex-basis"
-author: 
+author:
 - solarrust
 editor: tachisis
 summary:

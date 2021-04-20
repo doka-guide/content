@@ -1,7 +1,7 @@
 ---
 title: "<select>"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
   - тэг
   - тег

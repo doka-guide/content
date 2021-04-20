@@ -1,7 +1,7 @@
 ---
 title: "::placeholder"
 author:
-  -  ezhkov
+  - ezhkov
 tags:
   - sprint-2
 summary:

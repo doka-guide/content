@@ -1,7 +1,7 @@
 ---
 title: "<ul>"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - furtivite
 summary:

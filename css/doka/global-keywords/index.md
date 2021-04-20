@@ -1,6 +1,6 @@
 ---
 title: "Глобальные ключевые слова"
-author: 
+author:
 - solarrust
 summary:
     - initial

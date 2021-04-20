@@ -1,7 +1,7 @@
 ---
 title: "list-style-image"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 summary:

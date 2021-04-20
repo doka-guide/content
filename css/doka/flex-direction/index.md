@@ -1,6 +1,6 @@
 ---
 title: "flex-direction"
-author: 
+author:
 - solarrust
 editor: tachisis
 summary:
@@ -41,7 +41,6 @@ summary:
 - `column-reverse` — основная ось идёт вертикально снизу вверх, поперечная ось идёт горизонтально слева направо.
 
 ![Пример свойства flex-direction](images/1.png)
-
 
 :::callout 🔃
 

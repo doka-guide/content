@@ -1,7 +1,7 @@
 ---
 title: ":invalid / :valid"
 author:
-  -  ezhkov
+  - ezhkov
 summary:
 - invalid
 - valid

@@ -1,7 +1,7 @@
 ---
 title: "<textarea>"
 author:
-  -  ezhkov
+  - ezhkov
 contributors:
   - skorobaeus
 tags:
