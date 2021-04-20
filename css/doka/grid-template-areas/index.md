@@ -1,7 +1,7 @@
 ---
 title: "grid-template-areas"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
   - имена областей
   - грид-область

@@ -1,7 +1,7 @@
 ---
 title: ":focus"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
   - :focus
   - LVHA

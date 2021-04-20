@@ -1,7 +1,7 @@
 ---
 title: "flex-basis"
 author:
-- solarrust
+  - solarrust
 editor: tachisis
 summary:
   - размер флекс-элементов

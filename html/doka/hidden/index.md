@@ -1,7 +1,7 @@
 ---
 title: "hidden"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
   - атрибут
   - hidden

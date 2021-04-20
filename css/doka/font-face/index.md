@@ -1,7 +1,7 @@
 ---
 title: "@font-face"
 author:
-- solarrust
+  - solarrust
 tags:
   - sprint-2
 summary:

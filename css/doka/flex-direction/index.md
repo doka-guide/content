@@ -1,7 +1,7 @@
 ---
 title: "flex-direction"
 author:
-- solarrust
+  - solarrust
 editor: tachisis
 summary:
   - выравнивание по основной оси

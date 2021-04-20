@@ -1,7 +1,7 @@
 ---
 title: "grid-template"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
   - шорткат
 ---

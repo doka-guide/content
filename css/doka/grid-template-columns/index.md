@@ -1,7 +1,7 @@
 ---
 title: "grid-template-columns"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
   - размер и количество колонок
   - грид-колонка

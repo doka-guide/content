@@ -1,7 +1,7 @@
 ---
 title: "order"
-author: 
-- solarrust
+author:
+  - solarrust
 editor: tachisis
 summary:
   - порядок флекс-элементов

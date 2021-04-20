@@ -1,7 +1,7 @@
 ---
 title: "grid-area"
-author: 
-- solarrust
+author:
+  - solarrust
 summary:
 ---
 
