@@ -1,7 +1,9 @@
 ---
 title: "width"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 summary:
   - ширина
   - размер

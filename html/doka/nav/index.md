@@ -1,9 +1,10 @@
 ---
 title: "<nav>"
-author: vladimir
-co-authors:
+author:
+  - vladimir
+contributors:
   - grachev
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - тэг
   - тег

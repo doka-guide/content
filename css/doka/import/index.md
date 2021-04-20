@@ -1,6 +1,7 @@
 ---
 title: "@import"
-author: solarrust
+author:
+  -  solarrust
 tags:
   - sprint-1
 summary:

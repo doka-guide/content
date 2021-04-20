@@ -1,6 +1,7 @@
 ---
 title: "Гайд по grid"
-author: solarrust
+author:
+  - solarrust
 tags:
   - sprint-4
   - sprint-3

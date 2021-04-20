@@ -1,6 +1,7 @@
 ---
 title: "Объектно-ориентированное программирование"
-author: bespoyasov
+author:
+  - bespoyasov
 tags:
   - sprint-8
 summary:

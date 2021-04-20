@@ -1,7 +1,8 @@
 ---
 title: "Element.scroll/scrollTo"
 name: element-scroll-scrollto
-author: vindi-r
+author:
+  - vindi-r
 tags:
   - sprint-2
 summary:

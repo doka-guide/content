@@ -1,6 +1,7 @@
 ---
 title: "<link>"
-author: grachev
+author:
+  - grachev
 tags:
   - sprint-1
 summary:

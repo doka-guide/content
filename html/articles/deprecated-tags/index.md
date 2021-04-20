@@ -1,7 +1,9 @@
 ---
 title: Устаревшие теги
-author: realetive
-contributors: skorobaeus
+author:
+  - realetive
+contributors:
+  - skorobaeus
 summary:
   - теги
   - разметка текста

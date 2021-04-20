@@ -1,7 +1,9 @@
 ---
 title: "<blockquote>"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 summary:
   - "<blockquote>"
   - blockquote

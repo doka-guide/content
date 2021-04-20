@@ -1,7 +1,8 @@
 ---
 title: "getElementsByTagName()"
 name: getelementsbytagname
-author: nlopin
+author:
+  - nlopin
 ---
 
 ## Кратко

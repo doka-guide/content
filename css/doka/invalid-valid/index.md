@@ -1,6 +1,7 @@
 ---
 title: ":invalid / :valid"
-author: ezhkov
+author:
+  -  ezhkov
 summary:
 - invalid
 - valid

@@ -1,7 +1,8 @@
 ---
 title: "<title>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
 summary:
   - тэг

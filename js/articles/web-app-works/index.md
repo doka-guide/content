@@ -1,6 +1,7 @@
 ---
 title: "Как работают веб-приложения"
-author: bespoyasov
+author:
+  - bespoyasov
 tags:
   - sprint-10
   - sprint-12

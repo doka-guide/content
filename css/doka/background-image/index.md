@@ -1,7 +1,9 @@
 ---
 title: "background-image"
-author: grachev
-contributors: skorobaeus
+author:
+  - grachev
+contributors:
+  - skorobaeus
 summary:
   - background-image
 ---

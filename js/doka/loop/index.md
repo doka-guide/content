@@ -1,7 +1,8 @@
 ---
 title: "Цикл"
 name: loop
-author: nlopin
+author:
+  - nlopin
 contributors:
   - furtivite
 summary:

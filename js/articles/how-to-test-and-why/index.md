@@ -1,6 +1,7 @@
 ---
 title: "Как и зачем писать тесты"
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - test
   - arrange

@@ -1,9 +1,10 @@
 ---
 title: "text-decoration"
-author: solarrust
-co-authors:
+author:
+  -  solarrust
+contributors:
   - furtivite
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - text-decoration
 ---

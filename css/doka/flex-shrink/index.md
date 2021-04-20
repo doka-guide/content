@@ -1,6 +1,7 @@
 ---
 title: "flex-shrink"
-author: solarrust
+author:
+  -  solarrust
 editor: tachisis
 summary:
   - сжатие флекс-элементов

@@ -1,9 +1,10 @@
 ---
 title: "<form>"
-author: vladimir
-co-authors:
+author:
+  - vladimir
+contributors:
   - solarrust
-contributors: skorobaeus
+  - skorobaeus
 tags:
   - sprint-2
   - sprint-4

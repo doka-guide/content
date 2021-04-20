@@ -1,6 +1,7 @@
 ---
 title: "grid-auto-columns, grid-auto-rows"
-author: solarrust
+author: 
+- solarrust
 summary:
   - автоматические колонки
   - автоматические ряды

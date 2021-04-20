@@ -1,7 +1,9 @@
 ---
 title: "list-style-image"
-author: ezhkov
-contributors: skorobaeus
+author:
+  -  ezhkov
+contributors:
+  - skorobaeus
 summary:
   - стили списка
   - список

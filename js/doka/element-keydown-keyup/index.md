@@ -1,7 +1,8 @@
 ---
 title: "Element.Keydown/Keyup"
 name: element-keydown-keyup
-author: stegur
+author:
+  - stegur
 contributors:
   - nlopin
 tags:

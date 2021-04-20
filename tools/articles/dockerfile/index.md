@@ -1,7 +1,8 @@
 ---
 title: Как устроен Dockerfile
 name: dockerfile
-author: igsekor
+author:
+  - igsekor
 contributors:
   - furtivite
 summary:

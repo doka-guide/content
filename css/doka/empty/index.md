@@ -1,6 +1,7 @@
 ---
 title: ":empty"
-author: ezhkov
+author:
+  -  ezhkov
 summary:
 - псевдокласс
 - пусто

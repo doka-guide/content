@@ -1,7 +1,8 @@
 ---
 title: "Webpack, краткий обзор"
 name: webpack
-author: igorkamyshev
+author:
+  - igorkamyshev
 contributors:
   - furtivite
 summary:

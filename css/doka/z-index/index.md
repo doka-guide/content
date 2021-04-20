@@ -1,7 +1,9 @@
 ---
 title: "z-index"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 tags:
   - sprint-1
 summary:

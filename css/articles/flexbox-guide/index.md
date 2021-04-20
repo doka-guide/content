@@ -1,9 +1,9 @@
 ---
 title: "Гайд по flexbox"
-author: solarrust
-co-authors:
-  - furtivite
+author:
+  - solarrust
 contributors:
+  - furtivite
   - skorobaeus
 editor: tachisis
 tags:

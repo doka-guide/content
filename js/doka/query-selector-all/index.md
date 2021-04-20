@@ -1,7 +1,8 @@
 ---
 title: "querySelectorAll"
 name: query-selector-all
-author: nlopin
+author:
+  - nlopin
 tags:
   - sprint-2
 summary:

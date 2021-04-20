@@ -1,6 +1,7 @@
 ---
 title: "transition-property"
-author: ezhkov
+author:
+  -  ezhkov
 tags:
   - sprint-2
 summary:

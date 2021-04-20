@@ -1,6 +1,7 @@
 ---
 title: "Принцип каскада"
-author: realetive
+author:
+  - realetive
 summary:
   - каскад
   - css-каскад

@@ -1,7 +1,8 @@
 ---
 title: "for()"
 name: for
-author: vindi-r
+author:
+  - vindi-r
 summary:
   - итерация
   - обход

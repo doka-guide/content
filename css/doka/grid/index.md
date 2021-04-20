@@ -1,6 +1,7 @@
 ---
 title: "grid"
-author: solarrust
+author:
+  -  solarrust
 summary:
   - шорткат
 ---

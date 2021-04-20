@@ -1,7 +1,9 @@
 ---
 title: "border-radius"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 tags:
   - sprint-4
 summary:

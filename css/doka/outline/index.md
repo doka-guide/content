@@ -1,6 +1,7 @@
 ---
 title: "outline"
-author: solarrust
+author:
+  -  solarrust
 summary:
   - граница
 ---

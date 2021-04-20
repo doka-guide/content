@@ -1,6 +1,7 @@
 ---
 title: "flex-flow"
-author: solarrust
+author:
+  -  solarrust
 editor: tachisis
 summary:
   - шорткат

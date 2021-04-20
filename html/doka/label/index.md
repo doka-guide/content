@@ -1,7 +1,9 @@
 ---
 title: "<label>"
-author: ezhkov
-contributors: skorobaeus
+author:
+  -  ezhkov
+contributors:
+  - skorobaeus
 tags:
   - sprint-4
   - sprint-6

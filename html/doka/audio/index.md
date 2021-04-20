@@ -1,7 +1,9 @@
 ---
 title: "<audio>"
-author: vladimir
-contributors: skorobaeus
+author:
+  - vladimir
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:

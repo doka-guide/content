@@ -1,7 +1,8 @@
 ---
 title: "Виды веб-приложений"
 name: web-app-types
-author: windrushfarer
+author:
+  - windrushfarer
 summary:
   - web application
   - frontend фронтенд

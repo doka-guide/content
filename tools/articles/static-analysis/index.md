@@ -1,7 +1,8 @@
 ---
 title: "Статический анализ — как делать меньше ошибок"
 name: static-analysis
-author: igorkamyshev
+author:
+  - igorkamyshev
 contributors:
   - furtivite
 tags:

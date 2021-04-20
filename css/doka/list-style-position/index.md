@@ -1,7 +1,9 @@
 ---
 title: "list-style-position"
-author: ezhkov
-contributors: skorobaeus
+author:
+  -  ezhkov
+contributors:
+  - skorobaeus
 summary:
   - list-style-position
 ---

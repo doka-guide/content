@@ -1,10 +1,11 @@
 ---
 title: "<style>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - solarrust
   - vladimir
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - тэг
   - тег

@@ -1,7 +1,9 @@
 ---
 title: "<legend>"
-author: realetive
-contributors: skorobaeus
+author:
+  - realetive
+contributors:
+  - skorobaeus
 summary:
   - legend
   - тэг

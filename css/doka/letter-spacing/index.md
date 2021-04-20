@@ -1,10 +1,11 @@
 ---
 title: "letter-spacing"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - ABatickaya
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - letter-spacing
 ---

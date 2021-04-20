@@ -1,7 +1,8 @@
 ---
 title: "Element.scroll/scrollIntoView"
 name: element-scroll-scrollintoview
-author: vindi-r
+author:
+  - vindi-r
 tags:
   - sprint-2
 summary:

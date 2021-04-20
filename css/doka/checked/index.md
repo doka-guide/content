@@ -1,7 +1,9 @@
 ---
 title: ":checked"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - псевдокласс
   - :checked

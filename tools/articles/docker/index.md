@@ -1,7 +1,8 @@
 ---
 title: Что такое Docker?
 name: docker
-author: igsekor
+author:
+  - igsekor
 contributors:
   - furtivite
 summary:

@@ -1,7 +1,8 @@
 ---
 title: "Объект"
 name: object
-author: vindi-r
+author:
+  - vindi-r
 contributors:
   - furtivite
 tags:

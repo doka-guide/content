@@ -1,7 +1,9 @@
 ---
 title: "text-align"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 summary:
   - text-align
 ---

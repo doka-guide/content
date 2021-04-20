@@ -1,6 +1,7 @@
 ---
 title: "Преобразование типов"
-author: bespoyasov
+author:
+  - bespoyasov
 ---
 
 ## Кратко

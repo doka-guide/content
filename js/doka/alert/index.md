@@ -1,7 +1,8 @@
 ---
 title: "alert()"
 name: alert
-author: vindi-r
+author:
+  - vindi-r
 contributors:
   - furtivite
 summary:

@@ -1,7 +1,9 @@
 ---
 title: ":hover"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 summary:
   - :hover
   - LVHA

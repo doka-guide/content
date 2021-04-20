@@ -1,6 +1,7 @@
 ---
 title: "Глобальные атрибуты"
-author: solarrust
+author: 
+- solarrust
 summary:
   - атрибут
   - HTML-атрибут

@@ -1,6 +1,7 @@
 ---
 title: "grid-column-start, grid-column-end, grid-row-start, grid-row-end"
-author: solarrust
+author:
+  -  solarrust
 summary:
   - начальная линия грида
   - конечная линия грида

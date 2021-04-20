@@ -1,7 +1,8 @@
 ---
 title: "confirm()"
 name: confirm
-author: vindi-r
+author:
+  - vindi-r
 contributors:
   - nlopin
 ---

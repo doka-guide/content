@@ -1,6 +1,7 @@
 ---
 title: "transform-origin"
-author: ezhkov
+author:
+  -  ezhkov
 summary:
   - трансформация
   - точка

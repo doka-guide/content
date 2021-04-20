@@ -1,6 +1,7 @@
 ---
 title: "Разработка через тестирование (TDD)"
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - test
   - unit

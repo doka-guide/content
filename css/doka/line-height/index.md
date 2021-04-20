@@ -1,7 +1,9 @@
 ---
 title: "line-height"
-author: grachev
-contributors: skorobaeus
+author:
+  - grachev
+contributors:
+  - skorobaeus
 summary:
   - line-height
 ---

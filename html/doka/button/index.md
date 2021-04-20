@@ -1,7 +1,8 @@
 ---
 title: "<button>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - solarrust
   - vladimir
 tags:

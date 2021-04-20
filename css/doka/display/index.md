@@ -1,7 +1,9 @@
 ---
 title: "display"
-author: solarrust
-contributors: skorobaeus
+author:
+  -  solarrust
+contributors:
+  - skorobaeus
 summary:
   - блочная модель
   - block

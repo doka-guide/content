@@ -1,6 +1,7 @@
 ---
 title: Подгрузка контента при прокрутке
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - scroll
   - loading

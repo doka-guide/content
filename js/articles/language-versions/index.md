@@ -1,7 +1,8 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
 name: language-versions
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - транспайлеры
   - бандлеры

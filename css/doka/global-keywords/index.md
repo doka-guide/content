@@ -1,6 +1,7 @@
 ---
 title: "Глобальные ключевые слова"
-author: solarrust
+author: 
+- solarrust
 summary:
     - initial
     - inherit

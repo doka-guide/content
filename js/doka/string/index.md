@@ -1,7 +1,8 @@
 ---
 title: "Строка"
 name: string
-author: vindi-r
+author:
+  - vindi-r
 contributors:
   - furtivite
 summary:

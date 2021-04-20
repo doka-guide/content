@@ -1,7 +1,8 @@
 ---
 title: "fetch"
 name: fetch
-author: windrushfarer
+author:
+  - windrushfarer
 tags:
   - sprint-10
   - sprint-12

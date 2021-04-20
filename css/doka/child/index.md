@@ -1,7 +1,9 @@
 ---
 title: ":first-child / :nth-child / :last-child / :nth-last-child / :only-child"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - псевдокласс
 ---

@@ -1,6 +1,7 @@
 ---
 title: "opacity"
-author: solarrust
+author:
+  -  solarrust
 summary:
   - opacity
   - прозрачность
