@@ -1,7 +1,7 @@
 ---
 title: "place-self"
 author:
-  -  solarrust
+  - solarrust
 summary:
   - выравнивание грид-элемента
   - шорткат

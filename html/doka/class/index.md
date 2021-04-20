@@ -1,7 +1,7 @@
 ---
 title: "class"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

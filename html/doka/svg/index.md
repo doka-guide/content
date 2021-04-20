@@ -1,7 +1,7 @@
 ---
 title: "<svg>"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 tags:

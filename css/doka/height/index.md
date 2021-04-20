@@ -1,7 +1,7 @@
 ---
 title: "height"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

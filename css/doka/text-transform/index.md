@@ -1,7 +1,7 @@
 ---
 title: "text-transform"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

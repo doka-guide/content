@@ -1,7 +1,7 @@
 ---
 title: "flex"
 author:
-  -  solarrust
+  - solarrust
 editor: tachisis
 summary:
   - шорткат

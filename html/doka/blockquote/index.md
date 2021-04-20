@@ -1,7 +1,7 @@
 ---
 title: "<blockquote>"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

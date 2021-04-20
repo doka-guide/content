@@ -1,7 +1,7 @@
 ---
 title: "place-items"
 author:
-  -  solarrust
+  - solarrust
 summary:
   - выравнивание в гридах
   - шорткат

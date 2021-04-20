@@ -1,7 +1,7 @@
 ---
 title: "grid-auto-flow"
 author:
-  -  solarrust
+  - solarrust
 summary:
   - размер и количество рядов
   - грид-ряд

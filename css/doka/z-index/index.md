@@ -1,7 +1,7 @@
 ---
 title: "z-index"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 tags:

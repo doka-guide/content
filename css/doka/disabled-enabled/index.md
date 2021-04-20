@@ -1,7 +1,7 @@
 ---
 title: ":disabled, :enabled"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

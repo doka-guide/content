@@ -1,7 +1,7 @@
 ---
 title: "text-decoration"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - furtivite
   - skorobaeus

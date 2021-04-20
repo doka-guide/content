@@ -1,7 +1,7 @@
 ---
 title: "<q>"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

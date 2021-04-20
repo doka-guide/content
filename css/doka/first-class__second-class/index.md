@@ -1,7 +1,7 @@
 ---
 title: ".first-class, .second-class"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

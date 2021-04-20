@@ -1,7 +1,7 @@
 ---
 title: "gap"
 author:
-  -  solarrust
+  - solarrust
 summary:
   - отступы между грид-ячейками
   - шорткат

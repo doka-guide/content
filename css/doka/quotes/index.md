@@ -1,7 +1,7 @@
 ---
 title: "quotes"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:

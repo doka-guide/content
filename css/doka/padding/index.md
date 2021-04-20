@@ -1,7 +1,7 @@
 ---
 title: "padding"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - furtivite
   - skorobaeus

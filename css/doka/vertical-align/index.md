@@ -1,7 +1,7 @@
 ---
 title: "vertical-align"
 author:
-  -  solarrust
+  - solarrust
 contributors:
   - skorobaeus
 summary:
