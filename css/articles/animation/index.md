@@ -2,16 +2,16 @@
 title: "CSS-анимации"
 author: solarrust
 summary:
-    - CSS-анимации
-    - animation-name
-    - animation-duration
-    - animation-iteration-count
-    - animation-direction
-    - animation-timing-function
-    - animation-delay
-    - animation-play-state
-    - animation-fill-mode
-    - animation
+  - CSS-анимации
+  - animation-name
+  - animation-duration
+  - animation-iteration-count
+  - animation-direction
+  - animation-timing-function
+  - animation-delay
+  - animation-play-state
+  - animation-fill-mode
+  - animation
 ---
 
 ## Кратко
