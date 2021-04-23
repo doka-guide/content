@@ -1,7 +1,8 @@
 ---
 title: "Элемент"
 name: element
-author: nlopin
+author:
+  - nlopin
 contributors:
   - furtivite
 summary:

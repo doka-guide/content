@@ -1,7 +1,8 @@
 ---
 title: "Системы сборки"
 name: bundlers
-author: kamyshev
+author:
+  - igorkamyshev
 contributors:
   - furtivite
 tags:

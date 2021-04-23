@@ -1,6 +1,7 @@
 ---
 title: ":visited"
-author: solarrust
+author:
+  - solarrust
 contributors:
   - furtivite
 summary:

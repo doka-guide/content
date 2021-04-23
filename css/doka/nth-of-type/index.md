@@ -1,7 +1,9 @@
 ---
 title: ":first-of-type / :nth-of-type / :last-of-type / :nth-last-of-type / :only-of-type"
-author: realetive
-contributors: skorobaeus
+author:
+  - realetive
+contributors:
+  - skorobaeus
 summary:
   - псевдокласс
 ---

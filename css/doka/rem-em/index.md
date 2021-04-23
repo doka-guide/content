@@ -1,6 +1,7 @@
 ---
 title: "rem / em"
-author: realetive
+author:
+  - realetive
 tags:
   - sprint-3
 summary:

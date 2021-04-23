@@ -1,7 +1,8 @@
 ---
 title: "prompt()"
 name: prompt
-author: vindi-r
+author:
+  - vindi-r
 ---
 
 ## Кратко

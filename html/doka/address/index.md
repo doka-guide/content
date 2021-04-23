@@ -1,9 +1,9 @@
 ---
 title: "<address>"
-author: ezhkov
-co-authors:
-  - pepelsbey
+author:
+  - ezhkov
 contributors:
+  - pepelsbey
   - furtivite
 tags:
 summary:

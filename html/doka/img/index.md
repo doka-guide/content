@@ -1,7 +1,9 @@
 ---
 title: "<img>"
-author: grachev
-contributors: skorobaeus
+author:
+  - grachev
+contributors:
+  - skorobaeus
 summary:
   - картинка
   - img

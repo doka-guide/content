@@ -1,6 +1,7 @@
 ---
 title: "Таблицы"
-author: solarrust
+author:
+  - solarrust
 summary:
   - table
   - thead

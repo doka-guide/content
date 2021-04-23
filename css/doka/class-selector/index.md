@@ -1,6 +1,7 @@
 ---
 title: ".class"
-author: ezhkov
+author:
+  - ezhkov
 summary:
   - селектор
   - класс

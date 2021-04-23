@@ -1,6 +1,7 @@
 ---
 title: "align-self"
-author: solarrust
+author:
+  - solarrust
 editor: tachisis
 summary:
   - выравнивание флекс-элемента

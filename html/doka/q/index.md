@@ -1,7 +1,9 @@
 ---
 title: "<q>"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - тэг
   - тег

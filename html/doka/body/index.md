@@ -1,7 +1,8 @@
 ---
 title: "<body>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - solarrust
 summary:

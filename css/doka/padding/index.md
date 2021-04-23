@@ -1,9 +1,10 @@
 ---
 title: "padding"
-author: solarrust
-co-authors:
+author:
+  - solarrust
+contributors:
   - furtivite
-contributors: skorobaeus
+  - skorobaeus
 tags:
   - sprint-4
 summary:

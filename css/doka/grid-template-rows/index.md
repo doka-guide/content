@@ -1,6 +1,7 @@
 ---
 title: "grid-template-rows"
-author: solarrust
+author:
+  - solarrust
 summary:
   - размер и количество рядов
   - грид-ряд

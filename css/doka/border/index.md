@@ -1,7 +1,9 @@
 ---
 title: "border"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - border
 ---

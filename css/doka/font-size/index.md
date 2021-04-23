@@ -1,10 +1,11 @@
 ---
 title: "font-size"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - solarrust
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - font-size
 ---

@@ -1,6 +1,7 @@
 ---
 title: "<aside>"
-author: realetive
+author:
+  - realetive
 summary:
   - aside
   - семантический тег

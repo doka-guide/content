@@ -1,7 +1,8 @@
 ---
 title: Element.classList
 name: element-classlist
-author: windrushfarer
+author:
+  - windrushfarer
 tags:
   - sprint-4
 contributors:

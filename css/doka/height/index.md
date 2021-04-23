@@ -1,7 +1,9 @@
 ---
 title: "height"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - высота
   - размер

@@ -1,7 +1,8 @@
 ---
 title: "<!DOCTYPE>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - solarrust
   - pepelsbey

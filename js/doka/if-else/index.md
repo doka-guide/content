@@ -1,7 +1,8 @@
 ---
 title: "if...else"
 name: if-else
-author: nlopin
+author:
+  - nlopin
 summary:
   - условие
   - условный переход

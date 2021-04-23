@@ -1,6 +1,7 @@
 ---
 title: "Модули, import/export"
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - module
   - импорт

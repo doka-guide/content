@@ -1,7 +1,8 @@
 ---
 title: "Массивы"
 name: arrays
-author: nlopin
+author:
+  - nlopin
 contributors:
   - furtivite
 summary:

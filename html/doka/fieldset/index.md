@@ -1,6 +1,7 @@
 ---
 title: "<fieldset>"
-author: realetive
+author:
+  - realetive
 summary:
   - fieldset
   - тэг

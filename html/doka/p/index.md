@@ -1,7 +1,8 @@
 ---
 title: "<p>"
-author: vladimir
-co-authors:
+author:
+  - vladimir
+contributors:
   - solarrust
 summary:
   - тэг

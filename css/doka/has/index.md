@@ -1,6 +1,7 @@
 ---
 title: ":has"
-author: realetive
+author:
+  - realetive
 summary:
   - :has()
   - псевдокласс

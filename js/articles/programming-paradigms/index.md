@@ -1,6 +1,7 @@
 ---
 title: "Парадигмы программирования"
-author: bespoyasov
+author:
+  - bespoyasov
 tags:
   - sprint-8
 summary:

@@ -1,7 +1,9 @@
 ---
 title: ".first-class .second-class"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - вложенный селектор
   - селектор вложенности

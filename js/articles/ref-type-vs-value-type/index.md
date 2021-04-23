@@ -1,6 +1,7 @@
 ---
 title: "Хранение по ссылке vs. по значению"
-author: windrushfarer
+author:
+  - windrushfarer
 summary:
   - reference
   - value

@@ -1,7 +1,9 @@
 ---
 title: "<dl>, <dd>, <dt>"
-author: ezhkov
-contributors: skorobaeus
+author:
+  - ezhkov
+contributors:
+  - skorobaeus
 summary:
   - dl
   - dd

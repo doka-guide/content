@@ -1,6 +1,7 @@
 ---
 title: "[attr]"
-author: ezhkov
+author:
+  - ezhkov
 tags:
   - sprint-1
 summary:

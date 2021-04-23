@@ -1,7 +1,9 @@
 ---
 title: "<input>"
-author: vladimir
-contributors: skorobaeus
+author:
+  - vladimir
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
   - sprint-4

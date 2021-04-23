@@ -1,7 +1,9 @@
 ---
 title: "background-color"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - background-color
 ---

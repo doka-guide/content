@@ -1,6 +1,7 @@
 ---
 title: "transform"
-author: ezhkov
+author:
+  - ezhkov
 tags:
   - sprint-2
 summary:

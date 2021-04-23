@@ -1,7 +1,9 @@
 ---
 title: "background-repeat"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - background-repeat
 ---

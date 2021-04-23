@@ -1,7 +1,8 @@
 ---
 title: "Math"
 name: math
-author: vindi-r
+author:
+  - vindi-r
 summary:
 ---
 

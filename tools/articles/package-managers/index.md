@@ -1,7 +1,8 @@
 ---
 title: "Пакетные менеджеры"
 name: package-managers
-author: igorkamyshev
+author:
+  - igorkamyshev
 contributors:
   - furtivite
 tags:

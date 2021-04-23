@@ -1,7 +1,8 @@
 ---
 title: "querySelector"
 name: query-selector
-author: nlopin
+author:
+  - nlopin
 tags:
   - sprint-2
 summary:

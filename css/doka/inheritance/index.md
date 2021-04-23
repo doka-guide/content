@@ -1,6 +1,7 @@
 ---
 title: "Наследование в CSS"
-author: realetive
+author:
+  - realetive
 summary:
   - наследование
 ---

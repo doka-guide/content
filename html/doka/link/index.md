@@ -1,6 +1,7 @@
 ---
 title: "<link>"
-author: grachev
+author:
+  - grachev
 editor: tachisis
 tags:
   - sprint-1

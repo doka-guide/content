@@ -1,6 +1,7 @@
 ---
 title: "flex-wrap"
-author: solarrust
+author:
+  - solarrust
 editor: tachisis
 summary:
   - перенос на новую строку

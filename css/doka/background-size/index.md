@@ -1,7 +1,9 @@
 ---
 title: "background-size"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - background-size
 ---

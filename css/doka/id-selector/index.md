@@ -1,6 +1,7 @@
 ---
 title: "Селектор по идентификатору"
-author: solarrust
+author:
+  - solarrust
 summary:
   - initial
   - inherit

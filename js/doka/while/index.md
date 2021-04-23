@@ -1,7 +1,8 @@
 ---
 title: "while"
 name: while
-author: nlopin
+author:
+  - nlopin
 contributors:
   - furtivite
 summary:

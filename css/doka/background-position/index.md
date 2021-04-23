@@ -1,7 +1,9 @@
 ---
 title: "background-position"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - background-position
 ---

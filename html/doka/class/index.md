@@ -1,7 +1,9 @@
 ---
 title: "class"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - класс
   - атрибут
