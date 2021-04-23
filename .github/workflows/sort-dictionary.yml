@@ -1,0 +1,24 @@
+name: Sort Dictionary
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  spell:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Сортировка словаря исключений
+        run: node .github/scripts/sort.js
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Сортирует словарь исключений
+          file_pattern: .yaspeller.json
+          commit_user_name: Doka Dog
+          commit_user_email: feedback@y-doka.site
+          commit_author: Doka Dog <feedback@y-doka.site>
