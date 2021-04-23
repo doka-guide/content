@@ -1,6 +1,7 @@
 ---
 title: "align-content"
-author: solarrust
+author:
+  - solarrust
 editor: tachisis
 summary:
   - выравнивание вдоль поперечной оси

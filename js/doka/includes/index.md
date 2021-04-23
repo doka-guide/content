@@ -1,7 +1,8 @@
 ---
 title: "includes"
 name: includes
-author: nlopin
+author:
+  - nlopin
 ---
 
 ## Кратко

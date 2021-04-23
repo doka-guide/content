@@ -1,6 +1,7 @@
 ---
 title: ":link"
-author: realetive
+author:
+  - realetive
 summary:
   - стили ссылки
   - псевдокласс

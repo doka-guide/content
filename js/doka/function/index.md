@@ -1,7 +1,8 @@
 ---
 title: "function()"
 name: function
-author: vindi-r
+author:
+  - vindi-r
 summary:
   - функция
 ---

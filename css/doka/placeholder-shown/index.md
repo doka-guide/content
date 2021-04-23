@@ -1,6 +1,7 @@
 ---
 title: ":placeholder-shown"
-author: ezhkov
+author:
+  - ezhkov
 summary:
   - форма
   - плейсхолдер

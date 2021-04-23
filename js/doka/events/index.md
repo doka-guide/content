@@ -1,7 +1,8 @@
 ---
 title: "События"
 name: events
-author: nlopin
+author:
+  - nlopin
 contributors:
   - furtivite
 tags:

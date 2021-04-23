@@ -1,6 +1,7 @@
 ---
 title: "Глобальные атрибуты"
-author: solarrust
+author:
+  - solarrust
 editor: tachisis
 summary:
   - атрибут

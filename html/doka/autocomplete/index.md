@@ -1,6 +1,7 @@
 ---
 title: "autocomplete"
-author: lenaryan
+author:
+  - lenaryan
 summary:
   - атрибут
   - autocomplete

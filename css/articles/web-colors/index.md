@@ -1,6 +1,7 @@
 ---
 title: "Цвета в вебе"
-author: solarrust
+author:
+  - solarrust
 summary:
   - цвета
   - HEX

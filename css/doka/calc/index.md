@@ -1,6 +1,7 @@
 ---
 title: "calc()"
-author: solarrust
+author:
+  - solarrust
 tags:
   - sprint-3
 summary:

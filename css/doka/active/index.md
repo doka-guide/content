@@ -1,6 +1,7 @@
 ---
 title: ":active"
-author: solarrust
+author:
+  - solarrust
 summary:
   - :active
   - LVHA

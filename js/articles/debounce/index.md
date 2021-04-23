@@ -1,7 +1,8 @@
 ---
 title: "Debounce на примере формы поиска"
 name: debounce
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - keyboard event
   - delay

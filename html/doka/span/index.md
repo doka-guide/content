@@ -1,9 +1,10 @@
 ---
 title: "<span>"
-author: vladimir
-co-authors:
+author:
+  - vladimir
+contributors:
   - solarrust
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - тэг
   - тег

@@ -1,6 +1,7 @@
 ---
 title: "Области видимости"
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - замыкание
   - closure

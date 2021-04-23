@@ -1,7 +1,8 @@
 ---
 title: "Boolean"
 name: boolean
-author: bespoyasov
+author:
+  - bespoyasov
 contributors:
   - nlopin
 summary:

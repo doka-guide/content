@@ -1,11 +1,11 @@
 ---
 title: "color"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - pepelsbey
   - furtivite
-contributors:
   - skorobaeus
 summary:
   - color

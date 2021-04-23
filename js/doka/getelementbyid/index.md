@@ -1,7 +1,8 @@
 ---
 title: "getElementById()"
 name: getelementbyid
-author: nlopin
+author:
+  - nlopin
 summary:
 ---
 

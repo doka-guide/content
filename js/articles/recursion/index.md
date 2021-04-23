@@ -1,6 +1,7 @@
 ---
 title: "Рекурсия"
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
   - function
   - call

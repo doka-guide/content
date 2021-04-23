@@ -1,7 +1,9 @@
 ---
 title: "::before"
-author: ezhkov
-contributors: skorobaeus
+author:
+  - ezhkov
+contributors:
+  - skorobaeus
 summary:
   - :before
   - псевдоэлемент

@@ -1,7 +1,8 @@
 ---
 title: "font-family"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
 summary:
   - font-family

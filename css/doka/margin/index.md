@@ -1,7 +1,8 @@
 ---
 title: "margin"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - vladimir
   - ABatickaya
   - futivite

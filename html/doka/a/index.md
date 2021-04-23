@@ -1,9 +1,7 @@
 ---
 title: "<a>"
-author: grachev
-co-authors:
-  - solarrust
-designers:
+author:
+  - grachev
 contributors:
   - solarrust
   - grachev

@@ -1,10 +1,10 @@
 ---
 title: "<h1>...<h6>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - solarrust
   - vladimir
-contributors:
   - skorobaeus
   - furtivite
 summary:

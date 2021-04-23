@@ -1,6 +1,7 @@
 ---
 title: "Псевдоэлементы"
-author: solarrust
+author:
+  - solarrust
 contributors:
   - furtivite
   - skorobaeus

@@ -1,9 +1,10 @@
 ---
 title: "<script>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - solarrust
-contributors: skorobaeus
+  - skorobaeus
 summary:
   - тэг
   - тег

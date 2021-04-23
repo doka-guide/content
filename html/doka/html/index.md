@@ -1,7 +1,8 @@
 ---
 title: "<html>"
-author: grachev
-co-authors:
+author:
+  - grachev
+contributors:
   - solarrust
 summary:
   - тэг

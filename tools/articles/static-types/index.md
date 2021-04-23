@@ -1,7 +1,8 @@
 ---
 title: "Как TypeScript и статическая типизация помогает писать код"
 name: static-types
-author: igorkamyshev
+author:
+  - igorkamyshev
 contributors:
   - furtivite
 summary:

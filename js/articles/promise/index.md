@@ -1,7 +1,8 @@
 ---
 title: "Promise"
 name: promise
-author: nlopin
+author:
+  - nlopin
 tags:
   - sprint-10
   - sprint-12

@@ -1,7 +1,8 @@
 ---
 title: "Promise. Метод catch"
 name: promise-catch
-author: nlopin
+author:
+  - nlopin
 summary:
   - промис
   - кэтч катч кеч

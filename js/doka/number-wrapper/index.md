@@ -1,7 +1,8 @@
 ---
 title: "Number"
 name: number-wrapper
-author: nlopin
+author:
+  - nlopin
 summary:
   - число
   - обёртка числа

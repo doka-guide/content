@@ -1,7 +1,9 @@
 ---
 title: "font-style"
-author: grachev
-contributors: skorobaeus
+author:
+  - grachev
+contributors:
+  - skorobaeus
 summary:
   - font-style
 ---

@@ -1,6 +1,7 @@
 ---
 title: ":in-range, :out-of-range"
-author: ezhkov
+author:
+  - ezhkov
 summary:
   - валидация
   - число

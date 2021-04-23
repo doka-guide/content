@@ -1,6 +1,7 @@
 ---
 title: "white-space"
-author: ezhkov
+author:
+  - ezhkov
 summary:
   - пробел
   - разрыв

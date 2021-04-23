@@ -1,6 +1,7 @@
 ---
 title: "appearance"
-author: ezhkov
+author:
+  - ezhkov
 summary:
   - отображение
 ---

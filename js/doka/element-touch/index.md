@@ -1,7 +1,8 @@
 ---
 title: "Element.touch"
 name: element-touch
-author: windrushfarer
+author:
+  - windrushfarer
 summary:
   - touchstart
   - touchend

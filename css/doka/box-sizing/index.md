@@ -1,7 +1,9 @@
 ---
 title: "box-sizing"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - box-sizing
   - content-box

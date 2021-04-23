@@ -1,7 +1,9 @@
 ---
 title: "transition"
-author: ezhkov
-contributors: skorobaeus
+author:
+  - ezhkov
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:

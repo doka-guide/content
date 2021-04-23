@@ -1,7 +1,8 @@
 ---
 title: "Element.style"
 name: element-style
-author: bespoyasov
+author:
+  - bespoyasov
 summary:
 ---
 

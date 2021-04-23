@@ -1,9 +1,10 @@
 ---
 title: "<video>"
-author: vladimir
-co-authors:
+author:
+  - vladimir
+contributors:
   - grachev
-contributors: skorobaeus
+  - skorobaeus
 tags:
   - sprint-2
 summary:

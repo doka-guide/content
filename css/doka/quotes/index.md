@@ -1,7 +1,9 @@
 ---
 title: "quotes"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 summary:
   - quotes
 ---

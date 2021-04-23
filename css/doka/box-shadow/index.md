@@ -1,7 +1,9 @@
 ---
 title: "box-shadow"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:

@@ -1,7 +1,9 @@
 ---
 title: "<svg>"
-author: solarrust
-contributors: skorobaeus
+author:
+  - solarrust
+contributors:
+  - skorobaeus
 tags:
   - sprint-4
 summary:

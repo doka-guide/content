@@ -1,7 +1,8 @@
 ---
 title: "Math.floor()"
 name: math-floor
-author: nlopin
+author:
+  - nlopin
 ---
 
 ## Кратко
