@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Загрузка платформы с контентом на Netlify
+      - name: Публикация сайта с контентом на Netlify
         run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
