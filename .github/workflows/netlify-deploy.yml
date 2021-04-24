@@ -1,14 +1,12 @@
 name: Deploy Platform With Content
 
 on:
-  push:
-    branches:
-      - service/actions
+  schedule:
+    - cron:  '00 5 * * *'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Публикация сайта с контентом на Netlify
+      - name: Ночная сборка сайта с контентом на Netlify
         run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
