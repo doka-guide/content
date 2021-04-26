@@ -1,7 +1,7 @@
 ---
 title: "Цикл"
 name: loop
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

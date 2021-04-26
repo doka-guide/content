@@ -1,7 +1,7 @@
 ---
 title: "Debounce на примере формы поиска"
 name: debounce
-author:
+authors:
   - bespoyasov
 summary:
   - keyboard event

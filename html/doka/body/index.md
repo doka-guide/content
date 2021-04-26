@@ -1,6 +1,6 @@
 ---
 title: "<body>"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

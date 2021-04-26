@@ -1,6 +1,6 @@
 ---
 title: ":first-of-type / :nth-of-type / :last-of-type / :nth-last-of-type / :only-of-type"
-author:
+authors:
   - realetive
 contributors:
   - skorobaeus

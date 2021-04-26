@@ -1,6 +1,6 @@
 ---
 title: "<nav>"
-author:
+authors:
   - vladimir
 contributors:
   - grachev

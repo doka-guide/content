@@ -1,7 +1,7 @@
 ---
 title: "var/let"
 name: var-let
-author:
+authors:
   - vindi-r
 contributors:
   - furtivite

@@ -1,8 +1,9 @@
 ---
 title: "align-content"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - выравнивание вдоль поперечной оси
   - flexbox

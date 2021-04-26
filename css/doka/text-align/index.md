@@ -1,6 +1,6 @@
 ---
 title: "text-align"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

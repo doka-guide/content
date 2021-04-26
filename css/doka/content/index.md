@@ -1,6 +1,6 @@
 ---
 title: "content"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

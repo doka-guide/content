@@ -1,6 +1,6 @@
 ---
 title: "CSS-правило"
-author:
+authors:
   - solarrust
 summary:
   - правило стилей

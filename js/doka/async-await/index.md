@@ -1,7 +1,7 @@
 ---
 title: "async/await"
 name: async-await
-author:
+authors:
   - nlopin
 summary:
   - асинхронный вызов

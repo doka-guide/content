@@ -1,6 +1,6 @@
 ---
 title: "text-shadow"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

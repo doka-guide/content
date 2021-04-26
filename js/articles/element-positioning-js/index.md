@@ -1,6 +1,6 @@
 ---
 title: "Позиционирование элементов с помощью JS"
-author:
+authors:
   - bespoyasov
 summary:
   - анимации animation

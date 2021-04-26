@@ -1,6 +1,6 @@
 ---
 title: "vm, vh, vmin, vmax"
-author:
+authors:
   - ezhkov
 summary:
   - относительные размеры

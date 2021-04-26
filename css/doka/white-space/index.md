@@ -1,6 +1,6 @@
 ---
 title: "white-space"
-author:
+authors:
   - ezhkov
 summary:
   - пробел

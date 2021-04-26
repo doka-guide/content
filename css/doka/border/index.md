@@ -1,6 +1,6 @@
 ---
 title: "border"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

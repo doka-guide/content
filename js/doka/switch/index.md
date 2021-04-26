@@ -1,7 +1,7 @@
 ---
 title: "switch"
 name: switch
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

@@ -1,6 +1,7 @@
 ---
 title: "CSS-анимации"
-author: solarrust
+authors:
+  - solarrust
 summary:
   - CSS-анимации
   - animation-name

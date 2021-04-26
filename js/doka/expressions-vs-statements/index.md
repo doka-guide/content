@@ -1,7 +1,7 @@
 ---
 title: Выражения и инструкции
 name: expressions-vs-statements
-author:
+authors:
   - windrushfarer
 contributors:
   - furtivite

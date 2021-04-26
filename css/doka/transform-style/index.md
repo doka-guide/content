@@ -1,6 +1,6 @@
 ---
 title: "transform-style"
-author:
+authors:
   - ezhkov
 summary:
   - трансформация

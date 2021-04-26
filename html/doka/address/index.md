@@ -1,6 +1,6 @@
 ---
 title: "<address>"
-author:
+authors:
   - ezhkov
 contributors:
   - pepelsbey

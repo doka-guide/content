@@ -1,6 +1,6 @@
 ---
 title: "background-color"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

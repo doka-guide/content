@@ -1,7 +1,7 @@
 ---
 title: "Событие load и DOMContentLoaded"
 name: event-load-and-domcontentloaded
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

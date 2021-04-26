@@ -1,7 +1,7 @@
 ---
 title: "Асинхронность в JS"
 name: async-in-js
-author:
+authors:
   - bespoyasov
 contributors:
   - nlopin

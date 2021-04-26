@@ -1,6 +1,6 @@
 ---
 title: "<div>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

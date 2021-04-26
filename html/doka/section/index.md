@@ -1,6 +1,6 @@
 ---
 title: "<section>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

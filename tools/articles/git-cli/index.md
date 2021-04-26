@@ -1,6 +1,6 @@
 ---
 title: "Git CLI — минимум для работы"
-author:
+authors:
   - igorkamyshev
 contributors:
   - furtivite

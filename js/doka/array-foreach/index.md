@@ -1,7 +1,7 @@
 ---
 title: "Array.forEach"
 name: array-foreach
-author:
+authors:
   - windrushfarer
 contributors:
   - nlopin

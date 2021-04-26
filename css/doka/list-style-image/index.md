@@ -1,6 +1,6 @@
 ---
 title: "list-style-image"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

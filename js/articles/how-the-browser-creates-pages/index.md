@@ -1,7 +1,7 @@
 ---
 title: "Как браузер рисует страницы"
 name: how-the-browser-creates-pages
-author:
+authors:
   - bespoyasov
 cover:
   desktop: 'images/cover.png'

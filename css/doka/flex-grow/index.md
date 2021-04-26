@@ -1,8 +1,9 @@
 ---
 title: "flex-grow"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - рост флекс-элементов
   - flexbox

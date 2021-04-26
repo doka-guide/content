@@ -1,6 +1,6 @@
 ---
 title: "display"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

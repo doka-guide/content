@@ -1,6 +1,6 @@
 ---
 title: "letter-spacing"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

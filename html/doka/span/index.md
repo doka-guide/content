@@ -1,6 +1,6 @@
 ---
 title: "<span>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

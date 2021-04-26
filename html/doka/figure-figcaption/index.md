@@ -1,6 +1,6 @@
 ---
 title: "<figure>, <figcaption>"
-author:
+authors:
   - ezhkov
 summary:
   - figure

@@ -1,6 +1,6 @@
 ---
 title: ":required"
-author:
+authors:
   - ezhkov
 summary:
   - валидация

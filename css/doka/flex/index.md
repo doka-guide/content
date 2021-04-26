@@ -1,8 +1,9 @@
 ---
 title: "flex"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - шорткат
   - flexbox

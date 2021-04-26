@@ -1,6 +1,6 @@
 ---
 title: "transform-origin"
-author:
+authors:
   - ezhkov
 summary:
   - трансформация

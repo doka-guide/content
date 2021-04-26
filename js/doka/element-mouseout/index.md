@@ -1,7 +1,7 @@
 ---
 title: "Element.mouseout"
 name: element-mouseout
-author:
+authors:
   - nlopin
 summary:
   - мышь

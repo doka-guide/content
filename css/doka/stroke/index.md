@@ -1,6 +1,6 @@
 ---
 title: "stroke"
-author:
+authors:
   - realetive
 summary:
   - svg-обводка

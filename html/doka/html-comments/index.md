@@ -1,6 +1,6 @@
 ---
 title: "Комментарии в HTML"
-author:
+authors:
   - solarrust
 summary:
   - комментарии

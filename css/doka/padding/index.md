@@ -1,6 +1,6 @@
 ---
 title: "padding"
-author:
+authors:
   - solarrust
 contributors:
   - furtivite

@@ -1,6 +1,6 @@
 ---
 title: "<q>"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

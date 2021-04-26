@@ -1,6 +1,6 @@
 ---
 title: "<aside>"
-author:
+authors:
   - realetive
 summary:
   - aside

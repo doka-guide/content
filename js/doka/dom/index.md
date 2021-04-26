@@ -1,7 +1,7 @@
 ---
 title: "DOM"
 name: dom
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

@@ -1,6 +1,6 @@
 ---
 title: "object-fit"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

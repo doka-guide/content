@@ -1,7 +1,7 @@
 ---
 title: "indexOf()"
 name: index-of
-author:
+authors:
   - nlopin
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "::before"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

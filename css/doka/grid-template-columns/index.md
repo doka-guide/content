@@ -1,6 +1,6 @@
 ---
 title: "grid-template-columns"
-author:
+authors:
   - solarrust
 summary:
   - размер и количество колонок

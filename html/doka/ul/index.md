@@ -1,6 +1,6 @@
 ---
 title: "<ul>"
-author:
+authors:
   - ezhkov
 contributors:
   - furtivite

@@ -1,6 +1,6 @@
 ---
 title: "<legend>"
-author:
+authors:
   - realetive
 contributors:
   - skorobaeus

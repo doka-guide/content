@@ -1,7 +1,7 @@
 ---
 title: "Виды веб-приложений"
 name: web-app-types
-author:
+authors:
   - windrushfarer
 summary:
   - web application

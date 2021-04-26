@@ -1,6 +1,6 @@
 ---
 title: "<title>"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

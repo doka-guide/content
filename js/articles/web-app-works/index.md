@@ -1,6 +1,6 @@
 ---
 title: "Как работают веб-приложения"
-author:
+authors:
   - bespoyasov
 tags:
   - sprint-10

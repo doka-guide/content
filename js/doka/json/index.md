@@ -1,7 +1,7 @@
 ---
 title: "JSON"
 name: json
-author:
+authors:
   - stegur
 tags:
   - sprint-10

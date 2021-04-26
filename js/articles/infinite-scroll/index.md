@@ -1,6 +1,6 @@
 ---
 title: Подгрузка контента при прокрутке
-author:
+authors:
   - bespoyasov
 summary:
   - scroll

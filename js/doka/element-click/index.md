@@ -1,7 +1,7 @@
 ---
 title: "Element.click"
 name: element-click
-author:
+authors:
   - nlopin
 tags:
   - sprint-4

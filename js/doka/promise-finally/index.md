@@ -1,7 +1,7 @@
 ---
 title: "Promise. Метод finally"
 name: promise-finally
-author:
+authors:
   - nlopin
 summary:
   - промис

@@ -1,6 +1,6 @@
 ---
 title: "<article>"
-author:
+authors:
   - realetive
 contributors:
   - furtivite

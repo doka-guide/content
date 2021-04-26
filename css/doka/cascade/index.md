@@ -1,6 +1,6 @@
 ---
 title: "Принцип каскада"
-author:
+authors:
   - realetive
 summary:
   - каскад

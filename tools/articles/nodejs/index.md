@@ -1,6 +1,6 @@
 ---
 title: "Что такое Node.js?"
-author:
+authors:
   - igorkamyshev
 contributors:
   - furtivite

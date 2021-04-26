@@ -1,6 +1,6 @@
 ---
 title: "Цвета в вебе"
-author:
+authors:
   - solarrust
 summary:
   - цвета

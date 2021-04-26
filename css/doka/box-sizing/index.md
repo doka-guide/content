@@ -1,6 +1,6 @@
 ---
 title: "box-sizing"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

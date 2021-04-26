@@ -1,7 +1,7 @@
 ---
 title: "API. Что это и зачем нужно?"
 name: api
-author:
+authors:
   - bespoyasov
 contributors:
   - furtivite

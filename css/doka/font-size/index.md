@@ -1,6 +1,6 @@
 ---
 title: "font-size"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

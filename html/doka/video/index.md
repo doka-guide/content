@@ -1,6 +1,6 @@
 ---
 title: "<video>"
-author:
+authors:
   - vladimir
 contributors:
   - grachev

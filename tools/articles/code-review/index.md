@@ -1,7 +1,7 @@
 ---
 title: "Код-ревью — как, зачем, почему"
 name: code-review
-author:
+authors:
   - igorkamyshev
 contributors:
   - furtivite

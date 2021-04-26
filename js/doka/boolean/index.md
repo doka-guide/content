@@ -1,7 +1,7 @@
 ---
 title: "Boolean"
 name: boolean
-author:
+authors:
   - bespoyasov
 contributors:
   - nlopin

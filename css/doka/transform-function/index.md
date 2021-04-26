@@ -1,6 +1,6 @@
 ---
 title: "Функции CSS-трансформации"
-author:
+authors:
   - ezhkov
 summary:
   - трансформация

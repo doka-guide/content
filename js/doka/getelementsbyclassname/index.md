@@ -1,7 +1,7 @@
 ---
 title: "getElementsByClassName()"
 name: getelementsbyclassname
-author:
+authors:
   - nlopin
 summary:
 ---

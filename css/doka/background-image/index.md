@@ -1,6 +1,6 @@
 ---
 title: "background-image"
-author:
+authors:
   - grachev
 contributors:
   - skorobaeus
