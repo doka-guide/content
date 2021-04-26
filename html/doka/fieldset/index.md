@@ -1,6 +1,6 @@
 ---
 title: "<fieldset>"
-author:
+authors:
   - realetive
 summary:
   - fieldset

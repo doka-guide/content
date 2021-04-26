@@ -1,6 +1,6 @@
 ---
 title: "Контекст выполнения функций, this"
-author:
+authors:
   - bespoyasov
 summary:
   - use strict

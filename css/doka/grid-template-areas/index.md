@@ -1,6 +1,6 @@
 ---
 title: "grid-template-areas"
-author:
+authors:
   - solarrust
 summary:
   - имена областей

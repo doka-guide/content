@@ -1,6 +1,6 @@
 ---
 title: ":first-child / :nth-child / :last-child / :nth-last-child / :only-child"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

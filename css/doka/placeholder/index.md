@@ -1,6 +1,6 @@
 ---
 title: "::placeholder"
-author:
+authors:
   - ezhkov
 tags:
   - sprint-2

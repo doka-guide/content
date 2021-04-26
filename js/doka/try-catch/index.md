@@ -1,7 +1,7 @@
 ---
 title: "try...catch"
 name: try-catch
-author:
+authors:
   - windrushfarer
 contributors:
   - furtivite

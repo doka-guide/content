@@ -1,6 +1,6 @@
 ---
 title: "justify-self"
-author:
+authors:
   - solarrust
 summary:
   - выравнивание грид-элемента

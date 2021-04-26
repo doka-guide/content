@@ -1,6 +1,6 @@
 ---
 title: "<form>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

@@ -1,6 +1,6 @@
 ---
 title: "<iframe>"
-author:
+authors:
   - grachev
 tags:
   - sprint-2

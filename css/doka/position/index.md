@@ -1,6 +1,6 @@
 ---
 title: "position"
-author:
+authors:
   - ezhkov
 summary:
   - позиционирование

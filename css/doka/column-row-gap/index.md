@@ -1,6 +1,6 @@
 ---
 title: "column-gap, row-gap"
-author:
+authors:
   - solarrust
 summary:
   - отступы между грид-ячейками

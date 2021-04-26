@@ -1,6 +1,6 @@
 ---
 title: ":link"
-author:
+authors:
   - realetive
 summary:
   - стили ссылки

@@ -1,7 +1,7 @@
 ---
 title: "prompt()"
 name: prompt
-author:
+authors:
   - vindi-r
 ---
 

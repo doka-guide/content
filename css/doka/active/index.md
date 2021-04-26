@@ -1,6 +1,6 @@
 ---
 title: ":active"
-author:
+authors:
   - solarrust
 summary:
   - :active

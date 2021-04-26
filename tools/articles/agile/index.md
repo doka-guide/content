@@ -1,7 +1,7 @@
 ---
 title: "Что такое методологии разработки и Agile"
 name: agile
-author:
+authors:
   - igorkamyshev
 contributors:
   - furtivite

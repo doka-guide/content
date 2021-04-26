@@ -1,7 +1,7 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
 name: web-security
-author:
+authors:
   - bespoyasov
 tags:
   - sprint-14

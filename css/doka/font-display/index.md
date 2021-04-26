@@ -1,6 +1,6 @@
 ---
 title: "font-display"
-author:
+authors:
   - ezhkov
 summary:
   - отображение шрифта

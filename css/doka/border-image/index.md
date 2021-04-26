@@ -1,6 +1,6 @@
 ---
 title: "border-image"
-author:
+authors:
   - solarrust
 summary:
   - картинка рамки

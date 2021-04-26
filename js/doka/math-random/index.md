@@ -1,7 +1,7 @@
 ---
 title: "Math.random()"
 name: math-random
-author:
+authors:
   - nlopin
 ---
 

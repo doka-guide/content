@@ -1,6 +1,6 @@
 ---
 title: "<main>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

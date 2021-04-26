@@ -1,8 +1,9 @@
 ---
 title: "order"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - порядок флекс-элементов
   - flexbox

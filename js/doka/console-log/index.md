@@ -1,7 +1,7 @@
 ---
 title: "console.log()"
 name: console-log
-author:
+authors:
   - vindi-r
 contributors:
   - nlopin

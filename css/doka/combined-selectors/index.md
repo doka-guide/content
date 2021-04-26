@@ -1,6 +1,6 @@
 ---
 title: "Комбинированные селекторы"
-author:
+authors:
   - realetive
 summary:
 - комбинированный

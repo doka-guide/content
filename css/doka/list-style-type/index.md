@@ -1,6 +1,6 @@
 ---
 title: "list-style-type"
-author:
+authors:
   - realetive
 contributors:
   - skorobaeus

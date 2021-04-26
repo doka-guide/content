@@ -1,6 +1,6 @@
 ---
 title: "Поток документа"
-author:
+authors:
   - ezhkov_d
 summary:
   - раскладка

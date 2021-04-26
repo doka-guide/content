@@ -1,6 +1,6 @@
 ---
 title: "background-repeat"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

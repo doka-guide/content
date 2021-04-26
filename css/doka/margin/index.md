@@ -1,6 +1,6 @@
 ---
 title: "margin"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

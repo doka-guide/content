@@ -1,11 +1,12 @@
 ---
 title: "Гайд по flexbox"
-author:
+authors:
   - solarrust
 contributors:
   - furtivite
   - skorobaeus
-editor: tachisis
+editors:
+  - tachisis
 tags:
   - sprint-1
   - sprint-4

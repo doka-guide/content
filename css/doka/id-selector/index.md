@@ -1,6 +1,6 @@
 ---
 title: "Селектор по идентификатору"
-author:
+authors:
   - solarrust
 summary:
   - initial

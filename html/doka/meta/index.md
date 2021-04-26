@@ -1,11 +1,12 @@
 ---
 title: "<meta>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust
   - vladimir
-editor: tachisis
+editors:
+  - tachisis
 tags:
   - sprint-3
 summary:

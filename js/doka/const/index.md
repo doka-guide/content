@@ -1,7 +1,7 @@
 ---
 title: "const"
 name: const
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

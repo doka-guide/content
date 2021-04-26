@@ -1,7 +1,7 @@
 ---
 title: "alert()"
 name: alert
-author:
+authors:
   - vindi-r
 contributors:
   - furtivite

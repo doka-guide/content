@@ -1,7 +1,7 @@
 ---
 title: "Element.mouseover"
 name: element-mouseover
-author:
+authors:
   - nlopin
 summary:
 ---

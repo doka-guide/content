@@ -1,6 +1,6 @@
 ---
 title: "font-weight"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

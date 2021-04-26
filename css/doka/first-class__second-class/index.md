@@ -1,6 +1,6 @@
 ---
 title: ".first-class, .second-class"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

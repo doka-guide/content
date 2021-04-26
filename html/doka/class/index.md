@@ -1,6 +1,6 @@
 ---
 title: "class"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

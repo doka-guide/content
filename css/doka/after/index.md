@@ -1,6 +1,6 @@
 ---
 title: "::after"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

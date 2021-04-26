@@ -1,6 +1,6 @@
 ---
 title: ":placeholder-shown"
-author:
+authors:
   - ezhkov
 summary:
   - форма

@@ -1,7 +1,7 @@
 ---
 title: "Array.map"
 name: array-map
-author:
+authors:
   - windrushfarer
 contributors:
   - skorobaeus

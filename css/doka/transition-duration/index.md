@@ -1,6 +1,6 @@
 ---
 title: "transition-duration"
-author:
+authors:
   - ezhkov
 tags:
   - sprint-2

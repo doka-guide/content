@@ -1,6 +1,6 @@
 ---
 title: "<img>"
-author:
+authors:
   - grachev
 contributors:
   - skorobaeus

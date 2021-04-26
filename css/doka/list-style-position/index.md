@@ -1,6 +1,6 @@
 ---
 title: "list-style-position"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

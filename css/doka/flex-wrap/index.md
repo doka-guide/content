@@ -1,8 +1,9 @@
 ---
 title: "flex-wrap"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - перенос на новую строку
   - flexbox

@@ -1,7 +1,7 @@
 ---
 title: "return"
 name: return
-author:
+authors:
   - vindi-r
 contributors:
   - furtivite

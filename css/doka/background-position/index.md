@@ -1,6 +1,6 @@
 ---
 title: "background-position"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

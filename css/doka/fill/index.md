@@ -1,6 +1,6 @@
 ---
 title: "fill"
-author:
+authors:
   - realetive
 summary:
   - svg-заливка

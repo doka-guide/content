@@ -1,6 +1,6 @@
 ---
 title: "text-decoration"
-author:
+authors:
   - solarrust
 contributors:
   - furtivite

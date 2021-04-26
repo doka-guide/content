@@ -1,6 +1,6 @@
 ---
 title: ":not"
-author:
+authors:
   - solarrust
 summary:
   - псевдокласс

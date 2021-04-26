@@ -1,6 +1,6 @@
 ---
 title: "font-style"
-author:
+authors:
   - grachev
 contributors:
   - skorobaeus

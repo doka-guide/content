@@ -1,6 +1,6 @@
 ---
 title: "<blockquote>"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

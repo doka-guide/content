@@ -1,6 +1,6 @@
 ---
 title: "Таблицы"
-author:
+authors:
   - solarrust
 summary:
   - table

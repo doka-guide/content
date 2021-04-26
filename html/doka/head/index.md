@@ -1,10 +1,11 @@
 ---
 title: "<head>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - хэд
   - head

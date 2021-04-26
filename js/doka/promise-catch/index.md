@@ -1,7 +1,7 @@
 ---
 title: "Promise. Метод catch"
 name: promise-catch
-author:
+authors:
   - nlopin
 summary:
   - промис

@@ -1,6 +1,6 @@
 ---
 title: "z-index"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

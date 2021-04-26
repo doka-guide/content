@@ -1,7 +1,7 @@
 ---
 title: "if...else"
 name: if-else
-author:
+authors:
   - nlopin
 summary:
   - условие
