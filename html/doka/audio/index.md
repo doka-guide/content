@@ -100,4 +100,4 @@ summary:
 </audio>
 ```
 
-{% demo "/audio/", "Аудио", 230 %}
+<iframe title="Аудио" src="demos/audio.html"></iframe>
