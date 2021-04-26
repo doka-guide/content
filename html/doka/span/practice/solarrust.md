@@ -58,4 +58,4 @@ permalink: false
 }
 ```
 
-<iframe title="Цветовой акцент" src="../demos/company.html"></iframe>
+<iframe title="Цветовой акцент" src="./demos/company.html"></iframe>
