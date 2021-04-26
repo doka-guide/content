@@ -1,6 +1,6 @@
 ---
 title: "box-shadow"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

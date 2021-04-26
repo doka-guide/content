@@ -1,6 +1,6 @@
 ---
 title: "<ol>"
-author:
+authors:
   - ezhkov
 summary:
   - список

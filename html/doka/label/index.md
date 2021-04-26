@@ -1,6 +1,6 @@
 ---
 title: "<label>"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

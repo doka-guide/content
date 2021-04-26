@@ -1,6 +1,6 @@
 ---
 title: "Стиль написания кода в команде"
-author:
+authors:
   - bespoyasov
 summary:
   - code-style

@@ -1,7 +1,7 @@
 ---
 title: "for()"
 name: for
-author:
+authors:
   - vindi-r
 summary:
   - итерация

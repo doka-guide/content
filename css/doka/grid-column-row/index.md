@@ -1,6 +1,6 @@
 ---
 title: "grid-column, grid-row"
-author:
+authors:
   - solarrust
 summary:
   - грид-колонка

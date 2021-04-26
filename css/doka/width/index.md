@@ -1,6 +1,6 @@
 ---
 title: "width"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

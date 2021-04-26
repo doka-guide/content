@@ -1,6 +1,6 @@
 ---
 title: "<h1>...<h6>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

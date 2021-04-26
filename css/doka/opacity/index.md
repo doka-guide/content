@@ -1,6 +1,6 @@
 ---
 title: "opacity"
-author:
+authors:
   - solarrust
 summary:
   - opacity

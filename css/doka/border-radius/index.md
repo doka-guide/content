@@ -1,6 +1,6 @@
 ---
 title: "border-radius"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

@@ -1,7 +1,7 @@
 ---
 title: "Порядок выполнения"
 name: execution-order
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

@@ -1,7 +1,7 @@
 ---
 title: "HTMLCollection и NodeList"
 name: htmlcollection-and-nodelist
-author:
+authors:
   - nlopin
 summary:
 ---

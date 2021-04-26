@@ -1,6 +1,6 @@
 ---
 title: "<dl>, <dd>, <dt>"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

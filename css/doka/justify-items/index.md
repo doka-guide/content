@@ -1,6 +1,6 @@
 ---
 title: "justify-items"
-author:
+authors:
   - solarrust
 summary:
   - выравнивание по горизонтальной оси

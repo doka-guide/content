@@ -1,6 +1,6 @@
 ---
 title: ":has"
-author:
+authors:
   - realetive
 summary:
   - :has()

@@ -1,6 +1,6 @@
 ---
 title: "Работа с формами"
-author:
+authors:
   - bespoyasov
 tags:
   - sprint-4

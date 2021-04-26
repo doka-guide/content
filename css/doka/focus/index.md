@@ -1,6 +1,6 @@
 ---
 title: ":focus"
-author:
+authors:
   - solarrust
 summary:
   - :focus

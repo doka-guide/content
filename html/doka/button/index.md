@@ -1,6 +1,6 @@
 ---
 title: "<button>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

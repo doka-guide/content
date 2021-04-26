@@ -1,6 +1,6 @@
 ---
 title: "<audio>"
-author:
+authors:
   - vladimir
 contributors:
   - skorobaeus

@@ -1,8 +1,9 @@
 ---
 title: "Глобальные атрибуты"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - атрибут
   - HTML-атрибут

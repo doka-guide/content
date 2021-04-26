@@ -1,7 +1,7 @@
 ---
 title: "Array.filter"
 name: array-filter
-author:
+authors:
   - windrushfarer
 contributors:
   - nlopin

@@ -1,6 +1,6 @@
 ---
 title: "background-size"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

@@ -1,7 +1,7 @@
 ---
 title: "Number"
 name: number-wrapper
-author:
+authors:
   - nlopin
 summary:
   - число

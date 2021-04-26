@@ -1,7 +1,7 @@
 ---
 title: "События"
 name: events
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

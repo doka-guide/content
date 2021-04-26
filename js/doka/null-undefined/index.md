@@ -1,7 +1,7 @@
 ---
 title: "Null и undefined"
 name: null-undefined
-author:
+authors:
   - nlopin
 summary:
   - нул

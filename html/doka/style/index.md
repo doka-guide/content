@@ -1,6 +1,6 @@
 ---
 title: "<style>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

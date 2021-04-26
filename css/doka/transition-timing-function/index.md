@@ -1,6 +1,6 @@
 ---
 title: "transition-timing-function"
-author:
+authors:
   - ezhkov
 summary:
   - функция времени

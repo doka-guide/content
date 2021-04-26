@@ -1,7 +1,7 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
 name: throttle
-author:
+authors:
   - bespoyasov
 summary:
   - scroll

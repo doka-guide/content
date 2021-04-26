@@ -1,6 +1,6 @@
 ---
 title: "<input>"
-author:
+authors:
   - vladimir
 contributors:
   - skorobaeus

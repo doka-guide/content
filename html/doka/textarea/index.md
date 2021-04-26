@@ -1,6 +1,6 @@
 ---
 title: "<textarea>"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

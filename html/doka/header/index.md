@@ -1,6 +1,6 @@
 ---
 title: "<header>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

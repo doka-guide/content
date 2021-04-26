@@ -1,6 +1,6 @@
 ---
 title: "font-family"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

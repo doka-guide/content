@@ -1,6 +1,6 @@
 ---
 title: "quotes"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

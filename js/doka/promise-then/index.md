@@ -1,7 +1,7 @@
 ---
 title: "Promise. Метод then"
 name: promise-then
-author:
+authors:
   - nlopin
 summary:
   - промис

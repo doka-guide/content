@@ -1,6 +1,6 @@
 ---
 title: "<a>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

@@ -1,8 +1,9 @@
 ---
 title: "flex-direction"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - выравнивание по основной оси
   - flexbox

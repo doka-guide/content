@@ -1,6 +1,6 @@
 ---
 title: "transition"
-author:
+authors:
   - ezhkov
 contributors:
   - skorobaeus

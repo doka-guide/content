@@ -1,6 +1,6 @@
 ---
 title: "Селектор по тегу"
-author:
+authors:
   - ezhkov
 summary:
   - селектор

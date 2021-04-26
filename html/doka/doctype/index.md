@@ -1,6 +1,6 @@
 ---
 title: "<!DOCTYPE>"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

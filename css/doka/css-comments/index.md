@@ -1,6 +1,6 @@
 ---
 title: "Комментарий в CSS"
-author:
+authors:
   - solarrust
 summary:
   - комментарии

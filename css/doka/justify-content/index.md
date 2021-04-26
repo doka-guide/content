@@ -1,8 +1,9 @@
 ---
 title: "justify-content"
-author:
+authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - выравнивание вдоль основной оси
   - flexbox

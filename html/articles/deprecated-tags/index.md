@@ -1,6 +1,6 @@
 ---
 title: Устаревшие теги
-author:
+authors:
   - realetive
 contributors:
   - skorobaeus

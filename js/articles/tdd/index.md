@@ -1,6 +1,6 @@
 ---
 title: "Разработка через тестирование (TDD)"
-author:
+authors:
   - bespoyasov
 summary:
   - test

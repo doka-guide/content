@@ -1,6 +1,6 @@
 ---
 title: "<script>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

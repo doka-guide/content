@@ -1,6 +1,6 @@
 ---
 title: ":hover"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

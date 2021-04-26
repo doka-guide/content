@@ -1,7 +1,7 @@
 ---
 title: "Системы управления версиями"
 name: version-control
-author:
+authors:
   - igorkamyshev
 contributors:
   - furtivite

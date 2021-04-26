@@ -1,6 +1,6 @@
 ---
 title: "cursor"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

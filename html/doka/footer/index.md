@@ -1,6 +1,6 @@
 ---
 title: "<footer>"
-author:
+authors:
   - vladimir
 summary:
   - тэг

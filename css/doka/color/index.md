@@ -1,6 +1,6 @@
 ---
 title: "color"
-author:
+authors:
   - grachev
 contributors:
   - vladimir

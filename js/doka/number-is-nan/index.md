@@ -1,7 +1,7 @@
 ---
 title: "Number.isNaN()"
 name: number-is-nan
-author:
+authors:
   - vindi-r
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: ":checked"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

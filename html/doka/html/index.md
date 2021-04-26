@@ -1,6 +1,6 @@
 ---
 title: "<html>"
-author:
+authors:
   - grachev
 contributors:
   - solarrust

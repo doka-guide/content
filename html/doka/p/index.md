@@ -1,6 +1,6 @@
 ---
 title: "<p>"
-author:
+authors:
   - vladimir
 contributors:
   - solarrust

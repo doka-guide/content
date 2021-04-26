@@ -1,6 +1,6 @@
 ---
 title: "visibility"
-author:
+authors:
   - solarrust
 contributors:
   - skorobaeus

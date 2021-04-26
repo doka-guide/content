@@ -1,7 +1,7 @@
 ---
 title: "Логические операторы"
 name: logic-operators
-author:
+authors:
   - nlopin
 contributors:
   - furtivite

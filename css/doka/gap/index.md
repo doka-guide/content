@@ -1,6 +1,6 @@
 ---
 title: "gap"
-author:
+authors:
   - solarrust
 summary:
   - отступы между грид-ячейками

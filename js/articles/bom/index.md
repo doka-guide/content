@@ -1,7 +1,7 @@
 ---
 title: "Браузерное окружение, BOM"
 name: bom
-author:
+authors:
   - bespoyasov
 summary:
   - navigator

@@ -1,6 +1,6 @@
 ---
 title: "Псевдоклассы"
-author:
+authors:
   - realetive
 summary:
   - псевдокласс
