@@ -2,9 +2,10 @@
 title: "<link>"
 authors:
   - grachev
-  - corocoto
 editors:
   - tachisis
+contributors:
+  - corocoto
 tags:
   - sprint-1
 summary:
