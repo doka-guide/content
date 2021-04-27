@@ -107,9 +107,4 @@ dt::after {
 
 💡 В отличие от списков [`<ul>`](/html/doka/ul/) и [`<ol>`](/html/doka/ol/) группы терминов и определений, с недавних пор и по просьбе разработчиков, можно оборачивать в [`<div>`](/html/doka/div/).
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="ZEOdwrv" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="dl,dd,dt">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/ZEOdwrv">
-  dl,dd,dt</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Пары «ключ-значение»" src="demos/dl-dd-dt.html"></iframe>

@@ -21,10 +21,19 @@ cover:
 
 ```html
 <footer>
-  <p>Copyright Ольга Данилюк</p>
-  <p>Почта: <a href="mailto:someone@yandex.ru"> someone@yandex.ru</a>.</p>
+  <p>Copyright Ольга Сасквоч</p>
+  <p>Почта: <a href="mailto:sasquatch@yandex.ru">sasquatch@yandex.ru</a></p>
 </footer>
 ```
+
+```css
+footer {
+  border-top: 2px solid green;
+  font-style: italic;
+}
+```
+
+<iframe title="Футер для статьи" src="demos/footer.html"></iframe>
 
 ## Как это понять
 
