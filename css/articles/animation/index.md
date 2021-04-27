@@ -13,6 +13,8 @@ summary:
   - animation-play-state
   - animation-fill-mode
   - animation
+tags:
+  - sprint-2
 ---
 
 ## Кратко
