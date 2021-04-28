@@ -3,7 +3,7 @@ title: "Универсальный селектор"
 authors:
   - solarrust
 editor:
- - tachisis
+  - tachisis
 summary:
   - звёздочка
   - лоботомированная сова
