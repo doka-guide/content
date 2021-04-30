@@ -9,5 +9,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Ночная сборка сайта с контентом на Netlify
+      - name: Публикация сайта с контентом на Netlify
         run: curl -X POST -d {} ${{ secrets.NETLIFY_BUILD_HOOK }}
