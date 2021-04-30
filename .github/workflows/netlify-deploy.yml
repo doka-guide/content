@@ -1,8 +1,9 @@
 name: Deploy Platform With Content
 
 on:
-  schedule:
-    - cron:  '00 5 * * *'
+  push:
+    branches:
+      - master
 
 jobs:
   deploy:
