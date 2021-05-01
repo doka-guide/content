@@ -64,7 +64,7 @@ git checkout new-user-profile
 Можно произвольно переключаться между ветками с помощью команды `git checkout`.
 
 ```bash
-git checkout master
+git checkout main
 git checkout new-user-profile
 ```
 

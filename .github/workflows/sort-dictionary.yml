@@ -3,7 +3,7 @@ name: Sort Dictionary
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   spell:
