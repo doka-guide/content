@@ -32,7 +32,7 @@ summary:
   - flex-flow
   - align-content
 cover:
-  desktop: cover.png
+  desktop: images/cover.png
 ---
 
 ## Что это?
