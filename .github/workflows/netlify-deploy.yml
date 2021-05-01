@@ -3,7 +3,7 @@ name: Deploy Platform With Content
 on:
   push:
     branches:
-      - service/actions
+      - master
 
 jobs:
   deploy:
