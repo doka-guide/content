@@ -5,6 +5,7 @@ authors:
   - nlopin
 contributors:
   - furtivite
+  - skorobaeus
 tags:
   - sprint-4
   - sprint-6
@@ -44,17 +45,24 @@ summary:
 Если в это свойство записать анонимную функцию, то эта функция будет вызываться каждый раз, когда браузер будет создавать событие, связанное с этим элементом. Такие функции называют функциями-обработчиками события.
 
 ```js
-let button = document.getElementsByTagName("button")[0]
-button.onclick = function () {
-  alert("hello!")
+let buttonElement = document.getElementById('change');
+let squareDiv = document.getElementById('square');
+
+// чтобы реагировать на нажатие кнопки, записываем функцию в свойство onclick.
+// Эта функция будет вызываться при каждом нажатии на кнопку. Часто говорят,
+// что эта функция обрабатывает событие
+buttonElement.onclick = function() {
+  squareDiv.style= `background-color: ${getColor()};`;
+}
+
+function getColor() {
+  const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#1A5AD7", "#AFC9DA",
+                  "#FFD829", "#282A2E", "#5E6064", "#E6E6E6"];
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="y-doka" data-slug-hash="WNxbKxa" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="on-свойство DOM элементов">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/WNxbKxa">
-  on-свойство DOM элементов</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Свойство DOM элемента onclick" src="demos/onclick.html"></iframe>
 
 Чтобы перестать обрабатывать событие, нужно записать в свойство значение `null`.
 
@@ -65,22 +73,17 @@ button.onclick = function () {
 Метод вызывается у DOM элемента. Аргументами нужно передать тип события (справочная информация) и функцию, которую нужно выполнить:
 
 ```js
-let button = document.getElementsByTagName("button")[0]
-button.addEventListener("click", function () {
-  alert("Frontend!")
-})
+let buttonElement = document.getElementById('change');
+let squareDiv = document.getElementById('square');
 
-// этим способом можно подписаться на одно и то же событие можно несколько раз!
-button.addEventListener("click", function () {
-  alert("Weekend!")
-})
+// чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем
+// функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
+buttonElement.addEventListener('click', function() {
+  squareDiv.style= `background-color: ${getColor()};`;
+});
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="BazyPor" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="подписка на события с помощью addEventListener">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/BazyPor">
-  подписка на события с помощью addEventListener</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Метод addEventListener" src="demos/click.html"></iframe>
 
 ## Как понять
 
@@ -106,21 +109,48 @@ window.addEventListener("keydown", function (event) {
 
 Например, мы объявим обработчик в виде именованной функции и повесим её на нажатие нескольких кнопок. При клике на кнопку будем менять её цвет:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="y-doka" data-slug-hash="xxOxeLz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="События">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/xxOxeLz">
-  События</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+```js
+function changeColor() {
+  // меняем цвет кнопки, на которой произошло событие. кнопка доступна с помощью
+  // ключевого слова this
+  this.style = `background-color: ${getColor()};`;
+};
+
+let buttons = document.getElementsByTagName('button');
+for(let i=0; i<buttons.length;++i) {
+  let button = buttons[i];
+  // к каждой кнопке привязываем обработчик
+  button.addEventListener('click', changeColor); // обратите внимание, что мы не вызываем
+  // функцию функцию changeColor, а только пишем ее имя
+}
+```
+
+<iframe title="This в функции-обработчике" src="demos/this.html"></iframe>
 
 ### Всплытие событий
 
 Рассмотрим пример. У нас есть `div` элемент, в который вложено видео. Мы подписались на события `click` как на `div`, так и на `video`. Если событие происходит на `div`, то мы меняем его цвет на случайный из списка. Если событие происходит на `video`, то мы запускаем видео. Попробуйте кликнуть на коробку:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="y-doka" data-slug-hash="PozqLOO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Всплытие событий">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/PozqLOO">
-  Всплытие событий</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+```js
+let container = document.getElementById('container');
+let video = document.getElementById('cat');
+
+// слушаем событие click на <div>
+container.addEventListener('click', function() {
+  const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#1A5AD7", "#AFC9DA",
+                  "#FFD829", "#282A2E", "#5E6064"];
+  let randomColorIndex = Math.floor(Math.random()*colors.length);
+  container.style = `background-color: ${colors[randomColorIndex]}`;
+});
+
+// слушаем событие click на видео
+video.addEventListener('click', function() {
+  this.currentTime = 0; // отматываем видео на начало
+  this.play();
+})
+```
+
+<iframe title="Всплытие событий" src="demos/bubbling.html"></iframe>
 
 🤖 Обрати внимание, что событие срабатывает на обоих элементах — цвет фона меняется и запускается видео. Этому есть объяснение, оно называется _всплытие событий (event bubbling)_.
 
@@ -132,12 +162,42 @@ window.addEventListener("keydown", function (event) {
 
 Кликай по блокам на демо и увидишь, как событие всплывает вверх к родителям:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="y-doka" data-slug-hash="pobvZdX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Event bubbling">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/pobvZdX">
-  Event bubbling</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```js
+let active;
+let counter = 0;
+
+// слушаем событие click на всех <div>
+let divs = Array.from(document.querySelectorAll('div')).reverse();
+for(let i= 0; i < divs.length; ++i) {
+  let isLast = (i + 1 === divs.length);
+  divs[i].addEventListener('click', clickHandlerGenerator(isLast));
+}
+
+function clickHandlerGenerator(isLast = false) {
+  return function() {
+    let me = this;
+    setTimeout(function() {
+      if (active) {
+        active.classList.remove('active');
+      }
+      me.classList.add('active');
+
+      active = me;
+
+      if (isLast) {
+        setTimeout(function() {
+          active.classList.remove('active');
+          active = undefined;
+          counter = 0;
+        }, 300);
+      }
+    }, counter * 300);
+    ++counter;
+  }
+}
+```
+
+<iframe title=">Всплытие событий по цепочке вложенности" src="demos/bubbling-chain.html"></iframe>
 
 Всплытие события можно остановить с помощью метода `stopPropagation` у объекта события:
 
