@@ -3,7 +3,7 @@ name: Sort Dictionary
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   spell:
@@ -13,6 +13,8 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
       - name: Сортировка словаря исключений
         run: node .github/scripts/sort.js
       - uses: stefanzweifel/git-auto-commit-action@v4

@@ -7,6 +7,8 @@ summary:
   - loading
   - lazy
   - event
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
