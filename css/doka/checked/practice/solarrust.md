@@ -56,4 +56,4 @@ permalink: false
 }
 ```
 
-<iframe title="Выпадающее менюо" src="demos/choose.html"></iframe>
+<iframe title="Выпадающее меню" src="../demos/choose.html"></iframe>
