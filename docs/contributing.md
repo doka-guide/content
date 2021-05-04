@@ -154,7 +154,7 @@ cover:
 
 ![Пример обложки](./images/contributing.png)
 
-Если вы хотите добавить обложку, позовите [кого-нибудь из мейнтейнеров](https://github.com/Y-Doka/y-doka.site/blob/master/CODEOWNERS), мы закажем картинку у дизайнера.
+Если вы хотите добавить обложку, позовите [кого-нибудь из мейнтейнеров](https://github.com/Y-Doka/y-doka.site/blob/main/CODEOWNERS), мы закажем картинку у дизайнера.
 
 #### Подписи авторов
 

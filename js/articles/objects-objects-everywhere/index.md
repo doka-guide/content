@@ -7,6 +7,8 @@ tags:
 summary:
   - array
   - массивы
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко

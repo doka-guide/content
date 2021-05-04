@@ -11,6 +11,8 @@ summary:
   - декларативный
   - ооп
   - функциональное
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко

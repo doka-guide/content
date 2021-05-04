@@ -2,6 +2,8 @@
 title: "Преобразование типов"
 authors:
   - bespoyasov
+cover:
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
