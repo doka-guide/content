@@ -3,6 +3,7 @@ title: "<main>"
 authors:
   - vladimir
   - solarrust
+  - pepelsbey
 editor:
   - tachisis
 summary:
