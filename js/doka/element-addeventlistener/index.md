@@ -5,6 +5,7 @@ authors:
   - vindi-r
 contributors:
   - nlopin
+  - skorobaeus
 ---
 
 ## Кратко
