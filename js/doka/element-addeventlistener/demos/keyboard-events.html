@@ -90,7 +90,7 @@
 
 <script>
   function handleKey(event) {
-    let msg = 'Нажата клавиша: <code>' + event.key + '</code>';
+    const msg = 'Нажата клавиша: <code>' + event.key + '</code>';
     if (event.key === 'Enter') {
       let newMsg = document.createElement('div');
       newMsg.innerText = event.target.value;
