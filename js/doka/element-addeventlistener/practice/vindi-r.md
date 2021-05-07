@@ -7,24 +7,25 @@ permalink: false
 🛠 Базовая обработка событий клавиатуры:
 
 ```html
-<input id="field" type="text" placeholder="Введите сообщение">
-<div id="event">Ожидание ввода...</div>
-<div id="result"></div>
+<div class="event">Ожидание ввода...</div>
+<input type="text" placeholder="Введите сообщение">
+<div class="result"></div>
 ```
 
 ```js
 function handleKey(event) {
-  let msg = 'Нажата клавиша: <code>' + event.key + '</code>';
+  const msg = '<code>' + event.key + '</code>';
   if (event.key === 'Enter') {
-    let newMsg = document.createElement('div');
+    const newMsg = document.createElement('div');
+    newMsg.classList.add("message");
     newMsg.innerText = event.target.value;
-    document.querySelector('#result').appendChild(newMsg);
+    document.querySelector('.result').appendChild(newMsg);
     event.target.value = '';
   }
-    document.querySelector('#event').innerHTML = msg;
+    document.querySelector('.event').innerHTML = msg;
 }
 
-let elem = document.querySelector('input');
+const elem = document.querySelector('input');
 elem.addEventListener('keydown', handleKey);
 ```
 
@@ -46,7 +47,7 @@ function handleClick(e) {
     document.querySelector('#result').innerText = '';
   }, 2500);
 }
-let elem = document.querySelector('#custom');
+const elem = document.querySelector('#custom');
 elem.addEventListener('click', handleClick);
 ```
 
