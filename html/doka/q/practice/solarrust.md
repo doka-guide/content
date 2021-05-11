@@ -13,6 +13,6 @@ permalink: false
 </p>
 ```
 
-<iframe title="Nyan" src="demos/quote.html"></iframe>
+<iframe title="Nyan" src="../demos/quote.html"></iframe>
 
 Обратите внимание, что кавычки в этом примере отличаются от стандартных, они соответствуют тем кавычкам, которые ставятся в латинизированном японском тексте.
