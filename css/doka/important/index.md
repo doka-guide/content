@@ -2,8 +2,6 @@
 title: "!important"
 authors:
   - solarrust
-editor:
-  - tachisis
 summary:
   - модификатор
   - переопределение специфичности
