@@ -26,7 +26,7 @@ summary:
 ```html
 <!-- Шапка -->
 <header>
-  <img src="logo.svg" alt="Лого">
+  <img src="logo.svg" width="200" height="120" alt="Лого">
   <nav>
     <a href>Мои работы</a>
     <a href>Контакты</a>

@@ -7,68 +7,68 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500;1,900&display=swap">
   <style>
-    .demo-body * {
+    body {
       margin: 0;
-      padding: 0;
-    }
-
-    .article__code {
-      padding: 5%;
+      padding: 40px;
+      display: grid;
+      row-gap: 20px;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
     }
 
-    h1 {
-      font-size: 50px;
-      font-weight: 900;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      font-weight: 500;
-      font-size: 22px;
-    }
-
-    p {
-      margin-top: 5px;
-    }
-
     header {
+      display: grid;
+      grid-template-columns: 1fr max-content;
+      align-items: center;
       padding: 80px 50px;
       background-color: #ffd829;
       color: #000000;
     }
 
-    article {
-      padding: 35px 50px;
-      margin-top: 20px;
+    nav {
+      display: grid;
+      row-gap: 1em;
+    }
+
+    nav a {
+      color: #000000;
+    }
+
+    main {
+      padding: 50px;
       background-color: #e6e6e6;
       color: #000000;
     }
 
+    h1 {
+      margin: 0;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      font-size: 45px;
+      font-weight: bold;
+    }
+
     footer {
       padding: 10px 0;
-      margin-top: 20px;
       border-top: 1px solid #979797;
       color: #e6e6e6;
       font-style: italic;
       font-size: 14px;
-      font-weight: 300;
     }
   </style>
 </head>
 <body>
+  <!-- Шапка -->
   <header>
-    <img src="logo.svg" alt="Лого">
+    <img src="../images/logo.svg" width="200" height="120" alt="Лого">
     <nav>
       <a href>Мои работы</a>
       <a href>Контакты</a>
     </nav>
   </header>
   <!-- / Шапка -->
-  <main class="article__code">
+  <main>
     <h1>Портфолио Ольги Данилюк</h1>
     <p>Добро пожаловать!</p>
     <p>Рада приветствовать вас на своём сайте.</p>
