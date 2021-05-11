@@ -28,7 +28,7 @@ cover:
   <p>Исходя из данного утверждения, марксизм неизбежен. Коммунизм, с другой стороны, означает экзистенциальный коллапс Советского Союза. Культ личности доказывает гуманизм.</p>
   <footer>
     <p>Ольга Данилюк</p>
-    <p>Почта: <a href="mailto:someone@yandex.ru"> someone@yandex.ru</a>.</p>
+    <p>Почта: <a href="mailto:someone@yandex.ru">someone@yandex.ru</a>.</p>
   </footer>
 </article>
 ```
