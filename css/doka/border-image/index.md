@@ -2,6 +2,8 @@
 title: "border-image"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 summary:
   - картинка рамки
 ---
@@ -15,23 +17,25 @@ summary:
 ## Пример
 
 ```html
-<div class="element">Искусство музыкально...</div>
+<div class="element">
+  <span>Выход<br>за<br>рамки</span>
+</div>
 ```
 
 ```css
 .element {
-  padding: 35px;
-  border-style: solid; /* Без свойства border рамка показана не будет */
-  border-image: url(img.png) 40 / 50px space;
+  border-left-style: solid;
+  border-left-width: 65px;
+  border-left-color: #1A5AD7;
+  border-image: url("custom-border.svg")
+                66 /
+                66px 0 66px 66px /
+                0px 0
+                stretch;
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="y-doka" data-slug-hash="dypWQrQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="dypWQrQ">
-  <span>See the Pen <a href="https://codepen.io/y-doka/pen/dypWQrQ">
-  dypWQrQ</a> by doka (<a href="https://codepen.io/y-doka">@y-doka</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Картинка в качестве рамки слева" src="demos/border-image.html"></iframe>
 
 ## Как это понять
 
