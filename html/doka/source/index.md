@@ -113,7 +113,7 @@ summary:
 ```html
 <source
   srcset="1024x768.png 1024w, 640x480.png 640w"
-  sizes="(max-width:1200px) 50vw,  1024px"/>
+  sizes="(max-width:1200px) 50vw,  1024px">
 ```
 
 Когда браузер разбирает тег `<source>`, он выполняет следующие действия:
