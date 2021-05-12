@@ -120,7 +120,7 @@ summary:
 
 ```html
 <source
-  srcset="1024x768.png 1024w, 640x480.png 640w"
+  srcset="640x480.png 640w, 1024x768.png 1024w"
   sizes="(max-width: 1200px) 50vw, 1024px">
 ```
 
