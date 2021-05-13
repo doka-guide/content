@@ -2,6 +2,8 @@
 title: "transform"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:
@@ -83,12 +85,7 @@ summary:
 
 Часто бывает необходимо каким-то образом трансформировать визуальное представление элемента (масштабировать, повернуть, переместить) и при этом никак не затронуть соседние элементы в документе. Для подобных преобразований используется свойство `transform`. В качестве значения выступают различные функции трансформации: `rotate`, `translate`, `scale`, `skew`.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="ezhkov" data-slug-hash="GRZzQBZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transform interactive">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/GRZzQBZ">
-  transform interactive</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Песочница Transform" src="demos/playground.html"></iframe>
 
 Стоит обратить особое внимание на тот факт, что трансформируемый элемент при трансформациях никак не взаимодействует с соседними элементами. Он как бы «приподнимается» над остальным содержимым. При этом он не уходит из потока документа, и остальные элементы располагаются так, как располагались до применения трансформаций.
 
