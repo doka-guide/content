@@ -1,6 +1,5 @@
 ---
 title: "sticky"
-name: sticky
 author: lenaryan
 summary:
   - sticky
