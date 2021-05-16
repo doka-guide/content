@@ -11,6 +11,6 @@ permalink: false
   <source type="image/avif" srcset="photo.avif">
   <source type="image/webp" srcset="photo.webp">
   <source type="image/jpeg" srcset="photo.jpg">
-  <img src="photo.jpg" alt="Моя фотография">
+  <img src="photo.jpg" alt="Тестовая картинка">
 </picture>
 ```
