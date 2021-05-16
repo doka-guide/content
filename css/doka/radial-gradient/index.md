@@ -1,6 +1,5 @@
 ---
 title: "radial-gradient()"
-name: radial-gradient
 authors:
   - ezhkov_d
 summary:
