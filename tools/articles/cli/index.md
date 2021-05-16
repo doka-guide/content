@@ -1,9 +1,9 @@
 ---
 title: "Интерфейс командной строки"
 name: cli
-authors: 
+authors:
   - igsekor
-editors: 
+editors:
   - tachisis
 summary:
   - cli
