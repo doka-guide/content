@@ -1,8 +1,10 @@
 ---
-title: Интерфейс командной строки
+title: "Интерфейс командной строки"
 name: cli
-author: igsekor
-editor: tachisis
+authors: 
+  - igsekor
+editors: 
+  - tachisis
 summary:
   - cli
   - unix
