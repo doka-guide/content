@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Перемещение элемента при прокрутке — scroll/wheel — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Оформление */
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: Roboto, sans-serif;
+    }
+
+    #square {
+      position: absolute;
+      left: calc(50% - 62px);
+      top: calc(50% - 62px);
+      box-sizing: border-box;
+      width: 124px;
+      height: 124px;
+      border: 1px solid #ffffff;
+      padding: 10px;
+      font-size: 75px;
+      text-align: center;
+    }
+
+    h1 {
+      position: absolute;
+      top: calc(50% + 62px);
+      left: calc(50% - 62px);
+      width: 250px;
+      font-size: 26px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+<h1>Используй стрелки, чтобы перемещать квадрат</h1>
+<div id='square'>🐌</div>
+
+<script>
+  let square = document.getElementById('square');
+
+  // слушаем нажатие на клавиши во всём документе
+  window.addEventListener('keydown', function(event) {
+    event.preventDefault();
+    let leftPosition = getPosition("left");
+    let topPosition = getPosition("top");
+    let step = 10;
+
+    if (event.code === "ArrowRight") {
+      let newPosition = leftPosition + step;
+      square.style.left = newPosition + "px";
+    } else if (event.code === "ArrowLeft") {
+      let newPosition = leftPosition - step;
+      square.style.left = newPosition + "px";
+    } else if (event.code === "ArrowUp") {
+      let newPosition = topPosition - step;
+      square.style.top = newPosition + "px";
+    } else if (event.code === "ArrowDown") {
+      let newPosition = topPosition + step;
+      square.style.top = newPosition + "px";
+    }
+
+  });
+
+  function getPosition(type) {
+    let styles = window.getComputedStyle(square, null);
+    let value = styles[type];
+    if (value) {
+      return parseInt(value.substring(0, value.length - 2));
+    }
+    return 0;
+  }
+</script>
+</body>
+</html>
