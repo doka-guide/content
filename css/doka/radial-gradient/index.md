@@ -26,7 +26,7 @@ summary:
 
 Градиент — это плавный переход между цветами. Радиальный градиент — это переход, который начинается в точке и расходится от неё подобно кругам на воде. Радиальный градиент не обязательно должен быть круговым. Форма по умолчанию — это эллипс, который заполняет всю площадь элемента.
 
-<img srcset="images/ellipse.png, images/ellipse@2x.png 2x" src="images/ellipse.png" alt="Эллипс и радиальный градиент" width="460">
+<img src="images/ellipse.png" width="920" height="394" alt="Эллипс и радиальный градиент">
 
 <iframe title="Radial gradient" src="demos/gradient.html"></iframe>
 
