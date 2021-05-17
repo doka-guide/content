@@ -4,31 +4,25 @@
     <title>Паттерн при помощи радиального градиента — radial-gradient — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <style>
-      * {
-        margin: 0;
-      }
-
       body {
+        margin: 0;
         padding: 10% 5%;
         overflow: hidden;
         background-color: #18191c;
         color: #ffffff;
-        font-family: "Roboto", sans-serif;
       }
 
       .element {
         width: 500px;
         height: 300px;
         background-color:#def;
-        background-image: radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%),
-          radial-gradient(closest-side, transparent 98%, rgba(0,0,0,.3) 99%);
+        background-image:
+          radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, 0.3) 99%),
+          radial-gradient(closest-side, transparent 98%, rgba(0, 0, 0, 0.3) 99%);
         background-size:80px 80px;
         background-position:0 0, 40px 40px;
       }
-
     </style>
   </head>
   <body>

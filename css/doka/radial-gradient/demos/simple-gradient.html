@@ -4,19 +4,13 @@
     <title>Простой радиальный градиент — radial-gradient — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <style>
-      * {
-        margin: 0;
-      }
-
       body {
+        margin: 0;
         padding: 10% 5%;
         overflow: hidden;
         background-color: #18191c;
         color: #ffffff;
-        font-family: "Roboto", sans-serif;
       }
 
       .wrapper {
@@ -26,24 +20,23 @@
         gap: 20px;
       }
 
-      .element {
+      .element-1 {
         width: 200px;
         height: 150px;
         background-image: radial-gradient(#09ff00, #ff0000);
       }
 
-      .element2 {
+      .element-2 {
         width: 200px;
         height: 100px;
         background-image: radial-gradient(yellow, coral, blue, green, white, black);
       }
-
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <div class="element"></div>
-      <div class="element2"></div>
+      <div class="element-1"></div>
+      <div class="element-2"></div>
     </div>
   </body>
 </html>
