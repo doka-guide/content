@@ -1,5 +1,5 @@
 ---
-title: Что такое файл
+title: Файл и файловые системы
 name: file
 authors:
   - igsekor
