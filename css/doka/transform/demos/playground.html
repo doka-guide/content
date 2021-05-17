@@ -28,23 +28,64 @@
     }
 
     .parent {
-      width: calc(100% - 275px);
+      position: relative;
+      width: calc(100% - 245px);
       perspective: 500px;
       text-align: center;
     }
 
+    .parent::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      outline: 1px solid rgb(255 255 255 / 30%);
+      outline-offset: -2px;
+      z-index: 10;
+    }
+
     .obj {
+      position: relative;
       display: inline-block;
       width: 200px;
       height: 200px;
-      background-image: url("../images/obj.svg");
       background-repeat: no-repeat;
       transform: translate3d(var(--translateX), var(--translateY), var(--translateZ))
-                scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
-                rotateX(var(--rotateX))
-                rotateY(var(--rotateY))
-                rotateZ(var(--rotateZ))
-                skew(var(--skewX), var(--skewY));
+                 scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
+                 rotateX(var(--rotateX))
+                 rotateY(var(--rotateY))
+                 rotateZ(var(--rotateZ))
+                 skew(var(--skewX), var(--skewY));
+      transform-style: preserve-3d;
+    }
+
+    .obj::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ED6742;
+      background-image: url("../images/face.svg");
+      background-size: cover;
+      background-position: center;
+      backface-visibility: hidden;
+    }
+
+    .obj::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #E6E6E6;
+      background-image: url("../images/back.svg");
+      background-size: cover;
+      background-position: center;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
     }
 
     .dg {
