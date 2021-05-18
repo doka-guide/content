@@ -4,7 +4,7 @@ authors:
   - ezhkov
 contributors:
   - furtivite
-editor:
+editors:
   - tachisis
 summary:
   - список
