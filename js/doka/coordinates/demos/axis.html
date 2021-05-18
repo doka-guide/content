@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Оси координат в браузере — Координаты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,700;1,900&amp;display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    .content {
+      position: relative;
+      width: 3000px;
+      height: 3000px;
+      background: #181a1c;
+
+      --font-size: 14px;
+    }
+
+    .x-axis-document {
+      background: blue;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .y-axis-document {
+      background: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .x-axis {
+      width: 100%;
+      height: 15px;
+      color: #fff;
+      font-size: var(--font-size);
+      padding-left: 30px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+    }
+
+    .y-axis {
+      width: 15px;
+      height: 100%;
+      color: #fff;
+      writing-mode: vertical-lr;
+      padding-top: 30px;
+      font-size: var(--font-size);
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .x-axis-screen {
+      background: green;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+    }
+
+    .y-axis-screen {
+      background: orange;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 30px;
+    }
+
+    .doc-relative {
+      display: flex;
+      color: #fff;
+      align-items: center;
+      text-align: center;
+      width: 120px;
+      height: 70px;
+      background: pink;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+
+    .screen-relative {
+      display: flex;
+      color: #fff;
+      align-items: center;
+      text-align: center;
+      width: 120px;
+      height: 70px;
+      background: purple;
+      position: fixed;
+      top: 100px;
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+<div class="content">
+  <div class="screen-relative">
+    Расположен относительно окна
+  </div>
+
+  <div class="doc-relative">
+    Расположен относительно документа
+  </div>
+
+  <div class="x-axis x-axis-screen">Ось x относительно экрана</div>
+  <div class="y-axis y-axis-screen">Ось y относительно экрана</div>
+  <div class="x-axis x-axis-document">Ось x относительно документа</div>
+  <div class="y-axis y-axis-document">Ось y относительно документа</div>
+</div>
+</body>
+</html>
