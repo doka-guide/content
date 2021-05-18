@@ -2,6 +2,8 @@
 title: "radial-gradient()"
 authors:
   - ezhkov_d
+editors:
+  - tachisis
 summary:
   - градиент
   - радиальный
