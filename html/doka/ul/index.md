@@ -4,6 +4,8 @@ authors:
   - ezhkov
 contributors:
   - furtivite
+editor:
+  - tachisis
 summary:
   - список
   - маркированный список
