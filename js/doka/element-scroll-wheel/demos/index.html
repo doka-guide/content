@@ -4,8 +4,9 @@
   <title>Сравнение событий scroll и wheel — scroll/wheel — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    /* Оформление */
     * {
       margin: 0;
       padding: 0;
@@ -13,18 +14,18 @@
     }
 
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       margin: 0;
+      padding: 5%;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
+      text-align: center;
     }
 
     .container {
+      display: inline-block;
       max-width: 500px;
+      text-align: left;
     }
 
     .header-container {
@@ -34,14 +35,13 @@
 
     .description p:first-child {
       color: #FFFFFF;
-      font-weight: 900;
-      font-size: 18px;
-      line-height: 23px;
+      font-weight: 500;
     }
 
     .description p {
       margin-top: 10px;
       color: #1a5ad7;
+      font-size: 18px;
     }
 
     .indicators {

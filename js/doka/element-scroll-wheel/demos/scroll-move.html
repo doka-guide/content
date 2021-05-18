@@ -4,69 +4,79 @@
   <title>Перемещение элемента при прокрутке — scroll/wheel — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    /* Оформление */
     body {
       background-color: #18191c;
       color: #ffffff;
-      font-family: Roboto, sans-serif;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
     }
 
-    #square {
+    code {
+      font-family: "Roboto Mono";
+      font-size: 0.9em;
+    }
+
+    #snail {
       position: absolute;
-      left: calc(50% - 62px);
-      top: calc(50% - 62px);
+      top: calc(50% - 100px);
+      left: calc(50% - 100px);
+      width: 100px;
+      height: 100px;
       box-sizing: border-box;
-      width: 124px;
-      height: 124px;
-      border: 1px solid #ffffff;
-      padding: 10px;
-      font-size: 75px;
-      text-align: center;
+      background-image: url('../images/snail.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
     }
 
-    h1 {
+    p {
       position: absolute;
-      top: calc(50% + 62px);
-      left: calc(50% - 62px);
+      top: calc(50%);
+      left: calc(50% - 100px);
       width: 250px;
-      font-size: 26px;
+      color: #E6E6E6;
+      font-size: 18px;
       font-weight: 500;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-<h1>Используй стрелки, чтобы перемещать квадрат</h1>
-<div id='square'>🐌</div>
+<div id='snail'></div>
+<p>Крути колесо мыши, чтобы перемещать улиточку.<br>Зажми <code>Alt</code>, чтобы двигать вверх или вниз.</p>
 
 <script>
-  let square = document.getElementById('square');
+  const snail = document.getElementById('snail');
 
-  // слушаем нажатие на клавиши во всём документе
-  window.addEventListener('keydown', function(event) {
+  window.addEventListener('wheel', function(event) {
     event.preventDefault();
+    console.log(event);
     let leftPosition = getPosition("left");
     let topPosition = getPosition("top");
     let step = 10;
 
-    if (event.code === "ArrowRight") {
-      let newPosition = leftPosition + step;
-      square.style.left = newPosition + "px";
-    } else if (event.code === "ArrowLeft") {
-      let newPosition = leftPosition - step;
-      square.style.left = newPosition + "px";
-    } else if (event.code === "ArrowUp") {
+    if (event.deltaY === -100 && event.altKey === true) {
       let newPosition = topPosition - step;
-      square.style.top = newPosition + "px";
-    } else if (event.code === "ArrowDown") {
+      snail.style.top = newPosition + "px";
+    } else if (event.deltaY === 100 && event.altKey === true) {
       let newPosition = topPosition + step;
-      square.style.top = newPosition + "px";
+      snail.style.top = newPosition + "px";
+    } else if (event.deltaY === -100 && event.altKey === false) {
+      let newPosition = leftPosition + step;
+      snail.style.left = newPosition + "px";
+    } else if (event.deltaY === 100 && event.altKey === false) {
+      let newPosition = leftPosition - step;
+      snail.style.left = newPosition + "px";
     }
-
   });
 
   function getPosition(type) {
-    let styles = window.getComputedStyle(square, null);
+    let styles = window.getComputedStyle(snail, null);
     let value = styles[type];
     if (value) {
       return parseInt(value.substring(0, value.length - 2));

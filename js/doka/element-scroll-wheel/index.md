@@ -3,6 +3,8 @@ title: "Element.scroll/wheel"
 name: element-scroll-wheel
 authors:
   - nlopin
+contributors:
+  - skorobaeus
 summary:
 ---
 
