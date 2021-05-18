@@ -2,7 +2,7 @@
 title: "<ol>"
 authors:
   - ezhkov
-editor:
+editors:
   - tachisis
 summary:
   - список
