@@ -48,27 +48,26 @@
 </head>
 <body>
 <div id='snail'></div>
-<p>Крути колесо мыши, чтобы перемещать улиточку.<br>Зажми <code>Alt</code>, чтобы двигать вверх или вниз.</p>
+<p>Крути колесо мыши, чтобы перемещать улиточку вверх или вниз.<br>Зажми <code>Alt</code>, чтобы двигать в стороны.</p>
 
 <script>
   const snail = document.getElementById('snail');
 
   window.addEventListener('wheel', function(event) {
-    event.preventDefault();
     let leftPosition = getPosition("left");
     let topPosition = getPosition("top");
     let step = 10;
 
-    if (event.deltaY < 0 && event.altKey === true) {
+    if (event.deltaY < 0 && event.altKey === false) {
       let newPosition = topPosition - step;
       snail.style.top = newPosition + "px";
-    } else if (event.deltaY > 0 && event.altKey === true) {
+    } else if (event.deltaY > 0 && event.altKey === false) {
       let newPosition = topPosition + step;
       snail.style.top = newPosition + "px";
-    } else if (event.deltaY < 0 && event.altKey === false) {
+    } else if (event.deltaY < 0 && event.altKey === true || event.deltaX < 0) {
       let newPosition = leftPosition + step;
       snail.style.left = newPosition + "px";
-    } else if (event.deltaY > 0 && event.altKey === false) {
+    } else if (event.deltaY > 0 && event.altKey === true || event.deltaX > 0) {
       let newPosition = leftPosition - step;
       snail.style.left = newPosition + "px";
     }
