@@ -4,7 +4,7 @@ authors:
   - realetive
 contributors:
   - furtivite
-editor:
+editors:
   - tachisis
 summary:
   - статья
