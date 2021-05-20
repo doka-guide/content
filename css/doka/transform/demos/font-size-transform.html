@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Font-size vs. Transform — transform — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191C;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    h3 {
+      margin-top: 50px;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    h2, h3 {
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .nav-item + .nav-item {
+      margin-left: 20px;
+    }
+
+    .nav a {
+      color: inherit;
+      text-decoration-color: #1A5AD7;
+      text-decoration-thickness: 2px;
+      transition: font-size 0.3s;
+    }
+
+    .nav.font-size a:hover {
+      font-size: 22px;
+    }
+
+    .nav.transform a {
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .nav.transform a:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>Увеличиваем размер шрифта при наведении</h2>
+  <h3>Через изменение <code>font-size</code></h3>
+  <ul class="nav font-size">
+    <li class="nav-item"><a href="#">Каталог</a></li>
+    <li class="nav-item"><a href="#">О нас</a></li>
+    <li class="nav-item"><a href="#">Доставка</a></li>
+    <li class="nav-item"><a href="#">Оплата</a></li>
+  </ul>
+
+  <h3>Через применение <code>transform</code></h3>
+  <ul class="nav transform">
+    <li class="nav-item"><a href="#">Каталог</a></li>
+    <li class="nav-item"><a href="#">О нас</a></li>
+    <li class="nav-item"><a href="#">Доставка</a></li>
+    <li class="nav-item"><a href="#">Оплата</a></li>
+  </ul>
+</body>
+</html>
