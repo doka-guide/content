@@ -2,7 +2,8 @@
 title: "<embed>"
 authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - вставка контента
 ---

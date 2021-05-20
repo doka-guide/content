@@ -2,7 +2,7 @@
 title: "Универсальный селектор"
 authors:
   - solarrust
-editor:
+editors:
   - tachisis
 summary:
   - звёздочка

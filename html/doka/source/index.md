@@ -1,7 +1,9 @@
 ---
 title: "<source>"
-author: ezhkov_d
-editor: tachisis
+authors:
+  - ezhkov_d
+editors:
+  - tachisis
 summary:
   - адаптивные изображения
   - picture
