@@ -9,11 +9,11 @@ permalink: false
 
 ```html
 <ol class="list">
-  <li class="list__item">Определение</li>
-  <li class="list__item">Свойства</li>
-  <li class="list__item">Списки в языках программирования</li>
-  <li class="list__item">См. также</li>
-  <li class="list__item">Примечания</li>
+  <li class="list__item">Определение.</li>
+  <li class="list__item">Свойства.</li>
+  <li class="list__item">Списки в языках программирования.</li>
+  <li class="list__item">См. также.</li>
+  <li class="list__item">Примечания.</li>
 </ol>
 ```
 

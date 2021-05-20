@@ -214,7 +214,7 @@ summary:
 
 ```css
 input::placeholder {
-  color: #70a0ff;
+  color: #1A5AD7;
 }
 ```
 
