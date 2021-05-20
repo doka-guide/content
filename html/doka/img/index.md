@@ -4,7 +4,8 @@ authors:
   - grachev
   - solarrust
   - pepelsbey
-editor: tachisis
+editors:
+  - tachisis
 contributors:
   - skorobaeus
 summary:

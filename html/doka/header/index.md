@@ -5,7 +5,7 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
-editor:
+editors:
   - tachisis
 summary:
   - тэг

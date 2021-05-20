@@ -7,7 +7,8 @@ contributors:
   - skorobaeus
   - solarrust
   - pepelsbey
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - тэг
   - тег

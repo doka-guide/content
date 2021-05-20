@@ -4,7 +4,7 @@ authors:
   - vladimir
   - solarrust
   - pepelsbey
-editor:
+editors:
   - tachisis
 summary:
   - тэг

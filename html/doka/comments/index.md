@@ -2,7 +2,8 @@
 title: "Комментарии в HTML"
 authors:
   - solarrust
-editor: tachisis
+editors:
+  - tachisis
 summary:
   - комментарии
 cover:

@@ -3,7 +3,7 @@ title: "<footer>"
 authors:
   - vladimir
   - solarrust
-editor:
+editors:
   - tachisis
 summary:
   - тэг
