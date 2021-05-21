@@ -5,53 +5,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    .article__code * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    .article__code {
-      margin: 0;
+    body {
       padding: 5%;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
+      text-align: center;
     }
 
-    .article__code pre {
+    pre {
       font-family: "Roboto Mono";
       white-space: pre-wrap;
-      background-color: #18191c;
-      color: #ffffff;
     }
 
-    .article__code h2 {
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    h2 {
       font-size: 22px;
       font-weight: 500;
       margin-top: 35px;
       margin-bottom: 10px;
     }
 
-    .article__code h2:first-child {
+    h2:first-child {
       margin-top: 0;
     }
 
-    .article__code .header-container {
+    .header-container {
       margin-top: 10px;
       margin-bottom: 45px;
     }
 
-    .article__code .header-container pre,
-    .article__code .does-container pre {
+    .header-container pre,
+    .does-container pre {
       padding: 15px 0;
       border-bottom: 1px solid #5e6064;
     }
 
-    .article__code .does-container {
+    .does-container {
       display: flex;
       align-items: flex-end;
     }
@@ -65,7 +68,7 @@
       flex-grow: 1;
     }
 
-    .article__code .button {
+    .button {
       min-width: 200px;
       border: 1px solid;
       padding: 10px;
@@ -76,41 +79,41 @@
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code .button:hover {
+    .button:hover {
       border: 1px solid #ffffff;
       color: #ffffff;
       background-color: #18191c;
       cursor: pointer;
     }
 
-    .article__code .button:focus {
+    .button:focus {
       outline: 1px solid #ffffff;
     }
 
-    .article__code .green {
+    .green {
       background-color: #49a16c;
       border-color: #49a16c;
     }
 
-    .article__code .green:hover {
+    .green:hover {
       border-color: #49a16c;
     }
 
-    .article__code .blue {
+    .blue {
       background-color: #1a5ad7;
       border-color: #1a5ad7;
     }
 
-    .article__code .blue:hover {
+    .blue:hover {
       border-color: #0882ff;
     }
 
-    .article__code .items {
+    .items {
       display: flex;
-      min-height: 42px;
+      min-height: 32px;
     }
 
-    .article__code .item {
+    .item {
       width: 50px;
       height: 32px;
       border: 1px solid #ffffff;
@@ -119,17 +122,17 @@
       line-height: 30px;
     }
 
-    .article__code .item + .item {
+    .item + .item {
       margin-left: 10px;
     }
 
-    .article__code .active {
+    .active {
       border-color: #ffd829;
       background-color: #ffd829;
       color: #ffffff;
     }
 
-    .article__code .execute {
+    .execute {
       min-height: 57px;
       padding: 15px 0;
       border-bottom: 1px solid #5e6064;
@@ -137,8 +140,7 @@
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <div class="demo-container">
+    <div class="container">
       <div class="header-container">
         <h2>Наш код</h2>
         <pre>
@@ -166,7 +168,6 @@
       <h2>Итоговый массив</h2>
       <div class="items" id="result"></div>
     </div>
-  </div>
 
 <script>
   const SECOND = 1000

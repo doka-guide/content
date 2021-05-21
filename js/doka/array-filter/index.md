@@ -31,20 +31,9 @@ const jLanguages = languages.filter(function (language) {
 })
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Windrushfarer" data-slug-hash="yLOpeNO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="yLOpeNO">
-  <span>See the Pen <a href="https://codepen.io/Windrushfarer/pen/yLOpeNO">
-  yLOpeNO</a> by Egor Ogarkov (<a href="https://codepen.io/Windrushfarer">@Windrushfarer</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
 Интерактивный пример:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Windrushfarer" data-slug-hash="VwaQqOV" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Filter">
-  <span>See the Pen <a href="https://codepen.io/Windrushfarer/pen/VwaQqOV">
-  Filter</a> by Egor Ogarkov (<a href="https://codepen.io/Windrushfarer">@Windrushfarer</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Работа Array.filter" src="demos/index.html"></iframe>
 
 ## Как пишется
 
