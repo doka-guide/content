@@ -1,5 +1,3 @@
-> THIS LICENSE DOES NOT APPLY TO GRAPHICS, AUDIO, OR VIDEO CONTENT. Check out [the license for this type of content](GRAPHICS-LICENCE.md). If one of the data types has its own license, it will be located in the corresponding directory.
-
 # Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License
 
 Copyright (c) 2021 Y-Doka Community
