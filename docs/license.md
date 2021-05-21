@@ -103,9 +103,9 @@
 
 Картинки можно использовать исключительно «как есть», например:
 
-> ![Картинка из статьи про флексы](https://raw.githubusercontent.com/Y-Doka/content/main/css/articles/flexbox-guide/images/cover.png)
+> ![Картинка из статьи про флексбоксы](https://raw.githubusercontent.com/Y-Doka/content/main/css/articles/flexbox-guide/images/cover.png)
 >
->Изображение создано иллюстраторами Доки для [статьи про флексы](https://y-doka.site/css/long/flexbox-guide/).
+>Изображение создано иллюстраторами Доки для [статьи про флексбоксы](https://y-doka.site/css/long/flexbox-guide/).
 
 Напомним, что картинки нельзя перекрашивать, деформировать и изменять для дальнейшего использования.
 
