@@ -10,10 +10,10 @@
 
 Наши тексты распространяются по лицензии [CC BY-NC-SA 4.0](../content/LICENSE-SA.md).
 
-<img src="images/license/cc.png" width="35" height="35" alt="Creative Commons">
-<img src="images/license/by.png" width="35" height="35" alt="Сохранение ссылок и авторства">
-<img src="images/license/nc.png" width="35" height="35" alt="Некоммерческое использование">
-<img src="images/license/sa.png" width="35" height="35" alt="Сохранение лицензии">
+![Creative Commons](images/license/cc.svg)
+![Сохранение ссылок и авторства](images/license/by.svg)
+![Некоммерческое использование](images/license/nc.svg)
+![Сохранение лицензии](images/license/sa.svg)
 
 Это значит, что тексты можно изменять, править и распространять в любом виде, пока вы сохраняете лицензию, ссылку на Доку и упоминание наших авторов, плюс не просите за ваш продукт деньги.
 
@@ -21,10 +21,10 @@
 
 Всё остальное в Доке, кроме текста, распространяется по лицензии [CC BY-NC-ND 4.0](../content/LICENCE-ND.md).
 
-<img src="images/license/cc.png" width="35" height="35" alt="Creative Commons">
-<img src="images/license/by.png" width="35" height="35" alt="Сохранение ссылок и авторства">
-<img src="images/license/nc.png" width="35" height="35" alt="Некоммерческое использование">
-<img src="images/license/nd.png" width="35" height="35" alt="Неизменность">
+![Creative Commons](images/license/cc.svg)
+![Сохранение ссылок и авторства](images/license/by.svg)
+![Некоммерческое использование](images/license/nc.svg)
+![Неизменность](images/license/nd.svg)
 
 Это значит, что такой контент можно распространять в любом виде, пока вы не изменяете его, сохраняете ссылку на Доку и упоминание наших дизайнеров, плюс не просите за ваш продукт деньги.
 
