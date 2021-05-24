@@ -8,23 +8,23 @@
 
 ## Лицензия для текстов
 
-Наши тексты распространяются по лицензии [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International Public License](../content/LICENSE-SA.md).
+Наши тексты распространяются по лицензии [CC BY-NC-SA 4.0](../content/LICENSE-SA.md).
 
-![Creative Commons](./images/license/cc.png)
-![Сохраняй ссылки и авторство](./images/license/by.png)
-![Не проси деньги](./images/license/nc.png)
-![Сохраняй лицензию](./images/license/sa.png)
+<img src="images/license/cc.png" width="35" height="35" alt="Creative Commons">
+<img src="images/license/by.png" width="35" height="35" alt="Сохранение ссылок и авторства">
+<img src="images/license/nc.png" width="35" height="35" alt="Некоммерческое использование">
+<img src="images/license/sa.png" width="35" height="35" alt="Сохранение лицензии">
 
 Это значит, что тексты можно изменять, править и распространять в любом виде, пока вы сохраняете лицензию, ссылку на Доку и упоминание наших авторов, плюс не просите за ваш продукт деньги.
 
 ## Лицензии для остального контента
 
-Всё, что находится в Доке, кроме текста и не распространяется по другим правилам, защищается [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](../content/LICENCE-ND.md).
+Всё остальное в Доке, кроме текста, распространяется по лицензии [CC BY-NC-ND 4.0](../content/LICENCE-ND.md).
 
-![Creative Commons](./images/license/cc.png)
-![Сохраняй ссылки и авторство](./images/license/by.png)
-![Не проси деньги](./images/license/nc.png)
-![Не изменяй](./images/license/nd.png)
+<img src="images/license/cc.png" width="35" height="35" alt="Creative Commons">
+<img src="images/license/by.png" width="35" height="35" alt="Сохранение ссылок и авторства">
+<img src="images/license/nc.png" width="35" height="35" alt="Некоммерческое использование">
+<img src="images/license/nd.png" width="35" height="35" alt="Неизменность">
 
 Это значит, что такой контент можно распространять в любом виде, пока вы не изменяете его, сохраняете ссылку на Доку и упоминание наших дизайнеров, плюс не просите за ваш продукт деньги.
 
