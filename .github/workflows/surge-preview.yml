@@ -1,4 +1,4 @@
-name: Превью сборки на Surge
+name: Surge
 
 on:
   pull_request
