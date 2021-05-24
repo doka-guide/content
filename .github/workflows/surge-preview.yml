@@ -29,7 +29,7 @@ jobs:
       - name: Установка модулей
         run: npm ci
       - name: Сборка и публикация сайта
-        uses: afc163/surge-preview@v1
+        uses: Y-Doka/surge-preview@master
         id: preview_step
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
