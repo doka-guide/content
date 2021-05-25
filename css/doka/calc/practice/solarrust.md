@@ -29,7 +29,7 @@ permalink: false
 }
 ```
 
-<iframe title="Выделение слова в предложении" src="./demos/nonfit.html"></iframe>
+<iframe title="Вёрстка трёх колонок" src="./demos/nonfit.html"></iframe>
 
 Можно использовать флексбокс. Избежим падения, но получим проблему сужения блоков чтобы уместиться в ряд. Как всего этого избежать? Высчитывать размер блоков с учётом этих боковых отступов!
 
@@ -42,4 +42,4 @@ permalink: false
 }
 ```
 
-<iframe title="Выделение слова в предложении" src="./demos/fit.html"></iframe>
+<iframe title="Вёрстка трёх колонок исправленная" src="./demos/fit.html"></iframe>
