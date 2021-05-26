@@ -126,7 +126,7 @@ const goods = [
 ]
 
 // Просто возвращаем значения описания
-const withDescription = goods.filter(function () {
+const withDescription = goods.filter(function (item) {
   return item.description
 })
 // Получим массив с AirPods и MacBook Pro
