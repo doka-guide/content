@@ -4,6 +4,7 @@ authors:
   - grachev
 contributors:
   - vladimir
+  - skorobaeus
 summary:
   - font-family
 ---
@@ -48,36 +49,37 @@ body {
 
 ## Ещё пример
 
-Зададим разные шрифты для заголовка и для основного текста:
+Зададим разные шрифты для заголовков и для основного текста:
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>font-family</title>
-    <style>
-      h1 {
-        font-family: Geneva, Arial, Helvetica, sans-serif;
-      }
-      p {
-        font-family: Georgia, "Times New Roman", Times, serif;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Этот заголовок написан шрифтом Geneva без засечек</h1>
-    <p>А этот текст — шрифтом Georgia с засечками.</p>
-  </body>
-</html>
+<h1>Этот заголовок написан шрифтом Roboto без засечек</h1>
+<p>А параграф — шрифтом Roboto Slab с засечками.</p>
+<div class="generic">
+  <h2>Для второго заголовка установлено семейство sans-serif</h2>
+  <p>Семейство шрифтов этого параграфа указано как serif — это шрифт с засечками,
+    установленный в системе по умолчанию.</p>
+</div>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="max-grachev" data-slug-hash="bZzqYP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="font-family">
-  <span>See the Pen <a href="https://codepen.io/max-grachev/pen/bZzqYP">
-  font-family</a> by Max Grachev (<a href="https://codepen.io/max-grachev">@max-grachev</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```css
+h1 {
+  font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
+}
+
+.generic h2 {
+  font-family: sans-serif;
+}
+
+.generic p {
+  font-family: serif;
+}
+```
+
+<iframe title="Шрифты с засечками и без" src="demos/index.html"></iframe>
 
 ## Подсказки
 
