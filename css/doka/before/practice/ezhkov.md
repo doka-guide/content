@@ -42,8 +42,7 @@ li {
 }
 
 li::before {
-  /* не забываем о свойстве content */
-  content: "";
+  content: ""; /* Не забываем о свойстве content */
   width: 15px;
   height: 15px;
   border-radius: 50%;
