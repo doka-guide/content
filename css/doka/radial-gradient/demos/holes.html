@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Фон с отверстиями — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .underlying {
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 300px;
+        background-image: url('../images/color-bg.jpeg');
+      }
+
+      .element {
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        transform: translateX(-50%);
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        background-image: radial-gradient(circle, transparent 50%, coral 50%);
+        background-size: 50px 50px;
+        background-position: 50px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="underlying"></div>
+    <div class="element"></div>
+  </body>
+</html>

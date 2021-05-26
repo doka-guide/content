@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Простой радиальный градиент — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .element-1 {
+        width: 200px;
+        height: 150px;
+        background-image: radial-gradient(#09ff00, #ff0000);
+      }
+
+      .element-2 {
+        width: 200px;
+        height: 100px;
+        background-image: radial-gradient(yellow, coral, blue, green, white, black);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="element-1"></div>
+      <div class="element-2"></div>
+    </div>
+  </body>
+</html>
