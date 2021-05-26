@@ -2,6 +2,8 @@
 title: "calc()"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 tags:
   - sprint-3
 summary:
