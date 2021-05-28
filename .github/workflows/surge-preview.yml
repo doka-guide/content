@@ -1,11 +1,19 @@
 name: Surge
 
 on:
-  pull_request
+  pull_request:
+    branches:
+      - main
+    types:
+      - synchronize
+      - opened
+      - reopened
+      - ready_for_review
 
 jobs:
   preview:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
