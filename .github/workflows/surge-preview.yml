@@ -1,14 +1,7 @@
 name: Surge
 
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - synchronize
-      - opened
-      - reopened
-      - ready_for_review
+  pull_request
 
 jobs:
   preview:
