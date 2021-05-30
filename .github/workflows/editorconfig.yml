@@ -21,7 +21,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - name: Проверка линтером
         run: |
-          npm install editorconfig-checker -g
+          npm ci editorconfig-checker
           config=.editorconfig
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]

@@ -21,7 +21,7 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - name: Проверка правописания
         run: |
-          npm install yaspeller -g
+          npm ci yaspeller
           config=.yaspeller.json
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]
