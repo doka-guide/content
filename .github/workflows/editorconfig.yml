@@ -14,13 +14,5 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - id: files
-        uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
-      - run: npx editorconfig-checker
+      - name: Проверка форматирования
+        uses: zbeekman/EditorConfig-Action@v1.1.0
