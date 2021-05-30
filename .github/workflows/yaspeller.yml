@@ -21,15 +21,16 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - name: Проверка правописания
         run: |
+          npm install yaspeller -g
           config=.yaspeller.json
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]
             then
               echo "Проверка для всех файлов"
-              npx yaspeller **/*.{md,html}
+              yaspeller **/*.{md,html}
               break
             else
               echo "Проверка для ${changed_file}"
-              npx yaspeller ${changed_file}
+              yaspeller ${changed_file}
             fi
           done
