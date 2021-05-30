@@ -14,5 +14,8 @@ jobs:
         node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Проверка форматирования
-        uses: zbeekman/EditorConfig-Action@v1.1.0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Проверка линтером
+        run: npx editorconfig-checker
