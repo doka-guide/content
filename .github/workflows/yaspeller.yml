@@ -19,9 +19,17 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - id: files
         uses: jitterbit/get-changed-files@v1
-      - run: |
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
       - name: Проверка правописания
-        run: npx yaspeller **/*.{md,html}
+        run: |
+          config=.yaspeller.json
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]
+            then
+              echo "Проверка для всех файлов"
+              npx yaspeller **/*.{md,html}
+              break
+            else
+              echo "Проверка для ${changed_file}"
+              npx yaspeller ${changed_file}
+            fi
+          done
