@@ -4,7 +4,6 @@ name: cookie
 authors:
   - akellbl4
 contributors:
-  - kamyshev
 summary:
   - cookies
   - cookie
@@ -96,33 +95,3 @@ console.log(cookie.sidebar);
 ```js
 document.cookie = `sidebar=;expires=${Date.parse(0)};path=/;";
 ```
-
-## В работе
-
-{% include "authors/kamyshev/in-work.njk" %}
-
-Формат строки `document.cookie` не очень удобен для работы, поэтому обычно в проекте создают функции, которые упрощают чтение и запись кук. Чтобы не писать эти функции самостоятельно, можно взять библиотеку [js-cookie](https://github.com/js-cookie/js-cookie) — это совсем небольшая обертка над стандартным браузерным API, которая здорово упрощает жизнь.
-
-С этой библиотекой установка значения для куки выполняется так:
-
-```js
-import Cookies from "js-cookie";
-
-Cookies.set("foo", "bar");
-```
-
-А чтение так:
-
-```js
-import Cookies from "js-cookie";
-
-const nameFromCookie = Cookies.get("name");
-```
-
-Конечно, под капотом эта библиотека тоже работает с `document.cookie`, но снаружи она предоставляет простой и удобный интерфейс.
-
-{% include "authors/akellbl4/in-work.njk" %}
-
-Будьте внимательнее, пытаясь получить куки, так как JavaScript имеет доступ не ко всем кукам. Если сервер устанавливает куки с параметром HttpOnly (доступен только для установки сервером), то такие cookie не будут доступны из JS. Как правило, такие cookie используются для хранения чувствительной информации, как, например, токены для авторизации, а проверка авторизации происходит с помощью запроса за текущим авторизованным пользователем и считается при успешном ответе сервера.
-
-{% include "authors/akellbl4/author.njk" %}
