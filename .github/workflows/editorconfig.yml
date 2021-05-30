@@ -24,7 +24,7 @@ jobs:
           npm install editorconfig-checker -g
           config=.editorconfig
           for changed_file in ${{ steps.files.outputs.all }}; do
-          if [ $changed_file == $config ]
+            if [ $changed_file == $config ]
             then
               echo "Проверка для всех файлов"
               editorconfig-checker
