@@ -6,6 +6,7 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
