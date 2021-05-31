@@ -3,6 +3,8 @@ title: "Element.mouseout"
 name: element-mouseout
 authors:
   - nlopin
+contributors:
+  - skorobaeus
 summary:
   - мышь
 ---
@@ -26,11 +28,19 @@ divEl.addEventListener("mouseout", function () {
 
 Подробнее о механизме событий читай в статье [«События»](/js/doka/events/).
 
-Событие проще всего понять на демо. При событии `mouseout` мы меняем цвет квадрата на случайный. Чтобы событие произошло, нужно навести курсор на квадрат, а затем убрать его:
+Событие проще всего понять на демо. При событии `mouseout` мы меняем цвет фигуры на случайный. Чтобы событие произошло, нужно навести курсор на фигуру, а затем убрать его:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="Mdxyqe" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Событие mouseout">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/Mdxyqe">
-  Событие mouseout</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```js
+const figure = document.querySelector('.figure');
+
+figure.addEventListener('mouseout', function() {
+  figure.style = `background-color: ${getColor()};`;
+});
+
+function getColor() {
+  const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#AFC9DA", "#FFD829", "#282A2E", "#979797", "#E6E6E6", "#FFFFFF"];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+```
+
+<iframe title="Смена цвета при событии mouseout" src="demos/index.html"></iframe>
