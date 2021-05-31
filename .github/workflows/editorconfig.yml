@@ -17,4 +17,20 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npx editorconfig-checker
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - name: Проверка линтером
+        run: |
+          npm install editorconfig-checker -g
+          config=.editorconfig
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]
+            then
+              echo "Проверка для всех файлов"
+              editorconfig-checker
+              break
+            else
+              echo "Проверка для ${changed_file}"
+              editorconfig-checker ${changed_file}
+            fi
+          done
