@@ -103,18 +103,18 @@ sudo kill -9 <PID>
 Создадим скрипт `index.js`:
 
 ```js
-console.log('Hello!');
+console.log('Hello!')
 ```
 
 Добавить обработку сигналов в программу очень просто:
 
 ```js
-console.log(`Process ID: ${process.pid}`);
-process.on('SIGHUP', () => console.log('Received: SIGHUP'));
-process.on('SIGINT', () => console.log('Received: SIGINT'));
+console.log(`Process ID: ${process.pid}`)
+process.on('SIGHUP', () => console.log('Received: SIGHUP'))
+process.on('SIGINT', () => console.log('Received: SIGINT'))
 
 // Таймер, чтобы процесс не останавливался сам
-setTimeout(() => {}, 5 * 60 * 1000);
+setTimeout(() => {}, 5 * 60 * 1000)
 ```
 
 Выполним команду, чтобы запустить процесс:
