@@ -17,5 +17,20 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - id: files
+        uses: jitterbit/get-changed-files@v1
       - name: Проверка правописания
-        run: npx yaspeller **/*.{md,html}
+        run: |
+          npm install yaspeller -g
+          config=.yaspeller.json
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]
+            then
+              echo "Проверка для всех файлов"
+              yaspeller **/*.{md,html}
+              break
+            else
+              echo "Проверка для ${changed_file}"
+              yaspeller ${changed_file}
+            fi
+          done
