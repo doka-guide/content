@@ -93,8 +93,14 @@
 
 <script>
   function makeScroll(arg) {
+    const parent = window.parent;
+    const x = parent.scrollX;
+    const y = parent.scrollY;
+
     const elt = document.querySelector('#element');
     elt.scrollIntoView(arg);
+
+    parent.scrollTo(x, y);
   }
 </script>
 </body>
