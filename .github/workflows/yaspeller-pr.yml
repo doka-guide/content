@@ -28,7 +28,7 @@ jobs:
               yaspeller **/$pattern
               break
             else
-              if grep -q "${pattern}" $changed_file; then
+              if [ $(grep -q "${pattern}" $changed_file) ]; then
                 file_list="${file_list} ${changed_file}"
               fi
             fi
