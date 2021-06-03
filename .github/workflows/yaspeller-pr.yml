@@ -27,7 +27,7 @@ jobs:
               yaspeller **/*.{md,html}
               break
             else
-              if [ grep -E '*.(md|html)' $changed_file ]
+              if grep -E '*.(md|html)' $changed_file
               then
                 echo "- проверяется ${changed_file}"
                 yaspeller ${changed_file}
