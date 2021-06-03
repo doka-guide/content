@@ -23,13 +23,13 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]
             then
-              echo "> проверяются все файлы..."
+              echo "- проверяются все файлы..."
               yaspeller **/*.{md,html}
               break
             else
               if [ grep -E *.(md|html) $changed_file ]
               then
-                echo "> проверяется ${changed_file}"
+                echo "- проверяется ${changed_file}"
                 yaspeller ${changed_file}
               fi
             fi
