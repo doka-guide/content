@@ -20,18 +20,21 @@ jobs:
         run: |
           npm install yaspeller -g
           config=.yaspeller.json
+          pattern=*.(md|html)
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]
             then
               echo "Проверяются все файлы..."
-              yaspeller **/*.{md,html}
+              yaspeller **/$pattern
               break
             else
-              if grep -E '*.(md|html)' $changed_file
+              if grep -q "$pattern" $changed_file
               then
                 file_list="${file_list} ${changed_file}"
               fi
             fi
           done
-          yaspeller ${file_list}
+          if ! $file_list == ""; then
+            yaspeller ${file_list}
+          fi
