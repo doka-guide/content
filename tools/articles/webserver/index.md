@@ -86,12 +86,14 @@ Content-Encoding: gzip
 Например, вы можете воспользоваться переводчиком таким образом:
 
 Запрос:
+
 ```
 GET /wiki/Web_server HTTP/1.1
 Host: en.wikipedia.org
 ```
 
 Ответ:
+
 ```
 Date: Wed, 02 Jun 2021 00:41:41 GMT
 Content-Language: en
