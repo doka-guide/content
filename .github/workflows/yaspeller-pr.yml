@@ -33,6 +33,6 @@ jobs:
               fi
             fi
           done
-          if ! $file_list == ""; then
+          if $file_list != ""; then
             yaspeller ${file_list}
           fi
