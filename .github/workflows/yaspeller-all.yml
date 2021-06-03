@@ -17,4 +17,4 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Проверка правописания
-        run: yaspeller **/*.{md,html}
+        run: yaspeller --only-errors **/*.{md,html}

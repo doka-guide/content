@@ -25,7 +25,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]; then
               echo "Проверяются все файлы..."
-              yaspeller **/$pattern
+              yaspeller --only-errors **/$pattern
               break
             else
               if [ $(grep -q "${pattern}" $changed_file) ]; then
@@ -34,5 +34,5 @@ jobs:
             fi
           done
           if $file_list != ""; then
-            yaspeller ${file_list}
+            yaspeller --only-errors ${file_list}
           fi
