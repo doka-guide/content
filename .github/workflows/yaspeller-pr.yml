@@ -20,7 +20,7 @@ jobs:
         run: |
           npm install yaspeller -g
           config=.yaspeller.json
-          pattern=*.(md|html)
+          pattern="*.(md|html)"
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [ $changed_file == $config ]; then
