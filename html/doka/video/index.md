@@ -31,7 +31,6 @@ summary:
 ```html
 <video controls width="250">
   <source src="/media/examples/flower.webm" type="video/webm">
-
   <source src="/media/examples/flower.mp4" type="video/mp4">
   Ваш браузер не поддерживает встроенные видео :(
 </video>
@@ -58,11 +57,11 @@ summary:
 
 ```html
 <video controls>
-  <source src="myVideo.mp4" type="video/mp4">
-  <source src="myVideo.webm" type="video/webm">
+  <source src="my-video.mp4" type="video/mp4">
+  <source src="my-video.webm" type="video/webm">
   <p>
     Ваш браузер не поддерживает встроенные видео. Попробуйте скачать его по
-    <a href="myVideo.mp4">этой ссылке</a>.
+    <a href="my-video.mp4">этой ссылке</a>.
   </p>
 </video>
 ```
@@ -102,8 +101,8 @@ summary:
 
 ```html
 <video controls src="frontend.mp4" poster="frontend.jpg" width="580">
-  Простите, но ваш браузер не поддерживает встроенные видео. Попробуйте скачать
-  его <a href="frontend.mp4">по этой ссылке</a>
+  Простите, но ваш браузер не поддерживает встроенные видео.
+  Попробуйте скачать его <a href="frontend.mp4">по этой ссылке</a>
   и открыть его на своём устройстве.
 </video>
 ```
