@@ -26,7 +26,9 @@ const params = new URLSearchParams({ count: "10" });
 
 ```js
 params.append("size", "lg"); // добавление
-params.delete("count"); // уделение
+console.log(params.toString()); // "count=10&size=lg"
+params.delete("count"); // удаление
+console.log(params.toString()); // "size=lg"
 ```
 
 Повторное добавление параметра с тем же именем добавит еще одно значение с таким же названием, а получение всех возможных значений с этим именем вернет все добавленные значения.
