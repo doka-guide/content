@@ -21,7 +21,7 @@ const paramsString = Object.entries(params)
 fetch(`/catalog/t-shirts?${paramsString}`);
 ```
 
-`URLSearchParams` упрощает эту задачу и делает все проще:
+`URLSearchParams` упрощает решение этой задачи:
 
 ```js
 const paramsString = new URLSearchParams({
