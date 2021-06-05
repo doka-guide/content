@@ -1,0 +1,35 @@
+name: YaSpeller PR
+
+on:
+  pull_request
+
+jobs:
+  spell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+      - name: Проверка правописания
+        run: |
+          npm install yaspeller --global
+          config=.yaspeller.json
+          pattern="*.(md|html)"
+          file_list=""
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]; then
+              echo "Проверяются все файлы..."
+              yaspeller --only-errors **/$pattern
+              break
+            else
+              if [ $(grep --quiet "${pattern}" $changed_file) ]; then
+                file_list="${file_list} ${changed_file}"
+              fi
+            fi
+          done
+          if $file_list != ""; then
+            yaspeller --only-errors ${file_list}
+          fi
