@@ -6,7 +6,8 @@ authors:
 contributors:
   - furtivite
 summary:
-  - nginx
+  - http-server
+  - browser-sync
   - ports
   - gzip
   - brotli
