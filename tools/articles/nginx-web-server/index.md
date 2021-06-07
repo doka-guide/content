@@ -1,6 +1,6 @@
 ---
 title: Веб-сервер Nginx
-name: webserver-nginx
+name: nginx-web-server
 authors:
   - igsekor
 contributors:
