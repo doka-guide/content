@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Смещение центральной точки к краям — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .grid {
+        width: 470px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+      }
+
+      .element {
+        width: 150px;
+        height: 100px;
+      }
+
+      .top-left {
+        background-image: radial-gradient(at top left, yellow, coral, blue, green, black, white);
+      }
+
+      .top {
+        background-image: radial-gradient(at top, yellow, coral, blue, green, black, white);
+      }
+
+      .top-right {
+        background-image: radial-gradient(at top right, yellow, coral, blue, green, black, white);
+      }
+
+      .left {
+        background-image: radial-gradient(at left, yellow, coral, blue, green, black, white);
+      }
+
+      .center {
+        background-image: radial-gradient(yellow, coral, blue, green, black, white);
+      }
+
+      .right {
+        background-image: radial-gradient(at right, yellow, coral, blue, green, black, white);
+      }
+
+      .bottom-left {
+        background-image: radial-gradient(at bottom left, yellow, coral, blue, green, black, white);
+      }
+
+      .bottom {
+        background-image: radial-gradient(at bottom, yellow, coral, blue, green, black, white);
+      }
+
+      .bottom-right {
+        background-image: radial-gradient(at bottom right, yellow, coral, blue, green, black, white);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="element top-left"></div>
+      <div class="element top"></div>
+      <div class="element top-right"></div>
+      <div class="element left"></div>
+      <div class="element center"></div>
+      <div class="element right"></div>
+      <div class="element bottom-left"></div>
+      <div class="element bottom"></div>
+      <div class="element bottom-right"></div>
+    </div>
+  </body>
+</html>

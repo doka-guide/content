@@ -433,7 +433,7 @@ console.log(Array.from(data.entries()))
 async function sendData(data) {
   // Затем делаем запрос к нашему API:
   return await fetch("/api/apply/", {
-    // Используем POST, потому что это [создание объекта](/js/long/api):
+    // Используем POST, потому что это создание объекта:
     method: "POST",
 
     // Указываем Content-Type, так как мы отправляем данные

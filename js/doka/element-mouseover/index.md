@@ -3,6 +3,8 @@ title: "Element.mouseover"
 name: element-mouseover
 authors:
   - nlopin
+contributors:
+  - skorobaeus
 summary:
 ---
 
@@ -27,11 +29,25 @@ divEl.addEventListener("mouseover", function () {
 
 Подробнее о механизме событий читай в статье [«События»](/js/doka/events/).
 
-Событие проще всего понять на демо. При событии `mouseover` мы устанавливаем элементу, на котором произошло событие, красный цвет текста:
+Событие проще всего понять на демо. При событии `mouseover` мы устанавливаем элементу, на котором произошло событие, синий фоновый цвет:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="oRVxWo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Событие mouseover">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/oRVxWo">
-  Событие mouseover</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+```js
+let current = undefined;
+
+function onMouseover() {
+  if (current) {
+    current.classList.remove('mouseover');
+  }
+  this.classList.add('mouseover');
+  current = this; // записываем текущий пункт, чтобы удалить с него класс
+                  // при переходе курсора на новый элемент
+}
+
+let items = document.getElementsByTagName('li');
+for (let i=0; i < items.length; ++i) {
+  let item = items[i];
+  item.addEventListener('mouseover', onMouseover);
+}
+```
+
+<iframe title="Ховер-эффект при помощи события mouseover" src="demos/index.html"></iframe>

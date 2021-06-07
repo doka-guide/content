@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Форма радиального градиента — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .grid {
+        width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+      }
+
+      .element {
+        width: 200px;
+        height: 100px;
+      }
+
+      .closest-side {
+        background-image: radial-gradient(closest-side at 40% 20%, yellow, coral, blue, green, black, white);
+      }
+
+      .farthest-side {
+        background-image: radial-gradient(farthest-side at 20% 60%, yellow, coral, blue, green, black, white);
+      }
+
+      .closest-corner {
+        background-image: radial-gradient(closest-corner at 20% 40%, yellow, coral, blue, green, black, white);
+      }
+
+      .farthest-corner {
+        background-image: radial-gradient(farthest-corner at 30% 40%, yellow, coral, blue, green, black, white);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="element closest-side"></div>
+      <div class="element farthest-side"></div>
+      <div class="element closest-corner"></div>
+      <div class="element farthest-corner"></div>
+    </div>
+  </body>
+</html>
