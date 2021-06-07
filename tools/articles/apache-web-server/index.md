@@ -1,6 +1,6 @@
 ---
 title: Веб-сервер Apache
-name: webserver-apache
+name: apache-web-server
 authors:
   - igsekor
 contributors:
