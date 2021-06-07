@@ -2,6 +2,8 @@
 title: "::placeholder"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:
@@ -22,9 +24,10 @@ summary:
 ```css
 .form-input::placeholder {
   color: gray;
-  font-size: 1.2em;
 }
 ```
+
+<iframe title="Плейсхолдер в поле ввода" src="demos/index.html"></iframe>
 
 ## Как это понять
 

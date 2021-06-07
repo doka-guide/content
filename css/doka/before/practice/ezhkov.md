@@ -42,7 +42,7 @@ li {
 }
 
 li::before {
-  /* не забываем о свойстве content */
+  /* Не забываем о свойстве content */
   content: "";
   width: 15px;
   height: 15px;

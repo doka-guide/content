@@ -17,7 +17,9 @@ const phoneContacts = [
   { name: "Мама", lastName: "" },
 ]
 
-console.log(phoneContacts.includes({ name: "Мама", lastName: "" }))
-// напечатает false, так как мы создали новый объект,
-// хотя он выглядит так же как и тот, что в массиве
+console.log(phoneContacts.includes(
+  { name: "Мама", lastName: "" }
+))
 ```
+
+Здесь `console.log()` выведет `false` так как мы создали новый объект, хотя он выглядит так же как и тот, что в массиве.
