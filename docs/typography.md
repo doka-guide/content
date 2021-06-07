@@ -93,7 +93,7 @@
 
 ## Примеры кода
 
-1. Если нужен пример кода, то для HTML и CSS воспользуйтесь стилями [БЭМ](https://ru.bem.info/), а для JavaScript — [AirBnB Code Style Guide](https://github.com/airbnb/javascript).
+1. Если нужен пример кода, то для HTML и CSS воспользуйтесь стилями [БЭМ](https://ru.bem.info/) и [Airbnb CSS / Sass Styleguide](https://github.com/airbnb/css), а для JavaScript — [Airbnb JavaScript Style Guide() {](https://github.com/airbnb/javascript).
 
 1. Комментируйте вставки кода — они должны быть понятны. Постарайтесь дать хорошее описание примера перед вставкой кода вместо большого количества комментариев в самом примере:
 
