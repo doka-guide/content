@@ -25,18 +25,16 @@ summary:
 ## Пример
 
 ```html
-<form action="" method="get" class="form-example">
-  <div class="form-example">
-    <label for="name">Введите имя: </label>
-    <input type="text" name="name" id="name" required />
-  </div>
-  <div class="form-example">
-    <label for="email">Введите email: </label>
-    <input type="email" name="email" id="email" required />
-  </div>
-  <div class="form-example">
-    <input type="submit" value="Отправить" />
-  </div>
+<form action="" method="get">
+  <p>
+    <label for="name">Введите имя:</label>
+    <input type="text" name="name" id="name" required>
+  </p>
+  <p>
+    <label for="email">Введите email:</label>
+    <input type="email" name="email" id="email" required>
+  </p>
+  <button type="submit">Отправить</button>
 </form>
 ```
 
@@ -65,7 +63,6 @@ summary:
   - `get` — ответы пользователя прикрепляются к URL в формате «параметр=значение», например «твой имейл=name@yandex.ru». Выглядит это так: `yandex.ru/form?name=Max&email=name@yandex.ru`. То есть, параметр — это что вы спрашиваете у пользователя, а значение — его ответ. Пары «параметр=значение» разделяются знаком `&`. Вариант `method="get"` используется по умолчанию, но у него есть ограничение: URL не должен получиться длиннее, чем 3000 символов.
   - `post` — данные из формы пакуются в тело формы и отправляются на сервер. В этом случае нет ограничений по объёму данных, поэтому этот способ подойдёт для заполнения базы данных или отправки файлов.
 - `name` — уникальное имя формы. Пользователь его не увидит, зато скрипты смогут найти нужную форму.
-
 - `novalidate` — если добавить этот атрибут, то браузер не будет проверять, корректно ли введён адрес почты или URL для тегов `<input type="email">` и `<input type="url">` соответственно. Обычно браузер проверяет, не пропустили ли вы `@` или `.ru`.
 
 ## Подсказки
@@ -81,28 +78,34 @@ summary:
 ```html
 <!-- Эта форма отправит значение методом GET — мы получим URL с ответом -->
 <form action="" method="get">
-  <label for="GET-name" class="text-label">Имя первого гостя:</label>
-  <input id="GET-name" class="input" type="text" name="name" />
-  <input type="submit" class="button" value="Сохранить" />
+  <label for="get-name">Имя первого гостя:</label>
+  <input id="get-name" type="text" name="name">
+  <button type="submit">Сохранить</button>
 </form>
 
 <!-- Эта форма отправит данные методом POST -->
 <form action="" method="post">
-  <label for="POST-name" class="text-label">Имя второго гостя:</label>
-  <input id="POST-name" class="input" type="text" name="name" />
-  <input type="submit" class="button" value="Сохранить" />
+  <label for="post-name">Имя второго гостя:</label>
+  <input id="post-name" type="text" name="name">
+  <button type="submit">Сохранить</button>
 </form>
 
 <!-- Форма с булетами в рамочке -->
 <form action="" method="post">
   <fieldset>
     <legend>Выберите прожарку</legend>
-    <input type="radio" name="level" id="rare" />
-    <label for="rare">Rare</label>
-    <input type="radio" name="level" id="medium" />
-    <label for="medium">Medium</label>
-    <input type="radio" name="level" id="well" />
-    <label for="well">Well Done</label>
+    <label for="rare">
+      <input type="radio" name="level" id="rare">
+      Rare
+    </label>
+    <label for="medium">
+      <input type="radio" name="level" id="medium" checked>
+      Medium
+    </label>
+    <label for="well-done">
+      <input type="radio" name="level" id="well-done">
+      Well Done
+    </label>
   </fieldset>
 </form>
 ```
@@ -112,28 +115,17 @@ summary:
 Попробуем отправить данные, которые введёт пользователь, на почту. Для этого, вместо URL-ссылки, мы пропишем `action="mailto:html@yandex.ru"`. Ключевое слово `mailto:` позволяет отправить что угодно на электронную почту. Не забудь добавить атрибут `enctype="text/plain"` в теге `<form>`, чтобы письмо отображалось корректно:
 
 ```html
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Встроим в тег FORM атрибут action</title>
-  </head>
-  <body>
-    <form
-      action="mailto:html@yandex.ru"
-      enctype="text/plain"
-    >
-      <div class="form-example">
-        <label for="name">Ваше имя</label>
-        <input type="text" name="name" id="name" required />
-      </div>
-      <div class="form-example">
-        <label for="order">Что вы хотите заказать?</label>
-        <input type="text" name="order" id="order" required />
-      </div>
-      <p><input type="submit" value="Сделать заказ" /></p>
-    </form>
-  </body>
-</html>
+<form action="mailto:html@yandex.ru" enctype="text/plain">
+  <p>
+    <label for="name">Ваше имя</label>
+    <input type="text" name="name" id="name" required>
+  </p>
+  <p>
+    <label for="order">Что вы хотите заказать?</label>
+    <input type="text" name="order" id="order" required>
+  </p>
+  <button type="submit">Сделать заказ</button>
+</form>
 ```
 
 <iframe title="Форма с отправкой на email" src="demos/email.html"></iframe>
