@@ -1,6 +1,5 @@
 ---
 title: "Element.scroll/scrollIntoView"
-name: element-scroll-scrollintoview
 authors:
   - vindi-r
 tags:

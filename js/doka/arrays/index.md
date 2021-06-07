@@ -1,6 +1,5 @@
 ---
 title: "Массивы"
-name: arrays
 authors:
   - nlopin
 contributors:

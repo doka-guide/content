@@ -1,6 +1,5 @@
 ---
 title: "async/await"
-name: async-await
 authors:
   - nlopin
 summary:
