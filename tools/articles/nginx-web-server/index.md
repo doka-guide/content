@@ -41,13 +41,13 @@ server {
 
 ```
 server {
-    location / {
-        proxy_pass http://localhost:8080;
-    }
+  location / {
+    proxy_pass http://localhost:8080;
+  }
 
-    location /images/ {
-        root /data;
-    }
+  location /images/ {
+    root /data;
+  }
 }
 ```
 
@@ -55,7 +55,7 @@ server {
 
 ```
 location ~ \.(gif|jpg|png)$ {
-    root /data/images;
+  root /data/images;
 }
 ```
 
@@ -63,15 +63,15 @@ location ~ \.(gif|jpg|png)$ {
 
 ```
 server {
-    location / {
-        fastcgi_pass  localhost:9000;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_param QUERY_STRING    $query_string;
-    }
+  location / {
+    fastcgi_pass  localhost:9000;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param QUERY_STRING    $query_string;
+  }
 
-    location ~ \.(gif|jpg|png)$ {
-        root /data/images;
-    }
+  location ~ \.(gif|jpg|png)$ {
+    root /data/images;
+  }
 }
 ```
 
