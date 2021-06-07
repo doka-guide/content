@@ -1,6 +1,5 @@
 ---
 title: "<picture>"
-name: picture
 author: ezhkov_d
 editor:
   - tachisis
@@ -66,5 +65,3 @@ summary:
 В этом примере пользователи с обычными экранами увидят картинку с надписью `768x400`. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью `1536x800`
 
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-
-{% include "authors/ezhkov_d/author.njk" %}
