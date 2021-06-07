@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '14'
       - id: files
-        uses: jitterbit/get-changed-files@v1
+        uses: Ana06/get-changed-files@v1.2
       - name: Проверка правописания
         run: |
           npm install yaspeller --global
