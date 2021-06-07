@@ -1,5 +1,5 @@
 ---
-tags:
+permalink: falsetags:
   - practice
 permalink: false
 ---

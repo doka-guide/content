@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 Зависимость — библиотека, которая необходима для работы приложения.
 

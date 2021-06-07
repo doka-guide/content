@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 🛠 Поиск по тегам нужен нечасто.
 

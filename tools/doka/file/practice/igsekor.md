@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 ## Имена файлов и пути
 

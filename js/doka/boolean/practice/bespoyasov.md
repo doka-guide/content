@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 Всегда лучше использовать примитив или функцию `Boolean`. Конструктор `new Boolean` лучше не использовать.
 

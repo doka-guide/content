@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 🛠 Чтобы убрать (или стилизовать рамку), используется «CSS-семейство свойств» border: [`border`](/css/doka/border), [`border-radius`](/css/doka/border-radius) и других:
 

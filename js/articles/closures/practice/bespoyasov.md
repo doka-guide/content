@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 Используйте скобки, чтобы обозначить блок вычислений в `switch`, если он большой:
 

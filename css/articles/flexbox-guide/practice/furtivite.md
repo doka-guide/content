@@ -1,7 +1,7 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
 
 Во время работы стоит быть особенно внимательным со свойствами, которые меняют внешнее расположение элементов внутри flex-контейнера: например `flex-direction: row-reverse` или `column-reverse`, а также со свойством `order`.

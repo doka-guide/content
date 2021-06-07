@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 `background-repeat` — свойство простое. Написано повторять — повторяем фон. Написано не повторять — не повторяем.
 

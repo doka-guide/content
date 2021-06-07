@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 ### .gitignore
 
 Во многих проектах есть целые папки, которые не требуется сохранять в Git-репозитории:

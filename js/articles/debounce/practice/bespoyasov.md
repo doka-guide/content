@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 Используйте `debounce`, чтобы оптимизировать операции, которые можно выполнить единожды в конце.
 

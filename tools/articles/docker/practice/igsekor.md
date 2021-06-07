@@ -1,8 +1,9 @@
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 
 Рассмотрим несколько примеров, когда Docker может пригодиться.
 

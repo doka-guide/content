@@ -140,10 +140,11 @@ cover:
 
 ```markdown
 ---
+permalink: false
 tags:
   - practice
-permalink: false
 ---
+
 ```
 
 #### Интерактивные примеры кода
