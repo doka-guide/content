@@ -76,12 +76,7 @@ tr:hover {
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="Realetive" data-slug-hash="wvzgJWP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="table:hover">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/wvzgJWP">
-  table:hover</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Изменение фона по наведению на строку таблицы" src="demos/row-hover.html"></iframe>
 
 ## Как это понять
 
@@ -90,12 +85,18 @@ tr:hover {
 ## Как пишется
 
 ```css
-selector:pseudoclass {
-  свойство: значение;
+.block:hover {
+  color: red;
 }
 ```
 
 Селектор может и отсутствовать. Тогда правило применится ко всем элементам, которые могут иметь признак этого псевдокласса. Например, CSS-правило `:focus {}` применится к любому элементу, который будет в фокусе.
+
+```css
+:focus {
+  color: lightblue;
+}
+```
 
 ### `:active`
 
@@ -105,9 +106,9 @@ selector:pseudoclass {
 
 ### `:is()`
 
-Позволяет сгруппировать схожие селекторы вместо последовательного перечисления через запятую. При группировке большого количества селекторов это может существенно сократить, а главное — упростить написание:
+Позволяет сгруппировать схожие селекторы вместо последовательного перечисления через запятую. При группировке большого количества селекторов это может существенно сократить, а главное — упростить написание.
 
-вместо
+Вместо:
 
 ```css
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -115,7 +116,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 ```
 
-с `:is()` это можно описать так
+с `:is()` это можно описать так:
 
 ```css
 :is(h1, h2, h3, h4, h5, h6) a {
@@ -128,7 +129,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 - [Основная статья про `:link`](/css/doka/link).
 - [Основная статья про `:visited`](/css/doka/visited).
 
-Применяется ко всем элементам, которые могут иметь атрибут `href` (`<a>`, `<area>` и `<link>`). `:link` характеризует ещё не посещённые страницы, `:visited` — наоборот, посещённые (в рамках одного домена).
+Применяется ко всем элементам, которые могут иметь атрибут `href` ([`<a>`(/html/doka/a)], `<area>` и [`<link>`](/html/doka/link)). `:link` характеризует ещё не посещённые страницы, `:visited` — наоборот, посещённые (в рамках одного домена).
 
 ### `:checked`
 
@@ -140,29 +141,26 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется к элементам формы (`<input type="radio">`, `<input type="checkbox">`, `<option>` и `<button>`), у которых можно задать начальное состояние.
 
-Например, у `<input type="checkbox">` селектор применится к тому чекбоксу, у которого в разметке установлен атрибут `checked`, т. е. он **по умолчанию** выбран:
+Например, у `<input type="checkbox">` селектор применится к тому чекбоксу, у которого в разметке установлен атрибут `checked`, т. е. он **по умолчанию** выбран:
 
-<p class="codepen" data-height="304" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="rNMGbZw" style="height: 304px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":default">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/rNMGbZw">
-  :default</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+```css
+:default + span {
+  font-weight: bold;
+  color: red;
+}
+```
+
+<iframe title="Стили для дефолтного чекбокса" src="demos/default.html"></iframe>
 
 ### `:dir()`
 
 Позволяет найти элементы по направлению текста в нём (например, в арабском направление письма идёт справа налево). К сожалению, пока свойство [поддерживается только в Firefox](https://caniuse.com/css-dir-pseudo).
 
-### `:disabled` / `:enabled`
+### `:disabled`, `:enabled`
 
 Позволяют находить элементы формы по состоянию их атрибута `disabled`. _Почти_ эквивалентны селекторам по атрибуту (`[disabled]` и `:not([disabled])` соответственно), но более гибкие, т. к. среагируют на унаследованное состояние `disabled`. Если есть `<fieldset disabled>`, то отключаются вложенные в него контролы форм.
 
-<p class="codepen" data-height="350" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="bGwoPvx" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":disabled / :enabled">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/bGwoPvx">
-  :disabled / :enabled</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Стили для задизейбленного поля ввода" src="demos/disabled-enabled.html"></iframe>
 
 ### `:empty`
 
@@ -170,12 +168,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется к элементам, у которых внутри нет других тегов или текста. Например, можно проверить, что у кнопки не задан текст или иконка, чтобы задать минимальные размеры:
 
-<p class="codepen" data-height="557" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="zYKPqWm" style="height: 557px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":empty">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/zYKPqWm">
-  :empty</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Крестики-нолики с :empty" src="demos/empty.html"></iframe>
 
 ### `:first-child`, `:last-child`, `:nth-child()`, `:nth-last-child()`, `:only-child`
 
@@ -221,35 +214,25 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 ### `:indeterminate`
 
-Элементы, которые могут находиться в «промежуточном» состоянии:
+Элементы, которые могут находиться в _промежуточном_ состоянии:
 
-- `<input type="checkbox">`, отображающий, что не все пункты вложенной группы были выделены;
-- группа `<input type="radio">` с одинаковым `name`, но у которой ни один элемент не установлен в `checked`;
+- `<input type="checkbox">`, отображающий, что не все пункты вложенной группы были выделены.
+- группа `<input type="radio">` с одинаковым `name`, но у которой ни один элемент не установлен в `checked`.
 - `<progress>`.
 
 Для `<input>` состояние `indeterminate` в HTML можно задать только через JavaScript.
 
-<p class="codepen" data-height="249" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="JjROXzQ" style="height: 249px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":indeterminate">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/JjROXzQ">
-  :indeterminate</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate.html"></iframe>
 
 ### `:in-range` и `:out-of-range`
 
 Применяется для `<input>`, у которого определены атрибуты `min` и `max` и введённое значение соответствует (`:in-range`) или нет (`:out-of-range`) этому диапазону.
 
-<p class="codepen" data-height="251" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="vYXWKWm" style="height: 251px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":in-range / :out-of-range">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/vYXWKWm">
-  :in-range / :out-of-range</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Стили для диапазона" src="demos/range.html"></iframe>
 
 ### `:lang()`
 
-Селектор по языку содержимого. В HTML есть атрибут `lang`, который указывает на язык содержимого, этот псевдокласс позволяет обратиться к элементу по содержимому этого атрибута.
+Селектор по языку содержимого. В HTML есть атрибут `lang`, который указывает на язык содержимого. Псевдокласс `lang()` позволяет обратиться к элементу, чьё значение атрибута `lang` подходит под условие.
 
 Например, в арабском языке нет переносов:
 
@@ -291,12 +274,7 @@ img:not([alt]) {
 
 При переходе по ссылке, которая ведёт на URI-фрагмент (элемент внутри страницы), `id` фрагмента совпадает со значением атрибута `id` этого элемента — это состояние можно «поймать» с помощью псевдокласса `:target`:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="XWNWgBJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":target">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/XWNWgBJ">
-  :target</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Подсветка активной секции" src="demos/target.html"></iframe>
 
 ### `:valid` и `:invalid`
 
@@ -305,6 +283,8 @@ img:not([alt]) {
 Селектор `:valid` соответствует `<input>` или `<form>`-элементу, контент которого валиден в соответствии с типом поля. Обратный эффект у `:invalid` — сработает при ошибке HTML-валидации.
 
 ## Подсказки
+
+💡 Псевдоклассы пишутся с одним двоеточием впереди.
 
 💡 Псевдоклассы необязательно описываются вместе с элементом — если он не указан, селектор будет обозначать любой доступный элемент, который _может иметь_ этот псевдокласс (при активации нужного состояния).
 
