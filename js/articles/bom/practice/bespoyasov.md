@@ -3,8 +3,6 @@ permalink: false
 tags:
   - practice
 ---
-
-
 ### `navigator`
 
 Чтобы проверить, есть ли в `navigator` необходимая вам фича, используйте `in`:
