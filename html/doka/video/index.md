@@ -30,8 +30,8 @@ summary:
 
 ```html
 <video controls width="250">
-  <source src="/media/examples/flower.webm" type="video/webm">
-  <source src="/media/examples/flower.mp4" type="video/mp4">
+  <source src="flower.webm" type="video/webm">
+  <source src="flower.mp4" type="video/mp4">
   Ваш браузер не поддерживает встроенные видео :(
 </video>
 ```
@@ -49,8 +49,8 @@ summary:
 Некоторые браузеры могут не поддерживать какой-то формат. Поэтому в `<video>` можно добавить один и тот же файл в нескольких форматах. Это будет выглядеть так:
 
 ```html
-<source src="myVideo.mp4" type="video/mp4">
-<source src="myVideo.webm" type="video/webm">
+<source src="my-video.mp4" type="video/mp4">
+<source src="my-video.webm" type="video/webm">
 ```
 
 На случай, если браузер не поддерживает встроенные видео, можно вставить текст или картинку — они просто добавляются в `<video>...</video>`:
