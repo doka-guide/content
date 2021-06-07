@@ -22,6 +22,8 @@ console.log(heading.textContent) // Выведет "Заголовок"
 button.textContent = 'Новый заголовок' // В результате будет: <h1>Новый заголовок</h1>
 ```
 
+<iframe title="Element.textContent" src="demos/index.html"></iframe>
+
 ## Как понять
 
 Для считывания и изменения текстовое содержимое браузер предоставляет [Element.innerText](/js/doka/element-innertext), и `Element.textContent` делает тоже самое, но с одним отличием: считывается содержимое **всех** вложенных потомков вне зависимости от того скрыты они или нет.

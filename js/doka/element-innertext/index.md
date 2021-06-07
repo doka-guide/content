@@ -26,6 +26,8 @@ button.innerText = 'Done!' // Изменит текст кнопки на Done
 // В результате будет: <button type="submit" id="submit">Done</button>
 ```
 
+<iframe title="Element.innerText" src="demos/index.html"></iframe>
+
 ## Как понять
 
 Считывание и изменение текстовое содержимое – довольно распространённая задача. `Element.innerText` позволяет считывать содержимое элемента и всего потомков, но с несколькими исключениями:
