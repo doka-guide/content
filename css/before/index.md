@@ -1,5 +1,7 @@
 ---
 title: "::before"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:

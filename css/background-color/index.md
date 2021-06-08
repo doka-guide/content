@@ -1,5 +1,7 @@
 ---
 title: "background-color"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
