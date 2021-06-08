@@ -101,7 +101,7 @@ element.style.fontFamily = "Arial"
 | [font-size](/css/doka/font-size/) | fontSize |
 | [font-variant]() | fontVariant |
 | [font-weight](/css/doka/font-weight/) | fontWeight |
-| [height](/css/doka/height/) | height |
+| [height](/css/height/) | height |
 | [left]() | left |
 | [letter-spacing](/css/doka/letter-spacing/) | letterSpacing |
 | [line-height](/css/doka/line-height/) | lineHeight |
