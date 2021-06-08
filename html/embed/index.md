@@ -1,5 +1,7 @@
 ---
 title: "<embed>"
+tags:
+  - doka
 authors:
   - solarrust
 editors:
