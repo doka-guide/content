@@ -7,15 +7,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
+      font-family: "Roboto", sans-serif;
     }
 
-    .background-video {
+    video {
       position: absolute;
       right: 0;
       bottom: 0;
@@ -23,19 +20,19 @@
       min-height: 100%;
     }
 
-    .content {
+    article {
       position: absolute;
       top: 0;
+      right: 0;
       bottom: 0;
+      left: 0;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       background: rgba(0, 0, 0, 0.5);
       color: #f1f1f1;
-      width: 100%;
-      padding: 20px;
-      font-family: "Roboto", sans-serif;
     }
 
     h1 {
@@ -50,14 +47,12 @@
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <video autoplay muted loop class="background-video">
+    <video autoplay muted loop>
       <source src="../video/storm.mp4" type="video/mp4">
     </video>
-    <div class="content">
+    <article>
       <h1>Банановый эквивалент</h1>
-      <p>Мы живём в радиоактивном мире. Это нормально? </p>
-    </div>
-  </div>
+      <p>Мы живём в радиоактивном мире. Это нормально?</p>
+    </article>
 </body>
 </html>

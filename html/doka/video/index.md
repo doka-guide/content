@@ -30,9 +30,8 @@ summary:
 
 ```html
 <video controls width="250">
-  <source src="/media/examples/flower.webm" type="video/webm">
-
-  <source src="/media/examples/flower.mp4" type="video/mp4">
+  <source src="flower.webm" type="video/webm">
+  <source src="flower.mp4" type="video/mp4">
   Ваш браузер не поддерживает встроенные видео :(
 </video>
 ```
@@ -50,19 +49,19 @@ summary:
 Некоторые браузеры могут не поддерживать какой-то формат. Поэтому в `<video>` можно добавить один и тот же файл в нескольких форматах. Это будет выглядеть так:
 
 ```html
-<source src="myVideo.mp4" type="video/mp4">
-<source src="myVideo.webm" type="video/webm">
+<source src="my-video.mp4" type="video/mp4">
+<source src="my-video.webm" type="video/webm">
 ```
 
 На случай, если браузер не поддерживает встроенные видео, можно вставить текст или картинку — они просто добавляются в `<video>...</video>`:
 
 ```html
 <video controls>
-  <source src="myVideo.mp4" type="video/mp4">
-  <source src="myVideo.webm" type="video/webm">
+  <source src="my-video.mp4" type="video/mp4">
+  <source src="my-video.webm" type="video/webm">
   <p>
     Ваш браузер не поддерживает встроенные видео. Попробуйте скачать его по
-    <a href="myVideo.mp4">этой ссылке</a>.
+    <a href="my-video.mp4">этой ссылке</a>.
   </p>
 </video>
 ```
@@ -102,8 +101,8 @@ summary:
 
 ```html
 <video controls src="frontend.mp4" poster="frontend.jpg" width="580">
-  Простите, но ваш браузер не поддерживает встроенные видео. Попробуйте скачать
-  его <a href="frontend.mp4">по этой ссылке</a>
+  Простите, но ваш браузер не поддерживает встроенные видео.
+  Попробуйте скачать его <a href="frontend.mp4">по этой ссылке</a>
   и открыть его на своём устройстве.
 </video>
 ```
