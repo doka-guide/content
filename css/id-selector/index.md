@@ -1,5 +1,7 @@
 ---
 title: "Селектор по идентификатору"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

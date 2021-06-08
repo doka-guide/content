@@ -1,5 +1,7 @@
 ---
 title: "!important"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

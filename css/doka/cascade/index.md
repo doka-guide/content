@@ -165,7 +165,7 @@ p {
 
 ### Заимствование у «родителя» — `inherit`
 
-Некоторые свойства автоматически [наследуются](/css/doka/inheritance) от «родителя» автоматически (`color`, `font`, `text-align` и другие). Но можно и явно позаимствовать какое-то значение у родителя:
+Некоторые свойства автоматически [наследуются](/css/inheritance) от «родителя» автоматически (`color`, `font`, `text-align` и другие). Но можно и явно позаимствовать какое-то значение у родителя:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="Realetive" data-slug-hash="jOMOajY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="inherit">
   <span>See the Pen <a href="https://codepen.io/Realetive/pen/jOMOajY">

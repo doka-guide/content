@@ -1,12 +1,14 @@
 ---
-title: ":invalid / :valid"
+title: ":invalid, :valid"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
-- invalid
-- valid
-- валидация
-- форма
+  - invalid
+  - valid
+  - валидация
+  - форма
 ---
 
 ## Кратко

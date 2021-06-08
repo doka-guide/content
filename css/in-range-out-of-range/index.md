@@ -1,5 +1,7 @@
 ---
 title: ":in-range, :out-of-range"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
