@@ -1,5 +1,7 @@
 ---
 title: "display"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

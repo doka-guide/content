@@ -1,5 +1,7 @@
 ---
 title: ":disabled, :enabled"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

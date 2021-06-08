@@ -93,7 +93,7 @@ element.style.fontFamily = "Arial"
 | [clip]() | clip |
 | [color](/css/doka/color/) | color |
 | [cursor](/css/doka/cursor/) | cursor |
-| [display](/css/doka/display/) | display |
+| [display](/css/display/) | display |
 | [filter]() | filter |
 | [float]() | cssFloat |
 | [font]() | font |
