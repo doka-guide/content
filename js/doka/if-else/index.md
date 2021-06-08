@@ -1,6 +1,5 @@
 ---
 title: "if...else"
-name: if-else
 authors:
   - nlopin
 summary:

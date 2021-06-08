@@ -1,6 +1,5 @@
 ---
 title: "Событие load и DOMContentLoaded"
-name: event-load-and-domcontentloaded
 authors:
   - nlopin
 contributors:

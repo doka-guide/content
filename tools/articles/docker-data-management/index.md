@@ -1,6 +1,5 @@
 ---
 title: Управление данными в Docker
-name: docker-data-management
 authors:
   - igsekor
 summary:

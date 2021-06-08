@@ -8,10 +8,10 @@
 
 <details>
   <summary>Код шапки</summary>
+
 ```markdown
 ---
 title: Название статьи
-name: Название файла
 authors:
   - Никнейм основного автора
 contributors:
@@ -25,6 +25,7 @@ cover:
   alt: 'Альтернативное описание для обложки'
 ---
 ```
+
 </details>
 
 ## Кратко
