@@ -1,6 +1,5 @@
 ---
 title: "Веб-сервер"
-name: web-server
 authors:
   - igsekor
 contributors:
