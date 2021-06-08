@@ -1,5 +1,7 @@
 ---
 title: "<p>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:
