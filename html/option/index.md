@@ -41,7 +41,7 @@ summary:
 
 ## Подробно
 
-Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select/), группы опций [`<optgroup>`](/html/doka/TODO) (в работе) или перечня [`<datalist>`](/html/doka/TODO) (в работе).
+Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select/), группы опций [`<optgroup>`](/html/TODO) (в работе) или перечня [`<datalist>`](/html/TODO) (в работе).
 
 ## Атрибуты
 
