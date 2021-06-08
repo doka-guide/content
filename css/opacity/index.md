@@ -1,5 +1,7 @@
 ---
 title: "opacity"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

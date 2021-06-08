@@ -1,5 +1,7 @@
 ---
 title: "order"
+tags:
+  - doka
 authors:
   - solarrust
 editors:
