@@ -1,5 +1,7 @@
 ---
 title: "justify-self"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
@@ -26,7 +28,7 @@ summary:
 
 ## Как пишется
 
-Возможные значения аналогичны значениям свойства [`justify-items`](/css/doka/justify-items).
+Возможные значения аналогичны значениям свойства [`justify-items`](/css/justify-items).
 
 ## Подсказки
 
