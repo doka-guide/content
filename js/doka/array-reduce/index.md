@@ -1,6 +1,5 @@
 ---
 title: "Array.reduce"
-name: array-reduce
 authors:
   - windrushfarer
 summary:
