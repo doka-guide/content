@@ -1,6 +1,5 @@
 ---
 title: Element.classList
-name: element-classlist
 authors:
   - windrushfarer
 tags:

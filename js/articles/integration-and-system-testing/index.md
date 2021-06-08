@@ -1,6 +1,5 @@
 ---
 title: "Интеграционное и системное тестирование"
-name: integration-and-system-testing
 authors:
   - bespoyasov
 summary:

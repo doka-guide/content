@@ -1,6 +1,5 @@
 ---
 title: "localStorage"
-name: local-storage
 authors:
   - akellbl4
 summary:

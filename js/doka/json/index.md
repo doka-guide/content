@@ -1,6 +1,5 @@
 ---
 title: "JSON"
-name: json
 authors:
   - stegur
 tags:
