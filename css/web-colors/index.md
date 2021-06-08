@@ -1,5 +1,7 @@
 ---
 title: "Цвета в вебе"
+tags:
+  - article
 authors:
   - solarrust
 summary:
