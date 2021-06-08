@@ -1,6 +1,5 @@
 ---
 title: "DOM"
-name: dom
 authors:
   - nlopin
 contributors:

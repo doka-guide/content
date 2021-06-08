@@ -1,6 +1,5 @@
 ---
 title: "Element.style"
-name: element-style
 authors:
   - bespoyasov
 summary:

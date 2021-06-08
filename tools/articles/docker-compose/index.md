@@ -1,6 +1,5 @@
 ---
 title: Мультиконтейнерное приложение и Docker Compose
-name: docker-compose
 authors:
   - igsekor
 summary:

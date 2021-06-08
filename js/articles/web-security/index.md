@@ -1,6 +1,5 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
-name: web-security
 authors:
   - bespoyasov
 tags:

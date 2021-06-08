@@ -1,6 +1,5 @@
 ---
 title: "Элемент"
-name: element
 authors:
   - nlopin
 contributors:

@@ -1,6 +1,5 @@
 ---
 title: "Архитектура и паттерны проектирования"
-name: architecture-and-design-patterns
 authors:
   - bespoyasov
 summary:

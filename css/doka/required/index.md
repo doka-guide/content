@@ -11,7 +11,7 @@ summary:
 
 ## Кратко
 
-Псевдокласс `:required`, дополняющий основной селектор, поможет выбрать элементы [`<input>`](/html/doka/input), [`<textarea>`](/html/doka/textarea) или [`<select>`](/html/doka/select), у которых задан атрибут `required`.
+Псевдокласс `:required`, дополняющий основной селектор, поможет выбрать элементы [`<input>`](/html/input), [`<textarea>`](/html/textarea) или [`<select>`](/html/select), у которых задан атрибут `required`.
 
 ## Пример
 

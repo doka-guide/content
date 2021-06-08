@@ -1,6 +1,5 @@
 ---
 title: "Статический анализ — как делать меньше ошибок"
-name: static-analysis
 authors:
   - igorkamyshev
 contributors:
