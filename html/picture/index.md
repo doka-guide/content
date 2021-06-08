@@ -1,5 +1,7 @@
 ---
 title: "<picture>"
+tags:
+  - doka
 author: ezhkov_d
 editor:
   - tachisis
