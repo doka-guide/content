@@ -125,10 +125,10 @@ element.style.fontFamily = "Arial"
 | [stroke-dasharray]() | strokeDasharray |
 | [stroke-dashoffset]() | strokeDashoffset |
 | [stroke-width]() | strokeWidth |
-| [text-align](/css/doka/text-align/) | textAlign |
-| [text-decoration](/css/doka/text-decoration/) | textDecoration |
+| [text-align](/css/text-align/) | textAlign |
+| [text-decoration](/css/text-decoration/) | textDecoration |
 | [text-indent]() | textIndent |
-| [text-transform](/css/doka/text-transform/) | textTransform |
+| [text-transform](/css/text-transform/) | textTransform |
 | [top]() | top |
 | [vertical-align](/css/doka/vertical-align/) | verticalAlign |
 | [visibility](/css/doka/visibility/) | visibility |
