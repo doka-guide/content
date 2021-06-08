@@ -25,7 +25,7 @@ summary:
 }
 ```
 
-<iframe title="Позиционирование изображения" src="demos/index.html" height="300" width="100%"></iframe>
+<iframe title="Позиционирование изображения" src="demos/index.html" height="300"></iframe>
 
 ## Как это понять
 
