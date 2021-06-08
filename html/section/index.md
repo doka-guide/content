@@ -1,5 +1,7 @@
 ---
 title: "<section>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

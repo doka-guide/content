@@ -1,5 +1,7 @@
 ---
 title: "<script>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
