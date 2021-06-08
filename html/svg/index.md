@@ -1,11 +1,12 @@
 ---
 title: "<svg>"
+tags:
+  - doka
+  - sprint-4
 authors:
   - solarrust
 contributors:
   - skorobaeus
-tags:
-  - sprint-4
 summary:
   - свг
   - векторная графика

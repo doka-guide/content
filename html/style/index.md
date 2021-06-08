@@ -1,5 +1,7 @@
 ---
 title: "<style>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
