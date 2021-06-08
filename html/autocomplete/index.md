@@ -1,5 +1,7 @@
 ---
 title: "autocomplete"
+tags:
+  - doka
 authors:
   - lenaryan
 summary:

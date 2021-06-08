@@ -1,5 +1,7 @@
 ---
 title: "<aside>"
+tags:
+  - doka
 authors:
   - realetive
 summary:
