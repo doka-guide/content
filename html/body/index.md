@@ -1,5 +1,7 @@
 ---
 title: "<body>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:

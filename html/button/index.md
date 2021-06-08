@@ -1,5 +1,7 @@
 ---
 title: "<button>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:

@@ -1,5 +1,7 @@
 ---
 title: "<blockquote>"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
