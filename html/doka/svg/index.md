@@ -108,16 +108,16 @@ SVG не может быть записано без оборачивающег�
 
 ```css
 .icon {
-  display: block;
-  width: 28px;
-  height: 28px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
 
 .fb {
-  background-image: url(../img/svg/fb.svg);
+	background-image: url(../../img/svg/fb.svg);
 }
 ```
 

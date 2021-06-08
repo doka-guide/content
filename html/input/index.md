@@ -1,5 +1,7 @@
 ---
 title: "<input>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

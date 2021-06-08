@@ -1,5 +1,7 @@
 ---
 title: "<img>"
+tags:
+  - doka
 authors:
   - grachev
   - solarrust
