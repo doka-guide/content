@@ -1,5 +1,7 @@
 ---
 title: ":link"
+tags:
+  - doka
 authors:
   - realetive
 summary:
