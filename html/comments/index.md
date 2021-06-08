@@ -1,5 +1,7 @@
 ---
 title: "Комментарии в HTML"
+tags:
+  - doka
 authors:
   - solarrust
 editors:
