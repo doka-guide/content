@@ -1,5 +1,7 @@
 ---
 title: "<video>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:
