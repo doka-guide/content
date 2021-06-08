@@ -133,6 +133,6 @@ element.style.fontFamily = "Arial"
 | [top]() | top |
 | [vertical-align](/css/doka/vertical-align/) | verticalAlign |
 | [visibility](/css/doka/visibility/) | visibility |
-| [width](/css/doka/width/) | width |
+| [width](/css/width/) | width |
 
 </details>
