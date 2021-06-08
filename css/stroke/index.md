@@ -1,5 +1,7 @@
 ---
 title: "stroke"
+tags:
+  - doka
 authors:
   - realetive
 summary:
