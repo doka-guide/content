@@ -1,5 +1,7 @@
 ---
 title: "Поток документа"
+tags:
+  - article
 authors:
   - ezhkov_d
 summary:

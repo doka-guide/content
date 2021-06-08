@@ -1,5 +1,7 @@
 ---
 title: "<fieldset>"
+tags:
+  - doka
 authors:
   - realetive
 summary:
