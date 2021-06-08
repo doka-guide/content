@@ -1,6 +1,5 @@
 ---
 title: "Пакетные менеджеры"
-name: package-managers
 authors:
   - igorkamyshev
 contributors:

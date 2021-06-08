@@ -1,6 +1,5 @@
 ---
 title: "Promise"
-name: promise
 authors:
   - nlopin
 tags:

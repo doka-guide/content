@@ -1,6 +1,5 @@
 ---
 title: "Null и undefined"
-name: null-undefined
 authors:
   - nlopin
 summary:
