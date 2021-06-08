@@ -5,6 +5,7 @@ authors:
   - stegur
 contributors:
   - nlopin
+  - skorobaeus
 tags:
   - sprint-4
   - sprint-6
@@ -62,21 +63,12 @@ spy.addEventListener("keyup", function (event) {
 
 При нажатии на любую клавишу в демо ниже, будет срабатывать событие `keydown`, которое будет выводить подсказку о нажатых клавишах:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="Stegur" data-slug-hash="BajbpoB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Событие keydown">
-  <span>See the Pen <a href="https://codepen.io/Stegur/pen/BajbpoB">
-  Событие keydown</a> by Stegur (<a href="https://codepen.io/Stegur">@Stegur</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Подсказки о нажатой клавише при событии keydown" src="demos/keydown.html"></iframe>
 
 ### Пример Keyup
 
-В следующем демо, квадрат будет сохранять красный цвет до тех пор пока не будет зафиксировано событие `keyup` на клавише <kbd>Shift</kbd>.
+Следующее демо будет сохранять цвет до тех пор пока не будет зафиксировано событие `keyup` на клавише <kbd>Shift</kbd>.
 
-<p class="codepen" data-height="448" data-theme-id="light" data-default-tab="result" data-user="Stegur" data-slug-hash="poyEKpL" style="height: 448px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Keyup">
-  <span>See the Pen <a href="https://codepen.io/Stegur/pen/poyEKpL">
-  Keyup</a> by Stegur (<a href="https://codepen.io/Stegur">@Stegur</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Событие keyup" src="demos/keyup.html"></iframe>
 
 Событие `keydown` выполняется бесконечное множество раз, до тех пор, пока клавиша будет зажата. Событие `keyup` будет выполнено только один раз — в момент, когда пользователь отпустит клавишу
