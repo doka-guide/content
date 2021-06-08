@@ -22,7 +22,7 @@ summary:
 
 ## Как пишется
 
-Пишутся два доступных значения для свойств [`align-items`](/css/align-items) и [`justify-content`](/css/doka/justify-content), разделённые слэшем.
+Пишутся два доступных значения для свойств [`align-items`](/css/align-items) и [`justify-content`](/css/justify-content), разделённые слэшем.
 
 ## Подсказки
 
