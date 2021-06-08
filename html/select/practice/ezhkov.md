@@ -25,7 +25,7 @@ permalink: false
 </form>
 ```
 
-В данном случае мы оборачиваем наш `<select>` дополнительным блоком, чтобы задействовать псевдоэлемент [`::after`](/css/doka/after/) этого блока. К сожалению, `<select>` относится к такому типу элементов, у которых нет своих псевдоэлементов [`::before`](/css/doka/before/) и [`::after`](/css/doka/after/).
+В данном случае мы оборачиваем наш `<select>` дополнительным блоком, чтобы задействовать псевдоэлемент [`::after`](/css/after/) этого блока. К сожалению, `<select>` относится к такому типу элементов, у которых нет своих псевдоэлементов [`::before`](/css/doka/before/) и [`::after`](/css/after/).
 
 ```css
 .select-wrapper {
@@ -49,7 +49,7 @@ select {
 }
 ```
 
-Используем свойство `appearance`, чтобы отключить браузерную стрелку справа. В качестве стрелки ставим псевдоэлемент [`::after`](/css/doka/after/) от родительского блока. Не забываем про позиционирование, а также отключаем у псевдоэлемента взаимодействие с мышкой, иначе при клике на него выпадающий список раскрываться не будет.
+Используем свойство `appearance`, чтобы отключить браузерную стрелку справа. В качестве стрелки ставим псевдоэлемент [`::after`](/css/after/) от родительского блока. Не забываем про позиционирование, а также отключаем у псевдоэлемента взаимодействие с мышкой, иначе при клике на него выпадающий список раскрываться не будет.
 
 <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="YzGEKjP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select&amp;gt; custom">
   <span>See the Pen <a href="https://codepen.io/ezhkov/pen/YzGEKjP">
