@@ -1,5 +1,7 @@
 ---
 title: "<legend>"
+tags:
+  - doka
 authors:
   - realetive
 contributors:
