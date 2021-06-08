@@ -1,5 +1,7 @@
 ---
 title: ":not"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
