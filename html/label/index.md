@@ -1,5 +1,7 @@
 ---
 title: "<label>"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:
