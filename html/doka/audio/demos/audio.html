@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Аудио — <audio> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .article__code {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    p {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    a {
+      color: #ffffff;
+    }
+
+    .license {
+      margin-top: 10px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="article__code">
+    <audio controls>
+      <source src="../audio/audio.opus" type="audio/ogg; codecs=opus">
+      <source src="../audio/audio.ogg" type="audio/ogg; codecs=vorbis">
+      <source src="../audio/audio.mp3" type="audio/mpeg">
+      Ваш браузер не поддерживает встроенные аудио.
+      Попробуйте <a href="../audio/audio.mp3">скачать</a> файл.
+    </audio>
+    <p class="license"><a href="https://siddharthamusic.bandcamp.com/">Siddhartha Corsus</a> — Big Blessings<br><a href="https://creativecommons.org/licenses/by-nc/4.0/legalcode.ru">Публичная лицензия Creative Commons</a></p>
+  </div>
+</body>
+</html>
