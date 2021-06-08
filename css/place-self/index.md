@@ -1,5 +1,7 @@
 ---
 title: "place-self"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

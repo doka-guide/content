@@ -1,5 +1,7 @@
 ---
 title: "place-items"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

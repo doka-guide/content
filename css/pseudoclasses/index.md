@@ -1,5 +1,7 @@
 ---
 title: "Псевдоклассы"
+tags:
+  - doka
 authors:
   - realetive
 summary:
