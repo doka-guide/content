@@ -1,9 +1,10 @@
 ---
 title: "@import"
+tags:
+  - doka
+  - sprint-1
 authors:
   - solarrust
-tags:
-  - sprint-1
 summary:
   - import
   - директива

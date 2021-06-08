@@ -1,5 +1,7 @@
 ---
 title: "Наследование в CSS"
+tags:
+  - article
 authors:
   - realetive
 summary:
