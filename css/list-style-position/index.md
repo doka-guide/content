@@ -1,5 +1,7 @@
 ---
 title: "list-style-position"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:
