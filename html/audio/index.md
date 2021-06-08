@@ -1,5 +1,7 @@
 ---
 title: "<audio>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

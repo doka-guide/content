@@ -1,5 +1,7 @@
 ---
 title: "<a>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
