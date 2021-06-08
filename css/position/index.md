@@ -1,5 +1,7 @@
 ---
 title: "position"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:

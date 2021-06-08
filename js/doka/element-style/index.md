@@ -115,11 +115,11 @@ element.style.fontFamily = "Arial"
 | [margin-right](/css/doka/margin/#кратко) | marginRight |
 | [margin-top](/css/doka/margin/#кратко) | marginTop |
 | [overflow]() | overflow |
-| [padding](/css/doka/padding/) | padding |
-| [padding-bottom](/css/doka/padding/#кратко) | paddingBottom |
-| [padding-left](/css/doka/padding/#кратко) | paddingLeft |
-| [padding-right](/css/doka/padding/#кратко) | paddingRight |
-| [padding-top](/css/doka/padding/#кратко) | paddingTop |
+| [padding](/css/padding/) | padding |
+| [padding-bottom](/css/padding/#кратко) | paddingBottom |
+| [padding-left](/css/padding/#кратко) | paddingLeft |
+| [padding-right](/css/padding/#кратко) | paddingRight |
+| [padding-top](/css/padding/#кратко) | paddingTop |
 | [page-break-after]() | pageBreakAfter |
 | [page-break-before]() | pageBreakBefore |
 | [position]() | position |

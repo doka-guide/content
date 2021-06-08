@@ -1,11 +1,12 @@
 ---
 title: "::placeholder"
+tags:
+  - doka
+  - sprint-2
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-tags:
-  - sprint-2
 summary:
   - плейсхолдер
   - placeholder

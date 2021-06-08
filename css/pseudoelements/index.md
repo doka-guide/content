@@ -1,5 +1,8 @@
 ---
 title: "Псевдоэлементы"
+tags:
+  - doka
+  - sprint-1
 authors:
   - solarrust
 contributors:
@@ -7,8 +10,6 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-tags:
-  - sprint-1
 summary:
   - псевдоэлемент
   - селекторы
