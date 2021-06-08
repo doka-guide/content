@@ -12,7 +12,7 @@ summary:
 
 Эти два бравых парня — псевдоклассы `:disabled` и `:enabled` — помогают стилизовать интерактивные элементы: на которые можно и нельзя нажать.
 
-Легко применяются к любым элементам, которым можно задать атрибут `disabled`: [`<button>`](/html/doka/button), `<command>`, [`<fieldset>`](/html/doka/fieldset), `<keygen>`, `<optgroup>`, [`<option>`](/html/doka/option), [`<select>`](/html/doka/select), [`<textarea>`](/html/doka/textarea) и [`<input>`](/html/doka/input).
+Легко применяются к любым элементам, которым можно задать атрибут `disabled`: [`<button>`](/html/doka/button), `<command>`, [`<fieldset>`](/html/doka/fieldset), `<keygen>`, `<optgroup>`, [`<option>`](/html/doka/option), [`<select>`](/html/doka/select), [`<textarea>`](/html/textarea) и [`<input>`](/html/doka/input).
 
 ## Пример
 
