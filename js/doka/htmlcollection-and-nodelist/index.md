@@ -1,6 +1,5 @@
 ---
 title: "HTMLCollection и NodeList"
-name: htmlcollection-and-nodelist
 authors:
   - nlopin
 summary:

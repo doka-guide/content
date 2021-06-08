@@ -1,6 +1,5 @@
 ---
 title: "Системы управления версиями"
-name: version-control
 authors:
   - igorkamyshev
 contributors:
