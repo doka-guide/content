@@ -56,7 +56,7 @@ h2.article-title.title-primary {
 
 :::callout ⚠️
 
-Обратите внимание: селектор `.article-title` эквивалентен [селектору по атрибуту](/css/doka/attribute-selector/) `[class~="article-title"]`.
+Обратите внимание: селектор `.article-title` эквивалентен [селектору по атрибуту](/css/attribute-selector/) `[class~="article-title"]`.
 
 :::
 
