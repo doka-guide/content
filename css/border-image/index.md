@@ -1,5 +1,7 @@
 ---
 title: "border-image"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

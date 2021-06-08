@@ -1,5 +1,7 @@
 ---
 title: "box-shadow"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
