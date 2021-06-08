@@ -10,7 +10,7 @@ summary:
 
 ## Кратко
 
-Псевдокласс `:placeholder-shown` выбирает на странице все [`<input>`](/html/input) или [`<textarea>`](/html/doka/textarea), у которых показывается плейсхолдер.
+Псевдокласс `:placeholder-shown` выбирает на странице все [`<input>`](/html/doka/input) или [`<textarea>`](/html/textarea), у которых показывается плейсхолдер.
 
 ## Пример
 
