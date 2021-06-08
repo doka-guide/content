@@ -1,5 +1,7 @@
 ---
 title: "<h1>...<h6>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:

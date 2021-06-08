@@ -1,5 +1,7 @@
 ---
 title: "<header>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

@@ -1,5 +1,7 @@
 ---
 title: "<html>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
