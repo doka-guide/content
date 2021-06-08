@@ -1,5 +1,7 @@
 ---
 title: ":empty"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
