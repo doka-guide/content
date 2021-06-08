@@ -1,5 +1,7 @@
 ---
 title: "<q>"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

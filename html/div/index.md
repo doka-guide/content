@@ -1,5 +1,7 @@
 ---
 title: "<div>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:

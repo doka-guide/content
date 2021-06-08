@@ -1,5 +1,7 @@
 ---
 title: "<article>"
+tags:
+  - doka
 authors:
   - realetive
 contributors:
