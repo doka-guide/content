@@ -1,12 +1,13 @@
 ---
 title: "<button>"
+tags:
+  - doka
+  - sprint-2
 authors:
   - grachev
 contributors:
   - solarrust
   - vladimir
-tags:
-  - sprint-2
 summary:
   - button
   - тэг
