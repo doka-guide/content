@@ -1,5 +1,7 @@
 ---
 title: "quotes"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
