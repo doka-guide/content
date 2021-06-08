@@ -37,4 +37,4 @@ summary:
 
 - Нельзя вкладывать теги `<address>` друг в друга
 - Нельзя вкладывать в параграф с текстом, это не фразовый элемент
-- Внутри нельзя использовать заголовки, секционные теги ([`<section>`](/html/doka/section/), [`<article>`](/html/doka/article/), [`<aside>`](/html/doka/aside/), [`<nav>`](/html/doka/nav/)), а так же теги [`<header>`](/html/doka/header/) и [`<footer>`](/html/footer/)
+- Внутри нельзя использовать заголовки, секционные теги ([`<section>`](/html/section/), [`<article>`](/html/article/), [`<aside>`](/html/aside/), [`<nav>`](/html/nav/)), а так же теги [`<header>`](/html/header/) и [`<footer>`](/html/footer/)

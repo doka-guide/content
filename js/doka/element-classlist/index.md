@@ -1,6 +1,5 @@
 ---
 title: Element.classList
-name: element-classlist
 authors:
   - windrushfarer
 tags:
@@ -14,7 +13,7 @@ summary:
 
 ## Кратко
 
-`Element.classList` даёт возможность просматривать и манипулировать [классами](/html/class/) элемента.
+`Element.classList` даёт возможность просматривать и манипулировать [классами](/html/doka/class/) элемента.
 
 ## Пример
 
