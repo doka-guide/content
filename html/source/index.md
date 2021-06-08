@@ -1,5 +1,7 @@
 ---
 title: "<source>"
+tags:
+  - doka
 authors:
   - ezhkov_d
 editors:

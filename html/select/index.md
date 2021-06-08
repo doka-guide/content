@@ -1,5 +1,7 @@
 ---
 title: "<select>"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:

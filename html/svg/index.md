@@ -1,5 +1,7 @@
 ---
 title: "<svg>"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
