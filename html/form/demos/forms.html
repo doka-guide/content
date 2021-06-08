@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Три формы — <form> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      display: grid;
+      row-gap: 20px;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      padding: 30px;
+    }
+
+    form:nth-of-type(1) {
+      background-color: #ed6742;
+    }
+
+    form:nth-of-type(2) {
+      background-color: #49a16c;
+    }
+
+    form:nth-of-type(3) {
+      background-color: #ffd829;
+    }
+
+    form:nth-of-type(1) label,
+    form:nth-of-type(2) label {
+      display: block;
+      margin-bottom: 5px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    input[type=text] {
+      padding: 10px 12px;
+      background-color: transparent;
+      color: #ffffff;
+      border: 1px solid #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+      vertical-align: middle;
+    }
+
+    input[type=text]:focus {
+      border-color: #18191c;
+      outline: none;
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      vertical-align: middle;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    button:hover {
+      border: 1px solid #000000;
+      color: #ffffff;
+      background-color: transparent;
+      cursor: pointer;
+    }
+
+    button:focus {
+      outline: 1px solid #ffffff;
+    }
+
+    fieldset {
+      border: 1px solid #18191c;
+      padding: 15px 20px;
+    }
+
+    legend {
+      padding: 0 5px;
+      line-height: 1;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    label + label {
+      margin-left: 15px;
+    }
+
+    input[type=radio] {
+      margin: 0;
+      padding: 0;
+      border: 1px solid #18191c;
+      border-radius: 50%;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      vertical-align: -0.2em;
+    }
+
+    input[type=radio]:checked {
+      background-image: radial-gradient(
+        black 0% 40%,
+        transparent 50% 100%
+      );
+    }
+  </style>
+</head>
+<body>
+  <!-- Эта форма отправит значение методом GET — мы получим URL с ответом -->
+  <form action="" method="get">
+    <label for="get-name">Имя первого гостя:</label>
+    <input id="get-name" type="text" name="name">
+    <button type="submit">Сохранить</button>
+  </form>
+
+  <!-- Эта форма отправит данные методом POST -->
+  <form action="" method="post">
+    <label for="post-name">Имя второго гостя:</label>
+    <input id="post-name" type="text" name="name">
+    <button type="submit">Сохранить</button>
+  </form>
+
+  <!-- Форма с булетами в рамочке -->
+  <form action="" method="post">
+    <fieldset>
+      <legend>Выберите прожарку</legend>
+      <label for="rare">
+        <input type="radio" name="level" id="rare">
+        Rare
+      </label>
+      <label for="medium">
+        <input type="radio" name="level" id="medium" checked>
+        Medium
+      </label>
+      <label for="well-done">
+        <input type="radio" name="level" id="well-done">
+        Well Done
+      </label>
+    </fieldset>
+  </form>
+</body>
+</html>
