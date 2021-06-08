@@ -32,7 +32,7 @@ summary:
 
 ## Как пишется
 
-Кроме `<title>`, внутри контейнера `<head>` можно разместить и другие элементы: [`<base>`](/html/doka/TODO) (в работе), [`<link>`](/html/doka/link), [`<meta>`](/html/doka/meta), [`<script>`](/html/doka/script), [`<style>`](/html/doka/style). Вот пример того, как можно поставить фавиконку — маленькую иконку в углу вкладки браузера.
+Кроме `<title>`, внутри контейнера `<head>` можно разместить и другие элементы: [`<base>`](/html/doka/TODO) (в работе), [`<link>`](/html/doka/link), [`<meta>`](/html/meta), [`<script>`](/html/doka/script), [`<style>`](/html/doka/style). Вот пример того, как можно поставить фавиконку — маленькую иконку в углу вкладки браузера.
 
 ```html
 <head>
