@@ -2,11 +2,10 @@
 title: "Гайд по grid"
 tags:
   - article
-authors:
-  - solarrust
-tags:
   - sprint-4
   - sprint-3
+authors:
+  - solarrust
 contributors:
   - corocoto
 summary:

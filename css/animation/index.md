@@ -2,6 +2,7 @@
 title: "CSS-анимации"
 tags:
   - article
+  - sprint-2
 authors:
   - solarrust
 summary:
@@ -15,8 +16,6 @@ summary:
   - animation-play-state
   - animation-fill-mode
   - animation
-tags:
-  - sprint-2
 ---
 
 ## Кратко
