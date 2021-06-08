@@ -1,5 +1,7 @@
 ---
 title: "<option>"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
