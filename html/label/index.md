@@ -2,13 +2,12 @@
 title: "<label>"
 tags:
   - doka
+  - sprint-4
+  - sprint-6
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-tags:
-  - sprint-4
-  - sprint-6
 summary:
   - лейбл
   - подпись поля ввода
