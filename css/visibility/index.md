@@ -1,5 +1,7 @@
 ---
 title: "visibility"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

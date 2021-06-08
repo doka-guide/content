@@ -1,5 +1,7 @@
 ---
 title: "vm, vh, vmin, vmax"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:

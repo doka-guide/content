@@ -1,5 +1,7 @@
 ---
 title: ":visited"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
