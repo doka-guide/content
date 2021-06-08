@@ -23,4 +23,4 @@ permalink: false
 
 Мы позиционируем элементы с помощью скриптов, потому что не знаем, когда и как пользователь захочет прокрутить ленту с блоками.
 
-Старайтесь анимировать свойства [`transform`](/css/doka/transform) и [`opacity`](/css/doka/opacity), чтобы сделать сайт или приложение более отзывчивыми. [Как браузер рисует страницы](/js/articles/how-the-browser-creates-pages)
+Старайтесь анимировать свойства [`transform`](/css/doka/transform) и [`opacity`](/css/opacity), чтобы сделать сайт или приложение более отзывчивыми. [Как браузер рисует страницы](/js/articles/how-the-browser-creates-pages)

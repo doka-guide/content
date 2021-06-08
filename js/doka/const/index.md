@@ -1,6 +1,5 @@
 ---
 title: "const"
-name: const
 authors:
   - nlopin
 contributors:

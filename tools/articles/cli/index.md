@@ -1,6 +1,5 @@
 ---
 title: "Интерфейс командной строки"
-name: cli
 authors:
   - igsekor
 editors:
