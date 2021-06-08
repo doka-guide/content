@@ -1,6 +1,5 @@
 ---
 title: "Boolean"
-name: boolean
 authors:
   - bespoyasov
 contributors:

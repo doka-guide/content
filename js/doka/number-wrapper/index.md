@@ -1,6 +1,5 @@
 ---
 title: "Number"
-name: number-wrapper
 authors:
   - nlopin
 summary:

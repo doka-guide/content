@@ -1,6 +1,5 @@
 ---
 title: "getElementsByClassName()"
-name: getelementsbyclassname
 authors:
   - nlopin
 summary:

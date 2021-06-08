@@ -1,6 +1,5 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
-name: throttle
 authors:
   - bespoyasov
 summary:

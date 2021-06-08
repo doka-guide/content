@@ -1,6 +1,5 @@
 ---
 title: "Array.filter"
-name: array-filter
 authors:
   - windrushfarer
 contributors:
