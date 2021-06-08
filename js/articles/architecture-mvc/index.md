@@ -1,6 +1,5 @@
 ---
 title: "Архитектурный паттерн MVC"
-name: architecture-mvc
 authors:
   - bespoyasov
 summary:

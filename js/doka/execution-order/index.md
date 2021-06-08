@@ -1,6 +1,5 @@
 ---
 title: "Порядок выполнения"
-name: execution-order
 authors:
   - nlopin
 contributors:

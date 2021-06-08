@@ -1,6 +1,5 @@
 ---
 title: "use strict"
-name: use-strict
 authors:
   - windrushfarer
 ---

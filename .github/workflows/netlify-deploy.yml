@@ -1,4 +1,4 @@
-name: Deploy Platform With Content
+name: Netlify Deploy
 
 on:
   push:
