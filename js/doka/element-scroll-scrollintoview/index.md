@@ -3,6 +3,8 @@ title: "Element.scroll/scrollIntoView"
 name: element-scroll-scrollintoview
 authors:
   - vindi-r
+contributors:
+  - skorobaeus
 tags:
   - sprint-2
 summary:
