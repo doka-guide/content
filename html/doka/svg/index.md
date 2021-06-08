@@ -117,7 +117,7 @@ SVG не может быть записано без оборачивающег�
 }
 
 .fb {
-  background-image: url(../../img/svg/fb.svg);
+  background-image: url(../img/svg/fb.svg);
 }
 ```
 
