@@ -406,8 +406,8 @@ CSS-анимации по умолчанию проигрываются лине
 - `both` — до начала анимации к элементу применяется первый ключевой кадр, а после окончания анимации элемент останется в состоянии последнего ключевого кадра.
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
-
 <p class="codepen" data-height="388" data-theme-id="dark" data-default-tab="result" data-user="solarrust" data-slug-hash="XWpxNZZ" data-preview="true" style="height: 388px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="XWpxNZZ">
+
   <span>See the Pen <a href="https://codepen.io/solarrust/pen/XWpxNZZ">
   XWpxNZZ</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
