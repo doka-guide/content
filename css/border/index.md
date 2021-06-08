@@ -1,5 +1,7 @@
 ---
 title: "border"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

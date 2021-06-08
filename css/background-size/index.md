@@ -1,5 +1,7 @@
 ---
 title: "background-size"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

@@ -1,5 +1,7 @@
 ---
 title: "background-repeat"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

@@ -1,5 +1,7 @@
 ---
 title: "box-sizing"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

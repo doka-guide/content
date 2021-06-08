@@ -1,5 +1,7 @@
 ---
 title: "background-image"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
