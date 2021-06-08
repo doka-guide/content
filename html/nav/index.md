@@ -1,5 +1,7 @@
 ---
 title: "<nav>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:
