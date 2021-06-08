@@ -132,7 +132,7 @@ ul {
 
 <iframe title="Список без маркера" src="demos/ol-no-marker.html"></iframe>
 
-Так же, устанавливая `list-style-type: none` можно создать стилизованные списки, главное не забыть прописать свойство [`content`](/css/doka/content):
+Так же, устанавливая `list-style-type: none` можно создать стилизованные списки, главное не забыть прописать свойство [`content`](/css/content):
 
 ```html
 <ul>

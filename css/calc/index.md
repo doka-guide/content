@@ -1,5 +1,7 @@
 ---
 title: "calc()"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

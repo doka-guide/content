@@ -1,5 +1,7 @@
 ---
 title: "content"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:

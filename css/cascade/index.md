@@ -1,5 +1,7 @@
 ---
 title: "Принцип каскада"
+tags:
+  - article
 authors:
   - realetive
 summary:

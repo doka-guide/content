@@ -1,5 +1,7 @@
 ---
 title: ":first-child / :nth-child / :last-child / :nth-last-child / :only-child"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

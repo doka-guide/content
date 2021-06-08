@@ -1,5 +1,7 @@
 ---
 title: "Комбинированные селекторы"
+tags:
+  - article
 authors:
   - realetive
 summary:

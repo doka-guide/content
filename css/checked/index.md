@@ -1,5 +1,7 @@
 ---
 title: ":checked"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:

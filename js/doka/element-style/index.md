@@ -91,8 +91,8 @@ element.style.fontFamily = "Arial"
 | [border-width](/css/doka/border/#border-width) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |
-| [color](/css/doka/color/) | color |
-| [cursor](/css/doka/cursor/) | cursor |
+| [color](/css/color/) | color |
+| [cursor](/css/cursor/) | cursor |
 | [display](/css/doka/display/) | display |
 | [filter]() | filter |
 | [float]() | cssFloat |
