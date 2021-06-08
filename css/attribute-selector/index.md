@@ -2,10 +2,9 @@
 title: "[attr]"
 tags:
   - doka
+  - sprint-1
 authors:
   - ezhkov
-tags:
-  - sprint-1
 summary:
   - селектор
   - атрибут
