@@ -1,5 +1,7 @@
 ---
 title: "<main>"
+tags:
+  - doka
 authors:
   - vladimir
   - solarrust
