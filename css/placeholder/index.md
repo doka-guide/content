@@ -59,5 +59,5 @@ summary:
 - все шрифтовые свойства, начинающиеся с `font` (например, [`font-size`](/css/font-size/) или [`font-style`](/css/font-style/));
 - все свойства для работы с фоном, начинающиеся с `background-` (например, [`background-color`](/css/background-color/) или [`background-size`](/css/background-size/));
 - свойство [`color`](/css/color/);
-- свойства [`word-spacing`](/css/word-spacing/), [`letter-spacing`](/css/doka/letter-spacing/), [`text-decoration`](/css/text-decoration/), [`text-transform`](/css/text-transform/) и [`line-height`](/css/line-height/);
-- свойства [`text-shadow`](/css/doka/text-shadow/), группу свойств [`text-decoration`](/css/doka/text-decoration/) и [`vertical-align`](/css/doka/vertical-align/).
+- свойства [`word-spacing`](/css/word-spacing/), [`letter-spacing`](/css/letter-spacing/), [`text-decoration`](/css/text-decoration/), [`text-transform`](/css/text-transform/) и [`line-height`](/css/line-height/);
+- свойства [`text-shadow`](/css/text-shadow/), группу свойств [`text-decoration`](/css/text-decoration/) и [`vertical-align`](/css/vertical-align/).
