@@ -1,6 +1,5 @@
 ---
 title: "fetch"
-name: fetch
 authors:
   - windrushfarer
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "includes"
-name: includes
 authors:
   - nlopin
 ---

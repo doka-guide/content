@@ -1,6 +1,5 @@
 ---
 title: "Element.Keydown/Keyup"
-name: element-keydown-keyup
 authors:
   - stegur
 contributors:
