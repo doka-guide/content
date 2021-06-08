@@ -1,5 +1,7 @@
 ---
 title: "grid-template-columns"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
