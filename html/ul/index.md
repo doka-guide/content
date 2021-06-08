@@ -1,5 +1,7 @@
 ---
 title: "<ul>"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:

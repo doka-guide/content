@@ -1,5 +1,7 @@
 ---
 title: "<span>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

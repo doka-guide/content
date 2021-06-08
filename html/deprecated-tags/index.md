@@ -1,5 +1,7 @@
 ---
 title: Устаревшие теги
+tags:
+  - article
 authors:
   - realetive
 contributors:
