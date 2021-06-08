@@ -186,3 +186,126 @@ httpd -k <signal>
 `reopen` — открыть лог-файлы заново.
 
 Можно получить конфигурационный файл с помощью сервиса [Mozilla SSL Configuration Generator](https://ssl-config.mozilla.org). Попробовать сгенерировать разные конфигурации позволит разобраться с конкретными настройками детальнее.
+
+## Шпаргалка по Apache
+
+Настройка виртуально домена
+
+```
+NameVirtualHost *
+<VirtualHost *>
+  DocumentRoot /web/example.com/www
+  ServerName www.example.com
+  ServerAlias example.com
+  CustomLog /web/example.com/logs/access.log combined
+  ErrorLog /web/example.com/logs/error.log
+</VirtualHost>
+
+Включите другой файл conf
+
+```
+Include /etc/apache/virtual-hosts/*.conf
+```
+
+Скрыть информацию о версии apache
+
+```
+ServerSignature Off
+ServerTokens Prod
+```
+
+Своё сообщение об ошибке 404
+
+```
+ErrorDocument 404 /404.html
+```
+
+Создайте виртуальный каталог (mod_alias)
+
+```
+Alias /common /web/common
+```
+
+Постоянный редирект (mod_alias)
+
+```
+Redirect permanent /old http://example.com/new
+```
+
+Создайте cgi-bin
+
+```
+ScriptAlias /cgi-bin/ /web/cgi-bin/
+```
+
+Сценарии Process .cgi
+
+```
+AddHandler cgi-script .cgi
+```
+
+Добавление индекса каталога
+
+```
+DirectoryIndex index.cfm index.cfm
+```
+
+Выключите просмотр каталогов
+
+```
+Options -Indexes
+```
+
+Включите просмотр каталогов
+
+```
+<Location /images>
+  Options +Indexes
+</Location>
+```
+
+Создайте нового пользователя для базовой аутентификации (командная строка)
+
+```
+htpasswd -c /etc/apacheusers
+```
+
+Базовая аутентификация Apache
+
+```
+AuthName "Authentication Required"
+AuthType Basic
+AuthUserFile /etc/apacheusers
+Require valid-user
+```
+
+Разрешить доступ только с определенного IP-адреса
+
+```
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+```
+
+Разрешите доступ только из вашей подсети
+
+```
+Order Deny,Allow
+Deny from all
+Allow from 176.16.0.0/16
+```
+
+Включите механизм перезаписи
+
+```
+RewriteEngine On
+
+Redirect /news/123 to /news.cfm?id=123
+
+RewriteRule ^/news/([0-9]+)$ /news.cfm?id=$1 [PT,L]
+
+Redirect www.example.com to example.com
+
+RewriteCond %{HTTP_HOST} ^www\.example\.com$ [NC]
+RewriteRule ^(.*)$ http://example.com$1 [R=301,L]
+```
