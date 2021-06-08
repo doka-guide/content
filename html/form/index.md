@@ -1,5 +1,7 @@
 ---
 title: "<form>"
+tags:
+  - doka
 authors:
   - vladimir
 contributors:

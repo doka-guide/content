@@ -1,5 +1,7 @@
 ---
 title: "<figure>, <figcaption>"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
