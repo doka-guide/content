@@ -1,6 +1,5 @@
 ---
 title: "return"
-name: return
 authors:
   - vindi-r
 contributors:
