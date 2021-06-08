@@ -1,6 +1,5 @@
 ---
 title: "Debounce на примере формы поиска"
-name: debounce
 authors:
   - bespoyasov
 summary:

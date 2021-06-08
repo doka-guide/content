@@ -1,6 +1,5 @@
 ---
 title: "Promise. Метод finally"
-name: promise-finally
 authors:
   - nlopin
 summary:

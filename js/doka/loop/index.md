@@ -1,6 +1,5 @@
 ---
 title: "Цикл"
-name: loop
 authors:
   - nlopin
 contributors:
