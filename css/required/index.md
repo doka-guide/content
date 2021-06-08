@@ -1,5 +1,7 @@
 ---
 title: ":required"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:

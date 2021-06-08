@@ -1,5 +1,7 @@
 ---
 title: "radial-gradient()"
+tags:
+  - doka
 authors:
   - ezhkov_d
 editors:

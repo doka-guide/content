@@ -271,7 +271,7 @@ img:not([alt]) {
 
 ### `:optional` и `:required`
 
-[Основная статья про `:required`](/css/doka/required)
+[Основная статья про `:required`](/css/required)
 
 `:optional` находит любой `<input>`, у которого не установлен атрибут `required` — то есть находит необязательные поля ввода. А `:required` — наоборот, те `<input>`, у которых есть этот атрибут.
 

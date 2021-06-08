@@ -1,9 +1,10 @@
 ---
-title: "rem / em"
+title: "rem, em"
+tags:
+  - doka
+  - sprint-3
 authors:
   - realetive
-tags:
-  - sprint-3
 summary:
   - единицы измерения
   - относительные единицы
