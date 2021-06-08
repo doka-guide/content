@@ -1,5 +1,7 @@
 ---
 title: "outline"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
