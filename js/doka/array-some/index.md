@@ -1,6 +1,5 @@
 ---
 title: "Array.some"
-name: array-some
 authors:
   - windrushfarer
 ---

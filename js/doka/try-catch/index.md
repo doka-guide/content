@@ -1,6 +1,5 @@
 ---
 title: "try...catch"
-name: try-catch
 authors:
   - windrushfarer
 contributors:

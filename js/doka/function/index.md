@@ -1,6 +1,5 @@
 ---
 title: "function()"
-name: function
 authors:
   - vindi-r
 summary:

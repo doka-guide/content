@@ -1,6 +1,5 @@
 ---
 title: "Element.scroll/scrollTo"
-name: element-scroll-scrollto
 authors:
   - vindi-r
 tags:

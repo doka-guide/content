@@ -1,6 +1,5 @@
 ---
 title: "Promise. Метод then"
-name: promise-then
 authors:
   - nlopin
 summary:

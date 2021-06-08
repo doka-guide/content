@@ -1,6 +1,5 @@
 ---
 title: "Math"
-name: math
 authors:
   - vindi-r
 summary:
