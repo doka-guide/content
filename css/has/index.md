@@ -1,5 +1,7 @@
 ---
 title: ":has"
+tags:
+  - doka
 authors:
   - realetive
 summary:
