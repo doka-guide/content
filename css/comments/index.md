@@ -1,5 +1,7 @@
 ---
 title: "Комментарии в CSS"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

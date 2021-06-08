@@ -1,5 +1,7 @@
 ---
 title: ".class"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
