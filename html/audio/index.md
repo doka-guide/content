@@ -2,12 +2,11 @@
 title: "<audio>"
 tags:
   - doka
+  - sprint-2
 authors:
   - vladimir
 contributors:
   - skorobaeus
-tags:
-  - sprint-2
 summary:
   - audio
   - аудио

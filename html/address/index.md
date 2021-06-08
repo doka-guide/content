@@ -7,7 +7,6 @@ authors:
 contributors:
   - pepelsbey
   - furtivite
-tags:
 summary:
   - address
 ---

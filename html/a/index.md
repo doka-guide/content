@@ -2,14 +2,13 @@
 title: "<a>"
 tags:
   - doka
+  - sprint-1
 authors:
   - grachev
 contributors:
   - solarrust
   - grachev
   - skorobaeus
-tags:
-  - sprint-1
 summary:
   - ссылка
   - a
