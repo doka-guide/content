@@ -2,15 +2,14 @@
 title: "<form>"
 tags:
   - doka
+  - sprint-2
+  - sprint-4
+  - sprint-6
 authors:
   - vladimir
 contributors:
   - solarrust
   - skorobaeus
-tags:
-  - sprint-2
-  - sprint-4
-  - sprint-6
 summary:
   - form
   - тэг
