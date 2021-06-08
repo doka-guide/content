@@ -1,6 +1,5 @@
 ---
 title: "URLSearchParams"
-name: urlsearchparams
 authors:
   - akellbl4
 summary:

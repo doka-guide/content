@@ -1,6 +1,5 @@
 ---
 title: "Array.find"
-name: array-find
 authors:
   - KognitivnayaBuena
 ---
