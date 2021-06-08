@@ -1,5 +1,7 @@
 ---
 title: "<textarea>"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:
