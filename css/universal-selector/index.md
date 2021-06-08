@@ -1,5 +1,7 @@
 ---
 title: "Универсальный селектор"
+tags:
+  - doka
 authors:
   - solarrust
 editors:
