@@ -1,6 +1,5 @@
 ---
 title: "API. Что это и зачем нужно?"
-name: api
 authors:
   - bespoyasov
 contributors:

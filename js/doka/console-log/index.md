@@ -1,6 +1,5 @@
 ---
 title: "console.log()"
-name: console-log
 authors:
   - vindi-r
 contributors:
