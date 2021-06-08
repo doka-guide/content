@@ -1,6 +1,5 @@
 ---
 title: "Array.forEach"
-name: array-foreach
 authors:
   - windrushfarer
 contributors:

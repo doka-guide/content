@@ -1,6 +1,5 @@
 ---
 title: "Element.click"
-name: element-click
 authors:
   - nlopin
 tags:

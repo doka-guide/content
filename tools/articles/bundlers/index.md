@@ -1,6 +1,5 @@
 ---
 title: "Системы сборки"
-name: bundlers
 authors:
   - igorkamyshev
 contributors:

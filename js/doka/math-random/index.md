@@ -1,6 +1,5 @@
 ---
 title: "Math.random()"
-name: math-random
 authors:
   - nlopin
 ---
