@@ -1,6 +1,5 @@
 ---
 title: "Element.mouseout"
-name: element-mouseout
 authors:
   - nlopin
 contributors:

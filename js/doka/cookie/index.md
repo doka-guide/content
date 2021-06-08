@@ -1,6 +1,5 @@
 ---
 title: "Cookie"
-name: cookie
 authors:
   - akellbl4
 contributors:

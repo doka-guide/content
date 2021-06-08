@@ -1,6 +1,5 @@
 ---
 title: Что такое Docker?
-name: docker
 authors:
   - igsekor
 contributors:

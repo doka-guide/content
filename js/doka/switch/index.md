@@ -1,6 +1,5 @@
 ---
 title: "switch"
-name: switch
 authors:
   - nlopin
 contributors:

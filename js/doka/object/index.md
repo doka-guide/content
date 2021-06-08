@@ -1,6 +1,5 @@
 ---
 title: "Объект"
-name: object
 authors:
   - vindi-r
 contributors:

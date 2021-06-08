@@ -1,6 +1,5 @@
 ---
 title: "Шаблонные строки"
-name: template-strings
 authors:
   - windrushfarer
 ---

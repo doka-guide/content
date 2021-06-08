@@ -1,6 +1,5 @@
 ---
 title: "Element.touch"
-name: element-touch
 authors:
   - windrushfarer
 summary:
