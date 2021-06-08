@@ -108,11 +108,11 @@ element.style.fontFamily = "Arial"
 | [list-style-image](/css/list-style-image/) | listStyleImage |
 | [list-style-position](/css/list-style-position/) | listStylePosition |
 | [list-style-type](/css/list-style-type/) | listStyleType |
-| [margin](/css/doka/margin/) | margin |
-| [margin-bottom](/css/doka/margin/#кратко) | marginBottom |
-| [margin-left](/css/doka/margin/#кратко) | marginLeft |
-| [margin-right](/css/doka/margin/#кратко) | marginRight |
-| [margin-top](/css/doka/margin/#кратко) | marginTop |
+| [margin](/css/margin/) | margin |
+| [margin-bottom](/css/margin/#кратко) | marginBottom |
+| [margin-left](/css/margin/#кратко) | marginLeft |
+| [margin-right](/css/margin/#кратко) | marginRight |
+| [margin-top](/css/margin/#кратко) | marginTop |
 | [overflow]() | overflow |
 | [padding](/css/doka/padding/) | padding |
 | [padding-bottom](/css/doka/padding/#кратко) | paddingBottom |
