@@ -2,14 +2,13 @@
 title: "<input>"
 tags:
   - doka
+  - sprint-2
+  - sprint-4
+  - sprint-6
 authors:
   - vladimir
 contributors:
   - skorobaeus
-tags:
-  - sprint-2
-  - sprint-4
-  - sprint-6
 summary:
   - поле ввода
   - элементы формы

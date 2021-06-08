@@ -2,10 +2,9 @@
 title: "<iframe>"
 tags:
   - doka
+  - sprint-2
 authors:
   - grachev
-tags:
-  - sprint-2
 summary:
   - айфрейм
 ---
