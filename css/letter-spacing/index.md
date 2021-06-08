@@ -1,10 +1,12 @@
 ---
 title: "letter-spacing"
+tags:
+  - doka
 authors:
   - grachev
 contributors:
   - vladimir
-  - ABatickaya
+  - solarrust
   - skorobaeus
 summary:
   - letter-spacing

@@ -1,5 +1,7 @@
 ---
 title: "list-style-image"
+tags:
+  - doka
 authors:
   - ezhkov
 contributors:

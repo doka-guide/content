@@ -103,12 +103,12 @@ element.style.fontFamily = "Arial"
 | [font-weight](/css/doka/font-weight/) | fontWeight |
 | [height](/css/doka/height/) | height |
 | [left]() | left |
-| [letter-spacing](/css/doka/letter-spacing/) | letterSpacing |
-| [line-height](/css/doka/line-height/) | lineHeight |
+| [letter-spacing](/css/letter-spacing/) | letterSpacing |
+| [line-height](/css/line-height/) | lineHeight |
 | [list-style]() | listStyle |
-| [list-style-image](/css/doka/list-style-image/) | listStyleImage |
-| [list-style-position](/css/doka/list-style-position/) | listStylePosition |
-| [list-style-type](/css/doka/list-style-type/) | listStyleType |
+| [list-style-image](/css/list-style-image/) | listStyleImage |
+| [list-style-position](/css/list-style-position/) | listStylePosition |
+| [list-style-type](/css/list-style-type/) | listStyleType |
 | [margin](/css/doka/margin/) | margin |
 | [margin-bottom](/css/doka/margin/#кратко) | marginBottom |
 | [margin-left](/css/doka/margin/#кратко) | marginLeft |
