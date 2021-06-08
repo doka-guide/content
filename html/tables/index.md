@@ -1,5 +1,7 @@
 ---
 title: "Таблицы"
+tags:
+  - doka
 authors:
   - solarrust
 editors:
