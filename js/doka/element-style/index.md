@@ -96,10 +96,10 @@ element.style.fontFamily = "Arial"
 | [filter]() | filter |
 | [float]() | cssFloat |
 | [font]() | font |
-| [font-family](/css/doka/font-family/) | fontFamily |
-| [font-size](/css/doka/font-size/) | fontSize |
+| [font-family](/css/font-family/) | fontFamily |
+| [font-size](/css/font-size/) | fontSize |
 | [font-variant]() | fontVariant |
-| [font-weight](/css/doka/font-weight/) | fontWeight |
+| [font-weight](/css/font-weight/) | fontWeight |
 | [height](/css/doka/height/) | height |
 | [left]() | left |
 | [letter-spacing](/css/doka/letter-spacing/) | letterSpacing |
