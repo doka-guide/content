@@ -1,5 +1,7 @@
 ---
 title: "CSS-анимации"
+tags:
+  - article
 authors:
   - solarrust
 summary:
