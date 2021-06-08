@@ -1,5 +1,7 @@
 ---
 title: "grid-column, grid-row"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
@@ -9,7 +11,7 @@ summary:
 
 ## Кратко
 
-Свойства-шорткаты для `grid-column-start` + `grid-column-end` и `grid-row-start` + `grid-row-end` соответственно. [Статья про эти свойства](/css/doka/grid-start-end).
+Свойства-шорткаты для `grid-column-start` + `grid-column-end` и `grid-row-start` + `grid-row-end` соответственно. [Статья про эти свойства](/css/grid-start-end).
 
 Значения для `*-start` и `*-end` разделяются слэшем.
 
@@ -30,7 +32,7 @@ summary:
 
 ## Как пишется
 
-Используйте доступные значения свойств [`grid-column-start`, `grid-column-end`, `grid-row-start` и `grid-row-end`](/css/doka/grid-start-end), разделяя их слэшем.
+Используйте доступные значения свойств [`grid-column-start`, `grid-column-end`, `grid-row-start` и `grid-row-end`](/css/grid-start-end), разделяя их слэшем.
 
 ## Подсказки
 

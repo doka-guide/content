@@ -1,5 +1,7 @@
 ---
 title: "grid-template"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
@@ -25,7 +27,7 @@ summary:
 
 Можно прописать все колонки и ряды сразу, разделяя их слэшем `/`. Сперва идут ряды, а затем колонки, не перепутайте!
 
-Используйте все доступные значения свойств [`grid-template-rows`](/css/doka/grid-template-rows) и [`grid-template-columns`](/css/doka/grid-template-columns), разделяя их слэшем.
+Используйте все доступные значения свойств [`grid-template-rows`](/css/grid-template-rows) и [`grid-template-columns`](/css/grid-template-columns), разделяя их слэшем.
 
 ## Подсказки
 

@@ -1,5 +1,7 @@
 ---
 title: "grid-auto-columns, grid-auto-rows"
+tags:
+  - doka
 authors:
   - solarrust
 summary:

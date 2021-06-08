@@ -1,5 +1,7 @@
 ---
 title: "Глобальные ключевые слова"
+tags:
+  - doka
 authors:
   - solarrust
 summary:
