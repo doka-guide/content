@@ -1,6 +1,5 @@
 ---
 title: "Логические операторы"
-name: logic-operators
 authors:
   - nlopin
 contributors:

@@ -1,6 +1,5 @@
 ---
 title: "var/let"
-name: var-let
 authors:
   - vindi-r
 contributors:

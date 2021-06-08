@@ -1,6 +1,5 @@
 ---
 title: "while"
-name: while
 authors:
   - nlopin
 contributors:

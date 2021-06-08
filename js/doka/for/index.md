@@ -1,6 +1,5 @@
 ---
 title: "for()"
-name: for
 authors:
   - vindi-r
 summary:
