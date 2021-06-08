@@ -1,6 +1,5 @@
 ---
 title: "Многозадачность и управление процессами"
-name: process-management
 authors:
   - igsekor
 contributors:
