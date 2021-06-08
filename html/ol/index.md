@@ -1,5 +1,7 @@
 ---
 title: "<ol>"
+tags:
+  - doka
 authors:
   - ezhkov
 editors:
