@@ -1,5 +1,7 @@
 ---
 title: ":hover"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
