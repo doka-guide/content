@@ -42,7 +42,7 @@ permalink: false
 }
 ```
 
-### При помощи псевдоэлемента [`::before`](/css/before) и свойства [`content`](/css/doka/content)
+### При помощи псевдоэлемента [`::before`](/css/before) и свойства [`content`](/css/content)
 
 ```html
 <h2>Как мы работаем:</h2>

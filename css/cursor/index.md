@@ -1,5 +1,7 @@
 ---
 title: "cursor"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
