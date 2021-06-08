@@ -1,5 +1,7 @@
 ---
 title: "<!DOCTYPE>"
+tags:
+  - doka
 authors:
   - grachev
 contributors:

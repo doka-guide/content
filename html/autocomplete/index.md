@@ -44,7 +44,7 @@ summary:
 
 Атрибут `autocomplete` пишется внутри открывающего тега, и в кавычках прописывается его значение.
 
-Кроме элемента [`<form>`](/html/doka/form), вы можете указать этот атрибут для любого поля, которое требует ввода данных — [`<input>`](/html/doka/input), принимающий на вход текст или число, [`<select>`](/html/doka/select) или [`<textarea>`](/html/doka/textarea).
+Кроме элемента [`<form>`](/html/doka/form), вы можете указать этот атрибут для любого поля, которое требует ввода данных — [`<input>`](/html/doka/input), принимающий на вход текст или число, [`<select>`](/html/doka/select) или [`<textarea>`](/html/textarea).
 
 <details>
     <summary>Список всех возможных значений</summary>

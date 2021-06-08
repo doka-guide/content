@@ -1,12 +1,13 @@
 ---
 title: "<video>"
+tags:
+  - doka
+  - sprint-2
 authors:
   - vladimir
 contributors:
   - grachev
   - skorobaeus
-tags:
-  - sprint-2
 summary:
   - video
   - видео
