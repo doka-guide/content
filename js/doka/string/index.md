@@ -1,6 +1,5 @@
 ---
 title: "Строка"
-name: string
 authors:
   - vindi-r
 contributors:

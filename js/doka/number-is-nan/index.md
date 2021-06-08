@@ -1,6 +1,5 @@
 ---
 title: "Number.isNaN()"
-name: number-is-nan
 authors:
   - vindi-r
 ---
