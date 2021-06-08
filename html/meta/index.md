@@ -2,6 +2,7 @@
 title: "<meta>"
 tags:
   - doka
+  - sprint-3
 authors:
   - grachev
 contributors:
@@ -9,8 +10,6 @@ contributors:
   - vladimir
 editors:
   - tachisis
-tags:
-  - sprint-3
 summary:
   - тэг
   - тег
