@@ -1,6 +1,5 @@
 ---
 title: "Как упростить тестирование"
-name: how-to-simplify-tests
 authors:
   - bespoyasov
 summary:

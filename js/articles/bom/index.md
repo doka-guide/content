@@ -1,6 +1,5 @@
 ---
 title: "Браузерное окружение, BOM"
-name: bom
 authors:
   - bespoyasov
 summary:

@@ -1,6 +1,5 @@
 ---
 title: "prompt()"
-name: prompt
 authors:
   - vindi-r
 ---

@@ -1,6 +1,5 @@
 ---
 title: "Array.map"
-name: array-map
 authors:
   - windrushfarer
 contributors:

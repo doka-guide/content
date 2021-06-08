@@ -1,6 +1,5 @@
 ---
 title: "querySelector"
-name: query-selector
 authors:
   - nlopin
 tags:
