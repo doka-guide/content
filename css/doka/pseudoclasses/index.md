@@ -183,7 +183,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 ### `:first-of-type`, `:nth-of-type()`, `:last-of-type`, `:nth-last-of-type()`, `:only-of-type`
 
-[Основная статья](/css/doka/nth-of-type)
+[Основная статья](/css/nth-of-type)
 
 Селектор по типу внутри одного родителя.
 
