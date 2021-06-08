@@ -1,5 +1,7 @@
 ---
 title: "<footer>"
+tags:
+  - doka
 authors:
   - vladimir
   - solarrust
