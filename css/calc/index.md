@@ -2,12 +2,11 @@
 title: "calc()"
 tags:
   - doka
+  - sprint-3
 authors:
   - solarrust
 contributors:
   - skorobaeus
-tags:
-  - sprint-3
 summary:
   - функция
   - вычисление
