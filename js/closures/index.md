@@ -2,6 +2,8 @@
 title: "Области видимости"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - замыкание
   - closure
