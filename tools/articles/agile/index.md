@@ -1,6 +1,5 @@
 ---
 title: "Что такое методологии разработки и Agile"
-name: agile
 authors:
   - igorkamyshev
 contributors:
