@@ -2,6 +2,8 @@
 title: "Браузерное окружение, BOM"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - navigator
   - screen
