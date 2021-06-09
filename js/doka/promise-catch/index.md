@@ -1,6 +1,5 @@
 ---
 title: "Promise. Метод catch"
-name: promise-catch
 authors:
   - nlopin
 summary:

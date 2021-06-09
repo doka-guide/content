@@ -1,6 +1,5 @@
 ---
 title: "indexOf()"
-name: index-of
 authors:
   - nlopin
 ---

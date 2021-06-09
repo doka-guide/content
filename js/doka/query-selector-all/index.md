@@ -1,6 +1,5 @@
 ---
 title: "querySelectorAll"
-name: query-selector-all
 authors:
   - nlopin
 tags:

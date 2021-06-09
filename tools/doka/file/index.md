@@ -1,6 +1,5 @@
 ---
 title: Файл и файловые системы
-name: file
 authors:
   - igsekor
 contributors:
