@@ -1,5 +1,7 @@
 ---
 title: "width"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
