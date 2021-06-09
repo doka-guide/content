@@ -1,5 +1,7 @@
 ---
 title: "white-space"
+tags:
+  - doka
 authors:
   - ezhkov
 summary:
@@ -15,6 +17,7 @@ summary:
 ## Пример
 
 ```html
+
 <nav>
   <ul>
     <li><a href="/about">О команде</a></li>
