@@ -130,8 +130,8 @@ element.style.fontFamily = "Arial"
 | [text-indent]() | textIndent |
 | [text-transform](/css/text-transform/) | textTransform |
 | [top]() | top |
-| [vertical-align](/css/doka/vertical-align/) | verticalAlign |
-| [visibility](/css/doka/visibility/) | visibility |
+| [vertical-align](/css/vertical-align/) | verticalAlign |
+| [visibility](/css/visibility/) | visibility |
 | [width](/css/doka/width/) | width |
 
 </details>

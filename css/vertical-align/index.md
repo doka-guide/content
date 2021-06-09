@@ -1,5 +1,7 @@
 ---
 title: "vertical-align"
+tags:
+  - doka
 authors:
   - solarrust
 contributors:
