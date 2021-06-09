@@ -1,6 +1,5 @@
 ---
 title: "Код-ревью — как, зачем, почему"
-name: code-review
 authors:
   - igorkamyshev
 contributors:

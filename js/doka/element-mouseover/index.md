@@ -1,6 +1,5 @@
 ---
 title: "Element.mouseover"
-name: element-mouseover
 authors:
   - nlopin
 contributors:
