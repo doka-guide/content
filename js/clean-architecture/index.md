@@ -3,6 +3,8 @@ title: "Трёхслойная архитектура"
 name: clean-architecture
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - домен
   - адаптер
