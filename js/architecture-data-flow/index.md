@@ -3,6 +3,8 @@ title: "Организация потоков данных"
 name: architecture-data-flow
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - data
   - flow
