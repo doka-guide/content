@@ -88,4 +88,4 @@ summary:
 
 💡 Не анимируется 😒
 
-💡 Классно работает в сочетании со свойством [`object-position`](/css/doka/object-position).
+💡 Классно работает в сочетании со свойством [`object-position`](/css/object-position).
