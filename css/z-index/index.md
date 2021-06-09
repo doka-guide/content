@@ -1,11 +1,12 @@
 ---
 title: "z-index"
+tags:
+  - doka
+  - sprint-1
 authors:
   - solarrust
 contributors:
   - skorobaeus
-tags:
-  - sprint-1
 summary:
   - поток документа
   - наложение
