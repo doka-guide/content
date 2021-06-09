@@ -1,6 +1,5 @@
 ---
 title: "События"
-name: events
 authors:
   - nlopin
 contributors:

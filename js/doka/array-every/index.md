@@ -1,6 +1,5 @@
 ---
 title: "Array.every"
-name: array-every
 authors:
   - windrushfarer
 ---

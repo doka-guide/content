@@ -1,6 +1,5 @@
 ---
 title: "sessionStorage"
-name: session-storage
 authors:
   - akellbl4
 summary:

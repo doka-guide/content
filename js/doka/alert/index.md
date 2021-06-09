@@ -1,6 +1,5 @@
 ---
 title: "alert()"
-name: alert
 authors:
   - vindi-r
 contributors:
