@@ -1,6 +1,5 @@
 ---
 title: "Math.floor()"
-name: math-floor
 authors:
   - nlopin
 ---

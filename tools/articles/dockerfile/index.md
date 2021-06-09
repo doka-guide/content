@@ -1,6 +1,5 @@
 ---
 title: Как устроен Dockerfile
-name: dockerfile
 authors:
   - igsekor
 contributors:
