@@ -7,156 +7,128 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    .article__code * {
-      font-family: "Roboto", sans-serif;
+    body {
       margin: 0;
-      padding: 0;
-    }
-
-    .article__code {
       padding: 5%;
       background-color: #18191c;
+      font-family: "Roboto", sans-serif;
     }
 
-    .article__code h3 {
-      padding-bottom: 11px;
-      border-bottom: 1px solid rgba(24, 25, 28, 0.3);
-      font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
+    /* Form */
 
-    .article__code ul {
-      list-style: none;
-    }
-
-    .article__code p,
-    .article__code ul {
-      margin-top: 11px;
-    }
-
-    .article__code li + li {
-      margin-top: 11px;
-    }
-
-    .article__code .container {
-      padding: 25px;
-    }
-
-    .article__code .text-container {
-      min-width: 500px;
-      min-height: 145px;
-      margin-top: 25px;
-      padding: 11px 0;
-      background-color: #ffffff;
-      text-align: center;
-    }
-
-    .article__code .form {
+    form {
       display: flex;
+      margin-bottom: 25px;
     }
 
-    .article__code .input {
+    input {
       flex-grow: 1;
       padding: 8px 12px;
+      border: 1px solid #ffffff;
       background-color: #18191c;
       color: #ffffff;
-      border: 1px solid #ffffff;
       font-size: 18px;
-      font-weight: 400;
     }
 
-    .article__code .input::placeholder {
-      color: #49a16c;
-    }
-
-    .article__code .input:-internal-autofill-selected {
-      -webkit-box-shadow: inset 0 0 0 100px #18191c;
-      -webkit-text-fill-color: #ffffff;
-      caret-color: #ffffff;
-    }
-
-    .article__code .button {
-      margin-left: 17px;
-      padding: 10px;
-      border: 1px solid;
-      vertical-align: middle;
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 400;
-    }
-
-    .article__code .button:hover {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background-color: #18191c;
-      cursor: pointer;
-    }
-
-    .article__code .button:focus {
-      outline: 1px solid #ffffff;
-    }
-
-    .article__code .green {
-      background-color: #49a16c;
-      border-color: #49a16c;
-    }
-
-    .article__code .green:hover {
-      border-color: #49a16c;
-    }
-
-    .article__code .lie {
+    input.lie {
       color: #ed6742;
       caret-color: #ed6742;
     }
 
-    .article__code .lie:-internal-autofill-selected {
-      -webkit-text-fill-color: #ed6742;
+    input::placeholder {
+      opacity: 1;
+      color: #49a16c;
     }
 
-    .article__code .hide {
-      display: none;
+    button {
+      margin-left: 17px;
+      padding: 10px;
+      border: 1px solid #49a16c;
+      background-color: #49a16c;
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #18191c;
+    }
+
+    button:focus {
+      outline: 1px solid #ffffff;
+    }
+
+    /* List */
+
+    section {
+      min-width: 500px;
+      min-height: 145px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    h3 {
+      margin: 0;
+      padding: 20px;
+      border-bottom: 1px solid rgba(24, 25, 28, 0.3);
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      padding: 20px;
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 20px;
+      list-style: none;
+    }
+
+    .police-status {
+      padding-top: 0;
+      color: #ed6742;
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <div class="demo-container">
-      <div class="form">
-        <input type="text" id="newGuest" placeholder="Введите имя" class="input"/>
-        <button id="add" class="button green">Пропустить гостя</button>
-      </div>
-      <div class="text-container">
-        <h3>Пришедшие гости:</h3>
-        <p id="empty-list">Никто ещё не пришёл</p>
-        <ul>
-        </ul>
-        <p id="police" class="hide lie">Лжец! Этот гость уже зашёл! Мы вызываем полицию!</p>
-      </div>
-    </div>
-  </div>
+    <form>
+      <input type="text" placeholder="Введите имя">
+      <button type="submit">Пропустить гостя</button>
+    </form>
+    <section>
+      <h3>Пришедшие гости</h3>
+      <p class="empty-list">Никто ещё не пришёл</p>
+      <ul>
+      </ul>
+      <p class="police-status" hidden>Лжец! Этот гость уже зашёл! Мы вызываем полицию!</p>
+    </section>
   <script>
-    let guestList = []
-    let guestNameInput = document.getElementById('newGuest')
-    let guestListElement = document.querySelector('.article__code ul')
-    let emptyList = document.getElementById('empty-list')
-    let police = document.getElementById('police')
+    const form = document.querySelector('form')
+    const guestList = []
+    const guestNameInput = document.querySelector('input')
+    const guestListElement = document.querySelector('ul')
+    const emptyList = document.querySelector('.empty-list')
+    const policeStatus = document.querySelector('.police-status')
 
-    document.getElementById('add').addEventListener('click', function () {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+
       let guestName = guestNameInput.value
       if (!guestName) {
         return
       }
 
-      // проверяем, пришел ли уже гость
+      // Проверяем, пришел ли уже гость
       if (guestList.includes(guestName)) {
-        police.classList.remove('hide')
+        policeStatus.hidden = false
         guestNameInput.classList.add('lie')
       } else {
-        police.classList.add('hide')
+        policeStatus.hidden = true
         guestNameInput.classList.remove('lie')
-        emptyList.classList.add('hide')
+        emptyList.hidden = true
         guestList.push(guestName)
         addGuest(guestName)
       }

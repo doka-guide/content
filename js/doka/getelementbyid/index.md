@@ -1,6 +1,5 @@
 ---
 title: "getElementById()"
-name: getelementbyid
 authors:
   - nlopin
 summary:
