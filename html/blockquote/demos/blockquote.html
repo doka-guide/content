@@ -6,20 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;display=swap">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
+      padding: 5%;
+      background-color: #18191c;
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code {
-      padding: 5%;
-      background-color: #18191c;
-    }
-
-    .quote {
+    blockquote {
       position: relative;
       max-width: 320px;
       margin: auto;
@@ -30,7 +26,7 @@
       line-height: 1.7;
     }
 
-    .quote::before {
+    blockquote::before {
       content: "“";
       position: absolute;
       left: 5rem;
@@ -43,10 +39,8 @@
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <blockquote class="quote">
-      <p>Ваша работа заполнит большую часть жизни и единственный способ быть полностью довольным — делать то, что по-вашему является великим делом. И единственный способ делать великие дела — любить то, что вы делаете.</p>
-    </blockquote>
-  </div>
+<blockquote>
+  <p>Ваша работа заполнит большую часть жизни и единственный способ быть полностью довольным — делать то, что по-вашему является великим делом. И единственный способ делать великие дела — любить то, что вы делаете.</p>
+</blockquote>
 </body>
 </html>
