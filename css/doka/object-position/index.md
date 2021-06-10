@@ -20,8 +20,12 @@ summary:
 
 ```css
 img {
+  display: block;
+  width: 350px;
+  height: 250px;
   object-fit: cover;
   object-position: 50px top;
+  border: 2px solid grey;
 }
 ```
 
