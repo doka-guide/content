@@ -1,6 +1,5 @@
 ---
 title: "Координаты"
-name: coordinates
 authors:
   - windrushfarer
 summary:
