@@ -76,7 +76,7 @@ summary:
 
 :::
 
-<iframe title="Блокирование всей формы при помощи disabled" src="demos/disabling.html"></iframe>
+<iframe title="Блокирование всей формы при помощи disabled" src="demos/disabling.html" height="370"></iframe>
 
 Внешний вид оформления рамки по умолчанию у `<legend>` немного отличается в зависимости от браузера и операционной системы:
 
