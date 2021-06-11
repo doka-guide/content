@@ -7,7 +7,7 @@ layout: simple-page.njk
 
 ## Как устроена Дока
 
-Дока состоит из двух репозиториев: [платформа](https://github.com/doka.guide/platform) на базе [Eleventy](https://www.11ty.dev) собирает статьи из [репозитория с контентом](https://github.com/Y-Doka/content), и на выходе получается наш красивый [сайт](https://y-doka.site/).
+Дока состоит из двух репозиториев: [платформа](https://github.com/doka.guide/platform) на базе [Eleventy](https://www.11ty.dev) собирает статьи из [репозитория с контентом](https://github.com/Y-Doka/content), и на выходе получается наш красивый [сайт](https://doka.guide/).
 
 У Доки есть два основных формата материалов: «дока» и «статья».
 
