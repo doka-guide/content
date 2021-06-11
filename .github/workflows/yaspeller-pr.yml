@@ -15,23 +15,20 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
       - name: Проверка правописания
         run: |
-          npm install yaspeller --global
           config=.yaspeller.json
           pattern="*.(md|html)"
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
-              yaspeller --only-errors **/$pattern
+              npx yaspeller --only-errors **/$pattern
               break
-            else
-              if [[ $(grep --quiet "${pattern}" $changed_file) ]]; then
-                file_list="${file_list} ${changed_file}"
-                echo "Файл ${changed_file} добавлен в список для проверки."
-              fi
+            elif [ $(grep --quiet "${pattern}" $changed_file) ]; then
+              file_list="${file_list} ${changed_file}"
+              echo "Файл ${changed_file} добавлен в список для проверки."
             fi
           done
           if ! [[ $file_list == "" ]]; then
             echo "Проверяются файлы из PR..."
-            yaspeller --only-errors ${file_list}
+            npx yaspeller --only-errors ${file_list}
           fi
