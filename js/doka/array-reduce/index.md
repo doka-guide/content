@@ -3,7 +3,6 @@ title: "Array.reduce"
 authors:
   - windrushfarer
 summary:
-  - редюсер
   - редьюсер
   - свёртка
 ---
