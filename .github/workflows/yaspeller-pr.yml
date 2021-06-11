@@ -30,6 +30,6 @@ jobs:
               fi
             fi
           done
-          if [ $file_list != "" ]; then
+          if ! [ $file_list == "" ]; then
             yaspeller --only-errors ${file_list}
           fi
