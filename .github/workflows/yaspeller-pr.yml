@@ -31,5 +31,5 @@ jobs:
             fi
           done
           if ! [[ $file_list == "" ]]; then
-            yaspeller --only-errors ${file_list}
+            yaspeller ${file_list}
           fi
