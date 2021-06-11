@@ -23,7 +23,7 @@ jobs:
               echo "Проверяются все файлы..."
               npx yaspeller --only-errors **/$pattern
               break
-            elif [ $(grep --quiet "${pattern}" $changed_file) ]; then
+            elif $(grep --quiet "${pattern}" $changed_file); then
               file_list="${file_list} ${changed_file}"
               echo "Файл ${changed_file} добавлен в список для проверки."
             fi
