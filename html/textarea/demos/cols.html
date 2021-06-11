@@ -5,20 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: "Roboto", sans-serif;
-    }
-
-    .article__code {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 5%;
       background-color: #18191c;
+      font-family: "Roboto", sans-serif;
     }
 
     form {
@@ -39,11 +35,11 @@
       border: 1px solid #000000;
       background-color: transparent;
       line-height: 1.5;
+      font-family: inherit;
     }
 
     textarea:focus {
-      outline: none;
-      background-color: hsl(49 100% 48% / 1);
+      background-color: #f5c800;
     }
 
     label {
@@ -53,19 +49,13 @@
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <form action="">
-      <label for="story">Ширина ~20 знаков</label>
-      <textarea id="story" name="story" rows="5" cols="20">
-        12345678901234567890
-      </textarea>
-    </form>
-    <form action="">
-      <label for="story">Ширина ~30 знаков</label>
-      <textarea id="story" name="story" rows="5" cols="30">
-        123456789012345678901234567890
-      </textarea>
-    </form>
-  </div>
+  <form action="">
+    <label for="story">Ширина ~20 знаков</label>
+    <textarea id="story" name="story" rows="5" cols="20">12345678901234567890</textarea>
+  </form>
+  <form action="">
+    <label for="story">Ширина ~30 знаков</label>
+    <textarea id="story" name="story" rows="5" cols="30">123456789012345678901234567890</textarea>
+  </form>
 </body>
 </html>

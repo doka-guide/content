@@ -9,10 +9,8 @@ contributors:
 editors:
   - tachisis
 summary:
-  - "<blockquote>"
   - blockquote
   - cite
-  - "<cite>"
   - тэг
   - тег
   - цитата
