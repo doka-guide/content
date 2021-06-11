@@ -32,4 +32,5 @@ jobs:
           done
           if ! [[ $file_list == "" ]]; then
             yaspeller ${file_list}
+            echo "End!"
           fi
