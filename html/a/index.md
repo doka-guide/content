@@ -82,7 +82,7 @@ summary:
 
 ```html
 <a href="https://y-doka.site/" target="_blank">
-  <img src="dogs.png" alt="doka mainpage dog">
+  <img src="dogs.png" alt="Три собаки: одна смотрит влево, вторая закрыла глаза и спит, третья смотрит вправо">
 </a>
 ```
 
