@@ -20,16 +20,16 @@ jobs:
           pattern="*.(md|html)"
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
-            if [ $changed_file == $config ]; then
+            if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
               yaspeller --only-errors **/$pattern
               break
             else
-              if [ $(grep --quiet "${pattern}" $changed_file) ]; then
+              if [[ $(grep --quiet "${pattern}" $changed_file) ]]; then
                 file_list="${file_list} ${changed_file}"
               fi
             fi
           done
-          if ! [ $file_list == "" ]; then
+          if ! [[ $file_list == "" ]]; then
             yaspeller --only-errors ${file_list}
           fi
