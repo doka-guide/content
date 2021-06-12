@@ -2,6 +2,8 @@
 title: "Throttle на примере изменения страницы при прокрутке"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - scroll
   - resize
