@@ -22,7 +22,7 @@ jobs:
               echo "Проверяются все файлы..."
               npx yaspeller --only-errors **/*.{md,html}
               break
-            elif ! $(egrep --quiet '.\.(md|html)' $changed_file); then
+            elif ! $(grep --quiet --extended-regexp --ignore-case '.(md|html)' $changed_file); then
               file_list="${file_list} ${changed_file}"
               echo "Файл ${changed_file} добавлен в список для проверки."
             fi
