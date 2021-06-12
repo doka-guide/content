@@ -2,6 +2,8 @@
 title: "Как упростить тестирование"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - test
   - pure functions
