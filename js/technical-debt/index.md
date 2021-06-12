@@ -2,6 +2,8 @@
 title: "Что такое технический долг"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - рефакторинг
   - зависимости
