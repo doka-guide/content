@@ -20,7 +20,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
-              npx yaspeller --only-errors **/*.(md|html)
+              npx yaspeller --only-errors **/*.{md,html}
               break
             elif ! $(grep --quiet '\.\(md\|html\)' $changed_file); then
               file_list="${file_list} ${changed_file}"
