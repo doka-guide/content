@@ -4,6 +4,7 @@ authors:
   - bespoyasov
 tags:
   - sprint-14
+  - article
 summary:
   - click jacking
   - xss
