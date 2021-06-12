@@ -6,6 +6,8 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+editors:
+  - tachisis
 summary:
   - :hover
   - LVHA
