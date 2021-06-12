@@ -4,6 +4,7 @@ authors:
   - windrushfarer
 tags:
   - sprint-4
+  - article
 summary:
   - array
   - массивы
@@ -19,7 +20,7 @@ cover:
 
 ### Массивы и функции
 
-[Объект](/js/doka/object) — это сущность с набором свойств. Мы можем добавлять, менять и удалять эти свойства.
+[Объект](/js/object) — это сущность с набором свойств. Мы можем добавлять, менять и удалять эти свойства.
 
 ```javascript
 const programmer = { name: "John", level: "Junior" }
