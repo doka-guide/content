@@ -2,6 +2,8 @@
 title: Подгрузка контента при прокрутке
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - scroll
   - loading
