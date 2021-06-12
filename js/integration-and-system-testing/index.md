@@ -2,6 +2,8 @@
 title: "Интеграционное и системное тестирование"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - e2e
   - system
