@@ -2,6 +2,8 @@
 title: "Контекст выполнения функций, this"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - use strict
   - строгий режим
