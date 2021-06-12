@@ -2,6 +2,8 @@
 title: "Позиционирование элементов с помощью JS"
 authors:
   - bespoyasov
+tags:
+  - article
 summary:
   - анимации animation
   - transform
