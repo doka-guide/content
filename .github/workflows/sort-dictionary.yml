@@ -22,5 +22,5 @@ jobs:
           commit_message: Сортирует словарь исключений
           file_pattern: .yaspeller.json
           commit_user_name: Doka Dog
-          commit_user_email: feedback@doka.guide
-          commit_author: Doka Dog <feedback@doka.guide>
+          commit_user_email: feedback@y-doka.site
+          commit_author: Doka Dog <feedback@y-doka.site>
