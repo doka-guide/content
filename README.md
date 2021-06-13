@@ -1,17 +1,17 @@
 # Контент Доки
 
-[![Статус EditorConfig](https://github.com/Y-Doka/content/workflows/EditorConfig/badge.svg)](https://github.com/Y-Doka/content/actions?query=workflow%3AEditorConfig)
-[![Статус спеллера](https://github.com/Y-Doka/content/workflows/YaSpeller%20All/badge.svg)](https://github.com/Y-Doka/content/actions?query=workflow%3AYaSpeller%20All)
-[![Статус словаря](https://github.com/Y-Doka/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/Y-Doka/content/actions?query=workflow%3ASort%20Dictionary)
-[![Статус Netlify](https://github.com/Y-Doka/content/workflows/Netlify%20Deploy/badge.svg)](https://github.com/Y-Doka/content/actions?query=workflow%3ANetlify%20Deploy)
+[![Статус EditorConfig](https://github.com/doka-guide/content/workflows/EditorConfig/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AEditorConfig)
+[![Статус спеллера](https://github.com/doka-guide/content/workflows/YaSpeller%20All/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AYaSpeller%20All)
+[![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
+[![Статус Netlify](https://github.com/doka-guide/content/workflows/Netlify%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ANetlify%20Deploy)
 
 Дока — это добрая энциклопедия для веб-разработчиков. Наша цель — сделать документацию по веб-разработке практичной, понятной и не унылой.
 
 ## Как устроена Дока
 
-Дока состоит из двух репозиториев: [платформа](https://github.com/Y-Doka/platform) на базе [Eleventy](https://www.11ty.dev) собирает статьи из репозитория с контентом (мы сейчас в нём), и на выходе получается наш красивый [сайт](https://y-doka.site/).
+Дока состоит из двух репозиториев: [платформа](https://github.com/doka-guide/platform) на базе [Eleventy](https://www.11ty.dev) собирает статьи из репозитория с контентом (мы сейчас в нём), и на выходе получается наш красивый [сайт](https://doka.guide/).
 
-📘 Этот репозиторий содержит только тексты статей и материалов проекта «[Дока](https://y-doka.site/)»!
+📘 Этот репозиторий содержит только тексты статей и материалов проекта «[Дока](https://doka.guide/)»!
 
 У Доки есть два основных формата материалов: «дока» и «статья».
 
@@ -38,7 +38,7 @@
 
 ### Всё прочитали и готовы?
 
-1. Клонируйте к себе [репозиторий с контентом](https://github.com/y-doka/content).
+1. Клонируйте к себе [репозиторий с контентом](https://github.com/doka-guide/content).
 1. Определитесь с форматом материала (дока или статья) и в соответствующем разделе (html, js, css, tools) создайте новую папку с названием статьи.
 1. Создайте в ней файл `index.md` по шаблону: [дока](docs/examples/doka.md) или [статья](docs/examples/article.md).
 1. Напишите статью (не забывайте сверяться с руководствами 👆). Всё, что хорошо выглядит в маркдауне, будет хорошо выглядеть на сайте. Если вы хотите предпросматривать статью локально, почитайте [инструкцию по предпросмотру](docs/preview.md).

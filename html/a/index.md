@@ -81,7 +81,7 @@ summary:
 Сделаем так, чтобы ссылка открывалась в новой вкладке браузера:
 
 ```html
-<a href="https://y-doka.site/" target="_blank">
+<a href="https://doka.guide/" target="_blank">
   <img src="dogs.png" alt="Три собаки: одна смотрит влево, вторая закрыла глаза и спит, третья смотрит вправо">
 </a>
 ```
