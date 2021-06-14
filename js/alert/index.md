@@ -4,6 +4,8 @@ authors:
   - vindi-r
 contributors:
   - furtivite
+tags:
+  - doka
 summary:
   - alert
   - модальное окно
