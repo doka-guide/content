@@ -1,5 +1,7 @@
 ---
 title: "getElementsByTagName()"
+tags:
+  - doka
 authors:
   - nlopin
 ---
