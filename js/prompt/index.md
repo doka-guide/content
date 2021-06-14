@@ -1,5 +1,7 @@
 ---
 title: "prompt()"
+tags:
+  - doka
 authors:
   - vindi-r
 ---
