@@ -53,8 +53,8 @@ summary:
 
 ```html
 <audio controls>
-  <source src="audio.mp3" type="audio/mpeg" />
-  <source src="audio.ogg" type="audio/ogg" />
+  <source src="audio.mp3" type="audio/mpeg">
+  <source src="audio.ogg" type="audio/ogg">
   <p>
     Ваш браузер не поддерживает встроенное аудио. Попробуйте
     <a href="audio.mp3" download>скачать</a> файл.

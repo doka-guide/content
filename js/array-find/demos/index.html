@@ -2,17 +2,11 @@
 <html lang="ru">
   <head>
     <title>Работа Array.filter — Array.filter — Дока</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
-    />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
     <style>
       .article__code * {
         margin: 0;
@@ -149,7 +143,7 @@
           <h2>Наш код</h2>
           <pre>
   const products = [1, 2, 3, 4, 5, 6, 7, 8, 5]<br>
-  const first5 = products.find((element) => element === 5);
+  const first5 = products.find((element) => element === 5)
   </pre>
         </div>
         <div class="does-container">
@@ -168,84 +162,84 @@
     </div>
 
     <script>
-      const SECOND = 1000;
-      const products = [1, 2, 3, 4, 5, 6, 7, 8, 5];
-      const searchItem = 5;
+      const SECOND = 1000
+      const products = [1, 2, 3, 4, 5, 6, 7, 8, 5]
+      const searchItem = 5
 
-      const container = document.getElementById("container");
-      const execute = document.getElementById("execute");
-      const result = document.getElementById("result");
-      const findFive = document.getElementById("findFive");
-      let isActive = false;
+      const container = document.getElementById("container")
+      const execute = document.getElementById("execute")
+      const result = document.getElementById("result")
+      const findFive = document.getElementById("findFive")
+      let isActive = false
 
       function createItem(content) {
-        const itemElement = document.createElement("div");
-        itemElement.classList.add("item");
-        itemElement.textContent = content;
+        const itemElement = document.createElement("div")
+        itemElement.classList.add("item")
+        itemElement.textContent = content
 
-        return itemElement;
+        return itemElement
       }
 
       products.forEach((product, index) => {
-        const element = createItem(product);
-        element.id = index + 1;
+        const element = createItem(product)
+        element.id = index + 1
 
-        container.appendChild(element);
-      });
+        container.appendChild(element)
+      })
 
       function clearActive() {
-        execute.textContent = "";
-        const activeItem = document.querySelector(".active");
+        execute.textContent = ""
+        const activeItem = document.querySelector(".active")
 
         if (activeItem) {
-          activeItem.classList.remove("active");
+          activeItem.classList.remove("active")
         }
       }
 
       function createIteration(num, order) {
         return new Promise((resolve) => {
           setTimeout(() => {
-            clearActive();
+            clearActive()
 
-            const item = document.getElementById(order);
-            item.classList.add("active");
+            const item = document.getElementById(order)
+            item.classList.add("active")
 
-            execute.textContent = `${num} === 5`;
+            execute.textContent = `${num} === 5`
 
             if (num === searchItem) {
-              result.appendChild(createItem(num));
+              result.appendChild(createItem(num))
             }
 
-            resolve();
-          }, SECOND * order);
-        });
+            resolve()
+          }, SECOND * order)
+        })
       }
 
       function getPromises() {
-        const result = products.find((i) => i === searchItem);
-        const iterations = [];
+        const result = products.find((i) => i === searchItem)
+        const iterations = []
 
         products.slice(0, 5).forEach((item, index) => {
-          iterations.push(createIteration(item, index + 1));
-        });
+          iterations.push(createIteration(item, index + 1))
+        })
 
-        return result;
+        return result
       }
 
       findFive.addEventListener("click", () => {
         if (!isActive) {
-          isActive = true;
-          result.innerText = "";
-          const promises = getPromises();
+          isActive = true
+          result.innerText = ""
+          const promises = getPromises()
 
           Promise.all(promises).then(() => {
             setTimeout(() => {
-              clearActive();
-              isActive = false;
-            }, SECOND);
-          });
+              clearActive()
+              isActive = false
+            }, SECOND)
+          })
         }
-      });
+      })
     </script>
   </body>
 </html>
