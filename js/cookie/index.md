@@ -1,8 +1,9 @@
 ---
 title: "Cookie"
+tags:
+  - doka
 authors:
   - akellbl4
-contributors:
 summary:
   - cookies
   - cookie
