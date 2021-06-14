@@ -1,5 +1,7 @@
 ---
 title: "Math.floor()"
+tags:
+  - doka
 authors:
   - nlopin
 ---
