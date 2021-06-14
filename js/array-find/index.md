@@ -1,5 +1,7 @@
 ---
 title: "Array.find"
+tags:
+  - doka
 authors:
   - KognitivnayaBuena
 ---
@@ -113,7 +115,7 @@ const result = numbers.find(function isElementEquals2(element) {
 console.log(result); // 2
 ```
 
-Функция [`filter`](/js/doka/array-filter) и `find` похожи между собой. Главное отличие от функции `filter` в том, что `find` возвращает первый подходящий элемент, а `filter` вернёт массив со всеми подходящими элементами.
+Функция [`filter`](/js/array-filter) и `find` похожи между собой. Главное отличие от функции `filter` в том, что `find` возвращает первый подходящий элемент, а `filter` вернёт массив со всеми подходящими элементами.
 
 Вариант реализации через `filter`:
 
