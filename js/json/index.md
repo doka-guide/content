@@ -3,6 +3,7 @@ title: "JSON"
 authors:
   - stegur
 tags:
+  - doka
   - sprint-10
   - sprint-12
 summary:
