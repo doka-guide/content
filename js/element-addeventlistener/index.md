@@ -1,5 +1,7 @@
 ---
 title: "Element.addEventListener()"
+tags:
+  - doka
 authors:
   - vindi-r
 contributors:
