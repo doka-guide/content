@@ -1,5 +1,7 @@
 ---
 title: "Number"
+tags:
+  - doka
 authors:
   - nlopin
 summary:
