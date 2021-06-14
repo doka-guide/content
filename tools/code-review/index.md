@@ -1,5 +1,7 @@
 ---
 title: "Код-ревью — как, зачем, почему"
+tags:
+  - article
 authors:
   - igorkamyshev
 contributors:
