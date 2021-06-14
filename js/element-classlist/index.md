@@ -3,6 +3,7 @@ title: Element.classList
 authors:
   - windrushfarer
 tags:
+  - doka
   - sprint-4
 contributors:
   - nlopin
@@ -13,7 +14,7 @@ summary:
 
 ## Кратко
 
-`Element.classList` даёт возможность просматривать и манипулировать [классами](/html/doka/class/) элемента.
+`Element.classList` даёт возможность просматривать и манипулировать [классами](/html/class/) элемента.
 
 ## Пример
 
