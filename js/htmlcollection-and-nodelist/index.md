@@ -1,15 +1,16 @@
 ---
 title: "HTMLCollection и NodeList"
+tags:
+  - doka
 authors:
   - nlopin
-summary:
 ---
 
 ## Кратко
 
-`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/doka/arrays/).
+`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
 
-`HTMLCollection` возвращают методы [`getElementsByTagName`](/js/doka/getelementsbytagname/) и [`getElementsByClassName`](/js/doka/getelementsbyclassname/).
+`HTMLCollection` возвращают методы [`getElementsByTagName`](/js/getelementsbytagname/) и [`getElementsByClassName`](/js/getelementsbyclassname/).
 
 `NodeList` возвращает метод `querySelectorAll`.
 
