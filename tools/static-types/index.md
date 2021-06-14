@@ -1,5 +1,7 @@
 ---
 title: "Как TypeScript и статическая типизация помогает писать код"
+tags:
+  - article
 authors:
   - igorkamyshev
 contributors:
