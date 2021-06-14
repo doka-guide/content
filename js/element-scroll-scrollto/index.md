@@ -3,8 +3,8 @@ title: "Element.scroll/scrollTo"
 authors:
   - vindi-r
 tags:
+  - doka
   - sprint-2
-summary:
 ---
 
 ## Кратко
