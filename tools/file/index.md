@@ -1,5 +1,7 @@
 ---
 title: Файл и файловые системы
+tags:
+  - doka
 authors:
   - igsekor
 contributors:
