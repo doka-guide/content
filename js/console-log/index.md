@@ -1,5 +1,7 @@
 ---
 title: "console.log()"
+tags:
+  - doka
 authors:
   - vindi-r
 contributors:
