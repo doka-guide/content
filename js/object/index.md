@@ -6,7 +6,7 @@ contributors:
   - furtivite
 tags:
   - sprint-4
-summary:
+  - doka
 ---
 
 ## Кратко
