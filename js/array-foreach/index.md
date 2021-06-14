@@ -1,5 +1,7 @@
 ---
 title: "Array.forEach"
+tags:
+  - doka
 authors:
   - windrushfarer
 contributors:
