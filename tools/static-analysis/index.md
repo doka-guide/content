@@ -5,6 +5,7 @@ authors:
 contributors:
   - furtivite
 tags:
+  - article
   - sprint-12
 summary:
   - eslint
@@ -19,7 +20,7 @@ summary:
 
 ## Как пользоваться
 
-Чтобы воспользоваться ESLint, нужно установить его через [менеджер зависимостей](/js/tools/package-managers) в папке проекта:
+Чтобы воспользоваться ESLint, нужно установить его через [менеджер зависимостей](/tools/package-managers) в папке проекта:
 
 ```bash
 npm install --save-dev eslint
