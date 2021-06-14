@@ -1,5 +1,7 @@
 ---
 title: "Promise. Метод finally"
+tags:
+  - doka
 authors:
   - nlopin
 summary:
@@ -7,7 +9,7 @@ summary:
   - файнали
 ---
 
-Эта статья связана с понятием [Promise](/js/articles/promise).
+Эта статья связана с понятием [Promise](/js/promise).
 
 ## Кратко
 
