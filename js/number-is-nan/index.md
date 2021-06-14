@@ -1,5 +1,7 @@
 ---
 title: "Number.isNaN()"
+tags:
+  - doka
 authors:
   - vindi-r
 ---
