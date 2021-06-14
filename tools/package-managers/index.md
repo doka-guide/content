@@ -5,7 +5,7 @@ authors:
 contributors:
   - furtivite
 tags:
-   article
+  - article
   - sprint-12
 summary:
   - npm
