@@ -1,8 +1,9 @@
 ---
 title: "Element.style"
+tags:
+  - doka
 authors:
   - bespoyasov
-summary:
 ---
 
 ## Кратко
