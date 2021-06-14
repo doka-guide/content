@@ -1,5 +1,7 @@
 ---
 title: "confirm()"
+tags:
+  - doka
 authors:
   - vindi-r
 contributors:
