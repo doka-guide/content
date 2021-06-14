@@ -1,5 +1,7 @@
 ---
 title: "Логические операторы"
+tags:
+  - doka
 authors:
   - nlopin
 contributors:
