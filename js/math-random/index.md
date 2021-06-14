@@ -1,5 +1,7 @@
 ---
 title: "Math.random()"
+tags:
+  - doka
 authors:
   - nlopin
 ---
