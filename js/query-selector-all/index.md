@@ -3,6 +3,7 @@ title: "querySelectorAll"
 authors:
   - nlopin
 tags:
+  - doka
   - sprint-2
 summary:
   - селектор
