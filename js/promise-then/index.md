@@ -1,12 +1,14 @@
 ---
 title: "Promise. Метод then"
+tags:
+  - doka
 authors:
   - nlopin
 summary:
   - промис
 ---
 
-Эта статья связана с понятием [Promise](/js/articles/promise)
+Эта статья связана с понятием [Promise](/js/promise)
 
 ## Кратко
 
