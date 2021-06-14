@@ -1,5 +1,7 @@
 ---
 title: "localStorage"
+tags:
+  - doka
 authors:
   - akellbl4
 summary:
