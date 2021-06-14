@@ -1,5 +1,7 @@
 ---
 title: "Интерфейс командной строки"
+tags:
+  - article
 authors:
   - igsekor
 editors:
