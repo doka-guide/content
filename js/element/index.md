@@ -1,15 +1,16 @@
 ---
 title: "Элемент"
+tags:
+  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
 ---
 
 ## Кратко
 
-Элемент — это кусочек HTML в [DOM дереве](/js/doka/dom/#из-чего-состоит-dom). Браузер создаёт DOM для взаимодействия между JavaScript и HTML. Каждый HTML тег при этом превращается в элемент DOM. Ещё такие элементы называют _узлами._
+Элемент — это кусочек HTML в [DOM дереве](/js/dom/#из-чего-состоит-dom). Браузер создаёт DOM для взаимодействия между JavaScript и HTML. Каждый HTML тег при этом превращается в элемент DOM. Ещё такие элементы называют _узлами._
 
 Из DOM можно получить элемент и изменить его. Браузер заметит изменения и отобразит их на странице.
 
@@ -71,10 +72,10 @@ element.style.marginTop = "20px" // css свойство margin-top
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
-- [`getElementsByClassName`](/js/doka/getelementsbyclassname/) — поиск среди дочерних элементов по названию класса;
-- [`getElementsByTagName`](/js/doka/getelementsbytagname/) — поиск среди дочерних элементов по названию тега;
-- [`querySelector`](/js/doka/query-selector/) — поиск первого дочернего элемента, подходящего под CSS-селектор;
-- [`querySelectorAll`](/js/doka/query-selector-all/) — поиск всех дочерних элементов подходящих под CSS-селектор;
+- [`getElementsByClassName`](/js/getelementsbyclassname/) — поиск среди дочерних элементов по названию класса;
+- [`getElementsByTagName`](/js/getelementsbytagname/) — поиск среди дочерних элементов по названию тега;
+- [`querySelector`](/js/query-selector/) — поиск первого дочернего элемента, подходящего под CSS-селектор;
+- [`querySelectorAll`](/js/query-selector-all/) — поиск всех дочерних элементов подходящих под CSS-селектор;
 
 С помощью этих свойств и методов можно перемещаться по дереву и даже обойти все его элементы, если это нужно.
 
