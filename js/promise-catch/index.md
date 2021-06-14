@@ -1,5 +1,7 @@
 ---
 title: "Promise. Метод catch"
+tags:
+  - doka
 authors:
   - nlopin
 summary:
@@ -7,7 +9,7 @@ summary:
   - кэтч катч кеч
 ---
 
-Эта статья связана с понятием [Promise](/js/articles/promise).
+Эта статья связана с понятием [Promise](/js/promise).
 
 ## Кратко
 
