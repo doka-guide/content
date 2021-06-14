@@ -1,10 +1,11 @@
 ---
 title: "var/let"
+tags:
+  - doka
 authors:
   - vindi-r
 contributors:
   - furtivite
-summary:
 ---
 
 ## Кратко
