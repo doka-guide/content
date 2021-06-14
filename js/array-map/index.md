@@ -1,5 +1,7 @@
 ---
 title: "Array.map"
+tags:
+  - doka
 authors:
   - windrushfarer
 contributors:
