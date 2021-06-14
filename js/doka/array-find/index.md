@@ -39,7 +39,7 @@ console.log(tomorrowToDoList.find(isMyFavouriteHobby)); // Результат в
 
 ## Интерактивный пример
 
-<iframe title="Работа метода массива find" src="demos/index.html"></iframe>
+<iframe title="Работа метода массива filter" src="demos/index.html"></iframe>
 
 ## Как пишется
 
