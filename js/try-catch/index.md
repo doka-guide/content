@@ -1,5 +1,7 @@
 ---
 title: "try...catch"
+tags:
+  - doka
 authors:
   - windrushfarer
 contributors:
@@ -204,7 +206,7 @@ try {
 }
 ```
 
-Однако если записать асинхронный код в синхронном стиле с помощью [async/await](/js/doka/async-await), то в этом случае обработку ошибок можно осуществлять с помощью `try...catch`.
+Однако если записать асинхронный код в синхронном стиле с помощью [async/await](/js/async-await), то в этом случае обработку ошибок можно осуществлять с помощью `try...catch`.
 
 ```js
 async function handlePromise() {
