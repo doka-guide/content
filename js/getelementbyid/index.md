@@ -1,8 +1,9 @@
 ---
 title: "getElementById()"
+tags:
+  - doka
 authors:
   - nlopin
-summary:
 ---
 
 ## Кратко
