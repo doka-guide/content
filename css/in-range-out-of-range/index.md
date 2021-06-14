@@ -67,7 +67,7 @@ input:out-of-range + span {
 
 💡 Если атрибуты `min` и `max` не заданы, то при пустом поле сработает `:in-range`, а при введённом значении ни один из псевдоклассов не сработает.
 
-💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/doka/css/placeholder-shown) и задать плейсхолдер полю ввода:
+💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать плейсхолдер полю ввода:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="VwmmbXv" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":in-range / :out-of-range 2">
   <span>See the Pen <a href="https://codepen.io/ezhkov/pen/VwmmbXv">
