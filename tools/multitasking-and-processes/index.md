@@ -1,5 +1,7 @@
 ---
 title: "Многозадачность и процессы"
+tags:
+  - article
 authors:
   - igsekor
 contributors:
