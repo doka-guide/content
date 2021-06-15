@@ -1,5 +1,7 @@
 ---
 title: "Работа с сетью"
+tags:
+  - article
 name: network
 authors:
   - igsekor
