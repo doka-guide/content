@@ -44,12 +44,7 @@ const usernamesById = users.reduce(function (result, user) {
 
 Интерактивный пример:
 
-<p class="codepen" data-height="703" data-theme-id="light" data-default-tab="result" data-user="Windrushfarer" data-slug-hash="NWNmRje" style="height: 703px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="reduce">
-  <span>See the Pen <a href="https://codepen.io/Windrushfarer/pen/NWNmRje">
-  reduce</a> by Egor Ogarkov (<a href="https://codepen.io/Windrushfarer">@Windrushfarer</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height="970" title="Группировка элементов массива при помощи reduce" src="demos/index.html"></iframe>
 
 ## Как пишется
 
