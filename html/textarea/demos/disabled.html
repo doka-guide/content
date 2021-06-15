@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Textarea - disabled — <textarea> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background-color: #ffd829;
+      color: #000000;
+    }
+
+    textarea {
+      padding: 10px 12px;
+      border: 1px solid #000000;
+      background-color: transparent;
+      line-height: 1.5;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      background-color: #f5c800;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <label for="story">Расскажите о себе:</label>
+    <textarea id="story" name="story" rows="5" cols="33" disabled>Фронтенд-разработчик со стажем (поле нельзя редактировать)</textarea>
+  </form>
+</body>
+</html>
