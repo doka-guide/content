@@ -6,11 +6,12 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
         with:
-          repository: Y-Doka/platform
+          repository: doka-guide/platform
       - name: Загрузка контента
         uses: actions/checkout@v2
         with:
@@ -29,7 +30,7 @@ jobs:
       - name: Установка модулей
         run: npm ci
       - name: Сборка и публикация сайта
-        uses: Y-Doka/surge-preview@main
+        uses: doka-guide/surge-preview@main
         id: preview_step
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
