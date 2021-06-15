@@ -1,7 +1,10 @@
 {
   "lang": "ru",
   "ignoreUrls": true,
-  "ignoreText": ["(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)", ""],
+  "ignoreText": [
+    "(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)",
+    ""
+  ],
   "checkYo": true,
   "dictionary": [
     "ааа",
