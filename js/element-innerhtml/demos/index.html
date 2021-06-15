@@ -121,7 +121,7 @@
     <pre id="result"></pre>
 
     <h2>Изменить HTML</h2>
-    <textarea id="newText"></textarea>
+    <textarea id="newText"><h3>Я вставленный заголовок третьего уровня</h3></textarea>
     <button id="change" class="button green change">Изменить</button>
   </div>
 
@@ -159,7 +159,7 @@
 
       return formatted;
     }, []);
-  };
+  }
 
   function addIndentation(htmlString) {
     let level = 0;
@@ -189,7 +189,7 @@
 
       return newIndented;
     }, []).join('\n');
-  };
+  }
 
   function formatHtmlString(str) {
     return addIndentation(toLines(str));
@@ -206,7 +206,7 @@
     try {
       if (newTextElement.value) {
         targetElement.innerHTML = newTextElement.value
-        resultElement.innerHTML = formatHtmlString(targetElement.outerHTML)
+        resultElement.innerText = formatHtmlString(targetElement.outerHTML)
         newTextElement.value = ''
       }
     } catch (e) {
