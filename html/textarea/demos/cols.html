@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Textarea - cols — <textarea> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      background-color: #ffd829;
+      color: #000000;
+    }
+
+    form + form {
+      margin-left: 20px;
+    }
+
+    textarea {
+      overflow: hidden;
+      padding: 10px 12px;
+      border: 1px solid #000000;
+      background-color: transparent;
+      line-height: 1.5;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      background-color: #f5c800;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <label for="story">Ширина ~20 знаков</label>
+    <textarea id="story" name="story" rows="5" cols="20">12345678901234567890</textarea>
+  </form>
+  <form action="">
+    <label for="story">Ширина ~30 знаков</label>
+    <textarea id="story" name="story" rows="5" cols="30">123456789012345678901234567890</textarea>
+  </form>
+</body>
+</html>
