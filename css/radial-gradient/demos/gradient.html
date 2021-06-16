@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Радиальный градиент — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .element-1 {
+        width: 200px;
+        height: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-image: radial-gradient(#cd445d, #49a16c);
+      }
+
+      .element-2 {
+        width: 400px;
+        height: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-image: radial-gradient(red, green);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="element-1"></div>
+      <div class="element-2"></div>
+    </div>
+  </body>
+</html>

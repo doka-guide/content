@@ -14,20 +14,18 @@
 
 ```
 tools/
-  articles/
-    eggs-cooking/
-      index.md
+  eggs-cooking/
+    index.md
 ```
 
 И вы хотите сделать демку, которая показывает как разбивать яйца. Хорошим названием демки будет описательное «Как разбивать яйца» и простой псевдоним, например, `cracking`. Создайте HTML-файл с таким названием и положите его рядом в папку `demos`:
 
 ```
 tools/
-  articles/
-    eggs-cooking/
-      demos/
-        cracking.html
-      index.md
+  eggs-cooking/
+    demos/
+      cracking.html
+    index.md
 ```
 
 Внутри файла используйте следующий шаблон:
