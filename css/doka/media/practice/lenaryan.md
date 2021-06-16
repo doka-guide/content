@@ -1,6 +1,6 @@
 ---
 tags:
-    - practice
+  - practice
 permalink: false
 ---
 
