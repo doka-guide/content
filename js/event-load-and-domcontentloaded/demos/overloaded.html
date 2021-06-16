@@ -9732,18 +9732,18 @@ body .tt-menu {
 
 <script>
   let diff;
-  let diffSpan = document.getElementById('difference');
+  const diffSpan = document.getElementById('difference');
 
   window.addEventListener('load', function() {
-    let loadSpan = document.getElementById('load-time');
-    let currentTime = getCurrentTime();
+    const loadSpan = document.getElementById('load-time');
+    const currentTime = getCurrentTime();
     loadSpan.textContent = currentTime.string;
     diffSpan.textContent = countDiff(currentTime.ms);
   });
 
   window.addEventListener('DOMContentLoaded', function() {
-    let DOMLoadedSpan = document.getElementById('domloaded-time');
-    let currentTime = getCurrentTime();
+    const DOMLoadedSpan = document.getElementById('domloaded-time');
+    const currentTime = getCurrentTime();
     DOMLoadedSpan.textContent = currentTime.string;
     diffSpan.textContent = countDiff(currentTime.ms);
   });
