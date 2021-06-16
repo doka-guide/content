@@ -22,7 +22,7 @@ summary:
 
 ```html
 <ul class="list">
-  <li class="list-item">Тёмный синевато-зеленый</li>
+  <li class="list-item">Тёмный синевато-зелёный</li>
   <li class="list-item">Блестящий зелёный</li>
   <li class="list-item">Блестящий зеленовато-желтый</li>
   <li class="list-item">Блестящий зеленовато-желтый</li>
