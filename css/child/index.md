@@ -1,5 +1,5 @@
 ---
-title: "Псевдоклассы child"
+title: "Псевдоклассы группы child"
 tags:
   - doka
 authors:
