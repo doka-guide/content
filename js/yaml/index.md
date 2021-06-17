@@ -1,6 +1,7 @@
 ---
 title: "YAML"
-name: yaml
+tags:
+  - doka
 authors:
   - KognitivnayaBuena
 summary:
