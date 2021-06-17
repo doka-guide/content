@@ -136,8 +136,8 @@ steps:
       node-version: ${{ matrix.node-version }}
   - run: npm ci
   - run: |
-      npm test
       npm run build
+      npm test
 ```
 
 Подробнее об использовании терминала можно почитать в статье «[Интерфейс командной строки](/tools/cli)». Полностью пример конфигурации для тестирования приложения Node.js будет выглядеть так:
@@ -153,10 +153,11 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        os: [ubuntu-18.04, ubuntu-20.04]
+        node: [10, 12, 14]
     steps:
       - uses: actions/checkout@v2
       - name: Использование Node.js ${{ matrix.node-version }}
@@ -164,5 +165,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm test
+      - run: |
+          npm run build
+          npm test
 ```
