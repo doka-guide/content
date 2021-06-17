@@ -120,7 +120,7 @@ strategy:
 - [`env`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#env-context) — содержит переменные окружения;
 - [`job`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#job-context) — хранит информацию о текущем джобе, которую можно использовать внутри джоба;
 - [`steps`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#steps-context) — хранит информацию о последовательности действий в джобе;
-- [`runner`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) — хранит информацию об инстансе, в котором запущен текущий джоб;
+- [`runner`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#runner-context) — хранит информацию о контейнере, в котором запущен текущий джоб;
 - [`needs`](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#needs-context) — хранит вывод всех джобов, зависимых от текущего джоба.
 
 Кроме переменных в экшенах можно пользоваться переменными окружения в операционной системе напрямую для работы команд, скриптов и программ. Иногда это удобнее, чем контексты и переменные. Список переменных окружения находится на [соответствующей странице документации](https://docs.github.com/en/actions/reference/environment-variables#default-environment-variables).
