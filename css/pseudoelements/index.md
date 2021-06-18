@@ -212,7 +212,7 @@ summary:
 Текст подсказки задаётся при помощи атрибута `placeholder` у тега `input`.
 
 ```html
-<input type="email" placeholder="test@example.com" />
+<input type="email" placeholder="test@example.com">
 ```
 
 ![Внешний вид псевдоэлемента ::placeholder](images/placeholder.png)
