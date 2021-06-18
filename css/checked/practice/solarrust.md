@@ -10,7 +10,7 @@ permalink: false
 
 ```html
 <div class="dropdown">
-  <input type="checkbox" id="menu" />
+  <input type="checkbox" id="menu">
   <label for="menu">Выбери меня</label>
   <ul>
     <li><a href="#">Леонардо</a></li>

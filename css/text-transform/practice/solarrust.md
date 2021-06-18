@@ -10,7 +10,7 @@ permalink: false
 ```html
 <div class="element">
   <a href="#" class="logo">
-    <img src="../images/logo.png" alt="Company logo" />
+    <img src="../images/logo.png" alt="Company logo">
   </a>
   <nav class="menu">
     <ul class="menu-list">
