@@ -126,7 +126,7 @@ Connection: keep-alive
 <!DOCTYPE html>
 <html class="client-nojs" lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8">
 <title>Web server - Wikipedia</title>
 ...
 ```

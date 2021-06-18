@@ -16,7 +16,7 @@ authors:
 ```html
 <form>
   <label for='name'>Имя</label>
-  <input type="text" id="name" />
+  <input type="text" id="name">
   <button type="submit" id="submit">Submit</button>
 </form>
 ```
@@ -77,7 +77,7 @@ statusElement.innerText = 'Data loaded!'
 
 ```html
 <div id="loading-status">
-  <div class="fancy-loader" />
+  <div class="fancy-loader"></div>
   Loading....
 </div>
 ```

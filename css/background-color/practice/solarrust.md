@@ -12,7 +12,7 @@ permalink: false
 <form class="form">
   <label>
     Email:
-    <input class="input" type="text" placeholder="Введите ваш email" />
+    <input class="input" type="text" placeholder="Введите ваш email">
   </label>
   <button class="submit">Подписаться</button>
 </form>
