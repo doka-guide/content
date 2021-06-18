@@ -1,5 +1,7 @@
 ---
 title: "object-position"
+tags:
+  - doka
 authors:
   - lenaryan
 summary:
