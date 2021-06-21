@@ -111,13 +111,11 @@
       width: 100%;
       height: 425px;
       margin-left: 70px;
-      padding: 10px;
       background-color: #282a2e;
       color: #979797;
       font-family: "Roboto Mono", monospace;
       line-height: 1.2;
-      overflow-y: scroll;
-      overflow-x: hidden;
+      overflow: scroll;
       scrollbar-color: #ffffff #979797;
       scrollbar-width: 8px;
     }
@@ -152,8 +150,8 @@
         </p>
       </div>
       <div class="tip">
-        <a class="button-like blue" href="overloaded.html">Попробовать со стилями</a>
-        <p>Здесь лишних стилей нет, разница между событиями должна быть меньше.</p>
+        <a class="button-like blue" href="overloaded.html?hash=${getRandomHash()}">Попробовать с картинкой</a>
+        <p>Здесь гигантской картинки нет, поэтому разница между событиями совсем небольшая.</p>
       </div>
     </div>
     <div class="scrollable"></div>
