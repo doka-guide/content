@@ -1,5 +1,5 @@
 ---
-title: ":disabled, :enabled"
+title: ":disabled и :enabled"
 tags:
   - doka
 authors:
