@@ -330,7 +330,7 @@ class Sun {
   // Делаем конструктор приватным:
   #constructor() {}
 
-	static get instance() {
+  static get instance() {
     // Если объект был создан ранее, возвращаем его:
     if (this.instance) return this.instance;
 
