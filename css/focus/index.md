@@ -71,7 +71,7 @@ li .link:focus {
 ### Селектор по классу и его псевдоэлемент в состоянии :focus
 
 ```css
-.link:before:focus {
+.link:focus::before {
   /* Стили */
 }
 ```
