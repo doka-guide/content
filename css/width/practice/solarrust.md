@@ -41,7 +41,7 @@ permalink: false
 ```html
 ...
 <p class="card__text">
-  Get the official status of an agent <br />
+  Get the official status of an agent<br>
   in the projectname and earn with us.
 </p>
 ...

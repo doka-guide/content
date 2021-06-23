@@ -38,7 +38,7 @@ controller.abort()
 
 ```html
 <form id="form">
-  <input type="file" id="avatar" />
+  <input type="file" id="avatar">
   <button type="submit">Загрузить</button>
 </form>
 ```

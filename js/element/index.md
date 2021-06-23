@@ -6,6 +6,7 @@ authors:
   - nlopin
 contributors:
   - furtivite
+  - skorobaeus
 ---
 
 ## Кратко
@@ -66,11 +67,7 @@ element.style.marginTop = "20px" // css свойство margin-top
 - `parentElement` — получить родительский элемент;
 - `nextElementSibling` и `previousElementSibling` — получить следующий/предыдущий узел-сосед:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="rEmwoo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="DOM Element">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/rEmwoo">
-  DOM Element</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe height="530" title="Окружение DOM-элементов" src="demos/DOM.html"></iframe>
 
 - [`getElementsByClassName`](/js/getelementsbyclassname/) — поиск среди дочерних элементов по названию класса;
 - [`getElementsByTagName`](/js/getelementsbytagname/) — поиск среди дочерних элементов по названию тега;
@@ -93,9 +90,4 @@ divElement.innerHTML = "<p>I was added from JavaScript</p>" // после вып
 
 Почувствуй разницу на демо:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="MMmvvd" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="DOM Element: innerHTML, outerHTML, textContent">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/MMmvvd">
-  DOM Element: innerHTML, outerHTML, textContent</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe height="650" title="Содержимое DOM-элементов" src="demos/DOM-HTML.html"></iframe>
