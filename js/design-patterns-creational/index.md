@@ -93,7 +93,7 @@ const sevenStringsGuitar = createGuitar(7);
 ```js
 function createGuitar(stringsCount = 6) {
   return new Guitar({
-    strings: 6,
+    strings: stringsCount,
     frets: 24,
     fretBoardMaterial: "fir",
     boardMaterial: "maple",
