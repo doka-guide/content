@@ -27,7 +27,7 @@ summary:
 
 ```css
 .with-range {
-  border: 1px solid black;
+  border: 1px solid #000000;
 }
 
 .with-range:in-range {
@@ -37,7 +37,7 @@ summary:
 
 .with-range:out-of-range {
   border-color: red;
-  background-color:#FF000033;
+  background-color: #FF000033;
 }
 ```
 
