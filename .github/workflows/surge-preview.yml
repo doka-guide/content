@@ -1,0 +1,43 @@
+name: Surge
+
+on:
+  pull_request
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Загрузка platform
+        uses: actions/checkout@v2
+        with:
+          repository: doka-guide/platform
+      - name: Загрузка контента
+        uses: actions/checkout@v2
+        with:
+          path: content
+      - name: Кэширование модулей
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Установка модулей
+        run: npm ci
+      - name: Сборка и публикация сайта
+        uses: doka-guide/surge-preview@main
+        id: preview_step
+        with:
+          surge_token: ${{ secrets.SURGE_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dist: dist
+          build: |
+            node make-links.js --default
+            npm run build
+      - name: Получение ссылки для превью
+        run: echo "Ссылка на превью — ${{ steps.preview_step.outputs.preview_url }}"

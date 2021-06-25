@@ -11,3 +11,4 @@
 - [Шаблон доки](examples/doka.md)
 - [Шаблон статьи](examples/article.md)
 - [Про демки](demos.md)
+- [Лицензии и правила](license.md)

@@ -9,12 +9,25 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npx editorconfig-checker
+          node-version: '14'
+      - id: files
+        uses: Ana06/get-changed-files@v1.2
+      - name: Проверка линтером
+        run: |
+          npm install editorconfig-checker --global
+          config=.editorconfig
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]
+            then
+              echo "Проверка для всех файлов"
+              editorconfig-checker
+              break
+            else
+              echo "Проверка для ${changed_file}"
+              editorconfig-checker ${changed_file}
+            fi
+          done
