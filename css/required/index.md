@@ -4,6 +4,8 @@ tags:
   - doka
 authors:
   - ezhkov
+editors:
+  - tachisis
 summary:
   - валидация
   - форма
@@ -17,6 +19,7 @@ summary:
 
 ## Пример
 
+Обязательное для заполнения поле ввода будет иметь синюю обводку:
 
 ```html
 <form>
@@ -38,8 +41,6 @@ input:required {
 }
 ```
 
-Обязательное для заполнения поле ввода будет иметь синюю обводку.
-
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="BaLbMKG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":required">
   <span>See the Pen <a href="https://codepen.io/ezhkov/pen/BaLbMKG">
   :required</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
@@ -48,12 +49,12 @@ input:required {
 
 ## Как это понять
 
-Если нужно как-то выделить обязательные для заполнения элементы форм можно использовать в селекторе псевдокласс `:required`.
+Если нужно как-то выделить обязательные для заполнения элементы форм, можно использовать в селекторе псевдокласс `:required`.
 
 :::callout ☝️
 
 Обратите внимание, что использование этого псевдокласса эквивалентно [селектору по атрибуту](/css/attribute-selector) `[required]`.
 
-Использование псевдокласса `:required` допускается исключительно с селекторами полей формы. Использовать совместно с другими селекторами его бесполезно.
+Использование псевдокласса `:required` допускается исключительно с селекторами полей формы. Использовать с другими селекторами его бесполезно.
 
 :::
