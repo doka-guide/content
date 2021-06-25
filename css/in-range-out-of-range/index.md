@@ -27,23 +27,23 @@ summary:
 
 ```css
 .with-range {
-  border: 1px solid #000000;
+  border: 1px solid black;
 }
 
 .with-range:in-range {
   border-color: green;
-  background-color: #00FF0033;
+  background-color: rgb(0 255 0 / 20%);
 }
 
 .with-range:out-of-range {
   border-color: red;
-  background-color: #FF000033;
+  background-color: rgb(255 0 0 / 20%);
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="VwmKVxy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":in-range / :out-of-range 1">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/VwmKVxy">
-  :in-range / :out-of-range 1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="xxqvWZg" data-user="solarrust" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/solarrust/pen/xxqvWZg">
+  :in-range / :out-of-range 1</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
@@ -55,11 +55,11 @@ summary:
 
 ```css
 input:in-range + span {
-  color: #00000033;
+  color: rgb(0 255 0 / 20%);
 }
 
 input:out-of-range + span {
-  color: #ff000033;
+  color: rgb(255 0 0 / 20%);
 }
 ```
 
@@ -71,10 +71,9 @@ input:out-of-range + span {
 
 💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать подсказку полю ввода:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="VwmmbXv" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":in-range / :out-of-range 2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/VwmmbXv">
-  :in-range / :out-of-range 2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
+<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="yLMmKOL" data-user="solarrust" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/solarrust/pen/yLMmKOL">
+  :in-range / :out-of-range 2</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
