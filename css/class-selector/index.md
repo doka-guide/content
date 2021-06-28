@@ -1,9 +1,11 @@
 ---
-title: ".class"
+title: "Селектор по классу"
 tags:
   - doka
 authors:
   - ezhkov
+editors:
+  - tachisis
 summary:
   - селектор
   - класс
