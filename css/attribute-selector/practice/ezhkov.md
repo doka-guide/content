@@ -19,7 +19,7 @@ permalink: false
   content: "↗️";
 }
 
-/* внутренние ссылки — без иконок */
+/* Внутренние ссылки — без иконок */
 [href*="/mysite.ru/"]::after {
   display: none;
 }
