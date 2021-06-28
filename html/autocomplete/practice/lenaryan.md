@@ -1,6 +1,4 @@
 ---
-tags:
-    - practice
 permalink: false
 ---
 
