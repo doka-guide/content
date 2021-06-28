@@ -1,5 +1,4 @@
 ---
-permalink: false
 ---
 
 🛠 Чаще всего используется `DOMContentLoaded`

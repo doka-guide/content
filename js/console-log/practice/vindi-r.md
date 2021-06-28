@@ -1,5 +1,4 @@
 ---
-permalink: false
 ---
 
 В пространстве `console` существуют различные инструменты. Рассмотрим `console.log` и `console.dir`.

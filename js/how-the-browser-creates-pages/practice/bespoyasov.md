@@ -1,5 +1,4 @@
 ---
-permalink: false
 ---
 
 Для динамики всегда используйте `transform` и `opacity`, избегайте изменения остальных свойств (типа `left`, `top`, `margin`, `background` и т. д.).
