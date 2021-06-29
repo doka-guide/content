@@ -91,15 +91,15 @@ body {
 
 ```css
 @supports (-webkit-font-smoothing: antialiased)  {
-	body {
-		-webkit-font-smoothing: antialiased;
-	}
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 @supports (-moz-osx-font-smoothing: grayscale)  {
-	body {
-		-moz-osx-font-smoothing: grayscale;
-	}
+  body {
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 ```
 
