@@ -14,11 +14,7 @@ summary:
 
 ## Пример
 
-<p class="codepen" data-height="350" data-theme-id="light" data-default-tab="result" data-user="lenaryan" data-slug-hash="PobvRGz" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Float Demo">
-  <span>Посмотреть пен <a href="https://codepen.io/lenaryan/pen/PobvRGz">
-  Float Demo</a> на <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Float" src="demos/float.html" hegith="350"></iframe>
 
 ## Как это понять
 
@@ -37,6 +33,24 @@ summary:
 - `left` — элемент встанет у левого края родительского блока.
 - `right` — элемент встанет у правого края родительского блока.
 - `none` — значение по умолчанию, элемент останется в потоке.
+
+Если мы задаём какому-то элементу свойство `float`, и потом хотим прекратить влияние этого свойства и вернуться к обычному потоку документа, то можно использовать `clearfix`. После элемента, на котором вы хотите прекратить обтекание, можно вставить пустой элемент, обычно с классом `clearfix`, и прописать свойство `clear`:
+
+```css
+.clearfix {
+  clear: both;
+}
+```
+
+Также можно не вставлять отдельный элемент в разметку, а обойтись псевдоэлементом [`::after`](https://y-doka.site/css/doka/after/) — этот вариант предпочтительнее.
+
+<iframe title="Clearfix" src="demos/clearfix.html" hegith="350"></iframe>
+
+Несколько лет назад для похожей цели появилось значение `flow-root` для свойства `display` — оно как бы инкапсулирует блок с обтеканием. Достаточно применить его к блоку, внутри которого есть элемент с `float` — и влияние `float` не будет распространяться вне этого блока.
+
+<iframe title="Flow-root" src="demos/flow-root.html" hegith="350"></iframe>
+
+Также для инкапсуляции внутри блока можно указать этому блоку свойство `overflow: hidden`.
 
 ## Подсказки
 
