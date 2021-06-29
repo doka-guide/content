@@ -13,13 +13,17 @@ permalink: false
 <a href="http://medium.com/mysite-blog">Мы на Medium</a>
 ```
 
+Все ссылки будут с иконкой стрелочки:
+
 ```css
-/* Все ссылки будут с иконкой стрелочки */
 [href^="http"]::after {
   content: "↗️";
 }
+```
 
-/* Внутренние ссылки — без иконок */
+Внутренние ссылки — без иконок:
+
+```css
 [href*="/mysite.ru/"]::after {
   display: none;
 }
