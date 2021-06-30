@@ -1,4 +1,3 @@
-
 🛠 Ниже представлен пример использования `confirm` с самостоятельно созданным диалоговым окном:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="qwBrNY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="confirm() в работе">

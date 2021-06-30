@@ -1,4 +1,3 @@
-
 🛠 Довольно часто значение `white-space: pre` используется при вёрстке исходного кода:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="ZEBWqVG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space: pre">

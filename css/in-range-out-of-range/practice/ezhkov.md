@@ -1,4 +1,3 @@
-
 🛠 Псевдоклассы `:in-range` и `:out-of-range` можно использовать в более сложных селекторах, чтобы, например, показать ошибку ввода:
 
 <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="vYxoRGR" data-user="solarrust" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
