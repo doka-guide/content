@@ -21,6 +21,7 @@ Number("100a") // NaN
 
 ```js
 let num = 3264.55 // примитивное число
+// num.toFixed(); <--- такое не сработает, у примитивного типа нет метода toFixed
 
 let wrappedNum = new Number(num)
 console.log(wrappedNum.toFixed()) // напечатает "3265"
