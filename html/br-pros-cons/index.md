@@ -2,7 +2,7 @@
 title: "<br> — да или нет?"
 tags:
   - doka
-author: 
+author:
   - ezhkov_d
 editors:
   - tachisis
