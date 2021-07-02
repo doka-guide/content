@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 🛠 Можно эффективно использовать кастомные свойства при разработке дизайн-системы:
 
 <p class="codepen" data-height="323" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="gOgdZLK" style="height: 323px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="CSS-variables 2">

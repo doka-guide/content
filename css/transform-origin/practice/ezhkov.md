@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 `transform-origin` эффективно работает не только при повороте. Плавное масштабирование тоже может давать разный эффект в зависимости от положения точки трансформации.
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="jOVzbgg" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transform-origin 2">
