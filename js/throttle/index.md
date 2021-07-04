@@ -10,7 +10,7 @@ summary:
   - lazy
   - прокрутка
 cover:
-  desktop: 'images/cover.png'
+  desktop: "images/cover.png"
 ---
 
 ## Кратко
@@ -84,37 +84,37 @@ main {
 ```javascript
 // В переменной progress будем хранить
 // ссылку на элемент, показывающий прогресс чтения.
-const progress = document.querySelector("progress")
+const progress = document.querySelector("progress");
 
 // Функция recalculateProgress будет пересчитывать,
 // какую часть страницы пользователь уже успел прочесть.
 function recalculateProgress() {
   // Высота экрана:
-  const viewportHeight = window.innerHeight
+  const viewportHeight = window.innerHeight;
   // Высота страницы:
-  const pageheight = document.body.offsetHeight
+  const pageheight = document.body.offsetHeight;
   // Текущее положение прокрутки:
-  const currentPosition = window.scrollY
+  const currentPosition = window.scrollY;
 
   // Из высоты страницы вычтем высоту экрана,
   // чтобы при прокручивании до самого низа
   // прогресс-бар заполнялся до конца.
-  const availableHeight = pageheight - viewportHeight
+  const availableHeight = pageheight - viewportHeight;
 
   // Считаем процент «прочитанного» текста:
-  const percent = (currentPosition / availableHeight) * 100
+  const percent = (currentPosition / availableHeight) * 100;
 
   // Проставляем посчитанное значение
   // в качестве значения для value прогресс-бара:
-  progress.value = percent
+  progress.value = percent;
 }
 ```
 
 Теперь повесим пересчёт на событие прокрутки `scroll`, а также на событие изменения размеров страницы `resize` — чтобы следить за изменениями высоты и страницы, и статьи.
 
 ```javascript
-window.addEventListener("scroll", recalculateProgress)
-window.addEventListener("resize", recalculateProgress)
+window.addEventListener("scroll", recalculateProgress);
+window.addEventListener("resize", recalculateProgress);
 ```
 
 ## Пишем `throttle`
@@ -141,7 +141,7 @@ window.addEventListener("resize", recalculateProgress)
 
 :::callout ☝️
 
-...А иногда такой приём ещё называют декорированием, а функции высшего порядка — декораторами.
+...А иногда такой приём ещё называют декорированием, а функции высшего порядка — [декораторами](/js/design-patterns-structural).
 
 :::
 
@@ -154,7 +154,7 @@ window.addEventListener("resize", recalculateProgress)
 function throttle(callee, timeout) {
   // Таймер будет определять,
   // надо ли нам пропускать текущий вызов.
-  let timer = null
+  let timer = null;
 
   // Как результат возвращаем другую функцию.
   // Это нужно, чтобы мы могли не менять другие части кода,
@@ -162,18 +162,18 @@ function throttle(callee, timeout) {
   return function perform(...args) {
     // Если таймер есть, то функция уже была вызвана,
     // и значит новый вызов следует пропустить.
-    if (timer) return
+    if (timer) return;
 
     // Если таймера нет, значит мы можем вызвать функцию:
     timer = setTimeout(() => {
       // Аргументы передаём неизменными в функцию-аргумент:
-      callee(...args)
+      callee(...args);
 
       // По окончании очищаем таймер:
-      clearTimeout(timer)
-      timer = null
-    }, timeout)
-  }
+      clearTimeout(timer);
+      timer = null;
+    }, timeout);
+  };
 }
 ```
 
@@ -185,10 +185,10 @@ function doSomething(arg) {
   // ...
 }
 
-doSomething(42)
+doSomething(42);
 
 // А вот — та же функция, но обёрнутая в throttle:
-const throttledDoSomething = throttle(doSomething, 250)
+const throttledDoSomething = throttle(doSomething, 250);
 
 // throttledDoSomething — это именно функция,
 // потому что из throttle мы возвращаем функцию.
@@ -198,7 +198,7 @@ const throttledDoSomething = throttle(doSomething, 250)
 // прокидывает все аргументы без изменения в doSomething,
 // так что и вызов throttledDoSomething будет таким же,
 // как и вызов doSomething:
-throttledDoSomething(42)
+throttledDoSomething(42);
 ```
 
 ## Применяем `throttle`
@@ -212,11 +212,11 @@ function throttle(callee, timeout) {
 
 // Указываем, что нам нужно ждать 50 мс,
 // прежде чем вызвать функцию заново:
-const optimizedHandler = throttle(recalculateProgress, 50)
+const optimizedHandler = throttle(recalculateProgress, 50);
 
 // Передаём новую throttled-функцию в addEventListener:
-window.addEventListener("scroll", optimizedHandler)
-window.addEventListener("resize", optimizedHandler)
+window.addEventListener("scroll", optimizedHandler);
+window.addEventListener("resize", optimizedHandler);
 ```
 
 Обратите внимание, что API функции не поменялось. То есть для внешнего мира throttled-функция ведёт себя точно так же, как и простая функция-обработчик.
