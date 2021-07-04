@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 ### `navigator`
 
 Чтобы проверить, есть ли в `navigator` необходимая вам фича, используйте `in`:

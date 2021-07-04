@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 🛠 Необязательно начинать счётчик с нуля. Он может быть равным любому значению. Отсчёт с нуля делается для удобства восприятия и облегчения дальнейшего обслуживания кода. Условие проверки так же может быть любым, важно чтобы результат проверки был true или false:
 
 <p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="WWxaPV" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="for в работе">
