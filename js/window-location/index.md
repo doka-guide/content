@@ -80,8 +80,8 @@ console.log(window.location.hash); // отобразит якорь
 
 `pathname` – репрезентация текущего пути на сайте. Если текущий урл не содержит путь, то значением будет корневой путь `"/"`.
 
-Например, значения `window.location.pathname` в зависимости от адреса: 
-* `https://doka.guide/js/window-location/` → `/js/window-location/`. 
+Например, значения `window.location.pathname` в зависимости от адреса:
+* `https://doka.guide/js/window-location/` → `/js/window-location/`.
 * `https://doka.guide` → `"/"`.
 
 ### Методы
