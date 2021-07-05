@@ -1,6 +1,5 @@
 ---
 title: "Хранение данных в браузере"
-name: browser-storages
 tags:
   - article
 authors:
