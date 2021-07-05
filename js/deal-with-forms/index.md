@@ -2,6 +2,9 @@
 title: "Работа с формами"
 authors:
   - bespoyasov
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Камень с веб-формой, рядом лежит молоток и зубило'
 tags:
   - article
   - sprint-4
