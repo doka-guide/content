@@ -133,93 +133,91 @@
     <button id="change" class="button green change">Изменить текст</button>
   </div>
 
+  <script>
+    function toLines(markup) {
+      let opened = ''
 
-<script>
-  function toLines(markup) {
-    let opened = '';
+      const nonemptyLines = markup.trim()
+      .split('\n')
+      .reduce((nonempty, line) => {
+        const trimmedLine = line.trim()
+        return trimmedLine.length ? [...nonempty, trimmedLine] : nonempty
+      }, [])
 
-    const nonemptyLines = markup.trim()
-    .split('\n')
-    .reduce((nonempty, line) => {
-      const trimmedLine = line.trim();
-      return trimmedLine.length ? [...nonempty, trimmedLine] : nonempty;
-    }, [])
+      return nonemptyLines.reduce((formatted, line, i, prevArr) => {
+        if (line.startsWith('<')) {
+          if (i === prevArr.length - 1) {
+            return [...formatted, opened, line]
+          }
 
-    return nonemptyLines.reduce((formatted, line, i, prevArr) => {
-      if (line.startsWith('<')) {
-        if (i === prevArr.length - 1) {
-          return [...formatted, opened, line];
+          const closedLine = opened
+          opened = line
+
+          if (closedLine.length) {
+            return [...formatted, closedLine]
+          }
+
+          return formatted
         }
 
-        const closedLine = opened;
-        opened = line;
+        opened += line === '>' ? line : ` ${line}`
 
-        if (closedLine.length) {
-          return [...formatted, closedLine];
+        return formatted
+      }, [])
+    }
+
+    function addIndentation(htmlString) {
+      let level = 0
+      const opened = []
+
+      return htmlString.reverse().reduce((indented, elTag) => {
+        if (opened.length
+          && level
+          && opened[level]
+          && opened[level] === elTag.substring(1, opened[level].length + 1)
+        ) {
+          opened.splice(level, 1)
+          level--
         }
 
-        return formatted;
-      }
+        const indentation = ' '.repeat(level ? level * 2 : 0)
 
-      opened += line === '>' ? line : ` ${line}`;
+        const newIndented = [
+          `${indentation}${elTag}`,
+          ...indented,
+        ]
 
-      return formatted;
-    }, []);
-  };
+        if (elTag.substring(0, 2) === '</') {
+          level++
+          opened[level] = elTag.substring(2, elTag.length - 1)
+        }
 
-  function addIndentation(htmlString) {
-    let level = 0;
-    const opened = [];
+        return newIndented
+      }, []).join('\n')
+    }
 
-    return htmlString.reverse().reduce((indented, elTag) => {
-      if (opened.length
-        && level
-        && opened[level]
-        && opened[level] === elTag.substring(1, opened[level].length + 1)
-      ) {
-        opened.splice(level, 1);
-        level--;
-      }
+    function formatHtmlString(str) {
+      return addIndentation(toLines(str))
+    }
 
-      const indentation = ' '.repeat(level ? level * 2 : 0);
+    const showButton = document.getElementById('show')
+    const changeButton = document.getElementById('change')
+    const targetElement = document.getElementById('target')
+    const resultElement = document.getElementById('result')
+    const textElement = document.getElementById('text')
+    const newTextElement = document.getElementById('newText')
 
-      const newIndented = [
-        `${indentation}${elTag}`,
-        ...indented,
-      ];
-
-      if (elTag.substring(0, 2) === '</') {
-        level++;
-        opened[level] = elTag.substring(2, elTag.length - 1);
-      }
-
-      return newIndented;
-    }, []).join('\n');
-  };
-
-  function formatHtmlString(str) {
-    return addIndentation(toLines(str));
-  }
-
-  const showButton = document.getElementById('show')
-  const changeButton = document.getElementById('change')
-  const targetElement = document.getElementById('target')
-  const resultElement = document.getElementById('result')
-  const textElement = document.getElementById('text')
-  const newTextElement = document.getElementById('newText')
-
-  resultElement.textContent = formatHtmlString(targetElement.outerHTML)
-
-  showButton.addEventListener('click', () => {
-    textElement.textContent = targetElement.textContent
-  })
-
-  changeButton.addEventListener('click', () => {
-    targetElement.textContent = newTextElement.value
     resultElement.textContent = formatHtmlString(targetElement.outerHTML)
-    newTextElement.value = ''
-  })
 
-</script>
+    showButton.addEventListener('click', () => {
+      textElement.textContent = targetElement.textContent
+    })
+
+    changeButton.addEventListener('click', () => {
+      targetElement.textContent = newTextElement.value
+      resultElement.textContent = formatHtmlString(targetElement.outerHTML)
+      newTextElement.value = ''
+    })
+  </script>
 </body>
 </html>

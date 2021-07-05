@@ -58,36 +58,36 @@
   </section>
 
   <script>
-    let active;
-    let counter = 0;
+    let active
+    let counter = 0
 
     // слушаем событие click на всех <div>
-    let divs = Array.from(document.querySelectorAll('div')).reverse();
+    let divs = Array.from(document.querySelectorAll('div')).reverse()
     for(let i= 0; i < divs.length; ++i) {
-      let isLast = (i + 1 === divs.length);
-      divs[i].addEventListener('click', clickHandlerGenerator(isLast));
+      let isLast = (i + 1 === divs.length)
+      divs[i].addEventListener('click', clickHandlerGenerator(isLast))
     }
 
     function clickHandlerGenerator(isLast = false) {
       return function() {
-        let me = this;
+        let me = this
         setTimeout(function() {
           if (active) {
-            active.classList.remove('active');
+            active.classList.remove('active')
           }
-          me.classList.add('active');
+          me.classList.add('active')
 
-          active = me;
+          active = me
 
           if (isLast) {
             setTimeout(function() {
-              active.classList.remove('active');
-              active = undefined;
-              counter = 0;
-            }, 300);
+              active.classList.remove('active')
+              active = undefined
+              counter = 0
+            }, 300)
           }
-        }, counter * 300);
-        ++counter;
+        }, counter * 300)
+        ++counter
       }
     }
   </script>

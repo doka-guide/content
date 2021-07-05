@@ -130,23 +130,23 @@
     </div>
   </div>
 
-<script>
-  function handleKey(event) {
-    const msg = '<code>' + event.key + '</code>';
-    if (event.key === 'Enter') {
-      const newMsg = document.createElement('div');
-      const result = document.querySelector('.result');
-      newMsg.classList.add("message");
-      newMsg.innerText = event.target.value;
-      result.appendChild(newMsg);
-      result.scrollTo(0, result.scrollHeight);
-      event.target.value = '';
+  <script>
+    function handleKey(event) {
+      const msg = '<code>' + event.key + '</code>'
+      if (event.key === 'Enter') {
+        const newMsg = document.createElement('div')
+        const result = document.querySelector('.result')
+        newMsg.classList.add('message')
+        newMsg.innerText = event.target.value
+        result.appendChild(newMsg)
+        result.scrollTo(0, result.scrollHeight)
+        event.target.value = ''
+      }
+        document.querySelector('.event').innerHTML = msg
     }
-      document.querySelector('.event').innerHTML = msg;
-  }
 
-  const elem = document.querySelector('input');
-  elem.addEventListener('keydown', handleKey);
-</script>
+    const elem = document.querySelector('input')
+    elem.addEventListener('keydown', handleKey)
+  </script>
 </body>
 </html>

@@ -45,18 +45,17 @@
   <div class="text">
     <h2>Наведи курсор<br>на фигуру слева,<br>а затем убери</h2>
   </div>
+  <script>
+    const figure = document.querySelector('.figure')
 
-<script>
-  const figure = document.querySelector('.figure');
+    figure.addEventListener('mouseout', function() {
+      figure.style.backgroundColor = getColor()
+    })
 
-  figure.addEventListener('mouseout', function() {
-    figure.style = `background-color: ${getColor()};`;
-  });
-
-  function getColor() {
-    const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#AFC9DA", "#FFD829", "#282A2E", "#979797", "#E6E6E6", "#FFFFFF"];
-    return colors[Math.floor(Math.random() * colors.length)];
-  }
-</script>
+    function getColor() {
+      const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#AFC9DA', '#FFD829', '#282A2E', '#979797', '#E6E6E6', '#FFFFFF']
+      return colors[Math.floor(Math.random() * colors.length)]
+    }
+  </script>
 </body>
 </html>

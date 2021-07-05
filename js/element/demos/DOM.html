@@ -74,53 +74,52 @@
 </head>
 <body>
   <header class="playground">
-    <ul id='main-menu' class="menu">
-      <li id='1' class="menu-item"><a href="#">Главная</a></li>
-      <li id='2' class="menu-item"><a href="#">Статьи</a></li>
-      <li id='3' class="menu-item"><a href="#">Контакты</a></li>
+    <ul id="main-menu" class="menu">
+      <li id="1" class="menu-item"><a href="#">Главная</a></li>
+      <li id="2" class="menu-item"><a href="#">Статьи</a></li>
+      <li id="3" class="menu-item"><a href="#">Контакты</a></li>
     </ul>
   </header>
   <article id="description" class="description">
     <h1>Кто вокруг?</h1>
     <p>Кликай на элементы страницы, чтобы получить информацию об их окружении</p>
     <h2></h2>
-    <p id='parent'></p>
-    <p id='prev'></p>
-    <p id='next'></p>
-    <p id='children'></p>
+    <p id="parent"></p>
+    <p id="prev"></p>
+    <p id="next"></p>
+    <p id="children"></p>
   </article>
+  <script>
+    const currentInfo = document.getElementsByTagName('h2')[0]
+    const parentInfo = document.getElementById('parent')
+    const prevSiblingInfo = document.getElementById('prev')
+    const nextSiblingInfo = document.getElementById('next')
+    const childrenInfo = document.getElementById('children')
+    let active
 
-<script>
-  const currentInfo = document.getElementsByTagName('h2')[0];
-  const parentInfo = document.getElementById('parent');
-  const prevSiblingInfo = document.getElementById('prev');
-  const nextSiblingInfo = document.getElementById('next');
-  const childrenInfo = document.getElementById('children');
-  let active;
+    window.addEventListener('click', function(event) {
+      let current = event.target
 
-  window.addEventListener('click', function(event) {
-    let current = event.target;
+      if (active) {
+        active.classList.remove('active')
+      }
+      current.classList.add('active')
 
-    if (active) {
-      active.classList.remove('active');
+      currentInfo.innerText = 'Выделен ' + getInfo(current)
+      parentInfo.textContent = 'Родитель: ' + getInfo(current.parentElement)
+      nextSiblingInfo.textContent = 'Следующий сосед: ' + getInfo(current.nextElementSibling)
+      prevSiblingInfo.textContent = 'Предыдущий сосед: ' + getInfo(current.previousElementSibling)
+      childrenInfo.textContent = 'Дочерних элементов: ' + current.children.length
+
+      active = current
+    })
+
+    function getInfo(el) {
+      if (!el) {
+        return 'Нет'
+      }
+      return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '')
     }
-    current.classList.add('active');
-
-    currentInfo.innerText = 'Выделен ' + getInfo(current)
-    parentInfo.textContent = 'Родитель: ' + getInfo(current.parentElement);
-    nextSiblingInfo.textContent = 'Следующий сосед: ' + getInfo(current.nextElementSibling);
-    prevSiblingInfo.textContent = 'Предыдущий сосед: ' + getInfo(current.previousElementSibling);
-    childrenInfo.textContent = 'Дочерних элементов: ' + current.children.length;
-
-    active = current;
-  });
-
-  function getInfo(el) {
-    if (!el) {
-      return 'Нет';
-    }
-    return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '');
-  }
-</script>
+  </script>
 </body>
 </html>

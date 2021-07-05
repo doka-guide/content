@@ -174,140 +174,140 @@ products.filter(isForSushiParty)
     <div class="items" id="result"></div>
   </div>
 
-<script>
-  const SECOND = 1000;
-  const products = ['🍺', '🍣', '🍕', '🍷', '🍕', '🍺', '🍕', '🍷', '🍣']
+  <script>
+    const SECOND = 1000
+    const products = ['🍺', '🍣', '🍕', '🍷', '🍕', '🍺', '🍕', '🍷', '🍣']
 
-  function isForPizzaParty(item) {
-    return item === '🍕' || item === '🍺'
-  }
-
-  function isForSushiParty(item) {
-    return item === '🍣' || item === '🍷'
-  }
-
-  const container = document.getElementById("container");
-  const execute = document.getElementById("execute");
-  const result = document.getElementById("result");
-  const pizzaButton = document.getElementById("pizza");
-  const sushiButton = document.getElementById("sushi");
-  let isActive = false;
-
-  function createItem(content) {
-    const itemElement = document.createElement("div");
-    itemElement.classList.add("item");
-    itemElement.textContent = content;
-
-    return itemElement
-  }
-
-  products.forEach((product, index) => {
-    const element = createItem(product)
-    element.id = index + 1;
-
-    container.appendChild(element);
-  });
-
-  function clearActive() {
-    execute.textContent = ''
-    const activeItem = document.querySelector(".active")
-
-    if (activeItem) {
-      activeItem.classList.remove("active")
+    function isForPizzaParty(item) {
+      return item === '🍕' || item === '🍺'
     }
-  }
 
-  function getPizzaIteration(product, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
+    function isForSushiParty(item) {
+      return item === '🍣' || item === '🍷'
+    }
 
-        const item = document.getElementById(order)
-        item.classList.add("active")
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const pizzaButton = document.getElementById('pizza')
+    const sushiButton = document.getElementById('sushi')
+    let isActive = false
 
-        const isFiltered = isForPizzaParty(product);
+    function createItem(content) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = content
 
-        execute.textContent = `isForPizzaParty(${product}) -> ${isFiltered}`
+      return itemElement
+    }
 
-        if (isFiltered) {
-          result.appendChild(createItem(product))
-        }
+    products.forEach((product, index) => {
+      const element = createItem(product)
+      element.id = index + 1
 
-        resolve()
-      }, SECOND * order);
-    });
-  }
+      container.appendChild(element)
+    })
 
-  function getSushiIteration(product, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
 
-        const item = document.getElementById(order)
-        item.classList.add("active")
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
 
-        const isFiltered = isForSushiParty(product);
-
-        execute.textContent = `isForSushiParty(${product}) -> ${isFiltered}`
-
-        if (isFiltered) {
-          result.appendChild(createItem(product))
-        }
-
-        resolve()
-      }, SECOND * order);
-    });
-  }
-
-  function createPizzaIterations() {
-    const iterations = [];
-
-    products.forEach((item, index) => {
-      iterations.push(getPizzaIteration(item, index + 1))
-    });
-
-    return iterations;
-  }
-
-  function createSushiIterations() {
-    const iterations = [];
-
-    products.forEach((item, index) => {
-      iterations.push(getSushiIteration(item, index + 1))
-    });
-
-    return iterations;
-  }
-
-  pizzaButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true;
-      result.innerText = ''
-      const iterations = createPizzaIterations()
-
-      Promise.all(iterations).then(() => {
+    function getPizzaIteration(product, order) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
-        }, SECOND)
-      });
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isFiltered = isForPizzaParty(product)
+
+          execute.textContent = `isForPizzaParty(${product}) -> ${isFiltered}`
+
+          if (isFiltered) {
+            result.appendChild(createItem(product))
+          }
+
+          resolve()
+        }, SECOND * order)
+      })
     }
-  });
 
-  sushiButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true;
-      result.innerText = ''
-      const iterations = createSushiIterations()
-
-      Promise.all(iterations).then(() => {
+    function getSushiIteration(product, order) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
-        }, SECOND)
-      });
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isFiltered = isForSushiParty(product)
+
+          execute.textContent = `isForSushiParty(${product}) -> ${isFiltered}`
+
+          if (isFiltered) {
+            result.appendChild(createItem(product))
+          }
+
+          resolve()
+        }, SECOND * order)
+      })
     }
-  });
-</script>
+
+    function createPizzaIterations() {
+      const iterations = []
+
+      products.forEach((item, index) => {
+        iterations.push(getPizzaIteration(item, index + 1))
+      })
+
+      return iterations
+    }
+
+    function createSushiIterations() {
+      const iterations = []
+
+      products.forEach((item, index) => {
+        iterations.push(getSushiIteration(item, index + 1))
+      })
+
+      return iterations
+    }
+
+    pizzaButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const iterations = createPizzaIterations()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+
+    sushiButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const iterations = createSushiIterations()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
 </body>
 </html>

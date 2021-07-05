@@ -85,17 +85,17 @@
   </div>
 
   <script>
-    let buttonElement = document.getElementById('change');
-    let squareDiv = document.getElementById('square');
+    let buttonElement = document.getElementById('change')
+    let squareDiv = document.getElementById('square')
 
     // чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
     buttonElement.addEventListener('click', function() {
-      squareDiv.style= `background-color: ${getColor()};`;
-    });
+      squareDiv.style.backgroundColor = getColor()
+    })
 
     function getColor() {
-      const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#1A5AD7", "#AFC9DA", "#FFD829", "#282A2E", "#5E6064", "#E6E6E6"];
-      return colors[Math.floor(Math.random() * colors.length)];
+      const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064', '#E6E6E6']
+      return colors[Math.floor(Math.random() * colors.length)]
     }
   </script>
 </body>
