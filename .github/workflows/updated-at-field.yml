@@ -1,0 +1,26 @@
+name: Update Index
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  spell:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+      - name: Правка поля updatedAt
+        run: node .github/scripts/update-index.js
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Правит дату последнего изменения статьи
+          file_pattern: /**/index.11tydata.json
+          commit_user_name: Doka Dog
+          commit_user_email: feedback@y-doka.site
+          commit_author: Doka Dog <feedback@y-doka.site>
