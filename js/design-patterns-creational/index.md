@@ -192,24 +192,67 @@ class Cellist implements Musician {
 
 Теперь напишем часть приложения, которая резервирует места и инструменты для каждого музыканта в оркестре.
 
-Нам хочется создать _один интерфейс_ для резервирования любых инструментов, чтобы его можно было использовать при проектировании программы. Для решения этой задачи как раз подойдёт абстрактная фабрика:
+```ts
+class ViolinReservation {
+  reserveViolin = () => new Violin();
+  notifyPlayer = () => new Violinist();
+}
+
+class CelloReservation {
+  reserveCello = () => new Cello();
+  notifyPlayer = () => new Cellist();
+}
+```
+
+Пусть места резервируются функцией `reserve`. Проблема появляется, когда мы хотим использовать одинаковую функцию с разными классами для резервирования мест. Непонятно, какой тип должен быть у аргумента, также неясно, какой метод вызывать для резервации инструмента:
+
+```ts
+// В аргументе можно использовать объединение типов,
+// но если добавится ещё какой-то класс,
+// придётся обновлять и это объединение тоже :–(
+function reserve(reservation: ViolinReservation | CelloReservation): void {
+  // Уведомить музыканта, допустим, мы можем:
+  reservation.notifyPlayer();
+
+  // А вот для вызова метода резервирования инструмента,
+  // потребуется знать, какой перед нами класс :–(
+  if (reservation instanceof ViolinReservation) {
+    reservation.reserveViolin();
+  } else if (reservation instanceof CelloReservation) {
+    reservation.reserveCello();
+  }
+}
+```
+
+Такая функция будет очень хрупкой, и её придётся обновлять при изменении состава оркестра. Нам хочется создать _один интерфейс_ для резервирования любых инструментов. Этот интерфейс будет гарантией того, что сколько бы ни было музыкантов, какие бы они ни были, мы всегда сможем вызвать один метод для резервирования.
+
+Для решения этой задачи как раз подойдёт абстрактная фабрика:
 
 ```ts
 // Общий интерфейс:
 interface ReservationFactory {
-  reserve(): Instrument;
-  notify(): Musician;
+  reserveInstrument(): Instrument;
+  notifyPlayer(): Musician;
 }
 
 // Реализации под разные инструменты:
 class ViolinReservation implements ReservationFactory {
-  reserve = () => new Violin();
-  notify = () => new Violinist();
+  reserveInstrument = () => new Violin();
+  notifyPlayer = () => new Violinist();
 }
 
 class CelloReservation implements ReservationFactory {
-  reserve = () => new Cello();
-  notify = () => new Cellist();
+  reserveInstrument = () => new Cello();
+  notifyPlayer = () => new Cellist();
+}
+```
+
+Тогда функция `reserve` станет прямолинейнее и менее хрупкой:
+
+```ts
+function reserve(reservation: ReservationFactory): void {
+  reservation.notifyPlayer();
+  reservation.reserveInstrument();
 }
 ```
 
