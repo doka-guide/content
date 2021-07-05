@@ -22,5 +22,5 @@ jobs:
           commit_message: Правит дату последнего изменения статьи
           file_pattern: /**/index.11tydata.json
           commit_user_name: Doka Dog
-          commit_user_email: feedback@y-doka.site
-          commit_author: Doka Dog <feedback@y-doka.site>
+          commit_user_email: hi@doka.guide
+          commit_author: Doka Dog <hi@doka.guide>
