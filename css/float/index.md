@@ -16,7 +16,13 @@ summary:
 
 ## Пример
 
-<iframe title="Float" src="demos/float.html" hegith="350"></iframe>
+```css
+.block__img {
+  float: right;
+}
+```
+
+<iframe title="Float" src="demos/float.html" height="350"></iframe>
 
 ## Как это понять
 
@@ -46,13 +52,13 @@ summary:
 
 Также можно не вставлять отдельный элемент в разметку, а обойтись псевдоэлементом [`::after`](https://y-doka.site/css/doka/after/) — этот вариант предпочтительнее.
 
-<iframe title="Clearfix" src="demos/clearfix.html" hegith="350"></iframe>
+<iframe title="Clearfix" src="demos/clearfix.html" height="350"></iframe>
 
-Несколько лет назад для похожей цели появилось значение `flow-root` для свойства `display` — оно как бы инкапсулирует блок с обтеканием. Достаточно применить его к блоку, внутри которого есть элемент с `float` — и влияние `float` не будет распространяться вне этого блока.
+Несколько лет назад для похожей цели появилось значение `flow-root` для свойства `display` — оно как бы изолирует обтекание. Достаточно применить его к блоку, внутри которого есть элемент с `float` — и влияние `float` не будет распространяться вне этого блока. А относительно соседей он будет вести себя как обычный блочный элемент со [статичным позиционированием](/css/position).
 
-<iframe title="Flow-root" src="demos/flow-root.html" hegith="350"></iframe>
+<iframe title="Flow-root" src="demos/flow-root.html" height="350"></iframe>
 
-Также для инкапсуляции внутри блока можно указать этому блоку свойство `overflow: hidden`.
+Также для подобной изоляции можно указать блоку свойство `overflow: hidden`. Отличие состоит в том, что `flow-root` позволяет использовать свойство `overflow: visible`.
 
 ## Подсказки
 
