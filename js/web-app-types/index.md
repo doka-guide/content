@@ -2,6 +2,9 @@
 title: "Виды веб-приложений"
 authors:
   - windrushfarer
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Книга в руке со страницами, и свитком'
 tags:
   - article
 summary:
