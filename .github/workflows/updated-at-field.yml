@@ -8,13 +8,13 @@ on:
 jobs:
   spell:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - name: Правка поля updatedAt
         run: node .github/scripts/update-index.js
       - uses: stefanzweifel/git-auto-commit-action@v4
