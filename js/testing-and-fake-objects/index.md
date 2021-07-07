@@ -4,6 +4,7 @@ authors:
   - bespoyasov
 cover:
   desktop: "images/cover.png"
+  alt: 'Девочка-фея с крылышками и кот в шапке бегут по беговой дорожке'
 tags:
   - article
 summary:
