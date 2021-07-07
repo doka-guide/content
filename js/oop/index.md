@@ -6,7 +6,6 @@ cover:
   desktop: 'images/cover.png'
   alt: 'Плоская коробка с отверстиями разной формы, откуда высовываются улыбающиеся существа'
 tags:
-  - sprint-8
   - article
 summary:
   - use strict

@@ -2,7 +2,6 @@
 title: "rem, em"
 tags:
   - doka
-  - sprint-3
 authors:
   - realetive
 summary:

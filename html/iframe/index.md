@@ -2,7 +2,6 @@
 title: "<iframe>"
 tags:
   - doka
-  - sprint-2
 authors:
   - grachev
 summary:

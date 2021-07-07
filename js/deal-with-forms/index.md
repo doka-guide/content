@@ -4,7 +4,6 @@ authors:
   - bespoyasov
 tags:
   - article
-  - sprint-4
 summary:
   - form
   - ajax

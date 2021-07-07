@@ -4,7 +4,6 @@ authors:
   - windrushfarer
 tags:
   - doka
-  - sprint-4
 contributors:
   - nlopin
 summary:

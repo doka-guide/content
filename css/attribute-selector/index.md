@@ -2,7 +2,6 @@
 title: "Селектор по атрибуту"
 tags:
   - doka
-  - sprint-1
 authors:
   - ezhkov
 editors:

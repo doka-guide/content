@@ -6,9 +6,6 @@ contributors:
   - nlopin
 tags:
   - article
-  - sprint-10
-  - sprint-12
-  - sprint-14
 summary:
   - async
   - await

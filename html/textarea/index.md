@@ -2,8 +2,6 @@
 title: "<textarea>"
 tags:
   - doka
-  - sprint-2
-  - sprint-4
 authors:
   - ezhkov
 contributors:

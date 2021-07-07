@@ -4,7 +4,6 @@ authors:
   - nlopin
 tags:
   - doka
-  - sprint-2
 summary:
   - селектор
   - найти элемент по селектору

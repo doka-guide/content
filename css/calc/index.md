@@ -2,7 +2,6 @@
 title: "calc()"
 tags:
   - doka
-  - sprint-3
 authors:
   - solarrust
 contributors:
