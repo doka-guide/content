@@ -2,6 +2,9 @@
 title: "Области видимости"
 authors:
   - bespoyasov
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Бинокль, в отражении на линзах которого виден код'
 tags:
   - article
 summary:
