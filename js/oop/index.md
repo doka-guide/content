@@ -4,7 +4,7 @@ authors:
   - bespoyasov
 cover:
   desktop: 'images/cover.png'
-  alt: 'Коробка с отверстиями разной формы'
+  alt: 'Плоская коробка с отверстиями разной формы, откуда высовываются улыбающиеся существа'
 tags:
   - sprint-8
   - article
