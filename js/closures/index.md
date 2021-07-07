@@ -4,7 +4,7 @@ authors:
   - bespoyasov
 cover:
   desktop: 'images/cover.png'
-  alt: 'Бинокль, в отражении на линзах которого виден код'
+  alt: 'Бинокль с надписью Doka Optics, в отражении на линзах которого виден код'
 tags:
   - article
 summary:
