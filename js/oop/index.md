@@ -2,6 +2,9 @@
 title: "Объектно-ориентированное программирование"
 authors:
   - bespoyasov
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Коробка с отверстиями разной формы'
 tags:
   - sprint-8
   - article
