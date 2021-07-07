@@ -2,7 +2,6 @@
 title: "<meta>"
 tags:
   - doka
-  - sprint-3
 authors:
   - grachev
 contributors:

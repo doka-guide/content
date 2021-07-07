@@ -6,7 +6,6 @@ contributors:
   - furtivite
 tags:
   - article
-  - sprint-8
 summary:
   - webpack
   - вебпак

@@ -7,8 +7,6 @@ contributors:
   - skorobaeus
 tags:
   - doka
-  - sprint-4
-  - sprint-6
 summary:
   - эвенты
 ---
