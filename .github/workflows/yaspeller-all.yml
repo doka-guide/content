@@ -3,7 +3,7 @@ name: YaSpeller All
 on:
   push:
     branches:
-      - main
+      - fix/actions
 
 jobs:
   spell:
@@ -14,4 +14,7 @@ jobs:
         with:
           node-version: '14'
       - name: Проверка правописания
-        run: npx yaspeller --only-errors **/*.{md,html}
+        run: |
+          pwd
+          ls -al
+          npx yaspeller --only-errors **/*.{md,html}
