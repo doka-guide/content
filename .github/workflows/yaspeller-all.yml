@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Yaspeller Action
-        uses: heytitle/github-action-yaspeller/v0.0.7
-        with:
-          ext: "*.{md,html}"
+      - name: Проверка правописания
+        run: |
+          npm install yaspeller -g
+          yaspeller --only-errors **/*.{md,html}
