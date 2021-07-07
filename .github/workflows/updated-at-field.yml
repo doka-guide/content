@@ -20,7 +20,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Правит дату последнего изменения статьи
-          file_pattern: /**/index.11tydata.json
+          file_pattern: ./**/index.11tydata.json
           commit_user_name: Doka Dog
           commit_user_email: hi@doka.guide
           commit_author: Doka Dog <hi@doka.guide>
