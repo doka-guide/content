@@ -14,4 +14,7 @@ jobs:
         with:
           node-version: '14'
       - name: Проверка правописания
-        run: npx yaspeller **/*.(md|html)
+        run: |
+          npm install --global yaspeller
+          yaspeller **/*.md
+          yaspeller **/*.html
