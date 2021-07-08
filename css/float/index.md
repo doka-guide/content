@@ -22,7 +22,7 @@ summary:
 }
 ```
 
-<iframe title="Float" src="demos/float.html" height="350"></iframe>
+<iframe title="Обтекание — float" src="demos/float.html" height="350"></iframe>
 
 ## Как это понять
 
@@ -54,11 +54,11 @@ summary:
 
 Также можно не вставлять отдельный элемент в разметку, а обойтись псевдоэлементом [`::after`](/css/after/) — этот вариант предпочтительнее.
 
-<iframe title="Clearfix" src="demos/clearfix.html" height="350"></iframe>
+<iframe title="Обтекание — clearfix" src="demos/clearfix.html" height="350"></iframe>
 
 Несколько лет назад для похожей цели появилось значение `flow-root` для свойства `display` — оно как бы изолирует обтекание. Достаточно применить его к блоку, внутри которого есть элемент с `float` — и влияние `float` не будет распространяться вне этого блока. А относительно соседей он будет вести себя как обычный блочный элемент со [статичным позиционированием](/css/position).
 
-<iframe title="Flow-root" src="demos/flow-root.html" height="350"></iframe>
+<iframe title="Обтекание — flow-root" src="demos/flow-root.html" height="350"></iframe>
 
 Также для подобной изоляции можно указать блоку свойство `overflow: hidden`. Отличие состоит в том, что `flow-root` позволяет использовать свойство `overflow: visible`.
 
