@@ -292,7 +292,7 @@ const animate = () => {
   Это можно сделать топорно, через интервал: */
 
 // 60 раз в 1000 миллисекунд, приблизительно 16 мс.
-const intervalMS = 1000 / 60;
+const intervalMS = 1000 / 60
 setInterval(animate, intervalMS)
 
 /* Либо использовать window.requestAnimationFrame: */
