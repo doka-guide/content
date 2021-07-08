@@ -1,5 +1,5 @@
 ---
-title: ".first-class .second-class"
+title: "Селектор вложенности"
 tags:
   - doka
 authors:
