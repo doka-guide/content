@@ -3,7 +3,7 @@ name: YaSpeller All
 on:
   push:
     branches:
-      - fix/actions
+      - main
 
 jobs:
   spell:
