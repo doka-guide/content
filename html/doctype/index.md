@@ -66,4 +66,4 @@ summary:
 <!DoCtYPe hTMl>
 ```
 
-Доктайп стал для HTML чем-то вроде [`use strict`](/js/language-versions/#строгий-режим) в JS.
+Доктайп стал для HTML чем-то вроде [`use strict`](/js/use-strict/) в JS.
