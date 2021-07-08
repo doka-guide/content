@@ -1,62 +1,87 @@
 ---
-- name: 'Теги'
+- name: 'Основы'
   items:
-    - a
-    - address
-    - article
-    - aside
-    - audio
-    - blockquote
-    - body
-    - br
-    - button
-    - div
-    - dl-dd-dt
-    - embed
-    - fieldset
-    - figure-figcaption
-    - footer
-    - form
-    - h1-h6
-    - head
-    - header
+    - flow
+    - doctype
     - html
-    - iframe
-    - img
-    - input
-    - label
-    - legend
-    - li
-    - link
-    - main
-    - meta
-    - nav
-    - ol
-    - option
-    - p
-    - picture
-    - q
-    - script
-    - section
-    - select
-    - source
-    - span
-    - style
-    - svg
-    - textarea
+    - head
     - title
-    - ul
-    - video
+    - body
+    - h1-h6
+    - p
+    - div
+    - comments
+    - deprecated-tags
+- name: 'Форматирование'
+  items:
+    - address
+    - blockquote
+    - q
+    - br-pros-cons
 - name: 'Формы'
   items:
-    - autocomplete
-    - button
-    - fieldset
     - form
+    - autocomplete
     - input
-    - label
-    - legend
-    - option
-    - select
     - textarea
+    - button
+    - select
+    - option
+    - label
+    - fieldset
+    - legend
+- name: 'Картинки'
+  items:
+    - img
+    - figure-figcaption
+    - picture
+    - source
+    - svg
+- name: 'Интерактив'
+  items:
+    - audio
+    - video
+    - iframe
+    - source
+    - embed
+- name: 'Ссылки'
+  items:
+    - a
+    - link
+    - nav
+- name: 'Списки'
+  items:
+    - ol
+    - ul
+    - li
+    - dl-dd-dt
+- name: 'Таблицы'
+  items:
+    - tables
+- name: 'Семантика'
+  items:
+    - div
+    - span
+    - header
+    - footer
+    - main
+    - section
+    - article
+    - aside
+    - nav
+- name: 'Мета'
+  items:
+    - head
+    - meta
+- name: 'Связи с другими языками'
+  items:
+    - style
+    - script
+- name: 'Глобальные атрибуты'
+  items:
+    - global-attrs
+    - class
+    - hidden
+- name: 'Атрибуты событий'
+  items:
 ---
