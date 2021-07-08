@@ -4,33 +4,37 @@ const fs = require('fs')
 const { promisify } = require('util')
 const { exec } = require('child_process')
 
-// получение id последнего коммита
-const lastCommitId = 'git log --diff-filter=AMCR --format="%H" -n 1'
-
-// получение изменённых и добавленных файлов последнего коммита
-const gitCommand = `git diff-tree --no-commit-id --name-only -r $(echo $(${lastCommitId}))`
-
-const tags = ['html', 'css', 'js', 'tools']
-
 async function main() {
-  const { stdout } = await promisify(exec)(gitCommand)
+  // получение id последнего коммита
+  const lastCommitId = 'git log --diff-filter=AMCR --format="%H" -n 1'
+  // получение изменённых и добавленных файлов последнего коммита
+  const gitCommand = `git diff-tree --no-commit-id --name-only -r $(echo $(${lastCommitId}))`
+
+  const { stdout }= await promisify(exec)(gitCommand)
 
   const filePaths = stdout.split(os.EOL)
     .map(filePath => filePath.trim())
     .filter(Boolean)
-    // учитываем только файлы, находящиеся в папках статей
     .filter(filePath => {
-      const tag = filePath.split(path.sep).filter(Boolean)[0]
-      return tags.includes(tag)
+      const pathSegments = filePath.split(path.sep).filter(Boolean)
+      const tag = pathSegments[0]
+
+      return [
+        // учитываем только файлы, находящиеся в папках статей
+        ['html', 'css', 'js', 'tools'].includes(tag),
+        // не учитывем файлы индексов статей, например, 'css/index.md'
+        pathSegments.length >= 3,
+      ].every(Boolean)
     })
     // возвращаем путь до папки самой статьи
     .map(filePath => {
       const [tag, articleName] = filePath.split(path.sep).filter(Boolean)
       return [tag, articleName].join(path.sep)
-    });
+    })
 
   // используем Set, так как могут быть дубли в путях
   const filePathsSet = new Set(filePaths)
+
   filePathsSet.forEach(filePath => {
     if (!fs.existsSync(filePath)) {
       return
