@@ -31,14 +31,9 @@ summary:
 
 Обычно мы не запускаем инструменты напрямую с помощью Node.js, а используем для этого пакетный менеджер. Команды, которые используются в проекте нужно определить в разделе `scripts` файла `package.json`:
 
-```javascript
-// package.json
-{
-  // ...
-  "scripts": {
-    "lint": "eslint \"./src/**/*.js\""
-  }
-  // ...
+```json
+"scripts": {
+  "lint": "eslint \"./src/**/*.js\""
 }
 ```
 
@@ -58,35 +53,63 @@ node ./node_modules/.bin/eslint "./src/**/*.js"
 
 Файл `eslint` — это программа, написанная на JavaScript. В ней не происходит никакой магии.
 
-В таком скрипте много кода, но для понимания принципа работы Node.js-инструментов можно его упростить и посмотреть на принципиальную схему:
+В таком скрипте много кода, но для понимания принципа работы Node.js-инструментов можно его упростить и посмотреть на принципиальную схему. Это не настоящий ESLint, а просто пример того, как может быть устроен скрипт на Node.js:
 
-```javascript
-// Это не настоящий ESLint, а просто пример того
-// как может быть устроен скрипт на Node.js
-
-// Получаем аргументы командной строки,
-// чтобы найти файлы которые следует анализировать
+```js
 const cliOptions = parseCommandLineArguments(process.args)
-
-// Читаем файл конфигурации,
-// чтобы решить какие правила анализа нужно применить
 const configOptions = parseConfigFile(".eslintrs")
-
-// Собираем финальную конфигурацию
 const options = mergeConfigs([cliOptions, configOptions])
-
-// Находим все файлы, удовлетворящие условию
 const files = findFiles(options)
-
-// Ищем нарушения правил в каждом файле
-// и пишем о них в консоль
 const errors = analyzeFiles(files, options)
+
 for (const error of errors) {
   console.warn(error)
 }
 
-// Если была найдена хоть одна ошибка, завершаем выполнение с кодом 1
-// если ошибок не было, завершаем выполнение с кодом 0
+if (errors.length > 0) {
+  process.exit(1)
+} else {
+  process.exit(0)
+}
+```
+
+А теперь разберём его построчно. Получаем аргументы командной строки, чтобы найти файлы которые следует анализировать:
+
+```js
+const cliOptions = parseCommandLineArguments(process.args)
+```
+
+Читаем файл конфигурации, чтобы решить какие правила анализа нужно применить:
+
+```js
+const configOptions = parseConfigFile(".eslintrs")
+```
+
+Собираем финальную конфигурацию:
+
+```js
+const options = mergeConfigs([cliOptions, configOptions])
+```
+
+Находим все файлы, удовлетворящие условию:
+
+```js
+const files = findFiles(options)
+```
+
+Ищем нарушения правил в каждом файле и пишем о них в консоль:
+
+```js
+const errors = analyzeFiles(files, options)
+
+for (const error of errors) {
+  console.warn(error)
+}
+```
+
+Если была найдена хоть одна ошибка, завершаем выполнение с кодом 1. Если ошибок не было, завершаем выполнение с кодом 0:
+
+```js
 if (errors.length > 0) {
   process.exit(1)
 } else {
