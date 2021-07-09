@@ -186,6 +186,12 @@ Content-Security-Policy: default-src 'self' *.trusted.com
 // и всех его поддоменов.
 ```
 
+:::callout 🛡
+
+Больше примеров HTTP-заголовков для настроек безопасности и их использования можно найти в статье [Security Headers](https://web.dev/security-headers/).
+
+:::
+
 ### Интерактивный пример
 
 Взгляните на [пример stored XSS](https://application.security/free-application-security-training/owasp-top-10-stored-cross-site-scripting) на application.security.
