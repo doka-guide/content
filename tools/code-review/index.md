@@ -6,6 +6,9 @@ authors:
   - igorkamyshev
 contributors:
   - furtivite
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Робот-тестировщик идёт над пропастью между двух год по подвесному мосту, который обрывается пунктиром'
 summary:
   - code review
   - pull request
