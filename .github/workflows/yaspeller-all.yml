@@ -14,4 +14,4 @@ jobs:
         with:
           node-version: '14'
       - name: Проверка правописания
-        run: npx yaspeller --only-errors --file-extensions ".md,.htm" *
+        run: npx yaspeller --only-errors --file-extensions ".md,.html" *
