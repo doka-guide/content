@@ -91,7 +91,7 @@ const configOptions = parseConfigFile(".eslintrs")
 const options = mergeConfigs([cliOptions, configOptions])
 ```
 
-Находим все файлы, удовлетворящие условию:
+Находим все файлы, удовлетворяющие условию:
 
 ```js
 const files = findFiles(options)
