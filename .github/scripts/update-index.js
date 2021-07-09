@@ -19,7 +19,7 @@ async function updateIndex(options) {
 
   const filePaths = stdout.split(os.EOL)
     .map(filePath => filePath.trim())
-    .filter(Boolean)
+    .filter(Boolean
     .filter(filePath => {
       const pathSegments = filePath.split(path.sep).filter(Boolean)
       const tag = pathSegments[0]
@@ -29,6 +29,8 @@ async function updateIndex(options) {
         ['html', 'css', 'js', 'tools'].includes(tag),
         // не учитывем файлы индексов статей, например, 'css/index.md'
         pathSegments.length >= 3,
+        // исключаем файлы index.11ty.data.json
+        !filePath.includes('index.11ty.data.json')
       ].every(Boolean)
     })
     // возвращаем путь до папки самой статьи
