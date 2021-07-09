@@ -14,7 +14,7 @@
     - universal-selector
     - attribute-selector
     - combined-selectors
-    - first-class__second-class
+    - selector-list
     - first-class_second-class
 - name: 'Псевдоклассы'
   items:
@@ -105,6 +105,7 @@
     - font-style
     - font-weight
     - font-display
+    - font-smooth
     - letter-spacing
     - line-height
     - text-align
