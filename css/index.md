@@ -115,6 +115,7 @@
     - white-space
     - color
     - quotes
+    - vertical-align
 - name: 'Размеры и отступы'
   items:
     - width
@@ -126,9 +127,6 @@
     - border-image
     - border-radius
     - outline
-- name: 'Выравнивание'
-  items:
-    - vertical-align
 - name: 'Позиционирование'
   items:
     - position
