@@ -4,7 +4,7 @@ authors:
   - windrushfarer
 cover:
   desktop: 'images/cover.png'
-  alt: 'Книга в руке со страницами, и свитком'
+  alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'
 tags:
   - article
 summary:
