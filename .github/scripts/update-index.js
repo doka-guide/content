@@ -19,7 +19,7 @@ async function updateIndex(options) {
 
   const filePaths = stdout.split(os.EOL)
     .map(filePath => filePath.trim())
-    .filter(Boolean
+    .filter(Boolean)
     .filter(filePath => {
       const pathSegments = filePath.split(path.sep).filter(Boolean)
       const tag = pathSegments[0]
