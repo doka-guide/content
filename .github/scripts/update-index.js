@@ -4,10 +4,15 @@ const fs = require('fs')
 const { promisify } = require('util')
 const { exec } = require('child_process')
 
-async function main() {
+async function updateIndex(options) {
+  const {
+    handler,
+    diffFilter
+  } = options
+
   // получение id последнего коммита
-  const lastCommitId = 'git log --diff-filter=AMCR --format="%H" -n 1'
-  // получение изменённых и добавленных файлов последнего коммита
+  const lastCommitId = `git log --diff-filter=${diffFilter} --format="%H" -n 1`
+  // получение отфильтрованных файлов последнего коммита
   const gitCommand = `git diff-tree --no-commit-id --name-only -r $(echo $(${lastCommitId}))`
 
   const { stdout }= await promisify(exec)(gitCommand)
@@ -33,7 +38,7 @@ async function main() {
     })
 
   // используем Set, так как могут быть дубли в путях
-  const filePathsSet = new Set(filePaths)
+  const filePathsSet = new Set(filePaths);
 
   filePathsSet.forEach(filePath => {
     if (!fs.existsSync(filePath)) {
@@ -49,9 +54,25 @@ async function main() {
       }
     })()
 
-    indexData['updatedAt'] = new Date()
+    handler(indexData)
+
     fs.writeFileSync(dataFilePath, JSON.stringify(indexData, null, 2))
   })
 }
 
-main()
+[
+  // правка поля `updatedAt` для изменённых
+  () => updateIndex({
+    diffFilter: 'MCR',
+    handler(data) {
+      data['updatedAt'] = new Date()
+    }
+  }),
+  // добавление поля `createdAt` для новых файлов
+  () => updateIndex({
+    diffFilter: 'A',
+    handler(data) {
+      data['createdAt'] = data['createdAt'] ?? new Date()
+    }
+  })
+].forEach(handler => handler())

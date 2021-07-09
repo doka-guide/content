@@ -16,11 +16,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Правка поля updatedAt
+      - name: Правка полей updatedAt и createdAt
         run: node .github/scripts/update-index.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Правит дату последнего изменения статьи
+          commit_message: Правит поля updatedAt и createdAt
           file_pattern: ./**/index.11tydata.json
           commit_user_name: Doka Dog
           commit_user_email: hi@doka.guide
