@@ -29,6 +29,8 @@ async function updateIndex(options) {
         ['html', 'css', 'js', 'tools'].includes(tag),
         // не учитывем файлы индексов статей, например, 'css/index.md'
         pathSegments.length >= 3,
+        // исключаем файлы index.11ty.data.json
+        !filePath.includes('index.11tydata.json')
       ].every(Boolean)
     })
     // возвращаем путь до папки самой статьи
