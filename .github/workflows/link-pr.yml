@@ -12,3 +12,4 @@ jobs:
         with:
           paths: "**/*.md"
           markdown: true
+          linksToSkip: "https://codepen.io/."
