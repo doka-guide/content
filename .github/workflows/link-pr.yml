@@ -10,4 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: JustinBeckwith/linkinator-action@v1
         with:
-          linksToSkip: "/(css|docs|html|js|people|tools)/."
+          paths: "*.md, **/*.md, **/**/*.md"
+          linksToSkip: "/(css|docs|html|js|people|tools)[/]."
