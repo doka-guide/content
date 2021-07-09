@@ -77,8 +77,8 @@ body {
 
 Поэтому нельзя просто написать `font-smooth: antialiased`, например. Нужно писать свойство с [префиксами](/css/vendor-prefixes) (в работе):
 
-— `-webkit-font-smoothing` для браузеров, идущих от движка WebKit (Safari, Chrome, Opera, Edge);
-— `-moz-osx-font-smoothing` для Firefox.
+- `-webkit-font-smoothing` для браузеров, идущих от движка WebKit (Safari, Chrome, Opera, Edge);
+- `-moz-osx-font-smoothing` для Firefox.
 
 Но на этом сложности не заканчиваются. В каждом из браузеров реализован разный набор значений.
 
