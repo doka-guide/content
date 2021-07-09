@@ -10,4 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: "*.md, **/*.md, **/**/*.md, **/**/**/*.md"
+          paths: "**/*.md"
+          markdown: true
