@@ -53,16 +53,18 @@
   </div>
   <div id="result"></div>
 
-<script>
-  function handleClick(e) {
-    e.preventDefault(); // Отменяем поведение браузера для этого события
-    document.querySelector('#result').innerText = 'Вы нажали на ссылку, но ничего не произошло!';
-    setTimeout(function() {
-      document.querySelector('#result').innerText = '';
-    }, 2500);
-  }
-  let elem = document.querySelector('#custom');
-  elem.addEventListener('click', handleClick);
-</script>
+  <script>
+    const result = document.querySelector('#result')
+
+    function handleClick(e) {
+      // Отменяем поведение браузера для этого события
+      e.preventDefault()
+      result.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+      setTimeout(function() {
+        result.innerText = ''
+      }, 2500)
+    }
+    document.querySelector('#custom').addEventListener('click', handleClick)
+  </script>
 </body>
 </html>

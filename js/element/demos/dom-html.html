@@ -79,10 +79,10 @@
 </head>
 <body>
   <header class="playground">
-    <ul id='main-menu' class="menu">
-      <li id='1' class="menu-item"><a href="#">Главная</a></li>
-      <li id='2' class="menu-item"><a href="#">Статьи</a></li>
-      <li id='3' class="menu-item"><a href="#">Контакты</a></li>
+    <ul id="main-menu" class="menu">
+      <li id="1" class="menu-item"><a href="#">Главная</a></li>
+      <li id="2" class="menu-item"><a href="#">Статьи</a></li>
+      <li id="3" class="menu-item"><a href="#">Контакты</a></li>
     </ul>
   </header>
   <article id="description" class="description">
@@ -90,44 +90,43 @@
     <p>Кликай на элементы страницы</p>
     <h2></h2>
     <h3>innerHTML</h3>
-    <p id='innerHTML'></p>
+    <p id="innerHTML"></p>
     <h3>outerHTML</h3>
-    <p id='outerHTML'></p>
+    <p id="outerHTML"></p>
     <h3>textContent</h3>
-    <p id='textContent'></p>
+    <p id="textContent"></p>
   </article>
+  <script>
+    const currentInfo = document.getElementsByTagName('h2')[0]
+    const innerHTMLInfo = document.getElementById('innerHTML')
+    const outerHTMLInfo = document.getElementById('outerHTML')
+    const textContentInfo = document.getElementById('textContent')
+    let active
 
-<script>
-  const currentInfo = document.getElementsByTagName('h2')[0];
-  const innerHTMLInfo = document.getElementById('innerHTML');
-  const outerHTMLInfo = document.getElementById('outerHTML');
-  const textContentInfo = document.getElementById('textContent');
-  let active;
+    window.addEventListener('click', function(event) {
+      const current = event.target
 
-  window.addEventListener('click', function(event) {
-    const current = event.target;
+      if (current === innerHTMLInfo || current === outerHTMLInfo) return
 
-    if (current === innerHTMLInfo || current === outerHTMLInfo) return;
+      if (active) {
+        active.classList.remove('active')
+      }
+      current.classList.add('active')
 
-    if (active) {
-      active.classList.remove('active');
+      currentInfo.innerText = 'Выделен ' + getInfo(current)
+      innerHTMLInfo.textContent = current.innerHTML
+      outerHTMLInfo.textContent = current.outerHTML
+      textContentInfo.textContent = current.textContent
+
+      active = current;
+    });
+
+    function getInfo(el) {
+      if (!el) {
+        return 'Нет'
+      }
+      return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '')
     }
-    current.classList.add('active');
-
-    currentInfo.innerText = 'Выделен ' + getInfo(current);
-    innerHTMLInfo.textContent = current.innerHTML;
-    outerHTMLInfo.textContent = current.outerHTML;
-    textContentInfo.textContent = current.textContent;
-
-    active = current;
-  });
-
-  function getInfo(el) {
-    if (!el) {
-      return 'Нет';
-    }
-    return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '');
-  }
-</script>
+  </script>
 </body>
 </html>

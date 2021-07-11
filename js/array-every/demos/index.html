@@ -171,143 +171,143 @@
       <div class="items" id="result"></div>
     </div>
 
-<script>
-  const SECOND = 1000
-  const drinks = ['🍺', '🍺', '🍺', '🍺', '🍺', '🍺']
+  <script>
+    const SECOND = 1000
+    const drinks = ['🍺', '🍺', '🍺', '🍺', '🍺', '🍺']
 
-  function isBeer(item) {
-    return item === '🍺'
-  }
-
-  function isWiskey(item) {
-    return item === '🥃'
-  }
-
-  const container = document.getElementById("container")
-  const execute = document.getElementById("execute")
-  const result = document.getElementById("result")
-  const beerButton = document.getElementById("beer")
-  const wiskeyButton = document.getElementById("wiskey")
-  let isActive = false
-
-  function createItem(content) {
-    const itemElement = document.createElement("div")
-    itemElement.classList.add("item")
-    itemElement.textContent = content
-
-    return itemElement
-  }
-
-  drinks.forEach((product, index) => {
-    const element = createItem(product)
-    element.id = index + 1
-
-    container.appendChild(element)
-  })
-
-  function clearActive() {
-    execute.textContent = ""
-    const activeItem = document.querySelector(".active")
-
-    if (activeItem) {
-      activeItem.classList.remove("active")
-    }
-  }
-
-  function createBeerCheckIteration(drink, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
-
-        const item = document.getElementById(order)
-        item.classList.add("active")
-
-        const isBeerResult = isBeer(drink)
-
-        execute.textContent = `isBeer(${drink}) -> ${isBeerResult}`
-
-        if (result.firstChild) result.firstChild.remove()
-
-        result.appendChild(createItem(isBeerResult))
-
-        resolve()
-      }, SECOND * order)
-    })
-  }
-
-  function createWiskeyCheckIteration(drink, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
-
-        const item = document.getElementById(order)
-        item.classList.add("active")
-
-        const isWiskeyResult = isWiskey(drink)
-
-        execute.textContent = `isWiskey(${drink}) -> ${isWiskeyResult}`
-
-        if (result.firstChild) result.firstChild.remove()
-        result.appendChild(createItem(isWiskeyResult))
-
-        resolve()
-      }, SECOND * order)
-    })
-  }
-
-  function getBeerPromises() {
-    const iterations = []
-
-    for (const [index, item] of drinks.entries()) {
-      iterations.push(createBeerCheckIteration(item, index + 1))
+    function isBeer(item) {
+      return item === '🍺'
     }
 
-    return iterations
-  }
+    function isWiskey(item) {
+      return item === '🥃'
+    }
 
-  function getWiskeyPromises() {
-    const iterations = []
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const beerButton = document.getElementById('beer')
+    const wiskeyButton = document.getElementById('wiskey')
+    let isActive = false
 
-    for (const [index, item] of drinks.entries()) {
-      iterations.push(createWiskeyCheckIteration(item, index + 1))
+    function createItem(content) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = content
 
-      if (!isWiskey(item)) {
-        break;
+      return itemElement
+    }
+
+    drinks.forEach((product, index) => {
+      const element = createItem(product)
+      element.id = index + 1
+
+      container.appendChild(element)
+    })
+
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
+
+      if (activeItem) {
+        activeItem.classList.remove('active')
       }
     }
 
-    return iterations
-  }
-
-  beerButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true
-      result.innerText = ""
-      const promises = getBeerPromises()
-
-      Promise.all(promises).then(() => {
+    function createBeerCheckIteration(drink, order) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
-        }, SECOND)
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isBeerResult = isBeer(drink)
+
+          execute.textContent = `isBeer(${drink}) -> ${isBeerResult}`
+
+          if (result.firstChild) result.firstChild.remove()
+
+          result.appendChild(createItem(isBeerResult))
+
+          resolve()
+        }, SECOND * order)
       })
     }
-  })
 
-  wiskeyButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true
-      result.innerText = ""
-      const promises = getWiskeyPromises()
-
-      Promise.all(promises).then(() => {
+    function createWiskeyCheckIteration(drink, order) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
-        }, SECOND)
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isWiskeyResult = isWiskey(drink)
+
+          execute.textContent = `isWiskey(${drink}) -> ${isWiskeyResult}`
+
+          if (result.firstChild) result.firstChild.remove()
+          result.appendChild(createItem(isWiskeyResult))
+
+          resolve()
+        }, SECOND * order)
       })
     }
-  })
-</script>
+
+    function getBeerPromises() {
+      const iterations = []
+
+      for (const [index, item] of drinks.entries()) {
+        iterations.push(createBeerCheckIteration(item, index + 1))
+      }
+
+      return iterations
+    }
+
+    function getWiskeyPromises() {
+      const iterations = []
+
+      for (const [index, item] of drinks.entries()) {
+        iterations.push(createWiskeyCheckIteration(item, index + 1))
+
+        if (!isWiskey(item)) {
+          break;
+        }
+      }
+
+      return iterations
+    }
+
+    beerButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getBeerPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+
+    wiskeyButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getWiskeyPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
 </body>
 </html>
