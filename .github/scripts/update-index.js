@@ -29,7 +29,7 @@ async function updateIndex(options) {
         ['html', 'css', 'js', 'tools'].includes(tag),
         // не учитывем файлы индексов статей, например, 'css/index.md'
         pathSegments.length >= 3,
-        // исключаем файлы index.11ty.data.json
+        // исключаем файлы index.11tydata.json
         !filePath.includes('index.11tydata.json')
       ].every(Boolean)
     })
@@ -58,7 +58,7 @@ async function updateIndex(options) {
 
     handler(indexData)
 
-    fs.writeFileSync(dataFilePath, JSON.stringify(indexData, null, 2))
+    fs.writeFileSync(dataFilePath, JSON.stringify(indexData, null, 2) + '\n')
   })
 }
 
