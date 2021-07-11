@@ -51,12 +51,13 @@
 
     function getColor() {
       const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#5E6064', '#E6E6E6', '#FFFFFF']
-      return colors[Math.floor(Math.random() * colors.length)]
+      const randomColorIndex = Math.floor(Math.random() * colors.length)
+      return colors[randomColorIndex]
     }
 
-    let buttons = document.getElementsByTagName('button')
-    for(let i=0; i < buttons.length; ++i) {
-      let button = buttons[i]
+    const buttons = document.getElementsByTagName('button')
+    for(let i = 0; i < buttons.length; ++i) {
+      const button = buttons[i]
       // к каждой кнопке привязываем обработчик
       // обратите внимание, что мы не вызываем функцию функцию changeColor, а только пишем ее имя
       button.addEventListener('click', changeColor)

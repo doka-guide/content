@@ -62,15 +62,15 @@
     let counter = 0
 
     // слушаем событие click на всех <div>
-    let divs = Array.from(document.querySelectorAll('div')).reverse()
+    const divs = Array.from(document.querySelectorAll('div')).reverse()
     for(let i= 0; i < divs.length; ++i) {
-      let isLast = (i + 1 === divs.length)
+      const isLast = (i + 1 === divs.length)
       divs[i].addEventListener('click', clickHandlerGenerator(isLast))
     }
 
     function clickHandlerGenerator(isLast = false) {
       return function() {
-        let me = this
+        const me = this
         setTimeout(function() {
           if (active) {
             active.classList.remove('active')

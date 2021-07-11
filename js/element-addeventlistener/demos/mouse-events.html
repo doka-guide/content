@@ -54,16 +54,17 @@
   <div id="result"></div>
 
   <script>
+    const result = document.querySelector('#result')
+
     function handleClick(e) {
       // Отменяем поведение браузера для этого события
       e.preventDefault()
-      document.querySelector('#result').innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+      result.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
       setTimeout(function() {
-        document.querySelector('#result').innerText = ''
+        result.innerText = ''
       }, 2500)
     }
-    let elem = document.querySelector('#custom')
-    elem.addEventListener('click', handleClick)
+    document.querySelector('#custom').addEventListener('click', handleClick)
   </script>
 </body>
 </html>

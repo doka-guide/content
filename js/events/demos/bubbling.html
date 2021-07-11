@@ -41,13 +41,13 @@
   </div>
 
   <script>
-    let container = document.getElementById('container')
-    let video = document.getElementById('cat')
+    const container = document.getElementById('container')
+    const video = document.getElementById('cat')
 
     // слушаем событие click на <div>
     container.addEventListener('click', function() {
       const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064']
-      let randomColorIndex = Math.floor(Math.random() * colors.length)
+      const randomColorIndex = Math.floor(Math.random() * colors.length)
       container.style.backgroundColor = colors[randomColorIndex]
     })
 

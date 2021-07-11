@@ -77,10 +77,9 @@
       current = this
     }
 
-    let items = document.getElementsByTagName('li')
-    for (let i=0; i < items.length; ++i) {
-      let item = items[i]
-      item.addEventListener('mouseover', onMouseover)
+    const items = document.getElementsByTagName('li')
+    for (let i = 0; i < items.length; ++i) {
+      items[i].addEventListener('mouseover', onMouseover)
     }
   </script>
 </body>

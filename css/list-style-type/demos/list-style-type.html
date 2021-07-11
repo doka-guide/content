@@ -154,7 +154,7 @@
 
     function cycle() {
       if (list.classList.contains('paused')) return
-      let index = listItems.findIndex((listItem) =>
+      const index = listItems.findIndex((listItem) =>
         listItem.classList.contains('list__item_active')
       )
       if (index !== -1) {

@@ -156,12 +156,12 @@
       }
     }
 
-    var gui = new dat.GUI({name: 'My GUI'})
-    var guiTranslate = gui.addFolder('translate')
-    var guiRotate = gui.addFolder('rotate')
-    var guiScale = gui.addFolder('scale')
-    var guiSkew = gui.addFolder('skew')
-    let root = document.documentElement
+    const gui = new dat.GUI({name: 'My GUI'})
+    const guiTranslate = gui.addFolder('translate')
+    const guiRotate = gui.addFolder('rotate')
+    const guiScale = gui.addFolder('scale')
+    const guiSkew = gui.addFolder('skew')
+    const root = document.documentElement
 
     const setter = (prop, suffix) => val => {
       root.style.setProperty(prop, `${val}${suffix}`)
