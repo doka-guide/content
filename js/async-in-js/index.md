@@ -125,7 +125,7 @@ function outer() {
     console.log("Hello!")
   }
 
-   // Функция 2
+  // Функция 2
   inner()
 }
 
