@@ -1,5 +1,5 @@
 ---
-title: Веб-сервер Nginx
+title: "Веб-сервер Nginx"
 tags:
   - article
 authors:
