@@ -1,4 +1,7 @@
 ---
-name: vindi-r
-url:
+name: 'vindi-r'
+fullname:
+website:
+twitter:
+github:
 ---

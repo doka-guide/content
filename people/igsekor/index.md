@@ -1,4 +1,7 @@
 ---
-name: Игорь Коровченко
-url: https://twitter/igsekor
+name: 'Игорь Коровченко'
+fullname:
+website:
+twitter: https://twitter/igsekor
+github:
 ---

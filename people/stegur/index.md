@@ -1,4 +1,7 @@
 ---
-name: Алекс Стегура
-url: https://github.com/stegur
+name: 'Алекс Стегура'
+fullname:
+website:
+twitter:
+github: https://github.com/stegur
 ---

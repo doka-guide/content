@@ -1,4 +1,7 @@
 ---
-name: Светлана Коробцева
-url: https://github.com/skorobaeus
+name: 'Светлана Коробцева'
+fullname:
+website:
+twitter:
+github: https://github.com/skorobaeus
 ---

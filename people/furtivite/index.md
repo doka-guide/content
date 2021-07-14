@@ -1,4 +1,7 @@
 ---
-name: Егор Левченко
-url: https://twitter.com/furtivite
+name: 'Егор Левченко'
+fullname:
+website:
+twitter: https://twitter.com/furtivite
+github:
 ---

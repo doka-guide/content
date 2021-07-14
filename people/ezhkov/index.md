@@ -1,4 +1,7 @@
 ---
-name: Денис Ежков
-url: https://twitter.com/ezhkov_d
+name: 'Денис Ежков'
+fullname:
+website:
+twitter: https://twitter.com/ezhkov_d
+github:
 ---

@@ -1,4 +1,7 @@
 ---
-name: Павел Минеев
-url: https://pavel.mineev.me
+name: 'Павел Минеев'
+fullname:
+website: https://pavel.mineev.me
+twitter:
+github:
 ---

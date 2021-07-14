@@ -1,4 +1,7 @@
 ---
-name: Макс Грачёв
-url:
+name: 'Макс Грачёв'
+fullname:
+website:
+twitter:
+github:
 ---

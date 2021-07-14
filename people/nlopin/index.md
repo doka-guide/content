@@ -1,4 +1,7 @@
 ---
-name: Николай Лопин
-url: https://twitter.com/N_Lopin
+name: 'Николай Лопин'
+fullname:
+website:
+twitter: https://twitter.com/N_Lopin
+github:
 ---
