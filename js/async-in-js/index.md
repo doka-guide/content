@@ -361,7 +361,7 @@ greet;
 
 Таким образом цикл событий работает с асинхронным кодом — то есть таким, который выполняется не построчно.
 
-Очень хорошо работу цикла событий иллюстрирует [инструмент Loupe](http://latentflip.com/loupe/) Филипа Робертса, а также его доклад [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+Очень хорошо работу цикла событий иллюстрирует [инструмент Loupe](http://latentflip.com/loupe/) Филипа Робертса, а также его доклад «[What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)».
 
 [Loupe](http://latentflip.com/loupe/) интерактивный, попробуйте ввести какой-нибудь код в поле слева, и справа будет показываться, что и в какой момент попадает в стек вызовов и очередь событий:
 
