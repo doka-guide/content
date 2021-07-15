@@ -5,6 +5,9 @@
     "(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)",
     ""
   ],
+  "excludeFiles": [
+    "people",
+  ],
   "checkYo": true,
   "dictionary": [
     "ааа",
