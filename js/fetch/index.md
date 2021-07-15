@@ -4,8 +4,6 @@ authors:
   - windrushfarer
 tags:
   - doka
-  - sprint-10
-  - sprint-12
 summary:
   - фетч
   - запрос

@@ -2,7 +2,6 @@
 title: "transition"
 tags:
   - doka
-  - sprint-2
 authors:
   - ezhkov
 contributors:

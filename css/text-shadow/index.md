@@ -2,7 +2,6 @@
 title: "text-shadow"
 tags:
   - doka
-  - sprint-2
 authors:
   - solarrust
 contributors:

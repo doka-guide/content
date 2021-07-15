@@ -4,9 +4,6 @@ authors:
   - nlopin
 tags:
   - article
-  - sprint-10
-  - sprint-12
-  - sprint-14
 cover:
   desktop: 'images/cover.png'
 ---

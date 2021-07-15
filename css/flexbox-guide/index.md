@@ -2,8 +2,6 @@
 title: "Гайд по flexbox"
 tags:
   - article
-  - sprint-1
-  - sprint-4
 authors:
   - solarrust
 contributors:

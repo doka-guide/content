@@ -1,10 +1,9 @@
 ---
-title: Element.classList
+title: "Element.classList"
 authors:
   - windrushfarer
 tags:
   - doka
-  - sprint-4
 contributors:
   - nlopin
 summary:

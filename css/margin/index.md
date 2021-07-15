@@ -2,7 +2,6 @@
 title: "margin"
 tags:
   - doka
-  - sprint-4
 authors:
   - grachev
 contributors:

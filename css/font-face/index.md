@@ -2,7 +2,6 @@
 title: "@font-face"
 tags:
   - doka
-  - sprint-2
 authors:
   - solarrust
 summary:
