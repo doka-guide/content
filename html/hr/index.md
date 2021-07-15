@@ -27,6 +27,14 @@ summary:
 <p>Второй абзац</p>
 ```
 
+```css
+hr {
+  width: 80%;
+  margin: 20px auto;
+  border: 2px dashed cornflowerblue;
+}
+```
+
 <iframe title="Горизонтальная линия" src="demos/hr.html" height="200"></iframe>
 
 ## Как это понять
