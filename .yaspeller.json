@@ -6,7 +6,7 @@
     ""
   ],
   "excludeFiles": [
-    "./people"
+    "people/**/index.md"
   ],
   "checkYo": true,
   "dictionary": [
