@@ -1,7 +1,4 @@
 ---
 name: 'Игорь Камышев'
-fullname:
-website:
-twitter: https://twitter/kamyshev_code
-github:
+url: https://twitter/kamyshev_code
 ---

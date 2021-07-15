@@ -1,7 +1,4 @@
 ---
 name: 'Алёна Дьячковская'
-fullname:
-website:
-twitter: https://github.com/KognitivnayaBuena
-github:
+url: https://github.com/KognitivnayaBuena
 ---
