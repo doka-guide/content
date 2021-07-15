@@ -8,9 +8,6 @@ editors:
   - tachisis
 tags:
   - article
-  - sprint-10
-  - sprint-12
-  - sprint-14
 summary:
   - апи
   - запросы

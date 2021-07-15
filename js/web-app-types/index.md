@@ -2,6 +2,9 @@
 title: "Виды веб-приложений"
 authors:
   - windrushfarer
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'
 tags:
   - article
 summary:

@@ -4,7 +4,6 @@ authors:
   - vindi-r
 tags:
   - doka
-  - sprint-2
 ---
 
 ## Кратко

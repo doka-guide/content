@@ -2,7 +2,6 @@
 title: "box-shadow"
 tags:
   - doka
-  - sprint-2
 authors:
   - solarrust
 contributors:

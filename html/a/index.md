@@ -2,7 +2,6 @@
 title: "<a>"
 tags:
   - doka
-  - sprint-1
 authors:
   - grachev
 contributors:

@@ -169,147 +169,147 @@
       <div class="items" id="result"></div>
     </div>
 
-<script>
-  const SECOND = 1000
-  const food = ['🍗' , '🍖', '🥓', '🍔', '🌯', '🧆']
+  <script>
+    const SECOND = 1000
+    const food = ['🍗' , '🍖', '🥓', '🍔', '🌯', '🧆']
 
-  function isPizza(item) {
-    return item === '🍕'
-  }
-
-  function isBurger(item) {
-    return item === '🍔'
-  }
-
-  const container = document.getElementById("container")
-  const execute = document.getElementById("execute")
-  const result = document.getElementById("result")
-  const burgerButton = document.getElementById("get-burger")
-  const pizzaButton = document.getElementById("get-pizza")
-  let isActive = false
-
-  function createItem(content) {
-    const itemElement = document.createElement("div")
-    itemElement.classList.add("item")
-    itemElement.textContent = content
-
-    return itemElement
-  }
-
-  food.forEach((product, index) => {
-    const element = createItem(product)
-    element.id = index + 1
-
-    container.appendChild(element)
-  })
-
-  function clearActive() {
-    execute.textContent = ""
-    const activeItem = document.querySelector(".active")
-
-    if (activeItem) {
-      activeItem.classList.remove("active")
+    function isPizza(item) {
+      return item === '🍕'
     }
-  }
 
-  function createBurgerCheckIteration(foodItem, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
+    function isBurger(item) {
+      return item === '🍔'
+    }
 
-        const item = document.getElementById(order)
-        item.classList.add("active")
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const burgerButton = document.getElementById('get-burger')
+    const pizzaButton = document.getElementById('get-pizza')
+    let isActive = false
 
-        const isBurgerResult = isBurger(foodItem)
+    function createItem(content) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = content
 
-        execute.textContent = `isBurger(${foodItem}) -> ${isBurgerResult}`
+      return itemElement
+    }
 
-        if (result.firstChild) result.firstChild.remove()
+    food.forEach((product, index) => {
+      const element = createItem(product)
+      element.id = index + 1
 
-        result.appendChild(createItem(isBurgerResult))
-
-        resolve()
-      }, SECOND * order)
+      container.appendChild(element)
     })
-  }
 
-  function createPizzaIteration(foodItem, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
 
-        const item = document.getElementById(order)
-        item.classList.add("active")
-
-        const isPizzaResult = isPizza(foodItem)
-
-        execute.textContent = `isPizza(${foodItem}) -> ${isPizzaResult}`
-
-        if (result.firstChild) result.firstChild.remove()
-        result.appendChild(createItem(isPizzaResult))
-
-        resolve()
-      }, SECOND * order)
-    })
-  }
-
-  function getBurgerPromises() {
-    const iterations = []
-
-    for (const [index, item] of food.entries()) {
-      iterations.push(createBurgerCheckIteration(item, index + 1))
-
-      if (isBurger(item)) {
-        break;
+      if (activeItem) {
+        activeItem.classList.remove('active')
       }
     }
 
-    return iterations
-  }
+    function createBurgerCheckIteration(foodItem, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
 
-  function getPizzaPromises() {
-    const iterations = []
+          const item = document.getElementById(order)
+          item.classList.add('active')
 
-    for (const [index, item] of food.entries()) {
-      iterations.push(createPizzaIteration(item, index + 1))
+          const isBurgerResult = isBurger(foodItem)
 
-      if (isPizza(item)) {
-        break;
+          execute.textContent = `isBurger(${foodItem}) -> ${isBurgerResult}`
+
+          if (result.firstChild) result.firstChild.remove()
+
+          result.appendChild(createItem(isBurgerResult))
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function createPizzaIteration(foodItem, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isPizzaResult = isPizza(foodItem)
+
+          execute.textContent = `isPizza(${foodItem}) -> ${isPizzaResult}`
+
+          if (result.firstChild) result.firstChild.remove()
+          result.appendChild(createItem(isPizzaResult))
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function getBurgerPromises() {
+      const iterations = []
+
+      for (const [index, item] of food.entries()) {
+        iterations.push(createBurgerCheckIteration(item, index + 1))
+
+        if (isBurger(item)) {
+          break;
+        }
       }
+
+      return iterations
     }
 
-    return iterations
-  }
+    function getPizzaPromises() {
+      const iterations = []
 
-  burgerButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true
-      result.innerText = ""
-      const promises = getBurgerPromises()
+      for (const [index, item] of food.entries()) {
+        iterations.push(createPizzaIteration(item, index + 1))
 
-      Promise.all(promises).then(() => {
-        setTimeout(() => {
-          clearActive()
-          isActive = false
-        }, SECOND)
-      })
+        if (isPizza(item)) {
+          break;
+        }
+      }
+
+      return iterations
     }
-  })
 
-  pizzaButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true
-      result.innerText = ""
-      const iterations = getPizzaPromises()
+    burgerButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getBurgerPromises()
 
-      Promise.all(iterations).then(() => {
-        setTimeout(() => {
-          clearActive()
-          isActive = false
-        }, SECOND)
-      })
-    }
-  })
-</script>
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+
+    pizzaButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const iterations = getPizzaPromises()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
 </body>
 </html>

@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 ### YAML vs JSON
 
 Преимущества YAML в том, что мы можем использовать комментарии. В [JSON](/js/doka/json) они нам не доступны.

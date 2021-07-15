@@ -6,7 +6,6 @@ contributors:
   - skorobaeus
 tags:
   - doka
-  - sprint-2
 ---
 
 ## Кратко

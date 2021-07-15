@@ -4,8 +4,6 @@ authors:
   - bespoyasov
 tags:
   - article
-  - sprint-10
-  - sprint-12
 summary:
   - web application
   - frontend фронтенд

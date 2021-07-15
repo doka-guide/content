@@ -2,7 +2,6 @@
 title: "<button>"
 tags:
   - doka
-  - sprint-2
 authors:
   - grachev
 contributors:

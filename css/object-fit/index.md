@@ -2,7 +2,6 @@
 title: "object-fit"
 tags:
   - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:

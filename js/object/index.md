@@ -5,7 +5,6 @@ authors:
 contributors:
   - furtivite
 tags:
-  - sprint-4
   - doka
 ---
 

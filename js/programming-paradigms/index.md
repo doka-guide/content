@@ -3,7 +3,6 @@ title: "Парадигмы программирования"
 authors:
   - bespoyasov
 tags:
-  - sprint-8
   - article
 summary:
   - programming paradigms

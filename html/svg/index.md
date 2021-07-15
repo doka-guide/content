@@ -2,7 +2,6 @@
 title: "<svg>"
 tags:
   - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:

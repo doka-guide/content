@@ -2,7 +2,6 @@
 title: "::placeholder"
 tags:
   - doka
-  - sprint-2
 authors:
   - ezhkov
 contributors:

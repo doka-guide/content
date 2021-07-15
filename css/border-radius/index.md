@@ -2,7 +2,6 @@
 title: "border-radius"
 tags:
   - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:
