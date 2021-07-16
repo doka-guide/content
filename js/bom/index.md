@@ -54,7 +54,7 @@ navigator      screen      location       fetch        history     ...
 
 С помощью этого объекта можно узнать, разрешён ли доступ к кукам, получить доступ к буферу обмена, геолокации, узнать, с какого браузера пользователь смотрит на страницу через `userAgent`.
 
-Забавный факт: поле `userAgent` объекта `navigator` часто используется, чтобы определять, в каком именно браузере пользователь смотрит страницу сайта. Но читать его глазами [достаточно трудно](<https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537503(v=vs.85)?redirectedfrom=MSDN>), поэтому лучше это дело оставить какому-нибудь парсеру.
+Забавный факт: поле `userAgent` объекта `navigator` часто используется, чтобы определять, в каком именно браузере пользователь смотрит страницу сайта. Но читать его глазами [достаточно трудно](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537503(v=vs.85)), поэтому лучше это дело оставить какому-нибудь парсеру.
 
 Также с помощью `navigator` можно зарегистрировать Service Worker.
 
@@ -94,7 +94,7 @@ location.href = "yandex.ru"
 
 ## `fetch`
 
-`fetch` предоставляет возможность работы с сетью, с его помощью можно отправлять запросы на сервер.
+[Fetch](/js/fetch) предоставляет возможность работы с сетью, с его помощью можно отправлять запросы на сервер.
 
 ```js
 fetch("http://example.com/movies.json")
@@ -106,7 +106,6 @@ fetch("http://example.com/movies.json")
   })
 ```
 
-- [Ссылка на статью о fetch]().
 
 ## `history`
 
