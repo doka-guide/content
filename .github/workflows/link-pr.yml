@@ -15,9 +15,13 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: '*.md'
+          format: 'csv'
+      - id: array
+        run: |
+          echo '::set-output name=MD_FILES::[${{ steps.files.outputs.all }}]'
       - name: Проверка ссылок в PR
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: ${{ steps.files.outputs.all }}
+          paths: ${{ steps.array.MD_FILES }}
           markdown: true
           linksToSkip: "https://codepen.io/."
