@@ -17,7 +17,7 @@ jobs:
         run: |
           echo '::set-output name=MD_FILES::[${{ steps.files.outputs.all }}]'
       - name: Проверка ссылок в PR
-        if: ${{ steps.mdfiles.MD_FILES != [] }}
+        # if: ${{ steps.mdfiles.MD_FILES != [] }}
         uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: ${{ steps.mdfiles.MD_FILES }}
