@@ -14,7 +14,7 @@ summary:
   - fetch
   - localstorage
 cover:
-  desktop: 'images/cover.png'
+  desktop: "images/cover.png"
 ---
 
 ## Кратко
@@ -54,7 +54,13 @@ navigator      screen      location       fetch        history     ...
 
 С помощью этого объекта можно узнать, разрешён ли доступ к кукам, получить доступ к буферу обмена, геолокации, узнать, с какого браузера пользователь смотрит на страницу через `userAgent`.
 
-Забавный факт: поле `userAgent` объекта `navigator` часто используется, чтобы определять, в каком именно браузере пользователь смотрит страницу сайта. Но читать его глазами [достаточно трудно](https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537503(v=vs.85)), поэтому лучше это дело оставить какому-нибудь парсеру.
+Забавный факт: поле `userAgent` объекта `navigator` часто используется, чтобы определять, в каком именно браузере пользователь смотрит страницу сайта. Но читать его глазами [достаточно трудно](<https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/ms537503(v=vs.85)>), поэтому лучше это дело оставить какому-нибудь парсеру.
+
+:::callout 💬
+
+В июне 2021 появился более безопасный инструмент для определения браузера — [User-Agent Client Hints](https://wicg.github.io/ua-client-hints/). Его цель в том, чтобы позволить определять тип браузера, не оставив возможности для [сбора данных о пользователях](https://w3c.github.io/fingerprinting-guidance/#dfn-passive-fingerprinting).
+
+:::
 
 Также с помощью `navigator` можно зарегистрировать Service Worker.
 
@@ -87,7 +93,7 @@ navigator      screen      location       fetch        history     ...
 Если мы хотим изменить адрес и перейти на другую страницу, мы можем указать новый `location.href`:
 
 ```js
-location.href = "yandex.ru"
+location.href = "yandex.ru";
 ```
 
 И браузер перейдёт на страницу с адресом _yandex.ru_.
@@ -99,13 +105,12 @@ location.href = "yandex.ru"
 ```js
 fetch("http://example.com/movies.json")
   .then((response) => {
-    return response.json()
+    return response.json();
   })
   .then((data) => {
-    console.log(data)
-  })
+    console.log(data);
+  });
 ```
-
 
 ## `history`
 
@@ -115,10 +120,10 @@ fetch("http://example.com/movies.json")
 
 ```js
 // Перешли на страницу назад
-history.back()
+history.back();
 
 // Перешли на страницу вперёд.
-history.forward()
+history.forward();
 ```
 
 Для более точного управления историей рекомендуется использовать `pushState`:
@@ -126,15 +131,15 @@ history.forward()
 State — любые данные, которые связаны с переходом; бывает полезно, когда нужно разбить форму на несколько шагов, но при этом помнить, какие данные были введены на каждом из них — их можно сохранять в state:
 
 ```js
-const state = { user_id: 5 }
+const state = { user_id: 5 };
 
 // title — заголовок для отображения во вкладке браузера:
-const title = "Some Page Title"
+const title = "Some Page Title";
 
 // url — адрес:
-const url = "/another-page/"
+const url = "/another-page/";
 
-history.pushState(state, title, url)
+history.pushState(state, title, url);
 ```
 
 Браузер «перейдёт» на страницу `/another-page/`. Перейдёт не по-настоящему, потому что страница не перезагрузится, а лишь сменит адрес в строке. Это удобно при работе с одностраничными приложениями, когда мы не хотим, чтобы страница перезагружалась.
@@ -150,17 +155,17 @@ history.pushState(state, title, url)
 ```js
 function saveToStorage(data) {
   try {
-    window.localStorage.setItem("some-key", JSON.stringify(data))
+    window.localStorage.setItem("some-key", JSON.stringify(data));
   } catch {
-    alert("Failed to save data to local storage.")
+    alert("Failed to save data to local storage.");
   }
 }
 
 function loadFromStorage() {
   try {
-    return JSON.parse(window.localStorage.getItem("some-key"))
+    return JSON.parse(window.localStorage.getItem("some-key"));
   } catch {
-    alert("Failed to load data from local storage.")
+    alert("Failed to load data from local storage.");
   }
 }
 
@@ -168,7 +173,7 @@ function loadFromStorage() {
 
 function nextStep() {
   // ...При переходе сохраняем всё, что введено:
-  saveToStorage(formData)
+  saveToStorage(formData);
 }
 ```
 
