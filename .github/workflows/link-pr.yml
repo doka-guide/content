@@ -13,8 +13,9 @@ jobs:
         with:
           filter: '*.md'
           format: 'csv'
-      - id: md-files
+      - name: Формирование массива файлов для проверки
         if: ${{ steps.files.outputs.all != '' }}
+        id: md-files
         run: |
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
