@@ -20,6 +20,6 @@ jobs:
       - name: Проверка ссылок в PR
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: ${{ steps.mdfiles.MD_FILES }}
+          paths: '${{ steps.mdfiles.MD_FILES }}'
           markdown: true
           linksToSkip: "https://codepen.io/."
