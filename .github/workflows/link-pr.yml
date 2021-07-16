@@ -8,20 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       - id: files
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: '*.md'
           format: 'csv'
-      - id: array
+      - id: md-files
         run: |
           echo '::set-output name=MD_FILES::[${{ steps.files.outputs.all }}]'
-      - name: Проверка ссылок в PR
+      - if: ${{ steps.md-files.MD_FILES != [] }}
+        name: Проверка ссылок в PR
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: ${{ steps.array.MD_FILES }}
+          paths: ${{ steps.md-files.MD_FILES }}
           markdown: true
           linksToSkip: "https://codepen.io/."
