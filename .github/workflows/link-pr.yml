@@ -16,7 +16,16 @@ jobs:
       - id: mdfiles
         if: ${{ steps.files.outputs.all != '' }}
         run: |
-          echo '::set-output name=MD_FILES::${{ steps.files.outputs.all }}'
+          file_list=""
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            echo "Файл ${changed_file} добавлен для проверки."
+            if ! [[ $file_list == "" ]]; then
+              file_list="'${changed_file}'"
+            else
+              file_list="${file_list}, '${changed_file}'"
+            fi
+          done
+          echo '::set-output name=MD_FILES::[${{ file_list }}]'
       - name: Проверка ссылок в PR
         uses: JustinBeckwith/linkinator-action@v1
         with:
