@@ -12,7 +12,6 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: '*.md'
-          format: 'csv'
       - id: mdfiles
         run: |
           echo '::set-output name=MD_FILES::[${{ steps.files.outputs.all }}]'
