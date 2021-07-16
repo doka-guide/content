@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: JustinBeckwith/linkinator-action@v1
+      - name: Проверка ссылок
+        uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: "**/*.md"
           markdown: true
