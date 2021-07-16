@@ -12,11 +12,12 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: '*.md'
+          format: 'csv'
       - id: mdfiles
+        if: ${{ steps.files.outputs.all != '' }}
         run: |
-          echo '::set-output name=MD_FILES::[${{ steps.files.outputs.all }}]'
+          echo '::set-output name=MD_FILES::${{ steps.files.outputs.all }}'
       - name: Проверка ссылок в PR
-        # if: ${{ steps.mdfiles.MD_FILES != [] }}
         uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: ${{ steps.mdfiles.MD_FILES }}
