@@ -14,8 +14,8 @@ jobs:
           filter: '*.md'
           format: 'csv'
       - name: Формирование массива файлов для проверки
-        if: ${{ steps.files.outputs.all != '' }}
         id: md-files
+        if: ${{ steps.files.outputs.all != '' }}
         run: |
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
@@ -26,7 +26,7 @@ jobs:
               file_list="${file_list}, '${changed_file}'"
             fi
           done
-          echo '::set-output name=MD_FILES::[${{ file_list }}]'
+          echo '::set-output name=MD_FILES::[${file_list}]'
       - name: Проверка ссылок в PR
         uses: JustinBeckwith/linkinator-action@v1
         with:
