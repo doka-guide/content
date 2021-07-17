@@ -93,7 +93,7 @@ navigator      screen      location       fetch        history     ...
 Если мы хотим изменить адрес и перейти на другую страницу, мы можем указать новый `location.href`:
 
 ```js
-location.href = "yandex.ru";
+location.href = 'yandex.ru'
 ```
 
 И браузер перейдёт на страницу с адресом _yandex.ru_.
@@ -103,13 +103,13 @@ location.href = "yandex.ru";
 [Fetch](/js/fetch) предоставляет возможность работы с сетью, с его помощью можно отправлять запросы на сервер.
 
 ```js
-fetch("http://example.com/movies.json")
+fetch('http://example.com/movies.json')
   .then((response) => {
-    return response.json();
+    return response.json()
   })
   .then((data) => {
-    console.log(data);
-  });
+    console.log(data)
+  })
 ```
 
 ## `history`
@@ -120,10 +120,10 @@ fetch("http://example.com/movies.json")
 
 ```js
 // Перешли на страницу назад
-history.back();
+history.back()
 
 // Перешли на страницу вперёд.
-history.forward();
+history.forward()
 ```
 
 Для более точного управления историей рекомендуется использовать `pushState`:
@@ -131,15 +131,15 @@ history.forward();
 State — любые данные, которые связаны с переходом; бывает полезно, когда нужно разбить форму на несколько шагов, но при этом помнить, какие данные были введены на каждом из них — их можно сохранять в state:
 
 ```js
-const state = { user_id: 5 };
+const state = { user_id: 5 }
 
 // title — заголовок для отображения во вкладке браузера:
-const title = "Some Page Title";
+const title = 'Some Page Title'
 
 // url — адрес:
-const url = "/another-page/";
+const url = '/another-page/'
 
-history.pushState(state, title, url);
+history.pushState(state, title, url)
 ```
 
 Браузер «перейдёт» на страницу `/another-page/`. Перейдёт не по-настоящему, потому что страница не перезагрузится, а лишь сменит адрес в строке. Это удобно при работе с одностраничными приложениями, когда мы не хотим, чтобы страница перезагружалась.
@@ -155,25 +155,25 @@ history.pushState(state, title, url);
 ```js
 function saveToStorage(data) {
   try {
-    window.localStorage.setItem("some-key", JSON.stringify(data));
+    window.localStorage.setItem('some-key', JSON.stringify(data))
   } catch {
-    alert("Failed to save data to local storage.");
+    alert('Failed to save data to local storage.')
   }
 }
 
 function loadFromStorage() {
   try {
-    return JSON.parse(window.localStorage.getItem("some-key"));
+    return JSON.parse(window.localStorage.getItem('some-key'))
   } catch {
-    alert("Failed to load data from local storage.");
+    alert('Failed to load data from local storage.')
   }
 }
 
-// ...Код обработки формы...
+// Код обработки формы
 
 function nextStep() {
-  // ...При переходе сохраняем всё, что введено:
-  saveToStorage(formData);
+  // При переходе сохраняем всё, что введено:
+  saveToStorage(formData)
 }
 ```
 
