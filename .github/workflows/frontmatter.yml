@@ -20,7 +20,7 @@ jobs:
           filter: '*/index.md'
       - name: Проверка линтером
         run: |
-        npm install yaml-cat --global
+          npm install yaml-cat --global
           files="${{ steps.files.outputs.all }}"
           if [ $files == "" ]; then
             echo "Проверка для всех файлов"
