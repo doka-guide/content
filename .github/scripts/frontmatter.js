@@ -40,5 +40,5 @@ for (const fileName in commonMeta) {
         }
     }
   }
-  console.log(`В файле '${fileName}' в правильном порядке`)
+  console.log(`В файле '${fileName}' все поля в правильном порядке`)
 }
