@@ -24,7 +24,7 @@ jobs:
           files="${{ steps.files.outputs.all }}"
           if [[ $files == "" ]]; then
             echo "Проверка для всех файлов"
-            npx yaml-cat -f json **/**/index.md -o result.yaml
+            npx yaml-cat -f json **/**/index.md -o result.json
           else
             echo "Проверка для файлов из PR"
             npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
