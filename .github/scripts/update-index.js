@@ -74,7 +74,9 @@ async function updateIndex(options) {
   () => updateIndex({
     diffFilter: 'A',
     handler(data) {
-      data['createdAt'] = data['createdAt'] ?? new Date()
+      const date = new Date()
+      data['createdAt'] = data['createdAt'] ?? date
+      data['updatedAt'] = date
     }
   })
 ].forEach(handler => handler())
