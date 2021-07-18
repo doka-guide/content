@@ -22,7 +22,7 @@ jobs:
         run: |
           npm install yaml-cat --global
           files="${{ steps.files.outputs.all }}"
-          if [ $files == "" ]; then
+          if [[ $files == "" ]]; then
             echo "Проверка для всех файлов"
             yaml-cat -f json css/**/index.md -o css.json
             yaml-cat -f json html/**/index.md -o html.json
