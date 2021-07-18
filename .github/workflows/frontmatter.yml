@@ -20,7 +20,7 @@ jobs:
           filter: '*/index.md'
       - name: Проверка линтером
         run: |
-          files=${{ steps.files.outputs.all }}
+          files="${{ steps.files.outputs.all }}"
           if [ $files == "" ]; then
             echo "Проверка для всех файлов"
             npx yaml-cat -f json {css|html|js|tools}/**/index.md -o result.json
