@@ -20,15 +20,16 @@ jobs:
           filter: '*/index.md'
       - name: Проверка линтером
         run: |
-          # files="${{ steps.files.outputs.all }}"
-          # if [ $files == "" ]; then
-          #   echo "Проверка для всех файлов"
-          #   npx yaml-cat -f json {css|html|js|tools}/**/index.md -o result.json
-          #   break
-          # else
-          #   echo "Проверка для файлов из PR"
-          #   npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
-          # fi
-          npx yaml-cat -f json "(css|html|js|tools)/**/index.md" -o meta.json
+        npm install yaml-cat --global
+          files="${{ steps.files.outputs.all }}"
+          if [ $files == "" ]; then
+            echo "Проверка для всех файлов"
+            yaml-cat -f json css/**/index.md -o css.json
+            yaml-cat -f json html/**/index.md -o html.json
+            yaml-cat -f json js/**/index.md -o js.json
+            yaml-cat -f json tools/**/index.md -o tools.json
+          else
+            echo "Проверка для файлов из PR"
+            npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
+          fi
           node .github/scripts/frontmatter.js
-
