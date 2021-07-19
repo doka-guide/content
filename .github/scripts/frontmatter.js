@@ -70,7 +70,7 @@ for (const fileName in commonMeta) {
       process.exit(1)
     }
     if (errorCounter > 0) {
-      console.error(`Найдено ${errorCounter} ошибок`)
+      console.error(`Количество ошибок: ${errorCounter}`)
       process.exit(1)
     }
   }
