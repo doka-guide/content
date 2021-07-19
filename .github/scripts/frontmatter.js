@@ -19,27 +19,11 @@ const isRequireFieldExists = (fileName, fileMeta, field) => {
   return true
 }
 
-const requireField = [
-  'title',
-  'tags',
-  'authors',
-  'summary'
-]
+const rawMeta = fs.readFileSync('result.json')
+const settings = fs.readFileSync('.frontmatter.json')
 
-const requireOrder = [
-  'title',
-  'tags',
-  'name',
-  'authors',
-  'editors',
-  'contributors',
-  'summary',
-  'cover'
-]
-
-const rawMeta = fs.readFileSync('result.json');
-
-const commonMeta = JSON.parse(rawMeta);
+const commonMeta = JSON.parse(rawMeta)
+const { requireField, requireOrder } = JSON.parse(settings)
 let errorCounter = 0
 
 for (const fileName in commonMeta) {
