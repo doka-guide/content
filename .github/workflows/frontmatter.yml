@@ -17,7 +17,7 @@ jobs:
       - id: files
         uses: Ana06/get-changed-files@v1.2
         with:
-          filter: '*/index.md'
+          filter: 'index.md'
       - name: Проверка линтером
         run: |
           npm install yaml-cat --global
