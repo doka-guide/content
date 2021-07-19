@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const errorBuilderForOrder = (fileName, field, index, order) => {
+const isFieldOrderValid = (fileName, field, index, order) => {
   if (index > order) {
     console.error(`Поле ${field} в файле '${fileName}' не на своём месте! Нужно переместить вверх.`);
     return false
@@ -11,7 +11,7 @@ const errorBuilderForOrder = (fileName, field, index, order) => {
   return true
 }
 
-const errorBuilderForExistence = (fileName, fileMeta, field) => {
+const isRequireFieldExists = (fileName, fileMeta, field) => {
   if (!fileMeta.hasOwnProperty(field)) {
     console.error(`В файле '${fileName}' нет необходимого поля ${field}`)
     return false
@@ -46,7 +46,7 @@ for (const fileName in commonMeta) {
   let isExistIfRequired = true
   const fileMeta = commonMeta[fileName]
   requireField.forEach(field => {
-    if (!errorBuilderForExistence(fileName, fileMeta, field)) {
+    if (!isRequireFieldExists(fileName, fileMeta, field)) {
       isExistIfRequired = false
       errorCounter += 1
     }
@@ -60,7 +60,7 @@ for (const fileName in commonMeta) {
       })
       orderRank.forEach((order, index) => {
         if (index > 0 && order < orderRank[index - 1]) {
-          if (!errorBuilderForOrder(fileName, requireOrder[order], index, order)) {
+          if (!isFieldOrderValid(fileName, requireOrder[order], index, order)) {
             errorCounter += 1
           }
         }
