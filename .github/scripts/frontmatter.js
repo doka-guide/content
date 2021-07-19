@@ -1,44 +1,69 @@
 const fs = require('fs');
 
+const errorBuilderForOrder = (fileName, field, index, order) => {
+  if (index > order) {
+    console.error(`Поле ${field} в файле '${fileName}' не на своём месте! Нужно переместить вверх.`);
+    return false
+  } else if (index < order) {
+    console.error(`Поле ${field} в файле '${fileName}' не на своём месте! Нужно переместить вниз.`);
+    return false
+  }
+  return true
+}
+
+const errorBuilderForExistence = (fileName, fileMeta, field) => {
+  if (!fileMeta.hasOwnProperty(field)) {
+    console.log(`В файле '${fileName}' нет необходимого поля ${field}`)
+    return false
+  }
+  return true
+}
+
+const requireField = [
+  'title',
+  'tags',
+  'authors',
+  'summary'
+]
+
+const requireOrder = [
+  'title',
+  'tags',
+  'name',
+  'authors',
+  'editors',
+  'contributors',
+  'summary',
+  'cover'
+]
+
 const rawMeta = fs.readFileSync('result.json');
 
 const commonMeta = JSON.parse(rawMeta);
 
 for (const fileName in commonMeta) {
+  let isExistIfRequired = true
   const fileMeta = commonMeta[fileName]
-  if (fileMeta.hasOwnProperty('title')
-    && fileMeta.hasOwnProperty('tags')
-    && fileMeta.hasOwnProperty('authors')
-    && fileMeta.hasOwnProperty('contributors')
-    && fileMeta.hasOwnProperty('summary')
-  ) {
-    console.log(`В файле '${fileName}' есть все необходимые поля`)
-  }
+  requireField.forEach(field => {
+    if (errorBuilderForExistence(fileName, fileMeta, field) === false) {
+      isExistIfRequired = false
+    }
+  })
 
-  const metaKeys = Object.keys(fileMeta)
-  for (let i = 0; i < metaKeys.length; i++) {
-    switch (metaKeys[i]) {
-      case 'title':
-        if (i !== 0) {
-          console.error(`Field 'title' is not in right place!`);
+  if (isExistIfRequired) {
+    const metaKeys = Object.keys(fileMeta)
+    if (requireField.length <= requireOrder.length) {
+      const orderRank = []
+      metaKeys.forEach(field => {
+        orderRank.push(requireOrder.indexOf(field))
+      })
+      orderRank.forEach((order, index) => {
+        if (index > 0 && order < orderRank[index - 1]) {
+          errorBuilderForOrder(fileName, requireOrder[order], index, order)
         }
-      case 'tags':
-        if (i !== 1) {
-          console.error(`Field 'tags' is not in right place!`);
-        }
-      case 'authors':
-        if (i !== 2) {
-          console.error(`Field 'authors' is not in right place!`);
-        }
-      case 'contributors':
-        if (i !== 3) {
-          console.error(`Field 'contributors' is not in right place!`);
-        }
-      case 'summary':
-        if (i !== 4) {
-          console.error(`Field 'summary' is not in right place!`);
-        }
+      })
+    } else {
+      throw new Error(`Список необходимых полей 'requireField' не может быть больше списка, описывающего порядок полей 'requireOrder'`);
     }
   }
-  console.log(`В файле '${fileName}' все поля в правильном порядке`)
 }
