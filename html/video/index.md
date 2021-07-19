@@ -2,7 +2,6 @@
 title: "<video>"
 tags:
   - doka
-  - sprint-2
 authors:
   - vladimir
 contributors:

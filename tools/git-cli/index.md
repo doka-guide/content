@@ -6,9 +6,6 @@ contributors:
   - furtivite
 tags:
   - article
-  - sprint-4
-  - sprint-8
-  - sprint-10
 summary:
   - гит
 ---

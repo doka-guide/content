@@ -3,7 +3,6 @@ title: "Почти всё в JavaScript — объект"
 authors:
   - windrushfarer
 tags:
-  - sprint-4
   - article
 summary:
   - array

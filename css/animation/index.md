@@ -2,7 +2,6 @@
 title: "CSS-анимации"
 tags:
   - article
-  - sprint-2
 authors:
   - solarrust
 summary:

@@ -2,7 +2,6 @@
 title: "transition-duration"
 tags:
   - doka
-  - sprint-2
 authors:
   - ezhkov
 summary:

@@ -2,7 +2,6 @@
 title: "<audio>"
 tags:
   - doka
-  - sprint-2
 authors:
   - vladimir
 contributors:

@@ -2,7 +2,6 @@
 title: "<link>"
 tags:
   - doka
-  - sprint-1
 authors:
   - grachev
 editors:

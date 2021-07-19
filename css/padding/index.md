@@ -2,7 +2,6 @@
 title: "padding"
 tags:
   - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:

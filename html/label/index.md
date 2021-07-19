@@ -2,8 +2,6 @@
 title: "<label>"
 tags:
   - doka
-  - sprint-4
-  - sprint-6
 authors:
   - ezhkov
 contributors:

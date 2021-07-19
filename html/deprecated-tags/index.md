@@ -1,5 +1,5 @@
 ---
-title: Устаревшие теги
+title: "Устаревшие теги"
 tags:
   - article
 authors:

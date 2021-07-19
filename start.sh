@@ -24,7 +24,7 @@ case $RESPONSE in
         esac
         echo "Остановить веб-сервер можно с помощью клавиш: Ctrl + c$"
 
-        docker pull ydoka/platform && docker run --rm -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content ydoka/platform
+        docker pull dokaguide/platform && docker run --rm -p "$WS_IP":"$WS_PORT":8080/tcp -v "$(pwd)"/:/platform/content dokaguide/platform
 
         echo "Спасибо за ваш труд!"
 

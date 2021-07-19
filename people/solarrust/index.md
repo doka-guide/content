@@ -1,4 +1,4 @@
 ---
-name: Алёна Батицкая
+name: 'Алёна Батицкая'
 url: https://twitter.com/ABatickaya
 ---
