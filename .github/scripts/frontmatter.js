@@ -52,7 +52,6 @@ for (const fileName in commonMeta) {
     }
   })
   if (isExistIfRequired) {
-    let isInRequiredOrder = true
     const metaKeys = Object.keys(fileMeta)
     if (requireField.length <= requireOrder.length) {
       const orderRank = []
@@ -62,7 +61,6 @@ for (const fileName in commonMeta) {
       orderRank.forEach((order, index) => {
         if (index > 0 && order < orderRank[index - 1]) {
           if (!errorBuilderForOrder(fileName, requireOrder[order], index, order)) {
-            isInRequiredOrder = false
             errorCounter += 1
           }
         }
@@ -70,8 +68,8 @@ for (const fileName in commonMeta) {
     } else {
       throw new Error(`Список необходимых полей 'requireField' не может быть больше списка, описывающего порядок полей 'requireOrder'`);
     }
-    if (!isInRequiredOrder) {
-      throw new Error(`Найдено ${errorCounter} ошибок.`);
+    if (errorCounter > 0) {
+      throw new Error(`Найдено ${errorCounter} ошибок`)
     }
   }
 }
