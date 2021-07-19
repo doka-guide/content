@@ -1,4 +1,4 @@
-name: Frontmatter Linter
+name: Frontmatter
 
 on:
   pull_request:
