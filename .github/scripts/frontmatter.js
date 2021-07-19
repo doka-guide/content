@@ -13,7 +13,7 @@ const errorBuilderForOrder = (fileName, field, index, order) => {
 
 const errorBuilderForExistence = (fileName, fileMeta, field) => {
   if (!fileMeta.hasOwnProperty(field)) {
-    console.log(`В файле '${fileName}' нет необходимого поля ${field}`)
+    console.error(`В файле '${fileName}' нет необходимого поля ${field}`)
     return false
   }
   return true
@@ -66,10 +66,12 @@ for (const fileName in commonMeta) {
         }
       })
     } else {
-      throw new Error(`Список необходимых полей 'requireField' не может быть больше списка, описывающего порядок полей 'requireOrder'`);
+      console.error(`Список необходимых полей 'requireField' не может быть больше списка, описывающего порядок полей 'requireOrder'`);
+      process.exit(1)
     }
     if (errorCounter > 0) {
-      throw new Error(`Найдено ${errorCounter} ошибок`)
+      console.error(`Найдено ${errorCounter} ошибок`)
+      process.exit(1)
     }
   }
 }
