@@ -40,17 +40,19 @@ const requireOrder = [
 const rawMeta = fs.readFileSync('result.json');
 
 const commonMeta = JSON.parse(rawMeta);
+let errorCounter = 0
 
 for (const fileName in commonMeta) {
   let isExistIfRequired = true
   const fileMeta = commonMeta[fileName]
   requireField.forEach(field => {
-    if (errorBuilderForExistence(fileName, fileMeta, field) === false) {
+    if (!errorBuilderForExistence(fileName, fileMeta, field)) {
       isExistIfRequired = false
+      errorCounter += 1
     }
   })
-
   if (isExistIfRequired) {
+    let isInRequiredOrder = true
     const metaKeys = Object.keys(fileMeta)
     if (requireField.length <= requireOrder.length) {
       const orderRank = []
@@ -59,11 +61,17 @@ for (const fileName in commonMeta) {
       })
       orderRank.forEach((order, index) => {
         if (index > 0 && order < orderRank[index - 1]) {
-          errorBuilderForOrder(fileName, requireOrder[order], index, order)
+          if (!errorBuilderForOrder(fileName, requireOrder[order], index, order)) {
+            isInRequiredOrder = false
+            errorCounter += 1
+          }
         }
       })
     } else {
       throw new Error(`Список необходимых полей 'requireField' не может быть больше списка, описывающего порядок полей 'requireOrder'`);
+    }
+    if (!isInRequiredOrder) {
+      throw new Error(`Найдено ${errorCounter} ошибок.`);
     }
   }
 }
