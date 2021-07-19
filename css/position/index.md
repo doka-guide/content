@@ -27,7 +27,7 @@ summary:
 ## Как пишется
 
 ```css
-.seelctor {
+.selector {
   position: static;
   position: relative;
   position: absolute;
