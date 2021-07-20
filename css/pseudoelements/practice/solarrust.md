@@ -51,4 +51,4 @@
 
 Эти маленькие друзья верстальщика могут удивить тебя своим могуществом.
 
-Их возможности заслуживают отдельной статьи. Например, такой, которую написал Крис Койер: [https://css-tricks.com/pseudo-element-roundup/](https://css-tricks.com/pseudo-element-roundup/).
+Их возможности заслуживают отдельной статьи. Например, такой, которую написал Крис Койер: «[A Whole Bunch of Amazing Stuff Pseudo Elements Can Do](https://css-tricks.com/pseudo-element-roundup/)».
