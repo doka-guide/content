@@ -1,7 +1,11 @@
 ---
 title: "Кастомные свойства"
-author: ezhkov_d
-editor: tachisis
+tags:
+  - doka
+authors:
+  - ezhkov_d
+editors:
+  - tachisis
 summary:
   - var
   - root
