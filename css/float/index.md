@@ -1,6 +1,9 @@
 ---
 title: "float"
-author: lenaryan
+tags:
+  - doka
+authors:
+  - lenaryan
 editors:
   - tachisis
 summary:
