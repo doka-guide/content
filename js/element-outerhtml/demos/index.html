@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Работа Element.innerHTML — Дока</title>
+  <title>Работа Element.outerHTML — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap">
   <style>
     * {
       margin: 0;
@@ -110,10 +110,12 @@
 </head>
 <body>
   <div class="container">
-    <h2>Элемент</h2>
-    <div id="target">
-      <p>Я параграф</p>
-      <button>Я кнопка</button>
+    <h2>Замени меня</h2>
+    <div id="anchor">
+      <div id="target">
+        <p>Я параграф</p>
+        <button>Я кнопка</button>
+      </div>
     </div>
 
     <h2>Итоговый HTML</h2>
@@ -192,17 +194,17 @@
     }
 
     const changeButton = document.getElementById('change')
-    const targetElement = document.getElementById('target')
     const resultElement = document.getElementById('result')
     const newTextElement = document.getElementById('newText')
+    const targetElement = document.getElementById('anchor')
 
-    resultElement.innerText = formatHtmlString(targetElement.outerHTML)
+    resultElement.innerText = formatHtmlString(targetElement.innerHTML)
 
     changeButton.addEventListener('click', () => {
       try {
         if (newTextElement.value) {
           targetElement.innerHTML = newTextElement.value
-          resultElement.innerText = formatHtmlString(targetElement.outerHTML)
+          resultElement.innerText = formatHtmlString(newTextElement.value) || newTextElement.value
           newTextElement.value = ''
         }
       } catch (e) {
