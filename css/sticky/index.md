@@ -2,7 +2,7 @@
 title: "Липкое позиционирование"
 tags:
   - doka
-authors: 
+authors:
   - lenaryan
 editors:
   - tachisis
