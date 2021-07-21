@@ -1,8 +1,9 @@
 ---
 title: "Липкое позиционирование"
-tag:
+tags:
   - doka
-author: lenaryan
+authors: 
+  - lenaryan
 editors:
   - tachisis
 summary:
