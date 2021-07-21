@@ -1,9 +1,9 @@
 ---
-title: "Element.innerHTML"
+title: "Element.outerHTML"
 tags:
   - doka
 authors:
-  - Windrushfarer
+  - windrushfarer
 ---
 
 ## Кратко
