@@ -1,18 +1,17 @@
 {
   "requireField": [
     "title",
-    "tags",
     "authors",
-    "summary"
+    "tags"
   ],
   "requireOrder": [
     "title",
-    "tags",
-    "name",
+    "description",
+    "cover",
     "authors",
-    "editors",
     "contributors",
-    "summary",
-    "cover"
+    "editors",
+    "keywords",
+    "tags"
   ]
 }
