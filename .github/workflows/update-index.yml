@@ -6,7 +6,7 @@ on:
       - search/index
 
 jobs:
-  spell:
+  search:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
