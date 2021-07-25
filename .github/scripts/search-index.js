@@ -18,8 +18,6 @@ const patternsForEntities = {
   paragraphs: /^(?![#>\-*\d ])((?![#>\-*\d ]).+\n?)+/gm,  // Параграфы
 }
 
-const
-
 const commonReplacement = /([#]+ |:::|callout |```|\*{2,2}|\n|_|\!\[|\[|\]|\([.:/a-z]+\))/g
 
 const getEntitiesFromContent = (text, patterns) => {
