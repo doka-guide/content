@@ -20,5 +20,6 @@ jobs:
           ALGOLIA_APP_INDEX: ${{ secrets.ALGOLIA_APP_INDEX }}
         run: |
           npm install algoliasearch yaml-cat --global
+          npm link algoliasearch
           yaml-cat -f json **/**/index.md -o search.json
           node .github/scripts/search-index.js
