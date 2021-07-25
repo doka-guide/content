@@ -70,11 +70,10 @@ for (const fileName in commonSearch) {
       content: getEntitiesFromContent(content, patternsForEntities),
       practice: getPractice(fileName.replace('index.md', 'practice/'))
     }
-    if (
-      typeof commonSearch[fileName].cover !== undefined
-      && typeof commonSearch[fileName].cover.desktop !== undefined
-    ) {
-      object.image = commonSearch[fileName].cover.desktop
+    if (typeof commonSearch[fileName].cover !== undefined) {
+      if (typeof commonSearch[fileName].cover.desktop !== undefined) {
+        object.image = commonSearch[fileName].cover.desktop
+      }
     }
     algoliaIndex.push(object)
   }
