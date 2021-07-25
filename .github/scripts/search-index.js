@@ -59,9 +59,9 @@ for (const fileName in commonSearch) {
     keywords: commonSearch[fileName].summary,
     tags: commonSearch[fileName].tags,
     category: fileName.replace(/\/.+/g, ''),
+    content: getEntitiesFromContent(content, patternsForEntities),
     practice: getPractice(fileName.replace('index.md', 'practice/'))
   }
-  algoliaIndex.push(Object.assign(getEntitiesFromContent(content, patternsForEntities), object))
 }
 
 const client = algoliaClient(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY)
