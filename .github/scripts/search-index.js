@@ -5,6 +5,11 @@ const rawSearch = fs.readFileSync('search.json')
 const commonSearch = JSON.parse(rawSearch)
 const algoliaIndex = []
 
+const stopCategories = [
+  "people",
+  "pages"
+]
+
 const patternsForEntities = {
   header2:    /## .+\n/g,                                 // Заголовки второго уровня
   header3:    /### .+\n/g,                                // Заголовки третьего уровня
@@ -53,16 +58,20 @@ const getPractice = (path) => {
 
 for (const fileName in commonSearch) {
   const content = fs.readFileSync(fileName, { encoding: 'utf8', flag: 'r' })
-  const object = {
-    objectID: fileName.replace('index.md', ''),
-    title: commonSearch[fileName].title,
-    keywords: commonSearch[fileName].summary,
-    tags: commonSearch[fileName].tags,
-    category: fileName.replace(/\/.+/g, ''),
-    content: getEntitiesFromContent(content, patternsForEntities),
-    practice: getPractice(fileName.replace('index.md', 'practice/'))
+  if (new RegExp(stopCategories.join("|")).test(fileName)) {
+    console.log(`Файл ${fileName} не будет добавлен в индекс.`)
+  } else {
+    const object = {
+      objectID: fileName.replace('index.md', ''),
+      title: commonSearch[fileName].title,
+      keywords: commonSearch[fileName].summary,
+      tags: commonSearch[fileName].tags,
+      category: fileName.replace(/\/.+/g, ''),
+      content: getEntitiesFromContent(content, patternsForEntities),
+      practice: getPractice(fileName.replace('index.md', 'practice/'))
+    }
+    algoliaIndex.push(object)
   }
-  algoliaIndex.push(object)
 }
 
 const client = algoliaClient(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_API_KEY)
