@@ -73,6 +73,12 @@ for (const fileName in commonSearch) {
     }
     if (typeof commonSearch[fileName].cover !== 'undefined' && typeof commonSearch[fileName].cover === 'object') {
       object.cover = commonSearch[fileName].cover
+      if (typeof object.cover.desktop !== 'undefined' && typeof object.cover.desktop === 'string') {
+        object.cover.desktop = object.objectID + object.cover.desktop
+      }
+      if (typeof object.cover.mobile !== 'undefined' && typeof object.cover.mobile === 'string') {
+        object.cover.mobile = object.objectID + object.cover.mobile
+      }
     }
     algoliaIndex.push(object)
   }
