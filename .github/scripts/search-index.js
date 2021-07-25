@@ -67,6 +67,7 @@ for (const fileName in commonSearch) {
       keywords: commonSearch[fileName].summary,
       tags: commonSearch[fileName].tags,
       category: fileName.replace(/\/.+/g, ''),
+      image: (commonSearch[fileName].cover.desktop ? commonSearch[fileName].cover.desktop : null),
       content: getEntitiesFromContent(content, patternsForEntities),
       practice: getPractice(fileName.replace('index.md', 'practice/'))
     }

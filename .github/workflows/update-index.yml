@@ -3,7 +3,7 @@ name: Update Search Index
 on:
   push:
     branches:
-      - main
+      - search/index
 
 jobs:
   search:
