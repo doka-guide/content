@@ -67,12 +67,15 @@ for (const fileName in commonSearch) {
       keywords: commonSearch[fileName].summary,
       tags: commonSearch[fileName].tags,
       category: fileName.replace(/\/.+/g, ''),
+      cover: '',
       content: getEntitiesFromContent(content, patternsForEntities),
       practice: getPractice(fileName.replace('index.md', 'practice/'))
     }
-    if (typeof commonSearch[fileName].cover !== undefined) {
-      if (typeof commonSearch[fileName].cover.desktop !== undefined) {
-        object.image = commonSearch[fileName].cover.desktop
+    if (typeof commonSearch[fileName].cover !== 'undefined' && typeof commonSearch[fileName].cover === 'object') {
+      if (typeof commonSearch[fileName].cover.mobile !== 'undefined')
+        object.cover = 'https://doka.guide/' + commonSearch[fileName].cover.mobile
+      } else if (typeof commonSearch[fileName].cover.desktop !== 'undefined') { {
+        object.cover = 'https://doka.guide/' + commonSearch[fileName].cover.desktop
       }
     }
     algoliaIndex.push(object)
