@@ -7,9 +7,10 @@ authors:
 contributors:
   - vladimir
   - solarrust
+editors:
+  - tachisis
 summary:
   - body
-  - "<body>"
   - тэг
   - тег
   - боди
@@ -37,4 +38,4 @@ summary:
 
 ## Как пишется
 
-Его ставят сразу после закрывающего `</head>`.
+Элемент `<body>` ставят сразу после закрывающего `</head>`.
