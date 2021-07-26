@@ -11,7 +11,6 @@ editors:
   - tachisis
 summary:
   - body
-  - "<body>"
   - тэг
   - тег
   - боди
