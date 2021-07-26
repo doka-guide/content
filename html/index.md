@@ -82,6 +82,4 @@
     - global-attrs
     - class
     - hidden
-- name: 'Атрибуты событий'
-  items:
 ---
