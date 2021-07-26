@@ -38,11 +38,9 @@ jobs:
       - name: Сборка и публикация сайта
         uses: doka-guide/surge-preview@main
         id: preview_step
-        env:
-          GITHUB_TOKEN: ${{ steps.githubAppAuth.outputs.token }}
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ env.GITHUB_TOKEN }}
+          github_token: ${{ steps.githubAppAuth.outputs.token }}
           dist: dist
           build: |
             node make-links.js --default
