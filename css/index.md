@@ -11,11 +11,11 @@
     - tag-selector
     - class-selector
     - id-selector
+    - nesting-selector
     - universal-selector
     - attribute-selector
     - combined-selectors
     - selector-list
-    - first-class_second-class
 - name: 'Псевдоклассы'
   items:
     - pseudoclasses
@@ -195,7 +195,7 @@
     - overflow
 - name: 'Обтекаемость'
   items:
-    -
+    - float
 - name: 'Работа с изображениями'
   items:
     - object-fit
@@ -203,6 +203,7 @@
 - name: 'Тени'
   items:
     - box-shadow
+    - text-shadow
 - name: 'Интерфейс'
   items:
     - cursor
