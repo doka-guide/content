@@ -42,7 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ steps.githubAppAuth.outputs.token }}
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ ${{ env.GITHUB_TOKEN }}
+          github_token: ${{ env.GITHUB_TOKEN }}
           dist: dist
           build: |
             node make-links.js --default
