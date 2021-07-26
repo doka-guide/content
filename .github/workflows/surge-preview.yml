@@ -7,8 +7,6 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
-    permissions:
-      pull-requests: write
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
@@ -36,7 +34,7 @@ jobs:
         id: preview_step
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ secrets.AUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           dist: dist
           build: |
             node make-links.js --default
