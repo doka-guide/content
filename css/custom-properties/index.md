@@ -1,7 +1,11 @@
 ---
 title: "Кастомные свойства"
-author: ezhkov_d
-editor: tachisis
+tags:
+  - doka
+authors:
+  - ezhkov_d
+editors:
+  - tachisis
 summary:
   - var
   - root
@@ -272,7 +276,7 @@ element.style.setProperty("--translate", `${currentScroll}px`)
 
 В этом примере мы задали значение по умолчанию, равное `1`. Если будет использоваться только класс `.logo`, браузер установит `--size: 1`. Если будет применён один из классов-модификаторов, значение `--size` будет переопределено, и ширина и высота элемента будут пересчитаны благодаря использованию [`calc()`](/css/calc).
 
-А вот так можно применить CSS-переменную в функции [`linear-gradient`](/css/linear-gradient) (в работе).
+А вот так можно применить CSS-переменную в функции [`linear-gradient`](/css/linear-gradient).
 
 ```css
 .element {

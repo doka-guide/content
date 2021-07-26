@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
     * {
       margin: 0;
@@ -125,95 +124,91 @@
     <button id="change" class="button green change">Изменить</button>
   </div>
 
+  <script>
+    function toLines(markup) {
+      let opened = ''
 
-<script>
-  'use strict';
+      const nonemptyLines = markup.trim()
+      .split('\n')
+      .reduce((nonempty, line) => {
+        const trimmedLine = line.trim()
+        return trimmedLine.length ? [...nonempty, trimmedLine] : nonempty
+      }, [])
 
-  function toLines(markup) {
-    let opened = '';
+      return nonemptyLines.reduce((formatted, line, i, prevArr) => {
+        if (line.startsWith('<')) {
+          if (i === prevArr.length - 1) {
+            return [...formatted, opened, line]
+          }
 
-    const nonemptyLines = markup.trim()
-    .split('\n')
-    .reduce((nonempty, line) => {
-      const trimmedLine = line.trim();
-      return trimmedLine.length ? [...nonempty, trimmedLine] : nonempty;
-    }, [])
+          const closedLine = opened
+          opened = line
 
-    return nonemptyLines.reduce((formatted, line, i, prevArr) => {
-      if (line.startsWith('<')) {
-        if (i === prevArr.length - 1) {
-          return [...formatted, opened, line];
+          if (closedLine.length) {
+            return [...formatted, closedLine]
+          }
+
+          return formatted
         }
 
-        const closedLine = opened;
-        opened = line;
+        opened += line === '>' ? line : ` ${line}`
 
-        if (closedLine.length) {
-          return [...formatted, closedLine];
-        }
-
-        return formatted;
-      }
-
-      opened += line === '>' ? line : ` ${line}`;
-
-      return formatted;
-    }, []);
-  }
-
-  function addIndentation(htmlString) {
-    let level = 0;
-    const opened = [];
-
-    return htmlString.reverse().reduce((indented, elTag) => {
-      if (opened.length
-        && level
-        && opened[level]
-        && opened[level] === elTag.substring(1, opened[level].length + 1)
-      ) {
-        opened.splice(level, 1);
-        level--;
-      }
-
-      const indentation = ' '.repeat(level ? level * 2 : 0);
-
-      const newIndented = [
-        `${indentation}${elTag}`,
-        ...indented,
-      ];
-
-      if (elTag.substring(0, 2) === '</') {
-        level++;
-        opened[level] = elTag.substring(2, elTag.length - 1);
-      }
-
-      return newIndented;
-    }, []).join('\n');
-  }
-
-  function formatHtmlString(str) {
-    return addIndentation(toLines(str));
-  }
-
-  const changeButton = document.getElementById('change')
-  const targetElement = document.getElementById('target')
-  const resultElement = document.getElementById('result')
-  const newTextElement = document.getElementById('newText')
-
-  resultElement.innerText = formatHtmlString(targetElement.outerHTML)
-
-  changeButton.addEventListener('click', () => {
-    try {
-      if (newTextElement.value) {
-        targetElement.innerHTML = newTextElement.value
-        resultElement.innerText = formatHtmlString(targetElement.outerHTML)
-        newTextElement.value = ''
-      }
-    } catch (e) {
-      alert(e)
+        return formatted
+      }, [])
     }
-  })
 
-</script>
+    function addIndentation(htmlString) {
+      let level = 0
+      const opened = []
+
+      return htmlString.reverse().reduce((indented, elTag) => {
+        if (opened.length
+          && level
+          && opened[level]
+          && opened[level] === elTag.substring(1, opened[level].length + 1)
+        ) {
+          opened.splice(level, 1)
+          level--
+        }
+
+        const indentation = ' '.repeat(level ? level * 2 : 0)
+
+        const newIndented = [
+          `${indentation}${elTag}`,
+          ...indented,
+        ]
+
+        if (elTag.substring(0, 2) === '</') {
+          level++
+          opened[level] = elTag.substring(2, elTag.length - 1)
+        }
+
+        return newIndented
+      }, []).join('\n')
+    }
+
+    function formatHtmlString(str) {
+      return addIndentation(toLines(str))
+    }
+
+    const changeButton = document.getElementById('change')
+    const targetElement = document.getElementById('target')
+    const resultElement = document.getElementById('result')
+    const newTextElement = document.getElementById('newText')
+
+    resultElement.innerText = formatHtmlString(targetElement.outerHTML)
+
+    changeButton.addEventListener('click', () => {
+      try {
+        if (newTextElement.value) {
+          targetElement.innerHTML = newTextElement.value
+          resultElement.innerText = formatHtmlString(targetElement.outerHTML)
+          newTextElement.value = ''
+        }
+      } catch (e) {
+        alert(e)
+      }
+    })
+  </script>
 </body>
 </html>

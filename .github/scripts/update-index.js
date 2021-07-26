@@ -29,6 +29,8 @@ async function updateIndex(options) {
         ['html', 'css', 'js', 'tools'].includes(tag),
         // не учитывем файлы индексов статей, например, 'css/index.md'
         pathSegments.length >= 3,
+        // исключаем файлы index.11tydata.json
+        !filePath.includes('index.11tydata.json')
       ].every(Boolean)
     })
     // возвращаем путь до папки самой статьи
@@ -56,7 +58,7 @@ async function updateIndex(options) {
 
     handler(indexData)
 
-    fs.writeFileSync(dataFilePath, JSON.stringify(indexData, null, 2))
+    fs.writeFileSync(dataFilePath, JSON.stringify(indexData, null, 2) + '\n')
   })
 }
 
@@ -72,7 +74,9 @@ async function updateIndex(options) {
   () => updateIndex({
     diffFilter: 'A',
     handler(data) {
-      data['createdAt'] = data['createdAt'] ?? new Date()
+      const date = new Date()
+      data['createdAt'] = data['createdAt'] ?? date
+      data['updatedAt'] = date
     }
   })
 ].forEach(handler => handler())

@@ -137,15 +137,15 @@
     <div class="description">
       <div class="timings">
         <p class="timings-line">
-          <span id='domloaded-time'></span>
+          <span id="domloaded-time"></span>
           <span>Событие <code>DOMContentLoaded</code></span>
         </p>
         <p class="timings-line">
-          <span id='load-time'></span>
+          <span id="load-time"></span>
           <span>Событие <code>load</code></span>
         </p>
         <p class="timings-line">
-          <span id='difference'></span>
+          <span id="difference"></span>
           <span>Разница между событиями</span>
         </p>
       </div>
@@ -157,37 +157,37 @@
     <div class="scrollable"></div>
   </div>
 
-<script>
-  let diff;
-  const diffSpan = document.getElementById('difference');
+  <script>
+    let diff
+    const diffSpan = document.getElementById('difference')
 
-  window.addEventListener('load', function() {
-    const loadSpan = document.getElementById('load-time');
-    const currentTime = getCurrentTime();
-    loadSpan.textContent = currentTime.string;
-    diffSpan.textContent = countDiff(currentTime.ms);
-  });
+    window.addEventListener('load', function() {
+      const loadSpan = document.getElementById('load-time')
+      const currentTime = getCurrentTime()
+      loadSpan.textContent = currentTime.string
+      diffSpan.textContent = countDiff(currentTime.ms)
+    })
 
-  window.addEventListener('DOMContentLoaded', function() {
-    const DOMLoadedSpan = document.getElementById('domloaded-time');
-    const currentTime = getCurrentTime();
-    DOMLoadedSpan.textContent = currentTime.string;
-    diffSpan.textContent = countDiff(currentTime.ms);
-  });
+    window.addEventListener('DOMContentLoaded', function() {
+      const DOMLoadedSpan = document.getElementById('domloaded-time')
+      const currentTime = getCurrentTime()
+      DOMLoadedSpan.textContent = currentTime.string
+      diffSpan.textContent = countDiff(currentTime.ms)
+    })
 
-  function getCurrentTime() {
-    const time = new Date();
-    return {ms: time.getTime(), string: time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() + '.' + time.getMilliseconds()};
-  }
+    function getCurrentTime() {
+      const time = new Date()
+      return {ms: time.getTime(), string: time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() + '.' + time.getMilliseconds()}
+    }
 
-  function countDiff(currentTime) {
-    if (!diff) {
-      diff = currentTime;
-    } else {
-      diff -= currentTime;
-      return Math.abs(diff);
-    };
-  }
-</script>
+    function countDiff(currentTime) {
+      if (!diff) {
+        diff = currentTime
+      } else {
+        diff -= currentTime
+        return Math.abs(diff)
+      }
+    }
+  </script>
 </body>
 </html>

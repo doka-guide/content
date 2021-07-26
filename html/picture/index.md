@@ -2,7 +2,8 @@
 title: "<picture>"
 tags:
   - doka
-author: ezhkov_d
+authors:
+  - ezhkov_d
 editor:
   - tachisis
 summary:

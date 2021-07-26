@@ -155,24 +155,24 @@
 
   <script>
     const SELECTORS = {
-      fieldset: ".js-fieldset",
-      toggle: ".js-toggle",
-      code: ".js-code"
+      fieldset: '.js-fieldset',
+      toggle: '.js-toggle',
+      code: '.js-code'
     }
 
     const fieldset = document.querySelector(SELECTORS.fieldset)
     const toggle = document.querySelector(SELECTORS.toggle)
     const code = document.querySelector(SELECTORS.code)
 
-    toggle.addEventListener("click", (event) => {
+    toggle.addEventListener('click', (event) => {
       if (fieldset.disabled) {
         fieldset.disabled = false
-        toggle.innerText = "Disable"
-        code.innerText = "<fieldset>"
+        toggle.innerText = 'Disable'
+        code.innerText = '<fieldset>'
       } else {
         fieldset.disabled = true
-        toggle.innerText = "Enable"
-        code.innerText = "<fieldset disabled>"
+        toggle.innerText = 'Enable'
+        code.innerText = '<fieldset disabled>'
       }
     })
   </script>

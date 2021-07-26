@@ -1,5 +1,5 @@
 ---
-title: "Что такое Node.js?"
+title: "Node.js для создания инструментов разработки"
 tags:
   - article
 authors:
