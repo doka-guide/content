@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
     steps:
+      - name: Создание токена для превью
+        id: githubAppAuth
+        run: |
+          TOKEN="$(npx obtain-github-app-installation-access-token ci ${{ secrets.GH_APP_CREDENTIALS_TOKEN }})"
+          echo "::add-mask::$TOKEN"
+          echo "::set-output name=token::$TOKEN"
       - name: Загрузка platform
         uses: actions/checkout@v2
         with:
@@ -29,12 +35,6 @@ jobs:
             ${{ runner.os }}-
       - name: Установка модулей
         run: npm ci
-      - name: Создание токена для превью
-        id: githubAppAuth
-        run: |
-          TOKEN="$(npx obtain-github-app-installation-access-token ci ${{ secrets.GH_APP_CREDENTIALS_TOKEN }})"
-          echo "::add-mask::$TOKEN"
-          echo "::set-output name=token::$TOKEN"
       - name: Сборка и публикация сайта
         uses: doka-guide/surge-preview@main
         id: preview_step
