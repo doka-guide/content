@@ -7,7 +7,7 @@ authors:
 editors:
   - tachisis
 summary:
-  - ＠-правило
+  - директива
   - подключение шрифта
   - шрифт
   - кастомный шрифт
@@ -15,7 +15,7 @@ summary:
 
 ## Кратко
 
-Встроенных в операционные системы шрифтов часто не хватает для создания уникального дизайна сайта. Для подключения нестандартных шрифтов существует @-правило `@font-face`. С его помощью можно подключить и использовать на странице любой шрифт из файла.
+Встроенных в операционные системы шрифтов часто не хватает для создания уникального дизайна сайта. Для подключения нестандартных шрифтов существует директива `@font-face`. С его помощью можно подключить и использовать на странице любой шрифт из файла.
 
 При загрузке сайта браузер будет брать шрифт из указанного файла и отображать текст именно этим шрифтом.
 
@@ -26,9 +26,11 @@ summary:
 ```css
 @font-face {
   font-family: "Lexend Peta";
-  src: local("Lexend Peta Regular"), local("LexendPeta-Regular"),
-    url("/fonts/Lexend_Peta-webfont.woff2") format("woff2"), url("/fonts/Lexend_Peta-webfont.woff")
-      format("woff"), url("/fonts/Lexend_Peta-webfont.svg") format("svg");
+  src: local("Lexend Peta Regular"),
+    local("LexendPeta-Regular"),
+    url("Lexend_Peta-webfont.woff2") format("woff2"),
+    url("Lexend_Peta-webfont.woff") format("woff"),
+    url("Lexend_Peta-webfont.svg") format("svg");
   font-weight: normal;
 }
 
@@ -39,19 +41,19 @@ body {
 
 ## Как пишется
 
-Правило `@font-face` по своей «анатомии» отличается от стандартных CSS-правил, где есть селектор и применяемые к нему правила. Основное отличие в том, что на месте селектора мы активируем функцию, адресованную браузеру.
+Директива `@font-face` по своей «анатомии» отличается от стандартных CSS-правил, где есть селектор и применяемые к нему правила. Основное отличие в том, что на месте селектора мы активируем функцию, адресованную браузеру.
 
 Внутри этого правила должно быть два обязательных свойства:
 
-1. Название шрифта, которое мы будем использовать ниже в CSS. Название может отличаться от настоящего названия этого шрифта.
+1. Название шрифта, которое мы будем использовать ниже в CSS: свойство `font-family`. Название может отличаться от настоящего названия этого шрифта.
 
 Важный момент: если название шрифта состоит из двух и более слов, то его нужно взять в кавычки. Или объединить слова в названии, удалив пробелы. Не `Lexend Peta`, а `"Lexend Peta"` или `LexendPeta`. Или вообще `MyFont` 🙊
 
-1. Ссылки на файлы, из которых браузер может взять шрифт: свойство `src`.
+2. Ссылки на файлы, из которых браузер может взять шрифт: свойство `src`.
 
 Тут важно указать ссылки на файлы в нескольких форматах, чтобы любой браузер — старый или новый — мог загрузить шрифт в понятном ему формате. Принято хранить и подключать шрифты в форматах WOFF, WOFF2, SVG.
 
-Подключение из внешних файлов происходит при помощи конструкции `url("ссылка-на-файл")`. Несколько файлов можно подключить, перечислив эти конструкции через запятую.
+Подключение из внешних файлов происходит при помощи конструкции `url("ссылка-на-файл")`. Несколько файлов можно подключить, перечислив эти конструкции несколько раз через запятую.
 
 Если указаны ссылки на несколько файлов в разных форматах, то после `url()` оставляют браузеру подсказку в виде записи `format("формат-подключаемого-файла")`.
 
@@ -68,27 +70,35 @@ body {
 ```css
 @font-face {
   font-family: "Lexend Peta Regular";
-  src: local("Lexend Peta Regular"), local("LexendPeta-Regular"),
-    url("/fonts/Lexend Peta-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta-webfont.svg") format("svg");
+  src: local("Lexend Peta Regular"),
+    local("LexendPeta-Regular"),
+    url("Lexend Peta-webfont.woff2") format("woff2"),
+    url("Lexend Peta-webfont.woff") format("woff"),
+    url("Lexend Peta-webfont.svg") format("svg");
 }
 
 @font-face {
   font-family: "Lexend Peta Bold";
-  src: local("Lexend Peta Bold"), local("LexendPeta-Bold"),
-    url("/fonts/Lexend Peta Bold-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta Bold-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta Bold-webfont.svg") format("svg");
+  src: local("Lexend Peta Bold"),
+    local("LexendPeta-Bold"),
+    url("Lexend Peta Bold-webfont.woff2") format("woff2"),
+    url("Lexend Peta Bold-webfont.woff") format("woff"),
+    url("Lexend Peta Bold-webfont.svg") format("svg");
 }
 
 @font-face {
   font-family: "Lexend Peta Italic";
-  src: local("Lexend Peta Italic"), local("LexendPeta-Italic"),
-    url("/fonts/Lexend Peta Italic-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta Italic-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta Italic-webfont.svg") format("svg");
+  src: local("Lexend Peta Italic"),
+    local("LexendPeta-Italic"),
+    url("Lexend Peta Italic-webfont.woff2") format("woff2"),
+    url("Lexend Peta Italic-webfont.woff") format("woff"),
+    url("Lexend Peta Italic-webfont.svg") format("svg");
 }
+```
 
-/* Используем в разных местах разные начертания шрифтов */
+Далее, ниже по коду, используем в разных местах разные начертания шрифтов:
 
+```css
 body {
   font-family: "Lexend Peta Regular", sans-serif;
 }
@@ -109,9 +119,11 @@ body {
 ```css
 @font-face {
   font-family: "Lexend Peta";
-  src: local("Lexend Peta Regular"), local("LexendPeta-Regular"),
-    url("/fonts/Lexend Peta-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta-webfont.svg") format("svg");
+  src: local("Lexend Peta Regular"),
+    local("LexendPeta-Regular"),
+    url("Lexend Peta-webfont.woff2") format("woff2"),
+    url("Lexend Peta-webfont.woff") format("woff"),
+    url("Lexend Peta-webfont.svg") format("svg");
   font-weight: normal;
 }
 ```
@@ -121,9 +133,11 @@ body {
 ```css
 @font-face {
   font-family: "Lexend Peta";
-  src: local("Lexend Peta Bold"), local("LexendPeta-Bold"),
-    url("/fonts/Lexend Peta Bold-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta Bold-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta Bold-webfont.svg") format("svg");
+  src: local("Lexend Peta Bold"),
+    local("LexendPeta-Bold"),
+    url("Lexend Peta Bold-webfont.woff2") format("woff2"),
+    url("Lexend Peta Bold-webfont.woff") format("woff"),
+    url("Lexend Peta Bold-webfont.svg") format("svg");
   font-weight: bold;
 }
 ```
@@ -133,9 +147,11 @@ body {
 ```css
 @font-face {
   font-family: "Lexend Peta";
-  src: local("Lexend Peta Italic"), local("LexendPeta-Italic"),
-    url("/fonts/Lexend Peta Italic-webfont.woff2") format("woff2"), url("/fonts/Lexend Peta Italic-webfont.woff")
-      format("woff"), url("/fonts/Lexend Peta Italic-webfont.svg") format("svg");
+  src: local("Lexend Peta Italic"),
+    local("LexendPeta-Italic"),
+    url("Lexend Peta Italic-webfont.woff2") format("woff2"),
+    url("Lexend Peta Italic-webfont.woff") format("woff"),
+    url("Lexend Peta Italic-webfont.svg") format("svg");
   font-style: italic;
 }
 ```
@@ -161,7 +177,7 @@ body {
 
 💡 Важно, чтобы файлы со шрифтами лежали на том же домене, что и сайт, на котором они используются. Если вы захотите обратиться к шрифтам из другого домена, то подобный запрос будет заблокирован по правилам безопасности кроссдоменных запросов (CORS).
 
-💡 `@font-face` нужно объявлять до того, как вы обратитесь в CSS к этому шрифту. Принято подключать шрифты в самом начале файла стилей (но после всех `@import`).
+💡 `@font-face` нужно объявлять до того, как вы обратитесь в CSS к этому шрифту. Принято подключать шрифты в самом начале файла стилей (но после всех [`@import`](/css/import)).
 
 💡 `@font-face` нельзя объявить внутри другого CSS-правила.
 
