@@ -1,11 +1,7 @@
 name: EditorConfig
 
 on:
-  pull_request_target:
-    types:
-      - opened
-      - synchronize
-      - reopened
+  pull_request:
   push:
     branches:
       - main
@@ -37,17 +33,6 @@ jobs:
               editorconfig-checker ${changed_file}
             fi
           done
-      - name: Сообщение об окончании проверки
-        uses: actions-cool/maintain-one-comment@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            Были проверены следующие файлы:
-            ${{ steps.files.outputs.all }}
-
-            Результат проверки линтером: ${{ steps.linter.outputs.status }}
-            <!-- Sticky Pull Request Comment -->
-          body-include: '<!-- Sticky Pull Request Comment -->'
 
   lint-main:
     runs-on: ubuntu-latest
