@@ -8,12 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
     steps:
-      - name: Создание токена для превью
-        id: githubAppAuth
-        run: |
-          TOKEN="$(npx obtain-github-app-installation-access-token ci ${{ secrets.GH_APP_CREDENTIALS_TOKEN }})"
-          echo "::add-mask::$TOKEN"
-          echo "::set-output name=token::$TOKEN"
       - name: Загрузка platform
         uses: actions/checkout@v2
         with:
@@ -40,7 +34,7 @@ jobs:
         id: preview_step
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ steps.githubAppAuth.outputs.token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           dist: dist
           build: |
             node make-links.js --default
