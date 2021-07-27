@@ -1,9 +1,13 @@
 name: Update Index
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - EditorConfig
     branches:
       - main
+    types:
+      - completed
 
 jobs:
   update-index:

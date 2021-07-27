@@ -1,7 +1,12 @@
 name: YaSpeller PR
 
 on:
-  pull_request
+  workflow_run:
+    workflows:
+      - EditorConfig
+    pull_request:
+    types:
+      - completed
 
 jobs:
   spell:

@@ -1,7 +1,13 @@
 name: Surge
 
 on:
-  pull_request
+  workflow_run:
+    workflows:
+      - YaSpeller PR
+    branches:
+      - main
+    types:
+      - completed
 
 jobs:
   preview:
