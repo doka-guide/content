@@ -1,7 +1,10 @@
-name: EditorConfig PR
+name: EditorConfig
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   lint:
