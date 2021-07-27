@@ -16,17 +16,4 @@ jobs:
       - id: files
         uses: Ana06/get-changed-files@v1.2
       - name: Проверка линтером
-        run: |
-          npm install editorconfig-checker --global
-          config=.editorconfig
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            if [ $changed_file == $config ]
-            then
-              echo "Проверка для всех файлов"
-              editorconfig-checker
-              break
-            else
-              echo "Проверка для ${changed_file}"
-              editorconfig-checker ${changed_file}
-            fi
-          done
+        run: npх editorconfig-checker
