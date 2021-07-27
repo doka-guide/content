@@ -2,8 +2,7 @@ name: YaSpeller PR
 
 on:
   workflow_run:
-    workflows:
-      - "EditorConfig PR"
+    workflows: ["EditorConfig PR"]
     types:
       - completed
 
