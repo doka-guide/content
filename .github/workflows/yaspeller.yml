@@ -1,8 +1,6 @@
 name: YaSpeller
 
 on:
-  pull_request:
-
   workflow_dispatch:
     inputs:
       message:
@@ -17,7 +15,7 @@ on:
 jobs:
   spell-pr:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.event_name == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -46,7 +44,7 @@ jobs:
           fi
   spell-main:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.event_name == 'push' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
