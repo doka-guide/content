@@ -7,18 +7,14 @@ on:
       - main
 
 jobs:
-  setup:
+  lint-pr:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-  lint-pr:
-    needs: setup
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
-    steps:
       - id: files
         uses: Ana06/get-changed-files@v1.2
       - name: Проверка линтером
@@ -37,9 +33,12 @@ jobs:
             fi
           done
   lint-main:
-    needs: setup
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - name: Проверка линтером
         run: npx editorconfig-checker
