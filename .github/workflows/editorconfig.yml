@@ -9,7 +9,7 @@ on:
 jobs:
   lint-pr:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.event == 'pull_request' }}
+    if: ${{ github.event.type == 'PullRequestEvent' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -34,7 +34,7 @@ jobs:
           done
   lint-main:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.event == 'push' }}
+    if: ${{ github.event.type == 'PushEvent' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
