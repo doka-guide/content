@@ -1,6 +1,12 @@
 name: YaSpeller PR
 
 on:
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
+        description: "YaSpeller Test"
+
   workflow_run:
     workflows:
       - EditorConfig
