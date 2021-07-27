@@ -3,7 +3,9 @@ name: Update Index
 on:
   workflow_run:
     workflows:
-      - "EditorConfig All"
+      - EditorConfig
+    branches:
+      - main
     types:
       - completed
 
