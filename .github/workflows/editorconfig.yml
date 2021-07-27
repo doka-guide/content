@@ -9,7 +9,7 @@ on:
 jobs:
   lint-pr:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.type == 'PullRequestEvent' }}
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -19,7 +19,6 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
       - name: Проверка линтером
         run: |
-          echo "${{ github.event.type }}"
           npm install editorconfig-checker --global
           config=.editorconfig
           for changed_file in ${{ steps.files.outputs.all }}; do
@@ -33,13 +32,13 @@ jobs:
               editorconfig-checker ${changed_file}
             fi
           done
-  # lint-main:
-  #   runs-on: ubuntu-latest
-  #   if: ${{ github.event.type == 'PushEvent' }}
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: '14'
-  #     - name: Проверка линтером
-  #       run: npx editorconfig-checker
+  lint-main:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Проверка линтером
+        run: npx editorconfig-checker
