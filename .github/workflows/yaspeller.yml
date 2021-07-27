@@ -25,12 +25,13 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
       - name: Проверка правописания
         run: |
+          npm install yaspeller --global
           config=.yaspeller.json
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
-              npx yaspeller --only-errors --file-extensions ".md,.html" *
+              yaspeller --only-errors --file-extensions ".md,.html" *
               break
             elif [[ $changed_file =~ \.(md|html)$ ]]; then
               file_list="${file_list} ${changed_file}"
@@ -39,7 +40,7 @@ jobs:
           done
           if ! [[ $file_list == "" ]]; then
             echo "Проверяются файлы из PR..."
-            npx yaspeller --only-errors ${file_list}
+            yaspeller --only-errors ${file_list}
           fi
   spell-main:
     runs-on: ubuntu-latest
