@@ -1,6 +1,8 @@
 name: YaSpeller
 
 on:
+  pull_request:
+
   workflow_dispatch:
     inputs:
       message:
