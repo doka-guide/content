@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows:
       - Sort Dictionary
-    branches:
-      - main
     types:
       - completed
 

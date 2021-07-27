@@ -3,8 +3,7 @@ name: YaSpeller PR
 on:
   workflow_run:
     workflows:
-      - EditorConfig
-    pull_request:
+      - EditorConfig PR
     types:
       - completed
 

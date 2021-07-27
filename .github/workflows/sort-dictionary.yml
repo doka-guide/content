@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows:
       - YaSpeller All
-    branches:
-      - main
     types:
       - completed
 
