@@ -1,22 +1,21 @@
-name: YaSpeller PR
+name: YaSpeller
 
 on:
   workflow_dispatch:
     inputs:
       message:
         required: true
-        description: "YaSpeller Test"
+        description: "YaSpeller"
 
   workflow_run:
-    workflows:
-      - EditorConfig
+    workflows: ["EditorConfig"]
     types:
       - completed
 
 jobs:
-  spell:
+  spell-pr:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.event_name == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -42,3 +41,13 @@ jobs:
             echo "Проверяются файлы из PR..."
             npx yaspeller --only-errors ${file_list}
           fi
+  spell-main:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.event_name == 'push' && github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Проверка правописания
+        run: npx yaspeller --only-errors --file-extensions ".md,.html" *
