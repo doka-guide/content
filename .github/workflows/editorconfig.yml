@@ -7,7 +7,19 @@ on:
       - main
 
 jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Сообщение о начале проверки
+        uses: actions-cool/maintain-one-comment@v2.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Проверка линтером началась...
+            <!-- Sticky Pull Request Comment -->
+          body-include: '<!-- Sticky Pull Request Comment -->'
   lint-pr:
+    needs: preview
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
@@ -17,7 +29,8 @@ jobs:
           node-version: '14'
       - id: files
         uses: Ana06/get-changed-files@v1.2
-      - name: Проверка линтером
+      - id: linter
+        name: Проверка линтером
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig
@@ -32,7 +45,19 @@ jobs:
               editorconfig-checker ${changed_file}
             fi
           done
+      - name: Сообщение об окончании проверки
+        uses: actions-cool/maintain-one-comment@v2.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Были проверены следующие файлы:
+            ${{ steps.files.outputs.all }}
+
+            Результат проверки линтером: ${{ steps.linter.outputs.status }}
+            <!-- Sticky Pull Request Comment -->
+          body-include: '<!-- Sticky Pull Request Comment -->'
   lint-main:
+    needs: preview
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' }}
     steps:
@@ -40,5 +65,16 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Проверка линтером
+      - id: linter
+        name: Проверка линтером
         run: npx editorconfig-checker
+      - name: Сообщение об окончании проверки
+        uses: actions-cool/maintain-one-comment@v2.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Были проверены все файлы.
+
+            Результат проверки линтером: ${{ steps.linter.outputs.status }}
+            <!-- Sticky Pull Request Comment -->
+          body-include: '<!-- Sticky Pull Request Comment -->'
