@@ -3,7 +3,7 @@ name: Surge
 on:
   workflow_run:
     workflows:
-      - YaSpeller PR
+      - "YaSpeller PR"
     types:
       - completed
 

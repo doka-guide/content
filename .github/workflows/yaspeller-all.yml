@@ -3,7 +3,7 @@ name: YaSpeller All
 on:
   workflow_run:
     workflows:
-      - EditorConfig All
+      - "EditorConfig All"
     types:
       - completed
 
