@@ -5,10 +5,11 @@ on:
     inputs:
       message:
         required: true
-        description: "YaSpeller"
+        description: YaSpeller
 
   workflow_run:
-    workflows: ["EditorConfig"]
+    workflows:
+      - EditorConfig
     types:
       - completed
 
@@ -42,6 +43,7 @@ jobs:
             echo "Проверяются файлы из PR..."
             yaspeller --only-errors ${file_list}
           fi
+
   spell-main:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' }}
