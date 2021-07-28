@@ -60,7 +60,7 @@ jobs:
       - name: Сборка и публикация сайта
         env:
           DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
-          SURGE_TOKEN: "${{ secrets.SURGE_TOKEN }}: 6973bdb764f0d5fd07c910de27e2d7d0"
+          SURGE_TOKEN: '${{ secrets.SURGE_TOKEN: 6973bdb764f0d5fd07c910de27e2d7d0 }}'
         run: |
           node make-links.js --default
           npm run build
