@@ -70,7 +70,7 @@ jobs:
         run: |
           file_list=''
           for changed_file in ${{ steps.files.outputs.all }}; do
-            $replace='html'
+            replace='html'
             page=$(echo "${changed_file/md/$replace}")
             file_list=$(echo -e "${file_list}\n[${page}]()")
           done
