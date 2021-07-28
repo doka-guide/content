@@ -72,12 +72,14 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             replace='html'
             page='${changed_file//md/$replace}'
-            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}/${page}'
+            file_list=`${file_list}
+            ${{ env.DEPLOY_DOMAIN }}/${page}`
           done
           if ! [[ $file_list == '' ]]; then
-            file_list='\nСписок ссылок на материалы:\n\n${file_list}'
+            file_list=`Список ссылок на материалы:
+            ${file_list}`
           fi
-          echo ::set-output name=list::$(echo -n "${file_list}")
+          echo ::set-output name=list::$(echo -n '${file_list}')
       - name: Сборка и публикация сайта
         id: surge
         run: |
