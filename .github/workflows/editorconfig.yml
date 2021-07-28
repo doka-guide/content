@@ -2,6 +2,11 @@ name: EditorConfig
 
 on:
   pull_request_target:
+    paths:
+      - '**.html'
+      - '**.md'
+      - '**.json'
+      - '**.sh'
   push:
     branches:
       - main
