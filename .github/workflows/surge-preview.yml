@@ -71,9 +71,8 @@ jobs:
           file_list=''
           for changed_file in ${{ steps.files.outputs.all }}; do
             replace='html'
-            page='${changed_file//md/$replace}'
-            file_list=`${file_list}
-            ${{ env.DEPLOY_DOMAIN }}/${page}`
+            page='${changed_file}//md/$replace'
+            file_list=`${file_list} \n- [${page}](${{ env.DEPLOY_DOMAIN }}/${page})`
           done
           if ! [[ $file_list == '' ]]; then
             file_list=`Список ссылок на материалы:
