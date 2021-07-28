@@ -1,6 +1,12 @@
 name: EditorConfig
 
 on:
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
+        description: EditorConfig
+
   pull_request:
   push:
     branches:
