@@ -1,8 +1,6 @@
 name: Surge
 
 on:
-  pull_request:
-
   workflow_dispatch:
     inputs:
       message:
@@ -20,7 +18,7 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    # if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
