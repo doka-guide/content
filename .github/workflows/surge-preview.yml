@@ -72,7 +72,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}\n[${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
+            file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
           done
           if ! [[ $file_list == '' ]]; then
             file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
@@ -90,7 +90,7 @@ jobs:
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
           fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
-          echo '${{ steps.links.outputs.list }}'
+          echo -e "${{ steps.links.outputs.list }}"
       - name: Сообщение об окончании публикации превью
         if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
         uses: jungwinter/comment@v1
