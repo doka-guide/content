@@ -57,6 +57,26 @@ jobs:
           body: 'Идёт сборка и публикация превью...'
           issue_number: ${{ github.event.number }}
           token: ${{ env.GITHUB_TOKEN }}
+      - name: Выборка файлов для формирования списка
+        id: files
+        uses: Ana06/get-changed-files@v2.0.0
+        with:
+          filter: '*.md'
+      - name: Форматирование списка файлов
+        id: links
+        env:
+          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh/'
+        run: |
+          file_list=''
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            replace='html'
+            page='${changed_file//md/$replace}'
+            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}${page}'
+          done
+          if ! [[ $file_list == '' ]]; then
+            file_list='\nСписок ссылок на материалы:\n\n${file_list}'
+          fi
+          echo '::set-output name=list::$(echo $file_list)'
       - name: Сборка и публикация сайта
         id: surge
         env:
@@ -72,31 +92,7 @@ jobs:
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
           fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
-      - name: Выборка файлов для формирования списка
-        id: files
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
-        uses: Ana06/get-changed-files@v2.0.0
-        with:
-          filter: '*.md'
-      - name: Форматирование списка файлов
-        id: links
-        env:
-          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh/'
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        if: ${{ env.SURGE_TOKEN != '' && steps.files.conclusion == 'success' }}
-        run: |
-          file_list=''
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            replace='html'
-            page='${changed_file//md/$replace}'
-            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}${page}'
-          done
-          if ! [[ $file_list == '' ]]; then
-            file_list='\nСписок ссылок на материалы:\n\n${file_list}'
-          fi
-          echo '::set-output name=list::$(echo $file_list)'
+          echo '${{ steps.links.outputs.list }}'
       - name: Сообщение об окончании публикации превью
         env:
           DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
