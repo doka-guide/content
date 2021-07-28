@@ -3,7 +3,9 @@ name: Sort Dictionary
 on:
   workflow_run:
     workflows:
-      - "YaSpeller All"
+      - YaSpeller
+    branches:
+      - main
     types:
       - completed
 
