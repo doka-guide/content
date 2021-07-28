@@ -1,9 +1,17 @@
 name: Surge
 
 on:
+  workflow_dispatch:
+    inputs:
+      message:
+        required: true
+        description: Surge
+
   workflow_run:
     workflows:
-      - "YaSpeller PR"
+      - YaSpeller
+    branches-ignore:
+      - main
     types:
       - completed
 
