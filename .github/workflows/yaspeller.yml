@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '14'
       - id: files
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.0.0
       - name: Проверка правописания
         run: |
           npm install yaspeller --global
