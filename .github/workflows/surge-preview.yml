@@ -72,14 +72,34 @@ jobs:
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
           fi
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
+      - name: Выборка файлов для формирования списка
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
+        id: files
+        uses: Ana06/get-changed-files@v2.0.0
+        with:
+          filter: '*.md'
+      - name: Форматирование списка файлов
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
+        id: links
+        run: |
+          file_list=""
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            file_list="${file_list}\n${changed_file}"
+          done
+          if ! [[ $file_list == "" ]]; then
+            file_list="\nСписок ссылок на материалы:\n\n${file_list}"
+          fi
+          echo "::set-output name=list::$(echo $file_list)"
       - name: Сообщение об окончании публикации превью
         env:
+          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
         uses: jungwinter/comment@v1
         with:
           type: edit
           body: |
-            [Превью контента](https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh) из ${{ github.sha }} опубликовано.
+            [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.sha }} опубликовано.
+            ${{ steps.links.outputs.list }}
           comment_id: ${{ steps.comment.outputs.id }}
           token: ${{ env.GITHUB_TOKEN }}
