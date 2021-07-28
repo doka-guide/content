@@ -21,6 +21,9 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     # if: ${{ github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion == 'success' }}
+    env:
+      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
@@ -64,14 +67,12 @@ jobs:
           filter: '*.md'
       - name: Форматирование списка файлов
         id: links
-        env:
-          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh/'
         run: |
           file_list=''
           for changed_file in ${{ steps.files.outputs.all }}; do
             replace='html'
             page='${changed_file//md/$replace}'
-            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}${page}'
+            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}/${page}'
           done
           if ! [[ $file_list == '' ]]; then
             file_list='\nСписок ссылок на материалы:\n\n${file_list}'
@@ -79,9 +80,6 @@ jobs:
           echo '::set-output name=list::$(echo $file_list)'
       - name: Сборка и публикация сайта
         id: surge
-        env:
-          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
           node make-links.js --default
           npm run build
@@ -94,9 +92,6 @@ jobs:
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo '${{ steps.links.outputs.list }}'
       - name: Сообщение об окончании публикации превью
-        env:
-          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
         uses: jungwinter/comment@v1
         with:
