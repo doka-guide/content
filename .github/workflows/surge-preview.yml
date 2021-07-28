@@ -77,18 +77,18 @@ jobs:
           if ! [[ $file_list == '' ]]; then
             file_list='\nСписок ссылок на материалы:\n\n${file_list}'
           fi
-          echo '::set-output name=list::${file_list}'
+          echo ::set-output name=list::'${file_list}'
       - name: Сборка и публикация сайта
         id: surge
         run: |
           node make-links.js --default
           npm run build
           echo '${{ env.SURGE_TOKEN }}'
-          # if [[ env.SURGE_TOKEN != '' ]]; then
-          #   npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
-          # else
+          if ! [[ env.SURGE_TOKEN == '' ]]; then
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
+          else
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
-          # fi
+          fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo '${{ steps.links.outputs.list }}'
       - name: Сообщение об окончании публикации превью
