@@ -83,10 +83,9 @@ jobs:
         run: |
           node make-links.js --default
           npm run build
-          if ! [[ env.SURGE_TOKEN == '' ]]; then
+          if ! [[ ${{ env.SURGE_TOKEN == '' }} ]]; then
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
-          fi
-          if [[ env.SURGE_TOKEN == '' ]]; then
+          else
             echo 'Публикация для форка репозитория'
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
           fi
