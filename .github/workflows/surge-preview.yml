@@ -77,8 +77,7 @@ jobs:
           if ! [[ $file_list == '' ]]; then
             file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
           fi
-          echo $(echo -e '${file_list}')
-          echo ::set-output name=list::$(echo -e '${file_list}')
+          echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
         id: surge
         run: |
