@@ -72,7 +72,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}\n[${page}]()")
+            file_list=$(echo -e "${file_list}\n[${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
           done
           if ! [[ $file_list == '' ]]; then
             file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
