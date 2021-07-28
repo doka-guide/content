@@ -70,12 +70,12 @@ jobs:
         run: |
           file_list=''
           for changed_file in ${{ steps.files.outputs.all }}; do
-            page='${changed_file}//md/html'
+            $replace='html'
+            page=$(echo "${changed_file/md/$replace}")
             file_list=$(echo -e "${file_list}\n[${page}]()")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=`Список ссылок на материалы:
-            ${file_list}`
+            file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
           fi
           echo ::set-output name=list::$(echo -n '${file_list}')
       - name: Сборка и публикация сайта
