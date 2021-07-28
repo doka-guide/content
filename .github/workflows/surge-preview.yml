@@ -46,24 +46,35 @@ jobs:
             ${{ runner.os }}-
       - name: Установка модулей
         run: npm ci
-      # - name: Сборка и публикация сайта из репозитория
-      #   if: ${{ secrets.GITHUB_TOKEN != "" }}
-      #   uses: doka-guide/surge-preview@main
-      #   id: preview_step
-      #   with:
-      #     surge_token: ${{ secrets.SURGE_TOKEN }}
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     dist: dist
-      #     build: |
-      #       node make-links.js --default
-      #       npm run build
+      - name: Публикация сообщения в PR
+        if: ${{ secrets.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
+        uses: jungwinter/comment@v1
+        id: comment
+        with:
+          type: create
+          body: "Идёт сборка и публикация превью..."
+          issue_number: ${{ github.event.number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Сборка и публикация сайта
+        id: surge
         env:
           DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
-          SURGE_TOKEN: '${{ secrets.SURGE_TOKEN: 6973bdb764f0d5fd07c910de27e2d7d0 }}'
         run: |
           node make-links.js --default
           npm run build
-          npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
-      # - name: Получение ссылки для превью
-      #   run: echo "Ссылка на превью — ${{ steps.preview_step.outputs.preview_url }}"
+          if [[ secrets.SURGE_TOKEN != '' ]]; then
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          else
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
+          fi
+          echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
+      - name: Публикация сообщения в PR
+        if: ${{ secrets.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
+        uses: jungwinter/comment@v1
+        id: comment
+        with:
+          type: edit
+          body: |
+            [Превью контента](https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh) из ${{ github.sha }} опубликовано.
+          comment_id: ${{ steps.comment.outputs.id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
