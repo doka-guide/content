@@ -60,7 +60,7 @@ jobs:
       - name: Сборка и публикация сайта
         # if: ${{ secrets.GITHUB_TOKEN == "" }}
         env:
-          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-$(echo "$GITHUB_REPOSITORY" | awk -F / "{print $2}" | sed -e "s/:refs//")-${{ job.container.id }}-pr-${{ github.event.number }}.surge.sh'
+          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
         run: |
           node make-links.js --default
           npm run build
