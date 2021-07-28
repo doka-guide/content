@@ -47,7 +47,7 @@ jobs:
       - name: Установка модулей
         run: npm ci
       # - name: Сборка и публикация сайта из репозитория
-      #   if: $ {{ secrets.GITHUB_TOKEN != "" }}
+      #   if: ${{ secrets.GITHUB_TOKEN != "" }}
       #   uses: doka-guide/surge-preview@main
       #   id: preview_step
       #   with:
@@ -57,14 +57,14 @@ jobs:
       #     build: |
       #       node make-links.js --default
       #       npm run build
-      - name: Преобразование строки
-        run: echo "::set-env name=REPOSITORY_NAME::$(echo '$GITHUB_REPOSITORY' | awk -F / '{print $2}' | sed -e 's/:refs//')"
       - name: Сборка и публикация сайта
-        # if: $ {{ secrets.GITHUB_TOKEN == "" }}
+        # if: ${{ secrets.GITHUB_TOKEN == "" }}
+        env:
+          REPOSITORY_NAME: $(echo "$GITHUB_REPOSITORY" | awk -F / "{print $2}" | sed -e "s/:refs//")
+          DEPLOY_DOMAIN: "https://${{ github.repository_owner }}-${REPOSITORY_NAME}-${{ job.container.id }}-pr-${{ github.event.number }}.surge.sh"
         run: |
           node make-links.js --default
           npm run build
-          export DEPLOY_DOMAIN=`https://${{ github.repository_owner }}-${REPOSITORY_NAME}-${{ job.container.id }}-pr-${{ github.event.number }}.surge.sh`
           npx surge --project ./dist --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
       # - name: Получение ссылки для превью
       #   run: echo "Ссылка на превью — ${{ steps.preview_step.outputs.preview_url }}"
