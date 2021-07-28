@@ -76,7 +76,6 @@ jobs:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
         uses: jungwinter/comment@v1
-        id: comment
         with:
           type: edit
           body: |
