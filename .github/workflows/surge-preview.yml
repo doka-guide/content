@@ -47,11 +47,11 @@ jobs:
       - name: Установка модулей
         run: npm ci
       - name: Сообщение о начале публикации превью
+        id: comment
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         if: ${{ env.SURGE_TOKEN != '' }}
         uses: jungwinter/comment@v1
-        id: comment
         with:
           type: create
           body: "Идёт сборка и публикация превью..."
@@ -73,14 +73,18 @@ jobs:
           fi
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
       - name: Выборка файлов для формирования списка
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
         id: files
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
         uses: Ana06/get-changed-files@v2.0.0
         with:
           filter: '*.md'
       - name: Форматирование списка файлов
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' }}
         id: links
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        if: ${{ env.SURGE_TOKEN != '' && steps.files.conclusion == 'success' }}
         run: |
           file_list=""
           for changed_file in ${{ steps.files.outputs.all }}; do
