@@ -1,7 +1,7 @@
 name: EditorConfig
 
 on:
-  pull_request:
+  pull_request_target:
   push:
     branches:
       - main
@@ -9,9 +9,12 @@ on:
 jobs:
   lint-pr:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request_target' }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -33,13 +36,6 @@ jobs:
               editorconfig-checker ${changed_file}
             fi
           done
-      - name: Создание сообщения в PR
-        uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            **EditorConfig:** ${{ steps.linter.outputs.status }}
-          proxy-url: https://add-pr-comment-proxy-94idvmwyie-uc.a.run.app
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
   lint-main:
     runs-on: ubuntu-latest
@@ -52,10 +48,3 @@ jobs:
       - id: linter
         name: Проверка линтером
         run: npx editorconfig-checker
-      - name: Создание сообщения в PR
-        uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            **EditorConfig:** ${{ steps.linter.outputs.status }}
-          proxy-url: https://add-pr-comment-proxy-94idvmwyie-uc.a.run.app
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
