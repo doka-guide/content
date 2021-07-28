@@ -54,7 +54,7 @@ jobs:
         uses: jungwinter/comment@v1
         with:
           type: create
-          body: "Идёт сборка и публикация превью..."
+          body: 'Идёт сборка и публикация превью...'
           issue_number: ${{ github.event.number }}
           token: ${{ env.GITHUB_TOKEN }}
       - name: Сборка и публикация сайта
@@ -65,13 +65,13 @@ jobs:
         run: |
           node make-links.js --default
           npm run build
-          echo "${{ env.SURGE_TOKEN }}"
+          echo '${{ env.SURGE_TOKEN }}'
           if [[ env.SURGE_TOKEN != '' ]]; then
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
           else
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
           fi
-          echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
+          echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
       - name: Выборка файлов для формирования списка
         id: files
         env:
@@ -83,17 +83,20 @@ jobs:
       - name: Форматирование списка файлов
         id: links
         env:
+          DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh/'
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         if: ${{ env.SURGE_TOKEN != '' && steps.files.conclusion == 'success' }}
         run: |
-          file_list=""
+          file_list=''
           for changed_file in ${{ steps.files.outputs.all }}; do
-            file_list="${file_list}\n${changed_file}"
+            replace='html'
+            page='${changed_file//md/$replace}'
+            file_list='${file_list}\n${{ env.DEPLOY_DOMAIN }}${page}'
           done
-          if ! [[ $file_list == "" ]]; then
-            file_list="\nСписок ссылок на материалы:\n\n${file_list}"
+          if ! [[ $file_list == '' ]]; then
+            file_list='\nСписок ссылок на материалы:\n\n${file_list}'
           fi
-          echo "::set-output name=list::$(echo $file_list)"
+          echo '::set-output name=list::$(echo $file_list)'
       - name: Сообщение об окончании публикации превью
         env:
           DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
