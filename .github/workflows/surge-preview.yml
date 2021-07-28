@@ -58,13 +58,11 @@ jobs:
       #       node make-links.js --default
       #       npm run build
       - name: Сборка и публикация сайта
-        # if: ${{ secrets.GITHUB_TOKEN == "" }}
         env:
           DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
         run: |
           node make-links.js --default
           npm run build
-          echo ${{ env.DEPLOY_DOMAIN }}
-          npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token 6973bdb764f0d5fd07c910de27e2d7d0
       # - name: Получение ссылки для превью
       #   run: echo "Ссылка на превью — ${{ steps.preview_step.outputs.preview_url }}"
