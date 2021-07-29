@@ -117,6 +117,7 @@
     - color
     - quotes
     - vertical-align
+    - text-shadow
 - name: 'Размеры и отступы'
   items:
     - width
@@ -127,7 +128,6 @@
     - border
     - border-image
     - border-radius
-    - outline
 - name: 'Позиционирование'
   items:
     - position
@@ -200,8 +200,12 @@
   items:
     - object-fit
     - object-position
-- name: 'Тени'
+- name: 'Рамки, обводки и тени'
   items:
+    - border
+    - border-image
+    - border-radius
+    - outline
     - box-shadow
     - text-shadow
 - name: 'Интерфейс'
