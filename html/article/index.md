@@ -13,7 +13,9 @@ summary:
   - артикл
   - семантический тег
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
+  alt: 'Фотоальбом с фотографиями, слева — большая с мальчиком, справа сверху — меч, справа снизу — девочка'
 ---
 
 ## Кратко
