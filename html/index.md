@@ -18,6 +18,17 @@
     - blockquote
     - q
     - br-pros-cons
+- name: 'Семантика'
+  items:
+    - div
+    - span
+    - header
+    - footer
+    - main
+    - section
+    - article
+    - aside
+    - nav
 - name: 'Формы'
   items:
     - form
@@ -37,13 +48,6 @@
     - picture
     - source
     - svg
-- name: 'Интерактив'
-  items:
-    - audio
-    - video
-    - iframe
-    - source
-    - embed
 - name: 'Ссылки'
   items:
     - a
@@ -55,20 +59,16 @@
     - ul
     - li
     - dl-dd-dt
+- name: 'Интерактив'
+  items:
+    - audio
+    - video
+    - iframe
+    - source
+    - embed
 - name: 'Таблицы'
   items:
     - tables
-- name: 'Семантика'
-  items:
-    - div
-    - span
-    - header
-    - footer
-    - main
-    - section
-    - article
-    - aside
-    - nav
 - name: 'Мета'
   items:
     - head
