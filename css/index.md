@@ -141,9 +141,6 @@
 - name: 'Флексбоксы'
   items:
     - flexbox-guide
-    - align-content
-    - align-items
-    - align-self
     - flex
     - flex-basis
     - flex-direction
@@ -151,7 +148,6 @@
     - flex-grow
     - flex-shrink
     - flex-wrap
-    - justify-content
     - order
 - name: 'Гриды'
   items:
@@ -166,14 +162,17 @@
     - grid-template-areas
     - grid-template-columns
     - grid-template-rows
-    - column-row-gap
-    - gap
-    - justify-items
-    - align-items
-    - place-items
-    - justify-self
-    - align-self
-    - place-self
+- name: 'Выравнивание блоков'
+  - justify-content
+  - justify-items
+  - justify-self
+  - align-content
+  - align-items
+  - align-self
+  - place-items
+  - place-self
+  - gap
+  - column-row-gap
 - name: 'Формы'
   items:
     - focus
