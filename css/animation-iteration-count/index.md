@@ -4,6 +4,8 @@ tags:
   - doka
 authors:
   - solarrust
+editors:
+  - tachisis
 summary:
   - CSS-анимации
   - количество повторов анимации
