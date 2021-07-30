@@ -163,16 +163,17 @@
     - grid-template-columns
     - grid-template-rows
 - name: 'Выравнивание блоков'
-  - justify-content
-  - justify-items
-  - justify-self
-  - align-content
-  - align-items
-  - align-self
-  - place-items
-  - place-self
-  - gap
-  - column-row-gap
+  items:
+    - justify-content
+    - justify-items
+    - justify-self
+    - align-content
+    - align-items
+    - align-self
+    - place-items
+    - place-self
+    - gap
+    - column-row-gap
 - name: 'Формы'
   items:
     - focus
