@@ -1,0 +1,32 @@
+name: Frontmatter
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: files
+        uses: Ana06/get-changed-files@v1.2
+        with:
+          filter: 'index.md'
+      - name: Проверка линтером
+        run: |
+          npm install yaml-cat --global
+          files="${{ steps.files.outputs.all }}"
+          if [[ $files == "" ]]; then
+            echo "Проверка для всех файлов"
+            npx yaml-cat -f json **/**/index.md -o result.json
+          else
+            echo "Проверка для файлов из PR"
+            npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
+          fi
+          node .github/scripts/frontmatter.js
