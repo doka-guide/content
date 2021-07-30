@@ -1,1 +1,1 @@
-«[CSS-анимации](/css/animation)».
+«[CSS-анимации](/css/animation/)».
