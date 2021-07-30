@@ -19,4 +19,5 @@ jobs:
         with:
           paths: ${{ steps.files.outputs.all }}
           markdown: true
+          serverRoot: "$(pwd)"
           linksToSkip: "https://codepen.io/."
