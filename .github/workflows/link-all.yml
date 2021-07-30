@@ -1,0 +1,23 @@
+name: Link Checker
+
+on:
+  schedule:
+    - cron:  '0 6 * * 5'
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Проверка ссылок в исходниках
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.md"
+          markdown: true
+          linksToSkip: "https://codepen.io/."
+      - name: Проверка ссылок в собранном сайте
+        uses: ruzickap/action-my-broken-link-checker@v1
+        with:
+          url: https://doka.guide
+          cmd_params: --buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --limit-redirections=5 --timeout=20
+          run_timeout: 600
