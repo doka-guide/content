@@ -1,10 +1,10 @@
 ---
 title: "Блочная модель"
-tags:
-  - article
 authors:
   - solarrust
-summary:
+tags:
+  - article
+keywords:
   - box model
   - блоковая модель
 ---
