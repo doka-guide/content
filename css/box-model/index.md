@@ -2,11 +2,11 @@
 title: "Блочная модель"
 authors:
   - solarrust
-tags:
-  - article
 keywords:
   - box model
   - блоковая модель
+tags:
+  - article
 ---
 
 ## «Всё — прямоугольник»
