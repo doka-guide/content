@@ -1,14 +1,14 @@
 ---
 title: "Теги <details> и <summary>"
-tags:
-  - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - details
   - summary
   - аккордеон
   - спойлер
+tags:
+  - doka
 ---
 
 ## Кратко
