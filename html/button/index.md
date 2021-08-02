@@ -1,7 +1,5 @@
 ---
 title: "<button>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -9,11 +7,13 @@ contributors:
   - vladimir
 editors:
   - tachisis
-summary:
+keywords:
   - button
   - тэг
   - тег
   - кнопка
+tags:
+  - doka
 ---
 
 ## Кратко
