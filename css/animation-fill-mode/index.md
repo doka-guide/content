@@ -1,14 +1,14 @@
 ---
 title: "animation-fill-mode"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - ключевые кадры
+tags:
+  - doka
 ---
 
 ## Кратко

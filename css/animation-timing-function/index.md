@@ -1,14 +1,14 @@
 ---
 title: "animation-timing-function"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - временная функция
+tags:
+  - doka
 ---
 
 ## Кратко

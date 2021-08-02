@@ -1,14 +1,14 @@
 ---
 title: "animation-play-state"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - пауза анимации
+tags:
+  - doka
 ---
 
 ## Кратко

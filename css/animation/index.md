@@ -1,12 +1,10 @@
 ---
 title: "CSS-анимации"
-tags:
-  - article
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - animation-name
   - animation-duration
@@ -17,6 +15,8 @@ summary:
   - animation-play-state
   - animation-fill-mode
   - animation
+tags:
+  - article
 ---
 
 ## Кратко

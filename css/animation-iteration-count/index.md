@@ -1,14 +1,14 @@
 ---
 title: "animation-iteration-count"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - количество повторов анимации
+tags:
+  - doka
 ---
 
 ## Кратко

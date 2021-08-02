@@ -1,14 +1,14 @@
 ---
 title: "animation-duration"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - CSS-анимации
   - длительность анимации
+tags:
+  - doka
 ---
 
 ## Кратко
