@@ -30,19 +30,18 @@ cover:
 <div class="container">
   <p>
     Привет, мы запихали текст в <code>&lt;div&gt;</code>,
-    а сам контейнер покрасили в серый.
+    а сам контейнер покрасили в оранжевый.
   </p>
 </div>
 ```
 
 ```css
 .container {
-  padding: 8px 12px;
-  background-color: #e6e6e6;
+  background-color: #FF8630;
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div.html"></iframe>
+<iframe title="Див с фоном" src="demos/div.html" height="230"></iframe>
 
 ## Как это понять
 
