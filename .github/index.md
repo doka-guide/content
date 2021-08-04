@@ -1,1 +1,0 @@
-«[CSS-анимации](/css/animation/)».
