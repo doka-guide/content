@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - ＠-правило
   - media
   - media-query

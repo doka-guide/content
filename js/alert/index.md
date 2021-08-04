@@ -8,7 +8,7 @@ editors:
   - tachisis
 tags:
   - doka
-summary:
+keywords:
   - alert
   - модальное окно
   - алерт

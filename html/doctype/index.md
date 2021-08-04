@@ -10,7 +10,7 @@ contributors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - doctype
   - тэг
   - тег

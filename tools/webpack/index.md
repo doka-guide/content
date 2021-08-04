@@ -6,7 +6,7 @@ authors:
   - igorkamyshev
 contributors:
   - furtivite
-summary:
+keywords:
   - webpack
   - вебпак
   - бандлер

@@ -7,7 +7,7 @@ authors:
 contributors:
   - vladimir
   - skorobaeus
-summary:
+keywords:
   - font-family
 ---
 

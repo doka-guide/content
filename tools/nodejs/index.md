@@ -6,7 +6,7 @@ authors:
   - igorkamyshev
 contributors:
   - furtivite
-summary:
+keywords:
   - npm
   - nodejs
   - package.json

@@ -7,7 +7,7 @@ authors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - font-smooth
   - -webkit-font-smoothing
   - -moz-osx-font-smoothing

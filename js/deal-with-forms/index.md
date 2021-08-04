@@ -7,7 +7,7 @@ cover:
   alt: 'Камень с веб-формой, рядом лежит молоток и зубило'
 tags:
   - article
-summary:
+keywords:
   - form
   - ajax
   - formdata

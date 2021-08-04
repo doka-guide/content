@@ -4,7 +4,7 @@ authors:
   - windrushfarer
 tags:
   - doka
-summary:
+keywords:
   - фетч
   - запрос
 ---

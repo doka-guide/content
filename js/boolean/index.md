@@ -6,7 +6,7 @@ authors:
   - bespoyasov
 contributors:
   - nlopin
-summary:
+keywords:
   - логический тип
   - тру фолс
   - true false

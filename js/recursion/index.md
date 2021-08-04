@@ -7,7 +7,7 @@ cover:
   alt: 'Котик лежит за ноутбуком, на экране которого котик лежит за ноутбуком и так далее'
 tags:
   - article
-summary:
+keywords:
   - function
   - call
   - data structures

@@ -8,7 +8,7 @@ authors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - мейн

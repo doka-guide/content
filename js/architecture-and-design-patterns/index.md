@@ -6,7 +6,7 @@ tags:
   - article
 editors:
   - tachisis
-summary:
+keywords:
   - ddd
   - mvc
   - mvvm

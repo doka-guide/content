@@ -6,7 +6,7 @@ authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - комментарии
 cover:
   desktop: 'images/cover.png'

@@ -11,7 +11,7 @@ editors:
 cover:
   desktop: 'images/cover.png'
   alt: 'Робот-тестировщик идёт над пропастью между двух гор по подвесному мосту, который обрывается пунктиром'
-summary:
+keywords:
   - code review
   - pull request
   - пул реквест

@@ -6,7 +6,7 @@ authors:
   - grachev
 contributors:
   - vladimir
-summary:
+keywords:
   - тэг
   - тег
   - title

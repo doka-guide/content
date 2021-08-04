@@ -6,7 +6,7 @@ authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - докер
   - контейнер
   - container

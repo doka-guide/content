@@ -6,7 +6,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
-summary:
+keywords:
   - стили списка
   - список
 ---

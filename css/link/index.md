@@ -6,7 +6,7 @@ authors:
   - realetive
 editors:
   - tachisis
-summary:
+keywords:
   - стили ссылки
   - псевдокласс
 ---

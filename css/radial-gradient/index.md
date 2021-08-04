@@ -6,7 +6,7 @@ authors:
   - ezhkov_d
 editors:
   - tachisis
-summary:
+keywords:
   - градиент
   - радиальный
   - фон

@@ -9,7 +9,7 @@ contributors:
   - vladimir
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - meta

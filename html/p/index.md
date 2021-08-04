@@ -6,7 +6,7 @@ authors:
   - vladimir
 contributors:
   - solarrust
-summary:
+keywords:
   - тэг
   - тег
   - <p>

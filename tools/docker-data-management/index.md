@@ -4,7 +4,7 @@ tags:
   - article
 authors:
   - igsekor
-summary:
+keywords:
   - докер
   - контейнер
   - том

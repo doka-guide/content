@@ -6,7 +6,7 @@ authors:
   - ezhkov_d
 editor:
   - tachisis
-summary:
+keywords:
   - картинка
   - ретина
   - retina

@@ -6,7 +6,7 @@ authors:
   - nlopin
 contributors:
   - skorobaeus
-summary:
+keywords:
   - мышь
 ---
 

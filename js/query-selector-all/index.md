@@ -4,7 +4,7 @@ authors:
   - nlopin
 tags:
   - doka
-summary:
+keywords:
   - селектор
   - найти элементы по селектору
   - selector

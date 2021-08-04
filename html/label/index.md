@@ -6,7 +6,7 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - лейбл
   - подпись поля ввода
 ---

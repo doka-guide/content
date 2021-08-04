@@ -4,7 +4,7 @@ authors:
   - bespoyasov
 tags:
   - article
-summary:
+keywords:
   - use strict
   - строгий режим
   - bind

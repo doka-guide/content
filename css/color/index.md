@@ -9,7 +9,7 @@ contributors:
   - pepelsbey
   - furtivite
   - skorobaeus
-summary:
+keywords:
   - color
   - цвет
   - rgb

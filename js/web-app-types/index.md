@@ -7,7 +7,7 @@ cover:
   alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'
 tags:
   - article
-summary:
+keywords:
   - web application
   - frontend фронтенд
 ---

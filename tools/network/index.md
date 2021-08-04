@@ -7,7 +7,7 @@ authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - network
   - iptables
   - packages

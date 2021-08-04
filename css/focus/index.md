@@ -6,7 +6,7 @@ authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - :focus
   - LVHA
   - псевдокласс

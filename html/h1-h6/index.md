@@ -9,7 +9,7 @@ contributors:
   - vladimir
   - skorobaeus
   - furtivite
-summary:
+keywords:
   - заголовок
   - тэг
   - тег

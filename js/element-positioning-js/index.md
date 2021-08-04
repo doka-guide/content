@@ -7,7 +7,7 @@ cover:
   alt: 'Мальчик и девочка расставляют картинки с шахматными фигурами'
 tags:
   - article
-summary:
+keywords:
   - анимации animation
   - transform
 ---

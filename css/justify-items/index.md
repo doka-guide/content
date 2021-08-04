@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - solarrust
-summary:
+keywords:
   - выравнивание по горизонтальной оси
 ---
 

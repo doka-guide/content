@@ -6,7 +6,7 @@ authors:
   - solarrust
 contributors:
   - corocoto
-summary:
+keywords:
   - grid
   - display: grid
   - Grid Layout

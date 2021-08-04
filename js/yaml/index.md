@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - KognitivnayaBuena
-summary:
+keywords:
   - yaml
   - конфигурация
 ---

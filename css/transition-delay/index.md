@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - задержка
 ---
 

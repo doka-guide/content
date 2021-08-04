@@ -6,7 +6,7 @@ authors:
   - realetive
 editor:
   - tachisis
-summary:
+keywords:
   - псевдокласс
   - pseudo-classes
   - селекторы

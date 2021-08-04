@@ -8,7 +8,7 @@ contributors:
   - vladimir
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - letter-spacing
 ---
 

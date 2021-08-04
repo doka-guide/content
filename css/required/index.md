@@ -6,7 +6,7 @@ authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - валидация
   - форма
   - form

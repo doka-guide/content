@@ -8,7 +8,7 @@ contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - :visited
   - псевдокласс
   - LVHA

@@ -8,7 +8,7 @@ editors:
   - tachisis
 contributors:
   - corocoto
-summary:
+keywords:
   - подключение стилей
   - link
 ---

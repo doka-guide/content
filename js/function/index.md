@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - vindi-r
-summary:
+keywords:
   - функция
 ---
 

@@ -8,7 +8,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - вложенный селектор
   - селектор вложенности
   - селектор

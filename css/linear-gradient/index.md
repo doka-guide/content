@@ -2,7 +2,7 @@
 title: "linear-gradient()"
 authors:
   - ezhkov_d
-summary:
+keywords:
   - градиент
   - заливка
   - фон

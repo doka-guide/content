@@ -4,7 +4,7 @@ tags:
   - article
 authors:
   - ezhkov_d
-summary:
+keywords:
   - раскладка
   - схлопывание
   - отступы

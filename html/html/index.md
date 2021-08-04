@@ -6,7 +6,7 @@ authors:
   - grachev
 contributors:
   - solarrust
-summary:
+keywords:
   - тэг
   - тег
   - хтмл

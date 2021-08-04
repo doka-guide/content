@@ -4,7 +4,7 @@ authors:
   - bespoyasov
 tags:
   - article
-summary:
+keywords:
   - web application
   - frontend фронтенд
   - клиент сервер

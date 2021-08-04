@@ -6,7 +6,7 @@ authors:
   - lenaryan
 editors:
   - tachisis
-summary:
+keywords:
   - float
   - обтекание
   - clearfix

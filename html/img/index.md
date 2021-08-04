@@ -10,7 +10,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
-summary:
+keywords:
   - картинка
   - img
 ---

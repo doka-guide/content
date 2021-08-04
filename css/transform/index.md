@@ -6,7 +6,7 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - трансформация
 ---
 

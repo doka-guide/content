@@ -9,7 +9,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - хэдер

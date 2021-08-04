@@ -7,7 +7,7 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - span

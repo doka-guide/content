@@ -6,7 +6,7 @@ authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - выравнивание флекс-элемента
   - выравнивание грид-элемента
   - grid

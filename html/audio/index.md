@@ -8,7 +8,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - audio
   - аудио
   - controls

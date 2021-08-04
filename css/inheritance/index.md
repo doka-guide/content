@@ -4,7 +4,7 @@ tags:
   - article
 authors:
   - realetive
-summary:
+keywords:
   - наследование
 ---
 

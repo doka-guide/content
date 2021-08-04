@@ -4,7 +4,7 @@ authors:
   - windrushfarer
 tags:
   - article
-summary:
+keywords:
   - reactivity
   - реактивность
   - парадигмы программирования

@@ -6,7 +6,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - блочная модель
   - block
   - inline-block

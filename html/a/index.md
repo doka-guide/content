@@ -10,7 +10,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - ссылка
   - a
   - тэг

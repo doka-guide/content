@@ -6,7 +6,7 @@ editors:
   - tachisis
 tags:
   - article
-summary:
+keywords:
   - navigator
   - screen
   - location

@@ -6,7 +6,7 @@ authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - выравнивание вдоль поперечной оси
   - flexbox
 ---

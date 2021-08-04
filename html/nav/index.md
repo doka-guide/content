@@ -11,7 +11,7 @@ contributors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - nav

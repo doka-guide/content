@@ -8,7 +8,7 @@ cover:
   alt: 'Книга с названием {howto://style}'
 tags:
   - article
-summary:
+keywords:
   - code-style
   - код-стайл
   - стиль

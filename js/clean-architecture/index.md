@@ -5,7 +5,7 @@ authors:
   - bespoyasov
 tags:
   - article
-summary:
+keywords:
   - домен
   - адаптер
   - порт

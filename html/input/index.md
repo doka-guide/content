@@ -6,7 +6,7 @@ authors:
   - vladimir
 contributors:
   - skorobaeus
-summary:
+keywords:
   - поле ввода
   - элементы формы
 ---

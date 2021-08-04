@@ -8,7 +8,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
-summary:
+keywords:
   - селектор
   - составной селектор
 ---

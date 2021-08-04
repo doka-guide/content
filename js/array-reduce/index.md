@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - windrushfarer
-summary:
+keywords:
   - редьюсер
   - свёртка
 ---

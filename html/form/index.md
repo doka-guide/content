@@ -7,7 +7,7 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - form
   - тэг
   - тег

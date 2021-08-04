@@ -6,7 +6,7 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - поле ввода многострочного текста
   - элемент формы
 ---

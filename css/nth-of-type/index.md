@@ -8,7 +8,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
   - first-of-type
   - nth-of-type

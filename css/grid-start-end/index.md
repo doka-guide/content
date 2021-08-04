@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - solarrust
-summary:
+keywords:
   - начальная линия грида
   - конечная линия грида
 ---

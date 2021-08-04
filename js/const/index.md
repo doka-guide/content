@@ -6,7 +6,7 @@ authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - константы
   - переменная
 ---

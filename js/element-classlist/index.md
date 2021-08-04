@@ -6,7 +6,7 @@ tags:
   - doka
 contributors:
   - nlopin
-summary:
+keywords:
   - классы
   - className
 ---

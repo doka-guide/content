@@ -4,7 +4,7 @@ authors:
   - windrushfarer
 tags:
   - article
-summary:
+keywords:
   - array
   - массивы
 cover:

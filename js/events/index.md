@@ -7,7 +7,7 @@ contributors:
   - skorobaeus
 tags:
   - doka
-summary:
+keywords:
   - эвенты
 ---
 

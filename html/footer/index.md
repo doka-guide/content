@@ -7,7 +7,7 @@ authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - footer

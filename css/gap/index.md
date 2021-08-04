@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - solarrust
-summary:
+keywords:
   - отступы между грид-ячейками
   - шорткат
 ---

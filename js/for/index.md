@@ -4,7 +4,7 @@ authors:
   - vindi-r
 tags:
   - doka
-summary:
+keywords:
   - итерация
   - обход
   - пробежать

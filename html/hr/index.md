@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - тэг
   - тег
   - разделитель

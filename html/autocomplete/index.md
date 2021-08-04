@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - атрибут
   - autocomplete
   - автозаполнение

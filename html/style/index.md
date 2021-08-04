@@ -8,7 +8,7 @@ contributors:
   - solarrust
   - vladimir
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - style

@@ -6,7 +6,7 @@ authors:
   - igsekor
 editors:
   - tachisis
-summary:
+keywords:
   - cli
   - unix
   - терминал

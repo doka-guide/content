@@ -7,7 +7,7 @@ cover:
   alt: 'Бинокль с надписью Doka Optics, в отражении на линзах которого виден код'
 tags:
   - article
-summary:
+keywords:
   - замыкание
   - closure
   - bind

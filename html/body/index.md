@@ -9,7 +9,7 @@ contributors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - body
   - тэг
   - тег

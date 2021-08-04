@@ -6,7 +6,7 @@ authors:
   - grachev
 contributors:
   - skorobaeus
-summary:
+keywords:
   - background-image
 ---
 

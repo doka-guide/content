@@ -6,7 +6,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - стили картинок
   - положение картинок
   - object

@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - transition-duration
   - transition
 ---

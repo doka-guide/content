@@ -7,7 +7,7 @@ authors:
 contributors:
   - grachev
   - skorobaeus
-summary:
+keywords:
   - video
   - видео
   - autoplay

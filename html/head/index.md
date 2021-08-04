@@ -8,7 +8,7 @@ contributors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - хэд
   - head
   - "<head>"

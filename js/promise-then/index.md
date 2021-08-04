@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - nlopin
-summary:
+keywords:
   - промис
 ---
 

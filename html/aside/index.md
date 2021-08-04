@@ -6,7 +6,7 @@ authors:
   - realetive
 editors:
   - tachisis
-summary:
+keywords:
   - aside
   - семантический тег
 ---

@@ -8,7 +8,7 @@ editors:
   - tachisis
 tags:
   - article
-summary:
+keywords:
   - апи
   - запросы
   - get post put delete options head

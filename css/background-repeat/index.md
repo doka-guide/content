@@ -6,7 +6,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - background-repeat
 ---
 

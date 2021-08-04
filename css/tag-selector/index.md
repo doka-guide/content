@@ -6,7 +6,7 @@ authors:
   - ezhkov
 editor:
   - tachisis
-summary:
+keywords:
   - селектор
 ---
 

@@ -9,7 +9,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдоэлемент
   - селекторы
 ---

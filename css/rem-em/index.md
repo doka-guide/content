@@ -4,7 +4,7 @@ tags:
   - doka
 authors:
   - realetive
-summary:
+keywords:
   - единицы измерения
   - относительные единицы
   - rem

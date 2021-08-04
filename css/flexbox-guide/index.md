@@ -9,7 +9,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - флексбокс
   - flexbox
   - flex-box
