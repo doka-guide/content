@@ -26,8 +26,10 @@ jobs:
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
             npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
+            node .github/scripts/frontmatter.js
+          else
+            echo "В PR нет файлов для проверки"
           fi
-          node .github/scripts/frontmatter.js
       - name: Проверка линтером в main
         if: ${{ github.event_name != 'pull_request' }}
         run: |
