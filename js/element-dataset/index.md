@@ -1,11 +1,11 @@
 ---
 title: "Element.dataset"
-tags:
-  - doka
 authors:
   - Windrushfarer
-summary:
+keywords:
   - дата атрибуты
+tags:
+  - doka
 ---
 
 ## Кратко
