@@ -55,7 +55,7 @@ read -r -p "$(echo "Создавать новую ветку git? (y/n) ")" RESP
 
 case $RESPONSE in
   [yY][eE][sS]|[yY])
-    
+
     git checkout main
     git pull
 
