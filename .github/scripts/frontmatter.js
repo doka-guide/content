@@ -40,17 +40,18 @@ for (const fileName in commonMeta) {
     if (requireField.length <= requireOrder.length) {
       const orderRank = []
       metaKeys.forEach(field => {
-        orderRank.push(requireOrder.indexOf(field))
+        const index = requireOrder.indexOf(field)
+        if (index >= 0) {
+          orderRank.push()
+        } else {
+          console.error(`Поле ${field} не входит в список разрешённых полей`);
+          process.exit(1)
+        }
       })
       orderRank.forEach((order, index) => {
         if (index > 0 && order < orderRank[index - 1]) {
-          if (requireOrder[order]) {
-            if (!isFieldOrderValid(fileName, requireOrder[order], index, order)) {
-              errorCounter += 1
-            }
-          } else {
-            console.error(`Поле ${order} не входит в список разрешённых полей`);
-            process.exit(1)
+          if (!isFieldOrderValid(fileName, requireOrder[order], index, order)) {
+            errorCounter += 1
           }
         }
       })
