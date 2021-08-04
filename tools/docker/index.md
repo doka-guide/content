@@ -1,7 +1,5 @@
 ---
 title: "Что такое Docker?"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -12,6 +10,8 @@ summary:
   - докер
   - контейнер
   - container
+tags:
+  - article
 ---
 
 ## Кратко
