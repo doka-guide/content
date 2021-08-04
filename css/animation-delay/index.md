@@ -1,12 +1,14 @@
 ---
 title: "animation-delay"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+editors:
+  - tachisis
+keywords:
   - CSS-анимации
   - задержка анимации
+tags:
+  - doka
 ---
 
 ## Кратко
