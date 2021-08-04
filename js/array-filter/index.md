@@ -2,13 +2,13 @@
 title: "Array.filter"
 authors:
   - windrushfarer
-tags:
-  - doka
 contributors:
   - nlopin
   - skorobaeus
 editors:
   - tachisis
+tags:
+  - doka
 ---
 
 ## Кратко
