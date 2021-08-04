@@ -29,7 +29,7 @@ cover:
 ```html
 <div class="container">
   <p>
-    Привет, мы запихали текст в <code>&lt;div&gt;</code>,
+    Мы поместили текст в <code>&lt;div&gt;</code>,
     а сам контейнер покрасили в оранжевый.
   </p>
 </div>
@@ -38,10 +38,11 @@ cover:
 ```css
 .container {
   background-color: #FF8630;
+  padding: 55px 40px;
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div.html" height="230"></iframe>
+<iframe title="Див с фоном" src="demos/div.html" height="260"></iframe>
 
 ## Как это понять
 
