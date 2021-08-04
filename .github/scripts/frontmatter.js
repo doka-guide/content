@@ -44,8 +44,13 @@ for (const fileName in commonMeta) {
       })
       orderRank.forEach((order, index) => {
         if (index > 0 && order < orderRank[index - 1]) {
-          if (!isFieldOrderValid(fileName, requireOrder[order], index, order)) {
-            errorCounter += 1
+          if (requireOrder[order]) {
+            if (!isFieldOrderValid(fileName, requireOrder[order], index, order)) {
+              errorCounter += 1
+            }
+          } else {
+            console.error(`Поле ${order} не входит в список разрешённых полей`);
+            process.exit(1)
           }
         }
       })
