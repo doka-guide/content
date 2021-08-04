@@ -17,6 +17,8 @@ keywords:
   - hex
   - currentColor
   - transparent
+tags:
+  - doka
 ---
 
 ## Кратко
