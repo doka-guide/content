@@ -19,4 +19,4 @@ jobs:
         with:
           paths: ${{ steps.files.outputs.all }}
           markdown: true
-          linksToSkip: "^(?!https?://(codepen[.]io|localhost)*)"
+          linksToSkip: "https?://(codepen.io|localhost)*"
