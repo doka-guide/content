@@ -1,11 +1,11 @@
 ---
 title: "Array.every"
-tags:
-  - doka
 authors:
   - windrushfarer
 editors:
   - tachisis
+tags:
+  - doka
 ---
 
 ## Кратко
