@@ -26,21 +26,16 @@ cover:
 
 ```html
 <article>
-  <h3>Очень важная статья</h3>
-  <p>Исходя из данного утверждения, марксизм неизбежен. Коммунизм, с другой стороны, означает экзистенциальный коллапс Советского Союза. Культ личности доказывает гуманизм.</p>
+  <h1>Бигфут</h1>
+  <p>Бигфут (от англ. Bigfoot, «большеногий») — название полумифического млекопитающего...</p>
   <footer>
-    <p>Ольга Данилюк</p>
-    <p>Почта: <a href="mailto:someone@yandex.ru">someone@yandex.ru</a>.</p>
+    <p>Ольга Сасквоч</p>
+    <p>Почта: <a href="mailto:sasquatch@yandex.ru">sasquatch@yandex.ru</a>.</p>
   </footer>
 </article>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="solarrust" data-slug-hash="poNZVGm" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="poNZVGm">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/poNZVGm">
-  poNZVGm</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Футер для статьи" src="demos/footer.html" height="300"></iframe>
 
 ## Как это понять
 
