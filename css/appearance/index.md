@@ -1,13 +1,13 @@
 ---
 title: "appearance"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - отображение
+tags:
+  - doka
 ---
 
 ## Кратко
