@@ -1,7 +1,7 @@
 ---
 title: "<h1>...<h6>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - grachev
 contributors:
@@ -19,8 +19,8 @@ keywords:
   - h4
   - h5
   - h6
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

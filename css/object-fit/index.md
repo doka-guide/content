@@ -1,7 +1,5 @@
 ---
 title: "object-fit"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - object
   - fit
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

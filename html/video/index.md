@@ -1,7 +1,5 @@
 ---
 title: "<video>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -18,6 +16,8 @@ keywords:
   - loop
   - preload
   - poster
+tags:
+  - doka
 ---
 
 ## Кратко

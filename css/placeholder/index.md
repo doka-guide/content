@@ -1,7 +1,5 @@
 ---
 title: "::placeholder"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - плейсхолдер
   - placeholder
   - подсказка
+tags:
+  - doka
 ---
 
 ## Кратко

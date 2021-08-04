@@ -1,7 +1,5 @@
 ---
 title: "Логические операторы"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
@@ -16,6 +14,8 @@ keywords:
   - or
   - отрицание
   - not
+tags:
+  - doka
 ---
 
 ## Кратко

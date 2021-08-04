@@ -1,12 +1,12 @@
 ---
 title: "grid-auto-flow"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - размер и количество рядов
   - грид-ряд
+tags:
+  - doka
 ---
 
 ## Кратко

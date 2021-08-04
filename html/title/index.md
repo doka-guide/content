@@ -1,7 +1,5 @@
 ---
 title: "<title>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,6 +8,8 @@ keywords:
   - тэг
   - тег
   - title
+tags:
+  - doka
 ---
 
 ## Кратко

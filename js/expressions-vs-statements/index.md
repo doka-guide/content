@@ -1,7 +1,5 @@
 ---
 title: "Выражения и инструкции"
-tags:
-  - doka
 authors:
   - windrushfarer
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - expressions
   - statements
+tags:
+  - doka
 ---
 
 ## Кратко

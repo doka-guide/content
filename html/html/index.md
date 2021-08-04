@@ -1,7 +1,5 @@
 ---
 title: "<html>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - хтмл
   - html
   - "<html>"
+tags:
+  - doka
 ---
 
 ## Кратко

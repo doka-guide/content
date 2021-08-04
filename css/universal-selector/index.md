@@ -1,7 +1,5 @@
 ---
 title: "Универсальный селектор"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - звёздочка
   - лоботомированная сова
+tags:
+  - doka
 ---
 
 ## Кратко

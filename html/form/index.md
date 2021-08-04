@@ -1,7 +1,5 @@
 ---
 title: "<form>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - action
   - method
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

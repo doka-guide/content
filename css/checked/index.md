@@ -1,7 +1,5 @@
 ---
 title: ":checked"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -11,6 +9,8 @@ editors:
 keywords:
   - псевдокласс
   - :checked
+tags:
+  - doka
 ---
 
 ## Кратко

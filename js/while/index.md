@@ -1,7 +1,5 @@
 ---
 title: "while"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
@@ -13,6 +11,8 @@ keywords:
   - cycle
   - iteration
   - вайл
+tags:
+  - doka
 ---
 
 ## Кратко

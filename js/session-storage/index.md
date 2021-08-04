@@ -1,13 +1,13 @@
 ---
 title: "sessionStorage"
-tags:
-  - doka
 authors:
   - akellbl4
 keywords:
   - sessionstorage
   - webstorage
   - storage
+tags:
+  - doka
 ---
 
 :::callout 📚

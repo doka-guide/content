@@ -1,7 +1,5 @@
 ---
 title: "font-smooth"
-tags:
-  - doka
 authors:
   - solarrust
   - pepelsbey
@@ -12,6 +10,8 @@ keywords:
   - -webkit-font-smoothing
   - -moz-osx-font-smoothing
   - сглаживание шрифтов
+tags:
+  - doka
 ---
 
 ::: callout 🧪

@@ -1,12 +1,12 @@
 ---
 title: "Функции CSS-трансформации"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - трансформация
   - transform-function
+tags:
+  - doka
 ---
 
 ## Кратко

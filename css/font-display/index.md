@@ -1,11 +1,11 @@
 ---
 title: "font-display"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - отображение шрифта
+tags:
+  - doka
 ---
 
 ## Кратко

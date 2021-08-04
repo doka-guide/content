@@ -1,7 +1,5 @@
 ---
 title: "Многозадачность и процессы"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - signals
   - systemctl
   - сигналы
+tags:
+  - article
 ---
 
 ## Кратко

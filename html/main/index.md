@@ -1,7 +1,5 @@
 ---
 title: "<main>"
-tags:
-  - doka
 authors:
   - vladimir
   - solarrust
@@ -13,6 +11,8 @@ keywords:
   - тег
   - мейн
   - main
+tags:
+  - doka
 ---
 
 ## Кратко

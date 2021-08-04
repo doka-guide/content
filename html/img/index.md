@@ -1,7 +1,5 @@
 ---
 title: "<img>"
-tags:
-  - doka
 authors:
   - grachev
   - solarrust
@@ -13,6 +11,8 @@ contributors:
 keywords:
   - картинка
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

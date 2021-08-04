@@ -1,7 +1,5 @@
 ---
 title: "Как TypeScript и статическая типизация помогает писать код"
-tags:
-  - article
 authors:
   - igorkamyshev
 contributors:
@@ -10,6 +8,8 @@ keywords:
   - typescript
   - flow
   - тайпскрипт
+tags:
+  - article
 ---
 ## Кратко
 

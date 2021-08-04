@@ -1,7 +1,5 @@
 ---
 title: "<header>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -15,6 +13,8 @@ keywords:
   - хэдер
   - header
   - шапка
+tags:
+  - doka
 ---
 
 # Кратко

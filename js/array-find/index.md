@@ -1,9 +1,9 @@
 ---
 title: "Array.find"
-tags:
-  - doka
 authors:
   - KognitivnayaBuena
+tags:
+  - doka
 ---
 
 ## Кратко

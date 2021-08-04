@@ -1,11 +1,11 @@
 ---
 title: "justify-self"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - выравнивание грид-элемента
+tags:
+  - doka
 ---
 
 ## Кратко

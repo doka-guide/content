@@ -1,7 +1,5 @@
 ---
 title: ":hover"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - :hover
   - LVHA
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

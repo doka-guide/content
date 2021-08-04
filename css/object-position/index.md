@@ -1,7 +1,5 @@
 ---
 title: "object-position"
-tags:
-  - doka
 authors:
   - lenaryan
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - object
   - position
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

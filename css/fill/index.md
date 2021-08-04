@@ -1,11 +1,11 @@
 ---
 title: "fill"
-tags:
-  - doka
 authors:
   - realetive
 keywords:
   - svg-заливка
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "<audio>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -20,6 +18,8 @@ keywords:
   - тэг
   - тег
   - аудио
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "box-shadow"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - box-shadow
+tags:
+  - doka
 ---
 
 ## Кратко

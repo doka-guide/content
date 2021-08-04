@@ -1,7 +1,7 @@
 ---
 title: "<ul>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - ezhkov
 contributors:
@@ -13,8 +13,8 @@ keywords:
   - маркированный список
   - ненумерованный список
   - ul
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,10 +1,9 @@
 ---
 title: "grid-area"
-tags:
-  - doka
 authors:
   - solarrust
-keywords:
+tags:
+  - doka
 ---
 
 ## Кратко

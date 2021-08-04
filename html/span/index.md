@@ -1,7 +1,5 @@
 ---
 title: "<span>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - тег
   - span
   - спан
+tags:
+  - doka
 ---
 
 ## Кратко

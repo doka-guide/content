@@ -1,12 +1,12 @@
 ---
 title: "Promise. Метод finally"
-tags:
-  - doka
 authors:
   - nlopin
 keywords:
   - промис
   - файнали
+tags:
+  - doka
 ---
 
 Эта статья связана с понятием [Promise](/js/promise).

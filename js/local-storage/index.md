@@ -1,13 +1,13 @@
 ---
 title: "localStorage"
-tags:
-  - doka
 authors:
   - akellbl4
 keywords:
   - localstorage
   - webstorage
   - storage
+tags:
+  - doka
 ---
 
 :::callout 📚

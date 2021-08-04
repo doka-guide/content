@@ -1,7 +1,5 @@
 ---
 title: "Перечисление селекторов"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -11,6 +9,8 @@ contributors:
 keywords:
   - селектор
   - составной селектор
+tags:
+  - doka
 ---
 
 ## Кратко

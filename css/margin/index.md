@@ -1,7 +1,5 @@
 ---
 title: "margin"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,6 +8,8 @@ contributors:
   - futivite
 keywords:
   - margin
+tags:
+  - doka
 ---
 
 ## Кратко

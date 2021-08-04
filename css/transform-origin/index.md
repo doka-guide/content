@@ -1,12 +1,12 @@
 ---
 title: "transform-origin"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - трансформация
   - точка
+tags:
+  - doka
 ---
 
 ## Кратко

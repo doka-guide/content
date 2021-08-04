@@ -1,13 +1,13 @@
 ---
 title: "border-image"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - картинка рамки
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "Как устроен Dockerfile"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -10,6 +8,8 @@ keywords:
   - докер
   - контейнер
   - container
+tags:
+  - article
 ---
 
 ## Кратко

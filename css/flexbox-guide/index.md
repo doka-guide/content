@@ -1,7 +1,7 @@
 ---
 title: "Гайд по flexbox"
-tags:
-  - article
+cover:
+  desktop: images/cover.png
 authors:
   - solarrust
 contributors:
@@ -30,8 +30,8 @@ keywords:
   - flex
   - flex-flow
   - align-content
-cover:
-  desktop: images/cover.png
+tags:
+  - article
 ---
 
 ## Что это?

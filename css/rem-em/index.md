@@ -1,7 +1,5 @@
 ---
 title: "rem, em"
-tags:
-  - doka
 authors:
   - realetive
 keywords:
@@ -9,6 +7,8 @@ keywords:
   - относительные единицы
   - rem
   - em
+tags:
+  - doka
 ---
 
 ## Кратко

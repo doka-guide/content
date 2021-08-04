@@ -1,7 +1,5 @@
 ---
 title: "<section>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -13,6 +11,8 @@ keywords:
   - тег
   - section
   - секция
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "Селектор по классу"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - селектор
   - класс
+tags:
+  - doka
 ---
 
 ## Кратко

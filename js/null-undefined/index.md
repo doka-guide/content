@@ -1,12 +1,12 @@
 ---
 title: "Null и undefined"
-tags:
-  - doka
 authors:
   - nlopin
 keywords:
   - нул
   - андефайнд
+tags:
+  - doka
 ---
 
 ## Кратко

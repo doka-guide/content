@@ -1,7 +1,5 @@
 ---
 title: "Псевдоклассы"
-tags:
-  - doka
 authors:
   - realetive
 editor:
@@ -52,6 +50,8 @@ keywords:
   - :target
   - :valid
   - :invalid
+tags:
+  - doka
 ---
 
 ## Кратко

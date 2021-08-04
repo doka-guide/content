@@ -1,13 +1,13 @@
 ---
 title: "quotes"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - quotes
+tags:
+  - doka
 ---
 
 ## Кратко

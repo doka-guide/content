@@ -1,7 +1,5 @@
 ---
 title: "<style>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - style
   - стайл
   - стили в HTML
+tags:
+  - doka
 ---
 
 ## Кратко

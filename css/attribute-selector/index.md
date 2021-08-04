@@ -1,7 +1,5 @@
 ---
 title: "Селектор по атрибуту"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - селектор
   - атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

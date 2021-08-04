@@ -1,7 +1,5 @@
 ---
 title: Шифрование
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - decoding
   - cryptography
   - криптография
+tags:
+  - article
 ---
 
 ## Кратко

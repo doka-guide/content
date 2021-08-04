@@ -1,7 +1,5 @@
 ---
 title: "SSL-сертификаты"
-tags:
-  - article
 authors:
   - igsekor
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - protocols
   - шифрование
   - протоколы
+tags:
+  - article
 ---
 
 :::callout 📚

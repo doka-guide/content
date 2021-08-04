@@ -1,7 +1,5 @@
 ---
 title: ":in-range и :out-of-range"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -10,6 +8,8 @@ keywords:
   - валидация
   - число
   - диапазон
+tags:
+  - doka
 ---
 
 ## Кратко

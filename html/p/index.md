@@ -1,7 +1,5 @@
 ---
 title: "<p>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -13,6 +11,8 @@ keywords:
   - p
   - абзац
   - параграф
+tags:
+  - doka
 ---
 
 ## Кратко

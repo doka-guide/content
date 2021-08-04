@@ -1,7 +1,5 @@
 ---
 title: "justify-content"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - выравнивание вдоль основной оси
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

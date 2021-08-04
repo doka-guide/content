@@ -1,7 +1,5 @@
 ---
 title: "Управление процессами"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -15,6 +13,8 @@ keywords:
   - ps
   - kill
   - сигналы
+tags:
+  - article
 ---
 
 :::callout 📚

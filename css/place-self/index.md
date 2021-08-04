@@ -1,12 +1,12 @@
 ---
 title: "place-self"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - выравнивание грид-элемента
   - шорткат
+tags:
+  - doka
 ---
 
 ## Кратко

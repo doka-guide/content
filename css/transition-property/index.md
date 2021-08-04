@@ -1,12 +1,12 @@
 ---
 title: "transition-property"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - transition
   - transition-property
+tags:
+  - doka
 ---
 
 ## Кратко

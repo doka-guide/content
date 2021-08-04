@@ -1,7 +1,5 @@
 ---
 title: "content"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - content
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко

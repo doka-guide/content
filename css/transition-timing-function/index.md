@@ -1,11 +1,11 @@
 ---
 title: "transition-timing-function"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - функция времени
+tags:
+  - doka
 ---
 
 ## Кратко

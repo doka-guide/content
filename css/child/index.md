@@ -1,7 +1,5 @@
 ---
 title: "Псевдоклассы группы child"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -10,6 +8,8 @@ editors:
   - tachisis
 keywords:
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

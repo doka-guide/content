@@ -1,7 +1,5 @@
 ---
 title: "class"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - класс
   - атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

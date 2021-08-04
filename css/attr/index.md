@@ -1,13 +1,13 @@
 ---
 title: "attr()"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - content
   - псевдоэлемент
   - атрибуты
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "<source>"
-tags:
-  - doka
 authors:
   - ezhkov_d
 editors:
@@ -11,6 +9,8 @@ keywords:
   - picture
   - srcset
   - media
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "@import"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -10,6 +8,8 @@ keywords:
   - import
   - директива
   - импорт
+tags:
+  - doka
 ---
 
 ## Кратко

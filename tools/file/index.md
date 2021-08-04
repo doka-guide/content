@@ -1,7 +1,5 @@
 ---
 title: "Файл и файловые системы"
-tags:
-  - doka
 authors:
   - igsekor
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - файл
   - Unix
+tags:
+  - doka
 ---
 
 ## Кратко

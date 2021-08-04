@@ -1,7 +1,5 @@
 ---
 title: "calc()"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - функция
   - вычисление
+tags:
+  - doka
 ---
 
 ## Кратко

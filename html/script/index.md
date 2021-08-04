@@ -1,7 +1,5 @@
 ---
 title: "<script>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - тег
   - script
   - скрипт
+tags:
+  - doka
 ---
 
 ## Кратко

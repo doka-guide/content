@@ -1,7 +1,5 @@
 ---
 title: "<link>"
-tags:
-  - doka
 authors:
   - grachev
 editors:
@@ -11,6 +9,8 @@ contributors:
 keywords:
   - подключение стилей
   - link
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "<textarea>"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - поле ввода многострочного текста
   - элемент формы
+tags:
+  - doka
 ---
 
 ## Кратко

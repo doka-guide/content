@@ -1,7 +1,5 @@
 ---
 title: "Модели сетевого взаимодействия"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - DOD
   - TCP/IP
   - IPX/SPX
+tags:
+  - article
 ---
 
 ## Кратко

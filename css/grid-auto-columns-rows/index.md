@@ -1,12 +1,12 @@
 ---
 title: "grid-auto-columns, grid-auto-rows"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - автоматические колонки
   - автоматические ряды
+tags:
+  - doka
 ---
 
 ## Кратко

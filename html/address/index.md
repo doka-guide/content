@@ -1,7 +1,5 @@
 ---
 title: "<address>"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -9,6 +7,8 @@ contributors:
   - furtivite
 keywords:
   - address
+tags:
+  - doka
 ---
 ## Кратко
 

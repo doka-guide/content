@@ -1,7 +1,5 @@
 ---
 title: "align-self"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -11,6 +9,8 @@ keywords:
   - выравнивание грид-элемента
   - grid
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

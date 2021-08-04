@@ -1,7 +1,7 @@
 ---
 title: "Гайд по grid"
-tags:
-  - article
+cover:
+  desktop: 'images/cover.png'
 authors:
   - solarrust
 contributors:
@@ -45,8 +45,8 @@ keywords:
   - minmax()
   - min-content
   - max-content
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Что это?

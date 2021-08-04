@@ -1,12 +1,12 @@
 ---
 title: "opacity"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - opacity
   - прозрачность
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "if...else"
-tags:
-  - doka
 authors:
   - nlopin
 keywords:
@@ -9,6 +7,8 @@ keywords:
   - условный переход
   - ветвление
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "text-align"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - text-align
+tags:
+  - doka
 ---
 
 ## Кратко

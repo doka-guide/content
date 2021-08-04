@@ -1,7 +1,5 @@
 ---
 title: "Element.touch"
-tags:
-  - doka
 authors:
   - windrushfarer
 keywords:
@@ -9,6 +7,8 @@ keywords:
   - touchend
   - touchcancel
   - touchmove
+tags:
+  - doka
 ---
 
 ## Кратко

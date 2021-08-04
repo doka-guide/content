@@ -1,7 +1,5 @@
 ---
 title: "switch"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - условный переход
   - свитч
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

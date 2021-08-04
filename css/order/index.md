@@ -1,7 +1,5 @@
 ---
 title: "order"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - порядок флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

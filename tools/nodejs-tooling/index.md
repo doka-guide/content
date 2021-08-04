@@ -1,7 +1,5 @@
 ---
 title: "Node.js для создания инструментов разработки"
-tags:
-  - article
 authors:
   - igorkamyshev
 contributors:
@@ -10,6 +8,8 @@ keywords:
   - тулинг
   - tooling
   - версии
+tags:
+  - article
 ---
 ## Кратко
 

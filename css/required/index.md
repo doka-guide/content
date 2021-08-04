@@ -1,7 +1,5 @@
 ---
 title: ":required"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -11,6 +9,8 @@ keywords:
   - форма
   - form
   - обязательное
+tags:
+  - doka
 ---
 
 ## Кратко

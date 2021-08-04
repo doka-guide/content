@@ -1,7 +1,5 @@
 ---
 title: "Number"
-tags:
-  - doka
 authors:
   - nlopin
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - округлить число
   - isnan
   - isfinite
+tags:
+  - doka
 ---
 
 ## Кратко

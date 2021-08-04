@@ -1,7 +1,5 @@
 ---
 title: "<select>"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
@@ -11,6 +9,8 @@ keywords:
   - селект
   - "<select>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

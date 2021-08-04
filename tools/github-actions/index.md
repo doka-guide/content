@@ -1,7 +1,5 @@
 ---
 title: "GitHub Actions"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - ci
   - cd
+tags:
+  - article
 ---
 
 :::callout 📚

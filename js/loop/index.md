@@ -1,7 +1,5 @@
 ---
 title: "Цикл"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - iteration
   - бесконечный цикл
   - infinite loop
+tags:
+  - doka
 ---
 
 ## Кратко

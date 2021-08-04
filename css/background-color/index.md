@@ -1,13 +1,13 @@
 ---
 title: "background-color"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - background-color
+tags:
+  - doka
 ---
 
 ## Кратко

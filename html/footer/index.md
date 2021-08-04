@@ -1,7 +1,7 @@
 ---
 title: "<footer>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - vladimir
   - solarrust
@@ -12,8 +12,8 @@ keywords:
   - тег
   - footer
   - футер
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,11 +1,11 @@
 ---
 title: "stroke"
-tags:
-  - doka
 authors:
   - realetive
 keywords:
   - svg-обводка
+tags:
+  - doka
 ---
 
 ## Кратко

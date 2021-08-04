@@ -1,7 +1,5 @@
 ---
 title: ":has"
-tags:
-  - doka
 authors:
   - realetive
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - :has()
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

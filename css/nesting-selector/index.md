@@ -1,7 +1,5 @@
 ---
 title: "Селектор потомка"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -13,6 +11,8 @@ keywords:
   - селектор вложенности
   - селектор
   - селектор потомка
+tags:
+  - doka
 ---
 
 ## Кратко

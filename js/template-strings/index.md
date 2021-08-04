@@ -1,9 +1,9 @@
 ---
 title: "Шаблонные строки"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

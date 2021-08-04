@@ -1,7 +1,5 @@
 ---
 title: "flex-shrink"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - сжатие флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

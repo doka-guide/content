@@ -1,11 +1,11 @@
 ---
 title: "outline"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - граница
+tags:
+  - doka
 ---
 
 ## Кратко

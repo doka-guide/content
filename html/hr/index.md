@@ -1,7 +1,5 @@
 ---
 title: "<hr>"
-tags:
-  - doka
 authors:
   - lenaryan
 keywords:
@@ -11,6 +9,8 @@ keywords:
   - горизонтальная черта
   - hr
   - "<hr>"
+tags:
+  - doka
 ---
 
 ## Кратко

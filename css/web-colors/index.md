@@ -1,7 +1,5 @@
 ---
 title: "Цвета в вебе"
-tags:
-  - article
 authors:
   - solarrust
 keywords:
@@ -9,6 +7,8 @@ keywords:
   - HEX
   - RGB
   - RGBA
+tags:
+  - article
 ---
 
 ## Название цвета

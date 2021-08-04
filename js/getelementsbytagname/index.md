@@ -1,9 +1,9 @@
 ---
 title: "getElementsByTagName()"
-tags:
-  - doka
 authors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

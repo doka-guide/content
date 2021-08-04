@@ -1,12 +1,12 @@
 ---
 title: "Array.reduce"
-tags:
-  - doka
 authors:
   - windrushfarer
 keywords:
   - редьюсер
   - свёртка
+tags:
+  - doka
 ---
 
 ## Кратко

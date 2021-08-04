@@ -1,7 +1,5 @@
 ---
 title: "<nav>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -16,6 +14,8 @@ keywords:
   - тег
   - nav
   - навигация
+tags:
+  - doka
 ---
 
 ## Кратко

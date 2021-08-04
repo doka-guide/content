@@ -1,7 +1,5 @@
 ---
 title: "!important"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - модификатор
   - переопределение специфичности
+tags:
+  - doka
 ---
 
 ## Кратко

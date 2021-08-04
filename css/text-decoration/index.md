@@ -1,7 +1,5 @@
 ---
 title: "text-decoration"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
   - skorobaeus
 keywords:
   - text-decoration
+tags:
+  - doka
 ---
 
 ## Кратко

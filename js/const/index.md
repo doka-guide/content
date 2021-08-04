@@ -1,7 +1,5 @@
 ---
 title: "const"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - константы
   - переменная
+tags:
+  - doka
 ---
 
 ## Кратко

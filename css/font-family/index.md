@@ -1,7 +1,5 @@
 ---
 title: "font-family"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -9,6 +7,8 @@ contributors:
   - skorobaeus
 keywords:
   - font-family
+tags:
+  - doka
 ---
 
 ## Кратко

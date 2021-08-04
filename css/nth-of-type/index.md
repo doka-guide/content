@@ -1,7 +1,5 @@
 ---
 title: "Псевдоклассы группы type"
-tags:
-  - doka
 authors:
   - realetive
 contributors:
@@ -15,6 +13,8 @@ keywords:
   - last-of-type
   - nth-last-of-type
   - only-of-type
+tags:
+  - doka
 ---
 
 ## Кратко

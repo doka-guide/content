@@ -1,11 +1,11 @@
 ---
 title: "Наследование в CSS"
-tags:
-  - article
 authors:
   - realetive
 keywords:
   - наследование
+tags:
+  - article
 ---
 
 ## Кратко

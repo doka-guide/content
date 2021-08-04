@@ -1,7 +1,5 @@
 ---
 title: "width"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - ширина
   - размер
+tags:
+  - doka
 ---
 
 ## Кратко

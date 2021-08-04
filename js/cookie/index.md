@@ -1,13 +1,13 @@
 ---
 title: "Cookie"
-tags:
-  - doka
 authors:
   - akellbl4
 keywords:
   - cookies
   - cookie
   - куки
+tags:
+  - doka
 ---
 
 :::callout 📚

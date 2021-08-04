@@ -1,12 +1,12 @@
 ---
 title: "grid-column, grid-row"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - грид-колонка
   - грид-полоса
+tags:
+  - doka
 ---
 
 ## Кратко

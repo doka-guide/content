@@ -1,12 +1,12 @@
 ---
 title: "YAML"
-tags:
-  - doka
 authors:
   - KognitivnayaBuena
 keywords:
   - yaml
   - конфигурация
+tags:
+  - doka
 ---
 
 ## Кратко

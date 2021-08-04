@@ -1,7 +1,5 @@
 ---
 title: "<label>"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - лейбл
   - подпись поля ввода
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "transform"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
   - трансформация
+tags:
+  - doka
 ---
 
 ## Кратко

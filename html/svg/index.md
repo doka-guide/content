@@ -1,7 +1,5 @@
 ---
 title: "<svg>"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - свг
   - векторная графика
+tags:
+  - doka
 ---
 
 ## Кратко

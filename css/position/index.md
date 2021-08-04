@@ -1,13 +1,13 @@
 ---
 title: "position"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
 keywords:
   - позиционирование
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "<option>"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - пункт
   - "<option>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "::before"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -11,6 +9,8 @@ editors:
 keywords:
   - :before
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко

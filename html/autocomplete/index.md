@@ -1,13 +1,13 @@
 ---
 title: "autocomplete"
-tags:
-  - doka
 authors:
   - lenaryan
 keywords:
   - атрибут
   - autocomplete
   - автозаполнение
+tags:
+  - doka
 ---
 
 ## Кратко

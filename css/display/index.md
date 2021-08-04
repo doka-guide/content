@@ -1,7 +1,5 @@
 ---
 title: "display"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - inline-block
   - flex
   - grid
+tags:
+  - doka
 ---
 
 ## Кратко

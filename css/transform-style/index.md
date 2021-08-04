@@ -1,12 +1,12 @@
 ---
 title: "transform-style"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - трансформация
   - preserve-3d
+tags:
+  - doka
 ---
 
 ## Кратко

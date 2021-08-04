@@ -1,11 +1,11 @@
 ---
 title: "column-gap, row-gap"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - отступы между грид-ячейками
+tags:
+  - doka
 ---
 
 ## Кратко

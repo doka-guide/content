@@ -1,7 +1,5 @@
 ---
 title: "Глобальные ключевые слова"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
@@ -9,6 +7,8 @@ keywords:
     - inherit
     - unset
     - revert
+tags:
+  - doka
 ---
 
 ## Коротко

@@ -1,7 +1,5 @@
 ---
 title: "<aside>"
-tags:
-  - doka
 authors:
   - realetive
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - aside
   - семантический тег
+tags:
+  - doka
 ---
 ## Кратко
 

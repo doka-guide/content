@@ -1,7 +1,5 @@
 ---
 title: "Веб-сервер"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -15,6 +13,8 @@ keywords:
   - headers
   - заголовки
   - сжатие
+tags:
+  - article
 ---
 
 ## Кратко

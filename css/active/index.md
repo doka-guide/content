@@ -1,7 +1,5 @@
 ---
 title: ":active"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -10,6 +8,8 @@ keywords:
   - :active
   - LVHA
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

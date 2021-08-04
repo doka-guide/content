@@ -1,7 +1,5 @@
 ---
 title: "Глобальные атрибуты"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - атрибут
   - HTML-атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

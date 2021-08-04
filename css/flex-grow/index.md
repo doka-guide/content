@@ -1,7 +1,5 @@
 ---
 title: "flex-grow"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - рост флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

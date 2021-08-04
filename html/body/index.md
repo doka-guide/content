@@ -1,7 +1,5 @@
 ---
 title: "<body>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - тэг
   - тег
   - боди
+tags:
+  - doka
 ---
 
 ## Кратко

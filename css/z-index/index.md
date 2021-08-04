@@ -1,7 +1,5 @@
 ---
 title: "z-index"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -13,6 +11,8 @@ keywords:
   - наложение
   - поверх
   - порядок отображения
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "hidden"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - атрибут
   - hidden
   - скрыть
+tags:
+  - doka
 ---
 
 ## Кратко

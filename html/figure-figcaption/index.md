@@ -1,12 +1,12 @@
 ---
 title: "<figure>, <figcaption>"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - figure
   - figcaption
+tags:
+  - doka
 ---
 
 ## Кратко

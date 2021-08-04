@@ -1,7 +1,5 @@
 ---
 title: ":placeholder-shown"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -10,6 +8,8 @@ keywords:
   - форма
   - плейсхолдер
   - валидация
+tags:
+  - doka
 ---
 
 ## Кратко

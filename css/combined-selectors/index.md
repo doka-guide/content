@@ -1,7 +1,5 @@
 ---
 title: "Комбинированные селекторы"
-tags:
-  - article
 authors:
   - realetive
 editors:
@@ -11,6 +9,8 @@ keywords:
 - селектор
 - combined
 - selector
+tags:
+  - article
 ---
 
 ## Кратко

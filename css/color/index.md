@@ -1,7 +1,5 @@
 ---
 title: "color"
-tags:
-  - doka
 authors:
   - grachev
 contributors:

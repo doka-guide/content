@@ -1,7 +1,5 @@
 ---
 title: "<head>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - "<head>"
   - тэг
   - тег
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "font-weight"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,6 +8,8 @@ contributors:
   - skorobaeus
 keywords:
   - font-weight
+tags:
+  - doka
 ---
 
 ## Кратко

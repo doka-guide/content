@@ -1,7 +1,5 @@
 ---
 title: "text-rendering"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - кернинг
   - лигатуры
   - SVG
+tags:
+  - doka
 ---
 
 ## Кратко

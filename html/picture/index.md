@@ -1,7 +1,5 @@
 ---
 title: "<picture>"
-tags:
-  - doka
 authors:
   - ezhkov_d
 editor:
@@ -11,6 +9,8 @@ keywords:
   - ретина
   - retina
   - srcset
+tags:
+  - doka
 ---
 
 ## Кратко

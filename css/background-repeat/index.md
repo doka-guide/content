@@ -1,13 +1,13 @@
 ---
 title: "background-repeat"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - background-repeat
+tags:
+  - doka
 ---
 
 ## Кратко

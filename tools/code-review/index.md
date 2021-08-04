@@ -1,20 +1,20 @@
 ---
 title: "Код-ревью — как, зачем, почему"
-tags:
-  - article
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Робот-тестировщик идёт над пропастью между двух гор по подвесному мосту, который обрывается пунктиром'
 authors:
   - igorkamyshev
 contributors:
   - furtivite
 editors:
   - tachisis
-cover:
-  desktop: 'images/cover.png'
-  alt: 'Робот-тестировщик идёт над пропастью между двух гор по подвесному мосту, который обрывается пунктиром'
 keywords:
   - code review
   - pull request
   - пул реквест
+tags:
+  - article
 ---
 
 ## Кратко

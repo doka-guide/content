@@ -1,7 +1,5 @@
 ---
 title: ":visited"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - :visited
   - псевдокласс
   - LVHA
+tags:
+  - doka
 ---
 
 ## Кратко

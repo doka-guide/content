@@ -1,12 +1,12 @@
 ---
 title: "@keyframes"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - CSS-анимации
   - ключевые кадры
+tags:
+  - doka
 ---
 
 ## Кратко

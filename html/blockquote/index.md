@@ -1,7 +1,5 @@
 ---
 title: "<blockquote>"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - тэг
   - тег
   - цитата
+tags:
+  - doka
 ---
 
 ## Кратко

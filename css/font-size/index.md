@@ -1,7 +1,5 @@
 ---
 title: "font-size"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,6 +8,8 @@ contributors:
   - skorobaeus
 keywords:
   - font-size
+tags:
+  - doka
 ---
 
 ## Кратко

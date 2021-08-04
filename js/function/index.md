@@ -1,11 +1,11 @@
 ---
 title: "function()"
-tags:
-  - doka
 authors:
   - vindi-r
 keywords:
   - функция
+tags:
+  - doka
 ---
 
 ## Кратко

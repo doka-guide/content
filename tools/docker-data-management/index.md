@@ -1,7 +1,5 @@
 ---
 title: "Управление данными в Docker"
-tags:
-  - article
 authors:
   - igsekor
 keywords:
@@ -12,6 +10,8 @@ keywords:
   - volume
   - bind
   - container
+tags:
+  - article
 ---
 
 :::callout 📚

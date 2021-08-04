@@ -1,7 +1,5 @@
 ---
 title: "<input>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - поле ввода
   - элементы формы
+tags:
+  - doka
 ---
 
 ## Кратко

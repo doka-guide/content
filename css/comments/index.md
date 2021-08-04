@@ -1,11 +1,11 @@
 ---
 title: "Комментарии в CSS"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - комментарии
+tags:
+  - doka
 ---
 
 ## Кратко

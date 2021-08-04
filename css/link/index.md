@@ -1,7 +1,5 @@
 ---
 title: ":link"
-tags:
-  - doka
 authors:
   - realetive
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - стили ссылки
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

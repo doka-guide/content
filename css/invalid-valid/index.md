@@ -1,7 +1,5 @@
 ---
 title: ":invalid и :valid"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
@@ -11,6 +9,8 @@ keywords:
   - valid
   - валидация
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "Работа с сетью"
-tags:
-  - article
 name: network
 authors:
   - igsekor
@@ -14,6 +12,8 @@ keywords:
   - protocols
   - пакеты
   - протоколы
+tags:
+  - article
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "::after"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
@@ -12,6 +10,8 @@ keywords:
   - ::after
   - :after
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко

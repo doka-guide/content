@@ -1,7 +1,5 @@
 ---
 title: "<q>"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - тег
   - q
   - цитата
+tags:
+  - doka
 ---
 
 ## Кратко

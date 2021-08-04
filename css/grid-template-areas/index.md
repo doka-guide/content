@@ -1,12 +1,12 @@
 ---
 title: "grid-template-areas"
-tags:
-  - doka
 authors:
   - solarrust
 keywords:
   - имена областей
   - грид-область
+tags:
+  - doka
 ---
 
 ## Кратко

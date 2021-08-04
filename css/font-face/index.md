@@ -1,7 +1,5 @@
 ---
 title: "@font-face"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -11,6 +9,8 @@ keywords:
   - подключение шрифта
   - шрифт
   - кастомный шрифт
+tags:
+  - doka
 ---
 
 ## Кратко

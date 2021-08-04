@@ -1,7 +1,5 @@
 ---
 title: "Веб-сервер Apache"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
@@ -10,6 +8,8 @@ editors:
   - tachisis
 keywords:
   - httpd
+tags:
+  - article
 ---
 
 :::callout 📚

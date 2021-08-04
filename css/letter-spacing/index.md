@@ -1,7 +1,5 @@
 ---
 title: "letter-spacing"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,6 +8,8 @@ contributors:
   - skorobaeus
 keywords:
   - letter-spacing
+tags:
+  - doka
 ---
 
 ## Кратко

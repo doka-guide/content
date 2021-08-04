@@ -1,7 +1,5 @@
 ---
 title: "align-content"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - выравнивание вдоль поперечной оси
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

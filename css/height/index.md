@@ -1,7 +1,5 @@
 ---
 title: "height"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,6 +7,8 @@ contributors:
 keywords:
   - высота
   - размер
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,7 +1,5 @@
 ---
 title: "flex"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
@@ -9,6 +7,8 @@ editors:
 keywords:
   - шорткат
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

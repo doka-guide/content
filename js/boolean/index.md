@@ -1,7 +1,5 @@
 ---
 title: "Boolean"
-tags:
-  - doka
 authors:
   - bespoyasov
 contributors:
@@ -11,6 +9,8 @@ keywords:
   - тру фолс
   - true false
   - булевый тип
+tags:
+  - doka
 ---
 
 ## Кратко

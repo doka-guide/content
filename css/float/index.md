@@ -1,7 +1,5 @@
 ---
 title: "float"
-tags:
-  - doka
 authors:
   - lenaryan
 editors:
@@ -11,6 +9,8 @@ keywords:
   - обтекание
   - clearfix
   - flow-root
+tags:
+  - doka
 ---
 
 ## Кратко

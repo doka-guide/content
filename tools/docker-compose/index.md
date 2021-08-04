@@ -1,7 +1,5 @@
 ---
 title: "Мультиконтейнерное приложение и Docker Compose"
-tags:
-  - article
 authors:
   - igsekor
 keywords:
@@ -9,6 +7,8 @@ keywords:
   - container
   - приложение
   - докер
+tags:
+  - article
 ---
 
 :::callout 📚

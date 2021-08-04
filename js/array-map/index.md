@@ -1,13 +1,13 @@
 ---
 title: "Array.map"
-tags:
-  - doka
 authors:
   - windrushfarer
 contributors:
   - skorobaeus
   - nlopin
   - furtivite
+tags:
+  - doka
 ---
 
 ## Кратко

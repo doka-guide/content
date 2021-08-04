@@ -1,7 +1,5 @@
 ---
 title: "@media"
-tags:
-  - doka
 authors:
   - lenaryan
 keywords:
@@ -10,6 +8,8 @@ keywords:
   - media-query
   - медиавыражение
   - адаптивность
+tags:
+  - doka
 ---
 
 ## Кратко

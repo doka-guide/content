@@ -1,7 +1,7 @@
 ---
 title: ":focus"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - solarrust
 editors:
@@ -10,8 +10,8 @@ keywords:
   - :focus
   - LVHA
   - псевдокласс
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

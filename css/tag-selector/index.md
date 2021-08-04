@@ -1,13 +1,13 @@
 ---
 title: "Селектор по тегу"
-tags:
-  - doka
 authors:
   - ezhkov
 editor:
   - tachisis
 keywords:
   - селектор
+tags:
+  - doka
 ---
 
 ## Кратко

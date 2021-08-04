@@ -1,7 +1,5 @@
 ---
 title: "<meta>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -14,6 +12,8 @@ keywords:
   - тег
   - meta
   - мета
+tags:
+  - doka
 ---
 
 ## Кратко

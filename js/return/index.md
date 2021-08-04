@@ -1,11 +1,11 @@
 ---
 title: "return"
-tags:
-  - doka
 authors:
   - vindi-r
 contributors:
   - furtivite
+tags:
+  - doka
 ---
 
 ## Кратко

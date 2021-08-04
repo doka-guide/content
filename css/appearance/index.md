@@ -1,11 +1,11 @@
 ---
 title: "appearance"
-tags:
-  - doka
 authors:
   - ezhkov
 keywords:
   - отображение
+tags:
+  - doka
 ---
 
 ## Кратко
