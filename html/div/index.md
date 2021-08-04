@@ -1,7 +1,7 @@
 ---
 title: "<div>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - grachev
 contributors:
@@ -10,12 +10,12 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - див
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко
