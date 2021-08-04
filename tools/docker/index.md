@@ -6,7 +6,7 @@ contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - докер
   - контейнер
   - container
