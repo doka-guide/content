@@ -1,17 +1,17 @@
 ---
 title: "<dl>, <dd>, <dt>"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - dl
   - dd
   - dt
+tags:
+  - doka
 ---
 
 ## Кратко
