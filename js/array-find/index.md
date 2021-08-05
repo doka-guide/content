@@ -1,11 +1,11 @@
 ---
 title: "Array.find"
-tags:
-  - doka
 authors:
   - KognitivnayaBuena
 editors:
   - tachisis
+tags:
+  - doka
 ---
 
 ## Кратко
