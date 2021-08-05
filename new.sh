@@ -6,7 +6,7 @@ CATEGORY=""
 TYPE=""
 
 read -r -p "$(echo "Введите название статьи: ")" TITLE
-read -r -p "$(echo "Введите название папки: ")" FOLDER
+read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
 read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
 
 PS3='Выберете раздел: '
