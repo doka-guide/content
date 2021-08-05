@@ -4,10 +4,24 @@ tags=("Дока" "Статья")
 
 CATEGORY=""
 TYPE=""
+AUTHOR=""
 
 read -r -p "$(echo "Введите название статьи: ")" TITLE
 read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
-read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
+
+
+function jsonValue() {
+KEY=$1
+num=$2
+awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
+}
+LOGIN=$(echo $(curl -s https://api.github.com/search/users\?q\=$(echo $(git config --get user.email)) | jsonValue login))
+
+read -r -p "$(echo "Введите ник на GitHub (по умолчанию будет использован $LOGIN): ")" AUTHOR
+
+if [[ $AUTHOR == "" ]]; then
+  AUTHOR=$LOGIN
+fi
 
 PS3='Выберете раздел: '
 
