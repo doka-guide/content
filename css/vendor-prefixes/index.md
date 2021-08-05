@@ -2,8 +2,8 @@
 title: "Вендорные префиксы"
 authors:
   - solarrust
- editors:
-   - tachisis
+editors:
+  - tachisis
 keywords:
   - css vendor prefixes
   - browser prefixes
