@@ -4,149 +4,197 @@
   <title>Три формы — <form> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 5%;
-      display: grid;
-      row-gap: 20px;
-      align-items: center;
-      justify-content: center;
-      background-color: #18191c;
+      padding: 50px;
+      background-color: #663613;
+      color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    form {
-      padding: 30px;
+    .form {
+      width: 740px;
+      margin: auto;
+      padding: 55px 80px;
+      background-color: #18191C;
     }
 
-    form:nth-of-type(1) {
-      background-color: #ed6742;
+    .form + .form {
+      margin-top: 50px;
     }
 
-    form:nth-of-type(2) {
-      background-color: #49a16c;
+    .input-label, .radio-legend {
+      margin-bottom: 25px;
     }
 
-    form:nth-of-type(3) {
-      background-color: #ffd829;
+    .input-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    form:nth-of-type(1) label,
-    form:nth-of-type(2) label {
-      display: block;
-      margin-bottom: 5px;
+    .input-title {
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
       line-height: 1;
-      color: #ffffff;
     }
 
-    input[type=text] {
-      padding: 10px 12px;
+    .input {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
       background-color: transparent;
       color: #ffffff;
-      border: 1px solid #ffffff;
-      font-size: 16px;
+      font-family: inherit;
+      font-size: inherit;
       font-weight: 300;
-      vertical-align: middle;
     }
 
-    input[type=text]:focus {
-      border-color: #18191c;
+    .input:focus {
+      border-color: #FF8630;
       outline: none;
     }
 
-    button {
-      margin-left: 10px;
-      padding: 10px 12px;
-      border: 1px solid transparent;
-      vertical-align: middle;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 16px;
+    .input:-internal-autofill-selected {
+      -webkit-box-shadow: inset 0 0 0 100px #18191c;
+      -webkit-text-fill-color: #ffffff;
+      caret-color: #ffffff;
+    }
+
+    .input, .button {
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      margin-left: auto;
+      color: #000000;
+      font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
-    button:hover {
-      border: 1px solid #000000;
-      color: #ffffff;
-      background-color: transparent;
+    .button:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    button:focus {
-      outline: 1px solid #ffffff;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    fieldset {
-      border: 1px solid #18191c;
-      padding: 15px 20px;
+    .button-orange {
+      background-color: #FF8630;
     }
 
-    legend {
-      padding: 0 5px;
+    .radio-set {
+      border: none;
+      padding: 0;
+    }
+
+    .radio-legend {
+      font-size: 24px;
+      font-weight: 500;
       line-height: 1;
     }
 
-    label {
-      cursor: pointer;
+    .radio-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
     }
 
-    label + label {
-      margin-left: 15px;
+    .radio-label + .radio-label {
+      margin-left: 50px;
     }
 
-    input[type=radio] {
-      margin: 0;
-      padding: 0;
-      border: 1px solid #18191c;
+    .radio-title {
+      font-size: inherit;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
       border-radius: 50%;
-      -webkit-appearance: none;
-      appearance: none;
-      width: 16px;
-      height: 16px;
-      vertical-align: -0.2em;
     }
 
-    input[type=radio]:checked {
-      background-image: radial-gradient(
-        black 0% 40%,
-        transparent 50% 100%
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FF8630 0%,
+        #FF8630 40%,
+        transparent 50%,
+        transparent 100%
       );
     }
   </style>
 </head>
 <body>
   <!-- Эта форма отправит значение методом GET — мы получим URL с ответом -->
-  <form action="" method="get">
-    <label for="get-name">Имя первого гостя:</label>
-    <input id="get-name" type="text" name="name">
-    <button type="submit">Сохранить</button>
+  <form class="form" action="" method="get">
+    <label class="input-label">
+      <span class="input-title">Имя первого гостя:</span>
+      <input type="text" name="name" class="input">
+    </label>
+    <button type="submit" class="button button-orange">Сохранить</button>
   </form>
 
   <!-- Эта форма отправит данные методом POST -->
-  <form action="" method="post">
-    <label for="post-name">Имя второго гостя:</label>
-    <input id="post-name" type="text" name="name">
-    <button type="submit">Сохранить</button>
+  <form class="form" action="" method="post">
+    <label class="input-label">
+      <span class="input-title">Имя второго гостя:</span>
+      <input type="text" name="name" class="input">
+    </label>
+    <button type="submit" class="button button-orange">Сохранить</button>
   </form>
 
-  <!-- Форма с булетами в рамочке -->
-  <form action="" method="post">
-    <fieldset>
-      <legend>Выберите прожарку</legend>
-      <label for="rare">
-        <input type="radio" name="level" id="rare">
-        Rare
+  <!-- Форма с булетами -->
+  <form class="form" action="" method="post">
+    <fieldset class="radio-set">
+      <legend class="radio-legend">Выберите прожарку:</legend>
+      <label class="radio-label">
+        <input type="radio" name="level" class="radio">
+        <span class="radio-title">Rare</span>
       </label>
-      <label for="medium">
-        <input type="radio" name="level" id="medium" checked>
-        Medium
+      <label class="radio-label">
+        <input type="radio" name="level" class="radio" checked>
+        <span class="radio-title">Medium</span>
       </label>
-      <label for="well-done">
-        <input type="radio" name="level" id="well-done">
-        Well Done
+      <label class="radio-label">
+        <input type="radio" name="level" class="radio">
+        <span class="radio-title">Well Done</span>
       </label>
     </fieldset>
   </form>

@@ -75,55 +75,59 @@ summary:
 
 ```html
 <!-- Эта форма отправит значение методом GET — мы получим URL с ответом -->
-<form action="" method="get">
-  <label for="get-name">Имя первого гостя:</label>
-  <input id="get-name" type="text" name="name">
-  <button type="submit">Сохранить</button>
-</form>
+  <form action="" method="get">
+    <label>
+      Имя первого гостя:
+      <input type="text" name="name">
+    </label>
+    <button type="submit">Сохранить</button>
+  </form>
 
 <!-- Эта форма отправит данные методом POST -->
 <form action="" method="post">
-  <label for="post-name">Имя второго гостя:</label>
-  <input id="post-name" type="text" name="name">
+  <label for="post-name">
+    Имя второго гостя:
+    <input id="post-name" type="text" name="name">
+  </label>
   <button type="submit">Сохранить</button>
 </form>
 
-<!-- Форма с булетами в рамочке -->
+<!-- Форма с булетами -->
 <form action="" method="post">
   <fieldset>
     <legend>Выберите прожарку</legend>
-    <label for="rare">
-      <input type="radio" name="level" id="rare">
+    <label>
+      <input type="radio" name="level">
       Rare
     </label>
-    <label for="medium">
-      <input type="radio" name="level" id="medium" checked>
+    <label>
+      <input type="radio" name="level"checked>
       Medium
     </label>
-    <label for="well-done">
-      <input type="radio" name="level" id="well-done">
+    <label>
+      <input type="radio" name="level">
       Well Done
     </label>
   </fieldset>
 </form>
 ```
 
-<iframe title="Три формы" src="demos/forms.html"></iframe>
+<iframe title="Три формы" src="demos/forms.html" height="870"></iframe>
 
 Попробуем отправить данные, которые введёт пользователь, на почту. Для этого, вместо URL-ссылки, мы пропишем `action="mailto:html@yandex.ru"`. Ключевое слово `mailto:` позволяет отправить что угодно на электронную почту. Не забудь добавить атрибут `enctype="text/plain"` в теге `<form>`, чтобы письмо отображалось корректно:
 
 ```html
 <form action="mailto:html@yandex.ru" enctype="text/plain">
-  <p>
-    <label for="name">Ваше имя</label>
-    <input type="text" name="name" id="name" required>
-  </p>
-  <p>
-    <label for="order">Что вы хотите заказать?</label>
-    <input type="text" name="order" id="order" required>
-  </p>
+  <label>
+    Ваше имя
+    <input type="text" name="name" required>
+  </label>
+  <label>
+    Что вы хотите заказать?
+    <input type="text" name="order" required>
+  </label>
   <button type="submit">Сделать заказ</button>
 </form>
 ```
 
-<iframe title="Форма с отправкой на email" src="demos/email.html"></iframe>
+<iframe title="Форма с отправкой на email" src="demos/email.html" height="310"></iframe>
