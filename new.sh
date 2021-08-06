@@ -17,7 +17,11 @@ awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d 
 }
 LOGIN=$(echo $(curl -s https://api.github.com/search/users\?q\=$(echo $(git config --get user.email)) | jsonValue login))
 
-read -r -p "$(echo "Введите ник на GitHub (нажмите Enter, и будет использован $LOGIN): ")" AUTHOR
+if [[ $LOGIN == "" ]]; then
+  read -r -p "$(echo "Введите ник на GitHub (нажмите Enter, и будет использован $LOGIN): ")" AUTHOR
+else
+  read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
+fi
 
 if [[ $AUTHOR == "" ]]; then
   AUTHOR=$LOGIN
