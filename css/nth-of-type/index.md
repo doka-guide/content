@@ -1,20 +1,20 @@
 ---
 title: "Псевдоклассы группы type"
-tags:
-  - doka
 authors:
   - realetive
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
   - first-of-type
   - nth-of-type
   - last-of-type
   - nth-last-of-type
   - only-of-type
+tags:
+  - doka
 ---
 
 ## Кратко

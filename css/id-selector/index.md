@@ -1,14 +1,14 @@
 ---
 title: "Селектор по идентификатору"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - initial
   - inherit
   - unset
   - revert
+tags:
+  - doka
 ---
 
 ## Кратко

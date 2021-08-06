@@ -1,12 +1,12 @@
 ---
 title: "Событие load и DOMContentLoaded"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

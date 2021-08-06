@@ -1,9 +1,9 @@
 ---
 title: "Element.innerText"
-tags:
-  - doka
 authors:
   - Windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

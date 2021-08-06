@@ -1,14 +1,14 @@
 ---
 title: "class"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - класс
   - атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

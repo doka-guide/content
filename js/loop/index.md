@@ -1,12 +1,10 @@
 ---
 title: "Цикл"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - итерация
   - обход
   - пробежать
@@ -14,6 +12,8 @@ summary:
   - iteration
   - бесконечный цикл
   - infinite loop
+tags:
+  - doka
 ---
 
 ## Кратко

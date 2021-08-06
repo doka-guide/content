@@ -1,18 +1,18 @@
 ---
 title: "Селектор потомка"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - вложенный селектор
   - селектор вложенности
   - селектор
   - селектор потомка
+tags:
+  - doka
 ---
 
 ## Кратко

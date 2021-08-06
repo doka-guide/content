@@ -1,14 +1,14 @@
 ---
 title: "text-decoration"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - furtivite
   - skorobaeus
-summary:
+keywords:
   - text-decoration
+tags:
+  - doka
 ---
 
 ## Кратко
