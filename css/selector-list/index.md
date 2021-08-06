@@ -2,10 +2,10 @@
 title: "Перечисление селекторов"
 authors:
   - solarrust
-editors:
-  - tachisis
 contributors:
   - skorobaeus
+editors:
+  - tachisis
 keywords:
   - селектор
   - составной селектор
