@@ -75,4 +75,4 @@ cover:
 <p>Выберите начинку и внешний вид для торта своей мечты.</p>
 ```
 
-<iframe title="Заголовки" src="demos/cakes.html" height="410"></iframe>
+<iframe title="Заголовки" src="demos/cakes.html" height="480"></iframe>
