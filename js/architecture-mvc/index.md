@@ -189,7 +189,7 @@ const flashLightView = {
 
 :::callout ✈️
 
-Это называется однонаправленным [потоком данных](/js/article/architecture-data-flow).
+Это называется однонаправленным [потоком данных](/js/architecture-data-flow).
 
 :::
 
