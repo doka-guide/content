@@ -4,10 +4,10 @@ authors:
   - grachev
   - solarrust
   - pepelsbey
-editors:
-  - tachisis
 contributors:
   - skorobaeus
+editors:
+  - tachisis
 keywords:
   - картинка
   - img

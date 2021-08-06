@@ -2,10 +2,10 @@
 title: "<link>"
 authors:
   - grachev
-editors:
-  - tachisis
 contributors:
   - corocoto
+editors:
+  - tachisis
 keywords:
   - подключение стилей
   - link
