@@ -18,3 +18,10 @@ jobs:
           echo "Проверка для всех файлов"
           npx yaml-cat -f json (css|html|js|tools)/**/index.md -o result.json
           node .github/scripts/frontmatter.js --fix
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Сортирует мету в материалах
+          file_pattern: (css|html|js|tools)/**/index.md
+          commit_user_name: Doka Dog
+          commit_user_email: hi@doka.guide
+          commit_author: Doka Dog <hi@doka.guide>
