@@ -6,7 +6,6 @@ on:
       message:
         required: true
         description: Link Checker
-  pull_request:
   schedule:
     - cron:  '0 6 * * 5'
 
