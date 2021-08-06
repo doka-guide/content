@@ -6,6 +6,7 @@ on:
       message:
         required: true
         description: Link Checker
+  pull_request:
   schedule:
     - cron:  '0 6 * * 5'
 
@@ -19,7 +20,7 @@ jobs:
         with:
           paths: "**/*.md"
           markdown: true
-          linksToSkip: "https://codepen.io/."
+          linksToSkip: "https?://(localhost|codepen.io)?/.*"
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@v2.2.4
         with:
