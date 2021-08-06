@@ -1,4 +1,4 @@
-name: Update Index
+name: Update Dates
 
 on:
   push:
