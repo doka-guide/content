@@ -86,6 +86,10 @@ if (errorRequiredFieldsCounter > 0 && !isNeedToFix) {
   console.error(`Количество ошибок (Неправильный порядок полей): ${errorOrderFieldsCounter}`)
   console.error(`Количество ошибок (Недопустимое поле): ${errorNonValidFieldsCounter}`)
 
+  if (errorNonValidFieldsCounter > 0) {
+    process.exit(1)
+  }
+
   const filesToEdit = Object.keys(outputJson)
   filesToEdit.forEach(editFileName => {
     const editedMeta = []
