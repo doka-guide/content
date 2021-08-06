@@ -1,12 +1,12 @@
 ---
 title: "YAML"
-tags:
-  - doka
 authors:
   - KognitivnayaBuena
-summary:
+keywords:
   - yaml
   - конфигурация
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -127,7 +127,7 @@ cat2: &cat2
 
 :::callout 📚
 
-Это немного похоже на работу оператора [spread](/js/doka/object/) в JavaScript.
+Это немного похоже на работу оператора [spread](/js/object/) в JavaScript.
 
 :::
 

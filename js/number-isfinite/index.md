@@ -1,9 +1,9 @@
 ---
 title: "Number.isFinite"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

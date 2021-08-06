@@ -1,13 +1,13 @@
 ---
 title: "list-style-position"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - list-style-position
+tags:
+  - doka
 ---
 
 ## Кратко

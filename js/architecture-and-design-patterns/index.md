@@ -2,17 +2,17 @@
 title: "Архитектура и паттерны проектирования"
 authors:
   - bespoyasov
-tags:
-  - article
 editors:
   - tachisis
-summary:
+keywords:
   - ddd
   - mvc
   - mvvm
   - pattern
   - data
   - flow
+tags:
+  - article
 ---
 
 Писать понятный код — сложно.

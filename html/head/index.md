@@ -1,19 +1,19 @@
 ---
 title: "<head>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - хэд
   - head
   - "<head>"
   - тэг
   - тег
+tags:
+  - doka
 ---
 
 ## Кратко

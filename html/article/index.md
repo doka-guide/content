@@ -1,21 +1,21 @@
 ---
 title: "<article>"
-tags:
-  - doka
+cover:
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
+  alt: 'Фотоальбом с фотографиями, слева — большая с мальчиком, справа сверху — меч, справа снизу — девочка'
 authors:
   - realetive
 contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - статья
   - артикл
   - семантический тег
-cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
-  alt: 'Фотоальбом с фотографиями, слева — большая с мальчиком, справа сверху — меч, справа снизу — девочка'
+tags:
+  - doka
 ---
 
 ## Кратко

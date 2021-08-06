@@ -1,14 +1,14 @@
 ---
 title: "Хранение по ссылке vs. по значению"
-authors:
-  - windrushfarer
-tags:
-  - article
-summary:
-  - reference
-  - value
 cover:
   desktop: 'images/cover.png'
+authors:
+  - windrushfarer
+keywords:
+  - reference
+  - value
+tags:
+  - article
 ---
 
 ## Кратко

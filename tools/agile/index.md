@@ -1,16 +1,16 @@
 ---
 title: "Что такое методологии разработки и Agile"
-tags:
-  - article
 authors:
   - igorkamyshev
 contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - agile
   - scrum
+tags:
+  - article
 ---
 
 ## Кратко

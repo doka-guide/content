@@ -1,17 +1,17 @@
 ---
 title: "Работа с формами"
-authors:
-  - bespoyasov
 cover:
   desktop: 'images/cover.png'
   alt: 'Камень с веб-формой, рядом лежит молоток и зубило'
-tags:
-  - article
-summary:
+authors:
+  - bespoyasov
+keywords:
   - form
   - ajax
   - formdata
   - отправка без перезагрузки
+tags:
+  - article
 ---
 
 ## Кратко

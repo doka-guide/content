@@ -1,12 +1,12 @@
 ---
 title: "grid-template-rows"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - размер и количество рядов
   - грид-ряд
+tags:
+  - doka
 ---
 
 ## Кратко

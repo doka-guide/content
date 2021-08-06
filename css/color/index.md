@@ -1,7 +1,5 @@
 ---
 title: "color"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -9,7 +7,7 @@ contributors:
   - pepelsbey
   - furtivite
   - skorobaeus
-summary:
+keywords:
   - color
   - цвет
   - rgb
@@ -19,6 +17,8 @@ summary:
   - hex
   - currentColor
   - transparent
+tags:
+  - doka
 ---
 
 ## Кратко

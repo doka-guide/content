@@ -1,20 +1,20 @@
 ---
 title: "<ul>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - ezhkov
 contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - список
   - маркированный список
   - ненумерованный список
   - ul
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

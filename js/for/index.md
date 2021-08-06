@@ -2,15 +2,15 @@
 title: "for()"
 authors:
   - vindi-r
-tags:
-  - doka
-summary:
+keywords:
   - итерация
   - обход
   - пробежать
   - cycle
   - iteration
   - фор
+tags:
+  - doka
 ---
 
 ## Кратко

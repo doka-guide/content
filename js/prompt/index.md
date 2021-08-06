@@ -1,9 +1,9 @@
 ---
 title: "prompt()"
-tags:
-  - doka
 authors:
   - vindi-r
+tags:
+  - doka
 ---
 
 ## Кратко

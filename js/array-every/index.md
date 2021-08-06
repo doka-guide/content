@@ -1,9 +1,9 @@
 ---
 title: "Array.every"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

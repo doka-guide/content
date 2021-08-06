@@ -1,11 +1,11 @@
 ---
 title: "grid-template"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - шорткат
+tags:
+  - doka
 ---
 
 ## Кратко
