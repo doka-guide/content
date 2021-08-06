@@ -4,62 +4,77 @@
   <title>Заголовки 6 уровней — <h1>-<h6> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .article__code {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code h1,
-    .article__code h2,
-    .article__code h3,
-    .article__code h4,
-    .article__code h5,
-    .article__code h6 {
+    .container {
+      width: 50%;
+      min-width: 650px;
+      margin: auto;
+      padding: 60px 40px;
+      background-color: #FFFFFF;;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 10px;
+      color: #663613;
       font-weight: 500;
     }
 
-    .article__code h1 {
-      margin: 0 0 10px 0;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 20px;
+    }
+
+    h1 {
       font-size: 26px;
     }
 
-    .article__code h2 {
-      margin: 30px 0 10px 0;
+    h2 {
       font-size: 22px;
     }
 
-    .article__code h3 {
-      margin: 30px 0 10px 0;
+    h3 {
       font-size: 20px;
     }
 
-    .article__code h4 {
-      margin: 30px 0 10px 0;
+    h4 {
       font-size: 18px;
     }
 
-    .article__code h5 {
-      margin: 30px 0 10px 0;
+    h5 {
       font-size: 17px;
     }
 
-    .article__code h6 {
-      margin: 30px 0 10px 0;
+    h6 {
       font-size: 16px;
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
+  <div class="container">
     <h1>Самый важный заголовок</h1>
     <h2>Заголовок уровня 2</h2>
     <h3>Заголовок уровня 3</h3>

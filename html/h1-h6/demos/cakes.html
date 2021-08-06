@@ -5,50 +5,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .article__code {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code h1,
-    .article__code h2,
-    .article__code h3,
-    .article__code h4,
-    .article__code h5,
-    .article__code h6 {
+    .container {
+      width: 50%;
+      min-width: 650px;
+      margin: auto;
+      padding: 60px 40px;
+      background-color: #FFFFFF;;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 10px;
+      color: #663613;
       font-weight: 500;
     }
 
-    .article__code h1 {
-      margin: 0 0 10px 0;
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 30px;
+    }
+
+    h1 {
       font-size: 26px;
-      color: #f498ad;
     }
 
-    .article__code h2 {
-      margin: 30px 0 10px 0;
+    h2 {
       font-size: 22px;
-      color: #f498ad;
     }
 
-    .article__code p {
+    p {
       margin: 10px 0;
-      font-weight: normal;
+      color: #123E66;
       font-size: 16px;
-      line-height: 27px;
+      line-height: 140%;
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
+  <div class="container">
     <h1>Каталог тортов</h1>
     <p>У нас вы можете заказать самые вкусные десерты от свадебных тортов до сочных тартов.</p>
 
