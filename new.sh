@@ -73,20 +73,11 @@ do
   esac
 done
 
-read -r -p "$(echo "Создавать новую ветку git? (y/n) ")" RESPONSE
+git checkout main
+git pull
 
-case $RESPONSE in
-  [yY][eE][sS]|[yY])
-
-    git checkout main
-    git pull
-
-    git branch $(echo "article/$FOLDER")
-    git checkout $(echo "article/$FOLDER")
-
-    ;;
-*)
-esac
+git branch $(echo "article/$FOLDER")
+git checkout $(echo "article/$FOLDER")
 
 
 mkdir $(echo "$CATEGORY/$FOLDER")
