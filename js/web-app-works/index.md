@@ -1,16 +1,16 @@
 ---
 title: "Как работают веб-приложения"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - web application
   - frontend фронтенд
   - клиент сервер
   - model view controller mvc
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

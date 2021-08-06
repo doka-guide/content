@@ -1,9 +1,9 @@
 ---
 title: "Парадигмы программирования"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - programming paradigms
   - процедурное
@@ -11,8 +11,8 @@ keywords:
   - декларативный
   - ооп
   - функциональное
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

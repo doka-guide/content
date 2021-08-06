@@ -2,12 +2,12 @@
 title: "Реактивность в программировании"
 authors:
   - windrushfarer
-tags:
-  - article
 keywords:
   - reactivity
   - реактивность
   - парадигмы программирования
+tags:
+  - article
 ---
 
 ## Кратко

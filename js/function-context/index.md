@@ -2,8 +2,6 @@
 title: "Контекст выполнения функций, this"
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - use strict
   - строгий режим
@@ -14,6 +12,8 @@ keywords:
   - стрелочная функция
   - arrow function
   - new
+tags:
+  - article
 ---
 
 ## Кратко

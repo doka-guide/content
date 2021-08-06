@@ -5,11 +5,11 @@ authors:
 contributors:
   - nlopin
   - skorobaeus
-tags:
-  - doka
 keywords:
   - события
   - клавиатура
+tags:
+  - doka
 ---
 
 Эта статья связана с обработкой событий в JavaScript. Зачем нужны события и как с ними работать читайте в статье [События](/js/events).

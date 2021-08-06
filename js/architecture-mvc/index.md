@@ -2,8 +2,6 @@
 title: "Архитектурный паттерн MVC"
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - mvc
   - mvvm
@@ -13,6 +11,8 @@ keywords:
   - presenter
   - thin controller
   - thick controller
+tags:
+  - article
 ---
 
 > Designing is fundamentally about taking things apart... in such a way that they can be put back together. So separating things into things that can be composed that's what design is.

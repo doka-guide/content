@@ -1,14 +1,14 @@
 ---
 title: "Почти всё в JavaScript — объект"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - windrushfarer
-tags:
-  - article
 keywords:
   - array
   - массивы
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "API. Что это и зачем нужно?"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
 contributors:
   - furtivite
 editors:
   - tachisis
-tags:
-  - article
 keywords:
   - апи
   - запросы
@@ -15,8 +15,8 @@ keywords:
   - rest
   - soap
   - rpc
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

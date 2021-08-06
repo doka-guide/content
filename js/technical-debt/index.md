@@ -2,8 +2,6 @@
 title: "Что такое технический долг"
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - рефакторинг
   - зависимости
@@ -12,6 +10,8 @@ keywords:
   - quadrant
   - издержки
   - выгода
+tags:
+  - article
 ---
 
 ## Кратко

@@ -1,9 +1,9 @@
 ---
 title: "Как и зачем писать тесты"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - test
   - arrange
@@ -17,8 +17,8 @@ keywords:
   - quality
   - jest
   - cypress
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

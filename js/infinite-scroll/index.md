@@ -1,16 +1,16 @@
 ---
 title: "Подгрузка контента при прокрутке"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - scroll
   - loading
   - lazy
   - event
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

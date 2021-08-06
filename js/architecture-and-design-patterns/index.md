@@ -2,8 +2,6 @@
 title: "Архитектура и паттерны проектирования"
 authors:
   - bespoyasov
-tags:
-  - article
 editors:
   - tachisis
 keywords:
@@ -13,6 +11,8 @@ keywords:
   - pattern
   - data
   - flow
+tags:
+  - article
 ---
 
 Писать понятный код — сложно.

@@ -1,10 +1,7 @@
 ---
 title: "Организация потоков данных"
-name: architecture-data-flow
 authors:
   - bespoyasov
-tags:
-  - article
 editors:
   - tachisis
 keywords:
@@ -16,6 +13,8 @@ keywords:
   - redux
   - react
   - reactivity
+tags:
+  - article
 ---
 
 Программы — это преобразователи данных. Мы даём программе задачу: вводим начальные данные и ожидаем получить какой-то результат после их преобразования.

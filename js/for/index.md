@@ -2,8 +2,6 @@
 title: "for()"
 authors:
   - vindi-r
-tags:
-  - doka
 keywords:
   - итерация
   - обход
@@ -11,6 +9,8 @@ keywords:
   - cycle
   - iteration
   - фор
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -2,13 +2,13 @@
 title: "querySelectorAll"
 authors:
   - nlopin
-tags:
-  - doka
 keywords:
   - селектор
   - найти элементы по селектору
   - selector
   - найти элементы в html
+tags:
+  - doka
 ---
 
 ## Кратко

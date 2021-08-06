@@ -1,16 +1,16 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - click jacking
   - xss
   - csrf
   - SQL-инъекции
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

@@ -1,9 +1,9 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
 keywords:
   - транспайлеры
   - бандлеры
@@ -11,8 +11,8 @@ keywords:
   - javascript
   - ecmascript
   - es
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

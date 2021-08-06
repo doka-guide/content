@@ -1,13 +1,13 @@
 ---
 title: "Асинхронность в JS"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
 contributors:
   - nlopin
 editors:
   - tachisis
-tags:
-  - article
 keywords:
   - async
   - await
@@ -17,8 +17,8 @@ keywords:
   - промис
   - then
   - catch
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко
