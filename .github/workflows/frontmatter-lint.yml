@@ -1,0 +1,20 @@
+name: Frontmatter Lint
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Проверка линтером в main
+        run: |
+          echo "Проверка для всех файлов"
+          npx yaml-cat -f json (css|html|js|tools)/**/index.md -o result.json
+          node .github/scripts/frontmatter.js --fix
