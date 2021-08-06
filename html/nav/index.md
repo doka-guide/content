@@ -87,14 +87,17 @@ nav {
   display: inline-block;
 }
 
+.crumb a {
+  position: relative;
+}
+
 .crumb a::after {
-  display: inline-block;
-  color: #000;
   content: ">";
+  position: absolute;
+  padding: 0 5px;
+  color: #ffffff;
   font-size: 80%;
-  font-weight: bold;
-  padding: 0 3px;
 }
 ```
 
-<iframe title="Хлебные крошки" src="demos/breadcrumbs.html"></iframe>
+<iframe title="Хлебные крошки" src="demos/breadcrumbs.html" height="280"></iframe>
