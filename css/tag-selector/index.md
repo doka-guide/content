@@ -2,7 +2,7 @@
 title: "Селектор по тегу"
 authors:
   - ezhkov
-editor:
+editors:
   - tachisis
 keywords:
   - селектор

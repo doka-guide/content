@@ -2,7 +2,7 @@
 title: "<picture>"
 authors:
   - ezhkov_d
-editor:
+editors:
   - tachisis
 keywords:
   - картинка

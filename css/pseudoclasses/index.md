@@ -2,7 +2,7 @@
 title: "Псевдоклассы"
 authors:
   - realetive
-editor:
+editors:
   - tachisis
 keywords:
   - псевдокласс
