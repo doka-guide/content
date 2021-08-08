@@ -1,9 +1,7 @@
 ---
 title: "Гайд по flexbox"
-tags:
-  - article
-  - sprint-1
-  - sprint-4
+cover:
+  desktop: images/cover.png
 authors:
   - solarrust
 contributors:
@@ -11,7 +9,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - флексбокс
   - flexbox
   - flex-box
@@ -32,8 +30,8 @@ summary:
   - flex
   - flex-flow
   - align-content
-cover:
-  desktop: images/cover.png
+tags:
+  - article
 ---
 
 ## Что это?

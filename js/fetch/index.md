@@ -2,13 +2,11 @@
 title: "fetch"
 authors:
   - windrushfarer
-tags:
-  - doka
-  - sprint-10
-  - sprint-12
-summary:
+keywords:
   - фетч
   - запрос
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,14 +1,14 @@
 ---
 title: "URLSearchParams"
-tags:
-  - doka
 authors:
   - akellbl4
-summary:
+keywords:
   - url
   - querystring
   - queryparams
   - searchstring
+tags:
+  - doka
 ---
 
 ## Кратко

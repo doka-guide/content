@@ -1,15 +1,15 @@
 ---
-title: Как устроен Dockerfile
-tags:
-  - article
+title: "Как устроен Dockerfile"
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - докер
   - контейнер
   - container
+tags:
+  - article
 ---
 
 ## Кратко

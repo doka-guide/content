@@ -1,14 +1,14 @@
 ---
 title: "flex-flow"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - шорткат
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

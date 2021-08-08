@@ -1,11 +1,11 @@
 ---
 title: "Element.mouseover"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

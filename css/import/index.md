@@ -1,16 +1,15 @@
 ---
 title: "@import"
-tags:
-  - doka
-  - sprint-1
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - import
   - директива
   - импорт
+tags:
+  - doka
 ---
 
 ## Кратко

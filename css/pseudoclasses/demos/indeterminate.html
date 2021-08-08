@@ -30,43 +30,41 @@
   </style>
 </head>
 <body>
-<div>
-  <input type="checkbox" id="checkbox">
-  <label for="checkbox">Чекбокс</label>
-</div>
-<div>
-  <input type="radio" id="radio">
-  <label for="radio">Радио</label>
-</div>
-<div>
-  <progress id="progress"></progress>
-  <button type="button" id="button">Установить значение</button>
-</div>
+  <div>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">Чекбокс</label>
+  </div>
+  <div>
+    <input type="radio" id="radio">
+    <label for="radio">Радио</label>
+  </div>
+  <div>
+    <progress id="progress"></progress>
+    <button type="button" id="button">Установить значение</button>
+  </div>
 
-<script>
-  let inputs = document.getElementsByTagName( "input" )
+  <script>
+    const inputs = document.getElementsByTagName('input')
 
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[ i ].indeterminate = true
-  }
-
-  let progress = document.getElementById( "progress" )
-
-  function progressToggle() {
-    if ( !progress.value ) {
-      progress.value = 25
-      progress.max = 100
-      this.textContent = "Удалить значение"
-    } else {
-      progress.removeAttribute( "value" )
-      progress.removeAttribute( "max" )
-      this.textContent = "Установить значение"
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].indeterminate = true
     }
-  }
 
-  let button = document.getElementById( "button" )
+    const progress = document.getElementById( 'progress' )
 
-  button.addEventListener( "click", progressToggle )
-</script>
+    function progressToggle() {
+      if (!progress.value) {
+        progress.value = 25
+        progress.max = 100
+        this.textContent = 'Удалить значение'
+      } else {
+        progress.removeAttribute('value')
+        progress.removeAttribute('max')
+        this.textContent = 'Установить значение'
+      }
+    }
+
+    document.getElementById('button').addEventListener('click', progressToggle)
+  </script>
 </body>
 </html>

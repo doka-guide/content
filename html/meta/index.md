@@ -1,8 +1,5 @@
 ---
 title: "<meta>"
-tags:
-  - doka
-  - sprint-3
 authors:
   - grachev
 contributors:
@@ -10,11 +7,13 @@ contributors:
   - vladimir
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - meta
   - мета
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,12 @@
 ---
 title: "transition-property"
-tags:
-  - doka
-  - sprint-2
 authors:
   - ezhkov
-summary:
+keywords:
   - transition
   - transition-property
+tags:
+  - doka
 ---
 
 ## Кратко

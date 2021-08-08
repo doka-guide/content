@@ -1,11 +1,11 @@
 ---
 title: "Объектно-ориентированное программирование"
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Плоская коробка с отверстиями разной формы, откуда высовываются улыбающиеся существа'
 authors:
   - bespoyasov
-tags:
-  - sprint-8
-  - article
-summary:
+keywords:
   - use strict
   - строгий режим
   - bind
@@ -35,6 +35,8 @@ summary:
   - связность
   - сцепление
   - typescript
+tags:
+  - article
 ---
 
 ## Кратко

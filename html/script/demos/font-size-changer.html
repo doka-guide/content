@@ -27,13 +27,10 @@
   <p id="blinking">Скрипты можно подключить разными способами. Например, описать их прямо внутри HTML-страницы. Но лучше всё же в отдельном файле.</p>
 
   <script>
-    var p = document.getElementById("blinking")
+    const p = document.getElementById('blinking')
     setInterval(function () {
-      if (p.style.fontSize !== "10px") {
-        p.style.fontSize = "10px"
-      } else {
-        p.style.fontSize = "20px"
-      }
+      const newFontSize = p.style.fontSize !== '10px' ? 10 : 20
+      p.style.fontSize = `${newFontSize}px`
     }, 2000)
   </script>
 </body>

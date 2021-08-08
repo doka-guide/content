@@ -1,7 +1,5 @@
 ---
 title: "<nav>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -11,11 +9,13 @@ contributors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - nav
   - навигация
+tags:
+  - doka
 ---
 
 ## Кратко

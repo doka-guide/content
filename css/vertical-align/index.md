@@ -1,13 +1,13 @@
 ---
 title: "vertical-align"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - vertical-align
+tags:
+  - doka
 ---
 
 ## Кратко

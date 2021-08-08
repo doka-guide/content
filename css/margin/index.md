@@ -1,16 +1,15 @@
 ---
 title: "margin"
-tags:
-  - doka
-  - sprint-4
 authors:
   - grachev
 contributors:
   - vladimir
   - ABatickaya
   - futivite
-summary:
+keywords:
   - margin
+tags:
+  - doka
 ---
 
 ## Кратко

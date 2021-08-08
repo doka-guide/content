@@ -6,8 +6,7 @@ contributors:
   - furtivite
 tags:
   - article
-  - sprint-12
-summary:
+keywords:
   - npm
   - nodejs
   - package.json

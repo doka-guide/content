@@ -1,16 +1,14 @@
 ---
 title: "<textarea>"
-tags:
-  - doka
-  - sprint-2
-  - sprint-4
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - поле ввода многострочного текста
   - элемент формы
+tags:
+  - doka
 ---
 
 ## Кратко

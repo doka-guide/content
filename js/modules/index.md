@@ -2,12 +2,12 @@
 title: "Модули, import/export"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - module
   - импорт
   - экспорт
+tags:
+  - article
 ---
 
 ## Кратко

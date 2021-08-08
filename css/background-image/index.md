@@ -1,13 +1,13 @@
 ---
 title: "background-image"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - skorobaeus
-summary:
+keywords:
   - background-image
+tags:
+  - doka
 ---
 
 ## Кратко

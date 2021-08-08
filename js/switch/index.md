@@ -1,16 +1,16 @@
 ---
 title: "switch"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - условие
   - условный переход
   - свитч
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

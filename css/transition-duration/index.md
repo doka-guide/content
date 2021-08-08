@@ -1,13 +1,12 @@
 ---
 title: "transition-duration"
-tags:
-  - doka
-  - sprint-2
 authors:
   - ezhkov
-summary:
+keywords:
   - transition-duration
   - transition
+tags:
+  - doka
 ---
 
 ## Кратко

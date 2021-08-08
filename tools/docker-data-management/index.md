@@ -1,10 +1,8 @@
 ---
-title: Управление данными в Docker
-tags:
-  - article
+title: "Управление данными в Docker"
 authors:
   - igsekor
-summary:
+keywords:
   - докер
   - контейнер
   - том
@@ -12,6 +10,8 @@ summary:
   - volume
   - bind
   - container
+tags:
+  - article
 ---
 
 :::callout 📚

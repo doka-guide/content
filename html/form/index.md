@@ -1,22 +1,19 @@
 ---
 title: "<form>"
-tags:
-  - doka
-  - sprint-2
-  - sprint-4
-  - sprint-6
 authors:
   - vladimir
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - form
   - тэг
   - тег
   - action
   - method
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

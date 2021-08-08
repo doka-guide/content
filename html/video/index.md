@@ -1,14 +1,11 @@
 ---
 title: "<video>"
-tags:
-  - doka
-  - sprint-2
 authors:
   - vladimir
 contributors:
   - grachev
   - skorobaeus
-summary:
+keywords:
   - video
   - видео
   - autoplay
@@ -19,6 +16,8 @@ summary:
   - loop
   - preload
   - poster
+tags:
+  - doka
 ---
 
 ## Кратко

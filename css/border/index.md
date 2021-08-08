@@ -1,13 +1,13 @@
 ---
 title: "border"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - border
+tags:
+  - doka
 ---
 
 ## Кратко

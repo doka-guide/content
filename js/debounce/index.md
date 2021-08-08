@@ -1,16 +1,16 @@
 ---
 title: "Debounce на примере формы поиска"
+cover:
+  desktop: "images/cover.png"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - keyboard event
   - delay
   - search
   - form
-cover:
-  desktop: "images/cover.png"
+tags:
+  - article
 ---
 
 ## Кратко
