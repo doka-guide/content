@@ -1,7 +1,5 @@
 ---
 title: "Псевдоэлементы"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
@@ -9,9 +7,11 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдоэлемент
   - селекторы
+tags:
+  - doka
 ---
 
 ## Кратко

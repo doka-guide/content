@@ -1,16 +1,16 @@
 ---
 title: "<picture>"
-tags:
-  - doka
 authors:
   - ezhkov_d
-editor:
+editors:
   - tachisis
-summary:
+keywords:
   - картинка
   - ретина
   - retina
   - srcset
+tags:
+  - doka
 ---
 
 ## Кратко

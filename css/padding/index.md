@@ -1,14 +1,14 @@
 ---
 title: "padding"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - furtivite
   - skorobaeus
-summary:
+keywords:
   - padding
+tags:
+  - doka
 ---
 
 ## Кратко

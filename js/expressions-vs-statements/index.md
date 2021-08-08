@@ -1,14 +1,14 @@
 ---
 title: "Выражения и инструкции"
-tags:
-  - doka
 authors:
   - windrushfarer
 contributors:
   - furtivite
-summary:
+keywords:
   - expressions
   - statements
+tags:
+  - doka
 ---
 
 ## Кратко

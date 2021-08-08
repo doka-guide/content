@@ -1,15 +1,15 @@
 ---
 title: "Что такое Node.js?"
-tags:
-  - article
 authors:
   - igorkamyshev
 contributors:
   - furtivite
-summary:
+keywords:
   - npm
   - nodejs
   - package.json
+tags:
+  - article
 ---
 
 ## Кратко

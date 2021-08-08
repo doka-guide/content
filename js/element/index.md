@@ -1,12 +1,12 @@
 ---
 title: "Элемент"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

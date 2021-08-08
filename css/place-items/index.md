@@ -1,12 +1,12 @@
 ---
 title: "place-items"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - выравнивание в гридах
   - шорткат
+tags:
+  - doka
 ---
 
 ## Кратко

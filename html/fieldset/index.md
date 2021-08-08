@@ -1,16 +1,16 @@
 ---
 title: "<fieldset>"
-tags:
-  - doka
 authors:
   - realetive
 contributors:
   - skorobaeus
-summary:
+keywords:
   - fieldset
   - тэг
   - тег
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

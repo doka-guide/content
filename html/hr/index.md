@@ -1,16 +1,16 @@
 ---
 title: "<hr>"
-tags:
-  - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - тэг
   - тег
   - разделитель
   - горизонтальная черта
   - hr
   - "<hr>"
+tags:
+  - doka
 ---
 
 ## Кратко

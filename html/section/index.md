@@ -1,18 +1,18 @@
 ---
 title: "<section>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - section
   - секция
+tags:
+  - doka
 ---
 
 ## Кратко

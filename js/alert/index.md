@@ -1,19 +1,19 @@
 ---
 title: "alert()"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - vindi-r
 contributors:
   - furtivite
 editors:
   - tachisis
-tags:
-  - doka
-summary:
+keywords:
   - alert
   - модальное окно
   - алерт
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

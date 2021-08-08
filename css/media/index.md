@@ -1,15 +1,15 @@
 ---
 title: "@media"
-tags:
-  - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - ＠-правило
   - media
   - media-query
   - медиавыражение
   - адаптивность
+tags:
+  - doka
 ---
 
 ## Кратко

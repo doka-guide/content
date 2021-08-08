@@ -1,18 +1,18 @@
 ---
 title: "<img>"
-tags:
-  - doka
 authors:
   - grachev
   - solarrust
   - pepelsbey
-editors:
-  - tachisis
 contributors:
   - skorobaeus
-summary:
+editors:
+  - tachisis
+keywords:
   - картинка
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

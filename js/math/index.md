@@ -1,9 +1,9 @@
 ---
 title: "Math"
-tags:
-  - doka
 authors:
   - vindi-r
+tags:
+  - doka
 ---
 
 ## Кратко

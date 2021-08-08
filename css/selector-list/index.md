@@ -1,16 +1,16 @@
 ---
 title: "Перечисление селекторов"
-tags:
-  - doka
 authors:
   - solarrust
-editors:
-  - tachisis
 contributors:
   - skorobaeus
-summary:
+editors:
+  - tachisis
+keywords:
   - селектор
   - составной селектор
+tags:
+  - doka
 ---
 
 ## Кратко

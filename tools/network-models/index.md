@@ -1,16 +1,16 @@
 ---
 title: "Модели сетевого взаимодействия"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - OSI
   - DOD
   - TCP/IP
   - IPX/SPX
+tags:
+  - article
 ---
 
 ## Кратко

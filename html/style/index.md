@@ -1,19 +1,19 @@
 ---
 title: "<style>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - solarrust
   - vladimir
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - style
   - стайл
   - стили в HTML
+tags:
+  - doka
 ---
 
 ## Кратко

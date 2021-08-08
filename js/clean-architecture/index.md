@@ -1,11 +1,8 @@
 ---
 title: "Трёхслойная архитектура"
-name: clean-architecture
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - домен
   - адаптер
   - порт
@@ -15,6 +12,8 @@ summary:
   - layer
   - onion
   - hexagonal
+tags:
+  - article
 ---
 
 Трёхслойная архитектура (она же чистая или луковичная) предполагает разделение кода приложения на «слои» с чётко разделёнными обязанностями между каждым из слоёв.

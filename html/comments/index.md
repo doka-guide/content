@@ -1,15 +1,15 @@
 ---
 title: "Комментарии в HTML"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - комментарии
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко
