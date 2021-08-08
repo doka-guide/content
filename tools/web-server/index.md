@@ -140,7 +140,7 @@ Connection: keep-alive
 Некоторые известные веб-серверы описаны подробнее в следующих статьях:
 
 1. «[Веб-сервер Apache](/tools/apache-web-server/)».
-2. «[Веб-сервер Nginx](https://doka.guide/tools/nginx-web-server/)».
+2. «[Веб-сервер Nginx](/tools/nginx-web-server/)».
 
 :::
 
