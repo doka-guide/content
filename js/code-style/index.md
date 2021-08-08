@@ -1,14 +1,12 @@
 ---
 title: "Стиль написания кода в команде"
-authors:
-  - bespoyasov
 cover:
   desktop: 'images/cover.png'
   mobile: 'images/mobile.png'
   alt: 'Книга с названием {howto://style}'
-tags:
-  - article
-summary:
+authors:
+  - bespoyasov
+keywords:
   - code-style
   - код-стайл
   - стиль
@@ -16,6 +14,8 @@ summary:
   - editorconfig
   - eslint
   - линтер
+tags:
+  - article
 ---
 
 ## Кратко

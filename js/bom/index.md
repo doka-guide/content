@@ -1,20 +1,20 @@
 ---
 title: "Браузерное окружение, BOM"
+cover:
+  desktop: "images/cover.png"
 authors:
   - bespoyasov
 editors:
   - tachisis
-tags:
-  - article
-summary:
+keywords:
   - navigator
   - screen
   - location
   - history
   - fetch
   - localstorage
-cover:
-  desktop: "images/cover.png"
+tags:
+  - article
 ---
 
 ## Кратко

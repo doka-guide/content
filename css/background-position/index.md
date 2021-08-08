@@ -1,13 +1,13 @@
 ---
 title: "background-position"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - background-position
+tags:
+  - doka
 ---
 
 ## Кратко

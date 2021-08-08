@@ -1,18 +1,18 @@
 ---
 title: "while"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - итерация
   - обход
   - пробежать
   - cycle
   - iteration
   - вайл
+tags:
+  - doka
 ---
 
 ## Кратко

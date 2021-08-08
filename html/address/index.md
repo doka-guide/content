@@ -1,14 +1,14 @@
 ---
 title: "<address>"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - pepelsbey
   - furtivite
-summary:
+keywords:
   - address
+tags:
+  - doka
 ---
 ## Кратко
 

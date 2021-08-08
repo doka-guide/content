@@ -1,14 +1,14 @@
 ---
 title: "flex-basis"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - размер флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

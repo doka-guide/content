@@ -1,7 +1,5 @@
 ---
 title: "<a>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,11 +8,13 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - ссылка
   - a
   - тэг
   - тег
+tags:
+  - doka
 ---
 
 ## Кратко

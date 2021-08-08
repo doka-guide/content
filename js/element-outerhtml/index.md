@@ -1,9 +1,9 @@
 ---
 title: "Element.outerHTML"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

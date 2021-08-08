@@ -1,14 +1,12 @@
 ---
 title: "<audio>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - audio
   - аудио
   - controls
@@ -20,6 +18,8 @@ summary:
   - тэг
   - тег
   - аудио
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,14 +1,14 @@
 ---
 title: "flex-wrap"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - перенос на новую строку
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

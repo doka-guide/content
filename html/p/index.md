@@ -1,18 +1,18 @@
 ---
 title: "<p>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - solarrust
-summary:
+keywords:
   - тэг
   - тег
   - <p>
   - p
   - абзац
   - параграф
+tags:
+  - doka
 ---
 
 ## Кратко

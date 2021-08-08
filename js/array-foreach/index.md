@@ -1,12 +1,12 @@
 ---
 title: "Array.forEach"
-tags:
-  - doka
 authors:
   - windrushfarer
 contributors:
   - nlopin
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

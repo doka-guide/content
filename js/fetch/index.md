@@ -2,11 +2,11 @@
 title: "fetch"
 authors:
   - windrushfarer
-tags:
-  - doka
-summary:
+keywords:
   - фетч
   - запрос
+tags:
+  - doka
 ---
 
 ## Кратко

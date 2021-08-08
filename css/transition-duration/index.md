@@ -1,12 +1,12 @@
 ---
 title: "transition-duration"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - transition-duration
   - transition
+tags:
+  - doka
 ---
 
 ## Кратко

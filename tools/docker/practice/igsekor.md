@@ -8,7 +8,7 @@ docker run -e EULA=TRUE -d -p 25565:25565 --name mc itzg/minecraft-server
 
 Подобных образов достаточно много на [Docker Hub](https://hub.docker.com). Для ежедневной работы полезнее будут образы с популярными инструментами или сервисами, например:
 
-1. [Веб-сервер nginx](https://hub.docker.com/_/nginx);
+1. [Веб-сервер Nginx](https://hub.docker.com/_/nginx);
 2. [Веб-сервер Apache](https://hub.docker.com/_/httpd);
 3. [Связка базы данных MongoDB и фреймворка Express](https://hub.docker.com/_/mongo-express);
 4. [Сервис Sentry для мониторинга ошибок в браузерах](https://hub.docker.com/_/sentry);
@@ -33,7 +33,7 @@ docker run --name some-drupal -p 8080:80 -d drupal
 
 ### Попробовать новый фреймворк
 
-Фронтенд-разработчику Docker даёт возможность попробовать разные технологии без траты времени на установку и настройку. Например, упаковать ё приложение на платформе [Node.js](/js/nodejs) в контейнер не составит большого труда. Добавьте в проект файл Dockerfile:
+Фронтенд-разработчику Docker даёт возможность попробовать разные технологии без траты времени на установку и настройку. Например, упаковать приложение на платформе [Node.js](/tools/nodejs) в контейнер не составит большого труда. Добавьте в проект файл Dockerfile:
 
 ```bash
 FROM node:12
@@ -84,19 +84,19 @@ docker build -t app .
 docker run -v /your/images:/imgs dpokidov/imagemagick /imgs/sample.png -resize 100x100 /imgs/resized-sample.png
 ```
 
-Необходимо поработать со шрифтами? Например, популярный инструмент [glyphhanger](https://github.com/filamentgroup/glyphhanger) требует нетривиальной установки. Но есть готовый Docker-образ и с его помощью, можно запустить эту утилиту командой:
+Необходимо поработать со шрифтами? Например, популярный инструмент [glyphhanger](https://github.com/filamentgroup/glyphhanger) требует нетривиальной установки. Но есть готовый Docker-образ, и с его помощью можно запустить эту утилиту командой:
 
 ```bash
 docker container run --rm -v $(pwd):/hwd wopolow/glyphhanger glyphhanger
 ```
 
-Можно также заменить столь длинную команду алиасом в файле настроек терминала:
+Можно также заменить эту длинную команду алиасом в файле настроек терминала:
 
 ```bash
 alias glyphy='~/.docker-glyphhanger/docker-glyphhanger.sh'
 ```
 
-предварительно написав соответствующий скрипт в файле `~/.docker-glyphhanger/docker-glyphhanger.sh`:
+Предварительно надо написать соответствующий скрипт в файле `~/.docker-glyphhanger/docker-glyphhanger.sh`:
 
 ```bash
 #!/bin/bash

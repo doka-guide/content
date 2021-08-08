@@ -1,14 +1,14 @@
 ---
 title: "list-style-type"
-tags:
-  - doka
 authors:
   - realetive
 contributors:
   - skorobaeus
-summary:
+keywords:
   - стили списка
   - список
+tags:
+  - doka
 ---
 
 ## Кратко

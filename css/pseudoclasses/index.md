@@ -1,12 +1,10 @@
 ---
 title: "Псевдоклассы"
-tags:
-  - doka
 authors:
   - realetive
-editor:
+editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
   - pseudo-classes
   - селекторы
@@ -52,6 +50,8 @@ summary:
   - :target
   - :valid
   - :invalid
+tags:
+  - doka
 ---
 
 ## Кратко

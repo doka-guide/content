@@ -1,16 +1,16 @@
 ---
 title: "Многозадачность и процессы"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - service
   - signals
   - systemctl
   - сигналы
+tags:
+  - article
 ---
 
 ## Кратко

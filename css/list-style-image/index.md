@@ -1,14 +1,14 @@
 ---
 title: "list-style-image"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - стили списка
   - список
+tags:
+  - doka
 ---
 
 ## Кратко

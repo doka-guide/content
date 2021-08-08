@@ -1,7 +1,5 @@
 ---
 title: "<body>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -9,11 +7,13 @@ contributors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - body
   - тэг
   - тег
   - боди
+tags:
+  - doka
 ---
 
 ## Кратко

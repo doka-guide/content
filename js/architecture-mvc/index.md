@@ -6,7 +6,7 @@ editors:
   - tachisis
 tags:
   - article
-summary:
+keywords:
   - mvc
   - mvvm
   - mva
@@ -15,6 +15,8 @@ summary:
   - presenter
   - thin controller
   - thick controller
+tags:
+  - article
 ---
 
 > Designing is fundamentally about taking things apart... in such a way that they can be put back together. So separating things into things that can be composed that's what design is.
@@ -191,7 +193,7 @@ const flashLightView = {
 
 :::callout ✈️
 
-Это называется однонаправленным [потоком данных](/js/article/architecture-data-flow).
+Это называется однонаправленным [потоком данных](/js/architecture-data-flow).
 
 :::
 

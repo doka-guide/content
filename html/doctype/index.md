@@ -1,7 +1,5 @@
 ---
 title: "<!DOCTYPE>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,12 +8,14 @@ contributors:
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - doctype
   - тэг
   - тег
   - <!doctype>
   - доктайп
+tags:
+  - doka
 ---
 
 ## Кратко
