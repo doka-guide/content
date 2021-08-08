@@ -1,12 +1,12 @@
 ---
 title: "XML"
-tags:
-  - doka
 authors:
   - KognitivnayaBuena
 symmary:
   - xml
   - разметка
+tags:
+  - doka
 ---
 
 ## Кратко

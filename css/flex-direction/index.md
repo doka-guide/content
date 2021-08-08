@@ -1,14 +1,14 @@
 ---
 title: "flex-direction"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - выравнивание по основной оси
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

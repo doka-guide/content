@@ -1,11 +1,11 @@
 ---
 title: "Element.scroll/wheel"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

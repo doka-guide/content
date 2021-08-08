@@ -1,18 +1,18 @@
 ---
 title: "z-index"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - поток документа
   - наложение
   - поверх
   - порядок отображения
+tags:
+  - doka
 ---
 
 ## Кратко

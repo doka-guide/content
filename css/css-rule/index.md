@@ -1,11 +1,11 @@
 ---
 title: "CSS-правило"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - правило стилей
+tags:
+  - doka
 ---
 
 ## Кратко

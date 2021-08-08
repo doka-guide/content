@@ -1,17 +1,17 @@
 ---
 title: "::after"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - ::after
   - :after
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко

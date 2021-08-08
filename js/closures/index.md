@@ -1,13 +1,11 @@
 ---
 title: "Области видимости"
-authors:
-  - bespoyasov
 cover:
   desktop: 'images/cover.png'
   alt: 'Бинокль с надписью Doka Optics, в отражении на линзах которого виден код'
-tags:
-  - article
-summary:
+authors:
+  - bespoyasov
+keywords:
   - замыкание
   - closure
   - bind
@@ -17,6 +15,8 @@ summary:
   - стрелочная функция
   - arrow function
   - new
+tags:
+  - article
 ---
 
 ## Кратко

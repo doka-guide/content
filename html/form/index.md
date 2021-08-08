@@ -1,19 +1,19 @@
 ---
 title: "<form>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - form
   - тэг
   - тег
   - action
   - method
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

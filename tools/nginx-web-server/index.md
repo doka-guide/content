@@ -1,11 +1,11 @@
 ---
 title: "Веб-сервер Nginx"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
+tags:
+  - article
 ---
 
 :::callout 📚

@@ -1,16 +1,16 @@
 ---
 title: "@font-face"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - директива
   - подключение шрифта
   - шрифт
   - кастомный шрифт
+tags:
+  - doka
 ---
 
 ## Кратко

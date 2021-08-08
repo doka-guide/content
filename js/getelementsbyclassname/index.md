@@ -1,9 +1,9 @@
 ---
 title: "getElementsByClassName()"
-tags:
-  - doka
 authors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

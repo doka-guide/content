@@ -1,16 +1,16 @@
 ---
 title: "<ol>"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - список
   - упорядоченный список
   - нумерованный список
   - ol
+tags:
+  - doka
 ---
 
 ## Кратко

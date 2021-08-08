@@ -1,12 +1,11 @@
 ---
 title: "Массивы"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,9 +1,9 @@
 ---
 title: "Math.random()"
-tags:
-  - doka
 authors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

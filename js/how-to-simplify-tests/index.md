@@ -2,12 +2,12 @@
 title: "Как упростить тестирование"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - test
   - pure functions
   - coupling
+tags:
+  - article
 ---
 
 Давайте будем откровенными, тесты писать *лень*. Даже если мы работаем по [TDD](/js/tdd/), и тесты стали частью культуры, внешнее давление может нас вынудить тесты пропустить.
