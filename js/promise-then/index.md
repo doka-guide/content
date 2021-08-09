@@ -1,11 +1,11 @@
 ---
 title: "Promise. Метод then"
-tags:
-  - doka
 authors:
   - nlopin
-summary:
+keywords:
   - промис
+tags:
+  - doka
 ---
 
 Эта статья связана с понятием [Promise](/js/promise)

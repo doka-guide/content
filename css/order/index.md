@@ -1,14 +1,14 @@
 ---
 title: "order"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - порядок флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

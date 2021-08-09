@@ -1,14 +1,14 @@
 ---
 title: ":link"
-tags:
-  - doka
 authors:
   - realetive
 editors:
   - tachisis
-summary:
+keywords:
   - стили ссылки
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,16 +1,16 @@
 ---
 title: "Webpack, краткий обзор"
-tags:
-  - article
 authors:
   - igorkamyshev
 contributors:
   - furtivite
-summary:
+keywords:
   - webpack
   - вебпак
   - бандлер
   - bundler
+tags:
+  - article
 ---
 
 ## Кратко

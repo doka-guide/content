@@ -1,12 +1,10 @@
 ---
 title: "Веб-сервер"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - http-server
   - browser-sync
   - ports
@@ -15,6 +13,8 @@ summary:
   - headers
   - заголовки
   - сжатие
+tags:
+  - article
 ---
 
 ## Кратко

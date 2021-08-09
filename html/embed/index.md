@@ -1,13 +1,13 @@
 ---
 title: "<embed>"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - вставка контента
+tags:
+  - doka
 ---
 
 ## Кратко

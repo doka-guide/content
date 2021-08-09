@@ -2,15 +2,15 @@
 title: "Интеграционное и системное тестирование"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - e2e
   - system
   - driver
   - pentest
   - performance
   - perftest
+tags:
+  - article
 ---
 
 Юнит-тесты, как правило, занимают наибольший объём тестов в проекте. Ограничение же юнит-тестов в том, что они не проверяют, как модули работают в связи друг с другом.

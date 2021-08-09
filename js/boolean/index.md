@@ -1,16 +1,16 @@
 ---
 title: "Boolean"
-tags:
-  - doka
 authors:
   - bespoyasov
 contributors:
   - nlopin
-summary:
+keywords:
   - логический тип
   - тру фолс
   - true false
   - булевый тип
+tags:
+  - doka
 ---
 
 ## Кратко

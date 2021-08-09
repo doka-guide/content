@@ -1,16 +1,16 @@
 ---
 title: "<legend>"
-tags:
-  - doka
 authors:
   - realetive
 contributors:
   - skorobaeus
-summary:
+keywords:
   - legend
   - тэг
   - тег
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

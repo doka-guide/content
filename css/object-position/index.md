@@ -1,15 +1,15 @@
 ---
 title: "object-position"
-tags:
-  - doka
 authors:
   - lenaryan
-summary:
+keywords:
   - стили картинок
   - положение картинок
   - object
   - position
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

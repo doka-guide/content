@@ -1,13 +1,13 @@
 ---
 title: "visibility"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - visibility
+tags:
+  - doka
 ---
 
 ## Кратко

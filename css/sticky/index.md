@@ -1,14 +1,15 @@
 ---
 title: "Липкое позиционирование"
-tag:
-  - doka
-author: lenaryan
+authors:
+  - lenaryan
 editors:
   - tachisis
-summary:
+keywords:
   - sticky
   - position
   - липкое позиционирование
+tags:
+  - doka
 ---
 
 ## Кратко
