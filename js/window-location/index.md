@@ -1,6 +1,5 @@
 ---
 title: "window.location"
-name: window-location
 authors:
   - akellbl4
 tags:
