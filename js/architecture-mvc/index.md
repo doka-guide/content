@@ -4,8 +4,6 @@ authors:
   - bespoyasov
 editors:
   - tachisis
-tags:
-  - article
 keywords:
   - mvc
   - mvvm
