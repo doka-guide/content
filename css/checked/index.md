@@ -1,16 +1,16 @@
 ---
 title: ":checked"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
   - :checked
+tags:
+  - doka
 ---
 
 ## Кратко

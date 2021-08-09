@@ -1,16 +1,16 @@
 ---
 title: "<q>"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - q
   - цитата
+tags:
+  - doka
 ---
 
 ## Кратко

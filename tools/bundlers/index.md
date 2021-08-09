@@ -6,14 +6,14 @@ contributors:
   - furtivite
 editors:
   - tachisis
-tags:
-  - article
-summary:
+keywords:
   - webpack
   - вебпак
   - parcel
   - бандлер
   - bundler
+tags:
+  - article
 ---
 
 ## Кратко

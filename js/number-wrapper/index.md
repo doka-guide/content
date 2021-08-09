@@ -1,15 +1,15 @@
 ---
 title: "Number"
-tags:
-  - doka
 authors:
   - nlopin
-summary:
+keywords:
   - число
   - обёртка числа
   - округлить число
   - isnan
   - isfinite
+tags:
+  - doka
 ---
 
 ## Кратко

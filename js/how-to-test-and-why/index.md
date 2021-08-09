@@ -1,10 +1,10 @@
 ---
 title: "Как и зачем писать тесты"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - test
   - arrange
   - act
@@ -17,8 +17,8 @@ summary:
   - quality
   - jest
   - cypress
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

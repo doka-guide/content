@@ -1,13 +1,13 @@
 ---
 title: "background-size"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - background-size
+tags:
+  - doka
 ---
 
 ## Кратко

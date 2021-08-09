@@ -1,14 +1,14 @@
 ---
 title: "flex-shrink"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - сжатие флекс-элементов
   - flexbox
+tags:
+  - doka
 ---
 
 ## Кратко

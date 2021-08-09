@@ -1,13 +1,13 @@
 ---
 title: "cursor"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - cursor
+tags:
+  - doka
 ---
 
 ## Кратко

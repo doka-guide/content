@@ -1,16 +1,16 @@
 ---
 title: "<select>"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - тэг
   - тег
   - выпадашка
   - селект
   - "<select>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

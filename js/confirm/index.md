@@ -1,11 +1,11 @@
 ---
 title: "confirm()"
-tags:
-  - doka
 authors:
   - vindi-r
 contributors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

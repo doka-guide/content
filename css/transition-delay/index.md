@@ -1,11 +1,11 @@
 ---
 title: "transition-delay"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - задержка
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,14 +1,14 @@
 ---
 title: "GitHub Actions"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - ci
   - cd
+tags:
+  - article
 ---
 
 :::callout 📚

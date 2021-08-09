@@ -1,15 +1,15 @@
 ---
 title: "box-sizing"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - box-sizing
   - content-box
   - border-box
+tags:
+  - doka
 ---
 
 ## Кратко
