@@ -23,7 +23,7 @@
       overflow: hidden;
     }
 
-    code {
+    kbd {
       font-family: "Roboto Mono", monospace;
     }
 
@@ -45,7 +45,7 @@
       font-style: italic;
     }
 
-    .event code {
+    .event kbd {
       font-size: 100px;
       line-height: 1;
     }
@@ -54,7 +54,7 @@
       margin-top: 20px;
     }
 
-    .inline-code {
+    .inline-key {
       font-size: 0.9em;
     }
   </style>
@@ -63,14 +63,14 @@
   <div class="container">
     <div class="event" id="output"><span>Нажмите любую клавишу</span></div>
 
-    <div class="hint">Чтобы остановить обработку нажатий клавиатуры нажмите <code class="inline-code">Escape</code></div>
+    <div class="hint">Чтобы остановить обработку нажатий клавиатуры нажмите <kbd class="inline-key">Escape</kbd></div>
   </div>
 
   <script>
     const output = document.getElementById('output')
 
     function handleKey(event) {
-      const msg = '<code>' + event.key + '</code>'
+      const msg = '<kbd>' + event.key + '</kbd>'
 
       if (event.key === 'Escape') {
         window.removeEventListener('keydown', handleKey)
