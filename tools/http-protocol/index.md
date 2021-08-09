@@ -1,15 +1,15 @@
 ---
 title: "Протокол HTTP"
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - https
   - гипертекст
   - протокол прикладного уровня
+tags:
+  - article
 ---
 
 ## Кратко
