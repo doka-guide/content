@@ -5,30 +5,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
     }
 
     p {
-      color: white;
-      background-color: #1a5ad7;
-      padding: 15px;
-      font-family: "Roboto", sans-serif;
+      width: 65%;
+      margin: auto;
+      padding: 55px 40px;
+      background-color: #FFFFFF;
+      color: #663613;
     }
 
     @media all and (max-width: 500px) {
       p {
-        color: #ed6742;
-        background-color: #ffd829;
+        background-color: #FF8630;
+        color: #000000;
       }
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <p>Чтобы испечь настоящие круассаны, понадобится секретный ингредиент, который можно купить в любом магазине.</p>
-  </div>
+  <p>Чтобы испечь настоящие круассаны, понадобится секретный ингредиент, который можно купить в любом магазине.</p>
 </body>
 </html>
