@@ -57,7 +57,7 @@ summary:
 </form>
 ```
 
-<iframe title="Два способа связать label и input" src="demos/label-input.html"></iframe>
+<iframe title="Два способа связать label и input" src="demos/label-input.html" height="210"></iframe>
 
 ## Атрибуты
 

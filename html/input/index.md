@@ -105,35 +105,38 @@ summary:
 Вот так будет выглядеть простая форма, собранная из нескольких элементов `<input>`. Мы поместили их все в контейнер `<form>`, чтобы данные, которые введёт пользователь, можно было отправить на сервер:
 
 ```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Тег INPUT</title>
-  </head>
-  <body>
-    <form name="test" method="post" action="input1.php">
-      <label>
-        Текстовое поле в одну строчку:
-        <input type="text" size="40">
-      </label>
-      <label>
-        Радио-кнопки:
-        <input type="radio" name="browser" value="ie"> Вариант 1<br>
-        <input type="radio" name="browser" value="opera"> Вариант 2<br>
-        <input type="radio" name="browser" value="firefox"> Вариант 3<br>
-      </label>
-      <label>
-        Большое текстовое поле:
-        <textarea name="comment" cols="40" rows="3"></textarea>
-      </label>
-      <label>
-        <input type="submit" value="Отправить">
-        <input type="reset" value="Очистить">
-      </label>
-    </form>
-  </body>
-</html>
+<form name="test" method="post" action="input1.php">
+  <label>
+    Текстовое поле в одну строчку:
+    <input type="text" size="40">
+  </label>
+
+  <fieldset>
+    Радио-кнопки:
+    <label for="ie" class="radio-label">
+      <input type="radio" name="browser" value="ie" id="ie">
+      Вариант 1
+    </label>
+    <label for="opera" class="radio-label">
+      <input type="radio" name="browser" value="opera" id="opera">
+      Вариант 2
+    </label>
+    <label for="firefox" class="radio-label">
+      <input type="radio" name="browser" value="firefox" id="firefox">
+      Вариант 3
+    </label>
+  </fieldset>
+
+  <label>
+    Большое текстовое поле:
+    <textarea name="comment" cols="40" rows="3"></textarea>
+  </label>
+
+  <div>
+    <input type="reset" value="Очистить">
+    <input type="submit" value="Отправить">
+  </div>
+</form>
 ```
 
-<iframe title="Различные input" src="demos/inputs.html"></iframe>
+<iframe title="Различные input" src="demos/inputs.html" height="440"></iframe>
