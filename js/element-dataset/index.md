@@ -45,7 +45,7 @@ heading.dataset // Вернет пустой объект {}, так как не
 
 Чтобы добавить дата-атрибут к элементу, нужно добавить новое поле в объект `Element.dataset`. Название поля так же должно быть без префикса `data-`, браузер автоматически подставит его. В значениях атрибутов в HTML могут быть только строки, потому любое значение будет автоматически приведено к строке.
 
-Возьмем тот же HTML из примера выше и добавим дата-атрибуты ко второму элементу:
+Возьмём тот же HTML из примера выше и добавим дата-атрибуты ко второму элементу:
 ```js
 // Используем тот же HTML из примера выше
 const items = document.querySelectorAll("li")
@@ -65,12 +65,41 @@ secondItem.dataset.lightsaber = { color: 'red' } // Объекты тоже пр
 
 Если в `Element.dataset` добавить поле с пустым значением, то в HTML будет создан дата-атрибут без значения.
 
-::: callout ❗️
+### Использование camelCase и kebab-case
 
-Если в `Element.dataset` присвоить поле со названием, записанным в `camelCase`, то браузер создаст дата-атрибут в название записанным в `kebab-case`. Однако в самом объекте `Element.dataset` значение будет храниться в `camelCase`.
+В `Element.dataset` необходимо присваивать поля, название которых записывается в одно слово. Потому для составных имён используется только `camelCase` нотация. При попытке присвоить название в `kebab-case` будет выброшена ошибка.
 
-Это правило работает и в обратную сторону – дата-атрибут в названии которого содержится несколько слов, разделённых дефисом, в `Element.dataset` будет иметь название поля записанным `camelCase` в одно слово.
-:::
+```js
+const body = document.querySelector('body')
+
+// Uncaught DOMException: Failed to set a named property on 'DOMStringMap': 'dark-theme' is not a valid property name.
+body.dataset['dark-theme'] = true
+```
+
+Дата-атрибуты, записанные в `Element.dataset` с помощью `camelCase`, в HTML будут иметь названия в `kebab-case`. Браузер преобразует `camelCase` в `kebab-case`. В `Element.dataset` название останется в `camelCase`.
+
+```html
+<ul>
+    <li>Иван Иванов</li>
+</ul>
+```
+
+```js
+const item = document.querySelector("li")
+
+// Создаст дата атрибут data-years-of-experience="1"
+item.dataset.yearsOfExperience = 2
+```
+
+В результате выполнения примера выше получится следующий HTML:
+
+```html
+<ul>
+    <li data-candidate-role="junior" data-years-of-experience="1">Иван Иванов</li>
+</ul>
+```
+
+Преобразование названий работает и в обратную сторону – дата-атрибут на HTML-элементе, записанный в `kebab-case`, будет превращён в `Element.dataset` в `camelCase`.
 
 ```html
 <ul>
@@ -82,11 +111,9 @@ secondItem.dataset.lightsaber = { color: 'red' } // Объекты тоже пр
 const item = document.querySelector("li")
 
 item.dataset // Вернет { candidateRole: "junior" }
-
-item.dataset.yearsOfExperience = 2 // Создаст дата атрибут data-years-of-experience="1"
-// Так будет выглядеть HTML
-// <li data-candidate-role="junior" data-years-of-experience="1">Иван Иванов</li>
 ```
+
+### Удаление дата-атрибута
 
 Удалить дата-атрибут можно только с помощью оператора `delete`. Если попытаться присвоить к полю значение `undefined` или `null`, то браузер просто присвоит атрибуту строку `"undefined"` или `"null"`.
 
