@@ -1,19 +1,18 @@
 ---
 title: "Работа с сетью"
-tags:
-  - article
-name: network
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - network
   - iptables
   - packages
   - protocols
   - пакеты
   - протоколы
+tags:
+  - article
 ---
 
 ## Кратко
