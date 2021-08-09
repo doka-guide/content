@@ -1,16 +1,16 @@
 ---
 title: ":required"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - валидация
   - форма
   - form
   - обязательное
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,14 +1,14 @@
 ---
 title: "const"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - константы
   - переменная
+tags:
+  - doka
 ---
 
 ## Кратко

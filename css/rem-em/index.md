@@ -1,15 +1,14 @@
 ---
 title: "rem, em"
-tags:
-  - doka
-  - sprint-3
 authors:
   - realetive
-summary:
+keywords:
   - единицы измерения
   - относительные единицы
   - rem
   - em
+tags:
+  - doka
 ---
 
 ## Кратко

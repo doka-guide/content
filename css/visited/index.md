@@ -1,17 +1,17 @@
 ---
 title: ":visited"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - :visited
   - псевдокласс
   - LVHA
+tags:
+  - doka
 ---
 
 ## Кратко

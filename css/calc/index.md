@@ -1,15 +1,14 @@
 ---
 title: "calc()"
-tags:
-  - doka
-  - sprint-3
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - функция
   - вычисление
+tags:
+  - doka
 ---
 
 ## Кратко

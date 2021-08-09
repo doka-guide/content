@@ -1,14 +1,13 @@
 ---
 title: "box-shadow"
-tags:
-  - doka
-  - sprint-2
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - box-shadow
+tags:
+  - doka
 ---
 
 ## Кратко

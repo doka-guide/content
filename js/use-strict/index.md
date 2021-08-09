@@ -1,9 +1,9 @@
 ---
 title: "use strict"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

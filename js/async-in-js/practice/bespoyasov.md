@@ -19,9 +19,9 @@
 
 Для этого мы можем использовать [`Promise.all`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) и [`Promise.race`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/race).
 
+Когда мы хотим дождаться выполнения всех запросов и сделать что-то после этого:
+
 ```js
-// Когда мы хотим дождаться выполнения всех запросов
-// и сделать что-то после этого:
 const request1 = fetch("/api/users")
 const request2 = fetch("/api/posts")
 const request3 = fetch("/api/comments")
@@ -30,14 +30,23 @@ Promise.all([request1, request2, request3]).then((values) => {
   console.log("Загрузились все данные!")
   console.log(values)
 })
+```
 
-// Загрузились все данные!
+Загрузились все данные!
 
-// В переменной values будет массив со значениями каждого из Промисов,
-// порядок значений в нём будет соответствовать порядку запросов:
-// [ [user1, user2], [post1, post2], [comment1, comment2] ]
+В переменной `values` будет массив со значениями каждого из промисов, порядок значений в нём будет соответствовать порядку запросов:
 
-// Когда нам важно, чтобы выполнился хотя бы один:
+```js
+[
+  [user1, user2],
+  [post1, post2],
+  [comment1, comment2]
+]
+```
+
+Когда нам важно, чтобы выполнился хотя бы один:
+
+```js
 const promise1 = new Promise((resolve, reject) => {
   setTimeout(resolve, 500, "First")
 })
@@ -63,13 +72,13 @@ Promise.race([promise1, promise2]).then((value) => {
 
 Просто использовать цикл `for` или метод `forEach` с асинхронными операциями мы не можем. И цикл `for` и метод `forEach` ожидают синхронный код.
 
-Однако, мы можем использовать [`for await ... of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for-await...of), который появился в ES2018, для итерирования над асинхронными итерируемыми сущностями.
+Однако мы можем использовать [`for await...of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for-await...of), который появился в ES2018, для итерирования над асинхронными итерируемыми сущностями.
+
+Простой генератор создаёт итерируемую сущность, которую можно «перебрать» через `for...of`:
 
 ```js
 const urls = ["/api/users", "/api/posts", "/api/comments"]
 
-// Простой генератор создаёт итерируемую сущность,
-// которую можно «перебрать» через for ... of:
 function* requestGenerator() {
   for (const url of urls) {
     yield url
@@ -79,13 +88,13 @@ function* requestGenerator() {
 for (const item of requestGenerator()) {
   console.log(item)
 }
+```
 
-// Выведет каждый url по очереди.
-// Порядок гарантируется — так как код синхронный.
+Выведет каждый URL по очереди. Порядок гарантируется — так как код синхронный.
 
-// Асинхронный же генератор почти не отличается от обычного,
-// только вместо значений он выбрасывает промисы.
-// И итерировать его придётся через for await ... of:
+Асинхронный же генератор почти не отличается от обычного, только вместо значений он выбрасывает промисы. И итерировать его придётся через `for await...of`:
+
+```js
 async function* removeDataGenerator() {
   for (const url of urls) {
     const response = await fetch(url)
@@ -99,11 +108,8 @@ async function* removeDataGenerator() {
     console.log(item)
   }
 })()
-
-// Выведет данные, которые получит от сервера.
-// Порядок не гарантируется, потому что неизвестно,
-// какой запрос выполнится раньше.
 ```
 
-Как вариант, это можно использовать [для управления состоянием приложений](https://bespoyasov.ru/blog/fsm-to-the-rescue/).
+Выведет данные, которые получит от сервера. Порядок не гарантируется, потому что неизвестно, какой запрос выполнится раньше.
 
+Как вариант, это можно использовать [для управления состоянием приложений](https://bespoyasov.ru/blog/fsm-to-the-rescue/).

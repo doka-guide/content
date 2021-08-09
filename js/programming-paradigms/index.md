@@ -1,19 +1,18 @@
 ---
 title: "Парадигмы программирования"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - sprint-8
-  - article
-summary:
+keywords:
   - programming paradigms
   - процедурное
   - императивный
   - декларативный
   - ооп
   - функциональное
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

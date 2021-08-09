@@ -1,18 +1,19 @@
 ---
 title: "<body>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - vladimir
   - solarrust
-summary:
+editors:
+  - tachisis
+keywords:
   - body
-  - "<body>"
   - тэг
   - тег
   - боди
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -37,4 +38,4 @@ summary:
 
 ## Как пишется
 
-Его ставят сразу после закрывающего `</head>`.
+Элемент `<body>` ставят сразу после закрывающего `</head>`.

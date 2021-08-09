@@ -13,7 +13,7 @@
 
 ```markdown
 ---
-title: Название статьи
+title: "Название статьи"
 authors:
   - Никнейм основного автора
 contributors:

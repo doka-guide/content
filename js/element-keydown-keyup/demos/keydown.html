@@ -144,29 +144,28 @@
     <input id="field" placeholder="Начни печатать">
     <span id="extra"></span>
   </div>
+  <script>
+    const field = document.getElementById('field')
+    const key = document.getElementById('key')
+    const keyCode = document.getElementById('key-code')
+    const code = document.getElementById('code')
+    const extra = document.getElementById('extra')
 
-<script>
-  const field = document.getElementById("field");
-  const key = document.getElementById("key");
-  const keyCode = document.getElementById("key-code");
-  const code = document.getElementById("code");
-  const extra = document.getElementById("extra");
+    field.addEventListener('keydown', function (event) {
+      key.innerText = event.key
+      keyCode.innerText = event.keyCode
+      code.innerText = event.code
 
-  field.addEventListener("keydown", function (event) {
-    key.innerText = event.key;
-    keyCode.innerText = event.keyCode;
-    code.innerText = event.code;
-
-    if (!event.shiftKey && !event.altKey && !event.ctrlKey) {
-      extra.innerText = "";
-    } else if (event.shiftKey) {
-      extra.innerHTML = "+ <code>Shift</code>";
-    } else if (event.altKey) {
-      extra.innerHTML = "+ <code>Alt</code>";
-    } else if (event.ctrlKey) {
-      extra.innerHTML = "+ <code>Ctrl</code>";
-    }
-  });
-</script>
+      if (!event.shiftKey && !event.altKey && !event.ctrlKey) {
+        extra.innerText = ''
+      } else if (event.shiftKey) {
+        extra.innerHTML = '+ <code>Shift</code>'
+      } else if (event.altKey) {
+        extra.innerHTML = '+ <code>Alt</code>'
+      } else if (event.ctrlKey) {
+        extra.innerHTML = '+ <code>Ctrl</code>'
+      }
+    })
+  </script>
 </body>
 </html>

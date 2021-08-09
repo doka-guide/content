@@ -1,17 +1,17 @@
 ---
 title: "<script>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - script
   - скрипт
+tags:
+  - doka
 ---
 
 ## Кратко

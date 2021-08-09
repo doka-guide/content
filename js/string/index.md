@@ -1,13 +1,13 @@
 ---
 title: "Строка"
-tags:
-  - doka
 authors:
   - vindi-r
 contributors:
   - furtivite
-summary:
+keywords:
   - string
+tags:
+  - doka
 ---
 
 ## Кратко

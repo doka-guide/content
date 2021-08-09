@@ -1,18 +1,17 @@
 ---
 title: "::placeholder"
-tags:
-  - doka
-  - sprint-2
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - плейсхолдер
   - placeholder
   - подсказка
+tags:
+  - doka
 ---
 
 ## Кратко

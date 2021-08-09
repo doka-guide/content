@@ -1,17 +1,16 @@
 ---
 title: "<link>"
-tags:
-  - doka
-  - sprint-1
 authors:
   - grachev
-editors:
-  - tachisis
 contributors:
   - corocoto
-summary:
+editors:
+  - tachisis
+keywords:
   - подключение стилей
   - link
+tags:
+  - doka
 ---
 
 ## Кратко

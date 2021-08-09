@@ -1,14 +1,14 @@
 ---
 title: "width"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - ширина
   - размер
+tags:
+  - doka
 ---
 
 ## Кратко

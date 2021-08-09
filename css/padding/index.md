@@ -1,15 +1,14 @@
 ---
 title: "padding"
-tags:
-  - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:
   - furtivite
   - skorobaeus
-summary:
+keywords:
   - padding
+tags:
+  - doka
 ---
 
 ## Кратко

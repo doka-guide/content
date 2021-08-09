@@ -1,12 +1,15 @@
 ---
 title: "Позиционирование элементов с помощью JS"
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Мальчик и девочка расставляют картинки с шахматными фигурами'
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - анимации animation
   - transform
+tags:
+  - article
 ---
 
 ## Кратко

@@ -1,15 +1,14 @@
 ---
 title: "Селектор по атрибуту"
-tags:
-  - doka
-  - sprint-1
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - селектор
   - атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

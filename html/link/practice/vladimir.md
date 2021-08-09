@@ -2,7 +2,7 @@
 
 Здесь также можно указать, является ли страница канонической (главной среди дублированных) или альтернативной: `<link rel="canonical">`, `<link rel="alternate">`.
 
-Это нужно для качественной индексации в поисковиках. Например, если у нас мобилка на поддомене m.site.ru, то `<link rel="canonical" href="[https://site.ru/](https://site.ru/)">`, и `<link rel="alternate" href="[https://m.site.ru/](https://m.site.ru/)">`.
+Это нужно для качественной индексации в поисковиках. Например, если у нас мобилка на поддомене m.site.ru, то `<link rel="canonical" href="https://site.ru/">`, и `<link rel="alternate" href="https://m.site.ru/">`.
 
 Также в `alternate` указываются всякие REST API и другие сервисные дела.
 

@@ -1,14 +1,13 @@
 ---
 title: "transition"
-tags:
-  - doka
-  - sprint-2
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - transition
+tags:
+  - doka
 ---
 
 ## Кратко

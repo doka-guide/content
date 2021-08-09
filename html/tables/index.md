@@ -1,12 +1,10 @@
 ---
 title: "Таблицы"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - table
   - thead
   - tbody
@@ -17,6 +15,8 @@ summary:
   - caption
   - colspan
   - rowspan
+tags:
+  - doka
 ---
 
 ## Кратко

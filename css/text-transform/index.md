@@ -1,13 +1,13 @@
 ---
 title: "text-transform"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - text-transform
+tags:
+  - doka
 ---
 
 ## Кратко

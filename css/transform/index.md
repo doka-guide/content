@@ -1,14 +1,13 @@
 ---
 title: "transform"
-tags:
-  - doka
-  - sprint-2
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - трансформация
+tags:
+  - doka
 ---
 
 ## Кратко

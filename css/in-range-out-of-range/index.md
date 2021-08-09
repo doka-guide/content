@@ -1,15 +1,15 @@
 ---
 title: ":in-range и :out-of-range"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - валидация
   - число
   - диапазон
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,14 +1,20 @@
 ---
 title: "sessionStorage"
-tags:
-  - doka
 authors:
   - akellbl4
-summary:
+keywords:
   - sessionstorage
   - webstorage
   - storage
+tags:
+  - doka
 ---
+
+:::callout 📚
+
+`sessionStorage` — один из способов хранить данные в браузере. Обзор всех способов описан в статье «[Хранение данных в браузере](/js/browser-storages/)».
+
+:::
 
 ## Кратко
 

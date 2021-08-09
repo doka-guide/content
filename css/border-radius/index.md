@@ -1,14 +1,13 @@
 ---
 title: "border-radius"
-tags:
-  - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - border-radius
+tags:
+  - doka
 ---
 
 ## Кратко

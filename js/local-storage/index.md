@@ -1,14 +1,20 @@
 ---
 title: "localStorage"
-tags:
-  - doka
 authors:
   - akellbl4
-summary:
+keywords:
   - localstorage
   - webstorage
   - storage
+tags:
+  - doka
 ---
+
+:::callout 📚
+
+`localStorage` — один из способов хранить данные в браузере. Обзор всех способов описан в статье «[Хранение данных в браузере](/js/browser-storages/)».
+
+:::
 
 ## Кратко
 

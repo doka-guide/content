@@ -1,9 +1,9 @@
 ---
 title: "Array.some"
-tags:
-  - doka
 authors:
   - windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

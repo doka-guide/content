@@ -90,18 +90,17 @@
     <button type="type" class="button blue" onclick="makeScroll(false)">Прокрутка с arg = false</button>
   </div>
   <div id="element"></div>
+  <script>
+    function makeScroll(arg) {
+      const parent = window.parent
+      const x = parent.scrollX
+      const y = parent.scrollY
 
-<script>
-  function makeScroll(arg) {
-    const parent = window.parent;
-    const x = parent.scrollX;
-    const y = parent.scrollY;
+      const elt = document.querySelector('#element')
+      elt.scrollIntoView(arg)
 
-    const elt = document.querySelector('#element');
-    elt.scrollIntoView(arg);
-
-    parent.scrollTo(x, y);
-  }
-</script>
+      parent.scrollTo(x, y)
+    }
+  </script>
 </body>
 </html>

@@ -1,18 +1,17 @@
 ---
 title: "object-fit"
-tags:
-  - doka
-  - sprint-4
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - стили картинок
   - положение картинок
   - object
   - fit
   - img
+tags:
+  - doka
 ---
 
 ## Кратко

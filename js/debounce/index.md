@@ -1,16 +1,16 @@
 ---
 title: "Debounce на примере формы поиска"
+cover:
+  desktop: "images/cover.png"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - keyboard event
   - delay
   - search
   - form
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко
@@ -42,7 +42,7 @@ cover:
       чтобы браузеры делали дополнительную магию
       с автозаполнением и подходящими кнопками
       на телефонных клавиатурах. -->
-  <input type="search" name="query" placeholder="Margherita">
+  <input type="search" name="query" placeholder="Margherita" />
 
   <!-- У кнопки тип проставлять необязательно,
       так как submit — это тип кнопки по умолчанию. -->
@@ -84,7 +84,7 @@ const pizzaList = [
   "4 Cheeses",
   "Diabola",
   "Sfincione",
-]
+];
 ```
 
 А дальше создадим объект, который будет имитировать асинхронный ответ (Посмотрите статью [про асинхронность в JS](/js/async-in-js), если это понятие вам не знакомо).
@@ -96,7 +96,7 @@ const pizzaList = [
 function contains(query) {
   return pizzaList.filter((title) =>
     title.toLowerCase().includes(query.toLowerCase())
-  )
+  );
 }
 
 // Мок-объект сервера будет содержать метод search:
@@ -117,18 +117,18 @@ const server = {
             list: query ? contains(query) : [],
           }),
         150
-      )
-    })
+      );
+    });
   },
-}
+};
 ```
 
 Мы сможем вызывать этот метод вот так:
 
 ```javascript
-;(async () => {
-  const response = await server.search("Peppe")
-})()
+(async () => {
+  const response = await server.search("Peppe");
+})();
 ```
 
 Или так:
@@ -136,7 +136,7 @@ const server = {
 ```javascript
 server.search("Peppe").then(() => {
   /*...*/
-})
+});
 ```
 
 ## Первая версия обработчика
@@ -146,8 +146,8 @@ server.search("Peppe").then(() => {
 Получим ссылки на все элементы, с которыми будем работать:
 
 ```javascript
-const searchInput = searchForm.querySelector('[type="search"]')
-const searchResults = document.querySelector(".search-results")
+const searchInput = searchForm.querySelector('[type="search"]');
+const searchResults = document.querySelector(".search-results");
 ```
 
 Затем напишем обработчик события ввода с клавиатуры в поле поиска:
@@ -156,22 +156,22 @@ const searchResults = document.querySelector(".search-results")
 searchInput.addEventListener("input", (e) => {
   // Получаем значение в поле,
   // на котором сработало событие:
-  const { value } = e.target
+  const { value } = e.target;
 
   // Получаем список названий пицц от сервера:
   server.search(value).then(function (response) {
-    const { list } = response
+    const { list } = response;
 
     // Проходим по каждому из элементов списка,
     // и составляем строчку с несколькими <li> элементами...
     const html = list.reduce((markup, item) => {
-      return `${markup}<li>${item}</li>`
-    }, ``)
+      return `${markup}<li>${item}</li>`;
+    }, ``);
 
     // ...которую потом используем как содержимое списка:
-    searchResults.innerHTML = html
-  })
-})
+    searchResults.innerHTML = html;
+  });
+});
 ```
 
 Проверим, что при вводе какой-то строки, например `a`, мы видим список на странице.
@@ -187,7 +187,7 @@ const server = {
   search(query) {
     // Поставим логер, который будет выводить
     // каждый принятый запрос:
-    console.log(query)
+    console.log(query);
 
     return new Promise((resolve) => {
       setTimeout(
@@ -196,10 +196,10 @@ const server = {
             list: query ? contains(query) : [],
           }),
         100
-      )
-    })
+      );
+    });
   },
-}
+};
 ```
 
 Теперь введём название пиццы:
@@ -239,7 +239,7 @@ const server = {
 
 :::callout ☝️
 
-...А иногда такой приём ещё называют декорированием, а функции высшего порядка — декораторами.
+...А иногда такой приём ещё называют декорированием, а функции высшего порядка — [декораторами](/js/design-patterns-structural).
 
 :::
 
@@ -258,31 +258,31 @@ function debounce(callee, timeoutMs) {
   return function perform(...args) {
     // В переменной previousCall мы будем хранить
     // временную метку предыдущего вызова...
-    let previousCall = this.lastCall
+    let previousCall = this.lastCall;
 
     // ...а в переменной текущего вызова —
     // временную метку нынешнего момента.
-    this.lastCall = Date.now()
+    this.lastCall = Date.now();
 
     // Нам это будет нужно, чтобы потом сравнить,
     // когда была функция вызвана в этот раз и в предыдущий.
     // Если разница между вызовами меньше, чем указанный интервал,
     // то мы очищаем таймаут...
     if (previousCall && this.lastCall - previousCall <= timeoutMs) {
-      clearTimeout(this.lastCallTimer)
+      clearTimeout(this.lastCallTimer);
     }
 
     // ...который отвечает за непосредственно вызов функции-аргумента.
     // Обратите внимание, что мы передаём все аргументы ...args,
     // который получаем в функции perform —
     // это тоже нужно, чтобы нам на приходилось менять другие части кода.
-    this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
+    this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs);
 
     // Если таймаут был очищен, вызова не произойдёт;
     // если он очищен не был, то callee вызовется.
     // Таким образом мы как бы «отодвигаем» вызов callee
     // до тех пор, пока «снаружи всё не подуспокоится».
-  }
+  };
 }
 ```
 
@@ -294,10 +294,10 @@ function doSomething(arg) {
   // ...
 }
 
-doSomething(42)
+doSomething(42);
 
 // А вот — та же функция, но обёрнутая в debounce:
-const debouncedDoSomething = debounce(doSomething, 250)
+const debouncedDoSomething = debounce(doSomething, 250);
 
 // debouncedDoSomething — это именно функция,
 // потому что из debounce мы возвращаем функцию.
@@ -307,7 +307,7 @@ const debouncedDoSomething = debounce(doSomething, 250)
 // прокидывает все аргументы без изменения в doSomething,
 // так что и вызов debouncedDoSomething будет таким же,
 // как и вызов doSomething:
-debouncedDoSomething(42)
+debouncedDoSomething(42);
 ```
 
 ## Применяем `debounce`
@@ -319,20 +319,20 @@ debouncedDoSomething(42)
 // Внутри она будет такой же,
 // но так нам будет удобнее оборачивать её в debounce.
 function handleInput(e) {
-  const { value } = e.target
+  const { value } = e.target;
 
   server.search(value).then(function (response) {
-    const { list } = response
+    const { list } = response;
 
     const html = list.reduce((markup, item) => {
-      return `${markup}<li>${item}</li>`
-    }, ``)
+      return `${markup}<li>${item}</li>`;
+    }, ``);
 
-    searchResults.innerHTML = html
-  })
+    searchResults.innerHTML = html;
+  });
 }
 
-searchInput.addEventListener("input", handleInput)
+searchInput.addEventListener("input", handleInput);
 ```
 
 Теперь обернём вынесенную функцию и обновим `addEventListener`:
@@ -344,10 +344,10 @@ function handleInput(e) {
 
 // Указываем, что нам нужно ждать 250 мс,
 // прежде чем запустить обработчик:
-const debouncedHandle = debounce(handleInput, 250)
+const debouncedHandle = debounce(handleInput, 250);
 
 // Передаём новую debounced-функцию в addEventListener:
-searchInput.addEventListener("input", debouncedHandle)
+searchInput.addEventListener("input", debouncedHandle);
 ```
 
 И теперь, если мы быстро напишем несколько символов, мы отправим лишь один запрос:
