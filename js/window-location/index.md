@@ -3,7 +3,9 @@ title: "window.location"
 name: window-location
 authors:
   - akellbl4
-summary:
+tags:
+  - doka
+keywords:
   - location
   - href
   - hash
