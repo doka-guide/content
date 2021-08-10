@@ -21,46 +21,57 @@ tags:
 ```html
 <h1>Известные ситхи</h1>
 <ul>
-    <li data-id="1541" data-episode="1">Дарт Мол</li>
-    <li data-id="9434" data-episode="4">Дарт Вейдер</li>
-    <li data-id="5549" data-episode="4">Дарт Сидиус</li>
+  <li data-id="1541" data-episode="1">Дарт Мол</li>
+  <li data-id="9434" data-episode="4">Дарт Вейдер</li>
+  <li data-id="5549" data-episode="4">Дарт Сидиус</li>
 </ul>
 ```
 
 ```js
-const items = document.querySelectorAll("li")
+const items = document.querySelectorAll('li')
 
 const firstItem = items[0]
 
-firstItem.dataset // Вернет { id: "1541", episode: "1" }
+// Вернет { id: '1541', episode: '1' }
+firstItem.dataset
 ```
 
 Если дата-атрибутов на элементе нет, то вернётся пустой объект.
 
 ```js
-const heading = document.querySelector("h1")
+const heading = document.querySelector('h1')
 
-heading.dataset // Вернет пустой объект {}, так как нет дата-атрибутов
+// Вернет пустой объект {}, так как нет дата-атрибутов
+heading.dataset
 ```
 
 Чтобы добавить дата-атрибут к элементу, нужно добавить новое поле в объект `Element.dataset`. Название поля так же должно быть без префикса `data-`, браузер автоматически подставит его. В значениях атрибутов в HTML могут быть только строки, потому любое значение будет автоматически приведено к строке.
 
 Возьмём тот же HTML из примера выше и добавим дата-атрибуты ко второму элементу:
+
 ```js
 // Используем тот же HTML из примера выше
-const items = document.querySelectorAll("li")
+const items = document.querySelectorAll('li')
 
 const secondItem = items[1]
 
-secondItem.dataset.side = "evil"
+// Объекты тоже приводятся в строке
+secondItem.dataset.side = 'evil'
 secondItem.dataset.age = 46
-secondItem.dataset.lightsaber = { color: 'red' } // Объекты тоже приводятся в строке
+secondItem.dataset.lightsaber = { color: 'red' }
 ```
 
 В результате получим такой элемент:
 
 ```html
-<li data-id="9434" data-episode="4" data-side="evil" data-age="46" data-lightsaber="[object Object]>Дарт Вейдер</li>
+<li
+  data-id="9434"
+  data-episode="4"
+  data-side="evil"
+  data-age="46"
+  data-lightsaber="[object Object]">
+  Дарт Вейдер
+</li>
 ```
 
 Если в `Element.dataset` добавить поле с пустым значением, то в HTML будет создан дата-атрибут без значения.
@@ -72,22 +83,25 @@ secondItem.dataset.lightsaber = { color: 'red' } // Объекты тоже пр
 ```js
 const body = document.querySelector('body')
 
-// Uncaught DOMException: Failed to set a named property on 'DOMStringMap': 'dark-theme' is not a valid property name.
 body.dataset['dark-theme'] = true
+
+// Uncaught DOMException: Failed to set
+// a named property on 'DOMStringMap':
+// 'dark-theme' is not a valid property name.
 ```
 
 Дата-атрибуты, записанные в `Element.dataset` с помощью `camelCase`, в HTML будут иметь названия в `kebab-case`. Браузер преобразует `camelCase` в `kebab-case`. В `Element.dataset` название останется в `camelCase`.
 
 ```html
 <ul>
-    <li>Иван Иванов</li>
+  <li>Иван Иванов</li>
 </ul>
 ```
 
 ```js
-const item = document.querySelector("li")
+const item = document.querySelector('li')
 
-// Создаст дата атрибут data-years-of-experience="1"
+// Создаст дата-атрибут data-years-of-experience="1"
 item.dataset.yearsOfExperience = 2
 ```
 
@@ -95,7 +109,7 @@ item.dataset.yearsOfExperience = 2
 
 ```html
 <ul>
-    <li data-candidate-role="junior" data-years-of-experience="1">Иван Иванов</li>
+  <li data-candidate-role="junior" data-years-of-experience="1">Иван Иванов</li>
 </ul>
 ```
 
@@ -103,19 +117,20 @@ item.dataset.yearsOfExperience = 2
 
 ```html
 <ul>
-    <li data-candidate-role="junior">Иван Иванов</li>
+  <li data-candidate-role="junior">Иван Иванов</li>
 </ul>
 ```
 
 ```js
-const item = document.querySelector("li")
+const item = document.querySelector('li')
 
-item.dataset // Вернет { candidateRole: "junior" }
+// Вернёт { candidateRole: 'junior' }
+item.dataset
 ```
 
 ### Удаление дата-атрибута
 
-Удалить дата-атрибут можно только с помощью оператора `delete`. Если попытаться присвоить к полю значение `undefined` или `null`, то браузер просто присвоит атрибуту строку `"undefined"` или `"null"`.
+Удалить дата-атрибут можно только с помощью оператора `delete`. Если попытаться присвоить к полю значение `undefined` или `null`, то браузер просто присвоит атрибуту строку `'undefined'` или `'null'`.
 
 Возьмём следующий HTML:
 
@@ -126,12 +141,9 @@ item.dataset // Вернет { candidateRole: "junior" }
 При установке `undefined` в значение дата-атрибута, он не удалится с элемента.
 
 ```js
-const element = document.querySelector("div")
+const element = document.querySelector('div')
 
 element.dataset.testid = undefined
-
-
-// Получится элемент без дата-атрибута <div>Любое содержимое<div>
 ```
 
 В результате получится следующий HTML:
@@ -147,24 +159,24 @@ delete element.dataset.testid
 ```
 
 ```html
-<div>Любое содержимое<div>
+<div>Любое содержимое</div>
 ```
 
 `Element.dataset` защищён от перезаписи. Это значит что попытка присвоить в `Element.dataset` новое значение будет проигнорирована.
 
 ```js
-const element = document.querySelector("div")
+const element = document.querySelector('div')
 
 // Ничего не произойдет, дата-атрибуты на элементах тоже не изменятся
 element.dataset = {}
-element.dataset = "string"
+element.dataset = 'string'
 ```
 
 ## Как понять
 
 Дата-атрибуты появились в HTML5 и добавили возможность разработчикам добавлять свои собственные атрибуты к элементам. Причин для использования таких атрибутов можно придумать множество, чаще всего в дата атрибутах хранят нужные значения, которые используют в CSS или JavaScript.
 
-Дата-атрибуты были созданы специально для того, чтобы хранить и работать с *данными* прямо в HTML. Отсюда и префикс *data*, что в переводе значит данные. Например, с помощью дата-атрибутов можно хранить значение выбранное в [селекте](/html/select) прямо на элементе.
+Дата-атрибуты были созданы специально для того, чтобы хранить и работать с _данными_ прямо в HTML. Отсюда и префикс _data_, что в переводе значит данные. Например, с помощью дата-атрибутов можно хранить значение выбранное в [селекте](/html/select) прямо на элементе.
 
 Хранение данных на HTML-элементах так же полезно для инициализации виджетов в JavaScript. Они могут находить нужные элементы используя дата-атрибут как селектор, и читать данные из атрибута. Например, в многостраничных приложениях HTML генерируется на сервере и готовая страница отправляется в ответ на запрос. Во время генерации в HTML можно подставить дата-атрибуты с данными с сервера, и таким образом пробросить их в JavaScript.
 
