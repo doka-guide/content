@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Калькулятор специфичности — Специфичность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    .selector {
+      display: block;
+      margin-top: 15px;
+    }
+
+    .result {
+      display: flex;
+      margin-top: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <label>
+    Введите в поле CSS-селектор
+    <input type="text" class="selector" value="#header > .class div">
+  </label>
+</form>
+
+<div class="result">
+  <div class="result__block _id">
+    <div class="result__weight">1</div>
+    <ul class="result__selector-list selector-list">
+      <li class="selector-list__item"><code>#header</code></li>
+    </ul>
+  </div>
+  <div class="result__block _class">
+    <div class="result__weight">1</div>
+    <ul class="result__selector-list selector-list">
+      <li class="selector-list__item"><code>.class</code></li>
+    </ul>
+  </div>
+  <div class="result__block _tag">
+    <div class="result__weight">1</div>
+    <ul class="result__selector-list selector-list">
+      <li class="selector-list__item"><code>div</code></li>
+    </ul>
+  </div>
+</div>
+<script>
+/*
+1. Первая цифра — селекторы по идентификатору. Все слова с # в начале
+2. Вторая цифра — селекторы по классу (с . в начале), по атрибуту (в []), селекторы псевдоклассов (с : в начале, но не before или after, first-letter, first-line, selection и placeholder)
+3. Третья цифра — селекторы по тегу (слово без всего в начале) и селекторы псевдоэлементов (с : или :: в начале, как раз before или after, first-letter, first-line, selection и placeholder)
+
+Под цифрами список соответствующих частей селектора.
+По дефолту цифры 0 0 0, списки под цифрами пустые.
+*/
+</script>
+</body>
+</html>
