@@ -8,14 +8,14 @@
 
 ```html
 <div class="parent">
-  <img class="child" src="some-image.jpg" alt="Три собаки: одна смотрит влево, вторая закрыла глаза и спит, третья смотрит вправо">
+  <img class="child" src="some-image.jpg" alt="Три собаки, все закрыли глаза и спят">
 </div>
 ```
 
 ```css
 .parent {
   position: relative;
-  width: 380px;
+  width: 50%;
 }
 
 .parent::after {
@@ -25,7 +25,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(15, 180, 29, 0.7);
+  background-color: rgb(255 134 48 / 20%);
 }
 
 .child {
@@ -34,9 +34,4 @@
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="solarrust" data-slug-hash="dyvGrRZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="dyvGrRZ">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/dyvGrRZ">
-  dyvGrRZ</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Картинка с цветным оверлеем" src="../demos/img-overlay.html" height="320"></iframe>
