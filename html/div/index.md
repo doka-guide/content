@@ -31,20 +31,20 @@ tags:
 ```html
 <div class="container">
   <p>
-    Привет, мы запихали текст в <code>&lt;div&gt;</code>,
-    а сам контейнер покрасили в серый.
+    Мы поместили текст в <code>&lt;div&gt;</code>,
+    а сам контейнер покрасили в оранжевый.
   </p>
 </div>
 ```
 
 ```css
 .container {
-  padding: 8px 12px;
-  background-color: #e6e6e6;
+  background-color: #FF8630;
+  padding: 55px 40px;
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div.html"></iframe>
+<iframe title="Див с фоном" src="demos/div.html" height="260"></iframe>
 
 ## Как это понять
 
