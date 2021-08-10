@@ -12,9 +12,10 @@
     }
 
     body {
-      padding: 5%;
-      background-color: #49A16C;
+      padding: 50px;
+      background-color: #18191C;
       color: #FFFFFF;
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
     }
 
@@ -36,33 +37,28 @@
 
     .button {
       display: block;
-      min-width: 250px;
-      border: 1px solid;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
       padding: 10px;
-      color: #ffffff;
-      font-family: inherit;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
     }
 
     .button:hover {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background-color: #18191c;
+      background-color: #FFFFFF;
       cursor: pointer;
     }
 
-    .button:focus {
-      outline: 1px solid #ffffff;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .darkgreen {
-      border-color: transparent;
-      background-color: #064236;
-    }
-
-    .darkgreen:hover {
-      border-color: #064236;
+    .button-orange {
+      background-color: #FF8630;
     }
 
     .buttons {
@@ -83,8 +79,8 @@
       Просто представил, как ты по утру просыпаешься, смотришь в зеркало и на полном серьёзе говоришь себе: «Я наконец придумал реально отвязное имя — Шокерфейс!» Прям... Прям нарисовалась картинка. Ой, не могу! Слушай, слушай, а у тебя был второй вариант, типа «Чпок-в-пупок»?
     </blockquote>
     <div class="buttons">
-      <button class="button darkgreen">Был, но я тебе не скажу</button>
-      <button class="button darkgreen">Нет, не было</button>
+      <button class="button button-orange">Был, но я тебе не скажу</button>
+      <button class="button button-orange">Нет, не было</button>
     </div>
   </fieldset>
 </body>
