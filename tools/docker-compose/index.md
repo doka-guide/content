@@ -175,23 +175,15 @@ services:
   frontend:
     image: awesome/webapp
 
-    <...>
-
     networks:
       - front-tier
       - back-tier
 
-  <...>
-
   backend:
     image: awesome/database
 
-    <...>
-
     networks:
       - back-tier
-
-<...>
 
 networks:
   front-tier:
@@ -207,12 +199,8 @@ networks:
 ```
 services:
 
-  <...>
-
   backend:
     image: awesome/database
-
-    <...>
 
     volumes:
       - db-data:/etc/data
