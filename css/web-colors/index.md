@@ -1,14 +1,14 @@
 ---
 title: "Цвета в вебе"
-tags:
-  - article
 authors:
   - solarrust
-summary:
+keywords:
   - цвета
   - HEX
   - RGB
   - RGBA
+tags:
+  - article
 ---
 
 ## Название цвета

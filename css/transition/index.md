@@ -1,13 +1,13 @@
 ---
 title: "transition"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - transition
+tags:
+  - doka
 ---
 
 ## Кратко

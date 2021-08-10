@@ -4,7 +4,7 @@ authors:
   - nionka
 editors:
   - tachisis
-summary:
+keywords:
   - li
   - тег
   - тэг

@@ -1,17 +1,17 @@
 ---
 title: "radial-gradient()"
-tags:
-  - doka
 authors:
   - ezhkov_d
 editors:
   - tachisis
-summary:
+keywords:
   - градиент
   - радиальный
   - фон
   - круговой
   - эллиптический
+tags:
+  - doka
 ---
 
 ## Кратко

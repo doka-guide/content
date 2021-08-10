@@ -1,12 +1,12 @@
 ---
 title: "Гайд по grid"
-tags:
-  - article
+cover:
+  desktop: 'images/cover.png'
 authors:
   - solarrust
 contributors:
   - corocoto
-summary:
+keywords:
   - grid
   - display: grid
   - Grid Layout
@@ -45,8 +45,8 @@ summary:
   - minmax()
   - min-content
   - max-content
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Что это?

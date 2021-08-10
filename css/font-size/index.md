@@ -1,15 +1,15 @@
 ---
 title: "font-size"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - vladimir
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - font-size
+tags:
+  - doka
 ---
 
 ## Кратко

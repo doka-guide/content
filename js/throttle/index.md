@@ -1,16 +1,16 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
+cover:
+  desktop: "images/cover.png"
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - scroll
   - resize
   - lazy
   - прокрутка
-cover:
-  desktop: "images/cover.png"
+tags:
+  - article
 ---
 
 ## Кратко

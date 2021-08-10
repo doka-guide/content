@@ -1,15 +1,15 @@
 ---
 title: ":disabled и :enabled"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

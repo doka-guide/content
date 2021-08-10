@@ -1,14 +1,14 @@
 ---
 title: "if...else"
-tags:
-  - doka
 authors:
   - nlopin
-summary:
+keywords:
   - условие
   - условный переход
   - ветвление
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

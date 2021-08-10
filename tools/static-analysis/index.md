@@ -6,7 +6,7 @@ contributors:
   - furtivite
 tags:
   - article
-summary:
+keywords:
   - eslint
   - линтер
 ---

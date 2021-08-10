@@ -1,9 +1,9 @@
 ---
 title: "Element.textContent"
-tags:
-  - doka
 authors:
   - Windrushfarer
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,18 +1,18 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
+cover:
+  desktop: 'images/cover.png'
 authors:
   - bespoyasov
-tags:
-  - article
-summary:
+keywords:
   - транспайлеры
   - бандлеры
   - bundlers
   - javascript
   - ecmascript
   - es
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - article
 ---
 
 ## Кратко

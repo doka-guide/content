@@ -1,17 +1,17 @@
 ---
 title: "try...catch"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - windrushfarer
 contributors:
   - furtivite
-summary:
+keywords:
   - выбросить ошибку
   - ошибки
   - errors
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

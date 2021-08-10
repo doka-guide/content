@@ -12,7 +12,7 @@
     }
 
     body {
-      padding: 5%;
+      padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -35,36 +35,27 @@
     .button {
       display: block;
       min-width: 210px;
-      border: 1px solid;
+      border: 2px solid transparent;
+      border-radius: 6px;
       padding: 10px;
-      color: #ffffff;
-      font-family: inherit;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
     }
 
     .button:hover {
-      color: #ffffff;
-      background-color: #18191c;
+      background-color: #FFFFFF;
       cursor: pointer;
     }
 
-    .button:focus {
-      outline: 1px solid #ffffff;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .button:focus:hover {
-      outline: 1px solid #ffffff;
-      border: none;
-    }
-
-    .green {
-      border-color: transparent;
-      background-color: #49A16C;
-    }
-
-    .green:hover {
-      border-color: #49A16C;
+    .button-orange {
+      background-color: #FF8630;
     }
 
     .fieldset-label {
@@ -92,8 +83,8 @@
     .fieldset-radio-input:checked + .fieldset-label::before {
       background: radial-gradient(
         circle,
-        #49A16C 0%,
-        #49A16C 40%,
+        #FF8630 0%,
+        #FF8630 40%,
         transparent 50%,
         transparent 100%
       );
@@ -136,7 +127,7 @@
 </head>
 <body>
   <header>
-    <button class="button green js-toggle">Disable</button>
+    <button class="button button-orange js-toggle">Disable</button>
     <code class="code js-code">&lt;fieldset&gt;</code>
   </header>
   <form>

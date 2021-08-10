@@ -1,7 +1,5 @@
 ---
 title: "<a>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
@@ -10,11 +8,13 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - ссылка
   - a
   - тэг
   - тег
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -27,7 +27,7 @@ summary:
 <a href="https://www.yandex.ru/">Яндекс</a>
 ```
 
-<iframe title="Обычная ссылка" src="demos/basic.html"></iframe>
+<iframe title="Обычная ссылка" src="demos/basic.html" height="140"></iframe>
 
 ## Как это понять
 
@@ -87,7 +87,7 @@ summary:
 </a>
 ```
 
-<iframe title="Ссылка на изображении" src="demos/image.html"></iframe>
+<iframe title="Ссылка на изображении" src="demos/image.html" height="300"></iframe>
 
 Сделаем ссылку для отправки письма на почту:
 
@@ -95,4 +95,4 @@ summary:
 <a href="mailto:nowhere@yandex.ru">Отправить сообщение в никуда</a>
 ```
 
-<iframe title="Ссылка mailto" src="demos/mail.html"></iframe>
+<iframe title="Ссылка mailto" src="demos/mail.html" height="140"></iframe>

@@ -1,15 +1,15 @@
 ---
 title: "SSL-сертификаты"
-tags:
-  - article
 authors:
   - igsekor
-summary:
+keywords:
   - https
   - tls
   - protocols
   - шифрование
   - протоколы
+tags:
+  - article
 ---
 
 :::callout 📚
