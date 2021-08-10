@@ -8,34 +8,42 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .article__code {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code p {
-      font-size: 18px;
-      line-height: 27px;
+    .container {
+      width: 85%;
+      margin: auto;
     }
 
-    .article__code .quote__author {
+    p {
+      line-height: 140%;
+    }
+
+    .quote__author {
+      margin-top: 10px;
       padding: 10px 0;
-      border-top: 1px solid #ed6742;
+      border-top: 1px solid #FF8630;
       font-style: italic;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 300;
     }
 
-    .article__code .quote__text-letter {
+    .quote__text-letter {
       float: left;
       margin-right: 7px;
-      color: #ed6742;
+      color: #FF8630;
       font-family: "Roboto Slab", serif;
       font-size: 52px;
       line-height: 52px;
@@ -43,7 +51,7 @@
   </style>
 </head>
 <body>
-  <div class="article__code">
+  <div class="container">
     <p class="quote__text">
       <span class="quote__text-letter">Р</span>азумные люди приспосабливаются к окружающему <!-- yaspeller ignore -->
       миру. Неразумные люди приспосабливают мир к себе. Вот почему прогресс
