@@ -5,12 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
     }
 
     .container {
@@ -22,7 +30,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-left: 40px;
+      margin-left: 50px;
     }
 
     .button + .button {
@@ -30,48 +38,41 @@
     }
 
     .button {
-      border: 1px solid;
-      padding: 10px;
-      vertical-align: middle;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
     .button:hover {
-      border: 1px solid #ffffff;
-      background-color: #18191c;
-      color: #ffffff;
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    .button:focus {
-      outline: 1px solid #FFFFFF;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .green {
-      background-color: #49a16c;
-      border-color: #49a16c;
+    .button-yellow {
+      background-color: #FFD829;
     }
 
-    .green:hover {
-      border-color: #49a16c;
-    }
-
-    .blue {
-      background-color: #1A5AD7;
-      border-color: #1A5AD7;
-    }
-
-    .blue:hover {
-      border-color: #1A5AD7;
+    .button-green {
+      background-color: #41E847;
     }
 
     #square {
       width: 200px;
       height: 200px;
-      background-color: #ffffff;
+      background-color: #FFFFFF;
     }
   </style>
 </head>
@@ -79,8 +80,8 @@
   <div class="container">
     <div id="square"></div>
     <div class="buttons">
-      <button id="change" class="button green">Поменять цвет квадрата</button>
-      <button class="button blue">Кнопка без обработчика</button>
+      <button id="change" class="button button-yellow">Поменять цвет квадрата</button>
+      <button class="button button-green">Кнопка без обработчика</button>
     </div>
   </div>
 
@@ -94,7 +95,7 @@
     }
 
     function getColor() {
-      const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064', '#E6E6E6']
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
       const randomColorIndex = Math.floor(Math.random() * colors.length)
       return colors[randomColorIndex]
     }
