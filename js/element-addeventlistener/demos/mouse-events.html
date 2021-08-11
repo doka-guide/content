@@ -7,18 +7,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-size: 18px;
+      font-family: "Roboto", sans-serif;
       text-align: center;
-      overflow: hidden;
     }
 
     div + div {
@@ -27,18 +28,23 @@
 
     #result {
       margin-top: 0;
-      color: #1a5ad7;
+      color: #FFD829;
     }
 
     a {
-      display: block;
+      display: inline-block;
       margin: 10px 0;
-      color: #ffffff;
       font-size: 24px;
-      text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-color: #1a5ad7;
+      color: #ffffff;
+      text-decoration-color: #FFD829;
       text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      background-color: #FFD829;
+      border-radius: 3px;
+      transition: background-color 0.2s linear;
     }
   </style>
 </head>
