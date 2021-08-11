@@ -1,13 +1,13 @@
 ---
 title: "white-space"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - пробел
   - разрыв
   - wrap
+tags:
+  - doka
 ---
 
 ## Кратко

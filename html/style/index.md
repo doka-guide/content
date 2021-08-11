@@ -1,19 +1,19 @@
 ---
 title: "<style>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - solarrust
   - vladimir
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - style
   - стайл
   - стили в HTML
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -66,7 +66,7 @@ summary:
 
 ## Ещё примеры
 
-Попробуем сделать основной заголовок на странице ещё крупнее, зададим шрифты без засечек и жёлтый цвет:
+Попробуем сделать основной заголовок на странице ещё крупнее, зададим шрифты без засечек и чёрный цвет:
 
 ```html
 <!DOCTYPE html>
@@ -76,19 +76,19 @@ summary:
     <title>Кулинаный блог Марфы</title>
     <style type="text/css">
       h1 {
-        font-size: 150%;
-        font-family: Roboto, Arial, sans-serif;
-        color: #ffd829;
+        font-size: 30px;
+        font-family: "Roboto", sans-serif;
+        color: #000000;
       }
     </style>
   </head>
   <body>
-    <h1>Как испечь настоящие круассаны</h1>
+    <h1>Как испечь настоящие круассаны?</h1>
   </body>
 </html>
 ```
 
-<iframe title="Стилизация заголовка" src="demos/header.html"></iframe>
+<iframe title="Стилизация заголовка" src="demos/header.html" height="260"></iframe>
 
 А в этом примере цвет и фон текста в абзаце будет меняться в зависимости от ширины экрана:
 
@@ -98,22 +98,22 @@ summary:
   <head>
     <style>
       p {
-        color: white;
-        background-color: #1a5ad7;
+        background-color: white;
+        color: #663613;
       }
     </style>
     <!-- Будет работать на экранах шириной до 500px -->
     <style media="all and (max-width: 500px)">
       p {
-        color: #ed6742;
-        background-color: #ffd829;
+        background-color: #FF8630;
+        color: black;
       }
     </style>
   </head>
   <body>
-    <p>This is my paragraph.</p>
+    <p>Чтобы испечь настоящие круассаны...</p>
   </body>
 </html>
 ```
 
-<iframe title="Стилизация параграфа" src="demos/p.html"></iframe>
+<iframe title="Стилизация параграфа" src="demos/p.html" height="260"></iframe>

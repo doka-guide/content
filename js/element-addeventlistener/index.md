@@ -1,12 +1,12 @@
 ---
 title: "Element.addEventListener()"
-tags:
-  - doka
 authors:
   - vindi-r
 contributors:
   - nlopin
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,15 +1,15 @@
 ---
 title: "<option>"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - тэг
   - тег
   - пункт
   - "<option>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "Element.mouseout"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - skorobaeus
-summary:
+keywords:
   - мышь
+tags:
+  - doka
 ---
 
 ## Кратко

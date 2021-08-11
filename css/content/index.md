@@ -1,14 +1,14 @@
 ---
 title: "content"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-summary:
+keywords:
   - content
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко

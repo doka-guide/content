@@ -1,12 +1,12 @@
 ---
 title: "Координаты"
-tags:
-  - doka
 authors:
   - windrushfarer
-summary:
+keywords:
   - координаты
   - позиционирование
+tags:
+  - doka
 ---
 
 ## Кратко

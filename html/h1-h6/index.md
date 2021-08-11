@@ -1,7 +1,7 @@
 ---
 title: "<h1>...<h6>"
-tags:
-  - doka
+cover:
+  desktop: 'images/cover.png'
 authors:
   - grachev
 contributors:
@@ -9,7 +9,7 @@ contributors:
   - vladimir
   - skorobaeus
   - furtivite
-summary:
+keywords:
   - заголовок
   - тэг
   - тег
@@ -19,8 +19,8 @@ summary:
   - h4
   - h5
   - h6
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -38,7 +38,7 @@ cover:
 <h6>Заголовок уровня 6</h6>
 ```
 
-<iframe title="Заголовки 6 уровней" src="demos/headers.html"></iframe>
+<iframe title="Заголовки 6 уровней" src="demos/headers.html" height="480"></iframe>
 
 ## Как это понять
 
@@ -75,4 +75,4 @@ cover:
 <p>Выберите начинку и внешний вид для торта своей мечты.</p>
 ```
 
-<iframe title="Заголовки" src="demos/cakes.html"></iframe>
+<iframe title="Заголовки" src="demos/cakes.html" height="480"></iframe>

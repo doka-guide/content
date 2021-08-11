@@ -5,27 +5,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .article__code {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    nav {
+    .container {
+      width: 75%;
+      min-width: 650px;
+      margin: auto;
+    }
+
+    .crumbs {
       margin-bottom: 10px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #ed6742;
+      border-bottom: 2px solid #FF8630;
     }
 
     .crumbs ol {
-      padding-left: 0;
       list-style-type: none;
     }
 
@@ -35,18 +42,27 @@
       font-size: 14px;
     }
 
+    .crumb + .crumb {
+      margin-left: 15px;
+    }
+
     .crumb a {
-      color: #ed6742;
-      text-decoration-color: #ffffff;
+      position: relative;
+      color: #FF8630;
+      text-decoration: none;
+      transition: background-color 0.2s linear;
     }
 
     .crumb a:hover {
-      text-decoration-color: #ed6742;
+      border-radius: 3px;
+      background-color: #FF8630;
+      color: #FFFFFF;
+      transition: background-color 0.2s linear;
     }
 
     .crumb a::after {
       content: ">";
-      display: inline-block;
+      position: absolute;
       padding: 0 5px;
       color: #ffffff;
       font-size: 80%;
@@ -54,14 +70,20 @@
 
     h1 {
       margin-top: 40px;
-      margin-bottom: 10px;
+      margin-bottom: 17px;
       font-weight: 500;
       font-size: 26px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 140%;
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
+  <div class="container">
     <nav class="crumbs">
       <ol>
         <li class="crumb"><a href="bikes">Велосипеды</a></li>
@@ -71,7 +93,7 @@
     </nav>
 
     <h1>Jump Bike 3000</h1>
-    <p>Отличный вариант для профессионалов. С ним вы отточите свои навыки.</p>
+    <p>Стальная рама, хром молибденовый руль, интегрированная рулевая колонка, две скорости. Отличный вариант для профессионалов. С ним вы отточите свои навыки.</p>
   </div>
 </body>
 </html>

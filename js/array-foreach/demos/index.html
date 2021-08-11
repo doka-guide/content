@@ -133,71 +133,71 @@ numbers.forEach(num => {
     <pre class="result" id="result"></pre>
   </div>
 
-<script>
-  const SECOND = 1000;
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
-  const container = document.getElementById("container");
-  const result = document.getElementById("result");
-  const startButton = document.getElementById("start");
-  let isActive = false;
+  <script>
+    const SECOND = 1000
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+    const container = document.getElementById('container')
+    const result = document.getElementById('result')
+    const startButton = document.getElementById('start')
+    let isActive = false
 
-  // Создаем элементы с помощью forEach
-  numbers.forEach((num) => {
-    const itemElement = document.createElement("div");
-    itemElement.classList.add("item");
-    itemElement.textContent = num;
-    itemElement.id = num;
+    // Создаем элементы с помощью forEach
+    numbers.forEach((num) => {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = num
+      itemElement.id = num
 
-    container.appendChild(itemElement);
-  });
+      container.appendChild(itemElement)
+    })
 
-  function clearActive() {
-    result.textContent = ''
-    const activeItem = document.querySelector(".active")
+    function clearActive() {
+      result.textContent = ''
+      const activeItem = document.querySelector('.active')
 
-    if (activeItem) {
-      activeItem.classList.remove("active")
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
     }
-  }
 
-  function create(num) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
-
-        const item = document.getElementById(num)
-        item.classList.add("active")
-
-        result.textContent = `console.log(${num} * ${num})`
-
-        resolve()
-      }, SECOND * num);
-    });
-  }
-
-  function createIterations() {
-    const iterations = [];
-
-    numbers.forEach((num, index, arr) => {
-      iterations.push(create(num))
-    });
-
-    return iterations;
-  }
-
-  startButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true;
-      const iterations = createIterations()
-
-      Promise.all(iterations).then(() => {
+    function create(num) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
-        }, SECOND)
-      });
+
+          const item = document.getElementById(num)
+          item.classList.add('active')
+
+          result.textContent = `console.log(${num} * ${num})`
+
+          resolve()
+        }, SECOND * num)
+      })
     }
-  });
-</script>
+
+    function createIterations() {
+      const iterations = []
+
+      numbers.forEach((num, index, arr) => {
+        iterations.push(create(num))
+      })
+
+      return iterations
+    }
+
+    startButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        const iterations = createIterations()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
 </body>
 </html>

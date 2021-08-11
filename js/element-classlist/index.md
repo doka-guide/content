@@ -1,14 +1,14 @@
 ---
-title: Element.classList
+title: "Element.classList"
 authors:
   - windrushfarer
-tags:
-  - doka
 contributors:
   - nlopin
-summary:
+keywords:
   - классы
   - className
+tags:
+  - doka
 ---
 
 ## Кратко

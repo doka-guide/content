@@ -136,18 +136,18 @@
   <div class="element">
     <p>Повседневная практика показывает, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет оценить значение дальнейших направлений развития.</p>
   </div>
-<script>
-  let element = document.querySelector(".element")
-  let itemsArr = Array.from(document.querySelector(".style-list").children)
+  <script>
+    const element = document.querySelector('.element')
+    const itemsArr = Array.from(document.querySelector('.style-list').children)
 
-  itemsArr.forEach((el) => {
-    el.addEventListener("click", (e) => {
-      element.style.borderStyle =
-        e.target.tagName !== "label"
-          ? e.target.parentNode.textContent.trim()
-          : e.target.textContent.trim()
+    itemsArr.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        element.style.borderStyle =
+          e.target.tagName !== 'label'
+            ? e.target.parentNode.textContent.trim()
+            : e.target.textContent.trim()
+      })
     })
-  })
-</script>
+  </script>
 </body>
 </html>

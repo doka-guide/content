@@ -5,10 +5,10 @@ authors:
 contributors:
   - furtivite
   - skorobaeus
+keywords:
+  - эвенты
 tags:
   - doka
-summary:
-  - эвенты
 ---
 
 ## Кратко

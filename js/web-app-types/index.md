@@ -1,12 +1,15 @@
 ---
 title: "Виды веб-приложений"
+cover:
+  desktop: 'images/cover.png'
+  alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'
 authors:
   - windrushfarer
-tags:
-  - article
-summary:
+keywords:
   - web application
   - frontend фронтенд
+tags:
+  - article
 ---
 
 ## Кратко

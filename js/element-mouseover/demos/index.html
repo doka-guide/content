@@ -65,23 +65,22 @@
     <li><a href="#">О компании</a></li>
     <li><a href="#">Контакты</a></li>
   </ul>
+  <script>
+    let current = undefined
 
-<script>
-  let current = undefined;
-
-  function onMouseover() {
-    if (current) {
-      current.classList.remove('mouseover');
+    function onMouseover() {
+      if (current) {
+        current.classList.remove('mouseover')
+      }
+      this.classList.add('mouseover')
+      // записываем текущий пункт, чтобы удалить с него класс при переходе курсора на новый элемент
+      current = this
     }
-    this.classList.add('mouseover');
-    current = this; // записываем текущий пункт, чтобы удалить с него класс при переходе курсора на новый элемент
-  }
 
-  let items = document.getElementsByTagName('li');
-  for (let i=0; i < items.length; ++i) {
-    let item = items[i];
-    item.addEventListener('mouseover', onMouseover);
-  }
-</script>
+    const items = document.getElementsByTagName('li')
+    for (let i = 0; i < items.length; ++i) {
+      items[i].addEventListener('mouseover', onMouseover)
+    }
+  </script>
 </body>
 </html>

@@ -1,16 +1,16 @@
 ---
 title: "Интерфейс командной строки"
-tags:
-  - article
 authors:
   - igsekor
 editors:
   - tachisis
-summary:
+keywords:
   - cli
   - unix
   - терминал
   - команды
+tags:
+  - article
 ---
 
 ## Кратко

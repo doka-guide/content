@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   min-height: 480px;
-  background: #18191c url("background.png") no-repeat center / cover;
+  background: #18191c url("background.svg") no-repeat center / cover;
   z-index: 0;
   color: #ffffff;
 }
@@ -47,9 +47,9 @@
 
 /* цветовой акцент */
 .header__title-accent_color {
-  color: #f498ad;
-  background-color: #ed6742;
+  color: #000000;
+  background-color: #FF8630;
 }
 ```
 
-<iframe title="Цветовой акцент" src="../demos/company.html"></iframe>
+<iframe title="Цветовой акцент" src="../demos/company.html" height="480"></iframe>

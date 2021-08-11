@@ -1,14 +1,14 @@
 ---
-title: Файл и файловые системы
-tags:
-  - doka
+title: "Файл и файловые системы"
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - файл
   - Unix
+tags:
+  - doka
 ---
 
 ## Кратко

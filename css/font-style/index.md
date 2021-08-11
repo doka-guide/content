@@ -1,13 +1,13 @@
 ---
 title: "font-style"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - skorobaeus
-summary:
+keywords:
   - font-style
+tags:
+  - doka
 ---
 
 ## Кратко

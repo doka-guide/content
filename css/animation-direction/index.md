@@ -1,12 +1,14 @@
 ---
 title: "animation-direction"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+editors:
+  - tachisis
+keywords:
   - CSS-анимации
   - направление анимации
+tags:
+  - doka
 ---
 
 ## Кратко

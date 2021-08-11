@@ -1,12 +1,14 @@
 ---
 title: "animation-name"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+editors:
+  - tachisis
+keywords:
   - CSS-анимации
   - имя анимации
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,18 +1,18 @@
 ---
 title: "<main>"
-tags:
-  - doka
 authors:
   - vladimir
   - solarrust
   - pepelsbey
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - мейн
   - main
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,16 +1,16 @@
 ---
 title: "Комбинированные селекторы"
-tags:
-  - article
 authors:
   - realetive
 editors:
   - tachisis
-summary:
+keywords:
 - комбинированный
 - селектор
 - combined
 - selector
+tags:
+  - article
 ---
 
 ## Кратко

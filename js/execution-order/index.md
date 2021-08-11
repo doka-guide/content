@@ -1,15 +1,15 @@
 ---
 title: "Порядок выполнения"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - последовательность
   - как выполняется код
   - execution order
+tags:
+  - doka
 ---
 
 ## Кратко

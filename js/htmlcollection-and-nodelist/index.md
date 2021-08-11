@@ -1,9 +1,9 @@
 ---
 title: "HTMLCollection и NodeList"
-tags:
-  - doka
 authors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

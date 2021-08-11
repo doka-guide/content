@@ -147,111 +147,106 @@ function groupNameById(result, user) {
     </div>
     <div class="does-container">
       <button id="start" class="button blue">Юзеры, группируйтесь!</button>
-
-<pre>users.reduce(groupNameById)</pre>
-
+      <pre>users.reduce(groupNameById)</pre>
     </div>
     <h2 class="subtitle">С каким элементом работаем</h2>
     <div class="items" id="container"></div>
     <h2 class="subtitle">Значение аккумулятора</h2>
     <pre class="execute" id="result"></pre>
   </div>
+  <script>
+    const SECOND = 1000;
+    const users = [
+      { id: '123', name: 'John' },
+      { id: '345', name: 'Anna' },
+      { id: '567', name: 'Kate' },
+      { id: '789', name: 'Jane' },
+    ]
 
-<script>
-  const SECOND = 1000;
-  const users = [
-    { id: '123', name: 'John' },
-    { id: '345', name: 'Anna' },
-    { id: '567', name: 'Kate' },
-    { id: '789', name: 'Jane' },
-  ]
-
-  function groupNameById(result, user) {
-    return {
-      ...result,
-      [user.id]: user.name
+    function groupNameById(result, user) {
+      return {
+        ...result,
+        [user.id]: user.name
+      }
     }
-  }
 
+    const container = document.getElementById('container')
+    const result = document.getElementById('result')
+    const startButton = document.getElementById('start')
 
-  const container = document.getElementById("container");
-  const result = document.getElementById("result");
-  const startButton = document.getElementById("start");
+    let isActive = false
 
-  let isActive = false;
+    function createItem(item) {
+      const itemElement = document.createElement('div')
+      const inner = document.createElement('pre')
 
-  function createItem(item) {
-    const itemElement = document.createElement("div");
-    const inner = document.createElement("pre");
+      inner.textContent = `id: ${item.id}, name: ${item.name}`
 
-    inner.textContent = `id: ${item.id},
-name: ${item.name}`
+      itemElement.classList.add('item')
+      itemElement.appendChild(inner)
 
-    itemElement.classList.add("item");
-    itemElement.appendChild(inner)
-
-    return itemElement
-  }
-
-  users.forEach((user, index) => {
-    const element = createItem(user)
-    element.id = index + 1;
-
-    container.appendChild(element);
-  });
-
-  function clearActive() {
-    const activeItem = document.querySelector(".active")
-
-    if (activeItem) {
-      activeItem.classList.remove("active")
+      return itemElement
     }
-  }
 
-  function createIteration(acc, order) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        clearActive()
+    users.forEach((user, index) => {
+      const element = createItem(user)
+      element.id = index + 1
 
-        const item = document.getElementById(order)
-        item.classList.add("active")
+      container.appendChild(element)
+    })
 
-        result.textContent = JSON.stringify(acc, undefined, 2)
+    function clearActive() {
+      const activeItem = document.querySelector('.active')
 
-        resolve()
-      }, SECOND * order);
-    });
-  }
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
 
-  function getPromises() {
-    const iterations = [];
-
-    const group = users.reduce((acc, item, index) => {
-      iterations.push(createIteration(acc, index + 1))
-
-      return groupNameById(acc, item)
-    }, {});
-
-    return [iterations, group];
-  }
-
-  startButton.addEventListener("click", () => {
-    if (!isActive) {
-      isActive = true;
-      result.innerText = ''
-
-      const [promises, res] = getPromises()
-
-      Promise.all(promises).then(() => {
+    function createIteration(acc, order) {
+      return new Promise((resolve) => {
         setTimeout(() => {
           clearActive()
-          isActive = false
 
-          result.textContent = JSON.stringify(res, undefined, 2)
-        }, SECOND)
-      });
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          result.textContent = JSON.stringify(acc, undefined, 2)
+
+          resolve()
+        }, SECOND * order)
+      })
     }
-  });
-</script>
+
+    function getPromises() {
+      const iterations = []
+
+      const group = users.reduce((acc, item, index) => {
+        iterations.push(createIteration(acc, index + 1))
+
+        return groupNameById(acc, item)
+      }, {})
+
+      return [iterations, group]
+    }
+
+    startButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+
+        const [promises, res] = getPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+
+            result.textContent = JSON.stringify(res, undefined, 2)
+          }, SECOND)
+        })
+      }
+    })
+  </script>
 </body>
 </html>

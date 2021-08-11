@@ -1,14 +1,14 @@
 ---
 title: ":has"
-tags:
-  - doka
 authors:
   - realetive
 editors:
   - tachisis
-summary:
+keywords:
   - :has()
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко
