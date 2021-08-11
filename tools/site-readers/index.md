@@ -70,9 +70,9 @@ tags:
 Формат мета-тегов будет выглядеть так:
 
 ```html
-<meta property="og:title" content="Заголовок" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.example.com/" />
+<meta property="og:title" content="Заголовок">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.example.com/">
 ```
 
 В примере первый тег отвечает за заголовок карточки, в виде которой отображается ссылка, второй — задаёт тип карточки, третий — определяет абсолютную ссылку. Доступны и другие возможности. Можно установить описание с помощью `og:description`, задать ссылку на картинку с помощью `og:image`, определить ссылку на соответствующее странице видео и прочие. Во время разработки можно использовать валидаторы, наиболее известные из которых:
@@ -110,13 +110,14 @@ tags:
 
 ```html
 <article itemscope itemtype="http://schema.org/Article">
-  ...
   <section itemscope itmetype="http://schema.org/Person" itemprop="author">
     <p>
-      Автор статьи: <span itemprop="givenName">Василий</span> <span itemprop="familyName">Иванов</span> (<span itemprop="jobTitle">Штатный корреспондент</span>)
+      Автор статьи:
+      <span itemprop="givenName">Василий</span>
+      <span itemprop="familyName">Иванов</span>
+      (<span itemprop="jobTitle">Штатный корреспондент</span>)
     </p>
   </section>
-  ...
 </article>
 ```
 
@@ -124,22 +125,18 @@ tags:
 
 ```html
 <head>
-  ...
   <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    ...
-    "author": {
-      "@type": "Person",
-      "givenName": "Василий",
-      "familyName": "Иванов",
-      "jobTitle": "Штатный корреспондент"
+    {
+      "@context": "http://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "givenName": "Василий",
+        "familyName": "Иванов",
+        "jobTitle": "Штатный корреспондент"
+      }
     }
-    ...
-  }
   </script>
-  ...
 </head>
 ```
 
@@ -154,8 +151,8 @@ tags:
 В большинстве скринридеров используется движок Text To Speech (TTS), который читает текст голосом. Наиболее полный список известных скринридеров доступен в [Википедии](https://en.wikipedia.org/wiki/List_of_screen_readers). Среди всех доступных наиболее популярны:
 
 - [VoiceOver](https://ru.wikipedia.org/wiki/VoiceOver), который используется в операционных системах устройств от компании Apple.
-- [JAWS (Job Access With Speech)](https://support.freedomscientific.com/JAWSHQ/JAWSHeadquarters01), удобный платный клиент под Windows и бесплатный под DOS.
-- [NVDA (NonVisual Desktop Access)](https://www.nvaccess.org/about-nvda/), в меру удобный, но бесплатный клиент под Windows.
+- [JAWS](https://support.freedomscientific.com/JAWSHQ/JAWSHeadquarters01), удобный платный клиент под Windows и бесплатный под DOS.
+- [NVDA](https://www.nvaccess.org/about-nvda/), в меру удобный, но бесплатный клиент под Windows.
 
 Скринридеры поддерживают специальные манипуляторы, а не только стандартные устройства ввода (клавиатуру, мышь, сенсорные панели и экраны, перья с планшетами). Также они могут взаимодействовать и с устройствами вывода, например, дисплеями Брайля.
 
@@ -167,4 +164,4 @@ tags:
 
 Ссылку важно формировать таким образом, чтобы было понятно, куда она ведёт. Вместо «нажмите здесь» лучше написать «посмотреть полный список товаров». Важно также заполнять атрибут `title`, если он не дублирует содержимое ссылки. Навигация по тексту выстраивается на основе заголовков, навигация по сайту на основе главного меню или его аналога, которое лучше размещать внутри парного тега `<nav>`. Изображения, которые важны для правильного понимания контента сайта (контентные изображения), важно описывать в атрибуте `alt`. В формах нужно пометить назначение каждого поля.
 
-Существуют специальные атрибуты для тегов, которые начинаются с префикса `aria-`, которые позволяют настроить работу скринридера детальнее, не отдавая всё на откуп автоматики. Подробнее можно ознакомиться в [спецификации](https://www.w3.org/TR/wai-aria-1.1).
+Существуют специальные атрибуты для тегов, которые начинаются с префикса `aria-`, которые позволяют настроить работу скринридера детальнее, не отдавая всё на откуп автоматики. Подробнее можно ознакомиться в [спецификации](https://www.w3.org/TR/wai-aria/).
