@@ -2,6 +2,8 @@
 title: "Атрибут autocomplete"
 authors:
   - lenaryan
+editors:
+  - tachisis
 keywords:
   - атрибут
   - autocomplete
