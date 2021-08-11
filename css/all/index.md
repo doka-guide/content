@@ -5,6 +5,7 @@ authors:
 keywords:
   - сброс стилей
 tags:
+  - doka
   - placeholder
 ---
 
