@@ -1,13 +1,10 @@
-name: Frontmatter
+name: Frontmatter Check
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
-  lint:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,12 +12,10 @@ jobs:
         with:
           node-version: '14'
       - id: files
-        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: 'index.md'
       - name: Проверка линтером в PR
-        if: ${{ github.event_name == 'pull_request' }}
         run: |
           files="${{ steps.files.outputs.all }}"
           if ! [[ $files == "" ]]; then
@@ -30,9 +25,3 @@ jobs:
           else
             echo "В PR нет файлов для проверки"
           fi
-      - name: Проверка линтером в main
-        if: ${{ github.event_name != 'pull_request' }}
-        run: |
-          echo "Проверка для всех файлов"
-          npx yaml-cat -f json **/**/index.md -o result.json
-          node .github/scripts/frontmatter.js
