@@ -36,8 +36,6 @@ curl -v http://example.com
 <!doctype html>
 <html>
 
-<...>
-
 * Connection #0 to host example.com left intact
 * Closing connection 0
 ```
