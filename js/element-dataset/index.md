@@ -32,7 +32,7 @@ const items = document.querySelectorAll('li')
 
 const firstItem = items[0]
 
-// Вернет { id: '1541', episode: '1' }
+// Вернёт { id: '1541', episode: '1' }
 firstItem.dataset
 ```
 
@@ -41,7 +41,7 @@ firstItem.dataset
 ```js
 const heading = document.querySelector('h1')
 
-// Вернет пустой объект {}, так как нет дата-атрибутов
+// Вернёт пустой объект {}, так как нет дата-атрибутов
 heading.dataset
 ```
 
@@ -167,7 +167,7 @@ delete element.dataset.testid
 ```js
 const element = document.querySelector('div')
 
-// Ничего не произойдет, дата-атрибуты на элементах тоже не изменятся
+// Ничего не произойдёт, дата-атрибуты на элементах тоже не изменятся
 element.dataset = {}
 element.dataset = 'string'
 ```
