@@ -7,32 +7,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+
+*, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
       font-size: 24px;
+      font-family: "Roboto", sans-serif;
       text-align: center;
     }
 
     ul {
       position: relative;
       display: inline-block;
-      padding-left: 30px;
       text-align: left;
     }
 
     ul::before {
       content: 'меню';
       position: absolute;
-      left: -30px;
-      top: 6px;
-      font-size: 0.5em;
+      left: -75px;
+      top: 7px;
+      padding: 2px 7px;
+      background-color: #FFD829;
+      color: #000000;
+      font-size: 14px;
     }
 
     li {
@@ -45,14 +50,15 @@
 
     a {
       color: inherit;
-      text-decoration-color: #1A5AD7;
+      text-decoration-color: #FFD829;
       text-decoration-thickness: 2px;
       transition: background-color 0.3s;
       text-transform: lowercase;
     }
 
     .mouseover a {
-      background-color: #1A5AD7;
+      background-color: #FFD829;
+      border-radius: 3px;
       transition: background-color 0.3s;
     }
 
