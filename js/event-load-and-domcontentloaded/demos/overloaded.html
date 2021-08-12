@@ -5,22 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
-    }
-
     body {
-      padding: 5% 10% !important;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 50px 100px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
     }
 
@@ -40,34 +37,33 @@
     .button-like {
       display: block;
       width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
       margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid;
-      color: #ffffff;
+      padding: 8px 15px;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
       line-height: normal;
       text-align: center;
       text-decoration: none;
+      transition: background-color 0.2s linear;
     }
 
     .button-like:hover {
-      color: #ffffff;
-      background-color: #18191c;
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    .button-like:focus {
-      outline: 1px solid #ffffff;
+    .button-like:focus, .button-like:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .blue {
-      background-color: #1a5ad7;
-      border-color: transparent;
-    }
-
-    .blue:hover {
-      border-color: #1a5ad7;
+    .button-yellow {
+      background-color: #FFD829;
     }
 
     .description {
@@ -150,7 +146,7 @@
         </p>
       </div>
       <div class="tip">
-        <a class="button-like blue" href="basic.html">Попробовать без картинки</a>
+        <a class="button-like button-yellow" href="basic.html">Попробовать без картинки</a>
         <p>К странице подключено гигантское изображение. Без него разница между событиями будет меньше.</p>
       </div>
     </div>
