@@ -4,6 +4,8 @@ authors:
   - windrushfarer
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
@@ -43,7 +45,7 @@ const isAllUsersAnna = users.some(num => {
 
 Интерактивный пример:
 
-<iframe title="Используем every для проверки массива" src="demos/index.html"></iframe>
+<iframe title="Используем every для проверки массива" src="demos/index.html" height="980"></iframe>
 
 ## Как пишется
 
