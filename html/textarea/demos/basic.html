@@ -5,52 +5,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 30px;
-      background-color: #ffd829;
-      color: #000000;
+    .form {
+      width: 500px;
+      margin: auto;
     }
 
-    textarea {
-      position: relative;
-      padding: 10px 12px;
-      border: 1px solid #000000;
-      background-color: transparent;
-      font-size: 16px;
-      line-height: 1.5;
-      font-family: inherit;
-    }
-
-    textarea:focus {
-      background-color: #f5c800;
-    }
-
-    label {
+    .input-label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
     }
+
+    .input-textarea {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    .input-textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
   </style>
 </head>
 <body>
-  <form action="">
-    <label for="story">Расскажите о себе:</label>
-    <textarea id="story" name="story" rows="5" cols="33">Фронтенд-разработчик со стажем</textarea>
+  <form class="form" action="">
+    <label class="input-label" for="story">Расскажите о себе:</label>
+    <textarea class="input-textarea" id="story" name="story" rows="4" cols="33">Фронтенд-разработчик со стажем</textarea>
   </form>
 </body>
 </html>
