@@ -9,11 +9,10 @@ AUTHOR=""
 read -r -p "$(echo "Введите название статьи: ")" TITLE
 read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
 
-
 function jsonValue() {
-KEY=$1
-num=$2
-awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
+  KEY=$1
+  num=$2
+  awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
 LOGIN=$(echo $(curl -s https://api.github.com/search/users\?q\=$(echo $(git config --get user.email)) | jsonValue login))
 
@@ -75,6 +74,11 @@ done
 
 git checkout main
 git pull
+
+while [ -d $(echo "$CATEGORY/$FOLDER") -a ! -h $(echo "$CATEGORY/$FOLDER") ]; do
+  echo "К сожалению, $FOLDER уже существует..."
+  read -r -p "$(echo "Введите другое название папки: ")" FOLDER
+done
 
 git branch $(echo "article/$FOLDER")
 git checkout $(echo "article/$FOLDER")
