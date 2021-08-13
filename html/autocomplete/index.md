@@ -94,7 +94,7 @@ tags:
 - `bday-day` — день рождения (число).
 - `bday-month` — месяц рождения.
 - `bday-year` — год рождения.
-- `language` — язык в формате языкового тега, определённого BCP 47.
+- `language` — язык в формате языкового тега из [списка BCP 47](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry).
 - `sex` — пол или гендер.
 - `organization` — название организации.
 - `organization-title` — профессия или должность в организации.
@@ -125,8 +125,8 @@ tags:
 
 ### Ссылки
 
-- `impp` - url для доступа к протоколу обмена мгновенными сообщениями, например, _xmpp:username@example.net_.
-- `url` — url-адрес сайта.
+- `impp` — адрес сервера для мессенджера, например, _xmpp:username@example.net_.
+- `url` — адрес сайта.
 
 ## Подсказки
 
