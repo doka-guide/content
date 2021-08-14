@@ -1,4 +1,4 @@
 ---
-name: "Саша Беспоясов"
+name: 'Саша Беспоясов'
 url: https://twitter.com/bespoyasov
 ---
