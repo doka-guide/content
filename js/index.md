@@ -1,64 +1,189 @@
 ---
 name: 'JavaScript'
 groups:
-  - name: "Массивы"
+  - name: "Основы"
     items:
-      - array-every
-      - array-filter
-      - array-find
-      - array-foreach
-      - array-map
-      - array-reduce
-      - array-some
-  - name: "Математика"
+      - execution-order
+      - var-let
+      - const
+      - if-else
+      - switch
+      - loop
+      - while
+      - for
+      - expressions-vs-statements
+      - ref-type-vs-value-type
+      - function
+      - closures
+      - use-strict
+  - name: "Типы данных"
     items:
+      - number-wrapper
+      - string
+      - null-undefined
+      - object
+      - function
+      - typecasting
+      - objects-objects-everywhere
+  - name: "Числа `number`"
+    items:
+      - number-wrapper
+      - number-is-nan
+      - number-isfinite
       - math
       - math-floor
       - math-random
-  - name: "Как работают веб-приложения"
+  - name: "Строки `string`"
     items:
-      - web-app-works
-      - web-security
-      - api
-      - how-the-browser-creates-pages
+      - string
+      - template-strings
+      - index-of
+      - includes
+  - name: "Булевы значения `boolean`"
+    items:
+      - boolean
+      - logic-operators
+  - name: "Функции"
+    items:
+      - function
+      - return
+      - function-context
+      - closures
+      - recursion
+  - name: "Массивы"
+    items:
+      - arrays
+      - array-foreach
+      - array-map
+      - array-reduce
+      - array-filter
+      - array-find
+      - array-every
+      - array-some
+      - includes
+      - index-of
+  - name: "Обработка исключений"
+    items:
+      - try-catch
+  - name: "Браузерное окружение и WebAPI"
+    items:
       - bom
-  - name: "Тестирование кода"
+      - dom
+      - fetch
+      - console-log
+      - window-location
+      - urlsearchparams
+      - local-storage
+      - alert
+      - prompt
+      - confirm
+      - session-storage
+  - name: "О браузере"
     items:
-      - how-to-test-and-why
-      - tdd
-      - how-to-simplify-tests
-      - integration-and-system-testing
-  - name: "Архитектура и паттерны проектирования"
+      - how-the-browser-creates-pages
+      - coordinates
+  - name: "Объектная модель документа DOM"
     items:
-      - architecture-and-design-patterns
-      - architecture-mvc
-      - clean-architecture
-      - architecture-data-flow
-      - design-patterns-creational
-      - design-patterns-structural
-      - design-patterns-behaviorial
-  - name: "Работа в команде"
+      - dom
+      - element
+      - events
+      - htmlcollection-and-nodelist
+  - name: "Объект страницы `document`"
     items:
-      - code-style
-      - technical-debt
+      - cookie
+      - element-addeventlistener
+      - element-removeeventlistener
+      - getelementbyid
+      - getelementsbyclassname
+      - getelementsbytagname
+      - query-selector
+      - query-selector-all
+  - name: "Элемент на странице `Element`"
+    items:
+      - element
+      - element-addeventlistener
+      - element-removeeventlistener
+      - getelementsbyclassname
+      - getelementsbytagname
+      - query-selector
+      - query-selector-all
+      - element-classlist
+      - element-style
+      - element-innerhtml
+      - element-outerhtml
+      - element-innertext
+      - element-textcontent
+  - name: "События `Event`"
+    items:
+      - events
+      - element-click
+      - event-load-and-domcontentloaded
+      - element-keydown-keyup
+      - element-mouseout
+      - element-mouseover
+      - element-scroll-scrollintoview
+      - element-scroll-scrollto
+      - element-scroll-wheel
+      - element-touch
+  - name: "Хранение данных в браузере"
+    items:
+      - browsers-storages
+      - cookie
+      - local-storage
+      - session-storage
+  - name: "Асинхронный код"
+    items:
+      - async-in-js
+      - promise
+      - promise-then
+      - promise-catch
+      - promise-finally
+      - async-await
+  - name: "Обмен данными с внешними сервисами через API"
+    items:
+      - api
+      - fetch
+      - async-await
+  - name: "Типовые решения"
+    items:
+      - deal-with-forms
+      - infinite-scroll
+      - element-positioning-js
+      - debounce
+      - throttle
   - name: "Парадигмы программирования"
     items:
       - programming-paradigms
       - oop
-  - name: "Решения частых задач"
+  - name: "Веб-приложение"
     items:
-      - debounce
-      - throttle
-      - infinite-scroll
-      - deal-with-forms
-      - element-positioning-js
-  - name: "Замыкания, функции, контекст выполнения"
-    items:
-      - function-context
-      - closures
-      - recursion
-  - name: "Модули и сборка"
-    items:
-      - modules
+      - web-app-types
+      - web-app-works
+      - web-security
       - language-versions
+      - modules
+      - react-and-alternatives
+      - reactivity
+      - architecture-and-design-patterns
+      - technical-debt
+      - code-style
+  - name: "Архитектура приложения"
+    items:
+      - clean-architecture
+      - architecture-data-flow
+      - architecture-mvc
+      - architecture-and-design-patterns
+      - design-patterns-creational
+      - design-patterns-structural
+      - design-patterns-behaviorial
+  - name: "Тестирование"
+    items:
+      - how-to-test-and-why
+      - tdd
+      - how-to-simplify-tests
+      - testing-and-fake-objects
+      - integration-and-system-testing
 ---
+
+JavaScript — единственный язык программирования, созданный для работы в браузере.
+С его помощью можно обмениваться данными с сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, превращая её в веб-приложение.
