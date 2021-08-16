@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стандартное поведение — Контекст наложения — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .block {
+      width: 150px;
+      height: 150px;
+      border: 5px solid black;
+      box-sizing: border-box;
+    }
+
+    .first {
+      background-color: #1A5AD7;
+    }
+
+    .second {
+      margin-top: -50px;
+      margin-left: 50px;
+      background-color: #c000ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="block first"></div>
+  <div class="block second"></div>
+</body>
+</html>
