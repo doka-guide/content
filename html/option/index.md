@@ -41,7 +41,7 @@ tags:
 
 ## Подробно
 
-Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select), группы опций [`<optgroup>`](/html/optgroup) (в работе) или перечня [`<datalist>`](/html/datalist) (в работе).
+Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select), группы опций [`<optgroup>`](/html/optgroup) или перечня [`<datalist>`](/html/datalist) (в работе).
 
 ## Атрибуты
 
