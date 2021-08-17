@@ -3,7 +3,7 @@ title: "<base>"
 authors:
   - doka-dog
 keywords:
-  -
+  - основной адрес
 tags:
   - doka
   - placeholder
