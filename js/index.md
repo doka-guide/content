@@ -145,13 +145,6 @@ groups:
       - api
       - fetch
       - async-await
-  - name: "Типовые решения"
-    items:
-      - deal-with-forms
-      - infinite-scroll
-      - element-positioning-js
-      - debounce
-      - throttle
   - name: "Парадигмы программирования"
     items:
       - programming-paradigms
@@ -184,6 +177,13 @@ groups:
       - how-to-simplify-tests
       - testing-and-fake-objects
       - integration-and-system-testing
+  - name: "Типовые решения"
+    items:
+      - deal-with-forms
+      - infinite-scroll
+      - element-positioning-js
+      - debounce
+      - throttle
 ---
 
 JavaScript — единственный язык программирования, созданный для работы в браузере.
