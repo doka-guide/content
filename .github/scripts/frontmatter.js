@@ -24,10 +24,22 @@ const isRequireFieldExists = (fileName, fileMeta, field) => {
   return true
 }
 
+const processIndexFile = (fileName) => {
+  if (commonMeta.hasOwnProperty(fileName)){
+    delete commonMeta[fileName]
+  }
+}
+
 const rawMeta = fs.readFileSync('result.json')
 const settings = fs.readFileSync('.frontmatter.json')
 
 const commonMeta = JSON.parse(rawMeta)
+
+processIndexFile('css/index.md')
+processIndexFile('html/index.md')
+processIndexFile('js/index.md')
+processIndexFile('tools/index.md')
+
 const { requireField, requireOrder } = JSON.parse(settings)
 let errorRequiredFieldsCounter = 0
 let errorOrderFieldsCounter = 0
