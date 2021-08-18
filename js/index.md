@@ -82,6 +82,7 @@ groups:
     items:
       - how-the-browser-creates-pages
       - coordinates
+      - browsers-storages
   - name: "Объектная модель документа DOM"
     items:
       - dom
