@@ -6,7 +6,7 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft == false }}
+    # if: ${{ github.event.pull_request.draft == false }}
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -37,8 +37,6 @@ jobs:
         run: npm ci
       - name: Сообщение о начале публикации превью
         id: comment
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         if: ${{ env.SURGE_TOKEN != '' }}
         uses: jungwinter/comment@v1
         with:
