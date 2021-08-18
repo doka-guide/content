@@ -109,6 +109,7 @@ groups:
       - query-selector
       - query-selector-all
       - element-classlist
+      - element-dataset
       - element-style
       - element-innerhtml
       - element-outerhtml
