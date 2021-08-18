@@ -39,6 +39,7 @@ jobs:
         id: comment
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        if: ${{ env.SURGE_TOKEN != '' }}
         uses: jungwinter/comment@v1
         with:
           type: create
@@ -77,7 +78,7 @@ jobs:
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo -e "${{ steps.links.outputs.list }}"
       - name: Сообщение об окончании публикации превью
-        if: ${{ steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
         uses: jungwinter/comment@v1
         with:
           type: edit
