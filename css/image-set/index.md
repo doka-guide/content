@@ -24,20 +24,28 @@ CSS-функция `image-set()` позволяет перечислить не�
 ```css
 div {
   background-image: image-set(
-    "puppy.webp" type("image/webp") 1x,
-    "puppy2x.webp" type("image/webp") 2x,
-    "puppy.png" type("image/png") 1x,
-    "puppy2x.png" type("image/png") 2x
+    url("puppy@1x.webp") type("image/webp") 1x,
+    url("puppy@2x.webp") type("image/webp") 2x,
+    url("puppy@1x.png") type("image/png") 1x,
+    url("puppy@2x.png") type("image/png") 2x
   );
 }
 ```
+
+Как и в случае с [`<picture>`](/html/picture), важен порядок перечисления форматов картинок: сначала более предпочтительные (AVIF, WebP), потом — менее (PNG, JPEG). Так браузер поймёт, какой из форматов ему выбрать, если он поддерживает все. Порядок перечисления картинок разной плотности не важен, браузер сам выберет подходящую.
 
 Пока не поддерживается всеми браузерами. Нужно использовать фолбэк и запись с [вендорным префиксом](/css/vendor-prefixes):
 
 ```css
 div {
-  background-image: url("puppy.png");
-  background-image: -webkit-image-set(url("puppy.png") 1x, url("puppy-2x.png") 2x);
-  background-image: image-set("puppy.png" 1x, "puppy-2x.png" 2x);
+  background-image: url("puppy@1x.png");
+  background-image: -webkit-image-set(
+    url("puppy@1x.png") 1x,
+    url("puppy@2x.png") 2x
+  );
+  background-image: image-set(
+    url("puppy@1x.png") 1x,
+    url("puppy@2x.png") 2x
+  );
 }
 ```
