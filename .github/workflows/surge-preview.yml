@@ -43,7 +43,7 @@ jobs:
           type: create
           body: 'Идёт сборка и публикация превью...'
           issue_number: ${{ github.event.number }}
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Выборка файлов для формирования списка
         id: files
         uses: Ana06/get-changed-files@v2.0.0
@@ -84,4 +84,4 @@ jobs:
             [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.sha }} опубликовано.
             ${{ steps.links.outputs.list }}
           comment_id: ${{ steps.comment.outputs.id }}
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
