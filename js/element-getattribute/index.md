@@ -17,7 +17,7 @@ tags:
 `Element.getAttribute` принимает один аргумент – строка с именем атрибута. В ответ метод возвращает значение атрибута в виде строки или `null`, если атрибута нет на элементе.
 
 ```html
-<script type="application/json" id=hydration"></script>
+<script type="application/json" id="hydration"></script>
 ```
 
 ```js
@@ -30,6 +30,22 @@ scriptElement.getAttribute('class') // null
 
 ## Как понять
 
-Существует [большой список](https://www.w3schools.com/tags/ref_attributes.asp) атрибутов для HTML-элементов, но не все атрибуты можно прочитать из объекта [DOM-элемента](/js/element), как например [Element.hidden](js/element-hidden) или [Element.dataset](js/element-dataset). Разработчики так же могут задавать элементу свои собственные атрибуты.
+Существует множество HTML-атрибутов и разработчики так же могут задавать элементу свои собственные атрибуты. Метод `Element.getAttribute` является универсальным способом прочитать значение любого атрибута.
 
-Метод `Element.getAttribute` является универсальным способом прочитать значение любого атрибута.
+Но не все атрибуты имеет смысл считывать с помощью  `Element.getAttribute`. Значения атрибутов, доступные в объекте [DOM-элемента](/js/element), как например [`Element.hidden`](/js/element-hidden) или [`Element.dataset`](/js/element-dataset), лучше считывать с соответствующих полей.
+
+Для примера сравним два варианта получения значения атрибута. Возьмём элемент и считываем его атрибуты.
+
+```html
+<div data-color="red" hidden>Ошибка!</div>
+```
+
+```js
+const element = document.querySelector('div')
+
+console.log(element.hidden) // true
+console.log(element.getAttribute('hidden')) // "" – пустая строка, т.к строкового значения у атрибута нет
+
+console.log(element.dataset.color) // "red"
+console.log(element.getAttribute('data-color')) // "red"
+```
