@@ -65,7 +65,7 @@ groups:
   - name: "Обработка исключений"
     items:
       - try-catch
-  - name: "Браузерное окружение и WebAPI"
+  - name: "Браузерное окружение и API"
     items:
       - bom
       - dom
@@ -140,7 +140,7 @@ groups:
       - promise-catch
       - promise-finally
       - async-await
-  - name: "Обмен данными с внешними сервисами через API"
+  - name: "Обмен данными с API"
     items:
       - api
       - fetch
