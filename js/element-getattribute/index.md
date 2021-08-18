@@ -23,9 +23,12 @@ tags:
 ```js
 const scriptElement = document.querySelector('script')
 
-scriptElement.getAttribute('type') // 'application/json'
-scriptElement.getAttribute('id') // 'hydration'
-scriptElement.getAttribute('class') // null
+scriptElement.getAttribute('type')
+// 'application/json'
+scriptElement.getAttribute('id')
+// 'hydration'
+scriptElement.getAttribute('class')
+// null
 ```
 
 ## Как понять
@@ -43,9 +46,13 @@ scriptElement.getAttribute('class') // null
 ```js
 const element = document.querySelector('div')
 
-console.log(element.hidden) // true
-console.log(element.getAttribute('hidden')) // "" – пустая строка, т.к строкового значения у атрибута нет
+console.log(element.hidden)
+// true
+console.log(element.getAttribute('hidden'))
+// "" – пустая строка, т.к строкового значения у атрибута нет
 
-console.log(element.dataset.color) // "red"
-console.log(element.getAttribute('data-color')) // "red"
+console.log(element.dataset.color)
+// "red"
+console.log(element.getAttribute('data-color'))
+// "red"
 ```
