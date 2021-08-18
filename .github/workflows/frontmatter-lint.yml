@@ -16,7 +16,7 @@ jobs:
       - name: Проверка линтером в main
         run: |
           echo "Проверка для всех файлов"
-          npx yaml-cat -f json (css|html|js|tools)/**/index.md -o result.json
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
           node .github/scripts/frontmatter.js --fix
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
