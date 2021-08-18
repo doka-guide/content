@@ -16,8 +16,8 @@ tags:
 ## Как пишется
 
 ```html
-<label for="myBrowser">Выберите браузер из списка:</label>
-<input list="browsers" id="myBrowser" name="myBrowser" />
+<label for="my-browser">Выберите браузер из списка:</label>
+<input list="browsers" id="my-browser" name="my-browser">
 <datalist id="browsers">
   <option value="Chrome">
   <option value="Firefox">
