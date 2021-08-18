@@ -28,6 +28,12 @@ const rawMeta = fs.readFileSync('result.json')
 const settings = fs.readFileSync('.frontmatter.json')
 
 const commonMeta = JSON.parse(rawMeta)
+
+if (commonMeta.hasOwnProperty('css/index.md')) delete commonMeta['css/index.md']
+if (commonMeta.hasOwnProperty('html/index.md')) delete commonMeta['html/index.md']
+if (commonMeta.hasOwnProperty('js/index.md')) delete commonMeta['js/index.md']
+if (commonMeta.hasOwnProperty('tools/index.md')) delete commonMeta['tools/index.md']
+
 const { requireField, requireOrder } = JSON.parse(settings)
 let errorRequiredFieldsCounter = 0
 let errorOrderFieldsCounter = 0
