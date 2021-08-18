@@ -3,7 +3,7 @@ title: "<object>"
 authors:
   - doka-dog
 keywords:
-  -
+  - встраиваемый объект
 tags:
   - doka
   - placeholder
