@@ -1,6 +1,5 @@
 ---
 title: "Работа с сетью"
-name: network
 authors:
   - igsekor
 contributors:
