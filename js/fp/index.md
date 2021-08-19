@@ -116,21 +116,24 @@ function alsoImpureFn() {
 В примере ниже мы обращаемся к методу `now`, который всегда возвращает одно и то же значение, но попутно меняет значение переменной `counter`. Если мы не знаем, как устроен метод `now`, мы не можем гарантировать, что `impureFn` не имеет побочных эффектов, поэтому считаем её тоже нечистой:
 
 ```js
-let counter = 0;
+let counter = 0
 
 const FakeDate = {
   now() {
     counter++;
     return 42;
   },
-};
-
-function impureFn() {
-  return FakeDate.now();
 }
 
-impureFn(); // 42, counter === 1
-impureFn(); // 42, counter === 2
+function impureFn() {
+  return FakeDate.now()
+}
+
+impureFn()
+// 42, counter === 1
+
+impureFn()
+// 42, counter === 2
 ```
 
 ### Рекурсия
@@ -485,9 +488,10 @@ const withContainer = (str) =>
     .map((s) => s.trim())
     .map((s) => Number(s))
     .map((n) => n + 1)
-    .fold((x) => x);
+    .fold((x) => x)
 
-const result = withContainer("45"); // 46
+const result = withContainer("45")
+// 46
 ```
 
 Контейнер же _результата_ можно представить как коробку, в которой после успешного выполнения операции находится результат, а в случае ошибки — ошибка.
@@ -601,14 +605,17 @@ function isRGBComponent(color) {
     case "red":
     case "green":
     case "blue":
-      return true;
+      return true
     default:
-      false;
+      false
   }
 }
 
-isRGBComponent("blue"); // true
-isRGBComponent("gray"); // false
+isRGBComponent("blue")
+// true
+
+isRGBComponent("gray")
+// false
 ```
 
 Во многих функциональных языках проверяемое значение можно сопоставлять не только с другими значениями, но и использовать предикаты, сравнивать типы данных и т. д.
@@ -625,17 +632,22 @@ isRGBComponent("gray"); // false
 function stringifyAmount(amount) {
   switch (true) {
     case amount === 0:
-      return "Empty!";
+      return "Empty!"
     case 0 < amount && amount < 10:
-      return `A few`;
+      return `A few`
     default:
-      return "Many";
+      return "Many"
   }
 }
 
-stringifyAmount(0); // Empty!
-stringifyAmount(5); // A few
-stringifyAmount(100); // Many
+stringifyAmount(0)
+// Empty!
+
+stringifyAmount(5)
+// A few
+
+stringifyAmount(100)
+// Many
 ```
 
 Но обычно, чтобы использовать паттерн-матчинг в JavaScript, подключают дополнительные библиотеки.
