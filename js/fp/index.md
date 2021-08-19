@@ -294,16 +294,16 @@ function multiply(a) {
 const double = multiply(2);
 ```
 
-Эта запись превратит `double` в функцию `performWith`, у которой аргумент `a` будет «заполнен заранее». То есть:
+Эта запись превратит `double` в функцию `performWith`, у которой аргумент `a` будет «заполнен заранее». То есть это:
 
 ```js
 const double = multiply(2)
 ```
 
-Превращается в:
+По сути равно этому:
 
 ```js
-function performWith(b) {
+const double = function performWith(b) {
   return 2 * b
 }
 ```
