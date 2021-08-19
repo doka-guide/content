@@ -5,67 +5,69 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      display: flex;
-      justify-content: center;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #663613;
+      color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      padding: 30px;
-      background-color: #ffd829;
-      color: #000000;
+    .form {
+      width: 500px;
+      margin: auto;
+      padding: 55px 80px;
+      box-sizing: content-box;
+      background-color: #18191C;
     }
 
-    form + form {
-      margin-left: 20px;
+    .form + .form {
+      margin-top: 50px;
     }
 
-    textarea {
-      padding: 10px 12px;
-      border: 1px solid #000000;
-      background-color: transparent;
-      line-height: 1.5;
-      font-size: 16px;
-      font-family: inherit;
-      scrollbar-color: #000 #fff;
-      scrollbar-width: thin;
-    }
-
-    textarea:focus {
-      background-color: #f5c800;
-    }
-
-    label {
+    .input-label {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
     }
 
-    textarea::-webkit-scrollbar {
-      width: 8px;
-      background-color: #ffffff;
+    .input-textarea {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      overflow-x: hidden;
     }
 
-    textarea::-webkit-scrollbar-thumb {
-      background-color: #000000;
+    .input-textarea:focus {
+      border-color: #FF8630;
+      outline: none;
     }
   </style>
 </head>
 <body>
-  <form action="">
-    <label for="story">Высота не задана (~ 2 строки)</label>
-    <textarea id="story" name="story" cols="30">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
+  <form class="form" action="">
+    <label class="input-label" for="story">Высота не задана (~ 2 строки)</label>
+    <textarea class="input-textarea" id="story" name="story" cols="30">Lorem ipsum dolor sit amet consectetur adipisicing elit.</textarea>
   </form>
-  <form action="">
-    <label for="story">Высота 5 строк</label>
-    <textarea id="story" name="story" rows="5" cols="30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ducimus numquam illo voluptate, veritatis distinctio minus iure harum a nam magnam?</textarea>
+  <form class="form" action="">
+    <label class="input-label" for="story">Высота 4 строки</label>
+    <textarea class="input-textarea" id="story" name="story" rows="4" cols="30">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ducimus numquam illo voluptate, veritatis distinctio minus iure harum a nam magnam?</textarea>
   </form>
 </body>
 </html>

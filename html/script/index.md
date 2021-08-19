@@ -79,7 +79,7 @@ HTML — создаёт структуру веб-страницы, CSS-сти�
       внутри HTML-страницы. Но лучше всё же в отдельном файле.
     </p>
     <script>
-      var p = document.getElementById("blinking")
+      const p = document.getElementById("blinking")
       setInterval(function () {
         if (p.style.fontSize !== "10px") {
           p.style.fontSize = "10px"
@@ -92,4 +92,4 @@ HTML — создаёт структуру веб-страницы, CSS-сти�
 </html>
 ```
 
-<iframe title="Вставка скрипта на страницу" src="demos/font-size-changer.html"></iframe>
+<iframe title="Вставка скрипта на страницу" src="demos/font-size-changer.html" height="340"></iframe>
