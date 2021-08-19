@@ -7,24 +7,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
       text-align: center;
     }
 
     .container {
       display: inline-block;
-      max-width: 500px;
+      max-width: 550px;
       text-align: left;
     }
 
@@ -33,15 +33,14 @@
       align-items: center;
     }
 
-    .description p:first-child {
-      color: #FFFFFF;
-      font-weight: 500;
+    .description p {
+      font-size: 18px;
     }
 
-    .description p {
-      margin-top: 10px;
-      color: #1a5ad7;
-      font-size: 18px;
+    .description p:first-child {
+      font-weight: 500;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
     .indicators {
@@ -49,51 +48,52 @@
     }
 
     .indicators p {
-      border: 1px solid #1a5ad7;
       width: 170px;
       padding: 12px;
+      background-color: #FFFFFF;
+      color: #000000;
       text-align: center;
       font-weight: 400;
       font-size: 14px;
     }
 
     .indicators p + p {
-      margin-top: 10px;
+      margin-top: 25px;
     }
 
-    .active {
-      background-color: #1a5ad7;
+    p.active {
+      background-color: #FFD829;
     }
 
     .scrollables {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .scrollables div {
-      height: 230px;
-      width: 230px;
+      height: 250px;
+      width: 250px;
       border: thin solid black;
       padding: 17px;
-      background-color: #ffffff;
-      color: #1a5ad7;
+      background-color: #282A2E;
+      color: #E6E6E6;
       font-weight: normal;
       font-size: 14px;
       line-height: 15px;
       overflow: scroll;
-      scrollbar-color: #e6e6e6 #ffffff;
-      scrollbar-width: 8px;
+      scrollbar-color: #E6E6E6 #979797;
+      scrollbar-width: thin;
     }
 
     .scrollables div::-webkit-scrollbar {
       width: 8px;
       height: 8px;
-      background-color: #ffffff;
+      background-color: #979797;
     }
 
     .scrollables div::-webkit-scrollbar-thumb {
-      background-color: #e6e6e6;
+      background-color: #E6E6E6;
     }
   </style>
 </head>
