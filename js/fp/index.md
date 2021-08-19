@@ -371,10 +371,13 @@ function curry(func) {
 Теперь мы можем как применить функцию частично, так и выполнить сразу, если потребуется:
 
 ```js
-const curriedMultiply = curry(multiply);
+const curriedMultiply = curry(multiply)
 
-const double = curriedMultiply(2); // [Function: continueCurrying]
-const result = curriedMultiply(2, 10); // 20
+const double = curriedMultiply(2)
+// [Function: continueCurrying]
+
+const result = curriedMultiply(2, 10)
+// 20
 ```
 
 ## Работа с побочными эффектами
