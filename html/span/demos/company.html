@@ -7,34 +7,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .article__code {
-      background-color: #18191c;
-      color: #ffffff;
+    body {
+      height: 480px;
+      overflow: hidden;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    .article__code p {
-      font-size: 18px;
-      line-height: 27px;
-    }
-
-    .article__code .header {
+    .header {
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 480px;
+      height: 100%;
       background: #18191c
-      url("../images/background.png") no-repeat
+      url("../images/background.svg") no-repeat
       center / cover;
       z-index: 0;
       color: #ffffff;
     }
 
-    .article__code .header__title {
+    .header__title {
       max-width: 500px;
       color: #fff;
       font-family: "Roboto", sans-serif;
@@ -46,24 +46,22 @@
       letter-spacing: 1px;
     }
 
-    .article__code .header__title-accent {
+    .header__title-accent {
       display: block;
       font-size: 55px;
       line-height: 58px;
       font-weight: bold;
     }
 
-    .article__code .header__title-accent_color {
-      color: #f498ad;
-      background-color: #ed6742;
+    .header__title-accent_color {
+      color: #000000;
+      background-color: #FF8630;
     }
   </style>
 </head>
 <body>
-  <div class="article__code">
-    <header class="header">
-      <h1 class="header__title">We are <span class="header__title-accent header__title-accent_color">the best</span> <span class="header__title-accent">company</span></h1>
-    </header>
-  </div>
+  <header class="header">
+    <h1 class="header__title">We are <span class="header__title-accent header__title-accent_color">the best</span> <span class="header__title-accent">company</span></h1>
+  </header>
 </body>
 </html>

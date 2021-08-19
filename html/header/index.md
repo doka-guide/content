@@ -1,7 +1,5 @@
 ---
 title: "<header>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
@@ -9,12 +7,14 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - хэдер
   - header
   - шапка
+tags:
+  - doka
 ---
 
 # Кратко
@@ -30,22 +30,24 @@ summary:
 <header>
   <img src="logo.svg" width="200" height="120" alt="Лого">
   <nav>
-    <a href>Мои работы</a>
-    <a href>Контакты</a>
+    <a href="#">Мои работы</a>
+    <a href="#">Мои навыки</a>
+    <a href="#">Контакты</a>
   </nav>
 </header>
 <!-- / Шапка -->
 <main>
-  <h1>Портфолио Ольги Данилюк</h1>
+  <h1>Портфолио Ольги Сасквоч</h1>
   <p>Добро пожаловать!</p>
-  <p>Рада приветствовать вас на своём сайте.</p>
+  <p>Рада приветствовать вас на своём сайте...</p>
 </main>
 <footer>
-  © Ольга Данилюк
+  <p>Ольга Сасквоч</p>
+  <p>2021</p>
 </footer>
 ```
 
-<iframe title="Шапка сайта" src="demos/header.html"></iframe>
+<iframe title="Шапка сайта" src="demos/header.html" height="450"></iframe>
 
 ## Как это понять
 

@@ -1,19 +1,19 @@
 ---
 title: "<blockquote>"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - blockquote
   - cite
   - тэг
   - тег
   - цитата
+tags:
+  - doka
 ---
 
 ## Кратко

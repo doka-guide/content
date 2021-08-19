@@ -1,13 +1,13 @@
 ---
 title: ":not"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

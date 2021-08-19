@@ -1,14 +1,14 @@
 ---
 title: "Селектор по классу"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - селектор
   - класс
+tags:
+  - doka
 ---
 
 ## Кратко

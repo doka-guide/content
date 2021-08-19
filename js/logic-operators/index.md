@@ -1,12 +1,10 @@
 ---
 title: "Логические операторы"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
-summary:
+keywords:
   - или
   - логическое
   - и
@@ -16,6 +14,8 @@ summary:
   - or
   - отрицание
   - not
+tags:
+  - doka
 ---
 
 ## Кратко

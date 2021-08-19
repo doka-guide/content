@@ -1,11 +1,11 @@
 ---
 title: "DOM"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
+tags:
+  - doka
 ---
 
 ## Кратко

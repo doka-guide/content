@@ -1,11 +1,11 @@
 ---
 title: "grid"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - шорткат
+tags:
+  - doka
 ---
 
 ## Кратко

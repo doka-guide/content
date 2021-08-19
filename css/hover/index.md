@@ -1,17 +1,17 @@
 ---
 title: ":hover"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - :hover
   - LVHA
   - псевдокласс
+tags:
+  - doka
 ---
 
 ## Кратко

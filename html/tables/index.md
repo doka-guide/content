@@ -1,12 +1,14 @@
 ---
 title: "Таблицы"
-tags:
-  - doka
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девушка в большой шляпе, на фоне видно схематичное табло вылета самолётов.'
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - table
   - thead
   - tbody
@@ -17,6 +19,8 @@ summary:
   - caption
   - colspan
   - rowspan
+tags:
+  - doka
 ---
 
 ## Кратко

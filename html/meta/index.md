@@ -1,7 +1,9 @@
 ---
 title: "<meta>"
-tags:
-  - doka
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Голова человека, обрамлённая открывающим и закрывающим тегами head. Внутри головы множество тегов meta.'
 authors:
   - grachev
 contributors:
@@ -9,11 +11,13 @@ contributors:
   - vladimir
 editors:
   - tachisis
-summary:
+keywords:
   - тэг
   - тег
   - meta
   - мета
+tags:
+  - doka
 ---
 
 ## Кратко

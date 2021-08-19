@@ -1,17 +1,17 @@
 ---
 title: "::placeholder"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - плейсхолдер
   - placeholder
   - подсказка
+tags:
+  - doka
 ---
 
 ## Кратко

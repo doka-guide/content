@@ -1,7 +1,9 @@
 ---
 title: "Гайд по flexbox"
-tags:
-  - article
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Окно браузера, мобильный телефон, умные часы и зеркальце из сказки про Белоснежку. На всех открыт один и тот же сайт.'
 authors:
   - solarrust
 contributors:
@@ -9,7 +11,7 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - флексбокс
   - flexbox
   - flex-box
@@ -30,8 +32,8 @@ summary:
   - flex
   - flex-flow
   - align-content
-cover:
-  desktop: images/cover.png
+tags:
+  - article
 ---
 
 ## Что это?

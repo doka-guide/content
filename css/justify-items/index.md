@@ -1,11 +1,11 @@
 ---
 title: "justify-items"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - выравнивание по горизонтальной оси
+tags:
+  - doka
 ---
 
 ## Кратко

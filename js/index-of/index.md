@@ -1,9 +1,9 @@
 ---
 title: "indexOf()"
-tags:
-  - doka
 authors:
   - nlopin
+tags:
+  - doka
 ---
 
 ## Кратко

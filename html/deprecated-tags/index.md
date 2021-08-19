@@ -1,12 +1,10 @@
 ---
 title: "Устаревшие теги"
-tags:
-  - article
 authors:
   - realetive
 contributors:
   - skorobaeus
-summary:
+keywords:
   - теги
   - разметка текста
   - acronym
@@ -49,6 +47,8 @@ summary:
   - text-align
   - marquee
   - <marquee>
+tags:
+  - article
 ---
 
 По мере развития веб-технологий появляются новые теги и CSS-свойства. Но некоторые теги устаревают и их использование уже не является хорошей практикой. Есть и такие, которые уже не поддерживаются браузером или никогда не были частью спецификации W3C.
@@ -178,7 +178,7 @@ h1 {
 кластеризации усилий.
 ```
 
-<iframe title="Тег nobr" src="demos/nobr.html"></iframe>
+<iframe title="Тег nobr" src="demos/nobr.html" height="280"></iframe>
 
 #### Чем заменить
 
@@ -351,7 +351,7 @@ h1 {
 </marquee>
 ```
 
-<iframe title="Тег marquee" src="demos/marquee.html"></iframe>
+<iframe title="Тег marquee" src="demos/marquee.html" height="360"></iframe>
 
 #### Чем заменить
 
@@ -407,7 +407,7 @@ h1 {
 }
 ```
 
-<iframe title="Имитация marquee" src="demos/marquee-fallback.html"></iframe>
+<iframe title="Имитация marquee" src="demos/marquee-fallback.html" height="280"></iframe>
 
 ## Вывод
 

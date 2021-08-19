@@ -1,17 +1,17 @@
 ---
 title: "<html>"
-tags:
-  - doka
 authors:
   - grachev
 contributors:
   - solarrust
-summary:
+keywords:
   - тэг
   - тег
   - хтмл
   - html
   - "<html>"
+tags:
+  - doka
 ---
 
 ## Кратко
