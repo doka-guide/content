@@ -19,7 +19,7 @@ tags:
 
 `debounce` — это функция, которая «откладывает» вызов другой функции до того момента, когда с последнего вызова пройдёт определённое количество времени.
 
-<video controls width="580" poster="images/poster-debounce.png">
+<video controls width="580" height="335" poster="images/poster-debounce.png">
   <source src="videos/debounce.mp4" type="video/mp4">
 </video>
 
