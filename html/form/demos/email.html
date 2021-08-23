@@ -4,89 +4,107 @@
   <title>Форма с отправкой на email — <form> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,300;1,400;1,500&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #18191c;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    form {
-      padding: 30px;
-      background-color: #49a16c;
+    .form {
+      width: 790px;
+      margin: auto;
+      padding: 60px 80px;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 10px 12px;
-      border: 1px solid transparent;
-      vertical-align: middle;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 16px;
-      font-weight: 300;
+    .input-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    button:hover {
-      border: 1px solid #000000;
-      color: #ffffff;
-      background-color: transparent;
-      cursor: pointer;
+    .input-label + .input-label {
+      margin-top: 25px;
     }
 
-    button:focus {
-      outline: 1px solid #ffffff;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
+    .input-title {
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
       line-height: 1;
-      color: #ffffff;
     }
 
-    input {
-      min-width: 300px;
-      padding: 10px 12px;
+    .input {
       border: 1px solid #ffffff;
-      vertical-align: middle;
+      border-radius: 6px;
+      padding: 10px 15px;
       background-color: transparent;
       color: #ffffff;
-      font-size: 16px;
+      font-family: inherit;
+      font-size: inherit;
       font-weight: 300;
     }
 
-    input:focus {
-      border-color: #18191c;
+    .input:focus {
+      border-color: #FF8630;
       outline: none;
     }
 
-    p {
-      margin: 0;
+    .input, .button {
+      width: 300px;
+      flex-shrink: 0;
     }
 
-    p + p {
-      margin-top: 20px;
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      margin-top: 25px;
+      margin-left: auto;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
     }
   </style>
 </head>
 <body>
-  <form action="mailto:html@yandex.ru" enctype="text/plain">
-    <p>
-      <label for="name">Ваше имя</label>
-      <input type="text" name="name" id="name" required>
-    </p>
-    <p>
-      <label for="order">Что вы хотите заказать?</label>
-      <input type="text" name="order" id="order" required>
-    </p>
-    <button type="submit">Сделать заказ</button>
+  <form class="form" action="mailto:html@yandex.ru" enctype="text/plain">
+    <label class="input-label"><span class="input-title">Ваше имя</span>
+      <input class="input" type="text" name="name" required>
+    </label>
+    <label class="input-label"><span class="input-title">Что вы хотите заказать?</span>
+      <input class="input" type="text" name="order" required>
+    </label>
+    <button class="button button-orange" type="submit">Сделать заказ</button>
   </form>
 </body>
 </html>
