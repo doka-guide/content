@@ -5,101 +5,130 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
     }
 
     /* Form */
 
-    form {
+    .form, .result {
+      width: 65%;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .form {
       display: flex;
       margin-bottom: 25px;
     }
 
-    input {
+    .input {
       flex-grow: 1;
-      padding: 8px 12px;
       border: 1px solid #ffffff;
-      background-color: #18191c;
+      border-radius: 6px;
+      margin-right: 35px;
+      padding: 10px 15px;
+      background-color: transparent;
       color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+    .input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    .input.lie {
+      color: #FF8630;
+      caret-color: #FF8630;
+    }
+
+    .input::placeholder {
+      color: #979797;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
       font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
-    input.lie {
-      color: #ed6742;
-      caret-color: #ed6742;
-    }
-
-    input::placeholder {
-      opacity: 1;
-      color: #49a16c;
-    }
-
-    button {
-      margin-left: 17px;
-      padding: 10px;
-      border: 1px solid #49a16c;
-      background-color: #49a16c;
-      color: #ffffff;
-      font-size: 18px;
+    .button:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    button:hover {
-      background-color: #18191c;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    button:focus {
-      outline: 1px solid #ffffff;
+    .button-yellow {
+      background-color: #FFD829;
     }
 
     /* List */
 
-    section {
-      min-width: 500px;
-      min-height: 145px;
-      background-color: #ffffff;
-      text-align: center;
-    }
-
-    h3 {
-      margin: 0;
-      padding: 20px;
-      border-bottom: 1px solid rgba(24, 25, 28, 0.3);
-      text-transform: uppercase;
-      font-size: 20px;
-      font-weight: bold;
+    .subtitle {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
     }
 
     p {
-      padding: 20px;
-      margin: 0;
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 140%;
     }
 
     ul {
       margin: 0;
-      padding: 20px;
       list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li:nth-last-child(n + 2) {
+      margin-right: 25px;
+      margin-bottom: 5px;
     }
 
     .police-status {
-      padding-top: 0;
-      color: #ed6742;
+      margin-top: 17px;
+      margin-bottom: 0;
+      color: #FF8630;
     }
   </style>
 </head>
 <body>
-    <form>
-      <input type="text" placeholder="Введите имя">
-      <button type="submit">Пропустить гостя</button>
+    <form class="form">
+      <input class="input" type="text" placeholder="Введите имя">
+      <button class="button button-yellow" type="submit">Пропустить гостя</button>
     </form>
-    <section>
-      <h3>Пришедшие гости</h3>
+    <section class="result">
+      <h2 class="subtitle">Пришедшие гости</h2>
       <p class="empty-list">Никто ещё не пришёл</p>
       <ul>
       </ul>
