@@ -5,9 +5,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      padding: 5%;
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
       background-color: #18191C;
       text-align: center;
     }
@@ -15,7 +20,8 @@
     .button {
       width: 125px;
       height: 125px;
-      border: none;
+      border: 2px solid transparent;
+      border-radius: 6px;
       padding: 10px;
       vertical-align: middle;
       background-color: #FFFFFF;
@@ -23,9 +29,6 @@
     }
 
     .button:hover {
-      border: 1px solid #FFFFFF;
-      color: #FFFFFF;
-      background: linear-gradient(to top, #18191C, #18191C);
       cursor: pointer;
     }
 
@@ -50,7 +53,7 @@
     }
 
     function getColor() {
-      const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#5E6064', '#E6E6E6', '#FFFFFF']
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
       const randomColorIndex = Math.floor(Math.random() * colors.length)
       return colors[randomColorIndex]
     }
