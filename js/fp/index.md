@@ -120,8 +120,8 @@ let counter = 0
 
 const FakeDate = {
   now() {
-    counter++;
-    return 42;
+    counter++
+    return 42
   },
 }
 
@@ -227,7 +227,7 @@ function filter(list, predicate) {
     if (predicate(value)) {
       result.push(value)
     }
-  });
+  })
 
   return result
 }
@@ -291,7 +291,7 @@ function multiply(a) {
 Тогда создать удвоитель мы сможем, написав:
 
 ```js
-const double = multiply(2);
+const double = multiply(2)
 ```
 
 Эта запись превратит `double` в функцию `performWith`, у которой аргумент `a` будет «заполнен заранее». То есть это:
@@ -493,7 +493,7 @@ const withContainer = (str) =>
     .map((n) => n + 1)
     .fold((x) => x)
 
-const result = withContainer("45")
+const result = withContainer('45')
 // 46
 ```
 
@@ -605,19 +605,19 @@ fromNullable(x)
 ```js
 function isRGBComponent(color) {
   switch (color) {
-    case "red":
-    case "green":
-    case "blue":
+    case 'red':
+    case 'green':
+    case 'blue':
       return true
     default:
       false
   }
 }
 
-isRGBComponent("blue")
+isRGBComponent('blue')
 // true
 
-isRGBComponent("gray")
+isRGBComponent('gray')
 // false
 ```
 
@@ -635,11 +635,11 @@ isRGBComponent("gray")
 function stringifyAmount(amount) {
   switch (true) {
     case amount === 0:
-      return "Empty!"
+      return 'Empty!'
     case 0 < amount && amount < 10:
-      return `A few`
+      return 'A few'
     default:
-      return "Many"
+      return 'Many'
   }
 }
 
