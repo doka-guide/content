@@ -97,7 +97,7 @@ function pureFn(a, b) {
 
 ```js
 function impureFn(a, b) {
-  return ((a + b) * a) / Math.round()
+  return ((a + b) * a) / Math.random()
 }
 ```
 
