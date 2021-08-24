@@ -27,4 +27,4 @@ jobs:
           paths: ${{ steps.files.outputs.all }}
           markdown: true
           serverRoot: "/home/runner/work/content/content"
-          linksToSkip: "https?://(localhost|codepen.io)?(:\d+)?/.*"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
