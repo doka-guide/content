@@ -1,9 +1,13 @@
 name: Netlify Deploy
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Sort Dictionary"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
   deploy:

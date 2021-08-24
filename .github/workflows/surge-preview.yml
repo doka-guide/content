@@ -1,7 +1,13 @@
 name: Surge
 
 on:
-  pull_request
+  workflow_run:
+    workflows:
+      - "Link Checker PR"
+    branches-ignore:
+      - main
+    types:
+      - completed
 
 jobs:
   preview:
