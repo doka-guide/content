@@ -3,7 +3,7 @@ name: Netlify Deploy
 on:
   workflow_run:
     workflows:
-      - "Update Search Index"
+      - "Update Dates"
     branches:
       - main
     types:
