@@ -1,16 +1,16 @@
 ---
 title: "<source>"
-tags:
-  - doka
 authors:
   - ezhkov_d
 editors:
   - tachisis
-summary:
+keywords:
   - адаптивные изображения
   - picture
   - srcset
   - media
+tags:
+  - doka
 ---
 
 ## Кратко

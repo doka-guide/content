@@ -1,13 +1,13 @@
 ---
 title: "text-shadow"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - text-shadow
+tags:
+  - doka
 ---
 
 ## Кратко

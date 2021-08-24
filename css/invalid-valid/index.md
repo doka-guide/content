@@ -1,16 +1,16 @@
 ---
 title: ":invalid и :valid"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - invalid
   - valid
   - валидация
   - форма
+tags:
+  - doka
 ---
 
 ## Кратко

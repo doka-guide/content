@@ -1,17 +1,17 @@
 ---
 title: "::after"
-tags:
-  - doka
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-summary:
+keywords:
   - ::after
   - :after
   - псевдоэлемент
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -78,7 +78,7 @@ a::after {
 }
 ```
 
-<iframe title="Выделение слова в предложении" src="demos/word.html"></iframe>
+<iframe title="Выделение слова в предложении" src="demos/word.html" height="525"></iframe>
 
 ## Подсказки
 

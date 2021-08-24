@@ -1,18 +1,18 @@
 ---
 title: "<img>"
-tags:
-  - doka
 authors:
   - grachev
   - solarrust
   - pepelsbey
-editors:
-  - tachisis
 contributors:
   - skorobaeus
-summary:
+editors:
+  - tachisis
+keywords:
   - картинка
   - img
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -152,4 +152,4 @@ img {
 }
 ```
 
-<iframe title="Картинка с заданной шириной" src="demos/img-fix-width.html"></iframe>
+<iframe title="Картинка с заданной шириной" src="demos/img-fix-width.html" height="300"></iframe>

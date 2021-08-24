@@ -1,13 +1,16 @@
 ---
 title: "float"
-author: lenaryan
+authors:
+  - lenaryan
 editors:
   - tachisis
-summary:
+keywords:
   - float
   - обтекание
   - clearfix
   - flow-root
+tags:
+  - doka
 ---
 
 ## Кратко

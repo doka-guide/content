@@ -1,15 +1,16 @@
 ---
 title: "<picture>"
-tags:
-  - doka
-author: ezhkov_d
-editor:
+authors:
+  - ezhkov_d
+editors:
   - tachisis
-summary:
+keywords:
   - картинка
   - ретина
   - retina
   - srcset
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -48,7 +49,7 @@ summary:
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
-В этом примере при помощи атрибута `media` в теге [`<source>`](/html/source) мы задаём условие по аналогии с медиавыражением [`@media`](/css/media) (в работе) в CSS. Если условие определяется как ложное, то элемент `<source>` пропускается.
+В этом примере при помощи атрибута `media` в теге [`<source>`](/html/source) мы задаём условие по аналогии с медиавыражением [`@media`](/css/media) в CSS. Если условие определяется как ложное, то элемент `<source>` пропускается.
 
 ## Подсказки
 

@@ -5,16 +5,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #1A5AD7;
+      padding: 50px;
+      background-color: #FFD829;
       color: #ffffff;
       font-size: 18px;
       text-align: center;
@@ -22,18 +23,19 @@
     }
 
     #field {
-      width: 100%;
-      border: 1px solid #FFFFFF;
+      width: 750px;
+      border: 1px solid currentColor;
+      border-radius: 6px;
       padding: 15px;
       background-color: transparent;
-      color: #FFFFFF;
+      color: #000000;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
       font-weight: 300;
     }
 
     #field::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.6);
       font-size: 18px;
     }
 
@@ -44,10 +46,15 @@
 
     #field.shifted {
       border-color: #FFFFFF;
+      color: #FFFFFF;
+    }
+
+    #field.shifted::placeholder {
+      color: rgba(255, 255, 255, 0.6);
     }
 
     #field.shifted:focus {
-      border-color: #1A5AD7;
+      border-color: #FFD829;
     }
   </style>
 </head>

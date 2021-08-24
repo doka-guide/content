@@ -1,12 +1,12 @@
 ---
 title: "grid-template-columns"
-tags:
-  - doka
 authors:
   - solarrust
-summary:
+keywords:
   - размер и количество колонок
   - грид-колонка
+tags:
+  - doka
 ---
 
 ## Кратко

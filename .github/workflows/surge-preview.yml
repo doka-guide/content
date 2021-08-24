@@ -6,7 +6,10 @@ on:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.draft == false
+    if: ${{ github.event.pull_request.draft == false }}
+    env:
+      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
@@ -16,6 +19,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: content
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - name: Кэширование модулей
         uses: actions/cache@v2
         env:
@@ -29,15 +35,53 @@ jobs:
             ${{ runner.os }}-
       - name: Установка модулей
         run: npm ci
-      - name: Сборка и публикация сайта
-        uses: doka-guide/surge-preview@main
-        id: preview_step
+      - name: Сообщение о начале публикации превью
+        id: comment
+        if: ${{ env.SURGE_TOKEN != '' }}
+        uses: jungwinter/comment@v1
         with:
-          surge_token: ${{ secrets.SURGE_TOKEN }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          dist: dist
-          build: |
-            node make-links.js --default
-            npm run build
-      - name: Получение ссылки для превью
-        run: echo "Ссылка на превью — ${{ steps.preview_step.outputs.preview_url }}"
+          type: create
+          body: 'Идёт сборка и публикация превью...'
+          issue_number: ${{ github.event.number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Выборка файлов для формирования списка
+        id: files
+        uses: Ana06/get-changed-files@v2.0.0
+        with:
+          filter: '*.md'
+      - name: Форматирование списка файлов
+        id: links
+        run: |
+          file_list=''
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            replace='html'
+            page=$(echo "${changed_file/md/$replace}")
+            file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
+          done
+          if ! [[ $file_list == '' ]]; then
+            file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
+          fi
+          echo ::set-output name=list::$(echo -e "${file_list}")
+      - name: Сборка и публикация сайта
+        id: surge
+        run: |
+          node make-links.js --default
+          npm run build
+          if ! [[ ${{ env.SURGE_TOKEN == '' }} ]]; then
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
+          else
+            echo 'Публикация для форка репозитория'
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
+          fi
+          echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
+          echo -e "${{ steps.links.outputs.list }}"
+      - name: Сообщение об окончании публикации превью
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
+        uses: jungwinter/comment@v1
+        with:
+          type: edit
+          body: |
+            [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.sha }} опубликовано.
+            ${{ steps.links.outputs.list }}
+          comment_id: ${{ steps.comment.outputs.id }}
+          token: ${{ secrets.GITHUB_TOKEN }}

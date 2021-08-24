@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
     * {
@@ -20,6 +20,7 @@
       color: #ffffff;
       font-family: "Roboto", sans-serif;
       text-align: center;
+      overflow: hidden;
     }
 
     pre {
@@ -32,59 +33,51 @@
       text-align: left;
     }
 
-    h2 {
-      margin-top: 45px;
-      margin-bottom: 10px;
+    .subtitle {
       font-size: 22px;
       font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
     }
 
-    h2:first-child {
+    .subtitle:first-child {
       margin-top: 0;
     }
 
     .button {
-      min-width: 200px;
-      border: 1px solid;
-      padding: 10px;
-      vertical-align: middle;
-      color: #ffffff;
-      font-family: "Roboto";
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
     .button:hover {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background-color: #18191c;
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    .button:focus {
-      outline: 1px solid #ffffff;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .pink {
-      border-color: #F498AD;
-      background-color: #F498AD;
+    .button-yellow {
+      background-color: #FFD829;
     }
 
-    .pink:hover {
-      border-color: #F498AD;
-    }
-
-    .blue {
-      background-color: #1a5ad7;
-      border-color: #1a5ad7;
-    }
-
-    .blue:hover {
-      border-color: #0882ff;
+    .button-green {
+      background-color: #41E847;
     }
 
     .header-container {
-      margin-bottom: 45px;
+      margin-bottom: 40px;
     }
 
     .header-container pre,
@@ -99,12 +92,13 @@
     }
 
     .does-container + .does-container {
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .does-container pre {
-      margin-left: 15px;
+      margin-left: 25px;
       flex-grow: 1;
+      line-height: 1;
     }
 
     .items {
@@ -114,17 +108,15 @@
 
     .item {
       width: 50px;
-      height: 32px;
-      border: 1px solid #ffffff;
-      color: #ffffff;
+      height: 30px;
+      background-color: #ffffff;
+      color: #000000;
       text-align: center;
       line-height: 30px;
     }
 
     .active {
-      border-color: #ffd829;
-      background-color: #ffd829;
-      color: #ffffff;
+      background-color: #41E847;
     }
 
     .item + .item {
@@ -132,16 +124,17 @@
     }
 
     .execute {
-      min-height: 57px;
+      min-height: 48px;
       padding: 15px 0;
       border-bottom: 1px solid #5e6064;
+      line-height: 1;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header-container">
-      <h2>Наш код</h2>
+      <h2 class="subtitle">Наш код</h2>
       <pre>
 const products = ['🍺', '🍣', '🍕', '🍷', '🍕', '🍺', '🍕', '🍷', '🍣']
 
@@ -155,22 +148,22 @@ function isForSushiParty(item) {
     </div>
 
     <div class="does-container">
-      <button id="pizza" class="button blue start">Хочу пиццу!</button>
+      <button id="pizza" class="button button-yellow start">Хочу пиццу!</button>
       <pre>
 products.filter(isForPizzaParty)
 </pre>
     </div>
     <div class="does-container">
-      <button id="sushi" class="button pink start">Хочу суши!</button>
+      <button id="sushi" class="button button-green start">Хочу суши!</button>
       <pre>
 products.filter(isForSushiParty)
 </pre>
     </div>
-    <h2>С каким элементом работаем</h2>
+    <h2 class="subtitle">С каким элементом работаем</h2>
     <div class="items" id="container"></div>
-    <h2>Что выполняется</h2>
+    <h2 class="subtitle">Что выполняется</h2>
     <pre class="execute" id="execute"></pre>
-    <h2>Итоговый массив</h2>
+    <h2 class="subtitle">Итоговый массив</h2>
     <div class="items" id="result"></div>
   </div>
 

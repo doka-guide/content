@@ -1,17 +1,17 @@
 ---
 title: "<span>"
-tags:
-  - doka
 authors:
   - vladimir
 contributors:
   - solarrust
   - skorobaeus
-summary:
+keywords:
   - тэг
   - тег
   - span
   - спан
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -66,6 +66,7 @@ summary:
 }
 
 .quote__author {
+  margin-top: 10px;
   padding: 10px 0;
   border-top: 1px solid #ed6742; /* декоративная граница */
   font-style: italic;
@@ -74,4 +75,4 @@ summary:
 }
 ```
 
-<iframe title="Буквица" src="demos/show.html"></iframe>
+<iframe title="Буквица" src="demos/show.html" height="240"></iframe>

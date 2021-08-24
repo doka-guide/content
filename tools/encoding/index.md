@@ -1,16 +1,16 @@
 ---
 title: Шифрование
-tags:
-  - article
 authors:
   - igsekor
 contributors:
   - furtivite
-summary:
+keywords:
   - encoding
   - decoding
   - cryptography
   - криптография
+tags:
+  - article
 ---
 
 ## Кратко

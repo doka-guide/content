@@ -1,16 +1,20 @@
 ---
 title: "<select>"
-tags:
-  - doka
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Игрушечный пистолет в торчащим из дула флажком. На флажке нарисована вкладка браузера, а в ней выпадающий список.'
 authors:
   - ezhkov
-summary:
+keywords:
   - тэг
   - тег
   - выпадашка
   - селект
   - "<select>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -5,25 +5,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
+      height: 100vh;
       font-family: "Roboto", sans-serif;
     }
 
     #container {
-      padding: 5%;
+      height: 100%;
+      padding: 50px;
       background-color: #18191c;
       color: #FFFFFF;
       text-align: center;
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 17px;
       font-size: 26px;
       font-weight: 500;
     }
@@ -46,7 +50,7 @@
 
     // слушаем событие click на <div>
     container.addEventListener('click', function() {
-      const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064']
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
       const randomColorIndex = Math.floor(Math.random() * colors.length)
       container.style.backgroundColor = colors[randomColorIndex]
     })

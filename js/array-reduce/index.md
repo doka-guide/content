@@ -1,12 +1,12 @@
 ---
 title: "Array.reduce"
-tags:
-  - doka
 authors:
   - windrushfarer
-summary:
+keywords:
   - редьюсер
   - свёртка
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -44,7 +44,7 @@ const usernamesById = users.reduce(function (result, user) {
 
 Интерактивный пример:
 
-<iframe height="970" title="Группировка элементов массива при помощи reduce" src="demos/index.html"></iframe>
+<iframe height="920" title="Группировка элементов массива при помощи reduce" src="demos/index.html"></iframe>
 
 ## Как пишется
 

@@ -1,15 +1,15 @@
 ---
 title: "<option>"
-tags:
-  - doka
 authors:
   - ezhkov
-summary:
+keywords:
   - тэг
   - тег
   - пункт
   - "<option>"
   - выбор
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -41,7 +41,7 @@ summary:
 
 ## Подробно
 
-Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select/), группы опций [`<optgroup>`](/html/TODO) (в работе) или перечня [`<datalist>`](/html/TODO) (в работе).
+Тегом `<option>` размечается каждый элемент выпадающего списка [`<select>`](/html/select), группы опций [`<optgroup>`](/html/optgroup) или перечня [`<datalist>`](/html/datalist).
 
 ## Атрибуты
 

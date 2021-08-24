@@ -1,14 +1,14 @@
 ---
 title: ":empty"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
 - псевдокласс
 - пусто
+tags:
+  - doka
 ---
 
 ## Кратко

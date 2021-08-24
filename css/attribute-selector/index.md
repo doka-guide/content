@@ -1,14 +1,14 @@
 ---
 title: "Селектор по атрибуту"
-tags:
-  - doka
 authors:
   - ezhkov
 editors:
   - tachisis
-summary:
+keywords:
   - селектор
   - атрибут
+tags:
+  - doka
 ---
 
 ## Кратко

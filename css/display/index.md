@@ -1,17 +1,17 @@
 ---
 title: "display"
-tags:
-  - doka
 authors:
   - solarrust
 contributors:
   - skorobaeus
-summary:
+keywords:
   - блочная модель
   - block
   - inline-block
   - flex
   - grid
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -5,15 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Roboto:wght@300;400&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      padding: 50px;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
@@ -23,6 +24,11 @@
 
     code {
       font-family: "Roboto Mono", monospace;
+    }
+
+    .code-container, .input-container {
+      width: 750px;
+      margin: auto;
     }
 
     .code-container {
@@ -65,7 +71,7 @@
     }
 
     #key {
-      background-color: #1a5ad7;
+      background-color: #665610;
     }
 
     #key::before {
@@ -82,7 +88,7 @@
     }
 
     #code {
-      background-color: #AFC9DA;
+      background-color: #FFD829;
       color: #000000;
     }
 
@@ -98,6 +104,7 @@
     #field {
       width: 100%;
       border: 1px solid #979797;
+      border-radius: 6px;
       padding: 15px 85px 15px 15px;
       background-color: #18191C;
       color: #FFFFFF;
@@ -112,7 +119,7 @@
     }
 
     #field:focus {
-      border-color: #AFC9DA;
+      border-color: #FFD829;
       outline: none;
     }
 
@@ -122,6 +129,7 @@
       right: 0;
       bottom: 0;
       padding: 10px 15px;
+      font-size: 17px;
       font-weight: 300;
       line-height: 35px;
       text-align: right;

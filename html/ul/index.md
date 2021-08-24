@@ -1,20 +1,22 @@
 ---
 title: "<ul>"
-tags:
-  - doka
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Тарелка с роллами, подписанная UL и отдельный ролл, подписанный LI.'
 authors:
   - ezhkov
 contributors:
   - furtivite
 editors:
   - tachisis
-summary:
+keywords:
   - список
   - маркированный список
   - ненумерованный список
   - ul
-cover:
-  desktop: 'images/cover.png'
+tags:
+  - doka
 ---
 
 ## Кратко

@@ -1,13 +1,13 @@
 ---
 title: "<embed>"
-tags:
-  - doka
 authors:
   - solarrust
 editors:
   - tachisis
-summary:
+keywords:
   - вставка контента
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -27,7 +27,7 @@ summary:
 ## Как понять
 
 Тег `<embed>` создаёт своеобразное окошко, в котором отображается подгружаемый контент.
-Чем-то его поведение похоже на теги [`<object>`](/html/object) (в работе) и [`<iframe>`](/html/iframe).
+Чем-то его поведение похоже на теги [`<object>`](/html/object) и [`<iframe>`](/html/iframe).
 
 ## Как пишется
 

@@ -1,12 +1,12 @@
 ---
 title: "Событие load и DOMContentLoaded"
-tags:
-  - doka
 authors:
   - nlopin
 contributors:
   - furtivite
   - skorobaeus
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -44,4 +44,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
 Событие `load` дополнительно гарантирует, что все стили и картинки готовы. В этот момент размеры элементов на страницы посчитаны верно и доступны. `DOMContentLoaded` таких гарантий не даёт.
 
-<iframe height="510" title="Разница между событиями load и DOMContentloaded" src="demos/overloaded.html"></iframe>
+<iframe height="530" title="Разница между событиями load и DOMContentloaded" src="demos/overloaded.html"></iframe>
