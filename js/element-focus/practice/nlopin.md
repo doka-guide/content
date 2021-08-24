@@ -1,20 +1,18 @@
 🛠 Если нужно установить фокус на элемент сразу после загрузки страницы, то лучше добавить атрибут `autofocus` прямо в вёрстку. Браузер установит фокус на элемент самостоятельно:
 
 ```html
- <form>
-  <form action="/apply" method="POST">
-    <label>
-      Your name:
-      <input type="text" name="name" autofocus>
-    </label>
+<form action="/apply" method="POST">
+  <label>
+    Your name:
+    <input type="text" name="name" autofocus>
+  </label>
 
-    <label>
-      Email:
-      <input type="email" name="email">
-    </label>
+  <label>
+    Email:
+    <input type="email" name="email">
+  </label>
 
-    <button type="submit">Подать заявку</button>
-  </form>
+  <button type="submit">Подать заявку</button>
 </form>
 ```
 
