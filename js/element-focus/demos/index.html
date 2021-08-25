@@ -10,7 +10,7 @@
 <body>
   <label>Куда переместить фокус?
     <select id="focus-selector">
-      <option></option>
+      <option value="" disabled selected>Никуда</option>
       <option value="name">Имя</option>
       <option value="email">Email</option>
       <option value="age">Возраст</option>
@@ -61,7 +61,7 @@
   </form>
   <script>
     const focusSelector = document.getElementById("focus-selector")
-    focusSelector.value = null
+    focusSelector.value = ""
     focusSelector.addEventListener("change", (e) => {
       const chosenId = e.target.value
       if (chosenId) {
