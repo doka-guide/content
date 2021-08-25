@@ -4,6 +4,8 @@ authors:
   - KognitivnayaBuena
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
@@ -46,7 +48,7 @@ console.log(tomorrowToDoList.find(isMyFavouriteHobby));
 
 ## Интерактивный пример
 
-<iframe title="Работа метода массива filter" src="demos/index.html"></iframe>
+<iframe title="Работа метода массива filter" src="demos/index.html" height="695"></iframe>
 
 ## Как пишется
 

@@ -15,6 +15,7 @@
       background-image: url("../images/background-dash.svg");
       background-repeat: repeat;
       background-size: 18px 450px;
+      font-family: "Roboto", sans-serif;
     }
 
     #buttons{
@@ -40,54 +41,45 @@
 
     .button {
       display: block;
-      width: 220px;
-      padding: 10px;
-      border: 1px solid;
-      vertical-align: middle;
-      color: #ffffff;
+      width: 230px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
-      font-family: "Roboto";
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
     .button + .button {
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     .button:hover {
-      border: 1px solid #ffffff;
-      color: #ffffff;
-      background-color: #18191c;
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    .button:focus {
-      outline: 1px solid #ffffff;
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
-    .green {
-      border-color: transparent;
-      background-color: #49A16C;
+    .button-yellow {
+      background-color: #FFD829;
     }
 
-    .green:hover {
-      border-color: #49A16C;
-    }
-
-    .blue {
-      border-color: transparent;
-      background-color: #1A5AD7;
-    }
-
-    .blue:hover {
-      border-color: #1A5AD7;
+    .button-green {
+      background-color: #41E847;
     }
   </style>
 </head>
 <body>
   <div id="buttons">
-    <button type="type" class="button green" onclick="makeScroll(true)">Прокрутка с arg = true</button>
-    <button type="type" class="button blue" onclick="makeScroll(false)">Прокрутка с arg = false</button>
+    <button type="type" class="button button-yellow" onclick="makeScroll(true)">Прокрутка с arg = true</button>
+    <button type="type" class="button button-green" onclick="makeScroll(false)">Прокрутка с arg = false</button>
   </div>
   <div id="element"></div>
   <script>

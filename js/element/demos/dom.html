@@ -7,19 +7,29 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    h1, h2 {
+    h1,
+    h2,
+    h3 {
+      margin-bottom: 17px;
       font-weight: 500;
+    }
+
+    h2,
+    h3 {
+      margin-top: 40px;
     }
 
     h1 {
@@ -27,12 +37,17 @@
     }
 
     h2 {
-      margin-top: 30px;
       font-size: 22px;
     }
 
+    h3 {
+      font-size: 20px;
+    }
+
     p {
-      margin-top: 8px;
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 140%;
     }
 
     a {
@@ -42,20 +57,30 @@
 
     .playground {
       padding: 20px;
-      background-color: #AFC9DA;
+      background-color: #282A2E;
     }
 
     .menu {
       padding: 20px;
-      border: 1px solid #1A5AD7;
-      list-style-position: inside;
+      border: 1px solid currentColor;
+      list-style: none;
     }
 
     .menu-item {
-      padding: 5px 10px;
-      background-color: #1A5AD7;
-      color: #FFFFFF;
-      list-style-type: square;
+      position: relative;
+      padding: 5px 10px 5px 30px;
+      background-color: #E6E6E6;
+      color: #282A2E;
+    }
+
+    .menu-item::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      background-color: currentColor;
     }
 
     .menu-item + .menu-item {
@@ -63,12 +88,12 @@
     }
 
     .description {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .active {
-      background-color: #FFFFFF;
-      color: #18191C;
+      background-color: #FFD829;
+      color: #000000;
     }
   </style>
 </head>

@@ -2,7 +2,7 @@
 title: "XML"
 authors:
   - KognitivnayaBuena
-symmary:
+keywords:
   - xml
   - разметка
 tags:
