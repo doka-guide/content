@@ -2,7 +2,7 @@
 
 ```css
 .element {
-  background: linear-gradient(#0efa5a 40%, transparent);
+  background: linear-gradient(#F498AD 10%, transparent);
 }
 ```
 
@@ -18,7 +18,7 @@
 
 ```css
 .element {
-  background: linear-gradient(#0efa5a 40%, rgb(14 250 90 / 0));
+  background: linear-gradient(#F498AD 10%, rgb(244 152 173 / 0));
 }
 ```
 
