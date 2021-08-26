@@ -49,7 +49,7 @@ tags:
 
 Синтаксически свойство полностью аналогично [`transition-duration`](/css/transition-duration), но использование их вместе помогает достичь интересных эффектов. Например, создать цепочку последовательных изменений свойств:
 
-https://codepen.io/ezhkov/pen/yLOYrOK
+<iframe title="" src="../demos/ezhkov-yLOYrOK/index.html"></iframe>
 
 ## Подсказки
 

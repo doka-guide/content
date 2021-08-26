@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-https://codepen.io/ezhkov/pen/vYyKemg
+<iframe title="" src="../demos/ezhkov-vYyKemg/index.html"></iframe>
 
 ## Как пишется
 

@@ -41,7 +41,7 @@ tags:
 }
 ```
 
-https://codepen.io/solarrust/pen/xxqvWZg
+<iframe title="" src="../demos/solarrust-xxqvWZg/index.html"></iframe>
 
 ## Как это понять
 

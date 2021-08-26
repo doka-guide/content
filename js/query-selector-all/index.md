@@ -52,7 +52,7 @@ tags:
 
 Динамический пример, введи селектор в поле поиска и «Искать»:
 
-https://codepen.io/Lopinopulos/pen/wbqdPe
+<iframe title="" src="../demos/Lopinopulos-wbqdPe/index.html"></iframe>
 
 ## Как понять
 

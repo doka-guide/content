@@ -26,4 +26,4 @@ tags:
 - `high` — определяет, что считать «высоким значением». По умолчанию равно значению `max`.
 - `optimum` — определяет оптимальное значение.
 
-https://codepen.io/solarrust/pen/MWmdQov
+<iframe title="" src="../demos/solarrust-MWmdQov/index.html"></iframe>

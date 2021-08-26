@@ -4,4 +4,4 @@
 
 Попробуй имитировать ошибку и ввести в поле что-то помимо числа скидки, без проверки тоже получится `NaN`:
 
-https://codepen.io/vindi-r/pen/XQPBGG
+<iframe title="" src="../demos/vindi-r-XQPBGG/index.html"></iframe>

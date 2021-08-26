@@ -282,4 +282,4 @@ fetch(`https://swapi.dev/api/films/${id}/`)
 
 Пример ниже показывает состояние промиса, который создаётся при нажатии на кнопку купить. Промис случайным образом завершается успехом или ошибкой:
 
-https://codepen.io/Lopinopulos/pen/QWNLMwR
+<iframe title="" src="../demos/Lopinopulos-QWNLMwR/index.html"></iframe>

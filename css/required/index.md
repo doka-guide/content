@@ -41,7 +41,7 @@ input:required {
 }
 ```
 
-https://codepen.io/ezhkov/pen/BaLbMKG
+<iframe title="" src="../demos/ezhkov-BaLbMKG/index.html"></iframe>
 
 ## Как это понять
 

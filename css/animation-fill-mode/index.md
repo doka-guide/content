@@ -34,7 +34,7 @@ tags:
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
 
-https://codepen.io/solarrust/pen/XWpxNZZ
+<iframe title="" src="../demos/solarrust-XWpxNZZ/index.html"></iframe>
 
 ## Подсказки
 

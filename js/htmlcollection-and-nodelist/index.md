@@ -22,6 +22,6 @@ tags:
 
 Например, единожды получив коллекцию мы можем не заботиться о её поддержке:
 
-https://codepen.io/Lopinopulos/pen/xNOBow
+<iframe title="" src="../demos/Lopinopulos-xNOBow/index.html"></iframe>
 
 `NodeList` работает так же, как и `HTMLCollection`. Разница только в том, что `NodeList` не живая коллекция — она не обновляется при появлении на странице новых элементов.

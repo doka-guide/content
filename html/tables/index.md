@@ -75,7 +75,7 @@ tags:
 </table>
 ```
 
-https://codepen.io/solarrust/pen/mdrWxro
+<iframe title="" src="../demos/solarrust-mdrWxro/index.html"></iframe>
 
 ## Структурные теги
 

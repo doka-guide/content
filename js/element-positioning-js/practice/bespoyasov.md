@@ -8,7 +8,7 @@
 
 В примере ниже мы используем [Прокрутчик](https://bespoyasov.ru/scroller/), чтобы таскать блоки мышью и крутить их с инерцией:
 
-https://codepen.io/bespoyasov/pen/bGeJQvO
+<iframe title="" src="../demos/bespoyasov-bGeJQvO/index.html"></iframe>
 
 Мы позиционируем элементы с помощью скриптов, потому что не знаем, когда и как пользователь захочет прокрутить ленту с блоками.
 

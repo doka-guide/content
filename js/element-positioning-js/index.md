@@ -168,7 +168,7 @@ document.body.addEventListener("mouseup", () => {
 
 Тогда получится вот такой драг-н-дроп:
 
-https://codepen.io/bespoyasov/pen/qBNwBKP
+<iframe title="" src="../demos/bespoyasov-qBNwBKP/index.html"></iframe>
 
 Это работает, но не очень эффективно, потому что изменения в этих свойствах заставляют браузер делать много лишней работы.
 

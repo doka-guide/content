@@ -89,7 +89,7 @@ selector {
 }
 ```
 
-https://codepen.io/Realetive/pen/ExNxgvX
+<iframe title="" src="../demos/Realetive-ExNxgvX/index.html"></iframe>
 
 ## Подсказки
 

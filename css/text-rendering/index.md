@@ -88,7 +88,7 @@ https://codepen.io/ezhkov/pen/OJRzYjL
 
 Используется в случае, когда важна не скорость отрисовки, а удобочитаемость текста и визуальная красота сочетаний символов. При таком значении браузер активно использует лигатуры и корректирует кернинг.
 
-https://codepen.io/ezhkov/pen/abmErGG
+<iframe title="" src="../demos/ezhkov-abmErGG/index.html"></iframe>
 
 ### `geometricPrecision`
 

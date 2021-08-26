@@ -66,4 +66,4 @@ element.addEventListener("touchend", (event) => {
 
 Рисовалка ниже использует поля события и типы событий касаний. Используйте смартфон, так как касания не работают при использовании мыши.
 
-https://codepen.io/Windrushfarer/pen/RwGjopb
+<iframe title="" src="../demos/Windrushfarer-RwGjopb/index.html"></iframe>

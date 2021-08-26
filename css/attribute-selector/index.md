@@ -32,7 +32,7 @@ blockquote[cite] {
 }
 ```
 
-https://codepen.io/ezhkov/pen/mdrJNzP
+<iframe title="" src="../demos/ezhkov-mdrJNzP/index.html"></iframe>
 
 ## Как пишется
 

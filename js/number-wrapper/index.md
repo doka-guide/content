@@ -85,4 +85,4 @@ console.log(bigNumberWrapper.toLocaleString("en_US")) // 100,000,000
 console.log(bigNumberWrapper.toLocaleString("ar-EG")) // ١٠٠٬٠٠٠٬٠٠٠
 ```
 
-https://codepen.io/Lopinopulos/pen/orxXgx
+<iframe title="" src="../demos/Lopinopulos-orxXgx/index.html"></iframe>

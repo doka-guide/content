@@ -53,4 +53,4 @@ CSS-свойство `fill`, как и у одноимённого SVG-атри�
 }
 ```
 
-https://codepen.io/Realetive/pen/KKMoVza
+<iframe title="" src="../demos/Realetive-KKMoVza/index.html"></iframe>

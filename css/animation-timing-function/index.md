@@ -96,7 +96,7 @@ CSS-анимации по умолчанию проигрываются лине
 
 Очень сложно представить, как же будет выглядеть анимация при каждом из этих значений. Гораздо информативнее будет демка:
 
-https://codepen.io/solarrust/pen/XWpxjrW
+<iframe title="" src="../demos/solarrust-XWpxjrW/index.html"></iframe>
 
 ## Подсказки
 

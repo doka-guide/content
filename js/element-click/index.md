@@ -52,4 +52,4 @@ button.addEventListener("click", function (event) {
 
 Пример, использующий эти свойства:
 
-https://codepen.io/Lopinopulos/pen/gJZxeK
+<iframe title="" src="../demos/Lopinopulos-gJZxeK/index.html"></iframe>

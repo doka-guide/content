@@ -467,4 +467,4 @@ async function fetchPosts() {
 
 В результате мы получим переработанную страницу Switter, которая будет получать контент в тот момент, когда он нужен пользователю.
 
-https://codepen.io/bespoyasov/pen/wvzWGMM
+<iframe title="" src="../demos/bespoyasov-wvzWGMM/index.html"></iframe>

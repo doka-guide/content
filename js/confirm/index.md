@@ -59,4 +59,4 @@ if (result === true) {
 
 Так как `confirm` всегда выдаёт boolean значение, то проверки на true/false вполне достаточно для продолжения работы скрипта.
 
-https://codepen.io/vindi-r/pen/jROyRE
+<iframe title="" src="../demos/vindi-r-jROyRE/index.html"></iframe>

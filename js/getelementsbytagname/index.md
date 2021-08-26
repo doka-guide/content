@@ -42,7 +42,7 @@ tags:
 
 Динамический пример, в котором поиск ведётся по кликнутому блоку:
 
-https://codepen.io/Lopinopulos/pen/LoZaJp
+<iframe title="" src="../demos/Lopinopulos-LoZaJp/index.html"></iframe>
 
 ## Как это понять
 

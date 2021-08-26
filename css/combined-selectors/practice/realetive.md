@@ -112,4 +112,4 @@ button:focus ~ button {
 
 Но сейчас при наведении курсора будут выделяться все элементы _после_ (т. е. справа). Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства `direction: rtl`:
 
-https://codepen.io/solarrust/pen/xxRjBJx
+<iframe title="" src="../demos/solarrust-xxRjBJx/index.html"></iframe>

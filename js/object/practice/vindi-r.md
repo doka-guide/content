@@ -117,4 +117,4 @@ console.log(a === b) // true
 
 Пример алгоритма сравнения, достаточный для базовых вариантов объектов:
 
-https://codepen.io/vindi-r/pen/PgJvBV
+<iframe title="" src="../demos/vindi-r-PgJvBV/index.html"></iframe>

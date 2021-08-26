@@ -45,7 +45,7 @@ tags:
 
 :::
 
-https://codepen.io/Realetive/pen/JjbRaPM
+<iframe title="" src="../demos/Realetive-JjbRaPM/index.html"></iframe>
 
 ## Атрибуты
 

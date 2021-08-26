@@ -32,7 +32,7 @@ span {
 }
 ```
 
-https://codepen.io/ezhkov/pen/JjRoLBa
+<iframe title="" src="../demos/ezhkov-JjRoLBa/index.html"></iframe>
 
 ## Как пишется
 

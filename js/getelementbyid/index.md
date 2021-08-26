@@ -27,7 +27,7 @@ tags:
 
 Живой пример:
 
-https://codepen.io/Lopinopulos/pen/XwKRaZ
+<iframe title="" src="../demos/Lopinopulos-XwKRaZ/index.html"></iframe>
 
 ## Как это понять
 

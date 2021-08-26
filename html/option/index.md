@@ -33,7 +33,7 @@ tags:
 </form>
 ```
 
-https://codepen.io/ezhkov/pen/dypzXYW
+<iframe title="" src="../demos/ezhkov-dypzXYW/index.html"></iframe>
 
 ## Подробно
 

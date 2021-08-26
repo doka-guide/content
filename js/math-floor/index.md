@@ -26,4 +26,4 @@ console.log(Math.ceil(num)) // 16
 console.log(Math.floor(num)) // 15
 ```
 
-https://codepen.io/Lopinopulos/pen/RzNGZQ
+<iframe title="" src="../demos/Lopinopulos-RzNGZQ/index.html"></iframe>

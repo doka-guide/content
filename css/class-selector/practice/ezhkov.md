@@ -42,6 +42,6 @@ https://codepen.io/ezhkov/pen/wvzqMVg
 }
 ```
 
-https://codepen.io/ezhkov/pen/JjRyGgV
+<iframe title="" src="../demos/ezhkov-JjRyGgV/index.html"></iframe>
 
 Самое сложное в вёрстке — выбрать способ решения задачи, потому что любая задача решается двумя и более способами 🙂

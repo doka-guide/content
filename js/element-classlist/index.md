@@ -25,7 +25,7 @@ button.classList.remove("active") // удалили класс
 button.classList.contains("active") // вернет false, т.к. класса у элемента нет
 ```
 
-https://codepen.io/Windrushfarer/pen/BaLREeZ
+<iframe title="" src="../demos/Windrushfarer-BaLREeZ/index.html"></iframe>
 
 ## Как понять
 

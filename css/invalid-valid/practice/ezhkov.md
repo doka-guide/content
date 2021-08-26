@@ -40,4 +40,4 @@ input:valid:placeholder-shown + .validity-icon::before {
 }
 ```
 
-https://codepen.io/ezhkov/pen/GRNKxvy
+<iframe title="" src="../demos/ezhkov-GRNKxvy/index.html"></iframe>

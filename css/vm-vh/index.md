@@ -39,7 +39,7 @@ https://codepen.io/ezhkov/pen/QWEmPYg
 
 Размер в процентах от **меньшей** размерности вьюпорта. Если высота меньше ширины (например, горизонтальная ориентация телефона), то расчёт будет вестись относительно высоты.
 
-https://codepen.io/ezhkov/pen/abZYxrP
+<iframe title="" src="../demos/ezhkov-abZYxrP/index.html"></iframe>
 
 ### `vmax`
 

@@ -104,7 +104,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-https://codepen.io/ezhkov/pen/WNwwpmX
+<iframe title="" src="../demos/ezhkov-WNwwpmX/index.html"></iframe>
 
 ### Функция `steps`
 

@@ -61,7 +61,7 @@ https://codepen.io/solarrust/pen/YzGKqxJ
 
 Проще всего понять на примерах:
 
-https://codepen.io/solarrust/pen/OJRLXNN
+<iframe title="" src="../demos/solarrust-OJRLXNN/index.html"></iframe>
 
 ### `outline-color`
 

@@ -25,4 +25,4 @@ input:required + .hint {
 }
 ```
 
-https://codepen.io/ezhkov/pen/mdrNzgw
+<iframe title="" src="../demos/ezhkov-mdrNzgw/index.html"></iframe>

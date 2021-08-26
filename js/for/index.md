@@ -47,7 +47,7 @@ for (let count = 5; count > 0; count--) {
 
 Создание разноцветных квадратов через цикл for:
 
-https://codepen.io/vindi-r/pen/bJejME
+<iframe title="" src="../demos/vindi-r-bJejME/index.html"></iframe>
 
 ## Как это понять
 

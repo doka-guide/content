@@ -21,7 +21,7 @@ tags:
 }
 ```
 
-https://codepen.io/Realetive/pen/wvzBqxp
+<iframe title="" src="../demos/Realetive-wvzBqxp/index.html"></iframe>
 
 ## Как пишется
 

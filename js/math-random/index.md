@@ -18,4 +18,4 @@ let value = Math.random()
 console.log(value) // выведет случайное число
 ```
 
-https://codepen.io/Lopinopulos/pen/agoXBj
+<iframe title="" src="../demos/Lopinopulos-agoXBj/index.html"></iframe>

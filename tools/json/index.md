@@ -55,7 +55,7 @@ JSON используется для того чтобы получить дан
 
 Пример:
 
-https://codepen.io/Stegur/pen/XWddLpK
+<iframe title="" src="../demos/Stegur-XWddLpK/index.html"></iframe>
 
 ### Преобразование в JSON
 

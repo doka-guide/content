@@ -2,4 +2,4 @@
 
 Ещё один пример, когда будет полезно знание свойства `overflow` — обрезание текста с многоточием (в сочетании со свойством `text-overflow: ellipsis` или недокументированного `-webkit-line-clamp`):
 
-https://codepen.io/Realetive/pen/poERRWW
+<iframe title="" src="../demos/Realetive-poERRWW/index.html"></iframe>

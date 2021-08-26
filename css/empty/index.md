@@ -39,7 +39,7 @@ tags:
 
 Без использования псевдокласса `:empty` у нас на экране был бы пустой элемент с верхним отступом и рамкой.
 
-https://codepen.io/ezhkov/pen/poNzKJr
+<iframe title="" src="../demos/ezhkov-poNzKJr/index.html"></iframe>
 
 ## Как это понять
 
