@@ -28,7 +28,7 @@ tags:
 
 Например, в браузере Safari на iOS поле ввода с атрибутом `type="search"` принудительно стилизуется скруглёнными углами, тенями и рамками. Чтобы не перекрывать каждое свойство по отдельности, можно задать такому полю `appearance: none`.
 
-https://codepen.io/ezhkov/pen/wvoBLXP
+<iframe title="" src="demos/ezhkov-wvoBLXP/index.html"></iframe>
 
 ![Изменение вида текстового поля на мобильных с поискового на обычное с помощью appearance: none](images/1.png)
 

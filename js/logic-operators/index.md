@@ -68,7 +68,7 @@ if (isRegistered === true && orders > 1) {
 if (hasTicket || isInvited) { ... }
 ```
 
-https://codepen.io/Lopinopulos/pen/VJjboW
+<iframe title="" src="demos/Lopinopulos-VJjboW
 
 <div class="article__table article__table_all-third">
 

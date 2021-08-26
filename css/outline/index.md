@@ -31,7 +31,7 @@ tags:
 }
 ```
 
-https://codepen.io/solarrust/pen/YzGKqxJ
+<iframe title="" src="demos/solarrust-YzGKqxJ"></iframe>
 
 ## Как пишется
 

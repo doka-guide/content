@@ -67,4 +67,4 @@ input:out-of-range + span {
 
 💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать подсказку полю ввода:
 
-https://codepen.io/solarrust/pen/yLMmKOL
+<iframe title="" src="demos/solarrust-yLMmKOL/index.html"></iframe>

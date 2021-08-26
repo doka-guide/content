@@ -87,7 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-https://codepen.io/ezhkov/pen/oNzGMEB
+<iframe title="" src="demos/ezhkov-oNzGMEB"></iframe>
 
 ## Подсказки
 

@@ -55,7 +55,7 @@ function isInteger(value) {
 
 ### Пример
 
-https://codepen.io/vindi-r/pen/jJdQqz
+<iframe title="" src="demos/vindi-r-jJdQqz
 
 __Для возврата значения используется директива `return`__
 

@@ -76,7 +76,7 @@ a {
 </p>
 ```
 
-https://codepen.io/ezhkov/pen/jOVrGqK
+<iframe title="" src="demos/ezhkov-jOVrGqK"></iframe>
 
 В итоге текст на странице переносится по пробелам, учитывая границы элемента.
 

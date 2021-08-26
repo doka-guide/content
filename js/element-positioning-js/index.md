@@ -82,7 +82,7 @@ element.addEventListener("click", () => {
 
 Тогда, получим элемент, который меняет своё положение при клике на него:
 
-https://codepen.io/bespoyasov/pen/yLJrBej
+<iframe title="" src="demos/bespoyasov-yLJrBej
 
 Этот способ изменять стили элемента с помощью скриптов самый простой и чистый — все стили остаются описанными внутри CSS. Однако, он не всегда подходит.
 
@@ -249,7 +249,7 @@ document.body.addEventListener("mousemove", (e) => {
 
 В итоге получим такой же драг-н-дроп, но работающий на `transform`.
 
-https://codepen.io/bespoyasov/pen/JjKVRyB
+<iframe title="" src="demos/bespoyasov-JjKVRyB
 
 Но мы можем ещё лучше 😎
 
@@ -322,4 +322,4 @@ document.body.addEventListener("mousemove", (e) => {
 
 В результате получаем такой же драг-н-дроп!
 
-https://codepen.io/bespoyasov/pen/XWKQxVO
+<iframe title="" src="demos/bespoyasov-XWKQxVO

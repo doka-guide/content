@@ -25,7 +25,7 @@ tags:
 
 Часто бывает необходимо каким-то образом трансформировать визуальное представление элемента (масштабировать, повернуть, переместить) и при этом никак не затронуть соседние элементы в документе. Для подобных преобразований используется свойство [`transform`](/css/transform). В качестве значения выступают различные функции трансформации: `rotate`, `translate`, `scale`, `skew` и другие.
 
-https://codepen.io/ezhkov/pen/GRZzQBZ
+<iframe title="" src="demos/ezhkov-GRZzQBZ"></iframe>
 
 Функции трансформации можно условно разбить на несколько групп.
 
@@ -165,8 +165,6 @@ https://codepen.io/ezhkov/pen/GRZzQBZ
 
 Если же мы используем индивидуальные свойства, результат будет одинаковым вне зависимости от порядка свойств:
 
-https://codepen.io/ezhkov/pen/yLVGxVg
+<iframe title="" src="demos/ezhkov-yLVGxVg"></iframe>
 
 Второй пример нужно смотреть либо в Firefox, либо в Chrome Canary.
-
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
