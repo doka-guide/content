@@ -1,5 +1,6 @@
 ---
 title: "Element.hidden"
+description: "В этой статье разберёмся с атрибутом hidden и способами управления им с помощью JavaScript"
 authors:
   - windrushfarer
 tags:
