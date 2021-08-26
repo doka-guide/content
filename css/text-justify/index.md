@@ -3,8 +3,7 @@ title: "text-justify"
 authors:
   - doka-dog
 keywords:
-  - селектор
-  - атрибут
+  - тип выравнивания текста
 tags:
   - doka
   - placeholder
