@@ -3,9 +3,9 @@ window.addEventListener('click', function(event) {
   if (event.target.tagName === "BUTTON") {
     return;
   }
-  
+
   cleanParagraphsStyle();
-  
+
   let foundParagraphs = event.target.getElementsByTagName('p');
   alert('Клик по тегу ' + event.target.tagName  + ' внутри него нашлось параграфов: ' + foundParagraphs.length);
   for(let i=0; i<foundParagraphs.length; ++i) {

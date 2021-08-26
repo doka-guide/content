@@ -1,14 +1,14 @@
 const pizzaList = [
-  'Margherita', 
+  'Margherita',
   'Pepperoni',
-  'Hawaii', 
-  '4 Cheeses', 
-  'Diabola', 
+  'Hawaii',
+  '4 Cheeses',
+  'Diabola',
   'Sfincione'
 ];
 
 function contains(query) {
-  return pizzaList.filter(title => 
+  return pizzaList.filter(title =>
     title.toLowerCase().includes(query.toLowerCase()));
 }
 
@@ -16,7 +16,7 @@ const server = {
   search(query) {
     console.log(query);
     return new Promise(resolve => {
-      setTimeout(() => resolve({ 
+      setTimeout(() => resolve({
         list: query ? contains(query) : []
       }), 100)
     })
@@ -31,11 +31,11 @@ function debounce(callee, timeoutMs) {
   return function perform(...args) {
     let previousCall = this.lastCall;
     this.lastCall = Date.now();
-    
+
     if (previousCall && ((this.lastCall - previousCall) <= timeoutMs)) {
       clearTimeout(this.lastCallTimer);
     }
-    
+
     this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs);
   }
 }
@@ -45,7 +45,7 @@ function handleInput(e) {
 
   server.search(value).then(function (response) {
     const {list} = response;
-    
+
     const html = list.reduce((markup, item) => {
       return `${markup}<li>${item}</li>`;
     }, ``);

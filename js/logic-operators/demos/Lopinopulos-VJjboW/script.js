@@ -11,12 +11,12 @@ function generateAndCheck() {
   let guest = possibleGuests[guestIndex];
   let isInvited = invited.includes(guest);
   let hasTicket = Math.round(Math.random());
-  
+
   guestDescription.textContent = guest + (hasTicket ? ' + 🎫' : '')
-  
+
   updateClasses(conditionInvitedSpan, isInvited);
-  updateClasses(conditionTicketSpan, hasTicket);  
-  
+  updateClasses(conditionTicketSpan, hasTicket);
+
   if (isInvited || hasTicket) {
     resultSpan.textContent = 'Впустить';
     updateClasses(resultSpan, true);
@@ -24,7 +24,7 @@ function generateAndCheck() {
     resultSpan.textContent = 'Выгнать'
     updateClasses(resultSpan, false);
   }
- 
+
 }
 
 function updateClasses(el, isValid) {

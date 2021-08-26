@@ -27,9 +27,9 @@ links.forEach((link) =>
           list.innerHTML += `<li>Ждем ответ</li>`;
           break;
         case 3:
-          list.innerHTML += `<li>Получаем ответ от сервера в виде JSON-строки и обрабатываем данные: 
-                                 <div id="json" style="height: 200px; overflow: scroll"></div>
-                             </li>`;
+          list.innerHTML += `<li>Получаем ответ от сервера в виде JSON-строки и обрабатываем данные:
+                              <div id="json" style="height: 200px; overflow: scroll"></div>
+                            </li>`;
           break;
       }
 

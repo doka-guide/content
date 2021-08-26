@@ -7,10 +7,10 @@ let resultSpan = document.getElementById('result');
 function checkCondition() {
   let isRegistered = isRegisteredSelect.value === '1';
   let orders = Number(ordersInput.value);
-  
+
   updateClasses(conditionRegSpan, isRegistered);
-  updateClasses(conditionOrdersSpan, orders > 1);  
-  
+  updateClasses(conditionOrdersSpan, orders > 1);
+
   if (isRegistered && orders > 1) {
     resultSpan.textContent = 'Показать цены!';
     updateClasses(resultSpan, true);
@@ -18,7 +18,7 @@ function checkCondition() {
     resultSpan.textContent = 'Скрыть цены!'
     updateClasses(resultSpan, false);
   }
- 
+
 }
 
 function updateClasses(el, isValid) {

@@ -16,7 +16,7 @@ document.body.addEventListener('mouseup', () => {
 
 document.body.addEventListener('mousemove', (e) => {
   if (!dragging) return;
-  
+
   element.style.top = `${e.pageY - startY}px`;
   element.style.left = `${e.pageX - startX}px`;
 })

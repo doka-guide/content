@@ -1,6 +1,6 @@
 function check(){
- let p = document.querySelector('#price').value;
- let d = document.querySelector('#discount').value;
+  let p = document.querySelector('#price').value;
+  let d = document.querySelector('#discount').value;
   // Без валидации ввода
   document.querySelector('#simple').innerText = p - (p / 100 * d).toFixed(2);
   // с Валидацией
@@ -12,7 +12,7 @@ function check(){
       discount = p;
     }
   }
-  
+
   document.querySelector('#full').innerText = discount;
 }
 

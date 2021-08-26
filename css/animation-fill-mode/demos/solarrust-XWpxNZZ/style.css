@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  background-image: 
-linear-gradient(-45deg, transparent 50%, #E8E8E4 50%, #E8E8E4 55%, transparent 55%), 
-linear-gradient(-45deg, #E8E8E4 5%, transparent 5%);
-background-color: #FEFFFE;
-background-size: 1em 1em;
+  background-image:
+  linear-gradient(-45deg, transparent 50%, #E8E8E4 50%, #E8E8E4 55%, transparent 55%),
+  linear-gradient(-45deg, #E8E8E4 5%, transparent 5%);
+  background-color: #FEFFFE;
+  background-size: 1em 1em;
 }
 kbd {
   display: block;
@@ -32,11 +32,11 @@ li {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: black; 
+  background: black;
   box-shadow: inset 2px 2px 4px rgba(0,0,0,.4), inset -2px -2px 4px rgba(255,255,255,.6);
 }
 @keyframes traffic {
- 100%{background: #FB000D;}
+  100%{background: #FB000D;}
 }
 @keyframes traffic1 {
   100%{background: #FED21D;}
@@ -55,7 +55,6 @@ li:nth-of-type(2) {
 li:nth-of-type(3) {
   animation: traffic2 2s forwards 4s;
 }
-
 .container1 li:nth-of-type(1) {
   margin-bottom:5px;
   animation: traffic 2s backwards;

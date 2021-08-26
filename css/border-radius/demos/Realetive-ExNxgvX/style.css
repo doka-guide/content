@@ -1,10 +1,10 @@
 .selector {
-  border-radius: 5em / 50%; 
+  border-radius: 5em / 50%;
 }
 
 .selector {
   width: 200px;
-  height: 200px;  
+  height: 200px;
   color: #fff;
   background-color: #123;
   display: flex;

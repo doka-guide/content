@@ -8,12 +8,12 @@ document.getElementById('search-btn').addEventListener('click', function() {
   try {
       found = document.querySelectorAll(selectorInput.value);
       if (found.length === 0) {
-        result.textContent = 'Ничего не найдено, размер коллекции: ' + found;    
+        result.textContent = 'Ничего не найдено, размер коллекции: ' + found;
       } else {
         addHighlight(found);
       }
   } catch (e) {
-    result.textContent = 'Ошибка! Это не CSS селектор!';        
+    result.textContent = 'Ошибка! Это не CSS селектор!';
   }
 
 });

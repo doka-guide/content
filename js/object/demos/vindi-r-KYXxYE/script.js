@@ -1,5 +1,5 @@
 let o = {};
-o.stringKey = 'value for string key'; // изначально строковый ключ 
+o.stringKey = 'value for string key'; // изначально строковый ключ
 o[true] = 'value for boolean true key'; // ключ строковое "true"
 o[false] = 'value for boolean FALSE key'; // ключ строковое "false"
 o[[1,2,3]] = 'value for Array key'; // ключ строка из значений массива

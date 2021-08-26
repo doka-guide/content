@@ -15,7 +15,7 @@ const server = {
     const finished = page >= 5;
     const next = finished ? null : page + 1;
     const posts = Array(5).fill(post);
-    
+
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({posts, next});
@@ -38,7 +38,7 @@ function appendPost(postData) {
   main.append(postNode);
 }
 
-function composePost(postData) {  
+function composePost(postData) {
   if (!postData) return;
   const template = document.getElementById('post_template');
   const post = template.content.cloneNode(true);
@@ -48,22 +48,22 @@ function composePost(postData) {
   post.querySelector('p').innerText = body;
   post.querySelector('button:first-child').innerText += likes;
   post.querySelector('button:last-child').innerText += reposts;
-  
+
   return post;
 }
 
 async function fetchPosts() {
   if (isLoading || !shouldLoad) return;
   isLoading = true;
-  
+
   const {posts, next} = await server.posts(nextPage);
   nextPage = next;
-  
+
   posts.forEach(appendPost);
-  
+
   // Здесь можно менять адресную строку,
   // чтобы сохранить положение прокрутки.
-  
+
   if (!next) shouldLoad = false;
   isLoading = false;
 }

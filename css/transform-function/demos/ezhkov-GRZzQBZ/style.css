@@ -19,11 +19,11 @@
   height: 200px;
   background: #000;
   background-repeat: no-repeat;
-  transform: translate3d(var(--translateX), var(--translateY), var(--translateZ)) 
-    scale3d(var(--scaleX), var(--scaleY), var(--scaleZ)) 
-    rotateX(var(--rotateX)) 
-    rotateY(var(--rotateY)) 
-    rotateZ(var(--rotateZ)) 
+  transform: translate3d(var(--translateX), var(--translateY), var(--translateZ))
+    scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
+    rotateX(var(--rotateX))
+    rotateY(var(--rotateY))
+    rotateZ(var(--rotateZ))
     skew(var(--skewX), var(--skewY));
 }
 

@@ -34,7 +34,7 @@ function exampleTwo() {
   let message = 'Введено значение, не равное 100';
   if (inputValue === '100') {
     message = 'Вы ввели верное значение';
-  } 
+  }
   alert(message);
 }
 function exampleThree() {

@@ -32,14 +32,14 @@ let visible = true;
 
 function handleToggleClick() {
   target.classList.toggle('fade')
-  
+
   visible = !visible
-  
+
   toggleButton.textContent = visible ? 'Красиво исчезнуть' : 'Красиво появиться'
 }
 
 toggleButton.addEventListener('click', handleToggleClick)
-                              
+
 const resetButton = document.getElementById('reset');
 
 function handleResetClick() {
@@ -47,7 +47,7 @@ function handleResetClick() {
   availableClasses = [...INITIAL_CLASSES]
   target.classList.remove(...INITIAL_CLASSES)
   console.log('kekeke')
-  
+
   if(!visible) {
     handleToggleClick()
   }

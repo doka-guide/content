@@ -29,11 +29,11 @@ async function sendData(data) {
     headers: { "Content-Type": "multipart/form-data" },
     body: data,
   });
-  
-  // Чтобы проверить, как работает 
-  // обработка ответа, можно использовать 
+
+  // Чтобы проверить, как работает
+  // обработка ответа, можно использовать
   // поддельный ответ от сервера:
-  
+
   // return new Promise(resolve => {
   //   setTimeout(() => {
   //     resolve({

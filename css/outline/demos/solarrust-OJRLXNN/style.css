@@ -1,19 +1,19 @@
 body {
-	margin: 50px;
+  margin: 50px;
 }
 
 .block {
-	padding: 10px;
-	border: none;
-	font-size: 2rem;
-	border: 1px solid black;
-	
-	outline: 10px solid green;
-	outline-offset: 10px;
+  padding: 10px;
+  border: none;
+  font-size: 2rem;
+  border: 1px solid black;
+
+  outline: 10px solid green;
+  outline-offset: 10px;
 }
 
 .block + .block {
-	margin-top: 50px;
+  margin-top: 50px;
 }
 
 

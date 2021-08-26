@@ -1,7 +1,7 @@
 function createSquare(target) {
   // simple random color
   var color = '#'+Math.random().toString(16).substr(-6);
-  // Create div and add to DOM 
+  // Create div and add to DOM
   var div = document.createElement('div');
   div.className = "square";
   div.style.background = color;

@@ -7,7 +7,7 @@ function decorateSmart(text, symb) {
 }
 function log(text){
   var textarea = document.querySelector('textarea');
-  textarea.value = textarea.value + text + "\n"; 
+  textarea.value = textarea.value + text + "\n";
 }
 function runFx() {
   log('Вызов decorate со всеми параметрами');

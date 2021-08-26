@@ -5,7 +5,7 @@ let cat = {
   spots: true,
   wonderfull: true,
   ugly: false,
-  
+
 }
 function write(text){
   document.querySelector('#result').innerText = text;

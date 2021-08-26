@@ -1,44 +1,44 @@
 body {
-  
+
   font-family: Monaco, serif;
   font-size: 100%;
   margin: 0 auto;
   max-width: 1000px;
-	padding: 25px;
+  padding: 25px;
 }
 
 dl, dd {
-  
+
   margin: 0 0 2.5em;
 }
 
-xmp { 
-  
+xmp {
+
   background: #ff8;
   border: 1px dotted #888;
   font: 100%/1.75 Consolas, Monaco, monospace;
-  
+
   word-spacing: 0;
   letter-spacing: 0;
-  
-  padding: .5em; 
+
+  padding: .5em;
 }
 
 h1 {
-  
+
   border-bottom: 1px solid #ccc;
   padding-bottom: .5em;
   margin-bottom: 2.5em;
 }
 
 span {
-  
+
   color: #c00;
   font-size: 100%;
 }
 
 #meter {
-  
+
   margin: 0 auto 4.5em;
   width: 450px;
   height: 50px;
@@ -46,7 +46,7 @@ span {
 }
 
 .live-code {
-  
+
   margin: 1em auto 3.5em;
   dispay: block;
   font-size: 1.25em;
@@ -56,7 +56,7 @@ span {
 }
 
 input {
-  
+
   border: none;
   background-color: #ddd;
   border-bottom: 1px dotted #333;

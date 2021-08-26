@@ -12,7 +12,7 @@ button {
   grid-template-rows: repeat(2, 100px);
   justify-items: stretch;
   align-items: stretch;
-} 
+}
 
 #pending {
   grid-column: 2;

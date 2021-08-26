@@ -1,28 +1,28 @@
 .parent {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .child {
-	flex: 0 0 auto;
-	width: 200px;
-	height: 200px;
-	margin: 25px;
-	border: 1px solid;
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  border: 1px solid;
 }
 
 .child-one {
-	border-radius: 50%;
-	background-color: red;
-	animation-name: circle-to-square;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
+  border-radius: 50%;
+  background-color: red;
+  animation-name: circle-to-square;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 
 .child-two {
-	background-color: blue;
+  background-color: blue;
 }
 
 @keyframes circle-to-square {

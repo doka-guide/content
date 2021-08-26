@@ -1,4 +1,4 @@
-let counterTag = document.getElementById('counter'); 
+let counterTag = document.getElementById('counter');
 let counter = 0;
 let timer = setInterval(function() {
   counterTag.textContent = 'Секунды с момента открытия страницы: ' + counter;

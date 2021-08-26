@@ -1,7 +1,7 @@
 h1 {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 h1 {
-	font-size: revert;
+  font-size: revert;
 }

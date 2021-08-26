@@ -19,7 +19,7 @@ function checkWithMath(){
       result = '<';
     }
   }
-  
+
   document.querySelector('#operator').innerText = result;
 }
 function checkWithoutMath(){
@@ -39,7 +39,7 @@ function checkWithoutMath(){
       result = '<';
     }
   }
-  
+
   document.querySelector('#operator-mirror').innerText = result;
   document.querySelector('#c1-mirror').value = document.querySelector('#c1').value;
   document.querySelector('#c2-mirror').value = document.querySelector('#c2').value;

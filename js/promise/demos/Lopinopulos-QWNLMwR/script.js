@@ -3,7 +3,7 @@ const pendingBlock = document.getElementById("pending")
 const fulfilledBlock = document.getElementById("fulfilled")
 const rejectedBlock = document.getElementById("rejected")
 const resetBlocks = (blocks = [pendingBlock, fulfilledBlock, rejectedBlock]) => {
-   blocks.forEach(block => block.className = '')
+  blocks.forEach(block => block.className = '')
 }
 
 const activateBlock = (block) => {
@@ -20,7 +20,7 @@ button.addEventListener("click", () => {
     setTimeout(() => {
       button.textContent = "Buy stonks"
       button.disabled = false;
-      
+
       resetBlocks()
       if (Math.random() > 0.5) {
         fulfill("все ок!")

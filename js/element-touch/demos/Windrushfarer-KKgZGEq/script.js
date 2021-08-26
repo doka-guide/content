@@ -32,7 +32,7 @@ function handleTouchMove(event) {
   // Вычисляем разницу
   const xDiff = x - xUp;
   const yDiff = y - yUp;
-  
+
   // Определяем в какую сторону было больше движения
   const isHorizontal = Math.abs(xDiff) > Math.abs(yDiff);
 
@@ -48,7 +48,7 @@ function handleTouchMove(event) {
   } else {
     if (Math.abs(yDiff) > DETECT_TRESHHOLD) {
       if (yDiff > 0) {
-         result.textContent = 'Свайп вверх'
+        result.textContent = 'Свайп вверх'
       } else {
         result.textContent = 'Свайп вниз'
       }

@@ -44,10 +44,10 @@ canvas.addEventListener("touchstart", (e) => {
     x: e.targetTouches[0].pageX,
     y: e.targetTouches[0].pageY
   };
-  
+
   context.beginPath();
   context.moveTo(coords.x, coords.y);
-  
+
 });
 canvas.addEventListener("touchmove", (e) => {
   const coords = {
@@ -63,6 +63,6 @@ canvas.addEventListener("touchend", (e) => {
     x: e.targetTouches[0].pageX,
     y: e.targetTouches[0].pageY
   };
-  
+
   draw(coords)
 });

@@ -7,7 +7,7 @@ body {
   height: 50px;
   background: black;
   position: absolute;
-  
+
   --x: 0px;
   --y: 0px;
   transform: translate(var(--x), var(--y));

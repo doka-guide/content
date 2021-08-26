@@ -1,19 +1,19 @@
 .parent {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .child {
-	flex: 0 0 auto;
-	width: 200px;
-	height: 200px;
-	margin: 25px;
-	border: 1px solid;
-	border-radius: 50%;
-	background-color: red;
-	animation:
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  border: 1px solid;
+  border-radius: 50%;
+  background-color: red;
+  animation:
     circle-to-square 2s infinite alternate ease-in 1s,
     color-change 10s alternate linear infinite;
 }
