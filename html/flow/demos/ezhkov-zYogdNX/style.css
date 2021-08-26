@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+p {
+  border: 1px solid red;
+}
+
+.container {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.floated {
+  width: 50%;
+  float: left;
+  padding: 5px;
+  border: 1px solid green;
+  background: #00000033;
+  margin-right: 10px;
+}
+
+.in-float {
+  margin: 0;
+  border-color: blue;
+}
+
+.thin {
+  width: 50%;
+}

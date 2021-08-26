@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - alert() в работе</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="dialog-overlay"></div>
+<div id="dialog-box">
+    <div>
+        <div id="dialog-box-head"></div>
+        <div id="dialog-box-body"></div>
+        <div id="dialog-box-foot"></div>
+    </div>
+</div>
+<p><b>Примеры с обычным alert()</b></p>
+<p>
+  Обычный alert() с текстом
+  <button onclick="exampleOne()">Нажми меня</button>
+</p>
+<p>
+  Использование alert() для вывода результата
+  <input id="exampleTwoInput" type="text" placeholder="Введите цифру 100"><button onclick="exampleTwo()">Проверить ввод</button></p>
+</p>
+<p><b>Примеры с диалогом на замену alert()</b></p>
+<p>
+  Пример #1
+  <button onclick="exampleThree()">Нажми меня</button>
+</p>
+<p>
+  Пример #2 <button onclick="exampleFour()">Нажми меня</button></p>
+</p>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

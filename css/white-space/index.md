@@ -76,11 +76,7 @@ a {
 </p>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="jOVrGqK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/jOVrGqK">
-  white-space</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+https://codepen.io/ezhkov/pen/jOVrGqK
 
 В итоге текст на странице переносится по пробелам, учитывая границы элемента.
 
@@ -106,13 +102,7 @@ a {
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="BaQKOKz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/BaQKOKz">
-  white-space</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+https://codepen.io/ezhkov/pen/BaQKOKz
 
 ## Подсказки
 

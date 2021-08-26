@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Session Storage Example</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form>
+	<div>
+		<label for="email">Email</label>
+		<input type="email" id="email" name="email" placeholder="john@appleseed.com" required/> 
+	</div>
+	<div>
+		<label for="firstName">First Name</label>
+		<input type="text" id="firstName" name="firstName" placeholder="John" required/> 
+	</div>
+	<div>
+		<label for="lastName">Last Name</label>
+		<input type="text" id="lastName" name="lastName" placeholder="Appleseed" required/>
+	</div>
+	<div>
+		<label for="birthday">Birthday</label>
+		<input type="text" id="birthday" name="birthday" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"placeholder="20-02-1991" required/>
+	</div>
+	<div>
+		<button class="submit" type="submit">Submit</button>
+		<button class="reset" type="reset">Reset</button>
+	</div>
+</form>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

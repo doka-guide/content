@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - &lt;select disabled&gt;</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <form>
+    <label for="city-select">Атрибут selected</label>
+    <select name="city" id="city-select">
+      <option value="">-- Выберите город --</option>
+      <option value="petersburg">Санкт-Петербург</option>
+      <option value="moscow">Москва</option>
+      <option value="kazan" selected>Казань</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+      <option value="novosibirsk">Новосибирск</option>
+    </select>
+  </form>
+  <form>
+    <label for="city-select2">Атрибут disabled</label>
+    <select disabled name="city2" id="city-select2">
+      <option value="">-- Выберите город --</option>
+      <option value="petersburg" selected>Санкт-Петербург</option>
+      <option value="moscow">Москва</option>
+      <option value="kazan">Казань</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+      <option value="novosibirsk">Новосибирск</option>
+    </select>
+  </form>
+  <form>
+    <label for="city-select3">Атрибут multiple</label>
+    <select name="city3" id="city-select3" multiple>
+      <option value="petersburg">Санкт-Петербург</option>
+      <option value="moscow">Москва</option>
+      <option value="kazan" selected>Казань</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+      <option value="novosibirsk">Новосибирск</option>
+    </select>
+  </form>
+  <form>
+    <label for="city-select2">Атрибут size="6"</label>
+    <select name="city4" id="city-select4" multiple size="6">
+      <option value="petersburg" selected>Санкт-Петербург</option>
+      <option value="moscow">Москва</option>
+      <option value="kazan">Казань</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+      <option value="novosibirsk">Новосибирск</option>
+    </select>
+  </form>
+
+</div>
+<!-- partial -->
+  
+</body>
+</html>

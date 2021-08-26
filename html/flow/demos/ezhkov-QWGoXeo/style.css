@@ -1,0 +1,43 @@
+body {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: Arial, sans-serif;
+}
+.container {
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.controls {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.control-button {
+  margin-left: 20px;
+}
+.restart {
+  margin-right: 20px;
+}
+#timeline {
+  width: 300px;
+}
+.normal-flow {
+  border: 1px solid grey;
+  padding: 10px;
+}
+.normal-flow-child {
+  width: 40%;
+  margin: 0;
+  border: 2px solid green;
+  transform: translateY(100vh);
+  position: relative;
+  font-size: 18px;
+}
+
+.normal-flow-child:nth-child(2) {
+  z-index: 1;
+}

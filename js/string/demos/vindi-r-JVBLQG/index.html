@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Строки - в работе</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+Введите числа в поля и получите результат
+<br>
+Сравнение с приведением к числу
+<br>
+<input id="c1" type="text" placeholder="Число 1" maxlength="10" oninput="check()">
+<span id="operator">?</span>
+<input id="c2" type="text" placeholder="Число 1" maxlength="10" oninput="check()">
+<br>
+<br>
+Вариант сравнения без приведения к числу
+<br>
+<input readonly id="c1-mirror" type="text" placeholder="Число 1" maxlength="10" oninput="check()">
+<span id="operator-mirror">?</span>
+<input readonly id="c2-mirror" type="text" placeholder="Число 1" maxlength="10" oninput="check()">
+<br>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Логическое И</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div>
+  <label for='isRegistered'>Пользователь:</label>
+  <select id='isRegistered' name='isRegistered'>
+    <option value='0'>Гость</option>
+    <option value='1'>Зарегистрированный</option>
+  </select>
+  <br />
+  <label for='orders'>Кол-во заказов:</label>
+  <input type='number' id='orders' value='3' />
+</div>
+<p>
+  <span id='condition-reg'>Пользователь зарегистрирован</span>
+  <span class='connector' style='top: 5px;'> И</span>
+  <span id='condition-orders'>заказов больше 1</span>
+  <span class='connector' style='top: 4px;'> → </span>
+  <span id='result'></span>
+</p>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

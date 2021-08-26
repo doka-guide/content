@@ -1,0 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.print a::after {
+  content: " [" attr(href) "]";
+}
+
+@media print {
+  a::after {
+    content: " [" attr(href) "]";
+  }
+}
