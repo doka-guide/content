@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="" src="../demos/ezhkov-vYyKemg/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-vYyKemg/index.html"></iframe>
 
 ## Как пишется
 

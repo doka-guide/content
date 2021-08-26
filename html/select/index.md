@@ -38,7 +38,7 @@ tags:
 </form>
 ```
 
-<iframe title="" src="../demos/ezhkov-dypzXYW/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-dypzXYW/index.html"></iframe>
 
 ## Подробно
 

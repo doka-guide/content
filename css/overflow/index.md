@@ -21,7 +21,7 @@ tags:
 }
 ```
 
-<iframe title="" src="../demos/Realetive-wvzBqxp/index.html"></iframe>
+<iframe title="" src="demos/Realetive-wvzBqxp/index.html"></iframe>
 
 ## Как пишется
 

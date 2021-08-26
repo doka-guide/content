@@ -41,7 +41,7 @@ input:required {
 }
 ```
 
-<iframe title="" src="../demos/ezhkov-BaLbMKG/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-BaLbMKG/index.html"></iframe>
 
 ## Как это понять
 

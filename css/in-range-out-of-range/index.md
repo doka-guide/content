@@ -41,7 +41,7 @@ tags:
 }
 ```
 
-<iframe title="" src="../demos/solarrust-xxqvWZg/index.html"></iframe>
+<iframe title="" src="demos/solarrust-xxqvWZg/index.html"></iframe>
 
 ## Как это понять
 

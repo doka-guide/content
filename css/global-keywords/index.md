@@ -42,7 +42,7 @@ span {
 
 В итоге конкретно для последнего предложения текста, завёрнутого в `<span>`, будет действовать значение `normal`, и текст будет отображён в нормальном начертании.
 
-<iframe title="" src="../demos/solarrust-ExZvRWE/index.html"></iframe>
+<iframe title="" src="demos/solarrust-ExZvRWE/index.html"></iframe>
 
 Будьте бдительны! Браузерные стили и значения свойств по умолчанию — не одно и тоже.
 

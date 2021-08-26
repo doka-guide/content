@@ -366,4 +366,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<iframe title="" src="../demos/bespoyasov-BazXpNp/index.html"></iframe>
+<iframe title="" src="demos/bespoyasov-BazXpNp/index.html"></iframe>

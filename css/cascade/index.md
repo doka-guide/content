@@ -164,7 +164,7 @@ p {
 
 Некоторые свойства автоматически [наследуются](/css/inheritance) от «родителя» автоматически (`color`, `font`, `text-align` и другие). Но можно и явно позаимствовать какое-то значение у родителя:
 
-<iframe title="" src="../demos/Realetive-jOMOajY/index.html"></iframe>
+<iframe title="" src="demos/Realetive-jOMOajY/index.html"></iframe>
 
 ### Отмена значения — `unset`
 

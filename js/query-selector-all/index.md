@@ -52,7 +52,7 @@ tags:
 
 Динамический пример, введи селектор в поле поиска и «Искать»:
 
-<iframe title="" src="../demos/Lopinopulos-wbqdPe/index.html"></iframe>
+<iframe title="" src="demos/Lopinopulos-wbqdPe/index.html"></iframe>
 
 ## Как понять
 

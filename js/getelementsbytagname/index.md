@@ -42,7 +42,7 @@ tags:
 
 Динамический пример, в котором поиск ведётся по кликнутому блоку:
 
-<iframe title="" src="../demos/Lopinopulos-LoZaJp/index.html"></iframe>
+<iframe title="" src="demos/Lopinopulos-LoZaJp/index.html"></iframe>
 
 ## Как это понять
 

@@ -102,7 +102,7 @@ https://codepen.io/ezhkov/pen/jOVrGqK
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<iframe title="" src="../demos/ezhkov-BaQKOKz/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-BaQKOKz/index.html"></iframe>
 
 ## Подсказки
 

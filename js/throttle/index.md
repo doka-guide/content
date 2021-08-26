@@ -227,4 +227,4 @@ window.addEventListener("resize", optimizedHandler);
 
 Пример такого прогресс-бара получится таким:
 
-<iframe title="" src="../demos/bespoyasov-ZEpzYbN/index.html"></iframe>
+<iframe title="" src="demos/bespoyasov-ZEpzYbN/index.html"></iframe>

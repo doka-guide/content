@@ -85,7 +85,7 @@ tags:
 </form>
 ```
 
-<iframe title="" src="../demos/bespoyasov-rNLMQrY/index.html"></iframe>
+<iframe title="" src="demos/bespoyasov-rNLMQrY/index.html"></iframe>
 
 В целом форма рабочая: обязательные поля не пропустят пустые значения, атрибут `type` проследит, чтобы вместо почты нам не прислали номер телефона, а по нажатию на кнопку валидная форма отправит все данные.
 

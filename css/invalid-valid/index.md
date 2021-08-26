@@ -73,7 +73,7 @@ input:valid + .validity-icon::before {
 
 Чтобы показать, что поле ввода заполнено корректно, к нему можно применить особые стили, используя псевдокласс `:valid`. Аналогично, для некорректно заполненного поля мы можем применить особые стили, используя псевдокласс `:invalid`.
 
-<iframe title="" src="../demos/ezhkov-ZEpdbje/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-ZEpdbje/index.html"></iframe>
 
 В примере выше можно увидеть пару моментов:
 

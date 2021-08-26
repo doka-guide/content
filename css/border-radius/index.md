@@ -89,7 +89,7 @@ selector {
 }
 ```
 
-<iframe title="" src="../demos/Realetive-ExNxgvX/index.html"></iframe>
+<iframe title="" src="demos/Realetive-ExNxgvX/index.html"></iframe>
 
 ## Подсказки
 

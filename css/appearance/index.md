@@ -40,7 +40,7 @@ https://codepen.io/ezhkov/pen/wvoBLXP
 
 В этом случае, если нам нужно, чтобы поле ввода выглядело как поле поиска, мы можем задать `appearance: searchfield`
 
-<iframe title="" src="../demos/ezhkov-abBzezO/index.html"></iframe>
+<iframe title="" src="demos/ezhkov-abBzezO/index.html"></iframe>
 
 ![Изменение вида текстового поля на мобильных с обычного на поисковое с помощью appearance: searchfield](images/2.png)
 

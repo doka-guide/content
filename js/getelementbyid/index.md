@@ -27,7 +27,7 @@ tags:
 
 Живой пример:
 
-<iframe title="" src="../demos/Lopinopulos-XwKRaZ/index.html"></iframe>
+<iframe title="" src="demos/Lopinopulos-XwKRaZ/index.html"></iframe>
 
 ## Как это понять
 
