@@ -10,13 +10,13 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
       - id: files
-        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: 'index.md'
