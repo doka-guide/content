@@ -3,7 +3,7 @@ name: Surge Preview
 on:
   workflow_run:
     workflows:
-      - "YaSpeller PR"
+      - "Frontmatter Check"
     types:
       - completed
 
