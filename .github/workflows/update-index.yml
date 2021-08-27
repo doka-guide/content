@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  search:
+  update-index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

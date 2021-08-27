@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  lint:
+  frontmatter-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
