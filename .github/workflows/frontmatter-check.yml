@@ -17,10 +17,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: View context attributes
-        uses: actions/github-script@v4
-        with:
-          script: console.log(context)
       - name: Проверка линтером в PR
         run: |
           files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")

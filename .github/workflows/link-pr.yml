@@ -9,10 +9,13 @@ on:
 
 jobs:
   markdown-link-check:
-    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: View context attributes
+        uses: actions/github-script@v4
+        with:
+          script: console.log(context)
       - id: files
         uses: Ana06/get-changed-files@v1.2
         with:
