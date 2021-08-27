@@ -46,7 +46,7 @@ jobs:
         with:
           type: create
           body: 'Идёт сборка и публикация превью...'
-          issue_number: ${{ github.event.number }}
+          issue_number: ${{ github.event.workflow_run.pull_requests[0].number }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Выборка файлов для формирования списка
         id: files
