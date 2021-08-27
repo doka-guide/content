@@ -1,19 +1,13 @@
 name: Frontmatter Check
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller PR"
-    types:
-      - completed
+  pull_request:
 
 jobs:
-  check:
+  spell:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
