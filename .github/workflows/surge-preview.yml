@@ -50,10 +50,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Выборка файлов для формирования списка
         id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.0.0
-        with:
-          filter: '*.md'
+        run: |
+          files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
+          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
+          echo "::set-output name=all::$files"
       - name: Форматирование списка файлов
         id: links
         run: |
