@@ -19,7 +19,7 @@ jobs:
         with:
           paths: "**/*.md"
           markdown: true
-          linksToSkip: "https?://(localhost|codepen.io)?/.*"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@v2.2.4
         with:

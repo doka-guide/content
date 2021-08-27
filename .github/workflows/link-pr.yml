@@ -1,7 +1,13 @@
 name: Link Checker PR
 
 on:
-  pull_request
+  workflow_run:
+    workflows:
+      - "Frontmatter Check"
+    branches-ignore:
+      - main
+    types:
+      - completed
 
 jobs:
   markdown-link-check:
@@ -21,4 +27,4 @@ jobs:
           paths: ${{ steps.files.outputs.all }}
           markdown: true
           serverRoot: "/home/runner/work/content/content"
-          linksToSkip: "https?://(localhost|codepen.io)?(:\d+)?/.*"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
