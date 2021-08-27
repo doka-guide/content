@@ -22,6 +22,6 @@ tags:
 - свойства фона, начинающиеся на `background-`;
 - внешние отступы, начинающиеся на `margin-`;
 - внутренние отступы, начинающиеся на `padding-`;
-- рамки, начинающиеся на `border`;
+- рамки, начинающиеся на `border-`;
 - цвет текста `color`;
 - текстовые свойства [`text-decoration`](/css/text-decoration), [`text-shadow`](/css/text-shadow), [`text-transform`](/css/text-transform), [`letter-spacing`](/css/letter-spacing), [`word-spacing`](/css/word-spacing), [`line-height`](/css/line-height), [`text-decoration-color`](/css/text-decoration-color), [`text-decoration-line`](/css/text-decoration-line), [`text-decoration-style`](/css/text-decoration-style), [`box-shadow`](/css/box-shadow), [`float`](/css/float), [`vertical-align`](/css/vertical-align).
