@@ -1,15 +1,19 @@
 name: Link Checker PR
 
 on:
-  pull_request
+  workflow_run:
+    workflows:
+      - "Frontmatter Check"
+    types:
+      - completed
 
 jobs:
   markdown-link-check:
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - id: files
-        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: '*.md'
@@ -21,4 +25,4 @@ jobs:
           paths: ${{ steps.files.outputs.all }}
           markdown: true
           serverRoot: "/home/runner/work/content/content"
-          linksToSkip: "https?://(localhost|codepen.io)?(:\d+)?/.*"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"

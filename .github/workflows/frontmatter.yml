@@ -1,11 +1,16 @@
 name: Frontmatter Check
 
 on:
-  pull_request:
+  workflow_run:
+    workflows:
+      - "YaSpeller PR"
+    types:
+      - completed
 
 jobs:
   check:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2

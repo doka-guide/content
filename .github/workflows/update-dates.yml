@@ -1,9 +1,13 @@
 name: Update Dates
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Frontmatter Lint"
     branches:
       - main
+    types:
+      - completed
 
 concurrency:
   group: Update Dates
