@@ -1,13 +1,7 @@
 name: Frontmatter Check
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller PR"
-    branches-ignore:
-      - main
-    types:
-      - completed
+  pull_request:
 
 jobs:
   check:
