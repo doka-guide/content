@@ -21,7 +21,7 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
         with:
           filter: 'index.md'
-      - name: Проверка линтером в PR
+      - name: Проверка линтером меты в PR
         run: |
           files="${{ steps.files.outputs.all }}"
           if ! [[ $files == "" ]]; then
