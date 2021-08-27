@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-Свойство `text-decoration-color` определяет цвет декоративного элемента, заданного при помощи [`text-decoration-line`](/css/text-decoration-line).
+Свойство `text-decoration-color` определяет цвет декоративной линии (подчёркивания, зачёркивания и других), заданной при помощи [`text-decoration-line`](/css/text-decoration-line).
 
 ## Как пишется
 
