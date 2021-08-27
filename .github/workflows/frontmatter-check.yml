@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.workflow_run.pull_requests.ref }}
+          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -21,8 +21,6 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: console.log(context)
-      - name: Get result
-        run: echo "${{steps.set-result.outputs.result}}"
       - id: files
         uses: Ana06/get-changed-files@v1.2
         with:
