@@ -21,13 +21,10 @@ jobs:
         uses: actions/github-script@v4
         with:
           script: console.log(context)
-      - id: files
-        uses: Ana06/get-changed-files@v1.2
-        with:
-          filter: 'index.md'
       - name: Проверка линтером в PR
         run: |
-          files="${{ steps.files.outputs.all }}"
+          files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
+          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
             npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
