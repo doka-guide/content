@@ -4,15 +4,13 @@ on:
   workflow_run:
     workflows:
       - "Link Checker PR"
-    branches-ignore:
-      - main
     types:
       - completed
 
 jobs:
   preview:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.draft == false }}
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.draft == false }}
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -52,6 +50,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Выборка файлов для формирования списка
         id: files
+        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v2.0.0
         with:
           filter: '*.md'
