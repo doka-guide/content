@@ -3,14 +3,13 @@ name: Surge Preview
 on:
   workflow_run:
     workflows:
-      - "Link Checker PR"
+      - "YaSpeller PR"
     types:
       - completed
 
 jobs:
   surge-preview:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.draft == false }}
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -20,8 +19,9 @@ jobs:
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
+          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
           path: content
       - uses: actions/setup-node@v2
         with:

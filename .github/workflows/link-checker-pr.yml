@@ -3,24 +3,26 @@ name: Link Checker PR
 on:
   workflow_run:
     workflows:
-      - "Frontmatter Check"
+      - "YaSpeller PR"
     types:
       - completed
 
 jobs:
-  markdown-link-check:
+  link-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
       - name: View context attributes
         uses: actions/github-script@v4
         with:
           script: console.log(context)
       - id: files
-        uses: Ana06/get-changed-files@v1.2
-        with:
-          filter: '*.md'
-          format: 'csv'
+        run: |
+          files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
+          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/(index|practice/[a-z-]+).md' | tr '\n' ','
+          echo "::set-output name=all::$files"
       - name: Проверка ссылок в PR
         if: ${{ steps.files.outputs.all != '' }}
         uses: JustinBeckwith/linkinator-action@v1

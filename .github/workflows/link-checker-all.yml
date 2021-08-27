@@ -5,7 +5,7 @@ on:
     - cron:  '0 6 * * 5'
 
 jobs:
-  markdown-link-check:
+  link-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
