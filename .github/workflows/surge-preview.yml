@@ -80,7 +80,7 @@ jobs:
           fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo -e "${{ steps.links.outputs.list }}"
-      - name: Сообщение об окончании публикации превью
+      - name: Сообщение об успехе публикации превью
         if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
         uses: jungwinter/comment@v1
         with:
@@ -88,5 +88,14 @@ jobs:
           body: |
             [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.sha }} опубликовано.
             ${{ steps.links.outputs.list }}
+          comment_id: ${{ steps.comment.outputs.id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Сообщение о неудаче публикации превью
+        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion != 'success' && steps.links.conclusion == 'success' }}
+        uses: jungwinter/comment@v1
+        with:
+          type: edit
+          body: |
+            Превью контентаиз ${{ github.sha }} не опубликовано.
           comment_id: ${{ steps.comment.outputs.id }}
           token: ${{ secrets.GITHUB_TOKEN }}
