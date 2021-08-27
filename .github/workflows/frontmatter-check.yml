@@ -13,10 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.event.workflow_run.pull_requests.ref }}
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - uses: actions/github-script@v4
+        id: set-result
+        with:
+          script: return "Hello!"
+          result-encoding: string
+      - name: Get result
+        run: echo "${{steps.set-result.outputs.result}}"
       - id: files
         uses: Ana06/get-changed-files@v1.2
         with:
