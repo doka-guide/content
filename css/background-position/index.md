@@ -77,7 +77,7 @@ tags:
   }
   ```
 
-- Пиксели или другие [единицы измерения длины](numeric-types/#edinicy-izmereniya-dliny-ili-rasstoyaniya) CSS. Можно указать конкретное положение картинки в блоке.
+- Пиксели или другие [единицы измерения длины](/css/numeric-types/#edinicy-izmereniya-dliny-ili-rasstoyaniya) CSS. Можно указать конкретное положение картинки в блоке.
 
   ```css
   selector {
