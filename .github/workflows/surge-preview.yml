@@ -19,7 +19,7 @@ jobs:
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
         with:
           ref: refs/heads/${{ github.event.workflow_run.head_branch }}
           path: content
