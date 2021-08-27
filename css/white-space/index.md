@@ -76,7 +76,7 @@ a {
 </p>
 ```
 
-<iframe title="" src="demos/ezhkov-jOVrGqK"></iframe>
+<iframe title="Название — white-space — Дока" src="demos/ezhkov-jOVrGqK"></iframe>
 
 В итоге текст на странице переносится по пробелам, учитывая границы элемента.
 
@@ -102,7 +102,7 @@ a {
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<iframe title="" src="demos/ezhkov-BaQKOKz/index.html"></iframe>
+<iframe title="Название — white-space — Дока" src="demos/ezhkov-BaQKOKz/index.html"></iframe>
 
 ## Подсказки
 

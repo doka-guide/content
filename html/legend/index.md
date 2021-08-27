@@ -45,7 +45,7 @@ tags:
 
 :::
 
-<iframe title="" src="demos/Realetive-JjbRaPM/index.html"></iframe>
+<iframe title="Название — <legend> — Дока" src="demos/Realetive-JjbRaPM/index.html"></iframe>
 
 ## Атрибуты
 

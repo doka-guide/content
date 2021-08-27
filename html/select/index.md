@@ -38,7 +38,7 @@ tags:
 </form>
 ```
 
-<iframe title="" src="demos/ezhkov-dypzXYW/index.html"></iframe>
+<iframe title="Название — <select> — Дока" src="demos/ezhkov-dypzXYW/index.html"></iframe>
 
 ## Подробно
 
@@ -87,7 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<iframe title="" src="demos/ezhkov-oNzGMEB"></iframe>
+<iframe title="Название — <select> — Дока" src="demos/ezhkov-oNzGMEB"></iframe>
 
 ## Подсказки
 

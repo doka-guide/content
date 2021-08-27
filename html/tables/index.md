@@ -75,7 +75,7 @@ tags:
 </table>
 ```
 
-<iframe title="" src="demos/solarrust-mdrWxro/index.html"></iframe>
+<iframe title="Название — Таблицы — Дока" src="demos/solarrust-mdrWxro/index.html"></iframe>
 
 ## Структурные теги
 

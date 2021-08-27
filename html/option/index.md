@@ -33,7 +33,7 @@ tags:
 </form>
 ```
 
-<iframe title="" src="demos/ezhkov-dypzXYW/index.html"></iframe>
+<iframe title="Название — <option> — Дока" src="demos/ezhkov-dypzXYW/index.html"></iframe>
 
 ## Подробно
 
@@ -68,4 +68,4 @@ tags:
 
 Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута `value` этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега `<option>`.
 
-<iframe title="" src="demos/ezhkov-RwGLYaB"></iframe>
+<iframe title="Название — <option> — Дока" src="demos/ezhkov-RwGLYaB"></iframe>
