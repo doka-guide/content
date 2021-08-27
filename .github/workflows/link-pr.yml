@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows:
       - "Frontmatter Check"
-    branches-ignore:
-      - main
     types:
       - completed
 

@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows:
       - "YaSpeller PR"
-    branches-ignore:
-      - main
     types:
       - completed
 
