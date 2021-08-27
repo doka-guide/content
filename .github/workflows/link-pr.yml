@@ -14,10 +14,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: refs/heads/${{ github.event.workflow_run.head_branch }}
-      - name: View context attributes
-        uses: actions/github-script@v4
-        with:
-          script: console.log(context)
       - id: files
         run: |
           files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
