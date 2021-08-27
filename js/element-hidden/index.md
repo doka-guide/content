@@ -1,6 +1,6 @@
 ---
 title: "Element.hidden"
-description: "В этой статье разберёмся с атрибутом hidden и способами управления им с помощью JavaScript"
+description: "Свойство .hidden у DOM-элементов позволяет узнать или изменить значение HTML-атрибута hidden"
 authors:
   - windrushfarer
 tags:
