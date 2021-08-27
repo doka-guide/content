@@ -11,7 +11,7 @@ jobs:
   preview:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.number }}.surge.sh'
+      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.workflow_run.pull_requests[0].number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - name: Загрузка platform
