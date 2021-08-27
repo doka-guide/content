@@ -3,8 +3,8 @@ title: ":first-letter"
 authors:
   - doka-dog
 keywords:
-  - селектор
-  - атрибут
+  - первая буква
+  - псевдоэлемент
 tags:
   - doka
   - placeholder
