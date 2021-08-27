@@ -1,4 +1,4 @@
-name: Update Search Index
+name: Update Index
 
 on:
   workflow_run:
