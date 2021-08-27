@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  spell:
+  yaspeller:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
           node-version: '14'
       - id: files
         uses: Ana06/get-changed-files@v1.2
-      - name: Проверка правописания
+      - name: Проверка правописания в PR
         run: |
           config=.yaspeller.json
           file_list=""

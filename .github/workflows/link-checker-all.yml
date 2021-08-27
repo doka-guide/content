@@ -1,11 +1,6 @@
-name: Link Checker
+name: Link Checker All
 
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        required: true
-        description: Link Checker
   schedule:
     - cron:  '0 6 * * 5'
 

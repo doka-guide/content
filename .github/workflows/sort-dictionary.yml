@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  spell:
+  sort-dictionary:
     runs-on: ubuntu-latest
     strategy:
       matrix:
