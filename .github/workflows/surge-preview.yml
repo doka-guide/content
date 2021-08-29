@@ -86,7 +86,7 @@ jobs:
         with:
           type: edit
           body: |
-            [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.sha }} опубликовано.
+            [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано.
             ${{ steps.links.outputs.list }}
           comment_id: ${{ steps.comment.outputs.id }}
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -96,6 +96,6 @@ jobs:
         with:
           type: edit
           body: |
-            Превью контентаиз ${{ github.sha }} не опубликовано.
+            Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано.
           comment_id: ${{ steps.comment.outputs.id }}
           token: ${{ secrets.GITHUB_TOKEN }}
