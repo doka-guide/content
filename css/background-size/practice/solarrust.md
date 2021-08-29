@@ -17,6 +17,6 @@
 }
 ```
 
-<iframe title="Паттерн на фоне — background-size — Дока" src="../demos/pattern.html"></iframe>
+<iframe title="Паттерн на фоне — background-size — Дока" src="../demos/pattern/index.html"></iframe>
 
 Попробуй поменять размеры фоновой картинки и посмотреть, как будет меняться фоновый паттерн.

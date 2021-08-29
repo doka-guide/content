@@ -67,7 +67,7 @@ element.style.marginTop = "20px" // css свойство margin-top
 - `parentElement` — получить родительский элемент;
 - `nextElementSibling` и `previousElementSibling` — получить следующий/предыдущий узел-сосед:
 
-<iframe height="600" title="Окружение DOM-элементов" src="demos/dom/index.html"></iframe>
+<iframe height="600" title="Окружение DOM-элементов" src="demos/dom/index/index.html"></iframe>
 
 - [`getElementsByClassName`](/js/getelementsbyclassname/) — поиск среди дочерних элементов по названию класса;
 - [`getElementsByTagName`](/js/getelementsbytagname/) — поиск среди дочерних элементов по названию тега;
@@ -90,4 +90,4 @@ divElement.innerHTML = "<p>I was added from JavaScript</p>" // после вып
 
 Почувствуй разницу на демо:
 
-<iframe height="780" title="Содержимое DOM-элементов" src="demos/dom-html/index.html"></iframe>
+<iframe height="780" title="Содержимое DOM-элементов" src="demos/dom-html/index/index.html"></iframe>

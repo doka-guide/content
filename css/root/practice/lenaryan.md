@@ -12,4 +12,4 @@ html {
 }
 ```
 
-<iframe title="Псевдокласс :root — Дока" src="../demos/root.html" height="250"></iframe>
+<iframe title="Псевдокласс :root — Дока" src="../demos/root/index.html" height="250"></iframe>

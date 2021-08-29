@@ -43,7 +43,7 @@
 }
 ```
 
-<iframe title="Кастомизация маркеров — Псевдоэлементы — Дока" src="../demos/custom-markers.html"></iframe>
+<iframe title="Кастомизация маркеров — Псевдоэлементы — Дока" src="../demos/custom-markers/index.html"></iframe>
 
 Подобным образом можно менять стили маркеров как заблагорассудится.
 

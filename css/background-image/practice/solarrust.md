@@ -29,7 +29,7 @@
 }
 ```
 
-<iframe title="Ошибка загрузки — background-image — Дока" src="../demos/fix.html"></iframe>
+<iframe title="Ошибка загрузки — background-image — Дока" src="../demos/fix/index.html"></iframe>
 
 Чиним одной строкой:
 
@@ -43,7 +43,7 @@
 }
 ```
 
-<iframe title="Ошибка загрузки — background-image — Дока" src="../demos/fix-2.html"></iframe>
+<iframe title="Ошибка загрузки — background-image — Дока" src="../demos/fix-2/index.html"></iframe>
 
 Да, будет не так красиво, как нарисовал дизайнер, но вся информация будет доступна.
 
@@ -85,4 +85,4 @@
 }
 ```
 
-<iframe title="Радиальные градиенты — background-image — Дока" src="../demos/gradient.html"></iframe>
+<iframe title="Радиальные градиенты — background-image — Дока" src="../demos/gradient/index.html"></iframe>

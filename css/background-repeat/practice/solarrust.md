@@ -23,4 +23,4 @@
 }
 ```
 
-<iframe title="Паттерн градиентом — background-repeat — Дока" src="../demos/gradient.html"></iframe>
+<iframe title="Паттерн градиентом — background-repeat — Дока" src="../demos/gradient/index.html"></iframe>

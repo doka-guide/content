@@ -7,6 +7,6 @@
 </p>
 ```
 
-<iframe title="Nyan — <q> — Дока" src="../demos/quote.html" height="270"></iframe>
+<iframe title="Nyan — <q> — Дока" src="../demos/quote/index.html" height="270"></iframe>
 
 Обратите внимание, что кавычки в этом примере отличаются от стандартных, они соответствуют тем кавычкам, которые ставятся в латинизированном японском тексте.
