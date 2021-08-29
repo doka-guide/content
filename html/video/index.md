@@ -107,7 +107,7 @@ tags:
 </video>
 ```
 
-<iframe title="Видео с обложкой" src="demos/poster.html" height="430"></iframe>
+<iframe title="Видео с обложкой — <video> — Дока" src="demos/poster.html" height="430"></iframe>
 
 А теперь добавим несколько форматов одного видео. Браузер попробует воспроизвести первый из поддерживаемых им форматов: сначала попробует проиграть mp4, потом ogg, затем avi. Если встраиваемые видео вообще не поддерживаются, то появится соответствующее сообщение:
 
@@ -120,4 +120,4 @@ tags:
 </video>
 ```
 
-<iframe title="Видео разных форматов" src="demos/formats.html" height="430"></iframe>
+<iframe title="Видео разных форматов — <video> — Дока" src="demos/formats.html" height="430"></iframe>

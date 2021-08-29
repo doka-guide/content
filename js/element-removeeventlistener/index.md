@@ -30,7 +30,7 @@ window.addEventListener('click', handleMouseClick)
 window.removeEventListener('click', handleMouseClick)
 ```
 
-<iframe title="Удаление обработчика событий" src="demos/index.html"></iframe>
+<iframe title="Удаление обработчика событий — Element.removeEventListener() — Дока" src="demos/index.html"></iframe>
 
 `Element.removeEventListener` принимает три аргумента. Первые два обязательные:
 

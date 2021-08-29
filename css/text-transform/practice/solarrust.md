@@ -30,6 +30,6 @@
 }
 ```
 
-<iframe title="Вёрстка навигации" src="../demos/menu.html"></iframe>
+<iframe title="Вёрстка навигации — text-transform — Дока" src="../demos/menu.html"></iframe>
 
 Теперь если даже в меню добавится ещё пара пунктов, то они также будут отображаться заглавными буквами.

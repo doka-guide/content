@@ -46,4 +46,4 @@
 }
 ```
 
-<iframe title="Рамка вместо подчёркивания" src="../demos/header.html"></iframe>
+<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header.html"></iframe>

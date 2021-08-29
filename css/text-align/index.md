@@ -128,4 +128,4 @@ div {
 }
 ```
 
-<iframe title="Выравнивание текста в контейнере" src="demos/text-align.html"></iframe>
+<iframe title="Выравнивание текста в контейнере — text-align — Дока" src="demos/text-align.html"></iframe>

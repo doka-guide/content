@@ -35,7 +35,7 @@ hr {
 }
 ```
 
-<iframe title="Горизонтальная линия" src="demos/hr.html" height="200"></iframe>
+<iframe title="Горизонтальная линия — <hr> — Дока" src="demos/hr.html" height="200"></iframe>
 
 ## Как это понять
 

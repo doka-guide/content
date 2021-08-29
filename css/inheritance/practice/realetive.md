@@ -20,4 +20,4 @@
 }
 ```
 
-<iframe title="currentColor" src="../demos/current-color.html"></iframe>
+<iframe title="currentColor — Наследование в CSS — Дока" src="../demos/current-color.html"></iframe>

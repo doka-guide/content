@@ -19,4 +19,4 @@
 }
 ```
 
-<iframe title="Счётчик уведомлений" src="../demos/notification.html"></iframe>
+<iframe title="Счётчик уведомлений — border-radius — Дока" src="../demos/notification.html"></iframe>

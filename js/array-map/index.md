@@ -34,7 +34,7 @@ const objects = nums.map(function (num) {
 
 Интерактивный пример
 
-<iframe title="Используем map для изменения значений массива" src="demos/index.html" height="910"></iframe>
+<iframe title="Используем map для изменения значений массива — Array.map — Дока" src="demos/index.html" height="910"></iframe>
 
 ## Как пишется
 

@@ -28,7 +28,7 @@ tags:
 }
 ```
 
-<iframe title="Тень для текста" src="demos/shadow.html"></iframe>
+<iframe title="Тень для текста — text-shadow — Дока" src="demos/shadow.html"></iframe>
 
 ## Как пишется
 

@@ -139,4 +139,4 @@ tags:
 </form>
 ```
 
-<iframe title="Различные input" src="demos/inputs.html" height="440"></iframe>
+<iframe title="Различные input — <input> — Дока" src="demos/inputs.html" height="440"></iframe>

@@ -25,4 +25,4 @@
 </div>
 ```
 
-<iframe title="Свойство visibility" src="../demos/trick.html"></iframe>
+<iframe title="Свойство visibility — visibility — Дока" src="../demos/trick.html"></iframe>

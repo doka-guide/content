@@ -38,4 +38,4 @@
 }
 ```
 
-<iframe title="Изменения состояния кнопки" src="../demos/solarrust.html" height="320"></iframe>
+<iframe title="Изменения состояния кнопки — :disabled и :enabled — Дока" src="../demos/solarrust.html" height="320"></iframe>

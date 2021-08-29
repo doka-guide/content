@@ -30,7 +30,7 @@ tags:
 }
 ```
 
-<iframe title="Положение фоновой картинки" src="demos/not-positioned.html"></iframe>
+<iframe title="Положение фоновой картинки — background-position — Дока" src="demos/not-positioned.html"></iframe>
 
 Как видно в примере, маленькая картинка с персонажем располагается в левом верхнем углу. Но по логике изображения нам нужно расположить его в правом нижнем углу.
 
@@ -44,7 +44,7 @@ tags:
 }
 ```
 
-<iframe title="Положение фоновой картинки" src="demos/positioned.html"></iframe>
+<iframe title="Положение фоновой картинки — background-position — Дока" src="demos/positioned.html"></iframe>
 
 ## Как это понять
 

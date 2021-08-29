@@ -92,4 +92,4 @@ HTML — создаёт структуру веб-страницы, CSS-сти�
 </html>
 ```
 
-<iframe title="Вставка скрипта на страницу" src="demos/font-size-changer.html" height="340"></iframe>
+<iframe title="Вставка скрипта на страницу — <script> — Дока" src="demos/font-size-changer.html" height="340"></iframe>

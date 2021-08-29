@@ -42,7 +42,7 @@ span:after {
 
 В итоге текст будет выглядеть так:
 
-<iframe title="Стилизация кавычек" src="demos/quotes.html"></iframe>
+<iframe title="Стилизация кавычек — quotes — Дока" src="demos/quotes.html"></iframe>
 
 ## Как пишется
 

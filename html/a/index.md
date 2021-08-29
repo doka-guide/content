@@ -27,7 +27,7 @@ tags:
 <a href="https://www.yandex.ru/">Яндекс</a>
 ```
 
-<iframe title="Обычная ссылка" src="demos/basic.html" height="140"></iframe>
+<iframe title="Обычная ссылка — <a> — Дока" src="demos/basic.html" height="140"></iframe>
 
 ## Как это понять
 
@@ -87,7 +87,7 @@ tags:
 </a>
 ```
 
-<iframe title="Ссылка на изображении" src="demos/image.html" height="300"></iframe>
+<iframe title="Ссылка на изображении — <a> — Дока" src="demos/image.html" height="300"></iframe>
 
 Сделаем ссылку для отправки письма на почту:
 
@@ -95,4 +95,4 @@ tags:
 <a href="mailto:nowhere@yandex.ru">Отправить сообщение в никуда</a>
 ```
 
-<iframe title="Ссылка mailto" src="demos/mail.html" height="140"></iframe>
+<iframe title="Ссылка mailto — <a> — Дока" src="demos/mail.html" height="140"></iframe>
