@@ -3,15 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - transform interactive</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    :root {
+      --translateX: 0px;
+      --translateY: 0px;
+      --translateZ: 0px;
+      --rotateX: 0deg;
+      --rotateY: 0deg;
+      --rotateZ: 0deg;
+      --scaleX: 1;
+      --scaleY: 1;
+      --scaleZ: 1;
+      --skewX: 0deg;
+      --skewY: 0deg;
+    }
+
+    .obj {
+      width: 200px;
+      margin-left: 100px;
+      margin-top: 50px;
+      height: 200px;
+      background: #000;
+      background-repeat: no-repeat;
+      transform: translate3d(var(--translateX), var(--translateY), var(--translateZ))
+        scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
+        rotateX(var(--rotateX))
+        rotateY(var(--rotateY))
+        rotateZ(var(--rotateZ))
+        skew(var(--skewX), var(--skewY));
+    }
+
+    .parent {
+      perspective: 500px;
+    }
+
+    .wrapper {
+      display: flex;
+    }
+
+    .code {
+      margin-left: 50px;
+      padding: 50px;
+      font-size: 24px;
+    }
+  </style>
 </head>
 <body>
-<div class="wrapper">
-<div class="parent">
-  <div class="obj"></div>
-</div>
-  <div class="code">asdasd</div>
-</div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script><script  src="./script.js"></script>
+  <div class="wrapper">
+  <div class="parent">
+    <div class="obj"></div>
+  </div>
+    <div class="code">asdasd</div>
+  </div>
+  <script src="scripts/dat.gui.min.js"></script>
+  <script>
+    const params = {
+      translateX: 0,
+      translateY: 0,
+      translateZ: 0,
+      skewX: 0,
+      skewY: 0,
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
+      scaleX: 1,
+      scaleY: 1,
+      scaleZ: 1,
+      reset() {
+        for (key in this) {
+          if (key !== 'reset') {
+            if (['scaleX', 'scaleY', 'scaleZ'].includes(key)) {
+              this[key] = 1;
+              setter(`--${key}`, '')(1);
+            } else {
+              this[key] = 0;
+              if (['translateX', 'translateY', 'translateZ'].includes(key)) {
+                setter(`--${key}`, 'px')(0);
+              } else {
+                setter(`--${key}`, 'deg')(0);
+              }
+            }
+          }
+        }
+        gui.updateDisplay();
+      } };
+
+    var gui = new dat.GUI({ name: 'My GUI' });
+    var guiTranslate = gui.addFolder('translate');
+    var guiRotate = gui.addFolder('rotate');
+    var guiScale = gui.addFolder('scale');
+    var guiSkew = gui.addFolder('skew');
+    let root = document.documentElement;
+    const code = document.querySelector('.code');
+
+    const setter = (prop, suffix) => val => {
+      root.style.setProperty(prop, `${val}${suffix}`);
+      code.innerText = `${val}${suffix}`;
+      console.log(root.style);
+    };
+    gui.add(params, 'reset');
+
+    guiTranslate.add(params, 'translateX', -100, 100, 1).onChange(setter('--translateX', 'px')).listen();
+    guiTranslate.add(params, 'translateY', -100, 100, 1).onChange(setter('--translateY', 'px'));
+    guiTranslate.add(params, 'translateZ', -100, 100, 1).onChange(setter('--translateZ', 'px'));
+    guiRotate.add(params, 'rotateX', -180, 180, 1).onChange(setter('--rotateX', 'deg'));
+    guiRotate.add(params, 'rotateY', -180, 180, 1).onChange(setter('--rotateY', 'deg'));
+    guiRotate.add(params, 'rotateZ', -180, 180, 1).onChange(setter('--rotateZ', 'deg'));
+    guiScale.add(params, 'scaleX', 0, 2).onChange(setter('--scaleX', ''));
+    guiScale.add(params, 'scaleY', 0, 2).onChange(setter('--scaleY', ''));
+    guiScale.add(params, 'scaleZ', 0, 2).onChange(setter('--scaleZ', ''));
+    guiSkew.add(params, 'skewX', -90, 90, 1).onChange(setter('--skewX', 'deg'));
+    guiSkew.add(params, 'skewY', -90, 90, 1).onChange(setter('--skewY', 'deg'));
+  </script>
 </body>
 </html>
