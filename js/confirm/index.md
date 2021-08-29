@@ -59,4 +59,4 @@ if (result === true) {
 
 Так как `confirm` всегда выдаёт boolean значение, то проверки на true/false вполне достаточно для продолжения работы скрипта.
 
-<iframe title="Название — confirm() — Дока" src="demos/vindi-r-jROyRE/index.html"></iframe>
+<iframe title="Название — confirm() — Дока" src="demos/vindi-r-jROyRE/"></iframe>

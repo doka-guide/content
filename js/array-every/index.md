@@ -45,7 +45,7 @@ const isAllUsersAnna = users.some(num => {
 
 Интерактивный пример:
 
-<iframe title="Используем every для проверки массива — Array.every — Дока" src="demos/index/index.html" height="980"></iframe>
+<iframe title="Используем every для проверки массива — Array.every — Дока" src="demos/index/" height="980"></iframe>
 
 ## Как пишется
 

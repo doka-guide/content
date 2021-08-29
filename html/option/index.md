@@ -33,7 +33,7 @@ tags:
 </form>
 ```
 
-<iframe title="Название — <option> — Дока" src="demos/ezhkov-dypzXYW/index.html"></iframe>
+<iframe title="Название — <option> — Дока" src="demos/ezhkov-dypzXYW/"></iframe>
 
 ## Подробно
 

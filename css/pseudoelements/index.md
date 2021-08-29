@@ -45,7 +45,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона — Псевдоэлементы — Дока" src="demos/header/index.html"></iframe>
+<iframe title="Наложение фона — Псевдоэлементы — Дока" src="demos/header/"></iframe>
 
 Чтобы цвет картинки был не таким ярким и текст лучше читался, наложим поверх всего `header` полупрозрачную заливку чёрного цвета.
 
@@ -73,7 +73,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона с заливкой — Псевдоэлементы — Дока" src="demos/header-veil/index.html"></iframe>
+<iframe title="Наложение фона с заливкой — Псевдоэлементы — Дока" src="demos/header-veil/"></iframe>
 
 Не трогая HTML-разметку, мы добавили ещё один элемент в декоративных целях. Разметка осталась чистой. Псевдоэлементом легко управлять, добавлять или удалять его по необходимости, даже если нет доступа к HTML.
 
@@ -111,7 +111,7 @@ tags:
 }
 ```
 
-<iframe title="Текст в псевдоэлементах ::before и ::after — Псевдоэлементы — Дока" src="demos/looking-great-gordon/index.html"></iframe>
+<iframe title="Текст в псевдоэлементах ::before и ::after — Псевдоэлементы — Дока" src="demos/looking-great-gordon/"></iframe>
 
 Как видно в примере, текст из свойства `content` псевдоэлемента `::before` встал перед именем пользователя, а из псевдоэлемента `::after` — после.
 
@@ -139,7 +139,7 @@ tags:
 }
 ```
 
-<iframe title="Декоративная линия на основе псевдоэлемента — Псевдоэлементы — Дока" src="demos/greetings-gordon/index.html"></iframe>
+<iframe title="Декоративная линия на основе псевдоэлемента — Псевдоэлементы — Дока" src="demos/greetings-gordon/"></iframe>
 
 ### `::first-letter`
 
@@ -160,7 +160,7 @@ tags:
 }
 ```
 
-<iframe title="::first-letter, буквица — Псевдоэлементы — Дока" src="demos/first-letter/index.html"></iframe>
+<iframe title="::first-letter, буквица — Псевдоэлементы — Дока" src="demos/first-letter/"></iframe>
 
 ### `::first-line`
 
@@ -182,7 +182,7 @@ tags:
 }
 ```
 
-<iframe title="::first-line, красная строка — Псевдоэлементы — Дока" src="demos/first-line/index.html"></iframe>
+<iframe title="::first-line, красная строка — Псевдоэлементы — Дока" src="demos/first-line/"></iframe>
 
 ### `::selection`
 
@@ -200,7 +200,7 @@ tags:
 }
 ```
 
-<iframe title="::selection, выделение текста — Псевдоэлементы — Дока" src="demos/selection/index.html"></iframe>
+<iframe title="::selection, выделение текста — Псевдоэлементы — Дока" src="demos/selection/"></iframe>
 
 Если выделить текст в этом примере, то станет видно, что фон выделения ярко-красного цвета.
 
@@ -226,7 +226,7 @@ input::placeholder {
 }
 ```
 
-<iframe title="Placeholder, подсказка — Псевдоэлементы — Дока" src="demos/placeholder/index.html"></iframe>
+<iframe title="Placeholder, подсказка — Псевдоэлементы — Дока" src="demos/placeholder/"></iframe>
 
 ## Подсказки
 

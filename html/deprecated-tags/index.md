@@ -178,7 +178,7 @@ h1 {
 кластеризации усилий.
 ```
 
-<iframe title="Тег nobr — Устаревшие теги — Дока" src="demos/nobr/index.html" height="280"></iframe>
+<iframe title="Тег nobr — Устаревшие теги — Дока" src="demos/nobr/" height="280"></iframe>
 
 #### Чем заменить
 
@@ -351,7 +351,7 @@ h1 {
 </marquee>
 ```
 
-<iframe title="Тег marquee — Устаревшие теги — Дока" src="demos/marquee/index.html" height="360"></iframe>
+<iframe title="Тег marquee — Устаревшие теги — Дока" src="demos/marquee/" height="360"></iframe>
 
 #### Чем заменить
 
@@ -407,7 +407,7 @@ h1 {
 }
 ```
 
-<iframe title="Имитация marquee — Устаревшие теги — Дока" src="demos/marquee-fallback/index.html" height="280"></iframe>
+<iframe title="Имитация marquee — Устаревшие теги — Дока" src="demos/marquee-fallback/" height="280"></iframe>
 
 ## Вывод
 

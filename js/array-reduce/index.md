@@ -44,7 +44,7 @@ const usernamesById = users.reduce(function (result, user) {
 
 Интерактивный пример:
 
-<iframe height="920" title="Группировка элементов массива при помощи reduce" src="demos/index/index.html"></iframe>
+<iframe height="920" title="Группировка элементов массива при помощи reduce" src="demos/index/"></iframe>
 
 ## Как пишется
 

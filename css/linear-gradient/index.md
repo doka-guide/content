@@ -36,7 +36,7 @@ tags:
 }
 ```
 
-<iframe title="Линейный градиент — linear-gradient() — Дока" src="demos/gradient/index.html"></iframe>
+<iframe title="Линейный градиент — linear-gradient() — Дока" src="demos/gradient/"></iframe>
 
 ### Количество цветов
 
@@ -48,7 +48,7 @@ tags:
 
 Через пробел после значения цвета можно задавать начальную и конечную точки цвета. Можно использовать любую единицу длины либо проценты. В начальной точке заканчивается плавный переход из предыдущего цвета. Конечная точка — это точка, с которой начинается плавный переход в следующий цвет.
 
-<iframe title="Линейный градиент с остановками цвета — linear-gradient() — Дока" src="demos/gradient-stops/index.html"></iframe>
+<iframe title="Линейный градиент с остановками цвета — linear-gradient() — Дока" src="demos/gradient-stops/"></iframe>
 
 Если конечная точка предыдущего цвета и начальная точка следующего совпадают, то переход будет в виде чёткой линии. Разберём пример.
 
@@ -78,7 +78,7 @@ tags:
 }
 ```
 
-<iframe title="Линейный градиент с поворотом — linear-gradient() — Дока" src="demos/gradient-rotate/index.html"></iframe>
+<iframe title="Линейный градиент с поворотом — linear-gradient() — Дока" src="demos/gradient-rotate/"></iframe>
 
 Мы можем задавать направление градиента, используя ключевые слова с приставкой `to`: `to left`, `to top`, `to right`, `to bottom` (по умолчанию). Значения имеют следующие эквиваленты в углах:
 
@@ -89,19 +89,19 @@ tags:
 
 Ключевые слова можно сочетать, чтобы направить градиент в нужный угол элемента: `to top left` будет рисовать градиент из правого нижнего в левый верхний угол.
 
-<iframe title="Линейный градиент с направлением — linear-gradient() — Дока" src="demos/gradient-direction/index.html"></iframe>
+<iframe title="Линейный градиент с направлением — linear-gradient() — Дока" src="demos/gradient-direction/"></iframe>
 
 ### Повторяющийся градиент
 
 Если градиент должен многократно повторяться, можно использовать функцию `repeating-linear-gradient()`.
 
-<iframe title="Повторяющийся линейный градиент — linear-gradient() — Дока" src="demos/gradient-repeat/index.html"></iframe>
+<iframe title="Повторяющийся линейный градиент — linear-gradient() — Дока" src="demos/gradient-repeat/"></iframe>
 
 ### Множественные градиенты
 
 Множественный фон элемента может применяться и к градиентам.
 
-<iframe title="Множественный линейный градиент — linear-gradient() — Дока" src="demos/gradient-multiple/index.html"></iframe>
+<iframe title="Множественный линейный градиент — linear-gradient() — Дока" src="demos/gradient-multiple/"></iframe>
 
 ## Подсказки
 

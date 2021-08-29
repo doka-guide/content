@@ -102,7 +102,7 @@ a {
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<iframe title="Название — white-space — Дока" src="demos/ezhkov-BaQKOKz/index.html"></iframe>
+<iframe title="Название — white-space — Дока" src="demos/ezhkov-BaQKOKz/"></iframe>
 
 ## Подсказки
 

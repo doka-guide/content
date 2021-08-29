@@ -21,7 +21,7 @@ tags:
 }
 ```
 
-<iframe title="Название — overflow — Дока" src="demos/Realetive-wvzBqxp/index.html"></iframe>
+<iframe title="Название — overflow — Дока" src="demos/Realetive-wvzBqxp/"></iframe>
 
 ## Как пишется
 

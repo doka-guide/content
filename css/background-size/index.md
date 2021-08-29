@@ -33,19 +33,19 @@ tags:
 }
 ```
 
-<iframe title="Фон без управления размером — background-size — Дока" src="demos/fullsize/index.html"></iframe>
+<iframe title="Фон без управления размером — background-size — Дока" src="demos/fullsize/"></iframe>
 
 Если не указывать свойство `background-size` то будет видна только небольшая часть картинки. Но хотелось бы, чтобы фон, несмотря на его нестандартный размер, смотрелся хорошо.
 
 Укажем свойство `background-size` со значением `100% 100%`. По логике с таким значением фон должен занимать 100% высоты элемента и 100% ширины элемента.
 
-<iframe title="Фон с размером 100% 100% — background-size — Дока" src="demos/100-100/index.html"></iframe>
+<iframe title="Фон с размером 100% 100% — background-size — Дока" src="demos/100-100/"></iframe>
 
 Если у тебя широкий монитор, то можно не заметить подвоха, но на узких мониторах картинка будет деформироваться и сплющиваться по ширине.
 
 Есть способ заставить картинку занять всю доступную площадь и при этом не деформироваться. Зададим `background-size: cover` — cover переводится с английского как обложка.
 
-<iframe title="Фон с параметром cover — background-size — Дока" src="demos/cover/index.html"></iframe>
+<iframe title="Фон с параметром cover — background-size — Дока" src="demos/cover/"></iframe>
 
 В этой версии добавлено ещё свойство `background-position` со значением `center` чтобы в области видимости был центр изображения.
 

@@ -168,7 +168,7 @@ document.body.addEventListener("mouseup", () => {
 
 Тогда получится вот такой драг-н-дроп:
 
-<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-qBNwBKP/index.html"></iframe>
+<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-qBNwBKP/"></iframe>
 
 Это работает, но не очень эффективно, потому что изменения в этих свойствах заставляют браузер делать много лишней работы.
 

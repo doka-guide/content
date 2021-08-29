@@ -43,7 +43,7 @@ prompt("Как тебя зовут?", "Саша")
 prompt("Введите возраст", 18) // "Введите возраст", СТРОКА "18"
 ```
 
-<iframe title="Название — prompt() — Дока" src="demos/vindi-r-jJxjNM/index.html"></iframe>
+<iframe title="Название — prompt() — Дока" src="demos/vindi-r-jJxjNM/"></iframe>
 
 💡 Результат `prompt()` — строка, если была нажата кнопка «OK» или `null`, если была нажата «Отмена».
 

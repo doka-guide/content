@@ -133,7 +133,7 @@ content: unset;
 }
 ```
 
-<iframe title="attr — content — Дока" src="demos/rating/index.html"></iframe>
+<iframe title="attr — content — Дока" src="demos/rating/"></iframe>
 
 - Ну и конечно же разработчики спецификации позаботились о нас и сделали возможность собрать сразу несколько значений в общую строку:
 

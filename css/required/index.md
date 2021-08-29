@@ -41,7 +41,7 @@ input:required {
 }
 ```
 
-<iframe title="Название — :required — Дока" src="demos/ezhkov-BaLbMKG/index.html"></iframe>
+<iframe title="Название — :required — Дока" src="demos/ezhkov-BaLbMKG/"></iframe>
 
 ## Как это понять
 

@@ -53,4 +53,4 @@ CSS-свойство `fill`, как и у одноимённого SVG-атри�
 }
 ```
 
-<iframe title="Название — fill — Дока" src="demos/Realetive-KKMoVza/index.html"></iframe>
+<iframe title="Название — fill — Дока" src="demos/Realetive-KKMoVza/"></iframe>

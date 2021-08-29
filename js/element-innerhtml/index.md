@@ -35,7 +35,7 @@ HTML после изменения:
 </form>
 ```
 
-<iframe title="Element.innerHTML — Element.innerHTML — Дока" src="demos/index/index.html"></iframe>
+<iframe title="Element.innerHTML — Element.innerHTML — Дока" src="demos/index/"></iframe>
 
 ## Как понять
 

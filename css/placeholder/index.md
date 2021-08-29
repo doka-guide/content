@@ -30,7 +30,7 @@ tags:
 }
 ```
 
-<iframe title="Подсказка в поле ввода — ::placeholder — Дока" src="demos/index/index.html"></iframe>
+<iframe title="Подсказка в поле ввода — ::placeholder — Дока" src="demos/index/"></iframe>
 
 ## Как это понять
 

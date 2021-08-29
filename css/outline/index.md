@@ -61,7 +61,7 @@ tags:
 
 Проще всего понять на примерах:
 
-<iframe title="Название — outline — Дока" src="demos/solarrust-OJRLXNN/index.html"></iframe>
+<iframe title="Название — outline — Дока" src="demos/solarrust-OJRLXNN/"></iframe>
 
 ### `outline-color`
 

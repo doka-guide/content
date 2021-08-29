@@ -104,7 +104,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-<iframe title="Название — transition-timing-function — Дока" src="demos/ezhkov-WNwwpmX/index.html"></iframe>
+<iframe title="Название — transition-timing-function — Дока" src="demos/ezhkov-WNwwpmX/"></iframe>
 
 ### Функция `steps`
 

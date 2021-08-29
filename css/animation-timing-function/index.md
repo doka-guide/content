@@ -96,7 +96,7 @@ CSS-анимации по умолчанию проигрываются лине
 
 Очень сложно представить, как же будет выглядеть анимация при каждом из этих значений. Гораздо информативнее будет демка:
 
-<iframe title="Название — animation-timing-function — Дока" src="demos/solarrust-XWpxjrW/index.html"></iframe>
+<iframe title="Название — animation-timing-function — Дока" src="demos/solarrust-XWpxjrW/"></iframe>
 
 ## Подсказки
 

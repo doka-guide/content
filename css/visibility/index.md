@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Прозрачность параграфов — visibility — Дока" src="demos/text/index.html"></iframe>
+<iframe title="Прозрачность параграфов — visibility — Дока" src="demos/text/"></iframe>
 
 Обратите внимание, что скрытый параграф всё равно влияет на поток документа и занимает отведённое ему место.
 

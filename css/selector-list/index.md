@@ -55,7 +55,7 @@ tags:
 }
 ```
 
-<iframe title="Перечисление селекторов — Перечисление селекторов — Дока" src="demos/enumerous-selector/index.html"></iframe>
+<iframe title="Перечисление селекторов — Перечисление селекторов — Дока" src="demos/enumerous-selector/"></iframe>
 
 ## Как это понять
 

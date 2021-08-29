@@ -227,4 +227,4 @@ window.addEventListener("resize", optimizedHandler);
 
 Пример такого прогресс-бара получится таким:
 
-<iframe title="Название — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/bespoyasov-ZEpzYbN/index.html"></iframe>
+<iframe title="Название — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/bespoyasov-ZEpzYbN/"></iframe>

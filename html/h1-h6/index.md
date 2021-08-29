@@ -38,7 +38,7 @@ tags:
 <h6>Заголовок уровня 6</h6>
 ```
 
-<iframe title="Заголовки 6 уровней — <h1>...<h6> — Дока" src="demos/headers/index.html" height="480"></iframe>
+<iframe title="Заголовки 6 уровней — <h1>...<h6> — Дока" src="demos/headers/" height="480"></iframe>
 
 ## Как это понять
 
@@ -75,4 +75,4 @@ tags:
 <p>Выберите начинку и внешний вид для торта своей мечты.</p>
 ```
 
-<iframe title="Заголовки — <h1>...<h6> — Дока" src="demos/cakes/index.html" height="480"></iframe>
+<iframe title="Заголовки — <h1>...<h6> — Дока" src="demos/cakes/" height="480"></iframe>

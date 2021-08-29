@@ -26,4 +26,4 @@ tags:
 - `high` — определяет, что считать «высоким значением». По умолчанию равно значению `max`.
 - `optimum` — определяет оптимальное значение.
 
-<iframe title="Название — <meter> — Дока" src="demos/solarrust-MWmdQov/index.html"></iframe>
+<iframe title="Название — <meter> — Дока" src="demos/solarrust-MWmdQov/"></iframe>

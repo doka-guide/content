@@ -43,7 +43,7 @@ if (isRegistered === true && orders > 1) {
 }
 ```
 
-<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-wLGJgz/index.html"></iframe>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-wLGJgz/"></iframe>
 
 Обычно для того, чтобы понять, как работают логические операторы, рисуют таблицу истинности. В ячейках — итоговое значение операции при соответствующих операндах:
 

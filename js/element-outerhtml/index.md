@@ -46,7 +46,7 @@ HTML после изменения будет:
 <h2>Второй заголовок</h2>
 ```
 
-<iframe title="Element.outerHTML — Element.outerHTML — Дока" src="demos/index/index.html"></iframe>
+<iframe title="Element.outerHTML — Element.outerHTML — Дока" src="demos/index/"></iframe>
 
 ## Как понять
 

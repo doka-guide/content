@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Название — attr() — Дока" src="demos/ezhkov-vYyKemg/index.html"></iframe>
+<iframe title="Название — attr() — Дока" src="demos/ezhkov-vYyKemg/"></iframe>
 
 ## Как пишется
 

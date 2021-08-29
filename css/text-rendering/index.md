@@ -88,7 +88,7 @@ tags:
 
 Используется в случае, когда важна не скорость отрисовки, а удобочитаемость текста и визуальная красота сочетаний символов. При таком значении браузер активно использует лигатуры и корректирует кернинг.
 
-<iframe title="Название — text-rendering — Дока" src="demos/ezhkov-abmErGG/index.html"></iframe>
+<iframe title="Название — text-rendering — Дока" src="demos/ezhkov-abmErGG/"></iframe>
 
 ### `geometricPrecision`
 

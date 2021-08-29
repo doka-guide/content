@@ -34,7 +34,7 @@ tags:
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
 
-<iframe title="Название — animation-fill-mode — Дока" src="demos/solarrust-XWpxNZZ/index.html"></iframe>
+<iframe title="Название — animation-fill-mode — Дока" src="demos/solarrust-XWpxNZZ/"></iframe>
 
 ## Подсказки
 

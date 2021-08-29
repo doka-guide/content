@@ -41,7 +41,7 @@ tags:
 }
 ```
 
-<iframe title="Название — :in-range и :out-of-range — Дока" src="demos/solarrust-xxqvWZg/index.html"></iframe>
+<iframe title="Название — :in-range и :out-of-range — Дока" src="demos/solarrust-xxqvWZg/"></iframe>
 
 ## Как это понять
 
@@ -67,4 +67,4 @@ input:out-of-range + span {
 
 💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать подсказку полю ввода:
 
-<iframe title="Название — :in-range и :out-of-range — Дока" src="demos/solarrust-yLMmKOL/index.html"></iframe>
+<iframe title="Название — :in-range и :out-of-range — Дока" src="demos/solarrust-yLMmKOL/"></iframe>

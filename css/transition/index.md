@@ -16,7 +16,7 @@ tags:
 
 ## Пример
 
-<iframe title="Color transition — transition — Дока" src="demos/color-transition/index.html"></iframe>
+<iframe title="Color transition — transition — Дока" src="demos/color-transition/"></iframe>
 
 ## Подробно
 
@@ -124,7 +124,7 @@ tags:
 }
 ```
 
-<iframe title="Transition одного или двух свойств — transition — Дока" src="demos/transition-of-properties/index.html"></iframe>
+<iframe title="Transition одного или двух свойств — transition — Дока" src="demos/transition-of-properties/"></iframe>
 
 Если мы хотим плавно изменить два и более свойств, нужно просто перечислить их через запятую.
 
@@ -181,7 +181,7 @@ tags:
 }
 ```
 
-<iframe title="Разная скорость transition — transition — Дока" src="demos/transition-speed/index.html"></iframe>
+<iframe title="Разная скорость transition — transition — Дока" src="demos/transition-speed/"></iframe>
 
 Обрати внимание, в этом случае свойство `transition` задаётся для обоих состояний.
 
@@ -241,7 +241,7 @@ tags:
 }
 ```
 
-<iframe title="Анимация подсказки при помощи transition — transition — Дока" src="demos/tooltip-transition/index.html"></iframe>
+<iframe title="Анимация подсказки при помощи transition — transition — Дока" src="demos/tooltip-transition/"></iframe>
 
 **Обрати внимание**, что мы прописали `visibility` как одно из свойств, которое нужно плавно изменить. Это работает в связке с `opacity` и обеспечивает возможность плавного появления/скрытия элемента:
 

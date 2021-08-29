@@ -37,7 +37,7 @@ tags:
 }
 ```
 
-<iframe title="Картинка в качестве рамки слева — border-image — Дока" src="demos/border-image/index.html"></iframe>
+<iframe title="Картинка в качестве рамки слева — border-image — Дока" src="demos/border-image/"></iframe>
 
 ## Как это понять
 

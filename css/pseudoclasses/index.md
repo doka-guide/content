@@ -78,7 +78,7 @@ tr:hover {
 }
 ```
 
-<iframe title="Изменение фона по наведению на строку таблицы — Псевдоклассы — Дока" src="demos/row-hover/index.html"></iframe>
+<iframe title="Изменение фона по наведению на строку таблицы — Псевдоклассы — Дока" src="demos/row-hover/"></iframe>
 
 ## Как это понять
 
@@ -152,7 +152,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 ```
 
-<iframe title="Стили для дефолтного чекбокса — Псевдоклассы — Дока" src="demos/default/index.html"></iframe>
+<iframe title="Стили для дефолтного чекбокса — Псевдоклассы — Дока" src="demos/default/"></iframe>
 
 ### `:dir()`
 
@@ -162,7 +162,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Позволяют находить элементы формы по состоянию их атрибута `disabled`. _Почти_ эквивалентны селекторам по атрибуту (`[disabled]` и `:not([disabled])` соответственно), но более гибкие, т. к. среагируют на унаследованное состояние `disabled`. Если есть `<fieldset disabled>`, то отключаются вложенные в него контролы форм.
 
-<iframe title="Стили для задизейбленного поля ввода — Псевдоклассы — Дока" src="demos/disabled-enabled/index.html"></iframe>
+<iframe title="Стили для задизейбленного поля ввода — Псевдоклассы — Дока" src="demos/disabled-enabled/"></iframe>
 
 ### `:empty`
 
@@ -170,7 +170,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется к элементам, у которых внутри нет других тегов или текста. Например, можно проверить, что у кнопки не задан текст или иконка, чтобы задать минимальные размеры:
 
-<iframe title="Крестики-нолики с :empty — Псевдоклассы — Дока" src="demos/empty/index.html"></iframe>
+<iframe title="Крестики-нолики с :empty — Псевдоклассы — Дока" src="demos/empty/"></iframe>
 
 ### `:first-child`, `:last-child`, `:nth-child()`, `:nth-last-child()`, `:only-child`
 
@@ -224,13 +224,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Для `<input>` состояние `indeterminate` в HTML можно задать только через JavaScript.
 
-<iframe title="Промежуточные состояния элементов форм — Псевдоклассы — Дока" src="demos/indeterminate/index.html"></iframe>
+<iframe title="Промежуточные состояния элементов форм — Псевдоклассы — Дока" src="demos/indeterminate/"></iframe>
 
 ### `:in-range` и `:out-of-range`
 
 Применяется для `<input>`, у которого определены атрибуты `min` и `max` и введённое значение соответствует (`:in-range`) или нет (`:out-of-range`) этому диапазону.
 
-<iframe title="Стили для диапазона — Псевдоклассы — Дока" src="demos/range/index.html"></iframe>
+<iframe title="Стили для диапазона — Псевдоклассы — Дока" src="demos/range/"></iframe>
 
 ### `:lang()`
 
@@ -276,7 +276,7 @@ img:not([alt]) {
 
 При переходе по ссылке, которая ведёт на URI-фрагмент (элемент внутри страницы), `id` фрагмента совпадает со значением атрибута `id` этого элемента — это состояние можно «поймать» с помощью псевдокласса `:target`:
 
-<iframe title="Подсветка активной секции — Псевдоклассы — Дока" src="demos/target/index.html"></iframe>
+<iframe title="Подсветка активной секции — Псевдоклассы — Дока" src="demos/target/"></iframe>
 
 ### `:valid` и `:invalid`
 

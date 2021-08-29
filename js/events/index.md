@@ -60,7 +60,7 @@ function getColor() {
 }
 ```
 
-<iframe title="Свойство DOM элемента onclick — События — Дока" src="demos/onclick/index.html" height="310"></iframe>
+<iframe title="Свойство DOM элемента onclick — События — Дока" src="demos/onclick/" height="310"></iframe>
 
 Чтобы перестать обрабатывать событие, нужно записать в свойство значение `null`.
 
@@ -81,7 +81,7 @@ buttonElement.addEventListener('click', function() {
 });
 ```
 
-<iframe title="Метод addEventListener — События — Дока" src="demos/click/index.html" height="310"></iframe>
+<iframe title="Метод addEventListener — События — Дока" src="demos/click/" height="310"></iframe>
 
 ## Как понять
 
@@ -123,7 +123,7 @@ for(let i=0; i<buttons.length;++i) {
 }
 ```
 
-<iframe title="This в функции-обработчике — События — Дока" src="demos/this/index.html" height="230"></iframe>
+<iframe title="This в функции-обработчике — События — Дока" src="demos/this/" height="230"></iframe>
 
 ### Всплытие событий
 
@@ -148,7 +148,7 @@ video.addEventListener('click', function() {
 })
 ```
 
-<iframe title="Всплытие событий — События — Дока" src="demos/bubbling/index.html" height="460"></iframe>
+<iframe title="Всплытие событий — События — Дока" src="demos/bubbling/" height="460"></iframe>
 
 🤖 Обрати внимание, что событие срабатывает на обоих элементах — цвет фона меняется и запускается видео. Этому есть объяснение, оно называется _всплытие событий (event bubbling)_.
 
@@ -195,7 +195,7 @@ function clickHandlerGenerator(isLast = false) {
 }
 ```
 
-<iframe title=">Всплытие событий по цепочке вложенности — События — Дока" src="demos/bubbling-chain/index.html" height="510"></iframe>
+<iframe title=">Всплытие событий по цепочке вложенности — События — Дока" src="demos/bubbling-chain/" height="510"></iframe>
 
 Всплытие события можно остановить с помощью метода `stopPropagation` у объекта события:
 

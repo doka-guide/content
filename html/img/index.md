@@ -152,4 +152,4 @@ img {
 }
 ```
 
-<iframe title="Картинка с заданной шириной — <img> — Дока" src="demos/img-fix-width/index.html" height="300"></iframe>
+<iframe title="Картинка с заданной шириной — <img> — Дока" src="demos/img-fix-width/" height="300"></iframe>

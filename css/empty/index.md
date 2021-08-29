@@ -39,7 +39,7 @@ tags:
 
 Без использования псевдокласса `:empty` у нас на экране был бы пустой элемент с верхним отступом и рамкой.
 
-<iframe title="Название — :empty — Дока" src="demos/ezhkov-poNzKJr/index.html"></iframe>
+<iframe title="Название — :empty — Дока" src="demos/ezhkov-poNzKJr/"></iframe>
 
 ## Как это понять
 

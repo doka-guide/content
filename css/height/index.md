@@ -43,13 +43,13 @@ tags:
 }
 ```
 
-<iframe title="Высота для блока — height — Дока" src="demos/basic/index.html"></iframe>
+<iframe title="Высота для блока — height — Дока" src="demos/basic/"></iframe>
 
 Поскольку оба блока — `.container` и `.item` — пустые, в них нет контента, то без стилей их высота будет равна нулю. Мы изменили это, задав элементу `.container` высоту `150px`, а элементу `.item` высоту `50px`.
 
 Добавим контент в элемент `.item`:
 
-<iframe title="Высота для блока с текстом — height — Дока" src="demos/basic-w-text/index.html"></iframe>
+<iframe title="Высота для блока с текстом — height — Дока" src="demos/basic-w-text/"></iframe>
 
 Из-за фиксированной высоты контент вываливается из блока. Как можно это исправить? Заменить `height` на `min-height`!
 
@@ -63,7 +63,7 @@ tags:
 
 Теперь, если контента внутри не будет, то высота блока будет равна `50px`, но как только появится контент — элемент растянется по высоте так, чтобы уместить в себе весь контент!
 
-<iframe title="Минимальная высота для блока с текстом — height — Дока" src="demos/min-height-w-text/index.html"></iframe>
+<iframe title="Минимальная высота для блока с текстом — height — Дока" src="demos/min-height-w-text/"></iframe>
 
 ## Как это понять
 

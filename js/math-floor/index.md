@@ -26,4 +26,4 @@ console.log(Math.ceil(num)) // 16
 console.log(Math.floor(num)) // 15
 ```
 
-<iframe title="Название — Math.floor() — Дока" src="demos/Lopinopulos-RzNGZQ/index.html"></iframe>
+<iframe title="Название — Math.floor() — Дока" src="demos/Lopinopulos-RzNGZQ/"></iframe>
