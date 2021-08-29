@@ -1,16 +1,11 @@
-name: Link Checker
+name: Link Checker All
 
 on:
-  workflow_dispatch:
-    inputs:
-      message:
-        required: true
-        description: Link Checker
   schedule:
     - cron:  '0 6 * * 5'
 
 jobs:
-  markdown-link-check:
+  link-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,7 +14,7 @@ jobs:
         with:
           paths: "**/*.md"
           markdown: true
-          linksToSkip: "https?://(localhost|codepen.io)?/.*"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@v2.2.4
         with:
