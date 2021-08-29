@@ -78,7 +78,7 @@ a::after {
 }
 ```
 
-<iframe title="Выделение слова в предложении — ::after — Дока" src="demos/word.html" height="525"></iframe>
+<iframe title="Выделение слова в предложении — ::after — Дока" src="demos/word/index.html" height="525"></iframe>
 
 ## Подсказки
 

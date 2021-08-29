@@ -48,7 +48,7 @@ tags:
 
 Свойство указывает, будет ли маркер являться частью содержимого в элементе списка (`inside`), либо будет находиться вне элемента (`outside`).
 
-<iframe title="Положение маркеров — list-style-position — Дока" src="demos/list-style-position.html"></iframe>
+<iframe title="Положение маркеров — list-style-position — Дока" src="demos/list-style-position/index.html"></iframe>
 
 ## Подсказки
 

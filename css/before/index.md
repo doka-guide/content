@@ -71,7 +71,7 @@ a::before {
 }
 ```
 
-<iframe title="Добавление иконки — ::before — Дока" src="demos/icon.html"></iframe>
+<iframe title="Добавление иконки — ::before — Дока" src="demos/icon/index.html"></iframe>
 
 ## Подсказки
 

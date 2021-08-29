@@ -81,7 +81,7 @@ p {
 }
 ```
 
-<iframe title="Шрифты с засечками и без — font-family — Дока" src="demos/index.html"></iframe>
+<iframe title="Шрифты с засечками и без — font-family — Дока" src="demos/index/index.html"></iframe>
 
 ## Подсказки
 

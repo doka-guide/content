@@ -111,4 +111,4 @@ span {
 }
 ```
 
-<iframe title="Насыщенность шрифта — font-weight — Дока" src="demos/font-weight.html"></iframe>
+<iframe title="Насыщенность шрифта — font-weight — Дока" src="demos/font-weight/index.html"></iframe>

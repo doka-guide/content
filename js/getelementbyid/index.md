@@ -13,7 +13,7 @@ tags:
 ## Пример
 
 ```html
-<html>
+.html">
   <head></head>
   <body>
     <h1 id="title">Привет, незнакомец!</h1>
@@ -22,7 +22,7 @@ tags:
       console.log(title.textContent) // напечатает "Привет, незнакомец!"
     </script>
   </body>
-</html>
+<.html">
 ```
 
 Живой пример:

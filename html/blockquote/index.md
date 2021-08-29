@@ -45,7 +45,7 @@ tags:
 Атрибут `cite` указывается после имени тега в открывающей части. Пример:
 
 ```html
-<blockquote cite="http://www.vothouse.ru/points/citaty-steve-jobs.html">
+<blockquote cite="http://www.vothouse.ru/points/citaty-steve-jobs/index.html">
   <p>
     Ваша работа заполнит большую часть жизни и единственный способ быть
     полностью довольным — делать то, что по-вашему является великим делом.

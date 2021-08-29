@@ -148,4 +148,4 @@ h1 {
 }
 ```
 
-<iframe title="Высота строки — line-height — Дока" src="demos/line-height.html"></iframe>
+<iframe title="Высота строки — line-height — Дока" src="demos/line-height/index.html"></iframe>

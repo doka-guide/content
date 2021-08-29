@@ -23,8 +23,8 @@ tags:
 ## Пример
 
 ```html
-<!DOCTYPE html>
-<html>
+<!DOCTYPE.html">
+.html">
   <head>
     <style>
       p {
@@ -35,7 +35,7 @@ tags:
   <body>
     <p>This is my paragraph.</p>
   </body>
-</html>
+<.html">
 ```
 
 ## Как пишется
@@ -69,8 +69,8 @@ tags:
 Попробуем сделать основной заголовок на странице ещё крупнее, зададим шрифты без засечек и чёрный цвет:
 
 ```html
-<!DOCTYPE html>
-<html>
+<!DOCTYPE.html">
+.html">
   <head>
     <meta charset="utf-8">
     <title>Кулинаный блог Марфы</title>
@@ -85,16 +85,16 @@ tags:
   <body>
     <h1>Как испечь настоящие круассаны?</h1>
   </body>
-</html>
+<.html">
 ```
 
-<iframe title="Стилизация заголовка — <style> — Дока" src="demos/header.html" height="260"></iframe>
+<iframe title="Стилизация заголовка — <style> — Дока" src="demos/header/index.html" height="260"></iframe>
 
 А в этом примере цвет и фон текста в абзаце будет меняться в зависимости от ширины экрана:
 
 ```html
-<!DOCTYPE html>
-<html>
+<!DOCTYPE.html">
+.html">
   <head>
     <style>
       p {
@@ -113,7 +113,7 @@ tags:
   <body>
     <p>Чтобы испечь настоящие круассаны...</p>
   </body>
-</html>
+<.html">
 ```
 
-<iframe title="Стилизация параграфа — <style> — Дока" src="demos/p.html" height="260"></iframe>
+<iframe title="Стилизация параграфа — <style> — Дока" src="demos/p/index.html" height="260"></iframe>

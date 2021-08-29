@@ -32,7 +32,7 @@ tags:
 
 <img src="images/ellipse.png" width="920" height="394" alt="Эллипс и радиальный градиент">
 
-<iframe title="Радиальный градиент — radial-gradient() — Дока" src="demos/gradient.html"></iframe>
+<iframe title="Радиальный градиент — radial-gradient() — Дока" src="demos/gradient/index.html"></iframe>
 
 ## Как пишется
 
@@ -54,7 +54,7 @@ tags:
 }
 ```
 
-<iframe title="Простой радиальный градиент — radial-gradient() — Дока" src="demos/simple-gradient.html"></iframe>
+<iframe title="Простой радиальный градиент — radial-gradient() — Дока" src="demos/simple-gradient/index.html"></iframe>
 
 ### Форма градиента
 
@@ -70,11 +70,11 @@ tags:
 
 Мы можем задавать положение центральной точки, используя те же ключевые слова, что и для [`background-position`](/css/background-position), но с приставкой `at`: `at left`, `at top`, `at right`, `at bottom`, `at center` (по умолчанию). Значения можно сочетать, чтобы поместить центр градиента в нужный угол элемента: `at top left` — центр градиента в верхнем левом углу.
 
-<iframe title="Смещение центральной точки к краям — radial-gradient() — Дока" src="demos/position-sides.html"></iframe>
+<iframe title="Смещение центральной точки к краям — radial-gradient() — Дока" src="demos/position-sides/index.html"></iframe>
 
 Вместо ключевых слов мы можем использовать точные значения: `at 20% 50%` или `at 130px 500px`.
 
-<iframe title="Смещение центральной точки — radial-gradient() — Дока" src="demos/position-length.html"></iframe>
+<iframe title="Смещение центральной точки — radial-gradient() — Дока" src="demos/position-length/index.html"></iframe>
 
 ### Размер градиента
 
@@ -85,16 +85,16 @@ tags:
 - `closest-corner` — форма градиента подбирается таким образом, чтобы его край проходил через ближайший к центру угол;
 - `farthest-corner` — край градиента будет проходить через дальний от центра угол.
 
-<iframe title="Форма радиального градиента — radial-gradient() — Дока" src="demos/shape.html"></iframe>
+<iframe title="Форма радиального градиента — radial-gradient() — Дока" src="demos/shape/index.html"></iframe>
 
 ### Повторяющийся градиент
 
 Если градиент должен многократно повторяться от центра к краям, можно использовать функцию `repeating-radial-gradient()`.
 
-<iframe title="Повторяющийся радиальный градиент — radial-gradient() — Дока" src="demos/repeat.html"></iframe>
+<iframe title="Повторяющийся радиальный градиент — radial-gradient() — Дока" src="demos/repeat/index.html"></iframe>
 
 ### Множественные градиенты
 
 Множественный фон элемента может применяться и к градиентам.
 
-<iframe title="Множественный радиальный градиент — radial-gradient() — Дока" src="demos/multiple.html"></iframe>
+<iframe title="Множественный радиальный градиент — radial-gradient() — Дока" src="demos/multiple/index.html"></iframe>

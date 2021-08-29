@@ -75,4 +75,4 @@ tags:
 }
 ```
 
-<iframe title="Буквица — <span> — Дока" src="demos/show.html" height="240"></iframe>
+<iframe title="Буквица — <span> — Дока" src="demos/show/index.html" height="240"></iframe>

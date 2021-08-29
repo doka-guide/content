@@ -35,7 +35,7 @@ tags:
 </article>
 ```
 
-<iframe title="Футер для статьи — <footer> — Дока" src="demos/footer.html" height="300"></iframe>
+<iframe title="Футер для статьи — <footer> — Дока" src="demos/footer/index.html" height="300"></iframe>
 
 ## Как это понять
 

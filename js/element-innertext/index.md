@@ -31,7 +31,7 @@ button.innerText = 'Done!' // Изменит текст кнопки на Done
 // В результате будет: <button type="submit" id="submit">Done</button>
 ```
 
-<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index.html"></iframe>
+<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index/index.html"></iframe>
 
 ## Как понять
 
