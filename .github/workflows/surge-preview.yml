@@ -96,6 +96,6 @@ jobs:
         with:
           type: edit
           body: |
-            Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано.
+            Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано. Ошибка сборки или публикации.
           comment_id: ${{ steps.comment.outputs.id }}
           token: ${{ secrets.GITHUB_TOKEN }}
