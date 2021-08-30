@@ -6,6 +6,8 @@ cover:
   alt: 'Игрушечный пистолет в торчащим из дула флажком. На флажке нарисована вкладка браузера, а в ней выпадающий список.'
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 keywords:
   - тэг
   - тег
@@ -29,8 +31,6 @@ tags:
   <select name="city" id="city-select">
     <option value="">-- Выберите город --</option>
     <option value="petersburg">Санкт-Петербург</option>
-    <option value="moscow">Москва</option>
-    <option value="kazan">Казань</option>
     <option value="samara">Самара</option>
     <option value="perm">Пермь</option>
     <option value="novosibirsk">Новосибирск</option>
@@ -38,11 +38,7 @@ tags:
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="dypzXYW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/dypzXYW">
-  &lt;select&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Пример select" src="demos/basic/" height="250"></iframe>
 
 ## Подробно
 
@@ -91,11 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="oNzGMEB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select disabled&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/oNzGMEB">
-  &lt;select disabled&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Примеры атрибутов" src="demos/attributes/" height="770"></iframe>
 
 ## Подсказки
 

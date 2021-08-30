@@ -45,9 +45,4 @@ select {
 
 Используем свойство `appearance`, чтобы отключить браузерную стрелку справа. В качестве стрелки ставим псевдоэлемент [`::after`](/css/after/) от родительского блока. Не забываем про позиционирование, а также отключаем у псевдоэлемента взаимодействие с мышкой, иначе при клике на него выпадающий список раскрываться не будет.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="YzGEKjP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select&amp;gt; custom">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/YzGEKjP">
-  &lt;select&gt; custom</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Стилизация" src="demos/custom/" height="250"></iframe>
