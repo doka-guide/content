@@ -46,7 +46,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: |
             Идёт сборка и публикация превью...
@@ -92,7 +91,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: |
             [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано.
@@ -106,7 +104,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: |
             Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано. Ошибка сборки или публикации.
