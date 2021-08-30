@@ -48,7 +48,6 @@ jobs:
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: 'Идёт сборка и публикация превью... [Смотреть подробнее](https://github.com/doka-guide/content/runs/${{ github.run_number }}?check_suite_focus=true)'
-          fail: true
           recreate: true
       - name: Выборка файлов для формирования списка
         id: files
@@ -71,6 +70,7 @@ jobs:
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
         id: surge
+        continue-on-error: true
         run: |
           node make-links.js --default
           npm run build
@@ -91,7 +91,6 @@ jobs:
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: '[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}'
-          fail: true
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
