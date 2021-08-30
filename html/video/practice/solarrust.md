@@ -34,7 +34,7 @@
 }
 ```
 
-<iframe title="Видео на фоне — <video> — Дока" src="../demos/background/index.html" height="430"></iframe>
+<iframe title="Видео на фоне — <video> — Дока" src="../demos/background/" height="430"></iframe>
 
 Обратите внимание на пару важных моментов, чтобы видео работало:
 

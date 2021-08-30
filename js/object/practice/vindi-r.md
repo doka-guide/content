@@ -117,4 +117,4 @@ console.log(a === b) // true
 
 Пример алгоритма сравнения, достаточный для базовых вариантов объектов:
 
-<iframe title="Название — Объект — Дока" src="../demos/vindi-r-PgJvBV/index.html"></iframe>
+<iframe title="Название — Объект — Дока" src="../demos/vindi-r-PgJvBV/"></iframe>

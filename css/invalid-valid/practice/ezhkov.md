@@ -40,4 +40,4 @@ input:valid:placeholder-shown + .validity-icon::before {
 }
 ```
 
-<iframe title="Название — :invalid и :valid — Дока" src="../demos/ezhkov-GRNKxvy/index.html"></iframe>
+<iframe title="Название — :invalid и :valid — Дока" src="../demos/ezhkov-GRNKxvy/"></iframe>

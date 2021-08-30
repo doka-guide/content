@@ -1,5 +1,5 @@
 ---
-title: "Element.oute/index.html"
+title: "Element.oute/"
 authors:
   - windrushfarer
 tags:

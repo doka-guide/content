@@ -15,4 +15,4 @@
 }
 ```
 
-<iframe title="Название — attr() — Дока" src="../demos/ezhkov-JjbGeoM/index.html"></iframe>
+<iframe title="Название — attr() — Дока" src="../demos/ezhkov-JjbGeoM/"></iframe>

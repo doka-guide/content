@@ -25,4 +25,4 @@ input:required + .hint {
 }
 ```
 
-<iframe title="Название — :required — Дока" src="../demos/ezhkov-mdrNzgw/index.html"></iframe>
+<iframe title="Название — :required — Дока" src="../demos/ezhkov-mdrNzgw/"></iframe>

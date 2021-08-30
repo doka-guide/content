@@ -52,4 +52,4 @@
 }
 ```
 
-<iframe title="Цветовой акцент — <span> — Дока" src="../demos/company/index.html" height="480"></iframe>
+<iframe title="Цветовой акцент — <span> — Дока" src="../demos/company/" height="480"></iframe>

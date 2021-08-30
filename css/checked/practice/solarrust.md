@@ -50,4 +50,4 @@
 }
 ```
 
-<iframe title="Выпадающее меню — :checked — Дока" src="../demos/choose/index.html"></iframe>
+<iframe title="Выпадающее меню — :checked — Дока" src="../demos/choose/"></iframe>

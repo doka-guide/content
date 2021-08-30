@@ -1,5 +1,5 @@
 ---
-title: "Комментарии в/index.html"
+title: "Комментарии в/"
 cover:
   desktop: 'images/cover.png'
 authors:

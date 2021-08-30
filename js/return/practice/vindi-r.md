@@ -36,4 +36,4 @@ https://codepen.io/vindi-r/pen/oVPReL
 
 - Ещё `return` останавливает выполнение функции. Обычно это ожидаемое поведение, но если про это забыть — возможны баги.
 
-<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/index.html"></iframe>
+<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/"></iframe>

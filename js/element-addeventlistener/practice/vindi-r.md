@@ -23,7 +23,7 @@ const elem = document.querySelector('input');
 elem.addEventListener('keydown', handleKey);
 ```
 
-<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/index.html" height="450"></iframe>
+<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450"></iframe>
 
 🛠 Обработка событий мыши:
 
@@ -45,4 +45,4 @@ const elem = document.querySelector('#custom');
 elem.addEventListener('click', handleClick);
 ```
 
-<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/index.html" height="320"></iframe>
+<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320"></iframe>

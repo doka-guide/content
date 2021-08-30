@@ -10,4 +10,4 @@ https://codepen.io/vindi-r/pen/YMewgy
 
 🛠 Константы и математические функции чаще всего используются в рисовании или расчётах:
 
-<iframe title="Название — Math — Дока" src="../demos/vindi-r-OGQNgz/index.html"></iframe>
+<iframe title="Название — Math — Дока" src="../demos/vindi-r-OGQNgz/"></iframe>
