@@ -3,7 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Работа querySelector</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    #selector {
+      margin-bottom: 20px;
+    }
+    .highlight {
+      background-color: red;
+    }
+
+    #result {
+      font-style:italic;
+    }
+
+    div {
+      border: black thin solid;
+    }
+
+    div:before {
+      content: "div";
+      background-color:black;
+      color: white;
+      position: absolute;
+    }
+
+    p {
+      border: #f26600 thin solid;
+      padding-top: 20px;
+      position:relative;
+    }
+
+    p:before {
+      content: "p";
+      background-color:#f26600;
+      color: white;
+      position: absolute;
+      top:0
+    }
+  </style>
 </head>
 <body>
 <input type="text" id="selector" name="selector" value="div>p">
@@ -18,6 +54,26 @@
 </div>
 <p>Параграф, но не внутри div</p>
 <p>Параграф со <a id="link" href="#">ссылкой</a></p>
-  <script  src="./script.js"></script>
+  <script>
+    let selectorInput = document.getElementById('selector');
+    let result = document.getElementById('result');
+    let found = null;
+
+    document.getElementById('search-btn').addEventListener('click', function() {
+      result.textContent = '';
+      found && found.classList && found.classList.remove('highlight');
+      try {
+          found = document.querySelector(selectorInput.value);
+          if (!found) {
+            result.textContent = 'Ничего не найдено, результат: ' + found;
+          } else {
+            found.classList.add('highlight');
+          }
+      } catch (e) {
+        result.textContent = 'Ошибка! Это не CSS селектор!';
+      }
+
+    });
+  </script>
 </body>
 </html>

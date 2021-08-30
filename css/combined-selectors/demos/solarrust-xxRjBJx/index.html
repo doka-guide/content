@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - rating</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus,
+    button:hover ~ button,
+    button:focus ~ button {
+      color: red;
+    }
+
+    .rating {
+      direction: rtl;
+    }
+  </style>
 </head>
 <body>
 <div class="rating">

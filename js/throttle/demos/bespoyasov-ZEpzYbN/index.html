@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - doka-throttle-read-percent</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    progress {
+      position: fixed;
+      top:0;
+      left:20px;
+      right:20px;
+      width: calc(100% - 40px);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    main {
+      padding-top: 15px;
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -61,6 +77,39 @@
 <p>Donec ut urna ut velit rhoncus gravida. Aenean malesuada tempus elementum. Vestibulum non volutpat ante. Nunc ex nisl, egestas id pretium quis, venenatis quis ante. Sed varius ante id odio tempor, at suscipit lacus aliquet. Suspendisse potenti. Suspendisse non orci vel velit volutpat sodales eu quis sem. Praesent eu felis non nisl consequat mollis. Quisque pulvinar magna nec magna pellentesque, vitae consequat est luctus. Ut ligula massa, cursus sed nulla in, finibus porta mi. Nulla diam quam, varius et sapien eu, bibendum facilisis tellus.</p>
 <p>Integer sit amet aliquam purus. In hac habitasse platea dictumst. Nullam ornare vestibulum lacus, sit amet pretium tellus dapibus sed. Sed augue nulla, auctor a interdum eu, finibus nec est. Etiam id fermentum est. Nunc rhoncus suscipit nunc. In ullamcorper ut enim non lacinia. Nulla vitae aliquam justo, eget consectetur neque.</p>
 </main>
-  <script  src="./script.js"></script>
+  <script>
+    const progress = document.querySelector('progress');
+
+    function recalculateProgress() {
+      const viewportHeight = window.innerHeight;
+      const pageHeight = document.body.offsetHeight;
+      const currentPosition = window.scrollY;
+
+      const availableHeight = pageHeight - viewportHeight;
+      const percent = (currentPosition / availableHeight) * 100;
+      progress.value = percent;
+      console.log(percent)
+    }
+
+    function throttle(callee, timeout) {
+      let timer = null;
+
+      return function perform(...args) {
+        if (timer) return;
+
+        timer = setTimeout(() => {
+          callee(...args);
+
+          clearTimeout(timer);
+          timer = null;
+        }, timeout);
+      }
+    }
+
+    const optimizedHandler = throttle(recalculateProgress, 50);
+    window.addEventListener('scroll', optimizedHandler);
+    window.addEventListener('resize', optimizedHandler);
+
+  </script>
 </body>
 </html>

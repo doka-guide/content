@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - A Pen by Nikolai Lopin</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    button {
+      padding: 10px 15px;
+    }
+  </style>
 </head>
 <body>
 <html>
@@ -20,6 +33,31 @@
     <button id="remove">Удалить параграф</button>
   </body>
 </html>
-  <script  src="./script.js"></script>
+  <script>
+    function createParagraphElement(number) {
+      let newP = document.createElement('p');
+      newP.textContent = 'Это параграф #' + number;
+      return newP;
+    }
+
+    let paragraphs = document.getElementsByTagName('p'); // получаем один раз при загрузке страницы!
+    let articleDiv = document.getElementById('article');
+    let counterSpan = document.getElementById('counter');
+    let addButton = document.getElementById('add');
+    let removeButton = document.getElementById('remove');
+
+    counterSpan.textContent = paragraphs.length;
+
+    addButton.addEventListener('click', function() {
+      articleDiv.appendChild(createParagraphElement(paragraphs.length + 1));
+      counterSpan.textContent = paragraphs.length;
+    });
+
+    removeButton.addEventListener('click', function() {
+      articleDiv.removeChild(paragraphs[paragraphs.length-1]);
+
+      counterSpan.textContent = paragraphs.length;
+    });
+  </script>
 </body>
 </html>

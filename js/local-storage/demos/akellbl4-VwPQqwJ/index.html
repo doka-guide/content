@@ -3,7 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Local Storage Example</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont,
+        'Segoe UI', Roboto, 'Helvetica Neue',
+        Ubuntu, Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    main {
+      margin: 0 auto;
+      padding: 0 16px;
+      max-width: 680px;
+    }
+
+    article {
+      font-size: var(--page-font-size, 1em);
+    }
+
+    .font-controls {
+      position: sticky;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      padding: 8px 16px;
+      margin: 16px 0;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .font-controls__button {
+      font-size: 1em;
+    }
+    .font-controls__value {
+      display: inline-block;
+      text-align: center;
+      width: 36px;
+    }
+  </style>
 </head>
 <body>
 <!DOCTYPE html>
@@ -31,6 +70,53 @@
   </main>
 </body>
   </html>
-  <script  src="./script.js"></script>
+  <script>
+    const DEFAULT_FONT_SIZE = 1; // em
+    const increaseButton = document.getElementById('increase-font-size')
+    const decreaseButton = document.getElementById('decrease-font-size')
+    const fontSizeElement = document.getElementById('current-font-size')
+    const articleElement = document.getElementById('article')
+    let currentSize = parseInt(localStorage.getItem('pageFontSize') || DEFAULT_FONT_SIZE)
+
+    if (currentSize !== DEFAULT_FONT_SIZE) {
+      changeFontSize(currentSize)
+    }
+
+    function changeFontSize(size) {
+      articleElement.style.setProperty('--page-font-size', `${size}em`)
+      fontSizeElement.innerText = `${size}em`
+      localStorage.setItem('pageFontSize', size)
+    }
+
+    increaseButton.addEventListener('click', function (evt) {
+      evt.preventDefault()
+      currentSize = parseFloat((currentSize + 0.2).toFixed(1))
+
+      if (decreaseButton.hasAttribute('disabled')) {
+        decreaseButton.removeAttribute('disabled', '')
+      }
+
+      if (currentSize >= 2) {
+        this.setAttribute('disabled', '')
+      }
+
+      changeFontSize(currentSize)
+    });
+
+    decreaseButton.addEventListener('click', function (evt) {
+      evt.preventDefault()
+      currentSize = parseFloat((currentSize - 0.2).toFixed(1))
+
+      if (increaseButton.hasAttribute('disabled')) {
+        increaseButton.removeAttribute('disabled', '')
+      }
+
+      if (currentSize <= 0.6) {
+        decreaseButton.setAttribute('disabled', '')
+      }
+
+      changeFontSize(currentSize)
+    });
+  </script>
 </body>
 </html>

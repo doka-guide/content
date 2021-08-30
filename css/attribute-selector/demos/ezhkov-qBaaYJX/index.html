@@ -3,7 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - attribute selector (div[attr] {})</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      justify-content: center;
+      align-items: baseline;
+    }
+    li { margin-left: 10px; margin-right: 10px;}
+
+    [href^="http"]::after {
+      content: ' ↗️';
+      /* Все ссылки с иконкой стрелочки */
+    }
+
+    [href*="/mysite.ru/"]::after {
+      display: none; /* внутренние ссылки без иконок */
+    }
+  </style>
 </head>
 <body>
 <nav>

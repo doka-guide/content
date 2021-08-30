@@ -11,6 +11,20 @@
 <br>Вывод свойства объекта (cat.name)
 <br>Вызов метода объекта (cat.play)
 <br>Вызов метода объекта (cat.say) с аргументом (mew-mew)
-  <script  src="./script.js"></script>
+  <script>
+    let cat = {
+      name: 'Tom',
+      play() {
+        console.log('I am playing cat!');
+      },
+      say(word) {
+        console.log('I say: '+word);
+      }
+    }
+
+    console.log('cat name: '+ cat.name);
+    cat.play();
+    cat.say('mew-mew');
+  </script>
 </body>
 </html>

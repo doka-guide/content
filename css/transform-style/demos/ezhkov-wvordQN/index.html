@@ -3,7 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - transform-style</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    :root {
+      --parentRotateY: 0deg;
+      --childRotateY: -30deg;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .section {
+      height: 300px;
+      position: relative;
+    }
+
+    .parent {
+      width: 250px;
+      height: 100px;
+      background: lightblue;
+      transform: perspective(500px) rotateY(var(--parentRotateY));
+      position: absolute;
+      top: 30%;
+      left: 25px;
+    }
+
+    .child {
+      height: 80px;
+      width: 200px;
+      background: lightcoral;
+      transform: rotateY(var(--childRotateY)) translateY(-40px);
+    }
+
+    .preserved {
+      transform-style: preserve-3d;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%)
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
 <div class="container">
@@ -34,6 +95,20 @@
     </div>
 
 </div>
-  <script  src="./script.js"></script>
+  <script>
+    let root = document.documentElement;
+
+    const parentSlider = document.querySelector('#rotate-parent');
+
+    const childSlider = document.querySelector('#rotate-child')
+
+    const changeVar = (varName) => (e) => {
+      root.style.setProperty(varName, `${e.target.value}deg`);
+    }
+
+    parentSlider.addEventListener('input', changeVar('--parentRotateY'));
+
+    childSlider.addEventListener('input', changeVar('--childRotateY'));
+  </script>
 </body>
 </html>

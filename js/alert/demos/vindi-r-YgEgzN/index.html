@@ -7,6 +7,16 @@
 <body>
 <p><button onclick="showObj()">Нажми меня</button> alert() простого объекта</p>
 <p><button onclick="showToString()">Нажми меня</button> alert() объекта с toString </p>
-  <script  src="./script.js"></script>
+  <script>
+    function showObj(){
+      alert({id: 5, text: 'example'})
+    }
+
+    function showToString(){
+      alert({id: 5, text: 'example', toString: function() {
+        return `${this.id}: ${this.text}`;
+      }})
+    }
+  </script>
 </body>
 </html>

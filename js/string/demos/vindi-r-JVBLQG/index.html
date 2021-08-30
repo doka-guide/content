@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Строки - в работе</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    #c1,#c1-mirror{
+      margin-right: 20px;
+    }
+    #c2,#c2-mirror{
+      margin-left: 30px;
+    }
+    #operator, #operator-mirror{
+      position: absolute;
+    }
+  </style>
 </head>
 <body>
 Введите числа в поля и получите результат
@@ -21,6 +31,58 @@
 <span id="operator-mirror">?</span>
 <input readonly id="c2-mirror" type="text" placeholder="Число 1" maxlength="10" oninput="check()">
 <br>
-  <script  src="./script.js"></script>
+  <script>
+    function check() {
+      checkWithMath();
+      checkWithoutMath();
+    }
+    function checkWithMath(){
+      let result = '?';
+      let c1 = document.querySelector('#c1').value || NaN;
+      let c2 = document.querySelector('#c2').value || NaN;
+      let isEqual = parseFloat(c1) === parseFloat(c2);
+      if (isEqual) {
+        result = '='
+      } else {
+        let isBigger = parseFloat(c1) > parseFloat(c2);
+        let isSmaller = parseFloat(c1) < parseFloat(c2);
+        if (isBigger) {
+          result = '>';
+        }
+        if (isSmaller) {
+          result = '<';
+        }
+      }
+
+      document.querySelector('#operator').innerText = result;
+    }
+    function checkWithoutMath(){
+      let result = '?';
+      let c1 = document.querySelector('#c1').value || NaN;
+      let c2 = document.querySelector('#c2').value || NaN;
+      let isEqual = c1 === c2;
+      if (isEqual) {
+        result = '='
+      } else {
+        let isBigger = c1 > c2;
+        let isSmaller = c1 < c2;
+        if (isBigger) {
+          result = '>';
+        }
+        if (isSmaller) {
+          result = '<';
+        }
+      }
+
+      document.querySelector('#operator-mirror').innerText = result;
+      document.querySelector('#c1-mirror').value = document.querySelector('#c1').value;
+      document.querySelector('#c2-mirror').value = document.querySelector('#c2').value;
+    }
+
+    // Установка первичных значений
+    document.querySelector('#c1').value = "100";
+    document.querySelector('#c2').value = "50";
+    check();
+  </script>
 </body>
 </html>

@@ -11,6 +11,11 @@
 <br>
 Использовано символов:
 <span id="result">0</span>
-  <script  src="./script.js"></script>
+  <script>
+    function countSymbols(){
+      let text = document.querySelector('textarea').value;
+      document.querySelector('#result').innerText = text.length;
+    }
+  </script>
 </body>
 </html>

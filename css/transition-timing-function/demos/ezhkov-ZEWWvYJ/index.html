@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - transition-timing-function2</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      min-height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    button {
+      padding: 10px 20px;
+      background: #34f412;
+      border: none;
+      transition-property: padding;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(.52,0,.27,2);
+    }
+
+    button:hover {
+      padding: 20px 30px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <button>Наведи на меня</button>

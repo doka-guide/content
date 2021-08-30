@@ -8,6 +8,16 @@
 <p>
   <input id="input1" type="text"> <button onclick="runExample1()">isInteger</button> <div id="example1"></div>
 </p>
-  <script  src="./script.js"></script>
+  <script>
+    function isInteger(value) {
+        if ((undefined === value) || (null === value)) {
+            return false;
+        }
+        return value % 2 == 0;
+    }
+    function runExample1(){
+      document.querySelector('#example1').textContent = isInteger(document.querySelector("#input1").value);
+    }
+  </script>
 </body>
 </html>

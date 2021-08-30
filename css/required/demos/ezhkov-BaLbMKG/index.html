@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - :required</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-row {
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: block;
+    }
+
+    input:required {
+      outline: 2px solid blue;
+      outline-offset: 1px;
+    }
+  </style>
 </head>
 <body>
 <form>

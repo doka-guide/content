@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - for в работе</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
 Вставка 10 строк в таблицу через цикл
@@ -25,6 +33,21 @@
     </tr>
   </tbody>
 </table>
-  <script  src="./script.js"></script>
+  <script>
+    function slowInsert() {
+      let tbody = document.querySelector('tbody');
+      let startTime = new Date().getTime();
+      for (let i =0;i<10;i++){
+        let row = document.createElement('tr');
+        let id = document.createElement('td');
+        id.innerText = i;
+        let val = document.createElement('td');
+        val.innerText = 'Value #'+i;
+        row.appendChild(id);
+        row.appendChild(val);
+        tbody.appendChild(row);
+      }
+    }
+  </script>
 </body>
 </html>

@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - placeholder-shown</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 300px;
+    }
+
+    .no-pseudo {
+      text-overflow: ellipsis;
+    }
+
+    .pseudo:placeholder-shown {
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>
 <body>
 <p>Обычная обрезка</p>

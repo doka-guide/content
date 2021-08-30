@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Math в работе - random</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    button {
+      padding: 5px;
+      margin-top: 5px;
+    }
+  </style>
 </head>
 <body>
 <label for="from">
@@ -21,6 +26,18 @@
 <div id="result">
   Random...
 </div>
-  <script  src="./script.js"></script>
+  <script>
+    let div = document.getElementById('result');
+    let from = document.getElementById('from');
+    let to = document.getElementById('to');
+
+
+    function randomNumber(){
+      let min = parseInt(from.value) || 0;
+      let max = parseInt(to.value) || 10;
+      let num = min + Math.floor(Math.random() * (max-min));
+      div.textContent = num;
+    }
+  </script>
 </body>
 </html>

@@ -4,7 +4,38 @@
   <meta charset="UTF-8">
   <title>CodePen - vmin</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-size: 3rem;
+      color: white;
+    }
+
+    header {
+      background: purple;
+      display: flex;
+      padding-top: 15vmin;
+      padding-bottom: 15vmin;
+      justify-content: center;
+      align-items: center;
+    }
+    section {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      color: black;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @media (max-width: 1000px) {
+      section {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 5vmin;
+        padding-right: 5vmin;
+      }
+    }
+  </style>
 </head>
 <body>
 <header>Шапка с паддингами в vmin</header>

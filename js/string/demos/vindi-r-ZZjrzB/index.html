@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Строки - в работе</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    #result, #result2{
+      background: black;
+      border: 2px solid black;
+    }
+    #invert, #invert2{
+      background: white;
+      white-space: pre;
+    }
+  </style>
 </head>
 <body>
 Текст, введённый в поле ниже
@@ -20,6 +29,16 @@
 <div id="result2">
   <span id="invert2">...</span>
 </div>
-  <script  src="./script.js"></script>
+  <script>
+    function check() {
+      let val = document.querySelector('input').value;
+      let raw = document.querySelector('#invert');
+      let clear = document.querySelector('#invert2');
+      raw.innerText = val;
+      clear.innerText = val.trim();
+    }
+
+    check();
+  </script>
 </body>
 </html>

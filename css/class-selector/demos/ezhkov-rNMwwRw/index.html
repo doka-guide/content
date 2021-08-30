@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Class selector</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    .form-label {
+      display: block;
+      font-size: 1em;
+      color: #333333;
+    }
+
+    .text-invalid {
+      color: red;
+    }
+
+    .warning::before {
+      content: '⚠️ ';
+    }
+  </style>
 </head>
 <body>
 <label for="input" class="form-label text-invalid">Ваше имя:</label>

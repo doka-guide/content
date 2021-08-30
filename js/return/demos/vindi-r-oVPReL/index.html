@@ -10,6 +10,14 @@
 Нажимая несколько раз на кнопку, вы можете в этом убедиться<br>
 <button onclick="randomReturnShow()">Нажми меня</button>
 <input readonly placeholder="Результат функции">
-  <script  src="./script.js"></script>
+  <script>
+    function randomReturn(){
+      if (Math.random() > 0.5) return true;
+    }
+
+    function randomReturnShow(){
+      document.querySelector('input').value = randomReturn();
+    }
+  </script>
 </body>
 </html>

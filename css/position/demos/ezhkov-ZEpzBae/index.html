@@ -3,7 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - position: absolute 2</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px dashed;
+      position: relative;
+    }
+
+    .block {
+      border: 2px solid blue;
+    }
+
+    .positioned {
+      border-color: red;
+      background-color: #ffff00;
+      position: absolute;
+      left: 40px;
+    }
+  </style>
 </head>
 <body>
 <div class="container">

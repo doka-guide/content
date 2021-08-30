@@ -14,6 +14,14 @@
 Затем ключ age удаляется из объекта cat
 <br>
 Повторный вывод ключей объекта cat -- в нем отсутствует ключ age
-  <script  src="./script.js"></script>
+  <script>
+    let cat = {
+      name: 'Tomas',
+      age: 10,
+    }
+    console.log(Object.keys(cat));
+    delete cat.age;
+    console.log(Object.keys(cat));
+  </script>
 </body>
 </html>

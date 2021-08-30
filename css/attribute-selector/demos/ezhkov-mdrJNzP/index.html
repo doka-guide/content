@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <title>CodePen - attribute selector (div[attr] {})</title>
   <style>body { font-family: Arial, sans-serif; } </style>
-<link rel="stylesheet" href="./style.css">
+  <style>
+    blockquote {
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid lightgrey;
+    }
+
+    blockquote[cite] {
+      background-color: lightgreen;
+    }
+
+    blockquote[cite]::after {
+      content: attr(cite);
+      display: block;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 <blockquote cite="А.С. Пушкин">

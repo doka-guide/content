@@ -3,7 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - transforms order</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    .elem {
+      position: absolute;
+      left: 40%;
+      top: 20px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid red;
+      animation: transform1 5s linear infinite;
+    }
+
+    .elem2 {
+      border-color: green;
+      animation: transform2 5s linear infinite;
+    }
+
+    @keyframes transform1 {
+      0% {
+        rotate: 0deg;
+        translate: 0 0;
+      }
+      20% {
+        rotate: 15deg;
+        translate: 0 0;
+      }
+      40% {
+        rotate: 15deg;
+        translate: 100px 0;
+      }
+      60% {
+        rotate: 15deg;
+        translate: 100px 30px;
+      }
+      100% {
+        rotate: 15deg;
+        translate: 100px 30px;
+      }
+    }
+
+    @keyframes transform2 {
+      0% {
+        translate: 0 0;
+        rotate: 0deg;
+      }
+      20% {
+        translate: 100px 0;
+        rotate: 0deg;
+      }
+      40% {
+        translate: 100px 30px;
+        rotate: 0deg;
+      }
+      60% {
+        translate: 100px 30px;
+        rotate: 15deg;
+      }
+      100% {
+        translate: 100px 30px;
+        rotate: 15deg;
+      }
+}
+  </style>
 </head>
 <body>
 <div class="elem"></div>

@@ -3,7 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - transition-delay</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    button {
+      height: 80px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border: none;
+      background-color: #45eefc;
+      font-size: 20px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    button span {
+      transition-property: font-size, transform;
+      transition-duration: .5s, .5s;
+      transition-delay: .5s, 0s;
+    }
+
+    button:before {
+      content: 'Now you hovered me';
+      font-size: 0;
+      transition-property: font-size;
+      transition-duration: .5s;
+      transition-delay: 0s;
+    }
+
+    button:hover:before {
+      font-size: 20px;
+      transition-property: font-size;
+      transition-duration: .5s;
+      transition-delay: .5s;
+    }
+
+    button:hover span{
+      transform: scale(0);
+      font-size: 0;
+      transition-property: font-size, transform;
+      transition-duration: .5s, .5s;
+      transition-delay: .5s, 0s;
+    }
+  </style>
 </head>
 <body>
 <button><span>Hover me</span></button>

@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - confirm() как это понять</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    #result{
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 Нажатие на кнопку вызывает confirm.
@@ -15,6 +19,15 @@
 <div id="result">
   Нажатия на кнопку не было...
 </div>
-  <script  src="./script.js"></script>
+  <script>
+    function confirmFx() {
+      const result = confirm('Удалить элемент?');
+      if (result === true) {
+        document.querySelector('#result').innerText = 'Элемент удален';
+      } else {
+            document.querySelector('#result').innerText = 'Удаление отменено';
+      }
+    }
+  </script>
 </body>
 </html>

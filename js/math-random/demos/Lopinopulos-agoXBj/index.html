@@ -11,6 +11,14 @@
 <div id="result">
   Нажми на кнопку — получишь результат
 </div>
-  <script  src="./script.js"></script>
+  <script>
+    function writeResult(text) {
+      let div = document.querySelector('#result');
+      div.innerText = text;
+    }
+    function simpleRandom(){
+      writeResult(Math.random());
+    }
+  </script>
 </body>
 </html>

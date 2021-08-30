@@ -3,7 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - appearance 3</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      width: 200px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .custom input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom input[type="checkbox"] {
+        border: 2px solid #555;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        padding: 4px;
+        box-sizing: border-box;
+    }
+    .custom input[type="checkbox"]:checked {
+        background: #555;
+        background-clip: content-box;
+    }
+    .custom input[type="radio"] {
+        border: 2px solid #555;
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        padding: 4px;
+    }
+    .custom input[type="radio"]:checked {
+        background: #555;
+        background-clip: content-box;
+    }
+  </style>
 </head>
 <body>
 <form action="">

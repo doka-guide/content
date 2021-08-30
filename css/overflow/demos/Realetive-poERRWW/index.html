@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - truncate text</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    .truncate {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    :root {
+      height: 100vh;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+    }
+  </style>
 </head>
 <body>
 <p class="truncate">

@@ -3,7 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - attr()</title>
-  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .print a::after {
+      content: " [" attr(href) "]";
+    }
+
+    @media print {
+      a::after {
+        content: " [" attr(href) "]";
+      }
+    }
+  </style>
 </head>
 <body>
 <div class="section">
