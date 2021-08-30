@@ -47,7 +47,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: 'Идёт сборка и публикация превью... [Смотреть подробнее](https://github.com/doka-guide/content/runs/${{ github.run_number }}?check_suite_focus=true)'
+          message: 'Идёт сборка и публикация превью... [Смотреть подробнее](https://github.com/doka-guide/content/runs/${{ github.run_id }}?check_suite_focus=true)'
           recreate: true
       - name: Выборка файлов для формирования списка
         id: files
