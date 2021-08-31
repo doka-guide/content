@@ -39,6 +39,7 @@ groups:
       - template-strings
       - index-of
       - includes
+      - string-length
   - name: "Булевы значения `boolean`"
     items:
       - boolean
