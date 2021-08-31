@@ -23,20 +23,7 @@ tags:
 
 ## Пример
 
-Массив из объекта `arguments`:
-
-```js
-function getArrayOfArguments() {
-  return Array.from(arguments)
-}
-
-const args = getArrayOfArguments("hi", "my", "name", "is", "slim", "shady")
-
-// ["hi", "my", "name", "is", "slim", "shady"]
-console.log(args)
-```
-
-Массив из строки:
+### Массив из строки
 
 ```js
 const arr = Array.from("дока")
@@ -45,7 +32,7 @@ const arr = Array.from("дока")
 console.log(arr)
 ```
 
-Массив из Set:
+### Массив из Set
 
 ```js
 const uniqueNumbers = new Set()
@@ -57,7 +44,9 @@ uniqueThings.add(3)
 const arr = Array.from(uniqueNumbers)
 ```
 
-Массив из [NodeList](/js/collection-and-nodelist). Получить URL из всех ссылок на странице:
+### Массив из [NodeList](/js/collection-and-nodelist)
+
+Получить URL из всех ссылок на странице:
 
 ```js
 const linkElements = document.getElementsByTagName('a')
