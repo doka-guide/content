@@ -78,6 +78,8 @@ groups:
       - prompt
       - confirm
       - session-storage
+      - settimeout
+      - cleartimeout
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages

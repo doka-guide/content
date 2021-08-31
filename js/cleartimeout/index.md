@@ -10,7 +10,7 @@ tags:
 
 ## Кратко
 
-`clearTimeout` очищает таймаут установленный с помощью [`setTimeout`](/js/element-settimeout).
+`clearTimeout` очищает таймаут установленный с помощью [`setTimeout`](/js/settimeout).
 
 ## Как пишется
 
