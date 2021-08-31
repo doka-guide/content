@@ -17,5 +17,4 @@ const movies = []
 if (movies.length === 0) {
   console.log('Вы посмотрели все фильмы!')
 }
-
 ```

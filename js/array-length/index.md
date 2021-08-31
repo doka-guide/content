@@ -15,17 +15,19 @@ tags:
 
 ```js
 const series = ['Silicon Valley', 'Game of Thrones', 'Rick & Morty', 'Gravity Falls']
-console.log(series.length) // 4
+console.log(series.length)
+// 4
 
 const empty = []
-console.log(series.length) // 0
+console.log(series.length)
+// 0
 ```
 
 ## Как понять
 
 Свойство `length` хранит количество ячеек в массиве. Строго говоря, количество ячеек может быть больше, чем количество элементов в массиве, но на практике они почти всегда совпадают.
 
-Значение свойства `length` — целое положительное число в диапазоне от 0 до 2^32. Попытка создать массив с размером вне этого диапазона приведёт к ошибке `Range error: invalid array length`:
+Значение свойства `length` — целое положительное число в диапазоне от 0 до 2<sup>32</sup>. Попытка создать массив с размером вне этого диапазона приведёт к ошибке `Range error: invalid array length`.
 
 ```js
 
@@ -45,7 +47,8 @@ const watchlist = new Array(Math.pow(2, 32) - 1)
 
 ```js
 const series = ['Silicon Valley', 'Game of Thrones', 'Rick & Morty', 'Gravity Falls']
-console.log(series.length) //4
+console.log(series.length)
+// 4
 
 series.length = 2
 console.log(series)
@@ -56,11 +59,12 @@ console.log(series)
 
 ```js
 const todos = ['buy milk', 'contribute to Doka']
-console.log(todos.length) //2
+console.log(todos.length)
+// 2
 
 todos.length = 4
 console.log(todos)
-//[ "buy milk", "contribute to Doka", <2 empty slots> ]
+// ['buy milk', 'contribute to Doka', <2 empty slots>]
 
 todos.forEach(function(todo, index) {
   console.log(`${index + 1}. todo`)
@@ -77,35 +81,40 @@ todos.forEach(function(todo, index) {
 
 ```js
 const emptyArray = new Array(100)
-console.log(emptyArray.length) //100
+console.log(emptyArray.length)
+// 100
 ```
 
 Такой проблемы не случится, если создавать массив с помощью литерала:
 
 ```js
 const anotherEmptyArray = []
-console.log(anotherEmptyArray.length) //0
+console.log(anotherEmptyArray.length)
+// 0
 ```
 
 2️⃣ При записи нового элемента в индекс далеко за пределами массива. В этом случае между последним элементом и новым появляется «дыра» из пустых ячеек:
 
 ```js
 const prorities = ['sleep', 'eat', 'drink']
-console.log(prorities.length) // 3
+console.log(prorities.length)
+// 3
 
 prorities[999] = 'work'
-console.log(prorities.length) // 1000
+console.log(prorities.length)
+// 1000
 console.log(prorities)
-// [ "sleep", "eat", "drink", <996 empty slots>, "work"]
+// ['sleep', 'eat', 'drink', <996 empty slots>, 'work']
 ```
 
 3️⃣ При ручном увеличении значения свойства `length`:
 
 ```js
 const todos = ['buy milk', 'contribute to Doka']
-console.log(todos.length) //2
+console.log(todos.length)
+// 2
 
 todos.length = 4
 console.log(todos)
-//[ "buy milk", "contribute to Doka", <2 empty slots> ]
+// ['buy milk', 'contribute to Doka', <2 empty slots>]
 ```
