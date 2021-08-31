@@ -62,6 +62,7 @@ groups:
       - array-some
       - includes
       - index-of
+      - array-length
   - name: "Обработка исключений"
     items:
       - try-catch
