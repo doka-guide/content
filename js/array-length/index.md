@@ -15,8 +15,10 @@ tags:
 
 ```js
 const series = ['Silicon Valley', 'Game of Thrones', 'Rick & Morty', 'Gravity Falls']
-
 console.log(series.length) // 4
+
+const empty = []
+console.log(series.length) // 0
 ```
 
 ## Как понять
