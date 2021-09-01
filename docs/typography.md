@@ -204,7 +204,7 @@ li::before {
 
 ```js
 const empty = []
-console.log(series.length)
+console.log(empty.length)
 // 0
 ```
 
