@@ -28,8 +28,8 @@ tags:
 ```js
 const arr = Array.from("дока")
 
-// ["д", "о", "к", "а"]
 console.log(arr)
+// ["д", "о", "к", "а"]
 ```
 
 ### Массив из Set
@@ -40,8 +40,8 @@ uniqueThings.add(1)
 uniqueThings.add(2)
 uniqueThings.add(3)
 
-// [1, 2, 3]
 const arr = Array.from(uniqueNumbers)
+// [1, 2, 3]
 ```
 
 ### Массив из [NodeList](/js/collection-and-nodelist)

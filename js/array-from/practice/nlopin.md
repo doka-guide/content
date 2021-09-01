@@ -6,17 +6,19 @@
 
 ```js
 const name = "Mike"
-const spacedLetters = Array.from(name).map(function(letter) { return "*" + letter + "*" })
+const spacedLetters = Array.from(name).map(function (letter) {
+    return `*${letter}*`
+})
 
-// ["*M*", "*i*", "*k*", "*e*"]
 console.log(spacedLetters)
+// ["*M*", "*i*", "*k*", "*e*"]
 ```
 
 Можно записать один вызов `Array.from()` со вторым аргументом:
 
 ```js
 const name = "Mike"
-const spacedLetters = Array.from(name, function(letter) { return "*" + letter + "*" })
+const spacedLetters = Array.from(name, function(letter) { return `*${letter}*` })
 ```
 
 При выполнении этого кода не создаётся промежуточный массив.
@@ -31,6 +33,6 @@ const nums = Array.from({length: 4}, function(value, index) {
   return index * 2
 })
 
-// [0, 2, 4, 6]
 console.log(nums)
+// [0, 2, 4, 6]
 ```
