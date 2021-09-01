@@ -89,6 +89,7 @@ touch $(echo "$CATEGORY/$FOLDER/index.md")
 cat <<EOF > $(echo "$CATEGORY/$FOLDER/index.md")
 ---
 title: "$TITLE"
+description: ""
 authors:
   - $AUTHOR
 tags:
@@ -97,7 +98,9 @@ tags:
 
 ## Кратко
 
-## Как начать
+## Пример
+
+## Как пишется
 
 ## Как понять
 

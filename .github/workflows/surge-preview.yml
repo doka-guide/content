@@ -39,6 +39,13 @@ jobs:
             ${{ runner.os }}-
       - name: Установка модулей
         run: npm ci
+      - name: Получение идентификатора
+        id: check
+        if: ${{ env.SURGE_TOKEN != '' }}
+        run: |
+          check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
+          check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
+          echo "::set-output name=check_id::$check_run_id"
       - name: Сообщение об успехе публикации превью
         uses: hasura/comment-progress@v2.1.0
         if: ${{ env.SURGE_TOKEN != '' }}
@@ -46,12 +53,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: |
-            Идёт сборка и публикация превью...
-            [Смотреть подробнее](https://github.com/doka-guide/content/runs/${{ github.run_id }}?check_suite_focus=true)'
-          fail: true
+          message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           recreate: true
       - name: Выборка файлов для формирования списка
         id: files
@@ -74,6 +77,7 @@ jobs:
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
         id: surge
+        continue-on-error: true
         run: |
           node make-links.js --default
           npm run build
@@ -92,12 +96,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: |
-            [Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано.
-            ${{ steps.links.outputs.list }}
-          fail: true
+          message: '[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}'
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
@@ -106,10 +106,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          commit-sha: ${{ github.event.workflow_run.head_sha }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: |
-            Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано. Ошибка сборки или публикации.
-            [Смотреть подробнее](https://github.com/doka-guide/content/runs/${{ github.run_id }}?check_suite_focus=true)'
+          message: 'Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           fail: true
           recreate: true

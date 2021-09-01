@@ -108,6 +108,7 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-focus
       - element-classlist
       - element-dataset
       - element-style
@@ -115,6 +116,7 @@ groups:
       - element-outerhtml
       - element-innertext
       - element-textcontent
+      - element-hidden
   - name: "События `Event`"
     items:
       - events
@@ -150,6 +152,7 @@ groups:
     items:
       - programming-paradigms
       - oop
+      - fp
   - name: "Веб-приложение"
     items:
       - web-app-types
