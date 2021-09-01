@@ -32,7 +32,7 @@ blockquote[cite] {
 }
 ```
 
-<iframe title="Название — Селектор по атрибуту — Дока" src="demos/ezhkov-mdrJNzP/"></iframe>
+<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="200"></iframe>
 
 ## Как пишется
 

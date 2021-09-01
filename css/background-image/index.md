@@ -69,7 +69,7 @@ body {
 }
 ```
 
-<iframe title="Фоновый рисунок — background-image — Дока" src="demos/basic/"></iframe>
+<iframe title="Фоновый рисунок" src="demos/basic/" height="150"></iframe>
 
 Чтобы фоновая картинка отображалась так, как нужно, задай ей параметры с помощью других свойств:
 

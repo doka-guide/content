@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>50% скругления — border-radius — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    .border-radius {
+      width: 200px;
+      height: 200px;
+      background-color: #fc34fc;
+      border-radius: 50%;
+    }
+
+    .border-radius::after {
+      content: 'border-radius: 50%';
+      display: block;
+      text-align: center;
+      background-color: #fff;
+      border-radius: .25em;
+      position: relative;
+      top:100%;
+      margin-top: 2em;
+    }
+
+    .border-radius_view_stretched {
+      background-color: #ffd600;
+      width: 250px;
+    }
+
+    .border-radius_view_stretched::after {
+      content: 'border-radius: 50%, но ширина теперь больше высоты'
+    }
+
+    .border-radius_view_fixed {
+      background-color: #5674ce;
+      width: 250px;
+      border-radius: 9999px;
+    }
+
+    .border-radius_view_fixed::after {
+      content: 'ширина по-прежнему больше высоты, но теперь border-radius: 9999px'
+    }
+
+    :root {
+      height: 100vh;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+    }
+
+    .border-radius-box {
+      background-color: #eee;
+      padding: 1em;
+      border-radius: .5em;
+      display: grid;
+      grid-gap: 1em;
+      grid-auto-flow: column;
+    }
+  </style>
+</head>
+<body>
+<div class="border-radius-box">
+  <div class="border-radius"></div>
+  <div class="border-radius border-radius_view_stretched"></div>
+  <div class="border-radius border-radius_view_fixed"></div>
+</div>
+</body>
+</html>

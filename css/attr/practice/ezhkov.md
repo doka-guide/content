@@ -15,4 +15,4 @@
 }
 ```
 
-<iframe title="Название — attr() — Дока" src="../demos/ezhkov-JjbGeoM/"></iframe>
+<iframe title="Ссылка, видная при печати" src="../demos/print-link/" height="250"></iframe>

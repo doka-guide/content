@@ -28,7 +28,7 @@ tags:
 }
 ```
 
-<iframe title="Повтор по x и y — background-repeat — Дока" src="demos/repeat/"></iframe>
+<iframe title="Повтор по x и y" src="demos/repeat/" height="250"></iframe>
 
 Получился красивый паттерн. Изображение повторяется по горизонтали и по вертикали.
 
@@ -41,7 +41,7 @@ tags:
 }
 ```
 
-<iframe title="Повтор по x — background-repeat — Дока" src="demos/repeat-x/"></iframe>
+<iframe title="Повтор по x" src="demos/repeat-x/" height="250"></iframe>
 
 Теперь картинка повторяется только горизонтали. Аналогично можно повторить картинку по вертикали при помощи значения `repeat-y`.
 

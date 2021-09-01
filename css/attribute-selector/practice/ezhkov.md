@@ -23,4 +23,4 @@
 }
 ```
 
-<iframe title="Название — Селектор по атрибуту — Дока" src="../demos/ezhkov-qBaaYJX/"></iframe>
+<iframe title="Иконка для внешней ссылки" src="../demos/link-icon/" height="100"></iframe>
