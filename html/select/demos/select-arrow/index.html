@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <title>Стилизация стрелки выпадающего списка — select — Дока</title>
   <meta charset="UTF-8">
-  <title>CodePen - &lt;select multiple&gt; styling</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,28 +13,34 @@
       display: block;
       margin-bottom: 4px;
     }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content:'⬇️';
+      position: absolute;
+      right: 0;
+      margin-top: -2px;
+      pointer-events: none;
+    }
+
     select {
-      counter-reset: cnt;
-    }
-    option {
-      padding: 6px;
-      counter-increment: cnt;
-    }
-
-    option:nth-child(2n) {
-      background-color: #dedede;
-    }
-
-    option::before {
-      content: counter(cnt)'. ';
+      appearance: none;
+      width: 200px;
+      padding: 4px;
+      border-color: #aaa;
+      border-radius: 3px;
     }
   </style>
 </head>
 <body>
 <form>
-  <label for="city-select">Стилизация &lt;option&gt;</label>
+  <label for="city-select">Нестандартная стрелочка</label>
   <div class="select-wrapper">
-    <select name="city" id="city-select" multiple>
+    <select name="city" id="city-select">
+      <option selected disabled>-- Выберите город --</option>
       <option value="petersburg">Санкт-Петербург</option>
       <option value="moscow">Москва</option>
       <option value="kazan">Казань</option>

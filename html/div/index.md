@@ -44,7 +44,7 @@ tags:
 }
 ```
 
-<iframe title="Див с фоном — <div> — Дока" src="demos/div/" height="260"></iframe>
+<iframe title="Див с фоном" src="demos/div/" height="260"></iframe>
 
 ## Как это понять
 

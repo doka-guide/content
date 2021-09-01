@@ -25,7 +25,7 @@ tags:
 ## Пример
 
 ```html
-<!DOCTYPE.html">
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <title>Название документа</title>
@@ -33,7 +33,7 @@ tags:
   <body>
     <p>Здесь вы напишете текст</p>
   </body>
-<.html">
+</html>
 ```
 
 ## Как пишется

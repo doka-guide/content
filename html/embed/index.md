@@ -22,7 +22,7 @@ tags:
 <embed src="sample.pdf" type="application/pdf">
 ```
 
-<iframe title="Вставка PDF — <embed> — Дока" src="demos/embed-pdf/"></iframe>
+<iframe title="Вставка PDF" src="demos/embed-pdf/" height="400"></iframe>
 
 ## Как понять
 

@@ -28,4 +28,4 @@ tags:
 </datalist>
 ```
 
-<iframe title="Выпадающий список со списком браузеров — <datalist> — Дока" src="demos/browsers/"></iframe>
+<iframe title="Выпадающий список со списком браузеров" src="demos/browsers/" height="100"></iframe>

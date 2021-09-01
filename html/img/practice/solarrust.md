@@ -34,4 +34,4 @@
 }
 ```
 
-<iframe title="Картинка с цветным оверлеем — <img> — Дока" src="../demos/img-overlay/" height="320"></iframe>
+<iframe title="Картинка с цветным оверлеем" src="../demos/img-overlay/" height="320"></iframe>

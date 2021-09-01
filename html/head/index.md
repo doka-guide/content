@@ -25,11 +25,11 @@ tags:
 ## Пример
 
 ```html
-.html">
+<html>
   <head>
     <title>Заголовок страницы</title>
   </head>
-<.html">
+</html>
 ```
 
 ## Как пишется

@@ -25,7 +25,7 @@ tags:
 ## Пример
 
 ```html
-<!DOCTYPE.html">
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8">
@@ -33,13 +33,13 @@ tags:
     <title>Дока</title>
     <link rel="stylesheet" href="/assets/styles/main.css">
   </head>
-<.html">
+</html>
 ```
 
 ## Как пишется
 
 ```html
-<!DOCTYPE.html">
+<!DOCTYPE html>
 ```
 
 ## Как это понять
@@ -57,10 +57,10 @@ tags:
 Теги и атрибуты в HTML не зависят от регистра (хотя доктайп это не тег, строго говоря), поэтому все вариации ниже абсолютно равнозначны, даже последняя — но лучше не надо так писать.
 
 ```html
-<!DOCTYPE.html">
+<!DOCTYPE html>
 <!DOCTYPE HTML>
 <!doctype HTML>
-<!doctype.html">
+<!doctype html>
 <!DoCtYPe hTMl>
 ```
 

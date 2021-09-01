@@ -102,8 +102,8 @@ tags:
 В этом примере мы подключаем внешний файл со стилями с помощью атрибута `rel="stylesheet"` тега `<link>`, указываем RSS-документ текущего сайта (`<link rel="alternate" type="application/rss+xml">`) и устанавливаем иконку сайта — фавиконку — в адресной строке браузера (`<link rel="shortcut icon">`):
 
 ```html
-<!DOCTYPE.html">
-.html">
+<!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <title>Кулинарный блог</title>
@@ -114,7 +114,7 @@ tags:
 <body>
 <p>...</p>
 </body>
-<.html">
+</html>
 ```
 
 ## Оптимизация

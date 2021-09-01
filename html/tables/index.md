@@ -75,7 +75,7 @@ tags:
 </table>
 ```
 
-<iframe title="Название — Таблицы — Дока" src="demos/solarrust-mdrWxro/"></iframe>
+<iframe title="Таблица с оценками фильмов" src="demos/table/" height="150"></iframe>
 
 ## Структурные теги
 
