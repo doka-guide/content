@@ -29,7 +29,7 @@ tags:
 
 Размер указывается в процентах от **высоты** вьюпорта (**v**iewport **h**eight). `100vh` соответствует полной высоте вьюпорта. `1vh` = 1% высоты вьюпорта.
 
-<iframe title="Название — vm, vh, vmin, vmax — Дока" src="demos/ezhkov-QWEmPYg"></iframe>
+<iframe title="Слайды на всю высоту окна браузера" src="demos/vh/"></iframe>
 
 ### `vw`
 
@@ -39,7 +39,7 @@ tags:
 
 Размер в процентах от **меньшей** размерности вьюпорта. Если высота меньше ширины (например, горизонтальная ориентация телефона), то расчёт будет вестись относительно высоты.
 
-<iframe title="Название — vm, vh, vmin, vmax — Дока" src="demos/ezhkov-abZYxrP/"></iframe>
+<iframe title="Шапка с паддингами в vmin" src="demos/vmin/" height="500"></iframe>
 
 ### `vmax`
 

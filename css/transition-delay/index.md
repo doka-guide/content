@@ -49,7 +49,7 @@ tags:
 
 Синтаксически свойство полностью аналогично [`transition-duration`](/css/transition-duration), но использование их вместе помогает достичь интересных эффектов. Например, создать цепочку последовательных изменений свойств:
 
-<iframe title="Название — transition-delay — Дока" src="demos/ezhkov-yLOYrOK/"></iframe>
+<iframe title="Кнопка с трансформацией по наведению" src="demos/button-transform/" height="200"></iframe>
 
 ## Подсказки
 
