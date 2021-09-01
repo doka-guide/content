@@ -36,7 +36,7 @@ console.log(series.length)
 ```js
 const myTodos = new Array(Math.pow(2, 32))
 const freeTimes = new Array(-9000)
-//Range error: invalid array length
+// Range error: invalid array length
 ```
 
 Ошибки не будет, если создать пустой массив допустимого размера:
