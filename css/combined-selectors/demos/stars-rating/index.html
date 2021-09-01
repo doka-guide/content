@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Звёздный рейтинг — Комбинированные селекторы — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      text-align: center;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus,
+    button:hover ~ button,
+    button:focus ~ button {
+      color: red;
+    }
+
+    .rating {
+      direction: rtl;
+    }
+  </style>
+</head>
+<body>
+<div class="rating">
+  <button>★</button>
+  <button>★</button>
+  <button>★</button>
+  <button>★</button>
+  <button>★</button>
+</div>
+</body>
+</html>

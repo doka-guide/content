@@ -32,7 +32,7 @@ span {
 }
 ```
 
-<iframe title="Название — Селектор по тегу — Дока" src="demos/ezhkov-JjRoLBa/"></iframe>
+<iframe title="Селектор по тегу" src="demos/example/" height="122"></iframe>
 
 ## Как пишется
 

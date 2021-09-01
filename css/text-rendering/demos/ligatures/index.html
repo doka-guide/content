@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между значениями — text-rendering — Дока</title>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+  <style>
+    .blocks {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    p {
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+
+    .example {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+      margin: 0;
+    }
+
+    .ligatures {
+      text-rendering: optimizeLegibility;
+    }
+
+    .no-ligatures {
+      text-rendering: optimizeSpeed;
+    }
+
+    .kerning {
+      font-size: 32px;
+    }
+
+    .no-kerning {
+      font-size: 32px;
+      text-rendering: optimizeSpeed;
+}
+  </style>
+</head>
+<body>
+<div class="blocks">
+  <div class="block">
+    <p>optimizeLegibility</p>
+    <p class="example ligatures">fi fl</p>
+  </div>
+  <div class="block">
+    <p>optimizeSpeed</p>
+    <p class="example no-ligatures">fi fl</p>
+  </div>
+</div>
+</body>
+</html>

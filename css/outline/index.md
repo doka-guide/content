@@ -31,7 +31,7 @@ tags:
 }
 ```
 
-<iframe title="Название — outline — Дока" src="demos/solarrust-YzGKqxJ"></iframe>
+<iframe title="outline" src="demos/outline/" height="50"></iframe>
 
 ## Как пишется
 
@@ -61,7 +61,7 @@ tags:
 
 Проще всего понять на примерах:
 
-<iframe title="Название — outline — Дока" src="demos/solarrust-OJRLXNN/"></iframe>
+<iframe title="Разные виды обводок" src="demos/every/" height="500"></iframe>
 
 ### `outline-color`
 

@@ -47,7 +47,7 @@ input[type="checkbox"]:checked ~ .input-text {
 }
 ```
 
-<iframe title="Чекбоксы — :checked — Дока" src="demos/check/"></iframe>
+<iframe title="Чекбоксы" src="demos/check/" height="350"></iframe>
 
 ## Как пишется
 

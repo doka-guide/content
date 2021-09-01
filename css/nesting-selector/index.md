@@ -57,7 +57,7 @@ tags:
 }
 ```
 
-<iframe title="Селектор потомка — Селектор потомка — Дока" src="demos/nested-selector/"></iframe>
+<iframe title="Селектор потомка" src="demos/nested-selector/" height="388"></iframe>
 
 ## Как это понять
 

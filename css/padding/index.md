@@ -33,7 +33,7 @@ tags:
 }
 ```
 
-<iframe title="Текст без padding — padding — Дока" src="demos/no-padding/"></iframe>
+<iframe title="Текст без padding" src="demos/no-padding/" height="242"></iframe>
 
 Текстовый контент, вложенный в блок с классом `.parent`, занимает всю площадь родителя и плотно прилегает к краям.
 
@@ -46,7 +46,7 @@ tags:
 }
 ```
 
-<iframe title="Текст с padding — padding — Дока" src="demos/w-padding/"></iframe>
+<iframe title="Текст с padding" src="demos/w-padding/" height="362"></iframe>
 
 Почему в данном случае не следует задавать `margin` или `padding` для элемента с классом `.content` чтобы оттолкнуть его от краёв родителя? Потому что нужно стараться верстать максимально гибко с расчётом на изменения в дальнейшем.
 

@@ -94,7 +94,7 @@ tags:
 }
 ```
 
-<iframe title="Межбуквенное расстояние — letter-spacing — Дока" src="demos/examples/"></iframe>
+<iframe title="Межбуквенное расстояние" src="demos/examples/" height="476"></iframe>
 
 ## Подсказки
 

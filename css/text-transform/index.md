@@ -42,7 +42,7 @@ tags:
 }
 ```
 
-<iframe title="Регистр заголовка — text-transform — Дока" src="demos/title-case/"></iframe>
+<iframe title="Регистр заголовка" src="demos/title-case/" height="600"></iframe>
 
 ## Как это понять
 
@@ -78,6 +78,6 @@ tags:
 }
 ```
 
-<iframe title="Преобразование текста — text-transform — Дока" src="demos/uppercase/"></iframe>
+<iframe title="Преобразование текста" src="demos/uppercase/" height="340"></iframe>
 
 Если скопировать текст и вставить куда-нибудь в текстовое поле, то можно заметить, что две буквы заглавные. А значит регистр исходного текста был изменён. А не просто поменялось внешнее отображение текста.

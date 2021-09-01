@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация подсказки для поля ввода — :required — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-row {
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: block;
+    }
+
+    input {
+      border: 2px solid #5e6064;
+      border-radius: 4px;
+    }
+
+    input:required {
+      border-color: #49a16c;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #555555;
+    }
+
+    input:required + .hint {
+      color: lightcoral;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <div class="form-row">
+    <label for="first_name">Имя*</label>
+    <input type="text" id="first_name" required>
+    <span class="hint">Обязательно к заполнению</span>
+
+  </div>
+  <div class="form-row">
+    <label for="last_name">Фамилия</label>
+    <input type="text" id="last_name">
+    <span class="hint">Необязательно</span>
+
+  </div>
+</form>
+</body>
+</html>

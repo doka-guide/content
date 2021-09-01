@@ -186,7 +186,7 @@ HEX-код цвета, 3- или 6-символьные для сплошных 
 }
 ```
 
-<iframe title="Текущий цвет — color — Дока" src="demos/currentcolor/"></iframe>
+<iframe title="Текущий цвет" src="demos/currentcolor/" height="430"></iframe>
 
 ## Подсказки
 

@@ -117,4 +117,4 @@ h2.article-title.title-primary {
 }
 ```
 
-<iframe title="Название — Селектор по классу — Дока" src="demos/ezhkov-rNMwwRw/"></iframe>
+<iframe title="Несколько классов" src="demos/several-classes/" height="130"></iframe>

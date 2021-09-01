@@ -25,4 +25,4 @@ input:required + .hint {
 }
 ```
 
-<iframe title="Название — :required — Дока" src="../demos/ezhkov-mdrNzgw/"></iframe>
+<iframe title="Стилизация подсказки для поля ввода" src="../demos/input-hint/" height="120"></iframe>

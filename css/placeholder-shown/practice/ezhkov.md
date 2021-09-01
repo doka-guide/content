@@ -16,4 +16,4 @@
 }
 ```
 
-<iframe title="Название — :placeholder-shown — Дока" src="../demos/ezhkov-WNoxXbW/"></iframe>
+<iframe title="Пример placeholder-shown" src="../demos/example/" height="182"></iframe>

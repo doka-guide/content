@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные виды обводок — outline — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 50px;
+    }
+
+    .block {
+      padding: 10px;
+      border: none;
+      font-size: 2rem;
+      border: 1px solid black;
+
+      outline: 10px solid green;
+      outline-offset: 10px;
+    }
+
+    .block + .block {
+      margin-top: 50px;
+    }
+
+
+    .none { outline-style: none}
+    .dotted { outline-style: dotted}
+    .dashed { outline-style: dashed}
+    .solid { outline-style: solid}
+    .double { outline-style: double}
+    .groove { outline-style: groove}
+    .ridge { outline-style: ridge}
+    .inset { outline-style: inset}
+    .outset { outline-style: outset}
+  </style>
+</head>
+<body>
+<div class="block none">none</div>
+
+<div class="block dotted">dotted</div>
+
+<div class="block dashed">dashed</div>
+
+<div class="block solid">solid</div>
+
+<div class="block double">double</div>
+
+<div class="block groove">groove</div>
+
+<div class="block ridge">ridge</div>
+
+<div class="block inset">inset</div>
+
+<div class="block outset">outset</div>
+</body>
+</html>

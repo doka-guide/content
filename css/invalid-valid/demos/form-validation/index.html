@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Валидация формы — :invalid и :valid — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-row {
+      margin-bottom: 12px;
+    }
+
+    label {
+      display: block;
+    }
+
+    input:not([type=checkbox]) {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px 20px 5px 8px;
+      border-radius: 4px;
+      border: 2px solid black;
+    }
+
+    input + .validity-icon {
+      position: relative;
+    }
+
+    input + .validity-icon::before {
+      position: absolute;
+      right: 5px;
+      top: 2px;
+    }
+
+    input:invalid {
+      border: 2px solid red;
+    }
+
+    input:invalid + .validity-icon::before {
+      content: '✖';
+      color: red;
+    }
+
+    input:valid + .validity-icon::before {
+      content: '✓';
+      color: green;
+    }
+
+    [type=checkbox]:invalid {
+      outline: 2px solid red;
+      outline-offset: 2px;
+    }
+
+    input:invalid:placeholder-shown {
+      border-color: black;
+    }
+
+    input:invalid:placeholder-shown + .validity-icon::before,
+    input:valid:placeholder-shown + .validity-icon::before
+    {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <div class="form-row">
+    <label for="first-name">Имя:</label>
+    <input type="text" name="first-name" id="first-name" required placeholder="Только русские буквы">
+    <span class="validity-icon"></span>
+  </div>
+  <div class="form-row">
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+    <span class="validity-icon"></span>
+  </div>
+  <div class="form-row">
+    <button type="submit">Отправить</button>
+  </div>
+</form>
+</body>
+</html>
