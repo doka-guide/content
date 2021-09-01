@@ -15,7 +15,7 @@
     <button id="highload">Сделать много работы перед запуском</button>
     <p id="result">
       <code>
-      setTimeout(function { ... }, 500)
+      setTimeout(function() { ... }, 500)
       </code>
     </p>
   <script>
@@ -28,7 +28,8 @@
       highloadLaunchButton.disabled = isDisabled
     }
 
-    regularLaunchButton.addEventListener('click', () => {
+    function timeout(workFn) {
+      console.log('exec')
       setButtonsDisabled(true)
       resultElement.innerText = 'ждём...'
       setTimeout(() => {
@@ -37,19 +38,20 @@
         setButtonsDisabled(false)
       }, 500)
       const startTime = Date.now()
+
+      if (typeof workFn === 'function') {
+        workFn()
+      }
+    }
+
+    regularLaunchButton.addEventListener('click', () => {
+      timeout()
     })
 
     highloadLaunchButton.addEventListener('click', () => {
-      setButtonsDisabled(true)
-      resultElement.innerText = 'ждём...'
-      setTimeout(() => {
-        const asyncStartTime = Date.now()
-        resultElement.innerText = `Таймаут установлен на 500мс. Я запустилась через ${asyncStartTime - startTime}мс.`
-        setButtonsDisabled(false)
-      }, 500)
-
-      const startTime = Date.now()
-      for(let i=0; i<1000000000; i++) {}
+      timeout(() => {
+        for(let i=0; i<1000000000; i++) {}
+      })
     })
   </script>
 </body>
