@@ -5,11 +5,13 @@
 Простой способ гарантированно посчитать количество символов — воспользоваться spread-оператором. Он превратит строку в массив символов у которого можно получить длину аналогичным свойством [`length`](/js/array-length):
 
 ```js
-const emojiString = "🙈🙉🙊"
+const emojiString = '🙈🙉🙊'
 
-console.log(emojiString.length) // 6 ❌
+console.log(emojiString.length)
+// 6 ❌
 
 const symbols = [...emojiString]
-console.log(symbols.length) // 3 ✅
+console.log(symbols.length)
+// 3 ✅
 ```
 
