@@ -5,19 +5,19 @@
 Вместо последовательного вызова `Array.from()` и `.map()`:
 
 ```js
-const name = "Mike"
+const name = 'Mike'
 const spacedLetters = Array.from(name).map(function (letter) {
     return `*${letter}*`
 })
 
 console.log(spacedLetters)
-// ["*M*", "*i*", "*k*", "*e*"]
+// ['*M*', '*i*', '*k*', '*e*']
 ```
 
 Можно записать один вызов `Array.from()` со вторым аргументом:
 
 ```js
-const name = "Mike"
+const name = 'Mike'
 const spacedLetters = Array.from(name, function(letter) { return `*${letter}*` })
 ```
 
