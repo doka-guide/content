@@ -45,7 +45,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона" src="demos/header.html"></iframe>
+<iframe title="Наложение фона" src="demos/header/" height="400"></iframe>
 
 Чтобы цвет картинки был не таким ярким и текст лучше читался, наложим поверх всего `header` полупрозрачную заливку чёрного цвета.
 
@@ -73,7 +73,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона с заливкой" src="demos/header-veil.html"></iframe>
+<iframe title="Наложение фона с заливкой" src="demos/header-veil/" height="400"></iframe>
 
 Не трогая HTML-разметку, мы добавили ещё один элемент в декоративных целях. Разметка осталась чистой. Псевдоэлементом легко управлять, добавлять или удалять его по необходимости, даже если нет доступа к HTML.
 
@@ -111,7 +111,7 @@ tags:
 }
 ```
 
-<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon.html"></iframe>
+<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon/" height="276"></iframe>
 
 Как видно в примере, текст из свойства `content` псевдоэлемента `::before` встал перед именем пользователя, а из псевдоэлемента `::after` — после.
 
@@ -139,7 +139,7 @@ tags:
 }
 ```
 
-<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon.html"></iframe>
+<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon/" height="278"></iframe>
 
 ### `::first-letter`
 
@@ -160,7 +160,7 @@ tags:
 }
 ```
 
-<iframe title="::first-letter, буквица" src="demos/first-letter.html"></iframe>
+<iframe title="::first-letter, буквица" src="demos/first-letter/" height="300"></iframe>
 
 ### `::first-line`
 
@@ -182,7 +182,7 @@ tags:
 }
 ```
 
-<iframe title="::first-line, красная строка" src="demos/first-line.html"></iframe>
+<iframe title="::first-line, красная строка" src="demos/first-line/" height="282"></iframe>
 
 ### `::selection`
 
@@ -200,15 +200,15 @@ tags:
 }
 ```
 
-<iframe title="::selection, выделение текста" src="demos/selection.html"></iframe>
+<iframe title="::selection, выделение текста" src="demos/selection/" height="300"></iframe>
 
 Если выделить текст в этом примере, то станет видно, что фон выделения ярко-красного цвета.
 
 ### `::placeholder`
 
-Он позволяет стилизовать подсказку, которая выводится в поле ввода текста ([`input`](/html/input)).
+Он позволяет стилизовать подсказку, которая выводится в поле ввода текста ([`<input>`](/html/input)).
 
-Текст подсказки задаётся при помощи атрибута `placeholder` у тега `input`.
+Текст подсказки задаётся при помощи атрибута `placeholder` у тега `<input>`.
 
 ```html
 <input type="email" placeholder="test@example.com">
@@ -226,7 +226,7 @@ input::placeholder {
 }
 ```
 
-<iframe title="Placeholder, подсказка" src="demos/placeholder.html"></iframe>
+<iframe title="Placeholder, подсказка" src="demos/placeholder/" height="283"></iframe>
 
 ## Подсказки
 

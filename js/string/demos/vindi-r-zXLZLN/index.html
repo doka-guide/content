@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Строки - как понять</title>
+</head>
+<body>
+Текст более 10 символов ужимается
+<br>
+<textarea oninput="check()" name="" id="" cols="60" rows="10"></textarea>
+<br>
+Сокращённый текст:
+<span id="result"></span>
+  <script>
+    function check(){
+      let text = document.querySelector('textarea').value;
+      let spoiler = text.slice(0,5) + "<ТЕКСТ СКРЫТ>" + text.slice(-5);
+      let result = text.length > 10 ? spoiler : text;
+      document.querySelector('#result').innerText = result;
+    }
+  </script>
+</body>
+</html>

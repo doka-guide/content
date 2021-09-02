@@ -34,7 +34,7 @@ tags:
 
 Получаем псевдообъёмную кнопку, которая парит над страницей:
 
-<iframe title="Объёмная кнопка" src="demos/button.html"></iframe>
+<iframe title="Объёмная кнопка" src="demos/button/" height="300"></iframe>
 
 ## Как пишется
 

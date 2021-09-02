@@ -467,9 +467,4 @@ async function fetchPosts() {
 
 В результате мы получим переработанную страницу Switter, которая будет получать контент в тот момент, когда он нужен пользователю.
 
-<p class="codepen" data-height="450" data-theme-id="light" data-default-tab="js,result" data-user="bespoyasov" data-slug-hash="wvzWGMM" style="height: 309px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-infinite-scroll">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/wvzWGMM">
-  doka-infinite-scroll</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Подгрузка контента при прокрутке — Дока" src="demos/bespoyasov-wvzWGMM/"></iframe>

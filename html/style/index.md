@@ -88,7 +88,7 @@ tags:
 </html>
 ```
 
-<iframe title="Стилизация заголовка" src="demos/header.html" height="260"></iframe>
+<iframe title="Стилизация заголовка" src="demos/header/" height="260"></iframe>
 
 А в этом примере цвет и фон текста в абзаце будет меняться в зависимости от ширины экрана:
 
@@ -116,4 +116,4 @@ tags:
 </html>
 ```
 
-<iframe title="Стилизация параграфа" src="demos/p.html" height="260"></iframe>
+<iframe title="Стилизация параграфа" src="demos/p/" height="260"></iframe>

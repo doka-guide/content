@@ -81,7 +81,7 @@ p {
 }
 ```
 
-<iframe title="Шрифты с засечками и без" src="demos/index.html"></iframe>
+<iframe title="Шрифты с засечками и без" src="demos/index/" height="350"></iframe>
 
 ## Подсказки
 

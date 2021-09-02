@@ -2,11 +2,7 @@
 
 ❗️ Не используй этот принцип для обработки паролей!
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="ZZjrzB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Строки - в работе">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/ZZjrzB">
-  Строки - в работе</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+https://codepen.io/vindi-r/pen/ZZjrzB
 
 🛠 Множественная замена в строке возможна через цикл или через регулярные выражения:
 
@@ -32,9 +28,4 @@ console.log(changedStr) // Помидор - вкусный овощ. Помид�
 
 Поэтому если тебе нужно сравнить два числа, то их стоит принудительно приводить к числовому типу:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="JVBLQG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Строки - в работе">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/JVBLQG">
-  Строки - в работе</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Строка — Дока" src="../demos/vindi-r-JVBLQG/"></iframe>

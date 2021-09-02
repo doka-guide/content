@@ -26,9 +26,4 @@ tags:
 - `high` — определяет, что считать «высоким значением». По умолчанию равно значению `max`.
 - `optimum` — определяет оптимальное значение.
 
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="MWmdQov" data-user="solarrust" style="height: 400px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/MWmdQov">
-  Элемент &lt;meter&gt;</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Разные варианты заполнения атрибутов" src="demos/every/" height="500"></iframe>

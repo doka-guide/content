@@ -10,17 +10,8 @@ window.crypto.getRandomValues(new Uint32Array(1))[0] //  вернет случа
 Math.floor(Math.random() * (max - min)) + min // от минимума до максимума, не включая максимум
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Lopinopulos" data-slug-hash="ewOxWV" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Math в работе - random">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/ewOxWV">
-  Math в работе - random</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Math.random() — Дока" src="../demos/Lopinopulos-ewOxWV/"></iframe>
 
 🛠 Используется для выбора случайного элемента из массива. Например, вы хотите отобразить случайный товар дня из списка или же показать пользователю несколько элементов из его коллекции любимых песен.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="KjPJey" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Math в работе - random">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/KjPJey">
-  Math в работе - random</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+https://codepen.io/Lopinopulos/pen/KjPJey

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Насыщенность шрифта — font-weight — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* Зададим толщину заголовка с помощью слова bold. */
+    h1 {
+      font-weight: bold;
+    }
+
+    /* Обычный текст в абзаце <p> сделаем стандартным normal */
+    p {
+      font-weight: normal;
+    }
+
+    /* В контейнере <div> текст будет средним по жирности между normal и bold */
+    div {
+      font-weight: 500;
+    }
+
+    /* В элементе <span> текст будет на один уровень меньше по жирности,
+    чем у родительского элемента, внутри которого он находится */
+    span {
+      font-weight: lighter;
+    }
+
+    /* Оформление */
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Шрифт этого заголовка — жирный. Мы задали его с помощью ключевого слова bold. В цифровом значении он равен 700 единицам.</h1>
+
+  <p> Это текст стандартной толщины внутри контейнера &lt;p&gt;. Он эквивалентен 400 единицам толщины.</p>
+
+  <div>
+    Это текст внутри контейнера &lt;div&gt; — и он чуть толще, чем стандартный normal, но тоньше, чем bold. Мы задали его насыщенность с помощью значения 500.<br>
+    <span>В контейнере &lt;span&gt; шрифт тоньше, чем в &lt;div&gt;, внутри которого он находится. Его мы задали с помощью значения lighter.</span>
+  </div>
+</body>
+</html>

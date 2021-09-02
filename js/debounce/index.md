@@ -366,9 +366,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="bespoyasov" data-slug-hash="BazXpNp" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-debounce-search-form">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/BazXpNp">
-  doka-debounce-search-form</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Debounce на примере формы поиска — Дока" src="demos/bespoyasov-BazXpNp/"></iframe>
