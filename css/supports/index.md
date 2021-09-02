@@ -2,7 +2,7 @@
 title: "@supports"
 description: ""
 authors:
-  - solarrust
+  - doka-dog
 keywords:
   - поддержка свойств
 tags:
