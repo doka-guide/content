@@ -61,6 +61,7 @@ groups:
       - array-find
       - array-every
       - array-some
+      - array-from
       - includes
       - index-of
       - array-length
