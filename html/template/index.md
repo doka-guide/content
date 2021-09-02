@@ -47,8 +47,8 @@ tags:
 
 :::
 
-```javascript
-if (document.createElement("template").content) {
+```js
+if (document.createElement('template').content) {
   /* Код выполнится, если браузер поддерживает <template> */
 } else {
   /* Нужно придумать что-то другое */
@@ -72,18 +72,18 @@ if (document.createElement("template").content) {
 
 Использование шаблона с помощью JavaScript:
 
-```javascript
-const list = document.querySelector('.list');
-const template = document.querySelector('.template');
+```js
+const list = document.querySelector('.list')
+const template = document.querySelector('.template')
 
-// клонируем содержимое тега <template>
-const item = template.content.cloneNode(true);
+// Клонируем содержимое тега <template>
+const item = template.content.cloneNode(true)
 
-// находим тег <li> и помещаем текст внутрь
-item.querySelector('li').textContent = 'Молоко';
+// Находим тег <li> и помещаем текст внутрь
+item.querySelector('li').textContent = 'Молоко'
 
-// вставляем склонированный контент на страницу
-list.append(item);
+// Вставляем склонированный контент на страницу
+list.append(item)
 ```
 
 ## Подсказки
