@@ -14,4 +14,4 @@
 }
 ```
 
-<iframe title="Цитата" src="../demos/blockquote.html" height="590"></iframe>
+<iframe title="Цитата" src="../demos/blockquote/" height="590"></iframe>

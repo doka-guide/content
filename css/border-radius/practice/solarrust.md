@@ -9,7 +9,7 @@
   background-image: url(eyes.png);
 }
 
-.icon:after {
+.icon::after {
   content: attr(data-notifications);
   width: 25px; /* равные ширина */
   height: 25px; /* и высота */
@@ -19,4 +19,4 @@
 }
 ```
 
-<iframe title="Счётчик уведомлений" src="../demos/notification.html"></iframe>
+<iframe title="Счётчик уведомлений" src="../demos/notification/" height="250"></iframe>

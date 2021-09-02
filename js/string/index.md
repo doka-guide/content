@@ -57,11 +57,7 @@ console.log(str.length) // 41
 
 Один из вариантов использования — оповестить пользователя об ограничении максимальной длины сообщения:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="QPBEjO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Строки - как понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/QPBEjO">
-  Строки - как понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Строка — Дока" src="demos/vindi-r-QPBEjO
 
 ### 💡 Доступ к элементам строки
 
@@ -85,11 +81,7 @@ console.log("котик".toUpperCase()) // КОТИК
 
 Зачем это нужно? К примеру, для нормализации текста, например в полях ввода:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="zXLoJL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Строки - как понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/zXLoJL">
-  Строки - как понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Строка — Дока" src="demos/vindi-r-zXLoJL
 
 ### 💡 Поиск подстроки
 
@@ -147,11 +139,7 @@ console.log(str.substring(4, 11)) // говорит
 
 К примеру, можно модифицировать то, что пишет пользователь, по каким-либо правилам:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="zXLZLN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Строки - как понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/zXLZLN">
-  Строки - как понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Строка — Дока" src="demos/vindi-r-zXLZLN/"></iframe>
 
 ### 💡 Замена подстроки
 

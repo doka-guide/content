@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Многоточие — overflow — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    .truncate {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    :root {
+      height: 100vh;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+    }
+  </style>
+</head>
+<body>
+<p class="truncate">
+  Однажды, в студёную зимнюю пору
+</p>
+</body>
+</html>

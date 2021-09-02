@@ -95,8 +95,8 @@ npm run build
 В корне проекта нужно создать файл `index.html` и добавить в него следующее содержимое:
 
 ```html
-<!DOCTYPE html>
-<html>
+<!DOCTYPE.html">
+.html">
   <head>
     ...
   </head>
@@ -104,7 +104,7 @@ npm run build
     ...
     <script src="./dist/bundle.js"></script>
   </body>
-</html>
+<.html">
 ```
 
 Если открыть этот файл в браузере, то в консоли появится приветствие и прощание.

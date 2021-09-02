@@ -82,11 +82,7 @@ element.addEventListener("click", () => {
 
 Тогда, получим элемент, который меняет своё положение при клике на него:
 
-<p class="codepen" data-height="336" data-theme-id="light" data-default-tab="result" data-user="bespoyasov" data-slug-hash="yLJrBej" style="height: 336px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-positioning-via-classlist">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/yLJrBej">
-  doka-positioning-via-classlist</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-yLJrBej
 
 Этот способ изменять стили элемента с помощью скриптов самый простой и чистый — все стили остаются описанными внутри CSS. Однако, он не всегда подходит.
 
@@ -172,11 +168,7 @@ document.body.addEventListener("mouseup", () => {
 
 Тогда получится вот такой драг-н-дроп:
 
-<p class="codepen" data-height="336" data-theme-id="light" data-default-tab="result" data-user="bespoyasov" data-slug-hash="qBNwBKP" style="height: 336px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-positioning-via-style">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/qBNwBKP">
-  doka-positioning-via-style</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-qBNwBKP/"></iframe>
 
 Это работает, но не очень эффективно, потому что изменения в этих свойствах заставляют браузер делать много лишней работы.
 
@@ -257,11 +249,7 @@ document.body.addEventListener("mousemove", (e) => {
 
 В итоге получим такой же драг-н-дроп, но работающий на `transform`.
 
-<p class="codepen" data-height="303" data-theme-id="light" data-default-tab="result" data-user="bespoyasov" data-slug-hash="JjKVRyB" style="height: 303px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-positioning-via-style-transform">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/JjKVRyB">
-  doka-positioning-via-style-transform</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-JjKVRyB
 
 Но мы можем ещё лучше 😎
 
@@ -334,9 +322,4 @@ document.body.addEventListener("mousemove", (e) => {
 
 В результате получаем такой же драг-н-дроп!
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="bespoyasov" data-slug-hash="XWKQxVO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-positioning-via-css-custom-properties">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/XWKQxVO">
-  doka-positioning-via-css-custom-properties</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Позиционирование элементов с помощью JS — Дока" src="demos/bespoyasov-XWKQxVO

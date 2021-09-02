@@ -1,5 +1,5 @@
 ---
-title: "Element.outerHTML"
+title: "Element.oute/"
 authors:
   - windrushfarer
 tags:
@@ -46,7 +46,7 @@ HTML после изменения будет:
 <h2>Второй заголовок</h2>
 ```
 
-<iframe title="Element.outerHTML" src="demos/index.html"></iframe>
+<iframe title="Element.outerHTML — Element.outerHTML — Дока" src="demos/index/"></iframe>
 
 ## Как понять
 
@@ -58,7 +58,7 @@ HTML после изменения будет:
 
 ## Как пишется
 
-Обращение к свойству `Element.outerHTML` вернёт элемент и его содержимое виде HTML-строки. Просмотреть можно любой элемент, но изменить можно любой, кроме `<html>`.
+Обращение к свойству `Element.outerHTML` вернёт элемент и его содержимое виде HTML-строки. Просмотреть можно любой элемент, но изменить можно любой, кроме `.html">`.
 
 Присвоение нового значения к свойству полностью удалит элемент и заменит его новым HTML.
 
@@ -100,7 +100,7 @@ document.body.outerHTML = '<h1>Я новое содержмое страницы
 
 `<body>` остался на странице, а новое значение стало содержимым элемента.
 
-Если попробовать изменить `Element.outerHTML` у `<html>`, то браузер выбросит ошибку.
+Если попробовать изменить `Element.outerHTML` у `.html">`, то браузер выбросит ошибку.
 
 ```js
 const html = document.querySelector('html')

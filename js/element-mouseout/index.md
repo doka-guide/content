@@ -47,4 +47,4 @@ function getColor() {
 }
 ```
 
-<iframe title="Смена цвета при событии mouseout" src="demos/index.html" height="300"></iframe>
+<iframe title="Смена цвета при событии mouseout — Element.mouseout — Дока" src="demos/index/" height="300"></iframe>

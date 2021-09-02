@@ -96,12 +96,7 @@ CSS-анимации по умолчанию проигрываются лине
 
 Очень сложно представить, как же будет выглядеть анимация при каждом из этих значений. Гораздо информативнее будет демка:
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="result" data-user="solarrust" data-slug-hash="XWpxjrW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="XWpxjrW">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/XWpxjrW">
-  XWpxjrW</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="10 квадратов с точками, движущимися по разным функциям тайминга" src="demos/timing-function-dots/" height="400"></iframe>
 
 ## Подсказки
 

@@ -37,7 +37,7 @@ p {
 }
 ```
 
-<iframe title="Начертание шрифта" src="demos/font-style.html"></iframe>
+<iframe title="Начертание шрифта" src="demos/font-style/" height="300"></iframe>
 
 ## Как это понять
 

@@ -43,11 +43,7 @@ if (isRegistered === true && orders > 1) {
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="Lopinopulos" data-slug-hash="wLGJgz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Логическое И">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/wLGJgz">
-  Логическое И</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-wLGJgz/"></iframe>
 
 Обычно для того, чтобы понять, как работают логические операторы, рисуют таблицу истинности. В ячейках — итоговое значение операции при соответствующих операндах:
 
@@ -72,12 +68,7 @@ if (isRegistered === true && orders > 1) {
 if (hasTicket || isInvited) { ... }
 ```
 
-<p class="codepen" data-height="354" data-theme-id="light" data-default-tab="result" data-user="Lopinopulos" data-slug-hash="VJjboW" style="height: 354px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Логическое ИЛИ">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/VJjboW">
-  Логическое ИЛИ</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-VJjboW
 
 <div class="article__table article__table_all-third">
 

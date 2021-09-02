@@ -39,6 +39,7 @@ groups:
       - template-strings
       - index-of
       - includes
+      - string-length
   - name: "Булевы значения `boolean`"
     items:
       - boolean
@@ -60,8 +61,10 @@ groups:
       - array-find
       - array-every
       - array-some
+      - array-from
       - includes
       - index-of
+      - array-length
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -78,6 +81,8 @@ groups:
       - prompt
       - confirm
       - session-storage
+      - settimeout
+      - cleartimeout
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -108,6 +113,7 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-focus
       - element-classlist
       - element-dataset
       - element-style
@@ -115,6 +121,7 @@ groups:
       - element-outerhtml
       - element-innertext
       - element-textcontent
+      - element-hidden
   - name: "События `Event`"
     items:
       - events
@@ -150,6 +157,7 @@ groups:
     items:
       - programming-paradigms
       - oop
+      - fp
   - name: "Веб-приложение"
     items:
       - web-app-types

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - doka-positioning-via-classlist</title>
+  <style>
+    .element {
+      width: 50px;
+      height: 50px;
+      background: black;
+      transition: transform 0.2s;
+    }
+
+    .element-initial {
+      transform: translateX(0px);
+    }
+
+    .element-final {
+      transform: translateX(50px);
+    }
+  </style>
+</head>
+<body>
+<div class="element element-initial"></div>
+  <script>
+    const el = document.querySelector('.element');
+
+    el.addEventListener('click', () => {
+      el.classList.add('element-final');
+      el.classList.remove('element-initial');
+    })
+  </script>
+</body>
+</html>

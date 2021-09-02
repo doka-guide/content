@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация option — select — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+    }
+    select {
+      counter-reset: cnt;
+    }
+    option {
+      padding: 6px;
+      counter-increment: cnt;
+    }
+
+    option:nth-child(2n) {
+      background-color: #dedede;
+    }
+
+    option::before {
+      content: counter(cnt)'. ';
+    }
+  </style>
+</head>
+<body>
+<form>
+  <label for="city-select">Стилизация &lt;option&gt;</label>
+  <div class="select-wrapper">
+    <select name="city" id="city-select" multiple>
+      <option value="petersburg">Санкт-Петербург</option>
+      <option value="moscow">Москва</option>
+      <option value="kazan">Казань</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+      <option value="novosibirsk">Новосибирск</option>
+    </select>
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подсказка — attr() — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    div {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #00000033;
+      padding: 20px;
+    }
+
+    .element::before {
+      content: "Элемент с классом " attr(class);
+      display: block;
+    }
+
+    .element::after {
+      content: "Подсказка: " attr(title);
+      display: block;
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+<div class="element" title="На самом деле внутри нет никакого текста"></div>
+</body>
+</html>

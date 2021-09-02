@@ -33,11 +33,7 @@ tags:
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="dypzXYW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/dypzXYW">
-  &lt;select&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Стандартный выпадающий список" src="demos/default/" height="200"></iframe>
 
 ## Подробно
 
@@ -72,8 +68,4 @@ tags:
 
 Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута `value` этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега `<option>`.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="RwGLYaB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="option attributes">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/RwGLYaB">
-  &lt;option&gt; attributes</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Разные атрибуты" src="demos/option-attrs/" height="200"></iframe>

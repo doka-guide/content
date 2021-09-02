@@ -32,17 +32,8 @@ if (s3 > 100) alert("игрок 3 проходит")
 
 Самый простой способ этого избежать — __всегда__ добавлять `return` с каким-либо значением перед концом функции.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="oVPReL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="return() в работе, неявный return undefined">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/oVPReL">
-  return() в работе, неявный return undefined</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+https://codepen.io/vindi-r/pen/oVPReL
 
 - Ещё `return` останавливает выполнение функции. Обычно это ожидаемое поведение, но если про это забыть — возможны баги.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="aMagpW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="return() в работе, остановка при return">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/aMagpW">
-  return() в работе, остановка при return</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/"></iframe>

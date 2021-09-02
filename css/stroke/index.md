@@ -52,4 +52,3 @@ tags:
     stroke: blue;
 }
 ```
-
