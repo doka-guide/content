@@ -4,38 +4,61 @@
   <title>Изменение цвета по ховеру — Псевдоклассы — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
     }
 
     table {
-      width: 500px;
-      border: 1px solid black;
+      width: 650px;
       border-collapse: collapse;
+      margin: auto;
+      text-align: center;
     }
 
-    th, td {
-      padding: 5px;
-      border: 1px solid black;
-    }
-
-    thead th {
-      text-align: right;
-    }
-
-    th {
+    caption {
+      border-bottom: 7px solid #2E9AFF;
+      padding: 14px 14px 14px 0;
+      font-size: 18px;
+      font-weight: 500;
       text-align: left;
     }
 
-    td {
-      text-align: right;
+    th {
+      font-weight: 500;
+    }
+
+    th:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td, th {
+      border: 1px solid #2E9AFF;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    tr {
+      background-color: #18191C;
     }
 
     tr:hover { /* При наведении курсора… */
-      background: #c3bff5; /* …цвет фона изменится на голубой */
+      background-color: #123E66; /* …цвет фона изменится на голубой */
     }
   </style>
 </head>
