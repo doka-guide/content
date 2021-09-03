@@ -83,6 +83,8 @@ groups:
       - session-storage
       - settimeout
       - cleartimeout
+      - setinterval
+      - clearinterval
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
