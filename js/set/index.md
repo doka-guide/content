@@ -14,6 +14,7 @@ tags:
 `Set` — это неиндексированная коллекция, положить элемент в коллекцию можно, но достать нельзя. По элементам коллекции можно итерироваться.
 
 Основные методы для работы с коллекцией:
+
 - [`add`](/js/set-add) — добавить элемент.
 - [`delete`](/js/set-delete) — удалить элемент.
 - [`has`](/js/set-has) — проверить, есть ли элемент в коллекции.
@@ -113,7 +114,7 @@ console.log(filled.has('My name'))
 
 Полностью очистить `Set` можно методом [`clear`](/js/set-clear). Технически это то же самое, что и создать новый `Set`:
 
-```
+```js
 const filled = new Set([1, 2, 3, 3, 3, 'hello'])
 filled.clear()
 
@@ -137,6 +138,7 @@ const filled = new Set([1, 2, 3, 3, 3, 'hello'])
 filled.forEach(function(value) {
   console.log(value)
 })
+
 // 1
 // 2
 // 3
@@ -147,9 +149,11 @@ filled.forEach(function(value) {
 
 ```js
 const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
 for (let n of filled) {
   console.log(n)
 }
+
 // 1
 // 2
 // 3
