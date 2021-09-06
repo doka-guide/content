@@ -39,6 +39,7 @@ watchlist.forEach(function(value) {
 2️⃣ значение, которое будет использоваться как `this` внутри функции
 
 Использование всех параметров выглядит так:
+
 ```js
 const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
 watchlist.forEach(function(value, value2, s) {
