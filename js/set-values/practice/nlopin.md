@@ -6,6 +6,7 @@ const watchlist = new Set(['Сияние', 'Интерстеллар', 'Кази
 for(const movie of watchlist) {
   console.log(movie)
 }
+
 // 'Сияние'
 // 'Интерстеллар'
 // 'Казино'
