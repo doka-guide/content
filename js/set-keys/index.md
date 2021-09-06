@@ -33,6 +33,7 @@ console.log(keys)
 for (const key of keys) {
   console.log(key)
 }
+
 // 'Сияние'
 // 'Интерстеллар'
 // 'Казино'
@@ -45,4 +46,3 @@ const movies = [...pairs]
 console.log(movies)
 // ['Сияние', 'Интерстеллар', 'Казино']
 ```
-
