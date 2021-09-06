@@ -44,6 +44,7 @@ for (const movie of pairs) {
 ```js
 const movies = [...pairs]
 console.log(movies)
+
 // [
 //   ['Сияние', 'Сияние'],
 //   ['Интерстеллар', 'Интерстеллар'],
