@@ -25,8 +25,6 @@ clearInterval(intervalId)
 
 Функция вызывается с одним аргументом — идентификатором, который возвращает функция [`setInterval`](/js/setinterval).
 
-Возвращает `undefined` во всех случаях.
-
 ## Как понять
 
 Когда мы вызываем функцию [`setInterval`](/js/setinterval), браузер создаёт идентификатор для регулярного запуска функции и записывает его в свой [список активных таймеров](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#list-of-active-timers). При вызове `clearInterval` браузер найдёт таймер по идентификатору и уберёт из списка.
