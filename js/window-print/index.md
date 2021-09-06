@@ -24,8 +24,9 @@ window.print()
 Для этого достаточно написать несколько строк кода. Например, открывать системный диалог печати при нажатии на кнопку на экране:
 
 ```js
-// представим, что кнопка имеет id 'printBtn'
-const printButton = document.getElementById('printBtn')
+// представим, что кнопка имеет id 'print-button'
+const printButton = document.getElementById('print-button')
+
 printButton.addEventListener('click', function() {
   window.print()
 })
