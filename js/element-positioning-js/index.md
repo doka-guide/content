@@ -5,6 +5,8 @@ cover:
   alt: 'Мальчик и девочка расставляют картинки с шахматными фигурами'
 authors:
   - bespoyasov
+contributors:
+  - skorobaeus
 keywords:
   - анимации animation
   - transform
@@ -80,7 +82,7 @@ element.addEventListener("click", () => {
 })
 ```
 
-Тогда, получим элемент, который меняет своё положение при клике на него:
+Тогда получим элемент, который меняет своё положение при клике на него:
 
 <iframe title="Смена положения при клике — Позиционирование элементов с помощью JS — Дока" src="demos/class/" height="275"></iframe>
 
@@ -154,7 +156,7 @@ document.body.addEventListener("mousemove", (e) => {
   // Если элемент не тащат, то ничего не делаем.
   if (!dragging) return
 
-  // Если тащат, то выщитавыаем новое положение,
+  // Если тащат, то высчитываем новое положение,
   // вычитая начальное положение элемента из положения курсора.
   element.style.top = `${e.pageY - startY}px`
   element.style.left = `${e.pageX - startX}px`
@@ -269,7 +271,7 @@ document.body.addEventListener("mousemove", (e) => {
   position: absolute;
 
   /* В переменной --x мы будем держать
-    значение координаты по горихонтали;
+    значение координаты по горизонтали;
     в переменной --y — по вертикали. */
   --x: 0px;
   --y: 0px;
