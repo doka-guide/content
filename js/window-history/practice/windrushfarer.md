@@ -7,7 +7,7 @@
 ```js
 window.addEventListener('popstate', (event) => {
   console.log(`Перешли на адрес "${document.location}"`)
-});
+})
 ```
 
 После этого можно добавить несколько записей в историю и сделать переходы. Если запустить скрипт на главной Доки — https://doka.guide/.
@@ -36,7 +36,7 @@ history.go(2)
 
 ```js
 window.addEventListener('popstate', (event) => {
-  console.log(`Данные навигации: ${JSON.stringify(event.state)}`);
+  console.log(`Данные навигации: ${JSON.stringify(event.state)}`)
 });
 ```
 
