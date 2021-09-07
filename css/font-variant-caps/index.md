@@ -1,5 +1,5 @@
 ---
-title: "font-variant-caps"
+title: "`font-variant-caps`"
 description: ""
 authors:
   - doka-dog
