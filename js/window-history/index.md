@@ -1,5 +1,5 @@
 ---
-title: "History API"
+title: "window.history"
 description: "History API позволяет работать с историей браузера в пределах одной сессии"
 authors:
   - windrushfarer
