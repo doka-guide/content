@@ -27,7 +27,7 @@ tags:
 
 ```css
 @font-feature-values "Leitura Display Swashes" {
-    @swash { fancy: 1 }
+  @swash { fancy: 1 }
 }
 
 div {
