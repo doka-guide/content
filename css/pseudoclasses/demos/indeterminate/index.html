@@ -32,7 +32,9 @@
       width: 670px;
     }
 
-    input:indeterminate + span, input:indeterminate + span::before, .progress-bar:indeterminate {
+    input:indeterminate + span,
+    input:indeterminate + span::before,
+    .progress-bar:indeterminate {
       opacity: 0.45;
     }
 
@@ -252,7 +254,7 @@
       inputs[i].indeterminate = true
     }
 
-    const progress = document.getElementById( 'progress' )
+    const progress = document.getElementById('progress')
 
     function progressToggle() {
       if (!progress.value) {
