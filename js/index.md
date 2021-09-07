@@ -65,6 +65,19 @@ groups:
       - includes
       - index-of
       - array-length
+  - name : "Множество Set"
+    items:
+      - set
+      - set-constructor
+      - set-size
+      - set-add
+      - set-delete
+      - set-has
+      - set-foreach
+      - set-clear
+      - set-values
+      - set-keys
+      - set-entries
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -83,6 +96,8 @@ groups:
       - session-storage
       - settimeout
       - cleartimeout
+      - setinterval
+      - clearinterval
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
