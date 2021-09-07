@@ -2,16 +2,35 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - doka-scroller-example</title>
+  <title>Галерея с прокрутчиком (scroller) — Позиционирование элементов с помощью JS — Дока</title>
+  <link rel="stylesheet" href="styles/lib.css">
   <style>
+    body {
+      margin: 0;
+      padding: 10px 20px 0;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
     .item {
       width: 150px;
       height: 150px;
-      background: black;
       margin: 10px;
+      background-color: #FFD829;
+    }
+
+    .ab_scroller-item:first-child .item {
+      margin-left: 0;
+    }
+
+    .ab_scroller-item:last-child .item {
+      margin-right: 0;
+    }
+
+    .ab_scroller-scrollbar {
+      background-color: #665610;
     }
   </style>
-  <link rel="stylesheet" href="styles/lib.css">
 </head>
 <body>
 <div class="scroller">
