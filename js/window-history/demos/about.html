@@ -18,7 +18,7 @@
   <div class="centered">
     <button id="replace" class="button button-green">Изменить текущую запись</button>
 
-    <a id="move" class="button button-green hidden" href="/prices.html">Переход на страницу цен</a>
+    <a id="move" class="button button-green hidden" href="prices.html">Переход на страницу цен</a>
   </div>
   <script>
     const urlEl = document.getElementById('url')
@@ -43,7 +43,7 @@
       window.history.replaceState(
         {},
         '',
-        '/index.html'
+        'prices.html'
       )
 
       hide(replaceButton)

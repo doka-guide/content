@@ -110,7 +110,7 @@ window.history.go(0)
 window.history.pushState(
   {},
   '',
-  '/about.html'
+  'about.html'
 )
 ```
 
@@ -122,7 +122,7 @@ window.history.pushState(
 window.history.replaceState(
   {},
   '',
-  '/index.html'
+  'index.html'
 )
 ```
 
