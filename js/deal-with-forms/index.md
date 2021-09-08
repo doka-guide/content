@@ -431,7 +431,7 @@ async function handleFormSubmit(event) {
 
 ```js
 function onSuccess(formNode) {
-  alert('Your application successfully sent!')
+  alert('Ваша заявка отправлена!')
   formNode.classList.toggle('hidden')
 }
 ```
