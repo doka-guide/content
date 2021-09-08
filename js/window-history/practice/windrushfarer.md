@@ -56,7 +56,6 @@ function transformToURLParams(filters) {
 
   return `?${query}`
 }
-
 ```
 
 Затем добавим функцию, которая будет обновлять историю и устанавливать выбранные фильтры в строку URL в браузере:
@@ -68,7 +67,6 @@ function syncURL(filters) {
 
   window.history.replaceState(filters, '', `${path}${query}`)
 }
-
 ```
 
 Теперь при каждом изменении фильтров достаточно вызвать функцию `syncURL`:
