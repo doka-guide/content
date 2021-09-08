@@ -32,60 +32,47 @@ tags:
 - Фотография, чтобы использовать в печатных материалах.
 
 ```html
-<form id="marsOnce" action="/apply/" method="POST">
+<form id="mars-once" action="/apply/" method="POST">
   <label>
-    Your name:
-    <input
-      type="text"
-      name="name"
-      id="name"
-      placeholder="Elon Musk"
-      required
-      autofocus
-    >
+    Ваше имя:
+    <input type="text" name="name" id="name" placeholder="Илон Маск" required autofocus>
   </label>
 
   <label>
-    Email:
-    <input
-      type="email"
-      name="email"
-      id="email"
-      placeholder="elon@musk.com"
-      required
-    >
+    Почта:
+    <input type="email" name="email" id="email" placeholder="elon@musk.com" required>
   </label>
 
   <label>
-    Age:
+    Возраст:
     <input type="number" name="age" required>
   </label>
 
   <label>
-    Specialization:
+    Профессия:
     <select name="specialization" required>
-      <option value="engineer" selected>Engineer</option>
-      <option value="scientist">Scientist</option>
-      <option value="psychologist">Psychologist</option>
-      <option value="other">Other</option>
+      <option value="engineer" selected>Инженер</option>
+      <option value="scientist">Учёный</option>
+      <option value="psychologist">Психолог</option>
+      <option value="other">Другая</option>
     </select>
   </label>
 
   <label>
-    I worked in NASA
-    <input type="checkbox" name="nasaExperience" value="1">
+    Я работал в NASA
+    <input type="checkbox" name="nasa-experience" value="1">
   </label>
 
   <label>
-    Photo:
+    Фото:
     <input type="file" accept="image/jpeg" name="photo" required>
   </label>
 
-  <button type="submit">Apply to the mission</button>
+  <button type="submit">Отправить заявку</button>
 </form>
 ```
 
-<iframe title="Название — Работа с формами — Дока" src="demos/bespoyasov-rNLMQrY/"></iframe>
+<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" sandbox></iframe>
 
 В целом форма рабочая: обязательные поля не пропустят пустые значения, атрибут `type` проследит, чтобы вместо почты нам не прислали номер телефона, а по нажатию на кнопку валидная форма отправит все данные.
 
@@ -111,17 +98,17 @@ tags:
 
 Чтобы «соединить» форму с нашей будущей собственной отправкой данных, мы напишем функцию, которая будет «слушать» событие отправки и реагировать на него.
 
-Найдём форму на странице, с помощью [`getElementById`](/js/getelementbyid) и подпишемся на событие `submit` с помощью [`addEventListener`](/js/element-addeventlistener). Пока мы не будем отправлять форму, а просто напечатаем в консоль строку «Submit» и убедимся, что механизм работает:
+Найдём форму на странице, с помощью [`getElementById`](/js/getelementbyid) и подпишемся на событие `submit` с помощью [`addEventListener`](/js/element-addeventlistener). Пока мы не будем отправлять форму, а просто напечатаем в консоль строку «Отправка!» и убедимся, что механизм работает:
 
 ```js
 function handleFormSubmit(event) {
   // Просим форму не отправлять данные самостоятельно
   event.preventDefault()
-  console.log("Submit!")
+  console.log('Отправка!')
 }
 
-const applicantForm = document.getElementById("marsOnce")
-applicantForm.addEventListener("submit", handleFormSubmit)
+const applicantForm = document.getElementById('mars-once')
+applicantForm.addEventListener('submit', handleFormSubmit)
 ```
 
 Мы можем просто передать функцию `handleFormSubmit` как второй аргумент в `addEventListener`, так как он автоматически передаст событие в качестве аргумента для `handleFormSubmit`.
@@ -151,8 +138,8 @@ function handleFormSubmit(event) {
   serializeForm(applicantForm)
 }
 
-const applicantForm = document.getElementById("marsOnce")
-applicantForm.addEventListener("submit", handleFormSubmit)
+const applicantForm = document.getElementById('mars-once')
+applicantForm.addEventListener('submit', handleFormSubmit)
 ```
 
 Аргумент функции `serializeForm` — это элемент формы. Именно элемент — не селектор, а конкретный узел в DOM-дереве.
@@ -163,13 +150,13 @@ applicantForm.addEventListener("submit", handleFormSubmit)
 
 ```
 HTMLFormControlsCollection
-  0 <input type="text" name="name" id="name" placeholder="Elon Musk" autofocus>
+  0 <input type="text" name="name" id="name" placeholder="Илон Маск" autofocus>
   1 <input type="email" name="email" id="email" placeholder="elon@musk.com">
   2 <input type="number" name="age">
   3 <select name="specialization">
-  4 <input type="checkbox" name="nasaExperience" value="1">
+  4 <input type="checkbox" name="nasa-experience" value="1">
   5 <input type="file" accept="image/jpeg" name="photo">
-  6 <button type="submit">Apply to the mission</button>
+  6 <button type="submit">Отправить заявку</button>
 ```
 
 Обратите внимание, что тип этого набора элементов — `HTMLFormControlsCollection`. Это не массив и, чтобы пройтись циклом по списку элементов, нужно превратить его в массив с помощью вызова `Array.from()`.
@@ -197,7 +184,7 @@ function serializeForm(formNode) {
 2 {name: 'email', value: 'some@mail.com'}
 3 {name: 'age', value: '24'}
 4 {name: 'specialization', value: 'engineer'}
-5 {name: 'nasaExperience', value: '1'}
+5 {name: 'nasa-experience', value: '1'}
 6 {name: 'photo', value: 'C:\\fakepath\\image.jpg'}
 7 {name: '', value: ''}
 ```
@@ -229,14 +216,14 @@ function serializeForm(formNode) {
   {name: 'email', value: 'some@mail.com'},
   {name: 'age', value: '24'},
   {name: 'specialization', value: 'engineer'},
-  {name: 'nasaExperience', value: '1'},
+  {name: 'nasa-experience', value: '1'},
   {name: 'photo', value: 'C:\\fakepath\\image.jpg'}
 ]
 ```
 
 ### Значения чекбоксов
 
-Сейчас можно заметить, что `nasaExperience` имеет значение `"1"`. Это неправильно:
+Сейчас можно заметить, что `nasa-experience` имеет значение `"1"`. Это неправильно:
 
 - мы не отмечали чекбокс, а значение почему-то `"1"`;
 - в целом хотелось бы, чтобы значение этого поля было булевым.
@@ -258,7 +245,7 @@ function serializeForm(formNode) {
   const data = Array.from(elements)
     .map((element) => {
       const { name, type } = element
-      const value = type === "checkbox" ? element.checked : element.value
+      const value = type === 'checkbox' ? element.checked : element.value
 
       return { name, value }
     })
@@ -268,7 +255,7 @@ function serializeForm(formNode) {
 }
 ```
 
-Теперь значение поля `nasaExperience` будет `true`, если чекбокс отмечен, и `false`, если пропущен. Увидим такой вывод:
+Теперь значение поля `nasa-experience` будет `true`, если чекбокс отмечен, и `false`, если пропущен. Увидим такой вывод:
 
 ```js
 [
@@ -276,7 +263,7 @@ function serializeForm(formNode) {
   {name: 'email', value: 'some@mail.com'},
   {name: 'age', value: '24'},
   {name: 'specialization', value: 'engineer'},
-  {name: 'nasaExperience', value: false'},
+  {name: 'nasa-experience', value: false'},
   {name: 'photo', value: 'C:\\fakepath\\image.jpg'}
 ]
 ```
@@ -299,7 +286,7 @@ function serializeForm(formNode) {
     .filter((item) => !!item.name)
     .forEach((element) => {
       const { name, type } = element
-      const value = type === "checkbox" ? element.checked : element.value
+      const value = type === 'checkbox' ? element.checked : element.value
 
       data.append(name, value)
     })
@@ -316,18 +303,18 @@ function serializeForm(formNode) {
 }
 ```
 
-Стоит отметить, что `nasaExperience` в таком случае попадёт в финальные данные, только если чекбокс отметили. Если его не отметить, то в финальных данных он не окажется.
+Стоит отметить, что `nasa-experience` в таком случае попадёт в финальные данные, только если чекбокс отметили. Если его не отметить, то в финальных данных он не окажется.
 
-Когда чекбокс `nasaExperience` выделен, получим такой вывод:
+Когда чекбокс `nasa-experience` выделен, получим такой вывод:
 
 ```js
 [
-  ["name", "Alex"],
-  ["email", "example@test.com"],
-  ["age", "24"],
-  ["specialization", "engineer"],
-  ["nasaExperience", "1"],
-  ["photo", File],
+  ['name', 'Alex'],
+  ['email', 'example@test.com'],
+  ['age', '24'],
+  ['specialization', 'engineer'],
+  ['nasa-experience', '1'],
+  ['photo', File],
 ]
 ```
 
@@ -335,15 +322,15 @@ function serializeForm(formNode) {
 
 ```js
 [
-  ["name", "Alex"],
-  ["email", "example@test.com"],
-  ["age", "24"],
-  ["specialization", "engineer"],
-  ["photo", File],
+  ['name', 'Alex'],
+  ['email', 'example@test.com'],
+  ['age', '24'],
+  ['specialization', 'engineer'],
+  ['photo', File],
 ]
 ```
 
-В первом случае чекбокс был отмечен, поэтому в списке есть элемент `nasaExperience`, во втором случае чекбокс был пропущен, поэтому такого элемента в списке данных нет.
+В первом случае чекбокс был отмечен, поэтому в списке есть элемент `nasa-experience`, во втором случае чекбокс был пропущен, поэтому такого элемента в списке данных нет.
 
 Чтобы проверить, какие данные в себе содержит переменная типа `FormData`, можно использовать метод `.entries()`, он выведет список с данными, как в примере выше.
 
@@ -355,13 +342,13 @@ console.log(Array.from(data.entries()))
 
 Теперь нам надо данные из формы отправить на сервер. Представим, что наш бэкенд предоставляет [API-эндпоинт](/js/api) для сохранения данных. Попробуем отправить их.
 
-Функция будет асинхронной, потому что работает с сетевыми запросами. В качестве аргумента она принимает `FormData` и отправляет запрос с помощью вызова [`fetch`](/js/fetch). Нам нужно указать правильный заголовок `Content-Type` у запроса, для формы он `"multipart/form-data"`:
+Функция будет асинхронной, потому что работает с сетевыми запросами. В качестве аргумента она принимает `FormData` и отправляет запрос с помощью вызова [`fetch`](/js/fetch). Нам нужно указать правильный заголовок `Content-Type` у запроса, для формы он `'multipart/form-data'`:
 
 ```js
 async function sendData(data) {
-  return await fetch("/api/apply/", {
-    method: "POST",
-    headers: { "Content-Type": "multipart/form-data" },
+  return await fetch('/api/apply/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'multipart/form-data' },
     body: data,
   })
 }
@@ -401,14 +388,16 @@ async function handleFormSubmit(event) {
 Добавим его после кнопки и спрячем:
 
 ```html
-<form id="marsOnce" action="/apply/" method="POST">
+<style>
+  .hidden {
+    display:none;
+  }
+</style>
+<form id="mars-once" action="/apply/" method="POST">
   <!-- Код остальной формы -->
 
-  <button type="submit">Apply to the mission</button>
-
-  <style>.hidden {display:none}</style>
-  <div id="loader" class="hidden">Sending...</div>
-
+  <button type="submit">Отправить заявку</button>
+  <div id="loader" class="hidden">Отправляем...</div>
 </form>
 ```
 
@@ -416,8 +405,8 @@ async function handleFormSubmit(event) {
 
 ```js
 function toggleLoader() {
-  const loader = document.getElementById("loader")
-  loader.classList.toggle("hidden")
+  const loader = document.getElementById('loader')
+  loader.classList.toggle('hidden')
 }
 ```
 
@@ -442,8 +431,8 @@ async function handleFormSubmit(event) {
 
 ```js
 function onSuccess(formNode) {
-  alert("Your application successfully sent!")
-  formNode.classList.toggle("hidden")
+  alert('Ваша заявка отправлена!')
+  formNode.classList.toggle('hidden')
 }
 ```
 
@@ -522,10 +511,10 @@ function checkValidity(event) {
   const formNode = event.target.form
   const isValid = formNode.checkValidity()
 
-  formNode.querySelector("button").disabled = !isValid
+  formNode.querySelector('button').disabled = !isValid
 }
 
-applicantForm.addEventListener("input", checkValidity)
+applicantForm.addEventListener('input', checkValidity)
 ```
 
 ![Скриншот заблокированной кнопки отправки](images/3.png)
