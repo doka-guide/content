@@ -30,8 +30,8 @@ tags:
   @swash { fancy: 1 }
 }
 
-div {
-  font-family: Leitura Display Swashes;
+body {
+  font-family: Leitura Display Swashes, serif;
   font-variant-alternates: swash(fancy);
 }
 ```
