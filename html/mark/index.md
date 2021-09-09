@@ -5,7 +5,6 @@ authors:
 keywords:
   - выделение
   - подсветка
-  - марк
 tags:
   - doka
   - placeholder
