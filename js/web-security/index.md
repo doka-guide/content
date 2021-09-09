@@ -1,7 +1,8 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
 authors:
   - bespoyasov
 keywords:
