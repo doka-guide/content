@@ -1,8 +1,9 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Монитор, на экране замочная скважина, из которой выглядывает нос. Рядом с монитором стоит кружка'
 authors:
   - bespoyasov
 keywords:
