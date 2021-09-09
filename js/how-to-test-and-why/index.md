@@ -1,7 +1,8 @@
 ---
 title: "Как и зачем писать тесты"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
 authors:
   - bespoyasov
 editors:
