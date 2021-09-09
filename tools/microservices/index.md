@@ -3,6 +3,11 @@ title: "Микросервисы"
 description: "Подход к проектированию большого приложения через разбиение его на маленькие"
 authors:
   - igsekor
+keywords:
+  - microservice
+  - монолит
+  - ci
+  - cd
 tags:
   - article
 ---
