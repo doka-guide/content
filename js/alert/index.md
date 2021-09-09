@@ -1,7 +1,8 @@
 ---
 title: "alert()"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
 authors:
   - vindi-r
 contributors:
