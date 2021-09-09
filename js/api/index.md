@@ -1,8 +1,9 @@
 ---
 title: "API. Что это и зачем нужно?"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два робота, левый даёт кристалл, а правый лайкает'
 authors:
   - bespoyasov
 contributors:
