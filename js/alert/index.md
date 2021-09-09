@@ -1,8 +1,9 @@
 ---
 title: "alert()"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девочка выглядывает из браузера и держит в руках табличку "Push me"'
 authors:
   - vindi-r
 contributors:
