@@ -4,6 +4,8 @@ authors:
   - ezhkov
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 keywords:
   - селектор
   - атрибут
@@ -19,7 +21,7 @@ tags:
 
 ```html
 <blockquote cite="А. С. Пушкин">
-  Октябрь уж наступил — уж роща отряхает <br>
+  Октябрь уж наступил — уж роща отряхает<br>
   Последние листы с нагих своих ветвей;
 </blockquote>
 ```
@@ -28,11 +30,12 @@ tags:
 
 ```css
 blockquote[cite] {
-  background-color: lightgreen;
+  background-color: #2E9AFF;
+  color: #000000;
 }
 ```
 
-<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="200"></iframe>
+<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="520"></iframe>
 
 ## Как пишется
 
