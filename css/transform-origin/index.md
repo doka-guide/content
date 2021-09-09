@@ -32,12 +32,7 @@ tags:
 
 Некоторые [трансформации](/css/transform) выполняются относительно какой-то точки. Возьмём для примера поворот. По умолчанию он происходит относительно центра элемента. То есть, в центре элемента есть некая неподвижная точка, вокруг которой происходит поворот. Но что, если мы хотим повернуть элемент не относительно центра, а относительно угла? То есть, при повороте угловая точка элемента должна остаться неподвижной, а остальной элемент будет поворачиваться вокруг неё. В этом случае нам поможет свойство `transform-origin`. Оно задаёт координаты точки, относительно которой будет выполняться трансформация. В примере выше мы задали координаты `(0, 0)`. Это значит, что поворот выполнится вокруг левого верхнего угла элемента.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="zYoWGbX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transform-origin 1">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/zYoWGbX">
-  transform-origin 1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Точка трансформации" src="demos/transform-point/" height="400"></iframe>
 
 ## Как пишется
 

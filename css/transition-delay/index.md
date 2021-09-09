@@ -49,12 +49,7 @@ tags:
 
 Синтаксически свойство полностью аналогично [`transition-duration`](/css/transition-duration), но использование их вместе помогает достичь интересных эффектов. Например, создать цепочку последовательных изменений свойств:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="yLOYrOK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition-delay">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/yLOYrOK">
-  transition-delay</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Кнопка с трансформацией по наведению" src="demos/button-transform/" height="200"></iframe>
 
 ## Подсказки
 

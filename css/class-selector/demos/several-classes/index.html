@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Несколько классов — Селектор по классу — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    .form-label {
+      display: block;
+      font-size: 1em;
+      color: #333333;
+    }
+
+    .text-invalid {
+      color: red;
+    }
+
+    .warning::before {
+      content: '⚠️ ';
+    }
+  </style>
+</head>
+<body>
+<label for="input" class="form-label text-invalid">Ваше имя:</label>
+<input id="input" type="text" placeholder="Только кириллица">
+
+<p class="text-invalid warning">Вы не заполнили все поля</p>
+
+<h2 class="warning">Обратите внимание</h2>
+</body>
+</html>

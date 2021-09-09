@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Наследование рамки — Наследование в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #282a2e;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      padding: 10px;
+      border: 1px solid #ed6742;
+      color: #ed6742;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    span {
+      display: block;
+      border: inherit;
+      padding: 10px;
+    }
+
+    span + span {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <span>You</span>
+    <span>Shall not</span>
+    <span>Pass</span>
+  </h1>
+</body>
+</html>

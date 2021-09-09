@@ -73,11 +73,7 @@ input:valid + .validity-icon::before {
 
 Чтобы показать, что поле ввода заполнено корректно, к нему можно применить особые стили, используя псевдокласс `:valid`. Аналогично, для некорректно заполненного поля мы можем применить особые стили, используя псевдокласс `:invalid`.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="ZEpdbje" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":invalid / :valid">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/ZEpdbje">
-  :invalid / :valid</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Стилизация элементов формы" src="demos/form-inputs/" height="189"></iframe>
 
 В примере выше можно увидеть пару моментов:
 

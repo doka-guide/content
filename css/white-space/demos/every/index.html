@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение разных значений — white-space — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    p::before {
+      content: attr(data-title);
+      display: block;
+      font-size: 12px;
+      color: red;
+      font-weight: bold;
+    }
+
+    .parent {
+      width: 350px;
+      background: #00000022;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .normal {
+      white-space: normal;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .pre {
+      white-space: pre;
+    }
+
+    .pre-wrap {
+      white-space: pre-wrap;
+    }
+
+    .pre-line {
+      white-space: pre-line;
+    }
+
+    .break-spaces {
+      white-space: break-spaces;
+    }
+
+    mark {
+      background-color: #ff00ff22;
+    }
+  </style>
+</head>
+<body>
+<div class="parent">
+  <p class="normal" data-title="white-space: normal;">
+    <mark>Однажды,
+    в студёную, зимнюю пору,
+    я из лесу вышел,
+    был сильный мороз</mark>
+  </p>
+  <p class="nowrap" data-title="white-space: nowrap;">
+    <mark>Однажды,
+    в студёную, зимнюю пору,
+    я из лесу вышел,
+    был сильный мороз</mark>
+  </p>
+  <p class="pre" data-title="white-space: pre;">
+    <mark>Однажды,     в студёную, зимнюю пору,     я из лесу вышел,
+    был сильный мороз</mark>
+  </p>
+  <p class="pre-wrap" data-title="white-space: pre-wrap;">
+    <mark>Однажды,     в студёную, зимнюю пору,     я           из лесу вышел,
+      был сильный мороз</mark>
+  </p>
+  <p class="pre-line" data-title="white-space: pre-line;">
+    <mark>Однажды,     в студёную, зимнюю пору,     я из лесу вышел,
+      был сильный мороз</mark>
+  </p>
+  <p class="break-spaces" data-title="white-space: break-spaces;">
+    <mark>Однажды,     в студёную, зимнюю пору,  я         из лесу вышел,
+      был сильный мороз</mark>
+  </p>
+</div>
+</body>
+</html>

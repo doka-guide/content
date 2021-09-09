@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Чекбоксы — :checked — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    * {
+      font-family: "Roboto", sans-serif;
+    }
+
+    .input-row {
+      margin-bottom: 30px;
+    }
+
+    input[type="checkbox"] {
+      outline: 2px solid #ffffff;
+    }
+
+    input[type="checkbox"]:checked {
+      outline: 2px solid #1a5ad7;
+    }
+
+    input[type="checkbox"]:checked ~ .input-text {
+      color: #1a5ad7;
+    }
+
+    input[type="radio"] {
+      outline: 2px solid #ffffff;
+    }
+
+    input[type="radio"]:checked {
+      outline: 2px solid #1a5ad7;
+    }
+
+    input[type="radio"]:checked ~ .input-text {
+      color: #1a5ad7;
+    }
+
+    option:checked {
+      background-color: #18191c;
+      color: #1a5ad7;
+    }
+
+    select {
+      font-size: 16px;
+    }
+
+    .input-text,
+    .select-text {
+      width: 60%;
+      margin-left: 10px;
+    }
+
+    label {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-row">
+    <label>
+      <input type="checkbox">
+      <span class="input-text">
+        Чекбокс (нажми!)
+      </span>
+    </label>
+  </div>
+
+  <div class="input-row">
+    <label>
+      <input type="radio" name="radio">
+      <input type="radio" name="radio">
+      <span class="input-text">
+        Радиокнопки (нажми!)
+      </span>
+    </label>
+  </div>
+
+  <div class="input-row">
+    <label>
+      <select name="select">
+        <option value="Лондон">Лондон</option>
+        <option value="Псков">Псков</option>
+        <option value="Нью-Йорк">Нью-Йорк</option>
+      </select>
+      <span class="select-text">
+        Выпадающий список (выбери 😉)
+      </span>
+    </label>
+  </div>
+</body>
+</html>

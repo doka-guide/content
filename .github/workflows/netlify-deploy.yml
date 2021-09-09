@@ -1,12 +1,16 @@
 name: Netlify Deploy
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Update Dates"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
-  deploy:
+  netlify-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Загрузка platform

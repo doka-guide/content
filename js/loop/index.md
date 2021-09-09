@@ -121,12 +121,7 @@ while (count) {
 
 Нажмите на кнопку «Нажми на меня» и на экране появится сообщение. Если же нажать кнопку «Стартовать бесконечный цикл», то «Нажми на меня» перестанет работать — у системы не будет ресурсов обработать нажатие, потому что все ресурсы займёт бесконечный цикл.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="Lopinopulos" data-slug-hash="xxOQLvO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Бесконечный цикл">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/xxOQLvO">
-  Бесконечный цикл</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Цикл — Дока" src="demos/Lopinopulos-xxOQLvO/"></iframe>
 
 К бесконечному циклу могут привести две ошибки:
 

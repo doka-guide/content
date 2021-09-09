@@ -36,7 +36,7 @@ tags:
 }
 ```
 
-<iframe title="Обычная рамка" src="demos/basic.html"></iframe>
+<iframe title="Обычная рамка" src="demos/basic/" height="200"></iframe>
 
 ## Как это понять
 
@@ -101,7 +101,7 @@ tags:
 
 Понять текстовое описание этих стилей довольно сложно, посмотри пример ниже:
 
-<iframe title="Все рамки" src="demos/all.html"></iframe>
+<iframe title="Все рамки" src="demos/all/" height="500"></iframe>
 
 ### `border-color`
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Как понять object-position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    img {
+      display: block;
+      width: 240px;
+      margin-bottom: 20px;
+    }
+
+    img:nth-child(1) {
+      height: auto;
+    }
+
+    img:nth-child(2) {
+      height: 240px;
+    }
+
+    img:nth-child(3) {
+      height: 240px;
+      object-fit: cover;
+    }
+
+    img:nth-child(4) {
+      height: 240px;
+      object-fit: cover;
+      object-position: left top;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/dog.png" alt="Собака">
+  <img src="images/dog.png" alt="Сжатая собака">
+  <img src="images/dog.png" alt="Половина собаки">
+  <img src="images/dog.png" alt="Собака">
+</body>
+</html>

@@ -31,7 +31,7 @@ tags:
 }
 ```
 
-<iframe title="Кнопка" src="demos/basic.html"></iframe>
+<iframe title="Кнопка" src="demos/basic/" height="250"></iframe>
 
 Обрати внимание, что мы _сбросили_ стандартную рамку кнопки, но углы тем не менее слегка закруглились.
 
@@ -48,7 +48,7 @@ body {
 }
 ```
 
-<iframe title="Интерактивная кнопка" src="demos/interactive.html"></iframe>
+<iframe title="Интерактивная кнопка" src="demos/interactive/" height="250"></iframe>
 
 ## Как это понять
 
@@ -89,12 +89,7 @@ selector {
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="Realetive" data-slug-hash="ExNxgvX" data-preview="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="border-radius">
-  <span>See the Pen <a href="https://codepen.io/Realetive/pen/ExNxgvX">
-  border-radius</a> by Roman Ganin (<a href="https://codepen.io/Realetive">@Realetive</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название" src="demos/different-blocks/" height="400"></iframe>
 
 ## Подсказки
 

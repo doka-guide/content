@@ -37,12 +37,7 @@ tags:
 
 Получается, что при `transform-style: preserve-3d` каждый дочерний элемент получает независимую от родителя плоскость, к которой можно применять 3D-трансформации. При `transform-style: flat` существует ровно одна плоскость — плоскость родителя, и никакие трансформации не могут заставить дочерний элемент выйти из этой плоскости.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="wvordQN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transform-style">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/wvordQN">
-  transform-style</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Вращение 3D-объекта" src="demos/3d-rotate/" height="200"></iframe>
 
 ## Как пишется
 

@@ -4,6 +4,8 @@ authors:
   - realetive
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 keywords:
   - псевдокласс
   - pseudo-classes
@@ -62,11 +64,11 @@ tags:
 
 Рассмотрим CSS для подсветки строки таблицы при наведении курсора.
 
-В обычном состоянии цвет фона — белый:
+В обычном состоянии цвет фона — тёмный:
 
 ```css
 tr {
-  background: #fff;
+  background-color: #18191C;
 }
 ```
 
@@ -74,11 +76,11 @@ tr {
 
 ```css
 tr:hover {
-  background: #c3bff5;
+  background-color: #123E66;
 }
 ```
 
-<iframe title="Изменение фона по наведению на строку таблицы" src="demos/row-hover.html"></iframe>
+<iframe title="Изменение фона по наведению на строку таблицы" src="demos/row-hover/" height="410"></iframe>
 
 ## Как это понять
 
@@ -147,12 +149,11 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 ```css
 :default + span {
-  font-weight: bold;
-  color: red;
+  color: #2E9AFF;
 }
 ```
 
-<iframe title="Стили для дефолтного чекбокса" src="demos/default.html"></iframe>
+<iframe title="Стили для дефолтного чекбокса" src="demos/default/" height="310"></iframe>
 
 ### `:dir()`
 
@@ -162,7 +163,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Позволяют находить элементы формы по состоянию их атрибута `disabled`. _Почти_ эквивалентны селекторам по атрибуту (`[disabled]` и `:not([disabled])` соответственно), но более гибкие, т. к. среагируют на унаследованное состояние `disabled`. Если есть `<fieldset disabled>`, то отключаются вложенные в него контролы форм.
 
-<iframe title="Стили для задизейбленного поля ввода" src="demos/disabled-enabled.html"></iframe>
+<iframe title="Стили для задизейбленного поля ввода" src="demos/disabled-enabled/" height="580"></iframe>
 
 ### `:empty`
 
@@ -170,7 +171,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется к элементам, у которых внутри нет других тегов или текста. Например, можно проверить, что у кнопки не задан текст или иконка, чтобы задать минимальные размеры:
 
-<iframe title="Крестики-нолики с :empty" src="demos/empty.html"></iframe>
+<iframe title="Крестики-нолики с :empty" src="demos/empty/" height="330"></iframe>
 
 ### `:first-child`, `:last-child`, `:nth-child()`, `:nth-last-child()`, `:only-child`
 
@@ -224,13 +225,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Для `<input>` состояние `indeterminate` в HTML можно задать только через JavaScript.
 
-<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate.html"></iframe>
+<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="400"></iframe>
 
 ### `:in-range` и `:out-of-range`
 
 Применяется для `<input>`, у которого определены атрибуты `min` и `max` и введённое значение соответствует (`:in-range`) или нет (`:out-of-range`) этому диапазону.
 
-<iframe title="Стили для диапазона" src="demos/range.html"></iframe>
+<iframe title="Стили для диапазона" src="demos/range/" height="290"></iframe>
 
 ### `:lang()`
 
@@ -270,13 +271,13 @@ img:not([alt]) {
 
 [Основная статья про `:root`](/css/root)
 
-Соответствует корневому тегу-элементу документа. Для HTML это, соответственно, `<html>`, для SVG — `<svg>`. Специфичность селектора `:root` выше, чем у селектора по тегу.
+Соответствует корневому тегу-элементу документа. Для HTML это, соответственно, `.html">`, для SVG — `<svg>`. Специфичность селектора `:root` выше, чем у селектора по тегу.
 
 ### `:target`
 
 При переходе по ссылке, которая ведёт на URI-фрагмент (элемент внутри страницы), `id` фрагмента совпадает со значением атрибута `id` этого элемента — это состояние можно «поймать» с помощью псевдокласса `:target`:
 
-<iframe title="Подсветка активной секции" src="demos/target.html"></iframe>
+<iframe title="Подсветка активной секции" src="demos/target/" height="600" sandbox></iframe>
 
 ### `:valid` и `:invalid`
 

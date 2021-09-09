@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Относительное позиционирование — position — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .parent {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: auto;
+      margin-bottom: 30px;
+      border: 1px dashed;
+    }
+
+    .child {
+      box-sizing: border-box;
+      height: 30px;
+      border: 2px solid green;
+      background-color: #d0f1c3;
+      position: relative;
+    }
+
+    .positioned {
+      border-color: red;
+      background-color: rgba(255, 0, 0, .3);
+      top: 10px;
+      z-index: 1;
+    }
+
+    .positioned-to-scroll {
+      border-color: red;
+      background-color: rgba(255, 0, 0, .3);
+      left: 30px;
+      top: 10px;
+      z-index: 1;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+<p>relative-позиционирование без смещения</p>
+<div class="parent">
+  <div class="child"></div>
+  <div class="child"></div>
+</div>
+<p>relative-позиционирование со смещением</p>
+<div class="parent">
+  <div class="child positioned"></div>
+  <div class="child"></div>
+</div>
+<p>relative-позиционирование со смещением и скроллом родителя</p>
+<div class="parent">
+  <div class="child positioned-to-scroll"></div>
+  <div class="child"></div>
+</div>
+</body>
+</html>

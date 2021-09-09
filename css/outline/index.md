@@ -31,12 +31,7 @@ tags:
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="solarrust" data-slug-hash="YzGKqxJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="YzGKqxJ">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/YzGKqxJ">
-  YzGKqxJ</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="outline" src="demos/outline/" height="50"></iframe>
 
 ## Как пишется
 
@@ -66,12 +61,7 @@ tags:
 
 Проще всего понять на примерах:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="solarrust" data-slug-hash="OJRLXNN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="OJRLXNN">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/OJRLXNN">
-  OJRLXNN</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Разные виды обводок" src="demos/every/" height="500"></iframe>
 
 ### `outline-color`
 

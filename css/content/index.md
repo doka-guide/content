@@ -133,7 +133,7 @@ content: unset;
 }
 ```
 
-<iframe title="attr" src="demos/rating.html"></iframe>
+<iframe title="Всплывающая подсказка к рейтингу" src="demos/rating/" height="220"></iframe>
 
 - Ну и конечно же разработчики спецификации позаботились о нас и сделали возможность собрать сразу несколько значений в общую строку:
 
