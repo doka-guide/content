@@ -1,7 +1,8 @@
 ---
 title: "Гайд по grid"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
 authors:
   - solarrust
 contributors:
