@@ -1,7 +1,8 @@
 ---
 title: "API. Что это и зачем нужно?"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  mobile: 'images/covers/mobile.png'
 authors:
   - bespoyasov
 contributors:
