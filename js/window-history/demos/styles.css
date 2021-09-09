@@ -21,7 +21,7 @@ h1 {
 .centered {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .button {
@@ -57,5 +57,5 @@ h1 {
 }
 
 .hidden {
-  display: none
+  display: none;
 }
