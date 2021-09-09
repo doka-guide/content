@@ -1,5 +1,5 @@
 ---
-title: "<sub>"
+title: "`<sub>`"
 authors:
   - doka-dog
 keywords:
