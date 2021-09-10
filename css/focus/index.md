@@ -1,7 +1,8 @@
 ---
 title: ":focus"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Девушка с ноутбуком, дедушка с клавиатурой, парень с ноутбуком'
 authors:
   - solarrust
 editors:
