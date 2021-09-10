@@ -11,6 +11,9 @@ groups:
       - nodejs
       - nodejs-tooling
       - github-actions
+  - name: На стороне сервера
+    items:
+      - microservices
   - name: Операционная система
     items:
       - file
