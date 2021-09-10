@@ -1,7 +1,7 @@
 ---
 title: "Код-ревью — как, зачем, почему"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
   alt: 'Робот-тестировщик идёт над пропастью между двух гор по подвесному мосту, который обрывается пунктиром'
 authors:
   - igorkamyshev
