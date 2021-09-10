@@ -1,5 +1,5 @@
 ---
-title: "<ins>"
+title: "`<ins>`"
 authors:
   - doka-dog
 keywords:
