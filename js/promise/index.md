@@ -1,11 +1,12 @@
 ---
 title: "Promise"
+cover:
+  desktop: 'images/covers/desktop.png'
+  alt: 'Две руки держат друг-друга мизинчиками и жесте "мирись-мирись-мирись"'
 authors:
   - nlopin
 tags:
   - article
-cover:
-  desktop: 'images/cover.png'
 ---
 
 :::callout 💡
