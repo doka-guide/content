@@ -187,6 +187,9 @@
 
     const debouncedHandle = debounce(handleInput, 250);
     searchInput.addEventListener('input', debouncedHandle);
+
+    const button = document.querySelector('button');
+    button.addEventListener('click', (e) => {e.preventDefault()})
   </script>
 </body>
 </html>
