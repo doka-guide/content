@@ -1,7 +1,8 @@
 ---
 title: "Почти всё в JavaScript — объект"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Семья: папа, мама, сын, дочь - на отдыхе, все в одежде с надписью object'
 authors:
   - windrushfarer
 keywords:
