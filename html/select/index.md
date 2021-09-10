@@ -87,7 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<iframe title="Примеры атрибутов" src="demos/attributes/" height="770"></iframe>
+<iframe title="Примеры атрибутов" src="demos/attributes/" height="590"></iframe>
 
 ## Подсказки
 
