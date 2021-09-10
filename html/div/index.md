@@ -1,7 +1,8 @@
 ---
 title: "<div>"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Удивлённый парень смотрит на друга с татуировками "<div>" от запястья до шеи'
 authors:
   - grachev
 contributors:
