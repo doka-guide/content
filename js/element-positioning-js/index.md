@@ -1,7 +1,7 @@
 ---
 title: "Позиционирование элементов с помощью JS"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
   alt: 'Мальчик и девочка расставляют картинки с шахматными фигурами'
 authors:
   - bespoyasov
