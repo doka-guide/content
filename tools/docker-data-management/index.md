@@ -309,7 +309,7 @@ RUN chown -R user:user /data
 
 Запустить том для отдельного контейнера можно с помощью следующей конфигурации:
 
-```
+```yaml
 services:
   frontend:
     image: node:lts
@@ -321,7 +321,7 @@ volumes:
 
 Команда `docker-compose up` поднимет не только сам контейнер `frontend`, но и создаст том `myapp`. Если он уже был создан, Docker Compose подключит его к контейнеру, но надо указать это явно с помощью элемента `external` так:
 
-```
+```yaml
 services:
   frontend:
     image: node:lts

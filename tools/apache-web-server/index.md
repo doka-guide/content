@@ -36,7 +36,7 @@ tags:
 
 Обычно конфигурация хранится не в одном большом файле, а разбивается на несколько небольших файлов. Они подключаются в единый конфигурационный файл, который используется для настройки веб-сервера, так:
 
-```
+```nginxconf
 Include /path/to/conf/example.conf
 ```
 
@@ -79,7 +79,7 @@ Include /path/to/conf/example.conf
 
 Директива `SetHandler` позволяет обрабатывать запросы, используя специальные обработчики (хендлеры). В примере при обращении к пути сайта `/status` веб-сервер выдаёт отчёт о своём состоянии. Аргументы `all granted` для директивы `Require` указывают, что веб-сервер должен обработать любые запросы для всех пользователей, независимо от того, авторизованы они или нет. Можно разрешить доступ только определённым IP-адресам, которые начинаются с `10.`, `172.20.` или `192.168.2.` так:
 
-```
+```apacheconf
 Require ip 10 172.20 192.168.2
 ```
 
@@ -194,7 +194,7 @@ httpd -k <signal>
 
 ### Подключение файлов конфигурации
 
-```
+```apacheconf
 Include /etc/apache/virtual-hosts/*.conf
 ```
 
@@ -202,7 +202,7 @@ Include /etc/apache/virtual-hosts/*.conf
 
 ### Своё сообщение о 404 ошибке
 
-```
+```apacheconf
 ErrorDocument 404 /404.html
 ```
 
@@ -210,7 +210,7 @@ ErrorDocument 404 /404.html
 
 ### Создание виртуального каталога (mod_alias)
 
-```
+```apacheconf
 Alias /common /web/common
 ```
 
@@ -218,7 +218,7 @@ Alias /common /web/common
 
 ### Создание постоянного редиректа (mod_alias)
 
-```
+```apacheconf
 Redirect permanent /old http://example.com/new
 ```
 
@@ -226,7 +226,7 @@ Redirect permanent /old http://example.com/new
 
 ### Разрешение доступа только с определённого IP-адреса
 
-```
+```apacheconf
 Order Deny,Allow
 Deny from all
 Allow from 127.0.0.1
@@ -236,7 +236,7 @@ Allow from 127.0.0.1
 
 ### Включение механизма редиректов
 
-```
+```apacheconf
 RewriteEngine On
 
 Redirect /news/123 to /news.cfm?id=123
