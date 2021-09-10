@@ -113,7 +113,7 @@ title: "Я — название статьи"
 ```
 ````
 
-Доступные для использования языки и их псевдонимы можно найти в [списке](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md).
+Доступные для использования языки и их псевдонимы можно найти [в документации Highlight.js](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md).
 
 Для выделений названий файлов, папок, систем и т. п., что не код, но хочется акцентировать — используем курсив:
 
