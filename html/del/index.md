@@ -1,5 +1,5 @@
 ---
-title: "<del>"
+title: "`<del>`"
 authors:
   - doka-dog
 keywords:
