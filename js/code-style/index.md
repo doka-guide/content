@@ -1,8 +1,7 @@
 ---
 title: "Стиль написания кода в команде"
 cover:
-  desktop: 'images/cover.png'
-  mobile: 'images/mobile.png'
+  desktop: 'images/covers/desktop.png'
   alt: 'Книга с названием {howto://style}'
 authors:
   - bespoyasov
