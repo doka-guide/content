@@ -283,7 +283,7 @@ docker volume prune
 
 Для того, чтобы подключить том с помощью Dockerfile необходимо использовать инструкцию `VOLUME`:
 
-```bash
+```dockerfile
 FROM node:lts
 RUN useradd user
 RUN mkdir /data && touch /data/x
@@ -293,7 +293,7 @@ VOLUME /data
 
 Интересно, что вы не сможете внести какие-либо изменения в данные на этапе сборки образа. Следующий Dockerfile правильно работать не будет:
 
-```bash
+```dockerfile
 FROM node:lts
 RUN useradd user
 VOLUME /data
