@@ -18,6 +18,7 @@ tags:
 @font-feature-values Otaru Kisa {
   @annotation { circled: 1; black-boxed: 3; }
 }
+
 @font-feature-values Taisho Gothic {
   @annotation { boxed: 1; circled: 4; }
 }
@@ -45,4 +46,3 @@ h3.title {
 У `@styleset` можно объявить до 99 значений. Например, `fancy-style: 2 4 12 1` будет преобразовано браузером в обращение к наборам OpenType ss02, ss04, ss12 и ss01. Технически возможно указать больше 99 значений, но числа больше 99 не будут ни с чем сопоставлены.
 
 У `@character-variant` допускается максимум два значения. Например, `fancy-char: 3` соответствует cv03=1, а `fancy-char: 2 4` соответствует cv02=4.
-
