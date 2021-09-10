@@ -1,7 +1,8 @@
 ---
 title: "Браузерное окружение, BOM"
 cover:
-  desktop: "images/cover.png"
+  desktop: "images/covers/desktop.png"
+  alt: 'Браузер окружён, локацией, анимацией, книгой с историей и дружит с ними'
 authors:
   - bespoyasov
 editors:
