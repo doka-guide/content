@@ -1,7 +1,9 @@
 ---
 title: "try...catch"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Скалолаз лезет в гору'
 authors:
   - windrushfarer
 contributors:
