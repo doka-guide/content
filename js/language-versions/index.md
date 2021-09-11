@@ -1,7 +1,8 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Три картины: v1.0 - Пёсик Дока-ребёнок с конфетой, v2.0 - Пёсик Дока-подросток в косухе со жвачкой, v2.0 - Пёсик Дока-взрослый в костюме'
 authors:
   - bespoyasov
 keywords:
