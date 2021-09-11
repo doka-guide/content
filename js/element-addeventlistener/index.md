@@ -2,10 +2,10 @@
 title: "Element.addEventListener()"
 authors:
   - vindi-r
+  - akellbl4
 contributors:
   - nlopin
   - skorobaeus
-  - akellbl4
 tags:
   - doka
 ---
