@@ -2,7 +2,7 @@
 title: "parseInt"
 description: "Преобразует строку в число по указанному основанию"
 authors:
-  - nlopin
+  - doka-dog
 tags:
   - doka
   - placeholder
