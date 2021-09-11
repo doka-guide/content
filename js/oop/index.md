@@ -1,7 +1,7 @@
 ---
 title: "Объектно-ориентированное программирование"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
   alt: 'Плоская коробка с отверстиями разной формы, откуда высовываются улыбающиеся существа'
 authors:
   - bespoyasov
