@@ -1,8 +1,9 @@
 ---
 title: "Работа с формами"
 cover:
-  desktop: 'images/cover.png'
-  alt: 'Камень с веб-формой, рядом лежит молоток и зубило'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Камень с веб-формой, рядом молоток и зубило'
 authors:
   - bespoyasov
 keywords:
