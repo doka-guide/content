@@ -30,6 +30,7 @@ groups:
       - number-wrapper
       - number-is-nan
       - number-isfinite
+      - number-tostring
       - math
       - math-floor
       - math-random
