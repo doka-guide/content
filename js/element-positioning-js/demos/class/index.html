@@ -60,8 +60,8 @@
     const el = document.querySelector('.element');
 
     el.addEventListener('click', () => {
-      el.classList.add('element-final');
-      el.classList.remove('element-initial');
+      el.classList.toggle('element-final');
+      el.classList.toggle('element-initial');
     })
 
     function setRoundWidth() {
