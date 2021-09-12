@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <title>Смена положения при клике — Позиционирование элементов с помощью JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     *,
     *::before,
@@ -57,11 +58,11 @@
     <div class="element element-initial"></div>
   </div>
   <script>
-    const el = document.querySelector('.element');
+    const el = document.querySelector('.element')
 
     el.addEventListener('click', () => {
-      el.classList.toggle('element-final');
-      el.classList.toggle('element-initial');
+      el.classList.toggle('element-final')
+      el.classList.toggle('element-initial')
     })
 
     function setRoundWidth() {
@@ -70,7 +71,7 @@
       container.style.width = newWidth + 'px'
     }
     setRoundWidth()
-    window.addEventListener("resize", setRoundWidth)
+    window.addEventListener('resize', setRoundWidth)
   </script>
 </body>
 </html>

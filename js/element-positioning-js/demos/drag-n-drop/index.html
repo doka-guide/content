@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <title>Драг-н-дроп — Позиционирование элементов с помощью JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     *,
     *::before,
@@ -46,27 +47,27 @@
     <div class="element"></div>
   </div>
   <script>
-    const element = document.querySelector('.element');
+    const element = document.querySelector('.element')
 
-    let dragging = false;
-    let startX = 0;
-    let startY = 0;
+    let dragging = false
+    let startX = 0
+    let startY = 0
 
     element.addEventListener('mousedown', (e) => {
-      dragging = true;
-      startX = e.pageX - Number.parseInt(element.style.left || 0);
-      startY = e.pageY - Number.parseInt(element.style.top || 0);
+      dragging = true
+      startX = e.pageX - Number.parseInt(element.style.left || 0)
+      startY = e.pageY - Number.parseInt(element.style.top || 0)
     })
 
     document.body.addEventListener('mouseup', () => {
-      dragging = false;
+      dragging = false
     })
 
     document.body.addEventListener('mousemove', (e) => {
-      if (!dragging) return;
+      if (!dragging) return
 
-      element.style.top = `${e.pageY - startY}px`;
-      element.style.left = `${e.pageX - startX}px`;
+      element.style.top = `${e.pageY - startY}px`
+      element.style.left = `${e.pageX - startX}px`
     })
 
     function setRoundWidth() {
@@ -75,7 +76,7 @@
       container.style.width = newWidth + 'px'
     }
     setRoundWidth()
-    window.addEventListener("resize", setRoundWidth)
+    window.addEventListener('resize', setRoundWidth)
   </script>
 </body>
 </html>

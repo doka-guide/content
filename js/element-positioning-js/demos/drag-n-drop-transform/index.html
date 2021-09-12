@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <title>Драг-н-дроп, работающий на transform — Позиционирование элементов с помощью JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     *,
     *::before,
@@ -48,36 +49,36 @@
     <div class="element"></div>
   </div>
   <script>
-    const element = document.querySelector('.element');
+    const element = document.querySelector('.element')
 
-    let dragging = false;
-    let startX = 0;
-    let startY = 0;
+    let dragging = false
+    let startX = 0
+    let startY = 0
 
     element.addEventListener('mousedown', (e) => {
-      dragging = true;
+      dragging = true
 
-      const style = window.getComputedStyle(element);
-      console.log(style.transform);
+      const style = window.getComputedStyle(element)
+      console.log(style.transform)
       const transform = new DOMMatrixReadOnly(style.transform)
 
-      const translateX = transform.m41;
-      const translateY = transform.m42;
+      const translateX = transform.m41
+      const translateY = transform.m42
 
-      startX = e.pageX - translateX;
-      startY = e.pageY - translateY;
+      startX = e.pageX - translateX
+      startY = e.pageY - translateY
     })
 
     document.body.addEventListener('mouseup', () => {
-      dragging = false;
+      dragging = false
     })
 
     document.body.addEventListener('mousemove', (e) => {
-      if (!dragging) return;
+      if (!dragging) return
 
-      const x = e.pageX - startX;
-      const y = e.pageY - startY;
-      element.style.transform = `translate(${x}px, ${y}px)`;
+      const x = e.pageX - startX
+      const y = e.pageY - startY
+      element.style.transform = `translate(${x}px, ${y}px)`
     })
 
     function setRoundWidth() {
@@ -86,7 +87,7 @@
       container.style.width = newWidth + 'px'
     }
     setRoundWidth()
-    window.addEventListener("resize", setRoundWidth)
+    window.addEventListener('resize', setRoundWidth)
   </script>
 </body>
 </html>
