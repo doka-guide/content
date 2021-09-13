@@ -32,6 +32,7 @@ groups:
       - number-is-nan
       - number-isfinite
       - number-tostring
+      - parseint
       - math
       - math-floor
       - math-random
@@ -100,6 +101,7 @@ groups:
       - cleartimeout
       - setinterval
       - clearinterval
+      - parseint
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
