@@ -1,5 +1,5 @@
 ---
-title: "<datalist>"
+title: "`<datalist>`"
 authors:
   - doka-dog
 keywords:

@@ -1,5 +1,5 @@
 ---
-title: "<input>"
+title: "`<input>`"
 authors:
   - vladimir
 contributors:

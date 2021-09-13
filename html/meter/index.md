@@ -1,5 +1,5 @@
 ---
-title: "<meter>"
+title: "`<meter>`"
 authors:
   - doka-dog
 keywords:

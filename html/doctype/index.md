@@ -1,5 +1,5 @@
 ---
-title: "<!DOCTYPE>"
+title: "`<!DOCTYPE>`"
 authors:
   - grachev
 contributors:

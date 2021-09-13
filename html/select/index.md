@@ -1,5 +1,5 @@
 ---
-title: "<select>"
+title: "`<select>`"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

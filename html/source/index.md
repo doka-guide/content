@@ -1,5 +1,5 @@
 ---
-title: "<source>"
+title: "`<source>`"
 authors:
   - ezhkov
 editors:

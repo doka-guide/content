@@ -1,5 +1,5 @@
 ---
-title: "<base>"
+title: "`<base>`"
 authors:
   - doka-dog
 keywords:

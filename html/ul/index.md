@@ -1,5 +1,5 @@
 ---
-title: "<ul>"
+title: "`<ul>`"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
