@@ -1,5 +1,5 @@
 ---
-title: "Array.map"
+title: "`Array.map`"
 authors:
   - windrushfarer
 contributors:

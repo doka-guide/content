@@ -1,5 +1,5 @@
 ---
-title: "getElementsByClassName()"
+title: "`getElementsByClassName()`"
 authors:
   - nlopin
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "Контекст выполнения функций, this"
+title: "Контекст выполнения функций, `this`"
 authors:
   - bespoyasov
 keywords:

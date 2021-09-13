@@ -1,5 +1,5 @@
 ---
-title: "Math"
+title: "`Math`"
 authors:
   - vindi-r
 tags:

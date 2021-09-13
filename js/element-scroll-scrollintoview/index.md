@@ -1,5 +1,5 @@
 ---
-title: "Element.scroll/scrollIntoView"
+title: "`Element.scroll/scrollIntoView`"
 authors:
   - vindi-r
 contributors:

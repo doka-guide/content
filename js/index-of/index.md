@@ -1,5 +1,5 @@
 ---
-title: "indexOf()"
+title: "`indexOf()`"
 authors:
   - nlopin
 tags:

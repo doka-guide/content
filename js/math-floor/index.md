@@ -1,5 +1,5 @@
 ---
-title: "Math.floor()"
+title: "`Math.floor()`"
 authors:
   - nlopin
 tags:

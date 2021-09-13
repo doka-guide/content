@@ -1,5 +1,5 @@
 ---
-title: ".blur()"
+title: "`.blur()`"
 description: "Снимает фокус с DOM-элемента, на котором вызван"
 authors:
   - windrushfarer

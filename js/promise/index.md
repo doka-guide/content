@@ -1,5 +1,5 @@
 ---
-title: "Promise"
+title: "`Promise`"
 cover:
   desktop: 'images/covers/desktop.png'
   alt: 'Две руки держат друг-друга мизинчиками и жесте "мирись-мирись-мирись"'

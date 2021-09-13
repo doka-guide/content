@@ -1,5 +1,5 @@
 ---
-title: "window.print()"
+title: "`window.print()`"
 description: "Открывает диалог печати текущей страницы"
 authors:
   - nlopin

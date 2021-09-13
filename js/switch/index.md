@@ -1,5 +1,5 @@
 ---
-title: "switch"
+title: "`switch`"
 authors:
   - nlopin
 contributors:

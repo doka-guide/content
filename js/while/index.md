@@ -1,5 +1,5 @@
 ---
-title: "while"
+title: "`while`"
 authors:
   - nlopin
 contributors:
