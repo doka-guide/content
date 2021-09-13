@@ -1,5 +1,5 @@
 ---
-title: "const"
+title: "`const`"
 authors:
   - nlopin
 contributors:

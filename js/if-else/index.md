@@ -1,5 +1,5 @@
 ---
-title: "if...else"
+title: "`if`...`else`"
 authors:
   - nlopin
 keywords:

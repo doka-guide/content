@@ -1,5 +1,5 @@
 ---
-title: "URLSearchParams"
+title: "`URLSearchParams`"
 authors:
   - akellbl4
 keywords:

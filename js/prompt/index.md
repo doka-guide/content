@@ -1,5 +1,5 @@
 ---
-title: "prompt()"
+title: "`prompt()`"
 authors:
   - vindi-r
 tags:

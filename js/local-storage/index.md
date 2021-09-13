@@ -1,5 +1,5 @@
 ---
-title: "localStorage"
+title: "`localStorage`"
 authors:
   - akellbl4
 keywords:

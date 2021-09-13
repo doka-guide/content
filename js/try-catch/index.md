@@ -1,5 +1,5 @@
 ---
-title: "try...catch"
+title: "`try`...`catch`"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

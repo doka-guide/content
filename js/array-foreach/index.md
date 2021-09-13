@@ -1,5 +1,5 @@
 ---
-title: "Array.forEach"
+title: "`Array.forEach`"
 authors:
   - windrushfarer
 contributors:
