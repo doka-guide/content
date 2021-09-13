@@ -9,22 +9,26 @@ try {
   const options = Object.defineProperty({}, "passive", {
     get() {
       hasPassiveSupport = true;
-    }
+    },
   });
 
   window.addEventListener("test", null, options);
-} catch(err) {}
+} catch (err) {}
 ```
 
 Далее мы можем просто проверить если `passive` поддерживается то передавать `options` иначе передавать `false`
 
 ```js
-window.addEventListener('resize', () => {}, hasPassiveSupport ? { passive: true } : false)
+window.addEventListener(
+  "resize",
+  () => {},
+  hasPassiveSupport ? { passive: true } : false
+);
 ```
 
 Так же в случае если вы хотите использовать `passive` и `capture` одновременно то такую проверку можно не делать.
 В этом случае старый браузер воспримет переданный объект как `true` и включит `capture`, а новый обработает оба параметра внутри объекта.
 
 ```js
-window.addEventListener('resize', () => {}, { passive: true, capture: true })
+window.addEventListener("resize", () => {}, { passive: true, capture: true });
 ```
