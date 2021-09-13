@@ -1,5 +1,5 @@
 ---
-title: "background-color"
+title: "`background-color`"
 authors:
   - solarrust
 contributors:

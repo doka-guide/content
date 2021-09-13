@@ -1,5 +1,5 @@
 ---
-title: "align-self"
+title: "`align-self`"
 authors:
   - solarrust
 editors:

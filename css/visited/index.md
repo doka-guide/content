@@ -1,5 +1,5 @@
 ---
-title: ":visited"
+title: "`:visited`"
 authors:
   - solarrust
 contributors:

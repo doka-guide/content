@@ -1,5 +1,5 @@
 ---
-title: "grid-template-areas"
+title: "`grid-template-areas`"
 authors:
   - solarrust
 keywords:

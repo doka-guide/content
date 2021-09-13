@@ -1,5 +1,5 @@
 ---
-title: "text-underline-offset"
+title: "`text-underline-offset`"
 authors:
   - doka-dog
 keywords:

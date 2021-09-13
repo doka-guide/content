@@ -1,5 +1,5 @@
 ---
-title: "background-position"
+title: "`background-position`"
 authors:
   - solarrust
 contributors:

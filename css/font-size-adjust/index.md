@@ -1,5 +1,5 @@
 ---
-title: "font-size-adjust"
+title: "`font-size-adjust`"
 description: ""
 authors:
   - doka-dog

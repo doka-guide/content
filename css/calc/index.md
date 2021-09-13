@@ -1,5 +1,5 @@
 ---
-title: "calc()"
+title: "`calc()`"
 authors:
   - solarrust
 contributors:

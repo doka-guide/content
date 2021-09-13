@@ -1,5 +1,5 @@
 ---
-title: "background-image"
+title: "`background-image`"
 authors:
   - grachev
 contributors:

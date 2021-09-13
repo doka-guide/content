@@ -1,5 +1,5 @@
 ---
-title: "text-orientation"
+title: "`text-orientation`"
 authors:
   - doka-dog
 keywords:

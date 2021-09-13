@@ -1,5 +1,5 @@
 ---
-title: "font-variant-numeric"
+title: "`font-variant-numeric`"
 description: ""
 authors:
   - doka-dog

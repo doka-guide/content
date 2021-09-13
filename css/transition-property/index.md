@@ -1,5 +1,5 @@
 ---
-title: "transition-property"
+title: "`transition-property`"
 authors:
   - ezhkov
 keywords:

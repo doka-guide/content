@@ -1,5 +1,5 @@
 ---
-title: "background-size"
+title: "`background-size`"
 authors:
   - solarrust
 contributors:

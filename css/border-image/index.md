@@ -1,5 +1,5 @@
 ---
-title: "border-image"
+title: "`border-image`"
 authors:
   - solarrust
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "text-justify"
+title: "`text-justify`"
 authors:
   - doka-dog
 keywords:

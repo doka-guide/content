@@ -1,5 +1,5 @@
 ---
-title: "border"
+title: "`border`"
 authors:
   - solarrust
 contributors:

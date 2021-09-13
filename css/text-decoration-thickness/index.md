@@ -1,5 +1,5 @@
 ---
-title: "text-decoration-thickness"
+title: "`text-decoration-thickness`"
 authors:
   - doka-dog
 keywords:

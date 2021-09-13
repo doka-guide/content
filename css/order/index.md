@@ -1,5 +1,5 @@
 ---
-title: "order"
+title: "`order`"
 authors:
   - solarrust
 editors:

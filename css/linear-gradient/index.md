@@ -1,5 +1,5 @@
 ---
-title: "linear-gradient()"
+title: "`linear-gradient()`"
 authors:
   - ezhkov_d
 keywords:

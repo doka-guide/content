@@ -1,5 +1,5 @@
 ---
-title: "hyphens"
+title: "`hyphens`"
 authors:
   - doka-dog
 keywords:

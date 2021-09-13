@@ -1,5 +1,5 @@
 ---
-title: "flex"
+title: "`flex`"
 authors:
   - solarrust
 editors:

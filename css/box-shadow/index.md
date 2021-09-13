@@ -1,5 +1,5 @@
 ---
-title: "box-shadow"
+title: "`box-shadow`"
 authors:
   - solarrust
 contributors:

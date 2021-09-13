@@ -1,5 +1,5 @@
 ---
-title: "justify-self"
+title: "`justify-self`"
 authors:
   - solarrust
 keywords:

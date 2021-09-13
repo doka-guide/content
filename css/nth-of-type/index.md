@@ -1,5 +1,5 @@
 ---
-title: "Псевдоклассы группы type"
+title: "Псевдоклассы группы `type`"
 authors:
   - realetive
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "animation-duration"
+title: "`animation-duration`"
 authors:
   - solarrust
 editors:

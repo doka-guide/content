@@ -1,5 +1,5 @@
 ---
-title: "text-transform"
+title: "`text-transform`"
 authors:
   - solarrust
 contributors:
