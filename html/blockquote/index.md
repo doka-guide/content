@@ -1,5 +1,5 @@
 ---
-title: "<blockquote>"
+title: "`<blockquote>`"
 authors:
   - solarrust
 contributors:

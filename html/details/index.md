@@ -1,5 +1,5 @@
 ---
-title: "Теги <details> и <summary>"
+title: "Теги `<details>` и `<summary>`"
 authors:
   - lenaryan
 keywords:

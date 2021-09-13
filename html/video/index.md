@@ -1,5 +1,5 @@
 ---
-title: "<video>"
+title: "`<video>`"
 authors:
   - vladimir
 contributors:

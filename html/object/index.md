@@ -1,5 +1,5 @@
 ---
-title: "<object>"
+title: "`<object>`"
 authors:
   - doka-dog
 keywords:

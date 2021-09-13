@@ -1,5 +1,5 @@
 ---
-title: "<address>"
+title: "`<address>`"
 authors:
   - ezhkov
 contributors:

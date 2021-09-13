@@ -1,5 +1,5 @@
 ---
-title: "<p>"
+title: "`<p>`"
 authors:
   - vladimir
 contributors:
