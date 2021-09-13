@@ -19,11 +19,11 @@ tags:
 Найдём первую кнопку на странице и будем выводить сообщение в консоль, когда произошёл клик по этой кнопке.
 
 ```js
-const element = document.querySelector("button");
+const element = document.querySelector('button')
 
-element.addEventListener("click", (event) => {
-  console.log("произошло событие", event.type);
-});
+element.addEventListener('click', (event) => {
+  console.log('Произошло событие', event.type)
+})
 ```
 
 ## Как это понять
@@ -33,19 +33,19 @@ element.addEventListener("click", (event) => {
 Функция может быть объявлена ранее, а может быть и анонимной:
 
 ```js
-const element = document.querySelector("button");
+const element = document.querySelector('button')
 
 function handleClickFunction(event) {
-  alert("Именованая функция");
+  alert('Именованная функция')
 }
 
 // Добавление функции handleClickFunction как обработчика события click
-element.addEventListener("click", handleClickFunction);
+element.addEventListener('click', handleClickFunction)
 
 // Добавление анонимной функции как обработчика события click
-element.addEventListener("click", (event) => {
-  alert("Анонимная функция");
-});
+element.addEventListener('click', (event) => {
+  alert('Анонимная функция')
+})
 ```
 
 🤖 Заранее созданные функции обычно используют, когда функция содержит в себе много кода или к ней нужно ссылаться несколько раз. Например, когда нужно отписаться от события позже. Для отписки используется метод элемента [`Element.removeEventListener`](/js/element-removeeventlistener).
@@ -57,7 +57,7 @@ element.addEventListener("click", (event) => {
 Сигнатура функции выглядит следующим образом
 
 ```js
-element.addEventListener(eventType, handler, options);
+element.addEventListener(eventType, handler, options)
 ```
 
 - `element` – любой HTMLElement на странице
@@ -78,17 +78,17 @@ element.addEventListener(eventType, handler, options);
 
 ```js
 function handleMouseClick(event) {
-  console.log("Вы нажали на элемент:", event.target);
+  console.log('Вы нажали на элемент:', event.target)
 }
 
 // Добавляем обработчик события
-window.addEventListener("click", handleMouseClick);
-window.addEventListener("click", handleMouseClick, true);
-window.addEventListener("click", handleMouseClick, false);
-window.addEventListener("click", handleMouseClick, {
+window.addEventListener('click', handleMouseClick)
+window.addEventListener('click', handleMouseClick, true)
+window.addEventListener('click', handleMouseClick, false)
+window.addEventListener('click', handleMouseClick, {
   passive: true,
   capture: false,
-});
+})
 ```
 
 У объекта event есть специальные методы, такие как `preventDefault()` и `stopPropagation()`. Остальные методы практически не используются:
