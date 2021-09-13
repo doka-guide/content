@@ -25,11 +25,13 @@ groups:
       - function
       - typecasting
       - objects-objects-everywhere
+      - object-tostring
   - name: "Числа `number`"
     items:
       - number-wrapper
       - number-is-nan
       - number-isfinite
+      - number-tostring
       - math
       - math-floor
       - math-random
