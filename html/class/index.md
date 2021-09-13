@@ -1,5 +1,5 @@
 ---
-title: "class"
+title: "`class`"
 authors:
   - solarrust
 contributors:

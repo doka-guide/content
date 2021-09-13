@@ -1,5 +1,5 @@
 ---
-title: "<meta>"
+title: "`<meta>`"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

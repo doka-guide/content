@@ -1,5 +1,5 @@
 ---
-title: "<script>"
+title: "`<script>`"
 authors:
   - grachev
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "<head>"
+title: "`<head>`"
 authors:
   - vladimir
 contributors:
