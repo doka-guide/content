@@ -21,7 +21,9 @@ try {
 ```js
 window.addEventListener(
   'resize',
-  () => {},
+  function () {
+    // обработка события
+  },
   hasPassiveSupport ? { passive: true } : false
 )
 ```
@@ -30,5 +32,7 @@ window.addEventListener(
 В этом случае старый браузер воспримет переданный объект как `true` и включит `capture`, а новый обработает оба параметра внутри объекта.
 
 ```js
-window.addEventListener('resize', () => {}, { passive: true, capture: true })
+window.addEventListener('resize', function () {
+  // обработка события
+}, { passive: true, capture: true })
 ```
