@@ -33,6 +33,7 @@ groups:
       - number-isfinite
       - number-tostring
       - parseint
+      - parsefloat
       - math
       - math-floor
       - math-random
