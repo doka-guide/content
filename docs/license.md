@@ -8,7 +8,7 @@
 
 ## Лицензия для текстов
 
-Наши тексты распространяются по лицензии [CC BY-NC-SA 4.0](../content/LICENSE-SA.md).
+Наши тексты распространяются по лицензии [CC BY-NC-SA 4.0](../LICENSE-SA.md).
 
 ![Creative Commons](images/license/cc.svg)
 ![Сохранение ссылок и авторства](images/license/by.svg)
@@ -19,7 +19,7 @@
 
 ## Лицензии для остального контента
 
-Всё остальное в Доке, кроме текста, распространяется по лицензии [CC BY-NC-ND 4.0](../content/LICENCE-ND.md).
+Всё остальное в Доке, кроме текста, распространяется по лицензии [CC BY-NC-ND 4.0](../LICENCE-ND.md).
 
 ![Creative Commons](images/license/cc.svg)
 ![Сохранение ссылок и авторства](images/license/by.svg)
