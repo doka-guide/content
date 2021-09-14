@@ -17,9 +17,9 @@ tags:
 ```js
 parseFloat('12.12')
 // 12.12
-parseFloat("12")
+parseFloat('12')
 // 12
-// parseFloat("  12.42")
+parseFloat('  12.42')
 // 12.42, пробелы в начале игнорируются
 parseFloat('absa')
 // NaN
