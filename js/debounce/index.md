@@ -1,9 +1,12 @@
 ---
 title: "Debounce на примере формы поиска"
 cover:
-  desktop: "images/cover.png"
+  desktop: "images/covers/desktop.png"
+  alt: 'Девушка сидит за столом, окружённая часами разных видов, от будильника, до настенных'
 authors:
   - bespoyasov
+contributors:
+  - skorobaeus
 keywords:
   - keyboard event
   - delay
@@ -19,11 +22,13 @@ tags:
 
 `debounce` — это функция, которая «откладывает» вызов другой функции до того момента, когда с последнего вызова пройдёт определённое количество времени.
 
-![диаграмма работы debounce](images/debounce-diagram.png)
+<video controls width="580" height="335" poster="images/poster-debounce.png">
+  <source src="videos/debounce.mp4" type="video/mp4">
+</video>
 
 Такую функцию используют, чтобы не бомбардировать сервер кучей запросов на каждый чих, а подождать, когда пользователь закончит или приостановит ввод, и только после этого отправить запрос на сервер.
 
-Это бывает нужно в не только в формах поиска, как у нас, но и если мы пишем :
+Это бывает нужно в не только в формах поиска, как у нас, но и если мы пишем:
 
 - скрипт аналитики, который что-то считает после события прокрутки — если нам не хочется ничего считать до тех пор, пока пользователь не закончит прокручивать страницу;
 - модуль, который ждёт окончания некоторого повторяющегося действия, чтобы выполнить свою работу.
@@ -36,17 +41,17 @@ tags:
 <!-- У формы есть атрибут action, который будет работать,
     если пользователи отключили скрипты. -->
 <form action="/some-route" method="GET" id="search">
-  <label>Find your favourite pizza:</label>
+  <label>Найди любимую пиццу:</label>
 
   <!-- Используем input с типом search,
       чтобы браузеры делали дополнительную магию
       с автозаполнением и подходящими кнопками
       на телефонных клавиатурах. -->
-  <input type="search" name="query" placeholder="Margherita" />
+  <input type="search" name="query" placeholder="Маргарита" />
 
   <!-- У кнопки тип проставлять необязательно,
       так как submit — это тип кнопки по умолчанию. -->
-  <button>Search!</button>
+  <button>Искать!</button>
 </form>
 
 <ul class="search-results"></ul>
@@ -78,12 +83,12 @@ tags:
 // По этому массиву мы будем искать названия,
 // которые содержат пользовательский запрос.
 const pizzaList = [
-  "Margherita",
-  "Pepperoni",
-  "Hawaii",
-  "4 Cheeses",
-  "Diabola",
-  "Sfincione",
+  'Маргарита',
+  'Пепперони',
+  'Гавайская',
+  '4 Сыра',
+  'Диабло',
+  'Сицилийская'
 ];
 ```
 
@@ -364,9 +369,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="bespoyasov" data-slug-hash="BazXpNp" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-debounce-search-form">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/BazXpNp">
-  doka-debounce-search-form</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280"></iframe>

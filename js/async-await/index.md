@@ -1,5 +1,5 @@
 ---
-title: "async/await"
+title: "`async/await`"
 authors:
   - nlopin
 keywords:

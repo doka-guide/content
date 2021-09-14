@@ -1,7 +1,8 @@
 ---
-title: "<footer>"
+title: "`<footer>`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Кроксы с украшениями в виде табличек: "2021 DOKA", "BIG FOOT rocks"'
 authors:
   - vladimir
   - solarrust
@@ -35,7 +36,7 @@ tags:
 </article>
 ```
 
-<iframe title="Футер для статьи" src="demos/footer.html" height="300"></iframe>
+<iframe title="Футер для статьи" src="demos/footer/" height="300"></iframe>
 
 ## Как это понять
 

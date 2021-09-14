@@ -1,5 +1,9 @@
 ---
-title: "<meta>"
+title: "`<meta>`"
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Голова человека, обрамлённая открывающим и закрывающим тегами head. Внутри головы множество тегов meta.'
 authors:
   - grachev
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "confirm()"
+title: "`confirm()`"
 authors:
   - vindi-r
 contributors:
@@ -16,11 +16,7 @@ tags:
 
 ## Пример
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="rbNjgj" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="confirm() кратко">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/rbNjgj">
-  confirm() кратко</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — confirm() — Дока" src="demos/vindi-r-rbNjgj
 
 💡 Это крайне быстрый вариант кода, который взаимодействует с пользователем, но окно созданное таким образом не изменяется через CSS, а значит использовать его лучше только для прототипирования интерфейса. В финальном варианте веб-страницы использовать модальное окно нежелательно.
 
@@ -63,8 +59,4 @@ if (result === true) {
 
 Так как `confirm` всегда выдаёт boolean значение, то проверки на true/false вполне достаточно для продолжения работы скрипта.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="jROyRE" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="confirm() как это понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/jROyRE">
-  confirm() как это понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — confirm() — Дока" src="demos/vindi-r-jROyRE/"></iframe>

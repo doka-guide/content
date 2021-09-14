@@ -1,7 +1,9 @@
 ---
-title: "<ul>"
+title: "`<ul>`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Тарелка с роллами, подписанная UL и отдельный ролл, подписанный LI.'
 authors:
   - ezhkov
 contributors:

@@ -8,12 +8,7 @@
 
 В примере ниже мы используем [Прокрутчик](https://bespoyasov.ru/scroller/), чтобы таскать блоки мышью и крутить их с инерцией:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="result" data-user="bespoyasov" data-slug-hash="bGeJQvO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-scroller-example">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/bGeJQvO">
-  doka-scroller-example</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Галерея с прокрутчиком (scroller) — Позиционирование элементов с помощью JS — Дока" src="../demos/scroller/" height="220"></iframe>
 
 Мы позиционируем элементы с помощью скриптов, потому что не знаем, когда и как пользователь захочет прокрутить ленту с блоками.
 

@@ -1,5 +1,5 @@
 ---
-title: "Element.classList"
+title: "`Element.classList`"
 authors:
   - windrushfarer
 contributors:
@@ -25,12 +25,7 @@ button.classList.remove("active") // удалили класс
 button.classList.contains("active") // вернет false, т.к. класса у элемента нет
 ```
 
-<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="Windrushfarer" data-slug-hash="BaLREeZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="BaLREeZ">
-  <span>See the Pen <a href="https://codepen.io/Windrushfarer/pen/BaLREeZ">
-  Element.classList</a> by Egor Ogarkov (<a href="https://codepen.io/Windrushfarer">@Windrushfarer</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/"></iframe>
 
 ## Как понять
 

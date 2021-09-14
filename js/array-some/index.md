@@ -1,7 +1,9 @@
 ---
-title: "Array.some"
+title: "`Array.some`"
 authors:
   - windrushfarer
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
@@ -32,7 +34,7 @@ const hasEvenNumber = oddNums.some(num => {
 
 Интерактивный пример
 
-<iframe title="Используем some для проверки массива" src="demos/index.html"></iframe>
+<iframe title="Используем some для проверки массива — Array.some — Дока" src="demos/index/" height="930"></iframe>
 
 ## Как пишется
 

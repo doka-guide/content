@@ -1,5 +1,5 @@
 ---
-title: "Element.touch"
+title: "`Element.touch`"
 authors:
   - windrushfarer
 keywords:
@@ -66,8 +66,4 @@ element.addEventListener("touchend", (event) => {
 
 Рисовалка ниже использует поля события и типы событий касаний. Используйте смартфон, так как касания не работают при использовании мыши.
 
-<p class="codepen" data-height="500" data-theme-id="light" data-default-tab="js,result" data-user="Windrushfarer" data-slug-hash="RwGjopb" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="RwGjopb">
-  <span>See the Pen <a href="https://codepen.io/Windrushfarer/pen/RwGjopb">
-  Touch Draw</a> by Egor Ogarkov (<a href="https://codepen.io/Windrushfarer">@Windrushfarer</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — Element.touch — Дока" src="demos/Windrushfarer-RwGjopb/"></iframe>

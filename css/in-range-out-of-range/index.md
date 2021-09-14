@@ -41,11 +41,7 @@ tags:
 }
 ```
 
-<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="xxqvWZg" data-user="solarrust" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/xxqvWZg">
-  :in-range / :out-of-range 1</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Поле ввода с диапазоном" src="demos/input-with-range/" height="50"></iframe>
 
 ## Как это понять
 
@@ -71,9 +67,4 @@ input:out-of-range + span {
 
 💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать подсказку полю ввода:
 
-<p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="yLMmKOL" data-user="solarrust" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/solarrust/pen/yLMmKOL">
-  :in-range / :out-of-range 2</a> by Alena (<a href="https://codepen.io/solarrust">@solarrust</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Поле ввода с placeholder-shown" src="demos/input-with-placeholder-shown/" height="50"></iframe>

@@ -41,7 +41,7 @@ MERN — это аббревиатура от MongoDB, Express, React, Node.js. 
 └── README.md
 ```
 
-Файл конфигурации `compose.yaml` можно сделать так:
+Файл конфигурации _compose.yaml_ можно сделать так:
 
 ```
 services:

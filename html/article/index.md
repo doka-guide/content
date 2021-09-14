@@ -1,8 +1,8 @@
 ---
-title: "<article>"
+title: "`<article>`"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
   alt: 'Фотоальбом с фотографиями, слева — большая с мальчиком, справа сверху — меч, справа снизу — девочка'
 authors:
   - realetive

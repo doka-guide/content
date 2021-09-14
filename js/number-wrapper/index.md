@@ -1,5 +1,5 @@
 ---
-title: "Number"
+title: "`Number`"
 authors:
   - nlopin
 keywords:
@@ -85,9 +85,4 @@ console.log(bigNumberWrapper.toLocaleString("en_US")) // 100,000,000
 console.log(bigNumberWrapper.toLocaleString("ar-EG")) // ١٠٠٬٠٠٠٬٠٠٠
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="orxXgx" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Number.toLocaleString">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/orxXgx">
-  Number.toLocaleString</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Number — Дока" src="demos/Lopinopulos-orxXgx/"></iframe>

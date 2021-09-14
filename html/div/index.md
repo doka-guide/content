@@ -1,7 +1,8 @@
 ---
-title: "<div>"
+title: "`<div>`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Удивлённый парень смотрит на друга с татуировками "<div>" от запястья до шеи'
 authors:
   - grachev
 contributors:
@@ -44,7 +45,7 @@ tags:
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div.html" height="260"></iframe>
+<iframe title="Див с фоном" src="demos/div/" height="260"></iframe>
 
 ## Как это понять
 

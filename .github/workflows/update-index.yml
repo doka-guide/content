@@ -1,12 +1,16 @@
-name: Update Search Index
+name: Update Index
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "YaSpeller All"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
-  search:
+  update-index:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

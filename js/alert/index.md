@@ -1,7 +1,9 @@
 ---
-title: "alert()"
+title: "`alert()`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девочка выглядывает из браузера и держит в руках табличку "Push me"'
 authors:
   - vindi-r
 contributors:
@@ -24,11 +26,7 @@ tags:
 
 ## Пример
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="qvVgoW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="alert() пример">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/qvVgoW">
-  alert() пример</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — alert() — Дока" src="demos/vindi-r-qvVgoW/"></iframe>
 
 💡 Это самый быстрый и простой способ что-то сказать пользователю, но такое окно никак не стилизовать, а значит, использовать его лучше только для прототипирования интерфейса. В финальном варианте веб-страницы использовать подобные модальные диалоги нежелательно.
 
@@ -77,8 +75,4 @@ alert({ text: "Some message" })
 
 💡 Чтобы объяснить JavaScript, как нужно выводить объект с данными в `alert()`, необходимо описать функцию объекта `toString`, которая отвечает за приведение к строке:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="YgEgzN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="alert() для объекта">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/YgEgzN">
-  alert() для объекта</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — alert() — Дока" src="demos/vindi-r-YgEgzN

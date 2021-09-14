@@ -1,8 +1,8 @@
 ---
 title: "Гайд по flexbox"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
   alt: 'Окно браузера, мобильный телефон, умные часы и зеркальце из сказки про Белоснежку. На всех открыт один и тот же сайт.'
 authors:
   - solarrust
@@ -197,7 +197,7 @@ tags:
 
 Это может быть сложно понять сразу, поэтому мы сделали демку. Обратите внимание, что вне зависимости от размера шрифта все блоки выравниваются по базовой линии первой строки.
 
-<iframe title="Выравнивание по базовой линии" src="demos/baseline.html"></iframe>
+<iframe title="Выравнивание по базовой линии" src="demos/baseline/" height="540"></iframe>
 
 ### `align-content`
 

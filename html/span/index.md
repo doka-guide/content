@@ -1,5 +1,5 @@
 ---
-title: "<span>"
+title: "`<span>`"
 authors:
   - vladimir
 contributors:
@@ -75,4 +75,4 @@ tags:
 }
 ```
 
-<iframe title="Буквица" src="demos/show.html" height="240"></iframe>
+<iframe title="Буквица" src="demos/show/" height="240"></iframe>

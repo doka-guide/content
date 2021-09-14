@@ -1,7 +1,8 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
 cover:
-  desktop: "images/cover.png"
+  desktop: "images/covers/desktop.png"
+  alt: 'Девочка кликает мышкой, играя в файтинг в стиле Mortal Kombat, где героиня бьёт ногой по снеговику'
 authors:
   - bespoyasov
 keywords:
@@ -227,9 +228,4 @@ window.addEventListener("resize", optimizedHandler);
 
 Пример такого прогресс-бара получится таким:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="bespoyasov" data-slug-hash="ZEpzYbN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="doka-throttle-read-percent">
-  <span>See the Pen <a href="https://codepen.io/bespoyasov/pen/ZEpzYbN">
-  doka-throttle-read-percent</a> by Alexander Bespoyasov (<a href="https://codepen.io/bespoyasov">@bespoyasov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Прогресс-бар для статьи — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/article-progress/" height="500"></iframe>

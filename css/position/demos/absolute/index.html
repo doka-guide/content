@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Абсолютное позиционирование — position — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    .parent {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px dashed;
+      display: flex;
+      position: relative;
+    }
+
+    .child {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border: 2px solid blue;
+      background: #0000ff66;
+      text-align: center;
+      line-height: 100px;
+      font-size: 40px;
+    }
+
+    .positioned {
+      border-color: red;
+      background-color: #ffff0060;
+      position: absolute;
+      left: 30px;
+      top: 40px;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<p>Блоки находятся в нормальном потоке</p>
+<div class="parent">
+  <div class="child">1</div>
+  <div class="child">2</div>
+  <div class="child">3</div>
+</div>
+<p>Один из блоков позиционирован абсолютно</p>
+<div class="parent">
+  <div class="child">1</div>
+  <div class="child positioned">2</div>
+  <div class="child">3</div>
+</div>
+</body>
+</html>

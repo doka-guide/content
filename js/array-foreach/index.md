@@ -1,5 +1,5 @@
 ---
-title: "Array.forEach"
+title: "`Array.forEach`"
 authors:
   - windrushfarer
 contributors:
@@ -37,7 +37,7 @@ numbers.forEach((num) => {
 
 Интерактивный пример:
 
-<iframe title="Работа Array.forEach" src="demos/index.html"></iframe>
+<iframe title="Работа Array.forEach — Array.forEach — Дока" src="demos/index/" height="610"></iframe>
 
 Совсем любопытные могут заглянуть в исходники, чтобы посмотреть как `forEach` активно используется в коде этого примера.
 

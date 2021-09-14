@@ -1,12 +1,16 @@
 name: Sort Dictionary
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "YaSpeller All"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
-  spell:
+  sort-dictionary:
     runs-on: ubuntu-latest
     strategy:
       matrix:

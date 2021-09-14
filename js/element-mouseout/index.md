@@ -1,5 +1,5 @@
 ---
-title: "Element.mouseout"
+title: "`Element.mouseout`"
 authors:
   - nlopin
 contributors:
@@ -32,16 +32,19 @@ divEl.addEventListener("mouseout", function () {
 Событие проще всего понять на демо. При событии `mouseout` мы меняем цвет фигуры на случайный. Чтобы событие произошло, нужно навести курсор на фигуру, а затем убрать его:
 
 ```js
-const figure = document.querySelector('.figure');
+const figure = document.querySelector('.figure')
+const text = document.querySelector('.text')
 
 figure.addEventListener('mouseout', function() {
-  figure.style = `background-color: ${getColor()};`;
-});
+  let currentColor = getColor()
+  figure.style.backgroundColor = currentColor
+  text.style.color = currentColor
+})
 
 function getColor() {
-  const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#AFC9DA", "#FFD829", "#282A2E", "#979797", "#E6E6E6", "#FFFFFF"];
-  return colors[Math.floor(Math.random() * colors.length)];
+  const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
+  return colors[Math.floor(Math.random() * colors.length)]
 }
 ```
 
-<iframe title="Смена цвета при событии mouseout" src="demos/index.html"></iframe>
+<iframe title="Смена цвета при событии mouseout — Element.mouseout — Дока" src="demos/index/" height="300"></iframe>

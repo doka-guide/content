@@ -8,7 +8,7 @@ keywords:
   - файл
   - Unix
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко

@@ -104,11 +104,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="WNwwpmX" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition-timing-function">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/WNwwpmX">
-  transition-timing-function</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Демонстрация разных временных функций" src="demos/every/" height="150"></iframe>
 
 ### Функция `steps`
 
@@ -139,11 +135,7 @@ tags:
 
 В зависимости от используемого сейчас браузера пример ниже может изменяться:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="jOqqmme" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition-timing-function1">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/jOqqmme">
-  transition-timing-function1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Демонстрация разных значений jump" src="demos/jump/" height="250"></iframe>
 
 Ключевые слова `step-start`, `step-end` являются синонимами для записи `steps(1, jump-start)` и `steps(1, jump-end)`. Изменение происходит скачком за один шаг.
 
@@ -151,11 +143,7 @@ tags:
 
 `step-end` дожидается конца анимации и потом переходит в конечное состояние
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="PoNNOgM" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition-timing-function2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/PoNNOgM">
-  transition-timing-function2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Демонстрация разных значений step" src="demos/step/" height="200"></iframe>
 
 ## Подсказки
 
@@ -163,9 +151,4 @@ tags:
 
 💡 Задавая коэффициенты `p2` и `p4` меньше 0 или больше 1, можно добиться эффекта «пружины», что в некоторых случаях может сделать анимацию более интересной
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="ZEWWvYJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="transition-timing-function2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/ZEWWvYJ">
-  transition-timing-function2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Cubic-bezier" src="demos/cubic-bezier/" height="150"></iframe>

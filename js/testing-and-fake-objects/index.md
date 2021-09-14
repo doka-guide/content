@@ -3,7 +3,7 @@ title: "Фиктивные объекты и данные, моки, стабы"
 authors:
   - bespoyasov
 cover:
-  desktop: "images/cover.png"
+  desktop: "images/covers/desktop.png"
   alt: 'Девочка-фея с крылышками и кот в шапке бегут по беговой дорожке'
 tags:
   - article

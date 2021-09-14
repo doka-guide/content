@@ -49,11 +49,7 @@ tags:
 
 Рендеринг текста — сложный процесс, и браузеру приходится решать, как именно оптимизировать вывод символов: где-то скорректировать кернинг, где-то собрать символы в лигатуры, а где-то обеспечить геометрическую точность отрисовки символа. Свойство `text-rendering` указывает, что именно должен оптимизировать браузер во время рендеринга.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="OJRzYjL" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="text-rendering">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/OJRzYjL">
-  text-rendering</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Примеры лигатуры и кернинговых пар" src="demos/ligatures-kerning/" height="300"></iframe>
 
 В примере показаны различные шрифты для понимания терминов **лигатура** и **кернинговая пара**.
 
@@ -92,12 +88,7 @@ tags:
 
 Используется в случае, когда важна не скорость отрисовки, а удобочитаемость текста и визуальная красота сочетаний символов. При таком значении браузер активно использует лигатуры и корректирует кернинг.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="abmErGG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="text-rendering 2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/abmErGG">
-  text-rendering 2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Разница между значениями" src="demos/ligatures/" height="100"></iframe>
 
 ### `geometricPrecision`
 

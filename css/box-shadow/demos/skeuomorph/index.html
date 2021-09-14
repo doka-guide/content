@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Скевоморфизм — box-shadow — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      padding: 5%;
+      margin: 0;
+      background-color: #e6e6e6;
+      text-align: center;
+    }
+
+    .button:focus {
+      outline: none;
+    }
+
+    .button {
+      padding: 15px 20px;
+      border: none;
+      border-radius: 25px;
+      color: #979797;
+      background-color: transparent;
+      cursor: pointer;
+      box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
+      -5px -5px 10px #fdfdfd, inset 5px 5px 8px -4px #fdfdfd;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 100;
+    }
+
+    .button:active {
+      box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
+      inset -6px -6px 8px 0 #fdfdfd, -5px -5px 10px #fdfdfd,
+      inset 5px 5px 8px -4px #fdfdfd, inset 6px 6px 8px 0 #c9c9c9;
+    }
+  </style>
+</head>
+<body>
+  <button class="button">Зажми</button>
+</body>
+</html>

@@ -1,7 +1,9 @@
 ---
 title: "Асинхронность в JS"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Синхронистки, одна плывёт головой вверх - кролем, другая делает фигуры ногами над водой, головой вниз'
 authors:
   - bespoyasov
 contributors:
@@ -80,7 +82,7 @@ Hello!
 
 ### Асинхронный код
 
-Теперь попробуем решить эту же задачу, но так, чтобы наш код не блокировал выполнение. Для этого мы воспользуемся функцией `setTimeout()`:
+Теперь попробуем решить эту же задачу, но так, чтобы наш код не блокировал выполнение. Для этого мы воспользуемся функцией [`setTimeout()`](/js/settimeout):
 
 ```js
 setTimeout(function greet() {

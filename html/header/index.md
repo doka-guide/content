@@ -1,5 +1,5 @@
 ---
-title: "<header>"
+title: "`<header>`"
 authors:
   - vladimir
 contributors:
@@ -47,7 +47,7 @@ tags:
 </footer>
 ```
 
-<iframe title="Шапка сайта" src="demos/header.html" height="450"></iframe>
+<iframe title="Шапка сайта" src="demos/header/" height="450"></iframe>
 
 ## Как это понять
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Плавное появление / исчезновение — display — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #ffd829;
+      color: #ffffff;
+    }
+
+    .parent {
+      position: relative;
+      text-align: center;
+    }
+
+    .some-text {
+      position: relative;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: 300;
+      background-color: #282a2e;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .some-text:hover .note {
+      opacity: 1;
+    }
+
+    .note {
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: -1px;
+      right: -1px;
+      opacity: 0;
+      padding: 15px;
+      background: #ffffff;
+      color: #282a2e;
+      transition: opacity 0.35s;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <p class="some-text">Я — текст простой. Наведи на меня курсор и я покажу подсказку! <span class="note">Теперь ты читаешь скрытую подсказку! 🎉</span></p>
+  </div>
+</body>
+</html>

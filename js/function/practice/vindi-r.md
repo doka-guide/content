@@ -1,11 +1,6 @@
 🛠 При написании функции указываются параметры — те переменные, с которыми работает функция. Но возможны случаи, когда не все параметры заданы. Это может быть и специально, например для использования варианта по умолчанию, так и случайно — ошибка при использовании или неожиданные входные данные.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="pYYKMW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="function в работе">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/pYYKMW">
-  function в работе</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — function() — Дока" src="../demos/vindi-r-pYYKMW/"></iframe>
 
 🛠 Давайте функциям имена, чтобы отладку было проводить проще.
 

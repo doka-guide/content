@@ -20,7 +20,7 @@
   justify-content: center;
   align-items: center;
   min-height: 480px;
-  background: #18191c url("background.svg") no-repeat center / cover;
+  background: #18191c url("../images/background.svg") no-repeat center / cover;
   z-index: 0;
   color: #ffffff;
 }
@@ -52,4 +52,4 @@
 }
 ```
 
-<iframe title="Цветовой акцент" src="../demos/company.html" height="480"></iframe>
+<iframe title="Цветовой акцент" src="../demos/company/" height="480"></iframe>

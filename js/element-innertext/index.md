@@ -1,5 +1,5 @@
 ---
-title: "Element.innerText"
+title: "`Element.innerText`"
 authors:
   - Windrushfarer
 tags:
@@ -31,7 +31,7 @@ button.innerText = 'Done!' // Изменит текст кнопки на Done
 // В результате будет: <button type="submit" id="submit">Done</button>
 ```
 
-<iframe title="Element.innerText" src="demos/index.html"></iframe>
+<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index/"></iframe>
 
 ## Как понять
 

@@ -1,5 +1,5 @@
 ---
-title: "Теги <details> и <summary>"
+title: "Теги `<details>` и `<summary>`"
 authors:
   - lenaryan
 keywords:
@@ -26,7 +26,7 @@ tags:
 </details>
 ```
 
-<iframe title="details + summary" src="demos/details-summary.html" height="250"></iframe>
+<iframe title="details + summary" src="demos/details-summary/" height="250"></iframe>
 
 ## Как понять
 
@@ -49,7 +49,7 @@ tags:
 </details>
 ```
 
-<iframe title="Открытый аккордеон" src="demos/details-open.html" height="250"></iframe>
+<iframe title="Открытый аккордеон" src="demos/details-open/" height="250"></iframe>
 
 ## Подсказки
 

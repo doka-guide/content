@@ -1,5 +1,5 @@
 ---
-title: "Модули, import/export"
+title: "Модули, `import`/`export`"
 authors:
   - bespoyasov
 keywords:

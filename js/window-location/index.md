@@ -1,5 +1,5 @@
 ---
-title: "window.location"
+title: "`window.location`"
 authors:
   - akellbl4
 tags:

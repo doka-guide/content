@@ -59,7 +59,7 @@ tags:
 }
 ```
 
-<iframe title="Псевдоклассы -child" src="demos/child.html"></iframe>
+<iframe title="Псевдоклассы группы child" src="demos/child/" height="500"></iframe>
 
 ## Как пишется
 

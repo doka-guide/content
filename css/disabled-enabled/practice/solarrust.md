@@ -38,9 +38,4 @@
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="furtivite" data-slug-hash="yLOEPmq" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="yLOEPmq">
-  <span>See the Pen <a href="https://codepen.io/furtivite/pen/yLOEPmq">
-  yLOEPmq</a> by Egor (<a href="https://codepen.io/furtivite">@furtivite</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Стилизация состояний кнопок" src="../demos/buttons/" height="320"></iframe>

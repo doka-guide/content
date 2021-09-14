@@ -21,6 +21,11 @@ groups:
     items:
       - version-control
       - git-cli
+  - name: Форматы обмена данными
+    items:
+      - json
+      - yaml
+      - xml
   - name: Работа в команде
     items:
       - agile

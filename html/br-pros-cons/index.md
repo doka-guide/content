@@ -1,5 +1,5 @@
 ---
-title: "<br> — да или нет?"
+title: "`<br>` — да или нет?"
 authors:
   - ezhkov_d
 editors:
@@ -111,12 +111,7 @@ article {
 
 Например, при адаптивной вёрстке слова в заголовке перестроятся, а разрыв строки никуда не денется. В результате заголовок будет вести себя неестественно: слова перенесутся не там, где должны.
 
-<p class="codepen" data-height="1015" data-theme-id="light" data-default-tab="result" data-user="ezhkov" data-slug-hash="gOgPRPg" style="height: 1015px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="br">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/gOgPRPg">
-  br</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Переносы текста" src="demos/basic/" height="300"></iframe>
 
 Попробуйте поизменять ширину окна в примере выше. Во втором блоке мы видим, что заголовок неестественно разрывает строки на малой ширине. Всё потому, что через CSS мы не можем управлять поведением `<br>`, и этот тег продолжает разрывать строку, несмотря ни на что.
 

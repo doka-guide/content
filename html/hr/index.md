@@ -1,5 +1,5 @@
 ---
-title: "<hr>"
+title: "`<hr>`"
 authors:
   - lenaryan
 keywords:
@@ -35,7 +35,7 @@ hr {
 }
 ```
 
-<iframe title="Горизонтальная линия" src="demos/hr.html" height="200"></iframe>
+<iframe title="Горизонтальная линия" src="demos/hr/" height="200"></iframe>
 
 ## Как это понять
 

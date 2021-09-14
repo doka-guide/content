@@ -1,5 +1,5 @@
 ---
-title: "Math.floor()"
+title: "`Math.floor()`"
 authors:
   - nlopin
 tags:
@@ -26,9 +26,4 @@ console.log(Math.ceil(num)) // 16
 console.log(Math.floor(num)) // 15
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="Lopinopulos" data-slug-hash="RzNGZQ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Округление">
-  <span>See the Pen <a href="https://codepen.io/Lopinopulos/pen/RzNGZQ">
-  Округление</a> by Nikolai Lopin (<a href="https://codepen.io/Lopinopulos">@Lopinopulos</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — Math.floor() — Дока" src="demos/Lopinopulos-RzNGZQ/"></iframe>

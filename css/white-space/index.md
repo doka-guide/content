@@ -76,11 +76,7 @@ a {
 </p>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="jOVrGqK" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/jOVrGqK">
-  white-space</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Пробелы внутри абзаца схлопываются в один" src="demos/no-white-space/" height="100"></iframe>
 
 В итоге текст на странице переносится по пробелам, учитывая границы элемента.
 
@@ -106,14 +102,8 @@ a {
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="BaQKOKz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="white-space">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/BaQKOKz">
-  white-space</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Сравнение разных значений" src="demos/every/" height="300"></iframe>
 
 ## Подсказки
 
-💡 Принудительно организовать перенос текста вне зависимости от форматирования можно с использованием тега [`<br>`](/html/br). Поведение текста при использовании этого тега одинаково при любых значениях свойства `white-space`. Даже при значении `nowrap` текст будет переноситься в том месте, где используется [`<br>`](/html/br).
+💡 Принудительно организовать перенос текста вне зависимости от форматирования можно с использованием тега [`<br>`](/html/br-pros-cons). Поведение текста при использовании этого тега одинаково при любых значениях свойства `white-space`. Даже при значении `nowrap` текст будет переноситься в том месте, где используется [`<br>`](/html/br-pros-cons).

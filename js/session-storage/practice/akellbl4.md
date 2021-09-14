@@ -1,11 +1,6 @@
 🛠 Session Storage в реальных проектах используется достаточно редко, но иногда может быть полезен. Например, если мы не хотим терять данные если пользователь случайно обновил страницу.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="akellbl4" data-slug-hash="mdRXYgj" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Session Storage Example">
-  <span>See the Pen <a href="https://codepen.io/akellbl4/pen/mdRXYgj">
-  Session Storage Example</a> by Pavel Mineev (<a href="https://codepen.io/akellbl4">@akellbl4</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Название — sessionStorage — Дока" src="../demos/akellbl4-mdRXYgj/"></iframe>
 
 🛠 Иногда нам нужно сохранить не просто текст, а целую структуру данных, и в этом нам поможет `JSON.stringify`.
 

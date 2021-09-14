@@ -1,5 +1,5 @@
 ---
-title: "prompt()"
+title: "`prompt()`"
 authors:
   - vindi-r
 tags:
@@ -14,11 +14,7 @@ tags:
 
 ## Пример
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="vindi-r" data-slug-hash="OqZYEe" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="prompt() пример">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/OqZYEe">
-  prompt() пример</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — prompt() — Дока" src="demos/vindi-r-OqZYEe
 
 💡 Это крайне быстрый вариант кода, который взаимодействует с пользователем, но окно созданное таким образом не изменяется через CSS, а значит использовать его лучше только для прототипирования интерфейса. В финальном варианте веб-страницы юзать модальное окно нежелательно.
 
@@ -47,11 +43,7 @@ prompt("Как тебя зовут?", "Саша")
 prompt("Введите возраст", 18) // "Введите возраст", СТРОКА "18"
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="jJxjNM" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="prompt() как это понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/jJxjNM">
-  prompt() как это понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — prompt() — Дока" src="demos/vindi-r-jJxjNM/"></iframe>
 
 💡 Результат `prompt()` — строка, если была нажата кнопка «OK» или `null`, если была нажата «Отмена».
 

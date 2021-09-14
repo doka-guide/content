@@ -16,10 +16,4 @@
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="WNoxXbW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="placeholder-shown">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/WNoxXbW">
-  placeholder-shown</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Пример placeholder-shown" src="../demos/example/" height="182"></iframe>

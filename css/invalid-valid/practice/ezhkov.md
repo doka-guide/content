@@ -40,9 +40,4 @@ input:valid:placeholder-shown + .validity-icon::before {
 }
 ```
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="GRNKxvy" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title=":invalid / :valid">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/GRNKxvy">
-  :invalid / :valid</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Валидация формы" src="../demos/form-validation/" height="140"></iframe>

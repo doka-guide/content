@@ -1,5 +1,5 @@
 ---
-title: "<embed>"
+title: "`<embed>`"
 authors:
   - solarrust
 editors:
@@ -22,12 +22,12 @@ tags:
 <embed src="sample.pdf" type="application/pdf">
 ```
 
-<iframe title="Вставка PDF" src="demos/embed-pdf.html"></iframe>
+<iframe title="Вставка PDF" src="demos/embed-pdf/" height="400"></iframe>
 
 ## Как понять
 
 Тег `<embed>` создаёт своеобразное окошко, в котором отображается подгружаемый контент.
-Чем-то его поведение похоже на теги [`<object>`](/html/object) (в работе) и [`<iframe>`](/html/iframe).
+Чем-то его поведение похоже на теги [`<object>`](/html/object) и [`<iframe>`](/html/iframe).
 
 ## Как пишется
 

@@ -1,7 +1,7 @@
 ---
-title: "<picture>"
+title: "`<picture>`"
 authors:
-  - ezhkov_d
+  - ezhkov
 editors:
   - tachisis
 keywords:
@@ -43,11 +43,7 @@ tags:
 
 Браузер анализирует каждый тег [`<source>`](/html/source) по порядку, останавливается на первом подходящем под текущие условия и отображает картинку из атрибута `srcset`. Другие теги [`<source>`](/html/source) не анализируются. Если тег `<picture>` не поддерживается браузером или ни один из тегов [`<source>`](/html/source) не подходит под условия, то отображается картинка из тега [`<img>`](/html/img).
 
-<p class="codepen" data-height="417" data-theme-id="light" data-default-tab="result" data-user="ezhkov" data-slug-hash="OJWdPqQ" style="height: 417px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;picture&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/OJWdPqQ">
-  &lt;picture&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Подгрузка разных картинок" src="demos/default/" height="400"></iframe>
 
 В этом примере при помощи атрибута `media` в теге [`<source>`](/html/source) мы задаём условие по аналогии с медиавыражением [`@media`](/css/media) в CSS. Если условие определяется как ложное, то элемент `<source>` пропускается.
 
@@ -59,12 +55,6 @@ tags:
 
 💡 Старайтесь при вёрстке всегда готовить несколько версий одной и той же картинки для отображения на разных устройствах. Пользователи мобильных телефонов будут вам очень благодарны, если для них вы будете готовить картинки с меньшим разрешением. В то же время пользователям десктопов с экранами высокой чёткости можно показывать картинки с увеличенным разрешением:
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="XWpObbJ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;picture&amp;gt; 2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/XWpObbJ">
-  &lt;picture&gt; 2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Отдельная картинка для ретины" src="demos/retina-picture/" height="400"></iframe>
 
 В этом примере пользователи с обычными экранами увидят картинку с надписью _768x400_. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью _1536x800_.
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>

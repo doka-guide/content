@@ -1,22 +1,26 @@
 name: Frontmatter Lint
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "YaSpeller All"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
-  lint:
+  frontmatter-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Проверка линтером в main
+      - name: Проверка линтером меты в main
         run: |
           echo "Проверка для всех файлов"
-          npx yaml-cat -f json (css|html|js|tools)/**/index.md -o result.json
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
           node .github/scripts/frontmatter.js --fix
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:

@@ -1,5 +1,5 @@
 ---
-title: "<label>"
+title: "`<label>`"
 authors:
   - ezhkov
 contributors:
@@ -57,11 +57,11 @@ tags:
 </form>
 ```
 
-<iframe title="Два способа связать label и input" src="demos/label-input.html" height="210"></iframe>
+<iframe title="Два способа связать label и input" src="demos/label-input/" height="210"></iframe>
 
 ## Атрибуты
 
-`for` — значение этого атрибута должно соответствовать значению атрибута `id` связываемого элемента. Первый же элемент в документе, чей `id` будет совпадать со значением атрибута `for`, становится связанным с нашим `<label>`. Единственное условие — элемент должен принадлежать к группе связываемых элементов: [`<button>`](/html/button), [`<input>`](/html/input), [`<meter>`](/html/meter) (в работе), [`<output>`](/html/output) (в работе), [`<progress>`](/html/progress) (в работе), [`<select>`](/html/select) и [`<textarea>`](/html/textarea).
+`for` — значение этого атрибута должно соответствовать значению атрибута `id` связываемого элемента. Первый же элемент в документе, чей `id` будет совпадать со значением атрибута `for`, становится связанным с нашим `<label>`. Единственное условие — элемент должен принадлежать к группе связываемых элементов: [`<button>`](/html/button), [`<input>`](/html/input), [`<meter>`](/html/meter), [`<output>`](/html/output), [`<progress>`](/html/progress), [`<select>`](/html/select) и [`<textarea>`](/html/textarea).
 
 Если элемент с нужным `id` не является связываемым, то связь не создаётся, и даже если дальше по документу найдётся связываемый элемент с таким же `id`, то он уже не будет учитываться.
 

@@ -2,6 +2,8 @@
 title: "Кастомные свойства"
 authors:
   - ezhkov_d
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -107,26 +109,23 @@ tags:
 
 ```css
 .cards {
-  --main-color: black;
+  --main-color: #E6E6E6;
 }
+
 .card-header, .benefits-item {
   color: var(--main-color);
 }
 
 .card--primary {
-  --main-color: green;
+  --main-color: black;
 }
 ```
 
 В примере мы переопределяем значение переменной для карточки с классом `.card--primary`, и все дочерние элементы меняют цвет. В этом и кроется основная мощь CSS-переменных. Изменяем значение в одном месте, а затрагиваем все места, где используется переменная.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="WNRKVrB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="CSS-variables 1">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/WNRKVrB">
-  CSS-variables 1</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Наследование кастомных свойств" src="demos/index/" height="340"></iframe>
 
-Но что, если мы заранее не знаем, какой будет вложенность элементов? Можно задать кастомное свойство корневому элементу страницы `<html>`, и тогда оно гарантированно будет доступно в каждом элементе страницы. Но обычно для этих целей используют псевдокласс [`:root`](/css/root) (в работе), который является псевдонимом для `<html>`:
+Но что, если мы заранее не знаем, какой будет вложенность элементов? Можно задать кастомное свойство корневому элементу страницы `.html">`, и тогда оно гарантированно будет доступно в каждом элементе страницы. Но обычно для этих целей используют псевдокласс [`:root`](/css/root), который является псевдонимом для `.html">`:
 
 ```css
 :root {
@@ -288,5 +287,3 @@ element.style.setProperty("--translate", `${currentScroll}px`)
   --angle: -45deg;
 }
 ```
-
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>

@@ -1,5 +1,5 @@
 ---
-title: "Element.textContent"
+title: "`Element.textContent`"
 authors:
   - Windrushfarer
 tags:
@@ -30,7 +30,7 @@ console.log(section.textContent) // Выведет весь текст внут�
 heading.textContent = 'Новый заголовок' // В результате будет: <h1>Новый заголовок</h1>
 ```
 
-<iframe title="Element.textContent" src="demos/index.html"></iframe>
+<iframe title="Element.textContent — Element.textContent — Дока" src="demos/index/"></iframe>
 
 ## Как понять
 

@@ -1,5 +1,5 @@
 ---
-title: "function()"
+title: "`function()`"
 authors:
   - vindi-r
 keywords:
@@ -113,11 +113,7 @@ showMessage("Петя", "Привет, Маша, познакомимся?")
 
 Но в случае не примитивов (например объектов или массивов) происходит копирование по ссылке. Изменяя параметр переданный по ссылке — он изменяется не только в функции, но и извне.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="zbeMaO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="function() как понять параметры">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/zbeMaO">
-  function() как понять параметры</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — function() — Дока" src="demos/vindi-r-zbeMaO/"></iframe>
 
 💡 В примерах выше было слово return. Что это такое и для чего нужно — более подробно раскрыто в отдельной статье про [return](/js/return/) 😎
 

@@ -1,5 +1,9 @@
 ---
-title: "<select>"
+title: "`<select>`"
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Игрушечный пистолет в торчащим из дула флажком. На флажке нарисована вкладка браузера, а в ней выпадающий список.'
 authors:
   - ezhkov
 keywords:
@@ -34,11 +38,7 @@ tags:
 </form>
 ```
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="dypzXYW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/dypzXYW">
-  &lt;select&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Простой выпадающий список" src="demos/default/" height="100"></iframe>
 
 ## Подробно
 
@@ -87,11 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="html,result" data-user="ezhkov" data-slug-hash="oNzGMEB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="&amp;lt;select disabled&amp;gt;">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/oNzGMEB">
-  &lt;select disabled&gt;</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Разные атрибуты" src="demos/different-attrs" height="250"></iframe>
 
 ## Подсказки
 

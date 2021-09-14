@@ -1,5 +1,5 @@
 ---
-title: "<nav>"
+title: "`<nav>`"
 authors:
   - vladimir
 contributors:
@@ -100,4 +100,4 @@ nav {
 }
 ```
 
-<iframe title="Хлебные крошки" src="demos/breadcrumbs.html" height="280"></iframe>
+<iframe title="Хлебные крошки" src="demos/breadcrumbs/" height="280"></iframe>

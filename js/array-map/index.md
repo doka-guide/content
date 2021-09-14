@@ -1,5 +1,5 @@
 ---
-title: "Array.map"
+title: "`Array.map`"
 authors:
   - windrushfarer
 contributors:
@@ -34,7 +34,7 @@ const objects = nums.map(function (num) {
 
 Интерактивный пример
 
-<iframe title="Используем map для изменения значений массива" src="demos/index.html"></iframe>
+<iframe title="Используем map для изменения значений массива — Array.map — Дока" src="demos/index/" height="910"></iframe>
 
 ## Как пишется
 

@@ -1,5 +1,5 @@
 ---
-title: "return"
+title: "`return`"
 authors:
   - vindi-r
 contributors:
@@ -16,11 +16,7 @@ tags:
 
 Примеры использования return. Функция проверки возраста на совершеннолетие и функция создания строки заданной длины со случайным содержимым — введи произвольные числа и попробуй 😎
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="eXLXBz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="return() Кратко">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/eXLXBz">
-  return() Кратко</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — return — Дока" src="demos/vindi-r-eXLXBz/"></iframe>
 
 ## Как пишется
 
@@ -59,11 +55,7 @@ function isInteger(value) {
 
 ### Пример
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="js,result" data-user="vindi-r" data-slug-hash="jJdQqz" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="return() как это понять">
-  <span>See the Pen <a href="https://codepen.io/vindi-r/pen/jJdQqz">
-  return() как это понять</a> by vindi-r (<a href="https://codepen.io/vindi-r">@vindi-r</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Название — return — Дока" src="demos/vindi-r-jJdQqz
 
 __Для возврата значения используется директива `return`__
 

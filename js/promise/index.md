@@ -1,11 +1,12 @@
 ---
-title: "Promise"
+title: "`Promise`"
+cover:
+  desktop: 'images/covers/desktop.png'
+  alt: 'Две руки держат друг-друга мизинчиками и жесте "мирись-мирись-мирись"'
 authors:
   - nlopin
 tags:
   - article
-cover:
-  desktop: 'images/cover.png'
 ---
 
 :::callout 💡
@@ -238,7 +239,7 @@ fetch(`https://swapi.dev/api/films/${id}/`)
 
 **Обработка ошибок в цепочках методов**
 
-<iframe title="Как ошибки ловятся в цепочках методов" src="demos/promise-catch.html"></iframe>
+<iframe title="Как ошибки ловятся в цепочках методов — Promise — Дока" src="demos/promise-catch/"></iframe>
 
 Цепочки `then` при обработке промисов могут быть очень большими. В примере выше цепочка состоит из 4 `then` и одного `catch`. Как в этом случае отработает `catch`?
 
@@ -282,7 +283,4 @@ fetch(`https://swapi.dev/api/films/${id}/`)
 
 Пример ниже показывает состояние промиса, который создаётся при нажатии на кнопку купить. Промис случайным образом завершается успехом или ошибкой:
 
-<iframe height="419" style="width: 100%;" scrolling="no" title="QWNLMwR" src="https://codepen.io/Lopinopulos/embed/QWNLMwR?height=419&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/Lopinopulos/pen/QWNLMwR'>QWNLMwR</a> by Nikolai Lopin
-  (<a href='https://codepen.io/Lopinopulos'>@Lopinopulos</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+<iframe title="Название — Promise — Дока" src="demos/Lopinopulos-QWNLMwR/index/"></iframe>

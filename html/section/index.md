@@ -1,5 +1,5 @@
 ---
-title: "<section>"
+title: "`<section>`"
 authors:
   - vladimir
 contributors:

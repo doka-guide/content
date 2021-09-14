@@ -28,11 +28,7 @@ tags:
 
 Например, в браузере Safari на iOS поле ввода с атрибутом `type="search"` принудительно стилизуется скруглёнными углами, тенями и рамками. Чтобы не перекрывать каждое свойство по отдельности, можно задать такому полю `appearance: none`.
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="wvoBLXP" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="appearance">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/wvoBLXP">
-  appearance</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<iframe title="Стандартное поле поиска и поле с appearance" src="demos/search-fields/" height="200"></iframe>
 
 ![Изменение вида текстового поля на мобильных с поискового на обычное с помощью appearance: none](images/1.png)
 
@@ -44,12 +40,7 @@ tags:
 
 В этом случае, если нам нужно, чтобы поле ввода выглядело как поле поиска, мы можем задать `appearance: searchfield`
 
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="ezhkov" data-slug-hash="abBzezO" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="appearance 2">
-  <span>See the Pen <a href="https://codepen.io/ezhkov/pen/abBzezO">
-  appearance 2</a> by Denis Ezhkov (<a href="https://codepen.io/ezhkov">@ezhkov</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+<iframe title="Текстовое поле и якобы поле поиска" src="demos/text-pseudo-search-fields/" height="200"></iframe>
 
 ![Изменение вида текстового поля на мобильных с обычного на поисковое с помощью appearance: searchfield](images/2.png)
 
