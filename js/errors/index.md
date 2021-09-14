@@ -48,16 +48,16 @@ console.log(commonError.name)
 
 ```
 ReferenceError: FAIL is not defined
-   at Constraint.execute (deltablue.js:525:2)
-   at Constraint.recalculate (deltablue.js:424:21)
-   at Planner.addPropagate (deltablue.js:701:6)
-   at Constraint.satisfy (deltablue.js:184:15)
-   at Planner.incrementalAdd (deltablue.js:591:21)
-   at Constraint.addConstraint (deltablue.js:162:10)
-   at Constraint.BinaryConstraint (deltablue.js:346:7)
-   at Constraint.EqualityConstraint (deltablue.js:515:38)
-   at chainTest (deltablue.js:807:6)
-   at deltaBlue (deltablue.js:879:2)
+  at Constraint.execute (deltablue.js:525:2)
+  at Constraint.recalculate (deltablue.js:424:21)
+  at Planner.addPropagate (deltablue.js:701:6)
+  at Constraint.satisfy (deltablue.js:184:15)
+  at Planner.incrementalAdd (deltablue.js:591:21)
+  at Constraint.addConstraint (deltablue.js:162:10)
+  at Constraint.BinaryConstraint (deltablue.js:346:7)
+  at Constraint.EqualityConstraint (deltablue.js:515:38)
+  at chainTest (deltablue.js:807:6)
+  at deltaBlue (deltablue.js:879:2)
 ```
 
 ### SyntaxError
