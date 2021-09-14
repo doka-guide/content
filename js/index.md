@@ -90,6 +90,7 @@ groups:
       - dom
       - fetch
       - console-log
+      - window-history
       - window-location
       - urlsearchparams
       - local-storage
