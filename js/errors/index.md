@@ -69,6 +69,7 @@ ReferenceError: FAIL is not defined
 ```js
 console.log(;)
 // SyntaxError: Unexpected token ';'
+
 console.log(()
 // SyntaxError: missing ) after argument list
 ```
