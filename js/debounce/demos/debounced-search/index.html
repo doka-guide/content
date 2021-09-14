@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
   <title>Откладывание запросов при поиске — Debounce на примере формы поиска — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
@@ -82,7 +83,8 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:focus, .button:focus-visible {
+    .button:focus,
+    .button:focus-visible {
       border: 2px solid #ffffff;
       outline: none;
     }
@@ -138,16 +140,16 @@
       '4 Сыра',
       'Диабло',
       'Сицилийская'
-    ];
+    ]
 
     function contains(query) {
       return pizzaList.filter(title =>
-        title.toLowerCase().includes(query.toLowerCase()));
+        title.toLowerCase().includes(query.toLowerCase()))
     }
 
     const server = {
       search(query) {
-        console.log(query);
+        console.log(query)
         return new Promise(resolve => {
           setTimeout(() => resolve({
             list: query ? contains(query) : []
@@ -156,39 +158,39 @@
       }
     }
 
-    const searchForm = document.getElementById('search');
-    const searchInput = searchForm.querySelector('[type="search"]');
-    const searchResults = document.querySelector('.search-results');
+    const searchForm = document.getElementById('search')
+    const searchInput = searchForm.querySelector('[type="search"]')
+    const searchResults = document.querySelector('.search-results')
 
     function debounce(callee, timeoutMs) {
       return function perform(...args) {
-        let previousCall = this.lastCall;
-        this.lastCall = Date.now();
+        let previousCall = this.lastCall
+        this.lastCall = Date.now()
 
         if (previousCall && ((this.lastCall - previousCall) <= timeoutMs)) {
-          clearTimeout(this.lastCallTimer);
+          clearTimeout(this.lastCallTimer)
         }
 
-        this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs);
+        this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
       }
     }
 
     function handleInput(e) {
-      const {value} = e.target;
+      const {value} = e.target
 
       server.search(value).then(function (response) {
-        const {list} = response;
+        const {list} = response
 
         const html = list.reduce((markup, item) => {
-          return `${markup}<li>${item}</li>`;
-        }, ``);
+          return `${markup}<li>${item}</li>`
+        }, ``)
 
-        searchResults.innerHTML = html;
+        searchResults.innerHTML = html
       })
     }
 
     const debouncedHandle = debounce(handleInput, 250);
-    searchInput.addEventListener('input', debouncedHandle);
+    searchInput.addEventListener('input', debouncedHandle)
 
     const button = document.querySelector('button')
     button.addEventListener('click', (event) => {
