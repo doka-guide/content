@@ -1,5 +1,5 @@
 ---
-`title: "`<template>`"
+title: "`<template>`"
 authors:
   - nionka
 keywords:
