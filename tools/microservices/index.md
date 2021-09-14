@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-Микросервисы — это отдельное приложение, как правило очень небольшое, которое поддерживает ограниченный функционал. С помощью программного интерфейса (API) такое приложение встраивается практически в любой продукт и может работать в составе разных продуктов одновременно.
+Микросервисы — это отдельное приложение, как правило очень небольшое, которое поддерживает ограниченный функционал. С помощью программного интерфейса (API) такое приложение встраивается практически в любой продукт и может работать в составе разных продуктов одновременно. Микросервисы часто противопоставляют монолитам — крупным приложениям, которые, как правило, реализуют полностью обширный функционал. Особенностью монолитов часто является глубокая связанность разных частей приложения, и, как следствие, худшие характеристики масштабируемости в сравнении с микросервисами.
 
 Например, приложение, которое рассылает письма по списку адресов электронной почты, или приложение, которое проводит аутентификацию пользователей, или приложение, которое отслеживает активность пользователей в сервисе — отличные кандидаты для того чтобы стать микросервисами. Можно повторять разработку похожего набора функций для нового продукта, а можно реализовать и отладить микросервис или несколько микросервисов, которые для любого приложения будут работать корректно.
 
@@ -79,3 +79,116 @@ tags:
 **Задачи бизнеса**. Нужно обеспечить минимальное время выхода на рынок новых продуктов и новых функций для уже существующих, микросервисы обеспечат максимальную скорость развёртывания.
 
 **Высокая нагрузка**. Проблемы высокого пикового трафика достаточно просто решаются с помощью микросервисов, существуют готовые решения и облачные сервисы, которые обеспечивают автомасштабирование приложения.
+
+## Как начать
+
+Написать свой микросервис не сложно. Работа любого микросервиса сосредоточена вокруг одной доменной области. Например, нужно авторизовать пользователя или обработать оплату заказа в интернет-магазине. Напишем свой микросервис, которому можно закачивать картинку, он будет её обрабатывать с помощью библиотеки, которая работает под капотом известного сервиса [Squoosh](https://squoosh.app/), и отдавать обработанную.
+
+Создадим проект, установим необходимые библиотеки [libSquoosh](https://github.com/GoogleChromeLabs/squoosh/tree/dev/libsquoosh) и [busboy](https://github.com/mscdex/busboy)) и создадим два файла _image.js_ и _micro.js_:
+
+```bash
+npm init -y
+npm install @squoosh/lib busboy
+touch image.js
+touch micro.js
+```
+
+Файл _image.js_ — простейшая программа, которая берёт на локальном диске файл с картинкой и обрабатывает её с заданными параметрами и сохраняет на диск, будет такой:
+
+```javascript
+import { ImagePool } from '@squoosh/lib';
+import fs from 'fs/promises';
+import { cpus } from 'os';
+
+async function openImage(path, pool) {
+  const file = await fs.readFile(path);
+  return pool.ingestImage(file);
+}
+
+async function processImage(image, preOpt, encOpt) {
+  await image.decoded;
+  await image.preprocess(preOpt);
+  await image.encode(encOpt);
+  return image;
+}
+
+async function saveIntoJpeg(image, path) {
+  const rawEncodedImage = (await image.encodedWith.mozjpeg).binary;
+  fs.writeFile(path, rawEncodedImage);
+}
+
+export async function getImage(unprocessedImagePath, processedImagePath, preOpt, encOpt) {
+  const imagePool = new ImagePool(cpus().length);
+  const image = await openImage(unprocessedImagePath, imagePool);
+  const processedImage = await processImage(image, preOpt, encOpt);
+  await saveIntoJpeg(processedImage, processedImagePath);
+  await imagePool.close();
+}
+```
+
+Файл _micro.js_ — микросервис, программа, которая получает файл картинки, обрабатывает его и отдаёт для скачивания уже преобразованную картинку через запрос:
+
+```javascript
+import http from 'http';
+import path from 'path';
+import fs from 'fs';
+import Busboy from 'busboy';
+
+import { getImage } from './image.js';
+
+const preprocessOptions = {
+  resize: {
+    enabled: true,
+    width: 100
+  },
+};
+
+const encodeOptions = {
+  mozjpeg: {}
+};
+
+http.createServer(function(req, res) {
+  if (req.method === 'POST') {
+    const busboy = new Busboy({ headers: req.headers });
+    busboy.on('file', async function(fieldName, file, fileName) {
+      console.log(`Для загрузки файла ${fileName} использовано поле ${fieldName}`);
+      const fName = fileName.split('.')[0];
+      const saveTempTo = path.join(process.cwd(), path.basename(fileName));
+      const saveResultTo = path.join(process.cwd(), path.basename(`${fName}.jpg`));
+      file.pipe(fs.createWriteStream(saveTempTo));
+      await getImage(saveTempTo, saveResultTo, preprocessOptions, encodeOptions);
+    });
+    busboy.on('finish', function() {
+      res.end("Картинка обработана!");
+    });
+    return req.pipe(busboy);
+  } else if (req.method === 'GET') {
+    const imageFileName = req.url.replace(/^\//, '');
+    const data = fs.readFileSync(imageFileName);
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write('<html><body><img src="data:image/jpeg;base64,')
+    res.write(Buffer.from(data).toString('base64'));
+    res.end('"/></body></html>');
+  }
+  res.writeHead(404);
+  res.end();
+}).listen(8000, function() {
+  console.log('Слушаю запросы...');
+});
+```
+
+Настройки для преобразования картинок находятся в объектах `preprocessOptions` (для предварительной обработки) и `encodeOptions` (для сжатия). Вы можете использовать другие параметры для преобразования картинок, используйте официальную документацию библиотеки.
+
+Теперь нужно запустить микросервис командой:
+
+```bash
+node micro.js
+```
+
+Вы можете переслать любую картинку, подготовив предварительно форму для отправки файлов или напрямую запросом из терминала. Например, для картинки, которая лежит на вашем компьютере по адресу _path/to/image.png_:
+
+```bash
+curl -v -F upload=@path/to/image.png http://localhost:8000/
+```
+
+Результат можно посмотреть в браузере, введя адрес _http://localhost:8000/image.jpg_, поскольку картинка сохраняется в ту же директорию, где находится микросервис.
