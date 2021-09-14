@@ -1,5 +1,5 @@
 ---
-title: "color"
+title: "`color`"
 authors:
   - grachev
 contributors:

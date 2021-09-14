@@ -1,5 +1,5 @@
 ---
-title: "grid-auto-columns, grid-auto-rows"
+title: "`grid-auto-columns`, `grid-auto-rows`"
 authors:
   - solarrust
 keywords:

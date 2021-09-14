@@ -1,5 +1,5 @@
 ---
-title: "box-sizing"
+title: "`box-sizing`"
 authors:
   - solarrust
 contributors:

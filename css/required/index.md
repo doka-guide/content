@@ -1,5 +1,5 @@
 ---
-title: ":required"
+title: "`:required`"
 authors:
   - ezhkov
 editors:

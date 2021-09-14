@@ -1,5 +1,5 @@
 ---
-title: "object-fit"
+title: "`object-fit`"
 authors:
   - solarrust
 contributors:

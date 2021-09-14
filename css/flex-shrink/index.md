@@ -1,5 +1,5 @@
 ---
-title: "flex-shrink"
+title: "`flex-shrink`"
 authors:
   - solarrust
 editors:

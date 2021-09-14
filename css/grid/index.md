@@ -1,5 +1,5 @@
 ---
-title: "grid"
+title: "`grid`"
 authors:
   - solarrust
 keywords:

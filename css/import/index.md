@@ -1,5 +1,5 @@
 ---
-title: "@import"
+title: "`@import`"
 authors:
   - solarrust
 editors:

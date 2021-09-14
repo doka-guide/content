@@ -1,5 +1,5 @@
 ---
-title: ":hover"
+title: "`:hover`"
 authors:
   - solarrust
 contributors:

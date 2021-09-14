@@ -1,5 +1,5 @@
 ---
-title: "@keyframes"
+title: "`@keyframes`"
 authors:
   - solarrust
 keywords:

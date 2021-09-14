@@ -1,5 +1,5 @@
 ---
-title: "word-spacing"
+title: "`word-spacing`"
 authors:
   - doka-dog
 keywords:

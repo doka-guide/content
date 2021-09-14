@@ -1,5 +1,5 @@
 ---
-title: "background-blend-mode"
+title: "`background-blend-mode`"
 authors:
   - doka-dog
 keywords:

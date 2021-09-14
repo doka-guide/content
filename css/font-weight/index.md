@@ -1,5 +1,5 @@
 ---
-title: "font-weight"
+title: "`font-weight`"
 authors:
   - grachev
 contributors:

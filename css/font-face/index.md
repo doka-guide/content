@@ -1,5 +1,5 @@
 ---
-title: "@font-face"
+title: "`@font-face`"
 authors:
   - solarrust
 editors:

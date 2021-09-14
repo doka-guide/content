@@ -1,5 +1,5 @@
 ---
-title: "width"
+title: "`width`"
 authors:
   - solarrust
 contributors:

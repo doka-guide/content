@@ -1,5 +1,5 @@
 ---
-title: ":placeholder-shown"
+title: "`:placeholder-shown`"
 authors:
   - ezhkov
 editors:

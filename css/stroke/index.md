@@ -1,5 +1,5 @@
 ---
-title: "stroke"
+title: "`stroke`"
 authors:
   - realetive
 keywords:
