@@ -1,5 +1,5 @@
 ---
-title: "Псевдоклассы группы `child`"
+title: "Псевдоклассы группы child"
 authors:
   - solarrust
 contributors:
