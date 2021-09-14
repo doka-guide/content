@@ -3,6 +3,8 @@ title: "`outline-offset`"
 description: ""
 authors:
   - solarrust
+editors:
+  - tachisis
 tags:
   - doka
 ---
