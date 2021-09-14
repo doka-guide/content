@@ -17,5 +17,18 @@ tags:
 
 ## Как пишется
 
-Важно соблюдать порядок значений: `list-style-type`, `list-style-position` потом `list-style-image`. Ни одно из значений не является обязательным, его можно опустить.
+Значения свойства можно задавать в любом порядке и в любом количестве от 1 до 3:
+
+```css
+ul {
+  /* type */
+  list-style: none;
+  /* type, position */
+  list-style: disc inside;
+  /* type, image, position */
+  list-style: decimal url('marker.png') outside;
+}
+```
+
+Бразер сам найдёт подходящие значения для нужных свойств.
 
