@@ -52,6 +52,8 @@
       font-family: inherit;
       font-size: inherit;
       font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     .input:focus {
@@ -188,8 +190,12 @@
     const debouncedHandle = debounce(handleInput, 250);
     searchInput.addEventListener('input', debouncedHandle);
 
-    const button = document.querySelector('button');
-    button.addEventListener('click', (e) => {e.preventDefault()})
+    const button = document.querySelector('button')
+    button.addEventListener('click', (event) => {
+      event.preventDefault()
+      const printPizzaList = pizzaList.join('\n');
+      alert(`Попробуй найти одну из пицц:\n${printPizzaList}`)
+    })
   </script>
 </body>
 </html>
