@@ -1,8 +1,5 @@
 ---
 title: "Подгрузка контента при прокрутке"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Бабушка стоит на доске для сёрфинга и смотрит на бесконечную ленту Мёбиуса с постами из instagram'
 authors:
   - bespoyasov
 keywords:
