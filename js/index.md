@@ -19,6 +19,7 @@ groups:
   - name: "Продвинутый синтаксис"
     items:
       - spread
+      - for-in
   - name: "Типы данных"
     items:
       - number-wrapper
