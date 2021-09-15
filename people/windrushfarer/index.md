@@ -1,4 +1,4 @@
 ---
 name: 'Егор Огарков'
-url: https://twitter/windrushfarer
+url: https://twitter.com/windrushfarer
 ---
