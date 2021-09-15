@@ -1,8 +1,5 @@
 ---
 title: "Как работают веб-приложения"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Маленький рыбак на лодке с удочкой влюбляется в большую улыбающуюся русалку, поймавшую крючок рукой'
 authors:
   - bespoyasov
 keywords:
