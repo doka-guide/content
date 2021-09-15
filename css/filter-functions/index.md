@@ -33,7 +33,7 @@ img {
 }
 ```
 
-<iframe title="Размытая картинка, фильтр blur" src="demos/blur/" height="150"></iframe>
+<iframe title="Функция blur()" src="demos/blur/" height="150"></iframe>
 
 ### `brightness()`
 
@@ -45,7 +45,7 @@ img {
 }
 ```
 
-<iframe title="Яркость картинки 30%, фильтр brightness" src="demos/brigtness/" height="150"></iframe>
+<iframe title="Функция brightness()" src="demos/brigtness/" height="150"></iframe>
 
 ### `contrast()`
 
@@ -57,7 +57,7 @@ img {
 }
 ```
 
-<iframe title="Контрастность картинки увеличена до 250%, фильтр contrast" src="demos/contrast/" height="150"></iframe>
+<iframe title="Функция contrast()" src="demos/contrast/" height="150"></iframe>
 
 ### `drop-shadow()`
 
@@ -69,7 +69,7 @@ img {
 }
 ```
 
-<iframe title="У картинки задана красная тень, фильтр drop-shadow" src="demos/drop-shadow/" height="150"></iframe>
+<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="150"></iframe>
 
 ### `grayscale()`
 
@@ -81,7 +81,7 @@ img {
 }
 ```
 
-<iframe title="Картинка обесцвечена на 80%, фильтр grayscale" src="demos/grayscale/" height="150"></iframe>
+<iframe title="Функция grayscale()" src="demos/grayscale/" height="150"></iframe>
 
 ### `hue-rotate()`
 
@@ -93,7 +93,7 @@ img {
 }
 ```
 
-<iframe title="Цвета на картинке изменились, красный стал синим, фильтр hue-rotate" src="demos/hue-rotate/" height="150"></iframe>
+<iframe title="Функция hue-rotate()" src="demos/hue-rotate/" height="150"></iframe>
 
 ### `invert()`
 
@@ -105,7 +105,7 @@ img {
 }
 ```
 
-<iframe title="Цвета на картинке инвертированы, изображение стало похоже на негатив фотографии, фильтр invert" src="demos/invert/" height="150"></iframe>
+<iframe title="Функция invert()" src="demos/invert/" height="150"></iframe>
 
 ### `opacity()`
 
@@ -119,7 +119,7 @@ img {
 }
 ```
 
-<iframe title="Картинка видна лишь на 40%, фильтр opacity" src="demos/opacity/" height="150"></iframe>
+<iframe title="Функция opacity()" src="demos/opacity/" height="150"></iframe>
 
 
 ### `saturate()`
@@ -132,7 +132,7 @@ img {
 }
 ```
 
-<iframe title="Цвета очень насыщенные, что приводит к искажению, фильтр saturate" src="demos/saturate/" height="150"></iframe>
+<iframe title="Функция saturate()" src="demos/saturate/" height="150"></iframe>
 
 ### `sepia()`
 
@@ -144,7 +144,7 @@ img {
 }
 ```
 
-<iframe title="Изображение на 60% преобразовано в сепию, фильтр sepia" src="demos/sepia/" height="150"></iframe>
+<iframe title="Функция sepia()" src="demos/sepia/" height="150"></iframe>
 
 ## Подсказки
 
