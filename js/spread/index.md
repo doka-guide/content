@@ -114,7 +114,7 @@ console.log(multiplyThreeNumbers(...nums))
 
 ### При создании массивов с помощью литерала `[]`
 
-Спред синтаксис решает задачу создания нового массива с использованием данных из другого массива. Без этого синтаксиса очень неудобно создавать массив, который содержит элементы другого. Приходится либо использовать методы массива, например, `concat`:
+Спред синтаксис решает задачу создания нового массива с использованием данных из другого массива. Без него неудобно создавать массив, который содержит элементы другого. Приходится использовать методы массива, например, `concat`:
 
 ```js
 const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
@@ -181,8 +181,8 @@ console.log(users[0])
 По аналогии с массивами, спред синтаксис решает проблему копирования свойств в новый объект. В версии языка без спреда для копирования использовался метод `Object.assign`, который принимал два объекта — куда копировать свойства и откуда:
 
 ```js
-const persona = { name: 'Иван', lastName: 'Объектов'}
-const userData = Object.assign({ username: 'killer3000' }, persona)
+const person = { name: 'Иван', lastName: 'Объектов'}
+const userData = Object.assign({ username: 'killer3000' }, person)
 
 console.log(userData)
 // {
@@ -195,8 +195,8 @@ console.log(userData)
 Спред упрощает код и делает его читабельнее:
 
 ```js
-const persona = { name: 'Иван', lastName: 'Объектов'}
-const userData = { username: 'killer3000' , ...persona }
+const person = { name: 'Иван', lastName: 'Объектов'}
+const userData = { username: 'killer3000' , ...person }
 
 console.log(userData)
 // {
@@ -209,8 +209,8 @@ console.log(userData)
 Если свойства в новом и старом объекте совпадают, то будет использоваться то значение свойства, которое шло последним:
 
 ```js
-const persona = { name: 'Иван', lastName: 'Объектов'}
-const userData = { name: 'Николай' , ...persona }
+const person = { name: 'Иван', lastName: 'Объектов'}
+const userData = { name: 'Николай' , ...person }
 
 console.log(userData)
 // { name: "Иван", lastName: "Объектов" }
@@ -219,8 +219,8 @@ console.log(userData)
 Если поставить спред в начало, то будет использоваться новое имя:
 
 ```js
-const persona = { name: 'Иван', lastName: 'Объектов'}
-const userData = { ...persona, name: 'Николай' }
+const person = { name: 'Иван', lastName: 'Объектов'}
+const userData = { ...person, name: 'Николай' }
 
 console.log(userData)
 // { name: "Николай", lastName: "Объектов" }
