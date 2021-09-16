@@ -10,6 +10,7 @@ groups:
       - static-types
       - nodejs
       - nodejs-tooling
+      - ci-cd
       - github-actions
   - name: Операционная система
     items:
