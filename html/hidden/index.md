@@ -1,5 +1,5 @@
 ---
-title: "`hidden`"
+title: "Атрибут `hidden`"
 authors:
   - solarrust
 keywords:

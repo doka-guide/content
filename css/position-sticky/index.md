@@ -1,5 +1,5 @@
 ---
-title: "Липкое позиционирование"
+title: "`position: sticky`"
 authors:
   - lenaryan
 editors:
