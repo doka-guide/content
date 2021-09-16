@@ -1,5 +1,5 @@
 ---
-title: "Что такое Docker?"
+title: "Что такое Docker"
 authors:
   - igsekor
 contributors:
