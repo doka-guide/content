@@ -239,12 +239,16 @@
       if (!postData) return
       const template = document.getElementById('post_template')
       const post = template.content.cloneNode(true)
+      const likesButton = post.querySelector('button:first-child')
+      const repostsButton = post.querySelector('button:last-child')
 
       const {title, body, likes, reposts} = postData
       post.querySelector('h2').innerText = title
       post.querySelector('p').innerText = body
-      post.querySelector('button:first-child').innerText += likes
-      post.querySelector('button:last-child').innerText += reposts
+      likesButton.innerText += likes
+      likesButton.ariaLabel += likes
+      repostsButton.innerText += reposts
+      repostsButton.ariaLabel += reposts
 
       return post
     }
