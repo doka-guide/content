@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные значения — overflow-wrap — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    p {
+      width: min-content;
+      max-width: 10em;
+      outline: 1px solid red;
+    }
+
+    .normal {
+      overflow-wrap: normal;
+    }
+
+    .break-word {
+      overflow-wrap: break-word;
+    }
+
+    .anywhere {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <p class="normal">Работал у нас на заводе как-то отменный профессионал — автомотовелофототелерадиомонтёр</p>
+  <p class="break-word">Работал у нас на заводе как-то отменный профессионал — автомотовелофототелерадио<wbr>монтёр</p>
+  <p class="anywhere">Работал у нас на заводе как-то отменный профессионал — автомотовелофототелерадио<wbr>монтёр</p>
+</body>
+</html>
