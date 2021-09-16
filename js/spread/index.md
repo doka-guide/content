@@ -5,8 +5,6 @@ authors:
   - nlopin
 tags:
   - doka
-keywords:
-  - спрэд
 ---
 
 ## Кратко
@@ -181,7 +179,7 @@ console.log(users[0])
 По аналогии с массивами, спред синтаксис решает проблему копирования свойств в новый объект. В версии языка без спреда для копирования использовался метод `Object.assign`, который принимал два объекта — куда копировать свойства и откуда:
 
 ```js
-const person = { name: 'Иван', lastName: 'Объектов'}
+const person = { name: 'Иван', lastName: 'Объектов' }
 const userData = Object.assign({ username: 'killer3000' }, person)
 
 console.log(userData)
@@ -195,7 +193,7 @@ console.log(userData)
 Спред упрощает код и делает его читабельнее:
 
 ```js
-const person = { name: 'Иван', lastName: 'Объектов'}
+const person = { name: 'Иван', lastName: 'Объектов' }
 const userData = { username: 'killer3000' , ...person }
 
 console.log(userData)
@@ -209,7 +207,7 @@ console.log(userData)
 Если свойства в новом и старом объекте совпадают, то будет использоваться то значение свойства, которое шло последним:
 
 ```js
-const person = { name: 'Иван', lastName: 'Объектов'}
+const person = { name: 'Иван', lastName: 'Объектов' }
 const userData = { name: 'Николай' , ...person }
 
 console.log(userData)
@@ -219,7 +217,7 @@ console.log(userData)
 Если поставить спред в начало, то будет использоваться новое имя:
 
 ```js
-const person = { name: 'Иван', lastName: 'Объектов'}
+const person = { name: 'Иван', lastName: 'Объектов' }
 const userData = { ...person, name: 'Николай' }
 
 console.log(userData)
