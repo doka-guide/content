@@ -94,7 +94,14 @@ CI/CD (Continuous Integration и Continuous Delivery — непрерывная 
 - [Управление данными в Docker](/tools/docker-data-management/).
 - [Мультиконтейнерное приложение и Docker Compose](/tools/docker-compose/).
 
-Для автоматизации сборки могут использоваться различные системы, например, [Jenkins](https://www.jenkins.io), [GitLab CI/CD](https://docs.gitlab.com/ee/ci/), [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines), [Buddy](https://buddy.works), [Travis CI](https://travis-ci.org), [JetBrains TeamCity](https://www.jetbrains.com/teamcity/), [Buildbot](https://buildbot.net), [Semaphore](https://semaphoreci.com), [Concourse](https://concourse-ci.org), [GitHub Actions](/tools/github-actions/) и другие инструменты. Сборку поддерживают популярные и специализированные хостинги, например [Netlify](https://www.netlify.com/products/build/).
+Для автоматизации сборки могут использоваться различные системы, наиболее популярные из которых:
+- [Jenkins](https://www.jenkins.io).
+- [GitHub Actions](/tools/github-actions/).
+- [GitLab CI/CD](https://docs.gitlab.com/ee/ci/).
+- [Bitbucket Pipelines](https://bitbucket.org/product/features/pipelines).
+- [JetBrains TeamCity](https://www.jetbrains.com/teamcity/).
+
+Сборку поддерживают популярные и специализированные хостинги, например, [Netlify](https://www.netlify.com/products/build/).
 
 ### Ручное тестирование
 
