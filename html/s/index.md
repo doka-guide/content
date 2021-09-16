@@ -1,5 +1,5 @@
 ---
-title: "<s>"
+title: "`<s>`"
 authors:
   - doka-dog
 keywords:
