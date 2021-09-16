@@ -146,8 +146,8 @@
     </header>
     <main>
       <article class="post">
-        <h2>Заголовок поста</h1>
-        <p>Текст поста в&nbsp;лучшей на свете социальной сети Switter. Все совпадения вымышлены и&nbsp;случайны.</p>
+        <h2>Заголовок поста</h2>
+        <p>Текст поста в лучшей на свете социальной сети Switter. Все совпадения вымышлены и случайны.</p>
         <footer>
           <button type="button" class="button button-like">20</button>
           <button type="button" class="button button-resweet">20</button>
@@ -155,8 +155,8 @@
       </article>
 
       <article class="post">
-        <h2>Другой пост</h1>
-        <p>Вдали от всех живут они в&nbsp;буквенных домах на берегу Семантика большого языкового океана. Маленький ручеёк Даль журчит по всей стране и&nbsp;обеспечивает её всеми необходимыми правилами. </p>
+        <h2>Другой пост</h2>
+        <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеёк Даль журчит по всей стране и обеспечивает её всеми необходимыми правилами.</p>
         <footer>
           <button type="button" class="button button-like">42</button>
           <button type="button" class="button button-resweet">69</button>
@@ -164,8 +164,8 @@
       </article>
 
       <article class="post">
-        <h2>Проснувшись однажды утром после беспокойного сна...</h1>
-        <p>...Грегор Замза обнаружил, что он у себя в&nbsp;постели превратился в&nbsp;страшное насекомое. Лёжа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый...</p>
+        <h2>Проснувшись однажды утром после беспокойного сна...</h2>
+        <p>...Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лёжа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый...</p>
         <footer>
           <button type="button" class="button button-like">146</button>
           <button type="button" class="button button-resweet">34</button>
@@ -173,8 +173,8 @@
       </article>
 
       <article class="post">
-        <h2>Страдания юного Вертера</h1>
-        <p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я&nbsp;наслаждаюсь от всего сердца. Я&nbsp;совсем один и&nbsp;блаженствую в&nbsp;здешнем краю, словно созданном для таких, как&nbsp;я.</p>
+        <h2>Страдания юного Вертера</h2>
+        <p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.</p>
         <footer>
           <button type="button" class="button button-like">4</button>
           <button type="button" class="button button-resweet">20</button>
@@ -182,7 +182,7 @@
       </article>
     </main>
     <footer class="footer">
-      &copy; Switter, 2020
+      © Switter, 2020
     </footer>
   </div>
 
@@ -197,7 +197,7 @@
     </article>
   </template>
   <script>
-    // «База данных»:
+    // «База данных»
 
     const post = {
       title: 'Заголовок поста',
@@ -206,8 +206,7 @@
       reposts: 7,
     }
 
-
-    // «Сервер API»:
+    // «Сервер API»
 
     const server = {
       posts(page = 2) {
@@ -221,10 +220,9 @@
           }, 0)
         })
       }
-    };
+    }
 
-
-    // Клиент:
+    // Клиент
 
     let nextPage = 2
     let isLoading = false
@@ -248,7 +246,7 @@
       post.querySelector('button:first-child').innerText += likes
       post.querySelector('button:last-child').innerText += reposts
 
-      return post;
+      return post
     }
 
     async function fetchPosts() {
@@ -277,7 +275,7 @@
           callee(...args)
 
           clearTimeout(timer)
-          timer = null;
+          timer = null
         }, timeout)
       }
     }
@@ -291,7 +289,7 @@
       const position = scrolled + screenHeight
 
       if (position >= threshold) {
-        await fetchPosts();
+        await fetchPosts()
       }
     }
 
