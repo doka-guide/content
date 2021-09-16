@@ -69,15 +69,15 @@ JavaScript не содержит отдельных функций для глу
 ```js
 import cloneDeep from 'lodash.clonedeep'
 
-const deep = cloneDeep(itemsInCart);
-console.log(itemsInCart[1] === deep[1]);
+const deep = cloneDeep(itemsInCart)
+console.log(itemsInCart[1] === deep[1])
 // false
 ```
 
 Самый быстрый способ глубокого копирования звучит глупо — нужно сериализовать копируемый объект в [JSON](/tools/json) и тут же распарсить его. В результате появится полная копия объекта:
 
 ```js
-const deep = JSON.parse(JSON.stringify(itemsInCart));
-console.log(itemsInCart[1] === deep[1]);
+const deep = JSON.parse(JSON.stringify(itemsInCart))
+console.log(itemsInCart[1] === deep[1])
 // false
 ```
