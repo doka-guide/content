@@ -16,6 +16,9 @@ groups:
       - function
       - closures
       - use-strict
+  - name: "Продвинутый синтаксис"
+    items:
+      - shallow-or-deep-clone
   - name: "Типы данных"
     items:
       - number-wrapper
