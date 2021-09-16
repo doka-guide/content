@@ -1,5 +1,5 @@
 ---
-title: "API. Что это и зачем нужно?"
+title: "Что такое API"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

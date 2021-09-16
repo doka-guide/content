@@ -1,5 +1,5 @@
 ---
-title: "window.navigator"
+title: "`window.navigator`"
 description: "Возвращает описание браузера или приложения, которое выполняет скрипт."
 authors:
   - doka-dog
