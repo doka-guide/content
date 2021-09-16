@@ -1,5 +1,5 @@
 ---
-title: "<dl>, <dd>, <dt>"
+title: "`<dl>`, `<dd>`, `<dt>`"
 authors:
   - ezhkov
 contributors:

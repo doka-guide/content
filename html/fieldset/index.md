@@ -1,5 +1,5 @@
 ---
-title: "<fieldset>"
+title: "`<fieldset>`"
 authors:
   - realetive
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "animation-fill-mode"
+title: "`animation-fill-mode`"
 authors:
   - solarrust
 editors:

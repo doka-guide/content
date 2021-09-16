@@ -1,5 +1,5 @@
 ---
-title: "list-style-type"
+title: "`list-style-type`"
 authors:
   - realetive
 contributors:

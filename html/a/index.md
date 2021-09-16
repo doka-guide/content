@@ -1,5 +1,5 @@
 ---
-title: "<a>"
+title: "`<a>`"
 authors:
   - grachev
 contributors:

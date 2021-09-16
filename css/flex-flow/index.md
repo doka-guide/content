@@ -1,5 +1,5 @@
 ---
-title: "flex-flow"
+title: "`flex-flow`"
 authors:
   - solarrust
 editors:

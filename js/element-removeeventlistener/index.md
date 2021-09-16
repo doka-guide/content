@@ -1,5 +1,5 @@
 ---
-title: "Element.removeEventListener()"
+title: "`Element.removeEventListener()`"
 authors:
   - vindi-r
 contributors:

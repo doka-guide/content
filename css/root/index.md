@@ -1,5 +1,5 @@
 ---
-title: ":root"
+title: "`:root`"
 authors:
   - lenaryan
 editors:

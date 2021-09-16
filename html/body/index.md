@@ -1,5 +1,5 @@
 ---
-title: "<body>"
+title: "`<body>`"
 authors:
   - grachev
 contributors:

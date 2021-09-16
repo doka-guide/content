@@ -1,5 +1,5 @@
 ---
-title: "::placeholder"
+title: "`::placeholder`"
 authors:
   - ezhkov
 contributors:

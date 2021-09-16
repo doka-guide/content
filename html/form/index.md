@@ -1,5 +1,5 @@
 ---
-title: "<form>"
+title: "`<form>`"
 authors:
   - vladimir
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "Array.from()"
+title: "`Array.from()`"
 description: "Функция создаёт новый массив на основе итерируемого или массивоподобного объекта"
 authors:
   - nlopin

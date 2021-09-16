@@ -1,5 +1,5 @@
 ---
-title: "content"
+title: "`content`"
 authors:
   - ezhkov
 contributors:

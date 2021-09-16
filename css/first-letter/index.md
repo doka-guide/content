@@ -1,5 +1,5 @@
 ---
-title: "::first-letter"
+title: "`::first-letter`"
 authors:
   - doka-dog
 keywords:

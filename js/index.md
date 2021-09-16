@@ -25,11 +25,15 @@ groups:
       - function
       - typecasting
       - objects-objects-everywhere
+      - object-tostring
   - name: "Числа `number`"
     items:
       - number-wrapper
       - number-is-nan
       - number-isfinite
+      - number-tostring
+      - parseint
+      - parsefloat
       - math
       - math-floor
       - math-random
@@ -65,6 +69,19 @@ groups:
       - includes
       - index-of
       - array-length
+  - name : "Множество Set"
+    items:
+      - set
+      - set-constructor
+      - set-size
+      - set-add
+      - set-delete
+      - set-has
+      - set-foreach
+      - set-clear
+      - set-values
+      - set-keys
+      - set-entries
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -74,6 +91,7 @@ groups:
       - dom
       - fetch
       - console-log
+      - window-history
       - window-location
       - urlsearchparams
       - local-storage
@@ -83,6 +101,9 @@ groups:
       - session-storage
       - settimeout
       - cleartimeout
+      - setinterval
+      - clearinterval
+      - parseint
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages

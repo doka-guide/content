@@ -1,5 +1,5 @@
 ---
-title: "<main>"
+title: "`<main>`"
 authors:
   - vladimir
   - solarrust

@@ -1,5 +1,5 @@
 ---
-title: "<svg>"
+title: "`<svg>`"
 authors:
   - solarrust
 contributors:

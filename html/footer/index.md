@@ -1,7 +1,8 @@
 ---
-title: "<footer>"
+title: "`<footer>`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Кроксы с украшениями в виде табличек: "2021 DOKA", "BIG FOOT rocks"'
 authors:
   - vladimir
   - solarrust

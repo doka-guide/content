@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма заявки на MarsOne — Работа с формами — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .hidden {
+      display:none;
+    }
+
+    label {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <form id="mars-once" action="/apply/" method="POST">
+    <!-- Спрашиваем имя, чтобы знать, как обращаться в ответном письме. -->
+    <label>
+      Ваше имя:
+      <input type="text" name="name" id="name" placeholder="Илон Маск" required autofocus>
+    </label>
+
+    <!-- Спрашиваем почту, чтобы знать, куда это письмо слать. -->
+    <label>
+      Почта:
+      <input type="email" name="email" id="email" placeholder="elon@musk.com" required>
+    </label>
+
+    <!-- Возраст — нужны только молодые, сорри. -->
+    <label>
+      Возраст:
+      <input type="number" name="age">
+    </label>
+
+    <!-- Инженеры и учёные пригодятся для основной работы;
+        психологи нужны, чтобы команда друг друга
+        не перегрызла за 10-летнюю колонизаторскую миссию. -->
+    <label>
+      Профессия:
+      <select name="specialization" required>
+        <option value="engineer" selected>Инженер</option>
+        <option value="scientist">Учёный</option>
+        <option value="psychologist">Психолог</option>
+        <option value="other">Другая</option>
+      </select>
+    </label>
+
+    <!-- Если человек работал в NASA — это большой плюс. -->
+    <label>
+      Я работал в NASA
+      <input type="checkbox" name="nasa-experience" value="1">
+    </label>
+
+    <!-- Фотография нужна для прессы. -->
+    <label>
+      Фото:
+      <input type="file" accept="image/jpeg" name="photo" required>
+    </label>
+
+    <button type="submit">Отправить заявку</button>
+    <div id="loader" class="hidden">Отправляем...</div>
+  </form>
+  <script>
+    function toggleLoader() {
+      const loader = document.getElementById('loader')
+      loader.classList.toggle('hidden')
+    }
+
+    function onSuccess(formNode) {
+      alert('Ваша заявка успешно отправлена!')
+      formNode.classList.toggle('hidden')
+    }
+
+    function onError(error) {
+      alert(error.message)
+    }
+
+    function serializeForm(formNode) {
+      const data = new FormData(formNode)
+      return data
+    }
+
+    function checkValidity(event) {
+      const formNode = event.target.form
+      const isValid = formNode.checkValidity()
+      formNode.querySelector('button').disabled = !isValid
+    }
+
+    async function sendData(data) {
+      return await fetch('/api/apply/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data' },
+        body: data,
+      })
+
+      // Чтобы проверить, как работает
+      // обработка ответа, можно использовать
+      // поддельный ответ от сервера:
+
+      // return new Promise(resolve => {
+      //   setTimeout(() => {
+      //     resolve({
+      //       status: 400,
+      //       error: {
+      //         message: 'Что-то пошло не так!'
+      //       }
+      //     })
+      //   })
+      // })
+    }
+
+    async function handleFormSubmit(event) {
+      event.preventDefault()
+      const data = serializeForm(event.target)
+
+      toggleLoader()
+      const { status, error } = await sendData(data)
+      toggleLoader()
+
+      if (status === 200) onSuccess(event.target)
+      else onError(error)
+    }
+
+    const applicantForm = document.getElementById('mars-once')
+    applicantForm.addEventListener('submit', handleFormSubmit)
+    applicantForm.addEventListener('input', checkValidity)
+
+    applicantForm.querySelector('button').disabled = true
+  </script>
+</body>
+</html>

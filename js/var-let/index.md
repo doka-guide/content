@@ -1,5 +1,5 @@
 ---
-title: "var/let"
+title: "`var`/`let`"
 authors:
   - vindi-r
 contributors:

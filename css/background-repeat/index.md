@@ -1,5 +1,5 @@
 ---
-title: "background-repeat"
+title: "`background-repeat`"
 authors:
   - solarrust
 contributors:

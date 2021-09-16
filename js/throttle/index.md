@@ -1,7 +1,8 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
 cover:
-  desktop: "images/cover.png"
+  desktop: "images/covers/desktop.png"
+  alt: 'Девочка кликает мышкой, играя в файтинг в стиле Mortal Kombat, где героиня бьёт ногой по снеговику'
 authors:
   - bespoyasov
 keywords:
@@ -227,4 +228,4 @@ window.addEventListener("resize", optimizedHandler);
 
 Пример такого прогресс-бара получится таким:
 
-<iframe title="Название — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/bespoyasov-ZEpzYbN/"></iframe>
+<iframe title="Прогресс-бар для статьи — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/article-progress/" height="500"></iframe>

@@ -1,5 +1,5 @@
 ---
-title: "word-wrap"
+title: "`word-wrap`"
 authors:
   - doka-dog
 keywords:

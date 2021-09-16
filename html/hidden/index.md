@@ -1,5 +1,5 @@
 ---
-title: "hidden"
+title: "`hidden`"
 authors:
   - solarrust
 keywords:

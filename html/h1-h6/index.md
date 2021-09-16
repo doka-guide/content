@@ -1,7 +1,8 @@
 ---
-title: "<h1>...<h6>"
+title: "`<h1>`...`<h6>`"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
+  alt: 'Стена с картинами, наверху самая большая, ниже чуть меньше, ниже ещё меньше'
 authors:
   - grachev
 contributors:

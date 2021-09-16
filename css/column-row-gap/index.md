@@ -1,5 +1,5 @@
 ---
-title: "column-gap, row-gap"
+title: "`column-gap`, `row-gap`"
 authors:
   - solarrust
 keywords:

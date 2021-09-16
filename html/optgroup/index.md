@@ -1,5 +1,5 @@
 ---
-title: "<optgroup>"
+title: "`<optgroup>`"
 authors:
   - doka-dog
 keywords:

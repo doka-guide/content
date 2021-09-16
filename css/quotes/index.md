@@ -1,5 +1,5 @@
 ---
-title: "quotes"
+title: "`quotes`"
 authors:
   - solarrust
 contributors:

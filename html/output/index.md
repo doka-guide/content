@@ -1,5 +1,5 @@
 ---
-title: "<output>"
+title: "`<output>`"
 authors:
   - doka-dog
 keywords:

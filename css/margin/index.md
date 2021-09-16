@@ -1,5 +1,5 @@
 ---
-title: "margin"
+title: "`margin`"
 authors:
   - grachev
 contributors:

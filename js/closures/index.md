@@ -1,7 +1,7 @@
 ---
 title: "Области видимости"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.png'
   alt: 'Бинокль с надписью Doka Optics, в отражении на линзах которого виден код'
 authors:
   - bespoyasov

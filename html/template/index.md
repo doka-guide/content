@@ -1,8 +1,8 @@
 ---
-title: "<template>"
+title: "`<template>`"
 authors:
   - nionka
-summary:
+keywords:
   - template
   - тег
   - тэг

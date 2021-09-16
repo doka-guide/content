@@ -1,5 +1,5 @@
 ---
-title: "animation-timing-function"
+title: "`animation-timing-function`"
 authors:
   - solarrust
 editors:

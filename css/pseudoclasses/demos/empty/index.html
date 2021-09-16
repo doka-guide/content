@@ -5,46 +5,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
-      box-sizing: border-box;
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      display: inline-table;
     }
 
     td {
-      background-color: #ccc;
+      width: 75px;
+      height: 75px;
+      vertical-align: middle;
+      border: 1px solid #2E9AFF;
+      font-size: 50px;
+      line-height: 1;
+      color: #2E9AFF;
     }
 
     td:empty {
-      background-color: #fff;
-    }
-
-    /* * * * * * * * * * */
-
-    table {
-      width: 320px;
-      border-collapse: collapse;
-    }
-
-    td {
-      border: 1px solid #888;
-      vertical-align: baseline;
-      line-height: 1;
-      text-align: center;
-      padding: 1em;
-    }
-
-    :root {
-      height: 100vh;
-      font-size: 32px;
-      display: grid;
-      place-items: center;
+      background-color: #123E66;
     }
   </style>
 </head>
 <body>
 <table>
-  <caption>Крестики-нолики</caption>
   <tr>
     <td>✕</td>
     <td></td>

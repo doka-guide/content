@@ -1,5 +1,5 @@
 ---
-title: "<img>"
+title: "`<img>`"
 authors:
   - grachev
   - solarrust

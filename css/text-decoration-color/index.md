@@ -1,5 +1,5 @@
 ---
-title: "text-decoration-color"
+title: "`text-decoration-color`"
 authors:
   - doka-dog
 keywords:

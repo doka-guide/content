@@ -1,5 +1,5 @@
 ---
-title: "<embed>"
+title: "`<embed>`"
 authors:
   - solarrust
 editors:

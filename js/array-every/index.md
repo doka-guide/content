@@ -1,5 +1,5 @@
 ---
-title: "Array.every"
+title: "`Array.every`"
 authors:
   - windrushfarer
 editors:

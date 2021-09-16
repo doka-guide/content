@@ -1,5 +1,5 @@
 ---
-title: "background-clip"
+title: "`background-clip`"
 authors:
   - doka-dog
 keywords:
