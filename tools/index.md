@@ -18,6 +18,7 @@ groups:
       - cli
       - multitasking-and-processes
       - process-management
+      - ssh
   - name: Система контроля версий
     items:
       - version-control
