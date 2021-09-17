@@ -1,5 +1,5 @@
 ---
-title: "`<br>` — да или нет?"
+title: "`<br>`"
 authors:
   - ezhkov_d
 editors:
