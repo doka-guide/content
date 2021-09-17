@@ -15,7 +15,7 @@ tags:
 Код ниже обрежет текст, добавив в конце строки многоточие. Также добавлены свойства, без которых `text-overflow` не сработает:
 
 ```css
-div {
+p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
