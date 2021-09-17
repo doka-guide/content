@@ -58,6 +58,8 @@ console.log(itemsInCart[1] === clonedCart[1])
 // true
 ````
 
+![Результат поверхностного копирования массива](images/shallow.png)
+
 ### Как получить глубокую копию
 
 JavaScript не содержит отдельных функций для глубокого копирования массивов или объектов. Существуют различные способы сделать глубокое копирование.
@@ -81,3 +83,5 @@ const deep = JSON.parse(JSON.stringify(itemsInCart))
 console.log(itemsInCart[1] === deep[1])
 // false
 ```
+
+![Результат глубокого копирования массива](images/deep.png)
