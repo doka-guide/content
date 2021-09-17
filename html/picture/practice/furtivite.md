@@ -4,9 +4,9 @@
 
 ```html
 <picture>
-    <!-- Картинка для тёмной темы -->
-    <source srcset="image-dark.png" media="(prefers-color-scheme: dark)">
-    <!-- Картинка по-умолчанию для светлой темы -->
-    <img src="image-light.png" alt="">
+  <!-- Картинка для тёмной темы -->
+  <source srcset="image-dark.png" media="(prefers-color-scheme: dark)">
+  <!-- Картинка по-умолчанию для светлой темы -->
+  <img src="image-light.png" alt="">
 </picture>
 ```
