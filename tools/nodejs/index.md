@@ -1,5 +1,5 @@
 ---
-title: "Что такое Node.js?"
+title: "Что такое Node.js"
 authors:
   - igorkamyshev
 contributors:

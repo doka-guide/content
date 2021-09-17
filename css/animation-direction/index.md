@@ -1,5 +1,5 @@
 ---
-title: "animation-direction"
+title: "`animation-direction`"
 authors:
   - solarrust
 editors:

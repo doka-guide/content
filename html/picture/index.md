@@ -1,5 +1,5 @@
 ---
-title: "<picture>"
+title: "`<picture>`"
 authors:
   - ezhkov
 editors:

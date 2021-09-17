@@ -1,5 +1,5 @@
 ---
-title: "place-items"
+title: "`place-items`"
 authors:
   - solarrust
 keywords:

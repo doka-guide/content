@@ -1,7 +1,5 @@
 ---
-title: ":focus"
-cover:
-  desktop: 'images/cover.png'
+title: "`:focus`"
 authors:
   - solarrust
 editors:

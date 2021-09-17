@@ -1,5 +1,5 @@
 ---
-title: "Element.textContent"
+title: "`Element.textContent`"
 authors:
   - Windrushfarer
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "<nav>"
+title: "`<nav>`"
 authors:
   - vladimir
 contributors:

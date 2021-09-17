@@ -1,5 +1,5 @@
 ---
-title: "use strict"
+title: "`use strict`"
 authors:
   - windrushfarer
 tags:

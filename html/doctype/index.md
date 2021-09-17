@@ -1,5 +1,5 @@
 ---
-title: "<!DOCTYPE>"
+title: "`<!DOCTYPE>`"
 authors:
   - grachev
 contributors:
@@ -35,6 +35,8 @@ tags:
   </head>
 </html>
 ```
+
+![<!DOCTYPE [Элемент верхнего уровня] [Публичность] "[Регистрация]//[Организация]//[Тип] [Имя]//[Язык]" "[URL]">](images/1.png)
 
 ## Как пишется
 

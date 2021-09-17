@@ -1,5 +1,5 @@
 ---
-title: "align-items"
+title: "`align-items`"
 authors:
   - solarrust
 editors:

@@ -1,5 +1,5 @@
 ---
-title: "font-display"
+title: "`font-display`"
 authors:
   - ezhkov
 keywords:

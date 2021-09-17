@@ -1,5 +1,5 @@
 ---
-title: "Element.mouseover"
+title: "`Element.mouseover`"
 authors:
   - nlopin
 contributors:

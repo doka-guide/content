@@ -1,5 +1,5 @@
 ---
-title: "flex-wrap"
+title: "`flex-wrap`"
 authors:
   - solarrust
 editors:

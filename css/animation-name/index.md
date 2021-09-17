@@ -1,5 +1,5 @@
 ---
-title: "animation-name"
+title: "`animation-name`"
 authors:
   - solarrust
 editors:

@@ -1,7 +1,5 @@
 ---
 title: "Хранение по ссылке vs. по значению"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - windrushfarer
 keywords:

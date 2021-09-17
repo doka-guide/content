@@ -1,5 +1,5 @@
 ---
-title: "z-index"
+title: "`z-index`"
 authors:
   - solarrust
 contributors:

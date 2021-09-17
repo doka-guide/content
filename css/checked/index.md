@@ -1,5 +1,5 @@
 ---
-title: ":checked"
+title: "`:checked`"
 authors:
   - solarrust
 contributors:

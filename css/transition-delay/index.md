@@ -1,5 +1,5 @@
 ---
-title: "transition-delay"
+title: "`transition-delay`"
 authors:
   - ezhkov
 keywords:

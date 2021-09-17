@@ -1,5 +1,5 @@
 ---
-title: "cursor"
+title: "`cursor`"
 authors:
   - solarrust
 contributors:

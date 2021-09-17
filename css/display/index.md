@@ -1,5 +1,5 @@
 ---
-title: "display"
+title: "`display`"
 authors:
   - solarrust
 contributors:

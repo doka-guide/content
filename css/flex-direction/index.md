@@ -1,5 +1,5 @@
 ---
-title: "flex-direction"
+title: "`flex-direction`"
 authors:
   - solarrust
 editors:

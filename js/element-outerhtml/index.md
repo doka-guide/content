@@ -1,5 +1,5 @@
 ---
-title: "Element.oute/"
+title: "`Element.outerHTML`"
 authors:
   - windrushfarer
 tags:

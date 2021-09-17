@@ -1,5 +1,5 @@
 ---
-title: "<video>"
+title: "`<video>`"
 authors:
   - vladimir
 contributors:
@@ -20,6 +20,7 @@ keywords:
   - poster
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко

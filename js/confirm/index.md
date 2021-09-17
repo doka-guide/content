@@ -1,5 +1,5 @@
 ---
-title: "confirm()"
+title: "`confirm()`"
 authors:
   - vindi-r
 contributors:

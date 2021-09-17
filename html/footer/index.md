@@ -1,7 +1,5 @@
 ---
-title: "<footer>"
-cover:
-  desktop: 'images/cover.png'
+title: "`<footer>`"
 authors:
   - vladimir
   - solarrust

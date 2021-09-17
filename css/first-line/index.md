@@ -1,5 +1,5 @@
 ---
-title: "::first-line"
+title: "`::first-line`"
 authors:
   - doka-dog
 keywords:

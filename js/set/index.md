@@ -1,5 +1,5 @@
 ---
-title: "Set"
+title: "`Set`"
 description: "Коллекция для хранения уникальных значений"
 authors:
   - nlopin

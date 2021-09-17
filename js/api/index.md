@@ -1,7 +1,9 @@
 ---
-title: "API. Что это и зачем нужно?"
+title: "Что такое API"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два робота, левый даёт кристалл, а правый одобряет с большим пальцем'
 authors:
   - bespoyasov
 contributors:

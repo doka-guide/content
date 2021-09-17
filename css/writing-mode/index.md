@@ -1,5 +1,5 @@
 ---
-title: "writing-mode"
+title: "`writing-mode`"
 authors:
   - doka-dog
 keywords:

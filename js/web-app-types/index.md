@@ -1,8 +1,8 @@
 ---
 title: "Виды веб-приложений"
 cover:
-  desktop: 'images/covers/desktop.png'
-  mobile: 'images/covers/mobile.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
   alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'
 authors:
   - windrushfarer

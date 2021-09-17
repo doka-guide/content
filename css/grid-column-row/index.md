@@ -1,5 +1,5 @@
 ---
-title: "grid-column, grid-row"
+title: "`grid-column`, `grid-row`"
 authors:
   - solarrust
 keywords:

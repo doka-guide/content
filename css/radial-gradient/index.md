@@ -1,5 +1,5 @@
 ---
-title: "radial-gradient()"
+title: "`radial-gradient()`"
 authors:
   - ezhkov_d
 editors:

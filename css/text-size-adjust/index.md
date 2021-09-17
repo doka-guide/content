@@ -1,5 +1,5 @@
 ---
-title: "text-size-adjust"
+title: "`text-size-adjust`"
 authors:
   - doka-dog
 keywords:

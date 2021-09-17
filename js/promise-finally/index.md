@@ -1,5 +1,5 @@
 ---
-title: "Promise. Метод finally"
+title: "`Promise`. Метод `finally`"
 authors:
   - nlopin
 keywords:

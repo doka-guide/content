@@ -1,5 +1,5 @@
 ---
-title: ".has()"
+title: "`.has()`"
 description: "Метод проверяет наличие значения в коллекции Set"
 authors:
   - nlopin

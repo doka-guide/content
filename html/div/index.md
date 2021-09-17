@@ -1,7 +1,5 @@
 ---
-title: "<div>"
-cover:
-  desktop: 'images/cover.png'
+title: "`<div>`"
 authors:
   - grachev
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "class"
+title: "Атрибут `class`"
 authors:
   - solarrust
 contributors:

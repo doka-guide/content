@@ -1,5 +1,5 @@
 ---
-title: "function()"
+title: "`function()`"
 authors:
   - vindi-r
 keywords:

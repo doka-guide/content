@@ -1,5 +1,5 @@
 ---
-title: "grid-template"
+title: "`grid-template`"
 authors:
   - solarrust
 keywords:

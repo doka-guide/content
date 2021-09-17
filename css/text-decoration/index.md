@@ -1,5 +1,5 @@
 ---
-title: "text-decoration"
+title: "`text-decoration`"
 authors:
   - solarrust
 contributors:

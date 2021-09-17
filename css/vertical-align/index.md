@@ -1,5 +1,5 @@
 ---
-title: "vertical-align"
+title: "`vertical-align`"
 authors:
   - solarrust
 contributors:

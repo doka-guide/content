@@ -1,5 +1,5 @@
 ---
-title: "fetch"
+title: "`fetch`"
 authors:
   - windrushfarer
 keywords:

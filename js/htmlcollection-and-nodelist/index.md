@@ -1,5 +1,5 @@
 ---
-title: "HTMLCollection и NodeList"
+title: "`HTMLCollection` и `NodeList`"
 authors:
   - nlopin
 tags:

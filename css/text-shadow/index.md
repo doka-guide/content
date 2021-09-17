@@ -1,5 +1,5 @@
 ---
-title: "text-shadow"
+title: "`text-shadow`"
 authors:
   - solarrust
 contributors:

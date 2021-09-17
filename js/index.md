@@ -16,6 +16,9 @@ groups:
       - function
       - closures
       - use-strict
+  - name: "Продвинутый синтаксис"
+    items:
+      - spread
   - name: "Типы данных"
     items:
       - number-wrapper
@@ -25,11 +28,15 @@ groups:
       - function
       - typecasting
       - objects-objects-everywhere
+      - object-tostring
   - name: "Числа `number`"
     items:
       - number-wrapper
       - number-is-nan
       - number-isfinite
+      - number-tostring
+      - parseint
+      - parsefloat
       - math
       - math-floor
       - math-random
@@ -87,6 +94,7 @@ groups:
       - dom
       - fetch
       - console-log
+      - window-history
       - window-location
       - urlsearchparams
       - local-storage
@@ -98,6 +106,7 @@ groups:
       - cleartimeout
       - setinterval
       - clearinterval
+      - parseint
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages

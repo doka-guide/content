@@ -1,5 +1,5 @@
 ---
-title: ":is()"
+title: "`:is()`"
 authors:
   - doka-dog
 keywords:

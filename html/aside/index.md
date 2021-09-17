@@ -1,5 +1,5 @@
 ---
-title: "<aside>"
+title: "`<aside>`"
 authors:
   - realetive
 editors:

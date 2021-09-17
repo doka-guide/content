@@ -1,5 +1,5 @@
 ---
-title: "Element.hidden"
+title: "`Element.hidden`"
 description: "Свойство .hidden у DOM-элементов позволяет узнать или изменить значение HTML-атрибута hidden"
 authors:
   - windrushfarer

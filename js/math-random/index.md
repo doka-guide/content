@@ -1,5 +1,5 @@
 ---
-title: "Math.random()"
+title: "`Math.random()`"
 authors:
   - nlopin
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "attr()"
+title: "`attr()`"
 authors:
   - ezhkov
 editors:

@@ -1,5 +1,5 @@
 ---
-title: "Element.click"
+title: "`Element.click`"
 authors:
   - nlopin
 tags:

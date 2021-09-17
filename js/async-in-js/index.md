@@ -1,7 +1,9 @@
 ---
 title: "Асинхронность в JS"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Синхронистки, одна плывёт головой вверх - кролем, другая делает фигуры ногами над водой, головой вниз'
 authors:
   - bespoyasov
 contributors:
@@ -19,6 +21,7 @@ keywords:
   - catch
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

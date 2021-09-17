@@ -1,7 +1,5 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
-cover:
-  desktop: "images/cover.png"
 authors:
   - bespoyasov
 keywords:

@@ -1,5 +1,5 @@
 ---
-title: "grid-template-rows"
+title: "`grid-template-rows`"
 authors:
   - solarrust
 keywords:

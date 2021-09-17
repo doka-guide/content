@@ -1,9 +1,9 @@
 ---
 title: "Debounce на примере формы поиска"
-cover:
-  desktop: "images/cover.png"
 authors:
   - bespoyasov
+contributors:
+  - skorobaeus
 keywords:
   - keyboard event
   - delay
@@ -38,17 +38,17 @@ tags:
 <!-- У формы есть атрибут action, который будет работать,
     если пользователи отключили скрипты. -->
 <form action="/some-route" method="GET" id="search">
-  <label>Find your favourite pizza:</label>
+  <label>Найди любимую пиццу:</label>
 
   <!-- Используем input с типом search,
       чтобы браузеры делали дополнительную магию
       с автозаполнением и подходящими кнопками
       на телефонных клавиатурах. -->
-  <input type="search" name="query" placeholder="Margherita" />
+  <input type="search" name="query" placeholder="Маргарита" />
 
   <!-- У кнопки тип проставлять необязательно,
       так как submit — это тип кнопки по умолчанию. -->
-  <button>Search!</button>
+  <button>Искать!</button>
 </form>
 
 <ul class="search-results"></ul>
@@ -80,12 +80,12 @@ tags:
 // По этому массиву мы будем искать названия,
 // которые содержат пользовательский запрос.
 const pizzaList = [
-  "Margherita",
-  "Pepperoni",
-  "Hawaii",
-  "4 Cheeses",
-  "Diabola",
-  "Sfincione",
+  'Маргарита',
+  'Пепперони',
+  'Гавайская',
+  '4 Сыра',
+  'Диабло',
+  'Сицилийская'
 ];
 ```
 
@@ -366,4 +366,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<iframe title="Название — Debounce на примере формы поиска — Дока" src="demos/bespoyasov-BazXpNp/"></iframe>
+<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280"></iframe>

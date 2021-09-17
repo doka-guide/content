@@ -1,5 +1,5 @@
 ---
-title: "grid-auto-flow"
+title: "`grid-auto-flow`"
 authors:
   - solarrust
 keywords:

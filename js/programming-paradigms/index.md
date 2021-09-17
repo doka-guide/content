@@ -1,7 +1,5 @@
 ---
 title: "Парадигмы программирования"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - bespoyasov
 keywords:

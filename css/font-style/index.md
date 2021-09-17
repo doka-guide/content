@@ -1,5 +1,5 @@
 ---
-title: "font-style"
+title: "`font-style`"
 authors:
   - grachev
 contributors:

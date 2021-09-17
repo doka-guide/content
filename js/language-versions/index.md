@@ -1,7 +1,5 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - bespoyasov
 keywords:
