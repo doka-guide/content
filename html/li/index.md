@@ -1,5 +1,5 @@
 ---
-title: "<li>"
+title: "`<li>`"
 authors:
   - nionka
 editors:

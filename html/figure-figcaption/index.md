@@ -1,5 +1,5 @@
 ---
-title: "<figure>, <figcaption>"
+title: "`<figure>`, `<figcaption>`"
 authors:
   - ezhkov
 keywords:

@@ -11,7 +11,9 @@
 
 ```css
 [href^="http"]::after {
-  content: "↗️";
+  content: '';
+  display: inline-block;
+  background-image: url(arrow-top-right.svg);
 }
 ```
 
@@ -23,4 +25,4 @@
 }
 ```
 
-<iframe title="Иконка для внешней ссылки" src="../demos/link-icon/" height="100"></iframe>
+<iframe title="Иконка для внешней ссылки" src="../demos/link-icon/" height="140"></iframe>

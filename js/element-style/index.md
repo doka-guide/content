@@ -1,5 +1,5 @@
 ---
-title: "Element.style"
+title: "`Element.style`"
 authors:
   - bespoyasov
 tags:

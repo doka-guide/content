@@ -4,8 +4,6 @@ authors:
   - bespoyasov
 tags:
   - article
-cover:
-  desktop: 'images/cover.png'
 ---
 
 ## Кратко

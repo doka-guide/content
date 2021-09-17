@@ -1,5 +1,5 @@
 ---
-title: "<input>"
+title: "`<input>`"
 authors:
   - vladimir
 contributors:
@@ -11,6 +11,7 @@ keywords:
   - элементы формы
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко

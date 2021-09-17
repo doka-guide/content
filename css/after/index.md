@@ -1,5 +1,5 @@
 ---
-title: "::after"
+title: "`::after`"
 authors:
   - ezhkov
 contributors:

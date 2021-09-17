@@ -1,11 +1,9 @@
 ---
-title: "Promise"
+title: "`Promise`"
 authors:
   - nlopin
 tags:
   - article
-cover:
-  desktop: 'images/cover.png'
 ---
 
 :::callout 💡

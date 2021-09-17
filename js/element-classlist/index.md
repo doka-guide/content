@@ -1,5 +1,5 @@
 ---
-title: "Element.classList"
+title: "`Element.classList`"
 authors:
   - windrushfarer
 contributors:

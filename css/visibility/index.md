@@ -1,5 +1,5 @@
 ---
-title: "visibility"
+title: "`visibility`"
 authors:
   - solarrust
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "all"
+title: "`all`"
 authors:
   - doka-dog
 keywords:

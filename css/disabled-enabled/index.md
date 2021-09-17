@@ -1,5 +1,5 @@
 ---
-title: ":disabled и :enabled"
+title: "`:disabled`, `:enabled`"
 authors:
   - solarrust
 contributors:

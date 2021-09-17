@@ -1,7 +1,5 @@
 ---
 title: "Комментарии"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - solarrust
 editors:

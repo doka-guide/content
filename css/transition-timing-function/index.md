@@ -1,5 +1,5 @@
 ---
-title: "transition-timing-function"
+title: "`transition-timing-function`"
 authors:
   - ezhkov
 keywords:

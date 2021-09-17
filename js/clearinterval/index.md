@@ -1,5 +1,5 @@
 ---
-title: "clearInterval"
+title: "`clearInterval`"
 description: "Отменяет регулярное выполнение функции, установленное вызовом setInterval"
 authors:
   - nlopin

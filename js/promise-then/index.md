@@ -1,5 +1,5 @@
 ---
-title: "Promise. Метод then"
+title: "`Promise`. Метод `then`"
 authors:
   - nlopin
 keywords:

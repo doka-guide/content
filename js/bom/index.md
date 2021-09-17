@@ -1,7 +1,5 @@
 ---
 title: "Браузерное окружение, BOM"
-cover:
-  desktop: "images/cover.png"
 authors:
   - bespoyasov
 editors:

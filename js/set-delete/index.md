@@ -1,5 +1,5 @@
 ---
-title: ".delete()"
+title: "`.delete()`"
 description: "Удаляет значение из коллекции Set"
 authors:
   - nlopin

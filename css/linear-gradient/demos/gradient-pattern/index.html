@@ -4,24 +4,42 @@
     <title>Паттерн из линейного градиента — linear-gradient — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
     <style>
-      body {
+      *, *::before, *::after {
         margin: 0;
-        padding: 10% 5%;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 50px;
         overflow: hidden;
         background-color: #18191c;
         color: #ffffff;
+        font-family: "Caveat", serif;
       }
 
       .element {
-        width: 500px;
-        height: 200px;
+        width: 65%;
         margin-left: auto;
         margin-right: auto;
-        border: 20px solid #fff;
-        background: white linear-gradient(to top, #ccc 1px, transparent 1px) repeat 0 -.7rem / 100% 3rem;
-        color: #000000;
-        font-size: 2rem;
+        border: solid #ffffff;
+        border-left-width: 40px;
+        border-right-width: 40px;
+        border-top-width: 55px;
+        border-bottom-width: 55px;
+        background-color: #FFFFFF;
+        background-image: linear-gradient(
+          to top,
+          #2E9AFF 1px,
+          transparent 1px
+        );
+        background-position: 0 -0.7rem;
+        background-size: 100% 3rem;
+        color: #123E66;
+        font-size: 30px;
         line-height: 3rem;
       }
 

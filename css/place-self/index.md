@@ -1,5 +1,5 @@
 ---
-title: "place-self"
+title: "`place-self`"
 authors:
   - solarrust
 keywords:

@@ -1,5 +1,5 @@
 ---
-title: "justify-items"
+title: "`justify-items`"
 authors:
   - solarrust
 keywords:

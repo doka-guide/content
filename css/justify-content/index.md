@@ -1,5 +1,5 @@
 ---
-title: "justify-content"
+title: "`justify-content`"
 authors:
   - solarrust
 editors:

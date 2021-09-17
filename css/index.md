@@ -134,7 +134,7 @@ groups:
     items:
       - position
       - z-index
-      - sticky
+      - position-sticky
   - name: 'Списки'
     items:
       - list-style-image

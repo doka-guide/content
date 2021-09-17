@@ -1,8 +1,5 @@
 ---
 title: "Рекурсия"
-cover:
-  desktop: 'images/cover.png'
-  alt: 'Котик лежит за ноутбуком, на экране которого котик лежит за ноутбуком и так далее'
 authors:
   - bespoyasov
 keywords:

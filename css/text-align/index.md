@@ -1,5 +1,5 @@
 ---
-title: "text-align"
+title: "`text-align`"
 authors:
   - solarrust
 contributors:

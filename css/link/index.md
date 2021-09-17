@@ -1,5 +1,5 @@
 ---
-title: ":link"
+title: "`:link`"
 authors:
   - realetive
 editors:

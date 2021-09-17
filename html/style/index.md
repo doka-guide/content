@@ -1,5 +1,5 @@
 ---
-title: "<style>"
+title: "`<style>`"
 authors:
   - grachev
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: "console.log()"
+title: "`console.log()`"
 authors:
   - vindi-r
 contributors:

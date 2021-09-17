@@ -1,5 +1,5 @@
 ---
-title: "Element.innerText"
+title: "`Element.innerText`"
 authors:
   - Windrushfarer
 tags:

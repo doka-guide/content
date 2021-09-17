@@ -1,5 +1,5 @@
 ---
-title: "font-smooth"
+title: "`font-smooth`"
 authors:
   - solarrust
   - pepelsbey

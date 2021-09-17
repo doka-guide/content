@@ -1,5 +1,5 @@
 ---
-title: "Number.isNaN()"
+title: "`Number.isNaN()`"
 authors:
   - vindi-r
 tags:

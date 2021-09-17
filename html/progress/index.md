@@ -1,5 +1,5 @@
 ---
-title: "<progress>"
+title: "`<progress>`"
 authors:
   - doka-dog
 keywords:

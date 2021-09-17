@@ -1,5 +1,5 @@
 ---
-title: "animation-delay"
+title: "`animation-delay`"
 authors:
   - solarrust
 editors:

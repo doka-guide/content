@@ -1,5 +1,5 @@
 ---
-title: "::before"
+title: "`::before`"
 authors:
   - ezhkov
 contributors:

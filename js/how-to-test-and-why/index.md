@@ -1,7 +1,9 @@
 ---
 title: "Как и зачем писать тесты"
 cover:
-  desktop: 'images/cover.png'
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Робот-тестировщик, сидит за клавиатурой, вы смотрите на него из монитора'
 authors:
   - bespoyasov
 editors:
@@ -21,6 +23,7 @@ keywords:
   - cypress
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

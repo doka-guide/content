@@ -1,5 +1,5 @@
 ---
-title: ":not"
+title: "`:not`"
 authors:
   - solarrust
 editors:

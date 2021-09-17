@@ -1,5 +1,5 @@
 ---
-title: "<kbd>"
+title: "`<kbd>`"
 authors:
   - doka-dog
 keywords:

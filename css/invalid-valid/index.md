@@ -1,5 +1,5 @@
 ---
-title: ":invalid и :valid"
+title: "`:invalid`, `:valid`"
 authors:
   - ezhkov
 editors:

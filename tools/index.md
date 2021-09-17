@@ -10,6 +10,7 @@ groups:
       - static-types
       - nodejs
       - nodejs-tooling
+      - ci-cd
       - github-actions
   - name: На стороне сервера
     items:
@@ -20,6 +21,7 @@ groups:
       - cli
       - multitasking-and-processes
       - process-management
+      - ssh
   - name: Система контроля версий
     items:
       - version-control

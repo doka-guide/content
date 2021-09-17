@@ -1,5 +1,5 @@
 ---
-title: "Webpack, краткий обзор"
+title: "Webpack: краткий обзор"
 authors:
   - igorkamyshev
 contributors:

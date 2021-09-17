@@ -1,7 +1,5 @@
 ---
-title: "<h1>...<h6>"
-cover:
-  desktop: 'images/cover.png'
+title: "`<h1>`...`<h6>`"
 authors:
   - grachev
 contributors:

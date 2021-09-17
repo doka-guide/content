@@ -1,7 +1,5 @@
 ---
 title: "Как работают веб-приложения"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - bespoyasov
 keywords:

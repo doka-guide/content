@@ -1,5 +1,5 @@
 ---
-title: "Element.Keydown/Keyup"
+title: "`Element.Keydown/Keyup`"
 authors:
   - stegur
 contributors:

@@ -1,5 +1,5 @@
 ---
-title: ":empty"
+title: "`:empty`"
 authors:
   - ezhkov
 editors:

@@ -6,8 +6,7 @@ editors:
   - tachisis
 tags:
   - article
-cover:
-  desktop: 'images/cover.png'
+  - featured
 ---
 
 ## Кратко

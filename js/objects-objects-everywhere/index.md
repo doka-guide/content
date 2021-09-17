@@ -1,7 +1,5 @@
 ---
 title: "Почти всё в JavaScript — объект"
-cover:
-  desktop: 'images/cover.png'
 authors:
   - windrushfarer
 keywords:

@@ -1,5 +1,5 @@
 ---
-title: "@media"
+title: "`@media`"
 authors:
   - lenaryan
 keywords:

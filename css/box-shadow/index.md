@@ -1,5 +1,5 @@
 ---
-title: "box-shadow"
+title: "`box-shadow`"
 authors:
   - solarrust
 contributors:
@@ -8,6 +8,7 @@ keywords:
   - box-shadow
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко
