@@ -16,6 +16,9 @@ groups:
       - function
       - closures
       - use-strict
+  - name: "Продвинутый синтаксис"
+    items:
+      - spread
   - name: "Типы данных"
     items:
       - number-wrapper
