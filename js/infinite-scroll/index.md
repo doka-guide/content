@@ -2,6 +2,8 @@
 title: "Подгрузка контента при прокрутке"
 authors:
   - bespoyasov
+contributors:
+  - skorobaeus
 keywords:
   - scroll
   - loading
@@ -87,7 +89,7 @@ _Бесконечная прокрутка (ещё говорят бесконе
 
 Сейчас Switter выглядит как лента со свитами и пагинатор внизу.
 
-![Switter сейчас](images/switter.jpg)
+![Switter сейчас](images/switter-pagination.png)
 
 Switter сейчас.
 
@@ -210,7 +212,7 @@ const response = await server.posts()
         удаляя все тексты и числа.
         Оставляем только «скелет» компонента. -->
   <article class="post">
-    <h1></h1>
+    <h2></h2>
     <p></p>
     <footer>
       <button type="button">❤️ </button>
@@ -465,4 +467,4 @@ async function fetchPosts() {
 
 В результате мы получим переработанную страницу Switter, которая будет получать контент в тот момент, когда он нужен пользователю.
 
-<iframe title="Название — Подгрузка контента при прокрутке — Дока" src="demos/bespoyasov-wvzWGMM/"></iframe>
+<iframe title="Бесконечная социальная сеть Switter — Подгрузка контента при прокрутке — Дока" src="demos/switter/" height="800"></iframe>

@@ -54,7 +54,7 @@ tags:
 
 В стартовой строке запроса указывается метод, ссылка и версия протокола, разделённые пробелом, например:
 
-```
+```http
 GET /tools/web-server HTTP/2.0
 ```
 
@@ -96,14 +96,14 @@ GET /tools/web-server HTTP/2.0
 
 Пример заголовков запроса:
 
-```
+```http
 Accept-Language: en-us
 Accept-Encoding: gzip, deflate, br
 ```
 
 Пример заголовка ответа:
 
-```
+```http
 Content-Type: text/html; charset=UTF-8
 Content-Encoding: gzip
 ```
@@ -114,14 +114,14 @@ Content-Encoding: gzip
 
 Запрос:
 
-```
+```http
 GET /wiki/Web_server HTTP/1.1
 Host: en.wikipedia.org
 ```
 
 Ответ:
 
-```
+```http
 Date: Wed, 02 Jun 2021 00:41:41 GMT
 Content-Language: en
 Last-Modified: Tue, 25 May 2021 15:08:46 GMT
@@ -194,7 +194,7 @@ Connection: keep-alive
 
 Пример заголовка для авторизации клиента на сервере:
 
-```
+```http
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
@@ -208,7 +208,7 @@ Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 
 Веб-серверы могут обеспечить кэширование и на стороне клиента, чтобы снизить нагрузку на сеть. Для работы с кэшированием используются специальные заголовки. Например, сервер может передать заголовок клиенту:
 
-```
+```http
 Cache-Control: public, max-age=31536000
 ```
 

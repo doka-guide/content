@@ -283,7 +283,7 @@ docker volume prune
 
 Для того, чтобы подключить том с помощью Dockerfile необходимо использовать инструкцию `VOLUME`:
 
-```bash
+```dockerfile
 FROM node:lts
 RUN useradd user
 RUN mkdir /data && touch /data/x
@@ -293,7 +293,7 @@ VOLUME /data
 
 Интересно, что вы не сможете внести какие-либо изменения в данные на этапе сборки образа. Следующий Dockerfile правильно работать не будет:
 
-```bash
+```dockerfile
 FROM node:lts
 RUN useradd user
 VOLUME /data
@@ -309,7 +309,7 @@ RUN chown -R user:user /data
 
 Запустить том для отдельного контейнера можно с помощью следующей конфигурации:
 
-```
+```yaml
 services:
   frontend:
     image: node:lts
@@ -321,7 +321,7 @@ volumes:
 
 Команда `docker-compose up` поднимет не только сам контейнер `frontend`, но и создаст том `myapp`. Если он уже был создан, Docker Compose подключит его к контейнеру, но надо указать это явно с помощью элемента `external` так:
 
-```
+```yaml
 services:
   frontend:
     image: node:lts
