@@ -12,6 +12,7 @@ keywords:
   - тайпскрипт
 tags:
   - article
+  - featured
 ---
 ## Кратко
 
