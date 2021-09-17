@@ -1,8 +1,5 @@
 ---
 title: "Преобразование типов"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Ведущий прогноза погоды показывает на карту осадков, где облачка подписаны массивами'
 authors:
   - bespoyasov
 tags:

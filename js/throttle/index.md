@@ -1,8 +1,5 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
-cover:
-  desktop: "images/covers/desktop.png"
-  alt: 'Девочка кликает мышкой, играя в файтинг в стиле Mortal Kombat, где героиня бьёт ногой по снеговику'
 authors:
   - bespoyasov
 keywords:

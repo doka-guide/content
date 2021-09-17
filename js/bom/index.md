@@ -1,8 +1,5 @@
 ---
-title: "BOM: браузерное окружение"
-cover:
-  desktop: "images/covers/desktop.png"
-  alt: 'Персонаж браузер окружён другими персонажами: символом локации, базой данных, книгой с историей, и дружит с ними'
+title: "Браузерное окружение, BOM"
 authors:
   - bespoyasov
 editors:

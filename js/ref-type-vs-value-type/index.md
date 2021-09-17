@@ -1,8 +1,5 @@
 ---
-title: "Хранение по ссылке и по значению"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Два сундука, вверху осьминог и карта, в нижнем - данные и значения: false/true'
+title: "Хранение по ссылке vs. по значению"
 authors:
   - windrushfarer
 keywords:
