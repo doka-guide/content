@@ -34,7 +34,7 @@ p {
 
 :::callout 🤨
 
-Значение `anywhere` пока не поддерживается десктопным и мобильным Safari, а также в IE и в мобильной Opera. Подробнее на [Can I Use](https://caniuse.com/mdn-css_properties_overflow-wrap_anywhere).
+Значение `anywhere` пока не поддерживается всеми браузерами. Проверяйте поддержку на [Can I Use](https://caniuse.com/mdn-css_properties_overflow-wrap_anywhere).
 
 :::
 
