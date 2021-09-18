@@ -45,8 +45,11 @@ groups:
   - name: Как устроена сеть
     items:
       - network
-      - encoding
       - network-models
+      - encoding
+      - ssl-certificates
+      - http-protocol
+      - tcp-udp-protocols
 ---
 
 Вспомогательные технологии, процессы и инструменты для разработки и публикации приложений.
