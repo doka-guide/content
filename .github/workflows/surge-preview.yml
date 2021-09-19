@@ -59,9 +59,10 @@ jobs:
       - name: Выборка файлов для формирования списка
         id: files
         run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.head_sha }} ${{ github.event.workflow_run.head_sha }})")
-          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
-          echo "::set-output name=all::$files"
+          echo "${{ github.event }}"
+          # files=$(echo "$(git diff --name-only ${{ github.event.head_sha }} ${{ github.event.workflow_run.head_sha }})")
+          # echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
+          # echo "::set-output name=all::$files"
       - name: Форматирование списка файлов
         id: links
         run: |
