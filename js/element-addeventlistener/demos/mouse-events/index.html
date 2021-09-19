@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Обработка событий мыши — Element.addEventListener() — Дока</title>
   <meta charset="utf-8">
@@ -64,17 +63,17 @@
   <div id="result"></div>
 
   <script>
-    const linkElement = document.querySelector('#custom');
-    const resultElement = document.querySelector('#result');
+    const linkElement = document.querySelector('#custom')
+    const resultElement = document.querySelector('#result')
 
-    element.addEventListener('click', function handleClick(event) {
-      event.preventDefault(); // Отменяем поведение браузера для этого события
+    linkElement.addEventListener('click', function (event) {
+      event.preventDefault()
 
-      resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!';
+      resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
       setTimeout(function () {
-        resultElement.innerText = '';
-      }, 2500);
-    });
+        resultElement.innerText = ''
+      }, 2500)
+    })
   </script>
 </body>
 

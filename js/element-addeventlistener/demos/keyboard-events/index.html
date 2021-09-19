@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Обработка событий клавиатуры — Element.addEventListener() — Дока</title>
   <meta charset="utf-8">
@@ -114,7 +113,7 @@
       text-align: left;
     }
 
-    .message+.message {
+    .message + .message {
       margin-top: 5px;
     }
 
@@ -123,7 +122,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="container">
     <div class="event"><span>Ожидание ввода...</span></div>
@@ -135,24 +133,23 @@
   </div>
 
   <script>
-    const element = document.querySelector('input');
+    const element = document.querySelector('input')
 
     element.addEventListener('keydown', function (event) {
-      const message = '<code>' + event.key + '</code>';
-      const value = event.targer.value;
+      const message = '<code>' + event.key + '</code>'
+      const value = event.target.value
 
-      if (event.key === 'Enter' && value.lenght > 0) {
-        const messageElement = document.createElement('div');
+      if (event.key === 'Enter' && value.length > 0) {
+        const messageElement = document.createElement('div')
 
-        messageElement.classList.add("message");
-        messageElement.innerText = value;
-        document.querySelector('.result').appendChild(messageElement);
-        event.target.value = '';
+        messageElement.classList.add('message')
+        messageElement.innerText = value
+        document.querySelector('.result').appendChild(messageElement)
+        event.target.value = ''
       }
 
-      document.querySelector('.event').innerHTML = message;
-    });
+      document.querySelector('.event').innerHTML = message
+    })
   </script>
 </body>
-
 </html>
