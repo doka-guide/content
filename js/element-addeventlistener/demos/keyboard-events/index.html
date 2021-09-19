@@ -135,24 +135,23 @@
   </div>
 
   <script>
-    function handleKey(event) {
-      const msg = '<code>' + event.key + '</code>'
+    const element = document.querySelector('input');
 
-      if (event.key === 'Enter') {
-        const newMsg = document.createElement('div')
-        const result = document.querySelector('.result')
+    element.addEventListener('keydown', function (event) {
+      const message = '<code>' + event.key + '</code>';
+      const value = event.targer.value;
 
-        newMsg.classList.add('message')
-        newMsg.innerText = event.target.value
-        result.appendChild(newMsg)
-        result.scrollTo(0, result.scrollHeight)
-        event.target.value = ''
+      if (event.key === 'Enter' && value.lenght > 0) {
+        const messageElement = document.createElement('div');
+
+        messageElement.classList.add("message");
+        messageElement.innerText = value;
+        document.querySelector('.result').appendChild(messageElement);
+        event.target.value = '';
       }
 
-      document.querySelector('.event').innerHTML = msg
-    }
-
-    document.querySelector('input').addEventListener('keydown', handleKey)
+      document.querySelector('.event').innerHTML = message;
+    });
   </script>
 </body>
 
