@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Обработка событий клавиатуры — Element.addEventListener() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
     * {
@@ -113,7 +114,7 @@
       text-align: left;
     }
 
-    .message + .message {
+    .message+.message {
       margin-top: 5px;
     }
 
@@ -122,6 +123,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="event"><span>Ожидание ввода...</span></div>
@@ -135,6 +137,7 @@
   <script>
     function handleKey(event) {
       const msg = '<code>' + event.key + '</code>'
+
       if (event.key === 'Enter') {
         const newMsg = document.createElement('div')
         const result = document.querySelector('.result')
@@ -152,4 +155,5 @@
     document.querySelector('input').addEventListener('keydown', handleKey)
   </script>
 </body>
+
 </html>

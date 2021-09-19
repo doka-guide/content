@@ -7,20 +7,22 @@
 ```
 
 ```js
-function handleKey(event) {
+const element = document.querySelector('input');
+
+element.addEventListener('keydown', function (event) {
   const msg = '<code>' + event.key + '</code>';
+
   if (event.key === 'Enter') {
     const newMsg = document.createElement('div');
+
     newMsg.classList.add("message");
     newMsg.innerText = event.target.value;
     document.querySelector('.result').appendChild(newMsg);
     event.target.value = '';
   }
-    document.querySelector('.event').innerHTML = msg;
-}
 
-const elem = document.querySelector('input');
-elem.addEventListener('keydown', handleKey);
+  document.querySelector('.event').innerHTML = msg;
+});
 ```
 
 <iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450"></iframe>
@@ -34,15 +36,17 @@ elem.addEventListener('keydown', handleKey);
 ```
 
 ```js
-function handleClick(e) {
-  e.preventDefault(); // Отменяем поведение браузера для этого события
-  document.querySelector('#result').innerText = 'Вы нажали на ссылку, но ничего не произошло!';
+const linkElement = document.querySelector('#custom');
+const resultElement = document.querySelector('#result');
+
+element.addEventListener('click', function (event) {
+  event.preventDefault(); // Отменяем поведение браузера для этого события
+
+  resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!';
   setTimeout(function() {
-    document.querySelector('#result').innerText = '';
+    resultElement.innerText = '';
   }, 2500);
-}
-const elem = document.querySelector('#custom');
-elem.addEventListener('click', handleClick);
+});
 ```
 
 <iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320"></iframe>
