@@ -12,6 +12,9 @@ groups:
       - nodejs-tooling
       - ci-cd
       - github-actions
+  - name: На стороне сервера
+    items:
+      - microservices
   - name: Операционная система
     items:
       - file
