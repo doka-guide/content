@@ -2,7 +2,7 @@
 title: "`<pre>`"
 authors:
   - nionka
-summary:
+keywords:
   - pre
   - тег
   - тэг
