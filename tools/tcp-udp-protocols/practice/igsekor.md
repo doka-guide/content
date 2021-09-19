@@ -31,5 +31,5 @@
 - «[Системный подход к скорости: онлайн-измерения на фронтенде](https://habr.com/ru/company/jugru/blog/426571/)».
 - «[OCSP Stapling: как работает данная технология](https://www.leaderssl.ru/articles/389-ocsp-stapling-kak-rabotaet-dannaya-tehnologiya)».
 - «[Web Performance 101](https://3perf.com/talks/web-perf-101/)».
-- «[Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path)».
+- «[How do Web Browsers Work?](https://medium.com/@bibekshah09/how-do-web-browsers-work-1245d5b06c51)».
 - «[High Performance Browser Networking](https://hpbn.co)».
