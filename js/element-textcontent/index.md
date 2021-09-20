@@ -1,7 +1,7 @@
 ---
 title: "`Element.textContent`"
 authors:
-  - Windrushfarer
+  - windrushfarer
 tags:
   - doka
 ---
