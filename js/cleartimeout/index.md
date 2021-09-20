@@ -1,7 +1,7 @@
 ---
 title: "`Element.clearTimeout`"
 authors:
-  - Windrushfarer
+  - windrushfarer
 keywords:
   - таймаут
 tags:
