@@ -1,7 +1,7 @@
 ---
 title: "Кастомные свойства"
 authors:
-  - ezhkov_d
+  - ezhkov
 contributors:
   - skorobaeus
 editors:
