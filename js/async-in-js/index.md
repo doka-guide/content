@@ -273,88 +273,233 @@ main()
 
 Но теперь у нас будет не только стек вызовов — также мы включим Web API и очередь задач, которую Web API использует для хранения того, что нужно выполнить.
 
-Вызов `main`. Стек:
+Вызов `main`:
 
-```js
-main;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 В Web API и очереди задач пока пусто.
 
-Вызов `setTimeout`. Стек:
+Вызов `setTimeout`:
 
-```js
-setTimeout;
-main;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>setTimeout</code></li>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-Когда `setTimeout` исчезает из стека, он попадает в видимость Web API, где интерпретатор понимает, что внутри него есть функция `greet`, которую надо выполнить через 2 секунды. Стек:
+Когда `setTimeout` исчезает из стека, он попадает в видимость Web API, где интерпретатор понимает, что внутри него есть функция `greet`, которую надо выполнить через 2 секунды:
 
-```js
-main;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><code>setTimeout(greet)</code></li>
+        </ul>
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-Web API:
+После этого Web API отправляет функцию `greet` в очередь задач, ждать времени, когда ей нужно будет выполниться:
 
-```js
-setTimeout(greet)
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-После этого Web API отправляет функцию `greet` в очередь задач, ждать времени, когда ей нужно будет выполниться. Стек:
+Далее выполняется вызов консоли `console.log("Bye!")`, в очереди задач в это время всё ещё находится функция `greet`. Она будет там до тех пор, пока не истечёт 2 секунды:
 
-```js
-main;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>console.log</code></li>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-Очередь задач:
+Прошло 2 секунды:
 
-```js
-greet;
-```
-
-Далее выполняется вызов консоли, в очереди задач в это время всё ещё находится функция `greet`. Она будет там до тех пор, пока не истечёт 2 секунды. Вызов `console.log`. Стек:
-
-```js
-console.log;
-main;
-```
-
-Очередь задач:
-
-```js
-greet;
-```
-
-Прошло 2 секунды. Стек:
-
-```js
-main;
-```
-
-Очередь задач:
-
-```js
-greet;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>main</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td>
+        <ul>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Даже когда стек опустеет, очередь задач ещё не пуста:
 
-```js
-greet;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <ul>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-И вот, когда 2 секунды прошли, цикл событий проталкивает функцию `greet` из списка задач в вызов. Стек:
+И вот, когда 2 секунды прошли, цикл событий проталкивает функцию `greet` из списка задач в вызов:
 
-```js
-greet;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
-Затем вызов `console.log`. Стек:
+Затем вызов `console.log("Hello!")`:
 
-```js
-console.log;
-greet;
-```
+<table>
+  <thead>
+    <tr>
+      <th>Стек</th>
+      <th>Web API</th>
+      <th>Очередь задач</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <ul>
+          <li><code>console.log</code></li>
+          <li><code>greet</code></li>
+        </ul>
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 
 И наконец стек пуст.
 
