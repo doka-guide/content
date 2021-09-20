@@ -63,10 +63,10 @@ jobs:
           filter: '*.md'
           format: 'csv'
       - name: Проверяет ссылки
-        if: ${{ steps.files.outputs.all != '' }}
+        if: ${{ steps.files.outputs.added_modified != '' }}
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: ${{ steps.files.outputs.all }}
+          paths: ${{ steps.files.outputs.added_modified }}
           markdown: true
           serverRoot: "/home/runner/work/content/content"
           linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
