@@ -97,6 +97,7 @@ groups:
       - console-log
       - window-history
       - window-location
+      - match-media
       - urlsearchparams
       - local-storage
       - alert
