@@ -166,6 +166,7 @@ anotherCopy.isAdmin = false
 
 console.log(anotherCopy)
 // {name: 'Anna', age: 30, isAdmin: false }
+
 console.log(admin)
 // {name: 'Anna', age: 25, isAdmin: true }
 ```
