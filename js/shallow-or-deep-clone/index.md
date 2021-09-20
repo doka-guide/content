@@ -85,3 +85,16 @@ console.log(itemsInCart[1] === deep[1])
 ```
 
 ![Результат глубокого копирования массива](images/deep.png)
+
+У этого метода есть ограничение — копируемая структура должна быть сериализуема. Если объект содержит методы или массив содержит функции, то копирование с помощью JSON-преобразования не сработает:
+
+```js
+const fns = [
+  function() { console.log('aaa') },
+  function() { console.log('bbb') },
+]
+const copyFns = JSON.parse(JSON.stringify(fns))
+
+console.log(copyFns)
+// [null, null]
+```
