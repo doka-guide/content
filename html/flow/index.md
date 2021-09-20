@@ -1,7 +1,7 @@
 ---
 title: "Поток документа"
 authors:
-  - ezhkov_d
+  - ezhkov
 editors:
   - tachisis
 contributors:
