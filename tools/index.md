@@ -15,6 +15,7 @@ groups:
   - name: На стороне сервера
     items:
       - microservices
+      - gateway-bff
   - name: Операционная система
     items:
       - file
