@@ -56,7 +56,7 @@ tags:
 </html>
 ```
 
-<details class="article__table article__table_all-half">
+<details>
   <summary>Коды всех языков</summary>
 
 | Язык                             | Код   |
