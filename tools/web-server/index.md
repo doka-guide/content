@@ -132,7 +132,7 @@ Accept-Ranges: bytes
 Content-Length: 27606
 Connection: keep-alive
 
-<!DOCTYPE.html">
+<!DOCTYPE html>
 <html class="client-nojs" lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
