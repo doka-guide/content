@@ -13,6 +13,7 @@ keywords:
   - отправка без перезагрузки
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

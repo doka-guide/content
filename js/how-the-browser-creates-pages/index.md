@@ -1,14 +1,12 @@
 ---
 title: "Как браузер рисует страницы"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Картина, разложенная на уровни, как свето-диорама. Снаружи outline, далее по уровням children, frame и background'
 authors:
   - bespoyasov
 editors:
   - tachisis
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

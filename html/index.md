@@ -19,7 +19,7 @@ groups:
       - address
       - blockquote
       - q
-      - br-pros-cons
+      - br
   - name: 'Семантика'
     items:
       - div

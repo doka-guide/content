@@ -1,8 +1,5 @@
 ---
 title: "Парадигмы программирования"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Парень в кепке с улыбающимся смайлом показывает пальцами жест peace, рядом мужик с усами и гитарой поёт'
 authors:
   - bespoyasov
 keywords:

@@ -12,12 +12,17 @@ groups:
       - nodejs-tooling
       - ci-cd
       - github-actions
+  - name: На стороне сервера
+    items:
+      - microservices
+      - gateway-bff
   - name: Операционная система
     items:
       - file
       - cli
       - multitasking-and-processes
       - process-management
+      - ssh
   - name: Система контроля версий
     items:
       - version-control
@@ -45,8 +50,11 @@ groups:
   - name: Как устроена сеть
     items:
       - network
-      - encoding
       - network-models
+      - encoding
+      - ssl-certificates
+      - http-protocol
+      - tcp-udp-protocols
 ---
 
 Вспомогательные технологии, процессы и инструменты для разработки и публикации приложений.
