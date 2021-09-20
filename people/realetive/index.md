@@ -1,4 +1,4 @@
 ---
-name: 'Роман Ганин'
-url: https://romanganin.ru
+name: 'Realetive'
+url: https://github.com/realetive
 ---
