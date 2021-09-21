@@ -1,5 +1,6 @@
 ---
 title: "Гайд по flexbox"
+description: "Всё, что нужно знать про флексбоксы: основные термины, свойства флекс-контейнера и флекс-элементов, полезные ссылки по теме."
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
