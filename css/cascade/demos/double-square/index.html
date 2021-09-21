@@ -2,13 +2,15 @@
 <html lang="ru">
 <head>
   <title>Квадрат в квадрате — Каскад — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .wrapper {
       width: 300px;
       height: 150px;
       background-color: #112393;
-      border: 1em solid; /* описываем свойство */
+      /* описываем свойство */
+      border: 1em solid;
     }
 
     .inner {
@@ -16,13 +18,14 @@
       width: 120px;
       height: 80px;
       margin: auto;
-      border: inherit; /* наследуем свойство у «родителя» */
+      /* наследуем свойство у «родителя» */
+      border: inherit;
     }
   </style>
 </head>
 <body>
-<div class="wrapper">
-  <div class="inner"></div>
-</div>
+  <div class="wrapper">
+    <div class="inner"></div>
+  </div>
 </body>
 </html>
