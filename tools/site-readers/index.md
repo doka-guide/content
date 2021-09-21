@@ -184,26 +184,26 @@ tags:
 
 Нужно протестировать:
 
-<input type="checkbox"> Скорость загрузки.
-<input type="checkbox"> Семантику.
-<input type="checkbox"> Адаптивность.
-<input type="checkbox"> Валидность вёрстки.
-<input type="checkbox"> Последовательность кода.
-<input type="checkbox"> Доступность.
+<label><input type="checkbox"> Скорость загрузки</label>.
+<label><input type="checkbox"> Семантику</label>.
+<label><input type="checkbox"> Адаптивность</label>.
+<label><input type="checkbox"> Валидность вёрстки</label>.
+<label><input type="checkbox"> Последовательность кода</label>.
+<label><input type="checkbox"> Доступность</label>.
 
 Нужно реализовать:
 
-<input type="checkbox"> Принять необходимость перечисленных ниже пунктов.
-<input type="checkbox"> Сделать сайт адаптивным.
-<input type="checkbox"> Сделать сайт контрастным.
-<input type="checkbox"> Сформировать структуру заголовков.
-<input type="checkbox"> Сделать ссылки доступными.
-<input type="checkbox"> Сделать контентные картинки доступными.
-<input type="checkbox"> Сделать аудио и видео доступными.
-<input type="checkbox"> Сделать формы доступными (если есть формы).
-<input type="checkbox"> Сделать таблицы доступными (если есть таблицы).
-<input type="checkbox"> Сделать заголовки страниц (тег `<title>`).
-<input type="checkbox"> Сделать описания страниц (тег `<meta name="description" content="...">`).
-<input type="checkbox"> Сделать мета-описание в рамках OpenGraph.
-<input type="checkbox"> Сделать мета-описание в рамках Twitter (если необходимо).
-<input type="checkbox"> Сделать микроразметку в синтаксисе JSON-LD.
+<label><input type="checkbox"> Принять необходимость перечисленных ниже пунктов</label>.
+<label><input type="checkbox"> Сделать сайт адаптивным</label>.
+<label><input type="checkbox"> Сделать сайт контрастным</label>.
+<label><input type="checkbox"> Сформировать структуру заголовков</label>.
+<label><input type="checkbox"> Сделать ссылки доступными</label>.
+<label><input type="checkbox"> Сделать контентные картинки доступными</label>.
+<label><input type="checkbox"> Сделать аудио и видео доступными</label>.
+<label><input type="checkbox"> Сделать формы доступными</label> (если есть формы).
+<label><input type="checkbox"> Сделать таблицы доступными (если есть таблицы)</label>.
+<label><input type="checkbox"> Сделать заголовки страниц</label> (тег `<title>`).
+<label><input type="checkbox"> Сделать описания страниц</label> (тег `<meta name="description" content="...">`).
+<label><input type="checkbox"> Сделать мета-описание в рамках OpenGraph</label>.
+<label><input type="checkbox"> Сделать мета-описание в рамках Twitter</label> (если необходимо).
+<label><input type="checkbox"> Сделать микроразметку в синтаксисе JSON-LD</label>.
