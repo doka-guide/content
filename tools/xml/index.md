@@ -1,7 +1,7 @@
 ---
 title: "XML"
 authors:
-  - KognitivnayaBuena
+  - kognitivnayabuena
 keywords:
   - xml
   - разметка

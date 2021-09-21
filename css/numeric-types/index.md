@@ -1,7 +1,7 @@
 ---
 title: "Единицы измерения"
 authors:
-  - ezhkov_d
+  - ezhkov
 editors:
   - tachisis
 keywords:
