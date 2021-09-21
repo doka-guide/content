@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Уточнённый селектор — Селектор по классу — Дока</title>
   <meta charset="UTF-8">
+  <title>Уточнённый селектор — Селектор по классу — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
     .form-label {
       display: block;
       margin-bottom: 4px;
@@ -24,10 +36,6 @@
       background-color: #ff000022;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-    }
-
     .container {
       display: flex;
       justify-content: center;
@@ -43,16 +51,16 @@
 <div class="container">
   <div class="block">
     <p>Базовое состояние</p>
-    <form action="">
+    <form>
       <label class="form-label" for="input">Ваш email</label>
-      <input class="form-input" type="email">
+      <input class="form-input" type="email" id="input">
     </form>
   </div>
   <div class="block">
     <p>Неправильно заполненное поле</p>
-    <form action="">
-      <label class="form-label invalid" for="input">Ваш email</label>
-      <input class="form-input invalid" type="email">
+    <form>
+      <label class="form-label invalid" for="input-invalid">Ваш email</label>
+      <input class="form-input invalid" type="email" id="input-invalid">
     </form>
   </div>
 </div>
