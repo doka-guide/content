@@ -1,5 +1,6 @@
 ---
 title: "Работа с формами"
+description: "Как отправлять формы без перезагрузки страницы"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

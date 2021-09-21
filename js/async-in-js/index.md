@@ -1,5 +1,6 @@
 ---
 title: "Асинхронность в JS"
+description: "Как организовать взаимодействие с сервисами, которые не дают мгновенный обратный ответ"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
