@@ -3,10 +3,10 @@ title: "Глобальные ключевые слова"
 authors:
   - solarrust
 keywords:
-    - initial
-    - inherit
-    - unset
-    - revert
+  - initial
+  - inherit
+  - unset
+  - revert
 tags:
   - doka
 ---
