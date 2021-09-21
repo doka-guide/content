@@ -41,7 +41,7 @@ input:required {
 }
 ```
 
-<iframe title="Обводка вокруг обязательного поля" src="demos/required-input/" height="100"></iframe>
+<iframe title="Обводка вокруг обязательного поля" src="demos/required-input/" height="200"></iframe>
 
 ## Как это понять
 
