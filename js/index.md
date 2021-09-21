@@ -20,6 +20,7 @@ groups:
     items:
       - spread
       - for-in
+      - shallow-or-deep-clone
   - name: "Типы данных"
     items:
       - number-wrapper
