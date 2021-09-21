@@ -1,7 +1,7 @@
 ---
 title: "YAML"
 authors:
-  - KognitivnayaBuena
+  - kognitivnayabuena
 keywords:
   - yaml
   - конфигурация

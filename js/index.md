@@ -20,6 +20,7 @@ groups:
     items:
       - spread
       - for-in
+      - shallow-or-deep-clone
   - name: "Типы данных"
     items:
       - number-wrapper
@@ -97,6 +98,7 @@ groups:
       - console-log
       - window-history
       - window-location
+      - match-media
       - urlsearchparams
       - local-storage
       - alert

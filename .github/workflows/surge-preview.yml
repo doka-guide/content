@@ -3,7 +3,7 @@ name: Surge Preview
 on:
   workflow_run:
     workflows:
-      - "Frontmatter Check"
+      - "PR Checks"
     types:
       - completed
 
