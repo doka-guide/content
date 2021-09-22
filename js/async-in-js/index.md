@@ -1,6 +1,6 @@
 ---
 title: "Асинхронность в JS"
-description: "Как организовать взаимодействие с сервисами, которые не дают мгновенный обратный ответ"
+description: "Как устроена асинхронность под капотом: что такое Event loop и очередь событий, причём здесь Web API, и как работают промисы и async/await"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
