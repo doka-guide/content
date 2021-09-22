@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>CodePen - transition-timing-function2</title>
+  <title>Демонстрация разных значений step — transition-timing-function — Дока</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
     .parent {
       position: relative;
       width: 600px;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 30px;
-      outline: 1px solid rgba(0, 0, 0, 0.3);
-      outline-offset: -1px;
+      margin-bottom: 40px;
+      outline: 1px solid #FFFFFF;
     }
 
     .parent span {
@@ -20,10 +35,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      font-family: monospace;
     }
+
     .elem {
-      width: 0px;
-      height: 30px;
+      width: 0;
+      height: 50px;
       background: red;
       color: white;
       display: flex;
@@ -33,7 +50,7 @@
       position: relative;
     }
 
-    .elem:before {
+    .elem::before {
       content: "";
       position: absolute;
       display: flex;
@@ -68,8 +85,8 @@
     .ticker {
       width: 1px;
       height: 20px;
-      background: #000;
-      left: 0;
+      background: #fff;
+      left: -1px;
       position: absolute;
     }
 
@@ -81,6 +98,7 @@
     }
 
     h3 {
+      margin-bottom: 25px;
       text-align: center;
     }
   </style>
