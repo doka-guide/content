@@ -2,12 +2,22 @@
 <html lang="ru">
 <head>
   <title>Шапка с паддингами в vmin — vmin — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-size: 3rem;
-      color: white;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
     }
 
     header {
@@ -22,9 +32,7 @@
       width: 60%;
       margin-left: auto;
       margin-right: auto;
-      color: black;
       font-size: 20px;
-      line-height: 24px;
     }
 
     @media (max-width: 1000px) {
