@@ -1,6 +1,6 @@
 ---
 title: "Работа с формами"
-description: "Как отправлять формы без перезагрузки страницы"
+description: "Как обрабатывать формы, валидировать их и отправлять без перезагрузки страницы с помощью JS"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
