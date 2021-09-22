@@ -1,6 +1,6 @@
 ---
 title: "Как и зачем писать тесты"
-description: "Разбираемся, как тесты помогают писать чистый новый код и увереннее редактировать старый"
+description: "Как тесты помогают писать чистый новый код и увереннее редактировать старый"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
