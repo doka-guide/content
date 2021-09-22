@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <title>Демонстрация разных значений jump — transition-timing-function — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
@@ -137,43 +137,44 @@
   </style>
 </head>
 <body>
-<h3>Нажми на прямоугольник</h3>
-<div class="parent">
-  <span class="supports">jump-start</span>
-  <span class="not-supports">start</span>
-  <div class="elem jump-start"></div>
-  <div class="ticker"></div>
-</div>
+  <h3>Нажми на прямоугольник</h3>
+  <div class="parent">
+    <span class="supports">jump-start</span>
+    <span class="not-supports">start</span>
+    <div class="elem jump-start"></div>
+    <div class="ticker"></div>
+  </div>
 
-<div class="parent">
-  <span class="supports">jump-end</span>
-  <span class="not-supports">end</span>
-  <div class="elem jump-end"></div>
-  <div class="ticker"></div>
-</div>
+  <div class="parent">
+    <span class="supports">jump-end</span>
+    <span class="not-supports">end</span>
+    <div class="elem jump-end"></div>
+    <div class="ticker"></div>
+  </div>
 
-<div class="parent supports">
-  <span>jump-none</span>
-  <div class="elem jump-none"></div>
-  <div class="ticker"></div>
-</div>
+  <div class="parent supports">
+    <span>jump-none</span>
+    <div class="elem jump-none"></div>
+    <div class="ticker"></div>
+  </div>
 
-<div class="parent supports">
-  <span>jump-both</span>
-  <div class="elem jump-both"></div>
-  <div class="ticker"></div>
-</div>
+  <div class="parent supports">
+    <span>jump-both</span>
+    <div class="elem jump-both"></div>
+    <div class="ticker"></div>
+  </div>
+
   <script>
-    const parents = document.querySelectorAll(".parent");
+    const parents = document.querySelectorAll('.parent')
 
     parents.forEach((parent) => {
-      parent.addEventListener("click", () => {
-        const elem = parent.querySelector(".elem");
-        const ticker = parent.querySelector(".ticker");
-        elem.classList.toggle("active");
-        ticker.classList.toggle("active");
-      });
-    });
+      parent.addEventListener('click', () => {
+        const elem = parent.querySelector('.elem')
+        const ticker = parent.querySelector('.ticker')
+        elem.classList.toggle('active')
+        ticker.classList.toggle('active')
+      })
+    })
   </script>
 </body>
 </html>
