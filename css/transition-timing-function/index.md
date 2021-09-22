@@ -70,16 +70,6 @@ tags:
 }
 ```
 
-Глобальные значения:
-
-```css
-.selector {
-  transition-timing-function: inherit;
-  transition-timing-function: initial;
-  transition-timing-function: unset;
-}
-```
-
 ## Как это понять
 
 Например, нам нужно изменить какое-то свойство от 0 до 100 за 1 секунду. В течение этой секунды значение свойства может меняться с разной скоростью. Как именно — как раз описывает наша функция.
@@ -104,7 +94,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-<iframe title="Демонстрация разных временных функций" src="demos/every/" height="150"></iframe>
+<iframe title="Демонстрация разных временных функций" src="demos/every/" height="410"></iframe>
 
 ### Функция `steps`
 
@@ -135,7 +125,7 @@ tags:
 
 В зависимости от используемого сейчас браузера пример ниже может изменяться:
 
-<iframe title="Демонстрация разных значений jump" src="demos/jump/" height="250"></iframe>
+<iframe title="Демонстрация разных значений jump" src="demos/jump/" height="520"></iframe>
 
 Ключевые слова `step-start`, `step-end` являются синонимами для записи `steps(1, jump-start)` и `steps(1, jump-end)`. Изменение происходит скачком за один шаг.
 
@@ -143,7 +133,7 @@ tags:
 
 `step-end` дожидается конца анимации и потом переходит в конечное состояние
 
-<iframe title="Демонстрация разных значений step" src="demos/step/" height="200"></iframe>
+<iframe title="Демонстрация разных значений step" src="demos/step/" height="350"></iframe>
 
 ## Подсказки
 

@@ -28,20 +28,14 @@ tags:
 
 ```css
 .selector {
-  transition-duration: 6s; /* время в секундах */
-  transition-duration: 120ms; /* время в миллисекундах */
-  transition-duration: 0.1s, 15s; /* несколько времён в секундах */
-  transition-duration: 10s, 30s, 230ms; /* несколько времён в секундах и миллисекундах */
-}
-```
-
-Глобальные значения:
-
-```css
-.selector {
-  transition-duration: inherit;
-  transition-duration: initial;
-  transition-duration: unset;
+  /* время в секундах */
+  transition-duration: 6s;
+  /* время в миллисекундах */
+  transition-duration: 120ms;
+  /* несколько времён в секундах */
+  transition-duration: 0.1s, 15s;
+  /* несколько времён в секундах и миллисекундах */
+  transition-duration: 10s, 30s, 230ms;
 }
 ```
 
@@ -49,10 +43,10 @@ tags:
 
 Браузер анимирует изменения свойств при выполнении двух условий:
 
-- перечислены свойства, которые нужно анимировать ([`transition-property`](/css/transition-property/))
-- перечислены времена анимации для этих свойств (`transition-duration`)
+- перечислены свойства, которые нужно анимировать ([`transition-property`](/css/transition-property/));
+- перечислены времена анимации для этих свойств (`transition-duration`).
 
-В общем случае количество свойств и количество времён должны совпадать и браузер сопоставляет каждое время каждому свойству из списка в `transition-property`].
+В общем случае количество свойств и количество времён должны совпадать и браузер сопоставляет каждое время каждому свойству из списка в `transition-property`.
 
 ```css
 .box {

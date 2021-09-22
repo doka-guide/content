@@ -39,7 +39,7 @@ npm install parcel-bundler
 
 ```html
 <!-- index.html -->
-.html">
+<html>
   <head>
     <title>Hello, bundler!</title>
     <script src="./index.js"></script>
@@ -47,7 +47,7 @@ npm install parcel-bundler
   <body>
     <h1 id="title">Hello, bundler!</h1>
   </body>
-<.html">
+</html>
 ```
 
 Рядом с этим файлом следует разместить JavaScript-файл:

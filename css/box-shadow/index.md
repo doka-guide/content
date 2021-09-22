@@ -1,5 +1,6 @@
 ---
 title: "`box-shadow`"
+description: "Свойство, с помощью которого можно задать блоку тень."
 authors:
   - solarrust
 contributors:

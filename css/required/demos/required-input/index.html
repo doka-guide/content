@@ -2,11 +2,20 @@
 <html lang="ru">
 <head>
   <title>Обводка вокруг обязательного поля — :required — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
     }
+
     form {
       width: 200px;
       margin-left: auto;
@@ -28,15 +37,15 @@
   </style>
 </head>
 <body>
-<form>
-  <div class="form-row">
-    <label for="first_name">Имя*</label>
-    <input type="text" id="first_name" required>
-  </div>
-  <div class="form-row">
-    <label for="last_name">Фамилия</label>
-    <input type="text" id="last_name">
-  </div>
-</form>
+  <form>
+    <div class="form-row">
+      <label for="first_name">Имя*</label>
+      <input type="text" id="first_name" required>
+    </div>
+    <div class="form-row">
+      <label for="last_name">Фамилия</label>
+      <input type="text" id="last_name">
+    </div>
+  </form>
 </body>
 </html>

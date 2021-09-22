@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Светофоры с разными режимами animation-fill-mode — animation-fill-mode — Дока</title>
-  <meta charset="UTF-8">
+  <title>Светофоры с разными режимами animation-fill-mode — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       margin: 0;
       background-image:
@@ -12,10 +19,12 @@
       linear-gradient(-45deg, #E8E8E4 5%, transparent 5%);
       background-color: #FEFFFE;
       background-size: 1em 1em;
+      font-family: "Roboto", sans-serif;
     }
 
-    kbd {
+    span {
       display: block;
+      font-family: monospace;
     }
 
     section {
@@ -112,15 +121,38 @@
       color: #6D6D6D;
     }
 
-    p{
-      margin:0
+    button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      min-width: 150px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+      background-color: #2E9AFF;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus, button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
   </style>
 </head>
 <body>
   <section>
     <div class="container">
-      <kbd>animation-fill-mode: forwards;</kbd>
+      <span>animation-fill-mode: forwards;</span>
       <ul>
         <li></li>
         <li></li>
@@ -128,22 +160,25 @@
       </ul>
     </div>
     <div class="container1">
-      <kbd>animation-fill-mode: backwards;</kbd>
+      <span>animation-fill-mode: backwards;</span>
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
-    </div>
+      </div>
     <div class="container2">
-      <kbd>animation-fill-mode: <br>both;</kbd>
+      <span>animation-fill-mode: <br>both;</span>
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
     </div>
+
     <footer><p>Обновите страницу или нажмите кнопку RERUN, чтобы просмотреть анимацию</p></footer>
+
+    <button onclick="document.location.reload(true);">RERUN</button>
   </section>
 </body>
 </html>

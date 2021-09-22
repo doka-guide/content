@@ -2,7 +2,7 @@
 title: "`setTimeout`"
 description: "Отложенный вызов функции. Вызывает функцию через указанный промежуток времени"
 authors:
-  - Windrushfarer
+  - windrushfarer
 keywords:
   - таймаут
 tags:
