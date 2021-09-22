@@ -94,7 +94,7 @@ tags:
 - `ease-out` — `cubic-bezier(0, 0, 0.58, 1.0)`
 - `ease-in-out` — `cubic-bezier(0.42, 0, 0.58, 1.0)`
 
-<iframe title="Демонстрация разных временных функций" src="demos/every/" height="160"></iframe>
+<iframe title="Демонстрация разных временных функций" src="demos/every/" height="410"></iframe>
 
 ### Функция `steps`
 
