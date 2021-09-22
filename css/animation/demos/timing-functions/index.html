@@ -4,12 +4,18 @@
   <title>Иллюстрация разных временных функций — CSS-анимации — Дока</title>
   <meta charset="UTF-8">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       text-align: center;
       font: 12px/1 monospace;
       background: #F0EFEE;
       color: #777;
     }
+
     div {
       display: inline-block;
       position: relative;
@@ -17,16 +23,18 @@
       width: 150px;
       height: 150px;
       background:white;
-      box-shadow: 0 0 0 5px rgba(0,0,0,.1);
+      box-shadow: 0 0 0 5px rgb(0 0 0 / 0.1);
       transition:.2s;
     }
-    div:after {
+
+    div::after {
       content: attr(class);
       position: absolute;
       top: 6px;
       left: 6px;
       padding: 0 6px;
     }
+
     i {
       position: absolute;
       width: 5px;
@@ -38,6 +46,7 @@
       -webkit-animation: move 2s infinite;
               animation: move 2s infinite;
     }
+
     @-webkit-keyframes move {
       from {
         left: 0;
@@ -48,6 +57,7 @@
         bottom: 145px;
       }
     }
+
     @keyframes move {
       from {
         left: 0;
@@ -58,55 +68,66 @@
         bottom: 145px;
       }
     }
+
     .linear i {
       -webkit-animation-timing-function: linear;
               animation-timing-function: linear;
     }
+
     .ease i {
       -webkit-animation-timing-function: ease;
               animation-timing-function: ease;
     }
+
     .ease-in i {
       -webkit-animation-timing-function: ease-in;
               animation-timing-function: ease-in;
     }
+
     .ease-in-out i {
       -webkit-animation-timing-function: ease-in-out;
               animation-timing-function: ease-in-out;
     }
+
     .ease-out i {
       -webkit-animation-timing-function: ease-out;
               animation-timing-function: ease-out;
     }
+
     .cubic-bezier-1 i {
       -webkit-animation-timing-function: cubic-bezier(.8,1.5,.2,-1);
               animation-timing-function: cubic-bezier(.8,1.5,.2,-1);
     }
-    .cubic-bezier-1:after {content:"cubic-bezier (.8,1.5,.2,-1)"}
-    .cubic-bezier-2:after {content:"cubic-bezier (.47,-.44,.49,1.46)"}
-    .cubic-bezier-3:after {content:"cubic-bezier (1,0,0,.5)"}
-    .cubic-bezier-4:after{
-      content: "cubic-bezier (.1,.7,1,1)";
-    }
+
+    .cubic-bezier-1::after {content:"cubic-bezier (.8,1.5,.2,-1)"}
+    .cubic-bezier-2::after {content:"cubic-bezier (.47,-.44,.49,1.46)"}
+    .cubic-bezier-3::after {content:"cubic-bezier (1,0,0,.5)"}
+    .cubic-bezier-4::after{content: "cubic-bezier (.1,.7,1,1)";}
+
     .cubic-bezier-2 i {
       -webkit-animation-timing-function: cubic-bezier(.47,-.44,.49,1.46);
               animation-timing-function: cubic-bezier(.47,-.44,.49,1.46);
     }
+
     .cubic-bezier-3 i {
       -webkit-animation-timing-function: cubic-bezier(1,0,0,.5);
               animation-timing-function: cubic-bezier(1,0,0,.5);
     }
+
     .cubic-bezier-4 i {
       -webkit-animation-timing-function: cubic-bezier( .1, .7, 1, .1);
               animation-timing-function: cubic-bezier( .1, .7, 1, .1);
     }
+
     .steps i {
       -webkit-animation-timing-function: steps(10,end);
               animation-timing-function: steps(10,end);
     }
-    .steps:after {
-      content: "steps(10,end)";
+
+    .steps::after {
+      content: "steps(10, end)";
     }
+
     i:nth-child(2) {-webkit-animation-delay:.1s;animation-delay:.1s;}
     i:nth-child(3) {-webkit-animation-delay:.2s;animation-delay:.2s;}
     i:nth-child(4) {-webkit-animation-delay:.3s;animation-delay:.3s;}
