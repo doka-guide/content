@@ -1,7 +1,7 @@
-doka-dog---
+---
 title: "Объект"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - furtivite
 tags:

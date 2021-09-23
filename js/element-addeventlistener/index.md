@@ -1,7 +1,6 @@
-doka-dog---
+---
 title: "`Element.addEventListener()`"
 authors:
-  - vindi-r
   - akellbl4
 contributors:
   - nlopin

@@ -1,7 +1,7 @@
-doka-dog---
+---
 title: "`Math`"
 authors:
-  - vindi-r
+  - doka-dog
 tags:
   - doka
 ---

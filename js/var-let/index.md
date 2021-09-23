@@ -1,7 +1,7 @@
-doka-dog---
+---
 title: "`var`/`let`"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - furtivite
 tags:
