@@ -11,12 +11,15 @@
 
 .icon::after {
   content: attr(data-notifications);
-  width: 25px; /* равные ширина */
-  height: 25px; /* и высота */
-  border-radius: 50%; /* закругляем углы на 50% */
+  /* равные ширина */
+  width: 25px;
+  /* и высота */
+  height: 25px;
+  /* закругляем углы на 50% */
+  border-radius: 50%;
   color: #ffffff;
   background-color: #ed4242;
 }
 ```
 
-<iframe title="Счётчик уведомлений" src="../demos/notification/" height="250"></iframe>
+<iframe title="Счётчик уведомлений" src="../demos/notification/" height="200"></iframe>
