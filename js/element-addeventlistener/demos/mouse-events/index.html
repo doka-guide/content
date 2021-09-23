@@ -58,19 +58,18 @@
     <a href="https://yandex.ru" target="_blank" id="custom">Ссылка с изменённым поведением</a>
   </div>
   <div id="result"></div>
-
   <script>
-    const result = document.querySelector('#result')
+    const linkElement = document.querySelector('#custom')
+    const resultElement = document.querySelector('#result')
 
-    function handleClick(e) {
-      // Отменяем поведение браузера для этого события
-      e.preventDefault()
-      result.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
-      setTimeout(function() {
-        result.innerText = ''
+    linkElement.addEventListener('click', function (event) {
+      event.preventDefault()
+
+      resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+      setTimeout(function () {
+        resultElement.innerText = ''
       }, 2500)
-    }
-    document.querySelector('#custom').addEventListener('click', handleClick)
+    })
   </script>
 </body>
 </html>

@@ -5,32 +5,34 @@ authors:
 contributors:
   - nlopin
   - skorobaeus
+  - akellbl4
 tags:
   - doka
 ---
 
 ## Кратко
 
-Убирает с элемента обработчик события, установленный с помощью [`Element.addEventListener`](/js/element-addeventlistener).
+Удаляет обработчик события с элемента, установленный с помощью [`Element.addEventListener`](/js/element-addeventlistener).
 
 ## Как пишется
 
-Добавим обработчик на элемент, а затем уберём его.
+Добавим обработчик на элемент, а затем удалим его.
 
-Например, будем обрабатывать клики на любое место на странице, а затем уберём обработчик, передав в `removeEventListener` те же аргументы, что и при добавлении:
+Например, будем обрабатывать клики на любое место на странице, а затем удалим обработчик, передав в `removeEventListener` те же аргументы, что и при добавлении:
 
 ```js
 function handleMouseClick(event) {
   console.log('Вы нажали на элемент:', event.target)
 }
 
+// Добавляем обработчик события
 window.addEventListener('click', handleMouseClick)
 
 // Убираем обработчик события
 window.removeEventListener('click', handleMouseClick)
 ```
 
-<iframe title="Удаление обработчика событий — Element.removeEventListener() — Дока" src="demos/index/"></iframe>
+<iframe title="Удаление обработчика событий — Element.removeEventListener() — Дока" src="demos/index/" height="350"></iframe>
 
 `Element.removeEventListener` принимает три аргумента. Первые два обязательные:
 

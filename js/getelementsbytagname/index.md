@@ -15,7 +15,7 @@ tags:
 Метод принимает один параметр — название тега в виде строки. Например, `div`, `form`, `h5`
 
 ```html
-.html">
+<html>
   <head></head>
   <body>
     <div id="title">
@@ -37,12 +37,12 @@ tags:
       console.log(spanFromBody.length) // напечатает 0
     </script>
   </body>
-<.html">
+</html>
 ```
 
 Динамический пример, в котором поиск ведётся по кликнутому блоку:
 
-<iframe title="Название — getElementsByTagName() — Дока" src="demos/Lopinopulos-LoZaJp/"></iframe>
+<iframe title="Название — getElementsByTagName() — Дока" src="demos/Lopinopulos-LoZaJp/" height="300"></iframe>
 
 ## Как это понять
 

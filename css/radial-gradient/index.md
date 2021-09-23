@@ -1,7 +1,7 @@
 ---
 title: "`radial-gradient()`"
 authors:
-  - ezhkov_d
+  - ezhkov
 editors:
   - tachisis
 keywords:

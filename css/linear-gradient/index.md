@@ -1,7 +1,7 @@
 ---
 title: "`linear-gradient()`"
 authors:
-  - ezhkov_d
+  - ezhkov
 keywords:
   - градиент
   - заливка

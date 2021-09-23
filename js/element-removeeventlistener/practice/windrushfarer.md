@@ -3,7 +3,7 @@
 Если нужно чтобы событие только один раз, то можно не использовать `Element.removeEventListener`, а использовать опцию `once` в `Element.addEventListener`.
 
 ```js
-window.addEventListener('click', (event) => {
+window.addEventListener('click', function (event) {
   console.log('Клик!')
   // установим опцию once: true
 }, { once: true })

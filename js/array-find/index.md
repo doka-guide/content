@@ -1,7 +1,7 @@
 ---
 title: "`Array.find`"
 authors:
-  - KognitivnayaBuena
+  - kognitivnayabuena
 editors:
   - tachisis
 contributors:
