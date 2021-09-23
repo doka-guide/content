@@ -22,8 +22,8 @@ tags:
 
 ```css
 div {
-	font-weight: normal;
-	font-weight: bold;
+  font-weight: normal;
+  font-weight: bold;
 }
 ```
 
@@ -31,8 +31,8 @@ div {
 
 ```css
 div {
-	font-weight: lighter;
-	font-weight: bolder;
+  font-weight: lighter;
+  font-weight: bolder;
 }
 ```
 
@@ -40,15 +40,15 @@ div {
 
 ```css
 div {
-	font-weight: 100;
-	font-weight: 200;
-	font-weight: 300;
-	font-weight: 400;
-	font-weight: 500;
-	font-weight: 600;
-	font-weight: 700;
-	font-weight: 800;
-	font-weight: 900;
+  font-weight: 100;
+  font-weight: 200;
+  font-weight: 300;
+  font-weight: 400;
+  font-weight: 500;
+  font-weight: 600;
+  font-weight: 700;
+  font-weight: 800;
+  font-weight: 900;
 }
 ```
 
