@@ -111,4 +111,4 @@ span {
 }
 ```
 
-<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="330"></iframe>
+<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="330" sandbox></iframe>

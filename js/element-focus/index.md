@@ -55,7 +55,7 @@ emailInput.focus()
 
 В примере фокус перемещается в зависимости от выбранного элемента в выпадающем списке:
 
-<iframe title="Перенос фокуса на элемент" src="demos/" height="200"></iframe>
+<iframe title="Перенос фокуса на элемент" src="demos/" height="200" sandbox></iframe>
 
 ## Как понять
 

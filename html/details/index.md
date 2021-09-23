@@ -26,7 +26,7 @@ tags:
 </details>
 ```
 
-<iframe title="details + summary" src="demos/details-summary/" height="250"></iframe>
+<iframe title="details + summary" src="demos/details-summary/" height="250" sandbox></iframe>
 
 ## Как понять
 
@@ -49,7 +49,7 @@ tags:
 </details>
 ```
 
-<iframe title="Открытый аккордеон" src="demos/details-open/" height="300"></iframe>
+<iframe title="Открытый аккордеон" src="demos/details-open/" height="300" sandbox></iframe>
 
 ## Подсказки
 

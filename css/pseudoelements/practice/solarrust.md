@@ -43,7 +43,7 @@
 }
 ```
 
-<iframe title="Кастомизация маркерова" src="../demos/custom-markers/" height="420"></iframe>
+<iframe title="Кастомизация маркерова" src="../demos/custom-markers/" height="420" sandbox></iframe>
 
 Подобным образом можно менять стили маркеров как заблагорассудится.
 

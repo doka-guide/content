@@ -19,4 +19,4 @@
 }
 ```
 
-<iframe title="Счётчик уведомлений" src="../demos/notification/" height="250"></iframe>
+<iframe title="Счётчик уведомлений" src="../demos/notification/" height="250" sandbox></iframe>

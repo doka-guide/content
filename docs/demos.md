@@ -127,7 +127,7 @@ cracking/
 ```markdown
 Яйцо можно разбить множеством разных способов, например, вот так:
 
-<iframe title="Как разбивать яйца" src="demos/cracking/" height="250"></iframe>
+<iframe title="Как разбивать яйца" src="demos/cracking/" height="250" sandbox></iframe>
 ```
 
 Указывать название файла _cracking/index.html_ не нужно, достаточно названия папки — сервер сам найдёт файл.

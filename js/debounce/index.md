@@ -366,4 +366,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280"></iframe>
+<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280" sandbox></iframe>

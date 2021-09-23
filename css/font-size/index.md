@@ -98,7 +98,7 @@ font-size: unset;
 }
 ```
 
-<iframe title="Размер шрифта в em" src="demos/em/" height="276"></iframe>
+<iframe title="Размер шрифта в em" src="demos/em/" height="276" sandbox></iframe>
 
 А вот как сочетается значение `em`, когда родительский элемент задан в процентах.
 
@@ -123,7 +123,7 @@ span {
 }
 ```
 
-<iframe title="Размер шрифта в em" src="demos/em-2/" height="222"></iframe>
+<iframe title="Размер шрифта в em" src="demos/em-2/" height="222" sandbox></iframe>
 
 Пример, где размер шрифта не зависит от родительского элемента, потому что мы задали его в `rem`.
 
@@ -144,7 +144,7 @@ span {
 }
 ```
 
-<iframe title="Размер шрифта в rem" src="demos/rem/" height="268"></iframe>
+<iframe title="Размер шрифта в rem" src="demos/rem/" height="268" sandbox></iframe>
 
 И ещё три примера, как можно задать размер шрифта:
 

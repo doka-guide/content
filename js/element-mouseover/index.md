@@ -50,4 +50,4 @@ for (let i=0; i < items.length; ++i) {
 }
 ```
 
-<iframe title="Ховер-эффект при помощи события mouseover — Element.mouseover — Дока" src="demos/index/" height="250"></iframe>
+<iframe title="Ховер-эффект при помощи события mouseover — Element.mouseover — Дока" src="demos/index/" height="250" sandbox></iframe>

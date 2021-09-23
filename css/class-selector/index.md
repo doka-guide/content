@@ -117,4 +117,4 @@ h2.article-title.title-primary {
 }
 ```
 
-<iframe title="Несколько классов" src="demos/several-classes/" height="300"></iframe>
+<iframe title="Несколько классов" src="demos/several-classes/" height="300" sandbox></iframe>

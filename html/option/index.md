@@ -33,7 +33,7 @@ tags:
 </form>
 ```
 
-<iframe title="Стандартный выпадающий список" src="demos/default/" height="200"></iframe>
+<iframe title="Стандартный выпадающий список" src="demos/default/" height="200" sandbox></iframe>
 
 ## Подробно
 
@@ -68,4 +68,4 @@ tags:
 
 Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута `value` этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега `<option>`.
 
-<iframe title="Разные атрибуты" src="demos/option-attrs/" height="200"></iframe>
+<iframe title="Разные атрибуты" src="demos/option-attrs/" height="200" sandbox></iframe>

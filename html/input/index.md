@@ -158,4 +158,4 @@ tags:
 </form>
 ```
 
-<iframe title="Различные input" src="demos/inputs/" height="440"></iframe>
+<iframe title="Различные input" src="demos/inputs/" height="440" sandbox></iframe>

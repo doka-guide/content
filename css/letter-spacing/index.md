@@ -94,7 +94,7 @@ tags:
 }
 ```
 
-<iframe title="Межбуквенное расстояние" src="demos/examples/" height="476"></iframe>
+<iframe title="Межбуквенное расстояние" src="demos/examples/" height="476" sandbox></iframe>
 
 ## Подсказки
 

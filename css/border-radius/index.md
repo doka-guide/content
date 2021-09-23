@@ -31,7 +31,7 @@ tags:
 }
 ```
 
-<iframe title="Кнопка" src="demos/basic/" height="250"></iframe>
+<iframe title="Кнопка" src="demos/basic/" height="250" sandbox></iframe>
 
 Обрати внимание, что мы _сбросили_ стандартную рамку кнопки, но углы тем не менее слегка закруглились.
 
@@ -48,7 +48,7 @@ body {
 }
 ```
 
-<iframe title="Интерактивная кнопка" src="demos/interactive/" height="250"></iframe>
+<iframe title="Интерактивная кнопка" src="demos/interactive/" height="250" sandbox></iframe>
 
 ## Как это понять
 
@@ -89,7 +89,7 @@ selector {
 }
 ```
 
-<iframe title="Название" src="demos/different-blocks/" height="400"></iframe>
+<iframe title="Название" src="demos/different-blocks/" height="400" sandbox></iframe>
 
 ## Подсказки
 

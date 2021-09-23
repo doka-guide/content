@@ -36,7 +36,7 @@ tags:
 }
 ```
 
-<iframe title="Обычная рамка" src="demos/basic/" height="200"></iframe>
+<iframe title="Обычная рамка" src="demos/basic/" height="200" sandbox></iframe>
 
 ## Как это понять
 
