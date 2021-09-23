@@ -17,7 +17,6 @@ tags:
 ## Пример
 
 ```html
-
 <nav>
   <ul>
     <li><a href="/about">О команде</a></li>
