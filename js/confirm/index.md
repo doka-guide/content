@@ -1,7 +1,7 @@
 ---
 title: "`confirm()`"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - nlopin
 tags:

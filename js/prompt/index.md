@@ -1,7 +1,7 @@
 ---
 title: "`prompt()`"
 authors:
-  - vindi-r
+  - doka-dog
 tags:
   - doka
 ---

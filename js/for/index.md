@@ -1,7 +1,7 @@
 ---
 title: "`for()`"
 authors:
-  - vindi-r
+  - doka-dog
 keywords:
   - итерация
   - обход

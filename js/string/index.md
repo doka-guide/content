@@ -1,7 +1,7 @@
 ---
 title: "Строка"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - furtivite
 keywords:

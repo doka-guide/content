@@ -5,7 +5,7 @@ cover:
   mobile: 'images/covers/mobile.svg'
   alt: 'Девочка выглядывает из браузера и держит в руках табличку "Push me"'
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - furtivite
 editors:

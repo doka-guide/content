@@ -1,7 +1,7 @@
 ---
 title: "`function()`"
 authors:
-  - vindi-r
+  - doka-dog
 keywords:
   - функция
 tags:

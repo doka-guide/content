@@ -1,11 +1,10 @@
 ---
 title: "`Element.removeEventListener()`"
 authors:
-  - vindi-r
+  - akellbl4
 contributors:
   - nlopin
   - skorobaeus
-  - akellbl4
 tags:
   - doka
 ---
