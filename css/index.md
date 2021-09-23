@@ -3,11 +3,16 @@ name: 'CSS'
 groups:
   - name: 'Основы'
     items:
+      - box-model
+      - specificity
       - cascade
       - inheritance
+      - stacking-context
       - css-rule
       - comments
+      - vendor-prefixes
       - display
+      - all
   - name: 'Селекторы'
     items:
       - tag-selector
@@ -21,41 +26,49 @@ groups:
   - name: 'Псевдоклассы'
     items:
       - pseudoclasses
-      - active
       - link
       - visited
-      - checked
-      - disabled-enabled
-      - empty
+      - hover
+      - active
       - child
       - nth-of-type
       - focus
-      - has
-      - hover
-      - in-range-out-of-range
       - not
+      - checked
+      - disabled-enabled
+      - empty
+      - has
+      - is
+      - in-range-out-of-range
       - required
       - invalid-valid
       - placeholder-shown
+      - root
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
       - before
       - after
-      - placeholder
       - content
+      - placeholder
+      - first-letter
+      - first-line
   - name: 'Функции'
     items:
       - attr
       - calc
       - linear-gradient
       - radial-gradient
+      - image-set
+      - filter-functions
+      - transform-function
   - name: 'Директивы'
     items:
       - font-face
       - import
       - keyframes
       - media
+      - supports
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -90,35 +103,81 @@ groups:
       - transform-function
       - transform-origin
       - transform-style
+      - perspective
+      - perspective-origin
+      - backface-visibility
   - name: 'Фон'
     items:
+      - background
       - background-color
       - background-image
       - background-position
       - background-repeat
       - background-size
+      - background-attachment
+      - background-clip
+      - background-origin
+      - background-blend-mode
       - linear-gradient
       - radial-gradient
+      - image-set
+      - backdrop-filter
+      - filter-functions
   - name: 'Работа с текстом'
     items:
-      - font-face
+      - color
       - font-family
       - font-size
+      - line-height
+      - text-align
+      - text-transform
+      - vertical-align
+      - font-face
       - font-style
       - font-weight
       - font-display
+      - font
       - font-smooth
       - letter-spacing
-      - line-height
-      - text-align
       - text-decoration
+      - text-decoration-color
+      - text-decoration-line
+      - text-decoration-style
+      - text-decoration-thickness
       - text-rendering
       - text-shadow
-      - text-transform
       - white-space
-      - color
       - quotes
-      - vertical-align
+      - overflow-wrap
+      - hyphens
+      - text-indent
+      - text-justify
+      - text-orientation
+      - text-overflow
+      - text-size-adjust
+      - text-underline-offset
+      - text-underline-position
+      - word-break
+      - word-spacing
+      - word-wrap
+      - writing-mode
+  - name: 'Вариативные шрифты'
+    items:
+      - font-feature-settings
+      - font-kerning
+      - font-language-override
+      - font-optical-sizing
+      - font-size-adjust
+      - font-stretch
+      - font-synthesis
+      - font-variant
+      - font-variant-alternates
+      - font-variant-caps
+      - font-variant-east-asian
+      - font-variant-ligatures
+      - font-variant-numeric
+      - font-variant-position
+      - font-variation-settings
   - name: 'Размеры и отступы'
     items:
       - width
@@ -126,16 +185,15 @@ groups:
       - padding
       - margin
       - box-sizing
-      - border
-      - border-image
-      - border-radius
   - name: 'Позиционирование'
     items:
       - position
-      - z-index
       - position-sticky
+      - stacking-context
+      - z-index
   - name: 'Списки'
     items:
+      - list-style
       - list-style-image
       - list-style-position
       - list-style-type
@@ -184,6 +242,7 @@ groups:
       - invalid-valid
       - required
       - appearance
+      - resize
   - name: '!important'
     items:
       - important
@@ -201,17 +260,27 @@ groups:
     items:
       - object-fit
       - object-position
+      - filter-functions
   - name: 'Рамки, обводки и тени'
     items:
       - border
       - border-image
+      - border-style
       - border-radius
       - outline
+      - outline-color
+      - outline-offset
+      - outline-style
+      - outline-width
       - box-shadow
       - text-shadow
-  - name: 'Интерфейс'
+  - name: 'Интерфейс и взаимодействия'
     items:
       - cursor
+      - user-select
+      - touch-action
+      - pointer-events
+      - resize
   - name: 'SVG'
     items:
       - fill
@@ -219,6 +288,15 @@ groups:
   - name: 'Кастомные свойства'
     items:
       - custom-properties
+      - root
+  - name: 'Стили для печати'
+    items:
+      - widows
+  - name: 'Колонки'
+    items:
+      - columns
+      - column-count
+      - column-width
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html), SVG и других языков разметки.
