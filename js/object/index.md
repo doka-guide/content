@@ -1,4 +1,4 @@
----
+doka-dog---
 title: "Объект"
 authors:
   - vindi-r

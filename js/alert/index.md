@@ -1,4 +1,4 @@
----
+doka-dog---
 title: "`alert()`"
 cover:
   desktop: 'images/covers/desktop.svg'

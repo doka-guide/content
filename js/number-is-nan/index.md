@@ -1,4 +1,4 @@
----
+doka-dog---
 title: "`Number.isNaN()`"
 authors:
   - vindi-r

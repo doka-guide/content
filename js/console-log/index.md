@@ -1,4 +1,4 @@
----
+doka-dog---
 title: "`console.log()`"
 authors:
   - vindi-r
