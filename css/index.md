@@ -119,7 +119,6 @@ groups:
       - color
       - quotes
       - vertical-align
-      - text-shadow
   - name: 'Размеры и отступы'
     items:
       - width
