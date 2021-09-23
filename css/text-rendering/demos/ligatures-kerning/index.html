@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <title>Примеры лигатуры и кернинговых пар — text-rendering — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
@@ -45,29 +45,29 @@
     }
 
     .no-kerning {
-      font-family: 'Courier', monospace;
+      font-family: "Courier", monospace;
       font-size: 30px;
-}
+    }
   </style>
 </head>
 <body>
-<div class="blocks">
-  <div class="block">
-    <p>Шрифт с лигатурами</p>
-    <p class="ligatures">fi fl</p>
+  <div class="blocks">
+    <div class="block">
+      <p>Шрифт с лигатурами</p>
+      <p class="ligatures">fi fl</p>
+    </div>
+    <div class="block">
+      <p>Кернинговые пары</p>
+      <p class="kerning">VA LYoWAT</p>
+    </div>
+    <div class="block">
+      <p>Шрифт без лигатур</p>
+      <p class="no-ligatures">fi fl</p>
+    </div>
+    <div class="block">
+      <p>Без кернинговых пар</p>
+      <p class="no-kerning">VA LYoWAT</p>
+    </div>
   </div>
-  <div class="block">
-    <p>Кернинговые пары</p>
-    <p class="kerning">VA LYoWAT</p>
-  </div>
-  <div class="block">
-    <p>Шрифт без лигатур</p>
-    <p class="no-ligatures">fi fl</p>
-  </div>
-  <div class="block">
-    <p>Без кернинговых пар</p>
-    <p class="no-kerning">VA LYoWAT</p>
-  </div>
-</div>
 </body>
 </html>
