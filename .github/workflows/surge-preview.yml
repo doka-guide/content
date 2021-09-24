@@ -13,15 +13,10 @@ jobs:
     outputs:
       files: ${{ steps.files.outputs.all }}
     steps:
-      - name: Загрузка platform
-        uses: actions/checkout@v2
-        with:
-          repository: doka-guide/platform
       - name: Загрузка контента
         uses: actions/checkout@v2
         with:
           ref: refs/heads/${{ github.event.workflow_run.head_branch }}
-          path: content
       - name: Выборка файлов для формирования списка
         id: files
         run: |
