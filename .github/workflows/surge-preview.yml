@@ -56,14 +56,10 @@ jobs:
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           recreate: true
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - name: Выборка файлов для формирования списка
         id: files
         run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.head_sha }} ${{ github.event.workflow_run.head_sha }})")
+          files=$(echo "$(git diff --name-only ${{ github.sha }} ${{ github.event.workflow_run.head_sha }})")
           echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
           echo "::set-output name=all::$files"
       - name: Форматирование списка файлов
