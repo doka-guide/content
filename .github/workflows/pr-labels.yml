@@ -4,6 +4,7 @@ on:
 
 jobs:
   authorized:
+    name: Добавляет ярлыки
     env:
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     runs-on: ubuntu-latest
