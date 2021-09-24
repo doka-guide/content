@@ -81,10 +81,10 @@ jobs:
           for changed_file in ${{ needs.prepare.outputs.files }}; do
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
+            file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})  ")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
+            file_list=$(echo -e "Список ссылок на материалы:  ${file_list}")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
