@@ -1,0 +1,29 @@
+css:
+  - css/**/*.md
+
+html:
+  - html/**/*.md
+
+js:
+  - js/**/*.md
+
+tools:
+  - tools/**/*.md
+
+демо:
+  - css/**/demos/**/*.html
+  - html/**/demos/**/*.html
+  - js/**/demos/**/*.html
+  - tools/**/demos/**/*.html
+
+доработка:
+  - "*.md"
+  - docs/*.md
+  - docs/**/*.md
+  - docs/images/*.png
+  - docs/license/**/*.svg
+
+кухня:
+  - .github/*.yml
+  - .github/scripts/*.js
+  - .github/workflows/*.yml

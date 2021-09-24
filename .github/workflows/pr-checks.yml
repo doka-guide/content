@@ -29,6 +29,16 @@ jobs:
               editorconfig-checker ${changed_file}
             fi
           done
+  labels:
+    name: Ярлыки
+    env:
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/labeler@v3
+      if: ${{ env.SURGE_TOKEN != '' }}
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
   frontmatter-checker:
     name: Мета
     runs-on: ubuntu-latest
