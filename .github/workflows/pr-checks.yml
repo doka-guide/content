@@ -100,7 +100,7 @@ jobs:
         run: |
           config=.yaspeller.json
           file_list=""
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
               npx yaspeller --only-errors --file-extensions ".md,.html" *
