@@ -82,10 +82,9 @@ jobs:
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
             file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})<>")
-            file_list=$(printf "%s\n" "${file_list}" "- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})<>")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=$(printf "%s\n" "Список ссылок на материалы:" "${file_list}")
+            file_list=$(echo -e "Список ссылок на материалы:  \n${file_list}")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
