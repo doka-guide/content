@@ -4,7 +4,7 @@ on:
 
 jobs:
   authorized:
-    if: ${{ env.SURGE_TOKEN != '' }}
+    if: ${{ secrets.SURGE_TOKEN != '' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v3
