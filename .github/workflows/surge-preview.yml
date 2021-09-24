@@ -59,6 +59,7 @@ jobs:
       - name: Выборка файлов для формирования списка
         id: files
         run: |
+          echo ${{ github }}
           files=$(echo "$(git diff --name-only ${{ github.event.head_sha }} ${{ github.event.workflow_run.head_sha }})")
           echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
           echo "::set-output name=all::$files"
