@@ -4,9 +4,11 @@ on:
 
 jobs:
   authorized:
-    if: ${{ secrets.SURGE_TOKEN != '' }}
+    env:
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v3
+      if: ${{ env.SURGE_TOKEN != '' }}
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
