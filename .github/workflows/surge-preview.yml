@@ -13,10 +13,14 @@ jobs:
     outputs:
       files: ${{ steps.files.outputs.all }}
     steps:
-      - name: Загрузка контента
+      - name: Загрузка контента из основной ветки
         uses: actions/checkout@v2
         with:
-          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
+          ref: refs/heads/${{ github.event.workflow_run.pull_requests[0].base.ref }}
+      - name: Загрузка контента из ветки PR
+        uses: actions/checkout@v2
+        with:
+          ref: refs/heads/${{ github.event.workflow_run.pull_requests[0].head.ref }}
       - name: Выборка файлов для формирования списка
         id: files
         run: |
