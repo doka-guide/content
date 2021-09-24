@@ -1,6 +1,10 @@
 ---
 title: "`<input>`"
 description: "Многогранный тег <input> позволяет создавать поля ввода, кнопки, переключатели и другие интерактивные элементы."
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'На переднем плане парень ест вилкой сосиску. На заднем поле ввода с надписью: sausage — и выбранными тегами: food, yummy'
 authors:
   - vladimir
 contributors:

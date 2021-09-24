@@ -1,7 +1,7 @@
 ---
 title: "`Number.isNaN()`"
 authors:
-  - vindi-r
+  - doka-dog
 tags:
   - doka
 ---
