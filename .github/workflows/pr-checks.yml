@@ -51,10 +51,10 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
-          filter: '(css|html|js|tools)/[a-z-]+/index.md'
+          filter: 'index.md'
       - name: Работает линтер
         run: |
-          files=${{ steps.files.outputs.all }}
+          files=${{ steps.files.outputs.added_modified }}
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
             npx yaml-cat -f json $files -o result.json
