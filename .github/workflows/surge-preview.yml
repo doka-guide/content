@@ -20,7 +20,7 @@ jobs:
       - name: Выборка файлов для формирования списка
         id: files
         run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.ref }} ${{ github.event.workflow_run.pull_requests[0].head.ref }})")
+          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.sha }} ${{ github.event.workflow_run.pull_requests[0].head.sha }})")
           echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
           echo "::set-output name=all::$files"
   surge-preview:
