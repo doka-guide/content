@@ -20,6 +20,7 @@ jobs:
       - name: Загрузка контента из ветки PR
         uses: actions/checkout@v2
         with:
+          clean: false
           ref: refs/heads/${{ github.event.workflow_run.pull_requests[0].head.ref }}
       - name: Выборка файлов для формирования списка
         id: files
