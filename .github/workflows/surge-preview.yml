@@ -8,7 +8,20 @@ on:
       - completed
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.files.outputs.all }}
+    steps:
+      - name: Выборка файлов для формирования списка
+        id: files
+        run: |
+          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.sha }} ${{ github.event.workflow_run.head_sha }})")
+          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
+          echo "::set-output name=all::$files"
   surge-preview:
+    needs:
+      - prepare
     runs-on: ubuntu-latest
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.workflow_run.pull_requests[0].number }}.surge.sh'
@@ -56,17 +69,11 @@ jobs:
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           recreate: true
-      - name: Выборка файлов для формирования списка
-        id: files
-        run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.sha }} ${{ github.event.workflow_run.head_sha }})")
-          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
-          echo "::set-output name=all::$files"
       - name: Форматирование списка файлов
         id: links
         run: |
           file_list=''
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ needs.prepare.outputs.files }}; do
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
             file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
