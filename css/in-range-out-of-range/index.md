@@ -1,5 +1,5 @@
 ---
-title: ":in-range и :out-of-range"
+title: "`:in-range`, `:out-of-range`"
 authors:
   - ezhkov
 editors:
@@ -41,7 +41,7 @@ tags:
 }
 ```
 
-<iframe title="Поле ввода с диапазоном" src="demos/input-with-range/" height="50"></iframe>
+<iframe title="Поле ввода с диапазоном" src="demos/input-with-range/" height="50" sandbox></iframe>
 
 ## Как это понять
 
@@ -67,4 +67,4 @@ input:out-of-range + span {
 
 💡 Если нужно, чтобы при пустом поле не срабатывал `:in-range`, можно расширить селектор псевдоклассом [`:placeholder-shown`](/css/placeholder-shown) и задать подсказку полю ввода:
 
-<iframe title="Поле ввода с placeholder-shown" src="demos/input-with-placeholder-shown/" height="50"></iframe>
+<iframe title="Поле ввода с placeholder-shown" src="demos/input-with-placeholder-shown/" height="50" sandbox></iframe>

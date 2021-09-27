@@ -10,8 +10,8 @@ window.crypto.getRandomValues(new Uint32Array(1))[0] //  вернет случа
 Math.floor(Math.random() * (max - min)) + min // от минимума до максимума, не включая максимум
 ```
 
-<iframe title="Название — Math.random() — Дока" src="../demos/Lopinopulos-ewOxWV/"></iframe>
+<iframe title="Название — Math.random() — Дока" src="../demos/Lopinopulos-ewOxWV/" height="150" sandbox></iframe>
 
 🛠 Используется для выбора случайного элемента из массива. Например, вы хотите отобразить случайный товар дня из списка или же показать пользователю несколько элементов из его коллекции любимых песен.
 
-https://codepen.io/Lopinopulos/pen/KjPJey
+<iframe title="Название — Math.random() — Дока" src="../demos/Lopinopulos-KjPJey/" height="150" sandbox></iframe>

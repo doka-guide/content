@@ -1,5 +1,5 @@
 ---
-title: "font-feature-settings"
+title: "`font-feature-settings`"
 description: ""
 authors:
   - doka-dog

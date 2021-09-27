@@ -1,5 +1,5 @@
 ---
-title: "animation-play-state"
+title: "`animation-play-state`"
 authors:
   - solarrust
 editors:

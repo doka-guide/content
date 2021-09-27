@@ -119,7 +119,6 @@ groups:
       - color
       - quotes
       - vertical-align
-      - text-shadow
   - name: 'Размеры и отступы'
     items:
       - width
@@ -134,7 +133,7 @@ groups:
     items:
       - position
       - z-index
-      - sticky
+      - position-sticky
   - name: 'Списки'
     items:
       - list-style-image

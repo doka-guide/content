@@ -1,0 +1,112 @@
+name: PR Checks
+
+on:
+  pull_request:
+
+jobs:
+  editorconfig:
+    name: Форматирование
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: files
+        uses: Ana06/get-changed-files@v1.2
+      - name: Работает линтер
+        run: |
+          npm install editorconfig-checker --global
+          config=.editorconfig
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [ $changed_file == $config ]
+            then
+              echo "Проверка для всех файлов"
+              editorconfig-checker
+              break
+            else
+              echo "Проверка для ${changed_file}"
+              editorconfig-checker ${changed_file}
+            fi
+          done
+  labels:
+    name: Ярлыки
+    env:
+      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/labeler@v3
+      if: ${{ env.SURGE_TOKEN != '' }}
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+  frontmatter-checker:
+    name: Мета
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Работает линтер
+        run: |
+          files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
+          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
+          if ! [[ $files == "" ]]; then
+            echo "Проверка для файлов из PR"
+            npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
+            node .github/scripts/frontmatter.js
+          else
+            echo "В PR нет файлов для проверки"
+          fi
+  link-checker:
+    name: Ссылки
+    needs:
+      - editorconfig
+      - frontmatter-checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: files
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: Ana06/get-changed-files@v1.2
+        with:
+          filter: '*.md'
+          format: 'csv'
+      - name: Проверяет ссылки
+        if: ${{ steps.files.outputs.added_modified != '' }}
+        uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: ${{ steps.files.outputs.added_modified }}
+          markdown: true
+          serverRoot: "/home/runner/work/content/content"
+          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
+  yaspeller:
+    name: Орфография
+    needs:
+      - link-checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - id: files
+        uses: Ana06/get-changed-files@v1.2
+      - name: Проверяет правописание
+        run: |
+          config=.yaspeller.json
+          file_list=""
+          for changed_file in ${{ steps.files.outputs.all }}; do
+            if [[ $changed_file == $config ]]; then
+              echo "Проверяются все файлы..."
+              npx yaspeller --only-errors --file-extensions ".md,.html" *
+              break
+            elif [[ $changed_file =~ \.(md|html)$ ]]; then
+              file_list="${file_list} ${changed_file}"
+              echo "Файл ${changed_file} добавлен в список для проверки."
+            fi
+          done
+          if ! [[ $file_list == "" ]]; then
+            echo "Проверяются файлы из PR..."
+            npx yaspeller --only-errors ${file_list}
+          fi

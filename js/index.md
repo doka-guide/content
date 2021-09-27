@@ -16,6 +16,11 @@ groups:
       - function
       - closures
       - use-strict
+  - name: "Продвинутый синтаксис"
+    items:
+      - spread
+      - for-in
+      - shallow-or-deep-clone
   - name: "Типы данных"
     items:
       - number-wrapper
@@ -33,6 +38,7 @@ groups:
       - number-isfinite
       - number-tostring
       - parseint
+      - parsefloat
       - math
       - math-floor
       - math-random
@@ -90,7 +96,9 @@ groups:
       - dom
       - fetch
       - console-log
+      - window-history
       - window-location
+      - match-media
       - urlsearchparams
       - local-storage
       - alert
@@ -214,5 +222,5 @@ groups:
       - throttle
 ---
 
-JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами. Основная область применения JavaScript — веб. Это единственный язык программирования, код которого умеют выполнять браузеры.
-С его помощью можно обмениваться данными с сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, превращая её в веб-приложение.
+JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами.
+Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, создавать веб-приложения.

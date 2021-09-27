@@ -52,7 +52,7 @@ tags:
 
 Динамический пример, введи селектор в поле поиска и «Искать»:
 
-<iframe title="Название — querySelectorAll — Дока" src="demos/Lopinopulos-wbqdPe/"></iframe>
+<iframe title="Название — querySelectorAll — Дока" src="demos/Lopinopulos-wbqdPe/" height="450" sandbox></iframe>
 
 ## Как понять
 

@@ -35,7 +35,7 @@ HTML после изменения:
 </form>
 ```
 
-<iframe title="Element.innerHTML — Element.innerHTML — Дока" src="demos/index/"></iframe>
+<iframe title="Element.innerHTML — Element.innerHTML — Дока" src="demos/index/" height="650" sandbox></iframe>
 
 ## Как понять
 
@@ -45,7 +45,7 @@ HTML после изменения:
 
 ## Как пишется
 
-Обращение к свойству `Element.innerHTML` вернёт содержимое элемента в виде HTML-строки. Просмотреть или изменить содержимое можно у всех элементов, включая `.html">` и `<body>`. Присвоение нового значения к свойству очистит всё текущее содержимое и заменит его новым HTML.
+Обращение к свойству `Element.innerHTML` вернёт содержимое элемента в виде HTML-строки. Просмотреть или изменить содержимое можно у всех элементов, включая `<html>` и `<body>`. Присвоение нового значения к свойству очистит всё текущее содержимое и заменит его новым HTML.
 
 ```js
 document.body.innerHTML = '<h1>Hello Inner HTML!<h1>'

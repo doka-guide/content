@@ -38,12 +38,12 @@
 Теперь для каждого пункта списка прописываем псевдоэлемент `:before` и запускаем кастомный счётчик, дополняя его нужными символами. В текущем случае в кавычках добавляем круглую скобку и пробел:
 
 ```css
-.list__item:before {
+.list__item::before {
   content: counter(new-counter) ") ";
 }
 ```
 
-<iframe title="Кастомизация маркерова" src="../demos/custom-markers/" height="420"></iframe>
+<iframe title="Кастомизация маркерова" src="../demos/custom-markers/" height="420" sandbox></iframe>
 
 Подобным образом можно менять стили маркеров как заблагорассудится.
 

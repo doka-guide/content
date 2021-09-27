@@ -1,5 +1,5 @@
 ---
-title: "attr()"
+title: "`attr()`"
 authors:
   - ezhkov
 editors:
@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Подсказка" src="demos/tooltip/" height="150"></iframe>
+<iframe title="Подсказка" src="demos/tooltip/" height="150" sandbox></iframe>
 
 ## Как пишется
 

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
     * {
@@ -131,25 +131,24 @@
       <div class="result"></div>
     </div>
   </div>
-
   <script>
-    function handleKey(event) {
-      const msg = '<code>' + event.key + '</code>'
-      if (event.key === 'Enter') {
-        const newMsg = document.createElement('div')
-        const result = document.querySelector('.result')
+    const element = document.querySelector('input')
 
-        newMsg.classList.add('message')
-        newMsg.innerText = event.target.value
-        result.appendChild(newMsg)
-        result.scrollTo(0, result.scrollHeight)
+    element.addEventListener('keydown', function (event) {
+      const message = '<code>' + event.key + '</code>'
+      const value = event.target.value
+
+      if (event.key === 'Enter' && value.length > 0) {
+        const messageElement = document.createElement('div')
+
+        messageElement.classList.add('message')
+        messageElement.innerText = value
+        document.querySelector('.result').appendChild(messageElement)
         event.target.value = ''
       }
 
-      document.querySelector('.event').innerHTML = msg
-    }
-
-    document.querySelector('input').addEventListener('keydown', handleKey)
+      document.querySelector('.event').innerHTML = message
+    })
   </script>
 </body>
 </html>

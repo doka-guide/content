@@ -1,8 +1,5 @@
 ---
 title: "Хранение по ссылке vs. по значению"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Два сундука, вверху осьминог и карта, в нижнем - данные и значения: false/true'
 authors:
   - windrushfarer
 keywords:
@@ -164,11 +161,14 @@ const anotherCopy = {
 anotherCopy.age = 30
 anotherCopy.isAdmin = false
 
-console.log(anotherCopy) // {name: 'Anna', age: 30, isAdmin: false }
-console.log(admin) // {name: 'Anna', age: 25, isAdmin: true }
+console.log(anotherCopy)
+// {name: 'Anna', age: 30, isAdmin: false }
+
+console.log(admin)
+// {name: 'Anna', age: 25, isAdmin: true }
 ```
 
-Здесь стоит внести важную оговорку о вложенных объектах. При копировании объекта указанным выше способом безопасно скопируется только поля верхней вложенности (так называемый _shallow copy_). Т.е. любые вложенные объекты **скопируются по ссылке**, таким образом изменение их напрямую затронет и первоисточник.
+Здесь стоит внести важную оговорку о вложенных объектах. При копировании объекта указанным способом скопируются только поля верхней вложенности (сработает [поверхностное копирование](/js/shallow-or-deep-clone)). Любые вложенные объекты **скопируются по ссылке**. Их изменение затронет и первоисточник:
 
 ```js
 const original = {
@@ -177,12 +177,12 @@ const original = {
   },
 }
 
-const copy = { ...original } // или Object.assign({}, original)
-
+const copy = { ...original }
 copy.b.c = 2
 
 // Тоже изменился!
-console.log(original) // { b: { c: 2 }}
+console.log(original)
+// { b: { c: 2 }}
 ```
 
 Изменения можно так же внести при копировании.

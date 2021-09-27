@@ -1,5 +1,5 @@
 ---
-title: "animation-fill-mode"
+title: "`animation-fill-mode`"
 authors:
   - solarrust
 editors:
@@ -34,7 +34,7 @@ tags:
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
 
-<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="300"></iframe>
+<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="450" sandbox></iframe>
 
 ## Подсказки
 

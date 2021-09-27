@@ -1,5 +1,5 @@
 ---
-title: "appearance"
+title: "`appearance`"
 authors:
   - ezhkov
 editors:
@@ -28,7 +28,7 @@ tags:
 
 Например, в браузере Safari на iOS поле ввода с атрибутом `type="search"` принудительно стилизуется скруглёнными углами, тенями и рамками. Чтобы не перекрывать каждое свойство по отдельности, можно задать такому полю `appearance: none`.
 
-<iframe title="Стандартное поле поиска и поле с appearance" src="demos/search-fields/" height="200"></iframe>
+<iframe title="Стандартное поле поиска и поле с appearance" src="demos/search-fields/" height="200" sandbox></iframe>
 
 ![Изменение вида текстового поля на мобильных с поискового на обычное с помощью appearance: none](images/1.png)
 
@@ -40,7 +40,7 @@ tags:
 
 В этом случае, если нам нужно, чтобы поле ввода выглядело как поле поиска, мы можем задать `appearance: searchfield`
 
-<iframe title="Текстовое поле и якобы поле поиска" src="demos/text-pseudo-search-fields/" height="200"></iframe>
+<iframe title="Текстовое поле и якобы поле поиска" src="demos/text-pseudo-search-fields/" height="200" sandbox></iframe>
 
 ![Изменение вида текстового поля на мобильных с обычного на поисковое с помощью appearance: searchfield](images/2.png)
 

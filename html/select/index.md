@@ -6,6 +6,8 @@ cover:
   alt: 'Игрушечный пистолет в торчащим из дула флажком. На флажке нарисована вкладка браузера, а в ней выпадающий список.'
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 keywords:
   - тэг
   - тег
@@ -29,8 +31,6 @@ tags:
   <select name="city" id="city-select">
     <option value="">-- Выберите город --</option>
     <option value="petersburg">Санкт-Петербург</option>
-    <option value="moscow">Москва</option>
-    <option value="kazan">Казань</option>
     <option value="samara">Самара</option>
     <option value="perm">Пермь</option>
     <option value="novosibirsk">Новосибирск</option>
@@ -38,7 +38,7 @@ tags:
 </form>
 ```
 
-<iframe title="Простой выпадающий список" src="demos/default/" height="100"></iframe>
+<iframe title="Пример select" src="demos/basic/" height="250" sandbox></iframe>
 
 ## Подробно
 
@@ -87,7 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<iframe title="Разные атрибуты" src="demos/different-attrs" height="250"></iframe>
+<iframe title="Примеры атрибутов" src="demos/attributes/" height="590" sandbox></iframe>
 
 ## Подсказки
 

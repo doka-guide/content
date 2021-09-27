@@ -1,5 +1,5 @@
 ---
-title: "flex-basis"
+title: "`flex-basis`"
 authors:
   - solarrust
 editors:

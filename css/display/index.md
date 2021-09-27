@@ -1,5 +1,5 @@
 ---
-title: "display"
+title: "`display`"
 authors:
   - solarrust
 contributors:
@@ -59,17 +59,17 @@ tags:
 
 /* Ниже задаём иконки фоном для каждой отдельной ссылки */
 .twitter {
-  background: url(https://www.pinclipart.com/picdir/middle/20-203122_follow-us-twitter-logo-square-png-clipart.png)
+  background: url(twitter-round-blue.png)
     no-repeat center / contain;
 }
 
 .fb {
-  background: url(https://cdn3.iconfinder.com/data/icons/social-network-30/512/social-02-512.png)
+  background: url(fb-square-blue.png)
     no-repeat center / contain;
 }
 
 .youtube {
-  background: url(http://www.vectorico.com/download/social_media/youtube-red-square.png)
+  background: url(youtube-red-square.png)
     no-repeat center / contain;
 }
 ```
@@ -80,7 +80,7 @@ tags:
 
 После этого смело меняем размер на нужный нам и фоном выводим иконки каждой из соц.сетей.
 
-Помимо этого по ходу решения задачи мы задали свойство `display: inline-block` для пунктов списка с классом `.social__item`. За счёт этого элементы, которые по умолчанию являются блочными, приобретают внешние признаки строчных элементов. Вместо того, чтобы выстраиваться друг под другом, пункты списка теперь стоят рядом, в строку.
+Помимо этого по ходу решения задачи мы задали свойство `display: inline-block` для пунктов списка с классом `.social__item`. За счёт этого элементы, которые по умолчанию являются блочными, приобретают внешние признаки строчных элементов. Вместо того чтобы выстраиваться друг под другом, пункты списка теперь стоят рядом, в строку.
 
 ## Как это понять
 
@@ -93,6 +93,8 @@ tags:
 - `inline-block` — элемент ведёт себя снаружи как строчный, а внутри как блочный.
 - `flex` — элемент становится флекс-контейнером, ведёт себя как блочный, а вложенные элементы становятся флекс-элементами. Подробнее [в гайде по flexbox](/css/flexbox-guide/).
 - `grid` — элемент становится грид-контейнером. Снаружи грид-контейнер ведёт себя как блок. Дочерние элементы такого контейнера начинают подчиняться правилам грид-раскладки. Подробнее [в гайде по grid](/css/grid-guide/).
+
+Остальные значения можно посмотреть в [спецификации](https://www.w3.org/TR/css-display-3/#the-display-properties).
 
 ## Как пишется
 

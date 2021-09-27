@@ -1,5 +1,5 @@
 ---
-title: "visibility"
+title: "`visibility`"
 authors:
   - solarrust
 contributors:
@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Прозрачность параграфов" src="demos/text/" height="400"></iframe>
+<iframe title="Прозрачность параграфов" src="demos/text/" height="400" sandbox></iframe>
 
 Обратите внимание, что скрытый параграф всё равно влияет на поток документа и занимает отведённое ему место.
 

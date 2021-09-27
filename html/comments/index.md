@@ -1,8 +1,5 @@
 ---
 title: "Комментарии"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Парень, наряженный Томом Сойером, перекрашивает стену с надписями в стиле TODO-комментариев из кода'
 authors:
   - solarrust
 editors:

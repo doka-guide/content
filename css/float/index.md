@@ -1,5 +1,5 @@
 ---
-title: "float"
+title: "`float`"
 authors:
   - lenaryan
 editors:
@@ -25,13 +25,13 @@ tags:
 }
 ```
 
-<iframe title="Обтекание" src="demos/float/" height="350"></iframe>
+<iframe title="Обтекание" src="demos/float/" height="350" sandbox></iframe>
 
 ## Как это понять
 
 Иногда при вёрстке блока нужно, чтобы текст рядом с картинкой занимал всё оставшееся место, а после картинки располагался на всю ширину блока. Для таких ситуаций и создан `float`. Элемент, для которого указано это свойство, частично выходит из потока: все элементы блочного контекста, прописанные в коде после элемента с `float`, занимают его место, а элементы строчного контекста — «обтекают» его.
 
-<iframe title="Float до и после" src="demos/float-before-after/" height="350"></iframe>
+<iframe title="Float до и после" src="demos/float-before-after/" height="350" sandbox></iframe>
 
 ## Как пишется
 
@@ -57,11 +57,11 @@ tags:
 
 Также можно не вставлять отдельный элемент в разметку, а обойтись псевдоэлементом [`::after`](/css/after/) — этот вариант предпочтительнее.
 
-<iframe title="clearfix" src="demos/clearfix/" height="350"></iframe>
+<iframe title="clearfix" src="demos/clearfix/" height="350" sandbox></iframe>
 
 Несколько лет назад для похожей цели появилось значение `flow-root` для свойства `display` — оно как бы изолирует обтекание. Достаточно применить его к блоку, внутри которого есть элемент с `float` — и влияние `float` не будет распространяться вне этого блока. А относительно соседей он будет вести себя как обычный блочный элемент со [статичным позиционированием](/css/position).
 
-<iframe title="flow-root" src="demos/flow-root/" height="350"></iframe>
+<iframe title="flow-root" src="demos/flow-root/" height="350" sandbox></iframe>
 
 Также для подобной изоляции можно указать блоку свойство `overflow: hidden`. Отличие состоит в том, что `flow-root` позволяет использовать свойство `overflow: visible`.
 

@@ -1,5 +1,5 @@
 ---
-title: ":active"
+title: "`:active`"
 authors:
   - solarrust
 editors:

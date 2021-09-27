@@ -39,7 +39,7 @@ div.addEventListener('wheel', function(event) {
 
 Разницу между событиями можно понять на демо ниже. `wheel` происходит всегда когда пользователь крутит колесо мыши (или что-то его заменяющее), а `scroll` только при прокрутке:
 
-<iframe title="Сравнение событий scroll и wheel — Element.scroll/wheel — Дока" src="demos/index/" height="495"></iframe>
+<iframe title="Сравнение событий scroll и wheel — Element.scroll/wheel — Дока" src="demos/index/" height="495" sandbox></iframe>
 
 ### Объект события `scroll`
 
@@ -78,4 +78,4 @@ document.addEventListener('wheel', function(event) {
 
 С помощью объекта события можно, например перемещать элемент по экрану при прокрутке колеса мыши:
 
-<iframe title="Перемещение элемента при прокрутке — Element.scroll/wheel — Дока" src="demos/scroll-move/" height="495"></iframe>
+<iframe title="Перемещение элемента при прокрутке — Element.scroll/wheel — Дока" src="demos/scroll-move/" height="495" sandbox></iframe>

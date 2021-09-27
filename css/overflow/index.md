@@ -1,5 +1,5 @@
 ---
-title: "overflow"
+title: "`overflow`"
 authors:
   - realetive
 tags:
@@ -21,7 +21,7 @@ tags:
 }
 ```
 
-<iframe title="Разные виды скрытия" src="demos/every/" height="400"></iframe>
+<iframe title="Разные виды скрытия" src="demos/every/" height="400" sandbox></iframe>
 
 ## Как пишется
 

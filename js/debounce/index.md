@@ -1,8 +1,5 @@
 ---
 title: "Debounce на примере формы поиска"
-cover:
-  desktop: "images/covers/desktop.png"
-  alt: 'Девушка сидит за столом, окружённая часами разных видов, от будильника, до настенных'
 authors:
   - bespoyasov
 contributors:
@@ -369,4 +366,4 @@ searchInput.addEventListener("input", debouncedHandle);
 
 Полный пример строки поиска у нас получится такой:
 
-<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280"></iframe>
+<iframe title="Откладывание запросов при поиске — Debounce на примере формы поиска — Дока" src="demos/debounced-search/" height="280" sandbox></iframe>

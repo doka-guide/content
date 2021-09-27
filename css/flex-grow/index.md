@@ -1,5 +1,5 @@
 ---
-title: "flex-grow"
+title: "`flex-grow`"
 authors:
   - solarrust
 editors:

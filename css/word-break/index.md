@@ -1,5 +1,5 @@
 ---
-title: "word-break"
+title: "`word-break`"
 authors:
   - doka-dog
 keywords:

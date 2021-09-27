@@ -1,5 +1,5 @@
 ---
-title: "animation-iteration-count"
+title: "`animation-iteration-count`"
 authors:
   - solarrust
 editors:

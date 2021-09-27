@@ -58,7 +58,7 @@ element.style.fontFamily = "Arial"
 
 При сомнениях в том, как правильно называется то или иное свойство, воспользуйтесь списком соответствий:
 
-<details class="article__table article__table_all-half">
+<details>
   <summary>CSS-свойства в JS-нотации</summary>
 
 | CSS | JavaScript |

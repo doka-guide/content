@@ -1,5 +1,5 @@
 ---
-title: "image-set()"
+title: "`image-set()`"
 authors:
   - doka-dog
 keywords:

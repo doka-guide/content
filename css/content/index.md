@@ -1,5 +1,5 @@
 ---
-title: "content"
+title: "`content`"
 authors:
   - ezhkov
 contributors:
@@ -26,41 +26,71 @@ a::after {
 
 ## Как пишется
 
+Изображение в качестве содержимого. Может применяться к любому элементу.
+
 ```css
-/* Изображение в качестве содержимого */
-/* Может применяться к любому элементу */
-content: url("http://www.example.com/test.png");
+div {
+  content: url("http://www.example.com/test.png");
+}
+```
 
-/* Все значения ниже могут применяться ТОЛЬКО к псевдоэлементам ::before и ::after */
+Все значения ниже могут применяться ТОЛЬКО к псевдоэлементам [`::before`](/css/before) и [`::after`](/css/after).
 
-/* Строка текста */
-content: "prefix";
+Строка текста:
 
-/* Значения счётчиков с использованием функций counter() и counters() */
-content: counter(chapter_counter);
-content: counters(section_counter, ".");
+```css
+div::before {
+  content: "prefix";
+}
+```
 
-/* Значения HTML-атрибутов с использованием функции attr() */
-content: attr(value string);
+Значения счётчиков с использованием функций `counter()` и `counters()`:
 
-/* Ключевые слова, зависящие от языка страницы и положения в тексте */
-content: open-quote;
-content: close-quote;
-content: no-open-quote;
-content: no-close-quote;
+```css
+div::before {
+  content: counter(chapter_counter);
+}
 
-/* Использование нескольких значений одновременно.
-  Исключение — ключевые слова normal и none */
-content: open-quote counter(chapter_counter);
+div::before {
+  content: counters(section_counter, ".");
+}
+```
 
-/* Ключевые слова, которые нельзя комбинировать с другими значениями */
-content: normal;
-content: none;
+Значения HTML-атрибутов с использованием функции [`attr()`](/css/attr):
 
-/* Глобальные значения */
-content: inherit;
-content: initial;
-content: unset;
+```css
+div::before {
+  content: attr(value string);
+}
+```
+
+Ключевые слова, зависящие от языка страницы и положения в тексте:
+
+```css
+div::before {
+  content: open-quote;
+  content: close-quote;
+  content: no-open-quote;
+  content: no-close-quote;
+}
+```
+
+Использование нескольких значений одновременно. Исключение — ключевые слова `normal` и `none`:
+
+```css
+div::before {
+  content: open-quote counter(chapter_counter);
+}
+```
+
+Ключевые слова, которые нельзя комбинировать с другими значениями:
+
+
+```css
+div::before {
+  content: normal;
+  content: none;
+}
 ```
 
 ## Как это понять
@@ -74,31 +104,31 @@ content: unset;
 
   — `close-quote` обозначает **закрывающую** кавычку цитаты для текущего языка. Например, для русского это будет закрывающая «ёлочка» (`»`);
 
-  ```html
-  <blockquote>
-    Вспомните, как говорили мушкетёры: <q>Один за всех, все за одного!</q>
-  </blockquote>
-  ```
+```html
+<blockquote>
+  Вспомните, как говорили мушкетёры: <q>Один за всех, все за одного!</q>
+</blockquote>
+```
 
-  ```css
-  blockquote {
-    quotes: "«" "»" "„" "”";
-  }
+```css
+blockquote {
+  quotes: "«" "»" "„" "”";
+}
 
-  blockquote::before {
-    content: open-quote;
-  }
+blockquote::before {
+  content: open-quote;
+}
 
-  blockquote::after {
-    content: close-quote;
-  }
-  ```
+blockquote::after {
+  content: close-quote;
+}
+```
 
-  ### Результат
+Результат
 
-  ```
-  «Вспомните, как говорили мушкетёры: „Один за всех, все за одного!”»
-  ```
+```
+«Вспомните, как говорили мушкетёры: „Один за всех, все за одного!”»
+```
 
   — `no-open-quote` и `no-close-quote` используются, когда не нужно отображать кавычки, но при этом продолжать увеличивать уровень вложенности.
 
@@ -133,7 +163,7 @@ content: unset;
 }
 ```
 
-<iframe title="Всплывающая подсказка к рейтингу" src="demos/rating/" height="220"></iframe>
+<iframe title="Всплывающая подсказка к рейтингу" src="demos/rating/" height="220" sandbox></iframe>
 
 - Ну и конечно же разработчики спецификации позаботились о нас и сделали возможность собрать сразу несколько значений в общую строку:
 
@@ -149,7 +179,7 @@ content: unset;
 }
 ```
 
-### Результат
+Результат
 
 ![Вывод ссылки на печать](images/print.png)
 
@@ -172,7 +202,7 @@ content: unset;
 }
 ```
 
-### Результат
+Результат
 
 ![Пример свойства content со значением url](images/MDN.svg)
 

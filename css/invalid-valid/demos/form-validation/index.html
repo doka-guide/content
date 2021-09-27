@@ -2,10 +2,18 @@
 <html lang="ru">
 <head>
   <title>Валидация формы — :invalid и :valid — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
     }
 
     form {
@@ -71,20 +79,20 @@
   </style>
 </head>
 <body>
-<form>
-  <div class="form-row">
-    <label for="first-name">Имя:</label>
-    <input type="text" name="first-name" id="first-name" required placeholder="Только русские буквы">
-    <span class="validity-icon"></span>
-  </div>
-  <div class="form-row">
-    <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
-    <span class="validity-icon"></span>
-  </div>
-  <div class="form-row">
-    <button type="submit">Отправить</button>
-  </div>
-</form>
+  <form>
+    <div class="form-row">
+      <label for="first-name">Имя:</label>
+      <input type="text" name="first-name" id="first-name" required placeholder="Только русские буквы">
+      <span class="validity-icon"></span>
+    </div>
+    <div class="form-row">
+      <label for="email">E-mail:</label>
+      <input type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+      <span class="validity-icon"></span>
+    </div>
+    <div class="form-row">
+      <button type="submit">Отправить</button>
+    </div>
+  </form>
 </body>
 </html>

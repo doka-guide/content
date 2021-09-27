@@ -2,10 +2,17 @@
 <html lang="ru">
 <head>
   <title>Разница между значениями — text-rendering — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
   <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
     .blocks {
       width: 400px;
       margin-left: auto;
@@ -41,19 +48,19 @@
     .no-kerning {
       font-size: 32px;
       text-rendering: optimizeSpeed;
-}
+    }
   </style>
 </head>
 <body>
-<div class="blocks">
-  <div class="block">
-    <p>optimizeLegibility</p>
-    <p class="example ligatures">fi fl</p>
+  <div class="blocks">
+    <div class="block">
+      <p>optimizeLegibility</p>
+      <p class="example ligatures">fi fl</p>
+    </div>
+    <div class="block">
+      <p>optimizeSpeed</p>
+      <p class="example no-ligatures">fi fl</p>
+    </div>
   </div>
-  <div class="block">
-    <p>optimizeSpeed</p>
-    <p class="example no-ligatures">fi fl</p>
-  </div>
-</div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 ---
-title: "Наследование в CSS"
+title: "Наследование"
 authors:
   - realetive
 keywords:
@@ -28,19 +28,19 @@ tags:
 
 ## Наследуемые свойства
 
-- Свойства шрифта: `font` и его «производных»: `font-style`, `font-variant`, `font-weight`, `font-stretch`, `font-size` и `font-family`; `color` и `line-height`;
-- свойства межбуквенных и «межсловных» расстояний: `letter-spacing`, `word-spacing` и `white-space`;
-- параметры текста: `text-align`, `text-indent`, `text-shadow`, `text-transform`;
-- оформление пунктов списков: `list-style`, `list-style-type`, `list-style-position`;
-- внешний вид курсора: `cursor` и отображение содержимого элемента `visablity`.
+- Свойства шрифта: `font` и его «производных»: `font-style`, `font-variant`, `font-weight`, `font-stretch`, `font-size` и `font-family`; `color` и `line-height`.
+- Свойства межбуквенных и «межсловных» расстояний: `letter-spacing`, `word-spacing` и `white-space`.
+- Параметры текста: `text-align`, `text-indent`, `text-shadow`, `text-transform`;
+- оформление пунктов списков: `list-style`, `list-style-type`, `list-style-position`.
+- Внешний вид курсора: `cursor` и отображение содержимого элемента `visablity`.
 
 Например, в отличие от `color`, ненаследуемое свойство `border` не будет применено к вложенным элементам:
 
-<iframe title="Наследование цвета" src="demos/color-inheritance/" height="384"></iframe>
+<iframe title="Наследование цвета" src="demos/color-inheritance/" height="384" sandbox></iframe>
 
 Но если мы укажем у `<p>` свойство `border` как `inherit` (т. е. наследуемое):
 
-<iframe title="Наследование рамки" src="demos/border-inheritance/" height="390"></iframe>
+<iframe title="Наследование рамки" src="demos/border-inheritance/" height="390" sandbox></iframe>
 
 ## Подсказки
 
@@ -50,4 +50,4 @@ tags:
 
 Полный список наследуемых по умолчанию CSS-свойств помечен в [спецификации](https://www.w3.org/TR/CSS22/propidx.html) в колонке «Inherited?» значением `yes`.
 
-Значение любого CSS-свойства можно «позаимствовать» («унаследовать») у родителя. Если «родителя» нет, `inherit` будет соответствовать значению по умолчанию для этого элемента.
+Значение любого CSS-свойства можно «позаимствовать» (унаследовать) у родителя. Если «родителя» нет, `inherit` будет соответствовать значению по умолчанию для этого элемента.

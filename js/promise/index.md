@@ -1,8 +1,5 @@
 ---
 title: "`Promise`"
-cover:
-  desktop: 'images/covers/desktop.png'
-  alt: 'Две руки держат друг-друга мизинчиками и жесте "мирись-мирись-мирись"'
 authors:
   - nlopin
 tags:
@@ -239,7 +236,7 @@ fetch(`https://swapi.dev/api/films/${id}/`)
 
 **Обработка ошибок в цепочках методов**
 
-<iframe title="Как ошибки ловятся в цепочках методов — Promise — Дока" src="demos/promise-catch/"></iframe>
+<iframe title="Как ошибки ловятся в цепочках методов — Promise — Дока" src="demos/promise-catch/" height="350" sandbox></iframe>
 
 Цепочки `then` при обработке промисов могут быть очень большими. В примере выше цепочка состоит из 4 `then` и одного `catch`. Как в этом случае отработает `catch`?
 
@@ -283,4 +280,4 @@ fetch(`https://swapi.dev/api/films/${id}/`)
 
 Пример ниже показывает состояние промиса, который создаётся при нажатии на кнопку купить. Промис случайным образом завершается успехом или ошибкой:
 
-<iframe title="Название — Promise — Дока" src="demos/Lopinopulos-QWNLMwR/index/"></iframe>
+<iframe title="Название — Promise — Дока" src="demos/Lopinopulos-QWNLMwR/" height="300" sandbox></iframe>

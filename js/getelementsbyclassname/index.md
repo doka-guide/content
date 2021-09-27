@@ -17,7 +17,7 @@ tags:
 ## Пример
 
 ```html
-.html">
+<html>
   <head></head>
   <body>
     <div id="title">
@@ -44,7 +44,7 @@ tags:
       console.log(spanFromBody.length) // напечатает 0
     </script>
   </body>
-<.html">
+</html>
 ```
 
 ## Как это понять

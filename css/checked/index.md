@@ -1,5 +1,5 @@
 ---
-title: ":checked"
+title: "`:checked`"
 authors:
   - solarrust
 contributors:
@@ -47,7 +47,7 @@ input[type="checkbox"]:checked ~ .input-text {
 }
 ```
 
-<iframe title="Чекбоксы" src="demos/check/" height="350"></iframe>
+<iframe title="Чекбоксы" src="demos/check/" height="350" sandbox></iframe>
 
 ## Как пишется
 

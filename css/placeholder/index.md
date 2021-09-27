@@ -1,5 +1,5 @@
 ---
-title: "::placeholder"
+title: "`::placeholder`"
 authors:
   - ezhkov
 contributors:
@@ -30,7 +30,7 @@ tags:
 }
 ```
 
-<iframe title="Подсказка в поле ввода" src="demos/example/" height="180"></iframe>
+<iframe title="Подсказка в поле ввода" src="demos/example/" height="180" sandbox></iframe>
 
 ## Как это понять
 
