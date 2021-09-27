@@ -1,5 +1,6 @@
 ---
 title: "Асинхронность в JS"
+description: "Как устроена асинхронность: что такое Event loop и очередь событий, при чём здесь Web API, и как работают промисы и async/await"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'

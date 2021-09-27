@@ -1,5 +1,6 @@
 ---
 title: "Как браузер рисует страницы"
+description: "Как обрабатывается HTML, CSS и JS код перед тем, как станет веб-страницей"
 authors:
   - bespoyasov
 editors:
