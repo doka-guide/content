@@ -35,7 +35,7 @@ blockquote[cite] {
 }
 ```
 
-<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="520"></iframe>
+<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="520" sandbox></iframe>
 
 ## Как пишется
 

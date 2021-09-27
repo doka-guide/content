@@ -36,11 +36,11 @@ tags:
 
 Например, в отличие от `color`, ненаследуемое свойство `border` не будет применено к вложенным элементам:
 
-<iframe title="Наследование цвета" src="demos/color-inheritance/" height="384"></iframe>
+<iframe title="Наследование цвета" src="demos/color-inheritance/" height="384" sandbox></iframe>
 
 Но если мы укажем у `<p>` свойство `border` как `inherit` (т. е. наследуемое):
 
-<iframe title="Наследование рамки" src="demos/border-inheritance/" height="390"></iframe>
+<iframe title="Наследование рамки" src="demos/border-inheritance/" height="390" sandbox></iframe>
 
 ## Подсказки
 

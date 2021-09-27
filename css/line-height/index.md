@@ -154,4 +154,4 @@ h1 {
 }
 ```
 
-<iframe title="Высота строки" src="demos/line-height/" height="470"></iframe>
+<iframe title="Высота строки" src="demos/line-height/" height="470" sandbox></iframe>

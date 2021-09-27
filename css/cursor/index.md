@@ -43,7 +43,7 @@ article {
 
 Если навести курсор на блок статьи, то увидите картинку котика вместо привычной стрелочки.
 
-<iframe title="Картинка в качестве курсора" src="demos/cat/" height="320"></iframe>
+<iframe title="Картинка в качестве курсора" src="demos/cat/" height="320" sandbox></iframe>
 
 ## Как пишется
 
@@ -77,7 +77,7 @@ article {
 
 Демо со всеми перечисленными курсорами:
 
-<iframe title="Все виды курсоров" src="demos/all/" height="500"></iframe>
+<iframe title="Все виды курсоров" src="demos/all/" height="500" sandbox></iframe>
 
 Внешне курсоры могут отличаться в разных операционных системах.
 

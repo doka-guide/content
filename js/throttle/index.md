@@ -225,4 +225,4 @@ window.addEventListener("resize", optimizedHandler);
 
 Пример такого прогресс-бара получится таким:
 
-<iframe title="Прогресс-бар для статьи — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/article-progress/" height="500"></iframe>
+<iframe title="Прогресс-бар для статьи — Throttle на примере изменения страницы при прокрутке — Дока" src="demos/article-progress/" height="500" sandbox></iframe>

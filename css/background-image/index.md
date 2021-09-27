@@ -70,7 +70,7 @@ body {
 }
 ```
 
-<iframe title="Фоновый рисунок" src="demos/basic/" height="150"></iframe>
+<iframe title="Фоновый рисунок" src="demos/basic/" height="150" sandbox></iframe>
 
 Чтобы фоновая картинка отображалась так, как нужно, задайте ей параметры с помощью других свойств:
 

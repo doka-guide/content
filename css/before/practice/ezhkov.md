@@ -18,7 +18,7 @@ li::before {
 }
 ```
 
-<iframe title="Нестандартный маркер" src="../demos/list/" height="400"></iframe>
+<iframe title="Нестандартный маркер" src="../demos/list/" height="400" sandbox></iframe>
 
 🛠 Пример со свойством `content`:
 
@@ -48,4 +48,4 @@ li::before {
 }
 ```
 
-<iframe title="Пустое свойство content" src="../demos/empty-content/" height="300"></iframe>
+<iframe title="Пустое свойство content" src="../demos/empty-content/" height="300" sandbox></iframe>

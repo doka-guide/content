@@ -37,7 +37,7 @@ tags:
 }
 ```
 
-<iframe title="Картинка в качестве рамки слева" src="demos/border-image/" height="400"></iframe>
+<iframe title="Картинка в качестве рамки слева" src="demos/border-image/" height="400" sandbox></iframe>
 
 ## Как это понять
 

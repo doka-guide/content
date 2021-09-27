@@ -18,4 +18,4 @@ let value = Math.random()
 console.log(value) // выведет случайное число
 ```
 
-<iframe title="Название — Math.random() — Дока" src="demos/Lopinopulos-agoXBj/" height="150"></iframe>
+<iframe title="Название — Math.random() — Дока" src="demos/Lopinopulos-agoXBj/" height="150" sandbox></iframe>

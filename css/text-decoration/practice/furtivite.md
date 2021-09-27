@@ -50,4 +50,4 @@
 }
 ```
 
-<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header/" height="150"></iframe>
+<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header/" height="150" sandbox></iframe>

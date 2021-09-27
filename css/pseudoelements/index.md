@@ -45,7 +45,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона" src="demos/header/" height="400"></iframe>
+<iframe title="Наложение фона" src="demos/header/" height="400" sandbox></iframe>
 
 Чтобы цвет картинки был не таким ярким и текст лучше читался, наложим поверх всего `header` полупрозрачную заливку чёрного цвета.
 
@@ -73,7 +73,7 @@ tags:
 }
 ```
 
-<iframe title="Наложение фона с заливкой" src="demos/header-veil/" height="400"></iframe>
+<iframe title="Наложение фона с заливкой" src="demos/header-veil/" height="400" sandbox></iframe>
 
 Не трогая HTML-разметку, мы добавили ещё один элемент в декоративных целях. Разметка осталась чистой. Псевдоэлементом легко управлять, добавлять или удалять его по необходимости, даже если нет доступа к HTML.
 
@@ -111,7 +111,7 @@ tags:
 }
 ```
 
-<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon/" height="276"></iframe>
+<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon/" height="276" sandbox></iframe>
 
 Как видно в примере, текст из свойства `content` псевдоэлемента `::before` встал перед именем пользователя, а из псевдоэлемента `::after` — после.
 
@@ -139,7 +139,7 @@ tags:
 }
 ```
 
-<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon/" height="278"></iframe>
+<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon/" height="278" sandbox></iframe>
 
 ### `::first-letter`
 
@@ -160,7 +160,7 @@ tags:
 }
 ```
 
-<iframe title="::first-letter, буквица" src="demos/first-letter/" height="300"></iframe>
+<iframe title="::first-letter, буквица" src="demos/first-letter/" height="300" sandbox></iframe>
 
 ### `::first-line`
 
@@ -182,7 +182,7 @@ tags:
 }
 ```
 
-<iframe title="::first-line, красная строка" src="demos/first-line/" height="282"></iframe>
+<iframe title="::first-line, красная строка" src="demos/first-line/" height="282" sandbox></iframe>
 
 ### `::selection`
 
@@ -200,7 +200,7 @@ tags:
 }
 ```
 
-<iframe title="::selection, выделение текста" src="demos/selection/" height="300"></iframe>
+<iframe title="::selection, выделение текста" src="demos/selection/" height="300" sandbox></iframe>
 
 Если выделить текст в этом примере, то станет видно, что фон выделения ярко-красного цвета.
 
@@ -226,7 +226,7 @@ input::placeholder {
 }
 ```
 
-<iframe title="Placeholder, подсказка" src="demos/placeholder/" height="283"></iframe>
+<iframe title="Placeholder, подсказка" src="demos/placeholder/" height="283" sandbox></iframe>
 
 ## Подсказки
 

@@ -34,7 +34,7 @@ const hasEvenNumber = oddNums.some(num => {
 
 Интерактивный пример
 
-<iframe title="Используем some для проверки массива — Array.some — Дока" src="demos/index/" height="930"></iframe>
+<iframe title="Используем some для проверки массива — Array.some — Дока" src="demos/index/" height="930" sandbox></iframe>
 
 ## Как пишется
 
