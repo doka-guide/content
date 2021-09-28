@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Заливка паттерном — stroke — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .stroke-1 {
+      stroke: #1a5ad7;
+      stroke-width: 1;
+      stroke-linecap: butt;
+      stroke-dasharray: 0;
+    }
+
+    .stroke-2 {
+      stroke: #e2595e;
+    }
+
+    .stroke-3 {
+      stroke: #49a16c;
+    }
+
+    .stroke-4 {
+      stroke: url(#pattern);
+      stroke-width: 10;
+    }
+
+    /* DEMO STYLES */
+    body {
+      background-color: #18191c;
+    }
+
+    .module {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      fill: #18191c;
+    }
+  </style>
+</head>
+<body>
+  <div class="module">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke-1" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke-2" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="stroke-3" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Pattern courtesy of https://iros.github.io/patternfills/ -->
+        <pattern id="pattern" patternUnits="userSpaceOnUse" width="10" height="10">
+          <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nOScgaGVpZ2h0PSc5JyBmaWxsPSdibGFjaycgLz4KPC9zdmc+" x="0" y="0" width="10" height="10"></image>
+        </pattern>
+      </defs>
+      <circle class="stroke-4" cx="50%" cy="50%" r="50"/>
+    </svg>
+  </div>
+</body>
+</html>
