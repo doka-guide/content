@@ -5,23 +5,29 @@
   <meta charset="UTF-8">
   <style>
     body {
-      margin: 50px;
+      margin: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
     }
 
     .block {
+      width: 20%;
+      margin: 25px;
       padding: 10px;
-      border: none;
+      font-family: monospace;
       font-size: 2rem;
-      border: 1px solid black;
+      border: 1px solid #49a16c;
+      text-align: center;
 
-      outline: 10px solid green;
-      outline-offset: 10px;
+      outline: 10px solid #1a5ad7;
+      outline-offset: 5px;
     }
 
     .block + .block {
       margin-top: 50px;
     }
-
 
     .none { outline-style: none}
     .dotted { outline-style: dotted}
