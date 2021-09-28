@@ -31,15 +31,17 @@ const sameDecimal = .101
 const scientific = 1e6
 ```
 
-Числа так же могут быть представлены в [двоичном](https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F), [восьмеричном](https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F) или [шестнадцатеричном](https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D0%B4%D1%86%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F) виде. Такие числа начинаются с приставки `0b`, `0o`, `0x` соответственно. При выводе на экран они будут преобразованы в десятичную систему счисления:
+Числа так же могут быть представлены в [двоичном](https://ru.wikipedia.org/wiki/Двоичная_система_счисления), [восьмеричном](https://ru.wikipedia.org/wiki/Восьмеричная_система_счисления) или [шестнадцатеричном](https://ru.wikipedia.org/wiki/Шестнадцатеричная_система_счисления) виде. Такие числа начинаются с приставки `0b`, `0o`, `0x` соответственно. При выводе на экран они будут преобразованы в десятичную систему счисления:
 
 ```js
 const binary = 0b11
 console.log(binary)
 // 3
+
 const octal = 0o77
 console.log(octal)
 // 63
+
 const hexadecimal = 0xFF
 console.log(hexadecimal)
 // 255
