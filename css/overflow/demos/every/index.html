@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <title>Разные виды скрытия — overflow — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
@@ -78,13 +78,13 @@
       </p>
     </div>
   <script>
-    let textBlock = document.querySelector(".text");
-    let buttons = Array.from(document.querySelectorAll("button"));
+    let textBlock = document.querySelector('.text')
+    let buttons = Array.from(document.querySelectorAll('button'))
     buttons.map((btn) => {
-      btn.addEventListener("click", (e) => {
-        buttons.forEach(el => el.classList.remove("_active"));
-        textBlock.style.overflow = e.target.classList;
-        e.target.classList.add("_active");
+      btn.addEventListener('click', (e) => {
+        buttons.forEach(el => el.classList.remove('_active'))
+        textBlock.style.overflow = e.target.classList
+        e.target.classList.add('_active')
       })
     })
   </script>
