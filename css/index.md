@@ -191,6 +191,7 @@ groups:
       - position-sticky
       - stacking-context
       - z-index
+      - inset
   - name: 'Списки'
     items:
       - list-style
