@@ -44,6 +44,7 @@ groups:
       - kbd
       - mark
       - output
+      - em
   - name: 'Формы'
     items:
       - form
