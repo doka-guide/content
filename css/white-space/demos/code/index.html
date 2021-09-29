@@ -2,18 +2,28 @@
 <html lang="ru">
 <head>
   <title>Блок кода с переносами — white-space — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
     }
+
     p {
       text-align: center;
     }
-    code {
+
+    pre {
       width: 200px;
       display: block;
-      border: 1px solid #00000033;
+      border: 1px solid #1A5AD7;
       margin-left: auto;
       margin-right: auto;
       white-space: pre;
@@ -21,13 +31,12 @@
   </style>
 </head>
 <body>
-<p>Рассмотрим кусочек кода</p>
-<code>
-  p {
-    font-size: 20px;
-    color: 'red';
-  }
 
-</code>
+<p>Рассмотрим кусочек кода</p>
+<pre><code>p {
+  font-size: 20px;
+  color: red;
+}</code></pre>
+
 </body>
 </html>
