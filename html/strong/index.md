@@ -3,7 +3,8 @@ title: "`<strong>`"
 authors:
   - doka-dog
 keywords:
-  - граница
+  - семантическое выделение
+  - важность
 tags:
   - doka
   - placeholder
