@@ -45,6 +45,7 @@ groups:
       - mark
       - output
       - strong
+      - em
   - name: 'Формы'
     items:
       - form
