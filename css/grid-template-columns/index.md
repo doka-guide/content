@@ -2,6 +2,8 @@
 title: "`grid-template-columns`"
 authors:
   - solarrust
+editors:
+  - tachisis
 keywords:
   - размер и количество колонок
   - грид-колонка
