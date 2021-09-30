@@ -38,6 +38,13 @@ jobs:
         run: |
           node make-links.js --default
           npm run build
+      - name: Загрузка карточек социальных сетей
+        uses: dawidd6/action-download-artifact@v2
+        continue-on-error: true
+        with:
+          workflow: social-cards.yml
+          branch: main
+          name: doka-guide-platform-social-cards
       - name: Публикация сайта
         uses: netlify/actions/cli@master
         with:
