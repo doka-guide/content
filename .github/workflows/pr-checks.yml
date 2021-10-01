@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: '14'
       - id: files
+        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
       - name: Работает линтер
         run: |
@@ -47,13 +48,17 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - id: files
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: Ana06/get-changed-files@v1.2
+        with:
+          filter: 'index.md'
       - name: Работает линтер
         run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.sha }} ${{ github.event.workflow_run.head_sha }})")
-          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
+          files=${{ steps.files.outputs.added_modified }}
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat -f json ${{ steps.files.outputs.all }} -o result.json
+            npx yaml-cat -f json $files -o result.json
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"
@@ -91,12 +96,13 @@ jobs:
         with:
           node-version: '14'
       - id: files
+        if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
       - name: Проверяет правописание
         run: |
           config=.yaspeller.json
           file_list=""
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
               npx yaspeller --only-errors --file-extensions ".md,.html" *
