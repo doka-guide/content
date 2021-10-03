@@ -58,7 +58,7 @@ jobs:
           files=${{ steps.files.outputs.added_modified }}
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat -f json $files -o result.json
+            npx yaml-cat --format json --output result.json $(echo $files)
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"
