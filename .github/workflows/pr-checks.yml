@@ -55,7 +55,7 @@ jobs:
           filter: 'index.md'
       - name: Работает линтер
         run: |
-          files=${{ steps.files.outputs.added_modified }}
+          files='${{ steps.files.outputs.added_modified }}'
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
             npx yaml-cat --format json --output result.json $(echo $files)
