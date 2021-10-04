@@ -2,6 +2,8 @@
 title: "`gap`"
 authors:
   - solarrust
+editors:
+  - tachisis
 keywords:
   - отступы между грид-ячейками
   - шорткат
