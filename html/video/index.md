@@ -1,6 +1,10 @@
 ---
 title: "`<video>`"
 description: "Нативный способ вставить видео на страницу сайта. В статье найдутся все нужные атрибуты, а также способы подключения видео в разных форматах."
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два рабочих вставляют окно с видео в документ, как если бы они вставляли реальное окно в стену'
 authors:
   - vladimir
 contributors:
