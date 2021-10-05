@@ -1,7 +1,7 @@
 ---
 title: "`console.log()`"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - nlopin
 tags:

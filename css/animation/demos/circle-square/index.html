@@ -2,13 +2,19 @@
 <html lang="ru">
 <head>
   <title>Круг и квадрат — CSS-анимации — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
     .parent {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      box-sizing: border-box;
     }
 
     .child {
@@ -30,9 +36,9 @@
   </style>
 </head>
 <body>
-<div class="parent">
-  <div class="child child-one"></div>
-  <div class="child child-two"></div>
-</div>
+  <div class="parent">
+    <div class="child child-one"></div>
+    <div class="child child-two"></div>
+  </div>
 </body>
 </html>

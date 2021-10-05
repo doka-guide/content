@@ -25,4 +25,4 @@
 }
 ```
 
-<iframe title="Иконка для внешней ссылки" src="../demos/link-icon/" height="140"></iframe>
+<iframe title="Иконка для внешней ссылки" src="../demos/link-icon/" height="140" sandbox></iframe>

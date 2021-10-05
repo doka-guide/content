@@ -79,11 +79,11 @@ li:nth-last-of-type(1),
 }
 ```
 
-<iframe title="Псевдоклассы группы type" src="demos/every/" height="450"></iframe>
+<iframe title="Псевдоклассы группы type" src="demos/every/" height="450" sandbox></iframe>
 
 Если нам нужно выбрать единственный элемент своего родителя, используется псевдокласс `:only-of-type` (что эквивалентно комбинации `:first-of-type:last-of-type`):
 
-<iframe title="Выбор единственного элемента родителя" src="demos/only/" height="484"></iframe>
+<iframe title="Выбор единственного элемента родителя" src="demos/only/" height="484" sandbox></iframe>
 
 ## Как пишется
 

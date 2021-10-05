@@ -1,5 +1,6 @@
 ---
 title: "Работа с формами"
+description: "Как обрабатывать формы, валидировать их и отправлять без перезагрузки страницы с помощью JS"
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
@@ -74,7 +75,7 @@ tags:
 </form>
 ```
 
-<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" sandbox></iframe>
+<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" height="200" sandbox></iframe>
 
 В целом форма рабочая: обязательные поля не пропустят пустые значения, атрибут `type` проследит, чтобы вместо почты нам не прислали номер телефона, а по нажатию на кнопку валидная форма отправит все данные.
 

@@ -17,37 +17,37 @@
 
 ```css
 .dropdown {
-  position: relative; /* Относительное позиционирование */
+  position: relative;
 }
 
 .dropdown input,
 .dropdown ul {
-  display: none; /* Прячем */
+  display: none;
 }
 
 .dropdown label {
-  cursor: pointer; /* Вид курсора */
-  border-bottom: 3px dashed #1a5ad7; /* Пунктир снизу */
+  cursor: pointer;
+  border-bottom: 3px dashed #1a5ad7;
 }
 
 .dropdown ul {
-  position: absolute; /* Абсолютное позиционирование */
+  position: absolute;
   left: 0;
-  top: 1.4em; /* Положение меню */
+  top: 1.4em;
   margin: 0;
-  padding: 5px; /* Убираем отступы и поля */
-  list-style: none; /* Убираем маркеры списка */
-  background: #1a5ad7; /* Цвет фона */
+  padding: 5px;
+  list-style: none;
+  background: #1a5ad7;
   font-size: 20px;
 }
 
 .dropdown a {
-  color: #fff; /* Цвет ссылок */
+  color: #fff;
 }
 
 .dropdown :checked ~ ul {
-  display: inline-block; /* Показываем меню */
+  display: inline-block;
 }
 ```
 
-<iframe title="Выпадающее меню" src="../demos/choose/" height="300"></iframe>
+<iframe title="Выпадающее меню" src="../demos/choose/" height="300" sandbox></iframe>

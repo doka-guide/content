@@ -20,7 +20,7 @@ tags:
 
 Сделаем «липкий» заголовок, а также «липкий» блок в правом нижнем углу для каждого из `<section>`:
 
-<iframe title="Липкое позиционирование" src="demos/sticky/" height="400"></iframe>
+<iframe title="Липкое позиционирование" src="demos/sticky/" height="400" sandbox></iframe>
 
 ## Как это понять
 

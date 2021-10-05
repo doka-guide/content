@@ -1,5 +1,6 @@
 ---
 title: "Гайд по flexbox"
+description: "Всё, что нужно знать про флексбоксы: основные термины, свойства флекс-контейнера и флекс-элементов, полезные ссылки по теме."
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
@@ -198,7 +199,7 @@ tags:
 
 Это может быть сложно понять сразу, поэтому мы сделали демку. Обратите внимание, что вне зависимости от размера шрифта все блоки выравниваются по базовой линии первой строки.
 
-<iframe title="Выравнивание по базовой линии" src="demos/baseline/" height="540"></iframe>
+<iframe title="Выравнивание по базовой линии" src="demos/baseline/" height="540" sandbox></iframe>
 
 ### `align-content`
 

@@ -33,7 +33,7 @@ img {
 }
 ```
 
-<iframe title="Функция blur()" src="demos/blur/" height="150"></iframe>
+<iframe title="Функция blur()" src="demos/blur/" height="470" sandbox></iframe>
 
 ### `brightness()`
 
@@ -45,7 +45,7 @@ img {
 }
 ```
 
-<iframe title="Функция brightness()" src="demos/brigtness/" height="150"></iframe>
+<iframe title="Функция brightness()" src="demos/brightness/" height="470" sandbox></iframe>
 
 ### `contrast()`
 
@@ -57,7 +57,7 @@ img {
 }
 ```
 
-<iframe title="Функция contrast()" src="demos/contrast/" height="150"></iframe>
+<iframe title="Функция contrast()" src="demos/contrast/" height="470" sandbox></iframe>
 
 ### `drop-shadow()`
 
@@ -69,7 +69,7 @@ img {
 }
 ```
 
-<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="150"></iframe>
+<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="470" sandbox></iframe>
 
 ### `grayscale()`
 
@@ -81,7 +81,7 @@ img {
 }
 ```
 
-<iframe title="Функция grayscale()" src="demos/grayscale/" height="150"></iframe>
+<iframe title="Функция grayscale()" src="demos/grayscale/" height="470" sandbox></iframe>
 
 ### `hue-rotate()`
 
@@ -93,7 +93,7 @@ img {
 }
 ```
 
-<iframe title="Функция hue-rotate()" src="demos/hue-rotate/" height="150"></iframe>
+<iframe title="Функция hue-rotate()" src="demos/hue-rotation/" height="470" sandbox></iframe>
 
 ### `invert()`
 
@@ -105,7 +105,7 @@ img {
 }
 ```
 
-<iframe title="Функция invert()" src="demos/invert/" height="150"></iframe>
+<iframe title="Функция invert()" src="demos/invert/" height="470" sandbox></iframe>
 
 ### `opacity()`
 
@@ -119,7 +119,7 @@ img {
 }
 ```
 
-<iframe title="Функция opacity()" src="demos/opacity/" height="150"></iframe>
+<iframe title="Функция opacity()" src="demos/opacity/" height="470" sandbox></iframe>
 
 
 ### `saturate()`
@@ -132,7 +132,7 @@ img {
 }
 ```
 
-<iframe title="Функция saturate()" src="demos/saturate/" height="150"></iframe>
+<iframe title="Функция saturate()" src="demos/saturate/" height="470" sandbox></iframe>
 
 ### `sepia()`
 
@@ -144,7 +144,7 @@ img {
 }
 ```
 
-<iframe title="Функция sepia()" src="demos/sepia/" height="150"></iframe>
+<iframe title="Функция sepia()" src="demos/sepia/" height="470" sandbox></iframe>
 
 ## Подсказки
 

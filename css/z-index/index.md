@@ -23,7 +23,7 @@ tags:
 
 ## Пример
 
-Возьмём самую частую ситуацию, где пригождается `z-index` — наложение полупрозрачной вуали поверх блока с фоном и текстом.
+Возьмём самую частую ситуацию, где пригождается `z-index` — наложение полупрозрачной вуали поверх блока с фоном и текстом.
 
 У нас будет разметка для шапки сайта:
 
@@ -33,7 +33,7 @@ tags:
 </header>
 ```
 
-Для `header` мы зададим фоновое изображение и псевдоэлемент `:after` с полупрозрачной вуалью, чтобы затемнить фон и чтобы текст лучше читался.
+Для `header` мы зададим фоновое изображение и псевдоэлемент [`::after`](/css/after) с полупрозрачной вуалью, чтобы затемнить фон и чтобы текст лучше читался.
 
 ```css
 header {
@@ -41,7 +41,7 @@ header {
   background: url("images/landscape.jpg") no-repeat center / cover;
 }
 
-header:after {
+header::after {
   content: "";
   position: absolute;
   top: 0;
@@ -69,7 +69,7 @@ header:after {
 }
 ```
 
-<iframe title="Вуаль для картинки" src="demos/overlay/" height="400"></iframe>
+<iframe title="Вуаль для картинки" src="demos/overlay/" height="400" sandbox></iframe>
 
 ## Как пишется
 
@@ -83,16 +83,6 @@ header:after {
   z-index: 1;
   z-index: 9999999;
   z-index: -999999;
-}
-```
-
-Глобальные значения:
-
-```css
-.selector {
-  z-index: inherit;
-  z-index: initial;
-  z-index: unset;
 }
 ```
 

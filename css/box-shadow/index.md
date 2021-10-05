@@ -1,5 +1,6 @@
 ---
 title: "`box-shadow`"
+description: "Свойство, с помощью которого можно задать блоку тень."
 authors:
   - solarrust
 contributors:
@@ -35,7 +36,7 @@ tags:
 
 Получаем псевдообъёмную кнопку, которая парит над страницей:
 
-<iframe title="Объёмная кнопка" src="demos/button/" height="300"></iframe>
+<iframe title="Объёмная кнопка" src="demos/button/" height="300" sandbox></iframe>
 
 ## Как пишется
 

@@ -467,4 +467,4 @@ async function fetchPosts() {
 
 В результате мы получим переработанную страницу Switter, которая будет получать контент в тот момент, когда он нужен пользователю.
 
-<iframe title="Бесконечная социальная сеть Switter — Подгрузка контента при прокрутке — Дока" src="demos/switter/" height="800"></iframe>
+<iframe title="Бесконечная социальная сеть Switter — Подгрузка контента при прокрутке — Дока" src="demos/switter/" height="800" sandbox></iframe>

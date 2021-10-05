@@ -10,6 +10,7 @@
       justify-content: center;
       padding-top: 50px;
     }
+
     .parent {
       width: 150px;
       height: 150px;
@@ -20,7 +21,7 @@
     }
 
     .parent::after {
-      content: '';
+      content: "";
       width: 26px;
       height: 26px;
       position: absolute;
@@ -59,15 +60,15 @@
       100% {
         transform: rotate(0);
       }
-}
+    }
   </style>
 </head>
 <body>
-<div class="parent rotate-lt">
-  <div class="element"></div>
-</div>
-<div class="parent">
-  <div class="element"></div>
-</div>
+  <div class="parent rotate-lt">
+    <div class="element"></div>
+  </div>
+  <div class="parent">
+    <div class="element"></div>
+  </div>
 </body>
 </html>

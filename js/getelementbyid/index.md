@@ -27,7 +27,7 @@ tags:
 
 Живой пример:
 
-<iframe title="Название — getElementById() — Дока" src="demos/Lopinopulos-XwKRaZ/"></iframe>
+<iframe title="Название — getElementById() — Дока" src="demos/Lopinopulos-XwKRaZ/" height="150" sandbox></iframe>
 
 ## Как это понять
 

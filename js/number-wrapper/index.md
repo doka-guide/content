@@ -85,4 +85,4 @@ console.log(bigNumberWrapper.toLocaleString("en_US")) // 100,000,000
 console.log(bigNumberWrapper.toLocaleString("ar-EG")) // ١٠٠٬٠٠٠٬٠٠٠
 ```
 
-<iframe title="Название — Number — Дока" src="demos/Lopinopulos-orxXgx/"></iframe>
+<iframe title="Название — Number — Дока" src="demos/Lopinopulos-orxXgx/" height="80" sandbox></iframe>

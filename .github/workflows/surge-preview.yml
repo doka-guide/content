@@ -3,13 +3,31 @@ name: Surge Preview
 on:
   workflow_run:
     workflows:
-      - "Frontmatter Check"
+      - "PR Checks"
     types:
       - completed
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      files: ${{ steps.files.outputs.all }}
+    steps:
+      - name: Загрузка контента
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Выборка файлов для формирования списка
+        id: files
+        run: |
+          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.sha }} ${{ github.event.workflow_run.pull_requests[0].head.sha }})")
+          list=$(echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' ')
+          echo "::set-output name=all::$list"
   surge-preview:
     runs-on: ubuntu-latest
+    needs:
+      - prepare
+    if: ${{ needs.prepare.outputs.files != '' }}
     env:
       DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.workflow_run.pull_requests[0].number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
@@ -46,7 +64,7 @@ jobs:
           check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
           check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
           echo "::set-output name=check_id::$check_run_id"
-      - name: Сообщение об успехе публикации превью
+      - name: Сообщение о начале публикации превью
         uses: hasura/comment-progress@v2.1.0
         if: ${{ env.SURGE_TOKEN != '' }}
         with:
@@ -56,23 +74,17 @@ jobs:
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
           message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           recreate: true
-      - name: Выборка файлов для формирования списка
-        id: files
-        run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.head_sha }} ${{ github.event.workflow_run.head_sha }})")
-          echo $files | grep -o -E ' (css|html|js|tools)/[a-z-]+/index.md' | tr '\n' ' '
-          echo "::set-output name=all::$files"
       - name: Форматирование списка файлов
         id: links
         run: |
           file_list=''
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ needs.prepare.outputs.files }}; do
             replace='html'
             page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}\n- [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
+            file_list=$(echo -e "${file_list}, [${changed_file}](${{ env.DEPLOY_DOMAIN }}/${page})")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=$(echo -e "Список ссылок на материалы:\n\n${file_list}")
+            file_list=$(echo -e "Список ссылок на материалы: ${file_list}")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
@@ -97,7 +109,9 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: '[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}'
+          message:
+            '[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано.
+            ${{ steps.links.outputs.list }}'
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0

@@ -515,7 +515,7 @@ const withContainer = (str) =>
   Box(str)
     .map((s) => s.trim())
     .map((s) => Number(s))
-    .map((n) => n + 1)
+    .fold((n) => n + 1)
 
 const result = withContainer('45')
 // 46

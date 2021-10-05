@@ -99,11 +99,11 @@ h2 span {
 
 ```css
 h2 span {
-  font-size: 50px !importnat;
+  font-size: 50px !important;
 }
 
 h2 span {
-  font-size: 10px !importnat;
+  font-size: 10px !important;
 }
 ```
 
