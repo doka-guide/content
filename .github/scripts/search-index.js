@@ -6,8 +6,8 @@ const commonSearch = JSON.parse(rawSearch)
 const algoliaIndex = []
 
 const stopCategories = [
-  "people",
-  "pages"
+  'people',
+  'pages'
 ]
 
 const patternsForEntities = {
@@ -58,7 +58,7 @@ const getPractice = (path) => {
 
 for (const fileName in commonSearch) {
   const content = fs.readFileSync(fileName, { encoding: 'utf8', flag: 'r' })
-  if (new RegExp(stopCategories.join("|")).test(fileName)) {
+  if (new RegExp(stopCategories.join('|')).test(fileName)) {
     console.log(`Файл ${fileName} не будет добавлен в индекс.`)
   } else {
     const object = {
