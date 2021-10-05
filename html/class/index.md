@@ -1,5 +1,9 @@
 ---
 title: "Атрибут `class`"
+cover:
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два листа бумаги. На левом картинка с жуком, текст, заголовок и оценка 2 (рядом грустный смайл). На правом картинка с жуком, текст, заголовок и оценка 5+ (рядом весёлый смайл).'
 authors:
   - solarrust
 contributors:
