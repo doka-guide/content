@@ -25,7 +25,7 @@ button.classList.remove("active") // удалили класс
 button.classList.contains("active") // вернет false, т.к. класса у элемента нет
 ```
 
-<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="150" sandbox></iframe>
+<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="150"></iframe>
 
 ## Как понять
 

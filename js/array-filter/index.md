@@ -41,7 +41,7 @@ const jLanguages = languages.filter(function (language) {
 
 Интерактивный пример:
 
-<iframe title="Работа Array.filter — Array.filter — Дока" src="demos/index/" height="890" sandbox></iframe>
+<iframe title="Работа Array.filter — Array.filter — Дока" src="demos/index/" height="890"></iframe>
 
 ## Как пишется
 

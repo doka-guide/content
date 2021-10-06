@@ -31,7 +31,7 @@ element.addEventListener('keydown', function (event) {
 })
 ```
 
-<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450" sandbox></iframe>
+<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450"></iframe>
 
 🛠 Предотвращение срабатывания события по умолчанию.
 
@@ -59,4 +59,4 @@ linkElement.addEventListener('click', function (event) {
 })
 ```
 
-<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320" sandbox></iframe>
+<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320"></iframe>

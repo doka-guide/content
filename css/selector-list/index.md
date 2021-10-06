@@ -55,7 +55,7 @@ tags:
 }
 ```
 
-<iframe title="Перечисление селекторов" src="demos/enumerous-selector/" height="335" sandbox></iframe>
+<iframe title="Перечисление селекторов" src="demos/enumerous-selector/" height="335"></iframe>
 
 ## Как это понять
 

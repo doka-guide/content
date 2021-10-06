@@ -21,13 +21,13 @@ tags:
 
 По умолчанию маркированные списки имеют значение `list-style-type: disc` (маркер в виде точки), а нумерованные — `decimal` (арабские цифры с точкой):
 
-<iframe title="Списки по умолчанию" src="demos/basic/" height="333" sandbox></iframe>
+<iframe title="Списки по умолчанию" src="demos/basic/" height="333"></iframe>
 
 Вообще, свойство `list-style-type` можно задать как самому элементу `<ul>` или `<ol>` (благодаря тому, что это свойство наследуется «вглубь»), так и его `<li>`-элементу и вообще любой сущности, у которой задано свойство `display: list-item`.
 
 ### Демо разных значений `list-style-type`
 
-<iframe title="Варианты list-style-type" src="demos/list-style-type/" height="500" sandbox></iframe>
+<iframe title="Варианты list-style-type" src="demos/list-style-type/" height="500"></iframe>
 
 ## Как пишется
 
@@ -111,7 +111,7 @@ ul {
 </ul>
 ```
 
-<iframe title="Список без маркера" src="demos/ul-no-marker/" height="250" sandbox></iframe>
+<iframe title="Список без маркера" src="demos/ul-no-marker/" height="250"></iframe>
 
 ```html
 <!-- Пример вёрстки списка статей или товаров -->
@@ -137,7 +137,7 @@ ul {
 </ol>
 ```
 
-<iframe title="Список без маркера" src="demos/ol-no-marker/" height="310" sandbox></iframe>
+<iframe title="Список без маркера" src="demos/ol-no-marker/" height="310"></iframe>
 
 Так же, устанавливая `list-style-type: none` можно создать стилизованные списки, главное не забыть прописать свойство [`content`](/css/content):
 
@@ -167,7 +167,7 @@ li:before {
 }
 ```
 
-<iframe title="Пример со свойством content" src="demos/empty-content/" height="250" sandbox></iframe>
+<iframe title="Пример со свойством content" src="demos/empty-content/" height="250"></iframe>
 
 ## Кастомные счётчики с `@counter-style`
 
@@ -189,7 +189,7 @@ li:before {
 
 Результат
 
-<iframe title="Кастомные маркеры" src="demos/custom/" height="387" sandbox></iframe>
+<iframe title="Кастомные маркеры" src="demos/custom/" height="387"></iframe>
 
 Результат в Mozilla Firefox
 

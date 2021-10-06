@@ -33,7 +33,7 @@ tags:
 </article>
 ```
 
-<iframe title="Футер для статьи" src="demos/footer/" height="300" sandbox></iframe>
+<iframe title="Футер для статьи" src="demos/footer/" height="300"></iframe>
 
 ## Как это понять
 

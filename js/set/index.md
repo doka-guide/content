@@ -54,7 +54,7 @@ console.log(uniqueIds.size)
 
 Добавляйте элемент в массив и множество, чтобы понять разницу:
 
-<iframe title="Отличие массива от Set" src="demos/index.html" height="400" sandbox></iframe>
+<iframe title="Отличие массива от Set" src="demos/index.html" height="400"></iframe>
 
 ### Создание коллекции
 

@@ -25,4 +25,4 @@ input:required + .hint {
 }
 ```
 
-<iframe title="Стилизация подсказки для поля ввода" src="../demos/input-hint/" height="300" sandbox></iframe>
+<iframe title="Стилизация подсказки для поля ввода" src="../demos/input-hint/" height="300"></iframe>

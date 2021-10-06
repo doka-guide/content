@@ -55,7 +55,7 @@ JSON используется для того чтобы получить дан
 
 Пример:
 
-<iframe title="Название — JSON — Дока" src="demos/Stegur-XWddLpK/" height="210" sandbox></iframe>
+<iframe title="Название — JSON — Дока" src="demos/Stegur-XWddLpK/" height="210"></iframe>
 
 ### Преобразование в JSON
 

@@ -45,7 +45,7 @@ tags:
 }
 ```
 
-<iframe title="Вертикальное выравнивание по умолчанию" src="demos/blocks-baseline/" height="400" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по умолчанию" src="demos/blocks-baseline/" height="400"></iframe>
 
 Все три блока по умолчанию выровнялись по нижней границе. Это стандартное поведение. Изменим его и выровняем элементы по верхней границе:
 
@@ -55,7 +55,7 @@ tags:
 }
 ```
 
-<iframe title="Вертикальное выравнивание по верху" src="demos/blocks-top/" height="400" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по верху" src="demos/blocks-top/" height="400"></iframe>
 
 ## Как это понять
 
@@ -69,39 +69,39 @@ tags:
 
 - `baseline` — значение по умолчанию. Выравниваемый элемент выстраивается по нижней линии текста. Если в родительском элементе нет текста, то элемент выравнивается по нижней границе.
 
-<iframe title="Вертикальное выравнивание по умолчанию" src="demos/blocks-baseline/" height="400" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по умолчанию" src="demos/blocks-baseline/" height="400"></iframe>
 
 - `top` — верхняя граница элемента находится на уровне верхней границы строки.
 
-<iframe title="Вертикальное выравнивание по верху" src="demos/blocks-top/" height="400" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по верху" src="demos/blocks-top/" height="400"></iframe>
 
 - `middle` — мысленно проведи две вертикальные линии: одну через центр текста, а вторую через центр котика. Текущее значение свойства сопоставляет эти линии. Таким образом элемент выравнивается по центру.
 
-<iframe title="Вертикальное выравнивание по центру" src="demos/middle/" height="150" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по центру" src="demos/middle/" height="150"></iframe>
 
 - `bottom` — выравнивает нижнюю границу элемента по уровню нижней границы строки.
 
-<iframe title="Вертикальное выравнивание по низу" src="demos/bottom/" height="150" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по низу" src="demos/bottom/" height="150"></iframe>
 
 - `sub` — удобное значение, если нужно создать нижний индекс. Например, в химических формулах: **H₂O**. Опускает базовую линию так, чтобы элемент опустился до уровня нижнего индекса:
 
-<iframe title="Нижний индекс при помощи vertical-align" src="demos/sub/" height="150" sandbox></iframe>
+<iframe title="Нижний индекс при помощи vertical-align" src="demos/sub/" height="150"></iframe>
 
 - `super` — работает почти как `sub`, только поднимает базовую линию вверх.
 
-<iframe title="Верхний индекс при помощи vertical-align" src="demos/super/" height="150" sandbox></iframe>
+<iframe title="Верхний индекс при помощи vertical-align" src="demos/super/" height="150"></iframe>
 
 - `text-bottom` — выравнивает элемент по нижней точке текста с учётом выносных элементов.
 
   ![Кот, выравненный по нижней точке текста с помощью значения text-bottom](images/text-bottom.png)
 
-<iframe title="Вертикальное выравнивание по нижней линии текста" src="demos/text-bottom/" height="150" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по нижней линии текста" src="demos/text-bottom/" height="150"></iframe>
 
 - `text-top` — верхняя часть элемента выравнивается по верхнему краю родителя:
 
   ![Кот, выравненный по верхнему краю родителя с помощью значения text-top](images/text-top.png)
 
-<iframe title="Вертикальное выравнивание по верхней линии текста" src="demos/text-top/" height="150" sandbox></iframe>
+<iframe title="Вертикальное выравнивание по верхней линии текста" src="demos/text-top/" height="150"></iframe>
 
 Помимо ключевых слов можно использовать числовые значения.
 

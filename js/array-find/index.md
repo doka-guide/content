@@ -48,7 +48,7 @@ console.log(tomorrowToDoList.find(isMyFavouriteHobby));
 
 ## Интерактивный пример
 
-<iframe title="Работа метода массива filter — Array.find — Дока" src="demos/index/" height="695" sandbox></iframe>
+<iframe title="Работа метода массива filter — Array.find — Дока" src="demos/index/" height="695"></iframe>
 
 ## Как пишется
 

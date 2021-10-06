@@ -92,7 +92,7 @@ p {
 }
 ```
 
-<iframe title="Межбуквенное расстояние" src="demos/examples/" height="476" sandbox></iframe>
+<iframe title="Межбуквенное расстояние" src="demos/examples/" height="476"></iframe>
 
 ## Подсказки
 

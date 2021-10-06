@@ -69,7 +69,7 @@ header:after {
 }
 ```
 
-<iframe title="Вуаль для картинки" src="demos/overlay/" height="400" sandbox></iframe>
+<iframe title="Вуаль для картинки" src="demos/overlay/" height="400"></iframe>
 
 ## Как пишется
 

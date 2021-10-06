@@ -75,7 +75,7 @@ tags:
 </form>
 ```
 
-<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" height="200" sandbox></iframe>
+<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" height="200"></iframe>
 
 В целом форма рабочая: обязательные поля не пропустят пустые значения, атрибут `type` проследит, чтобы вместо почты нам не прислали номер телефона, а по нажатию на кнопку валидная форма отправит все данные.
 
