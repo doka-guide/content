@@ -37,7 +37,7 @@ numbers.forEach((num) => {
 
 Интерактивный пример:
 
-<iframe title="Работа Array.forEach — Array.forEach — Дока" src="demos/index/" height="610" sandbox></iframe>
+<iframe title="Работа Array.forEach — Array.forEach — Дока" src="demos/index/" height="610"></iframe>
 
 Совсем любопытные могут заглянуть в исходники, чтобы посмотреть как `forEach` активно используется в коде этого примера.
 

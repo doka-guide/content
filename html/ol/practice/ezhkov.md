@@ -68,7 +68,7 @@
 }
 ```
 
-<iframe title="Наследование цвета" src="../demos/ordered-list/" height="400" sandbox></iframe>
+<iframe title="Наследование цвета" src="../demos/ordered-list/" height="400"></iframe>
 
 ### Стилизуя псевдоэлемент `::marker`
 

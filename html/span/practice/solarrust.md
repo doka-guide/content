@@ -52,4 +52,4 @@
 }
 ```
 
-<iframe title="Цветовой акцент" src="../demos/company/" height="480" sandbox></iframe>
+<iframe title="Цветовой акцент" src="../demos/company/" height="480"></iframe>

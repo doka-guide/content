@@ -47,7 +47,7 @@ tags:
 </footer>
 ```
 
-<iframe title="Шапка сайта" src="demos/header/" height="450" sandbox></iframe>
+<iframe title="Шапка сайта" src="demos/header/" height="450"></iframe>
 
 ## Как это понять
 

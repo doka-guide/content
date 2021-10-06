@@ -80,7 +80,7 @@ tr:hover {
 }
 ```
 
-<iframe title="Изменение фона по наведению на строку таблицы" src="demos/row-hover/" height="410" sandbox></iframe>
+<iframe title="Изменение фона по наведению на строку таблицы" src="demos/row-hover/" height="410"></iframe>
 
 ## Как это понять
 
@@ -153,7 +153,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 ```
 
-<iframe title="Стили для дефолтного чекбокса" src="demos/default/" height="310" sandbox></iframe>
+<iframe title="Стили для дефолтного чекбокса" src="demos/default/" height="310"></iframe>
 
 ### `:dir()`
 
@@ -165,7 +165,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Позволяют находить элементы формы по состоянию их атрибута `disabled`. _Почти_ эквивалентны селекторам по атрибуту (`[disabled]` и `:not([disabled])` соответственно), но более гибкие, т. к. среагируют на унаследованное состояние `disabled`. Если есть `<fieldset disabled>`, то отключаются вложенные в него контролы форм.
 
-<iframe title="Стили для задизейбленного поля ввода" src="demos/disabled-enabled/" height="580" sandbox></iframe>
+<iframe title="Стили для задизейбленного поля ввода" src="demos/disabled-enabled/" height="580"></iframe>
 
 ### `:empty`
 
@@ -173,7 +173,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется к элементам, у которых внутри нет других тегов или текста. Например, можно проверить, что у кнопки не задан текст или иконка, чтобы задать минимальные размеры:
 
-<iframe title="Крестики-нолики с :empty" src="demos/empty/" height="330" sandbox></iframe>
+<iframe title="Крестики-нолики с :empty" src="demos/empty/" height="330"></iframe>
 
 ### Псевдоклассы группы child
 
@@ -227,7 +227,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Для `<input>` состояние `indeterminate` в HTML можно задать только через JavaScript.
 
-<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="400" sandbox></iframe>
+<iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="400"></iframe>
 
 ### `:in-range` и `:out-of-range`
 
@@ -235,7 +235,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 Применяется для `<input>`, у которого определены атрибуты `min` и `max` и введённое значение соответствует (`:in-range`) или нет (`:out-of-range`) этому диапазону.
 
-<iframe title="Стили для диапазона" src="demos/range/" height="290" sandbox></iframe>
+<iframe title="Стили для диапазона" src="demos/range/" height="290"></iframe>
 
 ### `:lang()`
 
@@ -283,7 +283,7 @@ img:not([alt]) {
 
 При переходе по ссылке, которая ведёт на URI-фрагмент (элемент внутри страницы), `id` фрагмента совпадает со значением атрибута `id` этого элемента — это состояние можно «поймать» с помощью псевдокласса `:target`:
 
-<iframe title="Подсветка активной секции" src="demos/target/" height="600" sandbox></iframe>
+<iframe title="Подсветка активной секции" src="demos/target/" height="600"></iframe>
 
 ### `:valid` и `:invalid`
 

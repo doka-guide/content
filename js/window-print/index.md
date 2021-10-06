@@ -37,4 +37,4 @@ printButton.addEventListener('click', function() {
 
 Если на странице есть [`<iframe>`](/html/iframe), то вызов `window.print()` внутри него напечатает только этот айфрейм, а не все содержимое вкладки браузера:
 
-<iframe title="Программный вызов печати" src="demos/index.html" height="300" sandbox></iframe>
+<iframe title="Программный вызов печати" src="demos/index.html" height="300"></iframe>

@@ -23,7 +23,7 @@ tags:
 }
 ```
 
-<iframe title="Разные виды скрытия" src="demos/every/" height="400" sandbox></iframe>
+<iframe title="Разные виды скрытия" src="demos/every/" height="400"></iframe>
 
 ## Как пишется
 

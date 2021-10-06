@@ -47,7 +47,7 @@ for (let count = 5; count > 0; count--) {
 
 Создание разноцветных квадратов через цикл for:
 
-<iframe title="Название — for() — Дока" src="demos/vindi-r-bJejME/" height="300" sandbox></iframe>
+<iframe title="Название — for() — Дока" src="demos/vindi-r-bJejME/" height="300"></iframe>
 
 ## Как это понять
 

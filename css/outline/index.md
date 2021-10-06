@@ -34,7 +34,7 @@ tags:
 }
 ```
 
-<iframe title="outline" src="demos/outline/" height="210" sandbox></iframe>
+<iframe title="outline" src="demos/outline/" height="210"></iframe>
 
 ## Как пишется
 
@@ -64,7 +64,7 @@ tags:
 
 Проще всего понять на примерах:
 
-<iframe title="Разные виды обводок" src="demos/every/" height="550" sandbox></iframe>
+<iframe title="Разные виды обводок" src="demos/every/" height="550"></iframe>
 
 ### `outline-color`
 

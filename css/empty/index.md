@@ -39,7 +39,7 @@ tags:
 
 Без использования псевдокласса `:empty` у нас на экране был бы пустой элемент с верхним отступом и рамкой.
 
-<iframe title="Поиск результатов" src="demos/search/" height="180" sandbox></iframe>
+<iframe title="Поиск результатов" src="demos/search/" height="180"></iframe>
 
 ## Как это понять
 

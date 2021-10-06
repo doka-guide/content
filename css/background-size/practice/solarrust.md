@@ -15,6 +15,6 @@
 }
 ```
 
-<iframe title="Паттерн на фоне" src="../demos/pattern/" height="400" sandbox></iframe>
+<iframe title="Паттерн на фоне" src="../demos/pattern/" height="400"></iframe>
 
 Попробуй поменять размеры фоновой картинки и посмотреть, как будет меняться фоновый паттерн.
