@@ -15,10 +15,8 @@
 
     body {
       background-color: #18191C;
-      min-width: 600px;
       padding: 150px 0 110px;
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
     }
 
     .window {
@@ -231,20 +229,80 @@
 
     @media (max-width: 875px) {
       .x-axis-screen-title {
-        width: 70px;
+        width: 40px;
         font-size: 0;
       }
 
       .x-axis-screen-title::before {
-        content: 'Ось X\0aотн. окна';
+        content: 'Ось X\0aотн.\0aокна';
         font-size: 14px;
         line-height: 13px;
         white-space: pre-line;
         position: absolute;
         left: 0;
         right: 0;
-        top: 0;
+        top: -10px;
         bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 130px;
+        padding-left: 60px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        height: 100vh;
+      }
+
+      .window {
+        width: 100%;
+        height: 100%;
+      }
+
+      .x-axis-screen {
+        width: calc(100% - 15px);
+      }
+
+      .x-axis-screen-title {
+        left: 50px;
+      }
+
+      .y-axis-screen {
+        height: calc(100% - 15px);
+        left: 60px;
+      }
+
+      .y-axis-screen-title {
+        left: -17px;
+        top: 60px;
+      }
+
+      .x-axis-doc {
+        width: calc(10% - 25px);
+      }
+
+      .scrollable {
+        height: 100%;
+      }
+
+      .doc-relative {
+        top: 50px;
+        left: calc(5% - 52px);
+      }
+
+      .screen-relative {
+        top: 370px;
+        left: calc(50% - 32px);
+      }
+
+      .doggo {
+        width: 104px;
+      }
+
+      .doggo-caption {
+        font-size: 14px;
+        padding: 10px 5px;
       }
     }
   </style>
