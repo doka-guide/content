@@ -15,4 +15,4 @@
 }
 ```
 
-<iframe title="Ссылка, видная при печати" src="../demos/print-link/" height="250" sandbox></iframe>
+<iframe title="Ссылка, видная при печати" src="../demos/print-link/" height="250"></iframe>

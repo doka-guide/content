@@ -65,7 +65,7 @@ a {
 </p>
 ```
 
-<iframe title="Пробелы внутри абзаца схлопываются в один" src="demos/no-white-space/" height="100" sandbox></iframe>
+<iframe title="Пробелы внутри абзаца схлопываются в один" src="demos/no-white-space/" height="100"></iframe>
 
 В итоге текст на странице переносится по пробелам, учитывая границы элемента.
 
@@ -91,7 +91,7 @@ a {
 
 ![Сравнение рендеринга значений break-spaces и pre-wrap в браузере](images/white-space.png)
 
-<iframe title="Сравнение разных значений" src="demos/every/" height="300" sandbox></iframe>
+<iframe title="Сравнение разных значений" src="demos/every/" height="300"></iframe>
 
 ## Подсказки
 

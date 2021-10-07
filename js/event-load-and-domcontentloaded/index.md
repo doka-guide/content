@@ -44,4 +44,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
 Событие `load` дополнительно гарантирует, что все стили и картинки готовы. В этот момент размеры элементов на страницы посчитаны верно и доступны. `DOMContentLoaded` таких гарантий не даёт.
 
-<iframe title="Разница между событиями load и DOMContentloaded" src="demos/overloaded/" height="530" sandbox></iframe>
+<iframe title="Разница между событиями load и DOMContentloaded" src="demos/overloaded/" height="530"></iframe>

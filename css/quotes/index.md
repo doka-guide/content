@@ -42,7 +42,7 @@ span::after {
 
 В итоге текст будет выглядеть так:
 
-<iframe title="Стилизация кавычек" src="demos/quotes/" height="220" sandbox></iframe>
+<iframe title="Стилизация кавычек" src="demos/quotes/" height="220"></iframe>
 
 ## Как пишется
 

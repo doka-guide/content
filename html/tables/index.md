@@ -75,7 +75,7 @@ tags:
 </table>
 ```
 
-<iframe title="Таблица с оценками фильмов" src="demos/table/" height="150" sandbox></iframe>
+<iframe title="Таблица с оценками фильмов" src="demos/table/" height="150"></iframe>
 
 ## Структурные теги
 

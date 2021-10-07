@@ -22,6 +22,6 @@ tags:
 
 Например, единожды получив коллекцию мы можем не заботиться о её поддержке:
 
-<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350" sandbox></iframe>
+<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350"></iframe>
 
 `NodeList` работает так же, как и `HTMLCollection`. Разница только в том, что `NodeList` не живая коллекция — она не обновляется при появлении на странице новых элементов.

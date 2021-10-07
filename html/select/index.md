@@ -38,7 +38,7 @@ tags:
 </form>
 ```
 
-<iframe title="Пример select" src="demos/basic/" height="250" sandbox></iframe>
+<iframe title="Пример select" src="demos/basic/" height="250"></iframe>
 
 ## Подробно
 
@@ -87,7 +87,7 @@ tags:
 
 Числовой атрибут. Если включён атрибут `multiple`, то это число указывает на количество видимых пунктов списка.
 
-<iframe title="Примеры атрибутов" src="demos/attributes/" height="590" sandbox></iframe>
+<iframe title="Примеры атрибутов" src="demos/attributes/" height="590"></iframe>
 
 ## Подсказки
 

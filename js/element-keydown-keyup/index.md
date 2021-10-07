@@ -61,12 +61,12 @@ spy.addEventListener("keyup", function (event) {
 
 При нажатии на любую клавишу в демо ниже, будет срабатывать событие `keydown`, которое будет выводить подсказку о нажатых клавишах:
 
-<iframe title="Подсказки о нажатой клавише при событии keydown — Element.Keydown/Keyup — Дока" src="demos/keydown/" height="440" sandbox></iframe>
+<iframe title="Подсказки о нажатой клавише при событии keydown — Element.Keydown/Keyup — Дока" src="demos/keydown/" height="440"></iframe>
 
 ### Пример Keyup
 
 Следующее демо будет сохранять цвет до тех пор пока не будет зафиксировано событие `keyup` на клавише <kbd>Shift</kbd>.
 
-<iframe title="Событие keyup — Element.Keydown/Keyup — Дока" src="demos/keyup/" height="160" sandbox></iframe>
+<iframe title="Событие keyup — Element.Keydown/Keyup — Дока" src="demos/keyup/" height="160"></iframe>
 
 Событие `keydown` выполняется бесконечное множество раз, до тех пор, пока клавиша будет зажата. Событие `keyup` будет выполнено только один раз — в момент, когда пользователь отпустит клавишу

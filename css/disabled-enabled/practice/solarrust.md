@@ -38,4 +38,4 @@
 }
 ```
 
-<iframe title="Стилизация состояний кнопок" src="../demos/buttons/" height="320" sandbox></iframe>
+<iframe title="Стилизация состояний кнопок" src="../demos/buttons/" height="320"></iframe>

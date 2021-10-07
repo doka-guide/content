@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Подсказка" src="demos/tooltip/" height="150" sandbox></iframe>
+<iframe title="Подсказка" src="demos/tooltip/" height="150"></iframe>
 
 ## Как пишется
 

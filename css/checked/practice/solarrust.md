@@ -50,4 +50,4 @@
 }
 ```
 
-<iframe title="Выпадающее меню" src="../demos/choose/" height="300" sandbox></iframe>
+<iframe title="Выпадающее меню" src="../demos/choose/" height="300"></iframe>
