@@ -28,7 +28,7 @@ tags:
 }
 ```
 
-<iframe title="Тень для текста" src="demos/shadow/" height="286" sandbox></iframe>
+<iframe title="Тень для текста" src="demos/shadow/" height="286"></iframe>
 
 ## Как пишется
 

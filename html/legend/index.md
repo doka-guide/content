@@ -45,7 +45,7 @@ tags:
 
 :::
 
-<iframe title="Меняющаяся легенда" src="demos/legend-rotate/" height="200" sandbox></iframe>
+<iframe title="Меняющаяся легенда" src="demos/legend-rotate/" height="200"></iframe>
 
 ## Атрибуты
 

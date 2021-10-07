@@ -46,4 +46,4 @@ CSS-свойство `fill`, как и у одноимённого SVG-атри�
 }
 ```
 
-<iframe title="Изменение цвета по ховеру" src="demos/fill-hover/" height="165" sandbox></iframe>
+<iframe title="Изменение цвета по ховеру" src="demos/fill-hover/" height="165"></iframe>

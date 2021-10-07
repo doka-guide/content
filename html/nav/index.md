@@ -100,4 +100,4 @@ nav {
 }
 ```
 
-<iframe title="Хлебные крошки" src="demos/breadcrumbs/" height="280" sandbox></iframe>
+<iframe title="Хлебные крошки" src="demos/breadcrumbs/" height="280"></iframe>

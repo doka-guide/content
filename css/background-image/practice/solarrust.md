@@ -31,7 +31,7 @@
 
 Демка будет наглядной, если на сайте включить светлую тему ☀️
 
-<iframe title="Ошибка загрузки" src="../demos/fix/" height="150" sandbox></iframe>
+<iframe title="Ошибка загрузки" src="../demos/fix/" height="150"></iframe>
 
 Чиним одной строкой:
 
@@ -45,7 +45,7 @@
 }
 ```
 
-<iframe title="Ошибка загрузки" src="../demos/fix-2/" height="150" sandbox></iframe>
+<iframe title="Ошибка загрузки" src="../demos/fix-2/" height="150"></iframe>
 
 Да, будет не так красиво, как нарисовал дизайнер, но вся информация будет доступна.
 
@@ -87,4 +87,4 @@
 }
 ```
 
-<iframe title="Радиальные градиенты" src="../demos/gradient/" height="400" sandbox></iframe>
+<iframe title="Радиальные градиенты" src="../demos/gradient/" height="400"></iframe>

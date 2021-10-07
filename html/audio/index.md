@@ -101,4 +101,4 @@ tags:
 </audio>
 ```
 
-<iframe title="Аудио" src="demos/audio/" allow="autoplay" height="220" sandbox></iframe>
+<iframe title="Аудио" src="demos/audio/" allow="autoplay" height="220"></iframe>

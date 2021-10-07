@@ -32,8 +32,8 @@ if (s3 > 100) alert("игрок 3 проходит")
 
 Самый простой способ этого избежать — __всегда__ добавлять `return` с каким-либо значением перед концом функции.
 
-<iframe title="Название — return — Дока" src="../demos/vindi-r-oVPReL/" height="150" sandbox></iframe>
+<iframe title="Название — return — Дока" src="../demos/vindi-r-oVPReL/" height="150"></iframe>
 
 - Ещё `return` останавливает выполнение функции. Обычно это ожидаемое поведение, но если про это забыть — возможны баги.
 
-<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/" height="300" sandbox></iframe>
+<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/" height="300"></iframe>

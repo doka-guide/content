@@ -42,7 +42,7 @@ tags:
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div/" height="260" sandbox></iframe>
+<iframe title="Див с фоном" src="demos/div/" height="260"></iframe>
 
 ## Как это понять
 
