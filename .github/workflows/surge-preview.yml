@@ -84,7 +84,7 @@ jobs:
             file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=$(echo -e "<p>Список ссылок на материалы:<ul>${file_list}</ul><p>")
+            file_list=$(echo -e "<br><hr><p>Список ссылок на материалы:<ul>${file_list}</ul><p>")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
