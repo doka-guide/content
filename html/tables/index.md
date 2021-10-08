@@ -1,7 +1,7 @@
 ---
 title: "Таблицы"
 cover:
-  author: 'Кира Кусто'
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Девушка в большой шляпе, на фоне видно схематичное табло вылета самолётов.'

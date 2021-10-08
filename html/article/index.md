@@ -1,7 +1,7 @@
 ---
 title: "`<article>`"
 cover:
-  author: 'Кира Кусто'
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Фотоальбом с фотографиями, слева — большая с мальчиком, справа сверху — меч, справа снизу — девочка'

@@ -1,7 +1,7 @@
 ---
 title: "`alert()`"
 cover:
-  author: 'Кира Кусто'
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Девочка выглядывает из браузера и держит в руках табличку "Push me"'
