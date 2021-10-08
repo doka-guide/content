@@ -84,7 +84,7 @@ jobs:
             file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
           done
           if ! [[ $file_list == '' ]]; then
-            file_list=$(echo -e "Список ссылок на материалы:</summary><ul>${file_list}</ul>")
+            file_list=$(echo -e "<p>Список ссылок на материалы:</summary><ul>${file_list}</ul><p>")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
@@ -109,7 +109,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a>() из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}</details>'
+          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}</details>'
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
