@@ -52,16 +52,13 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
-          filter: |
-            index.md
-            !pages/*/index.md
-            !people/*/index.md
+          filter: 'index.md'
       - name: Работает линтер
         run: |
           files='${{ steps.files.outputs.added_modified }}'
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat --format json --output result.json $(echo $files)
+            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools)/[a-z-]+/index.md')
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"
