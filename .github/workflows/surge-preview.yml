@@ -109,8 +109,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.workflow_run.pull_requests[0].number }}
           id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message:
-            '<details>[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано.${{ steps.links.outputs.list }}</details>'
+          message: '<details>[Превью контента](${{ env.DEPLOY_DOMAIN }}) из ${{ github.event.workflow_run.head_sha }} опубликовано. ${{ steps.links.outputs.list }}</details>'
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
