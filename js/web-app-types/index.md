@@ -1,6 +1,7 @@
 ---
 title: "Виды веб-приложений"
 cover:
+  author: 'Кира Кусто'
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Раскрытая книга с текстом и картинками, рядом рука держит свиток'

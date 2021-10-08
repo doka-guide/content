@@ -2,6 +2,7 @@
 title: "Как и зачем писать тесты"
 description: "Как тесты помогают писать чистый новый код и увереннее редактировать старый"
 cover:
+  author: 'Кира Кусто'
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Робот-тестировщик, сидит за клавиатурой, вы смотрите на него из монитора'

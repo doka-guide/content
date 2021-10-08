@@ -1,6 +1,7 @@
 ---
 title: "`<meta>`"
 cover:
+  author: 'Кира Кусто'
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Голова человека, обрамлённая открывающим и закрывающим тегами head. Внутри головы множество тегов meta.'

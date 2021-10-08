@@ -1,6 +1,7 @@
 ---
 title: "`try`...`catch`"
 cover:
+  author: 'Кира Кусто'
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Скалолаз лезет в гору'

@@ -16,6 +16,7 @@
 title: "Название доки"
 description: "Описание для соцсетей, 160-200 символов"
 cover:
+  author: 'Имя Фамилия'
   desktop: 'images/desktop.png'
   mobile: 'images/mobile.png'
   alt: 'Альтернативное описание для обложки'

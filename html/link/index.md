@@ -1,6 +1,7 @@
 ---
 title: "`<link>`"
 cover:
+  author: 'Кира Кусто'
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Окно браузера с вкладкой и собака на цепи. Цепь прикреплена в открытой вкладке в браузере.'
