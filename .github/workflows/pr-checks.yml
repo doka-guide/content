@@ -52,7 +52,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         uses: Ana06/get-changed-files@v1.2
         with:
-          filter: 'index.md'
+          filter: '(css|html|js|tools)/*/index.md'
       - name: Работает линтер
         run: |
           files='${{ steps.files.outputs.added_modified }}'
