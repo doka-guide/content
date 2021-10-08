@@ -33,9 +33,9 @@ jobs:
       - name: Сборка сайта
         run: |
           node make-links.js --default
-          npm run build
+          npm run preview
       - name: Генерация карточек
-        run: ./social-cards.sh '/home/runner/work/content/content'
+        run: npx gulp socialCards
       - uses: actions/upload-artifact@v2
         with:
           name: doka-guide-content-social-cards
