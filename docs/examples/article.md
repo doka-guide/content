@@ -16,7 +16,7 @@
 title: "Название статьи"
 description: "Описание статьи для соцсетей, 160-200 символов"
 cover:
-  author: 'Имя Фамилия'
+  author: nick_name
   desktop: 'images/desktop.png'
   mobile: 'images/mobile.png'
   alt: 'Альтернативное описание для обложки'
