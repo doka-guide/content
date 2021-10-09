@@ -2,6 +2,7 @@
 title: "Работа с формами"
 description: "Как обрабатывать формы, валидировать их и отправлять без перезагрузки страницы с помощью JS"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Камень с веб-формой, рядом молоток и зубило'

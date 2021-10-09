@@ -1,6 +1,7 @@
 ---
 title: "Безопасность веб-приложений и распространённые атаки"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Монитор, на экране замочная скважина, из которой выглядывает нос. Рядом с монитором стоит кружка'

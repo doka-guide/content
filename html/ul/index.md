@@ -1,6 +1,7 @@
 ---
 title: "`<ul>`"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Тарелка с роллами, подписанная UL и отдельный ролл, подписанный LI.'

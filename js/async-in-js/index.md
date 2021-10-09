@@ -2,6 +2,7 @@
 title: "Асинхронность в JS"
 description: "Как устроена асинхронность: что такое Event loop и очередь событий, при чём здесь Web API, и как работают промисы и async/await"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Синхронистки, одна плывёт головой вверх - кролем, другая делает фигуры ногами над водой, головой вниз'

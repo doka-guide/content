@@ -1,6 +1,7 @@
 ---
 title: "`<select>`"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Игрушечный пистолет в торчащим из дула флажком. На флажке нарисована вкладка браузера, а в ней выпадающий список.'
