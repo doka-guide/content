@@ -50,7 +50,7 @@ console.log(num === 100)
 ```js
 const primitive = 5.001
 console.log(primitive.toFixed(1))
-// 5.0
+// '5.0'
 ```
 
 ## Как это понять
@@ -119,23 +119,29 @@ console.log(num.toString(2))
 ```js
 const num = 10.468
 console.log(num.toFixed(4))
-// 10.4680
+// '10.4680'
 console.log(num.toFixed(3))
-// 10.468
+// '10.468'
 console.log(num.toFixed(2))
-// 10.47
+// '10.47'
 console.log(num.toFixed(1))
-// 10.5
+// '10.5'
 console.log(num.toFixed(0))
-// 10
+// '10'
 ```
+
+:::callout ☝️
+
+`toFixed` возвращает строку, а не число. Если после округления нужно производить другие арифметические операции, то лучше распарсить число с помощью [`parseFloat`](/js/parsefloat).
+
+:::
 
 Если нужно округлять до целого, то ноль при вызове можно не передавать:
 
 ```js
 const num = 10.468
 console.log(num.toFixed())
-// 10
+// '10'
 ```
 
 3️⃣ Метод `toLocaleString` преобразует число в строку, учитывая локаль пользователя.
