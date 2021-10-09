@@ -15,3 +15,6 @@ console.log(symbols.length)
 // 3 ✅
 ```
 
+🛠️ С помощью `length` можно реализовать счётчик символов:
+
+<iframe title="String — свойство length — Дока" src="../demos/counter" height="200"></iframe>
