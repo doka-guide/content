@@ -1,7 +1,6 @@
 ---
 title: "`<main>`"
 authors:
-  - vladimir
   - solarrust
   - pepelsbey
 editors:

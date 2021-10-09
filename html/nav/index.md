@@ -1,7 +1,7 @@
 ---
 title: "`<nav>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - grachev
   - skorobaeus

@@ -3,7 +3,6 @@ title: "`<!DOCTYPE>`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - solarrust
   - pepelsbey
 editors:

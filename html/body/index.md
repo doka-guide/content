@@ -3,7 +3,6 @@ title: "`<body>`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - solarrust
 editors:
   - tachisis

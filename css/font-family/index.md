@@ -3,7 +3,6 @@ title: "`font-family`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - skorobaeus
 keywords:
   - font-family

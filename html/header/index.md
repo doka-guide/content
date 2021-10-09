@@ -1,7 +1,7 @@
 ---
 title: "`<header>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus
