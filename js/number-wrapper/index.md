@@ -51,6 +51,20 @@ console.log(num === 100)
 const primitive = 5.001
 console.log(primitive.toFixed(1))
 // '5.0'
+
+console.log(6.04.toFixed(1))
+// '6.0'
+```
+
+Если необходимо вызвать методы на целом числе, то нужно либо обернуть число в скобки, либо поставить точку дважды:
+
+```js
+console.log((5).toFixed(3))
+// '5.000'
+
+console.log(6..toFixed(3))
+// '6.000'
+
 ```
 
 ## Как это понять
