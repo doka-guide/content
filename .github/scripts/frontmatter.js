@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 const args = process.argv.slice(2)
-const isNeedToFix = args.includes("--fix")
+const isNeedToFix = args.includes('--fix')
 
 const outputJson = {}
 

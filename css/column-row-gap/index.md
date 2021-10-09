@@ -19,8 +19,10 @@ tags:
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   grid-template-rows: repeat(3, 150px);
-  column-gap: 10px; /* Отступы между колонками */
-  row-gap: 50px; /* Отступы между рядами */
+  /* Отступы между колонками */
+  column-gap: 10px;
+  /* Отступы между рядами */
+  row-gap: 50px;
 }
 ```
 

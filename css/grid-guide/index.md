@@ -1,6 +1,7 @@
 ---
 title: "Гайд по grid"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Игра, похожая на тетрис, в виде гридов (сетки)'

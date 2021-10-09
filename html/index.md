@@ -20,6 +20,12 @@ groups:
       - blockquote
       - q
       - br
+      - hr
+      - b
+      - i
+      - s
+      - u
+      - pre
   - name: 'Семантика'
     items:
       - div
@@ -31,6 +37,15 @@ groups:
       - article
       - aside
       - nav
+      - sub
+      - sup
+      - del
+      - ins
+      - kbd
+      - mark
+      - output
+      - strong
+      - em
   - name: 'Формы'
     items:
       - form
@@ -40,6 +55,8 @@ groups:
       - button
       - select
       - option
+      - optgroup
+      - datalist
       - label
       - fieldset
       - legend
@@ -68,6 +85,10 @@ groups:
       - iframe
       - source
       - embed
+      - details
+      - meter
+      - object
+      - progress
   - name: 'Таблицы'
     items:
       - tables
@@ -75,10 +96,13 @@ groups:
     items:
       - head
       - meta
+      - base
   - name: 'Связи с другими языками'
     items:
       - style
       - script
+      - template
+      - output
   - name: 'Глобальные атрибуты'
     items:
       - global-attrs

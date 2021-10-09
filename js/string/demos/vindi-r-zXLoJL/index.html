@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Строки - как понять</title>
+</head>
+<body>
+Введённые в поля значения приводятся к виду
+<br>
+Первая буква - заглавная
+<br>
+Остальные - строчные
+<br><br>
+
+<div>
+<input id="F"
+      maxlength="25"
+      oninput="formatFio()"
+      placeholder="Фамилия"
+      type="text">
+<br>
+<input id="I"
+      maxlength="25"
+      oninput="formatFio()"
+      placeholder="Имя"
+      type="text">
+<br>
+<input id="O"
+      maxlength="25"
+      oninput="formatFio()"
+      placeholder="Отчетство"
+      type="text">
+<br>
+</div>
+<br>
+<div>
+  <span id="FF">Иванов</span>
+  <span id="II">Иван</span>
+  <span id="OO">Иванович</span>
+</div>
+  <script>
+    function formatFio() {
+      let f = document.querySelector('#F').value || "Иванов";
+      let i = document.querySelector('#I').value || "Иван";
+      let o = document.querySelector('#O').value || "Иванович";
+
+      f = f[0].toUpperCase() + f.slice(1).toLowerCase();
+      i = i[0].toUpperCase() + i.slice(1).toLowerCase();
+      o = o[0].toUpperCase() + o.slice(1).toLowerCase();
+
+      document.querySelector('#FF').innerText = f;
+      document.querySelector('#II').innerText = i;
+      document.querySelector('#OO').innerText = o;
+    }
+  </script>
+</body>
+</html>

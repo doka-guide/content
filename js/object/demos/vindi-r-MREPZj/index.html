@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Итерирование объекта — Дока</title>
+</head>
+<body>
+<button onclick="getCat()">Вывести список характеристик</button>
+<br>
+<br>
+<button onclick="getCatFull()">Узнать ВСЕ про кота </button>
+<br>
+<br>
+<pre id="result">
+  cat information place
+</pre>
+  <script>
+    let cat = {
+      name: 'Tomas',
+      age: 2,
+      color: 'brown',
+      spots: true,
+      wonderfull: true,
+      ugly: false,
+
+    }
+    function write(text){
+      document.querySelector('#result').innerText = text;
+    }
+    function getCat() {
+      let list = Object.keys(cat);
+      write(list.join('\n'));
+    }
+    function getCatFull() {
+      let list = '';
+      for (key in cat) {
+        list += key +' -> ' + cat[key] + '\n';
+      }
+      write(list);
+    }
+  </script>
+</body>
+</html>

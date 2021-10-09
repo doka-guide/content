@@ -1,6 +1,7 @@
 ---
 title: "Что такое API"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Два робота, левый даёт кристалл, а правый одобряет с большим пальцем'

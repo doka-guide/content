@@ -102,7 +102,7 @@ window.history.go(0)
 
 Рассмотрим работу `window.history` на примере. В этом примере у нас получится замкнутый круг переходов по страницам. Вы можете поиграться с примером, ниже я разберу код, который используется в демке.
 
-<iframe height="300" title="Работа window.history" src="demos/history-operations/"></iframe>
+<iframe title="Работа window.history" src="demos/history-operations/" height="300"></iframe>
 
 Предположим, что мы зашли на главную страницу сайта с новой вкладки. С помощью кнопки добавим новую запись в историю:
 

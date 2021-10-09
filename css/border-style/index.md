@@ -42,7 +42,7 @@ p {
 
 Понять текстовое описание этих стилей довольно сложно, посмотрите пример ниже:
 
-<iframe title="Все рамки" src="demos/all/" height="500"></iframe>
+<iframe title="Все рамки" src="demos/all/" height="515"></iframe>
 
 ## Как понять
 
