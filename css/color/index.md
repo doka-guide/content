@@ -1,7 +1,7 @@
 ---
 title: "`color`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - pepelsbey
   - furtivite

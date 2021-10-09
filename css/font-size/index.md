@@ -1,7 +1,7 @@
 ---
 title: "`font-size`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus

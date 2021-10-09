@@ -1,7 +1,7 @@
 ---
 title: "`<button>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
 editors:

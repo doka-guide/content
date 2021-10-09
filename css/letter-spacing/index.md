@@ -1,7 +1,7 @@
 ---
 title: "`letter-spacing`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus

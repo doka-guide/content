@@ -1,7 +1,7 @@
 ---
 title: "`<div>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus

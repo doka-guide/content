@@ -1,7 +1,7 @@
 ---
 title: "`background-image`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - skorobaeus
 keywords:

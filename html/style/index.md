@@ -1,7 +1,7 @@
 ---
 title: "`<style>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus
