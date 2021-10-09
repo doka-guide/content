@@ -43,4 +43,4 @@ location: "/licenses/"
 
 :::
 
-По всем вопросам, в том числе по вопросам <!-- yaspeller ignore:start -->правообладания<!-- yaspeller ignore:end -->, с командой можно связаться по почте [hi@doka.guide](mailto:hi@doka.guide).
+По всем вопросам, в том числе по вопросам правообладания, с командой можно связаться по почте [hi@doka.guide](mailto:hi@doka.guide).
