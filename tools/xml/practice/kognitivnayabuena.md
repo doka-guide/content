@@ -1,9 +1,3 @@
----
-tags:
-  - practice
-permalink: false
----
-
 ## XML vs HTML vs JSON
 
 ### XML
