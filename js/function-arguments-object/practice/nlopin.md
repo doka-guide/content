@@ -4,12 +4,12 @@
 function joinStrings(...rest) {
   return rest
     .filter(function (value) {
-      return typeof value === 'string';
+      return typeof value === 'string'
     })
-    .join(' ');
+    .join(' ')
 }
 
-const result = joinStrings('hello', 12, 'world', false, null);
-console.log(result);
+const result = joinStrings('hello', 12, 'world', false, null)
+console.log(result)
 // hello world
 ```
