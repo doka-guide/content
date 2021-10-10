@@ -24,7 +24,7 @@ tags:
 При подписке на событие мы передаём обработчик, который будет вызван при каждом срабатывании события в браузере. В случае, когда происходит событие типа `click`, обработчик будет вызван с событием `MouseEvent`:
 
 ```js
-element.addEventListener("click", function (event) {});
+element.addEventListener('click', function (event) {})
 ```
 
 ## Как пишется
@@ -87,13 +87,13 @@ window.addEventListener('offline', function() {
 Создадим своё событие и вызовем его на `window`.
 
 ```js
-const myEvent = new CustomEvent("my-event", {
+const myEvent = new CustomEvent('my-event', {
   spicy: true
-});
+})
 
-window.addEventListener("my-event", function(evt) {
+window.addEventListener('my-event', function(evt) {
   console.log('My event is spicy:', evt.spicy)
-});
+})
 
-window.dispatchEvent(myEvent);
+window.dispatchEvent(myEvent)
 ```
