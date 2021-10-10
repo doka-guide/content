@@ -60,6 +60,7 @@ groups:
       - function-context
       - closures
       - recursion
+      - function-arguments-object
   - name: "Массивы"
     items:
       - arrays
