@@ -1,0 +1,17 @@
+name: Editor Helper
+
+on:
+  pull_request:
+
+jobs:
+  frontmatter-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Обновление списков материалов-кандидатов на редактирование
+        run: |
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
+          node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
