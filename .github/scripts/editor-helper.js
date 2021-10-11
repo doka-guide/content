@@ -42,7 +42,7 @@ if (ghKey) {
 
   const octokit = new Octokit({ auth: ghKey })
   for (const chapter in issueNumberToChapter) {
-    await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+    octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner: 'doka-guide',
       repo: 'content',
       issue_number: issueNumberToChapter[chapter],
