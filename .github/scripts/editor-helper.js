@@ -46,7 +46,7 @@ if (ghKey) {
       owner: 'doka-guide',
       repo: 'content',
       issue_number: issueNumberToChapter[chapter],
-      body: `${issueHeaderText}${issueLists['css'].join('')}`
+      body: `${issueHeaderText}${issueLists[chapter].join('')}`
     })
   }
 }
