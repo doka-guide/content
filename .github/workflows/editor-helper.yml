@@ -13,5 +13,6 @@ jobs:
           node-version: '14'
       - name: Обновление списков материалов-кандидатов на редактирование
         run: |
+          npm install @octokit/core
           npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
           node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
