@@ -1,7 +1,7 @@
 ---
 title: "`font-weight`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus

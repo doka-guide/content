@@ -1,7 +1,7 @@
 ---
 title: "`line-height`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - skorobaeus
 keywords:

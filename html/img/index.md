@@ -1,7 +1,6 @@
 ---
 title: "`<img>`"
 authors:
-  - grachev
   - solarrust
   - pepelsbey
 contributors:

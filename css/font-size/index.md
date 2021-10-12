@@ -1,9 +1,8 @@
 ---
 title: "`font-size`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
-  - vladimir
   - solarrust
   - skorobaeus
 keywords:

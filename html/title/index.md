@@ -1,9 +1,8 @@
 ---
 title: "`<title>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
-  - vladimir
 keywords:
   - тэг
   - тег

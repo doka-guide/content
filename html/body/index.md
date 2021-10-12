@@ -1,9 +1,8 @@
 ---
 title: "`<body>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
-  - vladimir
   - solarrust
 editors:
   - tachisis

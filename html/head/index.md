@@ -1,7 +1,7 @@
 ---
 title: "`<head>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
 editors:

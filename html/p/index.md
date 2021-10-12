@@ -1,7 +1,7 @@
 ---
 title: "`<p>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
 keywords:

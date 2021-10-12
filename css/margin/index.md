@@ -1,10 +1,9 @@
 ---
 title: "`margin`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
-  - vladimir
-  - ABatickaya
+  - solarrust
   - futivite
 keywords:
   - margin

@@ -1,7 +1,7 @@
 ---
 title: "`<section>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
 editors:

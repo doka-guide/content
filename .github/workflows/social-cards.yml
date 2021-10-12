@@ -1,16 +1,12 @@
-name: Netlify Deploy
+name: Social Cards
 
 on:
-  workflow_run:
-    workflows:
-      - "Update Dates"
-    branches:
-      - main
-    types:
-      - completed
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 6 * * 5'
 
 jobs:
-  netlify-deploy:
+  link-check:
     runs-on: ubuntu-latest
     steps:
       - name: Загрузка platform
@@ -37,19 +33,16 @@ jobs:
       - name: Сборка сайта
         run: |
           node make-links.js --default
-          npm run build
-          rm **/index.sc.html
-      - name: Загрузка карточек социальных сетей
-        uses: dawidd6/action-download-artifact@v2
-        continue-on-error: true
+          npm run preview
+      - name: Генерация карточек
+        run: npx gulp socialCards
+      - uses: actions/upload-artifact@v2
         with:
-          workflow: social-cards.yml
-          branch: main
-          name: doka-guide-platform-social-cards
-      - name: Публикация сайта
-        uses: netlify/actions/cli@master
-        with:
-          args: deploy --dir=dist --message='Публикация контента (https://github.com/doka-guide/content/commit/${{ github.sha }})' --prod
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          name: doka-guide-content-social-cards
+          retention-days: 8
+          path: |
+            dist/**/**/images/covers/og.png
+            dist/**/**/images/covers/twitter.png
+
+
+
