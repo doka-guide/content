@@ -21,17 +21,22 @@ groups:
       - spread
       - for-in
       - shallow-or-deep-clone
-  - name: "Типы данных"
+  - name: "Примитивные типы данных"
     items:
-      - number-wrapper
+      - number
       - string
-      - null-undefined
+      - boolean
+      - undefined
+      - null
+      - bigint
+      - symbol
+  - name: "Коллекции"
+    items:
       - object
-      - function
-      - typecasting
-      - objects-objects-everywhere
-      - object-tostring
-  - name: "Числа `number`"
+      - function-as-datatype
+      - arrays
+      - set
+  - name: "Числа"
     items:
       - number-wrapper
       - number-is-nan
@@ -42,9 +47,9 @@ groups:
       - math
       - math-floor
       - math-random
-  - name: "Строки `string`"
+  - name: "Строки"
     items:
-      - string
+      - string-wrapper
       - template-strings
       - index-of
       - includes
