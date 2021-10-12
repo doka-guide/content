@@ -39,6 +39,7 @@ jobs:
     - uses: actions/labeler@v3
       if: ${{ env.SURGE_TOKEN != '' }}
       with:
+        sync-labels: false
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
   frontmatter-checker:
     name: Мета

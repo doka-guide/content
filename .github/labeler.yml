@@ -17,11 +17,15 @@ tools:
   - tools/**/demos/**/*.html
 
 доработка:
-  - "*.md"
+  - README.md
+  - LICENSE-ND.md
+  - LICENSE-SA.md
   - docs/*.md
   - docs/**/*.md
   - docs/images/*.png
   - docs/license/**/*.svg
+  - pages/**/index.md
+  - people/**/index.md
 
 кухня:
   - .github/*.yml
