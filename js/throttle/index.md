@@ -1,5 +1,10 @@
 ---
 title: "Throttle на примере изменения страницы при прокрутке"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'На мониторе игра-файтинг, где главная героиня бьёт врага-снеговика. Рука на мышке кликает'
 authors:
   - bespoyasov
 keywords:
