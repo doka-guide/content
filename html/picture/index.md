@@ -2,6 +2,8 @@
 title: "`<picture>`"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -36,8 +38,8 @@ tags:
 
 ```html
 <picture>
-  <source srcset="https://dummyimage.com/600x600/000/fff" media="(min-width: 600px)">
-  <img src="https://dummyimage.com/320x320/000/fff" alt="">
+  <source srcset="400x400.png" media="(min-width: 900px)">
+  <img src="300x300.png" alt="Картинка с размерами">
 </picture>
 ```
 
@@ -57,4 +59,4 @@ tags:
 
 <iframe title="Отдельная картинка для ретины" src="demos/retina-picture/" height="400"></iframe>
 
-В этом примере пользователи с обычными экранами увидят картинку с надписью _768x400_. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью _1536x800_.
+В этом примере пользователи с обычными экранами увидят картинку с надписью _750x300_. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью _1500x600_.
