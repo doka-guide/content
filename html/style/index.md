@@ -1,10 +1,9 @@
 ---
 title: "`<style>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
-  - vladimir
   - skorobaeus
 keywords:
   - тэг

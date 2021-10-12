@@ -1,9 +1,8 @@
 ---
 title: "`font-family`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
-  - vladimir
   - skorobaeus
 keywords:
   - font-family

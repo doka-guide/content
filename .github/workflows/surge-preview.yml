@@ -92,7 +92,7 @@ jobs:
         continue-on-error: true
         run: |
           node make-links.js --default
-          npm run build
+          npm run preview
           if ! [[ ${{ env.SURGE_TOKEN == '' }} ]]; then
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
           else

@@ -1,7 +1,7 @@
 ---
 title: "`<span>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus

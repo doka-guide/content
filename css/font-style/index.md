@@ -1,7 +1,7 @@
 ---
 title: "`font-style`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - skorobaeus
 keywords:

@@ -39,6 +39,7 @@ jobs:
     - uses: actions/labeler@v3
       if: ${{ env.SURGE_TOKEN != '' }}
       with:
+        sync-labels: false
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
   frontmatter-checker:
     name: Мета
@@ -58,7 +59,7 @@ jobs:
           files='${{ steps.files.outputs.added_modified }}'
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat --format json --output result.json $(echo $files)
+            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools)/[a-z-]+/index.md')
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"

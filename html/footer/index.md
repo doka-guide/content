@@ -1,7 +1,6 @@
 ---
 title: "`<footer>`"
 authors:
-  - vladimir
   - solarrust
 editors:
   - tachisis
