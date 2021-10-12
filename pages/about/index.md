@@ -1,8 +1,6 @@
 ---
 title: "О проекте"
 location: "/about/"
-authors:
-tags:
 ---
 
 ## Что такое Дока
