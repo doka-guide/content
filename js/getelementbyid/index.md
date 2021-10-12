@@ -1,5 +1,5 @@
 ---
-title: "`getElementById()`"
+title: "`document.getElementById()`"
 authors:
   - nlopin
 tags:

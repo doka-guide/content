@@ -1,5 +1,5 @@
 ---
-title: "`Number.isFinite`"
+title: "`Number.isFinite()`"
 authors:
   - windrushfarer
 tags:

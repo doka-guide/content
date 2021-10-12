@@ -1,5 +1,5 @@
 ---
-title: "`.toString()`"
+title: "`number.toString()`"
 description: "Метод преобразует число в строковое представление в указанной системе счисления"
 authors:
   - nlopin

@@ -1,5 +1,5 @@
 ---
-title: "`Array.some`"
+title: "`[].some`"
 authors:
   - windrushfarer
 contributors:

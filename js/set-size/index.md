@@ -1,5 +1,5 @@
 ---
-title: "`.size`"
+title: "`set.size`"
 description: "Свойство коллекции Set, содержит количество значений в коллекции"
 authors:
   - nlopin

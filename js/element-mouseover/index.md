@@ -1,5 +1,5 @@
 ---
-title: "`Element.mouseover`"
+title: "Событие `mouseover`"
 authors:
   - nlopin
 contributors:

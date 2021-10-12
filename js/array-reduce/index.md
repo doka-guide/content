@@ -1,5 +1,5 @@
 ---
-title: "`Array.reduce`"
+title: "`[].reduce`"
 authors:
   - windrushfarer
 keywords:

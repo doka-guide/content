@@ -1,5 +1,5 @@
 ---
-title: "`getElementsByTagName()`"
+title: "`.getElementsByTagName()`"
 authors:
   - nlopin
 tags:

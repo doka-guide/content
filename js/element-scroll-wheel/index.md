@@ -1,5 +1,5 @@
 ---
-title: "`Element.scroll/wheel`"
+title: "События `scroll` и `wheel`"
 authors:
   - nlopin
 contributors:

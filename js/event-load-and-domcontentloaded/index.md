@@ -1,5 +1,5 @@
 ---
-title: "Событие `load` и `DOMContentLoaded`"
+title: "События `load` и `DOMContentLoaded`"
 authors:
   - nlopin
 contributors:

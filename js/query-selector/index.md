@@ -1,5 +1,5 @@
 ---
-title: "`querySelector`"
+title: "`.querySelector()`"
 authors:
   - nlopin
 keywords:

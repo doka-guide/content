@@ -1,5 +1,5 @@
 ---
-title: "`Element.Keydown/Keyup`"
+title: "События `keydown` и `keyup`"
 authors:
   - stegur
 contributors:

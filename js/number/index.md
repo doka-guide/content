@@ -1,5 +1,5 @@
 ---
-title: "Число `number`"
+title: "Число"
 description: "Тип данных для работы с числами"
 authors:
   - nlopin

@@ -1,5 +1,5 @@
 ---
-title: "`.keys()`"
+title: "`set.keys()`"
 description: "Возвращает итератор для обхода значений коллекции Set"
 authors:
   - nlopin

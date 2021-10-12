@@ -1,5 +1,5 @@
 ---
-title: "Хранение по ссылке vs. по значению"
+title: "Хранение по ссылке и по значению"
 authors:
   - windrushfarer
 keywords:

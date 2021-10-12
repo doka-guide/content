@@ -1,5 +1,5 @@
 ---
-title: "`querySelectorAll`"
+title: "`.querySelectorAll()`"
 authors:
   - nlopin
 keywords:

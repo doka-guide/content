@@ -1,5 +1,5 @@
 ---
-title: "`includes`"
+title: "`.includes()`"
 authors:
   - nlopin
 tags:

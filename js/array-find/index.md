@@ -1,5 +1,5 @@
 ---
-title: "`Array.find`"
+title: "`[].find`"
 authors:
   - kognitivnayabuena
 editors:

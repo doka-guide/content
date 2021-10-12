@@ -1,5 +1,5 @@
 ---
-title: "`for()`"
+title: "`for`"
 authors:
   - doka-dog
 keywords:

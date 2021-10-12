@@ -1,5 +1,5 @@
 ---
-title: "`Element.touch`"
+title: "Событие `touch`"
 authors:
   - windrushfarer
 keywords:

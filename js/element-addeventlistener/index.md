@@ -1,5 +1,5 @@
 ---
-title: "`Element.addEventListener()`"
+title: "`.addEventListener()`"
 authors:
   - akellbl4
 contributors:

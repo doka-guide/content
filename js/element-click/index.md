@@ -1,5 +1,5 @@
 ---
-title: "`Element.click`"
+title: "Событие `click`"
 authors:
   - nlopin
 tags:

@@ -1,5 +1,5 @@
 ---
-title: "`Math`"
+title: "Модуль `Math`"
 authors:
   - doka-dog
 tags:

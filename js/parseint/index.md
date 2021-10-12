@@ -1,5 +1,5 @@
 ---
-title: "`parseInt`"
+title: "`parseInt()`"
 description: "Преобразует строку в число по указанному основанию"
 authors:
   - doka-dog
