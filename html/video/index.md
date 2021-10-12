@@ -9,7 +9,6 @@ cover:
 authors:
   - doka-dog
 contributors:
-  - grachev
   - skorobaeus
 editors:
   - tachisis

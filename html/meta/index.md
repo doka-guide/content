@@ -6,7 +6,7 @@ cover:
   mobile: 'images/covers/mobile.svg'
   alt: 'Голова человека, обрамлённая открывающим и закрывающим тегами head. Внутри головы множество тегов meta.'
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
 editors:

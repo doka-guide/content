@@ -3,7 +3,6 @@ title: "`<nav>`"
 authors:
   - doka-dog
 contributors:
-  - grachev
   - skorobaeus
   - solarrust
   - pepelsbey

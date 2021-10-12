@@ -1,7 +1,7 @@
 ---
 title: "`<!DOCTYPE>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
   - pepelsbey
