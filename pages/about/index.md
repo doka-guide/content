@@ -15,20 +15,20 @@ location: "/about/"
 
 В редакцию входят:
 
-- <!-- yaspeller ignore:start -->**Вадим Макеев**<!-- yaspeller ignore:end --> — главный редактор проекта.
-- <!-- yaspeller ignore:start -->**Алёна Батицкая**<!-- yaspeller ignore:end --> — редактор разделов [HTML](/html) и [CSS](/css).
-- <!-- yaspeller ignore:start -->**Николай Лопин**<!-- yaspeller ignore:end --> — редактор разделов [JavaScript](/js) и [Инструменты](/tools).
-- <!-- yaspeller ignore:start -->**Саша Беспоясов**<!-- yaspeller ignore:end --> — ревьюер разделов [JavaScript](/js) и [Инструменты](/tools).
-- <!-- yaspeller ignore:start -->**Ольга Алексашенко**<!-- yaspeller ignore:end --> — литературный редактор.
+- **<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->** — главный редактор проекта.
+- **<!-- yaspeller ignore:start -->Алёна Батицкая<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html) и [CSS](/css).
+- **<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js) и [Инструменты](/tools).
+- **<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js) и [Инструменты](/tools).
+- **<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->** — литературный редактор.
 
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
 
-- <!-- yaspeller ignore:start -->**Валя Броницкая**<!-- yaspeller ignore:end --> — арт-директор по визуальному контенту, помогает насыщать статьи иллюстрациями, объясняющими картинками и анимациями.
-- <!-- yaspeller ignore:start -->**Кира Кустова**<!-- yaspeller ignore:end --> — иллюстратор, рисует обложки для статей.
-- <!-- yaspeller ignore:start -->**Света Коробцева**<!-- yaspeller ignore:end --> — дизайнер и разработчик демок, берёт обычные демки и превращает их в красивые и интерактивные.
-- <!-- yaspeller ignore:start -->**Игорь Коровченко**<!-- yaspeller ignore:end --> — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
-- <!-- yaspeller ignore:start -->**Алексей Бузмаков**<!-- yaspeller ignore:end --> — фронтенд-разработчик, верстает сайт и разрабатывает движок платформы.
-- <!-- yaspeller ignore:start -->**Егор Левченко**<!-- yaspeller ignore:end --> — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
+- **<!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end -->** — арт-директор по визуальному контенту, помогает насыщать статьи иллюстрациями, объясняющими картинками и анимациями.
+- **<!-- yaspeller ignore:start -->Кира Кустова<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
+- **<!-- yaspeller ignore:start -->Света Коробцева<!-- yaspeller ignore:end -->** — дизайнер и разработчик демок, берёт обычные демки и превращает их в красивые и интерактивные.
+- **<!-- yaspeller ignore:start -->Игорь Коровченко<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
+- **<!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end -->** — фронтенд-разработчик, верстает сайт и разрабатывает движок платформы.
+- **<!-- yaspeller ignore:start -->Егор Левченко<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
 Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс.Практикум](https://practicum.yandex.ru/).
 
