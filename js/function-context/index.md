@@ -103,7 +103,7 @@ whatsThis() // true
 И то же — если функция будет анонимной и, например, вызвана немедленно:
 
 ```js
-;(function () {
+(function () {
   console.log(this === window)
 })() // true
 ```
