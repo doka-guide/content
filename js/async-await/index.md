@@ -82,7 +82,7 @@ getMainActorProfileFromMovie(1).then((profile) => {
 Можно записать с `async/await`:
 
 ```js
-function getMainActorProfileFromMovie(id) {
+async function getMainActorProfileFromMovie(id) {
   try {
     const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
     const movie = await movieResponse.json();
