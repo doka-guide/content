@@ -9,7 +9,6 @@ authors:
   - grachev
 contributors:
   - solarrust
-  - vladimir
 editors:
   - tachisis
 keywords:

@@ -7,7 +7,7 @@ cover:
   mobile: 'images/covers/mobile.svg'
   alt: 'Два рабочих вставляют окно с видео в документ, как если бы они вставляли реальное окно в стену'
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - grachev
   - skorobaeus

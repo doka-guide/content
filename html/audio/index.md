@@ -1,7 +1,7 @@
 ---
 title: "`<audio>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - skorobaeus
 editors:

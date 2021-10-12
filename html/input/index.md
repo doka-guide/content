@@ -7,7 +7,7 @@ cover:
   mobile: 'images/covers/mobile.svg'
   alt: 'На переднем плане парень ест вилкой сосиску. На заднем поле ввода с надписью: sausage — и выбранными тегами: food, yummy'
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - skorobaeus
 editors:

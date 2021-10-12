@@ -3,7 +3,6 @@ title: "`margin`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - ABatickaya
   - futivite
 keywords:

@@ -4,7 +4,6 @@ authors:
   - grachev
 contributors:
   - solarrust
-  - vladimir
   - skorobaeus
   - furtivite
 keywords:

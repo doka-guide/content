@@ -3,7 +3,6 @@ title: "`color`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - pepelsbey
   - furtivite
   - skorobaeus

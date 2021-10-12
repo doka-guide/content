@@ -3,7 +3,6 @@ title: "`<title>`"
 authors:
   - grachev
 contributors:
-  - vladimir
 keywords:
   - тэг
   - тег

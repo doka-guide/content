@@ -3,7 +3,6 @@ title: "`font-size`"
 authors:
   - grachev
 contributors:
-  - vladimir
   - solarrust
   - skorobaeus
 keywords:
