@@ -26,7 +26,7 @@ tags:
 const mobileWidthMediaQuery = window.matchMedia('(max-width: 420px)')
 
 function printLog(isMobileSize) {
-  const size = event.matches ? 'уже или равен' : 'шире'
+  const size = isMobileSize ? 'уже или равен' : 'шире'
 
   console.log(`Размер экрана ${size} 420px`)
 }
