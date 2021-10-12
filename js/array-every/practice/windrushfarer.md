@@ -7,3 +7,13 @@ if (drinks.every(drink => drink === '🍺')) {
   console.log('This is a beer party! 🎉')
 }
 ```
+Но следует помнить, что проверка пустого массива всегда вернет `true`
+
+```js
+const drinks = []
+
+if (drinks.every(drink => drink === '🍺' || drink.beer === '🍺')) {
+  console.log('This is a beer party! 🎉 without BEER :)')
+}
+```
+
