@@ -90,7 +90,7 @@ tags:
 
 Напишем свой микросервис по оптимизации степени сжатия, формата и размера картинок. Пользователь будет закачивать картинку, микросервис будет обрабатывать её с помощью библиотеки, которая работает под капотом известного сервиса [Squoosh](https://squoosh.app/), и встраивать обработанную картинку на сайт.
 
-Создадим проект, установим необходимые библиотеки [libSquoosh](https://github.com/GoogleChromeLabs/squoosh/tree/dev/libsquoosh) и [busboy](https://github.com/mscdex/busboy)) и создадим два файла _image.js_ и _micro.js_:
+Создадим проект, установим необходимые библиотеки [libSquoosh](https://github.com/GoogleChromeLabs/squoosh/tree/dev/libsquoosh) и [busboy](https://github.com/mscdex/busboy) и создадим два файла _image.js_ и _micro.js_:
 
 ```bash
 npm init -y
