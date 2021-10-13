@@ -43,8 +43,9 @@ jobs:
         continue-on-error: true
         with:
           workflow: social-cards.yml
-          branch: main
+          check_artifacts: true
           name: doka-guide-platform-social-cards
+          path: ./
       - name: Публикация сайта
         uses: netlify/actions/cli@master
         with:
