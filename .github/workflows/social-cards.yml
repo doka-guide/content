@@ -6,7 +6,7 @@ on:
     - cron:  '30 6 * * 5'
 
 jobs:
-  link-check:
+  social-cards:
     runs-on: ubuntu-latest
     steps:
       - name: Загрузка platform
@@ -41,8 +41,8 @@ jobs:
           name: doka-guide-content-social-cards
           retention-days: 8
           path: |
-            dist/**/**/images/covers/og.png
-            dist/**/**/images/covers/twitter.png
+            dist/(css|html|js|tools)/*/images/covers/og.png
+            dist/(css|html|js|tools)/*/images/covers/twitter.png
 
 
 
