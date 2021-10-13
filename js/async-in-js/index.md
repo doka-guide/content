@@ -449,6 +449,17 @@ request("/api/users/1")
 
 Если что-то пошло не так, то программа не упадёт, а управление мгновенно перейдёт к последней строчке с `catch`, причём независимо от того, в каком из запросов ошибка появится.
 
+Также из `then` можно вернуть не промис, а обычное значение. Оно обернётся в промис самостоятельно и прокинется в следующий `then`:
+
+```js
+request("/api/users/1")
+  .then((user) => user.id)
+  .then((userId) => request(`/api/photos/${userId}/`))
+  .then((photo) => request(`/api/crop/${photo.id}/`))
+  .then((response) => console.log(response))
+  .catch((error) => console.error(error))
+```
+
 Промисы оказались удобными, и появился даже такой термин как «[промисификация](https://nodejs.org/dist/latest-v8.x/docs/api/util.html#util_util_promisify_original)» — когда асинхронную функциональность на колбэках превращали в промисы.
 
 Однако промисы — это тоже не серебряная пуля. У них есть несколько недостатков:
@@ -523,58 +534,5 @@ async function loadPosts() {
 ```
 
 При этом, в отличие от `.catch()` промисов, try-catch поймает не только ошибки, которые были внутри асинхронных функций, но также и ошибки, которые возникли во время обычных синхронных операций.
-
-**Нам не нужно промисифицировать промежуточные значения.** Если, например, мы хотели сделать цепочку из `then`, чтобы красиво обработать какие-то операции, но одна из операций промис не возвращала...
-
-```js
-function request(url) {
-  return new Promise(function(resolve, reject) {
-    let responseFromServer;
-    /*...*/
-    resolve(responseFromServer);
-  });
-}
-
-function findId(user) {
-  let id;
-  /* ... */
-  return id;
-}
-```
-
-...то вызывать цепочку просто так у нас бы уже не получилось:
-
-
-```js
-request('/api/users/1')
-  .then(user => findId(user)
-  // Упс, функция findId Промис не возвращает, так нельзя.
-  .then(user => request(`/api/photos/${user.id}/`))
-  .then(photo => request(`/api/crop/${photo.id}/`))
-  .then(response => console.log(response))
-  .catch(error => console.error(error));
-```
-
-Нам бы приходилось делать нечто вроде:
-
-```js
-request('/api/users/1')
-  .then(user => Promise.resolve(findId(user))
-  // ...
-```
-
-А если операция включала бы в себя обработку ошибок, то возможно, и...
-
-```js
-request('/api/users/1')
-  .then(user => {
-    return new Promise(function(resolve, reject) {
-      /* ... */
-    });
-  })
-  // ...
-```
-
-С асинхронными функциями такой проблемы нет, `await` автоматически разворачивает значение сам.
 
 **Можно ставить брейкпоинты.** Для отладки мы можем поставить брейкпоинт куда угодно, он сработает.
