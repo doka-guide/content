@@ -8,11 +8,11 @@ tags:
 
 ## Кратко
 
-`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
+`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы ( узлы DOM ). `NodeList` может хранить любые типы узлов, а `HTMLCollection` - только HTML элементы. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
 
-`HTMLCollection` возвращают методы [`getElementsByTagName`](/js/getelementsbytagname/) и [`getElementsByClassName`](/js/getelementsbyclassname/).
+`HTMLCollection` возвращают методы [`document.getElementsByTagName`](/js/getelementsbytagname/), [`document.getElementsByClassName`](/js/getelementsbyclassname/) и `parentNode.children`.
 
-`NodeList` возвращает метод `querySelectorAll`.
+`NodeList` возвращают методы `document.querySelectorAll`, `document.getElementsByName` и `parentNode.childNodes`.
 
 ## Как понять
 
@@ -24,4 +24,10 @@ tags:
 
 <iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350"></iframe>
 
-`NodeList` работает так же, как и `HTMLCollection`. Разница только в том, что `NodeList` не живая коллекция — она не обновляется при появлении на странице новых элементов.
+`NodeList` работает почти так же, как и `HTMLCollection`. 
+
+Разница только в том, что `NodeList` может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов. 
+
+«Живой» `NodeList` возвращают методы `document.getElementsByName` и `parentNode.childNodes`.
+
+Статический `NodeList` возвращает метод `document.querySelectorAll`.
