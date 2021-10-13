@@ -17,7 +17,7 @@ tags:
 
 - [`background-attachement`](/css/background-attachement)
 - [`background-clip`](/css/background-clip)
-- [`backgroun-color`](/css/background-color)
+- [`background-color`](/css/background-color)
 - [`background-image`](/css/background-image)
 - [`background-position`](/css/background-position)
 - [`background-repeat`](/css/background-repeat)
