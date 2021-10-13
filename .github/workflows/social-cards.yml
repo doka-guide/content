@@ -41,8 +41,8 @@ jobs:
           name: doka-guide-content-social-cards
           retention-days: 8
           path: |
-            dist/{css,html,js,tools}/**/images/covers/og.png
-            dist/{css,html,js,tools}/**/images/covers/twitter.png
+            dist/**/**/images/covers/og.png
+            dist/**/**/images/covers/twitter.png
 
 
 
