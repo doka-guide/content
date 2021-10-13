@@ -36,7 +36,8 @@ jobs:
           npm run preview
       - name: Генерация карточек
         run: npx gulp socialCards
-      - uses: actions/upload-artifact@v2
+      - name: Кэширование артефакта сборки
+        uses: actions/upload-artifact@v2
         with:
           name: doka-guide-content-social-cards
           retention-days: 8
