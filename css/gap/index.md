@@ -33,7 +33,7 @@ tags:
 }
 ```
 
-## Демо c `display: grid`
+## Демо c grid
 
 <iframe title="`gap` с `display: grid`" src="demos/grid-gap/" height="330"></iframe>
 
@@ -47,7 +47,7 @@ tags:
 }
 ```
 
-## Демо c `display: flex`
+## Демо c flex
 
 <iframe title="`gap` с `display: flex`" src="demos/flex-gap/" height="330"></iframe>
 
