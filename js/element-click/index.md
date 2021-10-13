@@ -18,7 +18,7 @@ tags:
 
 ```js
 document.addEventListener("click", function () {
-  alert("Вы клинкули по странице!")
+  alert("Вы кликнули по странице!")
 })
 ```
 
