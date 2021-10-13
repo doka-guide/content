@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Несколько языков — :lang — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    q:lang(de) {
+      quotes: "„" "“";
+    }
+    q:lang(fr) {
+      quotes: "«" "»";
+    }
+    q:lang(en) {
+      quotes: "“" "”";
+    }
+  </style>
+</head>
+<body>
+  <p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>
+  <p>Цитата на французском: <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>
+  <p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
+</body>
+</html>
