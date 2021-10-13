@@ -8,7 +8,9 @@ tags:
 
 ## Кратко
 
-`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы ( узлы DOM ). `NodeList` может хранить любые типы узлов, а `HTMLCollection` - только HTML элементы. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
+`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы ( узлы DOM ). `NodeList` может хранить любые типы узлов, а `HTMLCollection` - только узлы HTML элементов. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/). 
+
+`HTMLCollection`  позволяет обращаться к элементам по имени с помощью метода `HTMLCollection.namedItem`.
 
 `HTMLCollection` возвращают методы [`document.getElementsByTagName`](/js/getelementsbytagname/), [`document.getElementsByClassName`](/js/getelementsbyclassname/) и `parentNode.children`.
 
