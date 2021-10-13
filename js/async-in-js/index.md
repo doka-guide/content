@@ -102,7 +102,7 @@ setTimeout(function greet() {
   console.log("Hello!")
 }, 5000)
 
-consloe.log(`I'm being called before greet function.`)
+console.log(`I'm being called before greet function.`)
 ```
 
 Сначала выведется: «I'm being called before greet function», а через 5 секунд — «Hello!»
