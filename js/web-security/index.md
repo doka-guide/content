@@ -151,7 +151,7 @@ _SQL-инъекции (injection)_ — это один из видов XSS.
 
 ### Интерактивный пример
 
-Взгляните на [пример SQL-инъекции](https://application.security/free-application-security-training/owas-top-10-sql-injection) на application.security.
+Взгляните на [пример SQL-инъекции](https://application.security/free-application-security-training/owasp-top-10-sql-injection) на application.security.
 
 ## Stored XSS
 
