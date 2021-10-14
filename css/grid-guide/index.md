@@ -956,8 +956,8 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 ## Ссылки
 
 1. [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
-1. [Yoksel's grid cheatsheet](https://yoksel.github.io/grid-cheatsheet/)
-1. [GRID GARDEN](https://cssgridgarden.com/#ru)
+1. [Grid Cheatsheet](https://yoksel.github.io/grid-cheatsheet/)
+1. [Grid Garden](https://cssgridgarden.com/#ru)
 1. [GRID cheat sheet](https://grid.malven.co/)
-1. [learning CSS grid](https://learncssgrid.com/)
+1. [Learning CSS Grid](https://learncssgrid.com/)
 1. [Animating CSS Grid Layout properties](https://codepen.io/matuzo/post/animating-css-grid-layout-properties)
