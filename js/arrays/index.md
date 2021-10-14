@@ -152,7 +152,7 @@ console.log(typeof a) // 'object'
 Поскольку массивы используются везде и повсеместно, был создан специальный метод
 `Array.isArray`.
 
-Он принимает один параметр - то что мы хотим проверить - `Array.isArray(value)`.
+Он принимает один параметр<span class="x x-first x-last">, </span>то что мы хотим проверить <span class="x x-first x-last">—</span> `Array.isArray(value)`.
 
 Если был передан массив, то вернётся `true`, иначе `false`.
 
