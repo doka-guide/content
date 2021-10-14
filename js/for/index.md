@@ -96,8 +96,8 @@ for (let i = 0; i < 5; i++) {
 ```js
 for(let i = 0; i < 10; i++) {
   if (i === 5) {
-      console.log('break')
-      break
+    console.log('break')
+    break
   }
   console.log(i)
 }
