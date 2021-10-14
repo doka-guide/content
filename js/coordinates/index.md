@@ -24,10 +24,10 @@ tags:
 ```js
 document.addEventListener('click', event => {
   console.log('Позиция x относительно документа', event.pageX)
-  console.log('Позиция y относительно документа', e.pageY)
+  console.log('Позиция y относительно документа', event.pageY)
 
   console.log('Позиция x относительно экрана', event.clientX)
-  console.log('Позиция y относительно экрана', e.clientY)
+  console.log('Позиция y относительно экрана', event.clientY)
 }, false)
 
 // { x: ..., y: ..., top: ..., left: ..., right: ..., bottom: ... }
