@@ -9,6 +9,7 @@ authors:
   - doka-dog
 contributors:
   - solarrust
+  - gitkhab
 editors:
   - tachisis
 keywords:
