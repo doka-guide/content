@@ -38,8 +38,8 @@ tags:
 
 ```html
 <picture>
-  <source srcset="400x400.png" media="(min-width: 900px)">
-  <img src="300x300.png" alt="Картинка с размерами">
+  <source srcset="750x400.png" media="(min-width: 1000px)">
+  <img src="650x300.png" alt="Картинка с размерами">
 </picture>
 ```
 
