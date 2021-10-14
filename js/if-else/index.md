@@ -107,7 +107,7 @@ if (foundItems === 0) {
 }
 
 if (user.isAdmin) {
-  // сокращенная запись user.isAdmin === true
+  // сокращенная запись user.isAdmin == true
   console.log("Привет, админ!")
 } else {
   console.log("Привет, пользователь!")
