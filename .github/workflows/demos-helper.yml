@@ -1,7 +1,6 @@
-name: Designer Helper
+name: Demos Helper
 
 on:
-  pull_request:
   push:
     branches:
       - main
