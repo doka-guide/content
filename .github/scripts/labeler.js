@@ -7,43 +7,47 @@ const pullNumber = args.includes('--pull-number') ? args[args.indexOf('--pull-nu
 const owner = 'doka-guide'
 const repo = 'content'
 
-if (ghKey && pullNumber > 0) {
-  const rawLabelPatterns = fs.readFileSync('../../.labeler.json')
-  const labelPatterns = JSON.parse(rawLabelPatterns)
+const setupLabels = async (ghKey, pullNumber) => {
+  if (ghKey && pullNumber > 0) {
+    const rawLabelPatterns = fs.readFileSync('../../.labeler.json')
+    const labelPatterns = JSON.parse(rawLabelPatterns)
 
-  const octokit = new Octokit({ auth: ghKey })
+    const octokit = new Octokit({ auth: ghKey })
 
-  const newLabels = ['эксперимент']
+    const newLabels = ['эксперимент']
 
-  const pullObject = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
-    owner,
-    repo,
-    pull_number: pullNumber
-  })
+    const pullObject = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
+      owner,
+      repo,
+      pull_number: pullNumber
+    })
 
-  console.log(pullObject)
+    console.log(pullObject)
 
-  const fileObjects = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
-    owner,
-    repo,
-    pull_number: pullNumber
-  })
+    const fileObjects = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
+      owner,
+      repo,
+      pull_number: pullNumber
+    })
 
-  const files = {}
+    const files = {}
 
-  for (const index in fileObjects) {
-    if (Object.hasOwnProperty.call(fileObjects, index)) {
-      const file = fileObjects[index]
-      files[file.status].push[file.filename]
+    for (const index in fileObjects) {
+      if (Object.hasOwnProperty.call(fileObjects, index)) {
+        const file = fileObjects[index]
+        files[file.status].push[file.filename]
+      }
     }
+
+    console.log(files)
+
+    await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
+      owner,
+      repo,
+      issue_number: pullNumber,
+      labels: newLabels
+    })
   }
-
-  console.log(files)
-
-  await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
-    owner,
-    repo,
-    issue_number: pullNumber,
-    labels: newLabels
-  })
 }
+
+setupLabels()
