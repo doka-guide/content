@@ -34,9 +34,10 @@ if (ghKey) {
     for (const chapter in issueLists) {
       if (fileName.indexOf(chapter) == 0) {
         const text = fs.readFileSync(fileName, {encoding:'utf8', flag:'r'})
-        if (text.includes('demos/'))
+        if (text.includes('demos/')) {
           const item = printItem(fileName, meta.title, meta.contributors ? meta.contributors.includes('skorobaeus') : false, meta.tags ? meta.tags.includes('placeholder') : false)
           issueLists[chapter].push(item)
+        }
       }
     }
   }
