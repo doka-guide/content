@@ -50,4 +50,4 @@ const setupLabels = async (ghKey, pullNumber) => {
   }
 }
 
-setupLabels()
+setupLabels(ghKey, pullNumber)
