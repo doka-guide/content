@@ -31,11 +31,12 @@ if (ghKey) {
   const commonMeta = JSON.parse(rawMeta)
   for (const fileName in commonMeta) {
     const meta = commonMeta[fileName]
-    const metaKeys = Object.keys(meta)
     for (const chapter in issueLists) {
       if (fileName.indexOf(chapter) == 0) {
-        const item = printItem(fileName, meta.title, meta.contributors ? meta.contributors.includes('skorobaeus') : false, meta.tags ? meta.tags.includes('placeholder') : false)
-        issueLists[chapter].push(item)
+        const text = fs.readFileSync(fileName, {encoding:'utf8', flag:'r'})
+        if (text.includes('demos/'))
+          const item = printItem(fileName, meta.title, meta.contributors ? meta.contributors.includes('skorobaeus') : false, meta.tags ? meta.tags.includes('placeholder') : false)
+          issueLists[chapter].push(item)
       }
     }
   }
