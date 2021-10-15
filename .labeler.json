@@ -1,74 +1,64 @@
 {
   "files": {
-    "doka-guide": {
-      "css": {
-        "added": [
-          "css/*/*.md"
-        ]
-      },
-      "html": {
-        "added": [
-          "html/*/*.md"
-        ]
-      },
-      "js": {
-        "added": [
-          "js/*/*.md"
-        ]
-      },
-      "tools": {
-        "added": [
-          "tools/*/*.md"
-        ]
-      },
-      "доработка": {
-        "added": [
-          "README.md",
-          "LICENSE-ND.md",
-          "LICENSE-SA.md",
-          "docs/*.md",
-          "docs/*/*.md",
-          "docs/images/*.png",
-          "docs/license/*/*.svg",
-          "pages/*/index.md",
-          "people/*/index.md"
-        ]
-      },
-      "кухня": {
-        "added": [
-          ".github/*.yml",
-          ".github/scripts/*.js",
-          ".github/workflows/*.yml"
-        ]
-      },
-      "улучшение": {
-        "modified": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md",
-          "README.md",
-          "LICENSE-ND.md",
-          "LICENSE-SA.md",
-          "docs/*.md",
-          "docs/*/*.md",
-          "docs/images/*.png",
-          "docs/license/*/*.svg",
-          "pages/*/index.md",
-          "people/*/index.md"
-        ]
-      }
+    "css": {
+      "added": [
+        "css/*/*.md"
+      ]
     },
-    "fork": {
-      "хороший старт": {
-        "added": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md"
-        ]
-      }
+    "html": {
+      "added": [
+        "html/*/*.md"
+      ]
     },
+    "js": {
+      "added": [
+        "js/*/*.md"
+      ]
+    },
+    "tools": {
+      "added": [
+        "tools/*/*.md"
+      ]
+    },
+    "доработка": {
+      "added": [
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs/*.md",
+        "docs/*/*.md",
+        "docs/images/*.png",
+        "docs/license/*/*.svg",
+        "pages/*/index.md",
+        "people/*/index.md"
+      ]
+    },
+    "кухня": {
+      "added": [
+        ".github/*.yml",
+        ".github/scripts/*.js",
+        ".github/workflows/*.yml"
+      ]
+    },
+    "улучшение": {
+      "modified": [
+        "css/*/*.md",
+        "html/*/*.md",
+        "js/*/*.md",
+        "tools/*/*.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs/*.md",
+        "docs/*/*.md",
+        "docs/images/*.png",
+        "docs/license/*/*.svg",
+        "pages/*/index.md",
+        "people/*/index.md"
+      ]
+    }
+  },
+  "assignee": {
     "skorobaeus": {
       "демо": {
         "modified": [
