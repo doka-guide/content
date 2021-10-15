@@ -12,6 +12,7 @@ const selectLabels = (selectedFiles, selectedRules) => {
   for (const label in selectedRules) {
     if (Object.hasOwnProperty.call(selectedRules, label)) {
       const labelRules = selectedRules[label]
+      console.log(label)
       for (const status in labelRules) {
         if (Object.hasOwnProperty.call(labelRules, status)) {
           console.log(status)
