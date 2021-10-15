@@ -1,0 +1,130 @@
+{
+  "doka-guide": {
+    "css": {
+      "new": [
+        "css/*/*.md"
+      ]
+    },
+    "html": {
+      "new": [
+        "html/*/*.md"
+      ]
+    },
+    "js": {
+      "new": [
+        "js/*/*.md"
+      ]
+    },
+    "tools": {
+      "new": [
+        "tools/*/*.md"
+      ]
+    },
+    "дока": {
+      "with_tags": {
+        "doka": [
+          "css/*/demos/*/*.html",
+          "html/*/demos/*/*.html",
+          "js/*/demos/*/*.html",
+          "tools/*/demos/*/*.html"
+        ]
+      }
+    },
+    "статья": {
+      "with_tags": {
+        "article": [
+          "css/*/demos/*/*.html",
+          "html/*/demos/*/*.html",
+          "js/*/demos/*/*.html",
+          "tools/*/demos/*/*.html"
+        ]
+      }
+    },
+    "placeholder": {
+      "with_tags": {
+        "placeholder": [
+          "css/*/demos/*/*.html",
+          "html/*/demos/*/*.html",
+          "js/*/demos/*/*.html",
+          "tools/*/demos/*/*.html"
+        ]
+      }
+    },
+    "доработка": {
+      "new": [
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs/*.md",
+        "docs/*/*.md",
+        "docs/images/*.png",
+        "docs/license/*/*.svg",
+        "pages/*/index.md",
+        "people/*/index.md"
+      ]
+    },
+    "кухня": {
+      "new": [
+        ".github/*.yml",
+        ".github/scripts/*.js",
+        ".github/workflows/*.yml"
+      ]
+    },
+    "улучшение": {
+      "exists": [
+        "css/*/*.md",
+        "html/*/*.md",
+        "js/*/*.md",
+        "tools/*/*.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs/*.md",
+        "docs/*/*.md",
+        "docs/images/*.png",
+        "docs/license/*/*.svg",
+        "pages/*/index.md",
+        "people/*/index.md"
+      ]
+    }
+  },
+  "fork": {
+    "хороший старт": {
+      "new": [
+        "css/*/*.md",
+        "html/*/*.md",
+        "js/*/*.md",
+        "tools/*/*.md"
+      ]
+    }
+  },
+  "skorobaeus": {
+    "демо": {
+      "exists": [
+        "css/*/demos/*/*.html",
+        "html/*/demos/*/*.html",
+        "js/*/demos/*/*.html",
+        "tools/*/demos/*/*.html"
+      ]
+    }
+  },
+  "tachisis": {
+    "редактура": {
+      "exists": [
+        "css/*/*.md",
+        "html/*/*.md",
+        "js/*/*.md",
+        "tools/*/*.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs/*.md",
+        "docs/*/*.md",
+        "docs/images/*.png",
+        "docs/license/*/*.svg",
+        "pages/*/index.md",
+        "people/*/index.md"
+      ]
+    }
+  }
+}
