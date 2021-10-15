@@ -22,7 +22,7 @@ const setupLabels = async (ghKey, pullNumber) => {
       pull_number: pullNumber
     })
 
-    console.log(pullObject)
+    // console.log(pullObject.data)
 
     const fileObjects = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
       owner,
@@ -36,10 +36,9 @@ const setupLabels = async (ghKey, pullNumber) => {
       removed: []
     }
 
-    for (const index in fileObjects['data']) {
-      const file = fileObjects['data'][index]
-      console.log(file)
-      files[file.status].push[file.filename]
+    for (const index in fileObjects.data) {
+      const file = fileObjects.data[index]
+      files[file.status].push(file.filename)
     }
 
     console.log(files)
