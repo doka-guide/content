@@ -14,6 +14,7 @@ const selectLabels = (selectedFiles, selectedRules) => {
       const labelRules = selectedRules[label]
       for (const status in labelRules) {
         if (Object.hasOwnProperty.call(labelRules, status)) {
+          console.log(status)
           const statusRules = labelRules[status]
           statusRules.forEach(pattern => {
             if (Object.keys(selectedFiles).includes(status)) {
