@@ -30,6 +30,8 @@ const setupLabels = async (ghKey, pullNumber) => {
       pull_number: pullNumber
     })
 
+    console.log(fileObjects)
+
     const files = {}
 
     for (const index in fileObjects) {
