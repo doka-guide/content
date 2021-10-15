@@ -26,8 +26,8 @@ const patternsForEntities = {
 const commonReplacement = /([#]+ |:::|callout |```|\*{2,2}|\n|_|\!\[|\[|\]|\([.:/a-z]+\))/g
 
 const getEntitiesFromContent = (text, patterns) => {
-  text = text.replace(/---(.|\n)*---\n/g, '') // Вырезаем мету
-  text = text.replace(/```(.|\n)*```\n/g, '') // Вырезаем код
+  text = text.replace(/---(.|\n)*?---\n/g, '') // Вырезаем мету
+  text = text.replace(/```(.|\n)*?```\n/g, '') // Вырезаем код
   const output = {}
   for (const field in patterns) {
     let array = text.match(patterns[field])
