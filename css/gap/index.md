@@ -49,7 +49,7 @@ tags:
 
 ## Демо c flex
 
-<iframe title="`gap` с `display: flex`" src="demos/flex-gap/" height="330"></iframe>
+<iframe title="gap с display: flex" src="demos/flex-gap/" height="330"></iframe>
 
 ## Подсказки
 
