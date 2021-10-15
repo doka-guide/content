@@ -251,10 +251,10 @@ const secondUser = User() // Неправильно,
 Но на деле разница есть:
 
 ```js
-console.log(firstUser);
+console.log(firstUser)
 // User { name: 'Alex' }
 
-console.log(secondUser);
+console.log(secondUser)
 // undefined
 ```
 
