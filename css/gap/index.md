@@ -34,7 +34,6 @@ tags:
 }
 ```
 
-## Демо c grid
 
 <iframe title="gap с display: grid" src="demos/grid-gap/" height="330"></iframe>
 
