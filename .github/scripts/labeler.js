@@ -10,12 +10,14 @@ const repo = 'content'
 const selectLabels = (selectedFiles, selectedRules) => {
   const output = []
   console.log(selectedRules)
-  for (const label in selectedRules) {
-    if (Object.hasOwnProperty.call(selectedRules, label)) {
+  for (const labelIndex in selectedRules) {
+    if (Object.hasOwnProperty.call(selectedRules, labelIndex)) {
+      const label = selectedRules[labelIndex]
       const labelRules = selectedRules[label]
       console.log(labelRules)
-      for (const status in labelRules) {
-        if (Object.hasOwnProperty.call(labelRules, status)) {
+      for (const statusIndex in labelRules) {
+        if (Object.hasOwnProperty.call(labelRules, statusIndex)) {
+          const status = labelRules[statusIndex]
           const statusRules = labelRules[status]
           console.log(statusRules)
           statusRules.forEach(pattern => {
