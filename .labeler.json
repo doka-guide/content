@@ -1,28 +1,77 @@
 {
-  "doka-guide": {
-    "css": {
-      "new": [
-        "css/*/*.md"
-      ]
+  "files": {
+    "doka-guide": {
+      "css": {
+        "added": [
+          "css/*/*.md"
+        ]
+      },
+      "html": {
+        "added": [
+          "html/*/*.md"
+        ]
+      },
+      "js": {
+        "added": [
+          "js/*/*.md"
+        ]
+      },
+      "tools": {
+        "added": [
+          "tools/*/*.md"
+        ]
+      },
+      "доработка": {
+        "added": [
+          "README.md",
+          "LICENSE-ND.md",
+          "LICENSE-SA.md",
+          "docs/*.md",
+          "docs/*/*.md",
+          "docs/images/*.png",
+          "docs/license/*/*.svg",
+          "pages/*/index.md",
+          "people/*/index.md"
+        ]
+      },
+      "кухня": {
+        "added": [
+          ".github/*.yml",
+          ".github/scripts/*.js",
+          ".github/workflows/*.yml"
+        ]
+      },
+      "улучшение": {
+        "modified": [
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md",
+          "README.md",
+          "LICENSE-ND.md",
+          "LICENSE-SA.md",
+          "docs/*.md",
+          "docs/*/*.md",
+          "docs/images/*.png",
+          "docs/license/*/*.svg",
+          "pages/*/index.md",
+          "people/*/index.md"
+        ]
+      }
     },
-    "html": {
-      "new": [
-        "html/*/*.md"
-      ]
+    "fork": {
+      "хороший старт": {
+        "added": [
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md"
+        ]
+      }
     },
-    "js": {
-      "new": [
-        "js/*/*.md"
-      ]
-    },
-    "tools": {
-      "new": [
-        "tools/*/*.md"
-      ]
-    },
-    "дока": {
-      "with_tags": {
-        "doka": [
+    "skorobaeus": {
+      "демо": {
+        "modified": [
           "css/*/demos/*/*.html",
           "html/*/demos/*/*.html",
           "js/*/demos/*/*.html",
@@ -30,101 +79,53 @@
         ]
       }
     },
-    "статья": {
-      "with_tags": {
-        "article": [
-          "css/*/demos/*/*.html",
-          "html/*/demos/*/*.html",
-          "js/*/demos/*/*.html",
-          "tools/*/demos/*/*.html"
+    "tachisis": {
+      "редактура": {
+        "modified": [
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md",
+          ".yaspeller.json",
+          "README.md",
+          "LICENSE-ND.md",
+          "LICENSE-SA.md",
+          "docs/*.md",
+          "docs/*/*.md",
+          "docs/images/*.png",
+          "docs/license/*/*.svg",
+          "pages/*/index.md",
+          "people/*/index.md"
         ]
       }
-    },
-    "placeholder": {
-      "with_tags": {
+    }
+  },
+  "meta": {
+    "tags": {
+      "doka": {
+        "дока": [
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md"
+        ]
+      },
+      "article": {
+        "статья": [
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md"
+        ]
+      },
+      "placeholder": {
         "placeholder": [
-          "css/*/demos/*/*.html",
-          "html/*/demos/*/*.html",
-          "js/*/demos/*/*.html",
-          "tools/*/demos/*/*.html"
+          "css/*/*.md",
+          "html/*/*.md",
+          "js/*/*.md",
+          "tools/*/*.md"
         ]
       }
-    },
-    "доработка": {
-      "new": [
-        "README.md",
-        "LICENSE-ND.md",
-        "LICENSE-SA.md",
-        "docs/*.md",
-        "docs/*/*.md",
-        "docs/images/*.png",
-        "docs/license/*/*.svg",
-        "pages/*/index.md",
-        "people/*/index.md"
-      ]
-    },
-    "кухня": {
-      "new": [
-        ".github/*.yml",
-        ".github/scripts/*.js",
-        ".github/workflows/*.yml"
-      ]
-    },
-    "улучшение": {
-      "exists": [
-        "css/*/*.md",
-        "html/*/*.md",
-        "js/*/*.md",
-        "tools/*/*.md",
-        "README.md",
-        "LICENSE-ND.md",
-        "LICENSE-SA.md",
-        "docs/*.md",
-        "docs/*/*.md",
-        "docs/images/*.png",
-        "docs/license/*/*.svg",
-        "pages/*/index.md",
-        "people/*/index.md"
-      ]
-    }
-  },
-  "fork": {
-    "хороший старт": {
-      "new": [
-        "css/*/*.md",
-        "html/*/*.md",
-        "js/*/*.md",
-        "tools/*/*.md"
-      ]
-    }
-  },
-  "skorobaeus": {
-    "демо": {
-      "exists": [
-        "css/*/demos/*/*.html",
-        "html/*/demos/*/*.html",
-        "js/*/demos/*/*.html",
-        "tools/*/demos/*/*.html"
-      ]
-    }
-  },
-  "tachisis": {
-    "редактура": {
-      "exists": [
-        "css/*/*.md",
-        "html/*/*.md",
-        "js/*/*.md",
-        "tools/*/*.md",
-        "README.md",
-        "LICENSE-ND.md",
-        "LICENSE-SA.md",
-        "docs/*.md",
-        "docs/*/*.md",
-        "docs/images/*.png",
-        "docs/license/*/*.svg",
-        "pages/*/index.md",
-        "people/*/index.md"
-      ]
     }
   }
 }
