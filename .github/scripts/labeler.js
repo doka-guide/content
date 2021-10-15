@@ -7,14 +7,37 @@ const pullNumber = args.includes('--pull-number') ? args[args.indexOf('--pull-nu
 const owner = 'doka-guide'
 const repo = 'content'
 
+const selectLabels = (selectedFiles, selectedRules) => {
+  const output = []
+  for (const label in selectedRules) {
+    if (Object.hasOwnProperty.call(selectedRules, label)) {
+      const labelRules = selectedRules[label]
+      for (const status in labelRules) {
+        if (Object.hasOwnProperty.call(labelRules, status)) {
+          const statusRules = labelRules[status]
+          statusRules.forEach(pattern => {
+            if (Object.keys(selectedFiles).includes(status)) {
+              const regExp = new RegExp(pattern, 'i')
+              selectedFiles[status].forEach(file => {
+                if (regExp.test(file) && output.indexOf(label) < 0) {
+                  output.push(label)
+                }
+              })
+            }
+          })
+        }
+      }
+    }
+  }
+  return output
+}
+
 const setupLabels = async (ghKey, pullNumber) => {
   if (ghKey && pullNumber > 0) {
-    const rawLabelPatterns = fs.readFileSync('.labeler.json')
-    const labelPatterns = JSON.parse(rawLabelPatterns)
+    const rawLabelRules = fs.readFileSync('.labeler.json')
+    const labelRules = JSON.parse(rawLabelRules)
 
     const octokit = new Octokit({ auth: ghKey })
-
-    const newLabels = ['эксперимент']
 
     const pullObject = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}', {
       owner,
@@ -22,7 +45,12 @@ const setupLabels = async (ghKey, pullNumber) => {
       pull_number: pullNumber
     })
 
-    // console.log(pullObject.data)
+    const newLabels = []
+    const oldLabels = []
+    for (const index in pullObject.data.labels) {
+      const labelObject = pullObject.data.labels[index]
+      oldLabels.push(labelObject.name)
+    }
 
     const fileObjects = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
       owner,
@@ -41,13 +69,18 @@ const setupLabels = async (ghKey, pullNumber) => {
       files[file.status].push(file.filename)
     }
 
-    console.log(files)
+    const fileLabelRules = Object.keys(labelRules.files)
+    const fileSelectedLabels = selectLabels(files, fileLabelRules)
+    newLabels.push(...fileSelectedLabels)
+
+    const assigneeLabelRules = Object.keys(labelRules.assignee)
+    const metaLabelRules = Object.keys(labelRules.meta)
 
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,
       issue_number: pullNumber,
-      labels: newLabels
+      labels: newLabels.concat(oldLabels)
     })
   }
 }
