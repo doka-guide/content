@@ -34,9 +34,7 @@ tags:
 }
 ```
 
-
-<iframe title="gap с display: grid" src="demos/grid-gap/" height="330"></iframe>
-
+<iframe title="Свойство gap с display: grid" src="demos/grid-gap/" height="330"></iframe>
 
 ## Пример с флексами
 
@@ -47,8 +45,7 @@ tags:
 }
 ```
 
-
-<iframe title="gap с display: flex" src="demos/flex-gap/" height="330"></iframe>
+<iframe title="Свойство gap с display: flex" src="demos/flex-gap/" height="330"></iframe>
 
 ## Подсказки
 
