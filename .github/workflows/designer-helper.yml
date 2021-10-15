@@ -1,4 +1,4 @@
-name: Editor Helper
+name: Designer Helper
 
 on:
   pull_request:
