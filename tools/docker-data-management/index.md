@@ -145,7 +145,7 @@ docker container stop devtest
 docker container rm devtest
 ```
 
-::callout ☝️
+:::callout ☝️
 
 Помните:
 
