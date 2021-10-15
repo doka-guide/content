@@ -2,25 +2,28 @@
 <html lang="ru">
 <head>
   <title>Несколько языков — :lang — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Roboto", sans-serif;
     }
-    q:lang(de) {
-      quotes: "„" "“";
+    p:lang(de) {
+      font-size: 16px;
+      color:Tomato;
     }
-    q:lang(fr) {
-      quotes: "«" "»";
+    p:lang(fr) {
+      font-size: 12px;
+      color:DodgerBlue;
     }
-    q:lang(en) {
-      quotes: "“" "”";
+    p:lang(en) {
+      font-size: 20px;
+      color:MediumSeaGreen;
     }
   </style>
 </head>
 <body>
-  <p>Цитата на немецком: <q lang="de">Der Mensch, versuche die Gotter nicht</q>.</p>
-  <p>Цитата на французском: <q lang="fr">Ce que femme veut, Dieu le veut</q>.</p>
-  <p>Цитата на английском: <q lang="en">То be or not to be</q>.</p>
+  <p lang="de">Предложение на немецком языке.</p>
+  <p lang="fr">Предложение на французском языке.</p>
+  <p lang="en">Предложение на английском языке.</p>
 </body>
 </html>
