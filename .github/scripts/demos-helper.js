@@ -34,7 +34,7 @@ if (ghKey) {
     const metaKeys = Object.keys(meta)
     for (const chapter in issueLists) {
       if (fileName.indexOf(chapter) == 0) {
-        const item = printItem(fileName, meta.title, metaKeys.includes('contributors') && metaKeys['contributors'].includes('skorobaeus'), meta.tags ? meta.tags.includes('placeholder') : false)
+        const item = printItem(fileName, meta.title, metaKeys.includes('contributors') && meta['contributors'].includes('skorobaeus'), meta.tags ? meta.tags.includes('placeholder') : false)
         issueLists[chapter].push(item)
       }
     }
