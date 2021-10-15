@@ -36,8 +36,8 @@ const setupLabels = async (ghKey, pullNumber) => {
       removed: []
     }
 
-    for (const index in fileObjects) {
-      const file = fileObjects[index]
+    for (const index in fileObjects['data']) {
+      const file = fileObjects['data'][index]
       console.log(file)
       files[file.status].push[file.filename]
     }
