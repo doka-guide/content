@@ -9,7 +9,7 @@ const repo = 'content'
 
 const setupLabels = async (ghKey, pullNumber) => {
   if (ghKey && pullNumber > 0) {
-    const rawLabelPatterns = fs.readFileSync('../../.labeler.json')
+    const rawLabelPatterns = fs.readFileSync('.labeler.json')
     const labelPatterns = JSON.parse(rawLabelPatterns)
 
     const octokit = new Octokit({ auth: ghKey })
