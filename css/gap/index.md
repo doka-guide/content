@@ -4,6 +4,7 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
   - parabolabam
 keywords:
   - отступы между грид-ячейками
