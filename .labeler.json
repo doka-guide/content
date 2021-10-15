@@ -2,22 +2,22 @@
   "files": {
     "css": {
       "added": [
-        "css/*/*.md"
+        "css\/*\/*.md"
       ]
     },
     "html": {
       "added": [
-        "html/*/*.md"
+        "html\/*\/*.md"
       ]
     },
     "js": {
       "added": [
-        "js/*/*.md"
+        "js\/*\/*.md"
       ]
     },
     "tools": {
       "added": [
-        "tools/*/*.md"
+        "tools\/*\/*.md"
       ]
     },
     "доработка": {
@@ -25,36 +25,36 @@
         "README.md",
         "LICENSE-ND.md",
         "LICENSE-SA.md",
-        "docs/*.md",
-        "docs/*/*.md",
-        "docs/images/*.png",
-        "docs/license/*/*.svg",
-        "pages/*/index.md",
-        "people/*/index.md"
+        "docs\/*.md",
+        "docs\/*\/*.md",
+        "docs/images\/*.png",
+        "docs/license\/*\/*.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
       ]
     },
     "кухня": {
       "added": [
-        ".github/*.yml",
-        ".github/scripts/*.js",
-        ".github/workflows/*.yml"
+        ".github\/*.yml",
+        ".github\/scripts\/*.js",
+        ".github\/workflows\/*.yml"
       ]
     },
     "улучшение": {
       "modified": [
-        "css/*/*.md",
-        "html/*/*.md",
-        "js/*/*.md",
-        "tools/*/*.md",
+        "css\/*\/*.md",
+        "html\/*\/*.md",
+        "js\/*\/*.md",
+        "tools\/*\/*.md",
         "README.md",
         "LICENSE-ND.md",
         "LICENSE-SA.md",
-        "docs/*.md",
-        "docs/*/*.md",
-        "docs/images/*.png",
-        "docs/license/*/*.svg",
-        "pages/*/index.md",
-        "people/*/index.md"
+        "docs\/*.md",
+        "docs\/*\/*.md",
+        "docs\/images\/*.png",
+        "docs\/license\/*\/*.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
       ]
     }
   },
@@ -62,30 +62,30 @@
     "skorobaeus": {
       "демо": {
         "modified": [
-          "css/*/demos/*/*.html",
-          "html/*/demos/*/*.html",
-          "js/*/demos/*/*.html",
-          "tools/*/demos/*/*.html"
+          "css\/*/demos\/*\/*.html",
+          "html\/*/demos\/*\/*.html",
+          "js\/*/demos\/*\/*.html",
+          "tools\/*/demos\/*\/*.html"
         ]
       }
     },
     "tachisis": {
       "редактура": {
         "modified": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md",
+          "css\/*\/*.md",
+          "html\/*\/*.md",
+          "js\/*\/*.md",
+          "tools\/*\/*.md",
           ".yaspeller.json",
           "README.md",
           "LICENSE-ND.md",
           "LICENSE-SA.md",
-          "docs/*.md",
-          "docs/*/*.md",
-          "docs/images/*.png",
-          "docs/license/*/*.svg",
-          "pages/*/index.md",
-          "people/*/index.md"
+          "docs\/*.md",
+          "docs\/*\/*.md",
+          "docs\/images\/*.png",
+          "docs\/license\/*\/*.svg",
+          "pages\/*/index.md",
+          "people\/*/index.md"
         ]
       }
     }
@@ -93,28 +93,34 @@
   "meta": {
     "tags": {
       "doka": {
-        "дока": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md"
-        ]
+        "дока": {
+          "added": [
+            "css\/*\/index.md",
+            "html\/*\/index.md",
+            "js\/*\/index.md",
+            "tools\/*\/index.md"
+          ]
+        }
       },
       "article": {
-        "статья": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md"
-        ]
+        "статья": {
+          "added": [
+            "css\/*\/index.md",
+            "html\/*\/index.md",
+            "js\/*\/index.md",
+            "tools\/*\/index.md"
+          ]
+        }
       },
       "placeholder": {
-        "placeholder": [
-          "css/*/*.md",
-          "html/*/*.md",
-          "js/*/*.md",
-          "tools/*/*.md"
-        ]
+        "placeholder": {
+          "added": [
+            "css\/*\/index.md",
+            "html\/*\/index.md",
+            "js\/*\/index.md",
+            "tools\/*\/index.md"
+          ]
+        }
       }
     }
   }
