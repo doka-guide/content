@@ -69,7 +69,7 @@ const setupLabels = async (ghKey, pullNumber) => {
     for (const index in fileObjects.data) {
       const file = fileObjects.data[index]
       files[file.status].push(file.filename)
-      if (labelRules.meta? && (new RegExp('.+.md', 'i')).test(file.filename)) {
+      if (Object.keys(labelRules).includes('meta') && (new RegExp('.+.md', 'i')).test(file.filename)) {
         const content = fs.readFileSync(file.filename, { encoding: 'utf8', flag: 'r' })
         const data = fm(content)
         for (const field in labelRules.meta) {
