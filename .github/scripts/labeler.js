@@ -19,10 +19,8 @@ const selectLabels = (selectedFiles, selectedRules) => {
             if (Object.keys(selectedFiles).includes(status)) {
               const regExp = new RegExp(pattern, 'i')
               selectedFiles[status].forEach(file => {
-                console.log(status, regExp, file)
                 const isValid = regExp.test(file)
-                const isNotInList = output.indexOf(label) < 0
-                console.log(isValid, isNotInList)
+                const isNotInList = output.has(label)
                 if (isValid && isNotInList) {
                   output.add(label)
                 }
