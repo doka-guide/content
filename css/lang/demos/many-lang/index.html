@@ -7,23 +7,32 @@
     body {
       font-family: "Roboto", sans-serif;
     }
-    p:lang(de) {
-      font-size: 16px;
-      color:Tomato;
+    blockquote::before {
+      content: open-quote;
     }
-    p:lang(fr) {
-      font-size: 12px;
-      color:DodgerBlue;
+    blockquote::after {
+      content: close-quote;
     }
-    p:lang(en) {
-      font-size: 20px;
-      color:MediumSeaGreen;
+    blockquote:lang(de) {
+      quotes: "„" "“";
+    }
+    blockquote:lang(fr) {
+      quotes: "«" "»";
+    }
+    blockquote:lang(en) {
+      quotes: "“" "”";
     }
   </style>
 </head>
 <body>
-  <p lang="de">Предложение на немецком языке.</p>
-  <p lang="fr">Предложение на французском языке.</p>
-  <p lang="en">Предложение на английском языке.</p>
+  <blockquote lang="de">
+    Der Mensch, versuche die Gotter nicht.
+  </blockquote>
+  <blockquote lang="fr">
+    Ce que femme veut, Dieu le veut.
+  </blockquote>
+  <blockquote lang="en">
+    То be or not to be.
+  </blockquote>
 </body>
 </html>

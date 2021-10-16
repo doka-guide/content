@@ -16,23 +16,32 @@ tags:
 Предложениям будут присвоены стили, в зависимости от языка, который указан в атрибуте [`lang`](/html/global-attrs/#lang) тэга [`<p>`](/html/p/).
 
 ```html
-<p lang="de">Предложение на немецком языке.</p>
-<p lang="fr">Предложение на французском языке.</p>
-<p lang="en">Предложение на английском языке.</p>
+<blockquote lang="de">
+  Der Mensch, versuche die Gotter nicht.
+</blockquote>
+<blockquote lang="fr">
+  Ce que femme veut, Dieu le veut.
+</blockquote>
+<blockquote lang="en">
+  То be or not to be.
+</blockquote>
 ```
 
 ```css
-p:lang(de) {
-  font-size: 16px;
-  color:Tomato;
+blockquote::before {
+  content: open-quote;
 }
-p:lang(fr) {
-  font-size: 12px;
-  color:DodgerBlue;
+blockquote::after {
+  content: close-quote;
 }
-p:lang(en) {
-  font-size: 20px;
-  color:MediumSeaGreen;
+blockquote:lang(de) {
+  quotes: "„" "“";
+}
+blockquote:lang(fr) {
+  quotes: "«" "»";
+}
+blockquote:lang(en) {
+  quotes: "“" "”";
 }
 ```
 
@@ -43,7 +52,7 @@ p:lang(en) {
 После любого [селектора](/css/attribute-selector/) ставим двоеточие и пишем ключевое слово `lang`. В скобках указываем, для какого языка применяются правила. Список доступных языков можно посмотреть в [ISO 639-1 Language Codes](http://xml.coverpages.org/iso639a.html).
 
 ```css
-div:lang(es) {
+p:lang(es) {
   background-color: orange;
   font-size: 16px;
 }
@@ -60,7 +69,7 @@ div:lang(es) {
 ```html
 <p><q lang="ru">lorem</q></p>
 <p><q lang="es">lorem</q></p>
-<p><q lang="dech">lorem</q></p>
+<p><q lang="de">lorem</q></p>
 ```
 
 <iframe title="Кавычки" src="demos/q/" height="120"></iframe>
