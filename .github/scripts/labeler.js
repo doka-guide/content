@@ -71,7 +71,6 @@ const setupLabels = async (ghKey, pullNumber) => {
     }
 
     const fileSelectedLabels = selectLabels(files, labelRules.files)
-    console.log(`По фильтру для файлов установлены: ${fileSelectedLabels}`)
     fileSelectedLabels.forEach(element => {
       labels.add(element)
     })
@@ -81,7 +80,6 @@ const setupLabels = async (ghKey, pullNumber) => {
       pullObject.assignee.forEach(person => {
         if (Object.keys(labelRules.assignee).includes(person)) {
           const assigneeSelectedLabel = selectLabels(files, labelRules.assignee[person])
-          console.log(`Для ${person} установлены: ${assigneeSelectedLabel}`)
           assigneeSelectedLabel.forEach(element => {
             labels.add(element)
           })
