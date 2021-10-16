@@ -19,11 +19,11 @@ tags:
 
 События бывают разных типов: клик, нажатие клавиши на клавиатуре, прокрутка страницы и т.д.
 
-Происходящие события можно слушать и выполнять код, когда нужное событие происходит. Например, при клике на кнопку показывать всплывающее окно.
+Происходящие события можно обрабатывать и выполнять код, когда нужное событие происходит. Например, при клике на кнопку показывать всплывающее окно.
 
 ## Как пишется
 
-Существует два способа слушать события:
+Существует два способа обработать события:
 
 - с помощью `on`-свойств DOM элементов
 - методом `addEventListener`
@@ -96,7 +96,7 @@ buttonElement.addEventListener('click', function() {
 Чтобы работать с объектом события, нужно добавить параметр в объявление обработчика:
 
 ```js
-// слушаем нажатие на кнопки клавиатуры
+// обрабатываем нажатие на кнопки клавиатуры
 window.addEventListener("keydown", function (event) {
   // используем объект события, чтобы получить информацию о нажатой клавише
   alert("Вы нажали на кнопку: " + event.key)
@@ -133,7 +133,7 @@ for(let i=0; i<buttons.length;++i) {
 let container = document.getElementById('container');
 let video = document.getElementById('cat');
 
-// слушаем событие click на <div>
+// обрабатываем событие click на <div>
 container.addEventListener('click', function() {
   const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#1A5AD7", "#AFC9DA",
                   "#FFD829", "#282A2E", "#5E6064"];
@@ -141,7 +141,7 @@ container.addEventListener('click', function() {
   container.style = `background-color: ${colors[randomColorIndex]}`;
 });
 
-// слушаем событие click на видео
+// обрабатываем событие click на видео
 video.addEventListener('click', function() {
   this.currentTime = 0; // отматываем видео на начало
   this.play();
@@ -164,7 +164,7 @@ video.addEventListener('click', function() {
 let active;
 let counter = 0;
 
-// слушаем событие click на всех <div>
+// обрабатываем событие click на всех <div>
 let divs = Array.from(document.querySelectorAll('div')).reverse();
 for(let i= 0; i < divs.length; ++i) {
   let isLast = (i + 1 === divs.length);
