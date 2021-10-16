@@ -77,15 +77,17 @@ const setupLabels = async (ghKey, pullNumber) => {
     })
 
 
-    pullObject.assignee.forEach(person => {
-      if (Object.keys(labelRules.assignee).includes(person)) {
-        const assigneeSelectedLabel = selectLabels(files, labelRules.assignee[person])
-        console.log(`Для ${person} установлены: ${assigneeSelectedLabel}`)
-        assigneeSelectedLabel.forEach(element => {
-          labels.add(element)
-        })
-      }
-    })
+    if (Object.keys(pullObject).includes('assignee')) {
+      pullObject.assignee.forEach(person => {
+        if (Object.keys(labelRules.assignee).includes(person)) {
+          const assigneeSelectedLabel = selectLabels(files, labelRules.assignee[person])
+          console.log(`Для ${person} установлены: ${assigneeSelectedLabel}`)
+          assigneeSelectedLabel.forEach(element => {
+            labels.add(element)
+          })
+        }
+      })
+    }
 
     const metaLabelRules = Object.keys(labelRules.meta)
 
