@@ -70,6 +70,7 @@ const setupLabels = async (ghKey, pullNumber) => {
     }
 
     const fileSelectedLabels = selectLabels(files, labelRules.files)
+    console.log(`По фильтру для файлов установлены следующие лейблы: ${fileSelectedLabels}`)
     newLabels.push(...fileSelectedLabels)
 
     const assigneeLabelRules = Object.keys(labelRules.assignee)
@@ -79,7 +80,7 @@ const setupLabels = async (ghKey, pullNumber) => {
       owner,
       repo,
       issue_number: pullNumber,
-      labels: newLabels.concat(oldLabels)
+      labels: newLabels
     })
   }
 }
