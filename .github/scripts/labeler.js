@@ -9,17 +9,12 @@ const repo = 'content'
 
 const selectLabels = (selectedFiles, selectedRules) => {
   const output = []
-  console.log(selectedRules)
-  for (const labelIndex in selectedRules) {
-    if (Object.hasOwnProperty.call(selectedRules, labelIndex)) {
-      const label = selectedRules[labelIndex]
+  for (const label in selectedRules) {
+    if (Object.hasOwnProperty.call(selectedRules, label)) {
       const labelRules = selectedRules[label]
-      console.log(labelRules)
-      for (const statusIndex in labelRules) {
-        if (Object.hasOwnProperty.call(labelRules, statusIndex)) {
-          const status = labelRules[statusIndex]
+      for (const status in labelRules) {
+        if (Object.hasOwnProperty.call(labelRules, status)) {
           const statusRules = labelRules[status]
-          console.log(statusRules)
           statusRules.forEach(pattern => {
             if (Object.keys(selectedFiles).includes(status)) {
               const regExp = new RegExp(pattern, 'i')
@@ -74,8 +69,7 @@ const setupLabels = async (ghKey, pullNumber) => {
       files[file.status].push(file.filename)
     }
 
-    const fileLabelRules = Object.keys(labelRules.files)
-    const fileSelectedLabels = selectLabels(files, fileLabelRules)
+    const fileSelectedLabels = selectLabels(files, labelRules.files)
     newLabels.push(...fileSelectedLabels)
 
     const assigneeLabelRules = Object.keys(labelRules.assignee)
