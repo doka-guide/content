@@ -86,12 +86,6 @@ const setupLabels = async (ghKey, pullNumber) => {
       }
     }
 
-    fs.readFile('./example.md', 'utf8', function(err, data){
-      if (err) throw err
-      const data = fm(data)
-      console.log(content)
-    })
-
     const fileSelectedLabels = selectLabels(files, labelRules.files)
     fileSelectedLabels.forEach(element => {
       labels.add(element)
