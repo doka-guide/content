@@ -1,4 +1,5 @@
 const { Octokit } = require("@octokit/core")
+const fm = require('front-matter')
 const fs = require('fs')
 
 const args = process.argv.slice(2)
@@ -68,13 +69,33 @@ const setupLabels = async (ghKey, pullNumber) => {
     for (const index in fileObjects.data) {
       const file = fileObjects.data[index]
       files[file.status].push(file.filename)
+      if (labelRules.meta? && (new RegExp('.+.md', 'i')).test(file.filename)) {
+        const content = fs.readFileSync(file.filename, { encoding: 'utf8', flag: 'r' })
+        const data = fm(content)
+        for (const field in labelRules.meta) {
+          if (Object.hasOwnProperty.call(labelRules.meta, field)) {
+            const fieldRules = labelRules.meta[field]
+            if (Object.keys(data).includes(field)) {
+              const metaSelectedLabels = selectLabels([file.filename], fieldRules.files)
+              metaSelectedLabels.forEach(element => {
+                labels.add(element)
+              })
+            }
+          }
+        }
+      }
     }
+
+    fs.readFile('./example.md', 'utf8', function(err, data){
+      if (err) throw err
+      const data = fm(data)
+      console.log(content)
+    })
 
     const fileSelectedLabels = selectLabels(files, labelRules.files)
     fileSelectedLabels.forEach(element => {
       labels.add(element)
     })
-
 
     if (Object.keys(pullObject).includes('assignee')) {
       pullObject.assignee.forEach(person => {
@@ -86,8 +107,6 @@ const setupLabels = async (ghKey, pullNumber) => {
         }
       })
     }
-
-    const metaLabelRules = Object.keys(labelRules.meta)
 
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
