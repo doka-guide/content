@@ -57,7 +57,7 @@ tags:
 Чтобы автоматизировать часть задач и избежать проблем, связанных с недостатками использования микросервисов, используют современные инструменты CI/CD. Наиболее популярные решения:
 
 - Для разработки: [GitLab CI](https://docs.gitlab.com/ee/ci/), [TeamCity](https://www.jetbrains.com/teamcity/), [Jenkins](https://www.jenkins.io), [Github Actions](https://github.com/features/actions), [Circle CI](https://circleci.com/), [Docker](https://www.docker.com).
-- Для оркестрации: [Nomad](https://www.hashicorp.com/products/nomad), [Apache Mesos](http://mesos.apache.org), [Kubernetes](https://kubernetes.io), [Docker Swarm](https://docs.docker.com/engine/swarm/).
+- Для оркестрации: [Nomad](https://www.hashicorp.com/products/nomad), [Apache Mesos](https://mesos.apache.org), [Kubernetes](https://kubernetes.io), [Docker Swarm](https://docs.docker.com/engine/swarm/).
 - Для обнаружения активных сервисов: [Consul](https://www.consul.io), [Eureka](https://cloud.spring.io/spring-cloud-netflix/reference/html/), [Apache Zookeeper](https://zookeeper.apache.org).
 - Для мониторинга: [Zabbix](https://www.zabbix.com), [ELK](https://www.elastic.co/what-is/elk-stack), [TICK](https://www.tickspot.com), [Prometheus](https://prometheus.io), [Grafana](https://grafana.com), [Graphite](https://graphiteapp.org).
 - Для организации очередей: [RabbitMQ](https://www.rabbitmq.com), [Apache Kafka](https://kafka.apache.org), [ActiveMQ](https://activemq.apache.org).
