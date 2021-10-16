@@ -8,7 +8,7 @@ const owner = 'doka-guide'
 const repo = 'content'
 
 const selectLabels = (selectedFiles, selectedRules) => {
-  const output = []
+  const output = new Set([])
   for (const label in selectedRules) {
     if (Object.hasOwnProperty.call(selectedRules, label)) {
       const labelRules = selectedRules[label]
@@ -24,7 +24,7 @@ const selectLabels = (selectedFiles, selectedRules) => {
                 const isNotInList = output.indexOf(label) < 0
                 console.log(isValid, isNotInList)
                 if (isValid && isNotInList) {
-                  output.push(label)
+                  output.add(label)
                 }
               })
             }
@@ -49,11 +49,10 @@ const setupLabels = async (ghKey, pullNumber) => {
       pull_number: pullNumber
     })
 
-    const newLabels = []
-    const oldLabels = []
+    const labels = new Set([])
     for (const index in pullObject.data.labels) {
       const labelObject = pullObject.data.labels[index]
-      oldLabels.push(labelObject.name)
+      labels.add(labelObject.name)
     }
 
     const fileObjects = await octokit.request('GET /repos/{owner}/{repo}/pulls/{pull_number}/files', {
@@ -74,17 +73,29 @@ const setupLabels = async (ghKey, pullNumber) => {
     }
 
     const fileSelectedLabels = selectLabels(files, labelRules.files)
-    console.log(`По фильтру для файлов установлены следующие лейблы: ${fileSelectedLabels}`)
-    newLabels.push(...fileSelectedLabels)
+    console.log(`По фильтру для файлов установлены: ${fileSelectedLabels}`)
+    fileSelectedLabels.forEach(element => {
+      labels.add(element)
+    })
 
-    const assigneeLabelRules = Object.keys(labelRules.assignee)
+
+    pullObject.assignee.forEach(person => {
+      if (Object.keys(labelRules.assignee).includes(person)) {
+        const assigneeSelectedLabel = selectLabels(files, labelRules.assignee[person])
+        console.log(`Для ${person} установлены: ${assigneeSelectedLabel}`)
+        assigneeSelectedLabel.forEach(element => {
+          labels.add(element)
+        })
+      }
+    })
+
     const metaLabelRules = Object.keys(labelRules.meta)
 
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,
       issue_number: pullNumber,
-      labels: newLabels
+      labels: [...labels]
     })
   }
 }
