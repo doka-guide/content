@@ -90,7 +90,7 @@ async function getMainActorProfileFromMovie(id) {
     const characterUrl = movie.characters[0].split('//')[1];
     const charactrerResponse = await fetch(`https://${characterUrl}`);
     return charactrerResponse.json();
-  } catch(err) {
+  } catch (err) {
     console.error('Произошла ошибка!', err);
   }
 }

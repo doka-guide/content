@@ -115,7 +115,7 @@ function changeColor() {
 };
 
 let buttons = document.getElementsByTagName('button');
-for(let i=0; i<buttons.length;++i) {
+for (let i = 0; i < buttons.length; ++i) {
   let button = buttons[i];
   // к каждой кнопке привязываем обработчик
   button.addEventListener('click', changeColor); // обратите внимание, что мы не вызываем
@@ -137,7 +137,7 @@ let video = document.getElementById('cat');
 container.addEventListener('click', function() {
   const colors = ["#49A16C", "#064236", "#ED6742", "#F498AD", "#1A5AD7", "#AFC9DA",
                   "#FFD829", "#282A2E", "#5E6064"];
-  let randomColorIndex = Math.floor(Math.random()*colors.length);
+  let randomColorIndex = Math.floor(Math.random() * colors.length);
   container.style = `background-color: ${colors[randomColorIndex]}`;
 });
 
@@ -166,7 +166,7 @@ let counter = 0;
 
 // слушаем событие click на всех <div>
 let divs = Array.from(document.querySelectorAll('div')).reverse();
-for(let i= 0; i < divs.length; ++i) {
+for (let i = 0; i < divs.length; ++i) {
   let isLast = (i + 1 === divs.length);
   divs[i].addEventListener('click', clickHandlerGenerator(isLast));
 }

@@ -94,7 +94,7 @@ for (let i = 0; i < 5; i++) {
 ## Пример
 
 ```js
-for(let i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   if (i === 5) {
     console.log('break')
     break
@@ -122,7 +122,7 @@ break
 ## Пример
 
 ```js
-for(let i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
   if (i === 5) {
     console.log('continue')
     continue
