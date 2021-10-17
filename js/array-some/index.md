@@ -59,7 +59,7 @@ const areAllBallsAreGreen = balls.some((ball, index, arr) => ball === '🏈') //
 Для сравнения напишем пример через `for` или `while`.
 
 ```js
-const food = ['🍗' , '🍖', '🥓', '🥬', '🥩', '🍔']
+const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
 
 let hasAnySalad = false;
 
@@ -74,7 +74,7 @@ for (let i = 0; i < food.length; i++) {
 Метод `Array.some` позволит написать меньше кода и сделать его понятнее.
 
 ```js
-const food = ['🍗' , '🍖', '🥓', '🥬', '🥩', '🍔']
+const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
 
 const hasAnySalad = food.some(item => item === '🥬'); // true
 ```
