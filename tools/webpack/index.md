@@ -197,7 +197,7 @@ const { ProgressPlugin } = require("webpack")
 
 module.exports = {
   plugins: [
-    // при сборке этот плагин будет отображать прогресс в консоле
+    // при сборке этот плагин будет отображать прогресс в консоли
     new ProgressPlugin()
   ]
 }
