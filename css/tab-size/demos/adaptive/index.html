@@ -36,16 +36,16 @@
   </style>
 </head>
 <body>
-    <iframe src="code.html"></iframe>
-    <input type="range" min="300" max="470" value="300">
+  <iframe src="code.html"></iframe>
+  <input type="range" min="300" max="470" value="300">
 
-    <script>
-      const range = document.querySelector('input')
-      const frame = document.querySelector('iframe')
+  <script>
+    const range = document.querySelector('input')
+    const frame = document.querySelector('iframe')
 
-      range.addEventListener('input', () => {
-        frame.style.width = range.value + 'px'
-      })
-    </script>
+    range.addEventListener('input', () => {
+      frame.style.width = range.value + 'px'
+    })
+  </script>
 </body>
 </html>
