@@ -94,7 +94,8 @@ const arrayFetchUsers = users.map(user => fetch(`https://api.someapi.com/users/$
 
 Promise.all(arrayFetchUsers)
   .then(resonse => {
-    // Тут не забываем, что response - это массив результатов выполнения промисов
+    // Тут не забываем, что response — 
+    // это массив результатов выполнения промисов
     response.forEach(resp => {
       console.log(resp)
     })
