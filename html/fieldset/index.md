@@ -88,16 +88,16 @@ tags:
     <figcaption>Windows 10, Google Chrome 71.0</figcaption>
   </figure>
   <figure class="section__item">
-    <img src="images/mac-chrome-71.png" alt="MacOS Big Sur, Google Chrome 71.0">
-    <figcaption>MacOS Big Sur, Google Chrome 71.0</figcaption>
+    <img src="images/mac-chrome-71.png" alt="macOS Big Sur Big Sur, Google Chrome 71.0">
+    <figcaption>macOS Big Sur Big Sur, Google Chrome 71.0</figcaption>
   </figure>
   <figure class="section__item">
     <img src="images/win-10-edge-18.png" alt="Windows 10, Edge 18.0">
     <figcaption>Windows 10, Edge 18.0</figcaption>
   </figure>
   <figure class="section__item">
-    <img src="images/mac-safari-14.jpg" alt="MacOS Big Sur, Safari 14.0">
-    <figcaption>MacOS Big Sur, Safari 14.0</figcaption>
+    <img src="images/mac-safari-14.jpg" alt="macOS Big Sur Big Sur, Safari 14.0">
+    <figcaption>macOS Big Sur Big Sur, Safari 14.0</figcaption>
   </figure>
   <figure class="section__item">
     <img src="images/win-8-ie10.png" alt="Windows 8, Internet Explorer 10.0">
