@@ -3,6 +3,8 @@ title: "Promise. Метод all"
 description: "Метод all используют для того, чтобы запустить несколько промисов параллельно и дождаться, когда они все выполнятся."
 authors:
   - yurlovr
+editors:
+  - tachisis
 tags:
   - doka
 ---
