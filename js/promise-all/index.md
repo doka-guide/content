@@ -86,7 +86,8 @@ Promise.all([promise1, promise2, promise3])
 
 ## Пример
 
-В примере показана возможность использования метода `all` для получения данных пользователей через запрос к api
+Вот так можно использовать метод `all` для получения данных пользователей через запрос к API:
+
 ```js
 const users = ['userId1', 'userId2', 'userId3']
 const arrayFetchUsers = users.map(user => fetch(`https://api.someapi.com/users/${user}`))
