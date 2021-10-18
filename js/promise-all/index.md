@@ -52,6 +52,7 @@ Promise.all([promise1, promise2, promise3])
 
 ```js
 const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
+
 // Следующий промис завершится с ошибкой
 const promise2 = new Promise((resolve, reject) => setTimeout(() => reject('error'), 2000))
 const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000))
