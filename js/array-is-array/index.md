@@ -13,11 +13,11 @@ tags:
 
 ```js
 const a = []
-console.log(typeof a) // 'object'
+console.log(typeof a)
+// 'object'
 ```
 
-Поскольку массивы используются везде и повсеместно, был создан специальный метод
-`Array.isArray`.
+Поскольку массивы используются везде и повсеместно, был создан специальный метод `Array.isArray`.
 
 Он принимает один параметр, то что мы хотим проверить — `Array.isArray(value)`.
 
@@ -26,31 +26,48 @@ console.log(typeof a) // 'object'
 В следующих ситуациях метод вернёт `true`:
 
 ## Пример
+
 ```js
-Array.isArray([]) // true
-Array.isArray(new Array(1, 2, 3)) // true
-Array.isArray([undefined]) // true
-Array.isArray(Array()) // true
-Array.isArray(Array.prototype) // true
+Array.isArray([])
+// true
+Array.isArray(new Array(1, 2, 3))
+// true
+Array.isArray([undefined])
+// true
+Array.isArray(Array())
+// true
+Array.isArray(Array.prototype)
+// true
 ```
+
 А вот несколько примеров, когда мы получим `false`:
 
 ## Пример
+
 ```js
-Array.isArray({}) // false
-Array.isArray(1) // false
-Array.isArray('array') // false
-Array.isArray(null) // false
-Array.isArray(undefined) // false
-Array.isArray(new Uint8Array()) // false
+Array.isArray({})
+// false
+Array.isArray(1)
+// false
+Array.isArray('array')
+// false
+Array.isArray(null)
+// false
+Array.isArray(undefined)
+// false
+Array.isArray(new Uint8Array())
+// false
 ```
 
 И еще один случай, о котором бывает, что забывают:
+
 ## Пример
+
 ```js
 // Получим все элементы div
 const nodes = document.querySelectorAll('div')
-Array.isArray(nodes) // false
+Array.isArray(nodes)
+// false
 ```
-Это связано с тем, что мы получаем не массив, а объект `NodeList` — это список (набор) узлов, извлеченных из документа.
-А это уже совсем другая история.
+
+Это связано с тем, что мы получаем не массив, а объект `NodeList` — это список (набор) узлов, извлеченных из документа. А это уже совсем другая история.
