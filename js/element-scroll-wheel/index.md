@@ -21,7 +21,7 @@ tags:
 Стандартно с помощью `addEventListener`:
 
 ```jsx
-// слушаем скролл на всей странице
+// обрабатываем скролл на всей странице
 document.addEventListener('scroll', function(event) {
   // регируем на событие
   console.log(event);

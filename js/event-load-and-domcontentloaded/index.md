@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
   console.log("load!")
 })
 
-// это событие можно слушать так же и на document
+// это событие можно обрабатывать так же и на document
 window.addEventListener("DOMContentLoaded", function () {
   console.log("dom loaded!")
 })
