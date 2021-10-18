@@ -72,7 +72,8 @@ Promise.all([promise1, promise2, promise3])
 
 ## Пример
 
-Передадим в `all` не только промисы...
+Передадим в `all` не только промисы:
+
 ```js
 const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
 
