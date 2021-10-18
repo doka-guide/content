@@ -265,7 +265,7 @@ delete user.name
 import { user } from "./module1.js"
 
 // ...А в следующем попытаемся вывести его,
-// оно будет неопределено.
+// оно будет не определено.
 console.log(user.name) // undefined'
 
 // Чтобы избежать такой ситуации,
@@ -291,7 +291,7 @@ import { createUser } from "./module1.js"
 
 // В этот раз мы создаём новый объект:
 const user = createUser()
-// ...и удаляем поле у свежесзданного объекта:
+// ...и удаляем поле у свежесозданного объекта:
 delete user.name
 
 // module3.js
