@@ -16,10 +16,10 @@ tags:
 :::
 
 ## Кратко
+
 Метод `all` — это один из статических методов объекта `Promise`.
 
-Метод `all` используют, когда нужно запустить несколько промисов параллельно и дождаться их выполнения.
-Он принимает массив промисов и возвращает новый промис, который будет выполнен, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента, или отклонён, если хотя бы один из переданных промисов завершится с ошибкой.
+Метод `all` используют, когда нужно запустить несколько промисов параллельно и дождаться их выполнения. Он принимает массив промисов и возвращает новый промис, который будет выполнен, когда будут выполнены все промисы, переданные в виде перечисляемого аргумента, или отклонён, если хотя бы один из переданных промисов завершится с ошибкой.
 
 Метод `all` возвращает массив значений всех переданных промисов, при этом сохраняя порядок оригинального (переданного) массива, но не порядок выполнения.
 
@@ -36,9 +36,12 @@ const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000))
 // Передаем массив из созданных промисов в Promise.all
 Promise.all([promise1, promise2, promise3])
   .then(([response1, response2, response3 ]) => {
-    console.log(response1) // 1
-    console.log(response2) // 2
-    console.log(response3) // 3
+    console.log(response1)
+    // 1
+    console.log(response2)
+    // 2
+    console.log(response3)
+    // 3
   });
 ```
 
@@ -64,7 +67,8 @@ Promise.all([promise1, promise2, promise3])
     console.log(response3)
   })
   .catch(error => {
-    console.error(error) // error
+    console.error(error)
+    // error
   })
 ```
 
@@ -78,18 +82,23 @@ Promise.all([promise1, promise2, promise3])
 const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
 
 // Ниже пройдет преобразование переменных в промис, и он тут же выпонится
-const promise2 = 2  // Promise.resolve(2)
-const promise3 = 3 // Promise.resolve(3)
+const promise2 = 2
+// Promise.resolve(2)
+const promise3 = 3
+// Promise.resolve(3)
 
 Promise.all([promise1, promise2, promise3])
   .then(([response1, response2, response3 ]) => {
-    console.log(response1) // 1
-    console.log(response2) // 2
-    console.log(response3) // 3
+    console.log(response1)
+    // 1
+    console.log(response2)
+    // 2
+    console.log(response3)
+    // 3
   });
 ```
 
-Довольно частое использование - это преобразовать массив с помощью `map`, создав для каждого элемента промис, а затем передать полученный массив в `Promise.all`. Это позволит дождаться выполнения всех промисов, а затем обработать результат.
+Довольно частое использование — это преобразовать массив с помощью `map`, создав для каждого элемента промис, а затем передать полученный массив в `Promise.all`. Это позволит дождаться выполнения всех промисов, а затем обработать результат.
 
 ## Пример
 
@@ -112,7 +121,7 @@ Promise.all(arrayFetchUsers)
     console.error(error)
   })
 ```
+
 ## Как пишется
 
-  `Promise.all(iterable)`, где iterable — перечисляемый объект, чаще всего массив.
-
+`Promise.all(iterable)`, где iterable — перечисляемый объект, чаще всего массив.
