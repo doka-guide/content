@@ -39,7 +39,7 @@ const usernamesById = users.reduce(function (result, user) {
     [user.id]: user.name,
   }
 }, {})
-// { '1': 'John', '2': 'Anna' , '3': 'Kate' }
+// { '1': 'John', '2': 'Anna', '3': 'Kate' }
 ```
 
 Интерактивный пример:
