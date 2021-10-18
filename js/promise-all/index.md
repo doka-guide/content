@@ -69,6 +69,7 @@ Promise.all([promise1, promise2, promise3])
 Передадим в `all` не только промисы...
 ```js
 const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
+
 // Ниже пройдет преобразование переменных в промис, и он тут же выпонится
 const promise2 = 2  // Promise.resolve(2)
 const promise3 = 3 // Promise.resolve(3)
