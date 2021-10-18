@@ -20,7 +20,7 @@ tags:
 
 ## Настройка Apache
 
-Веб-сервер Apache был разработан в 1995 году [Apache Software Foundation](http://www.apache.org) как замена [NCSA HTTPd](https://ru.wikipedia.org/wiki/NCSA_HTTPd). В Unix-подобных операционных системах, как правило, Apache поставляется вместе с дистрибутивом как служба `httpd`. На Windows Apache необходимо установить и запустить в качестве службы ([инструкция](https://httpd.apache.org/docs/current/platform/windows.html)).
+Веб-сервер Apache был разработан в 1995 году [Apache Software Foundation](https://apache.org/) как замена [NCSA HTTPd](https://ru.wikipedia.org/wiki/NCSA_HTTPd). В Unix-подобных операционных системах, как правило, Apache поставляется вместе с дистрибутивом как служба `httpd`. На Windows Apache необходимо установить и запустить в качестве службы ([инструкция](https://httpd.apache.org/docs/current/platform/windows.html)).
 
 Существует несколько заранее подготовленных программных пакетов в виде приложений с графическим интерфейсом пользователя, в которых уже установлены и настроены для совместной работы веб-сервер Apache, база данных и интерпретатор для скриптового языка. Наиболее популярными являются пакеты AMP (аббревиатура от Apache + MySQL/MariaDB + Perl/PHP/Python). Благодаря простоте установки и настройки, поддержке разных операционных систем наиболее популярным пакетом является [XAMPP](https://www.apachefriends.org/index.html).
 

@@ -186,7 +186,7 @@ const bigNumber = 100000000
 console.log(bigNumber.toLocaleString('es', { style: 'currency', currency: 'EUR' }))
 // 100.000.000,00 €
 
-console.log(bigNumber.toLocaleString('ru', { style: 'currency', currency: 'RUB' , minimumFractionDigits: 0 }))
+console.log(bigNumber.toLocaleString('ru', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }))
 // 100 000 000 ₽
 ```
 

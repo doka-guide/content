@@ -70,7 +70,7 @@ document.cookie = "sidebar=true"; // -> "counter=1; sidebar=true;"
 document.cookie = "sidebar=true;secure;samesite=strict;max-age=3600";
 ```
 
-![все возможные параметры уставновки куки](images/cookie-scheme.png)
+![Все возможные параметры установки куки](images/cookie-scheme.png)
 
 ::: callout 💡
 

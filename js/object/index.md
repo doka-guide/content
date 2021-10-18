@@ -41,7 +41,7 @@ const book = {
 Значением может быть другой объект или массив:
 
 ```js
-cat cat = {
+const cat = {
   kittens: ['Беляш', 'Михаил', 'Чарли'],
   favoriteToy: {
     name: 'мячик',
