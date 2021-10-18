@@ -12,6 +12,7 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
+      diff: ${{ steps.files.outputs.diff }}
       files: ${{ steps.files.outputs.all }}
     steps:
       - name: Загрузка контента
