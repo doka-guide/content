@@ -100,7 +100,7 @@ Promise.all(arrayFetchUsers)
       console.log(resp)
     })
   })
-  // ну и не забываем обработать ошибку
+  // Не забываем обработать ошибку
   .catch(error => {
     console.error(error)
   })
