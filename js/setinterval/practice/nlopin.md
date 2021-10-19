@@ -7,7 +7,7 @@
 ```js
 let timerId;
 
-timerId = setTimeout(function work(){
+timerId = setTimeout(function work() {
   console.log('я выполняюсь через секунду после предыдущей')
   timerId = setTimeout(work, 1000)
 }, 1000)

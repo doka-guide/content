@@ -4,7 +4,7 @@
 
 ```js
 const movies = ['Good Will Hunting', 'Raining Man', 'Beautiful Mind']
-for(let i = 0; i < movies.length; i++) {
+for (let i = 0; i < movies.length; i++) {
   console.log(movies[i])
 }
 ```
