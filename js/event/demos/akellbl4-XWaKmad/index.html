@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - event targets</title>
-</head>
-<body>
-<style>
-	.button {
-		appearance: none;
-		border: 2px solid #ccc;
-		margin: 0;
-		padding: 0;
-		border-radius: 8px;
-		background: #fff;
-	}
-	.button:hover {
-		border-color: #FFD829;
-	}
-  .button-label {
-    background: #ccc;
-    margin: 16px;
-    padding: 16px 24px;
-		border-radius: 4px;
-		font-size: 16px;
-  }
-	.button-label:hover {
-		background: #FFD829;
-	}
-</style>
-<button class="button" type="button">
-  <div class="button-label">Моя кнопочка</div>
-</button>
-<script>
-  document.querySelector('.button').addEventListener('click', function (event) {
-    console.log('Событие инициированно на', event.target)
-    console.log('Событие поймано на', event.currentTarget)
-  })
-</script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - event targets</title>
+  </head>
+  <body>
+    <style>
+      .button {
+        appearance: none;
+        border: 2px solid #ccc;
+        margin: 0;
+        padding: 0;
+        border-radius: 8px;
+        background: #fff;
+      }
+      .button:hover {
+        border-color: #ffd829;
+      }
+      .button-label {
+        background: #ccc;
+        margin: 16px;
+        padding: 16px 24px;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+      .button-label:hover {
+        background: #ffd829;
+      }
+    </style>
+    <button class="button" type="button">
+      <div class="button-label">Моя кнопочка</div>
+    </button>
+    <script>
+      document
+        .querySelector(".button")
+        .addEventListener("click", function (event) {
+          console.log("Событие инициированно на", event.target);
+          console.log("Событие поймано на", event.currentTarget);
+        });
+    </script>
+  </body>
 </html>
