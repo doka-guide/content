@@ -5,46 +5,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #064236;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
 
     .card {
-      width: 430px;
+      width: 600px;
       margin: 0 auto;
-      padding: 25px;
-      color: #333333;
+      padding: 55px 40px;
+      color: #000000;
       text-align: center;
-      background: #f9f9f9;
+      background: #2E9AFF;
     }
 
     .card__icon {
       display: inline-block;
-      width: 46px;
-      height: 46px;
-      background: url("images/doka-eyes.png") no-repeat center /
-    cover;
+      width: 50px;
+      height: 50px;
+      background: url("images/doka-eyes.png") no-repeat center / cover;
     }
 
     .card__title {
-      max-width: 60%;
+      max-width: 50%;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 15px;
+      margin-top: 27px;
+      margin-bottom: 17px;
+      color: #ffffff;
       font-weight: 500;
       font-size: 30px;
-      line-height: 1.05;
+      line-height: 1;
+    }
+
+    .card__title::first-line {
+      color: #000000;
     }
 
     .card__text {
-      max-width: 65%;
+      max-width: 50%;
       margin: 0 auto;
       font-size: 16px;
+      line-height: 1.05;
     }
   </style>
 </head>
