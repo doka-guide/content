@@ -87,9 +87,11 @@ h1.someclass {
 
 ```css
 .someclass {
-  border: none !important
+  color: green !important
 }
 ```
+
+В результате, цвет элемента `<h1>` изменится на зеленый.
 
 ### Легаси
 
