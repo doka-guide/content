@@ -120,4 +120,4 @@ span {
 }
 ```
 
-<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="400"></iframe>
+<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="420"></iframe>
