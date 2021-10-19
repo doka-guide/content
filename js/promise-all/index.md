@@ -35,14 +35,14 @@ const promise3 = new Promise(resolve => setTimeout(() => resolve(3), 1000))
 
 // Передаем массив из созданных промисов в Promise.all
 Promise.all([promise1, promise2, promise3])
-  .then(([response1, response2, response3 ]) => {
+  .then(([response1, response2, response3]) => {
     console.log(response1)
     // 1
     console.log(response2)
     // 2
     console.log(response3)
     // 3
-  });
+  })
 ```
 
 Если передать пустой массив, то `Promise.all` будет выполнен немедленно.
@@ -88,14 +88,14 @@ const promise3 = 3
 // Promise.resolve(3)
 
 Promise.all([promise1, promise2, promise3])
-  .then(([response1, response2, response3 ]) => {
+  .then(([response1, response2, response3]) => {
     console.log(response1)
     // 1
     console.log(response2)
     // 2
     console.log(response3)
     // 3
-  });
+  })
 ```
 
 Довольно частое использование — это преобразовать массив с помощью `map`, создав для каждого элемента промис, а затем передать полученный массив в `Promise.all`. Это позволит дождаться выполнения всех промисов, а затем обработать результат.
