@@ -43,7 +43,7 @@ tags:
 
 ```html
 <head>
-  <style type="text/css">
+  <style>
     ...;
   </style>
 </head>
@@ -61,7 +61,6 @@ tags:
   - `projection` — проектор;
   - `tty` — телетайпы, терминалы, портативные устройства с ограниченными возможностями экрана;
   - `tv` — телевизор.
-- `type` — укажи этот атрибут со значением `"text/css"`, чтобы старые браузеры правильно отобразили CSS-стили на странице: `type="text/css"`.
 
 ## Ещё примеры
 
@@ -73,7 +72,7 @@ tags:
   <head>
     <meta charset="utf-8">
     <title>Кулинаный блог Марфы</title>
-    <style type="text/css">
+    <style>
       h1 {
         font-size: 30px;
         font-family: "Roboto", sans-serif;
