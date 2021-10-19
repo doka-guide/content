@@ -53,7 +53,7 @@ function onlyOdd(array) {
 
   for (const element of array) {
     if (element % 2 !== 0) {
-      result.push(array[element])
+      result.push(element)
     }
   }
 
