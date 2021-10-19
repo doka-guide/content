@@ -77,7 +77,7 @@ tags:
 
 ```css
 h1.header {
-	color: green;
+  color: green;
 }
 ```
 
@@ -85,7 +85,7 @@ h1.header {
 
 ```css
 .header {
-  color: green !important
+  color: green !important;
 }
 ```
 
