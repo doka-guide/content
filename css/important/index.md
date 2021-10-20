@@ -2,6 +2,8 @@
 title: "!important"
 authors:
   - solarrust
+contributors:
+  - ivanstrilets
 editors:
   - tachisis
 keywords:
