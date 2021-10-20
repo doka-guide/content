@@ -18,10 +18,11 @@
         border-color: #ffd829;
       }
       .button-label {
-        background: #ccc;
+        display: block;
         margin: 16px;
         padding: 16px 24px;
         border-radius: 4px;
+        background: #ccc;
         font-size: 16px;
       }
       .button-label:hover {
@@ -29,15 +30,21 @@
       }
     </style>
     <button class="button" type="button">
-      <div class="button-label">Моя кнопочка</div>
+      <span class="button-label">Моя кнопочка</div>
     </button>
+    <div class="output"></div>
     <script>
-      document
-        .querySelector(".button")
-        .addEventListener("click", function (event) {
-          console.log("Событие инициированно на", event.target);
-          console.log("Событие поймано на", event.currentTarget);
+      (function () {
+        const outputElement = document.querySelector(".output")
+        const buttonElement = document.querySelector(".button")
+
+        buttonElement.addEventListener("click", function (event) {
+          outputElement.innerHTML = `
+            <pre><strong>target:</strong> ${event.target.innerHTML}</pre>
+            <pre><strong>currentTarget:</strong> ${event.currentTarget.innerHTML}</pre>
+          `
         });
+      })()
     </script>
   </body>
 </html>
