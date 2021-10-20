@@ -1,50 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>CodePen - event targets</title>
-  </head>
-  <body>
-    <style>
-      .button {
-        appearance: none;
-        border: 2px solid #ccc;
-        margin: 0;
-        padding: 0;
-        border-radius: 8px;
-        background: #fff;
-      }
-      .button:hover {
-        border-color: #ffd829;
-      }
-      .button-label {
-        display: block;
-        margin: 16px;
-        padding: 16px 24px;
-        border-radius: 4px;
-        background: #ccc;
-        font-size: 16px;
-      }
-      .button-label:hover {
-        background: #ffd829;
-      }
-    </style>
-    <button class="button" type="button">
-      <span class="button-label">Моя кнопочка</div>
-    </button>
-    <div class="output"></div>
-    <script>
-      (function () {
-        const outputElement = document.querySelector(".output")
-        const buttonElement = document.querySelector(".button")
+<html lang="ru">
+<head>
+  <title>Разница между target и currentTarget — Событие Event — Докa</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
 
-        buttonElement.addEventListener("click", function (event) {
-          outputElement.innerHTML = `
-            <pre><strong>target:</strong> ${event.target.innerHTML}</pre>
-            <pre><strong>currentTarget:</strong> ${event.currentTarget.innerHTML}</pre>
-          `
-        });
-      })()
-    </script>
-  </body>
+    .button {
+      appearance: none;
+      border: 2px solid #ccc;
+      margin: 0;
+      padding: 0;
+      border-radius: 8px;
+      background: #fff;
+      font: inherit;
+    }
+
+    .button:hover {
+      border-color: #ffd829;
+    }
+
+    .button-label {
+      display: block;
+      margin: 16px;
+      padding: 16px 24px;
+      border-radius: 4px;
+      background: #ccc;
+      font-size: 16px;
+    }
+
+    .button-label:hover {
+      background: #ffd829;
+    }
+  </style>
+</head>
+<body>
+  <button class="button" type="button">
+    <span class="button-label">Моя кнопочка</div>
+  </button>
+  <div class="output"></div>
+  <script>
+    (function () {
+      const outputElement = document.querySelector('.output')
+      const buttonElement = document.querySelector('.button')
+
+      buttonElement.addEventListener('click', function (event) {
+        outputElement.innerHTML = `
+          <pre><strong>target:</strong> ${event.target.innerHTML}</pre>
+          <pre><strong>currentTarget:</strong> ${event.currentTarget.innerHTML}</pre>
+        `
+      })
+    })()
+  </script>
+</body>
 </html>
