@@ -2,6 +2,8 @@
 title: "`for`"
 authors:
   - doka-dog
+contributors:
+  - yurlovr
 keywords:
   - итерация
   - обход

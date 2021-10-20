@@ -10,6 +10,7 @@ authors:
   - bespoyasov
 contributors:
   - nlopin
+  - maxmaxme
 editors:
   - tachisis
 keywords:
