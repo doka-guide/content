@@ -44,7 +44,7 @@ tags:
 ```html
 <head>
   <style>
-    ...;
+    /* Стили */
   </style>
 </head>
 ```
