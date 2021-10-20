@@ -11,7 +11,6 @@ jobs:
   prepare:
     runs-on: ubuntu-latest
     outputs:
-      diff: ${{ steps.files.outputs.diff }}
       files: ${{ steps.files.outputs.all }}
     steps:
       - name: Загрузка контента
@@ -21,9 +20,6 @@ jobs:
       - name: Выборка файлов для формирования списка
         id: files
         run: |
-          files=$(echo "$(git diff --name-only ${{ github.event.workflow_run.pull_requests[0].base.sha }} ${{ github.event.workflow_run.pull_requests[0].head.sha }})")
-          list=$(echo $files | tr '\n' ' ')
-          echo "::set-output name=diff::$list"
           pr_files=$(echo $(curl \
             -H "Accept: application/vnd.github.v3+json" \
             https://api.github.com/repos/doka-guide/content/pulls/${{ github.event.workflow_run.pull_requests[0].number }}/files))
