@@ -8,4 +8,4 @@
 })
 ```
 
-<iframe title="Название — Event target/currentTarget — Дока" src="../demos/akellbl4-XWaKmad/" height="150"></iframe>
+<iframe title="Разница между target и currentTarget — Событие Event — Дока" src="../demos/akellbl4-XWaKmad/" height="150"></iframe>
