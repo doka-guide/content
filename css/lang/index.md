@@ -17,29 +17,35 @@ tags:
 
 ```html
 <blockquote lang="de">
-  Der Mensch, versuche die Gotter nicht.
+  <p>Der Mensch, versuche die Gotter nicht.</p>
 </blockquote>
+
 <blockquote lang="fr">
-  Ce que femme veut, Dieu le veut.
+  <p>Ce que femme veut, Dieu le veut.</p>
 </blockquote>
+
 <blockquote lang="en">
-  То be or not to be.
+  <p>То be or not to be.</p>
 </blockquote>
 ```
 
 ```css
-blockquote::before {
+blockquote p::before {
   content: open-quote;
 }
-blockquote::after {
+
+blockquote p::after {
   content: close-quote;
 }
+
 blockquote:lang(de) {
   quotes: "„" "“";
 }
+
 blockquote:lang(fr) {
   quotes: "«" "»";
 }
+
 blockquote:lang(en) {
   quotes: "“" "”";
 }
@@ -67,9 +73,9 @@ p:lang(es) {
 💡 Тег [`<q>`](/html/q/) автоматически изменяет вид кавычек в зависимости от языка.
 
 ```html
-<p><q lang="ru">lorem</q></p>
-<p><q lang="es">lorem</q></p>
-<p><q lang="de">lorem</q></p>
+<p><q lang="ru">слово</q></p>
+<p><q lang="es">palabra</q></p>
+<p><q lang="de">wort</q></p>
 ```
 
 <iframe title="Кавычки" src="demos/q/" height="120"></iframe>
