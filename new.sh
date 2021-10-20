@@ -88,7 +88,7 @@ mkdir $(echo "$CATEGORY/$FOLDER")
 touch $(echo "$CATEGORY/$FOLDER/index.md")
 cat <<EOF > $(echo "$CATEGORY/$FOLDER/index.md")
 ---
-title: "$TITLE"
+title: "\`$TITLE\`"
 description: ""
 authors:
   - $AUTHOR
