@@ -2,6 +2,7 @@
 title: "`:hover`"
 authors:
   - solarrust
+  - desen94
 contributors:
   - skorobaeus
 editors:
