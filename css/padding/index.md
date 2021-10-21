@@ -29,12 +29,12 @@ tags:
 
 ```css
 .parent {
-  /* Границы родительского элемента */
-  border: 1px solid #666;
+  /* Фон родительского элемента */
+  background-color: #2E9AFF;
 }
 ```
 
-<iframe title="Текст без padding" src="demos/no-padding/" height="242"></iframe>
+<iframe title="Текст без padding" src="demos/no-padding/" height="245"></iframe>
 
 Текстовый контент, вложенный в блок с классом `.parent`, занимает всю площадь родителя и плотно прилегает к краям.
 
@@ -42,13 +42,13 @@ tags:
 
 ```css
 .parent {
-  border: 1px solid #666;
-  /* Отступ по 10 пикселей со всех четырёх сторон. */
-  padding: 10px;
+  background-color: #2E9AFF;
+  /* Отступ по 55 пикселей по бокам и 40 пикселей сверху и снизу */
+  padding: 55px 40px;
 }
 ```
 
-<iframe title="Текст с padding" src="demos/w-padding/" height="362"></iframe>
+<iframe title="Текст с padding" src="demos/w-padding/" height="365"></iframe>
 
 Почему в данном случае не следует задавать [`margin`](/css/margin) или `padding` для элемента с классом `.content` чтобы оттолкнуть его от краёв родителя? Потому что нужно стараться верстать максимально гибко с расчётом на изменения в дальнейшем.
 
