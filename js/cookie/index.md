@@ -92,10 +92,10 @@ console.log(document.cookie);
 
 ```js
 function getCookie() {
-  return document.cookie.split("; ").reduce((accum, item) => {
+  return document.cookie.split("; ").reduce((acc, item) => {
     const [name, value] = item.split("=");
 
-    return { ...accum, [name]: value };
+    return { ...acc, [name]: value };
   }, {});
 }
 

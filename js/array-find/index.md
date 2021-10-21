@@ -19,10 +19,10 @@ tags:
 Опишем функцию, которая позволит определить, есть ли в списке дел моё любимое занятие. Поставим в константу просмотр сериальчиков и будем проверять: если занятие из ToDo-списка совпадает с моим хобби, то вернём его. В списке дел на завтра нет просмотра сериалов, а значит, вернётся `undefined`.
 
 ```js
-function isMyFavouriteHobby(element, index, array) {
-  const myFavouriteHobby = "смотреть сериальчики";
+function isMyFavoriteHobby(element, index, array) {
+  const myFavoriteHobby = "смотреть сериальчики";
 
-  return element === myFavouriteHobby;
+  return element === myFavoriteHobby;
 }
 
 const currentToDoList = [
@@ -40,10 +40,10 @@ const tomorrowToDoList = [
 ];
 
 // Результат выполнения: смотреть сериальчики
-console.log(currentToDoList.find(isMyFavouriteHobby));
+console.log(currentToDoList.find(isMyFavoriteHobby));
 
 // Результат выполнения: undefined, не найдено
-console.log(tomorrowToDoList.find(isMyFavouriteHobby));
+console.log(tomorrowToDoList.find(isMyFavoriteHobby));
 ```
 
 ## Интерактивный пример

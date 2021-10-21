@@ -4,6 +4,6 @@
 const drinks = ['🍺', '🍺', '🥃', '🍺', '🍺']
 
 if (drinks.some(drink => drink === '🥃')) {
-  console.log('Order wiskey')
+  console.log('Order whiskey')
 }
 ```

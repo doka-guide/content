@@ -105,8 +105,8 @@ const languages = ["Java", "TypeScript", "C#", "JavaScript", "Julia"]
 
 languages.filter(function (item, index, arr) {
   console.log("Текущий элемент " + item)
-  сonsole.log("Индекс " + index)
-  сonsole.log("Массив " + arr)
+  console.log("Индекс " + index)
+  console.log("Массив " + arr)
 
   return index >= 3
 })
