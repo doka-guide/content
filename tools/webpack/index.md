@@ -73,7 +73,7 @@ module.exports = {
   output: {
     // путь до директории (важно использовать path.resolve)
     path: path.resolve(__dirname, "dist"),
-    // имя файла со сброкой
+    // имя файла со сборкой
     filename: "bundle.js"
   }
 }

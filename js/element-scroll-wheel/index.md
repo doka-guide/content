@@ -23,7 +23,7 @@ tags:
 ```jsx
 // обрабатываем скролл на всей странице
 document.addEventListener('scroll', function(event) {
-  // регируем на событие
+  // реагируем на событие
   console.log(event);
 });
 

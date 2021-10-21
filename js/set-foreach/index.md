@@ -16,8 +16,8 @@ tags:
 ## Пример
 
 ```js
-const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-watchlist.forEach(function(value) {
+const watchList = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+watchList.forEach(function(value) {
   console.log(`Нужно посмотреть «${value}»`)
 })
 
@@ -41,8 +41,8 @@ watchlist.forEach(function(value) {
 Использование всех параметров выглядит так:
 
 ```js
-const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-watchlist.forEach(function(value, value2, s) {
+const watchList = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+watchList.forEach(function(value, value2, s) {
   console.log(`${this.name}, нужно посмотреть «${value}»`)
 }, {name: 'Евген'})
 

@@ -10,7 +10,7 @@ const inner = `
 </form>
 `;
 
-const errorText = `Внимание! Ваш аккаут <b>${accountName}</b> заблокирован.`;
+const errorText = `Внимание! Ваш аккаунт <b>${accountName}</b> заблокирован.`;
 ```
 
 ::: callout ❗️

@@ -29,7 +29,7 @@ const arrowFunc2 = () => 42
 arrowFunc1() === arrowFunc2()
 // Обе функции возвращают 42.
 
-// Также можно возвращать любые структуры и типы даных:
+// Также можно возвращать любые структуры и типы данных:
 const arrowFunc3 = () => "string"
 const arrowFunc4 = () => ["array", "of", "strings"]
 

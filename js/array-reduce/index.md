@@ -137,7 +137,7 @@ for (let i = 0; i < bankAccounts.length; i++) {
 
   // В каждой итерации прибавляем
   // к текущей сумме количество денег на счету
-  totalAmount += currentAccount.amout
+  totalAmount += currentAccount.amount
 }
 ```
 

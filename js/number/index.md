@@ -215,13 +215,13 @@ console.log(5 < 10)
 // true
 console.log(10 <= 10)
 // true
-conole.log(5 == 10)
+console.log(5 == 10)
 // false
-conole.log(5 === 10)
+console.log(5 === 10)
 // false
-conole.log(5 != 10)
+console.log(5 != 10)
 // true
-conole.log(5 !== 10)
+console.log(5 !== 10)
 // true
 ```
 

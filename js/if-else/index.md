@@ -170,7 +170,7 @@ if (username === "Виктор") {
 let discount = 0
 if (userStatus === "VIP") {
   discount = 25
-} else if (userStatus === "priveleged") {
+} else if (userStatus === "privileged") {
   discount = 15
 } else if (userStatus === "clubMember") {
   discount = 5

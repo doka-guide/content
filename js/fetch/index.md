@@ -84,7 +84,7 @@ fetch("https://somesite.com/admin", {
 // Запрос вернет ошибку 404 Not Found
 fetch("https://jsonplaceholder.typicode.com/there-is-no-such-route").catch(
   () => {
-    console.log("Error occured!")
+    console.log("Error occurred!")
   }
 ) // Никогда не выполнится
 ```
@@ -96,7 +96,7 @@ fetch("https://jsonplaceholder.typicode.com/there-is-no-such-route")
   .then((response) => {
     // Проверяем успешность запроса и выкидываем ошибку
     if (!response.ok) {
-      throw new Error("Error occured!")
+      throw new Error("Error occurred!")
     }
 
     return response.json()
@@ -104,5 +104,5 @@ fetch("https://jsonplaceholder.typicode.com/there-is-no-such-route")
   // Теперь попадём сюда, т.к выбросили ошибку
   .catch((err) => {
     console.log(err)
-  }) // Error: Error occured!
+  }) // Error: Error occurred!
 ```

@@ -184,7 +184,7 @@ document.body.addEventListener("mouseup", () => {
 element.addEventListener("mousedown", (e) => {
   dragging = true
 
-  // В этотм раз мы не сможем считать нужные нам значения напрямую.
+  // В этот раз мы не сможем считать нужные нам значения напрямую.
   // Вместо этого нам потребуется вначале вычислить стиль элемента
   // через window.getComputedStyle(), а затем узнать значение
   // свойства transform.
@@ -197,7 +197,7 @@ element.addEventListener("mousedown", (e) => {
   //
   // Это матрица афинных преобразований.
   // Её можно представить в виде:
-  //     martix(scaleX, skewY, skewX, scaleY, translateX, translateY);
+  //     matrix(scaleX, skewY, skewX, scaleY, translateX, translateY);
   // где:
   //     - scaleX — масштабирование по горизонтали,
   //     - scaleY — масштабирование по вертикали,

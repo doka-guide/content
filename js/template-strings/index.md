@@ -123,9 +123,9 @@ const months = 2;
 
 ```js
 // Просто обычная функция
-function loggerTag(strings, ...experssionValues) {
+function loggerTag(strings, ...expressionValues) {
   console.log(strings);
-  console.log(...experssionValues);
+  console.log(...expressionValues);
 }
 
 loggerTag`Булевых значений всего ${2}: они бывают либо ${true} либо ${false}`;

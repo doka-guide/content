@@ -48,7 +48,7 @@ isFinite("10e3") // true
 ```js
 Number.isFinite("123") // false потому что передана строка
 Number.isFinite({}) // false потому что передан объект
-Number.isFinite(Infinity) // false потому что передали бесконечыность
+Number.isFinite(Infinity) // false потому что передали бесконечность
 Number.isFinite(NaN) // false потому что передали не число
 
 Number.isFinite(123) // true, т.к передали обычное число

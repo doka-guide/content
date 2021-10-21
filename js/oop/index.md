@@ -622,7 +622,7 @@ interface CardioVascularSystem {
   // ...
 }
 
-// А всё, что связано с имунной системой, —
+// А всё, что связано с иммунной системой, —
 // в интерфейсе ImmuneSystem.
 interface ImmuneSystem {
   fightInfection: () => void;
