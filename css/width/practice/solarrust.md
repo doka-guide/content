@@ -18,7 +18,7 @@
   display: inline-block;
   width: 50px;
   height: 50px;
-  background: url('doka-eyes.png') no-repeat center / cover;
+  background: url('doka-eyes.svg') no-repeat center / cover;
 }
 ```
 
