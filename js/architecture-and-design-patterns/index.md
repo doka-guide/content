@@ -112,7 +112,7 @@ tags:
 ```js
 function serverToClientAdapter(data) {
   return {
-    somData: data.some_data.join(" "),
+    someData: data.some_data.join(" "),
   };
 }
 ```
