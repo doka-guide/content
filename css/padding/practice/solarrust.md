@@ -13,7 +13,7 @@
   width: 100%;
   /* Второй блок будет высотой 200 пикселей. Всегда */
   height: 200px;
-  background: url("images/eyes.png")
+  background: url("images/eyes.svg")
     no-repeat center / contain;
 }
 
