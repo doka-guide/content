@@ -2,9 +2,9 @@
 title: "`:hover`"
 authors:
   - solarrust
-  - desen94
 contributors:
   - skorobaeus
+  - desen94
 editors:
   - tachisis
 keywords:
