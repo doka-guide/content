@@ -387,7 +387,7 @@ function composePost(postData) {
 ```js
 async function fetchPosts() {
   const { posts, next } = await server.posts(nextPage)
-  posts.foreach(appendPost)
+  posts.forEach(appendPost)
 }
 ```
 

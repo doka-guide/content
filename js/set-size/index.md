@@ -14,12 +14,12 @@ tags:
 ## Пример
 
 ```js
-const watchlist = new Set()
+const watchList = new Set()
 
-console.log(watchlist.size)
+console.log(watchList.size)
 // 0
 
-watchlist.add('Бойцовский клуб')
-console.log(watchlist.size)
+watchList.add('Бойцовский клуб')
+console.log(watchList.size)
 // 1
 ```

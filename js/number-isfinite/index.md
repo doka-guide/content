@@ -8,7 +8,7 @@ tags:
 
 ## Кратко
 
-Метод `Number.isFinite` позволяет проверить является ли переданное в аргументе число конечным. Конечным числом можно считать любое число, кроме бесконечности и `NaN`. В JavaScript бесконечность можно выразить только с помощью глобального `Infinity` или полей `Number.POSITIVE_INFINITY` и `Number.NEGATIVE_INFINITY`.
+Метод `Number.isFinite` позволяет проверить, является ли переданное в аргументе число конечным. Конечным числом можно считать любое число, кроме бесконечности и `NaN`. В JavaScript бесконечность можно выразить только с помощью глобального `Infinity` или полей `Number.POSITIVE_INFINITY` и `Number.NEGATIVE_INFINITY`.
 
 В JavaScript есть так же глобальная функция `isFinite`, которая работает аналогичным образом, но преобразует переданный аргумент в число.
 
@@ -48,7 +48,7 @@ isFinite("10e3") // true
 ```js
 Number.isFinite("123") // false потому что передана строка
 Number.isFinite({}) // false потому что передан объект
-Number.isFinite(Infinity) // false потому что передали бесконечыность
+Number.isFinite(Infinity) // false потому что передали бесконечность
 Number.isFinite(NaN) // false потому что передали не число
 
 Number.isFinite(123) // true, т.к передали обычное число

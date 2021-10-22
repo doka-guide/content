@@ -84,7 +84,7 @@ try {
   webSocket.connect('ws://....')
 
   callMayThrowError()
-} catch(err) {
+} catch (err) {
   ...
 }
 
@@ -162,7 +162,7 @@ class ParsingError extends Error {
 function parse(data) {
   try {
     parseData(data)
-  } catch(err) {
+  } catch (err) {
     if (err.name !== "ParsingError") {
       // Другой тип ошибок пробрасываем дальше
       throw err
