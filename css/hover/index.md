@@ -11,6 +11,7 @@ keywords:
   - :hover
   - LVHA
   - псевдокласс
+  - ховер
 tags:
   - doka
 ---
