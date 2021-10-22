@@ -3,6 +3,8 @@ title: "`undefined`"
 description: "Примитивный тип данных. Состоит из единственного значения `undefined`. Обозначает, что значение не определено."
 authors:
   - nlopin
+contributors:
+  - ansmtz
 keywords:
   - андефайнд
 tags:
