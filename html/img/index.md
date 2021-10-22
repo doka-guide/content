@@ -5,6 +5,7 @@ authors:
   - pepelsbey
 contributors:
   - skorobaeus
+  - mefody
 editors:
   - tachisis
 keywords:
