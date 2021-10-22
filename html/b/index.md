@@ -2,6 +2,7 @@
 title: "`<b>`"
 authors:
   - doka-dog
+contributors:
   - gingerraccoon
 keywords:
   - жирный
