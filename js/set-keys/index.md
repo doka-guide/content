@@ -1,5 +1,5 @@
 ---
-title: "`.keys()`"
+title: "`set.keys()`"
 description: "Возвращает итератор для обхода значений коллекции Set"
 authors:
   - nlopin
@@ -20,8 +20,8 @@ tags:
 Метод `keys` вызывается без аргументов. Вызов метода возвращает итератор, который содержит значения коллекции в порядке их добавления от старых к новым:
 
 ```js
-const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-const keys = watchlist.keys()
+const watchList = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+const keys = watchList.keys()
 
 console.log(keys)
 // Set Iterator

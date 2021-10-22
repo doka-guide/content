@@ -1,5 +1,5 @@
 ---
-title: "`setInterval`"
+title: "`setInterval()`"
 description: "Регулярно запускает функцию через указанный промежуток времени"
 authors:
   - nlopin

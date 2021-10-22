@@ -82,7 +82,7 @@ docker run -d \
 ```
 
 <details>
-  <summary>Ключ `bind-propagation`</summary>
+  <summary>Ключ <code>bind-propagation</code></summary>
 
   Для флага `--mount` есть ключ `bind-propagation`, который работает только на Linux (операционная система контейнера и хоста должна поддерживать этот режим работы).
 
@@ -145,7 +145,7 @@ docker container stop devtest
 docker container rm devtest
 ```
 
-::callout ☝️
+:::callout ☝️
 
 Помните:
 

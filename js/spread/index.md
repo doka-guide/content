@@ -1,5 +1,5 @@
 ---
-title: "Spread `...`"
+title: "Спред-синтаксис `...`"
 description: "Упрощает создание объектов и массивов на основе других объектов и массивов"
 authors:
   - nlopin
@@ -196,7 +196,7 @@ console.log(userData)
 
 ```js
 const person = { name: 'Иван', lastName: 'Объектов' }
-const userData = { username: 'killer3000' , ...person }
+const userData = { username: 'killer3000', ...person }
 
 console.log(userData)
 // {
@@ -210,7 +210,7 @@ console.log(userData)
 
 ```js
 const person = { name: 'Иван', lastName: 'Объектов' }
-const userData = { name: 'Николай' , ...person }
+const userData = { name: 'Николай', ...person }
 
 console.log(userData)
 // { name: "Иван", lastName: "Объектов" }

@@ -1,5 +1,5 @@
 ---
-title: "`Element.addEventListener()`"
+title: "`.addEventListener()`"
 authors:
   - akellbl4
 contributors:
@@ -101,4 +101,4 @@ window.addEventListener('click', handleMouseClick, {
 У объекта event есть специальные методы, такие как `preventDefault()` и `stopPropagation()`. Остальные методы практически не используются:
 
 - `preventDefault` позволяет заблокировать стандартное поведение браузера. Например, по клику на ссылке — заблокировать переход по этой ссылке;
-- `stopPropagation` позволяет остановить всплытие события по DOM дереву.
+- `stopPropagation` позволяет остановить всплытие события по DOM-дереву.

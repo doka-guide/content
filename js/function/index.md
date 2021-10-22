@@ -1,5 +1,5 @@
 ---
-title: "`function()`"
+title: "Функция"
 authors:
   - doka-dog
 keywords:

@@ -32,7 +32,7 @@ return false
 ```
 
 ```js
-//А этот код верный
+// А этот код верный
 function isAdult(age) {
   return age > 18
 }

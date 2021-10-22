@@ -1,5 +1,5 @@
 ---
-title: "`.length`"
+title: "`string.length`"
 description: "Свойство возвращает количество символов в строке"
 authors:
   - nlopin

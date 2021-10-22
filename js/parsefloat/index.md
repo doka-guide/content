@@ -1,5 +1,5 @@
 ---
-title: "parseFloat"
+title: "`parseFloat()`"
 description: "Преобразует строку в число с плавающей точкой"
 authors:
   - doka-dog

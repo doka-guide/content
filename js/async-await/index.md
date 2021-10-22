@@ -66,8 +66,8 @@ function getMainActorProfileFromMovie(id) {
       const characterUrl = movie.characters[0].split("//")[1]
       return fetch(`https://${characterUrl}`)
     })
-    .then((charactrerResponse) => {
-      return charactrerResponse.json()
+    .then((characterResponse) => {
+      return characterResponse.json()
     })
     .catch((err) => {
       console.error("Произошла ошибка!", err)
@@ -82,15 +82,15 @@ getMainActorProfileFromMovie(1).then((profile) => {
 Можно записать с `async/await`:
 
 ```js
-function getMainActorProfileFromMovie(id) {
+async function getMainActorProfileFromMovie(id) {
   try {
     const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
     const movie = await movieResponse.json();
 
     const characterUrl = movie.characters[0].split('//')[1];
-    const charactrerResponse = await fetch(`https://${characterUrl}`);
-    return charactrerResponse.json();
-  } catch(err) {
+    const characterResponse = await fetch(`https://${characterUrl}`);
+    return characterResponse.json();
+  } catch (err) {
     console.error('Произошла ошибка!', err);
   }
 }

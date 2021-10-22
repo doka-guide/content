@@ -1,5 +1,5 @@
 ---
-title: "`.values()`"
+title: "`set.values()`"
 description: "Возвращает итератор для обхода значений коллекции Set"
 authors:
   - nlopin
@@ -16,8 +16,8 @@ tags:
 Метод `values` вызывается без аргументов. Вызов метода возвращает итератор, который содержит значения коллекции в порядке их добавления от старых к новым:
 
 ```js
-const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-const values = watchlist.values()
+const watchList = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+const values = watchList.values()
 
 console.log(values)
 // Set Iterator

@@ -1,5 +1,5 @@
 ---
-title: "`Array.filter`"
+title: "`[].filter`"
 authors:
   - windrushfarer
 contributors:
@@ -105,8 +105,8 @@ const languages = ["Java", "TypeScript", "C#", "JavaScript", "Julia"]
 
 languages.filter(function (item, index, arr) {
   console.log("Текущий элемент " + item)
-  сonsole.log("Индекс " + index)
-  сonsole.log("Массив " + arr)
+  console.log("Индекс " + index)
+  console.log("Массив " + arr)
 
   return index >= 3
 })
@@ -164,7 +164,7 @@ const filtered = nums.filter(function (num) {
 
 ## Как это понять
 
-Метод `filter` позволяет получить новый массив с отфильтрованными значениями на основании данных исходного. Несмотря на то, что то же самое можно сделать, используя обычный цикл `for` или `while` , метод `filter` позволяет сделать это проще.
+Метод `filter` позволяет получить новый массив с отфильтрованными значениями на основании данных исходного. Несмотря на то, что то же самое можно сделать, используя обычный цикл `for` или `while`, метод `filter` позволяет сделать это проще.
 
 Если решать такую задачу без `filter`, то выйдет так:
 

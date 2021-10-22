@@ -1,5 +1,5 @@
 ---
-title: "`Element.clearTimeout`"
+title: "`clearTimeout()`"
 authors:
   - windrushfarer
 keywords:

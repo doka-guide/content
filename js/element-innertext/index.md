@@ -10,7 +10,7 @@ tags:
 
 Свойство `Element.innerText` позволяет считывать или задавать текстовое содержимое элемента. При считывании текста с элемента будет возвращена строка с текстовым содержимым всех вложенных дочерних элементов. Не будет считываться только содержимое скрытых с помощью CSS элементов, а так же содержимое тегов `<script>` и `<style>`.
 
-Аналогичным функционалом обладает [Element.textContent](/js/element-textcontent), но он возвращает содержимое всех дочерних элементов, даже скрытых.
+Аналогичной функциональностью обладает [Element.textContent](/js/element-textcontent), но он возвращает содержимое всех дочерних элементов, даже скрытых.
 
 ## Пример
 ```html
@@ -87,12 +87,12 @@ statusElement.innerText = 'Data loaded!'
 ```js
 const statusElement = document.getElementById('loading-status')
 
-statusElement.innerText = 'Error occured!'
+statusElement.innerText = 'Error occurred!'
 ```
 
 ```html
 <!-- Больше никакой иконки внутри, только новый текст -->
 <div id="loading-status">
-  Error occured!
+  Error occurred!
 </div>
 ```

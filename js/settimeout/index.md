@@ -1,5 +1,5 @@
 ---
-title: "`setTimeout`"
+title: "`setTimeout()`"
 description: "Отложенный вызов функции. Вызывает функцию через указанный промежуток времени"
 authors:
   - windrushfarer

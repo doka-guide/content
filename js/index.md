@@ -21,17 +21,24 @@ groups:
       - spread
       - for-in
       - shallow-or-deep-clone
-  - name: "Типы данных"
+  - name: "Примитивные типы данных"
     items:
-      - number-wrapper
+      - number
       - string
-      - null-undefined
-      - object
-      - function
+      - boolean
+      - undefined
+      - null-primitive
+      - bigint
+      - symbol
       - typecasting
+  - name: "Коллекции"
+    items:
+      - object
+      - function-as-datatype
+      - arrays
+      - set
       - objects-objects-everywhere
-      - object-tostring
-  - name: "Числа `number`"
+  - name: "Числа"
     items:
       - number-wrapper
       - number-is-nan
@@ -42,17 +49,18 @@ groups:
       - math
       - math-floor
       - math-random
-  - name: "Строки `string`"
+  - name: "Строки"
     items:
-      - string
+      - string-wrapper
       - template-strings
       - index-of
       - includes
       - string-length
-  - name: "Булевы значения `boolean`"
+  - name: "Булевый тип"
     items:
       - boolean
       - logic-operators
+      - typecasting
   - name: "Функции"
     items:
       - function
@@ -60,6 +68,7 @@ groups:
       - function-context
       - closures
       - recursion
+      - function-arguments-object
   - name: "Массивы"
     items:
       - arrays
@@ -70,10 +79,10 @@ groups:
       - array-find
       - array-every
       - array-some
-      - array-from
       - includes
       - index-of
       - array-length
+      - array-from
   - name : "Множество Set"
     items:
       - set
@@ -90,6 +99,7 @@ groups:
   - name: "Обработка исключений"
     items:
       - try-catch
+      - errors
   - name: "Браузерное окружение и API"
     items:
       - bom
@@ -98,6 +108,7 @@ groups:
       - console-log
       - window-history
       - window-location
+      - window-navigator
       - match-media
       - urlsearchparams
       - local-storage
@@ -110,6 +121,7 @@ groups:
       - setinterval
       - clearinterval
       - parseint
+      - window-print
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -140,7 +152,11 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-getattribute
       - element-focus
+      - element-blur
+      - element-scroll-scrollintoview
+      - element-scroll-scrollto
       - element-classlist
       - element-dataset
       - element-style
@@ -157,8 +173,6 @@ groups:
       - element-keydown-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-scrollintoview
-      - element-scroll-scrollto
       - element-scroll-wheel
       - element-touch
   - name: "Хранение данных в браузере"

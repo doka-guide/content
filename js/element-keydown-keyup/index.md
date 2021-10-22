@@ -1,5 +1,5 @@
 ---
-title: "`Element.Keydown/Keyup`"
+title: "События `keydown` и `keyup`"
 authors:
   - stegur
 contributors:
@@ -16,7 +16,7 @@ tags:
 
 ## Кратко
 
-[События](/js/events) на HTML элементе. Когда пользователь нажимает на клавишу клавиатуры, происходит событие `keydown`, как только пользователь отпустил клавишу — произойдёт событие `keyup`.
+[События](/js/events) на HTML-элементе. Когда пользователь нажимает на клавишу клавиатуры, происходит событие `keydown`, как только пользователь отпустил клавишу — произойдёт событие `keyup`.
 
 <video controls width="580" poster="images/poster.png">
   <source src="video/1.mp4" type="video/mp4">
