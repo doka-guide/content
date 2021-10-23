@@ -4,17 +4,19 @@ authors:
   - nlopin
 tags:
   - doka
+contributors:
+  - northrain-cmd
 ---
 
 ## Кратко
 
 `HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы (узлы DOM). `NodeList` может хранить любые типы узлов, а `HTMLCollection` - только узлы HTML элементов. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/). 
 
-`HTMLCollection`  позволяет обращаться к элементам по имени с помощью метода `HTMLCollection.namedItem`.
+`HTMLCollection` возвращают методы [`getElementsByTagName`](/js/getelementsbytagname/) и [`getElementsByClassName`](/js/getelementsbyclassname/).
 
-`HTMLCollection` возвращают методы [`document.getElementsByTagName`](/js/getelementsbytagname/), [`document.getElementsByClassName`](/js/getelementsbyclassname/) и `parentNode.children`.
+`NodeList` возвращают методы `querySelectorAll` и `childNodes`.
 
-`NodeList` возвращают методы `document.querySelectorAll`, `document.getElementsByName` и `parentNode.childNodes`.
+Полный список всех методов, возвращающих типы `NodeList` или `HTMLCollection` можно узнать в [стандарте DOM](https://dom.spec.whatwg.org/#document).
 
 ## Как понять
 
@@ -28,8 +30,18 @@ tags:
 
 `NodeList` работает почти так же, как и `HTMLCollection`. 
 
-Разница только в том, что `NodeList` может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов. 
+Разница:
 
-«Живой» `NodeList` возвращают методы `document.getElementsByName` и `parentNode.childNodes`.
-
-Статический `NodeList` возвращает метод `document.querySelectorAll`.
+<ol>
+  <li>
+    <code>NodeList</code> может хранить любые типы узлов, например текстовые узлы и комментарии, а <code>HTMLCollection</code> - только узлы HTML элементов.
+  </li>
+  <li>
+    <code>HTMLCollection</code> позволяет обращаться к элементам не только по индеку, но и по имени с помощью метода <code>HTMLCollection.namedItem</code>.
+  </li>
+  <li>
+    <code>NodeList</code> может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.</br>
+    «Живой» <code>NodeList</code> возвращают методы <code>getElementsByName</code> и <code>childNodes</code>.</br>
+    Статический <code>NodeList</code>  возвращает метод <code>querySelectorAll</code>.
+  </li>
+</ol>
