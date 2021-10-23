@@ -88,27 +88,27 @@
 </head>
 <body>
   <form>
-    <div class="form-row">
-      <label for="first-name">Имя:</label>
-      <input type="text" name="first-name" id="first-name" required>
-      <span></span>
-    </div>
-    <div class="form-row">
-      <label for="email">E-mail:</label>
-      <input type="email" name="email" id="email" placeholder="email">
-      <span></span>
-    </div>
     <fieldset>
       <legend>
-        Обязательно
+        Персональные данные
       </legend>
       <div class="form-row">
-        <label>
-          <input type="checkbox" name="agree" id="agree" required>
-          Я согласен с политикой обработки персональных данных
-        </label>
+        <label for="first-name">Имя:</label>
+        <input type="text" name="first-name" id="first-name" required>
+        <span></span>
+      </div>
+      <div class="form-row">
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" placeholder="email">
+        <span></span>
       </div>
     </fieldset>
+    <div class="form-row">
+      <label>
+        <input type="checkbox" name="agree" id="agree" required>
+        Я согласен с политикой обработки персональных данных
+      </label>
+    </div>
     <div class="form-row">
       <button type="submit">Отправить</button>
     </div>
