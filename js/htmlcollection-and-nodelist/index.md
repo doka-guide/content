@@ -32,16 +32,12 @@ contributors:
 
 Разница:
 
-<ol>
-  <li>
-    <code>NodeList</code> может хранить любые типы узлов, например текстовые узлы и комментарии, а <code>HTMLCollection</code> - только узлы HTML элементов.
-  </li>
-  <li>
-    <code>HTMLCollection</code> позволяет обращаться к элементам не только по индеку, но и по имени с помощью метода <code>HTMLCollection.namedItem</code>.
-  </li>
-  <li>
-    <code>NodeList</code> может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.</br>
-    «Живой» <code>NodeList</code> возвращают методы <code>getElementsByName</code> и <code>childNodes</code>.</br>
-    Статический <code>NodeList</code>  возвращает метод <code>querySelectorAll</code>.
-  </li>
-</ol>
+1. `NodeList` может хранить любые типы узлов, например текстовые узлы и комментарии, а `HTMLCollection` - только узлы HTML элементов;
+
+1. `HTMLCollection` позволяет обращаться к элементам не только по индеку, но и по имени с помощью метода `HTMLCollection.namedItem`;
+
+1. `NodeList` может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.
+
+«Живой» `NodeList` возвращают методы `getElementsByName` и `childNodes`.
+
+Статический `NodeList`  возвращает метод `querySelectorAll`.
