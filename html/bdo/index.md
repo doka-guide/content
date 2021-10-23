@@ -1,7 +1,9 @@
 ---
 title: "`<bdo>`"
 authors: 
- - gingerraccoon
+  - gingerraccoon
+editors:
+  - tachisis
 keywords: 
  - текст
  - двунаправленный
