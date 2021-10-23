@@ -23,11 +23,11 @@ tags:
 ```
 
 ```css
-.div::before {
+div::before {
   content: "Элемент с классом " attr(class);
 }
 
-.div::after {
+div::after {
   content: "Подсказка: " attr(title);
 }
 ```
