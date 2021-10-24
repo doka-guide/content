@@ -2,6 +2,8 @@
 title: "`[].reduce`"
 authors:
   - windrushfarer
+contributors:
+  - ansmtz
 keywords:
   - редьюсер
   - свёртка
