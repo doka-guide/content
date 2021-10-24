@@ -305,7 +305,7 @@ const debouncedDoSomething = debounce(doSomething, 250);
 // потому что из debounce мы возвращаем функцию.
 
 // debouncedDoSomething принимает те же аргументы,
-// что и doSomenthing, потому что perform внутри debounce
+// что и doSomething, потому что perform внутри debounce
 // прокидывает все аргументы без изменения в doSomething,
 // так что и вызов debouncedDoSomething будет таким же,
 // как и вызов doSomething:

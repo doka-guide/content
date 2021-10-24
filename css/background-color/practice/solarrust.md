@@ -74,7 +74,7 @@
 
 ```html
 <header class="header">
-  <h1 class="title">The best site all ower the world!</h1>
+  <h1 class="title">The best site all over the world!</h1>
 </header>
 ```
 

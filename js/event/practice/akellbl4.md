@@ -10,7 +10,7 @@
 
 ```js
 document.querySelector('.button').addEventListener('click', function (event) {
-  console.log('Событие инициированно на', event.target)
+  console.log('Событие инициировано на', event.target)
   console.log('Событие поймано на', event.currentTarget)
 })
 ```
