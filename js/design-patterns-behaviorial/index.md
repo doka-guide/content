@@ -256,7 +256,7 @@ handlePurchase(usdHandler, "USD", 20);
 
 ```ts
 function handlePurchase(currency: string, amount: number): void {
-  switch(currency):
+  switch (currency):
     case "USD": return usdHandler(currency: string, amount: number);
     case "RUB": return rubHandler(currency: string, amount: number);
     case "EUR": return uerHandler(currency: string, amount: number);

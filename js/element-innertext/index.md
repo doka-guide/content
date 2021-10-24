@@ -87,12 +87,12 @@ statusElement.innerText = 'Data loaded!'
 ```js
 const statusElement = document.getElementById('loading-status')
 
-statusElement.innerText = 'Error occured!'
+statusElement.innerText = 'Error occurred!'
 ```
 
 ```html
 <!-- Больше никакой иконки внутри, только новый текст -->
 <div id="loading-status">
-  Error occured!
+  Error occurred!
 </div>
 ```

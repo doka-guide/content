@@ -46,22 +46,22 @@ getPasswords().then(
 ```js
 // запросим через API список домов из Игры престолов. Метод `fetch` возвращает промис
 fetch('https://www.anapioficeandfire.com/api/houses')
-  .then(function(response) {
+  .then(function (response) {
     // выполнится, когда от API придет ответ
 
     // запустим асинхронную операцию парсинга JSON из ответа сервера
     return response.json() // вернем из обработчика промис, к которому добавим then
   })
-  .then(function(houses) {
+  .then(function (houses) {
     // выполнится, когда JSON распарсится
 
     return fetch(houses[0].overlord) // запросим данные о сюзерене этого дома
   })
-  .then(funciton (response) {
+  .then(function (response) {
     // выполнится, когда от API придет ответ
     return response.json()
   })
-  .then(function(overlord) {
+  .then(function (overlord) {
     console.log(overlord.name)
   })
 ```

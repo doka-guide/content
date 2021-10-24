@@ -102,14 +102,14 @@ console.log(anotherEmptyArray.length)
 2️⃣ При записи нового элемента в индекс далеко за пределами массива. В этом случае между последним элементом и новым появляется «дыра» из пустых ячеек:
 
 ```js
-const prorities = ['sleep', 'eat', 'drink']
-console.log(prorities.length)
+const priorities = ['sleep', 'eat', 'drink']
+console.log(priorities.length)
 // 3
 
-prorities[999] = 'work'
-console.log(prorities.length)
+priorities[999] = 'work'
+console.log(priorities.length)
 // 1000
-console.log(prorities)
+console.log(priorities)
 // ['sleep', 'eat', 'drink', <996 empty slots>, 'work']
 ```
 
