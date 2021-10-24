@@ -14,7 +14,7 @@ contributors:
 
 `HTMLCollection` возвращают методы [`getElementsByTagName`](/js/getelementsbytagname/) и [`getElementsByClassName`](/js/getelementsbyclassname/).
 
-`NodeList` возвращают методы `querySelectorAll` и `childNodes`.
+`NodeList` возвращают методы [`querySelectorAll`](/js/query-selector-all/) и `childNodes`.
 
 Полный список всех методов, возвращающих типы `NodeList` или `HTMLCollection` можно узнать в [стандарте DOM](https://dom.spec.whatwg.org/#document).
 
@@ -33,9 +33,9 @@ contributors:
 Разница:
 
 1. `NodeList` может хранить любые типы узлов, например текстовые узлы и комментарии, а `HTMLCollection` — только узлы HTML элементов;
-1. `HTMLCollection` позволяет обращаться к элементам не только по индексу, но и по имени с помощью метода `HTMLCollection.namedItem`;
+1. `HTMLCollection` позволяет обращаться к элементам не только по индексу, но и по имени с помощью метода `namedItem`;
 1. `NodeList` может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.
 
 «Живой» `NodeList` возвращают методы `getElementsByName` и `childNodes`.
 
-Статический `NodeList`  возвращает метод `querySelectorAll`.
+Статический `NodeList` возвращает метод `querySelectorAll`.
