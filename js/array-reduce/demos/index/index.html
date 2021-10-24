@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Группировка элементов массива при помощи reduce — Array.reduce — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -66,8 +62,7 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:focus,
-    .button:focus-visible {
+    .button:focus, .button:focus-visible {
       border: 2px solid #ffffff;
       outline: none;
     }
@@ -108,7 +103,7 @@
       color: #000000;
     }
 
-    .item+.item {
+    .item + .item {
       margin-left: 10px;
     }
 
@@ -129,19 +124,19 @@
     <div class="header-container">
       <h2 class="subtitle">Наш код</h2>
 
-      <pre>const users = [
-  { id: '123', name: 'John' },
-  { id: '345', name: 'Anna' },
-  { id: '567', name: 'Kate' },
-  { id: '789', name: 'Jane' }
-]
+  <pre>const users = [
+    { id: '123', name: 'John' },
+    { id: '345', name: 'Anna' },
+    { id: '567', name: 'Kate' },
+    { id: '789', name: 'Jane' }
+  ]
 
-function groupNameById(result, user) {
-  return {
-    ...result,
-    [user.id]: user.name
-  }
-}</pre>
+  function groupNameById(result, user) {
+    return {
+      ...result,
+      [user.id]: user.name
+    }
+  }</pre>
 
     </div>
     <div class="does-container">
@@ -248,5 +243,4 @@ function groupNameById(result, user) {
     })
   </script>
 </body>
-
 </html>
