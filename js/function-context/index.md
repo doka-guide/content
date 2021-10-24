@@ -162,7 +162,7 @@ const user = {
 
 const greet = user.greet
 greet()
-// Hello, my name is 
+// Hello, my name is
 ```
 
 При вызове через точку `user.greet` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В строгом режиме мы бы получили ошибку «Cannot read properties of undefined».
