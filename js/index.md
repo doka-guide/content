@@ -83,6 +83,7 @@ groups:
       - index-of
       - array-length
       - array-from
+      - array-isarray
   - name : "Множество Set"
     items:
       - set
