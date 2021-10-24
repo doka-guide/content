@@ -2,9 +2,10 @@
 title: "`:invalid`, `:valid`"
 authors:
   - ezhkov
+contributors:
+  - vchychuzhko
 editors:
   - tachisis
-  - vchychuzhko
 keywords:
   - invalid
   - valid
