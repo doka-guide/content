@@ -1,14 +1,14 @@
 ---
 title: "`<bdo>`"
-authors: 
+authors:
   - gingerraccoon
 editors:
   - tachisis
-keywords: 
- - текст
- - двунаправленный
-tags: 
- - doka
+keywords:
+  - текст
+  - двунаправленный
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -40,4 +40,5 @@ tags:
   <bdo dir="rtl">Этот текст написан справа налево.</bdo>
 </p>
 ```
+
 <iframe title="Визуальное отображение" src="demos/view" height="110"></iframe>
