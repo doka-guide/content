@@ -123,21 +123,19 @@
   <div class="container">
     <div class="header-container">
       <h2 class="subtitle">Наш код</h2>
+      <pre>const users = [
+        { id: '123', name: 'John' },
+        { id: '345', name: 'Anna' },
+        { id: '567', name: 'Kate' },
+        { id: '789', name: 'Jane' }
+      ]
 
-  <pre>const users = [
-    { id: '123', name: 'John' },
-    { id: '345', name: 'Anna' },
-    { id: '567', name: 'Kate' },
-    { id: '789', name: 'Jane' }
-  ]
-
-  function groupNameById(result, user) {
-    return {
-      ...result,
-      [user.id]: user.name
-    }
-  }</pre>
-
+      function groupNameById(result, user) {
+        return {
+          ...result,
+          [user.id]: user.name
+        }
+      }</pre>
     </div>
     <div class="does-container">
       <button id="start" class="button button-yellow">Юзеры, группируйтесь!</button>
