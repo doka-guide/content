@@ -150,7 +150,8 @@ const user = {
 user.greet() // Hello, my name is Alex
 ```
 
-Обратите внимание, что если записать функцию в отдельную переменную, `this` переопределится.
+Обратите внимание, что `this` определятся в момент вызова функции. Если записать метод объекта в переменную и вызвать её,
+значение `this` изменится.
 
 ```js
 const user = {
@@ -161,11 +162,13 @@ const user = {
 }
 
 const greet = user.greet
-greet() // Hello, my name is undefined
+greet() // Hello, my name is 
 
 // При вызове через точку user.greet
 // значение this равняется объекту до точки (user).
-// Без этого объекта this === undefined.
+// Без этого объекта this равняется глобальному объекту (в обычном режиме).
+// В строгом режиме мы бы получили ошибку - Cannot read properties of undefined
+
 ```
 
 Чтобы такого не происходило, [следует использовать `.bind()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), о котором мы поговорим чуть позже.
@@ -269,6 +272,16 @@ function User() {
   this.name = "Alex"
 }
 
+// или
+
+function User() {
+  if (!new.target) {
+    throw Error("Error: Incorrect invocation!")
+  }
+
+  this.name = "Alex"
+}
+
 const secondUser = User() // Error: Incorrect invocation!
 ```
 
@@ -333,7 +346,7 @@ const greetAlex = greet.bind(user1)
 greetAlex() // Hello, Alex
 ```
 
-Обратите внимание, что `.bind()` в отличие от `.call()` и `.apply()` не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом.
+Обратите внимание, что `.bind()` в отличие от `.call()` и `.apply()` не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом навсегда. Контекст у этой функции изменить невозможно.
 
 #### Стрелочные функции
 
