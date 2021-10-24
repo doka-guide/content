@@ -81,7 +81,7 @@ console.log(6..toFixed(3))
 
 Обёртка предоставляет две полезные функции для проверки специальных значений:
 
-1️⃣ Функция [`Number.isNaN`](/js/number-is-nan) — единственный способ проверить значение на `NaN`, потому что `NaN` не равен ничему, даже самому себе:
+1️⃣ Функция [`Number.isNaN`](/js/number-is-nan) — нативный способ проверить значение на `NaN`, потому что `NaN` не равен ничему, даже самому себе:
 
 ```js
 const nanResult = 5 * undefined
@@ -91,6 +91,25 @@ console.log(nanResult === NaN)
 // false
 
 console.log(Number.isNaN(nanResult))
+// true
+```
+
+:::callout ☝️
+
+Учитывая тот факт, что `NaN` не равен самому себе, узнать является ли значение `NaN` можно обычным сравнением с самим собой.
+
+:::
+
+```js
+const nanResult = 5 * undefined
+console.log(nanResult !== nanResult)
+// true
+
+function customIsNaN(number) {
+  return number !== number
+}
+
+console.log(customIsNaN(nanResult))
 // true
 ```
 
