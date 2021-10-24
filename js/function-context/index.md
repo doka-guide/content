@@ -165,7 +165,7 @@ greet()
 // Hello, my name is
 ```
 
-При вызове через точку `user.greet` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В строгом режиме мы бы получили ошибку «Cannot read properties of undefined».
+При вызове через точку `user.greet` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict) мы бы получили ошибку «Cannot read properties of undefined».
 
 Чтобы такого не происходило, [следует использовать `.bind()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), о котором мы поговорим чуть позже.
 
