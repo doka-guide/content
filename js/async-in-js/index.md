@@ -9,8 +9,9 @@ cover:
 authors:
   - bespoyasov
 contributors:
-  - nlopin
   - maxmaxme
+  - julielesss
+  - nlopin
 editors:
   - tachisis
 keywords:
