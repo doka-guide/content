@@ -147,15 +147,21 @@ cat.color = "black" // добавится, т.к в cat лежит объект,
 ```javascript
 const array = [1, 2, 3, 4]
 array[1] // 2
-array.map[(1, 2, 3)].forEach[(1, 2, 3)][2] // function map()... // function forEach()... // 3
+const pos = 3
+array[pos] // 4
+
+array.map(a => a + 1) // [2, 3, 4, 5]
+const f = "map"
+array[f](a => a + 1) // [2, 3, 4, 5]
 
 const obj = { name: "Boris", color: "red" }
-obj.color(
-  // red
+obj.color // "red"
+obj["name"] // "Boris"
 
-  // Здесь стоит обратить внимание на скобки, в них нужно объявение объекта
-  { name: "Vasya", age: 30 }
-).age /// 30
+Object.assign(obj, {
+  name: "Vasya",
+  age: 30
+}).age // 30
 ```
 
 У примитивов без переменной можно обращаться к методам только у строки. Для всех остальных, чтобы не получить синтаксическую ошибку, нужно оборачивать значение в скобки, либо вызывать функцию-примитив (`String`, `Number`, `Boolean` и т.д.)
