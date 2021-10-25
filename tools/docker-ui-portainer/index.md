@@ -26,11 +26,11 @@ keywords:
 
 Еще нужно обозначить, что везде по тексту Portainer/Портейнер == это Portainer Community Edition. Мы поговорим только о части возможностей Portainer наиболее востребованных с точки зрения веб-разработчика фрилансера.  
 
-![Логотип Portainer](images/portainer-logo1.png)
+![Логотип Portainer](images/portainer-logo1.png) [сайт Portainer.io](https://portainer.io)
 
 ## Как установить Portainer
-   Вот иноформация о том, как установить Portainer Standalone [Офиц.дока на eng](https://docs.portainer.io/v/ce-2.9/start/install/server/docker) 
-   и официальная github страница для скачивания  [Releases](https://github.com/portainer/portainer/releases)  
+    Официальный сайт представляет информацию о том как установить Инструкции веб-сайта Portainer.io в версии stand-alone server, что необходимо для пользователей организаций, а для индивидуальной среды разработки удобнее установить portainer как образ докера, чтобы не тратить ресурсы на отдельный сервер, таким образом мы используем преимущества докеризации! 
+    
 ###  установка Portainer в Линуксе (ubuntu, debian) как сервиса с помощью докер-контейнера 
    Инструкции с веб-сайта Portainer.io не пригодится, как и релиз сервера, потому что мы установим portainer как образ докера, а не как отдельный сервер. Используем преимущества докеризации!   
 <details>
