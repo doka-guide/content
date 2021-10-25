@@ -107,6 +107,7 @@ whatsThis() // true
   console.log(this === window)
 })() // true
 ```
+
 В приведённом выше примере вы можете заметить `;` перед анонимной функцией. Дело в том, что существующий механизм автоподстановки точек с запятой (ASI)  срабатывает лишь в [определённых случаях](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion), в то время как строка, начинающаяся с `(`, не входит в перечень этих случаев. Поэтому опытные разработчики зачастую добавляют `;` в тех случаях, когда их код может быть скопирован и добавлен в существующий.
 
 В строгом режиме — значение будет равно `undefined`:
@@ -345,12 +346,13 @@ greetAlex() // Hello, Alex
 Обратите внимание, что `.bind()` в отличие от `.call()` и `.apply()` не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом навсегда. Контекст у этой функции изменить невозможно.
 
 ```js
-const user2 = { name: "Ivan" }
+function getAge() {
+  console.log(this.age);
+}
 
-// greetAlex - функция из примера выше.
-const greetIvan = greetAlex.bind(user2)
+const howOldAmI = getAge.bind({age: 20}).bind({age: 30})
 
-greetIvan() // Hello, Alex
+howOldAmI(); //20
 ```
 
 #### Стрелочные функции
