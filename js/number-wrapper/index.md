@@ -94,25 +94,6 @@ console.log(Number.isNaN(nanResult))
 // true
 ```
 
-:::callout ☝️
-
-Учитывая тот факт, что `NaN` не равен самому себе, узнать является ли значение `NaN` можно обычным сравнением с самим собой.
-
-:::
-
-```js
-const nanResult = 5 * undefined
-console.log(nanResult !== nanResult)
-// true
-
-function customIsNaN(number) {
-  return number !== number
-}
-
-console.log(customIsNaN(nanResult))
-// true
-```
-
 2️⃣ Функция [`Number.isFinite`](/js/number-isfinite) — проверит, что значение не является специальным. Возвращает `true` — если при вызове в неё было передано число и `false` — если специальное значение или нечисловой тип:
 
 ```js
