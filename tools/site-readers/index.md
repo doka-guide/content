@@ -118,7 +118,7 @@ tags:
 
 ```html
 <article itemscope itemtype="http://schema.org/Article">
-  <section itemscope itmetype="http://schema.org/Person" itemprop="author">
+  <section itemscope itemtype="http://schema.org/Person" itemprop="author">
     <p>
       Автор статьи:
       <span itemprop="givenName">Василий</span>

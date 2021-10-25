@@ -50,7 +50,7 @@ const objects = nums.map(function (num) {
 const nums = [0, 1, 2, 3]
 
 const transformed = nums.map(function (num, index, arr) {
-  // Трансфомируем в сумму числа, его индекса и длинны массива
+  // Трансформируем в сумму числа, его индекса и длинны массива
   return num + index + arr.length
 }) // [4, 6, 8, 10]
 ```
