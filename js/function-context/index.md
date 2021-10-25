@@ -107,6 +107,7 @@ whatsThis() // true
   console.log(this === window)
 })() // true
 ```
+
 В приведённом выше примере вы можете заметить `;` перед анонимной функцией. Дело в том, что существующий механизм автоподстановки точек с запятой (ASI)  срабатывает лишь в [определённых случаях](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion), в то время как строка, начинающаяся с `(`, не входит в перечень этих случаев. Поэтому опытные разработчики зачастую добавляют `;` в тех случаях, когда их код может быть скопирован и добавлен в существующий.
 
 В строгом режиме — значение будет равно `undefined`:
@@ -150,7 +151,7 @@ const user = {
 user.greet() // Hello, my name is Alex
 ```
 
-Обратите внимание, что если записать функцию в отдельную переменную, `this` переопределится.
+Обратите внимание, что `this` определяется в момент вызова функции. Если записать метод объекта в переменную и вызвать её, значение `this` изменится.
 
 ```js
 const user = {
@@ -161,12 +162,11 @@ const user = {
 }
 
 const greet = user.greet
-greet() // Hello, my name is undefined
-
-// При вызове через точку user.greet
-// значение this равняется объекту до точки (user).
-// Без этого объекта this === undefined.
+greet()
+// Hello, my name is
 ```
+
+При вызове через точку `user.greet` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict) мы бы получили ошибку «Cannot read properties of undefined».
 
 Чтобы такого не происходило, [следует использовать `.bind()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), о котором мы поговорим чуть позже.
 
@@ -244,11 +244,9 @@ const firstUser = new User()
 ```js
 const firstUser = new User() // Правильно.
 const secondUser = User() // Неправильно,
-// хотя на первый взгляд разницы нет,
-// и работает будто бы правильно.
 ```
 
-Но на деле разница есть:
+Хотя на первый взгляд разницы нет и работает будто бы правильно. Но на деле разница есть:
 
 ```js
 console.log(firstUser)
@@ -263,6 +261,16 @@ console.log(secondUser)
 ```js
 function User() {
   if (!(this instanceof User)) {
+    throw Error("Error: Incorrect invocation!")
+  }
+
+  this.name = "Alex"
+}
+
+// или
+
+function User() {
+  if (!new.target) {
     throw Error("Error: Incorrect invocation!")
   }
 
@@ -333,7 +341,17 @@ const greetAlex = greet.bind(user1)
 greetAlex() // Hello, Alex
 ```
 
-Обратите внимание, что `.bind()` в отличие от `.call()` и `.apply()` не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом.
+Обратите внимание, что `.bind()` в отличие от `.call()` и `.apply()` не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом навсегда. Контекст у этой функции изменить невозможно.
+
+```js
+function getAge() {
+  console.log(this.age);
+}
+
+const howOldAmI = getAge.bind({age: 20}).bind({age: 30})
+
+howOldAmI(); //20
+```
 
 #### Стрелочные функции
 
