@@ -18,6 +18,7 @@
   </ul>
 </nav>
 ```
+
 ```css
 .nav-list__links {
   display: inline-block;
@@ -60,6 +61,7 @@
   text-decoration-color: #40e746;
 }
 ```
+
 <iframe title="Пример навигации" src="demos/navigation/" height="200"></iframe>
 
-💡 Больше о значении `currentColor` можно посмотреть [цвета в вебе](/css/web-colors/#currentcolor).
+💡 Больше о значении `currentColor` можно посмотреть в статье «[Цвета в вебе](/css/web-colors/#currentcolor)».
