@@ -11,19 +11,19 @@
           <a href="#" class="navigation__link">О магазине</a>
         </li>
         <li class="navigation__item">
-          <a href="#" class="navigation__link">Новости</a>
+          <a href="#" class="navigation__link">О тыквах</a>
         </li>
         <li class="navigation__item">
-          <a href="#" class="navigation__link">Акции</a>
+          <a href="#" class="navigation__link">О нас</a>
         </li>
         <li class="navigation__item">
-          <a href="#" class="navigation__link">Личный кабинет</a>
+          <a href="#" class="navigation__link">Контакты</a>
         </li>
       </ul>
     </nav>
   </div>
   <div class="container">
-    <h1>Магазин «лето»</h1>
+    <h1>Магазин «Резная тыква»</h1>
   </div>
 </header>
 ```
@@ -32,22 +32,18 @@
 .navigation__link, .navigation__link:visited {
   /* делаем элементы строчно-блочными */
   display: inline-block;
-  color: #18191C;
   /* убираем подчёркивание */
   text-decoration: none;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 15px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .navigation__link:hover {
   /* нивелируем размеры рамки */
-  padding-bottom: 14px;
+  padding-bottom: 20px;
   /* добавляем рамку снизу */
-  border-bottom: 2px solid #18191C;
+  border-bottom: 4px solid #18191C;
 }
 ```
 
-<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header/" height="150"></iframe>
+<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header/" height="460"></iframe>

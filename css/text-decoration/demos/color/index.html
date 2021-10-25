@@ -7,38 +7,53 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
       background-color: #18191c;
-      color: #e6e6e6;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 29px;
+      font-weight: 500;
+      line-height: 1;
     }
 
     p {
       position: relative;
-      padding: 30px;
-      margin: 0;
-      border: 1px solid #3b3e44;
-      font-size: 18px;
-      transition: text-decoration-color 0.3s;
+      max-width: 900px;
+      margin-top: 30px;
+      padding-left: 320px;
     }
 
-    p + p {
-      margin-top: 35px;
-    }
-
-    p::after {
-      content: "text-decoration: " attr(class);
+    p::before {
+      content: attr(class);
       position: absolute;
-      left: 30px;
-      top: -13px;
+      left: 0;
+      bottom: 0;
       display: block;
-      padding: 5px 10px;
-      font-size: 0.8em;
-      font-family: monospace;
-      color: #afc9da;
-      background: #282a2e;
+      font-size: 17px;
+    }
+
+    h1, p::before {
+      width: 320px;
+      padding-right: 50px;
+      font-family: "Roboto Mono", monospace;
+      text-align: right;
     }
 
     .none {
@@ -70,22 +85,39 @@
     }
 
     .blue:hover {
-      text-decoration-color: #1a5ad7;
+      text-decoration-color: #2E9AFF;
     }
 
-    .red:hover {
-      text-decoration-color: #ed6742;
+    .pink:hover {
+      text-decoration-color: #F498AD;
     }
 
     .green:hover {
-      text-decoration-color: #49a16c;
+      text-decoration-color: #41E847;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 19px;
+      }
+
+      h1, p::before {
+        width: 230px;
+      }
+
+      p {
+        padding-left: 230px;
+      }
     }
   </style>
 </head>
 <body>
-  <p class="none">К диакритикам прибегают в случае, если букв алфавита не хватает для передачи звуков речи или же для смыслоразличения. Основной альтернативой диакритикам при звукоразличении служат сочетания двух (диграфы), трёх (триграфы) и более букв для обозначения одного звука.</p>
-  <p class="underline dotted blue">Дополнение подчёркивается пунктирной линией. Это второстепенный член предложения, который обозначает предмет и отвечает на вопросы косвенных падежей: кого? чего? кому? чему? кого? что? кем? чем? о ком? о чём?</p>
-  <p class="line-through double red">Эпанортозис (рус. поправление) — фигура речи: фигура, посредством которой какая-либо мысль сначала высказывается, а затем отменяется, для того чтобы высказать или эту же мысль точнее или полнее, или другую мысль.</p>
-  <p class="overline wavy green">В большинстве языков тильда сверху соответствует знаку, произошедшему из букв N и V, которые в средневековой скорописи часто писались над строкой (над предыдущей буквой) и в начертании выродились в волнистую линию.</p>
+  <div class="container">
+    <h1>text-decoration</h1>
+    <p class="none">К диакритикам прибегают в случае, если букв алфавита не хватает для передачи звуков речи или же для смыслоразличения. </p>
+    <p class="underline dotted blue">Дополнение подчёркивается пунктирной линией. Это второстепенный член предложения.</p>
+    <p class="line-through double pink">Эпанортозис (рус. поправление) — фигура речи.</p>
+    <p class="overline wavy green">В большинстве языков тильда сверху соответствует знаку, произошедшему из букв N и V.</p>
+  </div>
 </body>
 </html>
