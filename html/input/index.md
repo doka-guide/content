@@ -132,7 +132,7 @@ tags:
   </label>
 
   <fieldset>
-    Радио-кнопки:
+    Радиокнопки:
     <label class="radio-label">
       <input type="radio" name="browser" value="ie" id="ie">
       Вариант 1
