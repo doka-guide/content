@@ -280,7 +280,9 @@ docker volume prune
 ```
 
 Ваши тома всегда можно найти в файловой системе через точки монтирования, в linux они распложены  
-(windows - appdata ...)
+(windows - C:\Users\Username\AppData\Local\Docker\wsl\data\ 
+или 
+\\wsl$\docker-desktop-data\version-pack-data\community\docker\overlay2
 ```bash
 sudo ls -lhao /var/lib/docker/volumes/
 ```
