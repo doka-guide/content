@@ -99,6 +99,8 @@ touch image.js
 touch micro.js
 ```
 
+Код в примере использует ES-модули, поэтому не забудьте добавить в _package.json_ строку `"type": "module"`, чтобы проект запустился.
+
 Файл _image.js_ — простейшая программа, которая берёт на локальном диске файл с картинкой, обрабатывает её с заданными параметрами и сохраняет на диск:
 
 ```javascript
@@ -120,10 +122,10 @@ async function processImage(image, preOpt, encOpt) {
 
 async function saveIntoJpeg(image, path) {
   const rawEncodedImage = (await image.encodedWith.mozjpeg).binary
-  fs.writeFile(path, rawEncodedImage)
+  return fs.writeFile(path, rawEncodedImage)
 }
 
-export async function getImage(unprocessedImagePath, processedImagePath, preOpt, encOpt) {
+export async function saveImage(unprocessedImagePath, processedImagePath, preOpt, encOpt) {
   const imagePool = new ImagePool(cpus().length)
   const image = await openImage(unprocessedImagePath, imagePool)
   const processedImage = await processImage(image, preOpt, encOpt)
@@ -140,7 +142,7 @@ import path from 'path'
 import fs from 'fs'
 import Busboy from 'busboy'
 
-import { getImage } from './image.js'
+import { saveImage } from './image.js'
 
 const preprocessOptions = {
   resize: {
@@ -162,8 +164,12 @@ http.createServer(function(req, res) {
       const fName = fileName.split('.')[0]
       const saveTempTo = path.join(process.cwd(), path.basename(fileName))
       const saveResultTo = path.join(process.cwd(), path.basename(`${fName}.jpg`))
-      file.pipe(fs.createWriteStream(saveTempTo))
-      await getImage(saveTempTo, saveResultTo, preprocessOptions, encodeOptions)
+      await new Promise((resolve, reject) => {
+        const stream = file.pipe(fs.createWriteStream(saveTempTo))
+        stream.on('finish', resolve)
+        stream.on('error', reject)
+      })
+      await saveImage(saveTempTo, saveResultTo, preprocessOptions, encodeOptions)
     })
 
     busboy.on('finish', function() {
@@ -178,6 +184,7 @@ http.createServer(function(req, res) {
     res.write('<html><body><img src="data:image/jpeg;base64,')
     res.write(Buffer.from(data).toString('base64'))
     res.end('"/></body></html>')
+    return
   }
   res.writeHead(404)
   res.end()
