@@ -38,11 +38,11 @@ div {
   /* цвет рамки со всех сторон одинаковый */
   border-color: tomato;
   /* первое значение устанавливает цвет рамки сверху и снизу, второе - слева и справа */
-  border-radius: tomato #61afef;
+  border-radius: tomato skyblue;
   /* первое значение устанавливает цвет рамки сверху, второе - слева и справа, а третье - снизу */
-  border-radius: tomato #61afef rgb(152, 195, 121);
+  border-radius: tomato skyblue olive;
   /* в таком варианте мы устанавливаем для каждой стороны свой цвет поочередно для верхней, правой, нижней и левой рамки */
-  border-radius: tomato #61afef rgb(152, 195, 121) hsl(208, 70%, 24%);
+  border-radius: tomato skyblue olive silver;
 }
 ```
 
