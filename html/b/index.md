@@ -34,5 +34,4 @@ tags:
 
 В этом примере выделены названия моделей в обзоре, чтобы их проще было найти среди текста.
 
-
-<iframe title="Визуальное отображение тега b" src="demos/view/" height="200"></iframe>
+<iframe title="Как выглядит" src="demos/view/" height="200"></iframe>
