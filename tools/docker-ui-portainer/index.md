@@ -6,7 +6,7 @@ authors:
 tags:
   - article
 keywords:
-  - portainer.io  
+  - portainer.io
   - докер
   - контейнер
   - том
@@ -14,95 +14,95 @@ keywords:
 ---
 
 В этой статье мы говорим как упростить управление данными Docker с помощью Portainer :1st_place_medal:  — знакомьтесь, это удобный инструмент для управления контейнерами из браузера. Он включает (но этим не ограничивается) все возможности официального клиента под Windows, Portainer  умеет:
-  -  работать как с локально установленным докером, так и с удалёнными серверами. 
-позволяет управлять: 
-  -  Шаблонами приложений - эту возможность стоит назвать киллер-фичей. 
+  -  работать как с локально установленным докером, так и с удалёнными серверами.
+позволяет управлять:
+  -  Шаблонами приложений - эту возможность стоит назвать киллер-фичей.
   -  Самими контейнерами.
   -  Образами контейнеров.
   -  Сетями на хосте.
   -  Томами и дисками.
 
-Разработка Веба это работа в браузере и вкладка c [Портейнером](http://localhost:9000) по адресу http://localhost:9000 поможет быстрее выполнить рутинные операции, которые в консоли bash занимают место и время, с Портейнером можно не углубляться в детали cli-инструментов, хотя с ними конечно надо быть знакомым - посмотрите материалы Доки про docker статья «[Что такое Docker](/tools/docker/)» и docker-compose в статье «[Мультиконтейнерное приложение и Docker Compose](tools/docker-compose/)» они работают под "капотом" Портейнера. 
+Разработка Веба это работа в браузере и вкладка c [Портейнером](http://localhost:9000) по адресу http://localhost:9000 поможет быстрее выполнить рутинные операции, которые в консоли bash занимают место и время, с Портейнером можно не углубляться в детали cli-инструментов, хотя с ними конечно надо быть знакомым - посмотрите материалы Доки про docker статья «[Что такое Docker](/tools/docker/)» и docker-compose в статье «[Мультиконтейнерное приложение и Docker Compose](tools/docker-compose/)» они работают под "капотом" Портейнера.
 
-Ещё нужно обозначить, что везде по тексту Portainer/Портейнер == это Portainer Community Edition. Мы поговорим только о части возможностей Portainer наиболее востребованных с точки зрения веб-разработчика фрилансера.  
+Ещё нужно обозначить, что везде по тексту Portainer/Портейнер == это Portainer Community Edition. Мы поговорим только о части возможностей Portainer наиболее востребованных с точки зрения веб-разработчика фрилансера.
 
 ![Логотип Portainer](images/portainer-logo1.png) [сайт Portainer.io](https://portainer.io)
 
 ## Как установить Portainer
-    Официальный сайт представляет информацию о том как установить Инструкции веб-сайта Portainer.io в версии stand-alone server, что необходимо для пользователей организаций, а для индивидуальной среды разработки удобнее установить portainer как образ докера, чтобы не тратить ресурсы на отдельный сервер, таким образом мы используем преимущества докеризации! 
+    Официальный сайт представляет информацию о том как установить Инструкции веб-сайта Portainer.io в версии stand-alone server, что необходимо для пользователей организаций, а для индивидуальной среды разработки удобнее установить portainer как образ докера, чтобы не тратить ресурсы на отдельный сервер, таким образом мы используем преимущества докеризации!
 
-###  установка Portainer в Линуксе (ubuntu, debian) как сервиса с помощью докер-контейнера   
+###  установка Portainer в Линуксе (ubuntu, debian) как сервиса с помощью докер-контейнера
 <details>
-    <summary>Вот эту часть можно пропустить, если вы уже знакомы с Docker и docker-compose и эти инструменты установлены у вас. Иначе раскрывайте спойлер.  
-    </summary>  
+    <summary>Вот эту часть можно пропустить, если вы уже знакомы с Docker и docker-compose и эти инструменты установлены у вас. Иначе раскрывайте спойлер.
+    </summary>
 
-   след.шаги повторяют как установить docker и docker-compose, если их у вас Ещё нет. также для работы portainera нужно, чтобы пользователь был в группе docker  
+   след.шаги повторяют как установить docker и docker-compose, если их у вас Ещё нет. также для работы portainera нужно, чтобы пользователь был в группе docker
 
-   в современных дистрах этот шаг не нужен, но пригодится если ubuntu bionic
+   в современных дистрах этот шаг не нужен, но пригодится если ubuntu версии bionic
 
-```bash 
-   sudo apt-get install     apt-transport-https     ca-certificates   software-properties-common  curl     gnupg     lsb-release
+```bash
+   sudo apt-get install apt-transport-https ca-certificates software-properties-common curl gnupg lsb-release
 ```
-   
-```bash   
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+```bash
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 ```
 ```bash 
-  sudo echo   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \ 
+   sudo echo   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 ```bash
-  sudo apt update && apt-get install docker-ce docker-ce-cli containerd.io
+   sudo apt update && apt-get install docker-ce docker-ce-cli containerd.io
 ```
 ```bash
    sudo usermod -aG docker $(whoami)
 ```   
-   В этот каталог в домашней папки  
+   В этот каталог в домашней папки
 
 ```bash
    mkdir -p $HOME/.docker/cli-plugins/
-``` 
-   скачиваем   [docker-compose](https://github.com/docker/compose/releases) и делаем его исполняемым    
+```
+   скачиваем   [docker-compose](https://github.com/docker/compose/releases) и делаем его исполняемым
 ```bash
-   sudo chmod +x ~/.docker/cli-plugins/docker-compose 
-```    
-после всего перегрузим компьютер, чтобы стартовали сервисы 
+   sudo chmod +x ~/.docker/cli-plugins/docker-compose
+```
+после всего перегрузим компьютер, чтобы стартовали сервисы
 </details>
 
-Убедимся, что у нас работает docker-compose 
+Убедимся, что у нас работает docker-compose
 ```bash
-   docker-compose --version   
-```  
- а в результатах команды ```groups``` есть группа docker     
+   docker-compose --version
+```
+ а в результатах команды ```groups``` есть группа docker
 
 создадим для портейнера постоянный том фиксированного размера на котором будут сохраняться данные  Portainer Community Edition  
 
 ```bash
-docker volume create -d local  --name portainer_data \
+   docker volume create -d local  --name portainer_data \
     --opt device="/mnt/device_guid/portainer_volume" \
     --opt type="none" \
     --opt o="bind" \
     --opt o=size=10000m,gid=1000 \
 ```
-  Укажем докеру скачать образ portainer/portainer одной из предыдущих версий (1.24.2) из общедоступного регистри, неинтерактивно запустим портейнер с опцией постоянного рестарта и подключением  созданного portainer_data тома:
+Укажем докеру скачать образ portainer/portainer одной из предыдущих версий (1.24.2) из общедоступного регистри, неинтерактивно запустим портейнер с опцией постоянного рестарта и подключением  созданного portainer_data тома:
 
 ```bash
-  docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:1.24.2
+   docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:1.24.2
 ```
 
-  :1.24.2 можно не добавлять, тогда полученная версия будет latest.
+:1.24.2 можно не добавлять, тогда полученная версия будет latest.
 
-браузер открываем по http://localhost:9000 (не https!) 
+После запуска Portainer'a браузер открываем по http://localhost:9000 (не https!)
 
 если понадобится остановить/стартануть портейнер выполняем соответственно ``` docker stop portainer ```  или  ``` docker start portainer ```
 
-## Как выглядит portainer 
+## Как выглядит portainer
 
 Ниже только несколько скриншотов, для самых основных моментов работы с Портейнером. При первом запуске предложено создать пользователя admin'a, назначить ему пароль, и чтобы каждая веб-сессия была авторизована.
 
 ![Авторизация](images/07screen.png)
 
-Дашборд - DASBOARD - даёт обзорную информацию обо всех контейнерах, скаченных образах (images), состоянии томов (volumes) и работающих процессах в докере кликнув, например, на CONTAINERS мы "провалимся" в уровень ниже и увидим какие контейнеры у нас работают и сможем управлять их состоянием с помощью кнопок kill, restart, stop, remove и добавить новые с помощью ADD+   
+Дашборд - DASBOARD - даёт обзорную информацию обо всех контейнерах, скаченных образах (images), состоянии томов (volumes) и работающих процессах в докере кликнув, например, на CONTAINERS мы "провалимся" в уровень ниже и увидим какие контейнеры у нас работают и сможем управлять их состоянием с помощью кнопок kill, restart, stop, remove и добавить новые с помощью ADD+
 
 ![Дашборд](images/02screen.png)
 
@@ -114,9 +114,9 @@ docker volume create -d local  --name portainer_data \
 
 ![Шаблоны приложений](images/03screen.png)
 
-Это был  поверхностный и быстрый "взгляд", давайте теперь посмотрим, что можно сделать с помощью Портейнера 
+Это был  поверхностный и быстрый "взгляд", давайте теперь посмотрим, что можно сделать с помощью Портейнера
 
-## Пример использования 
+## Пример использования
 
 ### Создадим шаблон приложения  dokaguide-platform
 
@@ -127,19 +127,18 @@ docker volume create -d local  --name portainer_data \
 ![Список шаблон, кнопка добавить шаблон](images/08screen.png)
 
 Создаём шаблон как на скрине, и нажимаем кнопку Create Template обратите внимание что выбрана опция networks - host, а для двух точек монтирования (тип BIND ) контейнера на локальную файловую систему выбраны значения соответственно:
-    
+
     1. host: "/home/y/proj/doka/content"      "Container": "/dokaguide/platform"
     2. host: "/home/y/proj/doka/content"      "Container": "/platform/content"
 
-На вашем компьютере SOURCE путь будет другим, в зависимости от того какую папку вы хотите открыть на запись/чтение для приложения в докере.  
+На вашем компьютере host путь будет другим, в зависимости от того какую папку своего компьютера вы хотите открыть на запись/чтение для приложения в докере.
 
 ![Создание шаблона](images/09screen.png)
 
 Осталось теперь выбрать в меню список всех шаблонов app templates и найти на последнем месте созданный шаблон, выбираем его, открываем и нажимаем кнопку deploy :tada:
 
-
 ![Открываем шаблон](images/05screen.png)
 
-Контейнер запускается, первый запуск связан с этапом скачивания образа из общедоступного регистри, последующие запуски будут быстрыми. открываем домашнюю страницу Доки локально http://localhost:8080 
-Если контейнер запущен, проброшен порт 8080, и сделан бинд на локальную файловую систему, мы увидим 
+Контейнер запускается, первый запуск связан с этапом скачивания образа из общедоступного регистри, последующие запуски будут быстрыми. открываем домашнюю страницу Доки локально http://localhost:8080
+Если контейнер запущен, проброшен порт 8080, и сделан бинд на локальную файловую систему, мы увидим
 ![Локальный сайт Доки](images/10screen.png)
