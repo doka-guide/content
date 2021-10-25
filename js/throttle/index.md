@@ -95,14 +95,14 @@ function recalculateProgress() {
   // Высота экрана:
   const viewportHeight = window.innerHeight;
   // Высота страницы:
-  const pageheight = document.body.offsetHeight;
+  const pageHeight = document.body.offsetHeight;
   // Текущее положение прокрутки:
   const currentPosition = window.scrollY;
 
   // Из высоты страницы вычтем высоту экрана,
   // чтобы при прокручивании до самого низа
   // прогресс-бар заполнялся до конца.
-  const availableHeight = pageheight - viewportHeight;
+  const availableHeight = pageHeight - viewportHeight;
 
   // Считаем процент «прочитанного» текста:
   const percent = (currentPosition / availableHeight) * 100;
@@ -197,7 +197,7 @@ const throttledDoSomething = throttle(doSomething, 250);
 // потому что из throttle мы возвращаем функцию.
 
 // throttledDoSomething принимает те же аргументы,
-// что и doSomenthing, потому что perform внутри throttle
+// что и doSomething, потому что perform внутри throttle
 // прокидывает все аргументы без изменения в doSomething,
 // так что и вызов throttledDoSomething будет таким же,
 // как и вызов doSomething:

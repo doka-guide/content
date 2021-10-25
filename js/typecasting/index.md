@@ -232,6 +232,7 @@ Boolean("false") // true
 Boolean(0) // false
 Boolean(42) // true
 Boolean(-42) // true
+Boolean(NaN) // false
 Boolean(null) // false
 Boolean(undefined) // false
 Boolean(function () {}) // true
@@ -241,7 +242,7 @@ Boolean([]) // true
 Boolean([1, 2]) // true
 
 // Грубо говоря, всё, кроме пустой строки, нуля,
-// null и undefined — true.
+// NaN, null и undefined — true.
 ```
 
 ## Неявное преобразование типов
