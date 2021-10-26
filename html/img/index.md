@@ -1,5 +1,10 @@
 ---
 title: "`<img>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Лежит девушка в тоге, в античном стиле и показывает рукой на браузер, где открыта картинка с девушкой в абстракции'
 authors:
   - solarrust
   - pepelsbey
