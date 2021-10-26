@@ -17,9 +17,14 @@ tags:
 ## Как пишется
 
 ```js
-const result = Math.sqrt(-9) // NaN
-console.log(result === NaN) // false
-console.log(Number.isNaN(result)) // true
+const result = Math.sqrt(-9)
+// NaN
+
+console.log(result === NaN)
+// false
+
+console.log(Number.isNaN(result))
+// true
 ```
 
 ## Как это понять
@@ -27,7 +32,8 @@ console.log(Number.isNaN(result)) // true
 NaN расшифровывается как Not a Number, то есть «не число». Однако он относится к числовому типу данных.
 
 ```js
-typeof NaN // number
+typeof NaN
+// number
 ```
 
 Как мы выяснили ранее, проверка результатов математических операций стандартным способом не принесёт успеха.
@@ -36,7 +42,8 @@ typeof NaN // number
 const result = someCalculations()
 
 if (result === NaN) {
-  throw new Error('Calculation failed') // Не сработает
+  throw new Error('Calculation failed')
+  // Не сработает
 }
 ```
 
@@ -47,12 +54,16 @@ function isNaN(number) {
   return number !== number
 }
 
-isNaN(NaN) // true
+isNaN(NaN)
+// true
 ```
 
 Однако мы не рекомендуем использовать такой подход в разработке. Для проверки лучше применять `Number.isNaN()`. Есть второй похожий метод `window.isNaN()` (или просто `isNaN`), но он работает не всегда так, как ожидается и возвращает `true` и при значениях, отличных от `NaN`. Например:
 
 ```js
-isNaN(undefined) //  true
-Number.isNaN(undefined) // false
+isNaN(undefined)
+//  true
+
+Number.isNaN(undefined)
+// false
 ```
