@@ -35,17 +35,16 @@ tags:
 /* Не меняем display для .block, поскольку div уже является блочным */
 
 .block {
-  background-color: #49a16c;
+  background-color: #2E9AFF;
 }
 
 .inline-block {
   display: inline-block;
-  border: 1px solid black;
-  background-color: #1a5ad7;
+  background-color: #F498AD;
 }
 ```
 
-<iframe title="Ширина блочного и инлайн-блочного элемента" src="demos/default/" height="155"></iframe>
+<iframe title="Ширина блочного и строчно-блочного элемента" src="demos/default/" height="190"></iframe>
 
 Благодаря фонам можно увидеть, какую ширину имеет каждый из наших элементов.
 
@@ -58,18 +57,17 @@ tags:
 ```css
 .block {
   width: 50%; /* Ограничим ширину до половины окна */
-  background-color: #49a16c;
+  background-color: #2E9AFF;
 }
 
 .inline-block {
   width: 100%; /* Сделаем каждый элемент на всю ширину окна */
   display: inline-block;
-  border: 1px solid black;
-  background-color: #1a5ad7;
+  background-color: #F498AD;
 }
 ```
 
-<iframe title="Ширина инлайн-блочного элемента 100%" src="demos/full/" height="200"></iframe>
+<iframe title="Ширина строчно-блочного элемента 100%" src="demos/full/" height="280"></iframe>
 
 ## Как это понять
 

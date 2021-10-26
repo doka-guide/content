@@ -69,7 +69,7 @@ element.classList.add("black", "fade", "animate")
 :::
 
 ```js
-// Находим блок у которого уже есть класс header
+// Находим блок, у которого уже есть класс header
 const element = document.querySelector("div.header")
 
 // Добавится только animate, т.к. header уже есть на элементе

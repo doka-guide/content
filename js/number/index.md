@@ -137,7 +137,7 @@ console.log(result === NaN)
 // false
 ```
 
-Для проверки на `NaN` пользуйтесь функцией [`Number.isNaN`](js/number-is-nan), которая возвращает `true` если переданное значение — `NaN`:
+Для проверки на `NaN` пользуйтесь функцией [`Number.isNaN`](/js/number-is-nan), которая возвращает `true` если переданное значение — `NaN`:
 
 ```js
 const result = NaN

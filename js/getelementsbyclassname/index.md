@@ -37,7 +37,7 @@ tags:
       let subtitleParagraphs = document.getElementsByClassName(
         "paragraph subtitle"
       )
-      console.log(subtitleParagraphs.length) // напечатает 1, так как на странице только один элемент у которого есть и класс paragraph, и класс subtitle
+      console.log(subtitleParagraphs.length) // напечатает 1, так как на странице только один элемент, у которого есть и класс paragraph, и класс subtitle
 
       // ищем несуществующий элемент
       let spanFromBody = document.getElementsByClassName("hello")

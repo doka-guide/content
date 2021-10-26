@@ -43,6 +43,7 @@ groups:
       - required
       - invalid-valid
       - placeholder-shown
+      - lang
       - root
   - name: 'Псевдоэлементы'
     items:
@@ -161,6 +162,7 @@ groups:
       - word-spacing
       - word-wrap
       - writing-mode
+      - tab-size
   - name: 'Вариативные шрифты'
     items:
       - font-feature-settings
