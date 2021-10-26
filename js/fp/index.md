@@ -382,19 +382,19 @@ const result = curriedMultiply(2, 10)
 ```
 
 <details>
- <summary>Также для частичного применения можно использовать bind(), хотя это и не очень «функционально».</summary>
+  <summary>Также для частичного применения можно использовать bind(), хотя это и не очень «функционально».</summary>
 
-Например:
+  Например:
 
-```js
-function multiply(a, b) {
-  return a * b
-}
+  ```js
+  function multiply(a, b) {
+    return a * b
+  }
 
-const double = multiply.bind(null, 2)
+  const double = multiply.bind(null, 2)
 
-double(3) // 6
-```
+  double(3) // 6
+  ```
 
 </details>
 
