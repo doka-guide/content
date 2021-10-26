@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Пиксель-арт — box-shadow — Дока</title>
-</head>
-<body>
-  <div class="pixel-art"></div>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <style>
     :root {
       --s: 4px;
@@ -19,7 +16,7 @@
     .pixel-art {
       height: var(--s);
       width: var(--s);
-      color: #000;
+      color: #000000;
       box-shadow:
         calc(var(--s) * 4) calc(var(--s) * 8) 0 0,
         calc(var(--s) * 5) calc(var(--s) * 8) 0 0,
@@ -651,5 +648,8 @@
         calc(var(--s) * 91) calc(var(--s) * 33) 0 0;
     }
   </style>
+</head>
+<body>
+  <div class="pixel-art"></div>
 </body>
 </html>
