@@ -345,9 +345,12 @@ const double = multiply.bind(null, 2)
 const triple = multiply.bind(null, 3)
 const tenTimes = multiply.bind(null, 10)
 
-double(3) // 6
-triple(3) // 9
-tenTimes(3) // 30
+double(3)
+// 6
+triple(3)
+// 9
+tenTimes(3)
+// 30
 ```
 
 ### Каррирование
