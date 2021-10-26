@@ -2,6 +2,8 @@
 title: "`<b>`"
 authors:
   - doka-dog
+contributors:
+  - gingerraccoon
 keywords:
   - жирный
   - полужирный
@@ -31,3 +33,5 @@ tags:
 ```
 
 В этом примере выделены названия моделей в обзоре, чтобы их проще было найти среди текста.
+
+<iframe title="Как выглядит" src="demos/view/" height="200"></iframe>
