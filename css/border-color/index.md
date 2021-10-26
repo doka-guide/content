@@ -41,13 +41,13 @@ div {
   border-color: tomato;
   /* Первое значение устанавливает цвет рамки
   сверху и снизу, второе — слева и справа */
-  border-radius: tomato skyblue;
+  border-color: tomato skyblue;
   /* Первое значение устанавливает цвет рамки сверху,
   второе — слева и справа, а третье — снизу */
-  border-radius: tomato skyblue olive;
+  border-color: tomato skyblue olive;
   /* Устанавливает для каждой стороны свой цвет,
   поочерёдно: для верхней, правой, нижней и левой рамки */
-  border-radius: tomato skyblue olive silver;
+  border-color: tomato skyblue olive silver;
 }
 ```
 
