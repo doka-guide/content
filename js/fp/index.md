@@ -393,7 +393,8 @@ const result = curriedMultiply(2, 10)
 
   const double = multiply.bind(null, 2)
 
-  double(3) // 6
+  double(3)
+  // 6
   ```
 
 </details>
