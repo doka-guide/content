@@ -330,26 +330,6 @@ const fifty = multiply(5)(10)
 
 Поэтому чаще оригинальную функцию под частичное применение переделывают не руками, а каррируют.
 
-:::callout
-
-Для создания частично применённой функции в JavaScript можно использовать метод `bind()`. Однако `this` у таких функций будет фиксирован.
-
-:::
-
-```js
-function multiply(a, b) {
-  return a * b
-}
-
-const double = multiply.bind(null, 2)
-const triple = multiply.bind(null, 3)
-const tenTimes = multiply.bind(null, 10)
-
-double(3) // 6
-triple(3) // 9
-tenTimes(3) // 30
-```
-
 ### Каррирование
 
 _Каррирование_ – это трансформация функций таким образом, чтобы они принимали аргументы не как `f(a, b, c)`, а как `f(a)(b)(c)`. То есть это буквально то же, что мы сделали с функцией `multiply`, только автоматизировано.
@@ -400,6 +380,23 @@ const double = curriedMultiply(2)
 const result = curriedMultiply(2, 10)
 // 20
 ```
+
+<details>
+ <summary>Также для частичного применения можно использовать bind(), хотя это и не очень «функционально».</summary>
+
+Например:
+
+```js
+function multiply(a, b) {
+  return a * b
+}
+
+const double = multiply.bind(null, 2)
+
+double(3) // 6
+```
+
+</details>
 
 ## Работа с побочными эффектами
 
