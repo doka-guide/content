@@ -2,6 +2,8 @@
 title: "`border-color`"
 authors:
   - lordoys
+editors:
+  - tachisis
 keywords:
   - border-color
 tags:
