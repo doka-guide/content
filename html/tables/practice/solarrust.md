@@ -63,6 +63,6 @@ thead th {
 
 :::callout ☝️
 
-Если сайт должен хорошо работать в старых браузерах, обязательно проверьте поддержку `sticky` на [Can I use…](https://caniuse.com/css-sticky).
+Если сайт должен хорошо работать в старых браузерах, обязательно проверьте поддержку `sticky` на [Can I use](https://caniuse.com/css-sticky).
 
 :::
