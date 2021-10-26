@@ -26,6 +26,7 @@ groups:
       - s
       - u
       - pre
+      - bdo
   - name: 'Семантика'
     items:
       - div
