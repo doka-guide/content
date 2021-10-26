@@ -14,7 +14,7 @@
   height: var(--s);
   width: var(--s);
   /* По умолчанию тень берёт цвет из currentColor */
-  color: #000;
+  color: #000000;
   box-shadow:
     calc(var(--s) * 4) calc(var(--s) * 8) 0 0,
     calc(var(--s) * 5) calc(var(--s) * 8) 0 0,
@@ -23,7 +23,6 @@
     calc(var(--s) * 90) calc(var(--s) * 33) 0 0,
     calc(var(--s) * 91) calc(var(--s) * 33) 0 0;
 }
-
 ```
 
 <iframe title="Пиксель-арт" src="../demos/pixelart/" height="180"></iframe>
