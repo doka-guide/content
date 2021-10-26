@@ -44,7 +44,7 @@ tags:
 }
 ```
 
-<iframe title="Ширина блочного и инлайн-блочного элемента" src="demos/default/" height="190"></iframe>
+<iframe title="Ширина блочного и строчно-блочного элемента" src="demos/default/" height="190"></iframe>
 
 Благодаря фонам можно увидеть, какую ширину имеет каждый из наших элементов.
 
@@ -67,7 +67,7 @@ tags:
 }
 ```
 
-<iframe title="Ширина инлайн-блочного элемента 100%" src="demos/full/" height="280"></iframe>
+<iframe title="Ширина строчно-блочного элемента 100%" src="demos/full/" height="280"></iframe>
 
 ## Как это понять
 
