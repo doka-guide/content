@@ -6,14 +6,14 @@
 
 ```css
 :root {
-  /* размер ячейки */
+  /* Размер ячейки */
   --s: 5px;
 }
 
 .pixel-art {
   height: var(--s);
   width: var(--s);
-  /* по умолчанию тень берёт цвет из currentColor */
+  /* По умолчанию тень берёт цвет из currentColor */
   color: #000;
   box-shadow:
     calc(var(--s) * 4) calc(var(--s) * 8) 0 0,
