@@ -43,7 +43,6 @@ typeof NaN
 function getUserAge() {
   while (true) {
     const value = prompt('Пожалуйста укажите ваш возраст')
-    const number = Number(value)
 
     if (!value) {
         alert('Вы ничего не ввели!')
