@@ -10,6 +10,7 @@ authors:
   - doka-dog
 contributors:
   - skorobaeus
+  - valeriimakhniuk
 editors:
   - tachisis
 keywords:
