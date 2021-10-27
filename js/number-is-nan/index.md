@@ -17,14 +17,15 @@ tags:
 ## Как пишется
 
 ```js
-const result = Math.sqrt(-9)
+const result1 = 0 / 0
 // NaN
-
-console.log(result === NaN)
-// false
-
-console.log(Number.isNaN(result))
+console.log(Number.isNaN(result1))
 // true
+
+const result2 = 5 / 0
+// Infinity
+console.log(Number.isNaN(result2))
+// false
 ```
 
 ## Как это понять
