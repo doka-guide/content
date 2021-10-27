@@ -74,11 +74,11 @@ h2.article-title.title-primary {
 }
 ```
 
-:::callout ⚠️
+<aside>
 
-Обратите внимание: селектор `.article-title` эквивалентен [селектору по атрибуту](/css/attribute-selector/) `[class~="article-title"]`.
+⚠️ Обратите внимание: селектор `.article-title` эквивалентен [селектору по атрибуту](/css/attribute-selector/) `[class~="article-title"]`.
 
-:::
+</aside>
 
 ## Подсказки
 
