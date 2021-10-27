@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подмена значения кастомного свойства — var() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    :root {
+      --card-color: lightblue;
+    }
+    html {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7f7f7;
+    }
+    pre {
+      tab-size: 2;
+    }
+    .card {
+      background-color: var(--card-color);
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      transition: background-color .2s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+<!-- editorconfig-checker-disable -->
+<pre><code class="code">:root {
+	--card-color: white;
+}</code><code>
+
+.card {
+	background-color: var(--card-color);
+}</code></pre>
+<!-- editorconfig-checker-enable -->
+</div>
+
+  <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
+  <label for="color-lightblue">Синий</label>
+  <input type="radio" id="color-orange" name="card-color" value="orange">
+  <label for="color-orange">Оранжевый</label>
+
+  <script>
+    const code = document.querySelector(".code")
+    document.getElementById("color-lightblue").addEventListener("change", setColor)
+    document.getElementById("color-orange").addEventListener("change", setColor)
+
+    function setColor(event) {
+      const color = event.target.value
+      document.documentElement.style.setProperty('--card-color', color);
+      code.innerHTML = `:root {
+	--card-color: ${color};
+}`
+    }
+  </script>
+</body>
+</html>
