@@ -10,6 +10,7 @@
     :root {
       --card-color: lightblue;
     }
+
     html {
       height: 100%;
       display: flex;
@@ -17,9 +18,11 @@
       justify-content: center;
       background-color: #f7f7f7;
     }
+
     pre {
       tab-size: 2;
     }
+
     .card {
       background-color: var(--card-color);
       padding: 1rem;
@@ -49,9 +52,10 @@
   <label for="color-orange">Оранжевый</label>
 
   <script>
-    const code = document.querySelector(".code")
-    document.getElementById("color-lightblue").addEventListener("change", setColor)
-    document.getElementById("color-orange").addEventListener("change", setColor)
+    const code = document.querySelector('.code')
+
+    document.getElementById('color-lightblue').addEventListener('change', setColor)
+    document.getElementById('color-orange').addEventListener('change', setColor)
 
     function setColor(event) {
       const color = event.target.value
