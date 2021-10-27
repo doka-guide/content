@@ -1,5 +1,10 @@
 ---
 title: "`<iframe>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Свеча горит, рядом стоит гадальный шар, где виден зачёркнутый глаз и надпись: «Sorry, this video was deleted»'
 authors:
   - doka-dog
 editors:
