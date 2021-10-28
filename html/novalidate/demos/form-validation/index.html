@@ -71,7 +71,7 @@
     <span class="form-tag" data-form-tag>&lt;form novalidate&gt;</span>
     <label class="form-row">
       <span>Имя</span>
-      <input type="text" name="name" placeholder="Ваше имя">
+      <input type="text" name="name" placeholder="Микки">
     </label>
     <label class="form-row required">
       <span>Почта</span>
@@ -79,7 +79,7 @@
     </label>
     <label class="form-row required">
       <span>Комментарий</span>
-      <textarea name="comment" placeholder="Оставьте ваш отзыв" required></textarea>
+      <textarea name="comment" placeholder="Мне всё понравилось!" required></textarea>
     </label>
     <label class="form-row">
       <input type="checkbox" name="agree" required>
@@ -92,31 +92,31 @@
     <span class="submission-result" data-submission-result>Спасибо, ваш отзыв отправлен!</span>
   </form>
 
-  <script type="application/javascript">
-    const formTag = document.querySelector('[data-form-tag]');
-    const validationControl = document.querySelector('[data-validation-control]');
-    const form = document.querySelector('form');
-    const submissionResult = document.querySelector('[data-submission-result]');
+  <script>
+    const formTag = document.querySelector('[data-form-tag]')
+    const validationControl = document.querySelector('[data-validation-control]')
+    const form = document.querySelector('form')
+    const submissionResult = document.querySelector('[data-submission-result]')
 
     validationControl.addEventListener('click', () => {
       if (form.getAttribute('novalidate') === '') {
-        form.removeAttribute('novalidate');
-        validationControl.innerText = 'Выключить валидацию';
-        formTag.innerText = '<form>';
+        form.removeAttribute('novalidate')
+        validationControl.innerText = 'Выключить валидацию'
+        formTag.innerText = '<form>'
       } else {
-        form.setAttribute('novalidate', '');
-        validationControl.innerText = 'Вернуть валидацию';
-        formTag.innerText = '<form novalidate>';
+        form.setAttribute('novalidate', '')
+        validationControl.innerText = 'Вернуть валидацию'
+        formTag.innerText = '<form novalidate>'
       }
 
-      submissionResult.style.display = 'none';
-    });
+      submissionResult.style.display = 'none'
+    })
 
     form.addEventListener('submit', (event) => {
-      event.preventDefault();
+      event.preventDefault()
 
-      submissionResult.style.display = 'block';
-    });
+      submissionResult.style.display = 'block'
+    })
   </script>
 </body>
 </html>
