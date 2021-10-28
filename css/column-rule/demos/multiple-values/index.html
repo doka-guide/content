@@ -19,19 +19,18 @@
       column-gap: 25px;
     }
 
-    .list-header {
+    h2 {
       padding-left: 8px;
+      font-size:  16px;
+      font-weight: normal;
     }
 
     ul {
       display: flex;
-
       width: 100%;
-
       margin-top: 8px;
       margin-bottom: 15px;
       padding: 0;
-
       list-style-type: none;
       user-select: none;
       color: #ffffff;
@@ -75,7 +74,7 @@
   </style>
 </head>
 <body>
-  <span class="list-header">Ширина, column-rule-width</span>
+  <h2>Ширина, column-rule-width</h2>
   <ul class="widths">
     <li data-style="3px">
       <input id="3px" type="radio" name="width" checked>
@@ -97,7 +96,7 @@
     </li>
   </ul>
 
-  <span class="list-header">Стиль, column-rule-style</span>
+  <h2>Стиль, column-rule-style</h2>
   <ul class="styles">
     <li data-style="solid">
       <input id="solid" type="radio" name="style" checked>
@@ -119,7 +118,7 @@
     </li>
   </ul>
 
-  <span class="list-header">Цвет, column-rule-color</span>
+  <h2>Цвет, column-rule-color</h2>
   <ul class="colors">
     <li data-style="red">
       <input id="red" type="radio" name="color" checked>
