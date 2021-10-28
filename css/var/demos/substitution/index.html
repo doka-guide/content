@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
   <style>
     :root {
       --card-color: lightblue;
@@ -19,8 +19,9 @@
       background-color: #f7f7f7;
     }
 
-    pre {
-      tab-size: 2;
+    body,
+    code {
+      font-family: "Roboto Mono", sans-serif;
     }
 
     .card {
@@ -34,17 +35,17 @@
 </head>
 <body>
 
-<div class="card">
-<!-- editorconfig-checker-disable -->
+  <div class="card">
+
 <pre><code class="code">:root {
-	--card-color: white;
+  --card-color: white;
 }</code><code>
 
 .card {
-	background-color: var(--card-color);
+  background-color: var(--card-color);
 }</code></pre>
-<!-- editorconfig-checker-enable -->
-</div>
+
+  </div>
 
   <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
   <label for="color-lightblue">Синий</label>
@@ -61,7 +62,7 @@
       const color = event.target.value
       document.documentElement.style.setProperty('--card-color', color);
       code.innerHTML = `:root {
-	--card-color: ${color};
+  --card-color: ${color};
 }`
     }
   </script>
