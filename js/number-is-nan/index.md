@@ -39,7 +39,7 @@ typeof NaN
 ```js
 function getUserAge() {
   while (true) {
-    const value = prompt('Пожалуйста укажите ваш возраст')
+    const value = prompt('Пожалуйста, укажите ваш возраст')
 
     if (!value) {
         alert('Вы ничего не ввели!')
@@ -53,7 +53,7 @@ function getUserAge() {
 const age = getUserAge()
 
 if (age === NaN) {
-  alert('Вы ввели не верные данные')
+  alert('Вы ввели неверные данные')
   // Не сработает
 }
 ```
@@ -68,7 +68,7 @@ function isNaN(number) {
 const age = getUserAge()
 
 if (isNaN(age)) {
-  alert('Вы ввели не верные данные')
+  alert('Вы ввели неверные данные')
   // Теперь будет работать
 }
 ```
