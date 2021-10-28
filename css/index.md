@@ -284,6 +284,7 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - scroll-behavior
   - name: 'SVG'
     items:
       - fill
