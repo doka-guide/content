@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений — column-rule-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .text-wrapper {
+      column-count: 3;
+      column-rule: 5px solid #ffd829;
+      column-gap: 25px;
+    }
+
+    .list-header {
+      padding-left: 8px;
+    }
+
+    ul {
+      display: flex;
+
+      width: 100%;
+
+      margin-top: 8px;
+      margin-bottom: 15px;
+      padding: 0;
+
+      list-style-type: none;
+      user-select: none;
+      color: #ffffff;
+    }
+
+    li {
+      margin-right: 12px;
+    }
+
+    label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    input:checked + label::before {
+      background: #ed6742;
+      background: radial-gradient(
+        circle,
+        #ed6742 0%,
+        #ed6742 40%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    input[type="radio"] {
+      width: 19px;
+      margin-right: 2px;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <span class="list-header">Выберите стиль линии</span>
+  <ul class="styles">
+    <li data-style="solid">
+      <input id="solid" type="radio" name="style" checked>
+      <label for="solid">
+        Solid
+      </label>
+    </li>
+    <li data-style="dotted">
+      <input id="dotted" type="radio" name="style">
+      <label for="dotted">
+        Dotted
+      </label>
+    </li>
+    <li data-style="dashed">
+      <input id="dashed" type="radio" name="style">
+      <label for="dashed">
+        Dashed
+      </label>
+    </li>
+    <li data-style="double">
+      <input id="double" type="radio" name="style">
+      <label for="double">
+        Double
+      </label>
+    </li>
+    <li data-style="groove">
+      <input id="groove" type="radio" name="style">
+      <label for="groove">
+        Groove
+      </label>
+    </li>
+  </ul>
+
+  <div class="text-wrapper">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+  </div>
+
+  <script>
+    const wrapper = document.querySelector('.text-wrapper')
+
+    Array.from(document.querySelectorAll('.styles input')).forEach(input => {
+      input.addEventListener('change', () => {
+        wrapper.style.columnRuleStyle = input.parentNode.getAttribute('data-style')
+      })
+    })
+  </script>
+</body>
+</html>
