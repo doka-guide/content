@@ -4,6 +4,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - jag-k
 keywords:
   - свг
   - векторная графика
