@@ -1,8 +1,8 @@
 ---
-title: ":lang"
+title: "`:lang`"
 description: ""
 authors:
-  - Almadef
+  - almadef
 tags:
   - doka
 ---
