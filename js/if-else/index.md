@@ -21,7 +21,7 @@ tags:
 
 ```js
 if (условие) {
-  console.log("выполнится, если условие истинное(true)")
+  console.log("выполнится, если условие истинное (true)")
 } else {
   console.log("выполнится, если условие ложное (false)")
 }
@@ -134,15 +134,16 @@ if (foundItems) {
 
 > Все, что не приводится к `false`, будет `true`
 
-Осталось запомнить 7 значений, которые приводятся к `false`:
+Осталось запомнить 8 значений, которые приводятся к `false`:
 
 - `false`
 - `0`
+- `-0`
 - `""`
 - `null`
 - `undefined`
 - `NaN`
-- `0n`(тип BigInt)
+- `0n` (тип BigInt)
 
 Зная это правило, мы поймём, что в примере выше есть баг: мы будем писать «Ничего не найдено» всегда, кроме случая, когда в переменной `foundItems` окажется `0`. Тогда мы попытаемся напечатать результаты поиска.
 
@@ -169,7 +170,7 @@ if (username === "Виктор") {
 let discount = 0
 if (userStatus === "VIP") {
   discount = 25
-} else if (userStatus === "priveleged") {
+} else if (userStatus === "privileged") {
   discount = 15
 } else if (userStatus === "clubMember") {
   discount = 5

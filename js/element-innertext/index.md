@@ -67,11 +67,11 @@ statusElement.innerText = 'Data loaded!'
 </div>
 ```
 
-::: callout ❗️
+<aside>
 
-Установка нового текста с помощью `Element.innerText` полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.
+❗️ Установка нового текста с помощью `Element.innerText` полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.
 
-:::
+</aside>
 
 Предположим, что в блоке статуса загрузки был ещё элемент отображающий иконку-лоадер.
 
@@ -87,12 +87,12 @@ statusElement.innerText = 'Data loaded!'
 ```js
 const statusElement = document.getElementById('loading-status')
 
-statusElement.innerText = 'Error occured!'
+statusElement.innerText = 'Error occurred!'
 ```
 
 ```html
 <!-- Больше никакой иконки внутри, только новый текст -->
 <div id="loading-status">
-  Error occured!
+  Error occurred!
 </div>
 ```

@@ -4,12 +4,14 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - desen94
 editors:
   - tachisis
 keywords:
   - :hover
   - LVHA
   - псевдокласс
+  - ховер
 tags:
   - doka
 ---

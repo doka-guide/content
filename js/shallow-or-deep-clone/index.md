@@ -56,7 +56,7 @@ console.log(itemsInCart)
 ```js
 console.log(itemsInCart[1] === clonedCart[1])
 // true
-````
+```
 
 ![Результат поверхностного копирования массива](images/shallow.png)
 

@@ -23,11 +23,11 @@ tags:
 ```
 
 ```css
-.element::before {
+div::before {
   content: "Элемент с классом " attr(class);
 }
 
-.element::after {
+div::after {
   content: "Подсказка: " attr(title);
 }
 ```
@@ -37,7 +37,7 @@ tags:
 ## Как пишется
 
 ```css
-.element::before {
+div::before {
   content: attr(data-title);
   content: attr(href);
 }
@@ -46,7 +46,7 @@ tags:
 С указанием типа:
 
 ```css
-.element::before {
+div::before {
   content: attr(src url);
   content: attr(data-count number);
   content: attr(data-width px);
@@ -56,7 +56,7 @@ tags:
 С указанием фолбэка, то есть, запасного значения:
 
 ```css
-.element::before {
+div::before {
   content: attr(data-count number, 0);
   content: attr(src url, "");
   content: attr(data-width px, inherit);
