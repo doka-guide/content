@@ -270,6 +270,7 @@ groups:
       - border-image
       - border-style
       - border-radius
+      - border-color
       - outline
       - outline-color
       - outline-offset
