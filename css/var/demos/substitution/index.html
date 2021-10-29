@@ -31,6 +31,13 @@
       margin-bottom: 1rem;
       transition: background-color .2s ease-in-out;
     }
+
+    @media (max-width: 350px) {
+      .card {
+        padding: .5rem;
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -38,11 +45,11 @@
   <div class="card">
 
 <pre><code class="code">:root {
-  --card-color: white;
+  --color: lightblue;
 }</code><code>
 
 .card {
-  background-color: var(--card-color);
+  background-color: var(--color);
 }</code></pre>
 
   </div>
@@ -61,7 +68,7 @@
     function setColor(event) {
       const color = event.target.value
       document.documentElement.style.setProperty('--card-color', color);
-      code.innerHTML = `:root {\n  --card-color: ${color};\n}`
+      code.innerHTML = `:root {\n  --color: ${color};\n}`
     }
   </script>
 </body>
