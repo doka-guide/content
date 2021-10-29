@@ -270,6 +270,7 @@ groups:
       - border-image
       - border-style
       - border-radius
+      - border-color
       - outline
       - outline-color
       - outline-offset
@@ -284,6 +285,7 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - scroll-behavior
   - name: 'SVG'
     items:
       - fill
