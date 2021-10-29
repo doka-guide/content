@@ -4,6 +4,8 @@ authors:
   - parabolabam
 keywords:
   - text-decoration-skip-ink
+  - верхнее подчёркивание
+  - нижнее подчёркивание
 tags:
   - doka
 ---
