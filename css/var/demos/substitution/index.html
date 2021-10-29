@@ -61,9 +61,7 @@
     function setColor(event) {
       const color = event.target.value
       document.documentElement.style.setProperty('--card-color', color);
-      code.innerHTML = `:root {
-  --card-color: ${color};
-}`
+      code.innerHTML = `:root {\n  --card-color: ${color};\n}`
     }
   </script>
 </body>
