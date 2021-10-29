@@ -164,18 +164,76 @@ Object.assign(obj, {
 }).age // 30
 ```
 
-У примитивов без переменной можно обращаться к методам только у строки. Для всех остальных, чтобы не получить синтаксическую ошибку, нужно оборачивать значение в скобки, либо вызывать функцию-примитив (`String`, `Number`, `Boolean` и т.д.)
+Почти у всех примитивов без переменной тоже можно обращаться к методам:
+
+```js
+true.toString()
+// "true"
+
+Infinity.toString()
+// "Infinity"
+
+"hello world".toString()
+// "hello world"
+
+Symbol("tag").toString()
+// "Symbol(tag)"
+
+9007199254740991n.toString()
+// "9007199254740991"
+```
+
+Правда, в случае с числами можно получить синтаксическую ошибку, потому что точка воспринимается как часть самого числа:
+
+```js
+42.toString()
+// Uncaught SyntaxError: Invalid or unexpected token
+```
+
+Чтобы этого избежать можно использовать две точки, взять выражение в скобки или вызвать функцию-примитив:
+
+```js
+42..toString()
+// "42"
+
+(42).toString()
+// "42"
+
+Number(42).toString()
+// "42"
+```
+
+При вызове функций мы также можем автоматически [приводить типы](/js/typecasting/):
 
 ```javascript
-'Boris'.length // 5
-'Boris'.charAt(3) // "i"
+Number("1").toFixed(1)
+// "1.0"
 
-1.toFixed(1) // Так нельзя, будет ошибка
+Boolean(1).toString()
+// "true"
 
-// А вот если обернуть в скобки, то будет работать
-(1).toFixed(1) // "1.0"
+String(42).length
+// 2
+```
 
-// Так тоже будет работать
-Number(1).toFixed(1) // "1.0"
-Boolean(1).toString() // "true"
+Вызов методов или свойств не сработает у `null` и `undefined`:
+
+```js
+null.toString()
+// Uncaught TypeError: Cannot read property 'toString' of null
+
+null.valueOf()
+// Uncaught TypeError: Cannot read property 'valueOf' of null
+
+null.length
+// Uncaught TypeError: Cannot read property 'length' of null
+
+undefined.toString()
+// Uncaught TypeError: Cannot read property 'toString' of undefined
+
+undefined.valueOf()
+// Uncaught TypeError: Cannot read property 'valueOf' of undefined
+
+undefined.length
+// Uncaught TypeError: Cannot read property 'length' of undefined
 ```
