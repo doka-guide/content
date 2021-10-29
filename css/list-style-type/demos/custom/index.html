@@ -7,23 +7,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    @counter-style circled-alpha {
-      system: fixed;
-      symbols: 😁 😇 😋 🤪 😎;
-      suffix: " ";
-    }
-
-    .list {
-      list-style: circled-alpha;
-    }
-
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-   body {
+    body {
       min-height: 100vh;
       margin: 0;
       padding: 50px;
@@ -35,7 +25,14 @@
       font-family: "Roboto", sans-serif;
     }
 
-    ol {
+    @counter-style circled-alpha {
+      system: fixed;
+      symbols: 😁 😇 😋 🤪 😎;
+      suffix: " ";
+    }
+
+    .list {
+      list-style: circled-alpha;
       font-size: 24px;
     }
 
