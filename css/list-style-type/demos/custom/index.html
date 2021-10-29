@@ -17,27 +17,26 @@
       list-style: circled-alpha;
     }
 
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+   body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    body {
-      padding: 5%;
-      background-color: #1a5ad7;
-      color: #ffffff;
-      text-align: center;
-    }
-
     ol {
-      display: inline-block;
-    }
-
-    li {
-      font-size: 20px;
-      text-align: left;
-      font-weight: 300;
+      font-size: 24px;
     }
 
     li + li {
