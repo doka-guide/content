@@ -55,7 +55,7 @@ tags:
 }
 ```
 
-<iframe title="Декор текста" src="demos/basic/" height="400"></iframe>
+<iframe title="Декор текста" src="demos/basic/" height="460"></iframe>
 
 ## Как это понять
 
@@ -104,7 +104,7 @@ selector {
 
 Стиль линии можно указать отдельно при помощи свойства [`text-decoration-style`](/css/text-decoration-style).
 
-<iframe title="Стиль линии декора текста" src="demos/style/" height="400"></iframe>
+<iframe title="Стиль линии декора текста" src="demos/style/" height="460"></iframe>
 
 ### Цвет линии
 
@@ -122,7 +122,7 @@ selector {
 
 Цветом линии можно управлять отдельно при помощи свойства [`text-decoration-color`](/css/text-decoration-color):
 
-<iframe title="Стиль и цвет линии декора текста" src="demos/style-color/" height="400"></iframe>
+<iframe title="Стиль и цвет линии декора текста" src="demos/style-color/" height="460"></iframe>
 
 ## Подсказки
 
@@ -192,7 +192,7 @@ p {
 
 <a name="example"></a>
 
-<iframe title="Анимированный декор текста" src="demos/color/" height="400"></iframe>
+<iframe title="Анимированный декор текста" src="demos/color/" height="460"></iframe>
 
 💡 Нельзя управлять толщиной и точным положением линии, заданной при помощи `text-decoration`.
 

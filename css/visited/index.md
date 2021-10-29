@@ -96,7 +96,7 @@ li .link:visited {
 
 - [`color`](/css/color),
 - [`background-color`](/css/background-color),
-- `border-color`,
+- [`border-color`](/css/border-color),
 - `border-bottom-color`,
 - `border-left-color`,
 - `border-right-color`,

@@ -35,7 +35,7 @@ html {
 - `auto` — значение по умолчанию, мгновенная прокрутка;
 - `smooth` — плавная прокрутка.
 
-<iframe title="Варианты значений" src="demos/values/" height="200"></iframe>
+<iframe title="Варианты значений" src="demos/values/" height="200" sandbox></iframe>
 
 ## Подсказки
 

@@ -18,7 +18,7 @@ tags:
 
 - `border-width`
 - [`border-style`](/css/border-style)
-- `border-color`
+- [`border-color`](/css/border-color)
 
 ## Пример
 
