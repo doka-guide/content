@@ -25,7 +25,7 @@ p {
 }
 ```
 
-Также `column-rule-style` - это второе значение в свойстве [`column-rule`](/css/column-rule).
+Также `column-rule-style` — это второе значение в свойстве [`column-rule`](/css/column-rule).
 
 ## Пример
 
