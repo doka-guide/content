@@ -31,4 +31,4 @@ p {
 
 В примере ниже вы можете поменять стиль линии между колонками.
 
-<iframe title="Варианты значений column-rule-style" src="demos/multiple-values/" height="250"></iframe>
+<iframe title="Варианты значений column-rule-style" src="demos/multiple-values/" height="380"></iframe>

@@ -33,4 +33,4 @@ p {
 
 В примере ниже вы можете поменять внешний вид у линии между колонками.
 
-<iframe title="Варианты значений column-rule" src="demos/multiple-values/" height="400"></iframe>
+<iframe title="Варианты значений column-rule" src="demos/multiple-values/" height="520"></iframe>

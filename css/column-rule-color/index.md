@@ -12,7 +12,7 @@ tags:
 
 ## Как пишется
 
-Можно использовать любые допустимые [значения цветов](/css/web-colors/). 
+Можно использовать любые допустимые [значения цветов](/css/web-colors/).
 
 Для того, чтобы задать межколоночной линии красный цвет, мы напишем:
 
@@ -38,4 +38,4 @@ p {
 ```
 
 
-<iframe title="Пример для свойства column-rule-color" src="demos/basic/" height="200"></iframe>
+<iframe title="Пример для свойства column-rule-color" src="demos/basic/" height="320"></iframe>
