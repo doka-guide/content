@@ -29,6 +29,14 @@ p {
 
 ## Пример
 
-В примере ниже вы можете поменять стиль линии между колонками.
+В примере ниже вы можете поменять стиль линии между колонками. По умолчанию заданы такие стили:
+
+```css
+.text-wrapper {
+  column-count: 3;
+  column-rule: 5px solid #ffd829;
+  column-gap: 25px;
+}
+```
 
 <iframe title="Варианты значений column-rule-style" src="demos/multiple-values/" height="380"></iframe>

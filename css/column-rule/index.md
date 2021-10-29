@@ -31,6 +31,14 @@ p {
 
 ## Пример
 
-В примере ниже вы можете поменять внешний вид у линии между колонками.
+В примере ниже вы можете поменять внешний вид у линии между колонками. По умолчанию заданы такие стили:
+
+```css
+.text-wrapper {
+  column-count: 3;
+  column-rule: 3px solid red;
+  column-gap: 25px;
+}
+```
 
 <iframe title="Варианты значений column-rule" src="demos/multiple-values/" height="520"></iframe>
