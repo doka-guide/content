@@ -18,6 +18,7 @@ tags:
   .item1 {
     column-span: none;
   }
+
   .item2 {
     column-span: all;
   }
@@ -40,6 +41,7 @@ tags:
     <p><!-- Текст второго параграфа --></p>
   </div>
 ```
+
 ```css
 .wrapper {
   column-count: 4;
