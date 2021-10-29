@@ -40,6 +40,7 @@ CSS-функция `var()` позволяет подставлять «[каст
 Передав в функцию `var()` кастомное свойство, браузер двигается вверх по иерархии элементов в поисках значения кастомного свойства.
 
 Он проверит, установлено ли кастомное свойство на текущем элементе:
+
 - Если да, подставит вместо `var()` и остановит поиск.
 - Если нет, переходит на родительский элемент и повторяет проверку.
 
@@ -135,6 +136,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 В этом примере кастомное свойство `--text-color` имеет значение `16px`, что технически является валидным. Но, когда браузер подставляет значение `--text-color` вместо `var(--text-color)`, он пытается использовать значение `16px`, которое не является допустимым значением для свойства `color`.
 
 Браузер рассматривает его как недопустимое значение и проверяет, наследуется ли свойство `color` от родительского элемента. Если да, он его использует. В противном случае устанавливает значение `initial`
+
 </details>
 
 Функция `var()` **не может** использоваться в качестве имён свойств, селекторов или чего-либо ещё, кроме _значений свойств_.
@@ -196,6 +198,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 ```
 
 Так и для нескольких:
+
 ```css
 .element {
   --margin-top-right: 10px 10px;
@@ -212,6 +215,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
   --offset: 50px;
   height: calc(100vh - var(--offset));
 }
+
 .element-2 {
   --height: 100vh - 50px;
   height: calc(var(--height));
@@ -225,10 +229,12 @@ document.documentElement.style.setProperty('--card-color', 'orange')
   --rgb: 0, 0, 0;
   color: rgba(var(--rgb), 1);
 }
+
 .element-2 {
   --rgb: 0, 0, 0;
   color: rgb(var(--rgb));
 }
+
 .element-3 {
   --red: 0;
   --green: 0;
@@ -238,12 +244,14 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 ```
 
 `linear-gradient() / radial-gradient()`
+
 ```css
 :root {
   --c1: red;
   --c2: blue;
   --grad: linear-gradient(var(--c1),var(--c2));
 }
+
 .element {
   --c1: green;
   background:var(--grad);
@@ -256,16 +264,19 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 :root {
   --url: url("https://example.com/example.jpg");
 }
+
 .element {
   background: var(--url);
 }
 ```
 
 Но такой пример работать не будет, так как функция `url()` воспринимает конструкцию `var(--url)` как URL:
+
 ```css
 :root {
   --url: "https://example.com/example.jpg";
 }
+
 .element {
   background: url(var(--url));
 }
