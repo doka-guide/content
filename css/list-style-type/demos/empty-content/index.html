@@ -7,31 +7,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+   body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    body {
-      padding: 5%;
-      background-color: #064236;
-      color: #ffffff;
-      text-align: center;
-    }
-
     ul {
-      display: inline-block;
       /* убираем стандартные точки */
       list-style-type: none;
+      font-size: 24px;
     }
 
     li {
       position: relative;
-      font-size: 20px;
-      text-align: left;
-      font-weight: 300;
     }
 
     li + li {
@@ -41,13 +42,12 @@
     li::before {
       /* не забываем о свойстве content */
       content: "";
+      position: absolute;
+      left: -50px;
+      top: 7px;
       width: 15px;
       height: 15px;
-      border-radius: 50%;
-      background-color: #ed6742;
-      position: absolute;
-      left: -25px;
-      top: 5px;
+      background-color: #2E9AFF;
     }
   </style>
 </head>
