@@ -1,84 +1,70 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <title>Нижнее подчёркивание текста — text-decoration-skip-ink — Дока</title>
-    <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
-    />
-    <style>
-      body {
-        margin: 0;
-        padding: 5%;
-        background-color: #18191c;
-        color: #e6e6e6;
-        font-family: "Roboto", sans-serif;
-      }
+<head>
+  <title>Нижнее подчёркивание текста — text-decoration-skip-ink — Дока</title>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
 
-      p {
-        text-decoration: underline;
-      }
+    p {
+      text-decoration: underline;
+    }
 
-      p::after {
-        content: attr(propName);
-        position: absolute;
-        left: 30px;
-        top: -13px;
-        display: block;
-        padding: 5px 10px;
-        font-size: 0.8em;
-        font-family: monospace;
-        color: #afc9da;
-        background: #282a2e;
-      }
+    p::after {
+      content: attr(propName);
+      position: absolute;
+      left: 30px;
+      top: -13px;
+      display: block;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      font-family: monospace;
+      color: #afc9da;
+      background: #282a2e;
+    }
 
-      p:not(:first-of-type) {
-        margin-top: 2rem;
-      }
+    p:not(:first-of-type) {
+      margin-top: 2rem;
+    }
 
-      .paragraph {
-        font-size: 20px;
-        position: relative;
-        padding: 30px;
-        margin: 0;
-        border: 1px solid #3b3e44;
-      }
+    .paragraph {
+      font-size: 20px;
+      position: relative;
+      padding: 30px;
+      margin: 0;
+      border: 1px solid #3b3e44;
+    }
 
-      .text-decoration-skip-ink--none {
-        text-decoration-skip-ink: none;
-      }
+    .text-decoration-skip-ink--none {
+      text-decoration-skip-ink: none;
+    }
 
-      .text-decoration-skip-ink--auto {
-        text-decoration-skip-ink: auto;
-      }
+    .text-decoration-skip-ink--auto {
+      text-decoration-skip-ink: auto;
+    }
 
-      .text-decoration-skip-ink--all {
-        text-decoration-skip-ink: all;
-      }
-    </style>
-  </head>
-  <body>
-    <p
-      propName="text-decoration-skip-ink: none"
-      class="paragraph text-decoration-skip-ink--none"
-      id="example-text-overline"
-    >
-      Утка с щукой гуляли по парку
-    </p>
-    <p
-      propName="text-decoration-skip-ink: auto"
-      class="paragraph text-decoration-skip-ink--auto"
-      id="example-text-overline"
-    >
-      Утка с щукой гуляли по парку
-    </p>
-    <p
-      propName="text-decoration-skip-ink: all"
-      class="paragraph text-decoration-skip-ink--all"
-      id="example-text-overline"
-    >
-      Утка с щукой гуляли по парку
-    </p>
-  </body>
+    .text-decoration-skip-ink--all {
+      text-decoration-skip-ink: all;
+    }
+  </style>
+</head>
+<body>
+  <p propName="text-decoration-skip-ink: none" class="paragraph text-decoration-skip-ink--none" id="example-text-overline">
+    Утка с щукой гуляли по парку
+  </p>
+  <p propName="text-decoration-skip-ink: auto" class="paragraph text-decoration-skip-ink--auto" id="example-text-overline">
+    Утка с щукой гуляли по парку
+  </p>
+  <p propName="text-decoration-skip-ink: all" class="paragraph text-decoration-skip-ink--all" id="example-text-overline">
+    Утка с щукой гуляли по парку
+  </p>
+</body>
 </html>
