@@ -48,7 +48,6 @@ tags:
 
 <iframe title="Пример с column-fill: balance" src="demos/balance/" height="300"></iframe>
 
-
 У нас получился большой отступ от контента до следующего заголовка. Чтобы избежать этого, давайте зададим `column-fill: auto`:
 
 ```css
@@ -64,7 +63,3 @@ tags:
 <iframe title="Пример с column-fill: auto" src="demos/auto/" height="300"></iframe>
 
 Теперь контент размещается в колонке до тех пор, пока хватает высоты, и только потом переходит в следующую колонку.
-
-
-
-
