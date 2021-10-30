@@ -21,6 +21,7 @@ tags:
 ```html
 <p>Эта правка <strong>критически важна</strong> для проекта!</p>
 ```
+
 <iframe title="Как выглядит" src="demos/view/" height="70"></iframe>
 
 ## `<strong>` против `<b>`
@@ -32,4 +33,3 @@ tags:
 ## Атрибуты
 
 Тег `<strong>` поддерживает [глобальные атрибуты](/css/global-attrs/) и [события](/js/events/).
-
