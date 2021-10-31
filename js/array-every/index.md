@@ -38,7 +38,7 @@ const isAllUsersOnline = users.every(user => {
 Проверка, что всех пользователей зовут «Анна», вернёт `false`:
 
 ```js
-const isAllUsersAnna = users.some(num => {
+const isAllUsersAnna = users.every(user => {
   return user.name === 'Анна'
 })
 ```
