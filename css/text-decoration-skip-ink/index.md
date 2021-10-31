@@ -27,20 +27,20 @@ tags:
 Создадим несколько абзацев текста. Применим свойство `text-decoration-skip-ink` для них вместе со свойством [`text-decoration`](/css/text-decoration/) с разными значениями.
 
 ```css
-p {
+a {
   text-decoration: underline;
 }
 ```
 
-<iframe title="Примеры свойства text-decoration-skip-ink с нижним подчёркиванием" src="demos/text-decoration-skip-ink-underline/" height="400"></iframe>
+<iframe title="Примеры свойства text-decoration-skip-ink с нижним подчёркиванием" src="demos/underline/" height="400"></iframe>
 
 ```css
-p {
+a {
   text-decoration: overline;
 }
 ```
 
-<iframe title="Примеры свойства text-decoration-skip-ink с верхним подчёркиванием" src="demos/text-decoration-skip-ink-overline/" height="400"></iframe>
+<iframe title="Примеры свойства text-decoration-skip-ink с верхним подчёркиванием" src="demos/overline/" height="400"></iframe>
 
 ## Подсказки
 
