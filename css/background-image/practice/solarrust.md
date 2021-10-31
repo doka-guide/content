@@ -54,8 +54,8 @@
 ```html
 <div class="parent">
   <div class="spread-gradient"></div>
-  <div class="smooth-cirle"></div>
-  <div class="sharp-cirle"></div>
+  <div class="smooth-circle"></div>
+  <div class="sharp-circle"></div>
 </div>
 ```
 
@@ -68,8 +68,8 @@
 }
 
 .spread-gradient,
-.smooth-cirle,
-.sharp-cirle {
+.smooth-circle,
+.sharp-circle {
   width: 200px;
   height: 200px;
 }
@@ -78,11 +78,11 @@
   background-image: radial-gradient(#e6e6e6, #1a5ad7);
 }
 
-.smooth-cirle {
+.smooth-circle {
   background-image: radial-gradient(#e6e6e6, #1a5ad7 70%);
 }
 
-.sharp-cirle {
+.sharp-circle {
   background-image: radial-gradient(#e6e6e6 70%, #1a5ad7 70%);
 }
 ```

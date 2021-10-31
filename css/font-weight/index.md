@@ -97,6 +97,7 @@ div {
 body {
   font-family: "Roboto", sans-serif;
 }
+
 /* Зададим толщину заголовка с помощью слова bold. */
 h1 {
   font-weight: bold;
@@ -119,4 +120,4 @@ span {
 }
 ```
 
-<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="330"></iframe>
+<iframe title="Насыщенность шрифта" src="demos/font-weight/" height="420"></iframe>

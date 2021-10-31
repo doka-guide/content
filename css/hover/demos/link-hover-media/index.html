@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ховер-эффект в медиавыражении — any-hover:hover — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .link {
+      color: #ffffff;
+      text-decoration-color: #ffd829;
+      transition: color 0.5s;
+    }
+
+    @media (any-hover: hover) {
+      .link:hover {
+        color: #ed6742;
+        transition: color 0.1s;
+      }
+    }
+
+    .label {
+      display: block;
+      font-size: 14px;
+      color: #c5c5c5;
+      width: 350px;
+      margin: 10px auto 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#" class="link">Таинственная ссылка</a>
+  <span class="label">*наведение доступно для устройств ввода, позволяющих навести указатель</span>
+</body>
+</html>

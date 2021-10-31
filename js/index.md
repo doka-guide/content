@@ -83,6 +83,7 @@ groups:
       - index-of
       - array-length
       - array-from
+      - array-isarray
   - name : "Множество Set"
     items:
       - set
@@ -188,6 +189,7 @@ groups:
       - promise-then
       - promise-catch
       - promise-finally
+      - promise-all
       - async-await
   - name: "Обмен данными с API"
     items:

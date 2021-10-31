@@ -5,110 +5,128 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      font-family: "Roboto", sans-serif;
-    }
-
-    header {
-      position: relative;
-      min-height: 100vh;
-      background-color: #000000;
-      background-image: url("../images/landscape.jpg");
-      background-size: cover;
-      border: 1px solid black;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    header::after {
+    body {
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 65px;
+      box-sizing: border-box;
+    }
+
+    .header__container_top {
       position: absolute;
-      content: "";
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
-      background-color: #ed6742;
-      opacity: 0.6;
-      z-index: 0;
+      background-color: #2E9AFF;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    nav {
-      width: 90%;
+    .header__navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      min-width: 700px;
       margin: 0 auto;
     }
 
-    .top {
-      background-color: #ffffff;
+    .header__logo {
+      font-size: 20px;
+      cursor: default;
+      user-select: none;
     }
 
-    .navigation {
+    .list {
       display: flex;
       justify-content: center;
       list-style-type: none;
-      padding-left: 0;
       margin: 0;
+      padding-left: 0;
     }
 
-    .navigation__item + .navigation__item {
+    .list__item + .list__item {
       margin-left: 40px;
     }
 
-    .navigation__link,
-    .navigation__link:visited {
+    .list__link,
+    .list__link:visited {
       display: inline-block; /* делаем элементы строчно-блочными */
-      color: #18191c;
+      padding-top: 24px;
+      padding-bottom: 24px;
       text-decoration: none; /* убираем подчеркивание */
-      padding-top: 16px;
-      padding-bottom: 16px;
-      text-transform: uppercase;
+      color: #18191c;
       font-weight: 500;
-      font-size: 15px;
+      text-transform: uppercase;
     }
 
-    .navigation__link:hover {
-      padding-bottom: 14px; /* нивелируем размеры рамки */
-      border-bottom: 2px solid #18191c; /* добавляем рамку снизу */
+    .list__link:hover {
+      padding-bottom: 20px; /* нивелируем размеры рамки */
+      border-bottom: 4px solid #FFFFFF; /* добавляем рамку снизу */
+      color: #FFFFFF;
     }
 
-    h1 {
-      width: 90%;
-      margin: 160px auto;
+    .header__container_title {
+      text-align: center;
+    }
+
+    .header__title {
+      display: inline-block;
+      margin: 0 auto;
+      color: #2E9AFF;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 30px;
       text-transform: uppercase;
       text-align: center;
-      color: #ffffff;
-      font-size: 4rem;
+    }
+
+    .header__accent {
+      display: block;
+      background-color: #FF8630;
+      color: #000000;
+      font-size: 55px;
+      line-height: 58px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container top">
-      <nav>
-        <ul class="navigation">
-          <li class="navigation__item">
-            <a href="#" class="navigation__link">О магазине</a>
+  <header class="header">
+    <div class="header__container_top">
+      <nav class="header__navigation">
+        <span class="header__logo">((▼w▼))</span>
+        <ul class="list">
+          <li class="list__item">
+            <a href="#" class="list__link">О магазине</a>
           </li>
-          <li class="navigation__item">
-            <a href="#" class="navigation__link">Новости</a>
+          <li class="list__item">
+            <a href="#" class="list__link">О тыквах</a>
           </li>
-          <li class="navigation__item">
-            <a href="#" class="navigation__link">Акции</a>
+          <li class="list__item">
+            <a href="#" class="list__link">О нас</a>
           </li>
-          <li class="navigation__item">
-            <a href="#" class="navigation__link">Личный кабинет</a>
+          <li class="list__item">
+            <a href="#" class="list__link">Контакты</a>
           </li>
         </ul>
       </nav>
     </div>
-    <div class="container">
-      <h1>Магазин «лето»</h1>
+    <div class="header__container_title">
+      <h1 class="header__title">Магазин <span class="header__accent">«Резная тыква»</span></h1>
     </div>
   </header>
 </body>
