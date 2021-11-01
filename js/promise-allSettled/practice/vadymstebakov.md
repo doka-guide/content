@@ -24,5 +24,4 @@ Promise.allSettled(arrayFetchData)
   });
 ```
 
-Примерно так можно использовать метод `allSettled`.
-Этот метод появился в спецификации языка недавно, а именно [ES2020](https://habr.com/ru/company/plarium/blog/485362/), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
+Примерно так можно использовать метод `allSettled`. Этот метод появился в спецификации языка недавно, а именно [ES2020](https://habr.com/ru/company/plarium/blog/485362/), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
