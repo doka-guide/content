@@ -1,15 +1,12 @@
 ---
 title: "`<strong>`"
 authors:
-  - doka-dog
-contributors:
   - gingerraccoon
 keywords:
   - семантическое выделение
   - важность
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
