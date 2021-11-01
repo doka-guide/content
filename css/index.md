@@ -145,6 +145,7 @@ groups:
       - text-decoration-line
       - text-decoration-style
       - text-decoration-thickness
+      - text-decoration-skip-ink
       - text-rendering
       - text-shadow
       - white-space
