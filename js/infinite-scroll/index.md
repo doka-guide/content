@@ -427,7 +427,7 @@ async function fetchPosts() {
   posts.forEach(appendPost)
 
   // В следующий раз запрашиваем страницу с номером next.
-  nextPage = page
+  nextPage = next
 
   // Если мы увидели, что контент закончился,
   // отмечаем, что больше запрашивать ничего не надо.
