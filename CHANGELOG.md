@@ -1,5 +1,10 @@
 # Новые материалы
 
+## Ноябрь 2021
+
+- 2 ноября: [Атрибут `novalidate`](https://doka.guide/html/novalidate/), Владислав Чичужко
+- 1 ноября: [`text-decoration-skip-ink`](https://doka.guide/css/text-decoration-skip-ink/), Влад Сорокин
+
 ## Октябрь 2021
 
 - 28 октября: [`Array.isArray()`](https://doka.guide/js/array-isarray/), Роман Юрлов
