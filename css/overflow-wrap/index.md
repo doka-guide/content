@@ -40,7 +40,7 @@ p {
 
 <aside>
 
-🤨 Значение `anywhere` пока не поддерживается всеми браузерами. Проверяйте поддержку на [Can I Use](https://caniuse.com/mdn-css_properties_overflow-wrap_anywhere).
+🤨 Значение `anywhere` пока не поддерживается всеми браузерами. Проверяйте поддержку на [Can I use](https://caniuse.com/mdn-css_properties_overflow-wrap_anywhere).
 
 </aside>
 
