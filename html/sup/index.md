@@ -62,7 +62,7 @@ tags:
   <var>
     X
     <sup>
-      2*log<sub>3</sub>(Z<sup>2</sup>)
+      2 × log<sub>3</sub>(Z<sup>2</sup>)
     </sup>
   </var>
 </p>

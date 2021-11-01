@@ -31,9 +31,12 @@ tags:
 
 ```html
 <p>
-  Сумма массива может быть вычислена последовательным сложением всех его элементов:
-  <br>
-  sum := <var>X<sub>1</sub></var> + <var>X<sub>2</sub></var> + ... + <var>X<sub>N</sub></var>
+  Сумма массива может быть
+  вычислена последовательным
+  сложением всех его элементов:<br>
+  sum := <var>X<sub>1</sub></var> +
+  <var>X<sub>2</sub></var> + ... +
+  <var>X<sub>N</sub></var>
 </p>
 ```
 
@@ -61,7 +64,7 @@ tags:
   <var>
     X
     <sup>
-      2*log<sub>3</sub>(Z<sup>2</sup>)
+      2 × log<sub>3</sub>(Z<sup>2</sup>)
     </sup>
   </var>
 </p>
