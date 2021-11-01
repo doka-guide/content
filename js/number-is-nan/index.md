@@ -2,6 +2,8 @@
 title: "`Number.isNaN()`"
 authors:
   - ruslauz
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
