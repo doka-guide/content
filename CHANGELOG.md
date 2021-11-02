@@ -1,5 +1,7 @@
 # Новые материалы
 
+<!-- yaspeller ignore:start -->
+
 ## Ноябрь 2021
 
 - 2 ноября: [`column-span`](https://doka.guide/css/column-span), Иван Ельцов
@@ -17,3 +19,5 @@
 - 22 октября: [Объект события `Event`](https://doka.guide/js/event/), Павел Минеев
 - 21 октября: [`:lang`](https://doka.guide/css/lang/), Михаил Чувашов
 - 20 октября: [`tab-size`](https://doka.guide/css/tab-size/), Вадим Макеев
+
+<!-- yaspeller ignore:end -->
