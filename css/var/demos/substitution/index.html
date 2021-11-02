@@ -21,7 +21,7 @@
 
     body,
     code {
-      font-family: "Roboto Mono", sans-serif;
+      font-family: "Roboto Mono",  monospace;
     }
 
     .card {
@@ -30,6 +30,10 @@
       border-radius: 1rem;
       margin-bottom: 1rem;
       transition: background-color .2s ease-in-out;
+    }
+
+    label {
+      cursor: pointer;
     }
 
     @media (max-width: 350px) {
@@ -53,11 +57,14 @@
 }</code></pre>
 
   </div>
-
-  <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
-  <label for="color-lightblue">Синий</label>
-  <input type="radio" id="color-orange" name="card-color" value="orange">
-  <label for="color-orange">Оранжевый</label>
+  <label for="color-lightblue">
+    <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
+    Синий
+  </label>
+  <label for="color-orange">
+    <input type="radio" id="color-orange" name="card-color" value="orange">
+    Оранжевый
+  </label>
 
   <script>
     const code = document.querySelector('.code')
