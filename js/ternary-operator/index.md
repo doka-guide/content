@@ -73,7 +73,7 @@ salutation()
 ```js
 let num = 10
 
-const result = (num > 10) ? 'Число больше 10' : (num = 10) ? 'Число равно 10' : 'Число меньше 10'
+const result = num > 10 ? 'Число больше 10' : num === 10 ? 'Число равно 10' : 'Число меньше 10'
 
 console.log(result)
 ```
