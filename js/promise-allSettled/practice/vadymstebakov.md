@@ -24,4 +24,4 @@ Promise.allSettled(arrayFetchData)
 // { status: 'rejected', reason: TypeError: Failed to fetch... }
 ```
 
-Примерно так можно использовать метод `allSettled`. Этот метод появился в спецификации языка недавно, а именно [ES2020](https://habr.com/ru/company/plarium/blog/485362/), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
+Примерно так можно использовать метод `allSettled`. Этот метод появился в спецификации языка недавно, а именно [ES2020](https://262.ecma-international.org/11.0/#sec-promise.allsettled), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
