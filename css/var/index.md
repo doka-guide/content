@@ -78,6 +78,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 
 ## Как пишется
 
+### Базовый синтаксис
 Функция `var()` принимает 2 аргумента:
 
 1. Имя кастомного свойства.
@@ -102,6 +103,8 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 ```
 
 Значение `font-size` будет `20px`, если `--font-size` и `--title-font-size` не определены.
+
+### Резервное значение
 
 Ещё один пример, но немного неочевидный. Если переменная `--font-size` не определена, то резервное значение будет: `--title-font-size, 20px`. К сожалению, оно не валидно:
 
@@ -141,6 +144,39 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 
 </details>
 
+### Возможности
+
+Функцию `var()` можно подставить как часть значения свойства:
+
+```css
+.card {
+  --border-color: black;
+  border: 1px solid var(--border-color);
+}
+```
+
+Функция `var()` также работает с сокращёнными свойствами: `margin`, `padding`, `border`, `background`, `transform`, `transition` и т. д.
+
+Можно использовать для подставки как одного значения:
+
+```css
+.element {
+  --margin-top: 10px;
+  margin: var(--margin-top) 10px 20px 30px;
+}
+```
+
+Так и для нескольких:
+
+```css
+.element {
+  --margin-top-right: 10px 10px;
+  margin: var(--margin-top-right) 10px 50px;
+}
+```
+
+### Ограничения
+
 Функция `var()` **не может** использоваться в качестве имён свойств, селекторов или чего-либо ещё, кроме _значений свойств_.
 
 Например, следующий код неправильно использует кастомное свойство в качестве имени свойства:
@@ -179,34 +215,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-Функцию `var()` можно подставить как часть значения свойства:
-
-```css
-.card {
-  --border-color: black;
-  border: 1px solid var(--border-color);
-}
-```
-
-Функция `var()` также работает с сокращёнными свойствами: `margin`, `padding`, `border`, `background`, `transform`, `transition` и т. д.
-
-Можно использовать для подставки как одного значения:
-
-```css
-.element {
-  --margin-top: 10px;
-  margin: var(--margin-top) 10px 20px 30px;
-}
-```
-
-Так и для нескольких:
-
-```css
-.element {
-  --margin-top-right: 10px 10px;
-  margin: var(--margin-top-right) 10px 50px;
-}
-```
+### Внутри других функций
 
 Также работает с такими функциями:
 
