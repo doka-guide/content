@@ -58,7 +58,7 @@ console.log (result)
 Результат возвращаемый тернарным оператором можно записать в переменную (как в примере выше) или вернуть с помощью `return` внутри функции:
 
 ```js
-let salutation = function(name) {
+const salutation = function(name) {
   return name ? `Рад видеть, ${name}!` : 'Привет, друг!'
 }
 
