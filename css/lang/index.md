@@ -75,7 +75,7 @@ p:lang(es) {
 ```html
 <p><q lang="ru">слово</q></p>
 <p><q lang="es">palabra</q></p>
-<p><q lang="de">das Wort</q></p>
+<p><q lang="it">parola</q></p>
 ```
 
 <iframe title="Кавычки" src="demos/q/" height="120"></iframe>
