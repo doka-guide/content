@@ -135,11 +135,11 @@
   <form>
     <label class="input-container">
       <span class="input-title">Цена</span>
-      <input class="input" id="price" type="text" placeholder="Цена товара" oninput="check()" maxlength="5">
+      <input class="input" id="price" type="text" placeholder="Цена товара" oninput="check()" maxlength="5" value="100">
     </label>
     <label class="input-container">
       <span class="input-title">Скидка, %</span>
-      <input class="input" id="discount" type="text" placeholder="Скидка" oninput="check()" maxlength="2">
+      <input class="input" id="discount" type="text" placeholder="Скидка" oninput="check()" maxlength="2" value="Скидок нет">
     </label>
     <label class="checkbox-container">
       <input class="checkbox" id="checkNaN" type="checkbox" oninput="check()">
@@ -152,34 +152,30 @@
   </form>
 
   <script>
-    function check(){
-      const p = document.querySelector('#price')
-      const d = document.querySelector('#discount').value
+    function check() {
+      const priceInput = document.querySelector('#price')
+      const priceValue = document.querySelector('#price').value
+      const discountValue = document.querySelector('#discount').value
       const checkNaN = document.querySelector('#checkNaN').checked
       const total = document.querySelector('#total')
 
-      p.classList.remove("error")
+      priceInput.classList.remove("error")
 
+      let discount = priceValue - (priceValue / 100 * discountValue).toFixed(2)
       if (checkNaN) {
-        let discount = p.value - (p.value / 100 * d).toFixed(2)
         if (isNaN(discount)) {
-          if (isNaN(p.value)) {
-            p.classList.add("error")
-          } else if (!p.value) {
+          if (isNaN(priceValue)) {
+            priceInput.classList.add("error")
+          } else if (!priceValue) {
             discount = 0
           } else {
-            discount = p.value
+            discount = priceValue
           }
         }
-        total.innerText = discount
-      } else {
-        total.innerText = p.value - (p.value / 100 * d).toFixed(2)
       }
+      total.innerText = discount
     }
 
-    // первичные значения для формы
-    document.querySelector('#price').value = 100
-    document.querySelector('#discount').value = "Скидок нет"
     check()
   </script>
 </body>
