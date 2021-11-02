@@ -46,7 +46,7 @@ console.log(result)
 ```js
 let num = 10
 
-const result = (num > 10) ? 'Число больше 10' : 'Число меньше или равно 10'
+const result = num > 10 ? 'Число больше 10' : 'Число меньше или равно 10'
 
 console.log (result)
 ```
