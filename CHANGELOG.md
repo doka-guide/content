@@ -2,6 +2,8 @@
 
 ## Ноябрь 2021
 
+- 2 ноября: [`column-span`](https://doka.guide/css/column-span), Иван Ельцов
+- 2 ноября: [`column-fill`](https://doka.guide/css/column-fill), Иван Ельцов
 - 2 ноября: [Атрибут `novalidate`](https://doka.guide/html/novalidate/), Владислав Чичужко
 - 1 ноября: [`text-decoration-skip-ink`](https://doka.guide/css/text-decoration-skip-ink/), Влад Сорокин
 
