@@ -59,7 +59,7 @@ console.log (result)
 
 ```js
 let salutation = function(name) {
-  return (name) ? `Рад видеть, ${name}!` : 'Привет, друг!'
+  return name ? `Рад видеть, ${name}!` : 'Привет, друг!'
 }
 
 salutation('Дока Дог')
