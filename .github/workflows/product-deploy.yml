@@ -1,4 +1,4 @@
-name: Netlify Deploy
+name: Product Deploy
 
 on:
   workflow_run:
