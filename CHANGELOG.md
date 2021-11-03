@@ -4,6 +4,7 @@
 
 ## Ноябрь 2021
 
+- 3 ноября: [`var()`](https://doka.guide/css/var/), Ярослав Гюльназарян
 - 2 ноября: [`column-span`](https://doka.guide/css/column-span), Иван Ельцов
 - 2 ноября: [`column-fill`](https://doka.guide/css/column-fill), Иван Ельцов
 - 2 ноября: [Атрибут `novalidate`](https://doka.guide/html/novalidate/), Владислав Чичужко
