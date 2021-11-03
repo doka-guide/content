@@ -4,9 +4,13 @@
 
 ## Ноябрь 2021
 
+- 4 ноября: [`column-rule`](https://doka.guide/css/css/column-rule-color/), Иван Ельцов
+- 4 ноября: [`column-rule-width`](https://doka.guide/css/css/column-rule-color/), Иван Ельцов
+- 4 ноября: [`column-rule-style`](https://doka.guide/css/css/column-rule-color/), Иван Ельцов
+- 4 ноября: [`column-rule-color`](https://doka.guide/css/css/column-rule-color/), Иван Ельцов
 - 3 ноября: [`var()`](https://doka.guide/css/var/), Ярослав Гюльназарян
-- 2 ноября: [`column-span`](https://doka.guide/css/column-span), Иван Ельцов
-- 2 ноября: [`column-fill`](https://doka.guide/css/column-fill), Иван Ельцов
+- 2 ноября: [`column-span`](https://doka.guide/css/column-span/), Иван Ельцов
+- 2 ноября: [`column-fill`](https://doka.guide/css/column-fill/), Иван Ельцов
 - 2 ноября: [Атрибут `novalidate`](https://doka.guide/html/novalidate/), Владислав Чичужко
 - 1 ноября: [`text-decoration-skip-ink`](https://doka.guide/css/text-decoration-skip-ink/), Влад Сорокин
 
