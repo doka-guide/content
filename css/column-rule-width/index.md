@@ -39,4 +39,4 @@ p {
 }
 ```
 
-<iframe title="Варианты значений column-rule-width" src="demos/multiple-values/" height="380"></iframe>
+<iframe title="Варианты значений column-rule-width" src="demos/multiple-values/" height="400"></iframe>

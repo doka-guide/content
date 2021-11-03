@@ -76,32 +76,32 @@
 <body>
   <h2>Выберите стиль линии</h2>
   <ul class="styles">
-    <li data-style="solid">
-      <input id="solid" type="radio" name="style" checked>
+    <li>
+      <input id="solid" type="radio" name="style" value="solid" checked>
       <label for="solid">
         Solid
       </label>
     </li>
-    <li data-style="dotted">
-      <input id="dotted" type="radio" name="style">
+    <li>
+      <input id="dotted" type="radio" name="style" value="dotted">
       <label for="dotted">
         Dotted
       </label>
     </li>
-    <li data-style="dashed">
-      <input id="dashed" type="radio" name="style">
+    <li>
+      <input id="dashed" type="radio" name="style" value="dashed">
       <label for="dashed">
         Dashed
       </label>
     </li>
-    <li data-style="double">
-      <input id="double" type="radio" name="style">
+    <li>
+      <input id="double" type="radio" name="style" value="double">
       <label for="double">
         Double
       </label>
     </li>
-    <li data-style="groove">
-      <input id="groove" type="radio" name="style">
+    <li>
+      <input id="groove" type="radio" name="style" value="groove">
       <label for="groove">
         Groove
       </label>
@@ -117,7 +117,7 @@
 
     Array.from(document.querySelectorAll('.styles input')).forEach(input => {
       input.addEventListener('change', () => {
-        wrapper.style.columnRuleStyle = input.parentNode.getAttribute('data-style')
+        wrapper.style.columnRuleStyle = input.value
       })
     })
   </script>

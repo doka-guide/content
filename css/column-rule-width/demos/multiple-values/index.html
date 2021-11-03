@@ -76,26 +76,26 @@
 <body>
   <h2>Выберите ширину</h2>
   <ul class="widths">
-    <li data-style="3px">
-      <input id="3px" type="radio" name="width" checked>
+    <li>
+      <input id="3px" type="radio" name="width" value="3px" checked>
       <label for="3px">
         3px
       </label>
     </li>
-    <li data-style="7px">
-      <input id="7px" type="radio" name="width">
+    <li>
+      <input id="7px" type="radio" name="width" value="7px">
       <label for="7px">
         7px
       </label>
     </li>
-    <li data-style="1em">
-      <input id="1em" type="radio" name="width">
+    <li>
+      <input id="1em" type="radio" name="width" value="1em">
       <label for="1em">
         1em
       </label>
     </li>
-    <li data-style="1vw">
-      <input id="1vw" type="radio" name="width">
+    <li>
+      <input id="1vw" type="radio" name="width"  value="1vw">
       <label for="1vw">
         1vw
       </label>
@@ -111,7 +111,7 @@
 
     Array.from(document.querySelectorAll('.widths input')).forEach(input => {
       input.addEventListener('change', () => {
-        wrapper.style.columnRuleWidth = input.parentNode.getAttribute('data-style')
+        wrapper.style.columnRuleWidth = input.value
       })
     })
   </script>
