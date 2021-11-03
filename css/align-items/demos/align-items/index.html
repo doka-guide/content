@@ -14,49 +14,69 @@
     }
 
     .small {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
     .big {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
     }
 
     /* Оформление */
-    body {
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
     }
 
     .container {
-      padding: 15px;
-      border: 1px solid #1a5ad7;
+      position: relative;
+      border: 2px solid #2E9AFF;
+      padding: 25px;
     }
 
     .block {
-      width: 15%;
+      width: calc((100% - 100px) / 5);
       padding: 10px;
-      background-color: #1a5ad7;
+      background-color: #2E9AFF;
+    }
+
+    .block:first-of-type:before { /* рисует базовую линию */
+      content: "0";
+      position: absolute;
+      left: -30px;
+      right: -30px;
+      border-bottom: 2px solid #FF8630;
+      color: transparent;
+      line-height: 1;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="block big">
-      Lorem ipsum dolor
+      Lorem ipsum
     </div>
     <div class="block">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem odio totam nobis vitae amet nisi a nesciunt, sed adipisci nam reprehenderit, cum laborum iure sint mollitia. Illo obcaecati delectus blanditiis.
+      Lorem ipsum — классический текст-«рыба» (бессмысленный текст-заполнитель, вставляемый в макет страницы).
     </div>
     <div class="block small">
-      ipsum
+      Lorem
     </div>
-    <div class="block">Lorem ipsum</div>
+    <div class="block">Lorem ipsum — классический текст-«рыба».</div>
     <div class="block">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod aspernatur ex aperiam possimus pariatur maxime voluptates quos natus sed dolorem obcaecati accusantium, recusandae veniam, nam vitae, id laboriosam reprehenderit doloribus?
-      Quod blanditiis, possimus tenetur dolor fuga pariatur sequi vel libero iusto quisquam. Numquam tenetur, voluptatum at error quae, ea ipsa non natus inventore sequi tempora autem, dicta velit minima necessitatibus?
+      Lorem ipsum — классический текст-«рыба» (бессмысленный текст-заполнитель, вставляемый в макет страницы). Это искажённый отрывок из философского трактата Марка Туллия Цицерона «О пределах добра и зла».
     </div>
   </div>
 </body>
