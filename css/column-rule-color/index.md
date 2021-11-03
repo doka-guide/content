@@ -12,7 +12,7 @@ tags:
 
 ## Как пишется
 
-Можно использовать любые допустимые [значения цветов](/css/web-colors/). По умолчанию установлено значение [currentColor](/css/web-colors/#currentcolor).
+Можно использовать любые допустимые [значения цветов](/css/web-colors/). По умолчанию установлено значение [`currentColor`](/css/web-colors/#currentcolor).
 
 Для того, чтобы задать межколоночной линии красный цвет, мы напишем:
 
@@ -36,6 +36,5 @@ p {
   column-rule-color: yellow;
 }
 ```
-
 
 <iframe title="Пример для свойства column-rule-color" src="demos/basic/" height="320"></iframe>
