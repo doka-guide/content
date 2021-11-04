@@ -61,6 +61,7 @@ groups:
       - linear-gradient
       - radial-gradient
       - image-set
+      - var
       - filter-functions
       - transform-function
   - name: 'Директивы'
@@ -295,6 +296,7 @@ groups:
     items:
       - custom-properties
       - root
+      - var
   - name: 'Стили для печати'
     items:
       - widows
@@ -304,6 +306,7 @@ groups:
       - column-count
       - column-width
       - column-fill
+      - column-span
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html), SVG и других языков разметки.
