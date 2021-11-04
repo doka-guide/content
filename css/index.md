@@ -307,6 +307,10 @@ groups:
       - column-width
       - column-fill
       - column-span
+      - column-rule
+      - column-rule-color
+      - column-rule-style
+      - column-rule-width
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html), SVG и других языков разметки.
