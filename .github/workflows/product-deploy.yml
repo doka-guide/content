@@ -32,12 +32,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Установка ключа
+      - name: Установка ключа для пользователя
         run: |
           set -eu
           mkdir "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_rsa"
-          chmod 600 "$HOME/.ssh/id_rsa"
+          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
       - name: Установка модулей
         run: npm ci
       - name: Сборка сайта
