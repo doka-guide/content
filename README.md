@@ -3,7 +3,6 @@
 [![Статус EditorConfig](https://github.com/doka-guide/content/workflows/EditorConfig/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AEditorConfig)
 [![Статус спеллера](https://github.com/doka-guide/content/workflows/YaSpeller%20All/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AYaSpeller%20All)
 [![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
-[![Статус Netlify](https://github.com/doka-guide/content/workflows/Netlify%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ANetlify%20Deploy)
 
 Дока — это добрая энциклопедия для веб-разработчиков. Наша цель — сделать документацию по веб-разработке практичной, понятной и не унылой.
 
