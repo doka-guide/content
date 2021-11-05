@@ -4,6 +4,9 @@
 
 ## Ноябрь 2021
 
+- 5 ноября: [`<small>`](https://doka.guide/html/small/), Иван Ельцов
+- 5 ноября: [`border-width`](https://doka.guide/css/border-width/), Максим Печёрин
+- 5 ноября: [`<var>`](https://doka.guide/html/var/), Иван Ельцов
 - 4 ноября: [`column-rule`](https://doka.guide/css/column-rule-color/), Иван Ельцов
 - 4 ноября: [`column-rule-width`](https://doka.guide/css/column-rule-color/), Иван Ельцов
 - 4 ноября: [`column-rule-style`](https://doka.guide/css/column-rule-color/), Иван Ельцов
