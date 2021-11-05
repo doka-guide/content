@@ -273,6 +273,7 @@ groups:
       - border-style
       - border-radius
       - border-color
+      - border-width
       - outline
       - outline-color
       - outline-offset
