@@ -54,7 +54,17 @@
 
 ```css
 .sun {
-  background: radial-gradient(yellow 5%, gold 31% 32%, transparent 32.5% 50%, lightskyblue 70%),
-    repeating-conic-gradient(yellow 0% 1%, transparent 4% 6%, yellow 9% 10%);
+  background:
+    radial-gradient(
+      yellow 5%,
+      gold 31% 32%,
+      transparent 32.5% 50%,
+      lightskyblue 70%
+    ),
+    repeating-conic-gradient(
+      yellow 0% 1%,
+      transparent 4% 6%,
+      yellow 9% 10%
+    );
 }
 ```
