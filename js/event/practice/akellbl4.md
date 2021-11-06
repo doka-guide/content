@@ -4,7 +4,7 @@
 
 ```html
 <button class="button" type="button">
-  <span>Моя кнопочка</div>
+  <span>Моя кнопочка</span>
 </button>
 ```
 
