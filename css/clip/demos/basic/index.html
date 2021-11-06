@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блок текста — clip() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      position: absolute;
+      text-align: center;
+      width: 200px;
+      clip: rect(50px 50px 150px 150px);
+      font-size: 16px;
+      padding: 5px;
+      background-color: lightyellow;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span>Начальный вид</span>
+    <p>Для примера возьмем параграф с произвольным текстом</p>
+  </div>
+  <div>
+    <span>С применением clip</span>
+    <p class="clip">Для примера возьмем параграф с произвольным текстом</p>
+  </div>
+</body>
+</html>
