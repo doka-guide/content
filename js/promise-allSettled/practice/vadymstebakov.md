@@ -1,12 +1,10 @@
-🛠 Применение такое же как и для метода [`all`](/js/promise-all/#v-rabote), только в методе [`all`](/js/promise-all/#odin-iz-promisov-zavershilsya-oshibkoy) завершение со статусом _rejected_ приведёт к завершению с ошибкой, а в нашем случае, `allSettled` дождётся выполнения всех промисов.
-
-Пример:
+🛠 Метод применяется для запросов к API. Он особенно удобен, когда запросы независимы и ошибка в одном не влияет на другие, так как `Promise.allSettled()` дождётся завершения всех запросов. Если же запросы зависимы, то лучше использовать метод [`Promise.all()`](/js/promise-all/#v-rabote).
 
 ```js
 const urls = [
   'https://jsonplaceholder.typicode.com/todos/1',
   'https://jsonplaceholder.typicode.org/i_need_an_error',
-];
+]
 const arrayFetchData = urls.map(url => fetch(url).then(res => res.json()))
 
 Promise.allSettled(arrayFetchData)
@@ -18,10 +16,11 @@ Promise.allSettled(arrayFetchData)
   })
 ```
 
-В консоли получим следующее:
+В консоли получим:
+
 ```js
 // { status: 'fulfilled', value: { userId: 1, id: 1, ... } }
-// { status: 'rejected', reason: TypeError: Failed to fetch... }
+// { status: 'rejected', reason: 'TypeError: Failed to fetch...' }
 ```
 
-Примерно так можно использовать метод `allSettled`. Этот метод появился в спецификации языка недавно, а именно [ES2020](https://262.ecma-international.org/11.0/#sec-promise.allsettled), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
+🛠 Метод `Promise.allSettled()` появился в спецификации языка недавно, а именно [ES2020](https://262.ecma-international.org/11.0/#sec-promise.allsettled), возможно вам понадобится [полифил](https://www.npmjs.com/package/promise.allsettled).
