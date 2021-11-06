@@ -1,0 +1,35 @@
+name: Manual Update Dates
+
+on:
+  workflow_dispatch
+
+jobs:
+  manual-update-dates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Правка полей updatedAt и createdAt
+        run: node .github/scripts/manual-update-dates.js
+      - name: Создание коммита с обновлениями полей
+        run: |
+          if [[ -z $(git status -s) ]]
+          then
+            echo $(git status)
+          else
+            git config user.name "Doka Dog"
+            git config user.email "<hi@doka.guide>"
+
+            git add "./**/index.11tydata.json"
+            git commit -m "Правит поля updatedAt и createdAt" --author "Doka Dog <hi@doka.guide>"
+
+            git pull --rebase
+            git push origin main
+
+            exit
+          fi
