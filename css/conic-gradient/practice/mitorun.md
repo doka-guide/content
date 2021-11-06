@@ -45,8 +45,36 @@
 
 ```css
 .sun {
-  background: radial-gradient(yellow 5%, gold 31% 32%, transparent 32.5% 50%, lightskyblue 70%),
-    conic-gradient(transparent 3%, yellow 5% 8%, transparent 10% 13%, yellow 15% 17%, transparent 20% 23%, yellow 25% 28%, transparent 30% 33%, yellow 35% 38%, transparent 40% 43%, yellow 45% 48%, transparent 50% 53%, yellow 55% 58%, transparent 60% 63%, yellow 65% 68%, transparent 70% 73%, yellow 75% 78%, transparent 80% 83%, yellow 85% 88%, transparent 90% 93%, yellow 95% 98%, transparent);
+  background: 
+    radial-gradient(
+      yellow 5%, 
+      gold 31% 32%, 
+      transparent 32.5% 50%, 
+      lightskyblue 70%
+    ),
+    conic-gradient(
+      transparent 3%, 
+      yellow 5% 8%, 
+      transparent 10% 13%, 
+      yellow 15% 17%, 
+      transparent 20% 23%, 
+      yellow 25% 28%, 
+      transparent 30% 33%, 
+      yellow 35% 38%, 
+      transparent 40% 43%, 
+      yellow 45% 48%, 
+      transparent 50% 53%, 
+      yellow 55% 58%, 
+      transparent 60% 63%, 
+      yellow 65% 68%, 
+      transparent 70% 73%, 
+      yellow 75% 78%, 
+      transparent 80% 83%, 
+      yellow 85% 88%, 
+      transparent 90% 93%, 
+      yellow 95% 98%, 
+      transparent
+    );
 }
 ```
 
