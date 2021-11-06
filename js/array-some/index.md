@@ -22,14 +22,18 @@ const nums = [3, 5, 7, 8, 9, 11]
 // Проверим, что в массиве есть хотя бы одно четное число
 const hasEvenNumber = nums.some(num => {
   return num % 2 === 0
-}) // true
+})
+console.log(hasEvenNumber)
+// true
 
 const oddNums = [3, 5, 7, 9, 11]
 
 // Здесь четного нет
-const hasEvenNumber = oddNums.some(num => {
+const noEvenNumber = oddNums.some(num => {
   return num % 2 === 0
-}) // false
+})
+console.log(noEvenNumber)
+// false
 ```
 
 Интерактивный пример
@@ -49,7 +53,9 @@ const hasEvenNumber = oddNums.some(num => {
 ```js
 const balls = ['🎾', '🏈', '🎾', '🎾']
 
-const areAllBallsAreGreen = balls.some((ball, index, arr) => ball === '🏈') // true
+const areAllBallsGreen = balls.some((ball, index, arr) => ball === '🏈')
+console.log(areAllBallsGreen)
+// true
 ```
 
 ## Как это понять
@@ -61,12 +67,12 @@ const areAllBallsAreGreen = balls.some((ball, index, arr) => ball === '🏈') //
 ```js
 const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
 
-let hasAnySalad = false;
+let hasAnySalad = false
 
 for (let i = 0; i < food.length; i++) {
   if (food[i] === '🥬') {
-    hasAnySalad = true;
-    break;
+    hasAnySalad = true
+    break
   }
 }
 ```
@@ -76,7 +82,9 @@ for (let i = 0; i < food.length; i++) {
 ```js
 const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
 
-const hasAnySalad = food.some(item => item === '🥬'); // true
+const hasAnySalad = food.some(item => item === '🥬')
+console.log(hasAnySalad)
+// true
 ```
 
 <aside>

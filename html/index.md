@@ -51,6 +51,7 @@ groups:
     items:
       - form
       - autocomplete
+      - novalidate
       - input
       - textarea
       - button

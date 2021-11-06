@@ -16,7 +16,7 @@ tags:
 
 Само свойство `border` является _шорткатом_ (короткой записью) и объединяет в себе значение для нескольких полных свойств:
 
-- `border-width`
+- [`border-width`](/css/border-width)
 - [`border-style`](/css/border-style)
 - [`border-color`](/css/border-color)
 

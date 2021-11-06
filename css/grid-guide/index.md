@@ -198,7 +198,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 }
 ```
 
-Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I Use: [grid-template-columns](https://caniuse.com/?search=grid-template-columns), [grid-template-rows](https://caniuse.com/?search=grid-template-rows).
+Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I use: [grid-template-columns](https://caniuse.com/?search=grid-template-columns), [grid-template-rows](https://caniuse.com/?search=grid-template-rows).
 
 ### `grid-auto-columns`, `grid-auto-rows`
 
@@ -252,7 +252,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Как видите, автоматически создаются колонки размером 15, 25 и затем 5 пикселей. И так до тех пор, пока элементы не закончатся.
 
-Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I Use: [grid-auto-columns](https://caniuse.com/mdn-css_properties_grid-auto-columns), [grid-auto-rows](https://caniuse.com/mdn-css_properties_grid-auto-rows).
+Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I use: [grid-auto-columns](https://caniuse.com/mdn-css_properties_grid-auto-columns), [grid-auto-rows](https://caniuse.com/mdn-css_properties_grid-auto-rows).
 
 ### `grid-auto-flow`
 
@@ -842,7 +842,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Элементы могут перекрывать друг друга, накладываться друг на друга. Можно использовать свойство `z-index` для управления контекстом наложения.
 
-Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I Use: [grid-column-start](https://caniuse.com/mdn-css_properties_grid-column-start), [grid-column-end](https://caniuse.com/mdn-css_properties_grid-column-end), [grid-row-start](https://caniuse.com/mdn-css_properties_grid-row-start), [grid-row-end](https://caniuse.com/mdn-css_properties_grid-row-end).
+Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I use: [grid-column-start](https://caniuse.com/mdn-css_properties_grid-column-start), [grid-column-end](https://caniuse.com/mdn-css_properties_grid-column-end), [grid-row-start](https://caniuse.com/mdn-css_properties_grid-row-start), [grid-row-end](https://caniuse.com/mdn-css_properties_grid-row-end).
 
 ### `grid-column`, `grid-row`
 
@@ -865,7 +865,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Если опустить слэш и второе значение, то элемент будет размером в одну ячейку.
 
-Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I Use: [grid-column](https://caniuse.com/mdn-css_properties_grid-column), [grid-row](https://caniuse.com/mdn-css_properties_grid-row).
+Поддерживается всеми современными браузерами. Проверить поддержку свойства и значений можно на Can I use: [grid-column](https://caniuse.com/mdn-css_properties_grid-column), [grid-row](https://caniuse.com/mdn-css_properties_grid-row).
 
 ### `grid-area`
 
