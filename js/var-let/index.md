@@ -1,5 +1,5 @@
 ---
-title: "Типы переменных"
+title: "Переменные в JavaScript"
 authors:
   - doka-dog
 contributors:
