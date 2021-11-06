@@ -1,8 +1,13 @@
 {
   "lang": "ru",
   "ignoreUrls": true,
-  "ignoreText": ["(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)", ""],
-  "excludeFiles": ["people/**/index.md"],
+  "ignoreText": [
+    "(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)",
+    ""
+  ],
+  "excludeFiles": [
+    "people/**/index.md"
+  ],
   "checkYo": true,
   "dictionary": [
     "ааа",
