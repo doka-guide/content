@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  netlify-deploy:
+  product-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Загрузка platform
