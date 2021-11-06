@@ -11,6 +11,7 @@ authors:
 contributors:
   - skorobaeus
   - valeriimakhniuk
+  - whyme0
 editors:
   - tachisis
 keywords:
