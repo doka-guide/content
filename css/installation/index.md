@@ -67,7 +67,7 @@ p {
   --main-text: #fff;
   --black: #000000;
 
-  --blue-lighten: #64b5f6
+  --blue-lighten: #64b5f6;
   --blue-darken: #1565c0;
 
   --purple: #9c27b0;
