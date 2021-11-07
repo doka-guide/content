@@ -45,23 +45,20 @@ var varname5 = true,
 Объявление переменной всегда «всплывает» в начало функции или кода. Это процесс называется - _"hoisting"_.
 
 ```js
-function logVariables() {
-  console.log(byVar, byLet, byConst)
-}
+// Начало
 
 var byVar = 5
 let byLet = 10
 const byConst = 15
 
-logVariables()
-// 5 10 15
+// Конец
 ```
 
-В начале скрипта:
+В начале скрипта все переменные равны `undefined`:
 
 ![код со всплытием переменных](images/variables-hoisting-start.png)
 
-В конце скрипта:
+В конце скрипта, после того как произошли инициализация и присвоение значений, переменные равны `5`, `10` и `15`:
 
 ![код со всплытием переменных](images/variables-hoisting-finish.png)
 
