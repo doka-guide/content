@@ -17,7 +17,7 @@ tags:
 
 Метод `allSettled()` — это один из статических методов объекта `Promise`. Его используют, когда нужно запустить несколько промисов параллельно и дождаться их выполнения.
 
-`Promise.allSettled()`, очень похож на метод [`Promise.all()`](/js/promise-all/), но работает немного по-другому. В отличие от [`Promise.all()`](/js/promise-all/#odin-iz-promisov-zavershilsya-oshibkoy), `Promise.allSettled()` ждёт выполнения всех промисов, не важно завершились они успешно или с ошибкой.
+`Promise.allSettled()` очень похож на метод [`Promise.all()`](/js/promise-all/), но работает немного по-другому. В отличие от [`Promise.all()`](/js/promise-all/#odin-iz-promisov-zavershilsya-oshibkoy), `Promise.allSettled()` ждёт выполнения всех промисов, при этом неважно, завершились они успешно или с ошибкой.
 
 ## Как пишется
 
