@@ -190,6 +190,7 @@ groups:
       - promise-catch
       - promise-finally
       - promise-all
+      - promise-allsettled
       - async-await
   - name: "Обмен данными с API"
     items:
