@@ -4,6 +4,7 @@
 
 ## Ноябрь 2021
 
+- 7 ноября: [`Promise.allSettled`](https://doka.guide/js/promise-allsettled/), Вадим Стебаков
 - 5 ноября: [`<small>`](https://doka.guide/html/small/), Иван Ельцов
 - 5 ноября: [`border-width`](https://doka.guide/css/border-width/), Максим Печёрин
 - 5 ноября: [`<var>`](https://doka.guide/html/var/), Иван Ельцов
