@@ -30,11 +30,11 @@ body {
 
 h1 {
   color: var(--main-text);
-  font-size: 50px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 p {
   color: var(--grey-darken);
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 18px;
 }
