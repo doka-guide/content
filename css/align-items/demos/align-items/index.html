@@ -52,7 +52,8 @@
       background-color: #2E9AFF;
     }
 
-    .block:first-of-type:before { /* рисует базовую линию */
+    /* рисует базовую линию */
+    .block:first-of-type::before {
       content: "0";
       position: absolute;
       left: -30px;
