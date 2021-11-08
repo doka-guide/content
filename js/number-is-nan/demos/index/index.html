@@ -154,8 +154,8 @@
   <script>
     function check() {
       const priceInput = document.querySelector('#price')
-      const priceValue = +document.querySelector('#price').value
-      const discountValue = +document.querySelector('#discount').value
+      const priceValue = Number(document.querySelector('#price').value)
+      const discountValue = Number(document.querySelector('#discount').value)
       const checkNaN = document.querySelector('#checkNaN').checked
       const total = document.querySelector('#total')
 
