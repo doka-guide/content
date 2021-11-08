@@ -95,7 +95,7 @@ jobs:
           echo -e "${{ steps.links.outputs.list }}"
       - name: Сообщение об успехе публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: ${{ steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
+        if: steps.surge.exitcode == 0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
@@ -105,7 +105,7 @@ jobs:
           recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: ${{ steps.surge.conclusion != 'success' }}
+        if: steps.surge.exitcode > 0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
