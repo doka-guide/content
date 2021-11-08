@@ -87,7 +87,7 @@ jobs:
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
           else
             echo 'Публикация для форка репозитория'
-            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token 'ba74618e0c10f2395c6e0fa27f3fa7c4'
           fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo -e "${{ steps.links.outputs.list }}"
