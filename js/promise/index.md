@@ -81,7 +81,7 @@ function earnAllMoney() {
     if (result.ok) {
       resolve(result) // успех → переводим промис в fulfilled и передаём результат
     } else {
-      reject(new Error(result)) // ошибка → преводим промис в rejected
+      reject(new Error(result)) // ошибка → переводим промис в rejected
     }
   })
 }
@@ -219,7 +219,7 @@ fetch(`https://swapi.dev/api/films/${id}/`)
   .then(function (movie) {
     // этот then сработает, когда данные о фильме распарсятся
     const characterUrl = movie.characters[0]
-    return fetch(characterUrl) // вызов fetch вернет промис, возвращаем его из колбэка, чвтобы продолжить цепочку
+    return fetch(characterUrl) // вызов fetch вернет промис, возвращаем его из колбэка, чтобы продолжить цепочку
   })
   .then(function (response) {
     // этот then сработает, когда разрешится промис с результатами запроса персонажа

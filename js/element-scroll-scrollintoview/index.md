@@ -17,7 +17,7 @@ tags:
 Относительный скролл всего окна:
 
 ```js
-let element = document.querySelector("#about") // в element Должен быть любой DOM элемент на странице
+let element = document.querySelector("#about") // в element должен быть любой DOM-элемент на странице
 element.scrollIntoView()
 ```
 

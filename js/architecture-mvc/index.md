@@ -19,7 +19,7 @@ tags:
 
 > Designing is fundamentally about taking things apart... in such a way that they can be put back together. So separating things into things that can be composed that's what design is.
 >
-> — Rich Hickey [Design. Composition and Performance](http://www.infoq.com/presentations/Design-Composition-Performance)
+> — Rich Hickey [Design. Composition and Performance](https://www.infoq.com/presentations/Design-Composition-Performance)
 
 Когда мы пишем сложные приложения, нам нужно выполнять различные операции, иногда совершенно друг на друга не похожие:
 

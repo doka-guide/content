@@ -74,7 +74,7 @@ if (document.createElement('template').content) {
 
 ```js
 const list = document.querySelector('.list')
-const template = document.querySelector('.template')
+const template = document.querySelector('#template')
 
 // Клонируем содержимое тега <template>
 const item = template.content.cloneNode(true)

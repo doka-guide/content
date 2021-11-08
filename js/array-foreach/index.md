@@ -50,9 +50,9 @@ function sliceFruit(fruit) {
   console.log("Разрезаю " + fruit + "!")
 }
 
-const fruites = ["🍎", "🍊", "🍋", "🍓", "🥝"]
+const fruits = ["🍎", "🍊", "🍋", "🍓", "🥝"]
 
-fruites.forEach(sliceFruit)
+fruits.forEach(sliceFruit)
 ```
 
 Или создать её прямо в месте вызова:
@@ -78,8 +78,8 @@ const food = ["🍔", "🍟", "🍦"]
 
 food.forEach((item, index, arr) => {
   console.log("Текущий элемент " + item)
-  сonsole.log("Его индекс " + index)
-  сonsole.log("Исходный массив " + arr)
+  console.log("Его индекс " + index)
+  console.log("Исходный массив " + arr)
 })
 ```
 

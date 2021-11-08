@@ -81,6 +81,7 @@ HEX-код цвета, 3- или 6-символьные для сплошных 
 .element {
   color: hsl(30, 100%, 50%);
   color: hsla(30, 100%, 50%, 0.6);
+  color: hsla(30, 100%, 50%, 60%);
 }
 ```
 
@@ -88,6 +89,7 @@ HEX-код цвета, 3- или 6-символьные для сплошных 
 
 ```css
 .element {
+  color: hsl(30 100% 50%);
   color: hsl(30 100% 50% / 0.6);
   color: hsl(30 100% 50% / 60%);
 }
@@ -138,12 +140,12 @@ HEX-код цвета, 3- или 6-символьные для сплошных 
   - [Material Design Color System](https://material.io/design/color/the-color-system.html#color-theme-creation)
   - [Ubuntu Color System](https://design.ubuntu.com/brand/colour-palette/)
   - [Color Hex Color Codes](https://www.color-hex.com/)
-  - [RGBto](http://rgb.to/)
+  - [RGBto](https://rgb.to/)
   - [Colormind](http://colormind.io/)
 
   Или создать что-то своё, но под руководством профессионалов. Например:
 
-  - [Paletton](http://paletton.com/)
+  - [Paletton](https://paletton.com/)
 
   И отдельно присмотритесь к сервисам, которые умеют подбирать безопасные цвета для людей с особенностями их восприятия:
 

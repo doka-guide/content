@@ -36,7 +36,7 @@ switch (имя_переменной_значение_которой_сравни
 ```js
 switch (membershipStatus) {
   case "vip":
-    // выполнится, если в переменной memberhipStatus хранится строка "vip"
+    // выполнится, если в переменной membershipStatus хранится строка "vip"
     console.log("Приветствуем вас, ваше великолепие!")
     console.log("рады вас видеть!")
     break

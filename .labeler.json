@@ -1,0 +1,127 @@
+{
+  "files": {
+    "css": {
+      "added": [
+        "css\/.+\/.+.md"
+      ]
+    },
+    "html": {
+      "added": [
+        "html\/.+\/.+.md"
+      ]
+    },
+    "js": {
+      "added": [
+        "js\/.+\/.+.md"
+      ]
+    },
+    "tools": {
+      "added": [
+        "tools\/.+\/.+.md"
+      ]
+    },
+    "доработка": {
+      "added": [
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs/images\/.+.png",
+        "docs/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ]
+    },
+    "кухня": {
+      "added": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ]
+    },
+    "улучшение": {
+      "modified": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ]
+    }
+  },
+  "assignee": {
+    "skorobaeus": {
+      "демо": {
+        "modified": [
+          "css\/*/demos\/.+\/.+.html",
+          "html\/*/demos\/.+\/.+.html",
+          "js\/*/demos\/.+\/.+.html",
+          "tools\/*/demos\/.+\/.+.html"
+        ]
+      }
+    },
+    "tachisis": {
+      "редактура": {
+        "modified": [
+          "css\/.+\/.+.md",
+          "html\/.+\/.+.md",
+          "js\/.+\/.+.md",
+          "tools\/.+\/.+.md",
+          ".yaspeller.json",
+          "README.md",
+          "LICENSE-ND.md",
+          "LICENSE-SA.md",
+          "docs\/.+.md",
+          "docs\/.+\/.+.md",
+          "docs\/images\/.+.png",
+          "docs\/license\/.+\/.+.svg",
+          "pages\/*/index.md",
+          "people\/*/index.md"
+        ]
+      }
+    }
+  },
+  "meta": {
+    "tags": {
+      "doka": {
+        "дока": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      },
+      "article": {
+        "статья": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      },
+      "placeholder": {
+        "placeholder": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      }
+    }
+  }
+}

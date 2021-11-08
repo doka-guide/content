@@ -120,7 +120,7 @@ console.log(yourData) // { name: 'Michel' }
 Если переменная потеряет ссылку на объект, то изменения уже не будут на него влиять
 
 ```js
-const user = { name: "Anna", age: 21 }
+let user = { name: "Anna", age: 21 }
 const admin = user
 
 // Переопределение никак не повлияет на admin, потому что мы создали новый объект
