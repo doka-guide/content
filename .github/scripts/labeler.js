@@ -110,11 +110,11 @@ const setupLabels = async (ghKey, pullNumber) => {
       repo,
       issue_number: pullNumber,
     })
-    oldLabelsObject.forEach(element => {
-      if (!labels.has(element.name)) {
-        labels.add(element.name)
+    for (const key in oldLabelsObject) {
+      if (oldLabelsObject[key].has('name') && !labels.has(oldLabelsObject[key].name)) {
+        labels.add(oldLabelsObject[key].name)
       }
-    })
+    }
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,
