@@ -4,11 +4,63 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Пример использования var — installation — Дока</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <style>
+      :root {
+        --main-bg-color: #2196f3;
+        --white: #fff;
+        --black: #000000;
+
+        --blue-lighten: #64b5f6;
+        --blue-darken: #1565c0;
+
+        --purple: #9c27b0;
+        --purple-light: #4a148c;
+        --purple-depp: #ce93d8;
+
+        --grey: #808080;
+        --grey-lighten: #e0e0e0;
+        --grey-darken: #424242;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 50px;
+        background-color: var(--main-bg-color);
+      }
+
+      h1 {
+        color: var(--grey-darken);
+        font-size: 30px;
+        font-weight: 500;
+      }
+
+      div {
+        width: 70%;
+        margin: auto;
+        padding: 55px 40px;
+        color: var(--grey);
+        background-color: var(--white);
+      }
+
+      p {
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Привет, я заголовок !</h1>
-    <p>Какой-нибудь важный текст</p>
+    <div>
+      <h1>Интересный факт !</h1>
+      <p>
+        У хищников (например, у твоего мирно дремлющего на клавиатуре кота)
+        глаза расположены спереди, чтобы вовремя увидеть добычу. А у травоядных
+        глаза по бокам, чтобы вовремя увидеть крадущегося хищника и успеть
+        ужаснуться.
+      </p>
+    </div>
   </body>
 </html>
