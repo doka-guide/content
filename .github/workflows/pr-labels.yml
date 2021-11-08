@@ -1,4 +1,4 @@
-name: PR Checks
+name: PR Labels
 
 on:
   pull_request_target:
