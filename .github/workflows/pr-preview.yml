@@ -70,8 +70,10 @@ jobs:
           file_list=''
           for changed_file in ${{ needs.prepare.outputs.files }}; do
             replace='html'
-            page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+            if ! [[ $changed_file === '' ]]; then
+              page=$(echo "${changed_file/md/$replace}")
+              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+            fi
           done
           if ! [[ $file_list == '' ]]; then
             file_list=$(echo -e "<br><hr><p>Список ссылок на материалы:<ul>${file_list}</ul><p>")
