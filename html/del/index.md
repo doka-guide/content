@@ -29,7 +29,7 @@ tags:
 
 ## Как понять
 
-По умолчанию браузеры применяют к `<del>` перечёркивание с помощью `text-decoration: line-through`. Такого же эффекта можно добиться, используя тег [`<s>`](/html/s/) или просто применив к тексту `text-decoration: line-through`. Однако `<del>` стоит использовать в том случае, когда нужно подчеркнуть, что какой-то контент был удалён и это важно. Хоть визуально отличий не будет, но это поможет, например, пользователям [`скринридеров`](/tools/site-readers/#skrinridery).
+По умолчанию браузеры применяют к `<del>` перечёркивание с помощью `text-decoration: line-through`. Такого же эффекта можно добиться, используя тег [`<s>`](/html/s/) или просто применив к тексту `text-decoration: line-through`. Однако `<del>` стоит использовать в том случае, когда нужно подчеркнуть, что какой-то контент был удалён и это важно. Хоть визуально отличий не будет, но это поможет, например, пользователям [скринридеров](/tools/site-readers/#skrinridery).
 
 ## Атрибуты
 
@@ -55,6 +55,20 @@ tags:
   </li>
   <li>Согласовать новую форму оплаты с юристами</li>
 </ul>
+```
+
+Визуально это никак не отобразится — браузеры по умолчанию никак не выводят эти атрибуты. Но мы можем написать небольшой скрипт, который будет проходиться во всем тегам `<del>` и, если у них есть атрибут `datetime`, выводить форматированную дату рядом.
+
+```js
+Array.from(document.querySelectorAll('del')).forEach(element => {
+  if(element.hasAttribute('datetime')){
+    const attributeValue = element.getAttribute('datetime')
+    const dateFormatted = new Date(attributeValue).toLocaleString()
+    const span = document.createElement('span')
+    span.innerText = `(${dateFormatted})`
+    element.parentNode.insertBefore(span, element.nextElementSibling)
+  }
+})
 ```
 
 <iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>

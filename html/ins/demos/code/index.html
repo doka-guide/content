@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
     * {
       margin: 0;
@@ -15,9 +15,8 @@
 
     body {
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-direction: column;
+      justify-content: center;
       padding: 20px;
       background-color: white;
       color: #18191C;
@@ -30,7 +29,6 @@
       align-items: center;
       position: relative;
       text-decoration: none;
-      width: 100%;
     }
 
     del {
@@ -58,32 +56,25 @@
       color: rgb(161, 241, 124);
     }
 
+    code, pre {
+      font-family: "Roboto Mono", monospace;
+    }
+
     code {
       display: inline-block;
-      width: 200px;
       margin-bottom: 4px;
-    }
-
-    .deleted, .inserted {
-      display: inline-block;
-      height: 20px;
-      line-height: 20px;
-    }
-
-    .deleted {
-      background: rgb(233, 128, 112);
-    }
-
-    .inserted {
-      background: rgb(140, 236, 95);
     }
   </style>
 </head>
 <body>
-  <code><pre>body {</pre></code>
-  <code><pre> font-size: 16px;</pre></code>
-  <code><pre><del> color: <span class="deleted">black</span>;</del></pre></code>
-  <code><pre><ins> color: <span class="inserted">white</span>;</ins></pre></code>
-  <code><pre>}</pre></code>
+<pre>
+<code>
+  body {
+    font-size: 16px;
+    <del>color: black;</del>
+    <ins>color: white;</ins>
+  }
+</code>
+</pre>
 </body>
 </html>
