@@ -59,7 +59,6 @@ const setupLabels = async (ghKey, pullNumber) => {
       repo,
       pull_number: pullNumber
     })
-    console.log(fileObjects)
 
     const files = {
       added: [],
@@ -70,7 +69,7 @@ const setupLabels = async (ghKey, pullNumber) => {
 
     for (const index in fileObjects.data) {
       const file = fileObjects.data[index]
-      console.log(file)
+      console.log(file.filename, file.status)
       if (file && file.status && file.filename) {
         files[file.status].push(file.filename)
         if (Object.keys(labelRules).includes('meta') && (new RegExp('.+.md', 'i')).test(file.filename)) {
