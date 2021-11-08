@@ -14,21 +14,21 @@ const selectLabels = (selectedFiles, selectedRules) => {
     if (Object.hasOwnProperty.call(selectedRules, label)) {
       const labelRules = selectedRules[label]
       for (const status in labelRules) {
-        if (Object.hasOwnProperty.call(labelRules, status)) {
-          const statusRules = labelRules[status]
-          statusRules.forEach(pattern => {
-            if (Object.keys(selectedFiles).includes(status)) {
-              const regExp = new RegExp(pattern, 'i')
-              selectedFiles[status].forEach(file => {
-                const isValid = regExp.test(file)
-                const isNotInList = output.has(label)
-                if (isValid && isNotInList) {
-                  output.add(label)
-                }
-              })
-            }
-          })
-        }
+        const statusRules = labelRules[status]
+        console.log(statusRules)
+        statusRules.forEach(pattern => {
+          console.log(pattern)
+          if (Object.keys(selectedFiles).includes(status)) {
+            const regExp = new RegExp(pattern, 'i')
+            selectedFiles[status].forEach(file => {
+              const isValid = regExp.test(file)
+              const isNotInList = !output.has(label)
+              if (isValid && isNotInList) {
+                output.add(label)
+              }
+            })
+          }
+        })
       }
     }
   }
