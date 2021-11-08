@@ -6,8 +6,6 @@ on:
 jobs:
   labels:
     name: Ярлыки
-    env:
-      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
