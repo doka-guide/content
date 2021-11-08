@@ -111,7 +111,7 @@ const setupLabels = async (ghKey, pullNumber) => {
       issue_number: pullNumber,
     })
     for (const key in oldLabelsObject) {
-      if (oldLabelsObject[key].has('name') && !labels.has(oldLabelsObject[key].name)) {
+      if (oldLabelsObject[key].hasOwnProperty('name') && !labels.has(oldLabelsObject[key].name)) {
         labels.add(oldLabelsObject[key].name)
       }
     }
