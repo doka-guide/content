@@ -15,14 +15,13 @@ const selectLabels = (selectedFiles, selectedRules) => {
       const labelRules = selectedRules[label]
       for (const status in labelRules) {
         const statusRules = labelRules[status]
-        console.log(statusRules)
         statusRules.forEach(pattern => {
-          console.log(pattern)
           if (Object.keys(selectedFiles).includes(status)) {
             const regExp = new RegExp(pattern, 'i')
-            selectedFiles[status].forEach(file => {
-              const isValid = regExp.test(file)
+            selectedFiles[status].forEach(fileName => {
+              const isValid = regExp.test(fileName)
               const isNotInList = !output.has(label)
+              console.log(fileName, status, isValid, isNotInList)
               if (isValid && isNotInList) {
                 output.add(label)
               }
