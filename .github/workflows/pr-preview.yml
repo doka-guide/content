@@ -101,7 +101,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: 'Превью контента из ${{ ggithub.sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
+          message: 'Превью контента из ${{ github.sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           fail: true
           recreate: true
       - name: Сообщение об успехе публикации превью
@@ -112,5 +112,5 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ ggithub.sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
+          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
           recreate: true
