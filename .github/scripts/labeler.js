@@ -67,10 +67,11 @@ const setupLabels = async (ghKey, pullNumber) => {
       renamed: []
     }
 
+    console.log('Файлы:')
     for (const index in fileObjects.data) {
       const file = fileObjects.data[index]
-      console.log(file.filename, file.status)
-      if (file && file.status && file.filename) {
+      if (typeof file === 'object' && file.status && file.filename) {
+        console.log(file.filename, file.status)
         files[file.status].push(file.filename)
         if (Object.keys(labelRules).includes('meta') && (new RegExp('.+.md', 'i')).test(file.filename)) {
           const content = fs.readFileSync(file.filename, { encoding: 'utf8', flag: 'r' })
@@ -90,8 +91,8 @@ const setupLabels = async (ghKey, pullNumber) => {
       }
     }
 
-    const fileSelectedLabels = selectLabels(files, labelRules.files)
-    fileSelectedLabels.forEach(element => {
+    const selectedFileLabels = selectLabels(files, labelRules.files)
+    selectedFileLabels.forEach(element => {
       labels.add(element)
     })
 
@@ -106,6 +107,7 @@ const setupLabels = async (ghKey, pullNumber) => {
       })
     }
 
+    console.log('Ярклыки:', labels)
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,
