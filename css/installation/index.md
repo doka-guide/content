@@ -62,9 +62,8 @@ p {
 
 ```css
 :root {
-   --main-bg-color: #2196f3;
-
-  --main-text: #fff;
+  --main-bg-color: #2196f3;
+  --white: #fff;
   --black: #000000;
 
   --blue-lighten: #64b5f6;
@@ -74,7 +73,7 @@ p {
   --purple-light: #4a148c;
   --purple-depp: #ce93d8;
 
-  --grey: #9e9e9e;
+  --grey: #808080;
   --grey-lighten: #e0e0e0;
   --grey-darken: #424242;
 }
