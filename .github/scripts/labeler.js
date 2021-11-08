@@ -21,7 +21,6 @@ const selectLabels = (selectedFiles, selectedRules) => {
             selectedFiles[status].forEach(fileName => {
               const isValid = regExp.test(fileName)
               const isNotInList = !output.has(label)
-              console.log(fileName, status, regExp, isValid, isNotInList)
               if (isValid && isNotInList) {
                 output.add(label)
               }
@@ -106,7 +105,16 @@ const setupLabels = async (ghKey, pullNumber) => {
       })
     }
 
-    console.log('Ярклыки:', labels)
+    const oldLabelsObject = await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}/labels', {
+      owner,
+      repo,
+      issue_number: pullNumber,
+    })
+    oldLabelsObject.forEach(element => {
+      if (!labels.has(element.name)) {
+        labels.add(element.name)
+      }
+    })
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,
