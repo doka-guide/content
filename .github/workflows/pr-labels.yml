@@ -1,13 +1,11 @@
-name: PR Checks
+name: PR Labels
 
 on:
-  pull_request_target:
+  pull_request:
 
 jobs:
   labels:
     name: Ярлыки
-    env:
-      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

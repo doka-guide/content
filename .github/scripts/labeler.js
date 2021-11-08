@@ -14,21 +14,19 @@ const selectLabels = (selectedFiles, selectedRules) => {
     if (Object.hasOwnProperty.call(selectedRules, label)) {
       const labelRules = selectedRules[label]
       for (const status in labelRules) {
-        if (Object.hasOwnProperty.call(labelRules, status)) {
-          const statusRules = labelRules[status]
-          statusRules.forEach(pattern => {
-            if (Object.keys(selectedFiles).includes(status)) {
-              const regExp = new RegExp(pattern, 'i')
-              selectedFiles[status].forEach(file => {
-                const isValid = regExp.test(file)
-                const isNotInList = output.has(label)
-                if (isValid && isNotInList) {
-                  output.add(label)
-                }
-              })
-            }
-          })
-        }
+        const statusRules = labelRules[status]
+        statusRules.forEach(filePattern => {
+          if (Object.keys(selectedFiles).includes(status)) {
+            const regExp = new RegExp(filePattern, 'i')
+            selectedFiles[status].forEach(fileName => {
+              const isValid = regExp.test(fileName)
+              const isNotInList = !output.has(label)
+              if (isValid && isNotInList) {
+                output.add(label)
+              }
+            })
+          }
+        })
       }
     }
   }
@@ -63,31 +61,36 @@ const setupLabels = async (ghKey, pullNumber) => {
     const files = {
       added: [],
       modified: [],
-      removed: []
+      removed: [],
+      renamed: []
     }
 
+    console.log('Файлы:')
     for (const index in fileObjects.data) {
       const file = fileObjects.data[index]
-      files[file.status].push(file.filename)
-      if (Object.keys(labelRules).includes('meta') && (new RegExp('.+.md', 'i')).test(file.filename)) {
-        const content = fs.readFileSync(file.filename, { encoding: 'utf8', flag: 'r' })
-        const contentMeta = fm(content)
-        for (const field in labelRules.meta) {
-          if (Object.hasOwnProperty.call(labelRules.meta, field)) {
-            const fieldRules = labelRules.meta[field]
-            if (Object.keys(contentMeta).includes(field)) {
-              const metaSelectedLabels = selectLabels([file.filename], fieldRules.files)
-              metaSelectedLabels.forEach(element => {
-                labels.add(element)
-              })
+      if (typeof file === 'object' && file.status && file.filename) {
+        console.log(file.filename, file.status)
+        files[file.status].push(file.filename)
+        if (Object.keys(labelRules).includes('meta') && (new RegExp('.+.md', 'i')).test(file.filename)) {
+          const content = fs.readFileSync(file.filename, { encoding: 'utf8', flag: 'r' })
+          const contentMeta = fm(content)
+          for (const field in labelRules.meta) {
+            if (Object.hasOwnProperty.call(labelRules.meta, field)) {
+              const fieldRules = labelRules.meta[field]
+              if (Object.keys(contentMeta).includes(field)) {
+                const metaSelectedLabels = selectLabels([file.filename], fieldRules.files)
+                metaSelectedLabels.forEach(element => {
+                  labels.add(element)
+                })
+              }
             }
           }
         }
       }
     }
 
-    const fileSelectedLabels = selectLabels(files, labelRules.files)
-    fileSelectedLabels.forEach(element => {
+    const selectedFileLabels = selectLabels(files, labelRules.files)
+    selectedFileLabels.forEach(element => {
       labels.add(element)
     })
 
@@ -102,6 +105,16 @@ const setupLabels = async (ghKey, pullNumber) => {
       })
     }
 
+    const oldLabelsObject = await octokit.request('GET /repos/{owner}/{repo}/issues/{issue_number}/labels', {
+      owner,
+      repo,
+      issue_number: pullNumber,
+    })
+    for (const key in oldLabelsObject) {
+      if (oldLabelsObject[key].hasOwnProperty('name') && !labels.has(oldLabelsObject[key].name)) {
+        labels.add(oldLabelsObject[key].name)
+      }
+    }
     await octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner,
       repo,

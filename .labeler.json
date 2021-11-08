@@ -38,6 +38,21 @@
         ".github\/.+.yml",
         ".github\/scripts\/.+.js",
         ".github\/workflows\/.+.yml"
+      ],
+      "modified": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ],
+      "removed": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ],
+      "renamed": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
       ]
     },
     "улучшение": {
