@@ -6,7 +6,7 @@ const child_process = require('child_process')
 
 const exec = promisify(child_process.exec)
 
-const contentDirectories = ['css', 'js', 'tools']
+const contentDirectories = ['html', 'css', 'js', 'tools']
 
 const createdAtField = 'createdAt'
 const updatedAtField = 'updatedAt'
