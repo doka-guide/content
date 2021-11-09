@@ -26,10 +26,10 @@ tags:
   grid-template-columns: auto auto auto;
   /* Два ряда */
   grid-template-rows: auto auto;
-  /* Отступы между ячейками */
-  grid-gap: 10px;
   /* Автоматическое размещение в ряд */
   grid-auto-flow: row;
+  /* Отступы между ячейками */
+  gap: 10px;
 
   /* Для красоты */
   padding: 10px;

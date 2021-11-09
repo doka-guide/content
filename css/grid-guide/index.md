@@ -203,7 +203,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   display: grid;
   grid-template-rows: 50px 150px;
   grid-auto-rows: 15px;
-  grid-gap: 10px;
+  gap: 10px;
 }
 
 .item {
@@ -226,8 +226,8 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   display: grid;
   grid-template-columns: 50px 150px;
   grid-auto-columns: 15px 25px 5px;
-  grid-gap: 10px;
   grid-auto-flow: column;
+  gap: 10px;
 }
 
 .item {
@@ -265,10 +265,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   grid-template-columns: auto auto auto;
   /* Два ряда */
   grid-template-rows: auto auto;
-  /* Отступы между ячейками */
-  grid-gap: 10px;
   /* Автоматическое размещение в ряд */
   grid-auto-flow: row;
+  /* Отступы между ячейками */
+  gap: 10px;
 
   /* Для красоты */
   padding: 10px;
@@ -457,8 +457,6 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 В инспекторе отступы заштриховываются, так их можно отличить от грид-элементов. В этом примере между рядами отступы по 50 пикселей, а между колонками — по 10 пикселей.
 
-Существуют старые аналоги этих свойств, которые могут пригодиться вам, если вы вынуждены поддерживать браузеры младше, чем Chrome 68, Safari 11.2 и Opera 54: `grid-column-gap` и `grid-row-gap`. Можно писать сперва старые свойства, а за ними новые. Чтобы наверняка.
-
 ### `gap`
 
 Шорткат для записи значений свойств `row-gap` и `column-gap`. Значения разделяются пробелом:
@@ -469,12 +467,8 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   grid-template-columns: 1fr 200px 1fr;
   grid-template-rows: repeat(3, 150px);
   gap: 50px 10px;
-  /* И добавляем свойство для старых браузеров */
-  grid-gap: 50px 10px;
 }
 ```
-
-Есть старое свойство-аналог для браузеров младше Chrome 68, Safari 11.2 и Opera 54: `grid-gap`.
 
 ### `justify-items`
 
@@ -493,7 +487,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   grid-template-rows: repeat(3, 150px);
-  grid-gap: 20px;
+  gap: 20px;
 
   justify-items: start;
 }
@@ -556,7 +550,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   grid-template-rows: repeat(3, 150px);
-  grid-gap: 20px;
+  gap: 20px;
 
   align-items: start;
 }
@@ -915,7 +909,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Для анимации доступны следующие свойства и их значения:
 
-- Значения свойств `grid-gap`, `grid-row-gap`, `grid-column-gap`, указанные в единицах измерения, процентах или при помощи `calc()`.
+- Значения свойств `gap`, `row-gap`, `column-gap`, указанные в единицах измерения, процентах или при помощи `calc()`.
 - Значения свойств `grid-template-columns`, `grid-template-rows`, указанные в единицах измерения, процентах или при помощи функции `calc()` при условии, что анимируются аналогичные значения.
 
 ## Ссылки
