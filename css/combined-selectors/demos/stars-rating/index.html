@@ -6,18 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-height: 100vh;
       margin: 0;
-      padding: 5%;
+      padding: 50px;
       background-color: #18191c;
-      font-size: 24px;
-      text-align: center;
     }
 
     button {
-      color: #ffffff;
       border: none;
       background-color: transparent;
-      font-size: 2em;
+      color: #2E9AFF;
+      font-size: 5em;
+      line-height: 1;
       cursor: pointer;
     }
 
@@ -25,7 +29,7 @@
     button:focus,
     button:hover ~ button,
     button:focus ~ button {
-      color: red;
+      color: #F498AD;
     }
 
     .rating {
