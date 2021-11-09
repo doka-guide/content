@@ -2,6 +2,7 @@ name: PR Labels
 
 on:
   pull_request:
+  pull_request_target:
 
 jobs:
   labels:
