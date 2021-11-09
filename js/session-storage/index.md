@@ -112,5 +112,4 @@ const sessionStorageSize = window.sessionStorage.length
 for (let i = 0; i < sessionStorageSize; i++) {
   console.log(window.sessionStorage.getItem(sessionStorage.key(i)))
 }
-
 ```
