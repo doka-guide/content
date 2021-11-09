@@ -1,6 +1,5 @@
 ---
 title: "`column-width`"
-description: ""
 authors:
   - xpleesid
 editors:

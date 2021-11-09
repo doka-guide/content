@@ -1,6 +1,5 @@
 ---
 title: "`font-variation-settings`"
-description: ""
 authors:
   - doka-dog
 tags:

@@ -1,6 +1,5 @@
 ---
 title: "`font-stretch`"
-description: ""
 authors:
   - doka-dog
 tags:

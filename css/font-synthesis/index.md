@@ -1,6 +1,5 @@
 ---
 title: "`font-synthesis`"
-description: ""
 authors:
   - doka-dog
 tags:

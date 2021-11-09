@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-ligatures`"
-description: ""
 authors:
   - doka-dog
 tags:
