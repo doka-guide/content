@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Горизонтальные разделители — Markdown — Дока</title>
+    <title>Многострочный код — Markdown — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -33,9 +33,20 @@
         padding: 24px 28px;
       }
 
-      hr {
-        border-color: #aaa;
-        margin-bottom: 1.5em;
+      p {
+        margin-bottom: 1em;
+      }
+
+      pre {
+        overflow: auto;
+        padding: 16px;
+        border: 1px solid #242629;
+        background: #000;
+        border-radius: 6px;
+      }
+
+      code {
+        color: #91e481;
       }
 
       :last-child {
@@ -45,11 +56,12 @@
   </head>
   <body>
     <div class="wrapper">
-      <hr>
-      <hr>
-      <hr>
-      <hr>
-      <hr>
+      <p>Метод <code>.toString()</code> превращает числа в строку.</p>
+      <p>Его можно использовать так:</p>
+      <pre><code>let a = 1;
+let b = 2;
+
+(a + b).toString();</code></pre>
     </div>
   </body>
 </html>

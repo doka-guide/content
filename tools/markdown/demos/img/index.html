@@ -6,16 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-    <link rel="stylesheet" href="../styles.min.css">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        color-scheme: dark;
+      }
+
+      body {
+        background: #18191c;
+        color: #fff;
+        font-family: Roboto, sans-serif;
+        line-height: 1.5;
+      }
+
+      .wrapper {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 28px;
+      }
+
+      img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+      }
+    </style>
   </head>
   <body>
-    <div class="wrapper centred">
+    <div class="wrapper">
       <img
         src="images/dog.png"
         alt="Одна собака"
         title="Cобака смотрит влево"
       >
     </div>
-    <script src="../applyTheme.js"></script>
   </body>
 </html>

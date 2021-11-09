@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Горизонтальные разделители — Markdown — Дока</title>
+    <title>Выделение текста — Markdown — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <style>
       * {
         padding: 0;
@@ -33,9 +33,8 @@
         padding: 24px 28px;
       }
 
-      hr {
-        border-color: #aaa;
-        margin-bottom: 1.5em;
+      p {
+        margin-bottom: 1em;
       }
 
       :last-child {
@@ -45,11 +44,14 @@
   </head>
   <body>
     <div class="wrapper">
-      <hr>
-      <hr>
-      <hr>
-      <hr>
-      <hr>
+      <p>
+        <strong><em>Оба стиля из * и _</em></strong><br>
+        <strong><em>Оба стиля из * и _</em></strong>
+      </p>
+      <p>
+        **Экранирование звёзд**<br>
+        ___Экранирование подчёркиваний___
+      </p>
     </div>
   </body>
 </html>

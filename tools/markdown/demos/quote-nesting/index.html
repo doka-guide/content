@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Горизонтальные разделители — Markdown — Дока</title>
+    <title>Вложенная цитата — Markdown — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -33,9 +33,20 @@
         padding: 24px 28px;
       }
 
-      hr {
-        border-color: #aaa;
-        margin-bottom: 1.5em;
+      p {
+        margin-bottom: 1em;
+      }
+
+      blockquote {
+        box-sizing: border-box;
+        padding: 1em 1em 1em 0.75em;
+        border: 1px solid #242629;
+        border-left: 0.35em solid #0053b3;
+        background: #0006;
+        border-radius: 6px;
+        color: #e6e6e6;
+        font-size: 0.9em;
+        line-height: 1.5em;
       }
 
       :last-child {
@@ -45,11 +56,15 @@
   </head>
   <body>
     <div class="wrapper">
-      <hr>
-      <hr>
-      <hr>
-      <hr>
-      <hr>
+      <blockquote>
+        <p>Первая, родительская цитата</p>
+        <blockquote>
+          <p>
+            А это уже вторая,<br>
+            дочерняя цитата
+          </p>
+        </blockquote>
+      </blockquote>
     </div>
   </body>
 </html>

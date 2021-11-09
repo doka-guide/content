@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Горизонтальные разделители — Markdown — Дока</title>
+    <title>Однострочный код — Markdown — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -33,9 +33,12 @@
         padding: 24px 28px;
       }
 
-      hr {
-        border-color: #aaa;
-        margin-bottom: 1.5em;
+      p {
+        margin-bottom: 1em;
+      }
+
+      code {
+        color: #91e481;
       }
 
       :last-child {
@@ -45,11 +48,11 @@
   </head>
   <body>
     <div class="wrapper">
-      <hr>
-      <hr>
-      <hr>
-      <hr>
-      <hr>
+      <p>Функция <code>alert(...)</code> вызывает диалоговое окно.</p>
+      <p>
+        Сумму двух переменных можно вывести так:
+        <code>let a = 1; let b = 2; alert(a + b);</code>
+      </p>
     </div>
   </body>
 </html>
