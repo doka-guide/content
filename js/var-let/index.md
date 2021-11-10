@@ -1,5 +1,5 @@
 ---
-title: "Переменные в JavaScript"
+title: "`const`, `let` и `var`"
 description: "Что такое переменные и какие они бывают"
 authors:
   - ruslauz
