@@ -30,6 +30,7 @@
     button:hover ~ button,
     button:focus ~ button {
       color: #F498AD;
+      outline: none;
     }
 
     .rating {
@@ -59,5 +60,9 @@
     <button>★</button>
     <button>★</button>
   </div>
+<script>
+  /* В Safari и Firefox на Mac при клике на кнопку не устанавливается фокус. Этот код устанавливает фокус принудительно. */
+  document.querySelectorAll('.rating button').forEach(button => button.addEventListener("click", event => event.target.focus()));
+</script>
 </body>
 </html>
