@@ -1,5 +1,6 @@
 ---
 title: "Переменные в JavaScript"
+description: "Что такое переменные и какие они бывают"
 authors:
   - doka-dog
 contributors:
