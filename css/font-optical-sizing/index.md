@@ -1,6 +1,5 @@
 ---
 title: "`font-optical-sizing`"
-description: ""
 authors:
   - doka-dog
 tags:

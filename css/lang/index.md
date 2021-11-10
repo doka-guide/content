@@ -1,6 +1,5 @@
 ---
 title: "`:lang`"
-description: ""
 authors:
   - almadef
 tags:

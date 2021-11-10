@@ -1,6 +1,5 @@
 ---
 title: "`font-language-override`"
-description: ""
 authors:
   - doka-dog
 tags:

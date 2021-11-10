@@ -1,6 +1,5 @@
 ---
 title: "`font-variant`"
-description: ""
 authors:
   - doka-dog
 tags:
