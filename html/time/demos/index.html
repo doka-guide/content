@@ -6,27 +6,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-  <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      background-color: #1F2937;
+    }
+
+    .person {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(75, 85, 99, 0.7);
+      border: 1px solid #6B7280;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
+
+    .profile-photo-section {
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+    }
+
+    .profile-info {
+      margin-left: 12px;
+    }
+
+    .profile-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #D1D5DB;
+    }
+
+    .last-visit {
+      display: flex;
+      align-items: baseline;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .last-visit-datetime {
+      color: #F4F4F5;
+      text-decoration: underline;
+      cursor: help;
+    }
+
+    .last-visit-label {
+      margin-left: 5px;
+      color: #E5E7EB;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body class="min-h-screen flex items-center justify-center bg-gray-800">
-  <div class="px-6 py-4 flex items-center bg-gray-600/70 border border-gray-500 rounded-lg shadow-xl">
-    <div class="flex-shrink-0">
-      <a href="#">
-        <span class="sr-only">Билл Джобс</span>
-        <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Roel Aufderehar" />
-      </a>
+  <div class="person">
+    <div class="profile-photo-section">
+      <img class="profile-photo" src="images/profile-photo.jpg" alt="Билл Джобс" />
     </div>
-    <div class="ml-3">
-      <p class="text-sm font-medium text-gray-300">
-        <span>
+    <div class="profile-info">
+      <div class="profile-name">
           Билл Джобс
-        </span>
-      </p>
-      <div class="flex items-baseline space-x-1 text-sm text-gray-100">
-        <time class="underline text-gray-100 cursor-help" datetime="2020-03-16T14:25" title="2020-03-16 в 02:25 PM">
+      </div>
+      <div class="last-visit">
+        <time class="last-visit-datetime" datetime="2020-03-16T14:25" title="2020-03-16 в 02:25 PM">
             Мар. 16, 2020
         </time>
-        <span class="text-xs text-gray-200">последний визит</span>
+        <span class="last-visit-label">последний визит</span>
       </div>
     </div>
   </div>
