@@ -4,7 +4,15 @@
 
 ```css
 .color-circle {
-  background: conic-gradient(red, orange, yellow, green, blue, purple, red);
+  background: conic-gradient(
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    purple,
+    red
+  );
 }
 ```
 
@@ -14,7 +22,11 @@
 
 ```css
 .pie-chart {
-  background-image: conic-gradient(coral 27deg, palegreen 27deg 150deg, skyblue 150deg);
+  background-image: conic-gradient(
+    coral 27deg,
+    palegreen 27deg 150deg,
+    skyblue 150deg
+  );
 }
 ```
 
@@ -24,7 +36,13 @@
 
 ```css
 .pyramid {
-  background-image: conic-gradient(from -0.125turn, #bbb 0.25turn, #999 0.25turn 0.5turn, #bbb 0.5turn 0.75turn, #eee 0.75turn);
+  background-image: conic-gradient(
+    from -0.125turn,
+    #bbb 0.25turn,
+    #999 0.25turn 0.5turn,
+    #bbb 0.5turn 0.75turn,
+    #eee 0.75turn
+  );
 }
 ```
 
@@ -34,7 +52,12 @@
 
 ```css
 .chess-board {
-  background-image: conic-gradient(peru 25%, cornsilk 25% 50%, peru 50% 75%, cornsilk 75%);
+  background-image: conic-gradient(
+    peru 25%,
+    cornsilk 25% 50%,
+    peru 50% 75%,
+    cornsilk 75%
+  );
   background-size: 25% 25%;
 }
 ```

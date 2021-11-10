@@ -53,7 +53,16 @@ tags:
 
 ```css
 .element-2 {
-  background-image: conic-gradient(from 45deg at 25% center, white, #d6f78a 25%, 0.45turn, rgb(127, 235, 235) 210deg 5.9rad, hsl(278, 81%, 79%) 361grad);
+  background-image: conic-gradient(
+    from 45deg at 25% center,
+    white,
+    #d6f78a 25%,
+    0.45turn,
+    rgb(127, 235, 235)
+    210deg 5.9rad,
+    hsl(278, 81%, 79%)
+    361grad
+  );
 }
 ```
 
