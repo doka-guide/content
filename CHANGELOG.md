@@ -4,7 +4,8 @@
 
 ## Ноябрь 2021
 
-- 7 ноября: [`<cite>`](https://doka.guide/html/cite/), Иван Ельцов
+- 11 ноября: [`<bdi>`](https://doka.guide/html/bdi/), Иван Ельцов
+- 8 ноября: [`<cite>`](https://doka.guide/html/cite/), Иван Ельцов
 - 7 ноября: [`Promise.allSettled`](https://doka.guide/js/promise-allsettled/), Вадим Стебаков
 - 5 ноября: [`<small>`](https://doka.guide/html/small/), Иван Ельцов
 - 5 ноября: [`border-width`](https://doka.guide/css/border-width/), Максим Печёрин
