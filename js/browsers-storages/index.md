@@ -108,7 +108,6 @@ function addNote(db, text) {
 
   store.add(note);
 }
-
 ```
 
 ## Универсальные решения
