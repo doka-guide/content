@@ -64,18 +64,7 @@ p {
 ```css
 :root {
   --main-bg-color: #2196f3;
-  --white: #fff;
-  --black: #000000;
-
-  --blue-lighten: #64b5f6;
-  --blue-darken: #1565c0;
-
-  --purple: #9c27b0;
-  --purple-light: #4a148c;
-  --purple-depp: #ce93d8;
-
-  --grey: #808080;
-  --grey-lighten: #e0e0e0;
+  --main-text: #000000;
   --grey-darken: #424242;
 }
 
