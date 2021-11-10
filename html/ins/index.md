@@ -53,23 +53,13 @@ tags:
     </ins>
   </li>
   <li>
-    <ins datetime="2021-12-21T11:00Z">
+    <ins datetime="2021-12-21T15:00Z">
       Ещё раз позвонить подрядчику и напомнить про акты
     </ins>
   </li>
 </ul>
 ```
 
-Визуально это никак не отобразится — браузеры по умолчанию никак не выводят эти атрибуты. Но мы можем написать небольшой скрипт, который будет проходиться во всем тегам `<ins>` и, если у них есть атрибут `datetime`, выводить форматированную дату рядом.
-
-```js
-Array.from(document.querySelectorAll('ins')).forEach(element => {
-  if(element.hasAttribute('datetime')){
-    const attributeValue = element.getAttribute('datetime')
-    const dateFormatted = new Date(attributeValue).toLocaleString()
-    element.innerText += ` (${dateFormatted})`
-  }
-})
-```
+По умолчанию значения атрибутов невидимы для пользователя, но можно автоматически выводить их при помощи скриптов. Например, мы можем добавлять для всех новых пунктов дату и время добавления, это будет выглядеть примерно так:
 
 <iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>

@@ -35,16 +35,7 @@
   <ul>
     <li><del>Созвониться с подрядчиком по поводу актов</del></li>
     <li><ins cite="https://our-cool-customers.com/reports/upload">Выгрузить отчёт в сервис заказчика</ins></li>
-    <li><ins datetime="2021-12-21T11:00Z">Ещё раз позвонить подрядчику и напомнить про акты</ins></li>
+    <li><ins datetime="2021-12-21T11:00Z">Ещё раз позвонить подрядчику и напомнить про акты</ins>(21.12.2021, 15:00:00)</li>
   </ul>
-  <script>
-    Array.from(document.querySelectorAll('ins')).forEach(element => {
-      if(element.hasAttribute('datetime')){
-        const attributeValue = element.getAttribute('datetime')
-        const dateFormatted = new Date(attributeValue).toLocaleString()
-        element.innerText += ` (${dateFormatted})`
-      }
-    })
-  </script>
 </body>
 </html>

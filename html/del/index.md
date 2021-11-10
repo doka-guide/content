@@ -49,7 +49,7 @@ tags:
     </del>
   </li>
   <li>
-    <del datetime="2021-12-21T21:15Z">
+    <del datetime="2021-12-21T15:00Z">
       Созвониться с подрядчиком по поводу актов
     </del>
   </li>
@@ -57,18 +57,6 @@ tags:
 </ul>
 ```
 
-Визуально это никак не отобразится — браузеры по умолчанию никак не выводят эти атрибуты. Но мы можем написать небольшой скрипт, который будет проходиться во всем тегам `<del>` и, если у них есть атрибут `datetime`, выводить форматированную дату рядом.
-
-```js
-Array.from(document.querySelectorAll('del')).forEach(element => {
-  if(element.hasAttribute('datetime')){
-    const attributeValue = element.getAttribute('datetime')
-    const dateFormatted = new Date(attributeValue).toLocaleString()
-    const span = document.createElement('span')
-    span.innerText = `(${dateFormatted})`
-    element.parentNode.insertBefore(span, element.nextElementSibling)
-  }
-})
-```
+По умолчанию значения атрибутов невидимы для пользователя, но можно автоматически выводить их при помощи скриптов. Например, мы можем добавлять для всех удалённых пунктов дату и время удаления, это будет выглядеть примерно так:
 
 <iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>

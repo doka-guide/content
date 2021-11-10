@@ -34,19 +34,8 @@
   <h4>Сдача проекта</h4>
   <ul>
     <li><del cite="https://our-cool-customers.com/reports/123">Выгрузить отчёт в сервис заказчика</del></li>
-    <li><del datetime="2021-12-21T11:00Z">Созвониться с подрядчиком по поводу актов</del></li>
+    <li><del datetime="2021-12-21T11:00Z">Созвониться с подрядчиком по поводу актов</del> (21.12.2021, 15:00:00)</li>
     <li>Согласовать новую форму оплаты с юристами</li>
   </ul>
-<script>
-  Array.from(document.querySelectorAll('del')).forEach(element => {
-    if(element.hasAttribute('datetime')){
-      const attributeValue = element.getAttribute('datetime')
-      const dateFormatted = new Date(attributeValue).toLocaleString()
-      const span = document.createElement('span')
-      span.innerText = `(${dateFormatted})`
-      element.parentNode.insertBefore(span, element.nextElementSibling)
-    }
-  })
-</script>
 </body>
 </html>
