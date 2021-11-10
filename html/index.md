@@ -38,6 +38,7 @@ groups:
       - article
       - aside
       - nav
+      - time
       - sub
       - sup
       - del
