@@ -3,34 +3,57 @@
     "css": {
       "added": [
         "css\/.+\/.+.md"
+      ],
+      "modified": [
+        "css\/.+\/.+.md"
+      ],
+      "removed": [
+        "css\/.+\/.+.md"
+      ],
+      "renamed": [
+        "css\/.+\/.+.md"
       ]
     },
     "html": {
       "added": [
+        "html\/.+\/.+.md"
+      ],
+      "modified": [
+        "html\/.+\/.+.md"
+      ],
+      "removed": [
+        "html\/.+\/.+.md"
+      ],
+      "renamed": [
         "html\/.+\/.+.md"
       ]
     },
     "js": {
       "added": [
         "js\/.+\/.+.md"
+      ],
+      "modified": [
+        "js\/.+\/.+.md"
+      ],
+      "removed": [
+        "js\/.+\/.+.md"
+      ],
+      "renamed": [
+        "js\/.+\/.+.md"
       ]
     },
     "tools": {
       "added": [
         "tools\/.+\/.+.md"
-      ]
-    },
-    "доработка": {
-      "added": [
-        "README.md",
-        "LICENSE-ND.md",
-        "LICENSE-SA.md",
-        "docs\/.+.md",
-        "docs\/.+\/.+.md",
-        "docs/images\/.+.png",
-        "docs/license\/.+\/.+.svg",
-        "pages\/*/index.md",
-        "people\/*/index.md"
+      ],
+      "modified": [
+        "tools\/.+\/.+.md"
+      ],
+      "removed": [
+        "tools\/.+\/.+.md"
+      ],
+      "renamed": [
+        "tools\/.+\/.+.md"
       ]
     },
     "кухня": {
@@ -57,6 +80,36 @@
     },
     "улучшение": {
       "modified": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ],
+      "removed": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ],
+      "renamed": [
         "css\/.+\/.+.md",
         "html\/.+\/.+.md",
         "js\/.+\/.+.md",
