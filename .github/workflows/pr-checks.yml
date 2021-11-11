@@ -93,7 +93,7 @@ jobs:
         uses: Ana06/get-changed-files@v1.2
       - name: Проверяет правописание
         run: |
-          config=.yaspeller.json
+          config=.github/yaspeller.json
           file_list=""
           for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [[ $changed_file == $config ]]; then
