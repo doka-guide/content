@@ -1,5 +1,10 @@
 ---
 title: "`:hover`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Луноход (ховер) стоит на камнях, на заднем плане ширма с изображением лунной поверхности'
 authors:
   - solarrust
 contributors:
