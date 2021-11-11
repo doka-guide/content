@@ -103,7 +103,7 @@ async function* removeDataGenerator() {
   }
 }
 
-(async () => {
+;(async () => {
   for await (const item of removeDataGenerator()) {
     console.log(item)
   }
