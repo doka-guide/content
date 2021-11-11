@@ -1,0 +1,23 @@
+name: Maintainer Helper
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-lists:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Формирует список меты файлов
+        run: |
+          npm install @octokit/core
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
+      - name: Обновление списков материалов-кандидатов на редактирование
+        run: node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
+      - name: Обновление списков материалов-кандидатов на доработку демок
+        run: node .github/scripts/demos-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}

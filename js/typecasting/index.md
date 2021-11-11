@@ -232,6 +232,7 @@ Boolean("false") // true
 Boolean(0) // false
 Boolean(42) // true
 Boolean(-42) // true
+Boolean(NaN) // false
 Boolean(null) // false
 Boolean(undefined) // false
 Boolean(function () {}) // true
@@ -241,7 +242,7 @@ Boolean([]) // true
 Boolean([1, 2]) // true
 
 // Грубо говоря, всё, кроме пустой строки, нуля,
-// null и undefined — true.
+// NaN, null и undefined — true.
 ```
 
 ## Неявное преобразование типов
@@ -354,7 +355,7 @@ date.toString() // "Sun Sep 15 2019..."
 
 В отличие от строгого равенства (`===`), в нём интерпретатор пробует привести типы к одному, чтобы сравнить.
 
-Полный алгоритм [сложный](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3). Для удобства его свели в [большую матрицу](https://dorey.github.io/JavaScript-Equality-Table/unified/), которая показывает, «что чему равно» при строгом и нестрогом равенстве.
+Полный алгоритм [сложный](https://262.ecma-international.org/5.1/#sec-11.9.3). Для удобства его свели в [большую матрицу](https://dorey.github.io/JavaScript-Equality-Table/unified/), которая показывает, «что чему равно» при строгом и нестрогом равенстве.
 
 Вот таблица нестрогого равенства (зелёным отмечены значения, которые «равны»):
 

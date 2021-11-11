@@ -27,7 +27,7 @@ const sameDecimal = .101
 
 Можно использовать экспоненциальную запись. Например, один миллион в экспоненциальной записи:
 
-```
+```js
 const scientific = 1e6
 ```
 
@@ -90,7 +90,6 @@ console.log(small.toFixed(20))
 // 0.11111111111111110494
 console.log(smaller.toFixed(20))
 // 0.11111111111111110494
-
 console.log(small === smaller)
 // true
 ```
@@ -137,7 +136,7 @@ console.log(result === NaN)
 // false
 ```
 
-Для проверки на `NaN` пользуйтесь функцией [`Number.isNaN`](js/number-is-nan), которая возвращает `true` если переданное значение — `NaN`:
+Для проверки на `NaN` пользуйтесь функцией [`Number.isNaN`](/js/number-is-nan), которая возвращает `true` если переданное значение — `NaN`:
 
 ```js
 const result = NaN
@@ -215,21 +214,47 @@ console.log(5 < 10)
 // true
 console.log(10 <= 10)
 // true
-conole.log(5 == 10)
+console.log(5 == 10)
 // false
-conole.log(5 === 10)
+console.log(5 === 10)
 // false
-conole.log(5 != 10)
+console.log(5 != 10)
 // true
-conole.log(5 !== 10)
+console.log(5 !== 10)
 // true
 ```
 
-:::callout ☝️
+<aside>
 
-Строгое `===` и нестрогое `==` сравнение работает одинаково, когда оба сравниваемых значения имеют тип «число». В других случаях их поведение [отличается](/js/typecasting/#strogoe-i-nestrogoe-ravenstvo).
+☝️ Строгое `===` и нестрогое `==` сравнение работает одинаково, когда оба сравниваемых значения имеют тип «число». В других случаях их поведение [отличается](/js/typecasting/#strogoe-i-nestrogoe-ravenstvo).
 
-:::
+</aside>
+
+### Числовой разделитель
+
+В спецификации EcmaScript 2021 года (_ES12_) появилась возможность добавлять в числа разделители. Например:
+
+```js
+const number = 1_000_000_000
+
+console.log(number)
+// 1000000000
+```
+
+Разделители делают большие числа более читаемыми, внешне выделяя разряды чисел.
+
+```js
+const integer = 1_234_567_890
+const float = 0.123_456_789
+```
+
+Разделители доступны для чисел других счислений и [`BigInt`](/js/bigint/):
+
+```js
+const binary = 0b0101_1111_0001
+const hex = 0x12_AB_34_CD
+const bigInt = 1_234_567_890n
+```
 
 ### Дополнительные методы
 

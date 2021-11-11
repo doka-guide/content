@@ -1,6 +1,5 @@
 ---
 title: "`resize`"
-description: ""
 authors:
   - doka-dog
 tags:

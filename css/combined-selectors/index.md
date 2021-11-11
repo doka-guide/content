@@ -2,6 +2,8 @@
 title: "Комбинированные селекторы"
 authors:
   - realetive
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:

@@ -25,7 +25,7 @@ tags:
 ```js
 const section = document.querySelector('section')
 
-console.log(form.outerHTML)
+console.log(section.outerHTML)
 ```
 
 В таком случае выведется весь HTML, включая сам элемент:
@@ -80,21 +80,21 @@ HTML после изменения будет:
 
 Новый элемент полностью заменит `<header>`.
 
-::: callout ☝️
+<aside>
 
-Браузер позволит присвоить новое значение `Element.outerHTML` в `<body>`, но не удалит сам элемент. Вместо этого новое значение будет вставлено внутрь `<body>`, аналогично вызову `Element.innerHTML`.
+☝️ Браузер позволит присвоить новое значение `Element.outerHTML` в `<body>`, но не удалит сам элемент. Вместо этого новое значение будет вставлено внутрь `<body>`, аналогично вызову `Element.innerHTML`.
 
-:::
+</aside>
 
 ```js
-document.body.outerHTML = '<h1>Я новое содержмое страницы<h1>'
+document.body.outerHTML = '<h1>Я новое содержимое страницы<h1>'
 ```
 
 В результате в документ будет такой HTML:
 
 ```html
 <body>
-  <h1>Я новое содержмое страницы<h1>
+  <h1>Я новое содержимое страницы<h1>
 </body>
 ```
 

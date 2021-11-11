@@ -1,6 +1,5 @@
 ---
 title: "`outline-offset`"
-description: ""
 authors:
   - solarrust
 editors:

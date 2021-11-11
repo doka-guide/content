@@ -3,6 +3,8 @@ title: "`undefined`"
 description: "Примитивный тип данных. Состоит из единственного значения `undefined`. Обозначает, что значение не определено."
 authors:
   - nlopin
+contributors:
+  - ansmtz
 keywords:
   - андефайнд
 tags:
@@ -48,6 +50,7 @@ const person = {
   age: undefined
 }
 ```
+Но будьте аккуратны, когда устанавливаете `undefined` свойствам объектов. Если у объекта `person` удалить `age`, то при обращении к несуществующему свойству также вернётся `undefined`.
 
 ## Как понять
 

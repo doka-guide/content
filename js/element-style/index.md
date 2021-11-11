@@ -8,7 +8,7 @@ tags:
 
 ## Кратко
 
-[`HTMLElement.style`](http://htmlelement.style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут `style`.
+[`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут `style`.
 
 С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/CSS/Specificity) этого свойства такая же, как у атрибута `style`.
 
@@ -38,7 +38,7 @@ element.style.color = "blue"
 
 ## Как понять
 
-[`HTMLElement.style`](http://htmlelement.style) — это механизм для работы со стилями на элементе. С его помощью можно управлять отображением элементов в «рантайме», то есть во время выполнения скрипта.
+[`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) — это механизм для работы со стилями на элементе. С его помощью можно управлять отображением элементов в «рантайме», то есть во время выполнения скрипта.
 
 Этот механизм позволяет «перетирать» стили, описанные в CSS-таблицах, так как специфичность стилей в атрибуте `style` выше (за исключением стилей с `!important`).
 
@@ -63,7 +63,7 @@ element.style.fontFamily = "Arial"
 
 | CSS | JavaScript |
 | --- | --- |
-| [background]() | background |
+| [background](/css/background) | background |
 | [background-attachment]() | backgroundAttachment |
 | [background-color](/css/background-color/) | backgroundColor |
 | [background-image](/css/background-image/) | backgroundImage |
@@ -74,7 +74,7 @@ element.style.fontFamily = "Arial"
 | [border-bottom-color](/css/border/#как-это-понять) | borderBottomColor |
 | [border-bottom-style](/css/border/#как-это-понять) | borderBottomStyle |
 | [border-bottom-width](/css/border/#как-это-понять) | borderBottomWidth |
-| [border-color](/css/border/#border-color) | borderColor |
+| [border-color](/css/border-color) | borderColor |
 | [border-left](/css/border/#как-это-понять) | borderLeft |
 | [border-left-color](/css/border/#как-это-понять) | borderLeftColor |
 | [border-left-style](/css/border/#как-это-понять) | borderLeftStyle |
@@ -83,19 +83,19 @@ element.style.fontFamily = "Arial"
 | [border-right-color](/css/border/#как-это-понять) | borderRightColor |
 | [border-right-style](/css/border/#как-это-понять) | borderRightStyle |
 | [border-right-width](/css/border/#как-это-понять) | borderRightWidth |
-| [border-style](/css/border/#border-style) | borderStyle |
+| [border-style](/css/border-style) | borderStyle |
 | [border-top](/css/border/#как-это-понять) | borderTop |
 | [border-top-color](/css/border/#как-это-понять) | borderTopColor |
 | [border-top-style](/css/border/#как-это-понять) | borderTopStyle |
 | [border-top-width](/css/border/#как-это-понять) | borderTopWidth |
-| [border-width](/css/border/#border-width) | borderWidth |
+| [border-width](/css/border-width) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |
 | [color](/css/color/) | color |
 | [cursor](/css/cursor/) | cursor |
 | [display](/css/display/) | display |
 | [filter]() | filter |
-| [float]() | cssFloat |
+| [float](/css/float) | cssFloat |
 | [font]() | font |
 | [font-family](/css/font-family/) | fontFamily |
 | [font-size](/css/font-size/) | fontSize |
@@ -114,7 +114,7 @@ element.style.fontFamily = "Arial"
 | [margin-left](/css/margin/#кратко) | marginLeft |
 | [margin-right](/css/margin/#кратко) | marginRight |
 | [margin-top](/css/margin/#кратко) | marginTop |
-| [overflow]() | overflow |
+| [overflow](/css/overflow) | overflow |
 | [padding](/css/padding/) | padding |
 | [padding-bottom](/css/padding/#кратко) | paddingBottom |
 | [padding-left](/css/padding/#кратко) | paddingLeft |
@@ -122,7 +122,7 @@ element.style.fontFamily = "Arial"
 | [padding-top](/css/padding/#кратко) | paddingTop |
 | [page-break-after]() | pageBreakAfter |
 | [page-break-before]() | pageBreakBefore |
-| [position]() | position |
+| [position](/css/position) | position |
 | [stroke-dasharray]() | strokeDasharray |
 | [stroke-dashoffset]() | strokeDashoffset |
 | [stroke-width]() | strokeWidth |
