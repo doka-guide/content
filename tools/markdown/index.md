@@ -1,5 +1,6 @@
 ---
 title: "Markdown"
+description: "Зачем нужен ещё один язык разметки и как на нём писать."
 authors:
   - cergmin
 tags:
