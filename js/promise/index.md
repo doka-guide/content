@@ -1,5 +1,10 @@
 ---
 title: "`Promise`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Две руки держатся за мизинчики, давая обещание'
 authors:
   - nlopin
 tags:
