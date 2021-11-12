@@ -32,7 +32,7 @@ tags:
 - Свойства межбуквенных и «межсловных» расстояний: `letter-spacing`, `word-spacing` и `white-space`.
 - Параметры текста: `text-align`, `text-indent`, `text-shadow`, `text-transform`;
 - оформление пунктов списков: `list-style`, `list-style-type`, `list-style-position`.
-- Внешний вид курсора: `cursor` и отображение содержимого элемента `visablity`.
+- Внешний вид курсора: `cursor` и отображение содержимого элемента `visibility`.
 
 Например, в отличие от `color`, ненаследуемое свойство `border` не будет применено к вложенным элементам:
 
