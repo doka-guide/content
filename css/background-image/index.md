@@ -1,5 +1,10 @@
 ---
 title: "`background-image`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Луноход стоит на камнях, на заднем плане ширма с изображением лунной поверхности'
 authors:
   - doka-dog
 contributors:
