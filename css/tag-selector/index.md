@@ -2,6 +2,8 @@
 title: "Селектор по тегу"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -17,22 +19,22 @@ tags:
 ## Пример
 
 ```html
-<span>Немного текста</span>
+<p>Собираясь в отпуск, нужно <span>не забыть</span>:</p>
 <ul>
-  <li>Взять носки</li>
-  <li><span>Взять документы</span></li>
-  <li>Взять топор</li>
+  <li>взять носки;</li>
+  <li><span>взять документы</span>;</li>
+  <li>взять топор.</li>
 </ul>
-<p>Немного <span>другого</span> текста</p>
+<p>И выделить в списке <span>самое главное</span>.</p>
 ```
 
 ```css
 span {
-  background-color: chocolate;
+  background-color: #2E9AFF;
 }
 ```
 
-<iframe title="Селектор по тегу" src="demos/example/" height="350"></iframe>
+<iframe title="Селектор по тегу" src="demos/example/" height="250"></iframe>
 
 ## Как пишется
 

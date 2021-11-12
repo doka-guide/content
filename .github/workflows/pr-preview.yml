@@ -1,11 +1,7 @@
-name: Surge Preview
+name: PR Preview
 
 on:
-  workflow_run:
-    workflows:
-      - "PR Checks"
-    types:
-      - completed
+  pull_request_target:
 
 jobs:
   prepare:
@@ -22,7 +18,7 @@ jobs:
         run: |
           pr_files=$(echo $(curl \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/doka-guide/content/pulls/${{ github.event.workflow_run.pull_requests[0].number }}/files))
+            https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files))
           list=$(echo $pr_files | grep -o '"filename": "[^"]*' | cut -d'"' -f4)
           echo "::set-output name=all::$list"
           echo $list
@@ -31,7 +27,7 @@ jobs:
     needs:
       - prepare
     env:
-      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.workflow_run.pull_requests[0].number }}.surge.sh'
+      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.pull_request.number }}.surge.sh'
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - name: Загрузка platform
@@ -41,7 +37,6 @@ jobs:
       - name: Загрузка контента
         uses: actions/checkout@v2
         with:
-          ref: refs/heads/${{ github.event.workflow_run.head_branch }}
           path: content
       - uses: actions/setup-node@v2
         with:
@@ -59,22 +54,14 @@ jobs:
             ${{ runner.os }}-
       - name: Установка модулей
         run: npm ci
-      - name: Получение идентификатора
-        id: check
-        if: ${{ env.SURGE_TOKEN != '' }}
-        run: |
-          check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
-          check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
-          echo "::set-output name=check_id::$check_run_id"
       - name: Сообщение о начале публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: ${{ env.SURGE_TOKEN != '' }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
+          number: ${{ github.event.pull_request.number }}
+          id: surge-progress-${{ github.event.pull_request.number }}
+          message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ github.run_id }}?check_suite_focus=true)'
           recreate: true
       - name: Форматирование списка файлов
         id: links
@@ -82,8 +69,10 @@ jobs:
           file_list=''
           for changed_file in ${{ needs.prepare.outputs.files }}; do
             replace='html'
-            page=$(echo "${changed_file/md/$replace}")
-            file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+            if ! [[ $changed_file == '' ]]; then
+              page=$(echo "${changed_file/md/$replace}")
+              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+            fi
           done
           if ! [[ $file_list == '' ]]; then
             file_list=$(echo -e "<br><hr><p>Список ссылок на материалы:<ul>${file_list}</ul><p>")
@@ -103,24 +92,24 @@ jobs:
           fi
           echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
           echo -e "${{ steps.links.outputs.list }}"
-      - name: Сообщение об успехе публикации превью
-        uses: hasura/comment-progress@v2.1.0
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion == 'success' && steps.links.conclusion == 'success' }}
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.workflow_run.head_sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
-          recreate: true
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
-        if: ${{ env.SURGE_TOKEN != '' && steps.surge.conclusion != 'success' }}
+        if: failure()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
-          number: ${{ github.event.workflow_run.pull_requests[0].number }}
-          id: surge-progress-${{ github.event.workflow_run.pull_requests[0].number }}
-          message: 'Превью контента из ${{ github.event.workflow_run.head_sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
+          number: ${{ github.event.pull_request.number }}
+          id: surge-progress-${{ github.event.pull_request.number }}
+          message: 'Превью контента из ${{ github.sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           fail: true
+          recreate: true
+      - name: Сообщение об успехе публикации превью
+        uses: hasura/comment-progress@v2.1.0
+        if: success()
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.pull_request.number }}
+          id: surge-progress-${{ github.event.pull_request.number }}
+          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
           recreate: true

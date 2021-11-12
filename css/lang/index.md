@@ -1,6 +1,5 @@
 ---
 title: "`:lang`"
-description: ""
 authors:
   - almadef
 tags:
@@ -75,7 +74,7 @@ p:lang(es) {
 ```html
 <p><q lang="ru">слово</q></p>
 <p><q lang="es">palabra</q></p>
-<p><q lang="de">wort</q></p>
+<p><q lang="pl">cześć</q></p>
 ```
 
 <iframe title="Кавычки" src="demos/q/" height="120"></iframe>

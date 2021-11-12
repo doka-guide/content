@@ -1,6 +1,5 @@
 ---
 title: "`touch-action`"
-description: ""
 authors:
   - doka-dog
 tags:

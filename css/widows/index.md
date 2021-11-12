@@ -1,6 +1,5 @@
 ---
 title: "`widows`"
-description: ""
 authors:
   - doka-dog
 tags:

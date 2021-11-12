@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-alternates`"
-description: ""
 authors:
   - doka-dog
 tags:

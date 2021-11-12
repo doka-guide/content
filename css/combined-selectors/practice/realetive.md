@@ -99,17 +99,17 @@ li + li {
 button {
   border: none;
   background-color: transparent;
-  font-size: 2em;
+  font-size: 5em;
 }
 
 button:hover,
 button:focus,
 button:hover ~ button,
 button:focus ~ button {
-  color: red;
+  color: #F498AD;
 }
 ```
 
 Но сейчас при наведении курсора будут выделяться все элементы _после_ (т. е. справа). Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства `direction: rtl`:
 
-<iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="150"></iframe>
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="250"></iframe>

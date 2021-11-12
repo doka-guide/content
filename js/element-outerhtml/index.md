@@ -25,7 +25,7 @@ tags:
 ```js
 const section = document.querySelector('section')
 
-console.log(form.outerHTML)
+console.log(section.outerHTML)
 ```
 
 В таком случае выведется весь HTML, включая сам элемент:
