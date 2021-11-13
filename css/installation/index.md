@@ -2,6 +2,8 @@
 title: "Подключение стилей"
 authors:
   - kanishev
+editors:
+  - tachisis
 keywords:
   - Подключение стилей
   - Способы подключения
