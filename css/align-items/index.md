@@ -2,6 +2,8 @@
 title: "`align-items`"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:

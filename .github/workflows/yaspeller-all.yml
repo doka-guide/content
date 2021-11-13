@@ -12,6 +12,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: 16
       - name: Проверка правописания в main
         run: npx yaspeller --only-errors --file-extensions ".md,.html" *

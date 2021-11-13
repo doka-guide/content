@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-east-asian`"
-description: ""
 authors:
   - doka-dog
 tags:

@@ -95,7 +95,7 @@ filled.delete(1)
 
 ```js
 console.log(filled.size)
-// 4
+// 5
 ```
 
 `Set` позволяет проверить, был ли элемент уже добавлен. За это отвечает метод [`has`](/js/set-has):

@@ -187,7 +187,6 @@ p {
 .green:hover {
   text-decoration-color: #49a16c;
 }
-
 ```
 
 <a name="example"></a>
