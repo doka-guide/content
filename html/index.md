@@ -27,6 +27,8 @@ groups:
       - u
       - pre
       - bdo
+      - bdi
+      - small
   - name: 'Семантика'
     items:
       - div
@@ -47,6 +49,8 @@ groups:
       - output
       - strong
       - em
+      - cite
+      - var
   - name: 'Формы'
     items:
       - form
