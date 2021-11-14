@@ -186,7 +186,7 @@ _Скринридер (screen reader)_ — программа, которая п
 - [Шорткаты в VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts).
 - [Жесты в TalkBack](https://dequeuniversity.com/screenreaders/talkback-shortcuts).
 - [Жесты в мобильном VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts).
-  
+
 Чтобы тестировать в скринридерах, не обязательно делать это на реальных устройствах. Эта можно сделать в [BrowserStack](https://www.browserstack.com) и в специальном сервисе для удалённого тестирования на скринридерах от [Assistiv Labs](https://assistivlabs.com).
 
 Учитывайте, что реальные пользователи используют скринридеры постоянно и выработали особенные паттерны взаимодействия с интерфейсами. К тому же, они слушают контент на очень высокой скорости. И это быстрее, чем х2 на YouTube! Так что ручное тестирование поможет обнаружить основные проблемы, но полностью не заменит пользовательское.
