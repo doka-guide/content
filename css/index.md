@@ -60,6 +60,7 @@ groups:
       - calc
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
       - var
       - filter-functions
@@ -122,6 +123,7 @@ groups:
       - background-blend-mode
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
