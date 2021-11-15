@@ -4,6 +4,11 @@
 
 ## Ноябрь 2021
 
+- 15 ноября [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
+- 15 ноября [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
+- 15 ноября [`<del>`](https://doka.guide/html/del/), Иван Ельцов
+- 15 ноября [`<dfn>`](https://doka.guide/html/dfn/), Иван Ельцов
+- 14 ноября [Markdown](https://doka.guide/tools/markdown/), Сергей Минаков
 - 11 ноября: [`<bdi>`](https://doka.guide/html/bdi/), Иван Ельцов
 - 8 ноября: [`<cite>`](https://doka.guide/html/cite/), Иван Ельцов
 - 7 ноября: [`Promise.allSettled`](https://doka.guide/js/promise-allsettled/), Вадим Стебаков

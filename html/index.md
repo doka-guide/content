@@ -51,6 +51,7 @@ groups:
       - em
       - cite
       - var
+      - dfn
   - name: 'Формы'
     items:
       - form
