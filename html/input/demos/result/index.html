@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Результат формы ввода — <input> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191c;
+      color: #fff;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    td, th {
+      padding: 0.25em 1em;
+    }
+
+    thead th {
+      background-color: rgba(255, 255, 255, .25);
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: rgba(255, 255, 255, .15);
+    }
+
+    tfoot {
+      border-top: solid 3px rgba(255, 255, 255, .25);
+    }
+
+    .form-result__value-data {
+      word-break: break-word;
+    }
+
+    .margin {
+      margin-top: 20px;
+    }
+
+    .back-link {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .back-link:hover, .back-link:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+<h1>Результат формы</h1>
+
+<p class="margin" id="no-result">
+  Похоже, вы отправили пустую форму
+</p>
+
+<table class="margin" id="form-result" style="display: none">
+  <thead>
+  <tr>
+    <th>Ключ</th>
+    <th>Значение</th>
+  </tr>
+  </thead>
+
+  <tbody id="form-result__body">
+  </tbody>
+
+  <tfoot>
+  <tr>
+    <td>Сырое значение</td>
+    <td class="form-result__value-data" id="form-result__raw-value"></td>
+  </tr>
+  </tfoot>
+</table>
+
+<a class="margin back-link" href="../inputs">
+  ← Вернуться к демо
+</a>
+
+<script>
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  document.getElementById('form-result__raw-value').innerText = window.location.search.slice(1)
+
+  if (Object.keys(params).length > 0) {
+    document.getElementById("no-result").remove()
+
+    const tableRows = Object.keys(params).map(
+      (key) => {
+        const row = document.createElement('tr');
+        const keyElement = document.createElement('td');
+        keyElement.innerText = key
+
+        const valueElement = document.createElement('td');
+        valueElement.classList.add('form-result__value-data')
+        valueElement.innerText = params[key]
+
+        row.append(keyElement, valueElement)
+        return row
+      }
+    );
+    console.log(tableRows)
+
+    const tableBody = document.getElementById('form-result__body')
+    tableBody.append(...tableRows)
+
+    const table = document.getElementById('form-result')
+    table.setAttribute('aria-hidden', "false")
+    table.style.removeProperty('display')
+  }
+</script>
+</body>
+</html>

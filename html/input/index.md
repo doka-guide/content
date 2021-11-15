@@ -132,10 +132,10 @@ tags:
 Вот так будет выглядеть простая форма, собранная из нескольких элементов `<input>`. Мы поместили их все в контейнер `<form>`, чтобы данные, которые введёт пользователь, можно было отправить на сервер:
 
 ```html
-<form name="test" method="post" action="input1.php">
+<form name="test" method="get" action="input1.php">
   <label>
     Текстовое поле в одну строчку:
-    <input type="text" size="40">
+    <input type="text" size="40" name="one-line">
   </label>
 
   <fieldset>

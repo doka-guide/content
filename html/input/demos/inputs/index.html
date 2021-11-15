@@ -22,7 +22,9 @@
     }
 
     form {
-      width: 800px;
+      min-width: 550px;
+      width: 100%;
+      max-width: 800px;
       margin: auto;
     }
 
@@ -144,8 +146,12 @@
       margin-right: 15px;
     }
 
+    .radio:focus + .radio-title::before {
+      border-color: #ff8630;
+      border-width: 2px;
+    }
+
     .radio:checked + .radio-title::before {
-      background-color: #FFFFFF;
       background: radial-gradient(
         circle,
         #FF8630 0%,
@@ -158,42 +164,58 @@
     .input-label, .radio-set, .radio-legend {
       margin-bottom: 25px;
     }
+
+
+    @media screen and (max-width: 900px) {
+      .input-label, .radio-set {
+        flex-direction: column;
+      }
+
+      .input-title {
+        margin-bottom: 1em;
+      }
+
+      .buttons {
+        justify-content: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
-  <form name="test" method="post" action="input1.php">
-    <label class="input-label">
-      <span class="input-title">Текстовое поле в одну строчку:</span>
-      <input class="input" type="text" size="40">
-    </label>
 
-    <fieldset class="radio-set">
-      <span class="radio-legend">Радио-кнопки:</span>
-      <div class="radio-container">
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="ie" id="ie">
-          <span class="radio-title">Вариант 1</span>
-        </label>
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="opera" id="opera">
-          <span class="radio-title">Вариант 2</span>
-        </label>
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
-          <span class="radio-title">Вариант 3</span>
-        </label>
-      </div>
-    </fieldset>
+<form method="get" action="../result">
+  <label class="input-label">
+    <span class="input-title">Текстовое поле в одну строчку:</span>
+    <input class="input" type="text" size="40" name="one-line">
+  </label>
 
-    <label class="input-label">
-      <span class="input-title">Большое текстовое поле:</span>
-      <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
-    </label>
-
-    <div class="buttons">
-      <input type="reset" value="Очистить" class="button button-blue">
-      <input type="submit" value="Отправить" class="button button-orange">
+  <fieldset class="radio-set">
+    <span class="radio-legend">Радио-кнопки:</span>
+    <div class="radio-container">
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="ie" id="ie">
+        <span class="radio-title">Вариант 1</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="opera" id="opera">
+        <span class="radio-title">Вариант 2</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
+        <span class="radio-title">Вариант 3</span>
+      </label>
     </div>
-  </form>
+  </fieldset>
+
+  <label class="input-label">
+    <span class="input-title">Большое текстовое поле:</span>
+    <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
+  </label>
+
+  <div class="buttons">
+    <input type="reset" value="Очистить" class="button button-blue">
+    <input type="submit" value="Отправить" class="button button-orange">
+  </div>
+</form>
 </body>
 </html>
