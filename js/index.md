@@ -79,6 +79,7 @@ groups:
       - array-find
       - array-every
       - array-some
+      - array-reverse
       - includes
       - index-of
       - array-length
