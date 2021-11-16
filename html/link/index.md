@@ -1,11 +1,12 @@
 ---
 title: "`<link>`"
 cover:
+  author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
   alt: 'Окно браузера с вкладкой и собака на цепи. Цепь прикреплена в открытой вкладке в браузере.'
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - corocoto
 editors:

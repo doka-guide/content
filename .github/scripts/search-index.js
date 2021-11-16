@@ -6,28 +6,48 @@ const commonSearch = JSON.parse(rawSearch)
 const algoliaIndex = []
 
 const stopCategories = [
-  "people",
-  "pages"
+  'people',
+  'pages'
 ]
 
 const patternsForEntities = {
-  header2:    /## .+\n/g,                                 // Заголовки второго уровня
-  header3:    /### .+\n/g,                                // Заголовки третьего уровня
-  header4:    /#### .+\n/g,                               // Заголовки четвёртого уровня
-  links:      /[ ]\[.+\]\(.\)/g,                          // Ссылки
-  images:     /[!]\[.+\]\(.\)/g,                          // Подписи к картинкам
-  lists:      /[1-9-] .+/g,                               // Элементы списка
-  bold:       /\*\*(.|\n)*\*\*/g,                         // Выделение полужирным шрифтом
-  italic:     /_((?![<>{}]).|\n)*_/g,                     // Выделение наклонным шрифтом
-  callouts:   /:::(.|\n)+:::/g,                           // Блоки callout
-  paragraphs: /^(?![#>\-*\d ])((?![#>\-*\d ]).+\n?)+/gm,  // Параграфы
+  // Заголовки второго уровня
+  header2: /## .+\n/g,
+
+  // Заголовки третьего уровня
+  header3: /### .+\n/g,
+
+  // Заголовки четвёртого уровня
+  header4: /#### .+\n/g,
+
+  // Ссылки
+  links: /[ ]\[.+\]\(.\)/g,
+
+  // Подписи к картинкам
+  images: /[!]\[.+\]\(.\)/g,
+
+  // Элементы списка
+  lists: /[1-9-] .+/g,
+
+  // Выделение полужирным шрифтом
+  bold: /\*\*(.|\n)*\*\*/g,
+
+  // Выделение наклонным шрифтом
+  italic: /_((?![<>{}]).|\n)*_/g,
+
+  // Блоки callout
+  callouts: /:::(.|\n)+:::/g,
+
+  // Параграфы
+  paragraphs: /^((?![#> ])(?!([\-*]|\d+\.) )(?!\*\*\*).+\n?)+/gm,
 }
 
 const commonReplacement = /([#]+ |:::|callout |```|\*{2,2}|\n|_|\!\[|\[|\]|\([.:/a-z]+\))/g
 
 const getEntitiesFromContent = (text, patterns) => {
-  text = text.replace(/---(.|\n)*---\n/g, '') // Вырезаем мету
-  text = text.replace(/```(.|\n)*```\n/g, '') // Вырезаем код
+  text = text.replace(/---(.|\n)*?---\n/g, '') // Вырезаем мету
+  text = text.replace(/```(.|\n)*?```\n/g, '') // Вырезаем код
+  text = text.replace(/(\[.*?\])(\(.*?\))/g, '$1') // Вырезаем ссылки
   const output = {}
   for (const field in patterns) {
     let array = text.match(patterns[field])
@@ -58,7 +78,7 @@ const getPractice = (path) => {
 
 for (const fileName in commonSearch) {
   const content = fs.readFileSync(fileName, { encoding: 'utf8', flag: 'r' })
-  if (new RegExp(stopCategories.join("|")).test(fileName)) {
+  if (new RegExp(stopCategories.join('|')).test(fileName)) {
     console.log(`Файл ${fileName} не будет добавлен в индекс.`)
   } else {
     const object = {

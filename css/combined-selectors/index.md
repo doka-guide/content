@@ -2,6 +2,8 @@
 title: "Комбинированные селекторы"
 authors:
   - realetive
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -54,7 +56,7 @@ h1, h2, h3 {
 code,
 #id,
 [attr="value"] {
-  color: red
+  color: red;
 }
 ```
 
@@ -64,7 +66,7 @@ code,
 .heading span,
 .block,
 .wrapper {
-  color: red
+  color: red;
 }
 ```
 
@@ -133,7 +135,7 @@ article > h3 {
 
 ```css
 article > h3 {
-  color: red
+  color: red;
 }
 ```
 

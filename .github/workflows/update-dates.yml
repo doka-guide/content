@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: 16
       - name: Правка полей updatedAt и createdAt
         run: node .github/scripts/update-dates.js
       - name: Создание коммита с обновлениями полей

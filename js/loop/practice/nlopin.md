@@ -19,7 +19,7 @@ while (count > 0) {
 
 ```js
 let count = 5
-while (count >= 2) {
+while (count > 2) {
   console.log(count)
   count--
 }

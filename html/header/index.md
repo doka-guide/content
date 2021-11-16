@@ -1,7 +1,7 @@
 ---
 title: "`<header>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - solarrust
   - skorobaeus
@@ -17,7 +17,7 @@ tags:
   - doka
 ---
 
-# Кратко
+## Кратко
 
 `<header>` предназначен для создания «шапок» — всего сайта или какой-то части контента, например, статьи.
 

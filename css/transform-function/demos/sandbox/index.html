@@ -18,12 +18,22 @@
       --skewY: 0deg;
     }
 
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+    }
+
     .obj {
       width: 200px;
       margin-left: 100px;
       margin-top: 50px;
       height: 200px;
-      background: #000;
+      background: #1a5ad7;
       background-repeat: no-repeat;
       transform: translate3d(var(--translateX), var(--translateY), var(--translateZ))
         scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
@@ -50,10 +60,9 @@
 </head>
 <body>
   <div class="wrapper">
-  <div class="parent">
-    <div class="obj"></div>
-  </div>
-    <div class="code">asdasd</div>
+    <div class="parent">
+      <div class="obj"></div>
+    </div>
   </div>
   <script src="scripts/dat.gui.min.js"></script>
   <script>
@@ -88,18 +97,15 @@
         gui.updateDisplay();
       } };
 
-    var gui = new dat.GUI({ name: 'My GUI' });
-    var guiTranslate = gui.addFolder('translate');
-    var guiRotate = gui.addFolder('rotate');
-    var guiScale = gui.addFolder('scale');
-    var guiSkew = gui.addFolder('skew');
+    let gui = new dat.GUI({ name: 'My GUI' });
+    let guiTranslate = gui.addFolder('translate');
+    let guiRotate = gui.addFolder('rotate');
+    let guiScale = gui.addFolder('scale');
+    let guiSkew = gui.addFolder('skew');
     let root = document.documentElement;
-    const code = document.querySelector('.code');
 
     const setter = (prop, suffix) => val => {
       root.style.setProperty(prop, `${val}${suffix}`);
-      code.innerText = `${val}${suffix}`;
-      console.log(root.style);
     };
     gui.add(params, 'reset');
 

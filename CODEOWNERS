@@ -1,7 +1,9 @@
 css @solarrust
 html @solarrust
 js @nlopin @bespoyasov
-tools @nlopin @bespoyasov
+tools @nlopin @bespoyasov @igsekor
 docs @tachisis
 README.md @tachisis
 .yaspeller.json @tachisis
+.github @igsekor @pepelsbey
+*/*/demos @skorobaeus

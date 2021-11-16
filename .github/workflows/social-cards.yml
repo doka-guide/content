@@ -1,0 +1,49 @@
+name: Social Cards
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '30 6 * * 5'
+
+jobs:
+  social-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Загрузка platform
+        uses: actions/checkout@v2
+        with:
+          repository: doka-guide/platform
+      - name: Загрузка контента
+        uses: actions/checkout@v2
+        with:
+          path: content
+      - name: Кэширование модулей
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Установка модулей
+        run: npm ci
+      - name: Сборка сайта
+        run: |
+          node make-links.js --default
+          npm run preview
+      - name: Генерация карточек
+        run: npx gulp socialCards
+      - name: Кэширование артефакта сборки
+        uses: actions/upload-artifact@v2
+        with:
+          name: doka-guide-content-social-cards
+          retention-days: 8
+          path: |
+            dist/**/**/images/covers/og.png
+            dist/**/**/images/covers/twitter.png
+
+
+

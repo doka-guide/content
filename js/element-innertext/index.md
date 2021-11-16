@@ -10,7 +10,7 @@ tags:
 
 Свойство `Element.innerText` позволяет считывать или задавать текстовое содержимое элемента. При считывании текста с элемента будет возвращена строка с текстовым содержимым всех вложенных дочерних элементов. Не будет считываться только содержимое скрытых с помощью CSS элементов, а так же содержимое тегов `<script>` и `<style>`.
 
-Аналогичным функционалом обладает [Element.textContent](/js/element-textcontent), но он возвращает содержимое всех дочерних элементов, даже скрытых.
+Аналогичной функциональностью обладает [Element.textContent](/js/element-textcontent), но он возвращает содержимое всех дочерних элементов, даже скрытых.
 
 ## Пример
 ```html
@@ -31,7 +31,7 @@ button.innerText = 'Done!' // Изменит текст кнопки на Done
 // В результате будет: <button type="submit" id="submit">Done</button>
 ```
 
-<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index/"></iframe>
+<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index/" height="800"></iframe>
 
 ## Как понять
 
@@ -67,11 +67,11 @@ statusElement.innerText = 'Data loaded!'
 </div>
 ```
 
-::: callout ❗️
+<aside>
 
-Установка нового текста с помощью `Element.innerText` полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.
+❗️ Установка нового текста с помощью `Element.innerText` полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.
 
-:::
+</aside>
 
 Предположим, что в блоке статуса загрузки был ещё элемент отображающий иконку-лоадер.
 
@@ -87,12 +87,12 @@ statusElement.innerText = 'Data loaded!'
 ```js
 const statusElement = document.getElementById('loading-status')
 
-statusElement.innerText = 'Error occured!'
+statusElement.innerText = 'Error occurred!'
 ```
 
 ```html
 <!-- Больше никакой иконки внутри, только новый текст -->
 <div id="loading-status">
-  Error occured!
+  Error occurred!
 </div>
 ```

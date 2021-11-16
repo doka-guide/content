@@ -1,0 +1,195 @@
+{
+  "files": {
+    "css": {
+      "added": [
+        "css\/.+\/.+.md"
+      ],
+      "modified": [
+        "css\/.+\/.+.md"
+      ],
+      "removed": [
+        "css\/.+\/.+.md"
+      ],
+      "renamed": [
+        "css\/.+\/.+.md"
+      ]
+    },
+    "html": {
+      "added": [
+        "html\/.+\/.+.md"
+      ],
+      "modified": [
+        "html\/.+\/.+.md"
+      ],
+      "removed": [
+        "html\/.+\/.+.md"
+      ],
+      "renamed": [
+        "html\/.+\/.+.md"
+      ]
+    },
+    "js": {
+      "added": [
+        "js\/.+\/.+.md"
+      ],
+      "modified": [
+        "js\/.+\/.+.md"
+      ],
+      "removed": [
+        "js\/.+\/.+.md"
+      ],
+      "renamed": [
+        "js\/.+\/.+.md"
+      ]
+    },
+    "tools": {
+      "added": [
+        "tools\/.+\/.+.md"
+      ],
+      "modified": [
+        "tools\/.+\/.+.md"
+      ],
+      "removed": [
+        "tools\/.+\/.+.md"
+      ],
+      "renamed": [
+        "tools\/.+\/.+.md"
+      ]
+    },
+    "кухня": {
+      "added": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ],
+      "modified": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ],
+      "removed": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ],
+      "renamed": [
+        ".github\/.+.yml",
+        ".github\/scripts\/.+.js",
+        ".github\/workflows\/.+.yml"
+      ]
+    },
+    "улучшение": {
+      "modified": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ],
+      "removed": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ],
+      "renamed": [
+        "css\/.+\/.+.md",
+        "html\/.+\/.+.md",
+        "js\/.+\/.+.md",
+        "tools\/.+\/.+.md",
+        "README.md",
+        "LICENSE-ND.md",
+        "LICENSE-SA.md",
+        "docs\/.+.md",
+        "docs\/.+\/.+.md",
+        "docs\/images\/.+.png",
+        "docs\/license\/.+\/.+.svg",
+        "pages\/*/index.md",
+        "people\/*/index.md"
+      ]
+    }
+  },
+  "assignee": {
+    "skorobaeus": {
+      "демо": {
+        "modified": [
+          "css\/*/demos\/.+\/.+.html",
+          "html\/*/demos\/.+\/.+.html",
+          "js\/*/demos\/.+\/.+.html",
+          "tools\/*/demos\/.+\/.+.html"
+        ]
+      }
+    },
+    "tachisis": {
+      "редактура": {
+        "modified": [
+          "css\/.+\/.+.md",
+          "html\/.+\/.+.md",
+          "js\/.+\/.+.md",
+          "tools\/.+\/.+.md",
+          ".yaspeller.json",
+          "README.md",
+          "LICENSE-ND.md",
+          "LICENSE-SA.md",
+          "docs\/.+.md",
+          "docs\/.+\/.+.md",
+          "docs\/images\/.+.png",
+          "docs\/license\/.+\/.+.svg",
+          "pages\/*/index.md",
+          "people\/*/index.md"
+        ]
+      }
+    }
+  },
+  "meta": {
+    "tags": {
+      "doka": {
+        "дока": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      },
+      "article": {
+        "статья": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      },
+      "placeholder": {
+        "placeholder": {
+          "added": [
+            "css\/.+\/index.md",
+            "html\/.+\/index.md",
+            "js\/.+\/index.md",
+            "tools\/.+\/index.md"
+          ]
+        }
+      }
+    }
+  }
+}

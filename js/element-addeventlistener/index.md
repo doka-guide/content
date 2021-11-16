@@ -1,7 +1,6 @@
 ---
-title: "`Element.addEventListener()`"
+title: "`.addEventListener()`"
 authors:
-  - vindi-r
   - akellbl4
 contributors:
   - nlopin
@@ -76,12 +75,6 @@ element.addEventListener(eventType, handler, options)
     - `passive` – говорит о том, что внутри `handler` никогда не будет вызвана функция `event.preventDefault()`, если функция `event.preventDefault()` все-таки вызвана, браузер должен её игнорировать и выводить предупредительное сообщение в консоль.
     - `once` – включает автоматическую отписку от события после первого срабатывания.
 
-::: callout ❗️
-
-Надо быть внимательными с третьим аргументом `options/capture`, так как старые браузеры, такие как Internet Explorer и первые версии EDGE, не поддерживают передачу объекта и будут восприняты как `capture: true`.
-
-:::
-
 Ниже приведено несколько вариантов вызова функции с разными параметрами:
 
 ```js
@@ -102,4 +95,4 @@ window.addEventListener('click', handleMouseClick, {
 У объекта event есть специальные методы, такие как `preventDefault()` и `stopPropagation()`. Остальные методы практически не используются:
 
 - `preventDefault` позволяет заблокировать стандартное поведение браузера. Например, по клику на ссылке — заблокировать переход по этой ссылке;
-- `stopPropagation` позволяет остановить всплытие события по DOM дереву.
+- `stopPropagation` позволяет остановить всплытие события по DOM-дереву.

@@ -1,7 +1,9 @@
 ---
-title: "`Array.reduce`"
+title: "`[].reduce`"
 authors:
   - windrushfarer
+contributors:
+  - ansmtz
 keywords:
   - редьюсер
   - свёртка
@@ -39,12 +41,12 @@ const usernamesById = users.reduce(function (result, user) {
     [user.id]: user.name,
   }
 }, {})
-// { '1': 'John', '2': 'Anna' , '3': 'Kate' }
+// { '1': 'John', '2': 'Anna', '3': 'Kate' }
 ```
 
 Интерактивный пример:
 
-<iframe height="920" title="Группировка элементов массива при помощи reduce" src="demos/index/"></iframe>
+<iframe title="Группировка элементов массива при помощи reduce" src="demos/index/" height="920"></iframe>
 
 ## Как пишется
 
@@ -137,10 +139,28 @@ for (let i = 0; i < bankAccounts.length; i++) {
 
   // В каждой итерации прибавляем
   // к текущей сумме количество денег на счету
-  totalAmount += currentAccount.amout
+  totalAmount += currentAccount.amount
 }
 ```
 
 `totalAmount` здесь будет так же равен 76.
 
 И в том и в том другом примере у нас аккумулятор, где хранится текущее значение и кладётся новое, есть вычисление нового значение. Только `reduce` позволяет сделать это в одном месте и более понятном декларативном стиле.
+
+### Пустое начальное значение аккумулятора
+
+Начальное значение для аккумулятора можно не указывать явно. В таком случае, на первой итерации аккумулятор будет равен значению первого элемента в массиве:
+
+```js
+const arr = [1, 2, 3]
+const sum = arr.reduce(function (acc, val) {
+  return acc + val
+})
+console.log(sum)
+// 6
+```
+
+В фрагменте выше `acc` на первой итерации равен 1, а `val` — 2. Затем к полученному
+аккумулированному значению 3 прибавляется 3 и возвращается результат.
+
+В этом подходе есть краевой случай. Если массив окажется пустым, то JavaScript выбросит ошибку `TypeError: Reduce of empty array with no initial value`. Этот случай нужно обрабатывать отдельно, например, обернув `reduce` в [`try...catch`](/js/try-catch), но лучше __всегда указывать начальное значение__.

@@ -1,7 +1,7 @@
 ---
-title: "`Math`"
+title: "Модуль `Math`"
 authors:
-  - vindi-r
+  - doka-dog
 tags:
   - doka
 ---

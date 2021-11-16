@@ -1,7 +1,7 @@
 ---
 title: "`<audio>`"
 authors:
-  - vladimir
+  - doka-dog
 contributors:
   - skorobaeus
 editors:
@@ -101,4 +101,4 @@ tags:
 </audio>
 ```
 
-<iframe title="Аудио" src="demos/audio/" allow="autoplay" height="150"></iframe>
+<iframe title="Аудио" src="demos/audio/" allow="autoplay" height="220"></iframe>

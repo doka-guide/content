@@ -1,5 +1,5 @@
 ---
-title: "`.has()`"
+title: "`set.has()`"
 description: "Метод проверяет наличие значения в коллекции Set"
 authors:
   - nlopin
@@ -14,12 +14,12 @@ tags:
 ## Пример
 
 ```js
-const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+const watchList = new Set(['Сияние', 'Интерстеллар', 'Казино'])
 
-console.log(watchlist.has('Казино'))
+console.log(watchList.has('Казино'))
 // true
 
-console.log(watchlist.has('Чёрная пантера'))
+console.log(watchList.has('Чёрная пантера'))
 // false
 ```
 

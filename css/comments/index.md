@@ -1,5 +1,5 @@
 ---
-title: "Комментарии в CSS"
+title: "Комментарии"
 authors:
   - solarrust
 keywords:

@@ -1,10 +1,9 @@
 ---
 title: "`<h1>`...`<h6>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
-  - vladimir
   - skorobaeus
   - furtivite
 keywords:

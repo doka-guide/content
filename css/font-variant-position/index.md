@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-position`"
-description: ""
 authors:
   - doka-dog
 tags:

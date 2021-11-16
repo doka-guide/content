@@ -23,7 +23,7 @@ let value = day === "Tuesday" ? 50 : 1 // во вторник значение 5
 let value = 0 // значение по умолчанию
 
 if (externalValue) {
-  value = externalValue // установить значние, если в externalValue что-либо хранится
+  value = externalValue // установить значение, если в externalValue что-либо хранится
 }
 ```
 

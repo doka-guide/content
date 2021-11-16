@@ -30,11 +30,11 @@ window.addEventListener('click', handleClick)
 Другим примером может быть очищение обработчика по определённому условию. Добавим обработчик события клавиатуры, но по нажатию клавиши <kbd>Esc</kbd> будет очищать его.
 
 ```js
-function handleKepress(event) {
+function handleKeypress(event) {
   console.log('Нажата клавиша:', event.key)
 
   if (event.key === 'Escape') {
-    window.removeEventListener('keypress', handleKepress)
+    window.removeEventListener('keypress', handleKeypress)
   }
 }
 

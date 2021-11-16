@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация формы — :invalid и :valid — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      border: 2px solid;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 1rem;
+      width: 350px;
+    }
+
+    form:invalid {
+      border-color: red;
+    }
+
+    form:valid {
+      border-color: green;
+    }
+
+    .form-row {
+      margin-bottom: 12px;
+    }
+
+    fieldset:invalid {
+      border-color: red;
+    }
+
+    fieldset:valid {
+      border-color: green;
+    }
+
+    label {
+      display: block;
+    }
+
+    input:not([type=checkbox]) {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px 20px 5px 8px;
+      border-radius: 4px;
+      border: 2px solid black;
+    }
+
+    input + span {
+      position: relative;
+    }
+
+    input + span::before {
+      position: absolute;
+      right: 5px;
+      top: 2px;
+    }
+
+    input:invalid {
+      border: 2px solid red;
+    }
+
+    input:invalid + span::before {
+      content: '✖';
+      color: red;
+    }
+
+    input:valid + span::before {
+      content: '✓';
+      color: green;
+    }
+
+    [type=checkbox]:invalid {
+      outline: 2px solid red;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <fieldset>
+      <legend>
+        Персональные данные
+      </legend>
+      <div class="form-row">
+        <label for="first-name">Имя:</label>
+        <input type="text" name="first-name" id="first-name" required>
+        <span></span>
+      </div>
+      <div class="form-row">
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" placeholder="email@example.com">
+        <span></span>
+      </div>
+    </fieldset>
+    <div class="form-row">
+      <label>
+        <input type="checkbox" name="agree" id="agree" required>
+        Я согласен с политикой обработки персональных данных
+      </label>
+    </div>
+    <div class="form-row">
+      <button type="submit">Отправить</button>
+    </div>
+  </form>
+</body>
+</html>

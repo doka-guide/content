@@ -1,5 +1,5 @@
 ---
-title: "`.size`"
+title: "`set.size`"
 description: "Свойство коллекции Set, содержит количество значений в коллекции"
 authors:
   - nlopin
@@ -14,12 +14,12 @@ tags:
 ## Пример
 
 ```js
-const watchlist = new Set()
+const watchList = new Set()
 
-console.log(watchlist.size)
+console.log(watchList.size)
 // 0
 
-watchlist.add('Бойцовский клуб')
-console.log(watchlist.size)
+watchList.add('Бойцовский клуб')
+console.log(watchList.size)
 // 1
 ```

@@ -1,5 +1,5 @@
 ---
-title: "`.clear`"
+title: "`set.clear`"
 description: "Удаляет все значения из коллекции Set"
 authors:
   - nlopin

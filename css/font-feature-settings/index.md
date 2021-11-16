@@ -1,6 +1,5 @@
 ---
 title: "`font-feature-settings`"
-description: ""
 authors:
   - doka-dog
 tags:

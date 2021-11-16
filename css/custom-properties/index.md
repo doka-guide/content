@@ -1,7 +1,13 @@
 ---
 title: "Кастомные свойства"
+description: "Удобный способ сохранить повторяющееся значение и потом использовать его в разных местах кода. Как переменные в языках программирования."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Кран строит дома: маленький, средний и большой'
 authors:
-  - ezhkov_d
+  - ezhkov
 contributors:
   - skorobaeus
 editors:

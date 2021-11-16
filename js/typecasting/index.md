@@ -41,7 +41,7 @@ String(y)
 
 ## Примитивные типы
 
-В JavaScript [примитивных типов 6](https://developer.mozilla.org/ru/docs/Web/JavaScript/Data_structures).
+В JavaScript [примитивные типы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#javascript_types) следующие:
 
 ```js
 // 1. Undefined
@@ -70,6 +70,10 @@ typeof Symbol() === "symbol"
 // 6. BigInt, большое число, ES6
 typeof 9007199254740991n === "bigint"
 typeof BigInt(9007199254740991) === "bigint"
+
+// 7. Null
+typeof null === 'object'
+// О том, почему здесь “object” — чуть позже.
 ```
 
 Примитивные типы — это такие типы, значения которых можно только перезаписать, но нельзя изменить.
@@ -131,17 +135,15 @@ const listCollection = [1, 2, 3]
 typeof listCollection === "object"
 ```
 
-`null` также относится к объектам:
+У [`null`](https://doka.guide/js/null-primitive/) оператор `typeof` возвращает `object`, хотя это тоже примитив:
 
 ```js
 typeof null === "object"
 ```
 
-Обратите внимание, что для массивов и `null` оператор `typeof` возвращает также `object`.
-
 ## Функции
 
-У функций в JavaScript тоже собственный тип — `function`.
+У функций в JavaScript тоже тип — `object`, хотя `typeof` возвращает `function`:
 
 ```js
 function simpleFunction() {}
@@ -158,13 +160,13 @@ typeof function () {} === "function"
 
 Разницу между разными видами функций мы описали в статье о функциях [Функции](/js/function/).
 
-## Undefined
+## `typeof`
 
-У `undefined` — особый тип в JavaScript:
+Оператор `typeof` [возвращает не непосредственно «тип», а строку](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-typeof-operator). Для всех примитивов, кроме `null`, этой строкой будет название этого примитива.
 
-```js
-typeof undefined === "undefined"
-```
+Для объектов он сначала проверит, [можно ли его «вызвать»](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#function-object). Функции — это как раз такие объекты, поэтому оператор возвращает `function`.
+
+Несмотря на то, что `typeof` не всегда возвращает то, что мы бы могли ожидать, им удобно пользоваться в некоторых случаях в коде, например, для определения функций.
 
 ## Преобразование типов
 
@@ -230,6 +232,7 @@ Boolean("false") // true
 Boolean(0) // false
 Boolean(42) // true
 Boolean(-42) // true
+Boolean(NaN) // false
 Boolean(null) // false
 Boolean(undefined) // false
 Boolean(function () {}) // true
@@ -239,7 +242,7 @@ Boolean([]) // true
 Boolean([1, 2]) // true
 
 // Грубо говоря, всё, кроме пустой строки, нуля,
-// null и undefined — true.
+// NaN, null и undefined — true.
 ```
 
 ## Неявное преобразование типов
@@ -296,9 +299,9 @@ obj1.valueOf() // {}
 obj1.toString() // "[object Object]"
 
 // Чтобы «сложить» число с объектом,
-// вначале будет вызыван obj1.valueOf().
+// вначале будет вызван obj1.valueOf().
 // Он вернёт объект (непримитив),
-// после чего будет вызыван obj1.toString().
+// после чего будет вызван obj1.toString().
 
 1 + obj1
 // 1 + "[object Object]"
@@ -352,7 +355,7 @@ date.toString() // "Sun Sep 15 2019..."
 
 В отличие от строгого равенства (`===`), в нём интерпретатор пробует привести типы к одному, чтобы сравнить.
 
-Полный алгоритм [сложный](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3). Для удобства его свели в [большую матрицу](https://dorey.github.io/JavaScript-Equality-Table/unified/), которая показывает, «что чему равно» при строгом и нестрогом равенстве.
+Полный алгоритм [сложный](https://262.ecma-international.org/5.1/#sec-11.9.3). Для удобства его свели в [большую матрицу](https://dorey.github.io/JavaScript-Equality-Table/unified/), которая показывает, «что чему равно» при строгом и нестрогом равенстве.
 
 Вот таблица нестрогого равенства (зелёным отмечены значения, которые «равны»):
 

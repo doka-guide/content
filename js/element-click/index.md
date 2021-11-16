@@ -1,5 +1,5 @@
 ---
-title: "`Element.click`"
+title: "Событие `click`"
 authors:
   - nlopin
 tags:
@@ -8,9 +8,9 @@ tags:
 
 ## Кратко
 
-[Событие](/js/events/) клика на HTML элементе. Когда пользователь кликает мышкой по странице, браузер определяет, на каком элементе произошёл клик и создаёт событие `click`.
+[Событие](/js/events/) клика на HTML-элементе. Когда пользователь кликает мышкой по странице, браузер определяет, на каком элементе произошёл клик и создаёт событие `click`.
 
-На события можно подписаться и выполнять JavaScript код, когда событие произошло.
+На события можно подписаться и выполнять JavaScript-код, когда событие произошло.
 
 ## Как пишется
 
@@ -18,7 +18,7 @@ tags:
 
 ```js
 document.addEventListener("click", function () {
-  alert("Вы клинкули по странице!")
+  alert("Вы кликнули по странице!")
 })
 ```
 
@@ -52,4 +52,4 @@ button.addEventListener("click", function (event) {
 
 Пример, использующий эти свойства:
 
-<iframe title="Название — Element.click — Дока" src="demos/Lopinopulos-gJZxeK/"></iframe>
+<iframe title="Название — Element.click — Дока" src="demos/Lopinopulos-gJZxeK/" height="150"></iframe>

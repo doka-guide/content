@@ -1,7 +1,7 @@
 ---
-title: "`Element.scroll/scrollIntoView`"
+title: "`Element.scrollIntoView()`"
 authors:
-  - vindi-r
+  - doka-dog
 contributors:
   - skorobaeus
 tags:
@@ -10,14 +10,14 @@ tags:
 
 ## Кратко
 
-Функция `scrollIntoView()` позволяет программно прокрутить окно до определённого элемента вне зависимости от положения элемента в окне.
+Метод `scrollIntoView` позволяет программно прокрутить окно до определённого элемента вне зависимости от положения элемента в окне.
 
 ## Как пишется
 
 Относительный скролл всего окна:
 
 ```js
-let element = document.querySelector("#about") // в element Должен быть любой DOM элемент на странице
+let element = document.querySelector("#about") // в element должен быть любой DOM-элемент на странице
 element.scrollIntoView()
 ```
 

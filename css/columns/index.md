@@ -1,6 +1,5 @@
 ---
 title: "`columns`"
-description: ""
 authors:
   - doka-dog
 tags:

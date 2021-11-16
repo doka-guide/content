@@ -1,6 +1,5 @@
 ---
 title: "`font`"
-description: ""
 authors:
   - doka-dog
 tags:

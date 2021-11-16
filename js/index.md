@@ -20,17 +20,25 @@ groups:
     items:
       - spread
       - for-in
-  - name: "Типы данных"
+      - shallow-or-deep-clone
+  - name: "Примитивные типы данных"
     items:
-      - number-wrapper
+      - number
       - string
-      - null-undefined
-      - object
-      - function
+      - boolean
+      - undefined
+      - null-primitive
+      - bigint
+      - symbol
       - typecasting
+  - name: "Коллекции"
+    items:
+      - object
+      - function-as-datatype
+      - arrays
+      - set
       - objects-objects-everywhere
-      - object-tostring
-  - name: "Числа `number`"
+  - name: "Числа"
     items:
       - number-wrapper
       - number-is-nan
@@ -41,17 +49,18 @@ groups:
       - math
       - math-floor
       - math-random
-  - name: "Строки `string`"
+  - name: "Строки"
     items:
-      - string
+      - string-wrapper
       - template-strings
       - index-of
       - includes
       - string-length
-  - name: "Булевы значения `boolean`"
+  - name: "Булевый тип"
     items:
       - boolean
       - logic-operators
+      - typecasting
   - name: "Функции"
     items:
       - function
@@ -59,6 +68,7 @@ groups:
       - function-context
       - closures
       - recursion
+      - function-arguments-object
   - name: "Массивы"
     items:
       - arrays
@@ -69,10 +79,12 @@ groups:
       - array-find
       - array-every
       - array-some
-      - array-from
+      - array-reverse
       - includes
       - index-of
       - array-length
+      - array-from
+      - array-isarray
   - name : "Множество Set"
     items:
       - set
@@ -89,6 +101,7 @@ groups:
   - name: "Обработка исключений"
     items:
       - try-catch
+      - errors
   - name: "Браузерное окружение и API"
     items:
       - bom
@@ -97,6 +110,8 @@ groups:
       - console-log
       - window-history
       - window-location
+      - window-navigator
+      - match-media
       - urlsearchparams
       - local-storage
       - alert
@@ -108,6 +123,7 @@ groups:
       - setinterval
       - clearinterval
       - parseint
+      - window-print
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -138,7 +154,11 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-getattribute
       - element-focus
+      - element-blur
+      - element-scroll-scrollintoview
+      - element-scroll-scrollto
       - element-classlist
       - element-dataset
       - element-style
@@ -155,8 +175,6 @@ groups:
       - element-keydown-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-scrollintoview
-      - element-scroll-scrollto
       - element-scroll-wheel
       - element-touch
   - name: "Хранение данных в браузере"
@@ -172,6 +190,8 @@ groups:
       - promise-then
       - promise-catch
       - promise-finally
+      - promise-all
+      - promise-allsettled
       - async-await
   - name: "Обмен данными с API"
     items:
@@ -220,5 +240,5 @@ groups:
       - throttle
 ---
 
-JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами. Основная область применения JavaScript — веб. Это единственный язык программирования, код которого умеют выполнять браузеры.
-С его помощью можно обмениваться данными с сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, превращая её в веб-приложение.
+JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами.
+Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, создавать веб-приложения.

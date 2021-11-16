@@ -34,12 +34,12 @@ tags:
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
 
-<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="300"></iframe>
+<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="450"></iframe>
 
 ## Подсказки
 
-:::callout 🦄
+<aside>
 
-Подробнее об анимациях написано в статье «[CSS-анимации](/css/animation)».
+🦄 Подробнее об анимациях написано в статье «[CSS-анимации](/css/animation)».
 
-:::
+</aside>

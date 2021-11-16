@@ -1,5 +1,5 @@
 ---
-title: "`.entries()`"
+title: "`set.entries()`"
 description: "Метод возвращает итератор пар [значение, значение] коллекции Set"
 authors:
   - nlopin

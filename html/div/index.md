@@ -1,10 +1,9 @@
 ---
 title: "`<div>`"
 authors:
-  - grachev
+  - doka-dog
 contributors:
   - solarrust
-  - vladimir
   - skorobaeus
 editors:
   - tachisis
@@ -42,7 +41,7 @@ tags:
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div/" height="260"></iframe>
+<iframe title="Див с фоном" src="demos/div/" height="280"></iframe>
 
 ## Как это понять
 

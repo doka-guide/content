@@ -21,7 +21,7 @@ tags:
 <datalist id="browsers">
   <option value="Chrome">
   <option value="Firefox">
-  <option value="Internet Explorer">
+  <option value="Yandex Browser">
   <option value="Opera">
   <option value="Safari">
   <option value="Microsoft Edge">
