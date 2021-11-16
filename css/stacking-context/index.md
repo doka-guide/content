@@ -111,6 +111,7 @@ tags:
 ```css
 .block {
   position: relative;
+  z-index: 1;
 }
 ```
 
