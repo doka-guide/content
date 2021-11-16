@@ -1,5 +1,10 @@
 ---
 title: "`:hover`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Хамелеон с курсором, который хочет на него кликнуть'
 authors:
   - solarrust
 contributors:
