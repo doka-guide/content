@@ -154,6 +154,8 @@ _Скринридер (screen reader)_ — программа, которая п
 
 Дополнительно скринридеры могут зачитывать всё подряд.
 
+Из [видео Молли Бёрк](https://youtu.be/7OEZX5lsQG8) узнаете, как выглядит на практике навигация с помощью VoiceOver на телефоне и ноутбуке.
+
 ## Тестирование
 
 У браузеров и скринридеров разная поддержка HTML, CSS и ARIA. Из-за этого объявление контента может отличаться, а где-то попадаться специфические поведение или баги.
@@ -162,10 +164,13 @@ _Скринридер (screen reader)_ — программа, которая п
 
 <iframe title="Ненумированный список из трёх внешних ссылок" src="demos/list-with-links/" height="150"></iframe>
 
-- NVDA и Chrome: «Список из трёх элементов, ссылка».
-- JAWS и Chrome: «Список из трёх элементов. Рыбы, ссылка».
-- TalkBack и Chrome: «Список. Рыбы, ссылка».
-- VoiceOver и Safari: «Рыбы, ссылка». Не объявляет, что это список из трёх элементов из-за свойства `list-style` со значением `none`. Оно сбрасывает семантику списка для этого скринридера.
+<video controls src="video/list-and-screenreaders.mp4" poster="images/video-cover.png" width="700"></video>
+
+Расшифровка видео:
+- NVDA 2021.2 и Chrome 95: «Список из трёх элементов. Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка».
+- JAWS 2022 и Chrome 95: «Список из 3 элемента. Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка».
+- TalkBack на Android 10 и Firefox 94.1: «Рыбы, элемент списка, 2 из 3. Роль «список», 3 пункта. Пёсели, элемент списка, 3 из 3. Лягухи, элемент списка, 4 из 3». Объявляет информацию об элементах на английском, не зачитывает роль ссылки и неправильно считает элементы списка (баг).
+- VoiceOver и Safari 15.1: «Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка». Не объявляет, что это список из трёх элементов из-за свойства `list-style` со значением `none`. Оно сбрасывает семантику списка для этого скринридера.
 
 Чтобы не столкнуться с неожиданной проблемой во время тестирования, можно заранее узнать о поддержке HTML и ARIA скринридерами:
 
@@ -210,6 +215,5 @@ _Скринридер (screen reader)_ — программа, которая п
 - [Semantics to Screen Readers](https://alistapart.com/article/semantics-to-screen-readers/).
 - [Accessibility APIs: A Key To Web Accessibility](https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/).
 - [How A Screen Reader User Surfs The Web](https://youtu.be/OUDV1gqs9GA), видео.
-- [How I use technology as a blind person](https://youtu.be/TiP7aantnvE), видео.
 - [Browsing with a desktop screen reader](https://tetralogical.com/blog/2021/09/29/browsing-with-a-desktop-screen-reader/).
 - [Browsing with a mobile screen reader](https://tetralogical.com/blog/2021/10/05/browsing-with-a-mobile-screen-reader/).
