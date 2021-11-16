@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 16
       - name: Устанавливает необходимые ярлыки
+        continue-on-error: true
         run: |
           npm install @octokit/core front-matter
           node .github/scripts/labeler.js --github-key ${{ secrets.GITHUB_TOKEN }} --pull-number ${{ github.event.pull_request.number }}
