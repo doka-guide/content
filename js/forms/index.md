@@ -20,7 +20,7 @@ tags:
 Вызывается обращением к полю объекта `document`. Например, вот так можно получить коллекцию всех форм:
 
 ```js
-const collection = document.forms;
+const collection = document.forms
 ```
 
 ## Как пользоваться
@@ -38,7 +38,7 @@ document.forms['myFormName'] // форма с атрибутом name="myFormNam
 По коллекции также можно пройтись методами предусмотренными для массивов, но сперва необходимо обвернуть её в метод [`Array.from()`](/js/array-from):
 
 ```js
-Array.from(document.forms).forEach(...);
+Array.from(document.forms).forEach(...)
 ```
 
 В случае же, если элементов `<form>` на странице нет, коллекция по-прежнему будет доступной, просто её длинна при этом будет равна нулю.
@@ -116,19 +116,19 @@ document.forms.loginFormName // Или так
 Если же говорить про сами поля формы, то например, чтобы получить значение номера в форме логина, мы напишем:
 
 ```js
-const phone = document.forms.loginFormName.phone.value;
+const phone = document.forms.loginFormName.phone.value
 ```
 
 Выключим кнопку отправки для промокода:
 
 ```js
-document.forms[0].querySelector('[type="submit"]').disabled = true;;
+document.forms[0].querySelector('[type="submit"]').disabled = true
 ```
 
 Или даже вызовем интерактивную валидацию формы подписки:
 
 ```js
-document.forms.subscriptionFormId.reportValidity();
+document.forms.subscriptionFormId.reportValidity()
 ```
 
 Другими словами, в наше распоряжение попадает «[DOM-элемент](/js/element)» формы со всеми доступными методами, свойствами и полями.
