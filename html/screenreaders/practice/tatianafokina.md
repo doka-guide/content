@@ -55,4 +55,4 @@
 </button>
 ```
 
-<iframe title="Кнопка с визуально скрытым текстом «Закрыть»" src="../demos/visually-hidden-text/" height="140"></iframe>
+<iframe title="Кнопка с визуально скрытым текстом «Закрыть»" src="../demos/visually-hidden-text/" height="185"></iframe>
