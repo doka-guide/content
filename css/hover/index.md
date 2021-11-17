@@ -4,7 +4,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Хамелеон с курсором, который хочет на него кликнуть'
+  alt: 'Хамелеон, на которого наведён курсор мыши'
 authors:
   - solarrust
 contributors:
