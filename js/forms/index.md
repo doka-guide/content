@@ -1,6 +1,6 @@
 ---
 title: "document.forms"
-description: "Возвращает живой список всеx форм, которые есть на странице."
+description: "Возвращает живой список всех форм, которые есть на странице."
 authors:
   - vchychuzhko
 keywords:
