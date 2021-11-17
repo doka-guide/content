@@ -32,7 +32,7 @@ div::after {
 }
 ```
 
-<iframe title="Подсказка" src="demos/tooltip/" height="150"></iframe>
+<iframe title="Подсказка" src="demos/tooltip/" height="200"></iframe>
 
 ## Как пишется
 
