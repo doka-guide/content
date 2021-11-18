@@ -80,6 +80,18 @@
         background-color: #2E9AFF;
       }
     }
+
+    @media (max-width: 768px) {
+      .parent {
+        flex-direction: column;
+        width: 200px;
+      }
+
+      .child-container + .child-container {
+        margin-left: initial;
+        margin-top: 25px;
+      }
+    }
   </style>
 </head>
 <body>
