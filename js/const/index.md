@@ -4,6 +4,7 @@ authors:
   - nlopin
 contributors:
   - furtivite
+  - RomanBarannickov
 keywords:
   - константы
   - переменная
