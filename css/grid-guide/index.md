@@ -592,7 +592,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ### `place-items`
 
-Шорткат для указания значений сразу и для `align-items` и для `justify-content`. Указывать нужно именно в таком порядке.
+Шорткат для указания значений сразу и для `align-items` и для `justify-items`. Указывать нужно именно в таком порядке.
 
 ```css
 .container {
