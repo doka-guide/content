@@ -31,9 +31,9 @@ tags:
 <div class="inline-block">элемент!</div>
 ```
 
-```css
-/* Не меняем display для .block, поскольку div уже является блочным */
+Не меняем `display` для `.block`, поскольку `div` уже является блочным:
 
+```css
 .block {
   background-color: #2E9AFF;
 }

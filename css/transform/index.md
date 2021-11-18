@@ -87,13 +87,15 @@ tags:
 
 💡 Если среди значений есть функция `perspective()`, то она должна быть первой среди всех значений:
 
+Неправильно:
 ```css
-/* 👎 */
 .selector {
   transform: translate(10px, 0, 20px) rotateY(3deg) perspective(500px);
 }
+```
 
-/* 👍 */
+Правильно:
+```css
 .selector {
   transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
 }

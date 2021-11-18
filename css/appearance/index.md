@@ -47,10 +47,18 @@ tags:
 ## Как пишется
 
 ```css
-appearance: none;
-/* Значение по умолчанию */
-appearance: auto;
+.element {
+  appearance: none;
+}
 ```
+Значение по умолчанию:
+```css
+.element {
+  appearance: auto;
+}
+```
+
+
 
 <aside>
 
