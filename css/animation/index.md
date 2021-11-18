@@ -2,6 +2,8 @@
 title: "CSS-анимации"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
