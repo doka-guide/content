@@ -1,5 +1,6 @@
 ---
 title: "Тернарный оператор"
+description: "Что такое тернарный оператор и как он заменяет короткие if"
 authors:
   - gingerraccoon
 keywords:
