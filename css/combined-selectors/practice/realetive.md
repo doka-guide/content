@@ -110,6 +110,30 @@ button:focus ~ button {
 }
 ```
 
-Но сейчас при наведении курсора будут выделяться все элементы _после_ (т. е. справа). Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства `direction: rtl`:
+Но сейчас при наведении курсора будут выделяться все элементы _после_ (т. е. справа).
+
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating-bug/" height="250"></iframe>
+
+ Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства `direction: rtl`.
+ Добавим это свойство к классу _rating_ `div` элемента, который является родителем для наших звездочек
+
+ ```css
+.rating {
+  direction: rtl;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-size: 5em;
+}
+
+button:hover,
+button:focus,
+button:hover ~ button,
+button:focus ~ button {
+  color: #F498AD;
+}
+```
 
 <iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="250"></iframe>

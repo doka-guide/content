@@ -4,6 +4,8 @@ authors:
   - ezhkov
 editors:
   - tachisis
+contributors:
+  - RomanBarannickov
 keywords:
   - content
   - псевдоэлемент

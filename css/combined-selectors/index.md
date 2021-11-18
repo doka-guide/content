@@ -4,6 +4,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
+  - RomanBarannickov
 editors:
   - tachisis
 keywords:
