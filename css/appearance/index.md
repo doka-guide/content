@@ -51,14 +51,14 @@ tags:
   appearance: none;
 }
 ```
+
 Значение по умолчанию:
+
 ```css
 .element {
   appearance: auto;
 }
 ```
-
-
 
 <aside>
 
