@@ -72,8 +72,8 @@ if (hasTicket || isInvited) { ... }
 
 <div class="article__table article__table_all-third">
 
-| `       |        |       ` | `true` | `false` |
-| ------- | -----: | ------: | ------ | ------- |
+| `\|\|`  | `true` | `false` |
+| ------- | -----: | ------: |
 | `true`  | `true` |  `true` |
 | `false` | `true` | `false` |
 
