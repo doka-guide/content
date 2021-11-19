@@ -9,10 +9,6 @@ jobs:
     outputs:
       files: ${{ steps.files.outputs.all }}
     steps:
-      - name: Загрузка контента
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Выборка файлов для формирования списка
         id: files
         run: |
@@ -37,6 +33,8 @@ jobs:
       - name: Загрузка контента
         uses: actions/checkout@v2
         with:
+          fetch-depth: 0
+          ref: ${{ github.event.after }}
           path: content
       - uses: actions/setup-node@v2
         with:
@@ -100,7 +98,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: 'Превью контента из ${{ github.sha }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
+          message: 'Превью контента из ${{ github.event.after }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
           fail: true
           recreate: true
       - name: Сообщение об успехе публикации превью
@@ -111,5 +109,5 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.sha }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
+          message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.after }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
           recreate: true
