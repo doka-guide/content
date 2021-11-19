@@ -110,6 +110,7 @@ tags:
 💡 Если среди значений есть функция `perspective()`, то она должна быть первой среди всех значений:
 
 Неправильно:
+
 ```css
 .element {
   transform: translate3d(10px, 0, 20px) rotateY(3deg) perspective(500px);
@@ -117,6 +118,7 @@ tags:
 ```
 
 Правильно:
+
 ```css
 .element {
   transform: perspective(500px) translate3d(10px, 0, 20px) rotateY(3deg);
