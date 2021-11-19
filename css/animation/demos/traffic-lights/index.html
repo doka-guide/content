@@ -15,20 +15,20 @@
     }
 
     body {
-      margin: 0;
-      background-color: #18191C;
-      color: #FFFFFF;
-      background-size: 1em 1em;
-      font-family: "Roboto", sans-serif;
       display: flex;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     code {
       font-family: "Roboto Mono", monospace;
     }
-
 
     h1 {
       font-size: 25px;
@@ -39,10 +39,6 @@
       width: 300px;
       text-align: right;
       line-height: 1;
-    }
-
-    .container {
-      margin: 0 auto;
     }
 
     .modes {
@@ -62,7 +58,6 @@
 
     ul {
       display: flex;
-      justify-content: space-around;
       align-items: flex-end;
       margin-left: 50px;
       list-style: none;
@@ -185,6 +180,31 @@
     button:focus, button:focus-visible {
       border: 2px solid #ffffff;
       outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, code {
+        width: 100%;
+        text-align: left;
+      }
+
+      .mode {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      ul {
+        margin-left: initial;
+        margin-top: 15px;
+      }
+
+      .modes {
+        margin-bottom: 50px;
+      }
     }
   </style>
 </head>
