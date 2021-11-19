@@ -30,7 +30,7 @@ tags:
 
 ```css
 .selector {
-	transition-duration: 6s;
+  transition-duration: 6s;
 }
 ```
 
@@ -38,7 +38,7 @@ tags:
 
 ```css
 .selector {
-	transition-duration: 120ms;
+  transition-duration: 120ms;
 }
 ```
 
@@ -46,7 +46,7 @@ tags:
 
 ```css
 .selector {
-	transition-duration: 0.1s, 15s;
+  transition-duration: 0.1s, 15s;
 }
 ```
 
