@@ -255,6 +255,7 @@ groups:
     items:
       - opacity
       - visibility
+      - clip
   - name: 'Переполнение'
     items:
       - overflow
