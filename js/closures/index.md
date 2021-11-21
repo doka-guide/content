@@ -63,7 +63,7 @@ const c = {
   // Хорошо, переменная a доступна и здесь.
 }
 
-function wrap() {
+function secondWrap() {
   const e = {
     f: a,
     // И тут ок, переменная a всё ещё доступна.
@@ -134,14 +134,16 @@ console.log(b)
 
 ```js
 switch (animalType) {
-  case "dog": {
+  case 'dog': {
     const legs = 4
-    const species = "mammal"
+    const species = 'mammal'
+    break
   }
 
-  case "fish": {
+  case 'fish': {
     const legs = 0
     const swims = true
+    break
   }
 }
 ```
@@ -260,13 +262,13 @@ Immediately Invoked Function Expression, IIFE — это функция, кот�
 
 2. Скобки вокруг функции:
 
-`(function() { ... });`
+`(function() { ... })`
 
 Скобки превращают функцию в выражение, которое можно вызвать. То есть, если до этого шага мы функцию объявили, то на этом шаге мы приготовили её к мгновенному вызову.
 
 3. Скобки вызова:
 
-`(function() { ... })();`
+`(function() { ... })()`
 
 Последняя пара скобок вызывает выражение, то есть вызывает функцию, которую мы создали на 1-м шаге и подготовили на 2-м.
 
@@ -280,7 +282,7 @@ Immediately Invoked Function Expression, IIFE — это функция, кот�
   console.log(a)
 })()
 ;(function module2() {
-  const a = "43!"
+  const a = '43!'
   alert(a)
 })()
 ```
@@ -436,7 +438,7 @@ tick2.valueOf()
 Выше, когда мы экспериментировали с `window` и глобальными переменными, мы обговорили, что запись:
 
 ```js
-var hi = "Hello world!"
+var hi = 'Hello world!'
 console.log(window.hi)
 // Hello world!
 ```
@@ -484,7 +486,7 @@ console.log(a)
 console.log(hello)
 // undefined
 
-var hello = "Hello"
+var hello = 'Hello'
 console.log(hello)
 // Hello
 ```
@@ -496,7 +498,7 @@ var hello
 console.log(hello)
 // undefined
 
-hello = "Hello"
+hello = 'Hello'
 console.log(hello)
 // Hello
 ```
@@ -537,7 +539,7 @@ console.log(a)
 ```js
 console.log(hello)
 // undefined
-var hello = "Hello"
+var hello = 'Hello'
 ```
 
 C `let` и `const` — нет:
@@ -545,9 +547,9 @@ C `let` и `const` — нет:
 ```js
 console.log(hello)
 // Reference error
-let hello = "Hello"
+let hello = 'Hello'
 
 console.log(bye)
 // Reference error
-const bye = "Bye"
+const bye = 'Bye'
 ```
