@@ -103,6 +103,9 @@ const item = document.querySelector('li')
 
 // Создаст дата-атрибут data-years-of-experience="1"
 item.dataset.yearsOfExperience = 2
+
+// Создаст дата-атрибут data-candidate-role="junior"
+item.dataset.candidateRole = 'junior'
 ```
 
 В результате выполнения примера выше получится следующий HTML:
