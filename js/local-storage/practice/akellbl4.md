@@ -62,7 +62,7 @@ function getItem(key, value) {
 
 function setItem(key, value) {
   try {
-    return window.localStorage.getItem(key, value)
+    return window.localStorage.setItem(key, value)
   } catch (e) {
     console.log(e)
   }
