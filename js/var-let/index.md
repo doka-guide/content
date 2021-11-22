@@ -25,7 +25,7 @@ tags:
 
 ```js
 // Объявление переменной
-var
+var singleVariable
 
 // Множественное объявление переменных
 let firstVariable, secondVariable, thirdVariable
