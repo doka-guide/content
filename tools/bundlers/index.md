@@ -32,7 +32,7 @@ tags:
 
 ```bash
 npm init
-npm install parcel-bundler
+npm install parcel
 ```
 
 Теперь нужно создать HTML-файл, в котором описать относительные пути до JavaScript-файлов, и запустить бандлер. Он сделает всю остальную работу.
@@ -42,10 +42,11 @@ npm install parcel-bundler
 <html>
   <head>
     <title>Hello, bundler!</title>
-    <script src="./index.js"></script>
   </head>
   <body>
     <h1 id="title">Hello, bundler!</h1>
+
+    <script src="./index.js"></script>
   </body>
 </html>
 ```
