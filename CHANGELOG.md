@@ -4,6 +4,7 @@
 
 ## Ноябрь 2021
 
+- 18 ноября [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
 - 15 ноября [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
 - 15 ноября [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
 - 15 ноября [`<del>`](https://doka.guide/html/del/), Иван Ельцов
