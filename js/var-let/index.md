@@ -131,7 +131,7 @@ console.log(a)
 // ReferenceError: a is not defined
 ```
 
-### Смена значения в "let" и "const"
+### Смена значения в `let` и `const`
 
 Значение хранящееся в `let` можно изменять.
 
