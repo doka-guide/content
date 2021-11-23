@@ -48,7 +48,7 @@ Promise.race([promise1, promise2, promise3])
 
 ### Самый быстрый промис завершается с ошибкой
 
-Создадим несколько промисов, где `promise3` завершается с `reject`.
+Создадим несколько промисов, где `promise3` завершается с ошибкой.
 
 ```js
 const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 6000))
