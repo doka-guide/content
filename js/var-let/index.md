@@ -272,7 +272,7 @@ console.log(b)
 // ReferenceError: b is not defined
 ```
 
-И ещё один пример:
+Разберём, как работает функциональная область видимости:
 
 ```js
 var a = 5
