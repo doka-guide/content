@@ -55,7 +55,7 @@ let firstNumber = 5,
 ```js
 let url = 'https://doka.guide'
 
-const date = new Date()
+const now = new Date()
 
 const user = {
   name: 'John',
