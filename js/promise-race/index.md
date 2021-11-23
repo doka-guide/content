@@ -62,6 +62,7 @@ const promise3 = new Promise((resolve, reject) => setTimeout(() => reject('Some 
 Promise.race([promise1, promise2, promise3])
   .then((value) => {
     console.log(value)
+    // Эта часть будет проигнорирована, так как быстрее всех завершился промис с reject
   })
   .catch((error) => {
     console.log(error)
