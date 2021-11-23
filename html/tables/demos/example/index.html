@@ -48,8 +48,20 @@
       line-height: 1.2;
     }
 
-    tbody tr:nth-child(2n + 1) td {
-      background-color: #663613;
+    @media (max-width: 768px) {
+      body {
+        min-width: 360px;
+        padding: 30px;
+        overflow-x: scroll;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+      }
     }
   </style>
 </head>
