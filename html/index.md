@@ -52,6 +52,7 @@ groups:
       - cite
       - var
       - dfn
+      - screenreaders
   - name: 'Формы'
     items:
       - form
