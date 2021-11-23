@@ -3,7 +3,7 @@ title: "`Promise.race()`"
 description: "Статический метод Promise.race используют, чтобы запустить несколько промисов и дождаться того, который выполнится быстрее."
 authors:
   - agarkov
-  tags:
+tags:
   - doka
 ---
 
