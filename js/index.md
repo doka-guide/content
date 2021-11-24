@@ -138,6 +138,7 @@ groups:
   - name: "Объект страницы `document`"
     items:
       - cookie
+      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
