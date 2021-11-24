@@ -11,12 +11,22 @@
 <form>
   <div class="form-row">
     <label for="first-name">Имя:</label>
-    <input type="text" name="first-name" id="first-name" required placeholder="Например, Пётр">
+    <input
+      type="text"
+      name="first-name"
+      id="first-name"
+      placeholder="Например, Пётр"
+      required>
     <span class="validity-icon"></span>
   </div>
   <div class="form-row">
     <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Например, mymail@gmail.com"
+    >
     <span class="validity-icon"></span>
   </div>
   <div class="form-row">
