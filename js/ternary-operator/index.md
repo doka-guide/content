@@ -117,5 +117,4 @@ const greetings = function(role) {
 const greetings = function(role, greatingObj, colorObj) {
   return result = role === 'admin' ? openGreetingPopup(greatingObj.admin, colorObj.admin) : role === 'moder' ? openGreetingPopup(greatingObj.moder, colorObj.moder) : role === 'user' : openGreetingPopup(greatingObj.user, colorObj.user) ? role === 'guest' ? openGreetingPopup(greatingObj.guest, colorObj.guest) : openGreetingPopup(greatingObj.undef, colorObj.undef)
 }
-
 ```
