@@ -101,3 +101,21 @@ console.log(result) // 'Число равно 10'
 ## Что выбрать?
 
 При выборе между [`if...else`](/js/if-else) и тернарным оператором в приоритет нужно ставить читабельность. Чем код нагляднее и понятнее, тем проще с ним в дальнейшем работать.
+
+```js
+// Допустим нам нужно по разному познакомиться с новым и уже зарегестрированным пользователем
+const greetings = function(registration, userName) {
+  return result = registration === true ? `Привет, ${userName}!` : "Привет, незнакомец"
+}
+
+// А теперь будем использовать приветствие в заисимости от роли пользователя
+const greetings = function(role) {
+  return result = role === 'admin' ? 'Приветствую, босс' : role === 'moder' ? 'Приветствую, смотритель порядка' : role === 'user' : 'Здравствуй, пользователь' ? role === 'guest' ? 'Здравствуй, гость' : 'Привет, некто'
+}
+
+// Все еще не страшно? Тогда приправим все это функциями
+const greetings = function(role, greatingObj, colorObj) {
+  return result = role === 'admin' ? openGreetingPopup(greatingObj.admin, colorObj.admin) : role === 'moder' ? openGreetingPopup(greatingObj.moder, colorObj.moder) : role === 'user' : openGreetingPopup(greatingObj.user, colorObj.user) ? role === 'guest' ? openGreetingPopup(greatingObj.guest, colorObj.guest) : openGreetingPopup(greatingObj.undef, colorObj.undef)
+}
+
+```
