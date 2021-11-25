@@ -26,7 +26,7 @@ tags:
 
 <aside>
 
-💡 Safari и IE не поддерживают это свойство. [`Проверить совместимость`](https://caniuse.com/?search=text-decoration-skip-ink)
+💡 Safari пока не поддерживает это свойство. Проверяйте поддержку на [Can I use](https://caniuse.com/?search=text-decoration-skip-ink)
 
 </aside>
 
