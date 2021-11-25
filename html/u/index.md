@@ -53,4 +53,4 @@ u {
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/custom" height="100"></iframe>
+<iframe title="Кастомизация подчёркивания" src="demos/custom" height="100"></iframe>
