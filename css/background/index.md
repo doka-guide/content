@@ -15,7 +15,7 @@ tags:
 
 Шорткат, позволяющий задать все свойства фона разом. Объединяет в себе:
 
-- [`background-attachment`](/css/background-attchement)
+- [`background-attachment`](/css/background-attachment)
 - [`background-clip`](/css/background-clip)
 - [`background-color`](/css/background-color)
 - [`background-image`](/css/background-image)
