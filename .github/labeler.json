@@ -144,7 +144,7 @@
           "html\/.+\/.+.md",
           "js\/.+\/.+.md",
           "tools\/.+\/.+.md",
-          ".github/yaspeller.json",
+          ".yaspeller.json",
           "README.md",
           "LICENSE-ND.md",
           "LICENSE-SA.md",

@@ -1,6 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const SPELLER_PATH = path.resolve(__dirname, '../../.github/yaspeller.json')
+const SPELLER_PATH = path.resolve(__dirname, '../../.yaspeller.json')
 
 const json = require(SPELLER_PATH)
 json.dictionary.sort((a, b) => a.localeCompare(b))
