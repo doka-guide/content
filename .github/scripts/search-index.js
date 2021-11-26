@@ -118,4 +118,3 @@ const client = algoliaClient(process.env.ALGOLIA_APP_ID, process.env.ALGOLIA_API
 const index = client.initIndex(process.env.ALGOLIA_APP_INDEX)
 
 index.saveObjects(algoliaIndex, { autoGenerateObjectIDIfNotExist: true })
-  .catch(console.error)
