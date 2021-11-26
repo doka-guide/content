@@ -1,6 +1,11 @@
 ---
 title: "`box-shadow`"
 description: "Свойство, с помощью которого можно задать блоку тень."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Собачка сидит перед стеной, за ней тень, которая не собачка, а воющий большой волк.'
 authors:
   - solarrust
 contributors:
