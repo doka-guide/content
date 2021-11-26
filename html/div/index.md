@@ -1,5 +1,10 @@
 ---
 title: "`<div>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два человека, один панк и растатуирован div`ами, а второй удивляется, открыл рот'
 authors:
   - doka-dog
 contributors:
