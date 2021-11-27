@@ -35,7 +35,7 @@ const selectLabels = (selectedFiles, selectedRules) => {
 
 const setupLabels = async (ghKey, pullNumber) => {
   if (ghKey && pullNumber > 0) {
-    const rawLabelRules = fs.readFileSync('.labeler.json')
+    const rawLabelRules = fs.readFileSync('.github/labeler.json')
     const labelRules = JSON.parse(rawLabelRules)
 
     const octokit = new Octokit({ auth: ghKey })
