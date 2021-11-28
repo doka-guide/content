@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Работа Clipboard API</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 15px;
+      margin: 50px 0 0 0;
+      padding: 0 15px;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191c;
+    }
+
+    .card {
+      max-width: 300px;
+      height: 100%;
+    }
+
+    .card__info {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      background-color: #2e9aff;
+    }
+
+    .card__info,
+    .card__btn,
+    .card__pasted-text,
+    .card__textarea,
+    .card__input {
+      border-radius: 5px;
+    }
+
+    .card__textarea {
+      width: 100%;
+      margin-bottom: 3px;
+      padding: 5px 10px;
+      border: none;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: none;
+    }
+
+    .card__textarea,
+    .card__pasted-text {
+      height: 150px;
+    }
+
+    .card__btn {
+      --transition: 0.3s;
+      padding: 5px 10px;
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: opacity var(--transition), color var(--transition);
+    }
+
+    .card__btn + .card__btn {
+      margin-top: 5px;
+    }
+
+    .card__btn:disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .card__btn:hover {
+      opacity: 0.8;
+    }
+
+    .card__pasted-text {
+      margin-bottom: 7px;
+      padding: 5px 10px;
+      background-color: #fff;
+      word-break: break-word;
+      overflow-y: auto;
+    }
+
+    .card__prompt {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    .card__error-message {
+      display: none;
+      margin-top: 5px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card__info">
+      <label>
+        <textarea class="card__textarea" placeholder="Впишите текст"></textarea>
+      </label>
+      <button class="card__btn card__btn--copy" type='button' disabled>Скопировать</button>
+    </div>
+    <span class="card__prompt">*впишите любой текст и нажмите кнопку <strong>скопировать</strong></span>
+  </div>
+  <div class="card">
+    <div class="card__info">
+      <span class='card__pasted-text'></span>
+      <button class="card__btn card__btn--paste" type='button'>Вставить</button>
+      <button class="card__btn card__btn--clear" type='button'>Очистить</button>
+    </div>
+    <span class="card__error-message"></span>
+    <span class="card__prompt">*нажмите кнопку <strong>вставить</strong> и разрешите в браузере вставить текст внутрь области
+      выше</span>
+  </div>
+  <script>
+    const cardTextarea = document.querySelector('.card__textarea');
+    const cardPastedText = document.querySelector('.card__pasted-text');
+    const cardBtnCopy = document.querySelector('.card__btn--copy');
+    const cardBtnPaste = document.querySelector('.card__btn--paste');
+    const cardBtnClear = document.querySelector('.card__btn--clear');
+    const cardErrorMessage = document.querySelector('.card__error-message');
+
+    cardTextarea.addEventListener('input', function (e) {
+      cardBtnCopy.disabled = !e.target.value;
+    });
+
+    const copy = async () => {
+      const valueTextarea = cardTextarea.value.trim();
+
+      if (valueTextarea) {
+        navigator.clipboard
+          .writeText(valueTextarea)
+          .then(function () {
+            const originalText = cardBtnCopy.textContent;
+
+            cardBtnCopy.classList.add('btn--active');
+            cardBtnCopy.textContent = 'Скопировано';
+            cardBtnCopy.disabled = true;
+
+            setTimeout(function () {
+              cardBtnCopy.classList.remove('btn--active');
+              cardBtnCopy.textContent = originalText;
+              cardBtnCopy.disabled = false;
+            }, 1500);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+
+    const paste = async () => {
+      try {
+        const clipText = await navigator.clipboard.readText();
+
+        if (clipText) {
+          cardPastedText.textContent += clipText;
+        }
+
+        checkBtnClear();
+      } catch (error) {
+        console.error(error);
+
+        cardErrorMessage.textContent = error;
+        cardErrorMessage.style.display = 'inline-block';
+
+        setTimeout(function () {
+          cardErrorMessage.style.display = 'none';
+          cardErrorMessage.textContent = '';
+        }, 3000);
+      }
+    }
+
+    const clear = () => {
+      cardPastedText.textContent = '';
+      checkBtnClear();
+    }
+
+    const checkBtnClear = () => {
+      cardBtnClear.disabled = !cardPastedText.textContent.length;
+    }
+
+    checkBtnClear();
+
+    cardBtnCopy.addEventListener('click', copy);
+    cardBtnPaste.addEventListener('click', paste);
+    cardBtnClear.addEventListener('click', clear);
+  </script>
+</body>
+
+</html>
