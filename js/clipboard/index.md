@@ -89,7 +89,7 @@ button.addEventListener('click', function () {
   navigator.clipboard
     .writeText(window.location.href)
     .then(function () {
-       console.log('Успешно', data)
+      console.log('Успешно', data);
     })
     .catch(function (error) {
       console.error('Есть ошибки', error);
