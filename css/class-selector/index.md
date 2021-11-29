@@ -2,6 +2,8 @@
 title: "Селектор по классу"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -85,36 +87,41 @@ h2.article-title.title-primary {
 Селектор по классу довольно прост в понимании, а особенности атрибута `class` дают большую гибкость в стилизации. Мы всегда можем придумать уникальное значение для атрибута `class` и по этому значению точечно применить нужные стили. Но также мы можем задать элементу любое количество классов, просто перечислив их через пробел. Благодаря этому мы можем переиспользовать некоторые стили на разных элементах.
 
 ```html
-<label for="input" class="form-label text-invalid">Ваше имя:</label>
-<input id="input" type="text" placeholder="Только кириллица">
-
-<p class="text-invalid warning">Вы не заполнили все поля</p>
-
-<h3 class="warning">Обратите внимание</h3>
+<blockquote class="color" cite="Эрих Мария Ремарк">Зима пробуждает аппетит...</blockquote>
+<blockquote class="author" cite="Эрих Мария Ремарк">Зима пробуждает аппетит...</blockquote>
+<blockquote class="author color" cite="Эрих Мария Ремарк">Зима пробуждает аппетит...</blockquote>
 ```
 
 ```css
-.form-label {
+blockquote {
+  position: relative;
+  background-color: white;
+  color: #123E66;
+}
+```
+
+Если цитате добавить класс `.color`, то фоновый цвет сменится на голубой:
+
+```css
+.color {
+  background-color: blue;
+  color: black;
+}
+```
+
+Если элементу добавить класс `.author`, то перед текстом цитаты будет декоративная кавычка, а после — имя автора:
+
+```css
+.author::before {
+  content: "“";
+  position: absolute;
+}
+
+.author::after {
+  content: attr(cite);
   display: block;
-  font-size: 1em;
-  color: #333333;
+  font-style: italic;
 }
 ```
 
-Если элементу добавить класс `.text-invalid`, то текст будет красным:
-
-```css
-.text-invalid {
-  color: red;
-}
-```
-
-Если элементу добавить класс `.warning`, то перед текстом будет иконка с жёлтым треугольником:
-
-```css
-.warning::before {
-  content: "⚠️ ";
-}
-```
-
-<iframe title="Несколько классов" src="demos/several-classes/" height="300"></iframe>
+<iframe title="Несколько классов" src="demos/several-classes/" height="820"></iframe>
