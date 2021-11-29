@@ -1,30 +1,28 @@
-Используйте скобки, чтобы обозначить блок вычислений в `switch`, если он большой:
+Используйте скобки в `switch`, если в `case` нужно создать блок вычислений больше одной строки. Например, это может пригодиться для улучшения читабельности в редьюсерах при работе с Redux:
 
 ```js
-switch (animalType) {
-  case "dog": {
-    // Если здесь нам надо выполнить несколько строчек,
-    // удобно обернуть все операции в блок из {...}.
-    // Тогда все переменные и операции
-    // будут ограничены этим блоком.
-    const legs = 4
-    const species = "mammal"
-    // ...
-  }
-
-  case "fish": {
-    const legs = 0
-    const swims = true
-    // ...
+function someReducer(state, action) {
+  switch (action.type) {
+    case 'add': {
+      const users = [...state.users, action.user];
+      return {...state, users}
+    }
+    case 'remove': {
+      const users = state.users.filter(user => user.id !== action.user.id)
+      return {...state, users}
+    }
   }
 }
 ```
 
-Используйте IIFE, чтобы создавать модули, которые не влияют на другие и не засоряют глобальную область видимости:
+<aside>Так как это отдельная область видимости, мы можем не беспокоиться об одинаковых названиях переменных.</aside>
+
+Используйте IIFE для изолированных модулей или для эмуляции top-level await там, где его ещё нет:
 
 ```js
-;(function () {
-  // ...Тело модуля.
+;(async () => {
+  // So top-level, such await, wuf:
+  const result = await someAsyncFunction();
 })()
 ```
 
