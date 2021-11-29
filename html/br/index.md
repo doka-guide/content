@@ -2,6 +2,8 @@
 title: "`<br>`"
 authors:
   - ezhkov
+contributors:
+  - kazakovas
 editors:
   - tachisis
 keywords:
