@@ -3,7 +3,7 @@
 Например, сделаем каждую вторую строку с коричневым фоном. Для этого понадобится всего одно CSS-правило с псевдоклассом [`:nth-child()`](/css/child/):
 
 ```css
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: #663613;
 }
 ```
@@ -11,7 +11,7 @@ tr:nth-child(even) {
 На всякий случай подстрахуемся и ограничим область _раскрашивания_ только телом таблицы, исключим шапку и подвал.
 
 ```css
-tbody tr:nth-child(even) {
+tbody tr:nth-child(odd) {
   background-color: #663613;
 }
 ```
