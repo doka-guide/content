@@ -96,3 +96,4 @@ Conventional comments предлагает формат, где сообщени
 ### Полезные ссылки
 
 - [Conventional comments](https://conventionalcomments.org/)
+- [Github saved replies](https://gist.github.com/yesnoruly/ad4554360fe6c41668186e64e28c16b7)
