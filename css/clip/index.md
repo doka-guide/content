@@ -4,8 +4,8 @@ authors:
   - lordoys
 keywords:
   - clip
-  - clip()
-  - функция
+  - обрезка
+  - кадрирование
   - видимая область
 tags:
   - doka
