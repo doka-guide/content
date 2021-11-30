@@ -1,5 +1,5 @@
 ---
-title: "Статический анализ — как делать меньше ошибок"
+title: "Статический анализ"
 authors:
   - igorkamyshev
 contributors:

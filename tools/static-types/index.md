@@ -1,6 +1,6 @@
 ---
-title: "Как TypeScript и статическая типизация помогают писать код"
-description: "Роль TypeScript в современной разработке"
+title: "TypeScript и статическая типизация"
+description: "Как TypeScript и статическая типизация помогают писать код"
 authors:
   - igorkamyshev
 contributors:
