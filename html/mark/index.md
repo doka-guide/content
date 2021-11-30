@@ -41,4 +41,4 @@ tags:
 
 Можно реализовать текстовый поиск, выделяя цветом найденные фрагменты.
 
-<iframe title="Базовый пример" src="demos/search/" height="600"></iframe>
+<iframe title="Текстовый поиск" src="demos/search/" height="600"></iframe>
