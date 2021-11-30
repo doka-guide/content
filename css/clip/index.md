@@ -1,5 +1,5 @@
 ---
-title: "`clip()`"
+title: "`clip`"
 authors:
   - lordoys
 keywords:
