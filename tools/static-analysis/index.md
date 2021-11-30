@@ -1,5 +1,5 @@
 ---
-title: "Статический анализ"
+title: "Статический анализ кода"
 authors:
   - igorkamyshev
 contributors:
