@@ -5,15 +5,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
-    body {
+    * {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-top: 7px solid #FF8630;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    thead th:first-child, tbody td:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td, th {
+      border: 1px solid #FF8630;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        min-width: 360px;
+        padding: 30px;
+        overflow-x: scroll;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+      }
     }
   </style>
 </head>
