@@ -34,41 +34,20 @@ tags:
 }
 ```
 
-Функции в качестве значения:
+Функция в качестве значения:
 
 ```css
 .selector {
   transform: matrix(1, 2, 3, 4, 5, 6);
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transform: perspective(100px);
-  transform: rotate(0.25turn);
-  transform: rotate3d(1, 2, 3, 10deg);
-  transform: rotateX(10deg);
-  transform: rotateY(1.55rad);
-  transform: rotateZ(10deg);
-  transform: translate(12px, 50%);
-  transform: translate3d(12px, 50%, 3em);
-  transform: translateX(2em);
-  transform: translateY(3in);
-  transform: translateZ(2px);
-  transform: scale(2, 0.5);
-  transform: scale3d(2.5, 1.2, 0.3);
-  transform: scaleX(2);
-  transform: scaleY(0.5);
-  transform: scaleZ(0.3);
-  transform: skew(90deg, 120deg);
-  transform: skewX(10deg);
-  transform: skewY(0.7rad);
 }
 ```
 
-Подробно про каждую функцию написано в статье «[Функции CSS-трансформации](/css/transform-function)».
+Подробно о функциях, которые можно указывать в качестве значения, написано в статье «[Функции CSS-трансформации](/css/transform-function)».
 
 Несколько значений:
 
 ```css
 .selector {
-  transform: translateX(10px) rotate(10deg) translateY(5px);
   transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
 }
 ```
@@ -87,13 +66,17 @@ tags:
 
 💡 Если среди значений есть функция `perspective()`, то она должна быть первой среди всех значений:
 
+Неправильно:
+
 ```css
-/* 👎 */
 .selector {
   transform: translate(10px, 0, 20px) rotateY(3deg) perspective(500px);
 }
+```
 
-/* 👍 */
+Правильно:
+
+```css
 .selector {
   transform: perspective(500px) translate(10px, 0, 20px) rotateY(3deg);
 }
@@ -105,8 +88,11 @@ tags:
 .selector {
   transform: translateX(10px) translateY(0) translateZ(20px);
 }
+```
 
-/* Можно собрать в кучку: */
+Или можно использовать одну функцию `translate`, указав значение для всех трёх осей:
+
+```css
 .selector {
   transform: translate(10px, 0, 20px);
 }

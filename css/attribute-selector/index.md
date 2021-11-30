@@ -102,17 +102,22 @@ blockquote[cite] {
 <div lang="zh-TW">世界您好！</div>
 ```
 
+Выберет первый `<div>`:
+
 ```css
-/* Выберет первый div */
 [lang|="en"] {
   color: blue;
 }
+```
 
-/* Выберет два других div */
+Выберет два других `<div>`:
+
+```css
 [lang|="zh"] {
   color: red;
 }
 ```
+
 
 ### `[attr^=value]`
 
