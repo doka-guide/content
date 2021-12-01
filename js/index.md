@@ -193,6 +193,7 @@ groups:
       - promise-finally
       - promise-all
       - promise-allsettled
+      - promise-race
       - async-await
   - name: "Обмен данными с API"
     items:
