@@ -1,5 +1,5 @@
 ---
-title: "Код-ревью — как, зачем, почему"
+title: "Что такое код-ревью"
 authors:
   - igorkamyshev
 contributors:
