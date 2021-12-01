@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Псевдоэлемент ::selection с использованием text-shadow — ::selection — Дока</title>
+  <title>::selection с сочетании с text-shadow — ::selection — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -22,12 +21,12 @@
 
     p {
       margin: 50px 0 0 0;
-      color: #fff;
+      color: #ffffff;
       font-size: 2rem;
     }
 
     p::selection {
-      color: #fff;
+      color: #ffffff;
       background-color: #2e9aff;
       --color-shadow: #000;
       text-shadow: 1px 0 1px var(--color-shadow),
@@ -46,10 +45,8 @@
     }
   </style>
 </head>
-
 <body>
   <p>Некий параграф</p>
   <span class="prompt">*выделите текст выше</span>
 </body>
-
 </html>

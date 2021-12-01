@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Псевдоэлемент ::selection в действии — ::selection — Дока</title>
+  <title>Базовый пример — ::selection — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -17,7 +16,7 @@
       padding: 0 15px;
       font-family: "Roboto", sans-serif;
       background-color: antiquewhite;
-      color: #000;
+      color: #000000;
     }
 
     ul {
@@ -26,17 +25,17 @@
       max-width: 568px;
       margin: 50px auto;
       padding: 30px 40px 20px;
-      border: 5px solid #000;
+      border: 5px solid #000000;
       border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
     }
 
-    li+li {
+    li + li {
       margin-top: 10px;
     }
 
     p,
     input {
-      color: #000;
+      color: #000000;
       margin-bottom: 15px;
     }
 
@@ -64,22 +63,20 @@
     }
   </style>
 </head>
-
 <body>
   <ul>
     <li>пункт списка со стандартным выделением</li>
-    <li class='selection-color'>при выделение данного пункта списка меняется цвет текста</li>
-    <li class='selection-background-color'>у этого пункта при выделении меняется фоновый цвет</li>
-    <li class='selection-background'>пункт с сокращённым свойством background тоже прекрасно работает</li>
+    <li class="selection-color">при выделение данного пункта списка меняется цвет текста</li>
+    <li class="selection-background-color">у этого пункта при выделении меняется фоновый цвет</li>
+    <li class="selection-background">пункт с сокращённым свойством background тоже прекрасно работает</li>
     <li>
       а тут пример с изменением стандартного выделения
-      <strong class='selection-background-color'>отдельной части</strong>
+      <strong class="selection-background-color">отдельной части</strong>
       текста
     </li>
     <li>
-      <input class='selection-background-input' type='text' value='некий текст для примера выделения текста в поле ввода'>
+      <input class="selection-background-input" type="text" value="некий текст для примера выделения текста в поле ввода">
     </li>
   </ul>
 </body>
-
 </html>
