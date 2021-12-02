@@ -14,11 +14,15 @@
     }
 
     body {
-      padding: 50px;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 10px 50px 100px;
+      background-color: #18191c;
+      color: #ffffff;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .select-container {
@@ -96,6 +100,32 @@
     .select-multi {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .select-container {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .select-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .select {
+        width: 100%;
+      }
     }
   </style>
 </head>
