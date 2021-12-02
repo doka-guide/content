@@ -81,7 +81,7 @@ groups:
   - name: 'Единицы измерения'
     items:
       - numeric-types
-      - vm-vh
+      - vw-vh
       - rem-em
   - name: 'Анимации'
     items:
