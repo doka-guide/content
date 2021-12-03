@@ -46,7 +46,7 @@ const arr = Array.from(uniqueNumbers)
 // [1, 2, 3]
 ```
 
-### Массив из [NodeList](/js/collection-and-nodelist)
+### Массив из [NodeList](/js/htmlcollection-and-nodelist)
 
 Получить URL из всех ссылок на странице:
 
@@ -64,7 +64,7 @@ const arrLinks = Array.from(linkElements, function(a) { return a.href })
 
 `Array.from()` работает не со всеми объектами. Объект должен обладать одним из двух свойств, чтобы его получилось превратить в массив:
 
-- Элементы объекта проиндексированы и объект имеет свойство `.length`. Такие объекты называют _массивоподобными_, потому что именно эти свойства присущи массиву. Этим свойством обладают объекты `arguments`, [`NodeList`](/js/collection-and-nodelist), [`HTMLCollection`](/js/collection-and-nodelist).
+- Элементы объекта проиндексированы и объект имеет свойство `.length`. Такие объекты называют _массивоподобными_, потому что именно эти свойства присущи массиву. Этим свойством обладают объекты `arguments`, [`NodeList`](/js/htmlcollection-and-nodelist), [`HTMLCollection`](/js/htmlcollection-and-nodelist).
 - Объект итерируемый, то есть реализует интерфейс `Iterable`. Этим свойством обладают объекты `Set` и `Map`.
 
 `Array.from()` перебирает каждый элемент и добавляет его в новый массив. Если передан второй аргумент, то перед добавлением происходит преобразование элемента.
