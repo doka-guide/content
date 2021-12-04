@@ -2,8 +2,14 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2021
+
+- 1 декабря [`Promise.race()`](https://doka.guide/js/promise-race/), Рома Агарков
+
 ## Ноябрь 2021
 
+- 30 ноября [`<mark>`](https://doka.guide/html/mark/), Иван Ельцов
+- 30 ноября [`<u>`](https://doka.guide/html/u/), Иван Ельцов
 - 24 ноября [Свойство `forms`](https://doka.guide/js/forms/), Владислав Чичужко
 - 23 ноября [`filter`](https://doka.guide/css/filter/), Лена Райан
 - 18 ноября [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
