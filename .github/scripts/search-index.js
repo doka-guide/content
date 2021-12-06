@@ -1,5 +1,13 @@
 const fs = require('fs')
 const algoliaClient = require('algoliasearch')
+const markdownIt = require('markdown-it')
+const { parseHTML } = require('linkedom')
+
+const md = markdownIt({
+  html: true,
+  breaks: true,
+  linkify: true,
+})
 
 const rawSearch = fs.readFileSync('search.json')
 const commonSearch = JSON.parse(rawSearch)
@@ -12,53 +20,55 @@ const stopCategories = [
 
 const patternsForEntities = {
   // Заголовки второго уровня
-  header2: /## .+\n/g,
+  header2: (document) => Array.from(document.querySelectorAll('h2')),
 
   // Заголовки третьего уровня
-  header3: /### .+\n/g,
+  header3: (document) => Array.from(document.querySelectorAll('h3')),
 
   // Заголовки четвёртого уровня
-  header4: /#### .+\n/g,
+  header4: (document) => Array.from(document.querySelectorAll('h4')),
 
   // Ссылки
-  links: /[ ]\[.+\]\(.\)/g,
+  links: (document) => Array.from(document.querySelectorAll('a')),
 
   // Подписи к картинкам
-  images: /[!]\[.+\]\(.\)/g,
+  images: (document) => Array.from(document.querySelectorAll('img'))
+    .map(img => img.getAttribute('alt')),
 
   // Элементы списка
-  lists: /[1-9-] .+/g,
+  lists: (document) => Array.from(document.querySelectorAll('li')),
 
   // Выделение полужирным шрифтом
-  bold: /\*\*(.|\n)*\*\*/g,
+  bold: (document) => Array.from(document.querySelectorAll('b, strong')),
 
   // Выделение наклонным шрифтом
-  italic: /_((?![<>{}]).|\n)*_/g,
+  italic: (document) => Array.from(document.querySelectorAll('i, em')),
 
   // Блоки callout
-  callouts: /:::(.|\n)+:::/g,
+  callouts: (document) => Array.from(document.querySelectorAll('aside')),
 
   // Параграфы
-  paragraphs: /^((?![#> ])(?!([\-*]|\d+\.) )(?!\*\*\*).+\n?)+/gm,
+  paragraphs: (document) => Array.from(document.querySelectorAll('p')),
 }
 
-const commonReplacement = /([#]+ |:::|callout |```|\*{2,2}|\n|_|\!\[|\[|\]|\([.:/a-z]+\))/g
 
 const getEntitiesFromContent = (text, patterns) => {
   text = text.replace(/---(.|\n)*?---\n/g, '') // Вырезаем мету
-  text = text.replace(/```(.|\n)*?```\n/g, '') // Вырезаем код
-  text = text.replace(/(\[.*?\])(\(.*?\))/g, '$1') // Вырезаем ссылки
+  const html = md.render(text)
+  const { document } = parseHTML(html)
   const output = {}
   for (const field in patterns) {
-    let array = text.match(patterns[field])
-    if (array !== null && typeof array === 'object' && array.length > 0) {
-      array = array.map(element => {
-        return element.replace(commonReplacement, '')
+    output[field] = patterns[field](document)
+      .map(element => {
+        if (typeof element === 'string') {
+          return element
+        } else {
+          element.innerHTML = element.innerHTML
+            .replace('<code>', '`')
+            .replace('</code>', '`')
+          return element.textContent
+        }
       })
-      output[field] = array
-    } else {
-      output[field] = []
-    }
   }
   return output
 }
