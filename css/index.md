@@ -11,6 +11,7 @@ groups:
       - css-rule
       - comments
       - vendor-prefixes
+      - installation
       - display
       - all
   - name: 'Селекторы'
@@ -268,6 +269,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
     items:
