@@ -2,6 +2,8 @@
 title: "`<br>`"
 authors:
   - ezhkov
+contributors:
+  - kazakovas
 editors:
   - tachisis
 keywords:
@@ -100,6 +102,10 @@ article {
   margin-bottom: 2em;
 }
 ```
+
+Важно упомянуть, что при использовании `<br>` для вертикальных отступов между блочными элементами величина отступа напрямую зависит от размера шрифта родителя.
+
+<iframe title="Зависимость размера br от размера шрифта родителя" src="demos/dependence-of-size/" height="450"></iframe>
 
 ## Переносы в заголовках
 

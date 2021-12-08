@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Зависимость размера <br> от размера шрифта родителя — <br> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column {
+      width: 45%;
+      box-sizing: border-box;
+    }
+
+    .column_left {
+      border: 1px solid grey;
+      border-radius: 10px;
+      padding: 25px;
+    }
+
+    .paragraph {
+      font-size: 18px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .input-font-size {
+      width: 30px;
+      margin-left: 5px;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="columns">
+    <div class="column column_left">
+      <p class="paragraph">Lorem ipsum dolor sit amet.</p>
+      <br>
+      <p class="paragraph">Lorem ipsum dolor.</p>
+      <br>
+      <p class="paragraph">Lorem ipsum dolor sit.</p>
+    </div>
+
+    <div class="column column_right">
+      <label>
+        Размер шрифта родителя:
+        <input class="input-font-size" type="number" value="18" min="0" max="99">px
+      </label>
+    </div>
+  </div>
+
+  <script>
+    let fontSize = document.querySelector('.input-font-size');
+
+    fontSize.oninput = function() {
+      document.querySelector('.column_left').style.fontSize = `${fontSize.value}px`;
+    };
+  </script>
+</body>
+</html>
