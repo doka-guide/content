@@ -45,10 +45,14 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:focus,
     .button:focus-visible {
-      outline: 2px solid #ffffff;
-      outline-offset: 3px;
+      outline: none;
+      box-shadow: 0px 0px 0px 3px #18191c, 0px 0px 0px 5px #ffffff;
+    }
+
+    .button:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px 3px #18191c, 0px 0px 0px 5px #ffffff;
     }
 
     .button-blue {
