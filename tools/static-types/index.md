@@ -30,7 +30,7 @@ tags:
 
 TypeScript — это язык, очень похожий на JavaScript. Браузеры и Node.js не умеют исполнять его, поэтому без этапа сборки пользоваться им нельзя.
 
-Все современные системы сборки умеют работать с TypeScript: Parcel поддерживает его без дополнительных манипуляций, для Webpack и Rollup есть плагины. Их объединяет одно — необходимо создать файл _tsconfig.js_, которые опишет, как превратить TypeScript-код в JavaScript-код. Правила создания конфигурационного файла описаны на [сайте TypeScript](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+Все современные системы сборки умеют работать с TypeScript: Parcel поддерживает его без дополнительных манипуляций, для Webpack и Rollup есть плагины. Их объединяет одно — необходимо создать файл _tsconfig.json_, который опишет, как превратить TypeScript-код в JavaScript-код. Правила создания конфигурационного файла описаны на [сайте TypeScript](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 ```js
 {
