@@ -15,7 +15,8 @@
 
 .link:hover {
   background-color: #2E9AFF;
-  transition: background-color 0.1s linear; /* Скорость изменения фонового цвета на голубой */
+  /* Скорость изменения фонового цвета на голубой */
+  transition: background-color 0.1s linear;
 }
 ```
 
