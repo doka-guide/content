@@ -52,12 +52,24 @@ const getPractice = (path) => {
 }
 
 for (const fileName in commonSearch) {
+  const content = fs.readFileSync(fileName, {
+    encoding: 'utf8',
+    flag: 'r'
+  })
+
   if (new RegExp(stopCategories.join('|')).test(fileName)) {
     console.log(`Файл ${fileName} не будет добавлен в индекс.`)
   } else {
     const contentEntities = getEntitiesFromContent(content)
     const practicesEntities = getPractice(fileName.replace('index.md', 'practice/'))
+
     contentEntities.push(...practicesEntities)
+
+    const description = commonSearch[fileName].description
+    if (description) {
+      contentEntities.unshift(escape(description))
+    }
+
     const object = {
       objectID: fileName.replace('index.md', ''),
       title: escape(commonSearch[fileName].title || ''),
