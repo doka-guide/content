@@ -4,6 +4,8 @@
 
 ## Декабрь 2021
 
+- 7 декабря [Подключение стилей ](https://doka.guide/js/promise-race/), Никита Канищев
+- 7 декабря [`clip`](https://doka.guide/css/clip/), Максим Печёрин
 - 1 декабря [`Promise.race()`](https://doka.guide/js/promise-race/), Рома Агарков
 
 ## Ноябрь 2021
