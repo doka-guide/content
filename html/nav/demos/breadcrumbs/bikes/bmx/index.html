@@ -80,20 +80,33 @@
       font-size: 16px;
       line-height: 140%;
     }
+
+    a {
+      color: #ffffff;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      background-color: #2E9AFF;
+      border-radius: 3px;
+      transition: background-color 0.2s linear;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <nav class="crumbs">
       <ol>
-        <li class="crumb"><a href="bikes">Велосипеды</a></li>
-        <li class="crumb"><a href="bikes/bmx">BMX</a></li>
-        <li class="crumb">Jump Bike 3000</li>
+        <li class="crumb"><a href="../">Велосипеды</a></li>
+        <li class="crumb">BMX</li>
       </ol>
     </nav>
 
-    <h1>Jump Bike 3000</h1>
-    <p>Стальная рама, хром молибденовый руль, интегрированная рулевая колонка, две скорости. Отличный вариант для профессионалов. С ним вы отточите свои навыки.</p>
+    <h1>BMX велосипеды</h1>
+    <a href="./jump-bike-3000/">Jump Bike 3000</a>
   </div>
 </body>
 </html>

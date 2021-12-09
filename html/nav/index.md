@@ -99,4 +99,4 @@ nav {
 }
 ```
 
-<iframe title="Хлебные крошки" src="demos/breadcrumbs/" height="280"></iframe>
+<iframe title="Хлебные крошки" src="demos/breadcrumbs/bikes/bmx/jump-bike-3000" height="280"></iframe>
