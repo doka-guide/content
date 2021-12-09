@@ -10,7 +10,8 @@
 .link {
   color: #ffffff;
   text-decoration-color: #2E9AFF;
-  transition: background-color 0.5s linear; /* Скорость исчезновения фонового цвета */
+  /* Скорость исчезновения фонового цвета */
+  transition: background-color 0.5s linear;
 }
 
 .link:hover {
