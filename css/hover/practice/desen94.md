@@ -9,15 +9,15 @@
 ```css
 .link {
   color: #ffffff;
-  text-decoration-color: #ffd829;
-  transition: color 0.5s;
+  text-decoration-color: #2E9AFF;
+  transition: background-color 0.5s linear;
 }
 
 /* Есть возможность навести указатель на элемент */
 @media (any-hover: hover) {
   .link:hover {
-    color: #ed6742;
-    transition: color 0.1s;
+    background-color: #2E9AFF;
+    transition: background-color 0.1s linear;
   }
 }
 ```

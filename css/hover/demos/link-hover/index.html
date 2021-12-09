@@ -10,10 +10,15 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
       background-color: #18191c;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
@@ -21,14 +26,17 @@
     }
 
     .link {
+      border-radius: 3px;
       color: #ffffff;
-      text-decoration-color: #ffd829;
-      transition: color 0.5s;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.5s linear;
     }
 
     .link:hover {
-      color: #ed6742;
-      transition: color 0.1s;
+      background-color: #2E9AFF;
+      transition: background-color 0.1s linear;
     }
   </style>
 </head>
