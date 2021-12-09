@@ -104,7 +104,7 @@ openModalButton.addEventListener("click", function(event) {
 - поля ввода [`<input>`](/html/input), кроме скрытых (`type="hidden"`);
 - выпадающие списки [`<select>`](/html/select);
 - поля многостраничного ввода [`textarea`](/html/textarea);
-- элементы [`<summary>`](/html/summary);
+- элементы [`<summary>`](/html/details);
 - произвольный элемент, если у него установлен атрибут `tabindex`.
 
 Если у любого из этих элементов установить атрибут `disabled`, то элемент перестаёт быть доступным для фокуса.
