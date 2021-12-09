@@ -2,6 +2,8 @@
 title: "`:focus`"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -16,19 +18,30 @@ tags:
 
 Сайтом можно пользоваться не только с использованием мышки, но и при помощи клавиатуры. При переключении клавишей <kbd>Tab</kbd> элементу добавляется псевдокласс `:focus`, и мы можем задать для него красивые стили.
 
+<video controls width="700">
+  <source src="video/tab-focus.mp4" type="video/mp4">
+</video>
+
 Элементы формы могут получить фокус и при клике мышкой на него. Например, если кликнуть по кнопке или в поле ввода текста, то им будет добавлен псевдокласс `:focus`.
 
-![Пример псевдокласса :focus](images/focus.gif)
+<video controls width="700">
+  <source src="video/mouse-focus.mp4" type="video/mp4">
+</video>
+
+Важно! В браузерах Safari и Firefox на Mac при клике мышкой на кнопку фокус не устанавливается.
 
 ## Пример
 
-При попадании фокуса на кнопку будем показывать точечную рамку красного цвета:
+При попадании фокуса на кнопку будем показывать заметную белую обводку:
 
 ```css
 button:focus {
-  border: 1px dotted red;
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 ```
+
+<iframe title="Кнопка со стилизованным состоянием фокуса — :focus — Дока" src="demos/index/" height="250"></iframe>
 
 ## Как пишется
 

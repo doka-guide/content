@@ -10,10 +10,16 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
       background-color: #18191c;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
@@ -21,30 +27,34 @@
     }
 
     .link {
+      border-radius: 3px;
       color: #ffffff;
-      text-decoration-color: #ffd829;
-      transition: color 0.5s;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.5s linear;
     }
 
     @media (any-hover: hover) {
       .link:hover {
-        color: #ed6742;
-        transition: color 0.1s;
+        background-color: #2E9AFF;
+        transition: background-color 0.1s linear;
       }
     }
 
     .label {
       display: block;
-      font-size: 14px;
-      color: #c5c5c5;
       width: 350px;
       margin: 10px auto 0;
+      color: #c5c5c5;
+      font-size: 14px;
+      font-style: italic;
       pointer-events: none;
     }
   </style>
 </head>
 <body>
   <a href="#" class="link">Таинственная ссылка</a>
-  <span class="label">*наведение доступно для устройств ввода, позволяющих навести указатель</span>
+  <span class="label">* наведение доступно для устройств ввода, позволяющих навести указатель</span>
 </body>
 </html>
