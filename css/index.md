@@ -11,7 +11,7 @@ groups:
       - css-rule
       - comments
       - vendor-prefixes
-      - installation
+      - adding-styles
       - display
       - all
   - name: 'Селекторы'
