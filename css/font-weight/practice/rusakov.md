@@ -4,13 +4,13 @@
   <summary>Распространённые имена насыщенности</summary>
 
 - `100` — тонкое начертание (thin, hairline);
-- `200` — сверхсветлое (extra light, ultra light);
+- `200` — сверх светлое (extra light, ultra light);
 - `300` — светлое (light);
 - `400` — нормальное (normal, regular, book);
 - `500` — среднее (medium);
 - `600` — полужирное (semi bold, demi bold);
 - `700` — жирное (bold);
-- `800` — сверхжирное (extra bold, ultra bold);
+- `800` — сверх жирное (extra bold, ultra bold);
 - `900` — тяжёлое (black, heavy).
 
 </details>
