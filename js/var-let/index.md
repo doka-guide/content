@@ -1,12 +1,12 @@
 ---
-title: "`const`, `let` и `var`"
+title: "Переменные `const`, `let` и `var`"
 description: "Что такое переменные и какие они бывают"
 authors:
   - ruslauz
 contributors:
   - furtivite
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
