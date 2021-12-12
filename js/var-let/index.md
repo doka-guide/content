@@ -68,12 +68,16 @@ let 1number
 Объявление переменной всегда «всплывает» в начало функции или кода. Этот процесс называется _hoisting_.
 
 ```js
+console.log('Старт')
+
 var byVar = 5
 let byLet = 10
 const byConst = 15
+
+console.log('Конец')
 ```
 
-В начале скрипта все переменные равны `undefined`:
+В начале скрипта все переменные уже существуют и равны `undefined`, даже до того, как они объявлены в коде:
 
 ![код со всплытием переменных](images/variables-hoisting-start.png)
 
@@ -311,7 +315,7 @@ console.log(a)
 
 ![код со всплытием переменных](images/scopes-local-variables.png)
 
-В строке 6 значение переменной `a` уже равно 10.
+В строке 8 значение переменной `a` уже равно 10.
 
 ![код со всплытием переменных](images/scopes-local-variables-initialized.png)
 
