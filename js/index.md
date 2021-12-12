@@ -111,6 +111,7 @@ groups:
       - window-history
       - window-location
       - window-navigator
+      - clipboard
       - match-media
       - urlsearchparams
       - local-storage
