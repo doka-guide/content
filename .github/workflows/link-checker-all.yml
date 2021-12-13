@@ -16,8 +16,8 @@ jobs:
           markdown: true
           linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
       - name: Проверка ссылок в собранном сайте
-        uses: ruzickap/action-my-broken-link-checker@v2.2.4
+        uses: ruzickap/action-my-broken-link-checker@v2.2.5
         with:
           url: https://doka.guide
-          cmd_params: --buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --timeout=20
+          cmd_params: --buffer-size=8192 --max-connections=10 --color=always --skip-tls-verification --timeout=20 --exclude=^https?:\/\/(localhost|127\.0\.0\.1|codepen.io)?(:[0-9]+)?(\/.*)?
           run_timeout: 600
