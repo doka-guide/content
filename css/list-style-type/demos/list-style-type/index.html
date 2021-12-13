@@ -17,12 +17,19 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 50px;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      max-width: 960px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
     }
 
     code {
@@ -32,8 +39,7 @@
     }
 
     .header, .list {
-      width: 65%;
-      min-width: 900px;
+      width: 100%;
     }
 
     .header code {
@@ -45,10 +51,10 @@
 
     .list {
       margin-top: 30px;
-      padding-left: 50px;
       font-size: 18px;
       font-weight: 300;
       line-height: 1.5;
+      padding: 0 24px 0 50px;
     }
 
     .list__item:hover {
@@ -65,10 +71,11 @@
   </style>
 </head>
 <body>
-  <div class="header">
-    <pre><code>ul { list-style-type: circle }</code></pre>
-  </div>
-  <ul class="list" style="list-style-type: circle">
+  <div class="wrapper">
+    <div class="header">
+      <pre><code>ul { list-style-type: circle }</code></pre>
+    </div>
+    <ul class="list" style="list-style-type: circle">
     <li class="list__item list__item_active" data-type="circle">
       <code>circle</code>
       <span class="list__title">маркер в виде кружка</span>
@@ -142,6 +149,7 @@
       <span class="list__title">кастомный маркер — можно задать любой символ или текст (в кавычках)</span>
     </li>
   </ul>
+  </div>
 
   <script>
     const SELECTORS = {
