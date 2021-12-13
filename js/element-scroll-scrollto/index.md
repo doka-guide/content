@@ -2,6 +2,8 @@
 title: "`Element.scrollTo()`"
 authors:
   - doka-dog
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
