@@ -1,5 +1,5 @@
 ---
-title: "Pixel Perfect"
+title: "Подход «Pixel Perfect»"
 authors:
   - xpleesid
 keywords:
