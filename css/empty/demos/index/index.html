@@ -140,6 +140,12 @@
       display: none;
     }
 
+    @media (max-width: 1024px) {
+      .messages {
+        width: 85%;
+      }
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
@@ -151,25 +157,32 @@
 
       .message-container {
         position: relative;
+        padding-bottom: 45px;
       }
 
       .message {
         margin-left: 0;
       }
 
+      .reactions {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
       .buttons {
         position: absolute;
-        bottom: 1px;
+        bottom: 0;
         left: 0;
+        width: auto;
         margin: 0;
         z-index: 1;
       }
 
-      .reactions {
-        left: 72px;
-        max-width: 210px;
-        overflow: hidden;
+      .button {
+        width: 50px;
+        height: 30px;
       }
+
     }
   </style>
 </head>
@@ -211,7 +224,7 @@
       const reactions = message.querySelector('.js-reactions')
 
       if (event.target === add) {
-        if (reactions.querySelectorAll('span').length >= 8) return;
+        if (reactions.querySelectorAll('span').length >= 10) return;
         const emojiSpan = document.createElement('span');
         emojiSpan.innerText = getEmoji()
         reactions.appendChild(emojiSpan)
