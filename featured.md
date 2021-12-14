@@ -1,5 +1,5 @@
 ---
-active:
+pinned:
   - css/box-model
   - tools/docker
   - html/div
