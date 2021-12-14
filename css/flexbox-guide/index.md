@@ -36,6 +36,7 @@ keywords:
   - align-content
 tags:
   - article
+  - featured
 ---
 
 ## Что это?

@@ -9,6 +9,7 @@ keywords:
   - box-shadow
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко

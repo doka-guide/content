@@ -25,6 +25,7 @@ keywords:
   - cypress
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

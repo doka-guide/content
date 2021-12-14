@@ -25,6 +25,7 @@ keywords:
   - poster
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко

@@ -19,6 +19,7 @@ keywords:
   - элементы формы
 tags:
   - doka
+  - featured
 ---
 
 ## Кратко

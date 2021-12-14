@@ -12,6 +12,7 @@ keywords:
   - команды
 tags:
   - article
+  - featured
 ---
 
 ## Кратко

@@ -25,6 +25,7 @@ keywords:
   - catch
 tags:
   - article
+  - featured
 ---
 
 ## Кратко
