@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - flow
+      - pixel-perfect
       - doctype
       - html
       - head
