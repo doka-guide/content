@@ -52,6 +52,8 @@ keywords:
   - max-content
 tags:
   - article
+featured:
+  - active
 ---
 
 ## Что такое гриды?
