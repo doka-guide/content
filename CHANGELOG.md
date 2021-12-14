@@ -2,8 +2,22 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2021
+
+- 1 декабря [`Promise.race()`](https://doka.guide/js/promise-race/), Рома Агарков
+
 ## Ноябрь 2021
 
+- 30 ноября [`<mark>`](https://doka.guide/html/mark/), Иван Ельцов
+- 30 ноября [`<u>`](https://doka.guide/html/u/), Иван Ельцов
+- 24 ноября [Свойство `forms`](https://doka.guide/js/forms/), Владислав Чичужко
+- 23 ноября [`filter`](https://doka.guide/css/filter/), Лена Райан
+- 18 ноября [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
+- 15 ноября [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
+- 15 ноября [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
+- 15 ноября [`<del>`](https://doka.guide/html/del/), Иван Ельцов
+- 15 ноября [`<dfn>`](https://doka.guide/html/dfn/), Иван Ельцов
+- 14 ноября [Markdown](https://doka.guide/tools/markdown/), Сергей Минаков
 - 11 ноября: [`<bdi>`](https://doka.guide/html/bdi/), Иван Ельцов
 - 8 ноября: [`<cite>`](https://doka.guide/html/cite/), Иван Ельцов
 - 7 ноября: [`Promise.allSettled`](https://doka.guide/js/promise-allsettled/), Вадим Стебаков

@@ -47,7 +47,7 @@ function handleSubmit(event) {
 
   const formData = new FormData()
 
-  // Добавляем файлы из ипнута к данным
+  // Добавляем файлы из инпута к данным
   for (let i = 0; i < fileInput.files.length; i++) {
     const file = fileInput.files[i]
     formData.append("avatar", file, file.name)

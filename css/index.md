@@ -11,6 +11,7 @@ groups:
       - css-rule
       - comments
       - vendor-prefixes
+      - adding-styles
       - display
       - all
   - name: 'Селекторы'
@@ -60,6 +61,7 @@ groups:
       - calc
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
       - var
       - filter-functions
@@ -80,7 +82,7 @@ groups:
   - name: 'Единицы измерения'
     items:
       - numeric-types
-      - vm-vh
+      - vw-vh
       - rem-em
   - name: 'Анимации'
     items:
@@ -122,6 +124,7 @@ groups:
       - background-blend-mode
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
@@ -255,6 +258,7 @@ groups:
     items:
       - opacity
       - visibility
+      - clip
   - name: 'Переполнение'
     items:
       - overflow
@@ -265,6 +269,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
     items:

@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-Элемент — это кусочек HTML в [DOM-дереве](/js/dom/#из-чего-состоит-dom). Браузер создаёт DOM для взаимодействия между JavaScript и HTML. Каждый HTML-тег при этом превращается в элемент DOM. Ещё такие элементы называют _узлами._
+Элемент — это кусочек HTML в [DOM-дереве](/js/dom/#iz-chego-sostoit-dom). Браузер создаёт DOM для взаимодействия между JavaScript и HTML. Каждый HTML-тег при этом превращается в элемент DOM. Ещё такие элементы называют _узлами._
 
 Из DOM можно получить элемент и изменить его. Браузер заметит изменения и отобразит их на странице.
 
@@ -67,7 +67,7 @@ element.style.marginTop = "20px" // CSS-свойство margin-top
 - `parentElement` — получить родительский элемент;
 - `nextElementSibling` и `previousElementSibling` — получить следующий/предыдущий узел-сосед:
 
-<iframe title="Окружение DOM-элементов" src="demos/dom/index/" height="600"></iframe>
+<iframe title="Окружение DOM-элементов" src="demos/dom/" height="400"></iframe>
 
 - [`getElementsByClassName`](/js/getelementsbyclassname/) — поиск среди дочерних элементов по названию класса;
 - [`getElementsByTagName`](/js/getelementsbytagname/) — поиск среди дочерних элементов по названию тега;
@@ -90,4 +90,4 @@ divElement.innerHTML = "<p>I was added from JavaScript</p>" // после вып
 
 Почувствуй разницу на демо:
 
-<iframe title="Содержимое DOM-элементов" src="demos/dom-html/index/" height="780"></iframe>
+<iframe title="Содержимое DOM-элементов" src="demos/dom-html/" height="600"></iframe>

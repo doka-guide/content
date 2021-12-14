@@ -9,7 +9,7 @@ tags:
 
 ## Кратко
 
-Вызов метода `blur` на [DOM-элементе](/js/element) снимает [фокус](/js/element-focus) с элемента. Порождает событие `blur`, которое можно обработать с помощью [`addEventListener`](/js/addeventlistener).
+Вызов метода `blur` на [DOM-элементе](/js/element) снимает [фокус](/js/element-focus) с элемента. Порождает событие `blur`, которое можно обработать с помощью [`addEventListener`](/js/element-addeventlistener).
 
 ## Как пишется
 
