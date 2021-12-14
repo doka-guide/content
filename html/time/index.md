@@ -63,7 +63,7 @@ tags:
 <time>2021-07</time>
 ```
 
-<iframe title="Точное время" src="demos/basic/" height="150"></iframe>
+<iframe title="Точное время" src="demos/basic/" height="200"></iframe>
 
 ## Как понять
 
