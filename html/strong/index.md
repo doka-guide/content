@@ -19,7 +19,7 @@ tags:
 <p>Эта правка <strong>критически важна</strong> для проекта!</p>
 ```
 
-<iframe title="Как выглядит" src="demos/view/" height="70"></iframe>
+<iframe title="Как выглядит" src="demos/view/" height="180"></iframe>
 
 ## `<strong>` против `<b>`
 
