@@ -55,6 +55,7 @@ groups:
       - placeholder
       - first-letter
       - first-line
+      - selection
   - name: 'Функции'
     items:
       - attr
