@@ -1,5 +1,5 @@
 ---
-title: "::selection"
+title: "`::selection`"
 authors:
   - rusakov
 keywords:
@@ -47,14 +47,14 @@ tags:
 
 Список свойств, которые можно изменять с помощью `::selection`, ограничен:
 
-- [color](/css/color);
-- [background-color](/css/background-color);
-- [cursor](/css/cursor);
-- caret-color;
-- шорткат [outline](/css/outline) и отдельные свойства обводки;
-- шорткат [text-decoration](/css/text-decoration) и отдельные свойства оформления текста;
-- text-emphasis-color;
-- [text-shadow](/css/text-shadow).
+- [`color`](/css/color);
+- [`background-color`](/css/background-color);
+- [`cursor`](/css/cursor);
+- `caret-color`;
+- шорткат [`outline`](/css/outline) и отдельные свойства обводки;
+- шорткат [`text-decoration`](/css/text-decoration) и отдельные свойства оформления текста;
+- `text-emphasis-color`;
+- [`text-shadow`](/css/text-shadow).
 
 Все прочие CSS-свойства, написанные внутри правила, будут проигнорированы.
 
