@@ -8,6 +8,7 @@ groups:
       - cascade
       - inheritance
       - stacking-context
+      - pixel-perfect
       - css-rule
       - comments
       - vendor-prefixes
