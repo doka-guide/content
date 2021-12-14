@@ -9,8 +9,6 @@ keywords:
   - блоковая модель
 tags:
   - article
-featured:
-  - active
 ---
 
 ## «Всё — прямоугольник»

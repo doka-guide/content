@@ -18,8 +18,6 @@ keywords:
   - travis
   - puppeteer
   - selenium
-featured:
-  - active
 ---
 
 ## Кратко

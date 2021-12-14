@@ -14,8 +14,6 @@ keywords:
   - тег
 tags:
   - doka
-featured:
-  - active
 ---
 
 ## Кратко

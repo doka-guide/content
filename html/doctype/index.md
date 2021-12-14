@@ -15,8 +15,6 @@ keywords:
   - доктайп
 tags:
   - doka
-featured:
-  - active
 ---
 
 ## Кратко

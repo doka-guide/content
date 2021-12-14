@@ -14,8 +14,6 @@ keywords:
   - grid
 tags:
   - doka
-featured:
-  - active
 ---
 
 ## Кратко

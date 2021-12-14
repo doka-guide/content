@@ -12,8 +12,6 @@ keywords:
   - container
 tags:
   - article
-featured:
-  - active
 ---
 
 ## Кратко

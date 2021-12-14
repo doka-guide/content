@@ -18,8 +18,6 @@ keywords:
   - див
 tags:
   - doka
-featured:
-  - active
 ---
 
 ## Кратко

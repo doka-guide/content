@@ -16,8 +16,6 @@ keywords:
   - new
 tags:
   - article
-featured:
-  - active
 ---
 
 ## Кратко

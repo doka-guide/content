@@ -13,8 +13,6 @@ keywords:
   - bundler
 tags:
   - article
-featured:
-  - active
 ---
 
 ## Кратко

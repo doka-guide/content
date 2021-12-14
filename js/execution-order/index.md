@@ -12,8 +12,6 @@ keywords:
   - execution order
 tags:
   - doka
-featured:
-  - active
 ---
 
 ## Кратко
