@@ -4,7 +4,10 @@
 
 ## Декабрь 2021
 
-- 7 декабря [Подключение стилей ](https://doka.guide/css/adding-styles/), Никита Канищев
+- 14 декабря [`<time>`](https://doka.guide/html/time/), Вячеслав Разум
+- 14 декабря [Подход «Pixel Perfect»](https://doka.guide/css/pixel-perfect/), Иван Ельцов
+- 14 декабря [`::selection`](https://doka.guide/css/selection/), Денис Русаков (13:00)
+- 7 декабря [Подключение стилей](https://doka.guide/css/adding-styles/), Никита Канищев
 - 7 декабря [`clip`](https://doka.guide/css/clip/), Максим Печёрин
 - 1 декабря [`Promise.race()`](https://doka.guide/js/promise-race/), Рома Агарков
 
