@@ -66,9 +66,7 @@ body {
 
 ```css
 body {
-  background-image: 
-    url("confetti.png"), 
-    url("landscape.jpg");
+  background-image: url("confetti.png"),  url("landscape.jpg");
   background-color: gray;
 }
 ```
