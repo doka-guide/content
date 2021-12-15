@@ -26,15 +26,13 @@ API предназначен заменить `document.execCommand()` в кач
 Среди Clipboard API мы можем выделить:
 
 - _Clipboard_ (Async Clipboard API) — интерфейс для чтения или записи текста и данных в буфер обмена;
-
 - _ClipboardEvent_ (Clipboard Event API) — события, содержащие информацию, относящуюся к модификации буфера обмена, а именно `cut`, `copy` и `paste` события;
-
 - _ClipboardItem_ — единый формат элемента, используемый при чтении или записи данных.
 
 С Clipboard API мы можем использовать не любые типы данных. У разных методов есть разные ограничения на то, что мы можем класть или доставать из буфера обмена.
 
 <details>
-  <summary>С методом <strong>paste</strong></summary>
+  <summary>С методом <code>paste</code></summary>
 
   - text/plain
   - text/uri-list
@@ -53,7 +51,7 @@ API предназначен заменить `document.execCommand()` в кач
 </details>
 
 <details>
-  <summary>С методами <strong>copy</strong> или <strong>cut</strong></summary>
+  <summary>С методами <code>copy</code> или <code>cut</code></summary>
 
   - text/plain
   - text/uri-list
