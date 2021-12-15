@@ -13,6 +13,9 @@ editors:
   - tachisis
 keywords:
   - background-image
+  - фоновое изображение
+  - фоновая картинка
+  - декоративное изображение
 tags:
   - doka
 ---
