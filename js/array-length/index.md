@@ -3,6 +3,8 @@ title: "`[].length`"
 description: "Свойство, которое возвращает количество элементов в массиве."
 authors:
   - nlopin
+editors:
+  - tachisis
 tags:
   - doka
 ---
