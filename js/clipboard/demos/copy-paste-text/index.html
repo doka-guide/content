@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Работа Clipboard API</title>
+  <title>Копирование и вставка текста по нажатию на кнопки — Clipboard API — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -104,100 +103,98 @@
     }
   </style>
 </head>
-
 <body>
   <div class="card">
     <div class="card__info">
       <label>
         <textarea class="card__textarea" placeholder="Впишите текст"></textarea>
       </label>
-      <button class="card__btn card__btn--copy" type='button' disabled>Скопировать</button>
+      <button class="card__btn card__btn--copy" type="button" disabled>Скопировать</button>
     </div>
-    <span class="card__prompt">*впишите любой текст и нажмите кнопку <strong>скопировать</strong></span>
+    <span class="card__prompt">Впишите любой текст и нажмите кнопку <strong>скопировать</strong></span>
   </div>
   <div class="card">
     <div class="card__info">
-      <span class='card__pasted-text'></span>
-      <button class="card__btn card__btn--paste" type='button'>Вставить</button>
-      <button class="card__btn card__btn--clear" type='button'>Очистить</button>
+      <span class="card__pasted-text"></span>
+      <button class="card__btn card__btn--paste" type="button">Вставить</button>
+      <button class="card__btn card__btn--clear" type="button">Очистить</button>
     </div>
     <span class="card__error-message"></span>
-    <span class="card__prompt">*нажмите кнопку <strong>вставить</strong> и разрешите в браузере вставить текст внутрь области
-      выше</span>
+    <span class="card__prompt">Нажмите кнопку <strong>вставить</strong> и разрешите в браузере вставить текст внутрь области выше</span>
   </div>
   <script>
-    const cardTextarea = document.querySelector('.card__textarea');
-    const cardPastedText = document.querySelector('.card__pasted-text');
-    const cardBtnCopy = document.querySelector('.card__btn--copy');
-    const cardBtnPaste = document.querySelector('.card__btn--paste');
-    const cardBtnClear = document.querySelector('.card__btn--clear');
-    const cardErrorMessage = document.querySelector('.card__error-message');
+    const cardTextarea = document.querySelector('.card__textarea')
+    const cardPastedText = document.querySelector('.card__pasted-text')
+    const cardBtnCopy = document.querySelector('.card__btn--copy')
+    const cardBtnPaste = document.querySelector('.card__btn--paste')
+    const cardBtnClear = document.querySelector('.card__btn--clear')
+    const cardErrorMessage = document.querySelector('.card__error-message')
 
     cardTextarea.addEventListener('input', function (e) {
-      cardBtnCopy.disabled = !e.target.value;
-    });
+      cardBtnCopy.disabled = !e.target.value
+    })
 
     const copy = async () => {
-      const valueTextarea = cardTextarea.value.trim();
+      const valueTextarea = cardTextarea.value.trim()
 
       if (valueTextarea) {
         navigator.clipboard
           .writeText(valueTextarea)
           .then(function () {
-            const originalText = cardBtnCopy.textContent;
+            const originalText = cardBtnCopy.textContent
 
-            cardBtnCopy.classList.add('btn--active');
-            cardBtnCopy.textContent = 'Скопировано';
-            cardBtnCopy.disabled = true;
+            cardBtnCopy.classList.add('btn--active')
+            cardBtnCopy.textContent = 'Скопировано'
+            cardBtnCopy.disabled = true
 
             setTimeout(function () {
-              cardBtnCopy.classList.remove('btn--active');
-              cardBtnCopy.textContent = originalText;
-              cardBtnCopy.disabled = false;
-            }, 1500);
+              cardBtnCopy.classList.remove('btn--active')
+              cardBtnCopy.textContent = originalText
+              cardBtnCopy.disabled = false
+            }, 1500)
           })
           .catch(function (error) {
-            console.log(error);
-          });
+            console.log(error)
+          })
       }
     }
 
     const paste = async () => {
       try {
-        const clipText = await navigator.clipboard.readText();
+        const clipText = await navigator.clipboard.readText()
 
         if (clipText) {
-          cardPastedText.textContent += clipText;
+          cardPastedText.textContent += clipText
         }
 
-        checkBtnClear();
+        checkBtnClear()
       } catch (error) {
-        console.error(error);
+        console.error(error)
 
-        cardErrorMessage.textContent = error;
-        cardErrorMessage.style.display = 'inline-block';
+        cardErrorMessage.textContent = error
+        cardErrorMessage.style.display = 'inline-block'
 
         setTimeout(function () {
-          cardErrorMessage.style.display = 'none';
-          cardErrorMessage.textContent = '';
-        }, 3000);
+          cardErrorMessage.style.display = 'none'
+          cardErrorMessage.textContent = ''
+        }, 3000)
       }
     }
 
     const clear = () => {
-      cardPastedText.textContent = '';
-      checkBtnClear();
+      cardPastedText.textContent = ''
+      checkBtnClear()
     }
 
     const checkBtnClear = () => {
-      cardBtnClear.disabled = !cardPastedText.textContent.length;
+      cardBtnClear.disabled = !cardPastedText.textContent.length
     }
 
-    checkBtnClear();
+    checkBtnClear()
 
-    cardBtnCopy.addEventListener('click', copy);
-    cardBtnPaste.addEventListener('click', paste);
-    cardBtnClear.addEventListener('click', clear);
+    cardBtnCopy.addEventListener('click', copy)
+    cardBtnPaste.addEventListener('click', paste)
+    cardBtnClear.addEventListener('click', clear)
   </script>
 </body>
 
