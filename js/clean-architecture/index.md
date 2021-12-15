@@ -1,5 +1,10 @@
 ---
 title: "Трёхслойная архитектура"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два здания, состоящих из разных универсальных блоков. Там может быть дерево рядом, а может вишня на крыше'
 authors:
   - bespoyasov
 editors:
