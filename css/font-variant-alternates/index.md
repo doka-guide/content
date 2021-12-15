@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-alternates`"
-description: ""
 authors:
   - doka-dog
 tags:
@@ -10,7 +9,7 @@ tags:
 
 ## Кратко
 
-Свойство `font-variant-alternates` управляет использованием альтернативных глифов. Имена альтернативных глифов могут быть определены в директиве [`@font-feature-values`](/css/font-feature-values).
+Свойство `font-variant-alternates` управляет использованием альтернативных глифов. Имена альтернативных глифов могут быть определены в директиве [`@font-feature-values`](https://developer.mozilla.org/ru/docs/Web/CSS/@font-feature-values).
 
 ## Как пишется
 

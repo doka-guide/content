@@ -1,6 +1,5 @@
 ---
 title: "`font-kerning`"
-description: ""
 authors:
   - doka-dog
 tags:

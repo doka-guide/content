@@ -1,6 +1,11 @@
 ---
 title: "Переменные `const`, `let` и `var`"
 description: "Что такое переменные и какие они бывают"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Стоят две банки: прозрачная с лимонным джемом и непрозрачная с  мёдом. На заднем плане открытое окошко операционной системы с пчёлкой'
 authors:
   - ruslauz
 contributors:

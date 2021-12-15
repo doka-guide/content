@@ -1,5 +1,10 @@
 ---
 title: "Что такое Docker"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Собачка Дока в образе кита из логотипа Докера'
 authors:
   - igsekor
 contributors:

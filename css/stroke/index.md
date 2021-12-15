@@ -32,7 +32,7 @@ tags:
 }
 ```
 
-<iframe title="Заливка паттерном" src="demos/pattern/" height="200"></iframe>
+<iframe title="Заливка паттерном" src="demos/pattern/" height="166"></iframe>
 
 ## Подсказки
 

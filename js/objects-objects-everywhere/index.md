@@ -164,18 +164,63 @@ Object.assign(obj, {
 }).age // 30
 ```
 
-У примитивов без переменной можно обращаться к методам только у строки. Для всех остальных, чтобы не получить синтаксическую ошибку, нужно оборачивать значение в скобки, либо вызывать функцию-примитив (`String`, `Number`, `Boolean` и т.д.)
+Почти у всех примитивов без переменной тоже можно обращаться к методам:
 
-```javascript
-'Boris'.length // 5
-'Boris'.charAt(3) // "i"
+```js
+true.toString()
+// "true"
 
-1.toFixed(1) // Так нельзя, будет ошибка
+Infinity.toString()
+// "Infinity"
 
-// А вот если обернуть в скобки, то будет работать
-(1).toFixed(1) // "1.0"
+"hello world".toString()
+// "hello world"
 
-// Так тоже будет работать
-Number(1).toFixed(1) // "1.0"
-Boolean(1).toString() // "true"
+Symbol("tag").toString()
+// "Symbol(tag)"
+
+9007199254740991n.toString()
+// "9007199254740991"
+```
+
+Правда, в случае с числами можно получить синтаксическую ошибку, потому что точка воспринимается как часть самого числа:
+
+```js
+42.toString()
+// Uncaught SyntaxError: Invalid or unexpected token
+```
+
+Чтобы этого избежать, можно использовать две точки, взять выражение в скобки или вызвать обёртку примитивного типа:
+
+```js
+42..toString()
+// "42"
+
+(42).toString()
+// "42"
+
+Number(42).toString()
+// "42"
+```
+
+Вызов методов или свойств не сработает у `null` и `undefined`:
+
+```js
+null.toString()
+// Uncaught TypeError: Cannot read property 'toString' of null
+
+null.valueOf()
+// Uncaught TypeError: Cannot read property 'valueOf' of null
+
+null.length
+// Uncaught TypeError: Cannot read property 'length' of null
+
+undefined.toString()
+// Uncaught TypeError: Cannot read property 'toString' of undefined
+
+undefined.valueOf()
+// Uncaught TypeError: Cannot read property 'valueOf' of undefined
+
+undefined.length
+// Uncaught TypeError: Cannot read property 'length' of undefined
 ```

@@ -1,6 +1,5 @@
 ---
 title: "`@supports`"
-description: ""
 authors:
   - doka-dog
 keywords:

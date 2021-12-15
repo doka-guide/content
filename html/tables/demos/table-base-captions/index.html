@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Основа таблицы c подписанными столбцами — Таблицы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-top: 7px solid #FF8630;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td {
+      border: 1px solid #FF8630;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Модель</td>
+      <td>Цена</td>
+    </tr>
+    <tr>
+      <td>iPhone 12 Pro</td>
+      <td>$999</td>
+    </tr>
+    <tr>
+      <td>iPhone 12</td>
+      <td>$799</td>
+    </tr>
+    <tr>
+      <td>iPhone 12 mini</td>
+      <td>$699</td>
+    </tr>
+  </table>
+</body>
+</html>

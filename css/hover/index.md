@@ -1,5 +1,10 @@
 ---
 title: "`:hover`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Хамелеон, на которого наведён курсор мыши'
 authors:
   - solarrust
 contributors:
@@ -22,7 +27,9 @@ tags:
 
 Раньше интерактив можно было реализовать только при помощи JS, что сильно усложняло верстальщикам жизнь. Но сегодня у нас существует отличный помощник — псевдокласс `:hover`.
 
-![Пример псевдокласса hover](images/hover.gif)
+<video controls width="700">
+  <source src="video/mouse-hover.mp4" type="video/mp4">
+</video>
 
 ## Пример
 

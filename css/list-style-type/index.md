@@ -21,13 +21,13 @@ tags:
 
 По умолчанию маркированные списки имеют значение `list-style-type: disc` (маркер в виде точки), а нумерованные — `decimal` (арабские цифры с точкой):
 
-<iframe title="Списки по умолчанию" src="demos/basic/" height="333"></iframe>
+<iframe title="Списки по умолчанию" src="demos/basic/" height="270"></iframe>
 
 Вообще, свойство `list-style-type` можно задать как самому элементу `<ul>` или `<ol>` (благодаря тому, что это свойство наследуется «вглубь»), так и его `<li>`-элементу и вообще любой сущности, у которой задано свойство `display: list-item`.
 
 ### Демо разных значений `list-style-type`
 
-<iframe title="Варианты list-style-type" src="demos/list-style-type/" height="500"></iframe>
+<iframe title="Варианты list-style-type" src="demos/list-style-type/" height="880"></iframe>
 
 ## Как пишется
 
@@ -94,10 +94,9 @@ ul {
 
 ## Список без счётчика
 
-Есть случаи, когда нам нужно иметь семантику списка, но не нужны никакие маркеры или числа, например: меню, список карточек товара или статей. Если мы зададим списку `list-style-type: none`, то сохраним порядок элементов (для скринридеров) без «лишнего» оформления:
+Есть случаи, когда нам нужно иметь семантику списка, но не нужны никакие маркеры или числа, например, меню, список карточек товара или статей. Если мы зададим списку `list-style-type: none`, то сохраним порядок элементов (для скринридеров) без «лишнего» оформления:
 
 ```html
-<!-- Пример вёрстки меню -->
 <ul style="list-style-type: none">
   <li>
     <a href="/articles">Статьи</a>
@@ -111,10 +110,11 @@ ul {
 </ul>
 ```
 
-<iframe title="Список без маркера" src="demos/ul-no-marker/" height="250"></iframe>
+<iframe title="Список без маркера" src="demos/ul-no-marker/" height="240"></iframe>
+
+Пример вёрстки списка статей или товаров:
 
 ```html
-<!-- Пример вёрстки списка статей или товаров -->
 <ol style="list-style-type: none">
   <li>
     <article>
@@ -137,7 +137,7 @@ ul {
 </ol>
 ```
 
-<iframe title="Список без маркера" src="demos/ol-no-marker/" height="310"></iframe>
+<iframe title="Список без маркера" src="demos/ol-no-marker/" height="350"></iframe>
 
 Так же, устанавливая `list-style-type: none` можно создать стилизованные списки, главное не забыть прописать свойство [`content`](/css/content):
 
@@ -154,8 +154,7 @@ li {
   position: relative;
 }
 
-li:before {
-  /* не забываем о свойстве content */
+li::before {
   content: "";
   width: 15px;
   height: 15px;
@@ -167,11 +166,11 @@ li:before {
 }
 ```
 
-<iframe title="Пример со свойством content" src="demos/empty-content/" height="250"></iframe>
+Не забывайте о свойстве [`content`](/css/content) у псевдоэлемента [`::before`](/css/before).
+
+<iframe title="Пример со свойством content" src="demos/empty-content/" height="240"></iframe>
 
 ## Кастомные счётчики с `@counter-style`
-
-Пока поддержка `@counter-style` есть только в браузере Firefox — в других браузерах пример отобразится некорректно и вместо заданных символов отрисует просто список по умолчанию.
 
 С помощью @-правила мы можем создать свои счётчики, которые будут иметь свои правила отображения порядка или символы-маркеры:
 
@@ -187,10 +186,8 @@ li:before {
 }
 ```
 
-Результат
+<iframe title="Кастомные маркеры" src="demos/custom/" height="340"></iframe>
 
-<iframe title="Кастомные маркеры" src="demos/custom/" height="387"></iframe>
+Свойство `@counter-style` поддерживается не во всех браузерах. Например, в Safari пример отобразится некорректно и вместо заданных символов отрисует просто список по умолчанию:
 
-Результат в Mozilla Firefox
-
-![Кастомные маркеры в Firefox](images/custom-list.png)
+![Кастомные маркеры в Safari](images/custom-list.png)

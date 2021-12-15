@@ -4,4 +4,4 @@
 
 Попробуй имитировать ошибку и ввести в поле что-то помимо числа скидки, без проверки тоже получится `NaN`:
 
-<iframe title="Название — Number.isNaN() — Дока" src="../demos/vindi-r-XQPBGG/" height="200"></iframe>
+<iframe title="Калькулятор скидки — Number.isNaN() — Дока" src="../demos/index/" height="430"></iframe>

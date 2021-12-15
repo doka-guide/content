@@ -73,14 +73,6 @@ tags:
     <figcaption>macOS Big Sur, Safari 14.0</figcaption>
   </figure>
   <figure class="section__item">
-    <img src="images/win-8-ie10.png" alt="Windows 8, Internet Explorer 10.0">
-    <figcaption>Windows 8, Internet Explorer 10.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-7-ie9.png" alt="Windows 7, Internet Explorer 9.0">
-    <figcaption>Windows 7, Internet Explorer 9.0</figcaption>
-  </figure>
-  <figure class="section__item">
     <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">
     <figcaption>Samsung Galaxy S7</figcaption>
   </figure>

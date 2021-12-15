@@ -10,6 +10,7 @@ groups:
       - static-types
       - nodejs
       - nodejs-tooling
+      - markdown
       - ci-cd
       - github-actions
   - name: На стороне сервера

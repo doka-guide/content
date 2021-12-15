@@ -20,7 +20,7 @@ tags:
 ```
 
 ```js
-const form = document.querySelector('.form')
+const form = document.querySelector('form')
 
 console.log(form.innerHTML)
 // Выведет "<label>Логин</label><input type="text" id="login" /><div class="error">Введите логин</div>"

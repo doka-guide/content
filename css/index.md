@@ -8,9 +8,11 @@ groups:
       - cascade
       - inheritance
       - stacking-context
+      - pixel-perfect
       - css-rule
       - comments
       - vendor-prefixes
+      - adding-styles
       - display
       - all
   - name: 'Селекторы'
@@ -54,13 +56,16 @@ groups:
       - placeholder
       - first-letter
       - first-line
+      - selection
   - name: 'Функции'
     items:
       - attr
       - calc
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
+      - var
       - filter-functions
       - transform-function
   - name: 'Директивы'
@@ -79,7 +84,7 @@ groups:
   - name: 'Единицы измерения'
     items:
       - numeric-types
-      - vm-vh
+      - vw-vh
       - rem-em
   - name: 'Анимации'
     items:
@@ -121,6 +126,7 @@ groups:
       - background-blend-mode
       - linear-gradient
       - radial-gradient
+      - conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
@@ -145,6 +151,7 @@ groups:
       - text-decoration-line
       - text-decoration-style
       - text-decoration-thickness
+      - text-decoration-skip-ink
       - text-rendering
       - text-shadow
       - white-space
@@ -253,6 +260,7 @@ groups:
     items:
       - opacity
       - visibility
+      - clip
   - name: 'Переполнение'
     items:
       - overflow
@@ -263,6 +271,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
     items:
@@ -271,6 +280,7 @@ groups:
       - border-style
       - border-radius
       - border-color
+      - border-width
       - outline
       - outline-color
       - outline-offset
@@ -294,6 +304,7 @@ groups:
     items:
       - custom-properties
       - root
+      - var
   - name: 'Стили для печати'
     items:
       - widows
@@ -302,6 +313,12 @@ groups:
       - columns
       - column-count
       - column-width
+      - column-fill
+      - column-span
+      - column-rule
+      - column-rule-color
+      - column-rule-style
+      - column-rule-width
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html), SVG и других языков разметки.

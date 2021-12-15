@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный column-width — column-width — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    input {
+      display: block;
+      width: 300px;
+      margin: auto;
+      margin-bottom: 12px;
+    }
+
+    .text-wrapper {
+      column-count: 4;
+      column-width: 200px;
+      margin: 0 auto;
+      border: 1px dashed white;
+    }
+  </style>
+</head>
+<body>
+  <input type="range" min="20" max="100" value="100">
+  <div class="text-wrapper">
+    Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоён ощущением покоя, что искусство моё страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей тёмного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снуёт между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, — тогда, дорогой друг, меня часто томит мысль: «Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живёт во мне, запечатлеть отражение моей души, как душа моя — отражение предвечного бога!»
+  </div>
+  <script>
+    const range = document.querySelector('input')
+    const wrapper = document.querySelector('.text-wrapper')
+
+    range.addEventListener('input', () => {
+      wrapper.style.width = range.value + '%'
+    })
+  </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 ---
-title: "Статический анализ — как делать меньше ошибок"
+title: "Статический анализ кода"
 authors:
   - igorkamyshev
 contributors:

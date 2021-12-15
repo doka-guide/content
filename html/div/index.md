@@ -1,5 +1,10 @@
 ---
 title: "`<div>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два человека, один панк и <!-- yaspeller ignore:start -->растатуирован div`ами<!-- yaspeller ignore:end -->, а второй удивляется, открыл рот'
 authors:
   - doka-dog
 contributors:
@@ -41,7 +46,7 @@ tags:
 }
 ```
 
-<iframe title="Див с фоном" src="demos/div/" height="260"></iframe>
+<iframe title="Див с фоном" src="demos/div/" height="280"></iframe>
 
 ## Как это понять
 

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма с отключённой валидацией — novalidate — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 5%;
+    }
+
+    form {
+      margin: 0 auto;
+      padding: 0 1rem;
+      width: 350px;
+    }
+
+    .form-tag {
+      display: block;
+      font-family: monospace;
+      text-align: right;
+    }
+
+    .form-row {
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-row.required span::after {
+      color: #ff0000;
+      content: '*';
+    }
+
+    input:not([type=checkbox]), textarea {
+      border: 2px solid transparent;
+      border-radius: 4px;
+      box-sizing: border-box;
+      padding: 5px 20px 5px 8px;
+      width: 100%;
+    }
+
+    textarea {
+      font-family: inherit;
+      resize: none;
+    }
+
+    input:invalid, textarea:invalid {
+      border-color: #ff0000;
+    }
+
+    .form-toolbar {
+      text-align: right;
+    }
+
+    .submission-result {
+      color: #90ee90;
+      display: none;
+      font-size: 0.875rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <form novalidate>
+    <span class="form-tag" data-form-tag>&lt;form novalidate&gt;</span>
+    <label class="form-row">
+      <span>Имя</span>
+      <input type="text" name="name" placeholder="Микки">
+    </label>
+    <label class="form-row required">
+      <span>Почта</span>
+      <input type="email" name="email" placeholder="email@example.com" required>
+    </label>
+    <label class="form-row required">
+      <span>Комментарий</span>
+      <textarea name="comment" placeholder="Мне всё понравилось!" required></textarea>
+    </label>
+    <label class="form-row">
+      <input type="checkbox" name="agree" required>
+      Я согласен с политикой обработки персональных данных
+    </label>
+    <div class="form-toolbar">
+      <button type="button" data-validation-control>Вернуть валидацию</button>
+      <button type="submit">Отправить</button>
+    </div>
+    <span class="submission-result" data-submission-result>Спасибо, ваш отзыв отправлен!</span>
+  </form>
+
+  <script>
+    const formTag = document.querySelector('[data-form-tag]')
+    const validationControl = document.querySelector('[data-validation-control]')
+    const form = document.querySelector('form')
+    const submissionResult = document.querySelector('[data-submission-result]')
+
+    validationControl.addEventListener('click', () => {
+      if (form.getAttribute('novalidate') === '') {
+        form.removeAttribute('novalidate')
+        validationControl.innerText = 'Выключить валидацию'
+        formTag.innerText = '<form>'
+      } else {
+        form.setAttribute('novalidate', '')
+        validationControl.innerText = 'Вернуть валидацию'
+        formTag.innerText = '<form novalidate>'
+      }
+
+      submissionResult.style.display = 'none'
+    })
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+
+      submissionResult.style.display = 'block'
+    })
+  </script>
+</body>
+</html>

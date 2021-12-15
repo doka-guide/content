@@ -79,6 +79,7 @@ groups:
       - array-find
       - array-every
       - array-some
+      - array-reverse
       - includes
       - index-of
       - array-length
@@ -137,6 +138,7 @@ groups:
   - name: "Объект страницы `document`"
     items:
       - cookie
+      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
@@ -190,6 +192,8 @@ groups:
       - promise-catch
       - promise-finally
       - promise-all
+      - promise-allsettled
+      - promise-race
       - async-await
   - name: "Обмен данными с API"
     items:
