@@ -1,5 +1,5 @@
 ---
-title: "Комментарии"
+title: "Комментарии в HTML"
 authors:
   - solarrust
 editors:

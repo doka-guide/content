@@ -1,6 +1,6 @@
 ---
 title: "`set.keys()`"
-description: "Возвращает итератор для обхода значений коллекции Set"
+description: "`set.keys()` возвращает итератор для обхода значений коллекции Set"
 authors:
   - nlopin
 tags:
