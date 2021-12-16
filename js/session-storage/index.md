@@ -2,6 +2,8 @@
 title: "`sessionStorage`"
 authors:
   - akellbl4
+contributors:
+  - skorobaeus
 keywords:
   - sessionstorage
   - webstorage
