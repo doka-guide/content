@@ -33,8 +33,7 @@ if (externalValue) {
 let value = externalValue || 0 // если externalValue не объявлен, то значение установится в 0
 ```
 
-Неявное приведение `externalValue` к логическому типу также игнорирует _определенные ложные_ зачения, возможно, вполне валидные: `""`, `NaN`, `0` , `-0`, `0n`.
-Чтобы их не терять, можно вместо `||` использовать `??` -  новый, неплохо [поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-coalescing-operator) из [ES2020](/js/language-versions/#es2020):
+Неявное приведение `externalValue` к логическому типу также игнорирует _определенные ложные_ зачения, возможно, вполне валидные: `""`, `NaN`, `0` , `-0`, `0n`. Чтобы их не терять, можно вместо `||` использовать `??` -  новый, неплохо [поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-coalescing-operator) из [ES2020](/js/language-versions/#es2020):
 
 ```js
 // теперь через externalValue можно передать: "", NaN, 0 , -0, 0n
