@@ -33,12 +33,16 @@ if (externalValue) {
 let value = externalValue || 0 // если externalValue не объявлен, то значение установится в 0
 ```
 
-Неявное приведение `externalValue` к логическому типу также игнорирует _определенные ложные_ зачения, возможно, вполне валидные: `""`, `NaN`, `0` , `-0`, `0n`, `false`.
-Чтобы их не терять, нужно вместо `||` использовать `??` -  новый, неплохо [поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-coalescing-operator) из [ES2020](/js/language-versions/#es2020):
+Неявное приведение `externalValue` к логическому типу также игнорирует _определенные ложные_ зачения, возможно, вполне валидные: `""`, `NaN`, `0` , `-0`, `0n`, `false`. Чтобы их не терять, нужно вместо `||` использовать `??` — новый, уже [неплохо поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-coalescing-operator) из [ES2020](/js/language-versions/#es2020):
 
 ```js
-let value = externalValue ?? 42 // ( externalValue !== null && externalValue !== undefined ) ? externalValue : 42
+let value = externalValue ?? 42
 ```
 
-Оператор `??` возвращает первый операнд (`externalValue`), если он не `null` и не `undefined`, иначе - второй (42).
-Теперь через `externalValue` можно передать `""`, `NaN`, `0` , `-0`, `0n`, `false`, в отличии от кейса с `||`.
+Что будет аналогично записи:
+
+```js
+let value = (externalValue !== null && externalValue !== undefined) ? externalValue : 42
+```
+
+Оператор `??` возвращает первый операнд (`externalValue`), если он не `null` и не `undefined`, иначе - второй (42). Теперь через `externalValue` можно передать `""`, `NaN`, `0` , `-0`, `0n`, `false`, в отличии от кейса с `||`.
