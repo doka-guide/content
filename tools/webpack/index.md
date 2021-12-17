@@ -1,5 +1,6 @@
 ---
 title: "Что такое Webpack"
+description: "Из каких частей состоит самый известный бандлер и как настроить базовый проект."
 authors:
   - igorkamyshev
 contributors:
