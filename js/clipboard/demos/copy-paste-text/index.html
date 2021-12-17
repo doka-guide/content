@@ -59,13 +59,12 @@
     }
 
     .card__btn {
-      --transition: 0.3s;
       padding: 5px 10px;
       background-color: #fff;
       border: none;
       cursor: pointer;
       font-size: 1rem;
-      transition: opacity var(--transition), color var(--transition);
+      transition: opacity 0.3s;
     }
 
     .card__btn + .card__btn {
@@ -134,7 +133,7 @@
       cardBtnCopy.disabled = !e.target.value
     })
 
-    const copy = async () => {
+    const copy = () => {
       const valueTextarea = cardTextarea.value.trim()
 
       if (valueTextarea) {
