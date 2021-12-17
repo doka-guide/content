@@ -56,6 +56,6 @@
 }
 ```
 
-<iframe title="Пример навигации" src="demos/navigation/" height="200"></iframe>
+<iframe title="Пример навигации" src="../demos/navigation/" height="200"></iframe>
 
 О значении `currentColor` читайте в статье «[Цвета в вебе](/css/web-colors/#currentcolor)»

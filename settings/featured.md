@@ -1,0 +1,15 @@
+---
+pinned:
+  - css/box-model
+  - tools/docker
+  - html/div
+  - html/doctype
+  - css/display
+  - tools/webpack
+  - js/clean-architecture
+  - html/head
+  - js/closures
+  - tools/ci-cd
+  - js/execution-order
+  - css/grid-guide
+---

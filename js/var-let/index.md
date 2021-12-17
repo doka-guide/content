@@ -1,5 +1,10 @@
 ---
 title: "`var`/`let`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Стоят две банки: прозрачная с лимонным джемом и непрозрачная с  мёдом. На заднем плане открытое окошко операционной системы с пчёлкой'
 authors:
   - doka-dog
 contributors:
