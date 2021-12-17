@@ -14,4 +14,4 @@ p::selection {
 }
 ```
 
-<iframe title="::selection в сочетании с text-shadow" src="demos/selection-with-text-shadow/" height="250"></iframe>
+<iframe title="::selection в сочетании с text-shadow" src="../demos/selection-with-text-shadow/" height="250"></iframe>
