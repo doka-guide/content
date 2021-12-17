@@ -1,5 +1,6 @@
 ---
 title: "Что такое Docker"
+description: "Какие задачи решает докер, из чего он состоит и как запустить свой первый контейнер."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
