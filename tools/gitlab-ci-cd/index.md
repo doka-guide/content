@@ -59,7 +59,7 @@ GitLab CI полностью конфигурируется с помощью о
 
 ```yaml
 default:
-	image: node:lts
+  image: node:lts
 ```
 
 ### Задаем подготовительные команды
@@ -68,10 +68,10 @@ default:
 
 ```yaml
 default:
-	image: node:lts
-	before_script:
-		- npm -v
-	  - npm install
+  image: node:lts
+  before_script:
+    - npm -v
+    - npm install
 ```
 
 ### Указываем этапы
@@ -90,29 +90,29 @@ stages:
 
 ```yaml
 default:
-	image: node:lts
-	before_script:
+  image: node:lts
+  before_script:
     - npm -v
-	  - npm ci
+    - npm ci
 
 stages:
   - Стиль кода
   - Тесты
 
 EditorConfig:
-	stage: Стиль кода
-	script:
-		- npm run editorconfig
+  stage: Стиль кода
+  script:
+    - npm run editorconfig
 
 Stylelint:
-	stage: Стиль кода
-	script:
-		- npm run stylelint
+  stage: Стиль кода
+  script:
+    - npm run stylelint
 
 Автотесты:
-	stage: Тесты
-	script:
-		- npm run test
+  stage: Тесты
+  script:
+    - npm run test
 ```
 
 А вот схематичное представление конфигурации выше:
