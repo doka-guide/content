@@ -9,12 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Проверка ссылок в исходниках
-        uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: "**/*.md"
-          markdown: true
-          linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
       - name: Проверка ссылок в собранном сайте
         uses: ruzickap/action-my-broken-link-checker@v2.2.5
         with:
