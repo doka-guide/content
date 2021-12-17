@@ -1,5 +1,6 @@
 ---
 title: "Порядок выполнения"
+description: "Последовательность, в которой JavaScript выполняет код, и какими инструкциями это можно менять."
 authors:
   - nlopin
 contributors:
