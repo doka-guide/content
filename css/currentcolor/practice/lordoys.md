@@ -21,4 +21,4 @@ svg {
 
 Попробуйте сами, очень легко!
 
-<iframe title="Пример с кнопкой" src="demos/interactive/" height="200"></iframe>
+<iframe title="Пример с кнопкой" src="../demos/interactive/" height="200"></iframe>
