@@ -150,11 +150,7 @@ history.pushState(state, title, url)
 </aside>
 
 ```js
-// вместо title подставляем null
-history.pushState(state, null, url)
-
-// изменяем заголовок вкладки браузера
-document.title = 'Some Page Title';
+document.title = title;
 ```
 
 ## `localStorage`, `sessionStorage`
