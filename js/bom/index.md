@@ -150,7 +150,7 @@ history.pushState(state, title, url)
 </aside>
 
 ```js
-document.title = title;
+document.title = 'Some Page Title';
 ```
 
 ## `localStorage`, `sessionStorage`
