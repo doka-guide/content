@@ -116,6 +116,7 @@ groups:
       - local-storage
       - alert
       - prompt
+      - performance
       - confirm
       - session-storage
       - settimeout
