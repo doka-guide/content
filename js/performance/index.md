@@ -26,14 +26,14 @@ console.log(t)
 
 Создаём именованную метку времени
 
-```jsx
+```js
 const t = performance.mark('computing start')
 console.log(t)
 ```
 
 Вычисляем время между двумя метками
 
-```jsx
+```js
 const start = performance.mark('start')
 
 const finish = performance.mark('finish')
@@ -43,7 +43,7 @@ console.log(measure)
 
 Получаем список меток и измерений
 
-```jsx
+```js
 const entries = performance.getEntries()
 
 for (let i = 0; i < entries.length; i += 1) {
@@ -56,14 +56,14 @@ for (let i = 0; i < entries.length; i += 1) {
 
 Очищаем список меток и измерений
 
-```jsx
+```js
 performance.clearMeasures()
 performance.clearMarks()
 ```
 
 Или можем очистить всё сразу
 
-```jsx
+```js
 performance.clearResourceTimings()
 ```
 
@@ -79,7 +79,7 @@ performance.clearResourceTimings()
 
 При создании меток мы можем передать первым аргументом строку - имя метки. В дальнейшем, мы можем обращаться к этому имени для поиска.
 
-```jsx
+```js
 const markName = 'start evaluate function'
 performance.mark(markName)
 
@@ -95,7 +95,7 @@ console.log(entries)
 1. Имя первой метка - не обязательный параметр, если не указать, то первой меткой будет время со старта навигации на страницу.
 1. Имя второй метка - не обязательный параметр, если не указать, то второй меткой будет вызов `performance.now()` в момент создания измерения.
 
-```jsx
+```js
 const mark_name_1 = 'mark_1'
 const mark_name_2 = 'mark_2'
 performance.mark(mark_name_1);
@@ -118,7 +118,7 @@ console.log({ m1, m2, m3 })
 
 В любом из способов мы получим массив сущностей.
 
-```jsx
+```js
 const mark = performance.mark('start')
 const measure = performance.measure('form start', 'start')
 const entries = performance.getEntries()
@@ -138,7 +138,7 @@ console.log(onlyMarks)
 1. `performance.clearMarks()` - очищаем все записанные марки.
 1. `performance.clearMeasures()` - очищаем все записанные измерения.
 
-```jsx
+```js
 const mark = performance.mark('mark')
 const measure = performance.measure('measure')
 
