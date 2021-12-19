@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Как красить каретку — Свойство caret-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      display: grid;
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      grid-row-gap: 10px;
+      background-color: #18191c;
+    }
+
+    input {
+      display: block;
+      background-color: #ebebeb;
+      padding: 5px;
+    }
+
+    .red{
+      caret-color: #cc0000;
+    }
+
+    .green{
+      caret-color: #00DD00;
+    }
+
+    .blue{
+      caret-color: #0882ff;
+    }
+
+    .yellow{
+      caret-color: #ffd600;
+    }
+
+    .blueviolet{
+      caret-color: #6e4aff;
+    }
+  </style>
+</head>
+<body>
+ <input class="red" type="text" placeholder="red caret">
+ <input class="green" type="text" placeholder="green caret">
+ <input class="blue" type="text" placeholder="blue caret">
+ <input class="yellow" type="text" placeholder="yellow caret">
+ <input class="blueviolet" type="text" placeholder="blueviolet caret">
+</body>
+</html>
