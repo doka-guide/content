@@ -16,14 +16,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: 16
       - name: Публикация поискового индекса
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_APP_INDEX: ${{ secrets.ALGOLIA_APP_INDEX }}
         run: |
-          npm install algoliasearch yaml-cat --global
-          npm link algoliasearch
+          npm install algoliasearch linkedom markdown-it yaml-cat --global
+          npm link algoliasearch linkedom markdown-it
           yaml-cat -f json **/**/index.md -o search.json
           node .github/scripts/search-index.js

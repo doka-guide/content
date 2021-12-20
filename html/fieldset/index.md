@@ -17,7 +17,7 @@ tags:
 
 ## Кратко
 
-Тег `<fieldset>` группирует элементы формы (поля ввода `<input>`, `<textarea>`, выпадающие списки `<select>` и другие) в блок с характерным выделением границ. Опционально с помощью тега [`<legend>`](/html/legend) внутри `<fieldset>` можно задать заголовок для создаваемой группы (он может быть только один и обязательно должен идти первым вложенным элементом).
+Тег `<fieldset>` группирует элементы формы (поля ввода `<input>`, `<textarea>`, выпадающие списки `<select>` и другие) в блок с характерным выделением границ. Опционально с помощью тега [`<legend>`](/html/legend/) внутри `<fieldset>` можно задать заголовок для создаваемой группы (он может быть только один и обязательно должен идти первым вложенным элементом).
 
 ## Пример
 
@@ -55,7 +55,7 @@ tags:
 <fieldset>…</fieldset>
 ```
 
-Для добавления подписи внутри `<fieldset>` следует использовать [`<legend>`](/html/legend):
+Для добавления подписи внутри `<fieldset>` следует использовать [`<legend>`](/html/legend/):
 
 ```html
 <fieldset>
@@ -68,7 +68,7 @@ tags:
 
 - `disabled` — блокирует все контролы **внутри** тега (как будто каждому из них указали этот атрибут — очень удобно);
 - `form` — связывает контролы **внутри** тега с формой (будто они располагаются внутри) — для этого в значении атрибута следует указать ID формы;
-- также для `<fieldset>` доступны все [глобальные атрибуты](/html/global-attrs).
+- также для `<fieldset>` доступны все [глобальные атрибуты](/html/global-attrs/).
 
 ## Подсказки
 
@@ -98,14 +98,6 @@ tags:
   <figure class="section__item">
     <img src="images/mac-safari-14.jpg" alt="macOS Big Sur Big Sur, Safari 14.0">
     <figcaption>macOS Big Sur Big Sur, Safari 14.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-8-ie10.png" alt="Windows 8, Internet Explorer 10.0">
-    <figcaption>Windows 8, Internet Explorer 10.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-7-ie9.png" alt="Windows 7, Internet Explorer 9.0">
-    <figcaption>Windows 7, Internet Explorer 9.0</figcaption>
   </figure>
   <figure class="section__item">
     <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">

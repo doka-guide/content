@@ -79,6 +79,7 @@ groups:
       - array-find
       - array-every
       - array-some
+      - array-reverse
       - includes
       - index-of
       - array-length
@@ -137,6 +138,7 @@ groups:
   - name: "Объект страницы `document`"
     items:
       - cookie
+      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
@@ -190,6 +192,8 @@ groups:
       - promise-catch
       - promise-finally
       - promise-all
+      - promise-allsettled
+      - promise-race
       - async-await
   - name: "Обмен данными с API"
     items:
@@ -239,4 +243,4 @@ groups:
 ---
 
 JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами.
-Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, создавать веб-приложения.
+Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html/) и [CSS](/css/) веб-страницы, создавать веб-приложения.

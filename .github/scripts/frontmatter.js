@@ -31,7 +31,7 @@ const processIndexFile = (fileName) => {
 }
 
 const rawMeta = fs.readFileSync('result.json')
-const settings = fs.readFileSync('.frontmatter.json')
+const settings = fs.readFileSync('.github/frontmatter.json')
 
 const commonMeta = JSON.parse(rawMeta)
 

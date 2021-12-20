@@ -1,6 +1,5 @@
 ---
 title: "`font-variant-caps`"
-description: ""
 authors:
   - doka-dog
 tags:

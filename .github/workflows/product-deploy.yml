@@ -1,0 +1,53 @@
+name: Product Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - "Update Dates"
+    branches:
+      - main
+    types:
+      - completed
+
+jobs:
+  product-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Загрузка platform
+        uses: actions/checkout@v2
+        with:
+          repository: doka-guide/platform
+      - name: Загрузка контента
+        uses: actions/checkout@v2
+        with:
+          path: content
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Кэширование модулей
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Установка ключа для пользователя
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
+      - name: Установка модулей
+        run: npm ci
+      - name: Сборка сайта
+        run: |
+          node make-links.js --default
+          npm run build
+      - name: Генерация карточек для социальных сетей
+        run: npx gulp socialCards
+      - name: Публикация сайта
+        run: npm run deploy

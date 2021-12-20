@@ -15,7 +15,7 @@ tags:
 
 ## Кратко
 
-Добавляет заголовок в [`<fieldset>`](/html/fieldset), который по умолчанию оформляется браузером как текст, органично вписанный в рамку.
+Добавляет заголовок в [`<fieldset>`](/html/fieldset/), который по умолчанию оформляется браузером как текст, органично вписанный в рамку.
 
 ## Пример
 
@@ -49,7 +49,7 @@ tags:
 
 ## Атрибуты
 
-У `<legend>` нет никаких своих атрибутов, ему доступны все [глобальные атрибуты](/html/global-attrs).
+У `<legend>` нет никаких своих атрибутов, ему доступны все [глобальные атрибуты](/html/global-attrs/).
 
 ## Подсказки
 
@@ -71,14 +71,6 @@ tags:
   <figure class="section__item">
     <img src="images/mac-safari-14.jpg" alt="macOS Big Sur, Safari 14.0">
     <figcaption>macOS Big Sur, Safari 14.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-8-ie10.png" alt="Windows 8, Internet Explorer 10.0">
-    <figcaption>Windows 8, Internet Explorer 10.0</figcaption>
-  </figure>
-  <figure class="section__item">
-    <img src="images/win-7-ie9.png" alt="Windows 7, Internet Explorer 9.0">
-    <figcaption>Windows 7, Internet Explorer 9.0</figcaption>
   </figure>
   <figure class="section__item">
     <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">

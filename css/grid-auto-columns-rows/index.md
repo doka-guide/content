@@ -24,7 +24,7 @@ tags:
   display: grid;
   grid-template-rows: 50px 150px;
   grid-auto-rows: 15px;
-  grid-gap: 10px;
+  gap: 10px;
 }
 
 .item {

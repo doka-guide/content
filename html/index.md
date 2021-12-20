@@ -27,6 +27,8 @@ groups:
       - u
       - pre
       - bdo
+      - bdi
+      - small
   - name: 'Семантика'
     items:
       - div
@@ -38,6 +40,7 @@ groups:
       - article
       - aside
       - nav
+      - time
       - sub
       - sup
       - del
@@ -47,10 +50,15 @@ groups:
       - output
       - strong
       - em
+      - cite
+      - var
+      - dfn
+      - screenreaders
   - name: 'Формы'
     items:
       - form
       - autocomplete
+      - novalidate
       - input
       - textarea
       - button

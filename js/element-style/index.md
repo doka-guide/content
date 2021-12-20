@@ -10,7 +10,7 @@ tags:
 
 [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут `style`.
 
-С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/CSS/Specificity) этого свойства такая же, как у атрибута `style`.
+С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/css/specificity/) этого свойства такая же, как у атрибута `style`.
 
 ## Как пишется
 
@@ -63,39 +63,39 @@ element.style.fontFamily = "Arial"
 
 | CSS | JavaScript |
 | --- | --- |
-| [background]() | background |
+| [background](/css/background/) | background |
 | [background-attachment]() | backgroundAttachment |
 | [background-color](/css/background-color/) | backgroundColor |
 | [background-image](/css/background-image/) | backgroundImage |
 | [background-position](/css/background-position/) | backgroundPosition |
 | [background-repeat](/css/background-repeat/) | backgroundRepeat |
 | [border](/css/border/) | border |
-| [border-bottom](/css/border/#как-это-понять) | borderBottom |
-| [border-bottom-color](/css/border/#как-это-понять) | borderBottomColor |
-| [border-bottom-style](/css/border/#как-это-понять) | borderBottomStyle |
-| [border-bottom-width](/css/border/#как-это-понять) | borderBottomWidth |
-| [border-color](/css/border/#border-color) | borderColor |
-| [border-left](/css/border/#как-это-понять) | borderLeft |
-| [border-left-color](/css/border/#как-это-понять) | borderLeftColor |
-| [border-left-style](/css/border/#как-это-понять) | borderLeftStyle |
-| [border-left-width](/css/border/#как-это-понять) | borderLeftWidth |
-| [border-right](/css/border/#как-это-понять) | borderRight |
-| [border-right-color](/css/border/#как-это-понять) | borderRightColor |
-| [border-right-style](/css/border/#как-это-понять) | borderRightStyle |
-| [border-right-width](/css/border/#как-это-понять) | borderRightWidth |
-| [border-style](/css/border/#border-style) | borderStyle |
-| [border-top](/css/border/#как-это-понять) | borderTop |
-| [border-top-color](/css/border/#как-это-понять) | borderTopColor |
-| [border-top-style](/css/border/#как-это-понять) | borderTopStyle |
-| [border-top-width](/css/border/#как-это-понять) | borderTopWidth |
-| [border-width](/css/border/#border-width) | borderWidth |
+| [border-bottom](/css/border/#kak-eto-ponyat) | borderBottom |
+| [border-bottom-color](/css/border/#kak-eto-ponyat) | borderBottomColor |
+| [border-bottom-style](/css/border/#kak-eto-ponyat) | borderBottomStyle |
+| [border-bottom-width](/css/border/#kak-eto-ponyat) | borderBottomWidth |
+| [border-color](/css/border-color/) | borderColor |
+| [border-left](/css/border/#kak-eto-ponyat) | borderLeft |
+| [border-left-color](/css/border/#kak-eto-ponyat) | borderLeftColor |
+| [border-left-style](/css/border/#kak-eto-ponyat) | borderLeftStyle |
+| [border-left-width](/css/border/#kak-eto-ponyat) | borderLeftWidth |
+| [border-right](/css/border/#kak-eto-ponyat) | borderRight |
+| [border-right-color](/css/border/#kak-eto-ponyat) | borderRightColor |
+| [border-right-style](/css/border/#kak-eto-ponyat) | borderRightStyle |
+| [border-right-width](/css/border/#kak-eto-ponyat) | borderRightWidth |
+| [border-style](/css/border-style/) | borderStyle |
+| [border-top](/css/border/#kak-eto-ponyat) | borderTop |
+| [border-top-color](/css/border/#kak-eto-ponyat) | borderTopColor |
+| [border-top-style](/css/border/#kak-eto-ponyat) | borderTopStyle |
+| [border-top-width](/css/border/#kak-eto-ponyat) | borderTopWidth |
+| [border-width](/css/border-width/) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |
 | [color](/css/color/) | color |
 | [cursor](/css/cursor/) | cursor |
 | [display](/css/display/) | display |
 | [filter]() | filter |
-| [float]() | cssFloat |
+| [float](/css/float/) | cssFloat |
 | [font]() | font |
 | [font-family](/css/font-family/) | fontFamily |
 | [font-size](/css/font-size/) | fontSize |
@@ -110,19 +110,19 @@ element.style.fontFamily = "Arial"
 | [list-style-position](/css/list-style-position/) | listStylePosition |
 | [list-style-type](/css/list-style-type/) | listStyleType |
 | [margin](/css/margin/) | margin |
-| [margin-bottom](/css/margin/#кратко) | marginBottom |
-| [margin-left](/css/margin/#кратко) | marginLeft |
-| [margin-right](/css/margin/#кратко) | marginRight |
-| [margin-top](/css/margin/#кратко) | marginTop |
-| [overflow]() | overflow |
+| [margin-bottom](/css/margin/#kratko) | marginBottom |
+| [margin-left](/css/margin/#kratko) | marginLeft |
+| [margin-right](/css/margin/#kratko) | marginRight |
+| [margin-top](/css/margin/#kratko) | marginTop |
+| [overflow](/css/overflow/) | overflow |
 | [padding](/css/padding/) | padding |
-| [padding-bottom](/css/padding/#кратко) | paddingBottom |
-| [padding-left](/css/padding/#кратко) | paddingLeft |
-| [padding-right](/css/padding/#кратко) | paddingRight |
-| [padding-top](/css/padding/#кратко) | paddingTop |
+| [padding-bottom](/css/padding/#kratko) | paddingBottom |
+| [padding-left](/css/padding/#kratko) | paddingLeft |
+| [padding-right](/css/padding/#kratko) | paddingRight |
+| [padding-top](/css/padding/#kratko) | paddingTop |
 | [page-break-after]() | pageBreakAfter |
 | [page-break-before]() | pageBreakBefore |
-| [position]() | position |
+| [position](/css/position/) | position |
 | [stroke-dasharray]() | strokeDasharray |
 | [stroke-dashoffset]() | strokeDashoffset |
 | [stroke-width]() | strokeWidth |

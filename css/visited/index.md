@@ -94,17 +94,17 @@ li .link:visited {
 
 Для предотвращения злодеяний браузеры приняли решение, что ограничат стили, которые будут срабатывать для псевдокласса `:visited`. Вот список доступных свойств:
 
-- [`color`](/css/color),
-- [`background-color`](/css/background-color),
-- [`border-color`](/css/border-color),
+- [`color`](/css/color/),
+- [`background-color`](/css/background-color/),
+- [`border-color`](/css/border-color/),
 - `border-bottom-color`,
 - `border-left-color`,
 - `border-right-color`,
 - `border-top-color`,
-- [`outline-color`](/css/outline-color),
+- [`outline-color`](/css/outline-color/),
 - `column-rule-color`,
-- [`fill`](/css/fill),
-- [`stroke`](/css/stroke).
+- [`fill`](/css/fill/),
+- [`stroke`](/css/stroke/).
 
 Любые другие стили будут игнорироваться. Так что не удивляйтесь, если что-то из написанного вами кода не будет работать.
 

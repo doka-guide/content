@@ -5,18 +5,28 @@
 Но это пока перспективы, а что же можно сделать сейчас? В настоящий момент добиться похожего поведения можно только для полей ввода. При этом нужно выполнить два условия:
 
 - добавить атрибут `placeholder`;
-- использовать псевдокласс [`:placeholder-shown`](/css/placeholder-shown).
+- использовать псевдокласс [`:placeholder-shown`](/css/placeholder-shown/).
 
 ```html
 <form>
   <div class="form-row">
     <label for="first-name">Имя:</label>
-    <input type="text" name="first-name" id="first-name" required placeholder="Например, Пётр">
+    <input
+      type="text"
+      name="first-name"
+      id="first-name"
+      placeholder="Например, Пётр"
+      required>
     <span class="validity-icon"></span>
   </div>
   <div class="form-row">
     <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Например, mymail@gmail.com"
+    >
     <span class="validity-icon"></span>
   </div>
   <div class="form-row">

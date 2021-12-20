@@ -16,7 +16,7 @@ tags:
 
 Псевдоклассы `:disabled` и `:enabled` помогают стилизовать интерактивные элементы — на которые можно и нельзя нажать.
 
-Легко применяются к любым элементам, которым можно задать атрибут `disabled`: [`<button>`](/html/button), `<command>`, [`<fieldset>`](/html/fieldset), `<keygen>`, [`<optgroup>`](/html/optgroup), [`<option>`](/html/option), [`<select>`](/html/select), [`<textarea>`](/html/textarea) и [`<input>`](/html/input).
+Легко применяются к любым элементам, которым можно задать атрибут `disabled`: [`<button>`](/html/button/), `<command>`, [`<fieldset>`](/html/fieldset/), `<keygen>`, [`<optgroup>`](/html/optgroup/), [`<option>`](/html/option/), [`<select>`](/html/select/), [`<textarea>`](/html/textarea/) и [`<input>`](/html/input/).
 
 ## Пример
 

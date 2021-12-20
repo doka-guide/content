@@ -1,6 +1,5 @@
 ---
 title: "`:lang`"
-description: ""
 authors:
   - almadef
 tags:
@@ -13,7 +12,7 @@ tags:
 
 ## Пример
 
-Предложениям будут присвоены стили, в зависимости от языка, который указан в атрибуте [`lang`](/html/global-attrs/#lang) тэга [`<p>`](/html/p/).
+Предложениям будут присвоены стили, в зависимости от языка, который указан в атрибуте [`lang`](/html/global-attrs/#lang) тега [`<p>`](/html/p/).
 
 ```html
 <blockquote lang="de">
@@ -75,7 +74,7 @@ p:lang(es) {
 ```html
 <p><q lang="ru">слово</q></p>
 <p><q lang="es">palabra</q></p>
-<p><q lang="de">wort</q></p>
+<p><q lang="pl">cześć</q></p>
 ```
 
 <iframe title="Кавычки" src="demos/q/" height="120"></iframe>

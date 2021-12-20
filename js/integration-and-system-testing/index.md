@@ -151,7 +151,7 @@ _End-to-end (E2E)_ тесты — помогают нам имитировать
 
 - [jsperf](https://jsperf.com)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
-- [`performance` в JS](/js/performance)
+- [`performance` в JS](https://developer.mozilla.org/ru/docs/Web/API/Performance)
 
 ## Тестирование безопасности
 

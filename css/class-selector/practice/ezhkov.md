@@ -11,12 +11,12 @@
 
 ```css
 .form-label.invalid {
-  color: red;
+  color: pink;
 }
 
 .form-input.invalid {
-  border-color: red;
-  background-color: #ff000022;
+  border-color: pink;
+  background-color: #623D45;
 }
 ```
 
@@ -33,12 +33,12 @@
 
 ```css
 .invalid .form-label {
-  color: red;
+  color: pink;
 }
 
 .invalid .form-input {
-  border-color: red;
-  background-color: #ff000022;
+  border-color: pink;
+  background-color: #623D45;
 }
 ```
 

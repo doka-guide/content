@@ -19,7 +19,7 @@ tags:
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   grid-template-rows: repeat(3, 150px);
-  grid-gap: 20px;
+  gap: 20px;
 
   justify-items: start;
 }

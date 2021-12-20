@@ -1,6 +1,5 @@
 ---
 title: "`user-select`"
-description: ""
 authors:
   - doka-dog
 tags:
