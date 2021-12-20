@@ -1,0 +1,38 @@
+name: Featured Articles
+
+on:
+  schedule:
+    - cron: '0 5 * * 5'
+
+jobs:
+  featured-articles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - name: Обработка featured-статей
+        run: |
+          npm install --global gray-matter
+          npm link gray-matter
+          node .github/scripts/featured-articles.js
+      - name: Создание коммита с обновлениями полей featured-файла
+        run: |
+          if [[ -z $(git status -s) ]]
+          then
+            echo $(git status)
+          else
+            git config user.name "Doka Dog"
+            git config user.email "<hi@doka.guide>"
+
+            git add "./settings/featured.md"
+            git commit -m "Обновляет featured-статьи" --author "Doka Dog <hi@doka.guide>"
+
+            git pull --rebase
+            git push origin main
+
+            exit
+          fi
