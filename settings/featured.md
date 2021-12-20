@@ -12,7 +12,7 @@ pinned:
   - tools/ci-cd
   - js/execution-order
   - css/grid-guide
-suggested:
-result:
+ready:
+active:
 ---
 

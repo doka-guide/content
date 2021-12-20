@@ -12,7 +12,15 @@ function shuffle(originalArray) {
   return array
 }
 
+// путь до файла с настройками
 const pathToFeaturedSettingsFile = path.join(process.cwd(), 'settings', 'featured.md')
+
+// названия полей
+const FIELD_NAMES = {
+  PINNED: 'pinned',
+  READY: 'ready',
+  ACTIVE: 'active'
+}
 
 const fileContent = fs.readFileSync(pathToFeaturedSettingsFile, {
   encoding: 'utf-8'
@@ -20,18 +28,19 @@ const fileContent = fs.readFileSync(pathToFeaturedSettingsFile, {
 
 const frontMatterInfo = frontMatter(fileContent)
 
-const { pinned, suggested } = frontMatterInfo.data
+const {
+  [FIELD_NAMES.PINNED]: pinned,
+  [FIELD_NAMES.READY]: ready
+} = frontMatterInfo.data
 
-if (!(pinned?.length && suggested?.length)) {
+if (!(pinned?.length && ready?.length)) {
   throw new Error('Необходимо указать статьи файле `featured.md`')
 }
 
-const newSuggested = shuffle(suggested)
-
-frontMatterInfo.data.result = [
+frontMatterInfo.data[FIELD_NAMES.ACTIVE] = [
   ...new Set([
     ...pinned,
-    ...newSuggested
+    ...shuffle(ready)
   ])
 ]
 
