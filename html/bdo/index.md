@@ -41,4 +41,4 @@ tags:
 </p>
 ```
 
-<iframe title="Визуальное отображение" src="demos/view" height="110"></iframe>
+<iframe title="Визуальное отображение" src="demos/view/" height="110"></iframe>

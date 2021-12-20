@@ -17,7 +17,7 @@ tags:
 
 ## Как пишется
 
-Применяем стили по наведению курсора на абзацы, вложенные в [`<header>`](/html/header), [`<main>`](/html/main) или [`<footer>`](/html/footer):
+Применяем стили по наведению курсора на абзацы, вложенные в [`<header>`](/html/header/), [`<main>`](/html/main/) или [`<footer>`](/html/footer/):
 
 ```css
 :is(header, main, footer) p:hover {

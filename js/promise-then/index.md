@@ -8,7 +8,7 @@ tags:
   - doka
 ---
 
-Эта статья связана с понятием [Promise](/js/promise)
+Эта статья связана с понятием [Promise](/js/promise/)
 
 ## Кратко
 

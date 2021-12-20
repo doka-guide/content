@@ -34,7 +34,7 @@ tags:
 
 <aside>
 
-📚 Подробнее о сертификатах безопасности можно прочитать в статье [«SSL-сертификаты»](/tools/ssl-certificates). Протоколы TLS, HTTP, HTTPS описаны в статьях [«Протокол HTTP»](/tools/http-protocol) и [«Работа с сетью»](/tools/network).
+📚 Подробнее о сертификатах безопасности можно прочитать в статье [«SSL-сертификаты»](/tools/ssl-certificates/). Протоколы TLS, HTTP, HTTPS описаны в статьях [«Протокол HTTP»](/tools/http-protocol/) и [«Работа с сетью»](/tools/network/).
 
 </aside>
 

@@ -33,17 +33,17 @@ CSS-анимации могут проигрываться без дополни
 
 Список свойств для создания CSS-анимаций:
 
-- [`animation-name`](/css/animation-name);
-- [`animation-duration`](/css/animation-duration);
-- [`animation-iteration-count`](/css/animation-iteration-count);
-- [`animation-direction`](/css/animation-direction);
-- [`animation-timing-function`](/css/animation-timing-function);
-- [`animation-delay`](/css/animation-delay);
-- [`animation-play-state`](/css/animation-play-state);
-- [`animation-fill-mode`](/css/animation-fill-mode);
-- [`animation`](/css/animation);
+- [`animation-name`](/css/animation-name/);
+- [`animation-duration`](/css/animation-duration/);
+- [`animation-iteration-count`](/css/animation-iteration-count/);
+- [`animation-direction`](/css/animation-direction/);
+- [`animation-timing-function`](/css/animation-timing-function/);
+- [`animation-delay`](/css/animation-delay/);
+- [`animation-play-state`](/css/animation-play-state/);
+- [`animation-fill-mode`](/css/animation-fill-mode/);
+- [`animation`](/css/animation/);
 
-Для создания _ключевых кадров_ используется директива [`@keyframes`](/css/keyframes).
+Для создания _ключевых кадров_ используется директива [`@keyframes`](/css/keyframes/).
 
 ## `@keyframes`
 
@@ -57,7 +57,7 @@ CSS-анимации могут проигрываться без дополни
 
 Начать создание нашей анимации нужно с разложения её на шаги — _ключевые кадры_. Наша анимация будет простая, у неё будет всего два ключевых кадра.
 
-Чтобы превратить розовый круг в синий квадрат, нам нужно будет поменять три свойства: [`width`](/css/width), [`height`](/css/height) и [`background-color`](/css/background-color).
+Чтобы превратить розовый круг в синий квадрат, нам нужно будет поменять три свойства: [`width`](/css/width/), [`height`](/css/height/) и [`background-color`](/css/background-color/).
 
 Чтобы прописать ключевые кадры, используем директиву `@keyframes`:
 

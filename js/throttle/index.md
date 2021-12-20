@@ -144,7 +144,7 @@ window.addEventListener("resize", recalculateProgress);
 
 <aside>
 
-☝️ ...А иногда такой приём ещё называют декорированием, а функции высшего порядка — [декораторами](/js/design-patterns-structural).
+☝️ ...А иногда такой приём ещё называют декорированием, а функции высшего порядка — [декораторами](/js/design-patterns-structural/).
 
 </aside>
 

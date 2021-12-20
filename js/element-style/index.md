@@ -10,7 +10,7 @@ tags:
 
 [`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут `style`.
 
-С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/CSS/Specificity) этого свойства такая же, как у атрибута `style`.
+С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/css/specificity/) этого свойства такая же, как у атрибута `style`.
 
 ## Как пишется
 
@@ -63,7 +63,7 @@ element.style.fontFamily = "Arial"
 
 | CSS | JavaScript |
 | --- | --- |
-| [background](/css/background) | background |
+| [background](/css/background/) | background |
 | [background-attachment]() | backgroundAttachment |
 | [background-color](/css/background-color/) | backgroundColor |
 | [background-image](/css/background-image/) | backgroundImage |
@@ -74,7 +74,7 @@ element.style.fontFamily = "Arial"
 | [border-bottom-color](/css/border/#kak-eto-ponyat) | borderBottomColor |
 | [border-bottom-style](/css/border/#kak-eto-ponyat) | borderBottomStyle |
 | [border-bottom-width](/css/border/#kak-eto-ponyat) | borderBottomWidth |
-| [border-color](/css/border-color) | borderColor |
+| [border-color](/css/border-color/) | borderColor |
 | [border-left](/css/border/#kak-eto-ponyat) | borderLeft |
 | [border-left-color](/css/border/#kak-eto-ponyat) | borderLeftColor |
 | [border-left-style](/css/border/#kak-eto-ponyat) | borderLeftStyle |
@@ -83,19 +83,19 @@ element.style.fontFamily = "Arial"
 | [border-right-color](/css/border/#kak-eto-ponyat) | borderRightColor |
 | [border-right-style](/css/border/#kak-eto-ponyat) | borderRightStyle |
 | [border-right-width](/css/border/#kak-eto-ponyat) | borderRightWidth |
-| [border-style](/css/border-style) | borderStyle |
+| [border-style](/css/border-style/) | borderStyle |
 | [border-top](/css/border/#kak-eto-ponyat) | borderTop |
 | [border-top-color](/css/border/#kak-eto-ponyat) | borderTopColor |
 | [border-top-style](/css/border/#kak-eto-ponyat) | borderTopStyle |
 | [border-top-width](/css/border/#kak-eto-ponyat) | borderTopWidth |
-| [border-width](/css/border-width) | borderWidth |
+| [border-width](/css/border-width/) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |
 | [color](/css/color/) | color |
 | [cursor](/css/cursor/) | cursor |
 | [display](/css/display/) | display |
 | [filter]() | filter |
-| [float](/css/float) | cssFloat |
+| [float](/css/float/) | cssFloat |
 | [font]() | font |
 | [font-family](/css/font-family/) | fontFamily |
 | [font-size](/css/font-size/) | fontSize |
@@ -114,7 +114,7 @@ element.style.fontFamily = "Arial"
 | [margin-left](/css/margin/#kratko) | marginLeft |
 | [margin-right](/css/margin/#kratko) | marginRight |
 | [margin-top](/css/margin/#kratko) | marginTop |
-| [overflow](/css/overflow) | overflow |
+| [overflow](/css/overflow/) | overflow |
 | [padding](/css/padding/) | padding |
 | [padding-bottom](/css/padding/#kratko) | paddingBottom |
 | [padding-left](/css/padding/#kratko) | paddingLeft |
@@ -122,7 +122,7 @@ element.style.fontFamily = "Arial"
 | [padding-top](/css/padding/#kratko) | paddingTop |
 | [page-break-after]() | pageBreakAfter |
 | [page-break-before]() | pageBreakBefore |
-| [position](/css/position) | position |
+| [position](/css/position/) | position |
 | [stroke-dasharray]() | strokeDasharray |
 | [stroke-dashoffset]() | strokeDashoffset |
 | [stroke-width]() | strokeWidth |

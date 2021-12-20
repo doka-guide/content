@@ -23,7 +23,7 @@ p {
 }
 ```
 
-Также `column-rule-color` — это третье значение в свойстве [`column-rule`](/css/column-rule).
+Также `column-rule-color` — это третье значение в свойстве [`column-rule`](/css/column-rule/).
 
 ## Пример
 

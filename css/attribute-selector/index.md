@@ -26,7 +26,7 @@ tags:
 </blockquote>
 ```
 
-Селектор ниже _найдёт_ все цитаты ([`<blockquote>`](/html/blockquote)) с атрибутом `cite`:
+Селектор ниже _найдёт_ все цитаты ([`<blockquote>`](/html/blockquote/)) с атрибутом `cite`:
 
 ```css
 blockquote[cite] {

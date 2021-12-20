@@ -11,9 +11,9 @@ tags:
 
 Шорткат `list-style` позволяет одновременно задать значение для следующих свойств:
 
-- [`list-style-type`](/css/list-style-type)
-- [`list-style-position`](/css/list-style-position)
-- [`list-style-image`](/css/list-style-image)
+- [`list-style-type`](/css/list-style-type/)
+- [`list-style-position`](/css/list-style-position/)
+- [`list-style-image`](/css/list-style-image/)
 
 ## Как пишется
 

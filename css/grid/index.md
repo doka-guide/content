@@ -14,12 +14,12 @@ tags:
 
 Мегашорткат, позволяющий задать значения всему и сразу. А конкретно с его помощью можно указать значения для следующих свойств:
 
-- [`grid-template-rows`](/css/grid-template-rows)
-- [`grid-template-columns`](/css/grid-template-columns)
-- [`grid-template-areas`](/css/grid-template-areas)
-- [`grid-auto-rows`](/css/grid-auto-columns-rows)
-- [`grid-auto-columns`](/css/grid-auto-columns-rows)
-- [`grid-auto-flow`](/css/grid-auto-flow)
+- [`grid-template-rows`](/css/grid-template-rows/)
+- [`grid-template-columns`](/css/grid-template-columns/)
+- [`grid-template-areas`](/css/grid-template-areas/)
+- [`grid-auto-rows`](/css/grid-auto-columns-rows/)
+- [`grid-auto-columns`](/css/grid-auto-columns-rows/)
+- [`grid-auto-flow`](/css/grid-auto-flow/)
 
 ## Пример
 
@@ -55,7 +55,7 @@ tags:
 
 ### Значение для `grid-template`
 
-Можно указать допустимые значения для шортката [`grid-template`](/css/grid-template):
+Можно указать допустимые значения для шортката [`grid-template`](/css/grid-template/):
 
 ```css
 .item {
@@ -110,7 +110,7 @@ tags:
 
 ### `dense`
 
-К ключевому слову `auto-flow` можно добавить `dense`. Оно укажет браузеру, что элементы должны стараться заполнить свободные ячейки. Подробнее про работу этого ключевого слова можно почитать в статье про [`grid-auto-flow`](/css/grid-auto-flow).
+К ключевому слову `auto-flow` можно добавить `dense`. Оно укажет браузеру, что элементы должны стараться заполнить свободные ячейки. Подробнее про работу этого ключевого слова можно почитать в статье про [`grid-auto-flow`](/css/grid-auto-flow/).
 
 Важно ставить это слово сразу после `auto-flow`:
 

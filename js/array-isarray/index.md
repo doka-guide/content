@@ -75,7 +75,7 @@ console.log(Array.isArray('array'))
 
 ### Массивоподобные объекты
 
-Метод возвращает `false` при переданных массивоподобных элементах. Например, на [`NodeList`](/js/htmlcollection-and-nodelist), [`HTMLCollection`](/js/htmlcollection-and-nodelist), [`arguments`](/js/function-arguments-object).
+Метод возвращает `false` при переданных массивоподобных элементах. Например, на [`NodeList`](/js/htmlcollection-and-nodelist/), [`HTMLCollection`](/js/htmlcollection-and-nodelist/), [`arguments`](/js/function-arguments-object/).
 
 ```js
 const nodes = document.querySelectorAll('div')

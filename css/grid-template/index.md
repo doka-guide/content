@@ -29,7 +29,7 @@ tags:
 
 Можно прописать все колонки и ряды сразу, разделяя их слэшем `/`. Сперва идут ряды, а затем колонки, не перепутайте!
 
-Используйте все доступные значения свойств [`grid-template-rows`](/css/grid-template-rows) и [`grid-template-columns`](/css/grid-template-columns), разделяя их слэшем.
+Используйте все доступные значения свойств [`grid-template-rows`](/css/grid-template-rows/) и [`grid-template-columns`](/css/grid-template-columns/), разделяя их слэшем.
 
 ## Подсказки
 

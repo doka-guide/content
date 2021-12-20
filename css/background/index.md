@@ -15,13 +15,13 @@ tags:
 
 Шорткат, позволяющий задать все свойства фона разом. Объединяет в себе:
 
-- [`background-attachment`](/css/background-attachment)
-- [`background-clip`](/css/background-clip)
-- [`background-color`](/css/background-color)
-- [`background-image`](/css/background-image)
-- [`background-position`](/css/background-position)
-- [`background-repeat`](/css/background-repeat)
-- [`background-size`](/css/background-size)
+- [`background-attachment`](/css/background-attachment/)
+- [`background-clip`](/css/background-clip/)
+- [`background-color`](/css/background-color/)
+- [`background-image`](/css/background-image/)
+- [`background-position`](/css/background-position/)
+- [`background-repeat`](/css/background-repeat/)
+- [`background-size`](/css/background-size/)
 
 ## Пример
 

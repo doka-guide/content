@@ -23,11 +23,11 @@ div {
 
 ### Названия стандартных осей
 
-- `"wght"` — [`font-weight`](/css/font-weight)
-- `"wdth"` — [`font-stretch`](/css/font-stretch)
-- `"slnt"` — [`font-style`](/css/font-style): oblique + угол наклона
-- `"ital"` — [`font-style`](/css/font-style): italic
-- `"opsz"` — [`font-optical-sizing`](/css/font-optical-sizing)
+- `"wght"` — [`font-weight`](/css/font-weight/)
+- `"wdth"` — [`font-stretch`](/css/font-stretch/)
+- `"slnt"` — [`font-style`](/css/font-style/): oblique + угол наклона
+- `"ital"` — [`font-style`](/css/font-style/): italic
+- `"opsz"` — [`font-optical-sizing`](/css/font-optical-sizing/)
 
 <aside>
 
