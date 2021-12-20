@@ -45,11 +45,11 @@ div {
 - `url` — адрес картинки, он пишется в кавычках внутри скобок: `url("cat_box.png")`.
 - `none` — сбрасывает фоновую картинку (значение по умолчанию).
 
-Границы картинки и её расположение относительно краёв элемента мы задаём с помощью [`background-clip`](/css/background-clip) и [`background-origin`](/css/background-origin).
+Границы картинки и её расположение относительно краёв элемента мы задаём с помощью [`background-clip`](/css/background-clip/) и [`background-origin`](/css/background-origin/).
 
 ### Картинка плюс цвет
 
-Элементу желательно задать одновременно и цвет фона [`background-color`](/css/background-color), и фоновую картинку. Если картинка не загрузится, то вместо неё пользователь увидит фоновый цвет.
+Элементу желательно задать одновременно и цвет фона [`background-color`](/css/background-color/), и фоновую картинку. Если картинка не загрузится, то вместо неё пользователь увидит фоновый цвет.
 
 ```css
 body {
@@ -86,7 +86,7 @@ div {
 }
 ```
 
-Подробнее о градиентах можно прочитать в статьях о [`linear-gradient`](/css/line-height), [`radial-gradient`](/css/radial-gradient) и [`conic-gradient()`](/css/conic-gradient).
+Подробнее о градиентах можно прочитать в статьях о [`linear-gradient`](/css/line-height/), [`radial-gradient`](/css/radial-gradient/) и [`conic-gradient()`](/css/conic-gradient/).
 
 ## Подсказки
 

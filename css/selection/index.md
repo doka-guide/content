@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-[Псевдоэлемент](/css/pseudoelements) `::selection` позволяет применить стили к пользовательскому выделению (например, к выделенному с помощью мыши тексту).
+[Псевдоэлемент](/css/pseudoelements/) `::selection` позволяет применить стили к пользовательскому выделению (например, к выделенному с помощью мыши тексту).
 
 <aside>
 ⚠️ Этот псевдоэлемент не поддерживается в Safari на iOS.
@@ -27,7 +27,7 @@ tags:
 
 После любого селектора дважды ставим двоеточие и пишем ключевое слово `selection`. Обратите внимание, что этому псевдоэлементу двойное двоеточие необходимо в отличие от других, которые принимают одно двоеточие.
 
-Для Mozilla Firefox необходимо использовать [вендорный префикс](/css/vendor-prefixes):
+Для Mozilla Firefox необходимо использовать [вендорный префикс](/css/vendor-prefixes/):
 
 ```css
 ::-moz-selection {
@@ -47,14 +47,14 @@ tags:
 
 Список свойств, которые можно изменять с помощью `::selection`, ограничен:
 
-- [`color`](/css/color);
-- [`background-color`](/css/background-color);
-- [`cursor`](/css/cursor);
+- [`color`](/css/color/);
+- [`background-color`](/css/background-color/);
+- [`cursor`](/css/cursor/);
 - `caret-color`;
-- шорткат [`outline`](/css/outline) и отдельные свойства обводки;
-- шорткат [`text-decoration`](/css/text-decoration) и отдельные свойства оформления текста;
+- шорткат [`outline`](/css/outline/) и отдельные свойства обводки;
+- шорткат [`text-decoration`](/css/text-decoration/) и отдельные свойства оформления текста;
 - `text-emphasis-color`;
-- [`text-shadow`](/css/text-shadow).
+- [`text-shadow`](/css/text-shadow/).
 
 Все прочие CSS-свойства, написанные внутри правила, будут проигнорированы.
 

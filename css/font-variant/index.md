@@ -11,11 +11,11 @@ tags:
 
 Шорткат `font-variant` даёт возможность задать значения для следующих свойств:
 
-- [`font-variant-alternates`](/css/font-variant-alternates)
-- [`font-variant-caps`](/css/font-variant-caps)
-- [`font-variant-east-asian`](/css/font-variant-east-asian)
-- [`font-variant-ligatures`](/css/font-variant-ligatures)
-- [`font-variant-numeric`](/css/font-variant-numeric)
+- [`font-variant-alternates`](/css/font-variant-alternates/)
+- [`font-variant-caps`](/css/font-variant-caps/)
+- [`font-variant-east-asian`](/css/font-variant-east-asian/)
+- [`font-variant-ligatures`](/css/font-variant-ligatures/)
+- [`font-variant-numeric`](/css/font-variant-numeric/)
 
 ## Как пишется
 
