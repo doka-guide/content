@@ -7,7 +7,6 @@ editors:
   - tachisis
 tags:
   - article
-  - featured
 ---
 
 ## Кратко
