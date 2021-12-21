@@ -29,8 +29,8 @@ const getEntitiesFromContent = (text) => {
     .filter(element => element.tagName.toLowerCase() !== 'pre')
     .map(element => {
       element.innerHTML = element.innerHTML
-        .replace('<code>', '`')
-        .replace('</code>', '`')
+        .replaceAll('<code>', '`')
+        .replaceAll('</code>', '`')
       return escape(element.textContent)
     })
 
