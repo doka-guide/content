@@ -117,7 +117,7 @@ console.log({ m1, m2, m3 })
 Мы можем получать наши измерения и метки тремя разными способами:
 
 1. `performance.getEntries()` - получаем список всех меток и измерений, включая записываемые браузером.
-1. `performance.getEntriesByType(entryType)` - возвращает список из сущностей заданного типа, например, “mark” или “measure”.
+1. `performance.getEntriesByType(entryType)` - возвращает список из сущностей заданного типа, например, _mark_ или _measure_.
 1. `performance.getEntriesByName(entryName)` - возвращает список из сущностей с указанными именем.
 
 Любой из способов вернёт массив сущностей.
