@@ -18,6 +18,7 @@ groups:
       - use-strict
   - name: "Продвинутый синтаксис"
     items:
+      - ternary-operator
       - spread
       - for-in
       - shallow-or-deep-clone
