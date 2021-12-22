@@ -130,7 +130,7 @@ const result = numbers.find(function isElementEquals2(element) {
 console.log(result);
 ```
 
-Функции [`filter`](/js/array-filter) и `find` похожи. Главное отличие `find` от `filter` в том, что `find` возвращает первый подходящий элемент, а `filter` вернёт массив со всеми подходящими элементами.
+Функции [`filter`](/js/array-filter/) и `find` похожи. Главное отличие `find` от `filter` в том, что `find` возвращает первый подходящий элемент, а `filter` вернёт массив со всеми подходящими элементами.
 
 Вариант реализации через `filter`:
 

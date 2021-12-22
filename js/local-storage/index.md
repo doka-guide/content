@@ -2,6 +2,8 @@
 title: "`localStorage`"
 authors:
   - akellbl4
+contributors:
+  - skorobaeus
 keywords:
   - localstorage
   - webstorage

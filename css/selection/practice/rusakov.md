@@ -1,4 +1,4 @@
-🛠 Используя `::selection` и [`text-shadow`](/css/text-shadow), можно достичь интересного эффекта, задав тексту несколько теней.
+🛠 Используя `::selection` и [`text-shadow`](/css/text-shadow/), можно достичь интересного эффекта, задав тексту несколько теней.
 
 ```css
 p::selection {
@@ -14,4 +14,4 @@ p::selection {
 }
 ```
 
-<iframe title="::selection в сочетании с text-shadow" src="demos/selection-with-text-shadow/" height="250"></iframe>
+<iframe title="::selection в сочетании с text-shadow" src="../demos/selection-with-text-shadow/" height="250"></iframe>
