@@ -16,9 +16,9 @@ location: "/about/"
 В редакцию входят:
 
 - **<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->** — главный редактор проекта.
-- **<!-- yaspeller ignore:start -->Алёна Батицкая<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html) и [CSS](/css).
-- **<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js) и [Инструменты](/tools).
-- **<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js) и [Инструменты](/tools).
+- **<!-- yaspeller ignore:start -->Алёна Батицкая<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/).
+- **<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Инструменты](/tools/).
+- **<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js/) и [Инструменты](/tools/).
 - **<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->** — литературный редактор.
 
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.

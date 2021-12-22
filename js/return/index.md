@@ -55,7 +55,7 @@ function isInteger(value) {
 
 ### Пример
 
-<iframe title="Название — return — Дока" src="demos/vindi-r-jJdQqz" heigh="100"></iframe>
+<iframe title="Название — return — Дока" src="demos/vindi-r-jJdQqz/" heigh="100"></iframe>
 
 __Для возврата значения используется директива `return`__
 

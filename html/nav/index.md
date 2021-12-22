@@ -47,7 +47,7 @@ tags:
 
 ## Атрибуты
 
-У `<nav>` нет уникальных атрибутов, применяются все [глобальные атрибуты](/html/global-attrs).
+У `<nav>` нет уникальных атрибутов, применяются все [глобальные атрибуты](/html/global-attrs/).
 
 ## Подсказки
 
@@ -99,4 +99,4 @@ nav {
 }
 ```
 
-<iframe title="Хлебные крошки" src="demos/breadcrumbs/bikes/bmx/jump-bike-3000" height="280"></iframe>
+<iframe title="Хлебные крошки" src="demos/breadcrumbs/bikes/bmx/jump-bike-3000/" height="280"></iframe>

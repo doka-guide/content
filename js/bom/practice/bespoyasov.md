@@ -53,8 +53,7 @@ const path = location.pathname
 Чтобы изменить адрес без перезагрузки страницы, используйте `history.pushState`:
 
 ```js
-const someData = {}
-history.pushState(someData, null, "/new/page/url")
+history.pushState(null, null, "/new/page/url")
 ```
 
 Для передачи данных, ассоциированных с переходом, используйте первый аргумент в `history.pushState`, а для указания нового заголовка страницы — второй:
@@ -63,6 +62,12 @@ history.pushState(someData, null, "/new/page/url")
 const transitionData = { userName: "Alex" }
 const newPageTitle = "Hello world!"
 history.pushState(transitionData, newPageTitle, "/new/page/url")
+```
+
+Если заголовок не изменился (из-за плохой поддержки браузерами) - используйте `document.title`.
+
+```js
+document.title = 'Hello world!';
 ```
 
 ### `localStorage`
