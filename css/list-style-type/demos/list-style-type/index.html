@@ -16,21 +16,18 @@
 
     body {
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
+      padding: 50px;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     .wrapper {
+      width: 100%;
       max-width: 960px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding-top: 50px;
     }
 
     code {
@@ -68,6 +65,16 @@
 
     .list__item_active {
       font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      body, .header code {
+        padding: 30px;
+      }
+
+      .header code {
+        white-space: normal;
+      }
     }
   </style>
 </head>

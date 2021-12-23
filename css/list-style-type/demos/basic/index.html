@@ -24,6 +24,10 @@
       font-family: "Roboto", sans-serif;
     }
 
+    .container {
+      display: flex;
+    }
+
     ol,
     ul {
       font-size: 24px;
@@ -41,21 +45,38 @@
     li + li {
       margin-top: 15px;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      ul {
+        margin-left: 0;
+        margin-top: 50px;
+      }
+    }
   </style>
 </head>
 <body>
-  <ol>
-    <li>Доктор Дум</li>
-    <li>Существо</li>
-    <li>Сью Сторм</li>
-    <li>Человек-факел</li>
-  </ol>
+  <div class="container">
+    <ol>
+      <li>Доктор Дум</li>
+      <li>Существо</li>
+      <li>Сью Сторм</li>
+      <li>Человек-факел</li>
+    </ol>
 
-  <ul>
-    <li>Хлеб</li>
-    <li>Яйца</li>
-    <li>Молоко</li>
-    <li>Масло</li>
-  </ul>
+    <ul>
+      <li>Хлеб</li>
+      <li>Яйца</li>
+      <li>Молоко</li>
+      <li>Масло</li>
+    </ul>
+  </div>
 </body>
 </html>
