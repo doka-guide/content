@@ -66,10 +66,10 @@ tags:
 
 ```html
 <figure>
-  <img  src="sapsan-train.jpg" alt="Поезд «Сапсан»">
+  <img  src="/favicon144.png" alt="Красивое лого">
   <figcaption>
-    <p>Сапсан</p>
-    <p>Фото: Reuters</p>
+    <p>Новый красивый логотип</p>
+    <p>Автор: Дока Дог</p>
   </figcaption>
 </figure>
 
