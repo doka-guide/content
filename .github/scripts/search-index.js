@@ -73,7 +73,7 @@ for (const fileName in commonSearch) {
     const object = {
       objectID: fileName.replace('index.md', ''),
       title: escape(commonSearch[fileName].title || ''),
-      keywords: commonSearch[fileName].summary,
+      keywords: commonSearch[fileName].keywords,
       tags: commonSearch[fileName].tags,
       category: fileName.replace(/\/.+/g, ''),
       content: contentEntities,
