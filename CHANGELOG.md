@@ -4,6 +4,7 @@
 
 ## Декабрь 2021
 
+- 24 декабря [GitLab CI/CD](https://doka.guide/tools/gitlab-ci-cd/), Виталий Баев
 - 23 декабря [Переменные `const`, `let` и `var`](https://doka.guide/js/var-let/), Сергей Фомин
 - 22 декабря [Тернарный оператор](https://doka.guide/js/ternary-operator/), Илья Космачев
 - 18 декабря [`<code>`](https://doka.guide/html/code/), Иван Ельцов
