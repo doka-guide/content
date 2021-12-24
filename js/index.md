@@ -77,6 +77,7 @@ groups:
       - array-reduce
       - array-filter
       - array-find
+      - array-find-index
       - array-every
       - array-some
       - array-reverse
