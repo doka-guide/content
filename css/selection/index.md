@@ -27,7 +27,7 @@ tags:
 
 После любого селектора дважды ставим двоеточие и пишем ключевое слово `selection`. Обратите внимание, что этому псевдоэлементу двойное двоеточие необходимо в отличие от других, которые принимают одно двоеточие.
 
-Для Mozilla Firefox необходимо использовать [вендорный префикс](/css/vendor-prefixes/):
+Для Mozilla Firefox версии 61 и ниже необходимо использовать [вендорный префикс](/css/vendor-prefixes/):
 
 ```css
 ::-moz-selection {
@@ -49,12 +49,10 @@ tags:
 
 - [`color`](/css/color/);
 - [`background-color`](/css/background-color/);
-- [`cursor`](/css/cursor/);
-- `caret-color`;
-- шорткат [`outline`](/css/outline/) и отдельные свойства обводки;
 - шорткат [`text-decoration`](/css/text-decoration/) и отдельные свойства оформления текста;
 - `text-emphasis-color`;
-- [`text-shadow`](/css/text-shadow/).
+- [`text-shadow`](/css/text-shadow/);
+- `stroke-color`, `fill-color` и `stroke-width` для SVG.
 
 Все прочие CSS-свойства, написанные внутри правила, будут проигнорированы.
 
