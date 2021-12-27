@@ -46,6 +46,18 @@ tags:
 </figure>
 ```
 
+Подпись может быть с уточнением:
+
+```html
+<figure>
+  <img  src="/favicon144.png" alt="Красивое лого">
+  <figcaption>
+    <p>Новый красивый логотип</p>
+    <p>Автор: Дока Дог</p>
+  </figcaption>
+</figure>
+```
+
 Фрагменты кода:
 
 ```html
