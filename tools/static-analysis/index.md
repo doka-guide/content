@@ -1,5 +1,5 @@
 ---
-title: "Статический анализ — как делать меньше ошибок"
+title: "Статический анализ кода"
 authors:
   - igorkamyshev
 contributors:
@@ -19,7 +19,7 @@ keywords:
 
 ## Как пользоваться
 
-Чтобы воспользоваться ESLint, нужно установить его через [менеджер зависимостей](/tools/package-managers) в папке проекта:
+Чтобы воспользоваться ESLint, нужно установить его через [менеджер зависимостей](/tools/package-managers/) в папке проекта:
 
 ```bash
 npm install --save-dev eslint

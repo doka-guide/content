@@ -40,6 +40,7 @@ groups:
       - article
       - aside
       - nav
+      - time
       - sub
       - sup
       - del
@@ -51,6 +52,8 @@ groups:
       - em
       - cite
       - var
+      - dfn
+      - screenreaders
   - name: 'Формы'
     items:
       - form

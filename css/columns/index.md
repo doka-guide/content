@@ -9,7 +9,7 @@ tags:
 
 ## Кратко
 
-Шорткат `columns` даёт возможность указать значения для свойств [`column-count`](/css/column-count) и [`column-width`](/css/column-width) одновременно, задав количество и ширину колонок.
+Шорткат `columns` даёт возможность указать значения для свойств [`column-count`](/css/column-count/) и [`column-width`](/css/column-width/) одновременно, задав количество и ширину колонок.
 
 ## Как пишется
 
