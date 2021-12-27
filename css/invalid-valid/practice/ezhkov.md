@@ -50,4 +50,4 @@ input:valid:placeholder-shown + .validity-icon::before {
 }
 ```
 
-<iframe title="Валидация формы" src="../demos/form-validation/" height="300"></iframe>
+<iframe title="Валидация формы" src="../demos/form-validation/" height="310"></iframe>
