@@ -2,8 +2,31 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2021
+
+- 24 декабря [GitLab CI/CD](https://doka.guide/tools/gitlab-ci-cd/), Виталий Баев
+- 23 декабря [Переменные `const`, `let` и `var`](https://doka.guide/js/var-let/), Сергей Фомин
+- 22 декабря [Тернарный оператор](https://doka.guide/js/ternary-operator/), Илья Космачев
+- 18 декабря [`<code>`](https://doka.guide/html/code/), Иван Ельцов
+- 14 декабря [`<time>`](https://doka.guide/html/time/), Вячеслав Разум
+- 14 декабря [Подход «Pixel Perfect»](https://doka.guide/css/pixel-perfect/), Иван Ельцов
+- 14 декабря [`::selection`](https://doka.guide/css/selection/), Денис Русаков
+- 7 декабря [Подключение стилей](https://doka.guide/css/adding-styles/), Никита Канищев
+- 7 декабря [`clip`](https://doka.guide/css/clip/), Максим Печёрин
+- 1 декабря [`Promise.race()`](https://doka.guide/js/promise-race/), Рома Агарков
+
 ## Ноябрь 2021
 
+- 30 ноября [`<mark>`](https://doka.guide/html/mark/), Иван Ельцов
+- 30 ноября [`<u>`](https://doka.guide/html/u/), Иван Ельцов
+- 24 ноября [Свойство `forms`](https://doka.guide/js/forms/), Владислав Чичужко
+- 23 ноября [`filter`](https://doka.guide/css/filter/), Лена Райан
+- 18 ноября [Скринридеры](https://doka.guide/html/screenreaders/), Татьяна Фокина
+- 15 ноября [`conic-gradient()`](https://doka.guide/css/conic-gradient/), Олег Миторун
+- 15 ноября [`<ins>`](https://doka.guide/html/ins/), Иван Ельцов
+- 15 ноября [`<del>`](https://doka.guide/html/del/), Иван Ельцов
+- 15 ноября [`<dfn>`](https://doka.guide/html/dfn/), Иван Ельцов
+- 14 ноября [Markdown](https://doka.guide/tools/markdown/), Сергей Минаков
 - 11 ноября: [`<bdi>`](https://doka.guide/html/bdi/), Иван Ельцов
 - 8 ноября: [`<cite>`](https://doka.guide/html/cite/), Иван Ельцов
 - 7 ноября: [`Promise.allSettled`](https://doka.guide/js/promise-allsettled/), Вадим Стебаков

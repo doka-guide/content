@@ -68,12 +68,12 @@ if (isRegistered === true && orders > 1) {
 if (hasTicket || isInvited) { ... }
 ```
 
-<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-VJjboW" height="300"></iframe>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-VJjboW/" height="300"></iframe>
 
 <div class="article__table article__table_all-third">
 
-| `       |        |       ` | `true` | `false` |
-| ------- | -----: | ------: | ------ | ------- |
+| `\|\|`  | `true` | `false` |
+| ------- | -----: | ------: |
 | `true`  | `true` |  `true` |
 | `false` | `true` | `false` |
 

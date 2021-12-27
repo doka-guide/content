@@ -13,6 +13,7 @@ groups:
       - markdown
       - ci-cd
       - github-actions
+      - gitlab-ci-cd
   - name: На стороне сервера
     items:
       - microservices
