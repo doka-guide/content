@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример каскада — currentColor — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      color: red;
+      padding: 5px 10px;
+      border-radius: 3px;
+      border: 1px solid currentColor;
+      box-shadow: 0 0 10px currentColor;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <p>Очень интересный текст</p>
+</body>
+</html>
