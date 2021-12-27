@@ -25,14 +25,10 @@ const getEntitiesFromContent = (text) => {
   const { document } = parseHTML(html)
 
   const output = Array.from(document.children)
-    // на данный момент игнорируем поиск по коду
-    .filter(element => element.tagName.toLowerCase() !== 'pre')
     .map(element => {
-      element.innerHTML = element.innerHTML
-        .replaceAll('<code>', '`')
-        .replaceAll('</code>', '`')
       return escape(element.textContent)
     })
+    .filter(Boolean)
 
   return output
 }
@@ -67,7 +63,12 @@ for (const fileName in commonSearch) {
 
     const description = commonSearch[fileName].description
     if (description) {
-      contentEntities.unshift(escape(description))
+      const descriptionHTML = md.render(description)
+      const { document } = parseHTML(descriptionHTML)
+      const descriptionText = Array.from(document.children)
+        .map(element => element.textContent)
+        .join('')
+      contentEntities.unshift(escape(descriptionText))
     }
 
     const object = {
