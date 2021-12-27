@@ -51,7 +51,7 @@ eventGuests.findIndex(isMyFriend);
 
 ## Интерактивный пример
 
-<iframe title="Работа метода findIndex — [].findIndex — Дока" src="demos/index" height="790"></iframe>
+<iframe title="Работа метода findIndex" src="demos/index" height="790"></iframe>
 
 ## Как пишется
 Метод `findIndex` пробегается по массиву и возвращает индекс первого элемента, который подходит под условие функции-предиката. Если так получилось, что ничего не подошло, то он возвращает `-1`.
