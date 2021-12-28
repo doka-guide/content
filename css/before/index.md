@@ -1,5 +1,10 @@
 ---
 title: "`::before`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Рука подставляет сердечки на место маркеров в список «Причины, почему я люблю Доку»'
 authors:
   - ezhkov
 contributors:
