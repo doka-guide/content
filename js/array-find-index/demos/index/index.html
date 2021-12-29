@@ -153,9 +153,9 @@
     <div class="header-container">
       <h2 class="subtitle">Наш код</h2>
       <pre><code>
-const names = ["Даня", "Саша", "Юля", "Лиза", "Егор", "Лиза"]<br>
+const names = ['Даня', 'Саша', 'Юля', 'Лиза', 'Егор', 'Лиза']<br>
 function isLisa(element) {
-  return element === "Лиза"
+  return element === 'Лиза'
 }
 </code></pre>
     </div>
@@ -175,8 +175,8 @@ function isLisa(element) {
 
   <script>
     const SECOND = 1000
-    const names = ["Даня", "Саша", "Юля", "Лиза", "Егор", "Лиза"]
-    const searchItem = "Лиза"
+    const names = ['Даня', 'Саша', 'Юля', 'Лиза', 'Егор', 'Лиза']
+    const searchItem = 'Лиза'
 
     const container = document.getElementById('container')
     const execute = document.getElementById('execute')
@@ -189,7 +189,7 @@ function isLisa(element) {
       itemElement.classList.add('item')
 
       if (index !== undefined) {
-        itemElement.setAttribute("index", index)
+        itemElement.setAttribute('index', index)
       }
 
       itemElement.textContent = content
@@ -221,7 +221,7 @@ function isLisa(element) {
           const item = document.getElementById(index)
           item.classList.add('active')
 
-          execute.textContent = `"${name}" === "Лиза"`
+          execute.textContent = `'${name}' === 'Лиза'`
 
           if (name === searchItem) {
             result.appendChild(createItem(index))
