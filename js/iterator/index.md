@@ -1,5 +1,6 @@
 ---
 title: "Итератор"
+description: "Итераторы перебирают элементы коллекций по одному за раз, отслеживая своё положение"
 authors:
   - kanishev
 keywords:
@@ -26,27 +27,29 @@ tags:
 
 ```js
 function makeIterator(array) {
-  let nextIndex = 0;
+  let nextIndex = 0
 
   return {
     next: function () {
-      if (nextIndex < array.lenght) {
-        return { value: array[nextIndex++], done: false };
+      if (nextIndex < array.length) {
+        const result = { value: array[nextIndex], done: false }
+        nextIndex++
+        return result
       } else {
-        return { done: true };
+        return { done: true }
       }
-    },
-  };
+    }
+  }
 }
 ```
 
 После создания, объект-итератор может быть явно использован, с помощью вызовов метода `next()`:
 
 ```js
-let iterator = makeIterator(["Hello", "world"]);
-console.log(iterator.next().value); // 'Hello'
-console.log(iterator.next().value); // 'world'
-console.log(iterator.next().done); // true
+let iterator = makeIterator(["Hello", "world"])
+console.log(iterator.next().value) // 'Hello'
+console.log(iterator.next().value) // 'world'
+console.log(iterator.next().done) // true
 ```
 
 Как только метод `next()` завершает перебор, то возвращается `{ done: true }`. Это является сигналом, что итерирование завершено.
@@ -60,13 +63,13 @@ console.log(iterator.next().done); // true
 
 ```js
 for (let value of ["a", "b", "c"]) {
-  console.log(value); // a, b, c
+  console.log(value) // a, b, c
 }
 ```
 
 <aside>
 
-⚠️ Чтобы быть итерируемым, объект должен реализовать метод _@@iterator_.
+⚠️ Чтобы быть итерируемым, объект должен реализовать метод [_@@iterator_](https://tc39.es/ecma262/#sec-iteration).
 Это означает, что он (или один из объектов в цепочке прототипов) должен иметь свойство `Symbol.iterator`
 
 </aside>
@@ -77,30 +80,35 @@ for (let value of ["a", "b", "c"]) {
 let range = {
   from: 1,
   to: 3,
-};
+}
 ```
 
 Чтобы сделать такой объект итерируемым (и позволить `for..of` работать с ним), в нем нужно определить `Symbol.iterator`:
 
 ```js
 range[Symbol.iterator] = function () {
+  let start = this.from
+  let end = this.to
+
   return {
     next() {
-      if (this.from <= this.to) {
-        return { done: false, value: this.from++ };
+      if (start <= end) {
+        const result = { done: false, value: start }
+        start++
+        return result
       } else {
-        return { done: true };
+        return { done: true }
       }
-    },
-  };
-};
+    }
+  }
+}
 ```
 
 Убедимся, что объект _range_ действительно итерируется:
 
 ```js
 for (let x of range) {
-  console.log(x); // 1, 2, 3
+  console.log(x) // 1, 2, 3
 }
 ```
 
@@ -108,37 +116,37 @@ for (let x of range) {
 
 В некоторых случаях интерфейс итератора вызывается по умолчанию. Такие объекты как _String_, _Array_, _Map_ и _Set_ являются итерируемыми, потому что их прототипы содержат _Symbol.iterator_.
 
-Помимо цикла _for-of_, итераторы используют:
+## Где еще встречается итератор
 
-**Деструктуризация**.
+### Деструктуризация.
 
 При деструктуризации итератор используется для доступа к элементам коллекции:
 
 ```js
-const [a, b] = new Set(["a", "b", "c"]);
+const [a, b] = new Set(["a", "b", "c"])
 // a
 // b
 ```
 
-**Array.from()**
+### Array.from().
 
 [`Array.from()`](/js/array-from) позволяет конвертировать итерируемый объект в Array:
 
 ```js
-const arr = Array.from(new Set(["a", "b", "c"]));
+const arr = Array.from(new Set(["a", "b", "c"]))
 // ['a', 'b', 'c']
 ```
 
-**Spread оператор**.
+### Spread оператор.
 
 Оператор распространения также вызывает интерфейс итератора по умолчанию:
 
 ```js
-const arr = [...new Set(["a", "b", "c"])];
+const arr = [...new Set(["a", "b", "c"])]
 // ['a', 'b', 'c']
 ```
 
-**Map, Set**.
+### Map, Set.
 
 Конструкторы Map и Set преобразуют итерируемые значения в соответственно Map и Set:
 
@@ -146,11 +154,11 @@ const arr = [...new Set(["a", "b", "c"])];
 const map = new Map([
   ["uno", "one"],
   ["dos", "two"],
-]);
-map.get("uno"); // one
-map.get("dos"); // two
+])
+map.get("uno") // one
+map.get("dos") // two
 
-const set = new Set(["red", "green", "blue"]);
-set.has("red"); // true
-set.has("yellow"); // false
+const set = new Set(["red", "green", "blue"])
+set.has("red") // true
+set.has("yellow") // false
 ```
