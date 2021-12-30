@@ -19,7 +19,8 @@
       font-family: "Roboto", sans-serif;
       font-size: 18px;
       font-weight: 400;
-      color: #333333;
+      background-color: #18191c;
+      color: #FFFFFF;
     }
 
     .result {
@@ -93,8 +94,8 @@
           performance.measure('secondFunction', markC, markD)
 
           loader.classList.add('hidden')
-          firstFunctionMeasure.innerText = performance.getEntriesByName('firstFunction')[0].duration
-          secondFunctionMeasure.innerText = performance.getEntriesByName('secondFunction')[0].duration
+          firstFunctionMeasure.innerText = `${performance.getEntriesByName('firstFunction')[0].duration} миллисекунд`
+          secondFunctionMeasure.innerText = `${performance.getEntriesByName('secondFunction')[0].duration} миллисекунд`
           resultContainer.classList.remove('hidden')
         })
       })
