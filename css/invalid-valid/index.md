@@ -4,6 +4,7 @@ authors:
   - ezhkov
 contributors:
   - vchychuzhko
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -76,7 +77,7 @@ input:valid + .validity-icon::before {
 
 Чтобы показать что поле ввода заполнено корректно к нему можно применить особые стили используя псевдокласс `:valid`. Аналогично, для некорректно заполненного поля мы можем применить особые стили используя псевдокласс `:invalid`.
 
-<iframe title="Стилизация элементов формы" src="demos/form-inputs/" height="410"></iframe>
+<iframe title="Стилизация элементов формы" src="demos/form-inputs/" height="390"></iframe>
 
 В примере выше можно увидеть пару моментов:
 
@@ -87,7 +88,7 @@ input:valid + .validity-icon::before {
 
 Также указанные псевдоклассы применяются и к самой форме, в которой находится инпут.
 
-<iframe title="Стилизация формы при помощи псевдоклассов :invalid и :valid" src="demos/form-invalid/" height="470"></iframe>
+<iframe title="Стилизация формы при помощи псевдоклассов :invalid и :valid" src="demos/form-invalid/" height="540"></iframe>
 
 В примере выше можно увидеть, что при наличии филдсета к нему также будет применён соответствующий псевдокласс.
 
