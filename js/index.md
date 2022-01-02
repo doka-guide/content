@@ -85,6 +85,7 @@ groups:
       - array-length
       - array-from
       - array-isarray
+      - array-flat
   - name : "Множество Set"
     items:
       - set
