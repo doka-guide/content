@@ -4,7 +4,8 @@
   <title>Пример со свойством content — list-style-type — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     *, *::before, *::after {
@@ -33,6 +34,7 @@
 
     li {
       position: relative;
+      padding-left: 50px;
     }
 
     li + li {
@@ -43,11 +45,17 @@
       /* не забываем о свойстве content */
       content: "";
       position: absolute;
-      left: -50px;
+      left: 0;
       top: 7px;
       width: 15px;
       height: 15px;
       background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

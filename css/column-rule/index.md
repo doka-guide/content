@@ -14,9 +14,9 @@ tags:
 
 Свойство `column-rule` является шорткатом для свойств:
 
-- [`column-rule-width`](/css/column-rule-width)
-- [`column-rule-style`](/css/column-rule-style)
-- [`column-rule-color`](/css/column-rule-color)
+- [`column-rule-width`](/css/column-rule-width/)
+- [`column-rule-style`](/css/column-rule-style/)
+- [`column-rule-color`](/css/column-rule-color/)
 
 Можно писать значения в любом порядке, разделяя пробелами, браузер сам поймёт, что мы от него хотим. Но общепринятым форматом является вид «ширина → стиль → цвет»‎: `column-rule-width` → `column-rule-style` → `column-rule-color`. Можно не указывать ширину и цвет, но стиль линии указывается обязательно – у `column-rule-style` нет значения по умолчанию и браузер не поймёт, какую линию нужно нарисовать.
 
@@ -30,7 +30,7 @@ p {
 }
 ```
 
-Прослеживается сходство со свойством [`border`](/css/border). Действительно, межколоночная линия описывается так же, как и рамка.
+Прослеживается сходство со свойством [`border`](/css/border/). Действительно, межколоночная линия описывается так же, как и рамка.
 
 ## Пример
 

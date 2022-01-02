@@ -24,7 +24,7 @@ tags:
 
 ## Как пишется
 
-Пишутся два доступных значения для свойств [`align-items`](/css/align-items) и [`justify-items`](/css/justify-items), разделённые слэшем.
+Пишутся два доступных значения для свойств [`align-items`](/css/align-items/) и [`justify-items`](/css/justify-items/), разделённые слэшем.
 
 ## Подсказки
 

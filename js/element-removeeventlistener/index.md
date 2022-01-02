@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-Удаляет обработчик события с элемента, установленный с помощью [`Element.addEventListener`](/js/element-addeventlistener).
+Удаляет обработчик события с элемента, установленный с помощью [`Element.addEventListener`](/js/element-addeventlistener/).
 
 ## Как пишется
 
@@ -84,7 +84,7 @@ window.removeEventListener('click', handleMouseClick)
 
 Будет ли на самом деле удалён обработчик события зависит от того, какую функцию и какие опции передали вторым и третьим аргументами в `Element.removeEventListener`.
 
-Функции относятся к [ссылочным типам данных](/js/ref-type-vs-value-type), а значит две одинаково написанные функции будут считаться различными. Поэтому, если ранее в `Element.addEventListener` использовалась анонимная функция, то убрать обработчик с помощью `Element.removeEventListener` не получится.
+Функции относятся к [ссылочным типам данных](/js/ref-type-vs-value-type/), а значит две одинаково написанные функции будут считаться различными. Поэтому, если ранее в `Element.addEventListener` использовалась анонимная функция, то убрать обработчик с помощью `Element.removeEventListener` не получится.
 
 ```js
 window.addEventListener('click', (event) => {
