@@ -4,6 +4,8 @@
 
 ## Декабрь 2021
 
+- 29 декабря [`scroll-padding`](https://doka.guide/css/scroll-padding/), Алексей Орлов
+- 27 декабря [`currentColor`](https://doka.guide/css/currentcolor/), Максим Печёрин
 - 24 декабря [GitLab CI/CD](https://doka.guide/tools/gitlab-ci-cd/), Виталий Баев
 - 23 декабря [Переменные `const`, `let` и `var`](https://doka.guide/js/var-let/), Сергей Фомин
 - 22 декабря [Тернарный оператор](https://doka.guide/js/ternary-operator/), Илья Космачев
