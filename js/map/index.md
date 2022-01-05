@@ -25,7 +25,7 @@ tags:
 ## Пример
 
 ```js
-const someData = new Map();
+const someData = new Map()
 
 someData.set('1', 'Значение под строковым ключом 1')
 someData.set(1, 'Значение под числовым ключом 1')
@@ -131,8 +131,8 @@ map.set('css', 'CSS')
 map.set('js', 'JavaScript')
 
 for (let [key, value] of map) {
-  console.log(`${key} - ${value}`);
-};
+  console.log(`${key} - ${value}`)
+}
 // html - HTML
 // css - CSS
 // js - JavaScript
@@ -148,8 +148,8 @@ map.set('css', 'CSS')
 map.set('js', 'JavaScript')
 
 map.forEach((key, value) => {
-  console.log(`${key} - ${value}`);
-});
+  console.log(`${key} - ${value}`)
+})
 // html - HTML
 // css - CSS
 // js - JavaScript
@@ -168,7 +168,7 @@ const obj = {
   true:'Bool',
 }
 
-console.log(Object.keys(obj));
+console.log(Object.keys(obj))
 // [ '1', '2', 'true' ]
 ```
 
