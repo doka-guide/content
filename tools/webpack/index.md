@@ -7,7 +7,6 @@ contributors:
   - furtivite
 editors:
   - tachisis
-  - ra1nbow1
 keywords:
   - webpack
   - вебпак
