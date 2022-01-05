@@ -38,6 +38,7 @@ groups:
       - function-as-datatype
       - arrays
       - set
+      - map
       - objects-objects-everywhere
   - name: "Числа"
     items:
