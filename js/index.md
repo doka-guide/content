@@ -62,7 +62,6 @@ groups:
       - boolean
       - logic-operators
       - typecasting
-      - operators-equality
   - name: "Функции"
     items:
       - function
