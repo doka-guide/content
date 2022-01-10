@@ -119,7 +119,7 @@ for (let i = 0; i < buttons.length; ++i) {
   let button = buttons[i];
   // к каждой кнопке привязываем обработчик
   button.addEventListener('click', changeColor); // обратите внимание, что мы не вызываем
-  // функцию функцию changeColor, а только пишем ее имя
+  // функцию changeColor, а только пишем ее имя
 }
 ```
 
