@@ -35,7 +35,7 @@ const nested = [
 const flat = nested.flat()
 ```
 
-Тогда в переменной будет
+Тогда в переменной `flat` будет:
 
 ```js
 console.log(flat)
