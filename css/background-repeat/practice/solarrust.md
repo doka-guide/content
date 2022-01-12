@@ -18,4 +18,4 @@
 }
 ```
 
-<iframe title="Паттерн градиентом" src="../demos/gradient/" height="250"></iframe>
+<iframe title="Паттерн при помощи градиента" src="../demos/gradient/" height="250"></iframe>
