@@ -3,6 +3,8 @@ title: "Функции фильтров"
 description: "Список функций, с помощью которых можно задать фильтры картинкам. Почти как в Инстаграме"
 authors:
   - solarrust
+contributors:
+  - pepelsbey
 tags:
   - doka
 ---
