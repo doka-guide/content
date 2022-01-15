@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Все фильтры сразу — Функции фильтров — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+    }
+
+    /* Filters */
+
+    .filters {
+      width: 800px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+
+    .filters__button {
+      padding: 0.8em 1.2em;
+      border: none;
+      background-color: #2e9aff;
+      color: #ffffff;
+      text-align: left;
+      font: inherit;
+    }
+
+    .filters__button[aria-pressed='true'] {
+      z-index: 1;
+      width: calc(100% + 1.5em);
+      clip-path: polygon(
+        0 0,
+        calc(100% - 1.5em) 0,
+        100% 50%,
+        calc(100% - 1.5em) 100%,
+        0 100%
+      );
+      background-color: #f498ad;
+      color: #000000;
+    }
+
+    .filters__button:not([aria-pressed='true']):hover {
+      cursor: pointer;
+      filter: brightness(110%);
+    }
+
+    .filters__code {
+      pointer-events: none;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 14px;
+    }
+
+    .filters__target {
+      grid-column-start: 2;
+      grid-row: 1 / span 10;
+      align-self: stretch;
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="filters">
+    <button class="filters__button" aria-pressed="true">
+      <code class="filters__code">filter: blur(3px)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: brightness(30%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: contrast(250%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: drop-shadow(4px 4px red)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: grayscale(80%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: hue-rotate(0.5turn)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: invert(100%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: opacity(40%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: saturate(390%)</code>
+    </button>
+    <button class="filters__button" aria-pressed="false">
+      <code class="filters__code">filter: sepia(0.6)</code>
+    </button>
+    <img class="filters__target"
+      src="../../images/image.jpg"
+      width="640" height="960"
+      style="filter: blur(3px)"
+      alt="Миска с йогуртом и фруктами, стоит на стопке журналов, рядом лежат наушники AirPods.">
+  </div>
+  <script>
+    const filters = document.querySelector('.filters');
+    const filtersButtons = document.querySelectorAll('.filters__button');
+    const filtersTarget = document.querySelector('.filters__target');
+
+    filters.addEventListener('click', (event) => {
+      const isButton = event.target.tagName === 'BUTTON';
+      const isPressed = event.target.getAttribute('aria-pressed') === 'true';
+
+      if (isButton && !isPressed) {
+        const filter = event.target.firstElementChild.textContent;
+
+        [...filtersButtons].forEach((button) => {
+          button.setAttribute('aria-pressed', 'false');
+        });
+
+        filtersTarget.style = filter;
+        event.target.setAttribute('aria-pressed', 'true');
+      }
+    });
+  </script>
+</body>
+</html>
