@@ -33,7 +33,7 @@ img {
 }
 ```
 
-<iframe title="Функция blur()" src="demos/blur/" height="470"></iframe>
+<iframe title="Функция blur()" src="demos/blur/" height="490"></iframe>
 
 ### `brightness()`
 
@@ -45,7 +45,7 @@ img {
 }
 ```
 
-<iframe title="Функция brightness()" src="demos/brightness/" height="470"></iframe>
+<iframe title="Функция brightness()" src="demos/brightness/" height="490"></iframe>
 
 ### `contrast()`
 
@@ -57,7 +57,7 @@ img {
 }
 ```
 
-<iframe title="Функция contrast()" src="demos/contrast/" height="470"></iframe>
+<iframe title="Функция contrast()" src="demos/contrast/" height="490"></iframe>
 
 ### `drop-shadow()`
 
@@ -69,7 +69,7 @@ img {
 }
 ```
 
-<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="470"></iframe>
+<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="490"></iframe>
 
 ### `grayscale()`
 
@@ -81,7 +81,7 @@ img {
 }
 ```
 
-<iframe title="Функция grayscale()" src="demos/grayscale/" height="470"></iframe>
+<iframe title="Функция grayscale()" src="demos/grayscale/" height="490"></iframe>
 
 ### `hue-rotate()`
 
@@ -93,7 +93,7 @@ img {
 }
 ```
 
-<iframe title="Функция hue-rotate()" src="demos/hue-rotation/" height="470"></iframe>
+<iframe title="Функция hue-rotate()" src="demos/hue-rotation/" height="490"></iframe>
 
 ### `invert()`
 
@@ -105,7 +105,7 @@ img {
 }
 ```
 
-<iframe title="Функция invert()" src="demos/invert/" height="470"></iframe>
+<iframe title="Функция invert()" src="demos/invert/" height="490"></iframe>
 
 ### `opacity()`
 
@@ -119,7 +119,7 @@ img {
 }
 ```
 
-<iframe title="Функция opacity()" src="demos/opacity/" height="470"></iframe>
+<iframe title="Функция opacity()" src="demos/opacity/" height="490"></iframe>
 
 
 ### `saturate()`
@@ -132,7 +132,7 @@ img {
 }
 ```
 
-<iframe title="Функция saturate()" src="demos/saturate/" height="470"></iframe>
+<iframe title="Функция saturate()" src="demos/saturate/" height="490"></iframe>
 
 ### `sepia()`
 
@@ -144,7 +144,7 @@ img {
 }
 ```
 
-<iframe title="Функция sepia()" src="demos/sepia/" height="470"></iframe>
+<iframe title="Функция sepia()" src="demos/sepia/" height="490"></iframe>
 
 ## Все фильтры сразу
 
