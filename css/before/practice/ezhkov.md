@@ -12,15 +12,14 @@
 
 ```css
 li::before {
-  content: "💛";
+  content: "💙";
   margin-right: 5px;
-  vertical-align: middle;
 }
 ```
 
-<iframe title="Нестандартный маркер" src="../demos/list/" height="400"></iframe>
+<iframe title="Нестандартный маркер" src="../demos/list/" height="300"></iframe>
 
-🛠 Пример со свойством `content`:
+🛠 Пример с пустым свойством `content`:
 
 ```html
 <ul>
@@ -38,10 +37,9 @@ li {
 li::before {
   /* Не забываем о свойстве content */
   content: "";
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: #ed6742;
+  width: 14px;
+  height: 14px;
+  background-color: #2E9AFF;
   position: absolute;
   left: -25px;
   top: 5px;
