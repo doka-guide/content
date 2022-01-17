@@ -1,5 +1,10 @@
 ---
 title: "Debounce на примере формы поиска"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девушка сидит за столом, на столе стоит цветок, на столе стоят часы, на на заднем фоне висят электронные часы, и большие аналоговые часы'
 authors:
   - bespoyasov
 contributors:
