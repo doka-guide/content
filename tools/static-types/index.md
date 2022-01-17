@@ -1,6 +1,11 @@
 ---
 title: "TypeScript и статическая типизация"
 description: "Как TypeScript и статическая типизация помогают писать код"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Шесть разных персонажей в стиле «Найди отличие в картинке», каждый чем-то отличается от других'
 authors:
   - igorkamyshev
 contributors:
