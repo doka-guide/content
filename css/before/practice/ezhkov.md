@@ -32,6 +32,7 @@ li::before {
 ```css
 li {
   position: relative;
+  padding-left: 25px;
 }
 
 li::before {
@@ -41,7 +42,7 @@ li::before {
   height: 14px;
   background-color: #2E9AFF;
   position: absolute;
-  left: -25px;
+  left: 0;
   top: 5px;
 }
 ```
