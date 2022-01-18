@@ -65,15 +65,19 @@ jobs:
         id: links
         run: |
           file_list=''
-          for changed_file in ${{ needs.prepare.outputs.files }}; do
-            replace='html'
+          replace='html'
+          pattern="md"
+          while IFS= read -r changed_file; do
+            echo $changed_file;
             if ! [[ $changed_file == '' ]]; then
-              page=$(echo "${changed_file/md/$replace}")
-              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+              if [[ $changed_file =~ $pattern ]]; then
+                page=$(echo "${changed_file/$pattern/$replace}")
+                file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
+              fi
             fi
-          done
+          done <<< "$list"
           if ! [[ $file_list == '' ]]; then
-            file_list=$(echo -e "<br><hr><p>Список ссылок на материалы:<ul>${file_list}</ul><p>")
+            file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
