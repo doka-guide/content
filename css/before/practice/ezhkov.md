@@ -12,7 +12,7 @@
 
 ```css
 li::before {
-  content: "💙";
+  content: "💜";
   margin-right: 5px;
 }
 ```
