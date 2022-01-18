@@ -97,7 +97,8 @@ person[Symbol.iterator] = function () {
   return {
     next() {
       if (count < properties.length) {
-        let result = { done: false, value: person[properties[count]] }
+        const key = properties[count]
+        let result = { done: false, value: person[key] }
         count++
         return result
       } else {
