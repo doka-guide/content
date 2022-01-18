@@ -1,7 +1,6 @@
 ---
 title: "`text-indent`"
 authors:
-  - doka-dog
   - ra1nbow1
 keywords:
   - отступ первой строки
