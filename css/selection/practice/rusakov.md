@@ -5,12 +5,13 @@ p::selection {
   --color-shadow: #000000;
   color: #ffffff;
   background-color: #2e9aff;
-  text-shadow: 1px 0 1px var(--color-shadow),
-              0 1px 1px var(--color-shadow),
-              2px 1px 1px var(--color-shadow),
-              1px 2px 1px var(--color-shadow),
-              3px 2px 1px var(--color-shadow),
-              2px 3px 1px var(--color-shadow);
+  text-shadow:
+    1px 0 1px var(--color-shadow),
+    0 1px 1px var(--color-shadow),
+    2px 1px 1px var(--color-shadow),
+    1px 2px 1px var(--color-shadow),
+    3px 2px 1px var(--color-shadow),
+    2px 3px 1px var(--color-shadow);
 }
 ```
 

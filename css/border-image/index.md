@@ -29,11 +29,12 @@ tags:
   border-left-style: solid;
   border-left-width: 65px;
   border-left-color: #1A5AD7;
-  border-image: url("custom-border.svg")
-                66 /
-                66px 0 66px 66px /
-                0px 0
-                stretch;
+  border-image:
+    url("custom-border.svg")
+    66 /
+    66px 0 66px 66px /
+    0px 0
+    stretch;
 }
 ```
 
