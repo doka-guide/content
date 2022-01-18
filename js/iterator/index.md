@@ -76,42 +76,44 @@ for (let value of ['a', 'b', 'c']) {
 
 </aside>
 
-Предположим, у нас есть объект `range`, который представляет диапазон чисел:
+Предположим, у нас есть объект `person`, который представляет набор данных:
 
 ```js
-let range = {
-  from: 1,
-  to: 3,
+let person = {
+  name: "Mark",
+  age: 30,
+  gender: "male",
+  interests: ["music", "fishing"],
 }
 ```
 
 Чтобы сделать такой объект итерируемым (и позволить `for..of` работать с ним), в нём нужно определить `Symbol.iterator`:
 
 ```js
-range[Symbol.iterator] = function () {
-  let start = this.from
-  let end = this.to
+person[Symbol.iterator] = function () {
+  const properties = Object.keys(this)
+  let count = 0
 
   return {
     next() {
-      if (start <= end) {
-        const result = { done: false, value: start }
-        start++
+      if (count < properties.length) {
+        let result = { done: false, value: person[properties[count]] }
+        count++
         return result
       } else {
         return { done: true }
       }
-    }
-  }
-}
+    },
+  };
+};
 ```
 
-Убедимся, что объект `range` действительно итерируется:
+Убедимся, что объект `person` действительно итерируется:
 
 ```js
-for (let x of range) {
-  console.log(x)
-  // 1, 2, 3
+for (let x of person) {
+  console.log(x);
+  // Mark, 30, male, ['music', 'fishing']
 }
 ```
 
