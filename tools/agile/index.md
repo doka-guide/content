@@ -4,6 +4,7 @@ authors:
   - igorkamyshev
 contributors:
   - furtivite
+  - matiesha
 editors:
   - tachisis
 keywords:
