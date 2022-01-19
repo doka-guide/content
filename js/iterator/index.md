@@ -105,15 +105,15 @@ person[Symbol.iterator] = function () {
         return { done: true }
       }
     },
-  };
-};
+  }
+}
 ```
 
 Убедимся, что объект `person` действительно итерируется:
 
 ```js
 for (let x of person) {
-  console.log(x);
+  console.log(x)
   // Mark, 30, male, ['music', 'fishing']
 }
 ```
