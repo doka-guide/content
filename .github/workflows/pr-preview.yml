@@ -23,7 +23,7 @@ jobs:
     needs:
       - prepare
     env:
-      DEPLOY_DOMAIN: 'https://${{ github.repository_owner }}-content-pr-${{ github.event.pull_request.number }}.surge.sh'
+      DEPLOY_DOMAIN: "https://${{ github.repository_owner }}-content-pr-${{ github.event.pull_request.number }}.surge.sh"
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
     steps:
       - name: Загрузка platform
@@ -45,7 +45,7 @@ jobs:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles("**/package-lock.json") }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -59,24 +59,24 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: 'Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ github.run_id }}?check_suite_focus=true)'
+          message: "Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ github.run_id }}?check_suite_focus=true)"
           recreate: true
       - name: Форматирование списка файлов
         id: links
         run: |
-          file_list=''
-          replace='html'
+          file_list=""
+          replace="html"
           pattern="md"
           while IFS= read -r changed_file; do
             echo $changed_file;
-            if ! [[ $changed_file == '' ]]; then
+            if ! [[ $changed_file == "" ]]; then
               if [[ $changed_file =~ $pattern ]]; then
                 page=$(echo "${changed_file/$pattern/$replace}")
                 file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
               fi
             fi
           done <<< "$list"
-          if ! [[ $file_list == '' ]]; then
+          if ! [[ $file_list == "" ]]; then
             file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
@@ -86,13 +86,13 @@ jobs:
         run: |
           node make-links.js --default
           npm run preview
-          if ! [[ ${{ env.SURGE_TOKEN == '' }} ]]; then
+          if ! [[ ${{ env.SURGE_TOKEN == "" }} ]]; then
             npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
           else
-            echo 'Публикация для форка репозитория'
-            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token '6973bdb764f0d5fd07c910de27e2d7d0'
+            echo "Публикация для форка репозитория"
+            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token "6973bdb764f0d5fd07c910de27e2d7d0"
           fi
-          echo 'Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}'
+          echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
           echo -e "${{ steps.links.outputs.list }}"
       - name: Сообщение о неудаче публикации превью
         uses: hasura/comment-progress@v2.1.0
@@ -102,7 +102,7 @@ jobs:
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
           id: surge-progress-${{ github.event.pull_request.number }}
-          message: 'Превью контента из ${{ github.event.after }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)'
+          message: "Превью контента из ${{ github.event.after }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
           fail: true
           recreate: true
       - name: Сообщение об успехе публикации превью
