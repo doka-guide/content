@@ -30,7 +30,7 @@ const sum = nums.reduce(function (currentSum, currentNumber) {
 // 36
 ```
 
-Создаем новый объект с ключом в виде ID и значением в виде имени юзера:
+Создаём новый объект с ключом в виде ID и значением в виде имени юзера:
 
 ```js
 const users = [
