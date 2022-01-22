@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Как красить каретку — Свойство caret-color — Дока</title>
+  <title>Как красить каретку — caret-color — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -19,38 +19,58 @@
       background-color: #18191c;
     }
 
+    label {
+      color: #ffffff;
+    }
+
     input {
       display: block;
       background-color: #ebebeb;
+      font-family: "Open Sans", sans-serif;
       padding: 5px;
     }
 
-    .red{
+    .red {
       caret-color: #cc0000;
     }
 
-    .green{
+    .green {
       caret-color: #00DD00;
     }
 
-    .blue{
+    .blue {
       caret-color: #0882ff;
     }
 
-    .yellow{
+    .yellow {
       caret-color: #ffd600;
     }
 
-    .blueviolet{
+    .blueviolet {
       caret-color: #6e4aff;
     }
   </style>
 </head>
 <body>
-  <input class="red" type="text" placeholder="red caret">
-  <input class="green" type="text" placeholder="green caret">
-  <input class="blue" type="text" placeholder="blue caret">
-  <input class="yellow" type="text" placeholder="yellow caret">
-  <input class="blueviolet" type="text" placeholder="blueviolet caret">
+  <label>
+    Красная каретка
+    <input class="red" type="text" placeholder="Красная каретка">
+  </label>
+  <label>
+    Зелёная каретка
+    <input class="green" type="text" placeholder="Зелёная каретка">
+  </label>
+  <label>
+    Синяя каретка
+    <input class="blue" type="text" placeholder="Синяя каретка">
+  </label>
+  <label>
+    Жёлтая каретка
+    <input class="yellow" type="text" placeholder="Жёлтая каретка">
+  </label>
+  <label>
+    Сине-фиолетовая каретка
+    <input class="blueviolet" type="text" placeholder="Сине-фиолетовая каретка">
+  </label>
 </body>
 </html>
