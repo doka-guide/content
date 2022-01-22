@@ -1,5 +1,10 @@
 ---
 title: "`::before`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Рука подставляет сердечки на место маркеров в список «Причины, почему я люблю Доку»'
 authors:
   - ezhkov
 contributors:
@@ -64,14 +69,9 @@ a::before {
   content: "⚠";
   margin-right: 0.5em;
 }
-
-.info::before {
-  content: "ℹ️";
-  margin-right: 0.5em;
-}
 ```
 
-<iframe title="Добавление иконки" src="demos/icon/" height="350"></iframe>
+<iframe title="Добавление иконки" src="demos/icon/" height="440"></iframe>
 
 ## Подсказки
 

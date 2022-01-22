@@ -84,7 +84,7 @@ define(function() {
 // от которых зависит текущий,
 // можно было определять массив зависимостей:
 define(['path/to/module1', 'path/to/module2'],
-function(module1,           module2) {
+function(module1, module2) {
   return {
     someComplicatedLogic: function(arg) {
       return module1.doStuff(module2.doMoreStuff(arg));

@@ -6,61 +6,123 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
-      font-family: "Roboto", sans-serif;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    form {
-      width: 200px;
-      margin-left: auto;
-      margin-right: auto;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .form-row {
-      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
     }
 
     label {
       display: block;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
     }
 
     input {
-      border: 2px solid #5e6064;
-      border-radius: 4px;
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    input:required {
-      border-color: #49a16c;
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .label-required::after {
+      content: "*";
+      margin-left: 5px;
+      font-size: 0.7em;
+      vertical-align: super;
     }
 
     .hint {
-      font-size: 12px;
-      color: #c3c3c3;
+      display: block;
+      margin-top: 10px;
+      color: #FFFFFF;
+      font-size: 14px;
+      line-height: 1;
+      text-align: right;
+      text-transform: lowercase;
     }
 
     input:required + .hint {
-      color: lightcoral;
+      color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        min-width: 280px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <form>
     <div class="form-row">
-      <label for="first_name">Имя*</label>
-      <input type="text" id="first_name" required>
-      <span class="hint">Обязательно к заполнению</span>
+      <label class="label-required" for="first_name">Имя</label>
+      <span>
+        <input type="text" id="first_name" required>
+        <span class="hint">Обязательно к заполнению</span>
+      </span>
     </div>
     <div class="form-row">
       <label for="last_name">Фамилия</label>
-      <input type="text" id="last_name">
-      <span class="hint">Необязательно</span>
+      <span>
+        <input type="text" id="last_name">
+        <span class="hint">Необязательно</span>
+      </span>
     </div>
   </form>
 </body>

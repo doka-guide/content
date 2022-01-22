@@ -4,7 +4,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Два человека, один панк и <!-- yaspeller ignore:start -->растатуирован div`ами<!-- yaspeller ignore:end -->, а второй удивляется, открыл рот'
+  alt: 'Два человека: слева первый с ирокезом и весь в татуировках дивами, справа второй смотрит на него и прикрыл ладонью рот от удивления.'
 authors:
   - doka-dog
 contributors:
