@@ -19,13 +19,13 @@ tags:
 
 ## Пример
 
-Напишем код, который позволит найти мою подругу в списке гостей мероприятия. Для этого определим функцию, которая будет сверять имя из массива участников с константой `nameOfMyFrined`, в которую мы запишем «Лиза». Затем передадим эту функцию в метод `findIndex`.
+Напишем код, который позволит найти человека в списке гостей мероприятия. Для этого определим функцию, которая будет получать имя из массива участников и сверять его с константой `guestName`. Затем передадим эту функцию в метод `findIndex`.
 
 ```js
-function isMyFriend(element, index, array) {
-  const nameOfMyFrined = 'Лиза';
+function isWantedGuest(element, index, array) {
+  const guestName = 'Лиза';
 
-  return element === nameOfMyFrined;
+  return element === guestName;
 }
 
 const partyGuests = [
@@ -36,7 +36,7 @@ const partyGuests = [
   'Егор'
 ];
 
-const eventGuests = [
+const meetingGuests = [
   'Даня',
   'Егор',
   'Арсений'
@@ -44,11 +44,11 @@ const eventGuests = [
 
 // Вернёт: 3
 // partyGuests[3] -> 'Лиза'
-partyGuests.findIndex(isMyFriend);
+partyGuests.findIndex(isWantedGuest);
 
 // Вернёт: -1
 // Элемент не найден
-eventGuests.findIndex(isMyFriend);
+meetingGuests.findIndex(isWantedGuest);
 ```
 
 ## Интерактивный пример
@@ -96,7 +96,7 @@ randomNumbers.findIndex(isEven)
 
 ## Как понять
 
-Найти индекс первого подходящего элемента можно и с помощью цикла `for`, но метод `findIndex` позволяет сделать это проще и понятнее.
+Найти индекс первого подходящего элемента можно и с помощью цикла `for`, но метод `findIndex` позволяет сделать это лаконичнее и проще.
 
 Давайте сами попробуем реализовать `findIndex`, чтобы лучше понять, как он работает «под капотом».
 
