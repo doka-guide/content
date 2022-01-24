@@ -98,7 +98,7 @@ form p {
   100% { caret-color: purple; }
 }
 
- input {
+input {
   display: block;
   width: 60vw;
   height: 50px;
