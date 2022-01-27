@@ -7,6 +7,8 @@ tags:
   - doka
 ---
 
+## Задача
+
 В начале 2000-х было очень модно добавлять на сайты падающий снег. Тогда это была нетривиальная задача, она требовала много усилий разработчика и сильно нагружала и без того слабые компьютеры пользователей.
 
 Перед новым 2022 годом я решила добавить снег на сайт, но сделать это при помощи современных технологий и максимально дешёвым для производительности способом. Так, чтобы это умиляло пользователя, но не мешало пользоваться сайтом.
@@ -14,6 +16,99 @@ tags:
 Первым делом я пошла искать готовые решения. Нашла несколько заготовок, но все они были сложными и тяжёлыми. Для простых падающих снежинок подключались целые библиотеки анимации и были написаны сотни строк JavaScript.
 
 Поэтому я решила написать оптимизированный и производительный падающий снег для сайта сама.
+
+## TL;DR
+
+```html
+<div class="snow">
+  <div class="snow__flake">﹡</div>
+  <div class="snow__flake">﹡</div>
+  <div class="snow__flake">﹡</div>
+  <div class="snow__flake">﹡</div>
+  <div class="snow__flake">﹡</div>
+  …
+</div>
+```
+
+```css
+.snow {
+  --animationName: snowfall;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  pointer-events: none;
+}
+
+.snow__flake {
+  position: relative;
+  top: -1.5em;
+  color: #c1dcec;
+  animation-name: var(--animationName);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(100vh + 1.5em));
+  }
+}
+```
+
+```javascript
+const storageKey = 'snow'
+const snow = document.querySelector('.snow')
+const snowflakes = document.querySelectorAll('.snow__flake')
+const snowToggle = document.querySelector('.snow-toggle')
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min
+}
+
+function getRndFloat(min, max) {
+  return (Math.random() * (max - min) + min).toFixed(1)
+}
+
+snowflakes.forEach(snowflake => {
+  snowflake.style.fontSize = getRndFloat(0.7, 1.5) + 'em'
+  snowflake.style.animationDuration = getRndInteger(20, 30) + 's'
+  snowflake.style.animationDelay = getRndInteger(-1, snowflakes.length / 2) + 's'
+})
+
+function changeSnowAnimation(animationName) {
+  snow.style.setProperty('--animation-name',  animationName)
+}
+
+snowToggle.addEventListener('change', event => {
+  changeSnowAnimation(event.target.value)
+  localStorage.setItem(storageKey, event.target.value)
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  let currentStorage = localStorage.getItem(storageKey)
+
+  if (currentStorage) {
+    snowToggle.querySelector(`.snow-toggle__control[value='${currentStorage}']`).checked = true
+  }
+
+  changeSnowAnimation(currentStorage)
+
+  window.addEventListener('storage', () => {
+    changeSnowAnimation(localStorage.getItem(storageKey))
+  })
+})
+```
+
+<iframe title="Снег" src="demos/result/" height="450"></iframe>
 
 ## Разметка
 
@@ -244,6 +339,8 @@ snowflakes.forEach(snowflake => {
 })
 ```
 
+<iframe title="Снег" src="demos/result-no-togglers/" height="450"></iframe>
+
 В дополнение к этому можно дать пользователю возможность отключать анимацию. Не все любят снег.
 
 ## Кнопки управления погодой
@@ -367,6 +464,17 @@ document.addEventListener('DOMContentLoaded', () => {
   <div class="snow__flake">﹡</div>
   …
 </div>
+
+<div class="snow-toggle">
+  <label class="snow-toggle__item">
+    <input class="snow-toggle__control" type="radio" name="snow" value="snowfall" checked>
+    <span class="snow-toggle__text">Снег</span>
+  </label>
+  <label class="snow-toggle__item">
+    <input class="snow-toggle__control" type="radio" name="snow" value="none">
+    <span class="snow-toggle__text">Без осадков</span>
+  </label>
+</div>
 ```
 
 ```css
@@ -446,3 +554,5 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 })
 ```
+
+<iframe title="Снег" src="demos/result/" height="450"></iframe>
