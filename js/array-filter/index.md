@@ -174,7 +174,7 @@ const odds = []
 
 for (let i = 0; i < nums.length; i++) {
   if (nums[i] % 2 !== 0) {
-    odds.push(num)
+    odds.push(nums[i])
   }
 }
 
