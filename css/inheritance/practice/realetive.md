@@ -6,17 +6,16 @@
 
 ```css
 .magick-btn {
-  padding: 15px;
-  color: pink;
-  border: 1px solid;
+  border: 2px solid;
   border-color: currentColor;
+  border-radius: 6px;
+  padding: 9px 15px;
+  color: blue;
   background-color: transparent;
-  cursor: pointer;
-  transition: all 0.2s;
 }
 
 .magick-btn:hover {
-  color: darkblue;
+  color: pink;
 }
 ```
 
