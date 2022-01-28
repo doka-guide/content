@@ -2,6 +2,8 @@
 title: "Наследование"
 authors:
   - realetive
+contributors:
+  - skorobaeus
 keywords:
   - наследование
 tags:
@@ -34,13 +36,33 @@ tags:
 - оформление пунктов списков: `list-style`, `list-style-type`, `list-style-position`.
 - Внешний вид курсора: `cursor` и отображение содержимого элемента `visibility`.
 
-Например, в отличие от `color`, ненаследуемое свойство `border` не будет применено к вложенным элементам:
+Например, в отличие от `color`, который применится к подписи, ненаследуемое свойство `border` не будет применено к вложенным элементам:
 
-<iframe title="Наследование цвета" src="demos/color-inheritance/" height="384"></iframe>
+```HTML
+<figure>
+  <img src="doggo-up.svg">
+  <figcaption>Дока Дог</figcaption>
+</figure>
+```
 
-Но если мы укажем у `<p>` свойство `border` как `inherit` (т. е. наследуемое):
+```CSS
+figure {
+  border: 3px solid #18191c;
+  color: blue;
+}
+```
 
-<iframe title="Наследование рамки" src="demos/border-inheritance/" height="390"></iframe>
+<iframe title="Наследование цвета" src="demos/color-inheritance/" height="370"></iframe>
+
+Но если мы укажем у `<img>` свойство `border` как `inherit` (т. е. наследуемое):
+
+```CSS
+img {
+  border: inherit;
+}
+```
+
+<iframe title="Наследование рамки" src="demos/border-inheritance/" height="370"></iframe>
 
 ## Подсказки
 
