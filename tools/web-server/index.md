@@ -4,7 +4,6 @@ authors:
   - igsekor
 contributors:
   - furtivite
-  - whyme0
 keywords:
   - http-server
   - browser-sync
