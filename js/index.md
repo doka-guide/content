@@ -78,6 +78,7 @@ groups:
       - array-reduce
       - array-filter
       - array-find
+      - array-flat
       - array-every
       - array-some
       - array-reverse
@@ -86,7 +87,6 @@ groups:
       - array-length
       - array-from
       - array-isarray
-      - array-flat
   - name : "Множество Set"
     items:
       - set
