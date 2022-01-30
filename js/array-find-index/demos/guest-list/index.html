@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа метода findIndex — [].findIndex — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    pre {
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto Mono", monospace;
+      white-space: pre-wrap;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .subtitle {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .subtitle:first-child {
+      margin-top: 0;
+    }
+
+    .header-container {
+      margin-bottom: 40px;
+    }
+
+    .header-container pre,
+    .does-container pre {
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+
+    .does-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .does-container + .does-container {
+      margin-top: 25px;
+    }
+
+    .does-container pre {
+      flex-grow: 1;
+      margin-left: 25px;
+      line-height: 1;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      padding: 8px 15px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      color: #000000;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .items {
+      display: flex;
+      min-height: 32px;
+    }
+
+    .item {
+      position: relative;
+      width: 50px;
+      height: 30px;
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .item + .item {
+      margin-left: 10px;
+    }
+
+    .item[index] {
+      margin-top: 35px;
+    }
+
+    .item[index]::before {
+      position: absolute;
+      top: -35px;
+      right: 0;
+      left: 0;
+      display: block;
+      color: #ffffff;
+      content: attr(index);
+    }
+
+    .active {
+      background-color: #41E847;
+    }
+
+    .active[index]::before {
+      color: #41E847;
+    }
+
+    .execute {
+      min-height: 52px;
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h2 class="subtitle">Наш код</h2>
+<pre><code>const names = ['Даня', 'Саша', 'Юля', 'Лиза', 'Егор', 'Лиза']
+
+function isLisa(element) {
+  return element === 'Лиза'
+}</code></pre>
+    </div>
+    <div class="does-container">
+      <button id="findLisa" class="button button-yellow start">
+        Найти первую Лизу
+      </button>
+      <pre>names.findIndex(isLisa)</pre>
+    </div>
+    <h2 class="subtitle">С каким элементом работаем</h2>
+    <div class="items" id="container"></div>
+    <h2 class="subtitle">Что выполняется</h2>
+    <pre class="execute" id="execute"></pre>
+    <h2 class="subtitle">Итог</h2>
+    <div class="items" id="result"></div>
+  </div>
+
+  <script>
+    const SECOND = 1000
+    const names = ['Даня', 'Саша', 'Юля', 'Лиза', 'Егор', 'Лиза']
+    const searchItem = 'Лиза'
+
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const findLisa = document.getElementById('findLisa')
+    let isActive = false
+
+    function createItem(content, index) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+
+      if (index !== undefined) {
+        itemElement.setAttribute('index', index)
+      }
+
+      itemElement.textContent = content
+
+      return itemElement
+    }
+
+    names.forEach((product, index) => {
+      const element = createItem(product, index)
+      element.id = index
+
+      container.appendChild(element)
+    })
+
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
+
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
+
+    function createIteration(name, index) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(index)
+          item.classList.add('active')
+
+          execute.textContent = `'${name}' === 'Лиза'`
+
+          if (name === searchItem) {
+            result.appendChild(createItem(index))
+          }
+
+          resolve()
+        }, SECOND * (index + 1))
+      })
+    }
+
+    function getPromises() {
+      const iterations = []
+
+      names.slice(0, 4).forEach((item, index) => {
+        iterations.push(createIteration(item, index))
+      })
+
+      return iterations
+    }
+
+    findLisa.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
+</body>
+</html>
