@@ -50,11 +50,11 @@ HTML после изменения будет:
 
 ## Как понять
 
-`Element.outerHTML` проще понять в сравнении с другим похожим свойством – [Element.innerHTML](/js/element-innerhtml).
+`Element.outerHTML` проще понять в сравнении с другим похожим свойством – [Element.innerHTML](/js/element-innerhtml/).
 
 `Element.innerHTML` позволяет получить только **содержимое** элемента как HTML-строку. В то время как `Element.outerHTML` делает тоже самое, но при этом возвращает и HTML самого элемента. Можно сказать, что вывод будет идентичен `Element.innerHTML`, только в строке будет содержаться открывающий и закрывающий тег самого элемента, у которого было вызвано свойство.
 
-Так же как и `Element.innerHTML`, если в `Element.outerHTML` присвоить новое значение, то это приводит к [перерисовке страницы](/js/how-the-browser-creates-pages).
+Так же как и `Element.innerHTML`, если в `Element.outerHTML` присвоить новое значение, то это приводит к [перерисовке страницы](/js/how-the-browser-creates-pages/).
 
 ## Как пишется
 

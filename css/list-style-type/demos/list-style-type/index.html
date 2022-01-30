@@ -4,7 +4,8 @@
   <title>Варианты — list-style-type — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     *, *::before, *::after {
@@ -15,7 +16,6 @@
 
     body {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
@@ -25,6 +25,11 @@
       font-family: "Roboto", sans-serif;
     }
 
+    .wrapper {
+      width: 100%;
+      max-width: 960px;
+    }
+
     code {
       padding: 0.2em 0.4em;
       background-color: #282a2e;
@@ -32,8 +37,7 @@
     }
 
     .header, .list {
-      width: 65%;
-      min-width: 900px;
+      width: 100%;
     }
 
     .header code {
@@ -45,10 +49,10 @@
 
     .list {
       margin-top: 30px;
-      padding-left: 50px;
       font-size: 18px;
       font-weight: 300;
       line-height: 1.5;
+      padding: 0 24px 0 50px;
     }
 
     .list__item:hover {
@@ -62,13 +66,24 @@
     .list__item_active {
       font-weight: 700;
     }
+
+    @media (max-width: 768px) {
+      body, .header code {
+        padding: 30px;
+      }
+
+      .header code {
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="header">
-    <pre><code>ul { list-style-type: circle }</code></pre>
-  </div>
-  <ul class="list" style="list-style-type: circle">
+  <div class="wrapper">
+    <div class="header">
+      <pre><code>ul { list-style-type: circle }</code></pre>
+    </div>
+    <ul class="list" style="list-style-type: circle">
     <li class="list__item list__item_active" data-type="circle">
       <code>circle</code>
       <span class="list__title">маркер в виде кружка</span>
@@ -142,6 +157,7 @@
       <span class="list__title">кастомный маркер — можно задать любой символ или текст (в кавычках)</span>
     </li>
   </ul>
+  </div>
 
   <script>
     const SELECTORS = {

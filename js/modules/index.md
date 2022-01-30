@@ -84,7 +84,7 @@ define(function() {
 // от которых зависит текущий,
 // можно было определять массив зависимостей:
 define(['path/to/module1', 'path/to/module2'],
-function(module1,           module2) {
+function(module1, module2) {
   return {
     someComplicatedLogic: function(arg) {
       return module1.doStuff(module2.doMoreStuff(arg));
@@ -222,7 +222,7 @@ import superCoolSummator from "./sum.js"
 
 Внутри модулей всегда используется строгий режим. Из-за этого, например, `this` — это не `window`, а `undefined`.
 
-Подробнее о строгом режиме — в статье [Контекст выполнения функций, this](/js/function-context)
+Подробнее о строгом режиме — в статье [Контекст выполнения функций, this](/js/function-context/)
 
 #### Переменные изолированы внутри
 
@@ -350,7 +350,7 @@ import user from "./user.js"
 
 ### Модули и сборка
 
-В браузере модули сами по себе используются пока редко. Сейчас чаще используются [инструменты сборки](/js/bundlers) типа Gulp, Webpack, Parcel, Rollup и другие.
+В браузере модули сами по себе используются пока редко. Сейчас чаще используются [инструменты сборки](/tools/bundlers/) типа Gulp, Webpack, Parcel, Rollup и другие.
 
 Код, использующий импорты и экспорты, или использующий скрипты с `type="module"`, «прогоняется» через этот инструмент, соединяется в бандлы, минифицируется и уже в таком виде отправляется в продакшен.
 

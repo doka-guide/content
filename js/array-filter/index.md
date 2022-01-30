@@ -174,7 +174,7 @@ const odds = []
 
 for (let i = 0; i < nums.length; i++) {
   if (nums[i] % 2 !== 0) {
-    odds.push(num)
+    odds.push(nums[i])
   }
 }
 
@@ -189,7 +189,7 @@ console.log(odds)
 const nums = [1, 2, 3, 4, 5, 6]
 
 const odds = nums.filter(function (num) {
-  return nums % 2 !== 0
+  return num % 2 !== 0
 })
 console.log(odds)
 ```

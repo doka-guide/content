@@ -2,6 +2,8 @@
 title: "`localStorage`"
 authors:
   - akellbl4
+contributors:
+  - skorobaeus
 keywords:
   - localstorage
   - webstorage
@@ -101,7 +103,7 @@ window.localStorage.length
 
 ```js
 window.localStorage.setItem("name", "Doka Dog")
-widow.localStorage.key(0) // вернет "name"
+window.localStorage.key(0) // вернет "name"
 ```
 
 Таким образом, используя количество полей в хранилище и получение ключа по индексу, можно организовать перебор всех значений в хранилище.

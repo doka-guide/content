@@ -2,6 +2,8 @@
 title: "`<figure>`, `<figcaption>`"
 authors:
   - ezhkov
+contributors:
+  - furtivite
 keywords:
   - figure
   - figcaption
@@ -12,6 +14,9 @@ tags:
 ## Кратко
 
 Элемент `<figure>` используется для вёрстки иллюстраций, изображений или другого автономного содержимого, которое может иметь поясняющую подпись в виде тега `<figcaption>`.
+
+![Стена с тремя картинами в стиле К. Малевича: «Оранжевый квадрат», «Оранжевый крест и «Оранжевый круг» — и подписями к ним](images/figcaption.png)
+Пример использования `<figure>` и `<figcaption>`.
 
 ## Пример
 
@@ -43,6 +48,18 @@ tags:
 <figure>
   <img src="/favicon144.png" alt="Красивое лого">
   <figcaption>Супер-логотип</figcaption>
+</figure>
+```
+
+Подпись может быть с уточнением:
+
+```html
+<figure>
+  <img  src="/favicon144.png" alt="Красивое лого">
+  <figcaption>
+    <p>Новый красивый логотип</p>
+    <p>Автор: Дока Дог</p>
+  </figcaption>
 </figure>
 ```
 
