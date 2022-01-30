@@ -189,7 +189,7 @@ console.log(odds)
 const nums = [1, 2, 3, 4, 5, 6]
 
 const odds = nums.filter(function (num) {
-  return nums % 2 !== 0
+  return num % 2 !== 0
 })
 console.log(odds)
 ```
