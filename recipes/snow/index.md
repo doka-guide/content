@@ -19,6 +19,8 @@ tags:
 
 ## TL;DR
 
+Поместите HTML-разметку в конец страницы:
+
 ```html
 <div class="snow">
   <div class="snow__flake">﹡</div>
@@ -27,6 +29,21 @@ tags:
   <div class="snow__flake">﹡</div>
   <div class="snow__flake">﹡</div>
   …
+</div>
+```
+
+Кнопки для управления погодой можно разместить в любом удобном месте сайта:
+
+```html
+<div class="snow-toggle">
+  <label class="snow-toggle__item">
+    <input class="snow-toggle__control" type="radio" name="snow" value="snowfall" checked>
+    <span class="snow-toggle__text">Снег</span>
+  </label>
+  <label class="snow-toggle__item">
+    <input class="snow-toggle__control" type="radio" name="snow" value="none">
+    <span class="snow-toggle__text">Без осадков</span>
+  </label>
 </div>
 ```
 
@@ -40,6 +57,7 @@ tags:
   bottom: 0;
   z-index: 100;
   display: flex;
+  justify-content: space-between;
   pointer-events: none;
 }
 
@@ -63,6 +81,8 @@ tags:
   }
 }
 ```
+
+JS-код должен быть в конце страницы, чтобы загрузка HTML к моменту его выполнения уже закончилась:
 
 ```javascript
 const storageKey = 'snow'
@@ -217,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 Пока ничего не происходит. Всё потому, что мы не задали одно из обязательных значений — время проигрывания анимации. Это и ещё несколько действий мы сделаем при помощи JavaScript.
 
-Чтобы браузер заранее подготовил ресурсы для анимации, сообщим ему о том, какое конкретно CSS-свойство будет анимировано. Сделать это можно при помощи свойства `will-change`.
+Чтобы браузер заранее подготовил ресурсы для анимации, сообщим ему о том, какое конкретно CSS-свойство будет анимированно. Сделать это можно при помощи свойства `will-change`.
 
 ```css
 .snow__flake {
@@ -487,6 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bottom: 0;
   z-index: 100;
   display: flex;
+  justify-content: space-between;
   pointer-events: none;
 }
 
