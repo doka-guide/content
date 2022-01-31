@@ -36,7 +36,7 @@ div {
 
 Значения ключевых слов:
 
-<iframe title="Варианты значений" src="demos/" height="375"></iframe>
+<iframe title="Варианты значений" src="demos/basic/" height="375"></iframe>
 
 Пример корректно отображается только в Safari. Он выглядит следующим образом:
 
