@@ -86,7 +86,7 @@ element.style.fontFamily = "Arial"
 | [border-style](/css/border-style/) | borderStyle |
 | [border-top](/css/border/#kak-pishetsya) | borderTop |
 | [border-top-color](/css/border/#kak-pishetsya) | borderTopColor |
-| [border-top-style](//css/border/#kak-pishetsya) | borderTopStyle |
+| [border-top-style](/css/border/#kak-pishetsya) | borderTopStyle |
 | [border-top-width](/css/border/#kak-pishetsya) | borderTopWidth |
 | [border-width](/css/border-width/) | borderWidth |
 | [clear]() | clear |
