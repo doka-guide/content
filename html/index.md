@@ -25,10 +25,11 @@ groups:
       - i
       - s
       - u
-      - pre
       - bdo
       - bdi
       - small
+      - pre
+      - code
   - name: 'Семантика'
     items:
       - div

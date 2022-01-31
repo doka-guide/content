@@ -81,6 +81,7 @@ groups:
   - name: 'Цвета в вебе'
     items:
       - web-colors
+      - currentcolor
   - name: 'Единицы измерения'
     items:
       - numeric-types
@@ -296,6 +297,7 @@ groups:
       - pointer-events
       - resize
       - scroll-behavior
+      - scroll-padding
   - name: 'SVG'
     items:
       - fill
