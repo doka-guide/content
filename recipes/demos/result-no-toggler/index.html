@@ -1,44 +1,43 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Снег — Рецепт снега — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  .snow {
-    --animationName: snowfall;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 100;
-    display: flex;
-    pointer-events: none;
-  }
-
-  .snow__flake {
-    position: relative;
-    top: -1.5em;
-    color: #c1dcec;
-    animation-name: var(--animationName);
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    will-change: transform;
-  }
-
-  @keyframes snowfall {
-    0% {
-      transform: translateY(0);
+    .snow {
+      --animationName: snowfall;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      pointer-events: none;
     }
 
-    100% {
-      transform: translateY(calc(100vh + 1.5em));
+    .snow__flake {
+      position: relative;
+      top: -1.5em;
+      color: #c1dcec;
+      animation-name: var(--animationName);
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      will-change: transform;
     }
-  }
-</style>
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(calc(100vh + 1.5em));
+      }
+    }
+  </style>
 </head>
 
 <body>
