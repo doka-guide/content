@@ -91,7 +91,7 @@ generator.next() // Возвращает { value: 'js', done: false }
 // Выведет "result of heavy compuation #2: 9900"
 
 generator.next() // Возвращает { value: 'rust', done: false }
-// Выведет "easy compuation: 9900"
+// Выведет "easy compuation: 4"
 ```
 
 Таким образом мы получили функцию, которая выполняется частями. Если вывести в консоль содержимое, то можно лучше понять что происходит внутри.
