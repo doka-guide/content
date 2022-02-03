@@ -68,7 +68,7 @@ function* getLangs() {
   const result1 = imaginaryHeavyComputation()
   console.log('result of heavy compuation #1:', result1)
   yield 'java';
-  
+
   const result2 = imaginaryHeavyComputation()
   console.log('result of heavy compuation #2:', result1 + result2)
   yield 'js';
@@ -161,7 +161,7 @@ generator.next(true) // { value: 'kotlin', done: false }
 
 ### Вызов генераторов внутри генератора
 
-Если по аналогии с генератором добавить звездочку `*` к вызову оператора `yield`, то так можно перенаправлять выполнение в другой генератор. 
+Если по аналогии с генератором добавить звездочку `*` к вызову оператора `yield`, то так можно перенаправлять выполнение в другой генератор.
 
 Снова дополним наш пример и предположим, что если нам понравился язык `java`, то мы хотим попробовать несколько языков на базе JVM.
 
