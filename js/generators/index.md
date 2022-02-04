@@ -187,7 +187,7 @@ function* getLangs() {
 const generator = getLangs()
 
 generator.next() // { value: 'java', done: false }
-generator.next(true) // { value: 'kotlon', done: false }
+generator.next(true) // { value: 'kotlin', done: false }
 generator.next() // { value: 'scala', done: false }
 generator.next() // { value: 'closure', done: false }
 generator.next() // { value: 'rust', done: false }
@@ -288,6 +288,6 @@ function* getLangs() {
 
 const generator = getLangs()
 generator.next() // { value: 'java', done: false }
-generator.throw(new Error("Too many OOP. Brain melted")) // Error: Too many OOP. Brain melted
+generator.throw(new Error("Too many OOP. Brain is melted")) // Error: Too many OOP. Brain is melted
 generator.next() // { value: undefined, done: true }
 ```
