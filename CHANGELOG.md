@@ -2,6 +2,12 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2022
+
+- 30 января [`flat`](https://doka.guide/js/array-flat/), Рома Огарков
+- 25 января [`findIndex`](https://doka.guide/js/array-find-index/), Сергей Минаков
+- 25 января [`text-indent`](https://doka.guide/css/text-indent/), Матвей Романов
+
 ## Декабрь 2021
 
 - 29 декабря [`scroll-padding`](https://doka.guide/css/scroll-padding/), Алексей Орлов
