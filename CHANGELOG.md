@@ -5,7 +5,7 @@
 ## Январь 2022
 
 - 30 января [`flat`](https://doka.guide/js/array-flat/), Рома Огарков
-- 28 января [`caret-color`](https://doka.guide/css/caret-color/), Миша захаров
+- 28 января [`caret-color`](https://doka.guide/css/caret-color/), Миша Захаров
 - 25 января [`findIndex`](https://doka.guide/js/array-find-index/), Сергей Минаков
 - 25 января [`text-indent`](https://doka.guide/css/text-indent/), Матвей Романов
 - 19 января [Статья про итератор](https://doka.guide/js/iterator/), Никита Канищев
