@@ -45,7 +45,7 @@ function isAdult(age) {
 ### Код функции:
 
 ```js
-function isInteger(value) {
+function isEven(value) {
   if (undefined === value || null === value) {
     return false
   }
