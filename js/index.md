@@ -116,11 +116,11 @@ groups:
       - match-media
       - urlsearchparams
       - local-storage
+      - session-storage
+      - performance
       - alert
       - prompt
-      - performance
       - confirm
-      - session-storage
       - settimeout
       - cleartimeout
       - setinterval
