@@ -36,7 +36,7 @@ path.resolve("/foo/bar", "/tmp/file/")
 
 // Если текущая рабочая директория /home/user:
 path.resolve("www", "static_files/png", "../gif/image.gif")
-// "/home/use/www/static_files/gif/image.gif"
+// "/home/user/www/static_files/gif/image.gif"
 ```
 
 - `path.sep` — строка разделителя путей в текущем окружении (`/` или `\`).
