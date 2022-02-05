@@ -1,5 +1,5 @@
 ---
-title: "counter-reset"
+title: "`counter-reset`"
 description: "Свойство с помощью которого можно создать автоматическую нумерацию у элементов"
 authors:
   - blueingreen68
