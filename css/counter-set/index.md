@@ -1,5 +1,5 @@
 ---
-title: "counter-set"
+title: "`counter-set`"
 description: "Свойство которое управляет точным числовым значением существующих счётчиков"
 authors:
   - blueingreen68
