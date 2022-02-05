@@ -1,5 +1,5 @@
 ---
-title: "counter-increment"
+title: "`counter-increment`"
 description: "Свойство которое управляет шагом числового значения существующих счётчиков"
 authors:
   - blueingreen68
