@@ -116,4 +116,4 @@ input:focus {
 }
 ```
 
-<iframe title="Анимированная радужная каретка" src="demos/rainbow-input/" height="330"></iframe>
+<iframe title="Анимированная радужная каретка" src="demos/rainbow-input/" height="330" sandbox></iframe>
