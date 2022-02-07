@@ -25,9 +25,9 @@ tags:
 
 ```html
 <div class="wrapper">
-  <h1 class="main-title">Основной заголовок</h1>
-  <h2 class="title">Новости</h2>
-  <p class="text">Lorem ipsum ...</p>
+  <h1 class="main-title">Только хорошие новости</h1>
+  <h2 class="title">Учёные научились выращивать зубы</h2>
+  <p class="text">Группа специалистов впервые сумела вырастить настоящий зуб ...</p>
 </div>
 ```
 
@@ -42,8 +42,8 @@ tags:
   font-weight: 500;
 }
 
-.main-title:before,
-.title:before {
+.main-title::before,
+.title::before {
   content: "";
   position: absolute;
   bottom: -5px;
