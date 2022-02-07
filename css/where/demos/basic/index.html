@@ -1,163 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <title>Объяснение работы :where() — Дока</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
-    <style>
-      * {
-        box-sizing: border-box;
-      }
+<head>
+  <title>Объяснение работы :where() — :where() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-      html,
-      body {
-        height: 100%;
-      }
+    html,
+    body {
+      height: 100%;
+    }
 
+    html {
+      display: flex;
+      font-size: 14px;
+    }
+
+    @media (min-width: 375px) {
       html {
-        display: flex;
-
-        font-size: 14px;
+        font-size: 16px;
       }
+    }
 
-      @media (min-width: 375px) {
-        html {
-          font-size: 16px;
-        }
+    @media (min-width: 768px) {
+      html {
+        font-size: 18px;
       }
+    }
 
-      @media (min-width: 768px) {
-        html {
-          font-size: 18px;
-        }
-      }
+    body,
+    button {
+      font-family: 'Roboto', sans-serif;
+    }
 
-      body,
-      button {
-        font-family: 'Roboto', sans-serif;
-      }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-      body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      overflow: hidden;
 
-        overflow: hidden;
+      width: 100%;
+      height: 500px;
+      max-height: 100%;
 
-        width: 100%;
-        height: 500px;
-        max-height: 100%;
+      margin: auto;
+      padding: 1em 1rem;
 
-        margin: auto;
-        padding: 1em 1rem;
+      background-color: snow;
+    }
 
-        background-color: snow;
-      }
+    code {
+      font-family: 'Roboto Mono',  monospace;
+      white-space: pre-wrap;
+    }
 
-      code {
-        font-family: 'Roboto Mono',  monospace;
-        white-space: pre-wrap;
-      }
+    button {
+      padding: 0.5em 1rem;
 
-      button {
-        padding: 0.5em 1rem;
+      border: none;
+      border-radius: 0.75rem;
 
-        border: none;
-        border-radius: 0.75rem;
+      font-size: inherit;
+      color: white;
 
-        font-size: inherit;
-        color: white;
+      background-color: black;
 
-        background-color: black;
+      cursor: pointer;
+    }
 
-        cursor: pointer;
-      }
+    .code-section {
+      width: 24rem;
+      max-width: 100%;
 
-      .code-section {
-        width: 24rem;
-        max-width: 100%;
+      margin-bottom: 2em;
+      padding: 1em 1rem;
 
-        margin-bottom: 2em;
-        padding: 1em 1rem;
+      border-radius: 1rem;
 
-        border-radius: 1rem;
+      background-color: aquamarine;
+    }
 
-        background-color: aquamarine;
-      }
+    .code-block {
+      transform: translateY(0);
 
-      .code-block {
-        transform: translateY(0);
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
 
-        transition-property: opacity;
-        transition-duration: 300ms;
-        transition-timing-function: ease;
-      }
+    .code-block_hidden {
+      opacity: 0;
 
-      .code-block_hidden {
-        opacity: 0;
+      transform: translateY(1em);
+    }
 
-        transform: translateY(1em);
-      }
+    .inline-code {
+      background-color: aquamarine;
+    }
 
-      .inline-code {
-        background-color: aquamarine;
-      }
+    .text {
+      margin-bottom: 1em;
 
-      .text {
-        margin-bottom: 1em;
+      line-height: 1.3;
+      text-align: center;
+    }
 
-        line-height: 1.3;
-        text-align: center;
-      }
-
-      :where(header, footer) .cat {
-        background-color: deepskyblue;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="code-section">
-      <pre><code class="code-block">:where(header, footer) .cat {
+    :where(header, footer) .cat {
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="code-section">
+    <pre><code class="code-block">:where(header, footer) .cat {
   background-color: deepskyblue;
 }</code>
 
 <code class="code-block code-block_hidden" id="code-block-footer">footer .cat {
   background-color: orange;
 }</code></pre>
+  </div>
+  <header>
+    <div class="text">
+      Я <span class="cat">голубой кот из хедера</span>. Мой цвет определило первое правило. Так будет со всеми котами из хедеров и футеров...
     </div>
-    <header>
-      <div class="text">
-        Я <span class="cat">голубой кот из хедера</span>. Мой цвет определило первое правило. Так будет со всеми котами из хедеров и футеров...
-      </div>
-    </header>
-    <footer>
-      <div class="text" id="text-footer">
-        ...например, со мной. <span class="cat">Я голубой кот из футера.</span>
-      </div>
-    </footer>
-    <button>Покрасить второго кота в рыжий</button>
-    <script>
-      const button = document.querySelector('button');
-      const style = document.querySelector('style');
+  </header>
+  <footer>
+    <div class="text" id="text-footer">
+      ...например, со мной. <span class="cat">Я голубой кот из футера.</span>
+    </div>
+  </footer>
+  <button>Покрасить второго кота в рыжий</button>
+  <script>
+    const button = document.querySelector('button')
+    const style = document.querySelector('style')
 
-      const cssFooterRule = `
-        footer .cat {
-          background-color: orange;
-        }
-      `;
+    const cssFooterRule = `
+      footer .cat {
+        background-color: orange;
+      }
+    `;
 
-      button.addEventListener('click', (event) => {
-        style.appendChild(document.createTextNode(cssFooterRule));
+    button.addEventListener('click', (event) => {
+      style.appendChild(document.createTextNode(cssFooterRule))
 
-        document.querySelector('#code-block-footer').classList.remove('code-block_hidden');
-        document.querySelector('#text-footer').innerHTML = '...но только не со мной. <span class="cat">Теперь я рыжий кот из футера</span>. Спасибо <code class="inline-code">:where()</code> за нулевую специфичность и возможность легко перебить получившийся с его помощью селектор.'
+      document.querySelector('#code-block-footer').classList.remove('code-block_hidden')
+      document.querySelector('#text-footer').innerHTML = '...но только не со мной. <span class="cat">Теперь я рыжий кот из футера</span>. Спасибо <code class="inline-code">:where()</code> за нулевую специфичность и возможность легко перебить получившийся с его помощью селектор.'
 
-        event.target.remove();
-      });
-    </script>
-  </body>
+      event.target.remove()
+    });
+  </script>
+</body>
 </html>
