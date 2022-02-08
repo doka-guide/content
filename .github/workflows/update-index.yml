@@ -23,7 +23,7 @@ jobs:
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           ALGOLIA_APP_INDEX: ${{ secrets.ALGOLIA_APP_INDEX }}
         run: |
-          npm install algoliasearch linkedom markdown-it yaml-cat --global
+          npm install algoliasearch linkedom html-escaper markdown-it yaml-cat --global
           npm link algoliasearch linkedom markdown-it
           yaml-cat -f json **/**/index.md -o search.json
           node .github/scripts/search-index.js
