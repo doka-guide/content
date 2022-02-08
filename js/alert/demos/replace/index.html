@@ -123,34 +123,36 @@
   <button class="button button-yellow" onclick="popup()">Сгенерировать случайное число</button>
 
   <script>
-    function CustomAlert() {
-        this.show = function (dialog) {
-            const dialogOverlay = document.querySelector('.js-overlay');
-            const dialogBox = document.querySelector('.js-box')
+    class CustomAlert {
+      constructor() {}
 
-            dialogOverlay.style.display = "block"
-            dialogBox.style.display = "block"
+      show(message) {
+        const dialogOverlay = document.querySelector('.js-overlay');
+        const dialogBox = document.querySelector('.js-box')
 
-            document.querySelector('.js-header').innerHTML = "Всплывающее диалоговое окно"
-            document.querySelector('.js-body').innerHTML = dialog
-            document.querySelector('.js-footer').innerHTML = '<button class="button" onclick="Alert.ok()">Закрыть</button>'
-        }
+        dialogOverlay.style.display = 'block'
+        dialogBox.style.display = 'block'
 
-        this.ok = function () {
-            this.hide()
-        }
+        document.querySelector('.js-header').innerHTML = 'Всплывающее диалоговое окно'
+        document.querySelector('.js-body').innerHTML = message
+        document.querySelector('.js-footer').innerHTML = '<button class="button" onclick="alert.ok()">Закрыть</button>'
+      }
 
-        this.hide = function () {
-            document.querySelector('.js-box').style.display = "none"
-            document.querySelector('.js-overlay').style.display = "none"
-        }
+      ok() {
+        this.hide()
+      }
+
+      hide() {
+        document.querySelector('.js-box').style.display = 'none'
+        document.querySelector('.js-overlay').style.display = 'none'
+      }
     }
 
-    const Alert = new CustomAlert()
+    const alert = new CustomAlert()
 
     function popup() {
       const message = `Случайное число: ${Math.random()}`
-      Alert.show(message)
+      alert.show(message)
     }
   </script>
 </body>
