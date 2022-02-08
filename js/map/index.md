@@ -68,13 +68,13 @@ console.log(map.size)
 А можно сразу передать начальные значения. Для этого в конструктор нужно передать массив, состоящий из других массивов. Эти массивы должны состоять из двух элементов: первый элемент — ключ, а второй — значение:
 
 ```js
-const map = new Map([['key1', 'значение для key1'], ['key2', 'значение для key2']])
+const map = new Map([['js', 'JavaScript'], ['css', 'Cascading Style Sheets']])
 
 console.log(map.size)
 // 2
 
-console.log(map.get('key1'))
-// значение для key1
+console.log(map.get('js'))
+// JavaScript
 ```
 
 ### Работа с коллекцией
