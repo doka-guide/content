@@ -95,21 +95,21 @@ map.set('js', 'JavaScript')
 const map = new Map()
 
 map.set('js', 'JavaScript')
-map.get('js')
+console.log(map.get('js'))
 // JavaScript
 ```
 
-Ещё можно узнать, есть ли в коллекции значение с конкретным ключом можно с помощью метода `has()`:
+Узнать, есть ли в коллекции значение с конкретным ключом, можно с помощью метода `has()`:
 
 ```js
 const map = new Map()
 
 map.set('js', 'JavaScript')
 
-map.has('js')
+console.log(map.has('js'))
 // true
 
-map.has('css')
+console.log(map.has('css'))
 // false
 ```
 
@@ -195,20 +195,18 @@ console.log(Object.keys(obj))
 // [ '1', '2', 'true' ]
 ```
 
-`Map` же позволяет использовать в качестве ключа любое значение: объект, функцию, примитивные значения и даже `null`, `undefined` и `NaN`. Для сравнения ключей используется алгоритм `SameValueZero`.
+`Map` же позволяет использовать в качестве ключа любое значение: объект, функцию, примитивные значения и даже `null`, `undefined` и `NaN`. Для сравнения ключей используется алгоритм _SameValueZero_.
 
 <details>
-  <summary>Как работает алгоритм `SameValueZero`</summary>
+  <summary>Как работает алгоритм SameValueZero</summary>
 
 **Кратко**
 
-Алгоритм `SameValueZero` работает так же, как и строгое сравнение при помощи `===` с единственным отличием: для `SameValueZero` **NaN** равен **NaN**. Именно по этой причине в качестве ключей `Map` можно использовать **NaN**.
+Алгоритм SameValueZero работает так же, как и строгое сравнение при помощи `===` с единственным отличием: для SameValueZero `NaN` равен `NaN`. Именно по этой причине в качестве ключей `Map` можно использовать `NaN` — мы можем найти такой ключ простым сравнением.
 
 **Подробно**
 
-[Ссылка на спецификацию](https://tc39.es/ecma262/#sec-ecmascript-specification-types)
-
-Алгоритм `SameValueZero` для сравнения переменных `x` и `y`:
+Алгоритм SameValueZero для сравнения переменных `x` и `y` согласно [спецификации](https://tc39.es/ecma262/#sec-ecmascript-specification-types):
 
 1. Если типы `x` и `y` отличаются, возвращаем **false** (Возможные типы: Undefined, Null, Boolean, String, Number, BigInt, Object или Symbol. Не путать с результатом выполнения оператора [`typeof`](/js/typecasting/#typeof)).
 2. Если тип `x` и `y` Number, то:
@@ -252,7 +250,7 @@ console.log(map.get(null))
 // null value
 ```
 
-При использовании `SameValueZero` для сравнения ключей, привидение типов не происходит. Поэтому, число и строковое представление этого же числа будут являться двумя разными ключами:
+При использовании SameValueZero для сравнения ключей, привидение типов не происходит. Поэтому, число и строковое представление этого же числа будут являться двумя разными ключами:
 
 ```js
 const map = new Map()
@@ -311,9 +309,9 @@ map.set(playerTwo, 'player 2')
 console.log(map.size)
 // 2
 
-map.get(playerOne)
+console.log(map.get(playerOne))
 // player 1
 
-map.get(playerTwo)
+console.log(map.get(playerTwo))
 // player 2
 ```
