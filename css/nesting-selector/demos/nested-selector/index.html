@@ -6,44 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
-      color: #000000;
+      font-family: "Roboto", sans-serif;
     }
 
     .wrapper {
-      width: 80%;
-      margin: 0 auto;
+      width: 65%;
     }
 
     .text {
       color: #ffffff;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     .news-card {
       margin-top: 20px;
-      padding: 25px 35px;
-      background-color: #ffd829;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
     }
 
     .news-card__title {
-      margin-bottom: 5px;
+      margin-bottom: 17px;
       font-size: 22px;
       font-weight: 500;
     }
 
     .news-card .text {
       color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: 100%;
+      }
+
+      .news-card {
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
