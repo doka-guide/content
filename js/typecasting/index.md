@@ -4,6 +4,8 @@ authors:
   - bespoyasov
 tags:
   - article
+keywords:
+  - приведение типов
 ---
 
 ## Кратко
