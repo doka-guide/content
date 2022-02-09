@@ -6,31 +6,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
-      text-align: center;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     .magic-btn {
-      padding: 12px 20px;
-      border: 1px solid;
+      min-width: 300px;
+      border: 2px solid;
       border-color: currentColor;
-      color: #f498ad;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #2E9AFF;
       background-color: transparent;
-      font-family: "Roboto", sans-serif;
       font-size: 18px;
-      font-weight: 500;
+      font-weight: 300;
+      font-family: inherit;
       cursor: pointer;
       transition: all 0.2s;
     }
 
     .magic-btn:hover {
-      color: #49a16c;
+      color: #F498AD;
       opacity: 0.99; /* это нужно для Safari, там баг */
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

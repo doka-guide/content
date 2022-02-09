@@ -2,8 +2,19 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2022
+
+- 30 января [`flat`](https://doka.guide/js/array-flat/), Рома Агарков
+- 28 января [`caret-color`](https://doka.guide/css/caret-color/), Миша Захаров
+- 25 января [`findIndex`](https://doka.guide/js/array-find-index/), Сергей Минаков
+- 25 января [`text-indent`](https://doka.guide/css/text-indent/), Матвей Романов
+- 19 января [Итератор](https://doka.guide/js/iterator/), Никита Канищев
+- 12 января [`<i>`](https://doka.guide/html/i/), Гаджи Гаджидадаев
+
 ## Декабрь 2021
 
+- 29 декабря [`scroll-padding`](https://doka.guide/css/scroll-padding/), Алексей Орлов
+- 27 декабря [`currentColor`](https://doka.guide/css/currentcolor/), Максим Печёрин
 - 24 декабря [GitLab CI/CD](https://doka.guide/tools/gitlab-ci-cd/), Виталий Баев
 - 23 декабря [Переменные `const`, `let` и `var`](https://doka.guide/js/var-let/), Сергей Фомин
 - 22 декабря [Тернарный оператор](https://doka.guide/js/ternary-operator/), Илья Космачев

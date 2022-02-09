@@ -38,6 +38,7 @@ groups:
       - function-as-datatype
       - arrays
       - set
+      - map
       - objects-objects-everywhere
   - name: "Числа"
     items:
@@ -78,6 +79,8 @@ groups:
       - array-reduce
       - array-filter
       - array-find
+      - array-find-index
+      - array-flat
       - array-every
       - array-some
       - array-reverse
@@ -115,10 +118,11 @@ groups:
       - match-media
       - urlsearchparams
       - local-storage
+      - session-storage
+      - performance
       - alert
       - prompt
       - confirm
-      - session-storage
       - settimeout
       - cleartimeout
       - setinterval

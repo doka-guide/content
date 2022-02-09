@@ -1,5 +1,10 @@
 ---
 title: "`linear-gradient()`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Удивлённый парень смотрит на экран, на заднем фоне то, что изображено: окно браузера с градиентной картинкой'
 authors:
   - ezhkov
 keywords:

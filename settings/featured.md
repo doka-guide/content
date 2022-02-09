@@ -38,17 +38,17 @@ active:
   - tools/ci-cd
   - js/execution-order
   - css/grid-guide
-  - css/flexbox-guide
-  - html/flow
-  - html/video
-  - css/box-shadow
-  - css/custom-properties
-  - tools/cli
-  - js/deal-with-forms
-  - tools/static-types
   - html/input
+  - css/custom-properties
+  - css/flexbox-guide
+  - js/deal-with-forms
+  - tools/cli
+  - html/flow
   - js/async-in-js
-  - js/how-to-test-and-why
+  - css/box-shadow
   - js/how-the-browser-creates-pages
+  - html/video
+  - tools/static-types
+  - js/how-to-test-and-why
 ---
 

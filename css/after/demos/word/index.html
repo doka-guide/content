@@ -6,33 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,700;1,900&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #f498ad;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     article {
-      padding: 10%;
-      background-color: #ffffff;
-      color: #282a2e;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
     }
 
     h1 {
       font-size: 26px;
       font-weight: 500;
       line-height: 1;
-      margin-bottom: 40px;
+      margin-bottom: 17px;
     }
 
     p {
+      margin: 7px 0;
       font-size: 16px;
       line-height: 1.4;
     }
@@ -58,10 +66,21 @@
 
     .author {
       padding: 10px 0;
-      margin-top: 20px;
-      border-top: 1px solid #f498ad;
+      margin: 20px 0 0;
+      border-top: 2px solid currentColor;
       font-style: italic;
       font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      article {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>

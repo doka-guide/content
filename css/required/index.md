@@ -4,6 +4,8 @@ authors:
   - ezhkov
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 keywords:
   - валидация
   - форма
@@ -19,12 +21,12 @@ tags:
 
 ## Пример
 
-Обязательное для заполнения поле ввода будет иметь синюю обводку:
+Обязательное для заполнения поле ввода будет иметь оранжевую обводку и фоновый цвет:
 
 ```html
 <form>
   <div class="form-row">
-    <label for="first_name">Имя*</label>
+    <label for="first_name">Имя</label>
     <input type="text" id="first_name" required>
   </div>
   <div class="form-row">
@@ -37,11 +39,13 @@ tags:
 
 ```css
 input:required {
-  outline: 2px solid blue;
+  border-width: 2px;
+  border-color: #FF8630;
+  background-color: rgba(255, 134, 48, 0.1);
 }
 ```
 
-<iframe title="Обводка вокруг обязательного поля" src="demos/required-input/" height="250"></iframe>
+<iframe title="Подсветка обязательного поля" src="demos/required-input/" height="300"></iframe>
 
 ## Как это понять
 

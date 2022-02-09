@@ -1,6 +1,11 @@
 ---
 title: "Области видимости"
 description: "Не все переменные одинаково доступны — всё зависит от того, в каком месте кода их объявили. Разбираемся, почему так."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Бинокль Доки с надписью "Doka Optics"'
 authors:
   - bespoyasov
 editors:
