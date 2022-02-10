@@ -1,5 +1,6 @@
 ---
 title: "Атрибут placeholder"
+description: "Удобный атрибут для подсказки в поле ввода. Но не увлекайтесь!"
 authors:
   - MariannaSpb
 keywords:
@@ -24,7 +25,7 @@ tags:
 
 ## Как пишется
 
-Атрибут `placeholder` можно задать таким тегам в HTML-разметке как [`<input>`](/html/input/) и [`<textarea>`](/html/textarea/). Атрибут работает со следующими типами ввода: 
+Атрибут `placeholder` можно задать для [`<input>`](/html/input/) и [`<textarea>`](/html/textarea/). Атрибут работает со следующими типами: 
 - `text`;
 - `search`;
 - `url`;
@@ -33,12 +34,13 @@ tags:
 - `password`.
 
 ```html
-<input type="email" id="email” placeholder="your_email@gmail.com”>
+<input type="email" id="email" placeholder="your_email@gmail.com">
 ```
 
-Этот текст можно стилизовать, используя псевдоэлемент `::placeholder`. [Подробнее об этом мы рассказали здесь](https://doka.guide/css/placeholder/).
+Этот текст можно стилизовать, используя псевдоэлемент [`::placeholder`](/css/placeholder).
 
-Для браузеров определённых версий необходимо использовать [вендорный префикс](https://doka.guide/css/vendor-prefixes/):
+Для браузеров старых версий нужны [вендорные префиксы](/css/vendor-prefixes/):
+
 ```css
 input::-webkit-input-placeholder {
   color: #F0BBD7;
@@ -64,14 +66,14 @@ input::-ms-input-placeholder {
 
 ## Как понять
 
-Текст плейсхолдера должен быть краткой подсказкой о том, что вы должны ввести в поле ввода. 
+Текст плейсхолдера должен быть краткой подсказкой о том, что пользователь должен ввести в поле ввода. 
 
 Если для заполнения поля нужна инструкция (например о формате номера телефона и длине пароля), то такую инструкцию лучше оформить отдельно от поля ввода. Иначе  пользователь не сможет эффективно её использовать, потому что заполнители исчезают во время набора текста. 
 
 ```html
-<label for=”password”>Пароль</label>
-<input type=”text” id=”password” placeholder="Введите пароль" aria-describedby=”hint”>
-<span id=”hint”>Пароль должен состоять из 8 символов, включая цифры и буквы.</span>
+<label for="password">Пароль</label>
+<input type="text" id="password" placeholder="Введите пароль" aria-describedby="hint">
+<span id="hint">Пароль должен состоять из 8 символов, включая цифры и буквы.</span>
 ```
 
 В этом примере инструкция по вводу пароля всегда доступна пользователю и точно не потеряется.
