@@ -26,12 +26,12 @@
       font-size: 18px;
     }
 
-    .input-row {
+    .row {
       display: flex;
       align-items: center;
     }
 
-    .input-row + .input-row {
+    .row + .row {
       margin-top: 25px;
     }
 
@@ -137,11 +137,36 @@
       background-color: #FFFFFF;
       color: #2E9AFF;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .row-title, select {
+        width: 100%;
+        min-width: 280px;
+      }
+
+      .row-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .select-wrapper {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="input-row">
+    <div class="row">
       <span class="row-title">Обратный билет</span>
       <label class="checkbox-label">
         <input class="checkbox" type="checkbox" name="return">
@@ -149,7 +174,7 @@
       </label>
     </div>
 
-    <div class="input-row">
+    <div class="row">
       <span class="row-title">Везёте багаж?</span>
       <label class="radio-label">
         <input class="radio" type="radio" name="luggage" value="true">
@@ -161,7 +186,7 @@
       </label>
     </div>
 
-    <div class="input-row">
+    <div class="row">
       <span class="row-title">Место назначения</span>
         <div class="select-wrapper">
           <select name="city">
