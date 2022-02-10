@@ -1,5 +1,5 @@
 ---
-title: "Атрибут inputmode"
+title: "Атрибут `inputmode`"
 authors:
   - webdb81
 editors:
