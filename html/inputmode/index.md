@@ -2,8 +2,6 @@
 title: "Атрибут `inputmode`"
 authors:
   - webdb81
-editors:
-  -
 keywords:
   - inputmode
   - атрибут
