@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Объяснение работы :where() — :where() — Дока</title>
+  <title>Объяснение работы :where() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,20 +18,9 @@
     }
 
     html {
-      display: flex;
-      font-size: 14px;
-    }
+      font-size: 62.5%;
 
-    @media (min-width: 375px) {
-      html {
-        font-size: 16px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      html {
-        font-size: 18px;
-      }
+      background-color: snow;
     }
 
     body,
@@ -40,21 +29,23 @@
     }
 
     body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      overflow: hidden;
-
-      width: 100%;
-      height: 500px;
-      max-height: 100%;
+      width: 1000px;
+      max-width: 100%;
 
       margin: auto;
-      padding: 1em 1rem;
+      padding: 1em;
 
-      background-color: snow;
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 1.6rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.5em;
     }
 
     code {
@@ -63,100 +54,116 @@
     }
 
     button {
-      padding: 0.5em 1rem;
+      padding: 0.5em 1em;
 
       border: none;
-      border-radius: 0.75rem;
+      border-radius: 12px;
 
       font-size: inherit;
       color: white;
 
-      background-color: black;
+      background-color: rgb(0 0 0 / 100%);
+    }
 
+    button:hover {
       cursor: pointer;
     }
 
-    .code-section {
-      width: 24rem;
-      max-width: 100%;
+    button:disabled {
+      background-color: rgb(0 0 0 / 50%);
 
+      cursor: not-allowed;
+    }
+
+    header,
+    main {
       margin-bottom: 2em;
-      padding: 1em 1rem;
+    }
 
-      border-radius: 1rem;
+    footer {
+      display: flex;
+      justify-content: center;
+    }
+
+    .code-section {
+      padding: 1em;
+
+      border-radius: 16px;
 
       background-color: aquamarine;
     }
 
     .code-block {
+      display: block;
+
+      visibility: visible;
+      opacity: 1;
+
       transform: translateY(0);
 
-      transition-property: opacity;
+      transition-property: transform, opacity;
       transition-duration: 300ms;
       transition-timing-function: ease;
     }
 
     .code-block_hidden {
+      visibility: hidden;
       opacity: 0;
 
       transform: translateY(1em);
     }
 
-    .inline-code {
-      background-color: aquamarine;
+    .cat {
+      transition-property: background-color;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
     }
 
-    .text {
-      margin-bottom: 1em;
-
-      line-height: 1.3;
-      text-align: center;
-    }
-
-    :where(header, footer) .cat {
+    :where(h1, ul) .cat {
       background-color: deepskyblue;
     }
   </style>
 </head>
 <body>
-  <div class="code-section">
-    <pre><code class="code-block">:where(header, footer) .cat {
-  background-color: deepskyblue;
-}</code>
-
-<code class="code-block code-block_hidden" id="code-block-footer">footer .cat {
-  background-color: orange;
-}</code></pre>
-  </div>
   <header>
-    <div class="text">
-      Я <span class="cat">голубой кот из хедера</span>. Мой цвет определило первое правило. Так будет со всеми котами из хедеров и футеров...
-    </div>
+    <h1>Сколько <span class="cat">голубых котов</span> приходится на сотню шерстяных тыгыдыков?</h1>
+    <ul>
+      <li>50 чёрных кошек</li>
+      <li>25 полосатых котят</li>
+      <li><span class="cat">25 голубых котов</span></li>
+    </ul>
   </header>
-  <footer>
-    <div class="text" id="text-footer">
-      ...например, со мной. <span class="cat">Я голубой кот из футера.</span>
+  <main>
+    <div class="code-section">
+      <pre><code class="code-block">:where(h1, ul) .cat {
+  background-color: deepskyblue
+}</code>
+<code class="code-block code-block_hidden" id="code-block-footer">footer .cat {
+  background-color: orange
+}</code></pre>
     </div>
+  </main>
+  <footer>
+    <button>Покрасить 25 голубых котов в рыжий</button>
   </footer>
-  <button>Покрасить второго кота в рыжий</button>
   <script>
     const button = document.querySelector('button')
     const style = document.querySelector('style')
 
     const cssFooterRule = `
-      footer .cat {
-        background-color: orange;
+      ul .cat {
+        background-color: orange
       }
-    `;
+    `
 
     button.addEventListener('click', (event) => {
       style.appendChild(document.createTextNode(cssFooterRule))
 
       document.querySelector('#code-block-footer').classList.remove('code-block_hidden')
-      document.querySelector('#text-footer').innerHTML = '...но только не со мной. <span class="cat">Теперь я рыжий кот из футера</span>. Спасибо <code class="inline-code">:where()</code> за нулевую специфичность и возможность легко перебить получившийся с его помощью селектор.'
 
-      event.target.remove()
-    });
+      event.target.textContent = 'Котики покрашены'
+      event.target.setAttribute('disabled', true)
+    })
   </script>
 </body>
 </html>
