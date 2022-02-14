@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Поля с разными клавиатурами — inputmode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 32px;
+      font-family: 'Roboto', sans-serif;
+      background-color: #18191c;
+    }
+
+    .demo-wrapper {
+      margin: 0 auto;
+      width: 560px;
+    }
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -12px;
+      width: 100%;
+    }
+
+    .form-field {
+      display: inline-flex;
+      flex-direction: column;
+      width: calc(50% - 24px);
+      margin: 0 12px 20px;
+    }
+
+    .form-field__name {
+      display: inline-block;
+      margin-bottom: 4px;
+      font-size: 17px;
+      color: #b8c0c8;
+    }
+
+    .form-field__input {
+      width: 100%;
+      border: 1px solid #a8b4c0;
+      border-radius: 4px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    textarea {
+      width: 100%;
+      font-family: inherit;
+      padding: 8px;
+      resize: none;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 24px;
+      }
+
+      .demo-wrapper {
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      form {
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .form-field {
+        width: 100%;
+        margin: 0 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-wrapper">
+    <form>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="none"</code></span>
+        <input type="text" inputmode="none" name="name_input" class="form-field__input">
+      </label>
+      <label class="form-field ">
+        <span class="form-field__name"><code>inputmode="text"</code></span>
+        <textarea inputmode="text" name="comment_input" placeholder="Оставьте комментарий"></textarea>
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="numeric"</code></span>
+        <input type="text" inputmode="numeric" name="numeric_input" class="form-field__input">
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="decimal"</code></span>
+        <input type="text" inputmode="decimal" name="decimal_input" class="form-field__input">
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="tel"</code></span>
+        <input type="tel" inputmode="tel" name="phone_input" class="form-field__input" pattern="[8]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="8 999 999-99-99">
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="email"</code></span>
+        <input type="email" inputmode="email" name="email_input" class="form-field__input" placeholder="email@example.com">
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="search"</code></span>
+        <input type="text" inputmode="search" name="search_input" class="form-field__input">
+      </label>
+      <label class="form-field">
+        <span class="form-field__name"><code>inputmode="url"</code></span>
+        <input type="text" inputmode="url" name="link_input" class="form-field__input">
+      </label>
+    </form>
+  </div>
+</body>
+</html>
