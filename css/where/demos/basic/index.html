@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Объяснение работы — :where() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      font-size: 62.5%;
+
+      background-color: snow;
+    }
+
+    body,
+    button {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      width: 1000px;
+      max-width: 100%;
+
+      margin: auto;
+      padding: 1em;
+
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 1.6rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    code {
+      font-family: 'Roboto Mono',  monospace;
+      white-space: pre-wrap;
+    }
+
+    button {
+      padding: 0.5em 1em;
+
+      border: none;
+      border-radius: 12px;
+
+      font-size: inherit;
+      color: white;
+
+      background-color: rgb(0 0 0 / 100%);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: rgb(0 0 0 / 50%);
+
+      cursor: not-allowed;
+    }
+
+    header,
+    main {
+      margin-bottom: 2em;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+    }
+
+    .code-section {
+      padding: 1em;
+
+      border-radius: 16px;
+
+      background-color: aquamarine;
+    }
+
+    .code-block {
+      display: block;
+
+      visibility: visible;
+      opacity: 1;
+
+      transform: translateY(0);
+
+      transition-property: transform, opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+
+    .code-block_hidden {
+      visibility: hidden;
+      opacity: 0;
+
+      transform: translateY(1em);
+    }
+
+    .cat {
+      transition-property: background-color;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+
+    :where(h1, ul) .cat {
+      background-color: deepskyblue;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Сколько <span class="cat">голубых котов</span> приходится на сотню шерстяных <!-- yaspeller ignore:start -->тыгыдыков<!-- yaspeller ignore:end -->?</h1>
+    <ul>
+      <li>50 чёрных кошек</li>
+      <li>25 полосатых котят</li>
+      <li><span class="cat">25 голубых котов</span></li>
+    </ul>
+  </header>
+  <main>
+    <div class="code-section">
+      <pre><code class="code-block">:where(h1, ul) .cat {
+  background-color: deepskyblue
+}</code>
+<code class="code-block code-block_hidden" id="code-block-footer">footer .cat {
+  background-color: orange
+}</code></pre>
+    </div>
+  </main>
+  <footer>
+    <button>Покрасить 25 голубых котов в рыжий</button>
+  </footer>
+  <script>
+    const button = document.querySelector('button')
+    const style = document.querySelector('style')
+
+    const cssFooterRule = `
+      ul .cat {
+        background-color: orange
+      }
+    `
+
+    button.addEventListener('click', (event) => {
+      style.appendChild(document.createTextNode(cssFooterRule))
+
+      document.querySelector('#code-block-footer').classList.remove('code-block_hidden')
+
+      event.target.textContent = 'Котики покрашены'
+      event.target.setAttribute('disabled', true)
+    })
+  </script>
+</body>
+</html>

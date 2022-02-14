@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница в специфичности :where() и :is() — :where() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      font-size: 62.5%;
+
+      background-color: snow;
+    }
+
+    body,
+    button {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      /* не даём появляться прокрутке при запуске эмодзи */
+      overflow: hidden;
+
+      width: 1000px;
+      max-width: 100%;
+
+      margin: auto;
+      padding: 1em;
+
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 1.6rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    code {
+      font-family: 'Roboto Mono',  monospace;
+      white-space: pre-wrap;
+    }
+
+    button {
+      padding: 0.5em 1em;
+
+      border: none;
+      border-radius: 12px;
+
+      font-size: inherit;
+      color: white;
+
+      background-color: rgb(0 0 0 / 100%);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    header,
+    main {
+      margin-bottom: 2em;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+    }
+
+    .code-section {
+      padding: 1em;
+
+      border-radius: 16px;
+
+      background-color: aquamarine;
+    }
+
+    .code-section + .code-section {
+      margin-top: 2em;
+    }
+
+    .code-block {
+      display: block;
+
+      visibility: visible;
+      opacity: 1;
+
+      transform: translateY(0);
+
+      transition-property: transform, opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+
+    .code-block_hidden {
+      visibility: hidden;
+      opacity: 0;
+
+      transform: translateY(1em);
+    }
+
+    .arrow-in-the-knee {
+      visibility: hidden;
+      opacity: 0;
+
+      transition-property: opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Когда-то и меня вела дорога приключений... <span class="arrow-in-the-knee">а потом мне прострелили колено</span></h1>
+  </header>
+  <main>
+    <div class="code-section">
+      <pre><code class="code-block">&lth1&gtКогда-то и меня вела дорога приключений... &ltspan class="arrow-in-the-knee"&gtа потом мне прострелили колено&lt/span&gt&lt/h1&gt</code></pre>
+    </div>
+    <div class="code-section">
+      <pre><code class="code-block">.arrow-in-the-knee {
+  visibility: hidden
+}</code>
+<code class="code-block code-block_hidden" id="code-block-is">:is(.arrow-in-the-knee) {
+  visibility: visible
+}</code>
+<code class="code-block code-block_hidden" id="code-block-where">:where(.arrow-in-the-knee) {
+  visibility: hidden
+}</code></pre>
+    </div>
+  </main>
+  <footer>
+    <button>Получить стрелу в колено</button>
+  </footer>
+  <script>
+    const button = document.querySelector('button')
+    const style = document.querySelector('style')
+
+    const cssIsRule = `
+      :is(.arrow-in-the-knee) {
+        visibility: visible;
+        opacity: 1;
+      }
+    `
+    const cssWhereRule = `
+      :where(.arrow-in-the-knee) {
+        visibility: hidden;
+        opacity: 0;
+      }
+    `
+
+    let clickCount = 0
+
+    button.addEventListener('click', () => {
+      clickCount++
+
+      switch (clickCount) {
+        case 1:
+          style.appendChild(document.createTextNode(cssIsRule))
+
+          document.querySelector('#code-block-is').classList.remove('code-block_hidden')
+
+          button.textContent = 'Попробовать снова пойти дорогой приключений'
+
+          break
+        case 2:
+          style.appendChild(document.createTextNode(cssWhereRule))
+
+          document.querySelector('#code-block-where').classList.remove('code-block_hidden')
+
+          button.textContent = 'Грустить со стрелой в колене'
+
+          launchRandomSadEmoji()
+
+          break
+        default:
+          launchRandomSadEmoji()
+      }
+    })
+
+    /**
+     * Ниже код для красивого «запуска» эмодзи после второго нажатия на кнопку
+     * Не ловите стрелу в колено!
+     */
+    const DIRECTIONS = {
+      TOP: 'top',
+      RIGHT: 'right',
+      BOTTOM: 'bottom',
+      LEFT: 'left',
+    }
+
+    const SAD_EMOJIS = ['😥', '😨', '😟', '😭', '😦', '😵', '😱', '😰', '😳', '😩']
+
+    const getDirection = () => {
+      return Object.values(DIRECTIONS)[Math.floor(Math.random() * 4)]
+    }
+
+    const createEmojiContainer = () => {
+      const el = document.createElement('div')
+
+      el.style.position = 'absolute'
+
+      el.style.width = '2rem'
+      el.style.height = '2rem'
+
+      el.style.fontSize = '2rem'
+
+      el.style.transitionProperty = 'opacity, transform'
+      el.style.transitionDuration = `${Math.random() * 2 + 3}s`
+      el.style.transitionTimingFunction = 'linear'
+
+      el.textContent = SAD_EMOJIS[Math.floor(Math.random() * SAD_EMOJIS.length)]
+
+      el.ontransitionend = (event) => event.target.remove()
+
+      return el
+    }
+
+    const getTranslateValues = (direction, shift) => {
+      let x, y
+
+      switch (direction) {
+        case DIRECTIONS.TOP:
+          x = (window.innerWidth / 2 - window.innerWidth * shift) * 2
+          y = window.innerHeight * (Math.min(Math.random() + 0.5, 1))
+
+          break
+        case DIRECTIONS.RIGHT:
+          x = window.innerWidth * (Math.min(Math.random() + 0.5, 1)) * -1
+          y = (window.innerHeight / 2 - window.innerHeight * shift) * 2
+
+          break
+        case DIRECTIONS.BOTTOM:
+          x = (window.innerWidth / 2 - window.innerWidth * shift) * 2
+          y = window.innerHeight * (Math.min(Math.random() + 0.5, 1)) * -1
+
+          break
+        case DIRECTIONS.LEFT:
+          x = window.innerWidth * (Math.min(Math.random() + 0.5, 1))
+          y = (window.innerHeight / 2 - window.innerHeight * shift) * 2
+
+          break
+      }
+
+      return [x, y]
+    }
+
+    const handleEmojiContainerTransitions = (el) => {
+      const direction = getDirection()
+
+      const shift = Math.random()
+
+      el.style[direction] = '-2rem'
+
+      const [translateXValue, translateYValue] = getTranslateValues(direction, shift)
+
+      if (direction === DIRECTIONS.TOP || direction === DIRECTIONS.BOTTOM) {
+        el.style.left = `${window.innerWidth * shift}px`
+      } else {
+        el.style.top = `${window.innerHeight * shift}px`
+      }
+
+      const translateX = `${Math.floor(translateXValue)}px`
+      const translateY = `${Math.floor(translateYValue)}px`
+      const scale = `${Math.floor(Math.random() * 2 + 4)}`
+      const rotate = `${Math.floor(Math.random() * 90 + 45)}deg`
+
+      setTimeout(() => {
+        el.style.transform = `translate(${translateX}, ${translateY}) scale(${scale}) rotate(${rotate})`
+        el.style.opacity = '0'
+      })
+    }
+
+    const launchRandomSadEmoji = () => {
+      const emojiContainer = createEmojiContainer()
+
+      document.body.appendChild(emojiContainer)
+
+      handleEmojiContainerTransitions(emojiContainer)
+    }
+  </script>
+</body>
+</html>
