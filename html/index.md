@@ -70,6 +70,8 @@ groups:
       - label
       - fieldset
       - legend
+      - inputmode
+      - placeholder
   - name: 'Картинки'
     items:
       - img
