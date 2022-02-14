@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Атрибут placeholder в поле ввода — Атрибут placeholder — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 7%;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    label {
+      display: inline-block;
+      margin-right: 10px;
+      color: #FFFFFF;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    input {
+      height: 40px;
+      width: 400px;
+      border: 2px solid white;
+      border-radius: 7px;
+      padding: 3px 10px;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    input::placeholder {
+      color: grey;
+      font-size: 18px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #F498AD;
+    }
+  </style>
+</head>
+<body>
+    <label for="name">Имя</label>
+    <input type="text" id="name" placeholder="Введите ваше имя">
+</body>
