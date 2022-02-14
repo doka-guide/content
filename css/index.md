@@ -41,6 +41,7 @@ groups:
       - empty
       - has
       - is
+      - where
       - in-range-out-of-range
       - required
       - invalid-valid
