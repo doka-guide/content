@@ -1,6 +1,9 @@
 ---
 title: "`counter-reset`"
 description: "Одно из свойств для создания CSS-счётчика"
+keywords:
+  - CSS-счётчики
+  - счётчик
 authors:
   - blueingreen68
 tags:
