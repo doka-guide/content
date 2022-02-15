@@ -1,30 +1,30 @@
 ---
 pinned:
-  - css/box-model
-  - tools/docker
-  - html/doctype
-  - html/div
-  - css/display
-  - tools/webpack
   - js/clean-architecture
-  - html/head
-  - js/closures
   - tools/ci-cd
-  - js/execution-order
-  - css/grid-guide
+  - js/closures
 ready:
   - html/flow
   - html/input
   - html/video
+  - html/doctype
+  - html/div
+  - html/head
   - css/box-shadow
   - css/custom-properties
   - css/flexbox-guide
+  - css/box-model
+  - css/display
+  - css/grid-guide
   - js/async-in-js
   - js/deal-with-forms
   - js/how-the-browser-creates-pages
   - js/how-to-test-and-why
+  - js/execution-order
   - tools/cli
   - tools/static-types
+  - tools/docker
+  - tools/webpack
 active:
   - css/box-model
   - tools/docker
