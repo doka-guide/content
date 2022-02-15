@@ -5,9 +5,9 @@
 ## Февраль 2022
 
 - 14 февраля [`:where()`](https://doka.guide/css/where/), Антон Субботин
-- 14 февраля [`counter-set`](https://doka.guide/css/counter-set/), Степанов Алексей
-- 14 февраля [`counter-reset`](https://doka.guide/css/counter-reset/), Степанов Алексей
-- 14 февраля [`counter-increment`](https://doka.guide/css/counter-increment/), Степанов Алексей
+- 14 февраля [`counter-set`](https://doka.guide/css/counter-set/), Алексей Степанов
+- 14 февраля [`counter-reset`](https://doka.guide/css/counter-reset/), Алексей Степанов
+- 14 февраля [`counter-increment`](https://doka.guide/css/counter-increment/), Алексей Степанов
 - 14 февраля [Атрибут `placeholder`](https://doka.guide/html/placeholder/), Марианна Минич
 - 14 февраля [Атрибут `inputmode`](https://doka.guide/html/inputmode/), Борис Демченко
 
