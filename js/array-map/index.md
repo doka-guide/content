@@ -127,7 +127,8 @@ const nums = [1, 2, 3]
 const otherData = { delta: 5 }
 
 const transformed = nums.map(function (num) {
-  return num + this.delta; // this теперь ссылается на объект otherData
+  // this теперь ссылается на объект otherData
+  return num + this.delta
 }, otherData)
 
 console.log(transformed)
@@ -142,7 +143,8 @@ const nums = [1, 2, 3]
 const otherData = { delta: 5 }
 
 const transformed = nums.map((num) => {
-  return num + this.delta; // this.delta в данном случае равен undefined
+  // this.delta в данном случае равен undefined
+  return num + this.delta
 }, otherData)
 
 console.log(transformed)
