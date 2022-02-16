@@ -35,15 +35,17 @@ function* getLangs() {
 
 ```js
 const generator = getLangs()
-
 ```
 
 Далее вызываем метод `next()`, чтобы получать значения по одному:
 
 ```js
-generator.next() // { value: 'java', done: false }
-generator.next() // { value: 'js', done: false }
-generator.next() // { value: 'rust', done: true }
+generator.next()
+// { value: 'java', done: false }
+generator.next()
+// { value: 'js', done: false }
+generator.next()
+// { value: 'rust', done: true }
 ```
 
 Если нужно получать значения в цикле, то можно подставить результат вызова функции-генератора в `for..of`:
@@ -54,7 +56,9 @@ const generator = getLangs()
 for (const value of generator) {
     console.log(value)
 }
-// Выведет: 'java', 'js', 'rust'
+// 'java'
+// 'js'
+// 'rust'
 ```
 
 
@@ -104,14 +108,17 @@ const generator = getLangs()
 Генераторы по умолчанию ленивые, и до тех пор пока не будет вызван метод `next()`, у возвращаемого объекта-генератора никакие вычисления не будут происходить. Но даже после вызова `next()` выполнение функции произойдёт только до первого вызова `yield`. Если вызвать `next()` ещё раз, то выполнение продолжится до следующего `yield` и так далее. Продолжим пример выше.
 
 ```js
-generator.next() // Возвращает { value: 'java', done: false }
-// Выведет "result of heavy compuation #1: 4950"
+console.log(generator.next())
+// "result of heavy compuation #1: 4950"
+// { value: 'java', done: false }
 
-generator.next() // Возвращает { value: 'js', done: false }
-// Выведет "result of heavy compuation #2: 9900"
+console.log(generator.next())
+// "result of heavy compuation #2: 9900"
+// { value: 'js', done: false }
 
-generator.next() // Возвращает { value: 'rust', done: false }
-// Выведет "easy compuation: 4"
+console.log(generator.next())
+// "easy compuation: 4"
+// { value: 'rust', done: false }
 ```
 
 Таким образом мы получили функцию, которая выполняется частями. Если вывести в консоль содержимое, то можно лучше понять что происходит внутри.
@@ -132,10 +139,14 @@ console.log(generator)
 В самом начале генератор находится в состоянии `suspended`, т.е он приостановлен. Дальнейшие вызовы `next()` тоже будут переводить генератор в это состояние до тех пор, пока генератор не вернёт все значения (пройдёт все вызовы `yield`). Генератор закроется, только когда вызов метода `next()` вернет объект с полем `done: true`.
 
 ```js
-generator.next() // { value: 'java', done: false }
-generator.next() // { value: 'js', done: false }
-generator.next() // { value: 'rust', done: false }
-generator.next() // { value: undefined, done: true }
+generator.next()
+// { value: 'java', done: false }
+generator.next()
+// { value: 'js', done: false }
+generator.next()
+// { value: 'rust', done: false }
+generator.next()
+// { value: undefined, done: true }
 
 console.log(generator)
 /*
@@ -170,14 +181,17 @@ function* getLangs() {
 
 const generator = getLangs()
 
-generator.next() // { value: 'java', done: false }
+generator.next()
+// { value: 'java', done: false }
+
 // Передаём true, потому что java нам понравилась
-generator.next(true) // { value: 'kotlin', done: false }
+generator.next(true)
+// { value: 'kotlin', done: false }
 ```
 
 Сначала может показаться нелогичным, что при первом вызове `next()` значение аргумента не запишется. Однако это является особенностью генераторов, из-за того что генераторы ленивые первый вызов `next()` можно считать инициализацией.
 
-Если представить генератор как закрытую коробку, то первый вызов `next()` – это как вытянуть первый предмет вслепую. Вам неизвестно заранее, что вы получите, потому нельзя заранее сказать, что предмет нам понравится. Аналогично и в примере выше, сначала мы хотим получить результат, а затем на его основе можем решить какой аргумент передать в следующий вызов `.next().
+Если представить генератор как закрытую коробку, то первый вызов `next()` – это как вытянуть первый предмет вслепую. Вам неизвестно заранее, что вы получите, потому нельзя заранее сказать, что предмет нам понравится. Аналогично и в примере выше, сначала мы хотим получить результат, а затем на его основе можем решить какой аргумент передать в следующий вызов `next()`.
 
 Потому мы не можем передать значение в `isFavorite` в первом вызове `next()`, но можем в следующем. Из-за этого появляется ассиметричность, что сначала генератор вернёт значение, а только потом сможет записывать переданный ему аргумент.
 
@@ -210,11 +224,16 @@ function* getLangs() {
 
 const generator = getLangs()
 
-generator.next() // { value: 'java', done: false }
-generator.next(true) // { value: 'kotlin', done: false }
-generator.next() // { value: 'scala', done: false }
-generator.next() // { value: 'closure', done: false }
-generator.next() // { value: 'rust', done: false }
+generator.next()
+// { value: 'java', done: false }
+generator.next(true)
+// { value: 'kotlin', done: false }
+generator.next()
+// { value: 'scala', done: false }
+generator.next()
+// { value: 'closure', done: false }
+generator.next()
+// { value: 'rust', done: false }
 ```
 
 Так можно вызывать генераторы внутри генераторов и удобно разбивать логику на отдельные части.
@@ -264,7 +283,8 @@ function* generator() {
 for (const num of generator()) {
     console.log(num)
 }
-// Выведет: 1, 2
+// 1
+// 2
 ```
 
 Генераторы возвращают объект-генератор, который является  расширенной версией объекта-итератора, потому результат вызова можно использовать для создания коллекций, например `Array` или `Set`.
@@ -276,8 +296,12 @@ function* nums() {
     yield 3
 }
 
-const arr = Array.from(nums()) // [1, 2, 3]
-const set = new Set(nums()) // Set { 1, 2, 3 }
+const arr = Array.from(nums())
+console.log(arr)
+// [1, 2, 3]
+const set = new Set(nums())
+console.log(set)
+// Set { 1, 2, 3 }
 ```
 
 Помимо метода `next()`, у объекта-генератора есть методы `return()` и `throw()`, которые позволяют завершить генератор после вызова.
