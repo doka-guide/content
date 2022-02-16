@@ -46,5 +46,6 @@ location: "/about/"
 
 Хотим поблагодарить людей, которые принимали активное участие в создании и развитии проекта:
 
-- <!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end -->
-- <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end -->
+- <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> — за то, что собрал нас вместе.
+- <!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end --> — за контентный дизайн.
+- <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
