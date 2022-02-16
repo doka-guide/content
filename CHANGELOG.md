@@ -10,6 +10,8 @@
 - 14 февраля [`counter-increment`](https://doka.guide/css/counter-increment/), Алексей Степанов
 - 14 февраля [Атрибут `placeholder`](https://doka.guide/html/placeholder/), Марианна Минич
 - 14 февраля [Атрибут `inputmode`](https://doka.guide/html/inputmode/), Борис Демченко
+- 8 февраля [Коллекция `Map`](https://doka.guide/js/map/), Виталий Баев
+- 7 февраля [Performance API](https://doka.guide/js/performance/), Владимир Быков
 
 ## Январь 2022
 
