@@ -255,6 +255,7 @@ groups:
       - required
       - appearance
       - resize
+      - caret-color
   - name: '!important'
     items:
       - important
@@ -322,6 +323,11 @@ groups:
       - column-rule-color
       - column-rule-style
       - column-rule-width
+  - name: 'Счётчики'
+    items:
+      - counter-set
+      - counter-reset
+      - counter-increment
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html/), SVG и других языков разметки.
