@@ -1,10 +1,6 @@
 ---
 title: "`counter-increment`"
 description: "Свойство, которое управляет шагом числового значения существующих CSS-счётчиков"
-keywords:
-  - CSS-счётчики
-  - нумерация
-  - шаг
 authors:
   - blueingreen68
 tags:
