@@ -1,9 +1,6 @@
 ---
 title: "`counter-set`"
 description: "Свойство, которое управляет точным числовым значением существующих CSS-счётчиков"
-keywords:
-  - CSS-счётчики
-  - числовое значение
 authors:
   - blueingreen68
 tags:
