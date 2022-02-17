@@ -4,7 +4,7 @@
 
 ```html
 <form>
-  <label>Имя: <input type="text" name="firstName" ></label>
+  <label>Имя: <input type="text" name="firstName"></label>
   <button type="submit">Отправить</button>
 </form>
 ```
