@@ -2,12 +2,6 @@
 title: "`<samp>`"
 authors:
   - webdb81
-keywords:
-  - тег
-  - тэг
-  - samp
-  - вывод данных
-  - оформление данных
 tags:
   - doka
 ---
