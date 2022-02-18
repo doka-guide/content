@@ -26,29 +26,29 @@ ready:
   - tools/docker
   - tools/webpack
 active:
-  - css/box-model
-  - tools/docker
-  - html/doctype
-  - html/div
-  - css/display
-  - tools/webpack
   - js/clean-architecture
-  - html/head
-  - js/closures
   - tools/ci-cd
-  - js/execution-order
-  - css/grid-guide
-  - tools/static-types
-  - css/flexbox-guide
+  - js/closures
   - css/box-shadow
-  - html/flow
-  - html/video
-  - tools/cli
-  - css/custom-properties
-  - js/how-the-browser-creates-pages
-  - js/async-in-js
-  - js/how-to-test-and-why
-  - html/input
   - js/deal-with-forms
+  - js/execution-order
+  - css/box-model
+  - html/div
+  - css/flexbox-guide
+  - css/display
+  - html/head
+  - tools/cli
+  - tools/static-types
+  - html/video
+  - html/doctype
+  - css/grid-guide
+  - html/flow
+  - js/how-to-test-and-why
+  - js/async-in-js
+  - html/input
+  - js/how-the-browser-creates-pages
+  - css/custom-properties
+  - tools/webpack
+  - tools/docker
 ---
 
