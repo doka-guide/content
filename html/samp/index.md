@@ -53,7 +53,7 @@ tags:
   <samp>
     <span class="console-name">user@machine:~$</span> <kbd>ckear</kbd>
     <br>
-    ckear: The term 'ckear' is not recognized as a name of a cmdlet, function, script file, or executable program.
+    ckear: The term 'ckear' unidentified as a name of a cmdlet, function, script file, or executable program.
     <br>
     <span class="console-name">user@machine:~$</span> <span class="console-cursor">█</span>
   </samp>
