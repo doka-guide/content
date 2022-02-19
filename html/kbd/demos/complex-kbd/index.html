@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования с <code>, <pre> и <var> — <kbd> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      padding: 20px;
+      background-color: #18191C;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    pre {
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        display: flex;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Пример листинга программы для ввода данных в консоли:</p>
+    <pre>
+      <code>
+        int main()
+        {
+          int <var>age</var>;
+          double <var><kbd>weight</kbd></var>;
+          std::cout << "Укажите возраст: ";
+          std::cin >> <var><kbd>age</kbd></var>;
+          std::cout << "Укажите вес: ";
+          std::cin >> <var><kbd>weight</var>;
+        }
+      </code>
+    </pre>
+  </div>
+</body>
+</html>
