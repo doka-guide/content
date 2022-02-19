@@ -71,14 +71,12 @@ jobs:
         run: |
           file_list=""
           replace="html"
-          pattern="*md"
+          pattern="md$"
           while IFS= read -r changed_file; do
             echo $changed_file;
-            if ! [[ $changed_file == "" ]]; then
-              if [[ $changed_file == $pattern ]]; then
-                page=$(echo "${changed_file/$pattern/$replace}")
-                file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
-              fi
+            if [[ $changed_file =~ $pattern ]]; then
+              page=$(echo "${changed_file/$pattern/$replace}")
+              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${page}">${changed_file}</a></li>")
             fi
           done <<< "$list"
           if ! [[ $file_list == "" ]]; then
