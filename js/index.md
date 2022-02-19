@@ -178,6 +178,7 @@ groups:
       - events
       - element-click
       - event-load-and-domcontentloaded
+      - event-unload-and-beforeunload
       - element-keydown-keyup
       - element-mouseout
       - element-mouseover
