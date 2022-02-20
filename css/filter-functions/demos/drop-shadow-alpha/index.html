@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Функция drop-shadow() — Функции фильтров — Дока</title>
   <meta charset="utf-8">
@@ -8,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -40,24 +43,27 @@
       text-align: center;
     }
 
-    img {      
+    img {
       width: 150px;
     }
-	.box-shadow {
-		box-shadow: 4px 4px 10px red;
-	}
-	.drop-shadow {
-		filter: drop-shadow(4px 4px 10px red);
-	}
+
+    .box-shadow {
+      box-shadow: 4px 4px 10px red;
+    }
+
+    .drop-shadow {
+      filter: drop-shadow(4px 4px 10px red);
+    }
 
     @media (max-width: 768px) {
       body {
         padding: 30px;
-		    flex-direction: column;
-      }	 
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
   <figure>
     <img class="box-shadow" src="images/doggo-up.svg">
@@ -68,4 +74,5 @@
     <figcaption>filter: drop-shadow()</figcaption>
   </figure>
 </body>
+
 </html>
