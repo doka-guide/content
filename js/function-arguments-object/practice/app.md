@@ -2,9 +2,9 @@
 
 ```js
 function myHandler(...[, second, third]) {
-  console.log(`Второй параметр = ${second}`);
-  console.log(`Третий параметр = ${third}`);
+  console.log(`Второй параметр = ${second}`)
+  console.log(`Третий параметр = ${third}`)
 }
 
-myHandler(1, 2, 3);
+myHandler(1, 2, 3)
 ```
