@@ -8,6 +8,8 @@ cover:
   alt: 'Камень с веб-формой, рядом молоток и зубило'
 authors:
   - bespoyasov
+contributors:
+  - skorobaeus
 keywords:
   - form
   - ajax
@@ -75,7 +77,7 @@ tags:
 </form>
 ```
 
-<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" height="200" sandbox="allow-scripts allow-forms"></iframe>
+<iframe title="Форма заявки на Mars Once" src="demos/mars-form/" height="550" sandbox="allow-scripts allow-forms"></iframe>
 
 В целом форма рабочая: обязательные поля не пропустят пустые значения, атрибут `type` проследит, чтобы вместо почты нам не прислали номер телефона, а по нажатию на кнопку валидная форма отправит все данные.
 
