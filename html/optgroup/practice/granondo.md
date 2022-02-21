@@ -2,7 +2,6 @@
 
 ```html
 <select>
- </optgroup>
  <optgroup disabled label=" Необычные цветы">
   <option>Ангулоя одноцветковая</option>
   <option>Обезьяний дракула</option>
