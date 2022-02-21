@@ -7,4 +7,7 @@ function myHandler(...[, second, third]) {
 }
 
 myHandler(1, 2, 3)
+
+// Второй параметр = 2
+// Третий параметр = 3
 ```
