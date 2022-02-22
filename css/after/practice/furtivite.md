@@ -11,9 +11,7 @@
   }
 
   a::after {
-    a::after {
-      content: ' (ссылка: ' attr(href) ') ';
-    }
+    content: ' (ссылка: ' attr(href) ') ';
   }
 }
 ```
