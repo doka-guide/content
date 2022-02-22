@@ -1,12 +1,11 @@
 ---
 title: "`<optgroup>`"
 authors:
-  - doka-dog
+  - granondo
 keywords:
   - группировка опций
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
