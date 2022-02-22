@@ -6,13 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    body {
-      padding: 5%;
+    *, *::before, *::after {
       margin: 0;
-      background-color: #e6e6e6;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #123E66;
+      font-family: "Roboto", sans-serif;
     }
 
     .button:focus {
@@ -20,24 +29,31 @@
     }
 
     .button {
-      padding: 15px 20px;
+      padding: 15px 50px;
       border: none;
       border-radius: 25px;
-      color: #979797;
+      color: #c5e3ff;
       background-color: transparent;
       cursor: pointer;
-      box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
-      -5px -5px 10px #fdfdfd, inset 5px 5px 8px -4px #fdfdfd;
-      font-family: "Roboto", sans-serif;
+      box-shadow: 5px 5px 10px #020d18, inset -5px -5px 8px -4px #020d18,
+      -5px -5px 10px #3185d5, inset 5px 5px 8px -4px #3185d5;
+      font-family: inherit;
       font-size: 20px;
-      font-weight: 100;
+      font-weight: 300;
       user-select: none;
     }
 
     .button:active {
-      box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
-      inset -6px -6px 8px 0 #fdfdfd, -5px -5px 10px #fdfdfd,
-      inset 5px 5px 8px -4px #fdfdfd, inset 6px 6px 8px 0 #c9c9c9;
+      box-shadow: 5px 5px 10px #020d18, inset -5px -5px 8px -4px #020d18,
+      inset -6px -6px 8px 0 #3185d5, -5px -5px 10px #3185d5,
+      inset 5px 5px 8px -4px #3185d5, inset 6px 6px 8px 0 #020d18;
+      text-shadow: #c5e3ff 1px 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
