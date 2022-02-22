@@ -57,7 +57,7 @@ tags:
     <br>
     ckear: The term 'ckear' unidentified as a name of a cmdlet, function, script file, or executable program.
     <br>
-    <span class="console-name">user@machine:~$</span> <span class="console-cursor">█</span>
+    <span class="console-name">user@machine:~$</span> <span class="console-cursor">_</span>
   </samp>
 </div>
 ```
