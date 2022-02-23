@@ -63,14 +63,24 @@
       opacity: 1;
     }
 
-    .form__field:focus-visible,
+    .form__field:focus-visible {
+      background-color: #ffffff;
+      outline: 1px solid #000;
+    }
+
     .form__field:focus {
       background-color: #ffffff;
       outline: 1px solid #000;
     }
 
     .form__field:not(:placeholder-shown) + .form__label,
-    .form__field:focus-visible + .form__label,
+    .form__field:focus-visible + .form__label {
+      color: #ffffff;
+      transform: translate(-24px, -30px) scale(.9);
+      cursor: pointer;
+    }
+
+    .form__field:not(:placeholder-shown) + .form__label,
     .form__field:focus + .form__label {
       color: #ffffff;
       transform: translate(-24px, -30px) scale(.9);
@@ -102,6 +112,11 @@
     }
 
     .form__submit:focus-visible,
+    .form__submit:hover {
+      background-color: rgb(102 51 153 / 0.8);
+    }
+
+    .form__submit:focus,
     .form__submit:hover {
       background-color: rgb(102 51 153 / 0.8);
     }
