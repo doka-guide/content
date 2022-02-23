@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Всплывающая подпись поля при помощи placeholder-shown — placeholder-shown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+    }
+
+    .form {
+      border-radius: 30px;
+      border: 1px solid #ffffff;
+      padding: 40px;
+    }
+
+    .form__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .form__item:not(:first-child) {
+      margin-top: 12px;
+    }
+
+    .form__field {
+      font-weight: inherit;
+      font-size: inherit;
+      border: 0;
+      border-radius: 0;
+      padding: 12px 24px;
+      transition: background-color .3s;
+      background-color: #ecf1f7;
+    }
+
+    .form__field:hover {
+      background-color: #e4ebf3;
+    }
+
+    .form__field::placeholder {
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .form__field:focus-within::placeholder,
+    .form__field:focus::placeholder {
+      opacity: 1;
+    }
+
+    .form__field:focus-visible {
+      background-color: #ffffff;
+      outline: 1px solid #000;
+    }
+
+    .form__field:focus {
+      background-color: #ffffff;
+      outline: 1px solid #000;
+    }
+
+    .form__field:not(:placeholder-shown) + .form__label,
+    .form__field:focus-visible + .form__label {
+      color: #ffffff;
+      transform: translate(-24px, -30px) scale(.9);
+      cursor: pointer;
+    }
+
+    .form__field:not(:placeholder-shown) + .form__label,
+    .form__field:focus + .form__label {
+      color: #ffffff;
+      transform: translate(-24px, -30px) scale(.9);
+      cursor: pointer;
+    }
+
+    .form__label {
+      position: absolute;
+      left: 24px;
+      bottom: 12px;
+      transform: translate(0, 4px) scale(1);
+      font-weight: inherit;
+      font-size: inherit;
+      color: #79818c;
+      transition: all .3s;
+    }
+
+    .form__submit {
+      box-sizing: border-box;
+      border: none;
+      font-weight: 500;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: rgb(102 51 153);
+      cursor: pointer;
+      transition: background;
+      padding: 18px 36px;
+      margin-top: 24px;
+    }
+
+    .form__submit:focus-visible,
+    .form__submit:hover {
+      background-color: rgb(102 51 153 / 0.8);
+    }
+
+    .form__submit:focus,
+    .form__submit:hover {
+      background-color: rgb(102 51 153 / 0.8);
+    }
+  </style>
+</head>
+<body>
+  <form class="form" id="form">
+    <label class="form__item">
+      <input class="form__field" placeholder="jane@example.com">
+      <span class="form__label">Email</span>
+    </label>
+    <button class="form__submit">Отправить</button>
+  </form>
+
+  <script>
+    const FORM = document.querySelector('#form')
+
+    FORM.addEventListener('submit', function(e) {
+      e.preventDefault()
+    })
+  </script>
+</body>
+</html>
