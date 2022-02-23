@@ -2,9 +2,9 @@
 title: "Управление процессами"
 authors:
   - igsekor
-  - zersh01
 contributors:
   - furtivite
+  - zersh01
 keywords:
   - service
   - signals
