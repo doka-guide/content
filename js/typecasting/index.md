@@ -1,5 +1,10 @@
 ---
 title: "Преобразование типов"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Прогноз погоды, где ведущий показывает на облака с разными типами'
 authors:
   - bespoyasov
 tags:
