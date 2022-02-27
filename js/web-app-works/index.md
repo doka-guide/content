@@ -1,5 +1,10 @@
 ---
 title: "Как работают веб-приложения"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Вдали лодка с рыбаком. Он поймал не рыбку, а русалку на первом плане. Русалка улыбается и держит крючок в руке.'
 authors:
   - bespoyasov
 keywords:
