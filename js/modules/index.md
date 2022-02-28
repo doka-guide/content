@@ -65,7 +65,7 @@ _AMD (asynchronous module definition)_ — асинхронное определ
 
 // Например, определение модуля-объекта с данными:
 define(function() {
-  return
+  return {
     color: "black",
     size: "unisize"
   }
