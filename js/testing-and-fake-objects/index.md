@@ -1,5 +1,10 @@
 ---
 title: "Фиктивные объекты и данные, моки, стабы"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Боксёр бьёт большую грушу (фрукт)'
 authors:
   - bespoyasov
 tags:
