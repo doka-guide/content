@@ -186,7 +186,7 @@ SVG не может быть записано без оборачивающег�
 
 ## Подсказки
 
-💡 Если захотите внести какие-то сложные правки в SVG, а дизайнера под рукой нет, то используйте Adobe Illustrator.
+💡 Если захотите внести какие-то сложные правки в SVG, а дизайнера под рукой нет, то используйте «[SVG-Edit](https://github.com/SVG-Edit/svgedit)», «[SVG-Edit Online](https://svgedit.netlify.app/editor/index.html)», «[inkscape](https://inkscape.org/)»  или  Adobe Illustrator.
 
 💡 Всегда перед использованием SVG в проекте прогоняйте его через оптимизатор [SVGO](https://jakearchibald.github.io/svgomg/). Он удалит всё ненужное, код станет приятнее и будет меньше весить.
 
@@ -196,10 +196,10 @@ SVG не может быть записано без оборачивающег�
 
 ### Учебные руководства
 
-- Перевод руководства от MDM Web Docs [SVG — учебное руководство ](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial)
-- Отлично иллюстрированное англоязычное руководство от W3C [An SVG Primer for Today's Browsers. W3C Working Draft — September 2010](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html).
+- Перевод руководства от MDM Web Docs «[SVG — учебное руководство ](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial)»
+- Отлично иллюстрированное англоязычное руководство от W3C «[An SVG Primer for Today's Browsers. W3C Working Draft — September 2010](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)».
 
 ### Документация MDM Web Docs 
-- [Справочник SVG элементов ](https://developer.mozilla.org/ru/docs/Web/SVG/Element)
-- [Справочник SVG атрибутов ](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute)
-- Общий список ссылкок на ресурсы по SVG от MDM Web Docs  [SVG.  Документация MDM Web Docs ]( https://developer.mozilla.org/ru/docs/Web/SVG) 
+- «[Справочник SVG элементов ](https://developer.mozilla.org/ru/docs/Web/SVG/Element)»
+- «[Справочник SVG атрибутов ](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute)»
+- Общий список ссылкок на ресурсы по SVG от MDM Web Docs  «[SVG.  Документация MDM Web Docs ]( https://developer.mozilla.org/ru/docs/Web/SVG)» 
