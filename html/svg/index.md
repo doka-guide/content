@@ -199,7 +199,7 @@ SVG не может быть записано без оборачивающег�
 - Перевод руководства от MDM Web Docs «[SVG — учебное руководство ](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial)»
 - Отлично иллюстрированное англоязычное руководство от W3C «[An SVG Primer for Today's Browsers. W3C Working Draft — September 2010](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)».
 
-### Документация MDM Web Docs 
+### Документация MDM Web Docs
 - «[Справочник SVG элементов ](https://developer.mozilla.org/ru/docs/Web/SVG/Element)»
 - «[Справочник SVG атрибутов ](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute)»
 - Общий список ссылкок на ресурсы по SVG от MDM Web Docs  «[SVG.  Документация MDM Web Docs ]( https://developer.mozilla.org/ru/docs/Web/SVG)» 
