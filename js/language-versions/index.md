@@ -1,5 +1,10 @@
 ---
 title: "Версии языка, транспайлеры, бандлеры"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Три картины, которые показывают рост героя от малыша (версия 1.0) до взрослого человека (версия 3.0)'
 authors:
   - bespoyasov
 keywords:
