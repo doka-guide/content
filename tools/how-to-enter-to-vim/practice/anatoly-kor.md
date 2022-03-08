@@ -7,7 +7,3 @@
 3. `./install`
 
 С примером конфигурации vim, tmux, скриптов вы можете ознакомиться в [моём .dotfiles](https://github.com/anatoly-kor/dotfiles). Он довольно обширный, но разделён на логические части. Подглядывайте и копируйте себе полезные для вас команды и инструменты.
-
-<video controls width="700">
-  <source src="video/example.mp4" type="video/mp4">
-</video>
