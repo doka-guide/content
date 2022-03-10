@@ -204,4 +204,4 @@ SVG не может быть записано без оборачивающег�
 
 - [Справочник SVG элементов](https://developer.mozilla.org/ru/docs/Web/SVG/Element);
 - [Справочник SVG атрибутов](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute);
-- Общий список ссылкок на ресурсы по SVG от MDM Web Docs  [SVG.  Документация MDM Web Docs]( https://developer.mozilla.org/ru/docs/Web/SVG).
+- Общий список ссылок на ресурсы по SVG от MDM Web Docs  [SVG.  Документация MDM Web Docs]( https://developer.mozilla.org/ru/docs/Web/SVG).
