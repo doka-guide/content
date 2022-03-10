@@ -1,6 +1,11 @@
 ---
 title: "`<head>`"
 description: "Какие настройки страницы скрываются в невидимой шапке? Говорим о заголовке страницы, фавиконке, способах подключения стилей и скриптов."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Голова девочки в разрезе, где внутри есть лого Доки'
 authors:
   - doka-dog
 contributors:
