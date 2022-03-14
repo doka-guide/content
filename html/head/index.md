@@ -5,7 +5,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Голова девочки в разрезе, где внутри есть лого Доки'
+  alt: 'Девочка, у которой в голове логотип Доки'
 authors:
   - doka-dog
 contributors:
