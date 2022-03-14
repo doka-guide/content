@@ -5,7 +5,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Голова улыбающейся девочки между тегами head. В голове теги title, style, script, base, link и лого Доки'
+  alt: 'Голова улыбающейся девочки между тегами head. В голове теги title, style, script, base, link и логотип Доки'
 authors:
   - doka-dog
 contributors:
