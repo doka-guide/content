@@ -25,6 +25,7 @@ jobs:
     env:
       DEPLOY_DOMAIN: "https://${{ github.repository_owner }}-content-pr-${{ github.event.pull_request.number }}.surge.sh"
       SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
         uses: actions/checkout@v2
