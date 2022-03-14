@@ -51,4 +51,6 @@ jobs:
       - name: Генерация карточек для социальных сетей
         run: npx gulp socialCards
       - name: Публикация сайта
-        run: npm run deploy
+        run:  |
+          cp .env.example .env
+          npm run deploy
