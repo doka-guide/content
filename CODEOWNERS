@@ -2,6 +2,7 @@ css @solarrust
 html @solarrust
 js @nlopin @bespoyasov
 tools @nlopin @bespoyasov @igsekor
+recipes @nlopin @solarrust
 docs @tachisis
 README.md @tachisis
 .yaspeller.json @tachisis
