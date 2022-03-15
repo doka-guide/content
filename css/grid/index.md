@@ -47,7 +47,7 @@ tags:
 Значение по умолчанию. Это ключевое слово сбрасывает значения для всех свойств, входящих в этот шорткат.
 
 ```css
-.item {
+.container {
   display: grid;
   grid: none;
 }
@@ -58,7 +58,7 @@ tags:
 Можно указать допустимые значения для шортката [`grid-template`](/css/grid-template/):
 
 ```css
-.item {
+.container {
   display: grid;
   grid: repeat(4, 150px) / 1fr 200px 1fr;
 }
@@ -67,7 +67,7 @@ tags:
 В том числе можно указать имена для линий:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:
     [row1-start] 25px [row1-end row2-start] 25px [row2-end] /
@@ -80,7 +80,7 @@ tags:
 Создадим два ряда и две колонки:
 
 ```css
-.item {
+.container {
   display: grid;
   grid: 200px 100px / 30% 30%;
 }
@@ -93,7 +93,7 @@ tags:
 Если `auto-flow` стоит справа от слэша, то будут создаваться автоматические колонки:
 
 ```css
-.item {
+.container {
   display: grid;
   grid: 200px 100px / auto-flow 30%;
 }
@@ -102,7 +102,7 @@ tags:
 Если `auto-flow` стоит слева от слэша, то будут создаваться автоматические ряды:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:  auto-flow 30% / 200px 100px;
 }
@@ -115,7 +115,7 @@ tags:
 Важно ставить это слово сразу после `auto-flow`:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:  auto-flow dense 30% / 200px 100px;
 }
