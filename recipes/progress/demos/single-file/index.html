@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Прогрессбар закрузки файла — Рецепты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 32px 24px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .demo-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+    }
+
+    .form-upload {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    #uploadForm_File {
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    .form-upload__submit {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 16px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+
+    progress {
+      width: 100%;
+      height: 16px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 8px;
+      background-color: #f3f3f3;
+    }
+
+    progress::-webkit-progress-bar {
+      border: none;
+      border-radius: 8px;
+      background-color: #f3f3f3;
+    }
+
+    progress::-webkit-progress-value {
+      border-radius: 8px;
+      background-color: #27ae60;
+    }
+
+    progress::-moz-progress-bar {
+      border: none;
+      border-radius: 8px;
+      background-color: #27ae60;
+    }
+
+    .form-upload__status {
+      margin-bottom: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-wrapper">
+    <h2>Загрузка изображения с индикацией процесса</h2>
+    <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
+      <input type="file" name="file_name" id="uploadForm_File" accept="image/*">
+      <input type="submit" id="uploadForm_Submit" class="form-upload__submit" value="Загрузить файл">
+      <progress id="progressBar" value="0" max="100"></progress>
+      <div id="uploadForm_Status" class="form-upload__status"></div>
+      <p id="uploadForm_Size"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('uploadForm_File').addEventListener('change', function () {
+      let fileCheckAmount = this.files[0];
+      if (fileCheckAmount.size > 5242880 ) {
+        alert('Принимается файл до 5 МБ');
+        this.value= null;
+      }
+    });
+
+    document.getElementById('uploadForm_Submit').addEventListener('click', function uploadFile(event) {
+      let fileFormField = document.getElementById('uploadForm_File');
+      let fileToLoad = fileFormField.files[0];
+      let formSent = new FormData();
+      let xhr = new XMLHttpRequest();
+
+      if (fileFormField.files.length > 0) {
+        formSent.append('uploadForm_File', fileToLoad);
+
+        xhr.upload.addEventListener('progress', progressHandler, false);
+        xhr.addEventListener('load', loadHandler, false);
+        xhr.open('POST', 'upload_processing.php');
+        xhr.send(formSent);
+      } else {
+        alert('Сначала выберите файл');
+      }
+      event.preventDefault();
+      return false;
+    });
+
+    function progressHandler(event) {
+      let percentLoading = (event.loaded / event.total) * 100;
+
+      document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ";
+      document.getElementById('progressBar').value = Math.round(percentLoading);
+      document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...';
+    }
+
+    function loadHandler(event) {
+      document.getElementById('uploadForm_Status').innerHTML = event.target.responseText;
+      document.getElementById('progressBar').value = 0;
+    }
+  </script>
+</body>
+
+</html>
