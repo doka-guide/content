@@ -14,7 +14,7 @@ tags:
 
 ## Задача
 
-Загрузка пользователем файлов на сервер — задача, с которой разработчики часто встречаются при создании web-ресурсов или приложений. При этом хорошие практики организации взаимодействия с пользователем рекомендуют информировать его о ходе и результате выполнения процесса. В этом случае разработчику поможет использование прогресс-бара, который покажет пользователю процесс обработки и передачи файла на сервер.
+Загрузка пользователем файлов на сервер — часто встречающаяся задача при создании сайтов и приложений. Хорошей практикой организации взаимодействия с пользователем является информирование его о ходе и результате выполнения процесса. Можно использовать прогресс-бар, который покажет пользователю процесс обработки и передачи файла на сервер.
 
 Реализовать полный процесс загрузки файла возможно только с использованием серверной части. Поэтому в статье будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JS-код для передачи файла на сервер.
 
@@ -102,44 +102,44 @@ progress::-moz-progress-bar {
 
 ```javascript
 document.getElementById('uploadForm_File').addEventListener('change', function () {
-  let fileCheckAmount = this.files[0];
+  let fileCheckAmount = this.files[0]
   if (fileCheckAmount.size > 5242880) {
-    alert('Принимается файл до 5 МБ');
-    this.value= null;
+    alert('Принимается файл до 5 МБ')
+    this.value = null
   }
 });
 
 document.getElementById('uploadForm_Submit').addEventListener('click', function uploadFile(event) {
-  let fileFormField = document.getElementById('uploadForm_File');
-  let fileToLoad = fileFormField.files[0];
-  let formSent = new FormData();
-  let xhr = new XMLHttpRequest();
+  let fileFormField = document.getElementById('uploadForm_File')
+  let fileToLoad = fileFormField.files[0]
+  let formSent = new FormData()
+  let xhr = new XMLHttpRequest()
 
   if (fileFormField.files.length > 0) {
-    formSent.append('uploadForm_File', fileToLoad);
+    formSent.append('uploadForm_File', fileToLoad)
 
-    xhr.upload.addEventListener('progress', progressHandler, false);
-    xhr.addEventListener('load', loadHandler, false);
-    xhr.open('POST', 'upload_processing.php');
-    xhr.send(formSent);
+    xhr.upload.addEventListener('progress', progressHandler, false)
+    xhr.addEventListener('load', loadHandler, false)
+    xhr.open('POST', 'upload_processing.php')
+    xhr.send(formSent)
   } else {
-    alert('Сначала выберите файл');
+    alert('Сначала выберите файл')
   }
-  event.preventDefault();
-  return false;
+  event.preventDefault()
+  return false
 });
 
 function progressHandler(event) {
-  let percentLoading = (event.loaded / event.total) * 100;
+  let percentLoading = (event.loaded / event.total) * 100
 
-  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ";
-  document.getElementById('progressBar').value = Math.round(percentLoading);
-  document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...';
+  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ"
+  document.getElementById('progressBar').value = Math.round(percentLoading)
+  document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...'
 }
 
 function loadHandler(event) {
-  document.getElementById('uploadForm_Status').innerHTML = event.target.responseText;
-  document.getElementById('progressBar').value = 0;
+  document.getElementById('uploadForm_Status').innerHTML = event.target.responseText
+  document.getElementById('progressBar').value = 0
 }
 ```
 
@@ -169,13 +169,13 @@ function loadHandler(event) {
 
 Файл для отправки пользователь сможет выбрать с помощью элемента [`<input>`](/html/input/), для которого установлен тип `file`. Формат файлов, которые можно будет загрузить, устанавливается значением атрибута `accept`. В данном случае допускается использование изображений любого формата.
 
-Отправка файла на сервер выполняется после нажатия кнопки "Загрузить файл". Для этого в JS-коде создаётся функция `uploadFile()`, которая будет выполнять обработку выбранного файла и его передачу на сервер.
+Отправка файла на сервер выполняется после нажатия кнопки «Загрузить файл». Для этого в JS-коде создаётся функция `uploadFile()`, которая будет выполнять обработку выбранного файла и его передачу на сервер.
 
 Ход выполнения загрузки будет показываться с использованием специального элемента [`<progress>`](/html/progress/).
 
 Чтобы показать текстовую информацию о результатах загрузки, используются текстовые элементы [`<p>`](/html/p/).
 
-💡 Для каждого элемента внутри формы указывается атрибут [`id`](/html/global-attrs/#id/) — это позволит JS-коду обращаться к нужным элементам для выполнения необходимых действий.
+Для каждого элемента внутри формы указывается атрибут [`id`](/html/global-attrs/#id/) — это позволит JS-коду обращаться к нужным элементам для выполнения необходимых действий.
 
 ### Стили
 
@@ -202,7 +202,7 @@ progress {
 }
 ```
 
-В Firefox эти стили не затронут бегунок, поэтому дополнительно потребуется использовать браузерный префикс `-moz`. Для стилизации в Chrome и Safari как самого элемента, так и его бегунка, необходимо использовать браузерные префиксы `-webkit`.
+В Firefox эти стили не затронут бегунок, поэтому дополнительно потребуется использовать [вендорный префикс](/css/vendor-prefixes/) `-moz`. Для стилизации в Chrome и Safari как самого элемента, так и его бегунка, необходимо использовать браузерные префиксы `-webkit`.
 
 В итоге, для одинакового отображения прогресс-бара и бегунка во всех основных браузерах, добавим следующие правила:
 
@@ -262,12 +262,12 @@ progress::-moz-progress-bar {
 
 ```javascript
 document.getElementById('uploadForm_File').addEventListener('change', function () {
-  let fileCheckAmount = this.files[0];
+  let fileCheckAmount = this.files[0]
   if (fileCheckAmount.size > 5242880) {
-    alert('Принимается файл до 5 МБ');
-    this.value= null;
+    alert('Принимается файл до 5 МБ')
+    this.value = null
   }
-});
+})
 ```
 
 Основную работу будет выполнять функция `uploadFile()`, которая принимает выбранный пользователем файл и отправляет его на сервер. Функция выполняется после нажатия кнопки «Загрузить файл».
@@ -280,10 +280,10 @@ document.getElementById('uploadForm_File').addEventListener('change', function (
 - `xhr` для обращения к серверу с использованием `XMLHttpRequest`.
 
 ```javascript
-let fileFormField = document.getElementById('uploadForm_File');
-let fileToLoad = fileFormField.files[0];
-let formSent = new FormData();
-let xhr = new XMLHttpRequest();
+let fileFormField = document.getElementById('uploadForm_File')
+let fileToLoad = fileFormField.files[0]
+let formSent = new FormData()
+let xhr = new XMLHttpRequest()
 ```
 
 После этого указываем последовательность работы `XMLHttpRequest` при передаче файла на сервер:
@@ -297,14 +297,14 @@ let xhr = new XMLHttpRequest();
 
 ```javascript
 if (fileFormField.files.length > 0) {
-  formSent.append('uploadForm_File', fileToLoad);
+  formSent.append('uploadForm_File', fileToLoad)
 
-  xhr.upload.addEventListener('progress', progressHandler, false);
-  xhr.addEventListener('load', loadHandler, false);
-  xhr.open('POST', 'upload_processing.php');
-  xhr.send(formSent);
+  xhr.upload.addEventListener('progress', progressHandler, false)
+  xhr.addEventListener('load', loadHandler, false)
+  xhr.open('POST', 'upload_processing.php')
+  xhr.send(formSent)
 } else {
-  alert('Сначала выберите файл');
+  alert('Сначала выберите файл')
 }
 ```
 
@@ -314,19 +314,10 @@ if (fileFormField.files.length > 0) {
 
 ```javascript
 function progressHandler(event) {
-  let percentLoading = (event.loaded / event.total) * 100;
+  let percentLoading = (event.loaded / event.total) * 100
 
-  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ";
-  document.getElementById('progressBar').value = Math.round(percentLoading);
-  document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...';
-}
-```
-
-Функция `loadHandler()` показывает пользователю в текстовом элементе принятый ответ сервера о результатах загрузки файла. После этого значение прогресс-бара обнуляется.
-
-```javascript
-function loadHandler(event) {
-  document.getElementById('uploadForm_Status').innerHTML = event.target.responseText;
-  document.getElementById('progressBar').value = 0;
+  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ"
+  document.getElementById('progressBar').value = Math.round(percentLoading)
+  document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...'
 }
 ```
