@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений свойства — outline-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      padding: 20px;
+      margin: 0;
+      min-height: 100%;
+      box-sizing: border-box;
+      background-color: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body,
+    .parent {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      grid-gap: 10px;
+    }
+
+    .parent {
+      margin: 20px;
+      padding: 20px;
+      outline: 2px solid;
+      outline-color: darkmagenta;
+    }
+
+    .outlined {
+      padding: 4px 10px;
+      outline: 2px solid;
+      outline-color: red;
+      font-size: 16px;
+      color: cornflowerblue;
+    }
+
+    .tomato {
+      outline-color: tomato;
+    }
+
+    .rgb {
+      outline-color: rgb(127, 155, 50);
+    }
+
+    .rgba {
+      outline-color: rgb(127 155 50 / 0.25);
+    }
+
+    .hex {
+      outline-color: #c983f1;
+    }
+
+    .hsl {
+      outline-color: hsl(205deg 73% 32%);
+    }
+
+    .hsla {
+      outline-color: hsl(205deg 73% 32% / 0.25);
+    }
+
+    .current-color {
+      color: seagreen;
+      outline-color: currentColor;
+    }
+
+    .transparent {
+      outline-color: transparent;
+    }
+
+    .initial {
+      outline-color: initial;
+    }
+
+    .inherit {
+      outline-color: inherit;
+    }
+
+    .unset {
+      outline-color: unset;
+    }
+
+    .revert {
+      outline-color: revert;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="outlined tomato">tomato</div>
+    <div class="outlined rgb">rgb</div>
+    <div class="outlined rgba">rgba</div>
+    <div class="outlined hex">hex</div>
+    <div class="outlined hsl">hsl</div>
+    <div class="outlined hsla">hsla</div>
+    <div class="outlined current-color">currentColor</div>
+    <div class="outlined transparent">transparent</div>
+    <div class="outlined initial">initial</div>
+    <div class="outlined inherit">inherit</div>
+    <div class="outlined unset">unset</div>
+    <div class="outlined revert">revert</div>
+  </div>
+</body>
+</html>
