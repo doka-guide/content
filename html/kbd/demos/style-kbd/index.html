@@ -8,19 +8,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
+    html, body {
       height: 100%;
     }
 
     body {
-      min-height: 100%;
-      padding: 20px;
+      margin: 0;
+      display: grid;
+      place-content: center;
       background-color: #18191C;
       color: #ffffff;
       font-size: 18px;
@@ -28,8 +23,6 @@
     }
 
     p {
-      max-width: 860px;
-      margin: 0 auto;
       line-height: 1.4;
       text-align: center;
     }
@@ -38,13 +31,6 @@
       padding: 2px 3px 1px;
       border: 1px solid #ffffff;
       border-radius: 3px;
-    }
-
-    @media (max-width: 560px) {
-      body {
-        display: flex;
-        align-items: center;
-      }
     }
   </style>
 </head>

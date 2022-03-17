@@ -79,7 +79,7 @@ kbd {
 
 Результат будет выглядеть так:
 
-<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="80"></iframe>
+<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="100"></iframe>
 
 ## Использование
 
@@ -98,24 +98,20 @@ kbd {
 
 Листинг программы является распространённым вариантом совместного использования нескольких тегов для оформления кода:
 
-<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="320"></iframe>
+<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="280"></iframe>
 
 Разметка в этом случае будет выглядеть следующим образом:
 
 ```html
-<pre>
-  <code>
-    int main()
-    {
-      int <var>age</var>;
-      double <var><kbd>weight</kbd></var>;
-      std::cout << "Укажите возраст: ";
-      std::cin >> <var><kbd>age</kbd></var>;
-      std::cout << "Укажите вес: ";
-      std::cin >> <var><kbd>weight</var>;
-    }
-  </code>
-</pre>
+<pre><code>int main()
+{
+  int <var>age</var>;
+  double <var><kbd>weight</kbd></var>;
+  std::cout &lt;&lt; "Укажите возраст: ";
+  std::cin &gt;&gt; <var><kbd>age</kbd></var>;
+  std::cout &lt;&lt; "Укажите вес: ";
+  std::cin &gt;&gt; <var><kbd>weight</kbd></var>;
+}</code></pre>
 ```
 
 ## Подсказка
