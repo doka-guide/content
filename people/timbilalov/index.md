@@ -1,4 +1,4 @@
 ---
 name: 'Тимур Билалов'
-url: http://unfriend.lh1.in
+url: https://github.com/timbilalov/
 ---
