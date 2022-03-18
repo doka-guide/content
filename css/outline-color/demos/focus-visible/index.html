@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изменение стилей для псевдокласса :focus-visible — outline-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      padding: 20px;
+      margin: 0;
+      min-height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .heading {
+      font-size: 20px;
+      font-weight: normal;
+      margin: 0 0 10px;
+    }
+
+    .elements {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      grid-gap: 10px;
+      font-size: 14px;
+    }
+
+    .link,
+    .button,
+    .input {
+      font: inherit;
+    }
+
+    .label {
+      display: flex;
+      align-items: center;
+    }
+
+    .outline-color-changed {
+      outline-color: magenta;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="section">
+      <h2 class="heading">Стандартные браузерные стили для :focus-visible</h2>
+
+      <div class="elements">
+        <a href="#" class="link">Ссылка</a>
+        <button class="button">Кнопка</button>
+        <input type="text" class="input" placeholder="Поле ввода">
+        <label class="label">
+          Чекбокс
+          <input type="checkbox" class="input">
+        </label>
+        <label class="label">
+          Радиокнопка
+          <input type="radio" class="input">
+        </label>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="heading">С заданным значением <code>outline-color</code></h2>
+
+      <div class="elements">
+        <a href="#" class="link outline-color-changed">Ссылка</a>
+        <button class="button outline-color-changed">Кнопка</button>
+        <input type="text" class="input outline-color-changed" placeholder="Поле ввода">
+        <label class="label">
+          Чекбокс
+          <input type="checkbox" class="input outline-color-changed">
+        </label>
+        <label class="label">
+          Радиокнопка
+          <input type="radio" class="input outline-color-changed">
+        </label>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
