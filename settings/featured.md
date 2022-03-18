@@ -29,26 +29,26 @@ active:
   - js/clean-architecture
   - tools/ci-cd
   - js/closures
-  - html/input
-  - css/box-shadow
   - html/video
-  - js/how-to-test-and-why
-  - html/doctype
-  - tools/cli
+  - css/grid-guide
+  - css/custom-properties
+  - js/async-in-js
+  - tools/docker
+  - html/input
   - html/flow
-  - css/box-model
-  - tools/webpack
-  - css/flexbox-guide
-  - js/deal-with-forms
+  - tools/cli
   - js/execution-order
   - html/head
-  - html/div
   - js/how-the-browser-creates-pages
-  - js/async-in-js
-  - css/display
-  - css/custom-properties
-  - css/grid-guide
-  - tools/docker
+  - css/box-shadow
+  - html/div
+  - css/flexbox-guide
   - tools/static-types
+  - js/deal-with-forms
+  - css/display
+  - js/how-to-test-and-why
+  - css/box-model
+  - tools/webpack
+  - html/doctype
 ---
 
