@@ -41,9 +41,9 @@ jobs:
       - name: Установка ключа для пользователя
         run: |
           set -eu
-          mkdir "~/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "~/.ssh/doka_deploy"
-          chmod 600 "~/.ssh/doka_deploy"
+          mkdir "$HOME/.ssh"
+          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
       - name: Установка модулей
         run: npm ci
       - name: Сборка сайта
