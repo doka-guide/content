@@ -2,6 +2,8 @@
 title: "Функции CSS-трансформации"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 keywords:
   - трансформация
   - transform-function
