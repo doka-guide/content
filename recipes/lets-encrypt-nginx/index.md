@@ -1,5 +1,5 @@
 ---
-title: "Установка сертификатов Let's Encrypt для сайта"
+title: "Установка сертификатов Let's Encrypt"
 description: "Настроим HTTPS для своего сайта на основе бесплатных сертификатов"
 authors:
   - igsekor
