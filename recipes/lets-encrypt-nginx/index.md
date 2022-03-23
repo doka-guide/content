@@ -9,7 +9,7 @@ tags:
 
 ## Задача
 
-Настроить протокол HTTPS для веб-сервера nginx на основе сертификатов [Let's Encrypt](https://letsencrypt.org/docs/).
+Настроить протокол HTTPS для веб-сервера Nginx на основе сертификатов [Let's Encrypt](https://letsencrypt.org/docs/).
 
 Подробнее о веб-сервере можно прочитать в статье «[Веб-сервер](/tools/web-server/)», подробнее о Nginx — в статье «[Веб-сервер Nginx](/tools/nginx-web-server/)». Если не совсем понятно, что такое SSL или TLS сертификаты, можно прочитать об этом в статье «[SSL-сертификаты](/tools/ssl-certificates/)».
 
