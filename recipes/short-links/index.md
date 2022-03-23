@@ -110,9 +110,7 @@ export default {
 ```nginxconf
 ...
 server {
-  ...
-   rewrite ^/docker https://doka.guide/tools/docker/ permanent;
-  ...
+  rewrite ^/docker https://doka.guide/tools/docker/ permanent;
 }
 ```
 
