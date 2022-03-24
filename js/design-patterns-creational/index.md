@@ -180,7 +180,7 @@ class Violinist implements Musician {
 }
 
 class Cellist implements Musician {
-  private instrument: Instrument = new ViolinCello();
+  private instrument: Instrument = new Cello();
 
   play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
   // Playing A# on cello!
