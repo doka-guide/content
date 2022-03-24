@@ -9,7 +9,7 @@
 - 17 марта [`<samp>`](https://doka.guide/html/samp/), Борис Демченко
 - 17 марта [`<kbd>`](https://doka.guide/html/kbd/), Борис Демченко
 - 16 марта [`outline-color`](https://doka.guide/css/outline-color/), Тимур Билалов
-- 14 марта [Как войти в Vim](https://doka.guide/tools/how-to-enter-to-vim/), anatoly-kor
+- 14 марта [Как войти в Vim](https://doka.guide/tools/how-to-enter-to-vim/), Анатолий Коробов
 
 ## Февраль 2022
 
