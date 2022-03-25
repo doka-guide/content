@@ -16,7 +16,7 @@ tags:
 
 Загрузка пользователем файлов на сервер — часто встречающаяся задача при создании сайтов и приложений. Если файлы большие, то хорошей практикой будет показывать пользователю прогресс и результат загрузки файла. Для этого можно использовать прогресс-бар.
 
-Реализовать полный процесс загрузки файла возможно только с использованием серверной части. Поэтому в статье будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JS-код для передачи файла на сервер.
+Организовать полный процесс загрузки файла возможно только с использованием серверной части, реализация которой выходит за рамки данной статьи. Поэтому далее будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JS-код для передачи файла на сервер.
 
 Загрузка файла на сервер состоит из трёх частей:
 
@@ -24,7 +24,7 @@ tags:
 1. Проверка параметров обработки файла и формирование данных с обращением к серверу.
 1. Обработка данных на сервере и отправка ответа.
 
-Подробнее про обработку файлов на стороне сервера с использованием языка программирования PHP можно узнать [в разделе документации PHP](https://www.php.net/manual/ru/features.file-upload.php).
+Серверная часть для обмена файлами может быть реализована на разных языках программирования. Например, про обработку файлов на стороне сервера с использованием PHP можно подробнее узнать [в разделе документации PHP](https://www.php.net/manual/ru/features.file-upload.php).
 
 ## Решение для загрузки файла
 
@@ -131,14 +131,15 @@ document.getElementById('uploadForm_Submit').addEventListener('click', function 
 
 function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
+  const amountFile_Measure = 1048576
 
-  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
   document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
 }
 
 function loadHandler(event) {
-  document.getElementById('uploadForm_Status').innerHTML = event.target.textContent
+  document.getElementById('uploadForm_Status').textContent = event.target.responseText
   document.getElementById('progressBar').value = 0
 }
 ```
@@ -183,7 +184,7 @@ function loadHandler(event) {
 
 Внешний вид элемента [`<progress>`](/html/progress/) может быть разным — это зависит от браузера и операционной системы устройства пользователя. Например, вот так прогресс-бар будет выглядеть на устройствах с macOS и Windows:
 
-![Внешний вид прогресс-бара в macOS и Windows](images/default_progressbar.webp)
+![Внешний вид прогресс-бара в macOS и Windows](images/default_progressbar.png)
 
 Для того, чтобы прогресс-бар выглядел одинаково в разных браузерах, необходимо создать стилевые правила. Правило ниже определяет следующие свойства индикатора:
 
@@ -258,9 +259,9 @@ progress::-moz-progress-bar {
 
 ### JavaScript
 
-Чтобы отправить файл на сервер без перезагрузки страницы воспользуется `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
+Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
 
-Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ. Проверку размера файла выполним на этапе его выбора пользователем:
+Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого обратимся к `input` с использованием директивы `this.files[0]`, что позволит получить данные первого файла, который сохранился в объекте `FileList` элемента `input`.
 
 ```javascript
 document.getElementById('uploadForm_File').addEventListener('change', function () {
@@ -292,8 +293,8 @@ let xhr = new XMLHttpRequest()
 
 - если файл выбран — выполняется его обработка, иначе появляется предупреждение;
 - выбранный файл сохраняется для отправки;
-- обработчик события `progress` выполняет отслеживание состояния загрузки файла;
-- добавляется обработчик события `load` для отслеживания статуса загрузки;
+- для `XMLHttpRequest` добавляется обработчик события `progress`, который выполняет отслеживание состояния загрузки файла;
+- для `XMLHttpRequest` добавляется обработчик события `load`, который отслеживает статус загрузки;
 - метод `open()` выполняет POST-запрос к управляющему файлу, который хранится на сервере;
 - выбранный пользователем файл передаётся на сервер с использованием `FormData()`.
 
@@ -312,14 +313,15 @@ if (fileFormField.files.length > 0) {
 
 Для показа индикации загрузки файла создадим функцию `progressHandler()`. Переменная `percentLoading` получает данные о процессе загрузки файла и передаёт их прогресс-бару для показа в реальном времени. Также данные этой переменной используются для показа в текстовых элементах размера загруженного файла.
 
-Округление значений загруженного объёма данных выполняется с использованием метода `Math.round()`.
+Размер файла будем выводить в мегабайтах. При определении размера файла используется константа `amountFile_Measure`, в которой будет храниться количество байт в одном мегабайте. Округление значений загруженного объёма данных выполняется с использованием метода `Math.round()`.
 
 ```javascript
 function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
+  const amountFile_Measure = 1048576
 
-  document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
-  document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...'
+  document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
 }
 ```

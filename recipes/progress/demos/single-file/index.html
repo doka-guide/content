@@ -102,44 +102,45 @@
 
   <script>
     document.getElementById('uploadForm_File').addEventListener('change', function () {
-      let fileCheckAmount = this.files[0];
-      if (fileCheckAmount.size > 5242880 ) {
-        alert('Принимается файл до 5 МБ');
-        this.value= null;
+      let fileCheckAmount = this.files[0]
+      if (fileCheckAmount.size > 5242880) {
+        alert('Принимается файл до 5 МБ')
+        this.value = null
       }
     });
 
     document.getElementById('uploadForm_Submit').addEventListener('click', function uploadFile(event) {
-      let fileFormField = document.getElementById('uploadForm_File');
-      let fileToLoad = fileFormField.files[0];
-      let formSent = new FormData();
-      let xhr = new XMLHttpRequest();
+      let fileFormField = document.getElementById('uploadForm_File')
+      let fileToLoad = fileFormField.files[0]
+      let formSent = new FormData()
+      let xhr = new XMLHttpRequest()
 
       if (fileFormField.files.length > 0) {
-        formSent.append('uploadForm_File', fileToLoad);
+        formSent.append('uploadForm_File', fileToLoad)
 
-        xhr.upload.addEventListener('progress', progressHandler, false);
-        xhr.addEventListener('load', loadHandler, false);
-        xhr.open('POST', 'upload_processing.php');
-        xhr.send(formSent);
+        xhr.upload.addEventListener('progress', progressHandler, false)
+        xhr.addEventListener('load', loadHandler, false)
+        xhr.open('POST', 'upload_processing.php')
+        xhr.send(formSent)
       } else {
-        alert('Сначала выберите файл');
+        alert('Сначала выберите файл')
       }
-      event.preventDefault();
-      return false;
+      event.preventDefault()
+      return false
     });
 
     function progressHandler(event) {
-      let percentLoading = (event.loaded / event.total) * 100;
+      let percentLoading = (event.loaded / event.total) * 100
+      const amountFile_Measure = 1048576
 
-      document.getElementById('uploadForm_Size').innerHTML = "Загружено " + (event.loaded/1048576).toFixed(1) + " МБ из " + (event.total/1048576).toFixed(1) + " МБ";
-      document.getElementById('progressBar').value = Math.round(percentLoading);
-      document.getElementById('uploadForm_Status').innerHTML = Math.round(percentLoading) + '% загружено...';
+      document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
+      document.getElementById('progressBar').value = Math.round(percentLoading)
+      document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
     }
 
     function loadHandler(event) {
-      document.getElementById('uploadForm_Status').innerHTML = event.target.responseText;
-      document.getElementById('progressBar').value = 0;
+      document.getElementById('uploadForm_Status').textContent = event.target.responseText
+      document.getElementById('progressBar').value = 0
     }
   </script>
 </body>
