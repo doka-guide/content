@@ -14,27 +14,23 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
     body {
-      min-height: 100vh;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #18191c;
-      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      font-size: 25px;
+      text-align: center;
+      background-color: #18191c;
     }
 
     a {
-      position: relative;
-      padding: 14px 20px;
       color: #2E9AFF;
-      font-size: 25px;
       font-weight: 700;
-      line-height: 1;
       text-decoration: none;
-      text-align: center;
       pointer-events: none;
     }
 
@@ -42,9 +38,10 @@
       content: " (ссылка: " attr(href) ")";
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       body {
         padding: 30px;
+        font-size: 18px;
       }
     }
   </style>
