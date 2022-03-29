@@ -58,43 +58,52 @@ server {
 ```javascript
 const fs = require('fs')
 
-function getPage(link) {
-  return new fetch(link)
-    .then(reply => reply.text())
-    .then(body => {
-      resolve(body)
-    })
-    .catch(e => r.return(501, e.message))
-}
-
+// Формирует длинную ссылку на основе аргументов GET-запроса
 function getLink(r) {
+  // Формирование аргументов GET-запроса
   const arguments = [];
   for (const key in r.args) {
     arguments.push(`${key}=${r.args[key]}`)
   }
+
+  // Можно использовать любой адрес, такая ссылка для примера
   return `https://mysite.dev/?${arguments.join('&')}`
 }
 
+// Сохраняет короткую ссылку в файл
 async function add(r) {
   const link = getLink(r)
   const hash = await crypto.subtle.digest('SHA-512', JSON.stringify(r.args))
   const shortHash = Buffer.from(hash).toString('hex').slice(0, 8)
   const path = `/links/${shortHash}.json`
+
+  // Формирует заголовок для ответа
   r.headersOut['Content-Type'] = "application/json charset=utf-8"
   try {
+
+    // Если файл уже есть (ссылка уже была сформирована), то возвращает соответствующий ответ
     fs.accessSync(path, fs.constants.R_OK | fs.constants.W_OK)
     r.return(200, `{ "status": "Already exists", "hash": "${shortHash}" }`)
+
   } catch (e) {
+
+    // Запись ссылки в файл
     const json = `{ "url": "${link}" }`
     fs.writeFileSync(`${path}`, json)
+
+    // Возврат хэш-части короткой ссылки в ответе на запрос
     r.return(201, `{ "status": "Created", "hash": "${shortHash}" }`)
   }
 }
 
+// Преобразует короткую ссылку в длинную и перенаправляет браузер по ней
 async function get(r) {
+  // Открывает файл со ссылкой
   const filePath = `/links/${r.uri.replace('/get/', '')}.json`
   const file = fs.readFileSync(filePath, { encoding: 'utf8' })
   const json = JSON.parse(file)
+
+  // Переадресация браузера
   r.return(301, json.url)
 }
 
