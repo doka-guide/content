@@ -119,6 +119,12 @@ sudo chown -R nginx:nginx /links
 sudo chmod -R 755 /links
 ```
 
+Пример сформированного автоматически файла _07b0c246.json_ с информацией о переадресации короткой ссылки:
+
+```javascript
+{ "url": "https://mysite.dev/article=docker" }
+```
+
 ## Разбор решения
 
 ### Конструирование ссылок
