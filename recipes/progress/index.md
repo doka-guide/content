@@ -131,9 +131,9 @@ document.getElementById('uploadForm_Submit').addEventListener('click', function 
 
 function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
-  const amountFile_Measure = 1048576
+  const BYTES_IN_MB = 1048576
 
-  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
   document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
 }
@@ -313,14 +313,14 @@ if (fileFormField.files.length > 0) {
 
 Для показа индикации загрузки файла создадим функцию `progressHandler()`. Переменная `percentLoading` получает данные о процессе загрузки файла и передаёт их прогресс-бару для показа в реальном времени. Также данные этой переменной используются для показа в текстовых элементах размера загруженного файла.
 
-Размер файла будем выводить в мегабайтах. При определении размера файла используется константа `amountFile_Measure`, в которой будет храниться количество байт в одном мегабайте. Округление значений загруженного объёма данных выполняется с использованием метода `Math.round()`.
+Размер файла будем выводить в мегабайтах. При определении размера файла используется константа `BYTES_IN_MB`, в которой будет храниться количество байт в одном мегабайте. Округление значений загруженного объёма данных выполняется с использованием метода `Math.round()`.
 
 ```javascript
 function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
-  const amountFile_Measure = 1048576
+  const BYTES_IN_MB = 1048576
 
-  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
   document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
 }

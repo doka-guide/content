@@ -131,9 +131,9 @@
 
     function progressHandler(event) {
       let percentLoading = (event.loaded / event.total) * 100
-      const amountFile_Measure = 1048576
+      const BYTES_IN_MB = 1048576
 
-      document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/amountFile_Measure).toFixed(1) + " МБ из " + (event.total/amountFile_Measure).toFixed(1) + " МБ"
+      document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
       document.getElementById('progressBar').value = Math.round(percentLoading)
       document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
     }
