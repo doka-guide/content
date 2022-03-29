@@ -81,7 +81,7 @@ server {
     access_log /web/sites/example.com/logs/access.log;
 
     location / {
-       return 301 https://$host$request_uri;
+      return 301 https://$host$request_uri;
     }
 }
 
