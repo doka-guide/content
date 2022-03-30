@@ -1,5 +1,6 @@
 ---
 pinned:
+  - recipes/snow
   - css/box-model
   - tools/docker
   - html/doctype
@@ -26,6 +27,7 @@ ready:
   - tools/cli
   - tools/static-types
 active:
+  - recipes/snow
   - css/box-model
   - tools/docker
   - html/doctype
