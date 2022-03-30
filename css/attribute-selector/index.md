@@ -1,5 +1,10 @@
 ---
 title: "Селектор по атрибуту"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Сачок, который поймал белую рыбу. Чёрные остались в реке'
 authors:
   - ezhkov
 editors:
