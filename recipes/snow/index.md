@@ -56,7 +56,7 @@ tags:
 
 ```css
 .snow {
-  --animationName: snowfall;
+  --animation-name: snowfall;
   position: fixed;
   left: 0;
   right: 0;
@@ -72,7 +72,7 @@ tags:
   position: relative;
   top: -1.5em;
   color: #c1dcec;
-  animation-name: var(--animationName);
+  animation-name: var(--animation-name);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;
@@ -508,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```css
 .snow {
-  --animationName: snowfall;
+  --animation-name: snowfall;
   position: fixed;
   left: 0;
   right: 0;
@@ -524,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
   position: relative;
   top: -1.5em;
   color: #c1dcec;
-  animation-name: var(--animationName);
+  animation-name: var(--animation-name);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;
