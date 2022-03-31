@@ -3,6 +3,8 @@ title: "Загрузка файла с прогресс-баром"
 description: "Создадим несложный вариант передачи файлов на сервер с индикацией процесса загрузки."
 authors:
   - webdb81
+contributors:
+  - skorobaeus
 keywords:
   - загрузка файла
   - ajax
@@ -32,13 +34,14 @@ tags:
 
 ```html
 <div class="demo-wrapper">
-  <h2>Загрузка изображения с индикацией процесса</h2>
   <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
-    <input type="file" name="file_name" id="uploadForm_File" accept="image/*">
-    <input type="submit" id="uploadForm_Submit" class="form-upload__submit" value="Загрузить файл">
+    <label for="uploadForm_File" class="form-upload__label">
+      <span class="form-upload__title">Изображение:</span>
+      <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
+    </label>
+    <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
     <progress id="progressBar" value="0" max="100"></progress>
-    <div id="uploadForm_Status" class="form-upload__status"></div>
-    <p id="uploadForm_Size"></p>
+    <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
   </form>
 </div>
 ```
@@ -49,52 +52,109 @@ tags:
 .form-upload {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 320px;
+  align-items: flex-end;
+}
+
+.form-upload__label {
+  display: flex;
+  align-items: center;
+}
+
+.form-upload__title {
+  max-width: 200px;
+  margin-right: 55px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.form-upload__input {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: inherit;
+}
+
+.form-upload__input::file-selector-button {
+  min-width: 190px;
+  border: none;
+  border-radius: 6px;
+  margin-right: 30px;
+  padding: 9px 15px;
+  font-weight: inherit;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 #uploadForm_File {
-  margin-bottom: 12px;
+  text-transform: lowercase;
   cursor: pointer;
+}
+
+#uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+  width: 360px;
 }
 
 .form-upload__submit {
-  display: inline-flex;
-  align-self: flex-start;
-  margin-bottom: 16px;
-  padding: 4px 8px;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  margin-top: 25px;
+  padding: 9px 15px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: inherit;
+  transition: background-color 0.2s linear;
+}
+
+.form-upload__submit:hover {
+  background-color: #FFFFFF;
   cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+.form-upload__submit:focus-visible {
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+.form-upload__submit:focus {
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+.form-upload__submit_purple {
+  background-color: #C56FFF;
 }
 
 progress {
-  width: 100%;
-  height: 16px;
-  margin-bottom: 8px;
+  height: 5px;
   border: none;
-  border-radius: 8px;
-  background-color: #f3f3f3;
+  margin-top: 25px;
+  background-color: #286C2D;
 }
 
 progress::-webkit-progress-bar {
   border: none;
-  border-radius: 8px;
-  background-color: #f3f3f3;
+  background-color: #286C2D;
 }
 
 progress::-webkit-progress-value {
-  border-radius: 8px;
-  background-color: #27ae60;
+  background-color: #41E847;
 }
 
 progress::-moz-progress-bar {
   border: none;
-  border-radius: 8px;
-  background-color: #27ae60;
+  background-color: #41E847;
 }
 
-.form-upload__status {
-  margin-bottom: 16px;
-  font-weight: bold;
+.form-upload__container {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.form-upload__status:empty::before {
+  content: "Не загружено";
 }
 ```
 
@@ -133,9 +193,9 @@ function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
   const BYTES_IN_MB = 1048576
 
-  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
-  document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
+  document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
 }
 
 function loadHandler(event) {
@@ -144,7 +204,7 @@ function loadHandler(event) {
 }
 ```
 
-<iframe title="Пример загрузки одного файла" src="demos/single-file/" height="450"></iframe>
+<iframe title="Пример загрузки одного файла" src="demos/single-file/" height="330"></iframe>
 
 Полный вариант загрузки файла с его сохранением на сервере выглядит так:
 
@@ -157,12 +217,14 @@ function loadHandler(event) {
 ### Разметка
 
 ```html
-<form id="uploadForm" class="form-upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="file_name" id="uploadForm_File" accept="image/*">
-  <input type="submit" id="uploadForm_Submit" class="form-upload__submit" value="Загрузить файл">
+<form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
+  <label for="uploadForm_File" class="form-upload__label">
+    <span class="form-upload__title">Изображение:</span>
+    <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
+  </label>
+  <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
   <progress id="progressBar" value="0" max="100"></progress>
-  <div id="uploadForm_Status" class="form-upload__status"></div>
-  <p id="uploadForm_Size"></p>
+  <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
 </form>
 ```
 
@@ -176,7 +238,7 @@ function loadHandler(event) {
 
 Ход выполнения загрузки будет показываться с использованием специального элемента [`<progress>`](/html/progress/).
 
-Чтобы показать текстовую информацию о результатах загрузки, используются текстовые элементы [`<p>`](/html/p/).
+Чтобы показать текстовую информацию о результатах загрузки, используются текстовые элементы [`<span>`](/html/span/).
 
 Для каждого элемента внутри формы указывается атрибут [`id`](/html/global-attrs/#id/) — это позволит JS-коду обращаться к нужным элементам для выполнения необходимых действий.
 
@@ -188,20 +250,16 @@ function loadHandler(event) {
 
 Для того, чтобы прогресс-бар выглядел одинаково в разных браузерах, необходимо создать стилевые правила. Правило ниже определяет следующие свойства индикатора:
 
-- устанавливает ширину на весь родительский контейнер;
-- добавляет нижний отступ;
+- добавляет верхний отступ;
 - убирает границу по умолчанию;
-- меняет цвет фона;
-- задаёт скругление по краям.
+- меняет цвет фона.
 
 ```css
 progress {
-  width: 100%;
-  height: 16px;
-  margin-bottom: 8px;
+  height: 5px;
   border: none;
-  border-radius: 8px;
-  background-color: #f3f3f3;
+  margin-top: 25px;
+  background-color: #286C2D;
 }
 ```
 
@@ -212,19 +270,16 @@ progress {
 ```css
 progress::-webkit-progress-bar {
   border: none;
-  border-radius: 8px;
-  background-color: #f3f3f3;
+  background-color: #286C2D;
 }
 
 progress::-webkit-progress-value {
-  border-radius: 8px;
-  background-color: #27ae60;
+  background-color: #41E847;
 }
 
 progress::-moz-progress-bar {
   border: none;
-  border-radius: 8px;
-  background-color: #27ae60;
+  background-color: #41E847;
 }
 ```
 
@@ -234,26 +289,24 @@ progress::-moz-progress-bar {
 .form-upload {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 320px;
+  align-items: flex-end;
 }
 
 #uploadForm_File {
-  margin-bottom: 12px;
   cursor: pointer;
 }
 
 .form-upload__submit {
-  display: inline-flex;
-  align-self: flex-start;
-  margin-bottom: 16px;
-  padding: 4px 8px;
-  cursor: pointer;
+  display: block;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  margin-top: 25px;
+  padding: 9px 15px;
+  color: #000000;
 }
 
-.form-upload__status {
-  margin-bottom: 16px;
-  font-weight: bold;
+.form-upload__container {
+  margin-top: 10px;
 }
 ```
 
@@ -320,8 +373,8 @@ function progressHandler(event) {
   let percentLoading = (event.loaded / event.total) * 100
   const BYTES_IN_MB = 1048576
 
-  document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
+  document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
   document.getElementById('progressBar').value = Math.round(percentLoading)
-  document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
+  document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
 }
 ```

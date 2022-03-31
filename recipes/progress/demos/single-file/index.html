@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *,
     *::before,
@@ -17,86 +17,164 @@
     }
 
     body {
-      margin: 0;
-      padding: 32px 24px;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .demo-wrapper {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      margin-bottom: 24px;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .form-upload {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      max-width: 320px;
+      align-items: flex-end;
+    }
+
+    .form-upload__label {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-upload__title {
+      max-width: 200px;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .form-upload__input {
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .form-upload__input::file-selector-button {
+      min-width: 190px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 30px;
+      padding: 9px 15px;
+      font-weight: inherit;
+      font-family: inherit;
+      cursor: pointer;
     }
 
     #uploadForm_File {
-      margin-bottom: 12px;
+      text-transform: lowercase;
       cursor: pointer;
+    }
+
+    #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+      width: 360px;
     }
 
     .form-upload__submit {
-      display: inline-flex;
-      align-self: flex-start;
-      margin-bottom: 16px;
-      padding: 4px 8px;
+      display: block;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-top: 25px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .form-upload__submit:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .form-upload__submit:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .form-upload__submit:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .form-upload__submit_purple {
+      background-color: #C56FFF;
     }
 
     progress {
-      width: 100%;
-      height: 16px;
-      margin-bottom: 8px;
+      height: 5px;
       border: none;
-      border-radius: 8px;
-      background-color: #f3f3f3;
+      margin-top: 25px;
+      background-color: #286C2D;
     }
 
     progress::-webkit-progress-bar {
       border: none;
-      border-radius: 8px;
-      background-color: #f3f3f3;
+      background-color: #286C2D;
     }
 
     progress::-webkit-progress-value {
-      border-radius: 8px;
-      background-color: #27ae60;
+      background-color: #41E847;
     }
 
     progress::-moz-progress-bar {
       border: none;
-      border-radius: 8px;
-      background-color: #27ae60;
+      background-color: #41E847;
     }
 
-    .form-upload__status {
-      margin-bottom: 16px;
-      font-weight: bold;
+    .form-upload__container {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .form-upload__status:empty::before {
+      content: "Не загружено";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-upload__label {
+        display: block;
+      }
+
+      .form-upload__title {
+        display: block;
+        max-width: initial;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+
+      #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .form-upload__input::file-selector-button {
+        min-width: initial;
+        margin-right: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="demo-wrapper">
-    <h2>Загрузка изображения с прогресс-баром</h2>
     <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
-      <input type="file" name="file_name" id="uploadForm_File" accept="image/*">
-      <input type="submit" id="uploadForm_Submit" class="form-upload__submit" value="Загрузить файл">
+      <label for="uploadForm_File" class="form-upload__label">
+        <span class="form-upload__title">Изображение:</span>
+        <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
+      </label>
+      <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
       <progress id="progressBar" value="0" max="100"></progress>
-      <div id="uploadForm_Status" class="form-upload__status"></div>
-      <p id="uploadForm_Size"></p>
+      <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
     </form>
   </div>
 
@@ -133,9 +211,9 @@
       let percentLoading = (event.loaded / event.total) * 100
       const BYTES_IN_MB = 1048576
 
-      document.getElementById('uploadForm_Size').textContent = "Загружено " + (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
+      document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
       document.getElementById('progressBar').value = Math.round(percentLoading)
-      document.getElementById('uploadForm_Status').textContent = Math.round(percentLoading) + '% загружено...'
+      document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
     }
 
     function loadHandler(event) {
@@ -144,5 +222,4 @@
     }
   </script>
 </body>
-
 </html>
