@@ -1,6 +1,11 @@
 ---
 title: "Снежинки"
 description: "Добавим на сайт оптимизированные и дешёвые для производительности снежинки."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Игрушка «снежный шар» с домиком с флагом Доки'
 authors:
   - solarrust
 editors:
