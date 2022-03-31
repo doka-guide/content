@@ -109,7 +109,10 @@ tags:
   cursor: pointer;
 }
 
-#uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+#uploadForm_File,
+.form-upload__submit,
+progress,
+.form-upload__container {
   width: 360px;
 }
 
@@ -292,7 +295,7 @@ function loadHandler(event) {
 
 ![Внешний вид прогресс-бара в macOS и Windows](images/default_progressbar.png)
 
-Для того, чтобы прогресс-бар выглядел одинаково в разных браузерах, необходимо создать стилевые правила. Правило ниже определяет следующие свойства индикатора:
+Чтобы прогресс-бар выглядел одинаково в разных браузерах, необходимо создать стилевые правила. Правило ниже определяет следующие свойства индикатора:
 
 - добавляет верхний отступ;
 - убирает границу по умолчанию;
