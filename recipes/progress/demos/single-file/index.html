@@ -183,22 +183,30 @@
   </div>
 
   <script>
-    document.getElementById('uploadForm_File').addEventListener('change', function () {
-      let fileCheckAmount = this.files[0]
-      if (fileCheckAmount.size > 5242880) {
+    const BYTES_IN_MB = 1048576
+
+    const form = document.getElementById('uploadForm')
+    const fileInput = document.getElementById('uploadForm_File')
+    const sizeText = document.getElementById('uploadForm_Size')
+    const statusText = document.getElementById('uploadForm_Status')
+    const progressBar = document.getElementById('progressBar')
+
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0]
+      if (file.size > 5 * BYTES_IN_MB) {
         alert('Принимается файл до 5 МБ')
         this.value = null
       }
     });
 
-    document.getElementById('uploadForm_Submit').addEventListener('click', function uploadFile(event) {
-      let fileFormField = document.getElementById('uploadForm_File')
-      let fileToLoad = fileFormField.files[0]
-      let formSent = new FormData()
-      let xhr = new XMLHttpRequest()
+    form.addEventListener('submit', function (event) {
+      event.preventDefault()
+      const fileToUpload = fileInput.files[0]
+      const formSent = new FormData()
+      const xhr = new XMLHttpRequest()
 
-      if (fileFormField.files.length > 0) {
-        formSent.append('uploadForm_File', fileToLoad)
+      if (fileInput.files.length > 0) {
+        formSent.append('uploadForm_File', fileToUpload)
 
         xhr.upload.addEventListener('progress', progressHandler, false)
         xhr.addEventListener('load', loadHandler, false)
@@ -207,23 +215,23 @@
       } else {
         alert('Сначала выберите файл')
       }
-      event.preventDefault()
       return false
     });
 
     function progressHandler(event) {
-      let percentLoading = (event.loaded / event.total) * 100
-      const BYTES_IN_MB = 1048576
+      const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+      const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+      const percentLoaded = Math.round((event.loaded / event.total) * 100)
 
-      document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
-      document.getElementById('progressBar').value = Math.round(percentLoading)
-      document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
+      progressBar.value = percentLoaded
+      sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+      statusText.textContent = "Загружено " + percentLoaded + '% | '
     }
 
     function loadHandler(event) {
-      document.getElementById('uploadForm_Status').textContent = event.target.responseText
-      document.getElementById('progressBar').value = 0
+      statusText.textContent = event.target.responseText
+      progressBar.value = 0
     }
   </script>
-</body>
+</biody>
 </html>
