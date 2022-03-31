@@ -4,7 +4,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Сачок, который поймал белую рыбу. Чёрные остались в реке'
+  alt: 'Сачок, в который поймана белая рыба. Чёрные рыбы плавают в реке'
 authors:
   - ezhkov
 editors:
