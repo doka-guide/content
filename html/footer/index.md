@@ -1,5 +1,10 @@
 ---
 title: "`<footer>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Кроксы с логотипом Доки и биркой: For free sience 2019'
 authors:
   - solarrust
 editors:

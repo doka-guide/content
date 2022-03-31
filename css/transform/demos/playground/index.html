@@ -20,9 +20,13 @@
     }
 
     body {
-      max-height: 500px;
+      box-sizing: border-box;
+      min-height: 100vh;
       margin: 0;
-      padding: 10% 0;
+      padding-right: 245px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       overflow: hidden;
     }
@@ -67,7 +71,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #ED6742;
+      background-color: #2E9AFF;
       background-image: url("images/face.svg");
       background-size: cover;
       background-position: center;
@@ -81,7 +85,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #E6E6E6;
+      background-color: #FFFFFF;
       background-image: url("images/back.svg");
       background-size: cover;
       background-position: center;
@@ -94,27 +98,37 @@
     }
 
     .dg .slider-fg {
-      background: #1A5AD7!important;
+      background: #2E9AFF!important;
     }
 
     .dg .slider:hover .slider-fg {
-      background: #AFC9DA!important;
+      background: #FFFFFF!important;
     }
 
     .dg .cr.number {
-      border-left-color: #1A5AD7!important;
+      border-left-color: #2E9AFF!important;
     }
 
     .dg .cr.function {
-      border-left-color: #ED6742!important;
+      border-left-color: #F498AD!important;
     }
 
     .dg .cr.number input[type=text] {
-      color: #AFC9DA!important;
+      color: #FFFFFF!important;
     }
 
     .dg .dg.a {
       margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-right: 0;
+      }
+
+      .parent {
+        width: auto;
+      }
     }
   </style>
 </head>

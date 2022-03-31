@@ -8,24 +8,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191C;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      text-align: center;
-    }
-
-    label {
-      display: inline-block;
+      font-size: 18px;
     }
 
     span {
       display: block;
+      margin-bottom: 10px;
       color: #FFFFFF;
       font-size: 24px;
       font-weight: 500;
@@ -33,26 +36,38 @@
     }
 
     input {
-      display: block;
       width: 500px;
-      margin-top: 10px;
-      padding: 15px;
-      border: 1px solid #FFFFFF;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
       font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     input::placeholder {
       color: rgba(255, 255, 255, 0.6);
-      font-size: 18px;
+      font-size: inherit;
     }
 
     input:focus {
+      border-color: #2E9AFF;
       outline: none;
-      border-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      input {
+        width: 100%;
+        max-width: 500px;
+      }
     }
   </style>
 </head>

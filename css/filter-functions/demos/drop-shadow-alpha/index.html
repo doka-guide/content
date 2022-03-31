@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Функция drop-shadow() — Функции фильтров — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    figure {
+      border: 3px solid #18191c;
+      padding: 50px 50px 20px;
+      background-color: #FFFFFF;
+      color: #2E9AFF;
+      font-size: 0;
+      text-align: center;
+    }
+
+    figcaption {
+      margin-top: 20px;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    img {
+      width: 150px;
+    }
+
+    .box-shadow {
+      box-shadow: 4px 4px 10px red;
+    }
+
+    .drop-shadow {
+      filter: drop-shadow(4px 4px 10px red);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <figure>
+    <img class="box-shadow" src="../../images/doggo-up.svg" alt="Енотовидная собака">
+    <figcaption><code>box-shadow</code></figcaption>
+  </figure>
+  <figure>
+    <img class="drop-shadow" src="../../images/doggo-up.svg" alt="Енотовидная собака">
+    <figcaption><code>filter: drop-shadow()</code></figcaption>
+  </figure>
+</body>
+</html>

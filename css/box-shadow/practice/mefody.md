@@ -7,13 +7,13 @@
 ```css
 :root {
   /* Размер ячейки */
-  --s: 5px;
+  --s: 4px;
 }
 
 .pixel-art {
   height: var(--s);
   width: var(--s);
-  color: #000000;
+  color: #FFFFFF;
   box-shadow:
     calc(var(--s) * 4) calc(var(--s) * 8) 0 0,
     calc(var(--s) * 5) calc(var(--s) * 8) 0 0,
@@ -26,4 +26,4 @@
 
 Если не указывать значение цвета в `box-shadow`, тень покрасится в цвет текста, который мы указали в `color`. Как если бы мы указали цвет тени с помощью `currentColor`.
 
-<iframe title="Пиксель-арт" src="../demos/pixelart/" height="180"></iframe>
+<iframe title="Пиксель-арт" src="../demos/pixelart/" height="250"></iframe>

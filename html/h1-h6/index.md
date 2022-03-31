@@ -1,5 +1,10 @@
 ---
 title: "`<h1>`...`<h6>`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Стена с картинами разных размеров, наверху самая большая, дальше меньше и ещё меньше'
 authors:
   - doka-dog
 contributors:
