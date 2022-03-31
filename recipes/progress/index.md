@@ -34,14 +34,33 @@ tags:
 
 ```html
 <div class="demo-wrapper">
-  <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
-    <label for="uploadForm_File" class="form-upload__label">
+  <form
+    class="form-upload"
+    id="uploadForm"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label class="form-upload__label" for="uploadForm_File">
       <span class="form-upload__title">Изображение:</span>
-      <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
+      <input
+        class="form-upload__input"
+        id="uploadForm_File"
+        type="file"
+        name="file_name"
+        accept="image/*"
+      >
     </label>
-    <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
+    <input
+      class="form-upload__submit form-upload__submit_purple"
+      id="uploadForm_Submit"
+      type="submit"
+      value="Загрузить файл"
+    >
     <progress id="progressBar" value="0" max="100"></progress>
-    <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
+    <div class="form-upload__container">
+      <span class="form-upload__status" id="uploadForm_Status"></span>
+      <span id="uploadForm_Size"></span>
+    </div>
   </form>
 </div>
 ```
@@ -76,10 +95,10 @@ tags:
 
 .form-upload__input::file-selector-button {
   min-width: 190px;
-  border: none;
-  border-radius: 6px;
   margin-right: 30px;
   padding: 9px 15px;
+  border: none;
+  border-radius: 6px;
   font-weight: inherit;
   font-family: inherit;
   cursor: pointer;
@@ -96,10 +115,10 @@ tags:
 
 .form-upload__submit {
   display: block;
-  border: 2px solid transparent;
-  border-radius: 6px;
   margin-top: 25px;
   padding: 9px 15px;
+  border: 2px solid transparent;
+  border-radius: 6px;
   color: #000000;
   font-size: 18px;
   font-weight: 300;
@@ -129,8 +148,8 @@ tags:
 
 progress {
   height: 5px;
-  border: none;
   margin-top: 25px;
+  border: none;
   background-color: #286C2D;
 }
 
@@ -221,15 +240,36 @@ function loadHandler(event) {
 ### Разметка
 
 ```html
-<form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
-  <label for="uploadForm_File" class="form-upload__label">
-    <span class="form-upload__title">Изображение:</span>
-    <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
-  </label>
-  <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
-  <progress id="progressBar" value="0" max="100"></progress>
-  <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
-</form>
+<div class="demo-wrapper">
+  <form
+    class="form-upload"
+    id="uploadForm"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    <label class="form-upload__label" for="uploadForm_File">
+      <span class="form-upload__title">Изображение:</span>
+      <input
+        class="form-upload__input"
+        id="uploadForm_File"
+        type="file"
+        name="file_name"
+        accept="image/*"
+      >
+    </label>
+    <input
+      class="form-upload__submit form-upload__submit_purple"
+      id="uploadForm_Submit"
+      type="submit"
+      value="Загрузить файл"
+    >
+    <progress id="progressBar" value="0" max="100"></progress>
+    <div class="form-upload__container">
+      <span class="form-upload__status" id="uploadForm_Status"></span>
+      <span id="uploadForm_Size"></span>
+    </div>
+  </form>
+</div>
 ```
 
 Все элементы, которые участвуют в обработке и отправке файла, размещаются внутри [формы](/html/form/).
@@ -261,15 +301,15 @@ function loadHandler(event) {
 ```css
 progress {
   height: 5px;
-  border: none;
   margin-top: 25px;
+  border: none;
   background-color: #286C2D;
 }
 ```
 
 В Firefox эти стили не затронут бегунок, поэтому дополнительно потребуется использовать [вендорный префикс](/css/vendor-prefixes/) `-moz`. Для стилизации в Chrome и Safari как самого элемента, так и его бегунка, необходимо использовать браузерные префиксы `-webkit`.
 
-В итоге, для одинакового отображения прогресс-бара и бегунка во всех основных браузерах, добавим следующие правила:
+В итоге для одинакового отображения прогресс-бара и бегунка во всех основных браузерах, добавим следующие правила:
 
 ```css
 progress::-webkit-progress-bar {
@@ -302,10 +342,10 @@ progress::-moz-progress-bar {
 
 .form-upload__submit {
   display: block;
-  border: 2px solid transparent;
-  border-radius: 6px;
   margin-top: 25px;
   padding: 9px 15px;
+  border: 2px solid transparent;
+  border-radius: 6px;
   color: #000000;
 }
 
