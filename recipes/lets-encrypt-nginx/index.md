@@ -29,17 +29,39 @@ tags:
 sudo firewall-cmd --add-service=https --permanent
 ```
 
-Если этот файервол не установлен, это можно сделать командой:
+Если этот файервол не установлен, на Linux, использующих RPM-пакеты (Fedora, RedHat, Oracle Linux и других) это можно сделать командой:
 
 ```bash
 sudo dnf -y install firewalld
+```
+
+На Linux с deb-пакетами (Ubuntu, Debian или других):
+
+```bash
+sudo apt install firewalld
+```
+
+Затем нужно его запустить:
+
+```bash
 sudo systemctl start firewalld
 ```
 
-Установка snap и certbot:
+Установка snap и certbot на дистрибутивах Linux, использующих RPM-пакеты:
 
 ```bash
 sudo dnf -y install snapd
+```
+
+На Linux с deb-пакетами:
+
+```bash
+sudo apt install snapd
+```
+
+Затем нужно настроить snap и certbot:
+
+```bash
 sudo systemctl enable --now snapd.socket
 sudo systemctl start snapd
 sudo ln -s /var/lib/snapd/snap /snap
@@ -48,12 +70,6 @@ sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
-
-<aside>
-
-👆 Пакетный менеджер `dnf` используется для операционных систем семейства Red Heat. Если вы используете Linux из семейства Debian, то замените эту команду, например, на `apt`.
-
-</aside>
 
 Настройка базовой конфигурации:
 
