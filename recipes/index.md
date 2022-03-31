@@ -6,6 +6,7 @@ groups:
       - snow
   - name: 'На серверной стороне'
     items:
+      - lets-encrypt-nginx
       - short-links
 ---
 
