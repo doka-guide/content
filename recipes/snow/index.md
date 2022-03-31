@@ -1,6 +1,11 @@
 ---
 title: "Снежинки"
 description: "Добавим на сайт оптимизированные и дешёвые для производительности снежинки."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Игрушка «снежный шар» с домиком с флагом Доки'
 authors:
   - solarrust
 editors:
@@ -51,7 +56,7 @@ tags:
 
 ```css
 .snow {
-  --animationName: snowfall;
+  --animation-name: snowfall;
   position: fixed;
   left: 0;
   right: 0;
@@ -67,7 +72,7 @@ tags:
   position: relative;
   top: -1.5em;
   color: #c1dcec;
-  animation-name: var(--animationName);
+  animation-name: var(--animation-name);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;
@@ -363,7 +368,7 @@ snowflakes.forEach(snowflake => {
 })
 ```
 
-<iframe title="Снег" src="demos/result-no-togglers/" height="450"></iframe>
+<iframe title="Снег" src="demos/result-no-toggler/" height="450"></iframe>
 
 В дополнение к этому можно дать пользователю возможность отключать анимацию. Не все любят снег.
 
@@ -503,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ```css
 .snow {
-  --animationName: snowfall;
+  --animation-name: snowfall;
   position: fixed;
   left: 0;
   right: 0;
@@ -519,7 +524,7 @@ document.addEventListener('DOMContentLoaded', () => {
   position: relative;
   top: -1.5em;
   color: #c1dcec;
-  animation-name: var(--animationName);
+  animation-name: var(--animation-name);
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   will-change: transform;

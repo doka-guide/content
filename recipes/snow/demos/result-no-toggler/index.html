@@ -5,8 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
     .snow {
-      --animationName: snowfall;
+      --animation-name: snowfall;
       position: fixed;
       left: 0;
       right: 0;
@@ -22,7 +29,7 @@
       position: relative;
       top: -1.5em;
       color: #c1dcec;
-      animation-name: var(--animationName);
+      animation-name: var(--animation-name);
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
       will-change: transform;
@@ -39,118 +46,117 @@
     }
   </style>
 </head>
-
 <body>
-<div class="snow">
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-  <div class="snow__flake">﹡</div>
-</div>
+  <div class="snow">
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+    <div class="snow__flake">﹡</div>
+  </div>
 
-<script>
-  const snow = document.querySelector('.snow')
-  const snowflakes = document.querySelectorAll('.snow__flake')
+  <script>
+    const snow = document.querySelector('.snow')
+    const snowflakes = document.querySelectorAll('.snow__flake')
 
-  function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min
-  }
+    function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) ) + min
+    }
 
-  function getRndFloat(min, max) {
-    return (Math.random() * (max - min) + min).toFixed(1)
-  }
+    function getRndFloat(min, max) {
+      return (Math.random() * (max - min) + min).toFixed(1)
+    }
 
-  snowflakes.forEach(snowflake => {
-    snowflake.style.fontSize = getRndFloat(0.7, 1.5) + 'em'
-    snowflake.style.animationDuration = getRndInteger(20, 30) + 's'
-    snowflake.style.animationDelay = getRndInteger(-1, snowflakes.length / 2) + 's'
-  })
-</script>
+    snowflakes.forEach(snowflake => {
+      snowflake.style.fontSize = getRndFloat(0.7, 1.5) + 'em'
+      snowflake.style.animationDuration = getRndInteger(20, 30) + 's'
+      snowflake.style.animationDelay = getRndInteger(-1, snowflakes.length / 2) + 's'
+    })
+  </script>
 </body>
 </html>
