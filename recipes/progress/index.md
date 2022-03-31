@@ -156,6 +156,10 @@ progress::-moz-progress-bar {
 .form-upload__status:empty::before {
   content: "Не загружено";
 }
+
+.form-upload__status:empty + span {
+  display: none;
+}
 ```
 
 В конце HTML-страницы или в отдельном JS-файле добавим код, который обеспечит связь между пользователем и сервером:
