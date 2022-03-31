@@ -368,7 +368,7 @@ snowflakes.forEach(snowflake => {
 })
 ```
 
-<iframe title="Снег" src="demos/result-no-togglers/" height="450"></iframe>
+<iframe title="Снег" src="demos/result-no-toggler/" height="450"></iframe>
 
 В дополнение к этому можно дать пользователю возможность отключать анимацию. Не все любят снег.
 
