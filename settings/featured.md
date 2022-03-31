@@ -1,5 +1,6 @@
 ---
 pinned:
+  - recipes/snow
   - js/clean-architecture
   - tools/ci-cd
   - js/closures
@@ -51,4 +52,3 @@ active:
   - css/display
   - css/box-shadow
 ---
-
