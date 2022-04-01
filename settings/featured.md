@@ -27,28 +27,30 @@ ready:
   - tools/docker
   - tools/webpack
 active:
+  - recipes/snow
   - js/clean-architecture
   - tools/ci-cd
   - js/closures
-  - html/flow
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - html/input
+  - js/how-to-test-and-why
+  - css/custom-properties
   - css/grid-guide
-  - js/execution-order
-  - tools/static-types
+  - css/box-shadow
+  - html/doctype
   - html/div
   - css/box-model
-  - html/head
   - tools/webpack
-  - tools/cli
-  - html/doctype
-  - js/async-in-js
-  - css/custom-properties
-  - tools/docker
-  - js/how-the-browser-creates-pages
-  - html/video
-  - js/how-to-test-and-why
   - css/display
-  - css/box-shadow
+  - js/how-the-browser-creates-pages
+  - js/async-in-js
+  - tools/docker
+  - html/head
+  - js/execution-order
+  - html/flow
+  - js/deal-with-forms
+  - tools/cli
+  - html/video
+  - tools/static-types
+  - css/flexbox-guide
+  - html/input
 ---
+
