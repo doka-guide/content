@@ -187,23 +187,32 @@ progress::-moz-progress-bar {
 В конце HTML-страницы или в отдельном JS-файле добавим код, который обеспечит связь между пользователем и сервером:
 
 ```javascript
-document.getElementById('uploadForm_File').addEventListener('change', function () {
-  let fileCheckAmount = this.files[0]
-  if (fileCheckAmount.size > 5242880) {
+const BYTES_IN_MB = 1048576
+
+const form = document.getElementById('uploadForm')
+const fileInput = document.getElementById('uploadForm_File')
+const sizeText = document.getElementById('uploadForm_Size')
+const statusText = document.getElementById('uploadForm_Status')
+const progressBar = document.getElementById('progressBar')
+
+fileInput.addEventListener('change', function () {
+  const file = this.files[0]
+  if (file.size > 5 * BYTES_IN_MB) {
     alert('Принимается файл до 5 МБ')
     this.value = null
   }
 });
 
-document.getElementById('uploadForm_Submit').addEventListener('click', function uploadFile(event) {
-  let fileFormField = document.getElementById('uploadForm_File')
-  let fileToLoad = fileFormField.files[0]
-  let formSent = new FormData()
-  let xhr = new XMLHttpRequest()
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+  const fileToUpload = fileInput.files[0]
+  const formSent = new FormData()
+  const xhr = new XMLHttpRequest()
 
-  if (fileFormField.files.length > 0) {
-    formSent.append('uploadForm_File', fileToLoad)
+  if (fileInput.files.length > 0) {
+    formSent.append('uploadForm_File', fileToUpload)
 
+    // собираем запрос и подписываемся на событие progress
     xhr.upload.addEventListener('progress', progressHandler, false)
     xhr.addEventListener('load', loadHandler, false)
     xhr.open('POST', 'upload_processing.php')
@@ -211,22 +220,23 @@ document.getElementById('uploadForm_Submit').addEventListener('click', function 
   } else {
     alert('Сначала выберите файл')
   }
-  event.preventDefault()
   return false
 });
 
 function progressHandler(event) {
-  let percentLoading = (event.loaded / event.total) * 100
-  const BYTES_IN_MB = 1048576
+  // считаем размер загруженного и процент от полного размера
+  const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+  const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+  const percentLoaded = Math.round((event.loaded / event.total) * 100)
 
-  document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
-  document.getElementById('progressBar').value = Math.round(percentLoading)
-  document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
+  progressBar.value = percentLoaded
+  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+  statusText.textContent = `Загружено ${percentLoaded}% | `
 }
 
 function loadHandler(event) {
-  document.getElementById('uploadForm_Status').textContent = event.target.responseText
-  document.getElementById('progressBar').value = 0
+  statusText.textContent = event.target.responseText
+  progressBar.value = 0
 }
 ```
 
@@ -281,7 +291,7 @@ function loadHandler(event) {
 
 Файл для отправки пользователь сможет выбрать с помощью элемента [`<input>`](/html/input/), для которого установлен тип `file`. Формат файлов, которые можно будет загрузить, устанавливается значением атрибута `accept`. В данном случае допускается использование изображений любого формата.
 
-Отправка файла на сервер выполняется после нажатия кнопки «Загрузить файл». Для этого в JS-коде создаётся функция `uploadFile()`, которая будет выполнять обработку выбранного файла и его передачу на сервер.
+Отправка файла на сервер выполняется при отправке формы. Для этого в JS-коде мы подписываемся на событие `submit`. Обработчик этого события будет обрабатывать выбранный файл и передавать его на сервер.
 
 Ход выполнения загрузки будет показываться с использованием специального элемента [`<progress>`](/html/progress/).
 
@@ -359,34 +369,45 @@ progress::-moz-progress-bar {
 
 ### JavaScript
 
-Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
-
-Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого обратимся к `input` с использованием директивы `this.files[0]`, что позволит получить данные первого файла, который сохранился в объекте `FileList` элемента `input`.
+Для начала объявим константы и получим все необходимые элементы DOM-дерева, чтобы подписываться на события:
 
 ```javascript
-document.getElementById('uploadForm_File').addEventListener('change', function () {
-  let fileCheckAmount = this.files[0]
-  if (fileCheckAmount.size > 5242880) {
+// сколько байтов в мегабайте
+const BYTES_IN_MB = 1048576
+
+const form = document.getElementById('uploadForm')
+const fileInput = document.getElementById('uploadForm_File')
+const sizeText = document.getElementById('uploadForm_Size')
+const statusText = document.getElementById('uploadForm_Status')
+const progressBar = document.getElementById('progressBar')
+```
+
+Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest). Чаще всего для отправки данных используется метод [`fetch`](/js/fetch/), но он не позволяет отслеживать прогресс загрузки файлов.
+
+Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого получим информацию о файле с помощью выражения `this.files[0]`.
+
+```javascript
+fileInput.addEventListener('change', function () {
+  const file = this.files[0]
+  if (file.size > 5 * BYTES_IN_MB) {
     alert('Принимается файл до 5 МБ')
     this.value = null
   }
-})
+});
 ```
 
-Основную работу будет выполнять функция `uploadFile()`, которая принимает выбранный пользователем файл и отправляет его на сервер. Функция выполняется после нажатия кнопки «Загрузить файл».
+Основную работу будет выполнять функция-обработчик отправки формы. Она которая принимает выбранный пользователем файл и отправляет его на сервер. Функция выполняется после нажатия кнопки «Загрузить файл».
 
 Первым делом объявляем переменные:
 
-- `fileFormField` обращается к элементу формы, который будет получать файл;
 - `fileToLoad` получает данные выбранного файла;
-- `formSent`, в которой с использованием объекта `FormData()` будут храниться данные формы для отправки;
+- `formSent`, в которой с использованием объекта `FormData` будут храниться данные формы для отправки;
 - `xhr` для обращения к серверу с использованием `XMLHttpRequest`.
 
 ```javascript
-let fileFormField = document.getElementById('uploadForm_File')
-let fileToLoad = fileFormField.files[0]
-let formSent = new FormData()
-let xhr = new XMLHttpRequest()
+const fileToUpload = fileInput.files[0]
+const formSent = new FormData()
+const xhr = new XMLHttpRequest()
 ```
 
 После этого указываем последовательность работы `XMLHttpRequest` при передаче файла на сервер:
@@ -396,11 +417,11 @@ let xhr = new XMLHttpRequest()
 - для `XMLHttpRequest` добавляется обработчик события `progress`, который выполняет отслеживание состояния загрузки файла;
 - для `XMLHttpRequest` добавляется обработчик события `load`, который отслеживает статус загрузки;
 - метод `open()` выполняет POST-запрос к управляющему файлу, который хранится на сервере;
-- выбранный пользователем файл передаётся на сервер с использованием `FormData()`.
+- выбранный пользователем файл передаётся на сервер с использованием `FormData`.
 
 ```javascript
-if (fileFormField.files.length > 0) {
-  formSent.append('uploadForm_File', fileToLoad)
+if (fileInput.files.length > 0) {
+  formSent.append('uploadForm_File', fileToUpload)
 
   xhr.upload.addEventListener('progress', progressHandler, false)
   xhr.addEventListener('load', loadHandler, false)
@@ -411,17 +432,16 @@ if (fileFormField.files.length > 0) {
 }
 ```
 
-Для показа индикации загрузки файла создадим функцию `progressHandler()`. Переменная `percentLoading` получает данные о процессе загрузки файла и передаёт их прогресс-бару для показа в реальном времени. Также данные этой переменной используются для показа в текстовых элементах размера загруженного файла.
-
-Размер файла будем выводить в мегабайтах. При определении размера файла используется константа `BYTES_IN_MB`, в которой будет храниться количество байт в одном мегабайте. Округление значений загруженного объёма данных выполняется с использованием метода `Math.round()`.
+Для показа индикации загрузки файла создадим функцию `progressHandler()`. Функция будет вызываться при загрузке каждого нового пакета. Это позволит показывать и обновлять прогресс-бар в реальном времени. Посчитаем нужные данные: сколько мегабайт уже загружено, размер файла и процент загрузки. Воспользуемся полученными значениями, чтобы обновить текст на экране.
 
 ```javascript
 function progressHandler(event) {
-  let percentLoading = (event.loaded / event.total) * 100
-  const BYTES_IN_MB = 1048576
+  const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+  const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+  const percentLoaded = Math.round((event.loaded / event.total) * 100)
 
-  document.getElementById('uploadForm_Size').textContent = (event.loaded/BYTES_IN_MB).toFixed(1) + " МБ из " + (event.total/BYTES_IN_MB).toFixed(1) + " МБ"
-  document.getElementById('progressBar').value = Math.round(percentLoading)
-  document.getElementById('uploadForm_Status').textContent = "Загружено " + Math.round(percentLoading) + '% | '
+  progressBar.value = percentLoaded
+  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+  statusText.textContent = `Загружено ${percentLoaded}% | `
 }
 ```
