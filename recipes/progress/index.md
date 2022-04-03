@@ -442,6 +442,6 @@ function progressHandler(event) {
 
   progressBar.value = percentLoaded
   sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
-  statusText.textContent = "Загружено " + percentLoaded + '% | '
+  statusText.textContent = `Загружено ${percentLoaded}% | `
 }
 ```
