@@ -2,6 +2,8 @@
 title: "`<hr>`"
 authors:
   - lenaryan
+contributors:
+  - skorobaeus
 keywords:
   - тэг
   - тег
@@ -22,20 +24,20 @@ tags:
 Разделим два абзаца горизонтальной чертой и немного стилизуем её.
 
 ```html
-<p>Первый абзац</p>
+<p>Слово «динозавр» означает...</p>
 <hr>
-<p>Второй абзац</p>
+<p>Среди палеонтологов...</p>
 ```
 
 ```css
 hr {
-  width: 80%;
-  margin: 20px auto;
-  border: 2px dashed cornflowerblue;
+  width: 50px;
+  margin: 30px auto;
+  border: 1px solid black;
 }
 ```
 
-<iframe title="Горизонтальная линия" src="demos/hr/" height="200"></iframe>
+<iframe title="Горизонтальная линия" src="demos/hr/" height="500"></iframe>
 
 ## Как это понять
 
