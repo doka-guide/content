@@ -54,6 +54,7 @@ groups:
       - cite
       - var
       - dfn
+      - samp
       - screenreaders
   - name: 'Формы'
     items:
