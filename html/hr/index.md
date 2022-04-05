@@ -5,12 +5,8 @@ authors:
 contributors:
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - разделитель
   - горизонтальная черта
-  - hr
-  - "<hr>"
 tags:
   - doka
 ---
