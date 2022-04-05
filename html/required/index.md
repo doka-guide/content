@@ -22,7 +22,7 @@ tags:
     <input type="text">
   </label>
   <label>
-    Ваш номер телефона:
+    Ваш номер телефона (обязательно):
     <input type="tel" required>
   </label>
   <button type="submit">Отправить заявку</button>
