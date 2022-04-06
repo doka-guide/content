@@ -18,4 +18,4 @@
 
 Тогда на печати мы получим следующее:
 
-<iframe title="Добавления в ::after ссылки" src="../demos/print/" height="250"></iframe>
+<iframe title="Добавления в ::after ссылки" src="../demos/print/" height="150"></iframe>
