@@ -256,6 +256,7 @@ groups:
       - appearance
       - resize
       - caret-color
+      - accent-color
   - name: '!important'
     items:
       - important

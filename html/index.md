@@ -74,6 +74,8 @@ groups:
       - inputmode
       - placeholder
       - disabled
+      - required
+      - value
   - name: 'Картинки'
     items:
       - img
@@ -115,6 +117,7 @@ groups:
     items:
       - style
       - script
+      - defer-async
       - template
       - output
   - name: 'Глобальные атрибуты'
