@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример использования тега <code><pre><data></data></pre></code> — <datalist> — Дока</title>
+  <title>Пример использования тега <data> — <data> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,32 +14,40 @@
       box-sizing: border-box;
       font-family: "Roboto", sans-serif;
     }
+    
     body {
       background: #000000;
     }
+    
     .container {
       max-width: 90%;
       margin: 1em auto;
     }
+    
     .dialogue-line:not(:last-of-type) {
       margin-bottom: 1em;
     }
+    
     .dialogue-line_left {
       display: flex;
       justify-content: flex-start;
     }
+    
     .dialogue-line_right {
       display: flex;
       justify-content: flex-end;
     }
+    
     .dialogue-item {
       max-width: 90%;
       padding: 10px;
     }
+    
     .dialogue-line_left .dialogue-item {
       background: #2e9aff;
       border-radius: 15px 15px 15px 0;
     }
+    
     .dialogue-line_right .dialogue-item {
       background: #f498ad;
       border-radius: 15px 15px 0 15px;

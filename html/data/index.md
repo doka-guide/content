@@ -1,8 +1,8 @@
 ---
 title: "`<data>`"
+description: ""
 authors:
   - furtivite
-keywords:
 tags:
   - doka
 ---
