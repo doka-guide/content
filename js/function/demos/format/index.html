@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Приведение строк к заданному формату — Функция — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      width: 580px;
+    }
+
+    .format-description {
+      display: block;
+      margin-bottom: 25px;
+      margin-left: auto;
+      font-weight: 300;
+    }
+
+    .input-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .input-label:not(:first-child) {
+      margin-top: 25px;
+    }
+
+    .input-title {
+      max-width: 150px;
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    .input::placeholder, .format-description {
+      color: rgb(255 255 255 / 50%);
+    }
+
+    .input, .formatted, .format-description {
+      width: 400px;
+    }
+
+    .formatted {
+      display: block;
+      margin-top: 5px;
+      margin-left: auto;
+      color: #FFD829;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .input, .formatted, .format-description {
+        width: 100%;
+      }
+
+      .input-label {
+        display: block;
+      }
+
+      .input-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="format-description">Введённые в поля значения форматируются: первая буква заглавная, остальные строчные.</span>
+    <form class="form">
+      <label class="input-label">
+        <span class="input-title">Фамилия</span>
+        <input id="F"
+              maxlength="25"
+              oninput="formatFio()"
+              placeholder="КОНСТАНТИНОПОЛЬСКИЙ"
+              type="text"
+              class="input">
+      </label>
+      <span id="FF" class="formatted"></span>
+      <label class="input-label">
+        <span class="input-title">Имя</span>
+        <input id="I"
+              maxlength="25"
+              oninput="formatFio()"
+              placeholder="иван"
+              type="text"
+              class="input">
+      </label>
+      <span id="II" class="formatted"></span>
+      <label class="input-label">
+        <span class="input-title">Отчество</span>
+        <input id="O"
+              maxlength="25"
+              oninput="formatFio()"
+              placeholder="Иванович"
+              type="text"
+              class="input">
+      </label>
+      <span id="OO" class="formatted"></span>
+    </form>
+  </div>
+
+  <script>
+    function formatFio() {
+      let f = document.querySelector('#F').value || "КОНСТАНТИНОПОЛЬСКИЙ"
+      let i = document.querySelector('#I').value || "иван"
+      let o = document.querySelector('#O').value || "Иванович"
+
+      f = f[0].toUpperCase() + f.slice(1).toLowerCase()
+      i = i[0].toUpperCase() + i.slice(1).toLowerCase()
+      o = o[0].toUpperCase() + o.slice(1).toLowerCase()
+
+      document.querySelector('#FF').innerText = f
+      document.querySelector('#II').innerText = i
+      document.querySelector('#OO').innerText = o
+    }
+
+    formatFio()
+  </script>
+</body>
+</html>
