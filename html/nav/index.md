@@ -1,5 +1,6 @@
 ---
 title: "`<nav>`"
+description: "Удобный тег, объединяющий элементы навигации по сайту"
 authors:
   - doka-dog
 contributors:
@@ -9,8 +10,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - nav
   - навигация
 tags:
