@@ -1,5 +1,6 @@
 ---
 title: "`this`: контекст выполнения функций"
+description: "Изучаем, что такое контекст и как с этим связано ключевое слово `this`"
 authors:
   - bespoyasov
 keywords:
