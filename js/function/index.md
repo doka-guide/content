@@ -1,5 +1,6 @@
 ---
 title: "Функция"
+description: "Разбираемся, как функции решают проблему повторяющегося кода"
 authors:
   - doka-dog
 keywords:
