@@ -1,6 +1,6 @@
 ---
 title: "GitLab CI/CD"
-description: "У гитхаба есть Github Actions, но и Гитлаб не остаёт. Настраиваем сборку проекта в Гитлаб"
+description: "У гитхаба есть Github Actions, но и GitLab не отстаёт. Настраиваем сборку проекта самой популярной альтернативе гитхабу"
 authors:
   - vitalybaev
 keywords:
