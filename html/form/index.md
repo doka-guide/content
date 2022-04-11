@@ -5,6 +5,8 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
+editors:
+  - tachisis
 keywords:
   - form
   - тэг
