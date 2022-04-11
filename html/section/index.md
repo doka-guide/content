@@ -1,6 +1,6 @@
 ---
 title: "`<section>`"
-description: "Логические блоки сайта принято оборачивать в этот тег"
+description: "Логические блоки сайта принято оборачивать в этот тег."
 authors:
   - doka-dog
 contributors:

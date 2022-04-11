@@ -1,6 +1,6 @@
 ---
 title: "`<nav>`"
-description: "Удобный тег, объединяющий элементы навигации по сайту"
+description: "Удобный тег, объединяющий элементы навигации по сайту."
 authors:
   - doka-dog
 contributors:
