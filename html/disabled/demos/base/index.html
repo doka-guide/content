@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры использования — Атрибут disabled — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 15px;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      color: #ffffff;
+      accent-color: darkmagenta;
+      background-color: #18191c;
+    }
+
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #683612;
+    }
+
+    div:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    fieldset,
+    select,
+    textarea {
+      padding: 10px 15px;
+    }
+
+    fieldset {
+      flex: 1 1 45%;
+    }
+
+    [disabled] {
+      color: #999999;
+      background-color: darkslategray;
+    }
+
+    input[type="checkbox"] {
+      width: 25px;
+      height: 25px;
+      vertical-align: text-bottom;
+    }
+
+    fieldset > label:not(:last-child) {
+      display: block;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button>Кнопка</button>
+    <button disabled>Кнопка</button>
+  </div>
+  <div>
+    <fieldset>
+      <label>
+        Ваше имя
+        <input type="text">
+      </label>
+      <label>
+        Ваш телефон
+        <input type="text">
+      </label>
+    </fieldset>
+    <fieldset disabled>
+      <label>
+        Ваше имя
+        <input type="text">
+      </label>
+      <label>
+        Ваш телефон
+        <input type="text">
+      </label>
+    </fieldset>
+  </div>
+  <div>
+    <select name="flowers">
+      <optgroup>
+        <option value="Незабудка">Незабудка</option>
+        <option value="Подснежник">Подснежник</option>
+      </optgroup>
+      <optgroup disabled>
+        <option value="Анютины глазки">Анютины глазки</option>
+        <option value="Хризантемы">Хризантемы</option>
+      </optgroup>
+    </select>
+  </div>
+  <div>
+    <select name="flowers">
+      <option value="Незабудка">Незабудка</option>
+      <option value="Подснежник">Подснежник</option>
+      <option value="Анютины глазки">Анютины глазки</option>
+      <option value="Хризантемы" disabled>Хризантемы</option>
+    </select>
+  </div>
+  <div>
+    <select name="flowers" disabled>
+      <optgroup>
+        <option value="Незабудка">Незабудка</option>
+        <option value="Подснежник">Подснежник</option>
+      </optgroup>
+      <optgroup>
+        <option value="Анютины глазки">Анютины глазки</option>
+        <option value="Хризантемы">Хризантемы</option>
+      </optgroup>
+    </select>
+  </div>
+  <div>
+    <textarea>Некий текст</textarea>
+    <textarea disabled>Некий текст</textarea>
+  </div>
+  <div>
+    <label>
+      Подтверждаю
+      <input type="checkbox">
+    </label>
+    <label>
+      Подтверждаю
+      <input type="checkbox" disabled>
+    </label>
+  </div>
+</body>
+</html>
