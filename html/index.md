@@ -73,6 +73,7 @@ groups:
       - legend
       - inputmode
       - placeholder
+      - disabled
       - required
       - value
   - name: 'Картинки'
