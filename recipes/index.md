@@ -1,6 +1,9 @@
 ---
 name: 'Рецепты'
 groups:
+  - name: 'Интерфейс'
+    items:
+      - progress
   - name: 'Фишки из прошлого'
     items:
       - snow
