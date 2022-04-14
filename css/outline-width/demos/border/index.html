@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример работы <outline-width> — <outline-width> — Дока</title>
+  <title>Пример работы с border — outline-width — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,31 +14,31 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
-      min-height: 100vh;
       padding: 50px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      place-items: center;
       background-color: #18191c;
-      color: #FFFFFF;
+      color: #ffffff;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
     }
 
-   div {
-       border: 10px solid blue;
-       padding: 10px;
-       outline-style: solid;
-       outline-width: 25px;
-   }
-
+    p {
+      border: 10px solid #2e9aff;
+      padding: 10px;
+      outline-style: solid;
+      outline-width: 25px;
+    }
   </style>
 </head>
 <body>
-  <div>
+  <p>
     Идейные соображения высшего порядка, а также укрепление и развитие структуры представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития. Таким образом реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.
-  </div>
+  </p>
 </body>
 </html>
