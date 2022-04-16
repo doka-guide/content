@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Модалка на замену alert() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: clamp(30px, 4.07vw, 50px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #ffd829;
+    }
+
+    .dialog {
+      padding: 20px clamp(20px, 5vw, 80px);
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      max-width: calc(100% - 20px);
+    }
+
+    .dialog::-webkit-backdrop {
+      background-color: rgba(255, 216, 41, 0.1);
+    }
+
+    .dialog::backdrop {
+      background-color: rgba(255, 216, 41, 0.1);
+    }
+
+    .dialog h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .dialog-content {
+      margin: 17px 0 27px;
+    }
+
+    .dialog .button {
+      width: 100%;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .dialog .button:focus-visible {
+      border-color: #ffd829;
+    }
+
+    .dialog .button:focus {
+      border-color: #ffd829;
+    }
+
+  </style>
+</head>
+
+<body>
+  <dialog class="dialog" id="dialog">
+    <form method="dialog">
+      <h1>Всплывающее диалоговое окно</h1>
+      <p class="dialog-content">
+        Случайное число:
+        <output for="opener"></output>
+      </p>
+      <button class="button">Закрыть</button>
+    </form>
+  </dialog>
+  <button
+    class="button button-yellow"
+    id="opener" aria-controls="dialog"
+    onclick="showRandomNumber(event)"
+  >
+    Сгенерировать случайное число
+  </button>
+  <script>
+    function showRandomNumber({
+      target: button
+    }) {
+      const dialogID = button.getAttribute("aria-controls");
+      const dialog = document.querySelector(`${dialogID}`);
+
+      dialog.showModal();
+
+      const output = dialog.querySelector("output");
+
+      output.innerText = Math.random();
+    }
+
+  </script>
+</body>
+
+</html>

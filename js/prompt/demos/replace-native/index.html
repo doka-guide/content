@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Модалка на замену prompt() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      place-content: center;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 18px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      font-family: Roboto, sans-serif;
+    }
+
+    .button {
+      --back: #ffd829;
+      width: 100%;
+      padding: 0.625em 1.4em 0.75em;
+      text-align: center;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      color: #000000;
+      font-family: inherit;
+      font-weight: 300;
+      font-size: 1rem;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+      background-color: var(--back);
+      outline: none;
+      position: relative;
+    }
+
+    .button:hover {
+      background-color: #ffe15c;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus {
+      border-color: #ffffff;
+    }
+
+    .button--secondary {
+      --back: #41e847;
+    }
+
+    .button--dark {
+      --back: #000000;
+      color: #ffffff;
+    }
+
+    .button--dark:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .button--dark:focus {
+      border-color: #ffd829;
+    }
+
+    .button:focus-visible {
+      outline: 2px solid var(--back);
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+
+    .button-wrapper {
+      margin: 1.4em auto 0;
+      width: 100%;
+      display: grid;
+      gap: 1em;
+    }
+
+    @media (min-width: 500px) {
+      .button-wrapper {
+        grid-template-columns: auto auto;
+      }
+    }
+
+    .title {
+      font-size: 26px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .dialog {
+      width: calc(100% - 40px);
+      max-width: 500px;
+      padding: clamp(20px, 5vw, 80px);
+      border: none;
+      inset: 0;
+      transition: transform 0.3s ease-in-out;
+      position: fixed;
+    }
+
+    .dialog::-webkit-backdrop {
+      background-color: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .dialog samp {
+      margin: 0.2em 0;
+      font: inherit;
+      display: block;
+    }
+
+    .dialog kbd {
+      background-color: rgba(128, 128, 128, 0.15);
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+
+    .dialog input {
+      font: inherit;
+      width: 100%;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 2px solid #000000;
+    }
+
+    output {
+      margin-top: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="title" id="pass-title">Запрос пароля </h1>
+  <div class="button-wrapper">
+    <button class="button button--secondary" type="button" onclick="askPassword()" aria-describedby="pass-title">Через
+      prompt()</button>
+    <button class="button" type="button" onclick="window.password.showModal();" aria-controls="password"
+      aria-label="Через элемент диалога" aria-describedby="pass-title">Через &lt;dialog&gt;</button>
+  </div>
+  <output id="result"> </output>
+  <dialog class="dialog" id="password">
+    <form method="dialog" onsubmit="sumbitHander(event)" onreset="window.password.close()">
+      <label class="title" for="password-input">Какой пароль?</label><samp>Введите пароль: <kbd>бублик</kbd></samp>
+      <input type="password" name="password" id="password-input" />
+      <div class="button-wrapper">
+        <button class="button">Ввод</button>
+        <button class="button button--dark" type="reset">Отмена</button>
+      </div>
+    </form>
+  </dialog>
+  <script>
+    function askPassword() {
+      const answer = prompt("Введите пароль: бублик", "Я не знаю пароль");
+      checkAnswer(answer);
+    }
+
+    function sumbitHander(evt) {
+      evt.preventDefault();
+      const form = evt.target;
+      const answer = form.password.value;
+      checkAnswer(answer);
+      form.parentElement.close();
+    }
+
+    function checkAnswer(answer) {
+      const result = document.querySelector("#result");
+      const isRightAnswer = answer === "бублик";
+      result.textContent = isRightAnswer ? "Пароль принят" : "Пароль неверный";
+    }
+
+  </script>
+</body>
+
+</html>
