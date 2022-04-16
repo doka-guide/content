@@ -156,28 +156,27 @@
 <body>
   <output class="bugs">🐞</output>
   <p class="content">В ваш код заполз жук.</p>
-  <button class="button" id="opener" type="button">Дебажить</button>
-  <dialog class="dialog" id="debugger">
+  <button class="button" onclick="window.debugger.showModal()" type="button">Дебажить</button>
+  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)">
     <h1 class="dialog__title">Прихлопнуть жука?</h1>
     <form class="options" method="dialog">
       <button class="button button--dark" value="debug">Дави его!</button>
       <button class="button button--light" value="reproduction">Каждая жизнь священна</button>
     </form>
   </dialog>
+
   <script>
-    const dialog = document.querySelector("#debugger");
-    const bugs = document.querySelector(".bugs");
+    function addOrRemoveBug({
+      target: dialog
+    }) {
+      const bugs = document.querySelector(".bugs");
 
-    const opener = document.querySelector("#opener");
-    opener.addEventListener("click", () => dialog.showModal());
-
-    dialog.addEventListener("close", () => {
-      bugs.innerText =
-        dialog.returnValue === "debug" ?
-        bugs.innerText.substring(0, bugs.innerText.length - 2) :
-        bugs.innerText + "🐞";
-    });
-
+      if (dialog.returnValue === "debug") {
+        bugs.innerText = bugs.innerText.substring(0, bugs.innerText.length - 2)
+      } else {
+        bugs.innerText += "🐞"
+      }
+    }
   </script>
 </body>
 

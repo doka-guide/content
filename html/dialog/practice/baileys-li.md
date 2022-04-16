@@ -95,7 +95,7 @@ function closeDialogOnOutsideClick({ target }) {
 }
 ```
 
-<iframe title="Закрытие <dialog> по клику на свободную область — Дока" src="demos/close-dialog-ouside/" height="295"></iframe>
+<iframe title="Закрытие <dialog> кликом по свободной области — Дока" src="demos/close-dialog-outside/" height="295"></iframe>
 
 #### ➕ Расширяем браузерную поддержку
 

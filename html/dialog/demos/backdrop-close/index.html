@@ -121,12 +121,16 @@
       margin: 0.2em 0 1.5em;
       font-size: 16px;
     }
+
   </style>
 </head>
 
 <body>
-  <button class="button opener" type="button" aria-controls="some-modal-id">Открыть модальное окно</button>
-  <dialog class="dialog" id="some-modal-id">
+  <button class="button opener" type="button" aria-controls="modal-example"
+    onclick="window['modal-example'].showModal()">
+    Открыть модальное окно
+  </button>
+  <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)">
     <form class="dialog__wrapper" method="dialog">
       <h1 class="dialog__title">Я модальное окно</h1>
       <p>Но меня можно закрыть как по кнопке снизу, так и по нажатию по подложке.</p>
@@ -135,19 +139,6 @@
   </dialog>
 
   <script>
-    const dialogOpener = document.querySelector(".opener");
-    dialogOpener.addEventListener("click", openModal);
-
-    function openModal({
-      target
-    }) {
-      const dialogID = target.getAttribute("aria-controls");
-      const dialogElement = document.querySelector(`#${dialogID}`);
-      dialogElement.showModal();
-
-      dialogElement.addEventListener("click", closeOnBackDropClick);
-    }
-
     function closeOnBackDropClick({
       currentTarget,
       target

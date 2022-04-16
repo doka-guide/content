@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <title>Демонстрация работы — dialog — Дока</title>
+  <title>Закрытие диалога кликом по свободной области — Дока</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,7 +109,7 @@
 </head>
 
 <body>
-  <button class="button opener" type="button" aria-controls="my-dialog">
+  <button class="button opener" type="button" aria-controls="my-dialog" onclick="openDialog(event)">
     Открыть диалоговое окно
   </button>
   <dialog class="dialog" id="my-dialog">
@@ -121,14 +121,10 @@
   </dialog>
 
   <script>
-    const dialogOpener = document.querySelector(".opener");
-
-    dialogOpener.addEventListener("click", openDialog);
-
     function openDialog({
-      target
+      target: button
     }) {
-      const dialogID = target.getAttribute("aria-controls");
+      const dialogID = button.getAttribute("aria-controls");
       const dialogElement = document.querySelector(`#${dialogID}`);
       dialogElement.show();
 

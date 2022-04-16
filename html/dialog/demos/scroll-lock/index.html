@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <title>Блокируем скролл при открытии модальных окон</title>
+  <title>Блокируем скролл при открытии модальных окон — Дока</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,16 +103,8 @@
       position: fixed;
     }
 
-    .dialog::-webkit-backdrop {
-      background-color: rgba(0, 0, 0, 0.5);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-
     .dialog::backdrop {
       background-color: rgba(0, 0, 0, 0.5);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
     }
 
     .dialog__title {
@@ -152,11 +144,11 @@
 
 <body>
   <main class="mock">Я блок, у которого высота больше чем вьюпорта. Просто представьте что тут оооочень много контента.
-    <button class="button opener" type="button" aria-controls="some-modal-id">
+    <button class="button opener" type="button" aria-controls="modal-example" onclick="openModalAndLockScroll(event)">
       Открыть модальное окно
     </button>
   </main>
-  <dialog class="dialog" id="some-modal-id">
+  <dialog class="dialog" id="modal-example" onclose="returnScroll()">
     <h1 class="dialog__title">Я модальное окно</h1>
     <p>Но теперь я не только перекрываю остальной контент, но блокирую скролл</p>
     <form method="dialog">
@@ -165,14 +157,12 @@
   </dialog>
 
   <script>
-    const dialog = document.querySelector("dialog");
-    const dialogOpener = document.querySelector(".opener");
-
-    dialogOpener.addEventListener("click", openModalAndLockScroll);
-    dialog.addEventListener("close", returnScroll);
-
-    function openModalAndLockScroll() {
-      dialog.showModal();
+    function openModalAndLockScroll({
+      target: buttonOpener
+    }) {
+      const dialogID = buttonOpener.getAttribute('aria-controls');
+      const dialogElement = document.querySelector(`#${dialogID}`);
+      dialogElement.showModal();
       document.body.classList.add("scroll-lock");
     }
 
