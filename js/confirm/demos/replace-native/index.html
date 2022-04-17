@@ -75,10 +75,6 @@
       max-width: 650px;
     }
 
-    .dialog::-webkit-backdrop {
-      background-color: rgba(255, 216, 41, 0.1);
-    }
-
     .dialog::backdrop {
       background-color: rgba(255, 216, 41, 0.1);
     }
@@ -124,8 +120,9 @@
 <body>
   <dialog class="dialog" id="riddle" onclose="processAnswerOnClose(event)">
     <h1>Загадка сфинкса</h1>
-    <p class="dialog-content">Без отдыха, без сна, беззвучным шагом с холма на холм кто движется не спеша, кто холод
-      прогнать пришел?</p>
+    <p class="dialog-content">
+      Без отдыха, без сна, беззвучным шагом с холма на холм кто движется не спеша, кто холод прогнать пришёл?
+    </p>
     <form class="options" method="dialog">
       <button class="button" value="right">Солнце</button>
       <button class="button" value="wrong">Коза</button>
@@ -133,8 +130,9 @@
   </dialog>
 
   <p class="content">Вы видите перед собой сфинкса. Она с любопытством смотрит на вас.</p>
-  <button class="button button-yellow" id="opener" aria-controls="riddle" onclick="window.riddle.showModal()">Отгадать
-    загадку</button>
+  <button class="button button-yellow" id="opener" aria-controls="riddle" onclick="window.riddle.showModal()">
+    Отгадать загадку
+  </button>
   <output></output>
 
   <script>
