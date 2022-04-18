@@ -292,8 +292,8 @@ function throttle(callee, timeout) {
 // И теперь назначим обработчиком событий
 // слегка приторможенную функцию:
 ;(() => {
-  window.addEventListener("scroll", throttle(checkPosition))
-  window.addEventListener("resize", throttle(checkPosition))
+  window.addEventListener("scroll", throttle(checkPosition, 250))
+  window.addEventListener("resize", throttle(checkPosition, 250))
 })()
 ```
 
