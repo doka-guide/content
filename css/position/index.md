@@ -1,5 +1,6 @@
 ---
 title: "`position`"
+description: "Нужно наложить элемент на элемент? Без позиционирования не обойтись."
 authors:
   - ezhkov
 editors:

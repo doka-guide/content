@@ -1,5 +1,6 @@
 ---
 title: "`@media`"
+description: "Сайт может подстраиваться под обстоятельства благодаря этой директиве."
 authors:
   - lenaryan
 editors:
@@ -8,7 +9,6 @@ keywords:
   - ＠-правило
   - media
   - media-query
-  - медиавыражение
   - адаптивность
 tags:
   - doka
