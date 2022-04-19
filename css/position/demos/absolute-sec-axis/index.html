@@ -8,49 +8,81 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     .container {
-      width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 1px dashed;
       position: relative;
+      width: 65%;
     }
 
     .block {
-      border: 2px solid blue;
+      margin-bottom: 50px;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .block:last-child {
+      margin-bottom: 0;
     }
 
     .positioned {
-      padding: 1%;
-      border-color: #49a16c;
-      background-color: #f498ad;
       position: absolute;
-      left: 40px;
+      left: -50px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .block {
+        padding: 55px 30px;
+      }
+
+      .positioned {
+        left: -30px;
+        padding: 10px 40px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="block">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam quidem eveniet, saepe eum et nulla sapiente alias molestiae cumque. Sed ex nam deserunt odit laudantium ab animi nobis similique eius.</p>
-
+      <p>Где мы? В какой благословенный уголок земли перенес нас сон Обломова? Что за чудный край!</p>
     </div>
     <div class="block positioned">
       <p>Я спозиционирован абсолютно</p>
-
     </div>
     <div class="block">
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam quidem eveniet, saepe eum et nulla sapiente alias molestiae cumque. Sed ex nam deserunt odit laudantium ab animi nobis similique eius.e eum et nulla sapiente alias molestiae cumque. Sed ex nam deserunt odit laudantium ab animi nobis similique eius</p>
-
+      <p>Нет, правда, там моря, нет высоких гор, скал и пропастей, ни дремучих лесов — нет ничего грандиозного, дикого и угрюмого.</p>
     </div>
   </div>
 </body>
