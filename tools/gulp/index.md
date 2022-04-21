@@ -367,6 +367,6 @@ exports.build = series(
 Если ты работаешь над web-проектом, который:
 
 - не основан на современных [JS-фреймворках](/js/react-and-alternatives/);
-- не является [SPA](/js/web-app-types/#single-page-applications-spa) или [PWA](/js/web-app-types/#progressive-web-applications-pwa);
+- не является [SPA](/js/web-app-types/#single-page-applications-spa/) или [PWA](/js/web-app-types/#progressive-web-applications-pwa/);
 
 то Gulp — твой бро, не сомневайся.
