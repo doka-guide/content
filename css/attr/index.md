@@ -3,6 +3,8 @@ title: "`attr()`"
 description: "Хотите сделать атрибут элемента видимым на странице? Используйте эту функцию!"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -33,7 +35,7 @@ div::after {
 }
 ```
 
-<iframe title="Подсказка" src="demos/tooltip/" height="200"></iframe>
+<iframe title="Подсказка" src="demos/tooltip/" height="295"></iframe>
 
 ## Как пишется
 
