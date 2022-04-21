@@ -1,5 +1,6 @@
 ---
 title: "`<base>`"
+description: "Удобный способ определить _домашний_ адрес для всех ссылок на сайте."
 authors:
   - solarrust
 keywords:
