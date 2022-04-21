@@ -1,6 +1,6 @@
 ---
 title: "Атрибут `pattern`"
-description: ""
+description: "Говорим браузеру, каким должно быть значение полей формы."
 authors:
   - solarrust
 tags:
