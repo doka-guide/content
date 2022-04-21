@@ -9,27 +9,47 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #282a2e;
-      color: #ffffff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
       font-family: "Roboto", sans-serif;
-      overflow: hidden;
+      font-size: 18px;
     }
 
     section {
-      max-width: 80%;
-      margin: 0 auto;
-      font-size: 18px;
-      line-height: 27px;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+      line-height: 1.4;
     }
 
     .text:first-letter {
-      color: #ed4242;
+      color: #F498AD;
       font-family: "Roboto Slab", serif;
       font-size: 52px;
       line-height: 45px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      section {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>

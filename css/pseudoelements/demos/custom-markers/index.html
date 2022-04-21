@@ -12,11 +12,14 @@
     }
 
     body {
-      padding: 5% 5% 1px;
-      background-color: #282a2e;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
       font-family: serif;
-      font-size: 20px;
-      overflow: hidden;
+      font-size: 18px;
     }
 
     .chapter {
@@ -46,6 +49,17 @@
     .list__item::before {
       content: counter(new-counter) ") ";
       counter-increment: my-counter;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .chapter {
+        min-width: auto;
+        padding: 60px 40px;
+      }
     }
   </style>
 </head>

@@ -97,22 +97,22 @@ tags:
 Создадим текстовый элемент с именем пользователя.
 
 ```html
-<span class="username">Гордон</span>
+<span class="incoming">Гордон</span>
 ```
 
 Поприветствуем пользователя и скажем ему комплимент:
 
 ```css
-.username::before {
+.incoming::before {
   content: "Привет, ";
 }
 
-.username::after {
+.incoming::after {
   content: ", ты отлично выглядишь!";
 }
 ```
 
-<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon/" height="276"></iframe>
+<iframe title="Текст в псевдоэлементах ::before и ::after" src="demos/looking-great-gordon/" height="260"></iframe>
 
 Как видно в примере, текст из свойства `content` псевдоэлемента `::before` встал перед именем пользователя, а из псевдоэлемента `::after` — после.
 
@@ -123,15 +123,15 @@ tags:
 Зададим родителю строчно-блочное отображение чтобы линия была по ширине текста:
 
 ```css
-.username {
+.incoming {
   display: inline-block;
 }
 
-.username::before {
+.incoming::before {
   content: "Привет, ";
 }
 
-.username::after {
+.incoming::after {
   content: "";
   display: block;
   width: 100%;
@@ -140,7 +140,7 @@ tags:
 }
 ```
 
-<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon/" height="278"></iframe>
+<iframe title="Декоративная линия на основе псевдоэлемента" src="demos/greetings-gordon/" height="200"></iframe>
 
 ### `::first-letter`
 
@@ -157,11 +157,11 @@ tags:
 ```css
 .text::first-letter {
   font-size: 52px;
-  color: #ed4242;
+  color: #F498AD;
 }
 ```
 
-<iframe title="::first-letter, буквица" src="demos/first-letter/" height="300"></iframe>
+<iframe title="::first-letter, буквица" src="demos/first-letter/" height="370"></iframe>
 
 ### `::first-line`
 
@@ -179,11 +179,11 @@ tags:
 
 ```css
 .text::first-line {
-  background-color: #ed4242;
+  background-color: #F498AD;
 }
 ```
 
-<iframe title="::first-line, красная строка" src="demos/first-line/" height="282"></iframe>
+<iframe title="::first-line, красная строка" src="demos/first-line/" height="325"></iframe>
 
 ### `::selection`
 
@@ -197,11 +197,11 @@ tags:
 
 ```css
 ::selection {
-  background-color: #ed4242;
+  background-color: #F498AD;
 }
 ```
 
-<iframe title="::selection, выделение текста" src="demos/selection/" height="300"></iframe>
+<iframe title="::selection, выделение текста" src="demos/selection/" height="400"></iframe>
 
 Если выделить текст в этом примере, то станет видно, что фон выделения ярко-красного цвета.
 
@@ -223,11 +223,11 @@ tags:
 
 ```css
 input::placeholder {
-  color: #1A5AD7;
+  color: #2E9AFF;
 }
 ```
 
-<iframe title="Placeholder, подсказка" src="demos/placeholder/" height="283"></iframe>
+<iframe title="Placeholder, подсказка" src="demos/placeholder/" height="200"></iframe>
 
 ## Подсказки
 
