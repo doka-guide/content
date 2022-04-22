@@ -366,9 +366,9 @@ exports.build = series(
 
 ## Заключение
 
-Если ты работаешь над web-проектом, который:
+Если вы работаете над web-проектом, который:
 
 - не основан на современных [JS-фреймворках](/js/react-and-alternatives/);
 - не является [SPA](/js/web-app-types/#single-page-applications-spa/) или [PWA](/js/web-app-types/#progressive-web-applications-pwa/);
 
-то Gulp — твой бро, не сомневайся.
+то Gulp — ваш бро, не сомневайтесь.
