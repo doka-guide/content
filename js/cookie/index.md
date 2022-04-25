@@ -111,5 +111,5 @@ console.log(cookie.sidebar);
 Для кук не предусмотрено специального метода удаления, поэтому для этого используется трюк с установкой кук с параметром `expires` который указывает на дату в прошлом. Браузер сразу же считает такую куку устаревшей и удаляет её:
 
 ```js
-document.cookie = `sidebar=;expires=${Date.parse(0)};path=/;";
+document.cookie = "sidebar=;expires=${Date.parse(0)};path=/;";
 ```
