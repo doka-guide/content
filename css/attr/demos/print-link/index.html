@@ -106,5 +106,15 @@
     <h2>Как выглядит при печати</h2>
     <p>Подробнее о скидках и акциях можно узнать <a href="http://best-site.ru/sales">по ссылке</a></p>
   </div>
+
+  <script>
+    document.querySelectorAll('a')
+      .forEach(
+        link => link.addEventListener('click', event => {
+          event.preventDefault()
+          event.target.blur()
+        })
+      )
+  </script>
 </body>
 </html>
