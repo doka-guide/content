@@ -13,13 +13,32 @@
     }
 
     body {
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
       color: #fff;
       color-scheme: dark;
       font-family: Roboto, sans-serif;
-      line-height: 1.5;
+      line-height: 1.4;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul>li {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    ul>li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: 100%;
+      width: 14px;
+      height: 14px;
+      background-color: #41E847;
     }
 
     :first-child {
@@ -28,6 +47,12 @@
 
     :last-child {
       margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
