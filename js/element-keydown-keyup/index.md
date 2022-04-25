@@ -61,7 +61,7 @@ spy.addEventListener("keyup", function (event) {
 
 <aside>
 
-⚠ ️Свойство `keyCode` [является устаревшим](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)! Избегайте его использования, поскольку его поддержка может быть прекращена браузерами в будущем.
+⚠ ️Свойство `keyCode` [является устаревшим](https://w3c.github.io/uievents/#dom-keyboardevent-keycode)! Избегайте его использования, поскольку его поддержка может быть прекращена браузерами в будущем.
 
 </aside>
 
