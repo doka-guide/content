@@ -18,7 +18,7 @@ tags:
 ```html
 <table>
   <caption>Сводная таблица лайков</caption>
-  …
+  ...
 </table>
 ```
 
