@@ -313,7 +313,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - widows
-  - name: 'Колонки'
+  - name: 'Колонки и таблицы'
     items:
       - columns
       - column-count
@@ -324,6 +324,7 @@ groups:
       - column-rule-color
       - column-rule-style
       - column-rule-width
+      - caption-side
   - name: 'Счётчики'
     items:
       - counter-set
