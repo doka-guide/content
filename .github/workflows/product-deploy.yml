@@ -47,10 +47,10 @@ jobs:
       - name: Установка модулей
         run: npm ci
       - name: Сборка сайта
-        run: npm run build
+        run: |
+          cp .env.example .env
+          npm run build
       - name: Генерация карточек для социальных сетей
         run: npx gulp socialCards
       - name: Публикация сайта
-        run:  |
-          cp .env.example .env
-          npm run deploy
+        run: npm run deploy

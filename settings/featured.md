@@ -1,5 +1,6 @@
 ---
 pinned:
+  - recipes/snow
   - js/clean-architecture
   - tools/ci-cd
   - js/closures
@@ -26,29 +27,30 @@ ready:
   - tools/docker
   - tools/webpack
 active:
+  - recipes/snow
   - js/clean-architecture
   - tools/ci-cd
   - js/closures
-  - html/input
-  - css/box-shadow
-  - html/video
+  - tools/static-types
   - js/how-to-test-and-why
-  - html/doctype
-  - tools/cli
-  - html/flow
-  - css/box-model
-  - tools/webpack
-  - css/flexbox-guide
-  - js/deal-with-forms
-  - js/execution-order
-  - html/head
+  - html/video
   - html/div
   - js/how-the-browser-creates-pages
+  - html/input
+  - css/box-model
+  - tools/docker
   - js/async-in-js
+  - html/head
   - css/display
+  - html/flow
+  - tools/cli
   - css/custom-properties
   - css/grid-guide
-  - tools/docker
-  - tools/static-types
+  - js/execution-order
+  - js/deal-with-forms
+  - html/doctype
+  - css/box-shadow
+  - tools/webpack
+  - css/flexbox-guide
 ---
 

@@ -2,6 +2,15 @@
 
 <!-- yaspeller ignore:start -->
 
+## Март 2022
+
+- 20 марта [Событие `beforeunload`](https://doka.guide/js/event-beforeunload/), Антон Субботин
+- 20 марта [Событие `unload`](https://doka.guide/js/event-unload/), Антон Субботин
+- 17 марта [`<samp>`](https://doka.guide/html/samp/), Борис Демченко
+- 17 марта [`<kbd>`](https://doka.guide/html/kbd/), Борис Демченко
+- 16 марта [`outline-color`](https://doka.guide/css/outline-color/), Тимур Билалов
+- 14 марта [Как войти в Vim](https://doka.guide/tools/how-to-enter-to-vim/), Анатолий Коробов
+
 ## Февраль 2022
 
 - 14 февраля [`:where()`](https://doka.guide/css/where/), Антон Субботин

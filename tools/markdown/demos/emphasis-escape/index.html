@@ -13,12 +13,16 @@
     }
 
     body {
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
       color: #fff;
       font-family: Roboto, sans-serif;
-      line-height: 1.5;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 7px 0;
     }
 
     :first-child {
@@ -27,6 +31,12 @@
 
     :last-child {
       margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

@@ -1,16 +1,14 @@
 ---
 title: "`<form>`"
+description: "Формы разные нужны, формы разные важны. Без этого тега ни одна форма работать не будет!"
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
+editors:
+  - tachisis
 keywords:
-  - form
-  - тэг
-  - тег
-  - action
-  - method
   - форма
 tags:
   - doka

@@ -54,6 +54,7 @@ groups:
       - cite
       - var
       - dfn
+      - samp
       - screenreaders
   - name: 'Формы'
     items:
@@ -72,6 +73,9 @@ groups:
       - legend
       - inputmode
       - placeholder
+      - disabled
+      - required
+      - value
   - name: 'Картинки'
     items:
       - img
@@ -113,6 +117,7 @@ groups:
     items:
       - style
       - script
+      - defer-async
       - template
       - output
   - name: 'Глобальные атрибуты'

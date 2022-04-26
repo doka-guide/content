@@ -25,16 +25,15 @@
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
-      padding: 24px 28px;
+      padding: 50px;
       background: #18191c;
       color: #fff;
       font-family: Roboto, sans-serif;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     .wrapper {
       display: flex;
-      width: 340px;
       box-sizing: border-box;
       flex-direction: column;
     }
@@ -43,19 +42,40 @@
       display: flex;
       width: 100%;
       box-sizing: border-box;
-      flex-direction: column;
-      padding: 16px;
-      border: 1px solid #242629;
-      background: #000;
-      border-radius: 6px;
+      padding: 20px 50px;
+      background-color: #282A2E;
+      color: #E6E6E6;
       font-family: "Roboto Mono", monospace;
       font-size: 1.125em;
-      row-gap: 2px;
+    }
+
+    .text {
+      width: 220px;
+      margin-right: 50px;
+    }
+
+    .code, .checkbox-container, .range {
+      width: 270px;
+    }
+
+    .checkbox-container, .range {
+      margin: 20px 50px 0 auto;
+    }
+
+    .text .line {
+      width: 100%;
     }
 
     .line {
       display: flex;
-      column-gap: 2px;
+    }
+
+    .line + .line {
+      margin-top: 2px;
+    }
+
+    .line span + span {
+      margin-left: 2px;
     }
 
     .parent-marker,
@@ -68,38 +88,36 @@
     }
 
     .highlight .parent-marker {
-      background-color: #490404;
+      background-color: #663613;
     }
 
     .highlight .child-intend {
-      background-color: #056108;
+      background-color: #41E847;
     }
 
     .highlight .child-max-intend {
-      background-color: #042f05;
+      background-color: #286C2D;
     }
 
     #marker-length-text {
-      color: #d67171;
+      color: #FF8630;
     }
 
     #intend-length-text {
-      color: #6bbd6f;
+      color: #41E847;
     }
 
     .checkbox-container {
       position: relative;
       display: flex;
-      width: fit-content;
       align-items: center;
-      justify-content: space-between;
       margin-top: 20px;
-      column-gap: 0.5em;
     }
 
     .checkbox {
       width: 24px;
       height: 24px;
+      margin-right: 15px;
       opacity: 0;
     }
 
@@ -115,8 +133,7 @@
       width: 24px;
       height: 24px;
       box-sizing: border-box;
-      border: 1px solid #242629;
-      background: #000;
+      border: 1px solid #FFFFFF;
       border-radius: 6px;
       content: "";
     }
@@ -138,29 +155,89 @@
     }
 
     .checkbox:checked + .checkbox-title::after {
-      background-color: #0075ff;
+      background-color: #41E847;
     }
 
     .checkbox-container:hover .checkbox:checked + .checkbox-title::after {
-      background-color: #0053b3;
+      background-color: #41E847;
     }
 
     .range {
-      display: block;
-      width: 100%;
-      margin: 20px auto 0;
-      color-scheme: light;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .range::-webkit-slider-runnable-track {
+      height: 7px;
+      background-color: #286C2D;
+    }
+
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 17px;
+      height: 17px;
+      border-width: 0;
+      border-radius: 50%;
+      margin-top: -5px;
+      background-color: #41E847;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .range::-moz-range-track {
+      height: 7px;
+      background-color: #286C2D;
+    }
+
+
+    .range::-moz-range-thumb {
+      -webkit-appearance: none;
+      width: 17px;
+      height: 17px;
+      border-width: 0;
+      border-radius: 50%;
+      margin-top: -5px;
+      background-color: #41E847;
+      outline: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      code {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .text {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-container, .range {
+        margin-right: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <code id="code-block" class="highlight">
-      <div class="line" id="marker-length-text"></div><br>
-      <div class="line" id="parent-list"></div>
-      <div class="line" id="child-list-1"></div>
-      <div class="line" id="child-list-2"></div><br>
-      <div class="line" id="intend-length-text"></div>
+      <div class="text">
+        <div class="line" id="marker-length-text"></div>
+        <div class="line" id="intend-length-text"></div>
+      </div>
+      <div class="code">
+        <div class="line" id="parent-list"></div>
+        <div class="line" id="child-list-1"></div>
+        <div class="line" id="child-list-2"></div>
+      </div>
     </code>
     <label class="checkbox-container">
       <input class="checkbox" id="highlight-checkbox" type="checkbox" checked>
