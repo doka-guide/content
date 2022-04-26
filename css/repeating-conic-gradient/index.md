@@ -16,7 +16,7 @@ tags:
 В примере ниже мы описываем три цвета, последний из которых заканчивается на 45 градусах.
 
 ```css
- div {
+div {
   background-image: repeating-conic-gradient(from 0deg, #9d6eea 0deg 15deg, #6600e9 15deg 30deg, #b394e9 30deg 45deg);
 }
 ```
