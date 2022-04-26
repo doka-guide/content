@@ -26,7 +26,7 @@ queueMicrotask(() => {
 
 ## Как понять
 
-Код выше схож со сценарием использования [`setTimeout`](../settimeout/index.md/):
+Код выше схож со сценарием использования [`setTimeout`](/js/settimeout/). Оба выполнят код асинхронно:
 
 ```js
 setTimeout(() => {
