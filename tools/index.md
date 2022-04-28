@@ -6,6 +6,7 @@ groups:
       - package-managers
       - bundlers
       - webpack
+      - gulp
       - static-analysis
       - static-types
       - nodejs
