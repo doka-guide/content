@@ -4,6 +4,7 @@
 
 ## Апрель 2022
 
+- 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко
 - 5 апреля [Атрибут `disabled`](https://doka.guide/html/disabled/), Алёна Батицкая
 - 5 апреля [`accent-color`](https://doka.guide/css/accent-color/), Алёна Батицкая
 - 5 апреля [Атрибут `required`](https://doka.guide/html/required/), Алёна Батицкая
