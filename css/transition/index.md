@@ -1,5 +1,10 @@
 ---
 title: "`transition`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девочка на пляже под зонтиком, а рядом стрелка, которая становится прозрачнее, чем выше к солнцу'
 authors:
   - ezhkov
 contributors:
