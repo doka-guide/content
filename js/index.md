@@ -129,6 +129,7 @@ groups:
       - clearinterval
       - parseint
       - window-print
+      - form-data
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
