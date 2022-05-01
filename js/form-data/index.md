@@ -95,7 +95,7 @@ for (let [key, value] of data) {
 
 ### Работа с коллекцией
 
-Для добавления данных в коллекцию, есть метод `append()`:
+Для добавления данных в коллекцию есть метод `append()`:
 
 ```javascript
 const data = new FormData()
