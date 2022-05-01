@@ -271,7 +271,6 @@ function sendFile(file) {
 
   return fetch('/api/upload/', {
     method: "POST",
-    headers: { "Content-Type": "multipart/form-data" },
     body: data,
   })
 }
