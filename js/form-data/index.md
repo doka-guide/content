@@ -28,21 +28,15 @@ tags:
 Предположим, что мы пишем функцию, которая отправляет на сервер два поля `name` и `email`, которые она получает через аргументы:
 
 ```javascript
+// Создадим объект FormData, добавим значения с помощью метода append() и передадим полученный объект функции fetch()
 async function sendData(name, email) {
-  // Создаем объект FormData
   const data = new FormData()
 
-  // Добавляем значение переменной name в объект FormData под ключом "name"
   data.append("name", name)
-
-  // Аналогично добавляем значение переменной email
   data.append("email", email)
 
   return await fetch('/api/subscribe/', {
     method: "POST",
-    // Для корректной работы необходимо задать заголовок `Content-Type` в "multipart/form-data"
-    headers: { "Content-Type": "multipart/form-data" },
-    // Передаем объект FormData в опции `body`
     body: data,
   })
 }
