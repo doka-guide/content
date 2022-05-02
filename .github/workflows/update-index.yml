@@ -26,8 +26,13 @@ jobs:
           chmod 600 "$HOME/.ssh/doka_deploy"
       - name: Публикация поискового индекса
         run: |
+          CONTENT_PATH="/web/sites/search.doka.guide/www"
+          PORT=8070
           npm install natural linkedom html-escaper markdown-it yaml-cat --global
           npm link natural linkedom html-escaper markdown-it
           yaml-cat -f json **/**/index.md -o search-meta.json
           node .github/scripts/search-index.js
-          rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress search-* deploy@doka.guide:/web/sites/search.doka.guide/www/
+          rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --delete --compress search-content.json deploy@doka.guide:$CONTENT_PATH
+          export DOCKER_HOST="ssh://deploy@doka.guide"
+          docker stop search
+          docker run -dti --rm -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
