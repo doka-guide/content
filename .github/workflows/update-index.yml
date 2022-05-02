@@ -1,7 +1,6 @@
 name: Update Index
 
 on:
-  pull_request:
   workflow_run:
     workflows:
       - "YaSpeller All"
