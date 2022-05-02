@@ -22,8 +22,9 @@ jobs:
         run: |
           set -eu
           mkdir "$HOME/.ssh"
-          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
-          chmod 600 "$HOME/.ssh/doka_deploy"
+          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+          ssh-keyscan -H doka.guide >> ~/.ssh/known_hosts
       - name: Публикация поискового индекса
         run: |
           CONTENT_PATH="/web/sites/search.doka.guide/www"
@@ -32,9 +33,7 @@ jobs:
           npm link natural linkedom html-escaper markdown-it
           yaml-cat -f json **/**/index.md -o search-meta.json
           node .github/scripts/search-index.js
-          rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --delete --compress search-content.json deploy@doka.guide:$CONTENT_PATH
-          ssh-keyscan -H doka.guide >> ~/.ssh/known_hosts
+          rsync --archive --progress --delete --compress search-content.json deploy@doka.guide:$CONTENT_PATH
           export DOCKER_HOST="ssh://deploy@doka.guide"
           docker stop search
-          cd $CONTENT_PATH
           docker run -dti --rm -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
