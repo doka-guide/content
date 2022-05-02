@@ -33,6 +33,8 @@ jobs:
           yaml-cat -f json **/**/index.md -o search-meta.json
           node .github/scripts/search-index.js
           rsync -e "ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no" --archive --progress --delete --compress search-content.json deploy@doka.guide:$CONTENT_PATH
+          ssh-keyscan -H doka.guide >> ~/.ssh/known_hosts
           export DOCKER_HOST="ssh://deploy@doka.guide"
           docker stop search
+          cd $CONTENT_PATH
           docker run -dti --rm -p $PORT:$PORT --name search --mount type=bind,source=$CONTENT_PATH,target=/app/data search --search-content data/search-content.json --stop-words data/stop-search.json --dicts-dir data/dics --app-port $PORT
