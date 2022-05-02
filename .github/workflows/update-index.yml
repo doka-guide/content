@@ -29,5 +29,4 @@ jobs:
           npm link natural linkedom html-escaper markdown-it
           yaml-cat -f json **/**/index.md -o search-meta.json
           node .github/scripts/search-index.js
-          rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress --delete search-* deploy@doka.guide:/web/sites/doka.guide/search/
-          rsync search-*
+          rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress search-* deploy@doka.guide:/web/sites/search.doka.guide/www/
