@@ -106,9 +106,9 @@ cart.flatMap(
   (item) => {
     if (item.name === 'Телефон') {
       return [item, {
-       name: 'Зарядное устройство',
-       count: item.count,
-       price: 50,
+        name: 'Зарядное устройство',
+        count: item.count,
+        price: 50,
       }]
     }
 
@@ -143,9 +143,9 @@ cart.flatMap(
 cart.reduce((list, item) => {
     if (item.name === 'Телефон') {
       list.push(item, {
-       name: 'Зарядник',
-       count: item.count,
-       price: 50,
+        name: 'Зарядное устройство',
+        count: item.count,
+        price: 50,
       })
     } else {
         list.push(item)
@@ -179,7 +179,7 @@ cart.reduce((list, item) => {
 
 ```js
 const allActivities = [
-  { title: 'Офис', coordinates: [50.123, 3.291] }, 
+  { title: 'Офис', coordinates: [50.123, 3.291] },
   { title: 'Спортзал', coordinates: [1.238, 4.292] },
 ]
 
