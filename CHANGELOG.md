@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Май 2022
+
+- 4 мая [Метод `flatMap()`](https://doka.guide/js/array-map/), Антон Горелов
+
 ## Апрель 2022
 
 - 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко
