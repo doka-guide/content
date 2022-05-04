@@ -2,8 +2,21 @@
 
 <!-- yaspeller ignore:start -->
 
+## Апрель 2022
+
+- 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко
+- 5 апреля [Атрибут `disabled`](https://doka.guide/html/disabled/), Алёна Батицкая
+- 5 апреля [`accent-color`](https://doka.guide/css/accent-color/), Алёна Батицкая
+- 5 апреля [Атрибут `required`](https://doka.guide/html/required/), Алёна Батицкая
+- 5 апреля [Атрибут `value`](https://doka.guide/html/value/), Алёна Батицкая
+- 5 апреля [Атрибуты `defer` и `async`](https://doka.guide/html/defer-async/), Матвей Романов
+
 ## Март 2022
 
+- 31 марта [Загрузка файла с прогресс-баром](https://doka.guide/recipes/progress/), Борис Демченко
+- 31 марта [Короткие ссылки на NJS](https://doka.guide/recipes/short-links/), Игорь Коровченко
+- 31 марта [Установка сертификатов Let’s Encrypt](https://doka.guide/recipes/lets-encrypt-nginx/), Игорь Коровченко
+- 31 марта [Снежинки](https://doka.guide/recipes/snow/), Алёна Батицкая
 - 20 марта [Событие `beforeunload`](https://doka.guide/js/event-beforeunload/), Антон Субботин
 - 20 марта [Событие `unload`](https://doka.guide/js/event-unload/), Антон Субботин
 - 17 марта [`<samp>`](https://doka.guide/html/samp/), Борис Демченко
