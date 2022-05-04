@@ -81,6 +81,7 @@ groups:
       - array-find
       - array-find-index
       - array-flat
+      - array-flatmap
       - array-every
       - array-some
       - array-reverse
