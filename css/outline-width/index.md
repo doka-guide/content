@@ -1,10 +1,9 @@
 ---
 title: "`outline-width`"
 authors:
-  - doka-dog
+  - granondo
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
