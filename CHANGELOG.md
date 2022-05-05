@@ -5,6 +5,7 @@
 ## Май 2022
 
 - 4 мая [Метод `flatMap()`](https://doka.guide/js/array-map/), Антон Горелов
+- 4 мая [`outline-width`](https://doka.guide/css/outline-width/), Владимир
 
 ## Апрель 2022
 
