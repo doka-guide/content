@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Очевидный порядок выполнения кода — queueMicrotask() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    :root {
+      --color-light: hsl(0 0% 100%);
+      --color-dark: hsl(0 0% 0%);
+      --color-yellow: hsl(49 100% 58%);
+      --color-pink: hsl(346 81% 78%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%
+    }
+
+    body {
+      display: flex;
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    .standard-form {
+      margin: auto;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .standard-form__textarea {
+      resize: none;
+    }
+
+    button {
+      padding: 12px;
+      color: var(--color-dark);
+      text-align: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: ease-in background-color 0.18s;
+    }
+
+    button:hover {
+      background-color: var(--color-light);
+    }
+
+    .standard-form__submit-button {
+      background-color: var(--color-yellow);
+    }
+
+    .standard-form__reset-button {
+      background-color: var(--color-pink);
+    }
+  </style>
+</head>
+<body>
+<form class="standard-form" name="standard-form">
+  <label for="standard-form__textarea">
+    Логи по процессам:
+  </label>
+  <textarea
+    name="standard-form__textarea"
+    id="standard-form__textarea"
+    class="standard-form__textarea"
+    cols="40"
+    rows="20"
+    disabled
+  ></textarea>
+  <button type="submit" class="standard-form__submit-button">Получить данные о пользователе</button>
+  <button type="reset" class="standard-form__reset-button">Очистить содержимое поля с логами</button>
+</form>
+<script>
+  // DOM elements
+  const form = document.querySelector('.standard-form');
+  const submitButton = document.querySelector('.standard-form__submit-button');
+  const textarea = document.querySelector('.standard-form__textarea');
+
+  class DataRecipient {
+    constructor() {
+      this.data = [];
+      this.cache = [];
+    }
+
+    getData(url) {
+      if (this.cache[url]) {
+        queueMicrotask(() => {
+          this.data = this.cache[url];
+          textarea.dispatchEvent(new Event('data-loaded'));
+        });
+      } else {
+        fetch(url)
+          .then((response) => response.json())
+          .then(({ data }) => {
+            this.cache[url] = data;
+            this.data = data;
+            textarea.dispatchEvent(new Event('data-loaded'));
+          });
+      }
+    }
+  }
+
+  // DataRecipient instance
+  const dataRecipient = new DataRecipient();
+
+
+  // Handlers
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+  };
+
+  const handleSubmitButtonClick = () => {
+    textarea.value += 'Процесс загрузки данных...\n';
+    dataRecipient.getData('https://reqres.in/api/users/2');
+    textarea.value += 'Процесс загрузки данных выполняется...\n';
+  };
+
+  const handleTextareaDataLoaded = () => {
+    textarea.value += 'Данные загружены\n';
+  };
+
+  // Listeners
+  form.addEventListener('submit', handleFormSubmit);
+  submitButton.addEventListener('click', handleSubmitButtonClick);
+  textarea.addEventListener('data-loaded', handleTextareaDataLoaded)
+</script>
+</body>
+</html>

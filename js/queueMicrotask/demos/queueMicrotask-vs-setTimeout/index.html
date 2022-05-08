@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Сравнение API queueMicrotask и setTimeout — queueMicrotask/setTimeout — Дока</title>
+  <title>Сравнение queueMicrotask() и setTimeout() — queueMicrotask() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     :root {
       --color-light: hsl(0 0% 100%);
@@ -77,11 +77,11 @@
     id="compare-form__textarea"
     class="compare-form__textarea"
     cols="40"
-    rows="30"
+    rows="20"
     disabled
   ></textarea>
   <button type="submit" class="compare-form__submit-button">Вывести текст</button>
-  <button type="reset" class="compare-form__reset-button">Очистить textarea</button>
+  <button type="reset" class="compare-form__reset-button">Очистить содержимое textarea</button>
 </form>
 <script>
   const form = document.querySelector('.compare-form');
@@ -94,10 +94,10 @@
 
   const handleSubmitButtonClick = () => {
     setTimeout(() => {
-      textarea.value += 'Фраза добавлена с помощью setTimeout\n\n';
+      textarea.value += 'Фраза добавлена с помощью setTimeout()\n\n';
     }, 0);
     queueMicrotask(() => {
-      textarea.value += 'Фраза добавлена с помощью queueMicrotask\n';
+      textarea.value += 'Фраза добавлена с помощью queueMicrotask()\n';
     });
   };
 
