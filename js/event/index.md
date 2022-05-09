@@ -88,11 +88,13 @@ window.addEventListener('offline', function() {
 
 ```js
 const myEvent = new CustomEvent('my-event', {
-  spicy: true
+    detail: {
+            spicy1: 123,
+        },
 })
 
 window.addEventListener('my-event', function(evt) {
-  console.log('My event is spicy:', evt.spicy)
+  console.log('My event is spicy:', evt.detail.spicy)
 })
 
 window.dispatchEvent(myEvent)
