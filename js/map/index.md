@@ -164,7 +164,7 @@ map.set('html', 'HTML')
 map.set('css', 'CSS')
 map.set('js', 'JavaScript')
 
-map.forEach((key, value) => {
+map.forEach((value, key) => {
   console.log(`${key} - ${value}`)
 })
 // html - HTML
