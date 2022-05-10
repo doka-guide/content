@@ -25,8 +25,8 @@ tags:
 
 ```js
 queueMicrotask(() => {
-    console.log('Хэй, я выполнюсь асинхронно благодаря queueMicrotask');
-});
+    console.log('Хэй, я выполнюсь асинхронно благодаря queueMicrotask')
+})
 ```
 
 ## Как понять
@@ -35,8 +35,8 @@ queueMicrotask(() => {
 
 ```js
 setTimeout(() => {
-    console.log('Хэй, я выполнюсь асинхронно благодаря setTimeout');
-}, 0);
+    console.log('Хэй, я выполнюсь асинхронно благодаря setTimeout')
+}, 0)
 ```
 
 Так в чем же принципиальная разница между ними?
@@ -94,13 +94,13 @@ JavaScript имеет в своём арсенале различные _вид�
 
 ```html
 <script>
-  const form = document.querySelector('.compare-form');
+  const form = document.querySelector('.compare-form')
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-  };
+  }
 
-  form.addEventListener('submit', handleFormSubmit);
+  form.addEventListener('submit', handleFormSubmit)
 </script>
 ```
 
@@ -108,25 +108,25 @@ JavaScript имеет в своём арсенале различные _вид�
 
 ```html
 <script>
-  const form = document.querySelector('.compare-form');
-  const submitButton = document.querySelector('.compare-form__submit-button');
-  const textarea = document.querySelector('.compare-form__textarea');
+  const form = document.querySelector('.compare-form')
+  const submitButton = document.querySelector('.compare-form__submit-button')
+  const textarea = document.querySelector('.compare-form__textarea')
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-  };
+  }
 
   const handleSubmitButtonClick = () => {
     setTimeout(() => {
-      textarea.value += 'Фраза добавлена с помощью setTimeout()\n\n';
-    }, 0);
+      textarea.value += 'Фраза добавлена с помощью setTimeout()\n\n'
+    }, 0)
     queueMicrotask(() => {
-      textarea.value += 'Фраза добавлена с помощью queueMicrotask()\n';
-    });
-  };
+      textarea.value += 'Фраза добавлена с помощью queueMicrotask()\n'
+    })
+  }
 
-  form.addEventListener('submit', handleFormSubmit);
-  submitButton.addEventListener('click', handleSubmitButtonClick);
+  form.addEventListener('submit', handleFormSubmit)
+  submitButton.addEventListener('click', handleSubmitButtonClick)
 </script>
 ```
 
@@ -145,16 +145,16 @@ JavaScript имеет в своём арсенале различные _вид�
 ```js
 getData(url) {
   if (this.cache[url]) {
-    this.data = this.cache[url];
-    textarea.dispatchEvent(new Event('data-loaded'));
+    this.data = this.cache[url]
+    textarea.dispatchEvent(new Event('data-loaded'))
   } else {
     fetch(url)
       .then((response) => response.json())
       .then(({ data }) => {
-        this.cache[url] = data;
-        this.data = data;
-        textarea.dispatchEvent(new Event('data-loaded'));
-      });
+        this.cache[url] = data
+        this.data = data
+        textarea.dispatchEvent(new Event('data-loaded'))
+      })
   }
 }
 ```
@@ -174,9 +174,9 @@ _Какую проблему тут можно заметить?_
 ```js
 if (this.cache[url]) {
   queueMicrotask(() => {
-    this.data = this.cache[url];
-    textarea.dispatchEvent(new Event('data-loaded'));
-  });
+    this.data = this.cache[url]
+    textarea.dispatchEvent(new Event('data-loaded'))
+  })
 }
 ```
 
