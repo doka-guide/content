@@ -70,63 +70,35 @@ JavaScript имеет в своём арсенале различные _вид�
 
 ## Пример
 
-Убедимся, что функция, переданная в `queueMicrotask()` выполнится раньше, чем через `setTimeout()`. Для этого создадим страницу с формой, в которой будут находиться `<textarea>` и кнопка добавления записей в этот элемент:
+Убедимся, что функция, переданная в `queueMicrotask()` выполнится раньше, чем через `setTimeout()`. Для этого создадим страницу с формой, при отправке которой будут запускаться оба задания. Каждое из них будет печатать на экран уникальный текст:
 
 ```html
 <form class="compare-form" name="compare-form">
-  <label for="compare-form__textarea">
+  <h2>
     Вывод значений с помощью <code>queueMicrotask</code> и <code>setTimeout</code>:
-  </label>
-  <textarea
-    name="compare-form__textarea"
-    id="compare-form__textarea"
-    class="compare-form__textarea"
-    cols="40"
-    rows="20"
-    disabled
-  ></textarea>
-  <button type="submit" class="compare-form__submit-button">Вывести текст</button>
-  <button type="reset" class="compare-form__reset-button">Очистить содержимое textarea</button>
+  </h2>
+  <p id="compare-output"
+    class="compare-form__output"
+  ></p>
+  <button type="submit" class="button compare-form__submit-button">Вывести текст</button>
+  <button type="reset" class="button compare-form__reset-button">Очистить содержимое</button>
 </form>
 ```
 
-Предотвратим стандартное поведение формы при отправке данных:
+При отправке формы запустим наши задачи — первым будет располагаться `setTimeout()`, а после него `queueMicrotask()`.
 
 ```html
 <script>
-  const form = document.querySelector('.compare-form')
-
   const handleFormSubmit = (e) => {
     e.preventDefault()
-  }
 
-  form.addEventListener('submit', handleFormSubmit)
-</script>
-```
-
-Далее, навесим обработчик события на кнопку вывода теста, в котором первым будет располагаться `setTimeout()`, а после него `queueMicrotask()`:
-
-```html
-<script>
-  const form = document.querySelector('.compare-form')
-  const submitButton = document.querySelector('.compare-form__submit-button')
-  const textarea = document.querySelector('.compare-form__textarea')
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
-  }
-
-  const handleSubmitButtonClick = () => {
     setTimeout(() => {
-      textarea.value += 'Фраза добавлена с помощью setTimeout()\n\n'
+      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n'
     }, 0)
     queueMicrotask(() => {
-      textarea.value += 'Фраза добавлена с помощью queueMicrotask()\n'
+      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n'
     })
   }
-
-  form.addEventListener('submit', handleFormSubmit)
-  submitButton.addEventListener('click', handleSubmitButtonClick)
 </script>
 ```
 

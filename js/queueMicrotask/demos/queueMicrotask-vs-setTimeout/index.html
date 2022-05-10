@@ -45,7 +45,7 @@
       margin: auto;
       display: inline-flex;
       flex-direction: column;
-      gap: 8px
+      gap: 8px;
     }
 
     .compare-form__output {
@@ -101,27 +101,26 @@
   <button type="reset" class="button compare-form__reset-button">Очистить содержимое</button>
 </form>
 <script>
-  const form = document.querySelector('.compare-form');
-  const submitButton = document.querySelector('.compare-form__submit-button');
-  const resetButton = document.querySelector('.compare-form__reset-button');
-  const output = document.getElementById('compare-output');
+  const form = document.querySelector('.compare-form')
+  const resetButton = document.querySelector('.compare-form__reset-button')
+  const output = document.getElementById('compare-output')
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
 
     setTimeout(() => {
-      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n';
-    }, 0);
+      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n'
+    }, 0)
     queueMicrotask(() => {
-      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n';
-    });
-  };
+      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n'
+    })
+  }
 
   const handleResetClick = () => {
     output.innerText = ''
   }
 
-  form.addEventListener('submit', handleFormSubmit);
+  form.addEventListener('submit', handleFormSubmit)
   resetButton.addEventListener('click', handleResetClick)
 </script>
 </body>
