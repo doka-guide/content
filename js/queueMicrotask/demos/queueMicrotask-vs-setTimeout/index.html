@@ -34,6 +34,13 @@
       text-align: center;
     }
 
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
+    }
+
     .compare-form {
       margin: auto;
       display: inline-flex;
@@ -41,21 +48,36 @@
       gap: 8px
     }
 
-    .compare-form__textarea {
-      resize: none;
+    .compare-form__output {
+      width: 100%;
+      height: 200px;
+      overflow: auto;
+      padding: 8px;
+      box-sizing: border-box;
     }
 
     button {
-      padding: 12px;
+      display: block;
+      min-width: 285px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
       color: var(--color-dark);
-      text-align: center;
-      font-size: 14px;
-      cursor: pointer;
-      transition: ease-in background-color 0.18s;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
-    button:hover {
+    .button:hover {
       background-color: var(--color-light);
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid var(--color-light);
+      outline: none;
     }
 
     .compare-form__submit-button {
@@ -69,40 +91,38 @@
 </head>
 <body>
 <form class="compare-form" name="compare-form">
-  <label for="compare-form__textarea">
+  <h2>
     Вывод значений с помощью <code>queueMicrotask</code> и <code>setTimeout</code>:
-  </label>
-  <textarea
-    name="compare-form__textarea"
-    id="compare-form__textarea"
-    class="compare-form__textarea"
-    cols="40"
-    rows="20"
-    disabled
-  ></textarea>
-  <button type="submit" class="compare-form__submit-button">Вывести текст</button>
-  <button type="reset" class="compare-form__reset-button">Очистить содержимое textarea</button>
+  </h2>
+  <p id="compare-output"
+    class="compare-form__output"
+  ></p>
+  <button type="submit" class="button compare-form__submit-button">Вывести текст</button>
+  <button type="reset" class="button compare-form__reset-button">Очистить содержимое</button>
 </form>
 <script>
   const form = document.querySelector('.compare-form');
   const submitButton = document.querySelector('.compare-form__submit-button');
-  const textarea = document.querySelector('.compare-form__textarea');
+  const resetButton = document.querySelector('.compare-form__reset-button');
+  const output = document.getElementById('compare-output');
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-  };
 
-  const handleSubmitButtonClick = () => {
     setTimeout(() => {
-      textarea.value += 'Фраза добавлена с помощью setTimeout()\n\n';
+      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n';
     }, 0);
     queueMicrotask(() => {
-      textarea.value += 'Фраза добавлена с помощью queueMicrotask()\n';
+      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n';
     });
   };
 
+  const handleResetClick = () => {
+    output.innerText = ''
+  }
+
   form.addEventListener('submit', handleFormSubmit);
-  submitButton.addEventListener('click', handleSubmitButtonClick);
+  resetButton.addEventListener('click', handleResetClick)
 </script>
 </body>
 </html>
