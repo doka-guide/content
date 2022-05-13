@@ -11,7 +11,7 @@ authors:
 editors:
   - tachisis
 tags:
-  - doka
+  - article
 ---
 
 ## Задача

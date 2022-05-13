@@ -11,7 +11,7 @@ keywords:
   - индикация загрузки
   - progress bar
 tags:
-  - doka
+  - article
 ---
 
 ## Задача
