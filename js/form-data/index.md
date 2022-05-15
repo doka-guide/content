@@ -1,6 +1,6 @@
 ---
 title: "`FormData`"
-description: "Специальная коллекция данных `[ключ, значение]` для отправки на сервер"
+description: "Асинхронно отправлять JSON на сервер может каждый, а файлы — только `FormData`"
 authors:
   - vitalybaev
 tags:
