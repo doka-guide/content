@@ -111,6 +111,7 @@ groups:
       - bom
       - dom
       - fetch
+      - form-data
       - console-log
       - window-history
       - window-location
@@ -129,7 +130,6 @@ groups:
       - clearinterval
       - parseint
       - window-print
-      - form-data
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
