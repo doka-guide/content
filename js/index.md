@@ -112,6 +112,7 @@ groups:
       - bom
       - dom
       - fetch
+      - form-data
       - console-log
       - window-history
       - window-location
