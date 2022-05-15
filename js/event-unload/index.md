@@ -1,5 +1,5 @@
 ---
-title: "Событие `unload`"
+title: "`unload`"
 description: "Обработка закрытия страницы"
 authors:
   - kotosha-real

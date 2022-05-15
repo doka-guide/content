@@ -1,5 +1,5 @@
 ---
-title: "`Promise`. Метод `then`"
+title: "`.then()`"
 authors:
   - nlopin
 keywords:

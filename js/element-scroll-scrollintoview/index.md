@@ -1,5 +1,5 @@
 ---
-title: "`Element.scrollIntoView()`"
+title: "`.scrollIntoView()`"
 authors:
   - doka-dog
 contributors:

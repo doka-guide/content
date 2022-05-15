@@ -1,5 +1,5 @@
 ---
-title: "`Element.outerHTML`"
+title: "`.outerHTML`"
 authors:
   - windrushfarer
 tags:

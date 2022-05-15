@@ -1,5 +1,5 @@
 ---
-title: "Событие `touch`"
+title: "`touch`"
 authors:
   - windrushfarer
 keywords:

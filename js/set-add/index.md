@@ -1,5 +1,5 @@
 ---
-title: "`set.add()`"
+title: "`.add()`"
 description: "Добавляет значение в коллекцию Set"
 authors:
   - nlopin

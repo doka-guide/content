@@ -1,5 +1,5 @@
 ---
-title: "События `scroll` и `wheel`"
+title: "`scroll` и `wheel`"
 authors:
   - nlopin
 contributors:

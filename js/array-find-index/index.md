@@ -1,5 +1,5 @@
 ---
-title: "`[].findIndex`"
+title: "`.findIndex()`"
 description: "Позволяет узнать индекс первого подходящего под условие элемента"
 authors:
   - cergmin
