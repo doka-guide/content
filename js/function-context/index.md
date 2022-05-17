@@ -297,7 +297,7 @@ const secondUser = User()
 
 _Непрямым вызовом_ называют вызов функций через [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply).
 
-Оба первым аргументом принимают `this`. То есть, они позволяют настроить контекст снаружи, к тому же — явно.
+Оба первым аргументом принимают `this`. То есть они позволяют настроить контекст снаружи, к тому же — явно.
 
 ```js
 function greet() {
