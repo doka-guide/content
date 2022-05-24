@@ -40,6 +40,7 @@ groups:
       - set
       - map
       - objects-objects-everywhere
+      - descriptors
   - name: "Числа"
     items:
       - number-wrapper
