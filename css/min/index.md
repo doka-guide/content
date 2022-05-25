@@ -35,7 +35,7 @@ tags:
 
 При отрисовке браузер определяет минимальное значение и подставляет его в стили.
 
-<iframe title="Адаптивный tab-size" src="demos/view/" height="470"></iframe>
+<iframe title="Адаптивный tab-size" src="demos/view/index.html" height="470"></iframe>
 
 ## Подсказки
 
