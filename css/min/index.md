@@ -17,7 +17,7 @@ tags:
 
 ```css
 .selector {
-	width: min(50%, 500px);
+  width: min(50%, 500px);
 }
 ```
 
@@ -27,7 +27,7 @@ tags:
 
 ```css
 .selector {
-	width: min(50%, calc(1000px / 2);
+  width: min(50%, calc(1000px / 2);
 }
 ```
 
