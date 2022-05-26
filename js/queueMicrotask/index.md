@@ -25,7 +25,7 @@ tags:
 
 ```js
 queueMicrotask(() => {
-    console.log('Хэй, я выполнюсь асинхронно благодаря queueMicrotask')
+    console.log('Хэй, я выполнюсь асинхронно!')
 })
 ```
 
