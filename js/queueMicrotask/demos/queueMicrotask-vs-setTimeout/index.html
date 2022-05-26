@@ -109,10 +109,10 @@
     e.preventDefault()
 
     setTimeout(() => {
-      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n'
+      output.innerText += 'Фраза добавлена из setTimeout()\n\n'
     }, 0)
     queueMicrotask(() => {
-      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n'
+      output.innerText += 'Фраза добавлена из queueMicrotask()\n'
     })
   }
 

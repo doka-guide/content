@@ -101,58 +101,50 @@
 </form>
 <script>
   // DOM elements
-  const form = document.querySelector('.logging-form');
-  const output = document.querySelector('.logging-form__output');
-  const resetButton = document.querySelector('.logging-form__reset-button');
+  const form = document.querySelector('.logging-form')
+  const output = document.querySelector('.logging-form__output')
+  const resetButton = document.querySelector('.logging-form__reset-button')
+  let data = []
+  const cache = {}
 
-  class DataRecipient {
-    constructor() {
-      this.data = [];
-      this.cache = [];
-    }
-
-    getData(url) {
-      if (this.cache[url]) {
-        queueMicrotask(() => {
-          this.data = this.cache[url];
-          output.dispatchEvent(new Event('data-loaded'));
-        });
-      } else {
-        fetch(url)
-          .then((response) => response.json())
-          .then(({ data }) => {
-            this.cache[url] = data;
-            this.data = data;
-            output.dispatchEvent(new Event('data-loaded'));
-          });
-      }
+  function getData(url) {
+    if (url in cache) {
+      queueMicrotask(() => {
+        data = cache[url]
+        output.dispatchEvent(new Event('data-loaded'))
+      })
+    } else {
+      fetch(url)
+        .then((response) => response.json())
+        .then(({ data }) => {
+          cache[url] = data
+          data = data
+          output.dispatchEvent(new Event('data-loaded'))
+        })
     }
   }
-
-  // DataRecipient instance
-  const dataRecipient = new DataRecipient();
 
   // Handlers
   const handleFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    output.innerText += 'Процесс загрузки данных...\n';
-    dataRecipient.getData('https://reqres.in/api/users/2');
-    output.innerText += 'Процесс загрузки данных выполняется...\n';
+    output.innerText += 'Начинаю загрузку данных...\n'
+    getData('https://reqres.in/api/users/2')
+    output.innerText += 'Загрузка выполняется...\n'
   };
 
   const handleOutputDataLoaded = () => {
-    output.innerText += 'Данные загружены\n';
+    output.innerText += 'Данные загружены\n'
   };
 
   const handleResetClick = () => {
-    output.innerText = '';
+    output.innerText = ''
   }
 
   // Listeners
-  form.addEventListener('submit', handleFormSubmit);
-  output.addEventListener('data-loaded', handleOutputDataLoaded);
-  resetButton.addEventListener('click', handleResetClick);
+  form.addEventListener('submit', handleFormSubmit)
+  output.addEventListener('data-loaded', handleOutputDataLoaded)
+  resetButton.addEventListener('click', handleResetClick)
 </script>
 </body>
 </html>

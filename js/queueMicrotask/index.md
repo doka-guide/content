@@ -80,8 +80,12 @@ JavaScript имеет в своём арсенале различные _вид�
   <p id="compare-output"
     class="compare-form__output"
   ></p>
-  <button type="submit" class="button compare-form__submit-button">Вывести текст</button>
-  <button type="reset" class="button compare-form__reset-button">Очистить содержимое</button>
+  <button type="submit" class="button compare-form__submit-button">
+    Вывести текст
+  </button>
+  <button type="reset" class="button compare-form__reset-button">
+    Очистить содержимое
+  </button>
 </form>
 ```
 
@@ -93,10 +97,10 @@ JavaScript имеет в своём арсенале различные _вид�
     e.preventDefault()
 
     setTimeout(() => {
-      output.innerText += 'Фраза добавлена с помощью setTimeout()\n\n'
+      output.innerText += 'Фраза добавлена из setTimeout()\n\n'
     }, 0)
     queueMicrotask(() => {
-      output.innerText += 'Фраза добавлена с помощью queueMicrotask()\n'
+      output.innerText += 'Фраза добавлена из queueMicrotask()\n'
     })
   }
 </script>
@@ -113,16 +117,20 @@ JavaScript имеет в своём арсенале различные _вид�
 Представим ситуацию, в которой необходимо получать данные по указанному урлу. Либо же, если запрос выполнялся ранее  — запросить данные из кэша:
 
 ```js
+const output = document.querySelector('.logging-form__output')
+let data = []
+const cache = {}
+
 function getData(url) {
-  if (this.cache[url]) {
-    this.data = this.cache[url]
+  if (url in cache) {
+    data = cache[url]
     output.dispatchEvent(new Event('data-loaded'))
   } else {
     fetch(url)
       .then((response) => response.json())
       .then(({ data }) => {
-        this.cache[url] = data
-        this.data = data
+        cache[url] = data
+        data = data
         output.dispatchEvent(new Event('data-loaded'))
       })
   }
@@ -139,7 +147,7 @@ _Какую проблему тут можно заметить?_
 const form = document.querySelector('.logging-form')
 
 const handleFormSubmit = (e) => {
-  e.preventDefault() // Предотвращаем дефолтное поведение
+  e.preventDefault()
 
   output.innerText += 'Процесс загрузки данных...\n'
   getData('https://reqres.in/api/users/2')
@@ -170,9 +178,9 @@ output.addEventListener('data-loaded', handleOutputDataLoaded)
 Чтобы исправить проблему, необходимо обернуть тело первого условного блока в `queueMicrotask()` и таким образом сделать чтение данных из кэша асинхронной операцией:
 
 ```js
-if (this.cache[url]) {
+if (url in cache) {
   queueMicrotask(() => {
-    this.data = this.cache[url]
+    data = cache[url]
     textarea.dispatchEvent(new Event('data-loaded'))
   })
 }
