@@ -5,7 +5,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Шесть разных персонажей в стиле «Найди отличие в картинке», каждый чем-то отличается от других'
+  alt: 'Несколько разных персонажей в стиле «Найди отличие в картинке», каждый чем-то отличается от других'
 authors:
   - igorkamyshev
 contributors:
