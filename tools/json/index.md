@@ -103,6 +103,10 @@ console.log(JSON.stringify(hero))
 }
 ```
 
+### Пример преобразования объекта JavaScript в формат JSON
+
+<iframe title="Название — JSON — Дока" src="demos/transformJson/"></iframe>
+
 ### Преобразование из JSON
 
 Преобразовать строку с JSON в объект JavaScript можно с помощью метода `JSON.parse()`. Он принимает JSON-строку в качестве аргумента.

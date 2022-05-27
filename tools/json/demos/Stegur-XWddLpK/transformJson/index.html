@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация преобразования — JSON — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			min-height: 100vh;
+			background-color: #18191C;
+
+      font-family: Roboto, sans-serif;
+			font-size: 18px;
+			color: #FFFFFF;
+
+			padding: 0;
+			margin: 0;
+    }
+		.container {
+			display: flex;
+
+			box-sizing: border-box;
+
+			padding: 0;
+			margin: 0;
+		}
+
+		.title {
+    	font-size: 24px;
+    	font-weight: 500;
+
+			padding: 0;
+			margin: 0 0 17px 0;	
+		}
+
+		.inputBlock {
+			display: flex;
+			flex-direction: column;
+
+			border: 2px solid #FFFFFF;
+			border-radius: 6px;
+
+			padding: 10px;
+			margin-right: 35px;
+		}
+
+		textarea {
+			width: 400px;
+			height: 150px;
+			resize: none;
+			border-radius: 6px;
+
+			padding: 5px;
+		}
+
+		button {
+			display: block;
+
+			min-width: 300px;
+			background-color: #FFD829;
+			border: 2px solid transparent;
+    	border-radius: 6px;
+			
+			transition: background-color 0.2s;
+    
+			padding: 9px 15px;
+			margin: 15px 0 0 0;
+		}
+
+		.buttonLabel {
+			font-family: "Roboto Mono", monospace;
+    	font-size: calc(1em - 1px);
+    	font-weight: 300;
+			color: #000000;
+		}
+
+		.outputBlock {
+			display: flex;
+			flex-direction: column;
+
+			border: 2px solid #FFFFFF;
+			border-radius: 6px;
+
+			padding: 10px;
+		}
+
+		.output {
+			width: 400px;
+			min-height: 150px;
+
+			background-color: #FFFFFF;	
+			border-radius: 6px;
+			white-space: pre-wrap;
+
+			color: #000000;
+
+			padding: 5px;
+		}
+  </style>
+</head>
+<body>
+	<div class="container">
+		<div class="inputBlock">
+			<h2 class="title">Блок кода</h2>
+			<textarea id="code"></textarea> 
+			<button type="button" id="submit">
+				<span class="buttonLabel">Перевести в формат JSON</span>
+			</button>
+		</div> 
+		<div class="outputBlock">
+			<h2 class="title">Результат</h2>
+			<span class="output" id="output"></span>
+		</div>
+	</div>
+
+	<script>
+		document.documentElement.className.replace('no-js', 'js')
+
+		const code = document.getElementById('code');
+		const submit = document.getElementById('submit');
+		const output = document.getElementById('output');
+
+code.value = `{
+ name: "Иван", 
+ age: 33,
+ tags: ["sport", "programming"],
+ salary: undefined,
+ printInfo() {alert(this.name+',', this.age)}
+}`
+
+		submit.onclick = () => {
+			try {
+				let obj = eval('(' + code.value + ')');
+				output.textContent = JSON.stringify(obj, null, 2);
+			} catch(error) {
+				output.textContent = "Ошибка ввода. Кстати, вы знали, что строки нужно вводить в 'кавычках' ?";
+			}
+		};
+	</script>
+
+</body>
+</html>
