@@ -47,29 +47,50 @@ ready:
   - tools/ci-cd
   - recipes/snow
 active:
-  - recipes/snow
-  - js/clean-architecture
-  - tools/ci-cd
-  - js/closures
+  - html/article
+  - js/var-let
+  - html/img
+  - css/attr
+  - tools/bundlers
+  - tools/gitlab-ci-cd
   - css/box-model
-  - js/execution-order
-  - tools/webpack
-  - html/div
-  - html/head
-  - css/grid-guide
+  - html/form
+  - css/display
+  - js/function-context
+  - html/video
   - css/box-shadow
   - tools/docker
-  - html/video
-  - css/custom-properties
-  - html/doctype
-  - tools/static-types
-  - js/deal-with-forms
+  - tools/markdown
+  - js/execution-order
+  - css/specificity
+  - css/grid-guide
+  - html/section
+  - js/function
+  - js/oop
+  - tools/ci-cd
+  - html/head
+  - css/position
   - js/how-to-test-and-why
-  - css/display
-  - js/async-in-js
-  - css/flexbox-guide
-  - html/input
-  - html/flow
-  - js/how-the-browser-creates-pages
   - tools/cli
+  - tools/static-types
+  - html/doctype
+  - html/div
+  - tools/agile
+  - css/flexbox-guide
+  - js/closures
+  - html/nav
+  - js/async-in-js
+  - tools/webpack
+  - js/clean-architecture
+  - js/how-the-browser-creates-pages
+  - css/pseudoelements
+  - css/custom-properties
+  - html/flow
+  - recipes/snow
+  - css/media
+  - html/input
+  - js/infinite-scroll
+  - tools/network
+  - js/deal-with-forms
 ---
+
