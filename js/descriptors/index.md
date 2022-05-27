@@ -9,7 +9,7 @@ tags:
 
 ## Кратко
 
-[Объекты](/js/object), как мы знаем, содержат свойства. У каждого из свойств объекта, кроме ключа, есть 3 флага конфигурации, которые могут принимать значения `true` или `false`:
+[Объекты](/js/object/), как мы знаем, содержат свойства. У каждого из свойств объекта, кроме ключа, есть 3 флага конфигурации, которые могут принимать значения `true` или `false`:
 
 - `writable` (доступно ли свойство для записи);
 - `enumerable` (является ли свойство видимым при перечислениях, например, в цикле `for..in`);
@@ -43,11 +43,16 @@ Object.defineProperty(laptop, "os", {
 
 Попробуем перезаписать свойство `os` и выведем полученный результат:
 
-```
+```js
 laptop.os = 'Windows';
 
-JSON.stringify(laptop); // { "os": "MacOS" }
+console.log(laptop);
 ```
+
+```js
+{ "os": "MacOS" }
+```
+
 
 ### Типы дескрипторов свойств объектов:
 
@@ -84,6 +89,10 @@ Object.defineProperty(obj, propertyName, descriptor);
 Если свойство уже существует, `defineProperty` обновит флаги. 
 Если свойство не существует, метод создаёт новое свойство с указанным значением и флагами. Если какой-либо флаг не указан явно, ему присваивается значение `false`.
 
+## Как понять
+
+Давайте разберемся на примере, что мы можем делать с помощью дескрипторов.
+
 Добавим ноутбуку ещё одно свойство "Размер экрана".
 
 ```js
@@ -115,15 +124,20 @@ JSON.stringify(descriptor, null, 2)
 ```js
 const laptop = {};
 
-Object.defineProperty(laptop, "processor", {
-    value: 'Intel Core',
+Object.defineProperty(laptop, "displaySize", {
+    value: '15',
     writable: false, // не перезаписываемо!
     configurable: true,
     enumerable: true
 });
 
-laptop.processor = 'AMD';
-laptop.processor; // 'Intel Core'
+laptop.displaySize = '18';
+
+console.log(laptop.displaySize);
+```
+
+```js
+{ "displaySize": "15" }
 ```
 
 В строгом режиме `strict` mode мы получим ошибку `TypeError`, которая говорит о том, что мы не можем изменить неперезаписываемое свойство.
@@ -134,7 +148,7 @@ laptop.processor; // 'Intel Core'
 const laptop = {};
 
 Object.defineProperty(laptop, "processor",
-    // сделаем `processor` перечисляемой, как обычно
+    // сделаем `processor` перечисляемым, как обычно
     { enumerable: true, value: 'Intel Core' }
 );
 
@@ -151,10 +165,13 @@ laptop.hasOwnProperty("touchID"); // true
 for (let key in laptop) {
 	console.log(key, laptop[key]);
 }
-// "processor": 'Intel Core';
 ```
 
-Заметьте, что `laptop.touchID` по факту существует и имеет значение, но не отображается в цикле `for..in` (при этом, оно существует, если воспользоваться оператором `in`). «перечислимое» означает «будет учтено, если пройти перебором по свойствам объекта»).
+```js
+"processor": 'Intel Core';
+```
+
+Заметьте, что `laptop.touchID` по факту существует и имеет значение, но не отображается в цикле `for..in` (при этом, оно существует, если воспользоваться оператором `in`). «Перечислимое» означает: «будет учтено, если пройти перебором по свойствам объекта».
 
 Изменим значение `configurable`:
 
@@ -193,7 +210,7 @@ Object.defineProperty(laptop, "processor", {
 
 А еще `configurable:false` препятствует возможности использовать оператор `delete` для удаления существующего свойства.
 
-### Теперь поговорим о методах, которые ограничивают доступ ко всему объекту целиком
+### Ограничение доступа ко всему объекту целиком
 
 `Object.preventExtensions()` - запрещает добавление новых свойств объекта, но в то же время оставляет существующие свойства нетронутыми.
 
@@ -216,7 +233,7 @@ laptop.storage; // undefined
 
 Другими словами, `Object.freeze()` создает замороженный объект, применяет к нему `Object.seal()` и `writable:false`, следовательно, их значения не могут быть изменены.
 
-Обратим внимание, что метод поверхностный, у замороженного объекта остаётся возможность изменять вложенные объекты. На MDN есть пример глубокой заморозки, метод `deepFreeze()`, позволяющий сделать полностью иммутабельный объект. При этом, невозможно сделать иммутабельными `Date`, [Map](/js/map) или [Set](/js/set).
+Обратим внимание, что метод поверхностный, у замороженного объекта остаётся возможность изменять вложенные объекты. На MDN есть пример глубокой заморозки, метод `deepFreeze()`, позволяющий сделать полностью иммутабельный объект. При этом, невозможно сделать иммутабельными `Date`, [Map](/js/map/) или [Set](/js/set/).
 
 Этот подход даёт наивысший уровень иммутабельности, который вы можете получить для самого объекта.
 
@@ -238,8 +255,11 @@ Object.defineProperties(laptop, {
 
 const result = Object.keys(laptop);
 
-JSON.stringify(result); // ['os']
+console.log(result);
+```
 
+```js
+['os']
 ```
 
 Получение значений дескрипторов для конкретного свойства объекта:
@@ -253,7 +273,7 @@ const source = {
 
 const nameDescriptors = Object.getOwnPropertyDescriptor(source, 'name');
 
-JSON.stringify(nameDescriptors);
+console.log(nameDescriptors);
 ```
 
 ```js
@@ -270,8 +290,9 @@ JSON.stringify(nameDescriptors);
 ```js
 const allPropertyDescriptors = Object.getOwnPropertyDescriptors(source);
 
-JSON.stringify(allPropertyDescriptors);
+console.log(allPropertyDescriptors);
 ```
+
 Получим следующий ответ:
 
 ```js
@@ -303,7 +324,7 @@ JSON.stringify(allPropertyDescriptors);
 const user = {};
 const userDescriptors = Object.getOwnPropertyDescriptors(user);
 
-JSON.stringify(userDescriptors);
+console.log(userDescriptors);
 ```
 
 Получим пустой объект:
@@ -363,6 +384,7 @@ const updatedAt = {
   }
 };
 ```
+
 Запишем дату и время в поле `date`:
 
 ```js
@@ -372,7 +394,5 @@ updatedAt.date = new Date();
 И получим дату в нужном формате: `5/25/2022`.
 
 Свойства с методами доступа дают нам все возможности обработки данных с помощью функций и простоту, характерную для работы с обычными свойствами.
-
-## Как понять
 
 Периодически разработчику нужно защищать объекты от вмешательства извне. По ошибке легко изменить свойство объекта. Для защиты объектов от подобных изменений и управления их иммутабельностью предлагается использовать дескрипторы, такие как `writable` и `configurable` и методы `Object.preventExtensions()`, `Object.seal()`, и `Object.freeze()` для ограничения доступа к объекту целиком.
