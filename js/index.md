@@ -125,6 +125,7 @@ groups:
       - alert
       - prompt
       - confirm
+      - queuemicrotask
       - settimeout
       - cleartimeout
       - setinterval
