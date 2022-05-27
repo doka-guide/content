@@ -16,7 +16,7 @@
 			min-height: 100vh;
 			background-color: #18191C;
 
-      font-family: Roboto, sans-serif;
+      font-family: "Roboto Mono", monospace;
 			font-size: 18px;
 			color: #FFFFFF;
 
@@ -33,6 +33,7 @@
 		}
 
 		.title {
+			font-family: "Roboto", sans-serif;
     	font-size: 24px;
     	font-weight: 500;
 
@@ -44,7 +45,6 @@
 			display: flex;
 			flex-direction: column;
 
-			border: 2px solid #FFFFFF;
 			border-radius: 6px;
 
 			padding: 10px;
@@ -53,9 +53,13 @@
 
 		textarea {
 			width: 400px;
-			height: 150px;
+			height: 190px;
 			resize: none;
 			border-radius: 6px;
+
+			font-family: inherit;
+			font-size: 16px;
+			
 
 			padding: 5px;
 		}
@@ -76,8 +80,6 @@
 
 		.buttonLabel {
 			font-family: "Roboto Mono", monospace;
-    	font-size: calc(1em - 1px);
-    	font-weight: 300;
 			color: #000000;
 		}
 
@@ -85,7 +87,6 @@
 			display: flex;
 			flex-direction: column;
 
-			border: 2px solid #FFFFFF;
 			border-radius: 6px;
 
 			padding: 10px;
@@ -93,12 +94,14 @@
 
 		.output {
 			width: 400px;
-			min-height: 150px;
+			min-height: 190px;
 
 			background-color: #FFFFFF;	
 			border-radius: 6px;
 			white-space: pre-wrap;
 
+			font-family: inherit;
+			font-size: 16px;
 			color: #000000;
 
 			padding: 5px;
