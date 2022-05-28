@@ -23,6 +23,7 @@
 			padding: 0;
 			margin: 0;
     }
+
 		.container {
 			display: flex;
 
@@ -55,6 +56,7 @@
 			width: 400px;
 			height: 190px;
 			resize: none;
+			outline: none;
 			border-radius: 6px;
 
 			font-family: inherit;
@@ -64,18 +66,33 @@
 			padding: 5px;
 		}
 
+		textarea:focus {
+			box-shadow: 0 0 0 3px inset #FFD829;
+		}
+
 		button {
 			display: block;
 
 			min-width: 300px;
 			background-color: #FFD829;
+			outline: none;
 			border: 2px solid transparent;
     	border-radius: 6px;
 			
-			transition: background-color 0.2s;
+			transition-property: background-color, border;
+			transition: 0.2s;
     
 			padding: 9px 15px;
 			margin: 15px 0 0 0;
+		}
+
+		button:hover {
+			background-color: #FFFFFF;
+			transition: 0.2s;
+		}
+
+		button:focus {
+			border: 2px solid #FFFFFF;
 		}
 
 		.buttonLabel {
@@ -124,8 +141,6 @@
 	</div>
 
 	<script>
-		document.documentElement.className.replace('no-js', 'js')
-
 		const code = document.getElementById('code');
 		const submit = document.getElementById('submit');
 		const output = document.getElementById('output');
@@ -138,14 +153,14 @@ code.value = `{
  printInfo() {alert(this.name+',', this.age)}
 }`
 
-		submit.onclick = () => {
+		submit.addEventListener('click', () => {
 			try {
 				let obj = eval('(' + code.value + ')');
 				output.textContent = JSON.stringify(obj, null, 2);
 			} catch(error) {
 				output.textContent = "Ошибка ввода. Кстати, вы знали, что строки нужно вводить в 'кавычках' ?";
 			}
-		};
+		});
 	</script>
 
 </body>
