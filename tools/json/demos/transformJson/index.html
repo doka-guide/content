@@ -1,53 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <title>Демонстрация преобразования — JSON — Дока</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <style>
-    body {
-      display: flex;
+	<title>Демонстрация преобразования — JSON — Дока</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+	<style>
+		body {
 			align-items: center;
 			justify-content: center;
-			
+			display: flex;
 			min-height: 100vh;
 			background-color: #18191C;
-
-      font-family: "Roboto Mono", monospace;
+			font-family: "Roboto Mono", monospace;
 			font-size: 18px;
 			color: #FFFFFF;
-
 			padding: 0;
 			margin: 0;
-    }
+		}
 
 		.container {
 			display: flex;
-
 			box-sizing: border-box;
-
 			padding: 0;
 			margin: 0;
 		}
 
 		.title {
 			font-family: "Roboto", sans-serif;
-    	font-size: 24px;
-    	font-weight: 500;
-
+			font-size: 24px;
+			font-weight: 500;
 			padding: 0;
-			margin: 0 0 17px 0;	
+			margin: 0 0 17px 0;
 		}
 
 		.inputBlock {
 			display: flex;
 			flex-direction: column;
-
 			border-radius: 6px;
-
 			padding: 10px;
 			margin-right: 35px;
 		}
@@ -58,11 +51,8 @@
 			resize: none;
 			outline: none;
 			border-radius: 6px;
-
 			font-family: inherit;
 			font-size: 16px;
-			
-
 			padding: 5px;
 		}
 
@@ -72,16 +62,13 @@
 
 		button {
 			display: block;
-
 			min-width: 300px;
 			background-color: #FFD829;
 			outline: none;
 			border: 2px solid transparent;
-    	border-radius: 6px;
-			
+			border-radius: 6px;
 			transition-property: background-color, border;
 			transition: 0.2s;
-    
 			padding: 9px 15px;
 			margin: 15px 0 0 0;
 		}
@@ -103,37 +90,33 @@
 		.outputBlock {
 			display: flex;
 			flex-direction: column;
-
 			border-radius: 6px;
-
 			padding: 10px;
 		}
 
 		.output {
 			width: 400px;
 			min-height: 190px;
-
-			background-color: #FFFFFF;	
+			background-color: #FFFFFF;
 			border-radius: 6px;
 			white-space: pre-wrap;
-
 			font-family: inherit;
 			font-size: 16px;
 			color: #000000;
-
 			padding: 5px;
 		}
-  </style>
+	</style>
 </head>
+
 <body>
 	<div class="container">
 		<div class="inputBlock">
 			<h2 class="title">Блок кода</h2>
-			<textarea id="code"></textarea> 
+			<textarea id="code"></textarea>
 			<button type="button" id="submit">
 				<span class="buttonLabel">Перевести в формат JSON</span>
 			</button>
-		</div> 
+		</div>
 		<div class="outputBlock">
 			<h2 class="title">Результат</h2>
 			<span class="output" id="output"></span>
@@ -145,23 +128,23 @@
 		const submit = document.getElementById('submit');
 		const output = document.getElementById('output');
 
-code.value = `{
- name: "Иван", 
- age: 33,
- tags: ["sport", "programming"],
- salary: undefined,
- printInfo() {alert(this.name+',', this.age)}
+		code.value = `{
+name: "Иван", 
+age: 33,
+tags: ["sport", "programming"],
+salary: undefined,
+printInfo() {alert(this.name+',', this.age)}
 }`
 
 		submit.addEventListener('click', () => {
 			try {
 				let obj = eval('(' + code.value + ')');
 				output.textContent = JSON.stringify(obj, null, 2);
-			} catch(error) {
+			} catch (error) {
 				output.textContent = "Ошибка ввода. Кстати, вы знали, что строки нужно вводить в 'кавычках' ?";
 			}
 		});
 	</script>
-
 </body>
+
 </html>
