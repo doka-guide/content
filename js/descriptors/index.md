@@ -56,10 +56,7 @@ Object.defineProperty(laptop, "os", {
 laptop.os = 'Windows'
 
 console.log(laptop)
-```
-
-```js
-{ "os": "MacOS" }
+// { "os": "MacOS" }
 ```
 
 ### Типы дескрипторов свойств объектов
@@ -142,10 +139,7 @@ Object.defineProperty(laptop, "displaySize", {
 laptop.displaySize = '18'
 
 console.log(laptop.displaySize)
-```
-
-```js
-{ "displaySize": "15" }
+// { "displaySize": "15" }
 ```
 
 В строгом режиме `strict` mode мы получим ошибку `TypeError`, которая говорит о том, что мы не можем изменить неперезаписываемое свойство.
