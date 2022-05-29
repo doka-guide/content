@@ -1,5 +1,5 @@
 ---
-title: "`set.forEach()`"
+title: "`.forEach()`"
 description: "Метод используется для обхода элементов коллекции Set"
 authors:
   - nlopin

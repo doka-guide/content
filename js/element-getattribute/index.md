@@ -1,5 +1,5 @@
 ---
-title: "`Element.getAttribute()`"
+title: "`.getAttribute()`"
 authors:
   - Windrushfarer
 keywords:

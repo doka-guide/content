@@ -1,5 +1,5 @@
 ---
-title: "`[].every`"
+title: "`.every()`"
 authors:
   - windrushfarer
 editors:

@@ -1,5 +1,5 @@
 ---
-title: "`[].find`"
+title: "`.find()`"
 authors:
   - kognitivnayabuena
 editors:

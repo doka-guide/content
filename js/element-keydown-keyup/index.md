@@ -1,5 +1,5 @@
 ---
-title: "События `keydown` и `keyup`"
+title: "`keydown` и `keyup`"
 authors:
   - stegur
 contributors:

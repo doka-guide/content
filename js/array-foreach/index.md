@@ -1,5 +1,5 @@
 ---
-title: "`[].forEach`"
+title: "`.forEach()`"
 authors:
   - windrushfarer
 contributors:

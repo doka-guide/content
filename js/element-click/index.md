@@ -1,5 +1,5 @@
 ---
-title: "Событие `click`"
+title: "`click`"
 authors:
   - nlopin
 tags:
