@@ -1,5 +1,5 @@
 ---
-title: "Событие `beforeunload`"
+title: "`beforeunload`"
 description: "Обработка ухода пользователя со страницы"
 authors:
   - kotosha-real

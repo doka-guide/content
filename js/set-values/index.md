@@ -1,6 +1,6 @@
 ---
-title: "`set.values()`"
-description: "`set.values()` возвращает итератор для обхода значений коллекции Set"
+title: "`.values()`"
+description: "`.values()` возвращает итератор для обхода значений коллекции Set"
 authors:
   - nlopin
 tags:

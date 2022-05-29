@@ -1,5 +1,5 @@
 ---
-title: "`{}.toString()`"
+title: "`.toString()`"
 description: "Метод преобразует объект в строковое представление"
 authors:
   - nlopin

@@ -1,5 +1,5 @@
 ---
-title: "Свойство `forms`"
+title: "`.forms`"
 description: "Возвращает живую коллекцию всех форм, которые есть на странице"
 authors:
   - vchychuzhko

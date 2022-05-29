@@ -1,5 +1,5 @@
 ---
-title: "`[].some`"
+title: "`.some()`"
 authors:
   - windrushfarer
 contributors:

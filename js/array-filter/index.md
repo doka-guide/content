@@ -1,5 +1,5 @@
 ---
-title: "`[].filter`"
+title: "`.filter()`"
 authors:
   - windrushfarer
 contributors:

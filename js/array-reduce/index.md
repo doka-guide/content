@@ -1,5 +1,5 @@
 ---
-title: "`[].reduce`"
+title: "`.reduce()`"
 authors:
   - windrushfarer
 contributors:

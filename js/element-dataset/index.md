@@ -1,5 +1,5 @@
 ---
-title: "`Element.dataset`"
+title: "`.dataset`"
 authors:
   - Windrushfarer
 keywords:

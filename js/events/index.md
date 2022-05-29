@@ -1,5 +1,5 @@
 ---
-title: "События"
+title: "Событийная модель"
 authors:
   - nlopin
 contributors:

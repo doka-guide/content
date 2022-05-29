@@ -1,5 +1,5 @@
 ---
-title: "`[].reverse`"
+title: "`.reverse()`"
 description: "Позволяет обратить порядок элементов в массиве."
 authors:
   - yurlovr
