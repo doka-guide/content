@@ -105,7 +105,7 @@ console.log(JSON.stringify(hero))
 
 ### Пример преобразования объекта JavaScript в формат JSON
 
-<iframe title="Название — JSON — Дока" src="demos/transformJson/" height="350" loading="lazy"></iframe>
+<iframe title="Преобразование в JSON — JSON — Дока" src="demos/transform-json/" height="350" loading="lazy"></iframe>
 
 ### Преобразование из JSON
 
