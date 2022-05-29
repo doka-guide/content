@@ -212,7 +212,9 @@ Object.defineProperty(laptop, "processor", {
 
 Последний вызов `Object.defineProperty()` приводит к ошибке `TypeError`, вне зависимости от strict mode, если вы пытаетесь изменить значение дескриптора неконфигурируемого свойства.
 
-Будьте осторожны, изменение `configurable` на `false` необратимо и его нельзя отменить.
+<aside>
+☝️ Будьте осторожны, изменение `configurable` на `false` необратимо и его нельзя отменить.
+</aside>
 
 Если для свойства уже задано `configurable: false`, то `writable` может быть изменено с `true` на `false` без ошибки, но не обратно в `true` если оно уже `false`.
 
