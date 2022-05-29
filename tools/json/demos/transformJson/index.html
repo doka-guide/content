@@ -141,17 +141,17 @@
 		const output = document.getElementById('output')
 
 		code.value = `{
-name: "Иван",
-age: 33,
-tags: ["sport", "programming"],
-salary: undefined,
-printInfo() {alert(this.name+',', this.age)}
+  name: "Иван",
+  age: 33,
+  tags: ["sport", "programming"],
+  salary: undefined,
+  printInfo() {alert(this.name+',', this.age)}
 }`
 
 		form.addEventListener('submit', (e) => {
 			e.preventDefault()
 			try {
-				let obj = eval('(' + code.value + ')')
+				const obj = eval('(' + code.value + ')')
 				output.textContent = JSON.stringify(obj, null, 2)
 			} catch (error) {
 				output.textContent = 'Ошибка ввода. Кстати, вы знали, что строки нужно вводить в \'кавычках\' ?'
