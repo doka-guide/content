@@ -1,5 +1,5 @@
 ---
-title: "`Element.focus()`"
+title: "`.focus()`"
 description: "Метод, который устанавливает фокус на DOM-элемент, на котором вызван."
 authors:
   - nlopin

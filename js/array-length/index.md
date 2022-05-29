@@ -1,5 +1,5 @@
 ---
-title: "`[].length`"
+title: "`.length`"
 description: "Свойство, которое возвращает количество элементов в массиве."
 authors:
   - nlopin

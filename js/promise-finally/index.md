@@ -1,5 +1,5 @@
 ---
-title: "`Promise`. Метод `finally`"
+title: "`.finally()`"
 authors:
   - nlopin
 keywords:

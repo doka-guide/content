@@ -1,5 +1,5 @@
 ---
-title: "Массивы"
+title: "Массив"
 authors:
   - nlopin
 contributors:
