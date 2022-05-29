@@ -9,20 +9,20 @@ tags:
 
 ## Кратко
 
-[Объекты](/js/object/), как мы знаем, содержат свойства. У каждого из свойств объекта, кроме ключа, есть 3 флага конфигурации, которые могут принимать значения `true` или `false`:
+[Объекты](/js/object/), как мы знаем, содержат свойства. У каждого из свойств объекта, кроме значения, есть ещё три флага конфигурации, которые могут принимать значения `true` или `false`. Эти флаги называются _дескрипторами_:
 
-- `writable` (доступно ли свойство для записи);
-- `enumerable` (является ли свойство видимым при перечислениях, например, в цикле `for..in`);
-- `configurable` (доступно ли свойство для переконфигурирования).
+- `writable` — доступно ли свойство для записи;
+- `enumerable` — является ли свойство видимым при перечислениях (например, в цикле `for..in`);
+- `configurable` — доступно ли свойство для переконфигурирования.
 
-Когда мы создаём свойство объекта «обычным способом», эти три флага, по умолчанию, устанавливаются в значение `true`.
+Когда мы создаём свойство объекта «обычным способом», эти три флага устанавливаются в значение `true`.
 
-Для изменения значений флагов (дескрипторов) применяются методы:
+Для изменения значений дескрипторов применяются методы:
 
-- `Object.defineProperty`;
-- `Object.getOwnPropertyDescriptor`.
+- `Object.defineProperty()`;
+- `Object.getOwnPropertyDescriptor()`.
 
-Другими словами, дескрипторы это объекты ключ-значение, которые описывают поведение свойства объекта при выполнении операций над ним (например, чтения или записи).
+Другими словами, дескрипторы это пары ключ-значение, которые описывают поведение свойства объекта при выполнении операций над ним (например, чтения или записи).
 
 ![Схема дескрипторов под капотом](images/scheme.png)
 
@@ -30,7 +30,7 @@ tags:
 
 ## Пример
 
-Давайте создадим переменную и добавим свойство ОС для ноутбука. Сделаем это с помощью дескрипторов и метода `Object.defineProperty`.
+Давайте создадим переменную и добавим свойство ОС для ноутбука. Сделаем это с помощью дескрипторов и метода `Object.defineProperty()`.
 
 Передаем в метод:
 
@@ -38,14 +38,14 @@ tags:
 - дескрипторы с нужными значениями.
 
 ```js
-const laptop = {};
+const laptop = {}
 
 Object.defineProperty(laptop, "os", {
-	value: "MacOS",
-	writable: false,
-	enumerable: true,
-	configurable: true
-});
+  value: "MacOS",
+  writable: false,
+  enumerable: true,
+  configurable: true
+})
 ```
 
 Свойство `os` недоступно для перезаписи, но будет видно при перечислении и доступно для переконфигурирования.
@@ -53,19 +53,18 @@ Object.defineProperty(laptop, "os", {
 Попробуем перезаписать свойство `os` и выведем полученный результат:
 
 ```js
-laptop.os = 'Windows';
+laptop.os = 'Windows'
 
-console.log(laptop);
+console.log(laptop)
 ```
 
 ```js
 { "os": "MacOS" }
 ```
 
+### Типы дескрипторов свойств объектов
 
-### Типы дескрипторов свойств объектов:
-
-### Дескриптор данных 
+### Дескриптор данных
 
 Дескриптор данных - это свойство, которое определяет и хранит только значение данных.
 
@@ -73,7 +72,7 @@ console.log(laptop);
 
 `writable` - это свойство описывает, может ли быть изменено значение с помощью оператора присваивания. По умолчанию установлено в `false` (при простом присваивании значения объекту - `true`).
 
-### Дескриптор доступа 
+### Дескриптор доступа
 
 Дескриптор доступа - это свойство, описываемое парой функций - геттером и сеттером.
 
@@ -86,16 +85,16 @@ console.log(laptop);
 ## Как пишется
 
 ```js
-Object.defineProperty(объект, имяСвойства, дескриптор);
+Object.defineProperty(объект, имяСвойства, дескриптор)
 ```
 
 Функция принимает следующие параметры:
 
-- `obj` - объект
-- `propertyName` - свойство, для которого нужно применить дескриптор
-- `descriptor` - дескриптор, изменяющий поведение
+- `obj` - объект;
+- `propertyName` - свойство, для которого нужно применить дескриптор;
+- `descriptor` - дескриптор, изменяющий поведение.
 
-Если свойство уже существует, `defineProperty` обновит флаги. 
+Если свойство уже существует, `Object.defineProperty()` обновит флаги.
 Если свойство не существует, метод создаёт новое свойство с указанным значением и флагами. Если какой-либо флаг не указан явно, ему присваивается значение `false`.
 
 ## Как понять
@@ -107,13 +106,13 @@ Object.defineProperty(объект, имяСвойства, дескриптор
 ```js
 Object.defineProperty(laptop, "displaySize", {
   value: "15"
-});
+})
 ```
 
-Выведем полученные данные. 
+Выведем полученные данные.
 
 ```js
-const descriptor = Object.getOwnPropertyDescriptor(laptop, "displaySize");
+const descriptor = Object.getOwnPropertyDescriptor(laptop, "displaySize")
 JSON.stringify(descriptor, null, 2)
 ```
 
@@ -131,18 +130,18 @@ JSON.stringify(descriptor, null, 2)
 Изменим значение `writable`:
 
 ```js
-const laptop = {};
+const laptop = {}
 
 Object.defineProperty(laptop, "displaySize", {
     value: '15',
     writable: false, // не перезаписываемо!
     configurable: true,
     enumerable: true
-});
+})
 
-laptop.displaySize = '18';
+laptop.displaySize = '18'
 
-console.log(laptop.displaySize);
+console.log(laptop.displaySize)
 ```
 
 ```js
@@ -154,30 +153,32 @@ console.log(laptop.displaySize);
 Изменим значение `enumerable`:
 
 ```js
-const laptop = {};
+const laptop = {}
 
 Object.defineProperty(laptop, "processor",
     // сделаем `processor` перечисляемым, как обычно
     { enumerable: true, value: 'Intel Core' }
-);
+)
 
 Object.defineProperty(laptop, "touchID",
     // сделаем `touchID` НЕперечисляемой
     { enumerable: false, value: true }
-);
+)
 
-laptop.touchID; // true
-("touchID" in laptop); // true
-laptop.hasOwnProperty("touchID"); // true
+console.log(laptop.touchID)
+// true
+console.log(("touchID" in laptop))
+// true
+console.log(
+  laptop.hasOwnProperty("touchID")
+)
+// true
 
 
 for (let key in laptop) {
-	console.log(key, laptop[key]);
+  console.log(key, laptop[key])
 }
-```
-
-```js
-"processor": 'Intel Core';
+// "processor": 'Intel Core'
 ```
 
 Заметьте, что `laptop.touchID` по факту существует и имеет значение, но не отображается в цикле `for..in` (при этом, оно существует, если воспользоваться оператором `in`). «Перечислимое» означает: «будет учтено, если пройти перебором по свойствам объекта».
@@ -187,37 +188,41 @@ for (let key in laptop) {
 ```js
 const laptop = {
     processor: 'Intel Core'
-};
+}
 
-laptop.processor = 'M1';
-laptop.processor; // 'Intel Core'
+laptop.processor = 'M1'
+console.log(laptop.processor)
+// 'Intel Core'
 
 Object.defineProperty(laptop, "processor", {
     value: 'Intel Core',
     writable: true,
     configurable: false, // не конфигурируемо!
     enumerable: true
-});
+})
 
-laptop.processor; // 'Intel Core'
-laptop.processor = 'M1';
-laptop.processor; // 'M1'
+console.log(laptop.processor)
+// 'Intel Core'
+laptop.processor = 'M1'
+console.log(laptop.processor)
+// 'M1'
 
 Object.defineProperty(laptop, "processor", {
     value: 'M1 TOP',
     writable: true,
     configurable: true,
     enumerable: true
-}); // TypeError
+})
+// TypeError
 ```
 
-Последний вызов `defineProperty()` приводит к ошибке `TypeError`, вне зависимости от strict mode, если вы пытаетесь изменить значение дескриптора неконфигурируемого свойства. 
+Последний вызов `Object.defineProperty()` приводит к ошибке `TypeError`, вне зависимости от strict mode, если вы пытаетесь изменить значение дескриптора неконфигурируемого свойства.
 
 Будьте осторожны, изменение `configurable` на `false` необратимо и его нельзя отменить.
 
-Если для свойства уже задано `configurable:false`, то `writable` может быть изменено с `true` на `false` без ошибки, но не обратно в `true` если оно уже `false`.
+Если для свойства уже задано `configurable: false`, то `writable` может быть изменено с `true` на `false` без ошибки, но не обратно в `true` если оно уже `false`.
 
-А еще `configurable:false` препятствует возможности использовать оператор `delete` для удаления существующего свойства.
+А еще `configurable: false` препятствует возможности использовать оператор `delete` для удаления существующего свойства.
 
 ### Ограничение доступа ко всему объекту целиком
 
@@ -226,10 +231,11 @@ Object.defineProperty(laptop, "processor", {
 ```js
 const laptop = {
     displaySize: 15
-};
-Object.preventExtensions(laptop);
-laptop.storage = 256;
-laptop.storage; // undefined
+}
+Object.preventExtensions(laptop)
+laptop.storage = 256
+console.log(laptop.storage)
+// undefined
 ```
 
 В нестрогом режиме, создание `b` завершится неудачей без ошибок. В строгом режиме это приведёт к ошибке `TypeError`.
@@ -249,26 +255,23 @@ laptop.storage; // undefined
 ### Пример
 
 ```js
-const laptop = {};
+const laptop = {}
 
 Object.defineProperties(laptop, {
-	os: {
-		value: 'MacOS',
-		enumerable: true
-	},
-	age: {
-		value: 10,
-		enumerable: false
-	}
-});
+  os: {
+    value: 'MacOS',
+    enumerable: true
+  },
+  age: {
+    value: 10,
+    enumerable: false
+  }
+})
 
-const result = Object.keys(laptop);
+const result = Object.keys(laptop)
 
-console.log(result);
-```
-
-```js
-['os']
+console.log(result)
+// ['os']
 ```
 
 Получение значений дескрипторов для конкретного свойства объекта:
@@ -278,35 +281,32 @@ const source = {
     name: "DOKA",
     sections: ['HTML', 'CSS', 'JS', 'Tools', 'Recipes'],
     themes: ['light']
-};
-
-const nameDescriptors = Object.getOwnPropertyDescriptor(source, 'name');
-
-console.log(nameDescriptors);
-```
-
-```js
-{
-	"value":"DOKA",
-	"writable":true,
-	"enumerable":true,
-	"configurable":true
 }
+
+const nameDescriptors = Object.getOwnPropertyDescriptor(source, 'name')
+
+console.log(nameDescriptors)
+//{
+//  "value":"DOKA",
+//  "writable":true,
+//  "enumerable":true,
+//  "configurable":true
+//}
 ```
 
 Получение значений дескрипторов для всех свойств объекта:
 
 ```js
-const allPropertyDescriptors = Object.getOwnPropertyDescriptors(source);
+const allPropertyDescriptors = Object.getOwnPropertyDescriptors(source)
 
-console.log(allPropertyDescriptors);
+console.log(allPropertyDescriptors)
 ```
 
 Получим следующий ответ:
 
 ```js
 {
-  name: { 
+  name: {
     value: "DOKA",
     writable: true,
     enumerable: true,
@@ -324,22 +324,17 @@ console.log(allPropertyDescriptors);
     enumerable: true,
     configurable: true,
   },
-};
+}
 ```
 
-Если передан пустой объект (без свойств):
+Если передан пустой объект без свойств, то получим пустой объект:
 
 ```js
-const user = {};
-const userDescriptors = Object.getOwnPropertyDescriptors(user);
+const user = {}
+const userDescriptors = Object.getOwnPropertyDescriptors(user)
 
-console.log(userDescriptors);
-```
-
-Получим пустой объект:
-
-```js
-{}
+console.log(userDescriptors)
+// {}
 ```
 
 `Object.isFrozen()` определяет, был ли объект заморожен. Возвращает true, если добавление/удаление/изменение свойств запрещено, и для всех текущих свойств установлено `configurable: false`, `writable: false`.
@@ -353,13 +348,13 @@ console.log(userDescriptors);
 ```js
 const animal = {
   get cat() {
-    return 'Кот';
+    return 'Кот'
   }
-};
+}
 
 const animal = {
   cat: 'И здесь тоже кот',
-};
+}
 ```
 
 Оба объекта сейчас имеют одинаковое поведение. Стоит только сказать, что свойство в первом случае представлено функцией, но для её вызова не нужно ставить скобки. Достаточно написать `animal.cat`.
@@ -371,33 +366,33 @@ const animal = {
 ```js
 let animal = {
   get name() {
-    return this._name;
+    return this._name
   },
 
   set name(value) {
-    this._name = value;
+    this._name = value
   }
-};
+}
 ```
 
-Подобные функции могут понадобиться, например, для записи модифицированных свойств. В примере ниже мы модифицируем дату и записываем в нужном формате. 
+Подобные функции могут понадобиться, например, для записи модифицированных свойств. В примере ниже мы модифицируем дату и записываем в нужном формате.
 
 ```js
 const updatedAt = {
   get date() {
-    return this._date;
+    return this._date
   },
 
   set date(value) {
-    this._date = new Intl.DateTimeFormat('en-US').format(value);
+    this._date = new Intl.DateTimeFormat('en-US').format(value)
   }
-};
+}
 ```
 
 Запишем дату и время в поле `date`:
 
 ```js
-updatedAt.date = new Date();
+updatedAt.date = new Date()
 ```
 
 И получим дату в нужном формате: `5/25/2022`.
