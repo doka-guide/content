@@ -22,11 +22,17 @@
 			margin: 0;
 		}
 
-		.container {
-			display: flex;
+		form {
+			display: grid;
 			box-sizing: border-box;
 			padding: 0;
 			margin: 0;
+			column-gap: 35px;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: auto;
+			grid-template-areas:
+				"input output"
+				"submit submit";
 		}
 
 		.title {
@@ -38,11 +44,11 @@
 		}
 
 		.inputBlock {
+			grid-area: input;
 			display: flex;
 			flex-direction: column;
 			border-radius: 6px;
 			padding: 10px;
-			margin-right: 35px;
 		}
 
 		textarea {
@@ -61,8 +67,10 @@
 		}
 
 		button {
+			grid-area: submit;
 			display: block;
 			min-width: 300px;
+			width: 100%;
 			background-color: #FFD829;
 			outline: none;
 			border: 2px solid transparent;
@@ -88,6 +96,7 @@
 		}
 
 		.outputBlock {
+			grid-area: output;
 			display: flex;
 			flex-direction: column;
 			border-radius: 6px;
@@ -109,41 +118,45 @@
 </head>
 
 <body>
-	<div class="container">
+	<form id="converter">
 		<div class="inputBlock">
-			<h2 class="title">Блок кода</h2>
+			<label for="code">
+				<h2 class="title">Что преобразуем</h2>
+			</label>
 			<textarea id="code"></textarea>
-			<button type="button" id="submit">
-				<span class="buttonLabel">Перевести в формат JSON</span>
-			</button>
 		</div>
+		<button type="submit">
+			<span class="buttonLabel">Перевести в формат JSON</span>
+		</button>
 		<div class="outputBlock">
 			<h2 class="title">Результат</h2>
-			<span class="output" id="output"></span>
+			<span class="output" id="output">
+			</span>
 		</div>
-	</div>
+	</form>
 
 	<script>
-		const code = document.getElementById('code');
-		const submit = document.getElementById('submit');
-		const output = document.getElementById('output');
+		const code = document.getElementById('code')
+		const form = document.getElementById('converter')
+		const output = document.getElementById('output')
 
 		code.value = `{
-name: "Иван", 
+name: "Иван",
 age: 33,
 tags: ["sport", "programming"],
 salary: undefined,
 printInfo() {alert(this.name+',', this.age)}
 }`
 
-		submit.addEventListener('click', () => {
+		form.addEventListener('submit', (e) => {
+			e.preventDefault()
 			try {
-				let obj = eval('(' + code.value + ')');
-				output.textContent = JSON.stringify(obj, null, 2);
+				let obj = eval('(' + code.value + ')')
+				output.textContent = JSON.stringify(obj, null, 2)
 			} catch (error) {
-				output.textContent = "Ошибка ввода. Кстати, вы знали, что строки нужно вводить в 'кавычках' ?";
+				output.textContent = 'Ошибка ввода. Кстати, вы знали, что строки нужно вводить в \'кавычках\' ?'
 			}
-		});
+		})
 	</script>
 </body>
 
