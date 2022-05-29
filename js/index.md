@@ -36,12 +36,13 @@ groups:
   - name: "Коллекции"
     items:
       - object
-      - function-as-datatype
       - arrays
+      - function-as-datatype
       - set
       - map
   - name: "Числа"
     items:
+      - number
       - parseint
       - parsefloat
       - number-wrapper
@@ -50,6 +51,7 @@ groups:
       - number-isfinite
   - name: "Строки"
     items:
+      - string
       - string-wrapper
       - template-strings
       - index-of
@@ -92,7 +94,7 @@ groups:
       - object
       - object-tostring
       - objects-objects-everywhere
-  - name : "Множество Set"
+  - name : "Множества (`Set`)"
     items:
       - set
       - set-constructor
@@ -148,7 +150,7 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
-  - name: "Объект страницы `document`"
+  - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
       - element-removeeventlistener
@@ -159,7 +161,7 @@ groups:
       - query-selector-all
       - forms
       - cookie
-  - name: "Элемент на странице `Element`"
+  - name: "Элемент на странице (`Element`)"
     items:
       - element
       - element-addeventlistener

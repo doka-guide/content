@@ -1,5 +1,5 @@
 ---
-title: ".cookie"
+title: "`.cookie`"
 authors:
   - akellbl4
 keywords:
