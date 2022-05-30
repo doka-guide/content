@@ -1,5 +1,6 @@
 ---
 title: "Преобразование типов"
+description: "Брюки превращаются в элегантные шорты, а во что превращается строка «55ab» при преобразовании в число?"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
