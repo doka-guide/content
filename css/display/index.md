@@ -1,6 +1,11 @@
 ---
 title: "`display`"
 description: "Как поставить несколько элементов `<div>` в строку? Объясняем, как менять стандартный тип отображения на произвольный. Подробно говорим об основных типах отображения."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Белый медведь стоит на льдине, в зубах плашка «block», в волнах плавает «inline»'
 authors:
   - solarrust
 contributors:
