@@ -50,47 +50,47 @@ active:
   - html/article
   - js/var-let
   - html/img
-  - css/attr
-  - tools/bundlers
-  - tools/gitlab-ci-cd
-  - css/box-model
-  - html/form
-  - css/display
-  - js/function-context
-  - html/video
-  - css/box-shadow
-  - tools/docker
-  - tools/markdown
-  - js/execution-order
+  - tools/network
+  - tools/cli
   - css/specificity
+  - html/flow
+  - html/input
+  - css/pseudoelements
+  - tools/gitlab-ci-cd
+  - js/clean-architecture
+  - html/nav
+  - js/execution-order
+  - js/infinite-scroll
+  - html/video
+  - recipes/snow
+  - js/async-in-js
+  - html/div
+  - html/head
   - css/grid-guide
   - html/section
-  - js/function
-  - js/oop
-  - tools/ci-cd
-  - html/head
-  - css/position
-  - js/how-to-test-and-why
-  - tools/cli
-  - tools/static-types
-  - html/doctype
-  - html/div
-  - tools/agile
-  - css/flexbox-guide
-  - js/closures
-  - html/nav
-  - js/async-in-js
-  - tools/webpack
-  - js/clean-architecture
-  - js/how-the-browser-creates-pages
-  - css/pseudoelements
-  - css/custom-properties
-  - html/flow
-  - recipes/snow
   - css/media
-  - html/input
-  - js/infinite-scroll
-  - tools/network
+  - css/box-shadow
+  - css/display
+  - tools/markdown
+  - css/custom-properties
+  - tools/webpack
+  - tools/docker
+  - js/oop
+  - css/box-model
+  - js/how-the-browser-creates-pages
+  - js/closures
+  - css/position
+  - html/form
+  - js/function-context
+  - css/attr
+  - css/flexbox-guide
+  - tools/bundlers
   - js/deal-with-forms
+  - tools/ci-cd
+  - tools/agile
+  - html/doctype
+  - js/function
+  - js/how-to-test-and-why
+  - tools/static-types
 ---
 
