@@ -109,6 +109,7 @@ groups:
   - name: 'Таблицы'
     items:
       - tables
+      - caption
   - name: 'Мета'
     items:
       - head
