@@ -76,6 +76,7 @@ groups:
       - disabled
       - required
       - value
+      - pattern
   - name: 'Картинки'
     items:
       - img
