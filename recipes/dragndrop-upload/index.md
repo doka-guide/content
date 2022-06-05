@@ -347,3 +347,5 @@ xhr.onload = function (event){
   }
 }
 ```
+
+<iframe title="Загрузка файла перетаскиванием" src="demos/dragndrop-demo/" height="330"></iframe>
