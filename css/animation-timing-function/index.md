@@ -1,12 +1,17 @@
 ---
 title: "`animation-timing-function`"
+description: "Анимация скачками, плавно или как прыгающий мячик? Управляем механизмом проигрывания анимации."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - временная функция
+  - кубик Безье
+related:
+  - css/animation
+  - css/keyframes
+  - css/duration
 tags:
   - doka
 ---
