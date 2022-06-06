@@ -1,7 +1,14 @@
 ---
 title: "`backface-visibility`"
+description: "Если создаёте 3D-трансформацию, не забывайте про заднюю сторону элемента."
 authors:
   - doka-dog
+keywords:
+  - видимость задней части
+related:
+  - css/transform
+  - css/transform-style
+  - css/perspective
 tags:
   - doka
   - placeholder
