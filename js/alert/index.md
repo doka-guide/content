@@ -1,5 +1,6 @@
 ---
 title: "`alert()`"
+description: "Разработчики делают красивые модальные окна неделю, но у нас всегда есть готовое некрасивое"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
