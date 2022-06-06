@@ -1,12 +1,16 @@
 ---
 title: "`background`"
+description: "Короткое свойство, чтобы определить всё, что нужно для фона."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - фон
-  - шорткат
+  - фоновое изображение
+related:
+  - css/background-image
+  - css/backdrop-filter
+  - css/z-index
 tags:
   - doka
 ---
@@ -15,13 +19,13 @@ tags:
 
 Шорткат, позволяющий задать все свойства фона разом. Объединяет в себе:
 
-- [`background-attachment`](/css/background-attachment/)
-- [`background-clip`](/css/background-clip/)
-- [`background-color`](/css/background-color/)
-- [`background-image`](/css/background-image/)
-- [`background-position`](/css/background-position/)
-- [`background-repeat`](/css/background-repeat/)
-- [`background-size`](/css/background-size/)
+- [`background-attachment`](/css/background-attachment/);
+- [`background-clip`](/css/background-clip/);
+- [`background-color`](/css/background-color/);
+- [`background-image`](/css/background-image/);
+- [`background-position`](/css/background-position/);
+- [`background-repeat`](/css/background-repeat/);
+- [`background-size`](/css/background-size/).
 
 ## Пример
 
