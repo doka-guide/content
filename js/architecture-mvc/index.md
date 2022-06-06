@@ -1,5 +1,6 @@
 ---
 title: "Архитектурный паттерн MVC"
+description: "Как раздать ответственность разным частям кода в программе так, чтобы все не перессорились"
 authors:
   - bespoyasov
 editors:
@@ -13,6 +14,10 @@ keywords:
   - presenter
   - thin controller
   - thick controller
+related:
+  - js/clean-architecture
+  - js/react-and-alternatives
+  - js/web-app-works
 tags:
   - article
 ---
@@ -93,7 +98,7 @@ _Модель_ содержит данные приложения. Это сам
 const flashLightModel = {
   isOn: false,
   color: "blue",
-};
+}
 ```
 
 Когда пользователь включит фонарик, поле `isOn` должно будет принять значение `true`, за это будет отвечать контроллер. Поле `color` содержит, каким цветом фонарик будет гореть.
@@ -105,9 +110,9 @@ _Контроллер_ принимает команды от пользоват
 ```js
 const flashLightController = {
   toggle() {
-    flashLightModel.isOn = !flashLightModel.isOn;
+    flashLightModel.isOn = !flashLightModel.isOn
   },
-};
+}
 ```
 
 Контроллер может принимать и обрабатывать данные от представления. Например, мы можем переключать цвет специальными кнопками, тогда контроллер проверит, какую кнопку нажали, чтобы включить нужный цвет:
@@ -117,16 +122,16 @@ const flashLightController = {
   // Остальной код
 
   selectColor(e) {
-    const buttonName = e.target.name;
+    const buttonName = e.target.name
     const buttonColors = {
       daylight: "blue",
       nightlight: "yellow",
-    };
+    }
 
-    const preferredColor = buttonColors[buttonName];
-    flashLightModel.color = preferredColor;
+    const preferredColor = buttonColors[buttonName]
+    flashLightModel.color = preferredColor
   },
-};
+}
 ```
 
 В примере выше контроллер проверяет, кнопку какого цвета нажали: дневного или ночного. В зависимости от нажатой кнопки он выбирает нужный цвет.
@@ -148,17 +153,17 @@ _Представление_ показывает пользователю да�
 ```js
 const flashLightView = {
   redraw() {
-    const { isOn, color } = flashLightModel;
-    const flash = document.querySelector(".flashlight");
+    const { isOn, color } = flashLightModel
+    const flash = document.querySelector(".flashlight")
 
-    flash.classList.add(`has-color-${color}`);
+    flash.classList.add(`has-color-${color}`)
     if (isOn) {
-      flash.classList.add("is-on");
+      flash.classList.add("is-on")
     }
   },
-};
+}
 
-flashLightView.redraw();
+flashLightView.redraw()
 ```
 
 А также — код для обработки событий, которые представление будет отдавать контроллеру:
@@ -168,12 +173,12 @@ const flashLightView = {
   // Остальной код
 
   initEvents() {
-    const powerButton = document.querySelector(`[name="power"]`);
-    powerButton.addEventListener("click", () => flashLightController.toggle());
+    const powerButton = document.querySelector(`[name="power"]`)
+    powerButton.addEventListener("click", () => flashLightController.toggle())
 
     // Код для событий других кнопок
   },
-};
+}
 ```
 
 ## Взаимодействие компонентов
@@ -206,10 +211,10 @@ const flashLightView = {
   // ...
 
   initEvents() {
-    const powerButton = document.querySelector(`[name="power"]`);
-    powerButton.addEventListener("click", () => flashLightController.toggle());
+    const powerButton = document.querySelector(`[name="power"]`)
+    powerButton.addEventListener("click", () => flashLightController.toggle())
   },
-};
+}
 ```
 
 Метод `initEvents` в представлении может относиться и к контроллеру, если мы решим, что централизованная обработка событий конкретных элементов — это задача контроллера.
@@ -221,16 +226,16 @@ const flashLightController = {
   // Остальной код
 
   selectColor(e) {
-    const buttonName = e.target.name;
+    const buttonName = e.target.name
     const buttonColors = {
       daylight: "blue",
       nightlight: "yellow",
-    };
+    }
 
-    const preferredColor = buttonColors[buttonName];
-    flashLightModel.color = preferredColor;
+    const preferredColor = buttonColors[buttonName]
+    flashLightModel.color = preferredColor
   },
-};
+}
 ```
 
 Если мы решаем, что обработка событий — это задача представления, то мы можем отнести функцию выбора цвета в представление, а в контроллере оставить лишь метод для изменения цвета:
@@ -238,9 +243,9 @@ const flashLightController = {
 ```js
 const flashLightController = {
   updateColor(color) {
-    flashLightModel.color = preferredColor;
+    flashLightModel.color = preferredColor
   },
-};
+}
 ```
 
 Так как MVC позволяет пользователю обращаться напрямую к контроллеру, то конкретных правил здесь нет, только рекомендации:
