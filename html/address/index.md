@@ -1,5 +1,6 @@
 ---
 title: "`<address>`"
+description: "Чтобы вам пришло письмо, правильно напишите индекс. А для сайта добавьте семантики в ваши контакты"
 authors:
   - ezhkov
 contributors:
@@ -7,8 +8,10 @@ contributors:
   - furtivite
 editors:
   - tachisis
-keywords:
-  - address
+related:
+  - html/a
+  - html/nav
+  - html/footer
 tags:
   - doka
 ---
