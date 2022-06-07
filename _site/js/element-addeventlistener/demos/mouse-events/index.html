@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Обработка событий мыши — Element.addEventListener() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    div + div {
+      margin-top: 50px;
+    }
+
+    #result {
+      margin-top: 0;
+      color: #FFD829;
+    }
+
+    a {
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 24px;
+      color: #ffffff;
+      text-decoration-color: #FFD829;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      background-color: #FFD829;
+      border-radius: 3px;
+      transition: background-color 0.2s linear;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Эта ссылка не содержит обработчика нажатия мыши:</p>
+    <a href="https://yandex.ru" target="_blank">Ссылка на Яндекс</a>
+  </div>
+  <div>
+    <p>Эта содержит и прерывает поведение браузера, заменяя своим:</p>
+    <a href="https://yandex.ru" target="_blank" id="custom">Ссылка с изменённым поведением</a>
+  </div>
+  <div id="result"></div>
+  <script>
+    const linkElement = document.querySelector('#custom')
+    const resultElement = document.querySelector('#result')
+
+    linkElement.addEventListener('click', function (event) {
+      event.preventDefault()
+
+      resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+      setTimeout(function () {
+        resultElement.innerText = ''
+      }, 2500)
+    })
+  </script>
+</body>
+</html>

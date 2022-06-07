@@ -1,0 +1,53 @@
+<h2>Кратко</h2>
+<p><code>&lt;li&gt;</code> – отдельный элемент списка <a href="/html/ol/"><code>&lt;ol&gt;</code></a>, <a href="/html/ul/"><code>&lt;ul&gt;</code></a> или <code>&lt;menu&gt;</code>.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Пушкин&lt;/li&gt;
+  &lt;li&gt;Есенин&lt;/li&gt;
+  &lt;li&gt;Бунин&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p><code>&lt;li&gt;</code> – сокращение от <em>list item</em>.</p>
+<p><code>&lt;li&gt;</code> нельзя использовать отдельно. Его родителем <strong>обязательно</strong> должен быть упорядоченный список <a href="/html/ol/"><code>&lt;ol&gt;</code></a>, неупорядоченный список <a href="/html/ul/"><code>&lt;ul&gt;</code></a> или <code>&lt;menu&gt;</code>.</p>
+<h2>Атрибуты</h2>
+<h3><code>value</code></h3>
+<p>Можно установить номер пункта <code>&lt;li&gt;</code>, с которого начнётся нумерация списка (только для <a href="/html/ol/"><code>&lt;ol&gt;</code></a>)</p>
+<p>Значением <code>value</code> может быть любое целое положительное число</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li value=&quot;3&quot;&gt;Белка&lt;/li&gt;
+  &lt;li&gt;Лиса&lt;/li&gt;
+  &lt;li&gt;Ёж&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h3><code>type</code></h3>
+<p>С помощью атрибута <code>type</code> можно установить вид маркера. Значение будет зависеть от внешнего контейнера <a href="/html/ol/"><code>&lt;ol&gt;</code></a> или <a href="/html/ul/"><code>&lt;ul&gt;</code></a></p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li type=&quot;disc&quot;&gt;Белка&lt;/li&gt;
+  &lt;li type=&quot;circle&quot;&gt;Лиса&lt;/li&gt;
+  &lt;li type=&quot;square&quot;&gt;Ёж&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li type=&quot;A&quot;&gt;Правила&lt;/li&gt;
+  &lt;li&gt;Тесты&lt;/li&gt;
+  &lt;li&gt;Ответы&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>Для нумерованного списка <a href="/html/ol/"><code>&lt;ol&gt;</code></a> атрибут <code>type</code> может иметь значения: &quot;a&quot;, &quot;i&quot;, &quot;I&quot;</p>
+<p>👆 Для изменения стиля отображения маркера лучше все-таки использовать CSS, а именно <a href="/css/list-style-type/"><code>list-style-type</code></a></p>
+<h2>Подсказки</h2>
+<p>💡 Внутрь тега <code>&lt;li&gt;</code> можно вкладывать разные элементы, например, изображения, другие списки, ссылки и т. д.</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;Главная страница&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;Корзина&lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;Отзывы&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>💡 <code>&lt;li&gt;</code> по умолчанию имеет блочные стили, поэтому пункты будут располагаться друг под другом. Это поведение легко меняется с помощью CSS.</p>

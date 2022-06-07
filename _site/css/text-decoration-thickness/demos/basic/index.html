@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Декор текста — text-decoration-thickness — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      position: relative;
+      padding: 30px;
+      margin: 0;
+      border: 1px solid #3b3e44;
+      font-size: 18px;
+    }
+
+    p + p {
+      margin-top: 35px;
+    }
+
+    p::after {
+      content: "text-decoration-thickness: "attr(data-size);
+      position: absolute;
+      left: 30px;
+      top: -13px;
+      display: block;
+      padding: 5px 10px;
+      font-size: 0.8em;
+      font-family: monospace;
+      color: #afc9da;
+      background: #282a2e;
+    }
+
+    .thin {
+      text-decoration: underline solid red 1px;
+    }
+
+    .thick {
+      text-decoration: underline solid red 3px;
+    }
+
+    .shorthand {
+      text-decoration: underline solid red 5px;
+    }
+  </style>
+</head>
+  <body>
+    <p class="thin" data-size="1px">Текст с красным подчёркиванием в 1px.</p>
+    <p class="thick" data-size="3px">Текст с красным подчёркиванием в 3px.</p>
+    <p class="shorthand" data-size="5px">Текст с красным подчёркиванием в 5px.</p>
+  </body>
+</html>

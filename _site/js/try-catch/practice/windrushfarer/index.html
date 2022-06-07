@@ -1,0 +1,23 @@
+<p>Любой асинхронный код можно переписать в синхронном стиле через <code>async/await</code>, чтобы использовать единый стиль обработки ошибок, используя <code>try...catch</code>. Например перепишем установку таймаута из примера выше.</p>
+<pre><code class="language-js">function wait(ms) {
+  return new Promise((resolve) =&gt; setTimeout(resolve, ms))
+}
+
+async function timeout(fn, ms) {
+  try {
+    // Ждем таймаут
+    await wait(ms)
+
+    // И выполняем функцию
+    fn()
+  } catch (err) {
+    // Ловим ошибку
+    console.log(&quot;Ошибка&quot;, err)
+  }
+}
+</code></pre>
+<p>Теперь можно вызывать функцию как прежде, ошибка будет поймана.</p>
+<pre><code class="language-js">timeout(() =&gt; {
+  throw Error(&quot;ошибка&quot;)
+}, 1000)
+</code></pre>

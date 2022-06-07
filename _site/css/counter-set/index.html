@@ -1,0 +1,67 @@
+<h2>Кратко</h2>
+<p>С помощью свойства <code>counter-set</code> можно указать конкретное числовое значение определённому счётчику.</p>
+<h2>Пример</h2>
+<p>Устанавливает числовое значение 25 для счётчика <code>example</code> на элементе <code>li</code>.</p>
+<pre><code class="language-css">li {
+  counter-set: example 25;
+}
+</code></pre>
+<p>Например, нам нужно изменить порядок нумерации глав в оглавлении, чтобы после 3 главы шла сразу 9:</p>
+<pre><code class="language-html">&lt;section class=&quot;table-of-contents&quot;&gt;
+  &lt;h1 class=&quot;title&quot;&gt;Оглавление&lt;/h1&gt;
+  &lt;h2 class=&quot;chapter&quot;&gt;HTML и CSS&lt;/h2&gt;
+  &lt;h2 class=&quot;chapter&quot;&gt;Создание стилей и таблиц стилей&lt;/h2&gt;
+  &lt;h2 class=&quot;chapter&quot;&gt;Селекторы: выбор форматируемых элементов&lt;/h2&gt;
+  &lt;h2 class=&quot;chapter change-value&quot;&gt;Механизм наследования стилей&lt;/h2&gt;
+  &lt;h2 class=&quot;chapter&quot;&gt;Управление сложной структурой стилей: каскад&lt;/h2&gt;
+  &lt;h2 class=&quot;chapter&quot;&gt;Поля, отступы, границы&lt;/h2&gt;
+&lt;/section&gt;
+</code></pre>
+<p>Устанавливаем счётчик на элемент <code>section</code>:</p>
+<pre><code class="language-css">.table-of-contents {
+  counter-reset: chapter;
+}
+</code></pre>
+<p>Устанавливаем увеличение значения счётчика <code>сhapter</code> и устанавливаем конкретное числовое значение. Подставляем значение счётчика <code>chapter</code> через функцию <code>counter()</code>:</p>
+<pre><code class="language-css">.chapter {
+  counter-increment: chapter;
+}
+
+.change-value {
+  counter-set: chapter 9;
+}
+
+.chapter::before {
+  content: &quot;Глава &quot;counter(chapter) &quot;: &quot;;
+}
+</code></pre>
+<iframe title="Демонстрация свойства" src="demos/counter-set-example" height="475"></iframe>
+<h2>Как понять</h2>
+<p>Свойство, которое может установить точное числовое значение на любой элемент со счётчиком.</p>
+<h2>Как пишется</h2>
+<p>Чтобы добавить точное числовое значение счётчика на элементе, в значении свойства нужно указать имя счётчика и число.</p>
+<p>По умолчанию начальное числовое значение 0, если не указано иное.</p>
+<p>Значение счётчика <code>example</code> на элементе <code>li</code> равно 0:</p>
+<pre><code class="language-css">li {
+  counter-set: example;
+}
+</code></pre>
+<p>Можно указать ключевое слово <code>none</code>, чтобы не изменять числовое значение счётчика — это значение по умолчанию.</p>
+<pre><code class="language-css">li {
+  counter-set: none;
+}
+</code></pre>
+<h2>Аргументы</h2>
+<p>Создавать новые счётчики может не только свойство <a href="/css/counter-reset/"><code>counter-reset</code></a>. Представим такую ситуацию, что вы применили на элемент только свойство <code>counter-set</code> и указали в значении его свойства имя несуществующего счётчика (при этом на элементе нет унаследованного счётчика от: родительского элемента, одноуровневого предыдущего элемента).</p>
+<pre><code class="language-css">li {
+  counter-set: new 2;
+}
+</code></pre>
+<p>В таком случае создастся новый счётчик на элементе <code>li</code> с именем <code>new</code> и начальным значением 0. После создания счётчика, свойство <code>counter-set</code> начинает действовать как обычно.</p>
+<p>Имена счётчиков чувствительны к регистру, например значения: <code>example</code> и <code>EXAMPLE</code> — это два разных, не связанных между собой счётчика.</p>
+<p>Нельзя использовать ключевые слова: <code>none</code>, <code>initial</code>, <code>inherit</code>, <code>unset</code>, <code>default</code> в качестве названий счётчиков.</p>
+<p>В значении свойства можно указать 1 или более счётчиков. Указываются они по порядку через пробел.</p>
+<pre><code class="language-css">li {
+  counter-set: count1 -1 count2 99;
+}
+</code></pre>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Ключи объекта — Дока</title>
+</head>
+<body>
+Рассмотрите вкладку JS
+<br>
+Откройте консоль разработчика (для Chrome это F12) и посмотрите вывод в консоли.
+<br>
+Консоль содержит вывод объекта
+<br>
+И вывод значений по полям объекта
+  <script>
+    let o = {};
+    o.stringKey = 'value for string key'; // изначально строковый ключ
+    o[true] = 'value for boolean true key'; // ключ строковое "true"
+    o[false] = 'value for boolean FALSE key'; // ключ строковое "false"
+    o[[1,2,3]] = 'value for Array key'; // ключ строка из значений массива
+    o[{key: 'value'}] = 'value for Object key'; // ключ [object Object]
+    o[10] = 'value for number key'; // ключ строковое "10"
+    console.log(o);
+    console.log(o.stringKey, o.stringKey === o['stringKey']);
+    console.log(o[true], o[true] === o['true']);
+    console.log(o[false], o[false] === o['false']);
+    console.log(o[[1,2,3]], o[[1,2,3]] === o['1,2,3']);
+    console.log(o[{key: 'value'}], o[{key: 'value'}] === o['[object Object]']);
+    console.log(o[10], o[10] === o['10']);
+  </script>
+</body>
+</html>

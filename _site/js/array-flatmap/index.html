@@ -1,0 +1,143 @@
+<h2>Кратко</h2>
+<p>Метод <code>flatMap()</code> позволяет сформировать массив, применяя функцию к каждому элементу, затем уменьшает вложенность, делая этот массив плоским, и возвращает его.</p>
+<p>Был добавлен в стандарте ES2019. Если вы поддерживаете браузеры, выпущенные раньше 2018 года, то вам понадобится полифил.</p>
+<h2>Пример</h2>
+<h3>Получить плоский список из сложной структуры</h3>
+<p>Представим, что у нас есть список заказов пользователей из которого мы хотим понять, какие товары заказывают:</p>
+<pre><code class="language-js">const orders = [
+    {
+        id: 1,
+        products: [
+            { name: 'Чизкейк', price: 1.99 },
+            { name: 'Бисквит', price: 4.99 },
+        ]
+    },
+    {
+        id: 2,
+        products: [
+            { name: 'Шоколад', price: 5.59 },
+            { name: 'Зефир', price: 8.99 },
+        ]
+    }
+]
+</code></pre>
+<p>Одним из решений будет сначала дважды вызвать метод <a href="/js/array-map/"><code>map()</code></a>, а затем сделать массив плоским с помощью метода <a href="/js/array-flat/"><code>flat()</code></a></p>
+<p>Сначала воспользуемся методом <code>map()</code>:</p>
+<pre><code class="language-js">orders.map(
+  (order) =&gt; order.products.map(product =&gt; product.name)
+)
+</code></pre>
+<p>Получим следующий результат:</p>
+<pre><code class="language-js">[['Чизкейк', 'Бисквит'], ['Шоколад', 'Зефир']]
+</code></pre>
+<p>Обратите внимание на вложенность массивов, нам нужно от неё избавиться. Для этого применим метод <code>flat()</code>:</p>
+<pre><code class="language-js">orders
+  .map((order) =&gt; order.products.map((product) =&gt; product.name))
+  .flat()
+</code></pre>
+<pre><code class="language-js">['Чизкейк', 'Бисквит', 'Шоколад', 'Зефир']
+</code></pre>
+<p>Другое решение этой задачи — сразу вызвать метод <code>flatMap()</code> (ведь статья у нас именно про него):</p>
+<pre><code class="language-js">orders.flatMap(
+  (order) =&gt; order.products.map(product =&gt; product.name)
+)
+</code></pre>
+<p>Увидим что функция применилась, вложенность уменьшилась и мы получили только названия продуктов из массива <code>products</code>:</p>
+<pre><code class="language-js">['Чизкейк', 'Бисквит', 'Шоколад', 'Зефир']
+</code></pre>
+<h3>Модификация структуры данных</h3>
+<p>Представим, что мы пишем корзину для интернет-магазина. Товары в корзине храним в виде объекта:</p>
+<pre><code class="language-js">const cart = [
+  {
+    name: 'Телефон',
+    count: 1,
+    price: 500,
+  },
+  {
+    name: 'Ноутбук',
+    count: 1,
+    price: 800,
+  }
+]
+</code></pre>
+<p>Если человек покупает телефон, то требуется добавить зарядное устройство. Для этого вызовем <code>flatMap()</code> и будем возвращать массив из телефона и зарядного устройства вместо одного объекта с телефоном.</p>
+<pre><code class="language-js">cart.flatMap(
+  (item) =&gt; {
+    if (item.name === 'Телефон') {
+      return [item, {
+        name: 'Зарядное устройство',
+        count: item.count,
+        price: 50,
+      }]
+    }
+
+    return item
+  }
+)
+</code></pre>
+<p><code>flatMap()</code> сделает массив плоским и мы получим массив элементов в корзине:</p>
+<pre><code class="language-js">[
+  {
+    name:'Телефон',
+    count:1,
+    price:500,
+  }, {
+    name:'Зарядное устройство',
+    count:1,
+    price:50,
+  }, {
+    name:'Ноутбук',
+    count:1,
+    price:800,
+  },
+]
+</code></pre>
+<p>Эту же задачу можно решить и другим способом, применив метод <a href="/js/array-reduce/"><code>reduce()</code></a>. Но это отразится на читаемости кода, а этим пренебрегать не стоит!</p>
+<pre><code class="language-js">cart.reduce((list, item) =&gt; {
+    if (item.name === 'Телефон') {
+      list.push(item, {
+        name: 'Зарядное устройство',
+        count: item.count,
+        price: 50,
+      })
+    } else {
+        list.push(item)
+    }
+
+    return list
+}, [])
+</code></pre>
+<h2>Как пишется</h2>
+<p>Как и другим похожим методам, <code>flatMap()</code> необходимо передать колбэк-функцию, которая будет возвращать какое-то значение. Именно это значение попадёт в итоговый массив.</p>
+<p>Функция, которую мы передаём в <code>flatMap()</code>, принимает три аргумента:</p>
+<ul>
+<li><code>currentValue</code> — текущий элемент массива.</li>
+<li><code>index</code> — индекс текущего элемента в массиве.</li>
+<li><code>array</code> — массив, который мы перебираем.</li>
+</ul>
+<p>Возвращает 0 или более элементов массива.</p>
+<h2>Как понять</h2>
+<p>Метод идентичен последовательному вызову <code>map().flat()</code> с параметром <code>depth = 1</code>, соответственно, применяется для трансформации исходных данных, с уменьшением вложенности.</p>
+<p>Данный метод более эффективный, чем вызов этих функций по отдельности, поскольку обход массива совершается только один раз.</p>
+<h3>Разница между <code>map()</code> и <code>flatMap()</code></h3>
+<p>Рассмотрим на примере разницу между методами <a href="/js/array-map/"><code>map()</code></a> и <code>flatMap()</code>. Возьмём массив с данными о местоположении и представим, что нужно получить (или преобразовать) координаты:</p>
+<pre><code class="language-js">const allActivities = [
+  { title: 'Офис', coordinates: [50.123, 3.291] },
+  { title: 'Спортзал', coordinates: [1.238, 4.292] },
+]
+
+const mappedCoordinates = allActivities.map(activity =&gt; activity.coordinates)
+
+const flatMappedCoordinates = allActivities.flatMap(activity =&gt; activity.coordinates)
+</code></pre>
+<p>Теперь взглянем на результаты с применением <code>map()</code>:</p>
+<pre><code class="language-js">[[50.123, 3.291], [1.238, 4.292]]
+</code></pre>
+<p>И на результат с <code>flatMap()</code>:</p>
+<pre><code class="language-js">[50.123, 3.291, 1.238, 4.292]
+
+</code></pre>
+<p>Вместо того чтобы использовать метод <code>map()</code> и получить массивы координат, а затем сократить массив, вы можете сразу использовать <code>flatMap()</code>.</p>
+<h3>Разница между flat() и flatMap()</h3>
+<p>Метод <code>flat()</code> - делает входной массив плоским, глубина указывается в аргументах.
+Метод <code>flatMap()</code> - применяет функцию, трансформируя массив и делает массив плоским. Два в одном.</p>

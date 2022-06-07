@@ -1,0 +1,61 @@
+<h2>Кратко</h2>
+<p>Свойство <code>Element.innerText</code> позволяет считывать или задавать текстовое содержимое элемента. При считывании текста с элемента будет возвращена строка с текстовым содержимым всех вложенных дочерних элементов. Не будет считываться только содержимое скрытых с помощью CSS элементов, а так же содержимое тегов <code>&lt;script&gt;</code> и <code>&lt;style&gt;</code>.</p>
+<p>Аналогичной функциональностью обладает <a href="/js/element-textcontent/">Element.textContent</a>, но он возвращает содержимое всех дочерних элементов, даже скрытых.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label for='name'&gt;Имя&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;name&quot;&gt;
+  &lt;button type=&quot;submit&quot; id=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-js">const form = document.querySelector('form')
+const button = document.getElementById('submit')
+
+console.log(form.innerText) // Склеит текст всех потомков и выведет &quot;ИмяSubmit&quot;
+
+button.innerText = 'Done!' // Изменит текст кнопки на Done
+// В результате будет: &lt;button type=&quot;submit&quot; id=&quot;submit&quot;&gt;Done&lt;/button&gt;
+</code></pre>
+<iframe title="Element.innerText — Element.innerText — Дока" src="demos/index/" height="800"></iframe>
+<h2>Как понять</h2>
+<p>Считывание и изменение текстового содержимого – довольно распространённая задача. <code>Element.innerText</code> позволяет считывать содержимое элемента и всего потомков, но с несколькими исключениями:</p>
+<ul>
+<li>не считывается содержимое тегов <code>&lt;script&gt;</code> и <code>&lt;style&gt;</code></li>
+<li>не считывается содержимое скрытых элементов</li>
+</ul>
+<p>Свойство может изменять только текстовое содержимое элемента, если попытаться присвоить строку с HTML, она вставится как текст и не превратится в реальные DOM-элементы. Чтобы HTML в строке сработал, используйте <a href="/js/element-innerhtml/">Element.innerHTML</a>.</p>
+<h2>Как пишется</h2>
+<p>Свойство <code>Element.innerText</code> работает и как геттер, и как сеттер — обращение к свойству вернёт текстовое содержимое элементов и его потомков, а установка нового значения изменит все текстовое содержимое элемента.</p>
+<p>Например, мы хотим изменить текст в блоке после окончания загрузки:</p>
+<pre><code class="language-html">&lt;div id=&quot;loading-status&quot;&gt;
+  Loading...
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const statusElement = document.getElementById('loading-status')
+
+statusElement.innerText = 'Data loaded!'
+</code></pre>
+<p>В результате в браузере будет отображаться следующий HTML:</p>
+<pre><code class="language-html">&lt;div id=&quot;loading-status&quot;&gt;
+  Data loaded!
+&lt;/div&gt;
+</code></pre>
+<aside>
+<p>❗️ Установка нового текста с помощью <code>Element.innerText</code> полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.</p>
+</aside>
+<p>Предположим, что в блоке статуса загрузки был ещё элемент отображающий иконку-лоадер.</p>
+<pre><code class="language-html">&lt;div id=&quot;loading-status&quot;&gt;
+  &lt;div class=&quot;fancy-loader&quot;&gt;&lt;/div&gt;
+  Loading....
+&lt;/div&gt;
+</code></pre>
+<p>Установка нового значения в <code>Element.innerText</code> полностью удалит все предыдущее содержимое и перезапишет его новым текстом.</p>
+<pre><code class="language-js">const statusElement = document.getElementById('loading-status')
+
+statusElement.innerText = 'Error occurred!'
+</code></pre>
+<pre><code class="language-html">&lt;!-- Больше никакой иконки внутри, только новый текст --&gt;
+&lt;div id=&quot;loading-status&quot;&gt;
+  Error occurred!
+&lt;/div&gt;
+</code></pre>

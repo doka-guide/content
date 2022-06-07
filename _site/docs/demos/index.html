@@ -1,0 +1,92 @@
+<h1>Демки</h1>
+<p>Демка (от слова demo) — это интерактивный пример кода. Демки помогают лучше понять, как работает код, о котором вы пишете. Это не картинка «вот как оно выглядит» и не фантазия «представьте себе зелёную кнопку» — это реальный код, который запускается прямо на странице. Что может быть понятнее?</p>
+<h2>Как работает</h2>
+<p>Каждая демка — это самостоятельная HTML-страница. Все демки лежат в папке <em>demos</em> рядом с вашей статьёй, каждая демка — в собственной подпапке. Весь код демки находится прямо в этом HTML-файле, а картинки и библиотеки, которые вы используете в демке, лежат рядом. Демки встраиваются на страницу с помощью <code>&lt;iframe&gt;</code>, но при желании демку можно открыть в отдельной вкладке.</p>
+<h2>Как создать демку</h2>
+<p>Предположим, у вас есть статья про то, как готовить яичницу. Текст статьи находится в файле <code>index.md</code> в такой структуре:</p>
+<pre><code>tools/
+  eggs-cooking/
+    index.md
+</code></pre>
+<p>И вы хотите сделать демку, которая показывает, как разбивать яйца. Хорошим названием демки будет описательное «Как разбивать яйца» и простой псевдоним, например, <em>cracking</em>. Создайте папку <em>demos</em>, а в ней папку <em>cracking</em> и положите туда HTML-файл <em>index.html</em> с вашей демкой:</p>
+<pre><code>tools/
+  eggs-cooking/
+    demos/
+      cracking/
+        index.html
+    index.md
+</code></pre>
+<p>Внутри файла используйте следующий шаблон:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+&lt;head&gt;
+  &lt;title&gt;DEMO — ARTICLE — Дока&lt;/title&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;
+  &lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Roboto&amp;display=swap&quot;&gt;
+  &lt;style&gt;
+    /* STYLES */
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- MARKUP --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Соберите заголовок из названия демки, названия статьи и слова «Дока» в конце:</p>
+<pre><code class="language-html">&lt;title&gt;Как разбивать яйца — Как готовить яичницу — Дока&lt;/title&gt;
+</code></pre>
+<p>Стили и скрипты пишите тут же, не нужно ничего прятать по внешним файлам, сделайте демку простой и наглядной. Не забудьте использовать семейство Roboto, если в вашей демке есть текст:</p>
+<pre><code class="language-html">&lt;style&gt;
+  body {
+    font-family: Roboto, sans-serif;
+  }
+&lt;/style&gt;
+&lt;script&gt;
+  document.documentElement.className.replace('no-js', 'js')
+&lt;/script&gt;
+</code></pre>
+<h2>Как добавить в демку картинку</h2>
+<p>Положите картинку рядом с демкой в папку <em>images</em>:</p>
+<pre><code>cracking/
+  images/
+    egg.png
+  index.html
+</code></pre>
+<p>Подключите её в демке относительным путём и не забудьте прописать полезный <code>alt</code>:</p>
+<pre><code class="language-html">&lt;img src=&quot;images/egg.png&quot; alt=&quot;Яйцо&quot;&gt;
+</code></pre>
+<h2>Как быть с серией демок</h2>
+<p>Демки о вариациях одного и того же предмета лучше объединять в одну. Чтобы, например, несколько значений одного свойства можно было посмотреть в рамках одной демки.</p>
+<p>Но если вам всё-таки нужно несколько похожих демок, поместите их в отдельные папки и продублируйте ресурсы, чтобы демки остались автономными:</p>
+<pre><code>cracking/
+  images/
+    egg.png
+  index.html
+frying/
+  images/
+    egg.png
+  index.html
+</code></pre>
+<h2>Как добавить в демку библиотеку</h2>
+<p>Демку важно сделать достаточно простой, чтобы лишний код не мешал понять её суть. Но если вам не обойтись без библиотеки, то скачайте её минифицированную версию и положите рядом с демкой:</p>
+<pre><code>cracking/
+  scripts/
+    cracker.js
+  index.html
+</code></pre>
+<p>И подключите библиотеку в вашей демке где-нибудь перед закрывающим <code>&lt;/body&gt;</code>:</p>
+<pre><code class="language-html">  &lt;script src=&quot;scripts/cracker.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Как вставить демку в текст</h2>
+<p>Прямо в маркдауне вашего текста вставьте <code>&lt;iframe&gt;</code>, указав относительный путь к демке и её название:</p>
+<pre><code class="language-markdown">Яйцо можно разбить множеством разных способов, например, вот так:
+
+&lt;iframe title=&quot;Как разбивать яйца&quot; src=&quot;demos/cracking/&quot; height=&quot;250&quot;&gt;&lt;/iframe&gt;
+</code></pre>
+<p>Указывать название файла <em>cracking/index.html</em> не нужно, достаточно названия папки — сервер сам найдёт файл.</p>
+<p>Также укажите минимальную высоту, которая нужна демке, чтобы предстать во всей красе. При выводе на платформе мы добавим фрейму резиновую ширину и уберём рамку.</p>

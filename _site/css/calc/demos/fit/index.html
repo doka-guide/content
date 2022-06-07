@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вёрстка трёх колонок исправленная — calc() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 5% 0;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .parent {
+      background-color: #F498AD;
+      font-size: 0;
+    }
+
+    .child {
+      display: inline-block;
+      width: calc(33.3% - 80px);
+      padding: 30px 0;
+      margin-left: 40px;
+      margin-right: 40px;
+      background-color: #FFFFFF;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    h2::before {
+      display: block;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .child:first-child h2::before {
+      content: '📰';
+    }
+
+    .child:nth-child(2) h2::before {
+      content: '🏭';
+    }
+
+    .child:last-child h2::before {
+      content: '🚢';
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">
+      <h2>Газеты</h2>
+    </div>
+    <div class="child">
+      <h2>Заводы</h2>
+    </div>
+    <div class="child">
+      <h2>Пароходы</h2>
+    </div>
+  </div>
+</body>
+</html>

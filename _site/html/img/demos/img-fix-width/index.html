@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Картинка с заданной шириной — <img> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FF8630;
+      text-align: center;
+    }
+
+    img {
+      width: 50%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="images/dogs.png" width="1504" height="541" alt="Три собаки: одна смотрит влево, вторая закрыла глаза и спит, третья смотрит вправо">
+</body>
+</html>

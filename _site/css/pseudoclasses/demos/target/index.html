@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подсветка активной секции — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding: 70px 0 0 0;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .menu {
+      position: sticky;
+      top: 0;
+      width: 75%;
+      margin: auto;
+      padding: 25px 0;
+      background-color: #18191C;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .link {
+      color: #FFFFFF;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    .link:hover {
+      background-color: #2E9AFF;
+      border-radius: 3px;
+    }
+
+    .section {
+      padding: 65px 50px;
+      min-height: 250px;
+      width: 75%;
+      margin: auto;
+      background-color: #FFFFFF;
+      color: #123E66;
+
+    }
+
+    .section + .section {
+      margin-top: 50px;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .section .source {
+      border-top: 2px solid #2E9AFF;
+      margin-top: 20px;
+      padding-top: 10px;
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    :target::before {
+      content: "";
+      height: 4em;
+      margin-top: -4em;
+      visibility: hidden;
+    }
+
+    :target {
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    :target .source {
+      border-color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <nav class="menu">
+    <span>Про яблоки:</span> <a class="link" href="#one">раз</a>, <a class="link" href="#two">два</a>, <a class="link" href="#three">три</a>, <a class="link" href="#four">четыре</a>
+  </nav>
+  <section class="section" id="one">
+    <p>Иные, сытые и гладкие, подобранные по мастям, покрытые разноцветными попонами, коротко привязанные к высоким кряквам, боязливо косились назад на слишком знакомые им кнуты своих владельцев-барышников; помещичьи кони, высланные степными дворянами за сто, за двести вёрст, под надзором какого-нибудь дряхлого кучера и двух или трёх крепкоголовых конюхов, махали своими длинными шеями, топали ногами, грызли со скуки надолбы; саврасые вятки плотно прижимались друг к дружке; в величавой неподвижности, словно львы, стояли широкозадые рысаки с волнистыми хвостами и косматыми лапами, серые в яблоках, вороные, гнедые.</p>
+    <footer class="source">Тургенев И. С., Записки охотника, 1852</footer>
+  </section>
+  <section class="section" id="two">
+    <p>— К тому же, я сластолюбив, — продолжал он. — Я люблю мармелад, чернослив, изюм, и хотя входил в переговоры с купцом Елисеевым, дабы разрешено было мне бесплатно входить в его магазины и пробовать, но получил решительный отказ; купец же Смуров, вследствие подобных же переговоров, разрешил выдавать мне в день по одному повреждённому яблоку. Стало быть, и этого, по-вашему, милостивый государь, разумению, для меня достаточно? — вдруг обратился он ко мне.</p>
+    <footer class="source">Салтыков-Щедрин М. Е., Современная идиллия, 1883</footer>
+  </section>
+  <section class="section" id="three">
+    <p>
+      По сторонам помещика<br>
+      Две молодые барыни:<br>
+      Одна черноволосая,<br>
+      Как свёкла губы красные,<br>
+      По яблоку — глаза!
+    </p>
+    <footer class="source">Некрасов Н. А., Кому на Руси жить хорошо, 1877</footer>
+  </section>
+  <section class="section" id="four">
+    <p>За ним душистая черёмуха, целые ряды низеньких фруктовых дерев, потопленных багрянцем вишен и яхонтовым морем слив, покрытых свинцовым матом; развесистый клён, в тени которого разостлан для отдыха ковёр; перед домом просторный двор с низенькою свежею травкою, с протоптанною дорожкою от амбара до кухни и от кухни до барских покоев; <!-- yaspeller ignore:start -->длинношейный<!-- yaspeller ignore:end --> гусь, пьющий воду с молодыми и нежными, как пух, гусятами; частокол, обвешанный связками сушёных груш и яблок и проветривающимися коврами; воз с дынями, стоящий возле амбара; отпряжённый вол, лениво лежащий возле него, — все это для меня имеет неизъяснимую прелесть, может быть, оттого, что я уже не вижу их и что нам мило все то, с чем мы в разлуке.</p>
+    <footer class="source">Гоголь Н. В., Старосветские помещики, 1835</footer>
+  </section>
+</body>
+</html>

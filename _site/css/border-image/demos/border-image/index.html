@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Картинка в качестве рамки слева — border-image — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    .element {
+      display: inline-block;
+      padding-left: 40px;
+      border-left-style: solid;
+      border-left-width: 65px;
+      border-left-color: #1A5AD7;
+      border-image: url("../../images/custom-border.svg")
+                    66 /
+                    66px 0 66px 66px /
+                    0px 0
+                    stretch;
+      background-color: #F498AD;
+      color: #18191C;
+      font-size: 123px;
+      font-weight: 900;
+      line-height: 0;
+      text-transform: uppercase;
+      text-align: left;
+    }
+
+    span {
+      position: relative;
+      left: 22px;
+      line-height: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="element">
+    <span>Выход<br>за<br>рамки</span>
+  </div>
+</body>
+</html>

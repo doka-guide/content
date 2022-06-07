@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Глубокое сравнение объекта — Дока</title>
+</head>
+<body>
+Рассмотрите вкладку JS
+<br>
+Откройте консоль разработчика (для Chrome это F12) и посмотрите вывод в консоли.
+<br>
+Происходит сравнение трёх объектов
+<br>
+Объекты a и b имеют одинаковые поля
+<br>
+Объект c отличается по содержимому от объектов а и b
+<br>
+Функция ObjectCompare рекурсивно сравнивает каждое поле объектов между собой
+<br>
+И если находит различия - сообщает об этом
+  <script>
+    // source https://gist.github.com/nicbell/6081098
+    ObjectCompare = function (obj1, obj2) {
+      //Loop through properties in object 1
+      for (var p in obj1) {
+        //Check property exists on both objects
+        if (obj1.hasOwnProperty(p) !== obj2.hasOwnProperty(p)) return false;
+
+        switch (typeof (obj1[p])) {
+          //Deep compare objects
+          case 'object':
+            if (!ObjectCompare(obj1[p], obj2[p])) return false;
+            break;
+          //Compare function code
+          case 'function':
+            if (typeof (obj2[p]) == 'undefined' || (p != 'compare' && obj1[p].toString() != obj2[p].toString())) return false;
+            break;
+          //Compare values
+          default:
+            if (obj1[p] != obj2[p]) return false;
+        }
+      }
+
+      //Check object 2 for any extra properties
+      for (var p in obj2) {
+        if (typeof (obj1[p]) == 'undefined') return false;
+      }
+      return true;
+    };
+
+
+    let a = {
+      id: 1,
+      value: {
+        key: 'some key',
+        label: 'some label'
+      }
+    }
+    let b = {
+      id: 1,
+      value: {
+        key: 'some key',
+        label: 'some label'
+      }
+    }
+
+    let c = {
+      id: 1,
+      value: {
+        key: 'CHANGED key',
+        label: 'some label'
+      }
+    }
+
+    console.log('Сравнение объектов: а и b', ObjectCompare(a,b));
+    console.log('Сравнение объектов: b и c', ObjectCompare(b,c));
+    console.log('Сравнение объектов: а и c', ObjectCompare(a,c));
+  </script>
+</body>
+</html>

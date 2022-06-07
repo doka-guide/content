@@ -1,0 +1,13 @@
+<p>🛠 Самый распространённый случай использования функции <code>attr()</code> - отображение значения атрибута <code>href</code> после текста ссылки при печати страницы.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Подробнее о скидках и акциях можно узнать
+  &lt;a href=&quot;http://best-site.ru/sales&quot;&gt;по ссылке&lt;/a&gt;
+&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css">@media print {
+  a::after {
+    content: &quot; [&quot; attr(href) &quot;]&quot;;
+  }
+}
+</code></pre>
+<iframe title="Ссылка, видная при печати" src="../demos/print-link/" height="560"></iframe>

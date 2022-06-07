@@ -1,0 +1,49 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;sub&gt;</code> позволяет выводить подстрочный текст, например, в химических формулах: H<sub>2</sub>O.</p>
+<h2>Пример</h2>
+<p>Чаще всего <code>&lt;sub&gt;</code> используется для записи химических или математических формул.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Вода — бинарное неорганическое
+  соединение с химической
+  формулой H&lt;sub&gt;2&lt;/sub&gt;O.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример с формулой воды" src="demos/basic/" height="100"></iframe>
+<h2>Как пишется</h2>
+<p>Помимо описанного выше примера, можно использовать тег <code>&lt;sub&gt;</code> внутри тега <code>&lt;var&gt;</code> для вывода индекса переменных, например, элементов массива или матрицы.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Сумма массива может быть
+  вычислена последовательным
+  сложением всех его элементов:&lt;br&gt;
+  sum := &lt;var&gt;X&lt;sub&gt;1&lt;/sub&gt;&lt;/var&gt; +
+  &lt;var&gt;X&lt;sub&gt;2&lt;/sub&gt;&lt;/var&gt; + ... +
+  &lt;var&gt;X&lt;sub&gt;N&lt;/sub&gt;&lt;/var&gt;
+&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css">var {
+  font-style: normal;
+}
+</code></pre>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="180"></iframe>
+<p>Теги <code>&lt;sub&gt;</code> можно вкладывать друг в друга, тогда на каждом шаге текст будет спускаться ниже, а его размер будет уменьшаться.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Первый уровень
+  &lt;sub&gt;второй уровень
+    &lt;sub&gt;третий уровень
+      &lt;sub&gt;четвёртый уровень&lt;/sub&gt;
+    &lt;/sub&gt;
+  &lt;/sub&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="120"></iframe>
+<p>Также <code>&lt;sub&gt;</code> можно комбинировать с тегом <a href="/html/sup/"><code>&lt;sup&gt;</code></a> для построения сложных формул.</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;var&gt;
+    X
+    &lt;sup&gt;
+      2 × log&lt;sub&gt;3&lt;/sub&gt;(Z&lt;sup&gt;2&lt;/sup&gt;)
+    &lt;/sup&gt;
+  &lt;/var&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример с тегом sup" src="demos/sup/" height="120"></iframe>

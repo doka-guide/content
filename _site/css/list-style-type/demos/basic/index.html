@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Списки по умолчанию — list-style-type — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    ol,
+    ul {
+      font-size: 24px;
+    }
+
+    ol {
+      color: #2E9AFF;
+    }
+
+    ul {
+      margin-left: 100px;
+      color: #F498AD;
+    }
+
+    li + li {
+      margin-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+      }
+
+      ul {
+        margin-left: 0;
+        margin-top: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ol>
+      <li>Доктор Дум</li>
+      <li>Существо</li>
+      <li>Сью Сторм</li>
+      <li>Человек-факел</li>
+    </ol>
+
+    <ul>
+      <li>Хлеб</li>
+      <li>Яйца</li>
+      <li>Молоко</li>
+      <li>Масло</li>
+    </ul>
+  </div>
+</body>
+</html>

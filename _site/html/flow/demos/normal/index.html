@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блочные элементы в нормальном потоке — Поток документа — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .normal-flow {
+      width: 65%;
+      min-width: 750px;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 20px;
+      background-color: #282A2E;
+    }
+
+    .normal-flow-child {
+      margin: 0;
+      padding: 35px 20px;
+      background-color: #FFFFFF;
+      color: #663613;
+    }
+
+    .normal-flow-child + .normal-flow-child {
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="normal-flow">
+    <p class="normal-flow-child">Азимут решает метеорный дождь. Движение однократно. Зоркость наблюдателя, после осторожного анализа, гасит аргумент перигелия. Очевидно, что азимут меняет возмущающий фактор.</p>
+    <p class="normal-flow-child">Перигелий неустойчив. Фаза, несмотря на внешние воздействия, гасит экватор, но это не может быть причиной наблюдаемого эффекта. Угловое расстояние, после осторожного анализа, однократно.</p>
+    <p class="normal-flow-child">После того как тема сформулирована, декретное время меняет экваториальный радиант. Полнолуние, после осторожного анализа, прекрасно выслеживает эллиптический метеорный дождь. Перигей, следуя пионерской работе Эдвина Хаббла, колеблет центральный зенит.</p>
+  </div>
+</body>
+</html>

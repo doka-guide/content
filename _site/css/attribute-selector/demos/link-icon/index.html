@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Иконка для внешней ссылки — Селектор по атрибут — Дока</title>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .list {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      flex-wrap: wrap;
+      list-style-type: none;
+    }
+
+    .list-item:nth-last-child(n + 2) {
+      margin-right: 25px;
+    }
+
+    a {
+      font-size: 24px;
+      color: inherit;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      background-color: #2E9AFF;
+      border-radius: 3px;
+      transition: background-color 0.2s linear;
+    }
+
+    /* Все ссылки с иконкой стрелочки */
+    [href^="http"]::after {
+      content: '';
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-left: 5px;
+      background-image: url(images/arrow-top-right.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Внутренние ссылки без иконок */
+    [href*="/mysite.ru/"]::after {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="list">
+      <li class="list-item">
+        <a href="http://mysite.ru/about">О нас</a>
+      </li>
+      <li class="list-item">
+        <a href="http://mysite.ru/delivery">Доставка</a>
+      </li>
+      <li class="list-item">
+        <a href="http://mysite.ru/contacts">Контакты</a>
+      </li>
+      <li class="list-item">
+        <a href="http://medium.com/mysite-blog">Мы на Medium</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

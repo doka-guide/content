@@ -1,0 +1,25 @@
+<h2>Кратко</h2>
+<p>Управляющая конструкция, которая создаёт <em><a href="/js/loop/">цикл</a></em>.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-js">while (условие) {
+  //тело цикла
+}
+</code></pre>
+<p>Пример печати квадратов чисел из массива:</p>
+<pre><code class="language-js">const numbers = [1, 2, 3, 4, 5]
+let i = 0
+while (i &lt; numbers.length) {
+  const currentElement = numbers[i]
+  console.log(currentElement * currentElement)
+  i++
+}
+// напечатает 1, 4, 9, 16, 25
+
+let count = numbers.length
+while (count) {
+  // вариант с приведением типов в условии цикла
+  console.log(count)
+  count--
+}
+// напечатает 5, 4, 3, 2, 1
+</code></pre>

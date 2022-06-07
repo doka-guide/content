@@ -1,0 +1,64 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;cite&gt;</code> используется для указания источников цитат, названий художественных произведений или объектов искусства.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;p&gt;
+  Из всех произведений Стивена Кинга
+  мне больше всего нравится цикл &lt;cite&gt;Тёмная башня&lt;/cite&gt;.
+&lt;/P&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="100"></iframe>
+<h2>Как понять</h2>
+<p><code>&lt;cite&gt;</code> необходимо использовать для:</p>
+<ul>
+<li>ссылок на источник цитаты;</li>
+<li>названий книг, статей, поэм и  т. д.;</li>
+<li>названий скульптур, картин, арт-объектов;</li>
+<li>сносок на другие материалы.</li>
+</ul>
+<p>Браузеры по умолчанию задают тексту внутри <code>&lt;cite&gt;</code> курсивное начертание при помощи <code>font-style: italic</code>.</p>
+<p><code>&lt;cite&gt;</code> не стоит использовать для оформления самих цитат, для этого подойдут теги <a href="/html/q/"><code>&lt;q&gt;</code></a> или <a href="/html/blockquote/"><code>&lt;blockquote&gt;</code></a>.</p>
+<h2>Пример</h2>
+<p>Случаи, когда <code>&lt;cite&gt;</code> подойдёт идеально:</p>
+<p>Название произведения:</p>
+<pre><code class="language-html">&lt;p&gt;
+  — Только что дочитал цикл &lt;cite&gt;Тёмная башня&lt;/cite&gt;.
+  Я впечатлён! Где можно узнать о выходе новых книг?
+&lt;/p&gt;
+</code></pre>
+<p>Ссылка на сайт:</p>
+<pre><code class="language-html">&lt;p&gt;
+  — За актуальными новостями можно следить на
+  &lt;cite&gt;
+    &lt;a href=&quot;https://stephenking.com/upcoming/&quot;&gt;сайте Стивена Кинга&lt;/a&gt;
+  &lt;/cite&gt;.
+&lt;/p&gt;
+</code></pre>
+<p>Название картины:</p>
+<pre><code class="language-html">&lt;p&gt;
+  — Спасибо! Я так впечатлился, что хочу подарить ему
+  оригинал &lt;cite&gt;Утра в сосновом бору&lt;/cite&gt;.
+  Вы знаете, когда у него день рождения?
+&lt;/p&gt;
+</code></pre>
+<p>Указание раздела на сайте:</p>
+<pre><code class="language-html">&lt;p&gt;
+  — Вы можете найти ответ на том же сайте в разделе &lt;cite&gt;FAQ&lt;/cite&gt;.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Хорошие примеры" src="demos/good/" height="270"></iframe>
+<p>Случаи, в которых <code>&lt;cite&gt;</code> будет не лучшим выбором:</p>
+<p>Автор не должен указываться как источник, нужно приводить ссылку на конкретный материал:</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;!-- Так не нужно  делать! --&gt;
+  — Только что дочитал цикл «Тёмная башня»
+  за авторством &lt;cite&gt;Стивена Кинга&lt;/cite&gt;.
+&lt;/p&gt;
+</code></pre>
+<p>Для цитирования здесь лучше использовать тег <a href="/html/q/"><code>&lt;q&gt;</code></a>.</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;!-- Так не нужно  делать! --&gt;
+  — Фраза &lt;cite&gt;Смерть, Стрелок, но не твоя&lt;/cite&gt;
+  навсегда засела у меня в памяти.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Плохие примеры" src="demos/bad/" height="120"></iframe>

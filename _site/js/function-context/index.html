@@ -1,0 +1,281 @@
+<h2>Кратко</h2>
+<p>Грубо говоря, <code>this</code> — это ссылка на некий объект, к свойствам которого можно получить доступ внутри вызова функции. Этот <code>this</code> — и есть <em>контекст выполнения</em>.</p>
+<p>Но чтобы лучше понять, что такое <code>this</code> и контекст выполнения в JavaScript, нам потребуется зайти издалека.</p>
+<p>Сперва вспомним, как мы в принципе можем выполнить какую-то инструкцию в коде.</p>
+<p>Выполнить что-то в JS можно 4 способами:</p>
+<ul>
+<li>вызвав функцию;</li>
+<li>вызвав метод объекта;</li>
+<li>использовав функцию-конструктор;</li>
+<li>непрямым вызовом функции.</li>
+</ul>
+<h2>Функция</h2>
+<p>Первый и самый простой способ выполнить что-то — вызвать функцию.</p>
+<pre><code class="language-js">function hello(whom) {
+  console.log(`Hello, ${whom}!`)
+}
+
+hello(&quot;World&quot;)
+// Hello, World!
+</code></pre>
+<p>Чтобы выполнить функцию, мы используем выражение <code>hello</code> и скобки с аргументами.</p>
+<p>Когда мы вызываем <em>функцию</em>, значением <code>this</code> может быть лишь <em>глобальный объект</em> или <code>undefined</code> при использовании <code>'use strict'</code>.</p>
+<h3>Глобальный объект</h3>
+<p><em>Глобальный объект</em> — это, так скажем, корневой объект в программе.</p>
+<p>Если мы запускаем JS-код в браузере, то глобальным объектом будет <code>window</code>. Если мы запускаем код в Node-окружении, то <code>global</code>.</p>
+<h3>Строгий режим</h3>
+<p>Можно сказать, что <a href="/js/use-strict/"><em>строгий режим</em></a> — неказистый способ борьбы с легаси.</p>
+<p>Включается строгий режим с помощью директивы <code>'use strict'</code> в начале блока, который должен выполняться в строгом режиме:</p>
+<pre><code class="language-js">function nonStrict() {
+  // Будет выполняться в нестрогом режиме.
+}
+
+function strict() {
+  &quot;use strict&quot;
+  // Будет выполняться в строгом режиме.
+}
+</code></pre>
+<p>Также можно настроить строгий режим для всего файла, если указать 'use strict' в начале.</p>
+<h3>Значение <code>this</code></h3>
+<p>Вернёмся к <code>this</code>. В нестрогом режиме при выполнении в браузере <code>this</code> при вызове функции будет равен <code>window</code>:</p>
+<pre><code class="language-js">function whatsThis() {
+  console.log(this === window)
+}
+
+whatsThis()
+// true
+</code></pre>
+<p>То же — если функция объявлена внутри функции:</p>
+<pre><code class="language-js">function whatsThis() {
+  function whatInside() {
+    console.log(this === window)
+  }
+
+  whatInside()
+}
+
+whatsThis()
+// true
+</code></pre>
+<p>И то же — если функция будет анонимной и, например, вызвана немедленно:</p>
+<pre><code class="language-js">;(function () {
+  console.log(this === window)
+})()
+// true
+</code></pre>
+<p>В приведённом выше примере вы можете заметить <code>;</code> перед анонимной функцией. Дело в том, что существующий механизм автоподстановки точек с запятой (ASI) срабатывает лишь в <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion">определённых случаях</a>, в то время как строка, начинающаяся с <code>(</code>, не входит в перечень этих случаев. Поэтому опытные разработчики зачастую добавляют <code>;</code> в тех случаях, когда их код может быть скопирован и добавлен в существующий.</p>
+<p>В строгом режиме — значение будет равно <code>undefined</code>:</p>
+<pre><code class="language-js">&quot;use strict&quot;
+
+function whatsThis() {
+  console.log(this === undefined)
+}
+
+whatsThis()
+// true
+</code></pre>
+<h2>Метод объекта</h2>
+<p>Если функция хранится в объекте — это <em>метод этого объекта</em>.</p>
+<pre><code class="language-js">const user = {
+  name: &quot;Alex&quot;,
+  greet() {
+    console.log(&quot;Hello, my name is Alex&quot;)
+  },
+}
+
+user.greet()
+// Hello, my name is Alex
+</code></pre>
+<p><code>user.greet</code> — это метод объекта <code>user</code>.</p>
+<p>В этом случае значение <code>this</code> — этот объект.</p>
+<pre><code class="language-js">const user = {
+  name: &quot;Alex&quot;,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`)
+  },
+}
+
+user.greet()
+// Hello, my name is Alex
+</code></pre>
+<p>Обратите внимание, что <code>this</code> определяется в момент вызова функции. Если записать метод объекта в переменную и вызвать её, значение <code>this</code> изменится.</p>
+<pre><code class="language-js">const user = {
+  name: &quot;Alex&quot;,
+  greet() {
+    console.log(`Hello, my name is ${this.name}`)
+  },
+}
+
+const greet = user.greet
+greet()
+// Hello, my name is
+</code></pre>
+<p>При вызове через точку <code>user.greet</code> значение <code>this</code> равняется объекту до точки (<code>user</code>). Без этого объекта <code>this</code> равняется глобальному объекту (в обычном режиме). В <a href="/js/use-strict/">строгом режиме</a> мы бы получили ошибку «Cannot read properties of undefined».</p>
+<p>Чтобы такого не происходило, <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind">следует использовать <code>bind()</code></a>, о котором мы поговорим чуть позже.</p>
+<h2>Вызов конструктора</h2>
+<p><em>Конструктор</em> — это функция, которую мы используем, чтобы создавать однотипные объекты. Такие функции похожи на печатный станок, который создаёт детали LEGO. Однотипные объекты — детальки, а конструктор — станок. Он как бы конструирует эти объекты, отсюда название.</p>
+<p>По соглашениям конструкторы вызывают с помощью ключевого слова <code>new</code>, а также называют с большой буквы, причём обычно не глаголом, а существительным. Существительное — это та сущность, которую создаёт конструктор.</p>
+<p>Например, если конструктор будет создавать объекты пользователей, мы можем назвать его <code>User</code>, а использовать вот так:</p>
+<pre><code class="language-js">function User() {
+  this.name = &quot;Alex&quot;
+}
+
+const firstUser = new User()
+firstUser.name === &quot;Alex&quot;
+// true
+</code></pre>
+<p>При вызове <em>конструктора</em> <code>this</code> равен свежесозданному объекту.</p>
+<p>В примере с <code>User</code> значением <code>this</code> будет объект, который конструктор создаёт:</p>
+<pre><code class="language-js">function User() {
+  console.log(this instanceof User)
+  // true
+  this.name = &quot;Alex&quot;
+}
+
+const firstUser = new User()
+firstUser instanceof User
+// true
+</code></pre>
+<p>На самом деле, многое происходит «за кулисами»:</p>
+<ul>
+<li>При вызове сперва создаётся новый пустой объект, и он присваивается <code>this</code>.</li>
+<li>Выполняется код функции. (Обычно он модифицирует <code>this</code>, добавляет туда новые свойства.)</li>
+<li>Возвращается значение <code>this</code>.</li>
+</ul>
+<p>Если расписать все неявные шаги, то:</p>
+<pre><code class="language-js">function User() {
+  // Происходит неявно:
+  // this = {};
+
+  this.name = &quot;Alex&quot;
+
+  // Происходит неявно:
+  // return this;
+}
+</code></pre>
+<p>То же происходит и в ES6-классах, узнать о них больше можно в <a href="/js/oop/">статье про объектно-ориентированное программирование</a>.</p>
+<pre><code class="language-js">class User {
+  constructor() {
+    this.name = &quot;Alex&quot;
+  }
+
+  greet() {
+    /*...*/
+  }
+}
+
+const firstUser = new User()
+</code></pre>
+<h4>Как не забыть о <code>new</code></h4>
+<p>При работе с <em>функциями-конструкторами</em> легко забыть о <code>new</code> и вызвать их неправильно:</p>
+<pre><code class="language-js">const firstUser = new User() // ✅
+const secondUser = User() // ❌
+</code></pre>
+<p>Хотя на первый взгляд разницы нет, и работает будто бы правильно. Но на деле разница есть:</p>
+<pre><code class="language-js">console.log(firstUser)
+// User { name: 'Alex' }
+
+console.log(secondUser)
+// undefined
+</code></pre>
+<p>Чтобы не попадаться в такую ловушку, в конструкторе можно прописать проверку на то, что новый объект создан:</p>
+<pre><code class="language-js">function User() {
+  if (!(this instanceof User)) {
+    throw Error(&quot;Error: Incorrect invocation!&quot;)
+  }
+
+  this.name = &quot;Alex&quot;
+}
+
+// или
+
+function User() {
+  if (!new.target) {
+    throw Error(&quot;Error: Incorrect invocation!&quot;)
+  }
+
+  this.name = &quot;Alex&quot;
+}
+
+const secondUser = User()
+// Error: Incorrect invocation!
+</code></pre>
+<h3>Непрямой вызов</h3>
+<p><em>Непрямым вызовом</em> называют вызов функций через <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call"><code>call()</code></a> или <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>apply()</code></a>.</p>
+<p>Оба первым аргументом принимают <code>this</code>. То есть они позволяют настроить контекст снаружи, к тому же — явно.</p>
+<pre><code class="language-js">function greet() {
+  console.log(`Hello, ${this.name}`)
+}
+
+const user1 = { name: &quot;Alex&quot; }
+const user2 = { name: &quot;Ivan&quot; }
+
+greet.call(user1)
+// Hello, Alex
+greet.call(user2)
+// Hello, Ivan
+
+greet.apply(user1)
+// Hello, Alex
+greet.apply(user2)
+// Hello, Ivan
+</code></pre>
+<p>В обоих случаях в первом вызове <code>this</code> === <code>user1</code>, во втором — <code>user2</code>.</p>
+<p>Разница между <code>call()</code> и <code>apply()</code> — в том, как они принимают аргументы для самой функции после <code>this</code>.</p>
+<p><code>call()</code> принимает аргументы списком через запятую, <code>apply()</code> же — принимает массив аргументов. В остальном они идентичны:</p>
+<pre><code class="language-js">function greet(greetWord, emoticon) {
+  console.log(`${greetWord} ${this.name} ${emoticon}`)
+}
+
+const user1 = { name: &quot;Alex&quot; }
+const user2 = { name: &quot;Ivan&quot; }
+
+greet.call(user1, &quot;Hello,&quot;, &quot;:-)&quot;)
+// Hello, Alex :-)
+greet.call(user2, &quot;Good morning,&quot;, &quot;:-D&quot;)
+
+greet.apply(user1, [&quot;Hello,&quot;, &quot;:-)&quot;])
+// Hello, Alex :-)
+greet.apply(user2, [&quot;Good morning,&quot;, &quot;:-D&quot;])
+// Good morning, Ivan :-D
+</code></pre>
+<h4>Связывание функций</h4>
+<p>Особняком стоит <code>bind()</code>. Это метод, который позволяет связывать контекст выполнения с функцией, чтобы «заранее и точно» определить, какое именно значение будет у <code>this</code>.</p>
+<pre><code class="language-js">function greet() {
+  console.log(`Hello, ${this.name}`)
+}
+
+const user1 = { name: &quot;Alex&quot; }
+
+const greetAlex = greet.bind(user1)
+greetAlex()
+// Hello, Alex
+</code></pre>
+<p>Обратите внимание, что <code>bind()</code>, в отличие от <code>call()</code> и <code>apply()</code>, не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом навсегда. Контекст у этой функции изменить невозможно.</p>
+<pre><code class="language-js">function getAge() {
+  console.log(this.age);
+}
+
+const howOldAmI = getAge.bind({age: 20}).bind({age: 30})
+
+howOldAmI();
+//20
+</code></pre>
+<h4>Стрелочные функции</h4>
+<p>У <em>стрелочных функций</em> собственного контекста выполнения нет. Они связываются с ближайшим по иерархии контекстом, в котором они определены.</p>
+<p>Это удобно, когда нам нужно передать в стрелочную функцию, например, родительский контекст без использования <code>bind()</code>.</p>
+<pre><code class="language-js">function greetWaitAndAgain() {
+  console.log(`Hello, ${this.name}!`)
+  setTimeout(() =&gt; {
+    console.log(`Hello again, ${this.name}!`)
+  })
+}
+
+const user = { name: &quot;Alex&quot; }
+
+greetWaitAndAgain.call(user)
+
+// Hello, Alex!
+// Hello again, Alex!
+</code></pre>
+<p>При использовании обычной функции внутри контекст бы потерялся, и чтобы добиться того же результата, нам бы пришлось использовать <code>call()</code>, <code>apply()</code> или <code>bind()</code>.</p>

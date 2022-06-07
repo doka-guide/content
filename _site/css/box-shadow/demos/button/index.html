@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Объёмная кнопка — box-shadow — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #123E66;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+    }
+
+    .button {
+      padding: 15px 55px;
+      border: none;
+      border-radius: 6px;
+      color: #282a2e;
+      background-color: #ffffff;
+      cursor: pointer;
+      box-shadow: -15px 15px 0 0 #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .button:active {
+      box-shadow: -5px 5px 0 0 #18191c;
+      transform: translate(0px, 10px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button">Купить немедленно!</button>
+</body>
+</html>

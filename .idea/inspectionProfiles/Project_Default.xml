@@ -1,0 +1,46 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="IncorrectHttpHeaderInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="customHeaders">
+        <set>
+          <option value="Subject" />
+          <option value="Reply-To" />
+          <option value="X-JSON-Schema" />
+          <option value="X-JSON-Type" />
+          <option value="X-JSON-Path" />
+          <option value="X-Java-Type" />
+          <option value="X-Region-Id" />
+          <option value="X-GraphQL-Variables" />
+          <option value="X-SSH-Private-Key" />
+          <option value="X-Args-0" />
+          <option value="X-Args-1" />
+          <option value="X-Args-2" />
+          <option value="X-Args-3" />
+          <option value="X-Args-4" />
+          <option value="X-Args-5" />
+        </set>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="10">
+            <item index="0" class="java.lang.String" itemvalue="config" />
+            <item index="1" class="java.lang.String" itemvalue="inline-timepicker" />
+            <item index="2" class="java.lang.String" itemvalue="PyQt6" />
+            <item index="3" class="java.lang.String" itemvalue="guidata" />
+            <item index="4" class="java.lang.String" itemvalue="packaging" />
+            <item index="5" class="java.lang.String" itemvalue="PyQt6-Qt6" />
+            <item index="6" class="java.lang.String" itemvalue="QtPy" />
+            <item index="7" class="java.lang.String" itemvalue="numpy" />
+            <item index="8" class="java.lang.String" itemvalue="pyparsing" />
+            <item index="9" class="java.lang.String" itemvalue="PyQt6-sip" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="Stylelint" enabled="true" level="ERROR" enabled_by_default="true" />
+  </profile>
+</component>

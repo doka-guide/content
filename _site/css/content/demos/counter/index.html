@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомный счётчик — content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      counter-reset: counter;
+      padding: 5% 15%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
+
+    section + section {
+      margin-top: 40px;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    section {
+      counter-increment: counter;
+      position: relative;
+    }
+
+    section h2::before {
+      content: counter(counter);
+      position: absolute;
+      left: -45px;
+      top: -2px;
+      color: #49a16c;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      width: 31px;
+      height: 31px;
+      line-height: 31px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Внутренний механизм</h2>
+    <p>Механизм счётчика состоит из:</p>
+    <ul>
+      <li>кнопки;</li>
+      <li>пронумерованных кругов;</li>
+      <li>колеса прокрутки;</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Принцип действия</h2>
+    <p>Принцип действия счётчика — простой шестерёночный механизм. При нажатии на кнопку (в случае с кнопкой) толкается шестерёнка, она в свою очередь прокручивает шестерёнку, которая закреплена на оси с пронумерованными дисками, первый (обычно справа) диск прокручивается на одну единицу, равную единице измерения. Как только период из 9 единиц доходит до 9 и переходит на 0 единицу, переключается на одну единицу второй диск (обычно слева от первого), и так далее.</p>
+  </section>
+
+  <section>
+    <h2>См. также</h2>
+    <ul>
+      <li>Механический счётчик</li>
+      <li>Электронный счётчик импульсов</li>
+    </ul>
+  </section>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация разных временных функций — transition-timing-function — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: monospace;
+    }
+
+    .parent {
+      width: 90vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .parent > div[class] {
+      width: 45vw;
+      min-width: 13em;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: black;
+      border: 1px solid #f498ad;
+      color: white;
+      transition-property: all;
+      transition-duration: 3s;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .parent > div.box1 {
+      width: 100%;
+      min-width: 26em;
+      background-color: #49a16c;
+      color: black;
+      border: 1px solid #1a5ad7;
+      transition-property: all;
+      transition-duration: 2s;
+    }
+
+    .ease {
+      transition-timing-function: ease;
+    }
+
+    .easein {
+      transition-timing-function: ease-in;
+    }
+
+    .easeout {
+      transition-timing-function: ease-out;
+    }
+
+    .easeinout {
+      transition-timing-function: ease-in-out;
+    }
+
+    .linear {
+      transition-timing-function: linear;
+    }
+
+    .cb {
+      transition-timing-function: cubic-bezier(0.2, -2, 0.8, 2);
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="ease">ease</div>
+    <div class="easein">ease-in</div>
+    <div class="easeout">ease-out</div>
+    <div class="easeinout">ease-in-out</div>
+    <div class="linear">linear</div>
+    <div class="cb">cubic-bezier(0.2,-2,0.8,2)</div>
+  </div>
+  <script>
+    function updateTransition() {
+      let els = document.querySelectorAll('.parent > div[class]')
+      for (let c = els.length, i = 0; i < c; i++) {
+        els[i].classList.toggle('box1')
+      }
+    }
+
+    let intervalID = window.setInterval(updateTransition, 5000)
+  </script>
+</body>
+</html>

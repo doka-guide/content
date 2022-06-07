@@ -1,0 +1,55 @@
+<p>🛠 На практике одного <code>text-decoration-thickness</code> может быть не достаточно поэтому стоит обратить внимание на такие свойства как <code>text-decoration-skip-ink</code> и <a href="/css/text-underline-offset/"><code>text-underline-offset</code></a>. Ниже приведён пример совместной работы этих свойств.</p>
+<pre><code class="language-html">&lt;nav&gt;
+  &lt;ul class=&quot;nav-list&quot;&gt;
+    &lt;li class=&quot;nav-list__item&quot;&gt;
+      &lt;a class=&quot;nav-list__link orange&quot; href=&quot;#&quot;&gt;HTML&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-list__item&quot;&gt;
+      &lt;a class=&quot;nav-list__link blue&quot; href=&quot;#&quot;&gt;CSS&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-list__item&quot;&gt;
+      &lt;a class=&quot;nav-list__link yellow&quot; href=&quot;#&quot;&gt;JavaScript&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;nav-list__item&quot;&gt;
+      &lt;a class=&quot;nav-list__link green&quot; href=&quot;#&quot;&gt;Инструменты&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<pre><code class="language-css">.nav-list__links {
+  display: inline-block;
+  color: #fff;
+  font-size: 36px;
+  line-height: 48px;
+  padding: 6px 10px;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 4px;
+  text-underline-offset: -40px;
+  transition: 150ms ease-in-out;
+}
+
+.nav-list__link:hover,
+.nav-list__link:focus {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 10px;
+  text-decoration-color: currentColor;
+}
+
+.orange {
+  text-decoration-color: #ff852e;
+}
+
+.blue {
+  text-decoration-color: #2e9aff;
+}
+
+.yellow {
+  text-decoration-color: #ffd829;
+}
+
+.green {
+  text-decoration-color: #40e746;
+}
+</code></pre>
+<iframe title="Пример навигации" src="../demos/navigation/" height="200"></iframe>
+<p>О значении <code>currentColor</code> читайте в статье «<a href="/css/web-colors/#currentcolor">Цвета в вебе</a>»</p>

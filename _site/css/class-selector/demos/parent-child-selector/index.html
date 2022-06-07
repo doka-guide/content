@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вложенный селектор по классу — Селектор по классу — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .block {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .block + .block {
+      margin-top: 30px;
+    }
+
+    .block p {
+      width: 200px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    form {
+      margin-left: 50px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .form-input {
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .invalid .form-label {
+      color: #F498AD;
+    }
+
+    .invalid .form-input {
+      border-color: #F498AD;
+      background-color: #623D45;
+    }
+
+    .invalid .form-input:focus {
+      border-color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .block {
+        flex-direction: column;
+      }
+
+      .block + .block {
+        margin-top: 60px;
+      }
+
+      form {
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block">
+      <p>Базовое состояние</p>
+      <form>
+        <label class="form-label" for="input">Ваш email</label>
+        <input class="form-input" type="email" id="input">
+      </form>
+    </div>
+    <div class="block">
+      <p>Неправильно заполненное поле</p>
+      <form class="invalid">
+        <label class="form-label" for="error">Ваш email</label>
+        <input class="form-input" type="email" id="error">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

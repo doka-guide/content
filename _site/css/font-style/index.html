@@ -1,0 +1,42 @@
+<h2>Кратко</h2>
+<p>Определяет начертание шрифта: обычное, <span style="font-style: italic">курсивное</span> или <span style="font-style: oblique">наклонное</span>.</p>
+<h2>Пример</h2>
+<p>Попробуем выделить курсивом текст всего абзаца:</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;Текст ниже мы написали курсивом&lt;/h1&gt;
+  &lt;p&gt;
+    Этот текст написан курсивом. А мог быть написан наклонным шрифтом, но вы всё
+    равно бы это не отличили.
+  &lt;/p&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="language-css">body {
+  font-family: &quot;Roboto&quot;, sans-serif;
+}
+p {
+  font-style: italic;
+}
+</code></pre>
+<iframe title="Начертание шрифта" src="demos/font-style/" height="300"></iframe>
+<h2>Как это понять</h2>
+<p>У большинства шрифтов есть несколько вариантов написания: стандартный, <em>курсивный</em> или <strong>жирный</strong>. Чтобы задать курсивное написание, используй <code>font-style: italic</code>.</p>
+<p>Ещё есть наклонный шрифт, который задаётся через <code>font-style: oblique</code>. Он очень похож на курсив, но по сути, это его имитация, которую используют, если у выбранного шрифта нет курсивного написания. Нужно помнить, что <code>oblique</code> может выглядеть хуже по качеству, чем курсивный шрифт. Это особенно заметно при печати страницы.</p>
+<h2>Как пишется</h2>
+<p>Для <code>font-style</code> можно выбрать одно из четырёх значений:</p>
+<ul>
+<li><code>normal</code> — обычное начертание текста (значение по умолчанию).</li>
+<li><code>italic</code> — курсивное начертание.</li>
+<li><code>oblique</code> — наклонное начертание, которое можно использовать, если у шрифта нет курсивного варианта начертания.</li>
+</ul>
+<pre><code class="language-css">.normal {
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.oblique {
+  font-style: oblique;
+}
+</code></pre>

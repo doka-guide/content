@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Цветовой круг — conic-gradient — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      display: grid;
+      place-items: center;
+      height: 100%;
+    }
+
+    body {
+      background-color: #18191c;
+    }
+
+    .color-circle {
+      position: relative;
+      width: 310px;
+      height: 310px;
+      background: conic-gradient(red, orange, yellow, green, blue, purple, red);
+      border-radius: 50%;
+    }
+
+    .color-circle::after {
+      content: ''"";
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      bottom: 50px;
+      left: 50px;
+      background: #18191c;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="color-circle"></div>
+</body>
+</html>

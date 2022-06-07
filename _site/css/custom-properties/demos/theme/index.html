@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Дневная и ночная темы — Кастомные свойства — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: var(--body-bg-color);
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    :root {
+      --main-text-color: #123E66;
+      --second-text-color: #000000;
+      --main-bg-color: #FFFFFF;
+      --header-bg-color: #2E9AFF;
+      --body-bg-color: #c3c3c3;
+    }
+
+    .dark-mode {
+      --main-text-color: #000000;
+      --second-text-color: #FFFFFF;
+      --main-bg-color: #2E9AFF;
+      --header-bg-color: #123E66;
+      --body-bg-color: #18191C;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      width: 350px;
+      color: var(--main-text-color);
+      background-color: var(--main-bg-color);
+      overflow: hidden;
+    }
+
+    .card-header {
+      margin: 0;
+      padding: 20px 50px;
+      background-color: var(--header-bg-color);
+      color: var(--second-text-color);
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .features {
+      padding: 30px 50px;
+      list-style-type: none;
+    }
+
+    .features-item {
+      position: relative;
+      padding-left: 25px;
+      line-height: 1;
+    }
+
+    .features-item + .features-item {
+      margin-top: 15px;
+    }
+
+    .features-item::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: calc(50% - 5px);
+      width: 10px;
+      height: 10px;
+      background-color: var(--main-text-color);
+    }
+
+    .card-actions {
+      margin-left: 80px;
+    }
+
+    .switch-input {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    .switch-label, .switch-label::before {
+      cursor: pointer;
+    }
+
+    .switch-label {
+      position: relative;
+      display: block;
+      padding-top: 30px;
+      color: var(--second-text-color);
+      text-align: center;
+    }
+
+    .switch-label::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: calc(50% - 25px);
+      width: 50px;
+      height: 18px;
+      display: block;
+      border: 2px solid var(--second-text-color);
+      border-radius: 20px;
+    }
+
+    .switch-label::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: calc(50% - 25px + 4px);
+      width: 20px;
+      height: 10px;
+      background-color: var(--second-text-color);
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .switch-input:checked + .switch-label:after {
+      left: calc(50% + 25px - 4px);
+      transform: translateX(-100%);
+    }
+
+    .switch-label:active:after {
+      width: 40px;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="container">
+    <div class="card">
+      <h2 class="card-header">Тариф «Экономный»</h2>
+      <ul class="features">
+        <li class="features-item">Один пользователь</li>
+        <li class="features-item">5 ГБ трафика</li>
+        <li class="features-item">1 доменное имя</li>
+      </ul>
+    </div>
+    <div class="card-actions">
+      <input type="checkbox" class="switch-input" id="switch">
+      <label class="switch-label" for="switch" checked>
+        Переключить<br>
+        тему
+      </label>
+    </div>
+  </div>
+  <script>
+    const switcher = document.querySelector('.switch-input')
+    const body = document.querySelector('body')
+
+    switcher.addEventListener('click', () => {
+      body.classList.toggle('dark-mode')
+    })
+  </script>
+</body>
+</html>

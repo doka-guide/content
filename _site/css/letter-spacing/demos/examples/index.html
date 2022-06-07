@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Межбуквенное расстояние — letter-spacing — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* Задаём межбуквенное расстояние разными способами */
+    .normal {
+      letter-spacing: normal;
+    }
+    .em-wide {
+      letter-spacing: 0.4em;
+    }
+    .em-wider {
+      letter-spacing: 1em;
+    }
+    .em-tight {
+      letter-spacing: -0.05em;
+    }
+    .px-wide {
+      letter-spacing: 6px;
+    }
+
+    /* Оформление */
+    body {
+      padding: 5%;
+      background-color: #064236;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <p class="normal">Стандартное расстояние normal.</p>
+  <p class="em-wide">Чуть шире, относительно стандартного. Задаём 0.4em.</p>
+  <p class="em-wider">Ещё шире, относительно стандартного: 1em.</p>
+  <p class="em-tight">Немного сжимаем с помощью отрицательного значения -0.05em.</p>
+  <p class="px-wide">Добавляем по 6px между символами.</p>
+</body>
+</html>

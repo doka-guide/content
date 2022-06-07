@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>clearfix — Обтекание — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    .block {
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid grey;
+      width: 500px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .block__img {
+      width: 250px;
+      height: 200px;
+      margin: 10px;
+      float: right;
+      object-fit: cover;
+    }
+
+    .block__colored {
+      background-color: #444;
+      color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .block__text {
+      margin: 5px 0;
+    }
+
+    .block__text--clear::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="block">
+    <img class="block__img" src="images/brown-cat.jpg" alt="Коричневый кот свесился с дивана.">
+    <div class="block__colored">Какой-то блок</div>
+    <p class="block__text block__text--clear">Рыбный текст, обтекающий картинку с котиком, после которого стоит clearfix.</p>
+  </div>
+  <div class="block">
+    <p class="block__text">Рыбный текст после блока с котиком</p>
+  </div>
+</body>
+</html>

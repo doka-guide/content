@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стили для плейсхолдера — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .input-title {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 500px;
+      border: 1px solid currentColor;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #2E9AFF;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <label>
+    <span class="input-title">Мы всё сделаем, только укажи почту:</span>
+    <input class="input" type="email" placeholder="mail@example.com">
+  </label>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<h2>Кратко</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>HTMLElement.style</code></a> получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут <code>style</code>.</p>
+<p>С помощью него можно управлять стилем элемента. <a href="https://developer.mozilla.org/ru/docs/Web/css/specificity/">Специфичность</a> этого свойства такая же, как у атрибута <code>style</code>.</p>
+<h2>Как пишется</h2>
+<p>Чтобы получить значения инлайновых стилей с помощью свойства <code>style</code>, мы можем записать:</p>
+<pre><code class="language-js">const element = document.getElementById(&quot;someElement&quot;)
+const inlineStyles = element.style
+</code></pre>
+<p>В этом случае в значение <code>inlineStyles</code> запишется объект <a href="https://developer.mozilla.org/ru/docs/Web/API/CSSStyleDeclaration"><code>CSSStyleDeclaration</code></a>, который будет в себе содержать все инлайновые стили, которые содержит элемент <code>element</code>.</p>
+<p>Чтобы задать стили для элемента, мы можем использовать несколько способов. Либо через <code>cssText</code>, чтобы указать несколько свойств разом. (Тем же эффектом обладает установка стиля через <code>setAttribute()</code>.) Либо через отдельные свойства в <code>style.[propertyName]</code>.</p>
+<pre><code class="language-js">// Следующие две записи работают одинаково
+// и устанавливают несколько стилей в одном выражении:
+element.style.cssText = &quot;color: blue; border: 1px solid black&quot;
+element.setAttribute(&quot;style&quot;, &quot;color:red; border: 1px solid blue;&quot;)
+
+// Следующая — устанавливает значение определенного свойства,
+// оставляя другие значения стиля нетронутыми:
+element.style.color = &quot;blue&quot;
+</code></pre>
+<h2>Как понять</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style"><code>HTMLElement.style</code></a> — это механизм для работы со стилями на элементе. С его помощью можно управлять отображением элементов в «рантайме», то есть во время выполнения скрипта.</p>
+<p>Этот механизм позволяет «перетирать» стили, описанные в CSS-таблицах, так как специфичность стилей в атрибуте <code>style</code> выше (за исключением стилей с <code>!important</code>).</p>
+<p>Чтобы указать значение конкретного CSS-свойства, мы можем использовать одноимённое отображение в <code>style</code>:</p>
+<pre><code class="language-js">// Если мы хотим указать color:
+element.style.color = &quot;red&quot; // или 'rgb(255,0,0)', или '#f00'
+
+// Если хотим указать font-family:
+element.style.fontFamily = &quot;Arial&quot;
+</code></pre>
+<p>Обратите внимание, что имена свойств в <code>style.[propertyName]</code> записываются в camelCase, в отличие от CSS-свойств, которые записываются через дефис.</p>
+<p>Таким образом <code>font-family</code> превращается в <code>fontFamily</code>, а, например, <code>background-color</code> — в <code>backgroundColor</code>.</p>
+<p>При сомнениях в том, как правильно называется то или иное свойство, воспользуйтесь списком соответствий:</p>
+<details>
+  <summary>CSS-свойства в JS-нотации</summary>
+<table>
+<thead>
+<tr>
+<th>CSS</th>
+<th>JavaScript</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/css/background/">background</a></td>
+<td>background</td>
+</tr>
+<tr>
+<td><a href="">background-attachment</a></td>
+<td>backgroundAttachment</td>
+</tr>
+<tr>
+<td><a href="/css/background-color/">background-color</a></td>
+<td>backgroundColor</td>
+</tr>
+<tr>
+<td><a href="/css/background-image/">background-image</a></td>
+<td>backgroundImage</td>
+</tr>
+<tr>
+<td><a href="/css/background-position/">background-position</a></td>
+<td>backgroundPosition</td>
+</tr>
+<tr>
+<td><a href="/css/background-repeat/">background-repeat</a></td>
+<td>backgroundRepeat</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border</a></td>
+<td>border</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-bottom</a></td>
+<td>borderBottom</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-bottom-color</a></td>
+<td>borderBottomColor</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-bottom-style</a></td>
+<td>borderBottomStyle</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-bottom-width</a></td>
+<td>borderBottomWidth</td>
+</tr>
+<tr>
+<td><a href="/css/border-color/">border-color</a></td>
+<td>borderColor</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-left</a></td>
+<td>borderLeft</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-left-color</a></td>
+<td>borderLeftColor</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-left-style</a></td>
+<td>borderLeftStyle</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-left-width</a></td>
+<td>borderLeftWidth</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-right</a></td>
+<td>borderRight</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-right-color</a></td>
+<td>borderRightColor</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-right-style</a></td>
+<td>borderRightStyle</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-right-width</a></td>
+<td>borderRightWidth</td>
+</tr>
+<tr>
+<td><a href="/css/border-style/">border-style</a></td>
+<td>borderStyle</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-top</a></td>
+<td>borderTop</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-top-color</a></td>
+<td>borderTopColor</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-top-style</a></td>
+<td>borderTopStyle</td>
+</tr>
+<tr>
+<td><a href="/css/border/">border-top-width</a></td>
+<td>borderTopWidth</td>
+</tr>
+<tr>
+<td><a href="/css/border-width/">border-width</a></td>
+<td>borderWidth</td>
+</tr>
+<tr>
+<td><a href="">clear</a></td>
+<td>clear</td>
+</tr>
+<tr>
+<td><a href="">clip</a></td>
+<td>clip</td>
+</tr>
+<tr>
+<td><a href="/css/color/">color</a></td>
+<td>color</td>
+</tr>
+<tr>
+<td><a href="/css/cursor/">cursor</a></td>
+<td>cursor</td>
+</tr>
+<tr>
+<td><a href="/css/display/">display</a></td>
+<td>display</td>
+</tr>
+<tr>
+<td><a href="">filter</a></td>
+<td>filter</td>
+</tr>
+<tr>
+<td><a href="/css/float/">float</a></td>
+<td>cssFloat</td>
+</tr>
+<tr>
+<td><a href="">font</a></td>
+<td>font</td>
+</tr>
+<tr>
+<td><a href="/css/font-family/">font-family</a></td>
+<td>fontFamily</td>
+</tr>
+<tr>
+<td><a href="/css/font-size/">font-size</a></td>
+<td>fontSize</td>
+</tr>
+<tr>
+<td><a href="">font-variant</a></td>
+<td>fontVariant</td>
+</tr>
+<tr>
+<td><a href="/css/font-weight/">font-weight</a></td>
+<td>fontWeight</td>
+</tr>
+<tr>
+<td><a href="/css/height/">height</a></td>
+<td>height</td>
+</tr>
+<tr>
+<td><a href="">left</a></td>
+<td>left</td>
+</tr>
+<tr>
+<td><a href="/css/letter-spacing/">letter-spacing</a></td>
+<td>letterSpacing</td>
+</tr>
+<tr>
+<td><a href="/css/line-height/">line-height</a></td>
+<td>lineHeight</td>
+</tr>
+<tr>
+<td><a href="">list-style</a></td>
+<td>listStyle</td>
+</tr>
+<tr>
+<td><a href="/css/list-style-image/">list-style-image</a></td>
+<td>listStyleImage</td>
+</tr>
+<tr>
+<td><a href="/css/list-style-position/">list-style-position</a></td>
+<td>listStylePosition</td>
+</tr>
+<tr>
+<td><a href="/css/list-style-type/">list-style-type</a></td>
+<td>listStyleType</td>
+</tr>
+<tr>
+<td><a href="/css/margin/">margin</a></td>
+<td>margin</td>
+</tr>
+<tr>
+<td><a href="/css/margin/#kratko">margin-bottom</a></td>
+<td>marginBottom</td>
+</tr>
+<tr>
+<td><a href="/css/margin/#kratko">margin-left</a></td>
+<td>marginLeft</td>
+</tr>
+<tr>
+<td><a href="/css/margin/#kratko">margin-right</a></td>
+<td>marginRight</td>
+</tr>
+<tr>
+<td><a href="/css/margin/#kratko">margin-top</a></td>
+<td>marginTop</td>
+</tr>
+<tr>
+<td><a href="/css/overflow/">overflow</a></td>
+<td>overflow</td>
+</tr>
+<tr>
+<td><a href="/css/padding/">padding</a></td>
+<td>padding</td>
+</tr>
+<tr>
+<td><a href="/css/padding/#kratko">padding-bottom</a></td>
+<td>paddingBottom</td>
+</tr>
+<tr>
+<td><a href="/css/padding/#kratko">padding-left</a></td>
+<td>paddingLeft</td>
+</tr>
+<tr>
+<td><a href="/css/padding/#kratko">padding-right</a></td>
+<td>paddingRight</td>
+</tr>
+<tr>
+<td><a href="/css/padding/#kratko">padding-top</a></td>
+<td>paddingTop</td>
+</tr>
+<tr>
+<td><a href="">page-break-after</a></td>
+<td>pageBreakAfter</td>
+</tr>
+<tr>
+<td><a href="">page-break-before</a></td>
+<td>pageBreakBefore</td>
+</tr>
+<tr>
+<td><a href="/css/position/">position</a></td>
+<td>position</td>
+</tr>
+<tr>
+<td><a href="">stroke-dasharray</a></td>
+<td>strokeDasharray</td>
+</tr>
+<tr>
+<td><a href="">stroke-dashoffset</a></td>
+<td>strokeDashoffset</td>
+</tr>
+<tr>
+<td><a href="">stroke-width</a></td>
+<td>strokeWidth</td>
+</tr>
+<tr>
+<td><a href="/css/text-align/">text-align</a></td>
+<td>textAlign</td>
+</tr>
+<tr>
+<td><a href="/css/text-decoration/">text-decoration</a></td>
+<td>textDecoration</td>
+</tr>
+<tr>
+<td><a href="">text-indent</a></td>
+<td>textIndent</td>
+</tr>
+<tr>
+<td><a href="/css/text-transform/">text-transform</a></td>
+<td>textTransform</td>
+</tr>
+<tr>
+<td><a href="">top</a></td>
+<td>top</td>
+</tr>
+<tr>
+<td><a href="/css/vertical-align/">vertical-align</a></td>
+<td>verticalAlign</td>
+</tr>
+<tr>
+<td><a href="/css/visibility/">visibility</a></td>
+<td>visibility</td>
+</tr>
+<tr>
+<td><a href="/css/width/">width</a></td>
+<td>width</td>
+</tr>
+</tbody>
+</table>
+</details>

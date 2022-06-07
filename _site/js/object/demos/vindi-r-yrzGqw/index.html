@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Проверка ключа объекта — Дока</title>
+</head>
+<body>
+Рассмотрите вкладку JS, в ней вы увидите объект cat
+<br>
+Ниже находится форма для проверки полей данного объекта
+<br>
+При вводе несуществующего ключа отобразится сообщение об ошибке
+<br>
+<br>
+Узнать значение по ключу:
+<br>
+<input type="text" placeholder="Ключ, например name"> <button onclick="getProp()">Узнать</button>
+<pre id="result">
+
+</pre>
+  <script>
+    let cat = {
+      name: 'tomas',
+      age: 2,
+      kittens: ['sam', 'dom', 'pam'],
+      legs: 4,
+      fat: true
+    }
+    function getProp() {
+      let propName = document.querySelector('input').value;
+      let result = cat[propName];
+      if (propName in cat === false) {
+        result = 'Ключ отсутствует';
+      }
+      document.querySelector('#result').innerText = result;
+    }
+  </script>
+</body>
+</html>

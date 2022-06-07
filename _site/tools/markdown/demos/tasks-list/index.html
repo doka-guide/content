@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список задач — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after  {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      padding: 50px;
+      margin: 0;
+      background: #18191c;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+    }
+
+    ul {
+      padding-left: 65px;
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    li ul {
+      margin-top: 10px;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin: 0 25px 0 0;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      left: 0;
+      top: 0;
+      border-radius: 6px;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: #41E847;
+      border-radius: 3px;
+      left: 5px;
+      top: 5px;
+    }
+
+    .checkbox, .checkbox-title {
+      vertical-align: middle;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>
+        <input class="checkbox" type="checkbox" disabled checked>
+        <span class="checkbox-title">Выйти на улицу</span>
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" disabled checked>
+        <span class="checkbox-title">Зайти в магазин</span>
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" disabled>
+        <span class="checkbox-title">Купить продукты</span>
+        <ul class="task-list">
+          <li>
+            <input class="checkbox" type="checkbox" disabled checked>
+            <span class="checkbox-title">Молоко</span>
+          </li>
+          <li>
+            <input class="checkbox" type="checkbox" disabled checked>
+            <span class="checkbox-title">Хлеб</span>
+          </li>
+          <li>
+            <input class="checkbox" type="checkbox" disabled>
+            <span class="checkbox-title">Помидоры</span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input class="checkbox" type="checkbox" disabled>
+        <span class="checkbox-title">Вернуться домой</span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<h3>.gitignore</h3>
+<p>Во многих проектах есть целые папки, которые не требуется сохранять в Git-репозитории:</p>
+<ul>
+<li>папку <code>node_modules</code> не добавляют в репозиторий, ведь зависимости можно установить через пакетный менеджер в любой момент;</li>
+<li>результат работы сборщика тоже обычно держат вне репозитория, так как эти файлы не являются исходным кодом;</li>
+<li>файлы, которые создаёт среда разработки (например, <code>.idea</code>);</li>
+<li>любые секретные данные (пароли и ключи доступа).</li>
+</ul>
+<p>Чтобы Git никогда не отслеживал изменения в таких директориях, нужно создать файл <code>.gitignore</code>. В файле перечисляют все файлы и папки, которые следует игнорировать.</p>
+<p>Типичный <code>.gitignore</code> выглядит примерно так:</p>
+<pre><code>node_modules
+build
+.idea
+</code></pre>
+<h3>Графические клиенты Git</h3>
+<p>Несмотря на важность умения использовать консольный интерфейс Git, многие разработчики в повседневной жизни используют графические интерфейсы, которые помогают наглядно следить за репозиторием, создавать ветки и коммиты.</p>
+<p>Вот несколько красивых и простых клиентов:</p>
+<p><strong>Бесплатные</strong></p>
+<ul>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> для Windows, macOS и Linux</li>
+<li><a href="https://www.sourcetreeapp.com/">Sourcetree</a> для Windows и macOS</li>
+<li><a href="https://desktop.github.com">GitHub Desktop</a> для Windows и macOS</li>
+</ul>
+<p><strong>Платные</strong></p>
+<ul>
+<li><a href="https://www.git-tower.com/">Tower</a> для Windows и macOS</li>
+<li><a href="https://git-fork.com/">Fork</a> для Windows и macOS</li>
+<li><a href="https://www.sublimemerge.com/">Sublime Merge</a> для Windows, macOS и Linux</li>
+</ul>

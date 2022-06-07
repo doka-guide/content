@@ -1,0 +1,109 @@
+<h2>Кратко</h2>
+<p><code>&quot;use strict&quot;</code> включает строгий режим выполнения JavaScript. Эта строка должна располагаться в самом начале скрипта, иначе строгий режим не будет работать. В строгом режиме интерпретатор будет явно выбрасывать ошибки на действия, которые ранее пропускал. Если строгий режим был включён, то отключить его для файла уже нельзя.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">&quot;use strict&quot;; // Располагаем строку в самом начале файла!
+
+let name = 'Alex'
+// ... другой код
+</code></pre>
+<h2>Как это понять</h2>
+<p>Строгий режим был введён в JavaScript со <a href="/js/language-versions/">стандартом ECMAScript 5</a> в 2009 году.
+Этот стандарт добавил много нового в язык, но чтобы старые браузеры могли продолжать работать, был введён специальный строгий режим выполнения, который включал новые функции языка.</p>
+<p>Строгий режим делает следующее:</p>
+<ul>
+<li>Выбрасывает ошибки, когда в коде используются некоторые небезопасные конструкции.</li>
+<li>Выключает функции языка, которые запутывают код и потому не должны использоваться.</li>
+<li>Предотвращает использование слов, которые могут быть использованы в качестве ключевых в будущем.</li>
+</ul>
+<p>Давайте подробнее посмотрим некоторые важные ограничения, которые накладывает включение строгого режима.</p>
+<h3>Нельзя использовать переменные без объявления</h3>
+<p>Интерпретатор в строгом режиме выбросит ошибку, если обратиться к переменной без её объявления:</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+var name = &quot;Anna&quot;;
+console.log(name); // Anna
+
+age = 24;
+console.log(age); // Uncaught ReferenceError: age is not defined
+</code></pre>
+<p>Без строгого режима интерпретатор в таком случае создаст переменную <code>age</code> в <a href="/js/closures/">глобальной области видимости</a>. Если выполнять код из примера в консоли браузера без <code>&quot;use strict&quot;</code>, то все выполнится без ошибок, а в глобальный объект <code>window</code> запишется поле <code>age</code> со значением <code>24</code>.</p>
+<h3>Явная ошибка если значение поля нельзя изменить или удалить</h3>
+<p>С помощью методов <code>Object.defineProperty</code> или <code>Object.preventExtensions</code> в JavaScript можно запретить перезаписывать поля объекта. При включённом строгом режиме попытка перезаписать поле приведёт к ошибке.</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+const obj = {};
+
+Object.defineProperty(obj, 'someProp', { value: 'Alex', writable:false });
+
+console.log(obj.someProp); // Alex
+
+obj.someProp = 'James'; // Uncaught TypeError: Cannot assign to read only property 'someProp' of object #&lt;Object&gt;
+</code></pre>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+const notExtensableObj = {};
+
+Object.preventExtensions(notExtensableObj);
+
+notExtensableObj.someProp = &quot;Value&quot;; // Uncaught TypeError: Can't add property someProp, object is not extensible
+</code></pre>
+<p>Ошибка будет выброшена в строгом режиме и при попытке удаления поля из объекта, когда это сделать нельзя.</p>
+<pre><code class="language-js">const obj = {};
+
+Object.defineProperty(obj, &quot;someProp&quot;, {
+    value: 'Anna',
+    configurable: false
+});
+
+delete obj.someProp; // Uncaught TypeError: Cannot delete property 'someProp' of #&lt;Object&gt;
+</code></pre>
+<p>Если запустить все примеры кода выше без строгого режима, они выполнятся без ошибок, но значения полей не изменятся.</p>
+<h3>Параметры функции не могут иметь одинаковые имена</h3>
+<p>Если в функции объявить два параметра с одинаковым именем, то строгий режим выбросит ошибку выполнения.</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+// Uncaught SyntaxError: Duplicate parameter name not allowed in this context
+function sum(a, b, a) {
+  // ...
+}
+</code></pre>
+<p>Без <code>use strict</code> интерпретатор выполнит код без ошибок, но обратиться к переопределённому параметру будет невозможно.</p>
+<pre><code class="language-js">function sum(a, b, a) {
+  console.log(a)
+  console.log(b)
+}
+
+sum(1, 2, 3) // Выведет 3 и 2, первый аргумент потерян навсегда
+</code></pre>
+<h3>Другое поведение this</h3>
+<p>При включённом строгом режиме <code>this</code> больше не будет по умолчанию ссылаться на глобальный объект.</p>
+<pre><code class="language-js">&quot;use strict&quot;;
+
+function logThis() {
+  console.log(this)
+}
+
+logThis() // Выведет undefined
+</code></pre>
+<p>Без <code>use strict</code> если вызывать функцию в глобальном контексте (например в консоли браузера), то <code>this</code> всегда будет ссылаться на глобальный объект.</p>
+<h3>Запрещено использовать зарезервированные слова</h3>
+<p>В строгом в режиме запрещено использовать в коде некоторые слова, которые были специально зарезервированы для того, чтобы использовать их в будущем. Это слова <code>implements</code>, <code>interface</code>, <code>let</code>, <code>package</code>, <code>private</code>, <code>protected</code>, <code>public</code>, <code>static</code>, <code>yield</code>. Некоторые из этих слов уже используется в данный момент: например объявление переменных через <a href="/js/var-let/">let</a> или возвращение значения из генератора с помощью <code>yield</code>.</p>
+<h3>Ограничение небезопасных конструкций</h3>
+<p>Дополнительно включение строгого режима не позволяет использовать в коде конструкцию <code>with</code> и очищает переменные, созданные с помощью <code>eval</code>. Обе эти конструкции устарели и являются потенциально опасными, потому не используются в современном JavaScript.</p>
+<h2>Как пишется</h2>
+<aside>
+<p>☝️ Все современные сборщики JavaScript умеют самостоятельно добавлять <code>&quot;use strict&quot;</code> в файлы. Потому в данный момент обычно никто в коде явно не объявляет строгий режим. А с появлением в JavaScript <a href="/js/modules/">модулей</a> все они по умолчанию работают в строгом режиме.</p>
+</aside>
+<p><code>&quot;use strict&quot;</code> называется директивой, так как это не просто строка, а специальная инструкция для интерпретатора. Потому очень важно поместить объявление строгого режима в самом начале скрипта, чтобы это была самая первая строчка, которая исполнится.</p>
+<pre><code class="language-js">&quot;use strict&quot;; // Включили строгий режим
+
+// Далее остальной код
+</code></pre>
+<p>Если поместить строку ниже, то включение строгого режима не произойдёт.</p>
+<pre><code class="language-js">console.log(1 + 2) // 3
+
+&quot;use strict&quot;; // Просто объявление строки, строгий режим не включился
+
+// Код ниже работает без строгого режима
+</code></pre>
+<p>Над <code>&quot;use strict&quot;</code> можно размещать только комментарии.</p>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Company — <span> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 480px;
+      overflow: hidden;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: #18191c
+      url("images/background.svg") no-repeat
+      center / cover;
+      z-index: 0;
+      color: #ffffff;
+    }
+
+    .header__title {
+      max-width: 500px;
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+      font-size: 25px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: normal;
+      line-height: 30px;
+      letter-spacing: 1px;
+    }
+
+    .header__title-accent {
+      display: block;
+      font-size: 55px;
+      line-height: 58px;
+      font-weight: bold;
+    }
+
+    .header__title-accent_color {
+      color: #000000;
+      background-color: #FF8630;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">We are <span class="header__title-accent header__title-accent_color">the best</span> <span class="header__title-accent">company</span></h1>
+  </header>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Положение по второй оси при нестатичном позиционировании — position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      position: relative;
+      width: 65%;
+    }
+
+    .block {
+      margin-bottom: 50px;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .block:last-child {
+      margin-bottom: 0;
+    }
+
+    .positioned {
+      position: absolute;
+      left: -50px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .block {
+        padding: 55px 30px;
+      }
+
+      .positioned {
+        left: -30px;
+        padding: 10px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block">
+      <p>Где мы? В какой благословенный уголок земли перенёс нас сон Обломова? Что за чудный край!</p>
+    </div>
+    <div class="block positioned">
+      <p>Я спозиционирован абсолютно</p>
+    </div>
+    <div class="block">
+      <p>Нет, правда, там моря, нет высоких гор, скал и пропастей, ни дремучих лесов — нет ничего грандиозного, дикого и угрюмого.</p>
+    </div>
+  </div>
+</body>
+</html>

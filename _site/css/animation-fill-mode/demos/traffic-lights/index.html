@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Светофоры с разными режимами animation-fill-mode — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      background-image:
+      linear-gradient(-45deg, transparent 50%, #E8E8E4 50%, #E8E8E4 55%, transparent 55%),
+      linear-gradient(-45deg, #E8E8E4 5%, transparent 5%);
+      background-color: #FEFFFE;
+      background-size: 1em 1em;
+      font-family: "Roboto", sans-serif;
+    }
+
+    span {
+      display: block;
+      font-family: monospace;
+    }
+
+    section {
+      width: 660px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .container, .container1, .container2 {
+      padding: 30px 0 20px;
+      width: 210px;
+      text-align: center;
+      float: left;
+    }
+
+    ul {
+      list-style: none;
+      padding: 10px;
+      display: inline-block;
+      background: #3C4147;
+      border-radius: 10px;
+      box-shadow: inset 2px 2px 5px rgba(0,0,0,.7), 2px 2px 1px #3C4147;
+    }
+
+    li {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: black;
+      box-shadow: inset 2px 2px 4px rgba(0,0,0,.4), inset -2px -2px 4px rgba(255,255,255,.6);
+    }
+
+    @keyframes traffic {
+      100%{background: #FB000D;}
+    }
+
+    @keyframes traffic1 {
+      100%{background: #FED21D;}
+    }
+
+    @keyframes traffic2 {
+      100%{background: #7DFA04;}
+    }
+
+    li:nth-of-type(1) {
+      margin-bottom:5px;
+      animation: traffic 2s forwards;
+    }
+
+    li:nth-of-type(2) {
+      margin-bottom: 5px;
+      animation: traffic1 2s forwards 2s;
+    }
+
+    li:nth-of-type(3) {
+      animation: traffic2 2s forwards 4s;
+    }
+
+    .container1 li:nth-of-type(1) {
+      margin-bottom:5px;
+      animation: traffic 2s backwards;
+    }
+
+    .container1 li:nth-of-type(2) {
+      margin-bottom: 5px;
+      animation: traffic1 2s backwards 2s;
+    }
+
+    .container1 li:nth-of-type(3) {
+      animation: traffic2 2s backwards 4s;
+    }
+
+    .container2 li:nth-of-type(1) {
+      margin-bottom:5px;
+      animation: traffic 2s both;
+    }
+
+    .container2 li:nth-of-type(2) {
+      margin-bottom: 5px;
+      animation: traffic1 2s both 2s;
+    }
+
+    .container3 li:nth-of-type(3) {
+      animation: traffic2 2s both 4s;
+    }
+
+    footer {
+      clear: both;
+      text-align: center;
+      padding: 20px 0;
+      font: 14px/1.5 arial;
+      background: #C8C2B7;
+      border-top: 3px solid #6D6D6D;
+      color: #6D6D6D;
+    }
+
+    button {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 15px;
+      min-width: 150px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+      background-color: #2E9AFF;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus, button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="container">
+      <span>animation-fill-mode: forwards;</span>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="container1">
+      <span>animation-fill-mode: backwards;</span>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      </div>
+    <div class="container2">
+      <span>animation-fill-mode: <br>both;</span>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+    <footer><p>Обновите страницу или нажмите кнопку RERUN, чтобы просмотреть анимацию</p></footer>
+
+    <button onclick="document.location.reload(true);">RERUN</button>
+  </section>
+</body>
+</html>

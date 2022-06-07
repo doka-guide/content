@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Свойство visibility — visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&amp;display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #ed6742;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    .parent {
+      padding: 15px;
+      border: 1px solid currentColor;
+    }
+
+    .block {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s linear 300ms, opacity 300ms;
+    }
+
+    .parent:hover .block {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s linear 0s, opacity 300ms;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="block">Я простой текст. Наводишь курсор и я показываюсь.</div>
+  </div>
+</body>
+</html>

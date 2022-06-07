@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Затемнённая подложка — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    .header {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #999999 url("images/background.svg") no-repeat center / cover;
+      z-index: 0;
+    }
+
+    .header:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+
+    .header__title {
+      max-width: 50%;
+      color: #FFFFFF;
+      font-size: 82px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .header__title {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Good evening, Clarice.</h1>
+  </header>
+</body>
+</html>

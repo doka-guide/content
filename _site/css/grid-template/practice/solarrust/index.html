@@ -1,0 +1,23 @@
+<p>🛠 В этом же свойстве можно задавать значение и для <code>grid-template-areas</code>. Но, на мой взгляд, тогда код превращается в кашу и становится совершенно нечитабельным. Лучше всё же использовать это свойство отдельно:</p>
+<p>Лучше так?</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid-template:
+    [row1-start] &quot;header header header&quot; 25px [row1-end]
+    [row2-start] &quot;footer footer footer&quot; 25px [row2-end]
+    / auto 50px auto;
+}
+</code></pre>
+<p>Или так?</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid-template:
+    [row1-start] 25px [row1-end]
+    [row2-start] 25px [row2-end]
+    / auto 50px auto;
+  grid-template-areas:
+    &quot;header header header&quot;
+    &quot;footer footer footer&quot;;
+}
+</code></pre>
+<p>Но техническая возможность есть, выбирать вам! 😉</p>

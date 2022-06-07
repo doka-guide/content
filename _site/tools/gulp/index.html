@@ -1,0 +1,325 @@
+<h2>Кратко</h2>
+<p><a href="https://gulpjs.com/">Gulp</a> (англ. «глоток» [/gʌlp/, /<!-- yaspeller ignore:start -->галп<!-- yaspeller ignore:end -->/]) — менеджер для организации и выполнения задач при разработке приложений с использованием платформы <a href="/tools/nodejs/">Node.js</a>.</p>
+<p>Gulp может выполнять разные задачи: формировать файлы стилей, объединять и минифицировать файлы, оптимизировать изображения, транспилировать код и т. д. При выполнении этих задач происходит взаимодействие с рабочим окружением: обратиться к файловой системе, создать или сохранить итоговый файл, запустить процесс локального web-сервера, показать результат в браузере.</p>
+<h2>Как понять</h2>
+<p>Gulp —  это менеджер задач. Он выполняет объявленные инструкции в указанной последовательности. Gulp не предоставляет разработчику готовые механизмы для сборки проекта, но позволяет настроить такую сборку с помощью необходимых модулей.</p>
+<p>Часто в своих проектах разработчики используют Webpack, но это — сборщик модулей для приложений, написанных на JavaScript. Он «из коробки» предлагает решения для сборки проектов с использованием уже подготовленных механизмов и настроек. Подробнее об этом инструменте читайте в <a href="/tools/webpack/">нашей статье про Webpack</a>.</p>
+<h2>Модули и задачи</h2>
+<p>При работе с web-проектом разработчику необходимо выполнять ряд повторяющихся операций:</p>
+<ul>
+<li>проверять HTML-разметку и CSS-правила;</li>
+<li>преобразовывать синтаксис CSS-препроцессоров в «чистый» CSS;</li>
+<li>проверять JS-код на соответствие требуемым стандартам;</li>
+<li>при необходимости объединять несколько файлов (CSS или JS) в один;</li>
+<li>минифицировать большие файлы;</li>
+<li>проверять в браузере результат, желательно по принципу «live-reload» («живая перезагрузка»);</li>
+<li>формировать итоговую сборку проекта.</li>
+</ul>
+<p>С использованием Gulp, выполнение всех этих задач можно организовать с применением специальных модулей, которые распространяются средствами <a href="/tools/package-managers/">пакетных менеджеров</a>.</p>
+<p>Все инструкции по организации работы проекта указываются в файле <em>gulpfile.js</em>. Сначала объявляются основные свойства, которые Gulp использует при выполнении задач:</p>
+<pre><code class="language-javascript">const { src, dest, parallel, series, watch } = require('gulp')
+</code></pre>
+<ul>
+<li><code>src()</code> выполняет чтение исходных файлов;</li>
+<li><code>dest()</code> выполняет запись итоговых файлов;</li>
+<li><code>parallel()</code> объединяет задачи для выполнения в параллельном режиме;</li>
+<li><code>series()</code> объединяет задачи для выполнения в последовательном режиме;</li>
+<li><code>watch()</code> запускает необходимые задачи при изменениях в файлах.</li>
+</ul>
+<p>Потом таким же способом подключаются необходимые npm-модули, например:</p>
+<pre><code class="language-javascript">const sass = require('gulp-sass')(require('sass'))
+const browserSync = require('browser-sync').create()
+const autoprefixer = require('gulp-autoprefixer')
+</code></pre>
+<p>Затем создаются рабочие задачи со следующей структурой:</p>
+<ul>
+<li>указывается расположение исходных файлов;</li>
+<li>с использованием оператора <code>pipe()</code> выстраивается последовательность выполнения операций;</li>
+<li>определяется место, куда будут сохраняться итоговые файлы.</li>
+</ul>
+<p>Чтобы к такой задаче можно было обратиться в любом месте <em>gulpfile.js</em>, ей обязательно присваивается своё название.</p>
+<h3>Задача — task</h3>
+<p>Подготовим инструкцию для обработки файла стилей, созданных с использованием CSS-препроцессора SASS, для которой установим следующую последовательность действий:</p>
+<ul>
+<li>обратиться к исходному файлу в папке <code>/src/styles/</code>;</li>
+<li>преобразовать синтаксис SASS в стандартный CSS;</li>
+<li>вывести в терминале информацию о наличии ошибок в исходном файле;</li>
+<li>сохранить итоговый файл в папку <code>/public/styles/</code>;</li>
+<li>применить с помощью модуля <code>browser-sync</code> новые стили для открытой в браузере страницы.</li>
+</ul>
+<p>До третьей версии Gulp задачи создавались встроенной функцией <code>gulp.task()</code>:</p>
+<pre><code class="language-javascript">gulp.task('styles', function() {
+  return src('./src/styles/style.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(dest('./public/styles/style.css'))
+  .pipe(browserSync.stream())
+})
+</code></pre>
+<p>Эта функция регистрирует объявленную инструкцию в качестве общедоступной задачи с названием <code>styles</code>, которая может взаимодействовать с рабочим окружением. Теперь такую задачу можно запускать на выполнение как отдельно — командой <code>gulp styles</code>, так и в составе сводной задачи (<code>watch</code>, <code>default</code> и т. п.).</p>
+<h3>Задача — function</h3>
+<p>Начиная с четвёртой версии Gulp, для создания задач рекомендуется использовать обычные функции. В этом случае задача из примера выше будет выглядеть следующим образом:</p>
+<pre><code class="language-javascript">function styles() {
+  return src('./src/styles/style.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(dest('./public/styles/style.css'))
+  .pipe(browserSync.stream())
+}
+</code></pre>
+<p>Формирование задачи с использованием такой функции создаёт инструкцию, которая доступна только для <em>внутреннего использования</em>. Чтобы объявленная функция могла взаимодействовать с рабочим окружением и выполняться командой <code>gulp</code>, её необходимо экспортировать в общедоступную задачу:</p>
+<pre><code class="language-javascript">exports.styles = styles
+</code></pre>
+<p>Только после этого функция станет доступной для запуска и выполнения как отдельной командой <code>gulp styles</code>, так и в составе сводной задачи.</p>
+<h3>Отслеживание изменений в проекте</h3>
+<p>При работе над проектом разработчику необходимо видеть результат изменений, которые он вносит в файлы. Для этой цели в Gulp предусмотрен метод <code>watch()</code>, который проверяет файлы при их сохранении и запускает соответствующие задачи.</p>
+<p>Для рассмотренных выше примеров задача отслеживания изменений в файлах стилей будет выглядеть так:</p>
+<ul>
+<li>указывается расположение файлов, которые должны отслеживаться;</li>
+<li>вызывается задача <code>styles</code> для обработки этих файлов;</li>
+<li>при сохранении изменений выполняется перезагрузка открытой в браузере страницы.</li>
+</ul>
+<pre><code class="language-javascript">function watch_dev() {
+  watch('./src/styles/style.css', styles).on(
+    'change',
+    browserSync.reload
+  )
+}
+</code></pre>
+<h3>Работа с проектом и его сборка</h3>
+<p>Запуск проекта в режиме разработки осуществляется сводной задачей <code>default</code>, название которой зарезервировано в Gulp. В примере ниже она будет выполнять и отслеживать в параллельном режиме задачи, ранее экспортированные из функций:</p>
+<pre><code class="language-javascript">exports.default = parallel(
+  styles,
+  scripts,
+  pages,
+  watch_dev
+);
+</code></pre>
+<p>Поскольку задача <code>default</code> для Gulp является задачей по умолчанию, запустить её можно командой <code>gulp</code>.</p>
+<p><img src="images/gulp_start.png" alt="Запуск проекта в режиме разработки">
+Запуск <code>default</code> задачи в платформе Доки</p>
+<p>Для сборки проекта обычно создаётся отдельная задача с произвольным названием, которая последовательно выполняет необходимые действия:</p>
+<pre><code class="language-javascript">exports.build = series(
+  styles,
+  scripts,
+  pages
+);
+</code></pre>
+<p>После этого сборка итоговой версии проекта осуществляется вводом в терминале команды <code>gulp build</code>.</p>
+<h2>Использование</h2>
+<p>Рассмотрим вариант проекта по разработке сайта.</p>
+<p>Структура проекта будет организована с использованием компонентного подхода: для каждого блока страницы выделяется отдельная папка. В папке компонента будут располагаться его файлы стилей, разметки и скриптов. В отдельных папках будут храниться изображения и файлы шрифтов.</p>
+<p>Все исходные файлы размещаются в папке <em>src</em>, результат будет сохраняться в папку <em>public</em>:</p>
+<pre><code>.
+├─ /public
+│   ├─ /css
+│   ├─ /images
+│   ├─ /js
+│   ├─ index.html
+│   └─ order.html
+├─ /src
+│   ├─ /components
+│   │   ├─ /header
+│   │   │   ├─ header.html
+│   │   │   └─ header.scss
+│   │   ├─ /offer
+│   │   │   ├─ offer.html
+│   │   │   ├─ offer.js
+│   │   │   └─ offer.scss
+│   │   ├─ /order
+│   │   │   ├─ order.html
+│   │   │   ├─ order.js
+│   │   │   ├─ order.scss
+│   │   └─ /footer
+│   │       ├─ footer.html
+│   │       ├─ footer.js
+│   │       └─ footer.scss
+│   ├─ /fonts
+│   ├─ /images
+│   ├─ /js
+│   │   └─ script.js
+│   ├─ /pages
+│   │   ├─ index.html
+│   │   └─ order.html
+│   └─ /styles
+│       └─ style.scss
+├─ gulpfile.js
+└─ package.json
+</code></pre>
+<p>Сначала в рабочей папке командой <code>npm init</code> необходимо выполнить инициализацию проекта, в процессе которой будет предложено указать его данные:</p>
+<p><img src="images/npm_init.png" alt="Инициализация проекта с помощью npm"></p>
+<p>После этого в папке будет создан файл манифеста проекта <em>package.json</em>, в котором также будет сохраняться информация об используемых модулях. Модули устанавливаются стандартной командой <code>npm install</code>.</p>
+<p>Нам понадобятся следующие npm-модули:</p>
+<ul>
+<li><code>del</code> для очистки папки <code>public</code>;</li>
+<li><code>sass</code> и <code>gulp-sass</code> для использования препроцессора SASS;</li>
+<li><code>gulp-autoprefixer</code> добавляет необходимые <a href="/css/vendor-prefixes/">вендорные префиксы CSS</a>;</li>
+<li><code>gulp-group-css-media-queries</code> группирует все media-запросы CSS в одном месте итогового файла стилей;</li>
+<li><code>gulp-include</code> подключает отдельные файлы компонентов в итоговые файлы HTML и JS;</li>
+<li><code>browser-sync</code> создаёт и запускает локальный веб-сервер.</li>
+</ul>
+<p>В <em>gulpfile.js</em> сначала объявим все необходимые свойства и модули:</p>
+<pre><code class="language-javascript">const { src, dest, parallel, series, watch } = require('gulp')
+const del = require('del')
+const sass = require('gulp-sass')(require('sass'))
+const autoprefixer = require('gulp-autoprefixer')
+const gcssmq = require('gulp-group-css-media-queries')
+const includeFiles = require('gulp-include')
+const browserSync = require('browser-sync').create()
+</code></pre>
+<p>Подготовим задачу для создания модулем <code>browser-sync</code> веб-сервера с использованием свойств <a href="https://browsersync.io/docs/api">API Browsersync</a>:</p>
+<ul>
+<li>инициализируем веб-сервер;</li>
+<li>указываем рабочую папку;</li>
+<li>упрощаем ввод в браузере адреса страницы — без расширения <code>.html</code>;</li>
+<li>назначаем номер порта для взаимодействия с веб-сервером;</li>
+<li>назначаем номер порта для пользовательского интерфейса веб-сервера;</li>
+<li>открываем в браузере главную страницу сайта.</li>
+</ul>
+<pre><code class="language-javascript">function browsersync() {
+  browserSync.init({
+    server: {
+      baseDir: './public/',
+      serveStaticOptions: {
+        extensions: ['html'],
+      },
+    },
+    port: 8080,
+    ui: { port: 8081 },
+    open: true,
+  })
+}
+</code></pre>
+<p>Задача по формированию CSS-стилей выполняет следующие операции:</p>
+<ul>
+<li>обращается к исходному файлу <code>style.scss</code>;</li>
+<li>переводит синтаксис SASS в стандартный CSS;</li>
+<li>показывает в терминале информацию о наличии ошибок в исходном файле;</li>
+<li>с использованием <a href="https://autoprefixer.github.io/ru/">Autoprefixer</a> добавляет вендорные префиксы CSS, в т.ч. для работы <a href="/css/grid-guide/">Grid Layout</a> в браузере IE;</li>
+<li>группирует вместе все <a href="/css/media/">медиавыражения</a> и размещает их в конце файла;</li>
+<li>сохраняет итоговый файл в папку <code>/public/styles/</code>;</li>
+<li>с помощью модуля <code>browser-sync</code> применяет новые стили для открытой в браузере страницы.</li>
+</ul>
+<pre><code class="language-javascript">function styles() {
+  return src('./src/styles/style.scss')
+  .pipe(sass().on('error', sass.logError))
+  .pipe(autoprefixer({ grid: true }))
+  .pipe(gcssmq())
+  .pipe(dest('./public/css/'))
+  .pipe(browserSync.stream())
+}
+</code></pre>
+<p>Для формирования файлов скриптов создадим задачу, в которой укажем следующую последовательность действий:</p>
+<ul>
+<li>обратиться к исходному файлу <code>script.js</code>;</li>
+<li>обработать JS-файлы компонентов;</li>
+<li>применить изменения для открытой в браузере страницы.</li>
+</ul>
+<pre><code class="language-javascript">function scripts() {
+  return src('./src/js/script.js')
+  .pipe(
+    includeFiles({
+      includePaths: './src/components/**/',
+    })
+  )
+  .pipe(dest('./public/js/'))
+  .pipe(browserSync.stream())
+}
+</code></pre>
+<p>Использование параметра <code>includePaths</code> для модуля <code>gulp-include</code> позволяет подключать в <em>script.js</em> файлы компонентов без указания полного пути к ним:</p>
+<pre><code class="language-javascript">//=include offer.js
+//=include order.js
+</code></pre>
+<p>Этот параметр будет использоваться и при обработке страниц, в результате чего таким же образом в HTML-файлах можно будет использовать файлы компонентов:</p>
+<pre><code class="language-html">&lt;!--=include header.html --&gt;
+&lt;!--=include offer.html --&gt;
+&lt;!--=include order.html --&gt;
+&lt;!--=include footer.html --&gt;
+</code></pre>
+<p>Страницы сайта будут обрабатываться задачей <code>pages</code> в следующей последовательности:</p>
+<ul>
+<li>считывается исходный файл страницы;</li>
+<li>обрабатываются HTML-файлы компонентов;</li>
+<li>после сохранения изменений выполняется перезагрузка открытой в браузере страницы.</li>
+</ul>
+<pre><code class="language-javascript">function pages() {
+  return src('./src/pages/*.html')
+  .pipe(
+    includeFiles({
+      includePaths: './src/components/**/',
+    })
+  )
+  .pipe(dest('./public/'))
+  .pipe(browserSync.reload({ stream: true, }))
+}
+</code></pre>
+<p>Для использования шрифтов и картинок создадим задачи, которые в асинхронном режиме будут копировать файлы из папки <code>src</code> в папку <code>public</code>:</p>
+<pre><code class="language-javascript">function copyFonts() {
+  return src('./src/fonts/**/*')
+  .pipe(dest('./public/fonts/'))
+}
+
+function copyImages() {
+  return src('./src/images/**/*')
+  .pipe(dest('./public/images/'))
+}
+
+async function copyResources() {
+  copyFonts()
+  copyImages()
+}
+</code></pre>
+<p>Перед запуском проекта в режиме разработки, а также перед его сборкой, желательно удалить папку <code>public</code> c предыдущими версиями файлов, поэтому добавим задачу очистки:</p>
+<pre><code class="language-javascript">async function clean() {
+  return del.sync('./public/', { force: true })
+}
+</code></pre>
+<p>Осталось создать задачу, которая для отслеживания изменений в файлах будет выполнять следующие действия:</p>
+<ul>
+<li>следить за файлами, расположенными в указанных папках;</li>
+<li>запускать задачи для обработки указанных файлов;</li>
+<li>перезагружать открытую страницу после сохранения изменений.</li>
+</ul>
+<pre><code class="language-javascript">function watch_dev() {
+  watch(['./src/js/script.js', './src/components/**/*.js', ], scripts)
+  watch(['./src/styles/style.scss', './src/components/**/*.scss'], styles).on(
+    'change',
+    browserSync.reload
+  )
+  watch(['./src/pages/*.html', './src/components/**/*.html'], pages).on(
+    'change',
+    browserSync.reload
+  )
+}
+</code></pre>
+<p>В конце <em>gulpfile.js</em> экспортируем объявленные функции в общедоступные задачи, после чего создадим сводные задачи для запуска проекта в режиме разработки и сборки его итоговой версии:</p>
+<pre><code class="language-javascript">exports.browsersync = browsersync
+exports.clean = clean
+exports.scripts = scripts
+exports.styles = styles
+exports.pages = pages
+exports.copyResources = copyResources
+
+exports.default = parallel(
+  clean,
+  styles,
+  scripts,
+  copyResources,
+  pages,
+  browsersync,
+  watch_dev
+)
+
+exports.build = series(
+  clean,
+  styles,
+  scripts,
+  copyResources,
+  pages
+)
+</code></pre>
+<h2>Заключение</h2>
+<p>Если вы работаете над web-проектом, который:</p>
+<ul>
+<li>не основан на современных <a href="/js/react-and-alternatives/">JS-фреймворках</a>;</li>
+<li>не является <a href="/js/web-app-types/#single-page-applications-spa">SPA</a> или <a href="/js/web-app-types/#progressive-web-applications-pwa">PWA</a>;</li>
+</ul>
+<p>то Gulp — ваш бро, не сомневайтесь.</p>

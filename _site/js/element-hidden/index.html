@@ -1,0 +1,30 @@
+<h2>Кратко</h2>
+<p>Свойство <code>Element.hidden</code> позволяет узнать значение HTML-атрибута <code>hidden</code> или изменить его. Когда <code>Element.hidden</code> равен <code>true</code>, элемент скрыт на странице и недоступен для скринридеров.</p>
+<h2>Как пишется</h2>
+<p>Обращение к свойству <code>Element.hidden</code> вернёт текущее значение HTML-атрибута <code>hidden</code>. Если атрибута нет на элементе, результат будет <code>false</code>.</p>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; placeholder=&quot;Введите почту&quot;&gt;
+&lt;div class=&quot;error&quot; hidden&gt;Неправильная почта&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const input = document.querySelector('input')
+const div = document.querySelector('div')
+
+// false
+console.log(input.hidden)
+// true
+console.log(div.hidden)
+</code></pre>
+<p>Присвоение значения в <code>Element.hidden</code> изменит значение атрибута <code>hidden</code>. В зависимости от него элемент скроется или появится. Скроем поле ввода из примера выше:</p>
+<pre><code class="language-js">input.hidden = true
+</code></pre>
+<p>В результате у поля ввода появится атрибут <code>hidden</code> и элемент скроется:</p>
+<pre><code class="language-html">&lt;input type=&quot;email&quot; placeholder=&quot;email@example.com&quot;&gt; hidden&gt;
+</code></pre>
+<p>Если присвоить <code>false</code> то атрибут будет удалён с элемента, а сам элемент снова появится:</p>
+<pre><code class="language-js">input.hidden = false
+</code></pre>
+<h2>Как понять</h2>
+<p>HTML-атрибут <code>hidden</code> существует очень давно и работает так же как <code>display: none</code>. Когда атрибут активен, элемент будет не только визуально скрыт, но и не будет занимать место на странице. То есть скрытый элемент будет вести себя так, будто его совсем нет.</p>
+<p>Скрывать элементы через <code>display</code> можно в CSS или с помощью атрибута <a href="/js/element-style/"><code>style</code></a>, но атрибутом <code>hidden</code> удобно управлять из JavaScript.</p>
+<aside>
+<p>❗️ Приоритет CSS-свойства <code>display</code> выше, чем у атрибута <code>hidden</code>. Если на элементе одновременно установлен атрибут <code>hidden</code> и <code>display: block</code>, то элемент будет виден.</p>
+</aside>

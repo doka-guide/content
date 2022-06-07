@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выделение слова в предложении — ::after — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    article {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 17px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    p + p {
+      margin-top: 10px;
+    }
+
+    .accent::before,
+    .accent::after {
+      content: "🌸";
+      vertical-align: middle;
+      font-size: 0.6em;
+    }
+
+    .accent::before {
+      margin-right: 0.1em;
+    }
+
+    .accent::after {
+      margin-left: 0.1em;
+    }
+
+    .author {
+      padding: 10px 0;
+      margin: 20px 0 0;
+      border-top: 2px solid currentColor;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      article {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<article>
+  <h1>«Все берут в горсть и нюхают: ааа… гру-шовка!»: вспоминаем, как писали об <span class="accent">ароматах</span> классики</h1>
+  <p>«Все кидаются в лопухи, в крапиву. Вязкий, вялый какой-то запах от лопухов, и пронзительно едкий — от крапивы, мешаются со сладким духом, необычайно тонким, как где-то пролитые духи, — от яблок. Ползают все, даже грузный Василь-Василич, у которого лопнула на спине жилетка, и видно розовую рубаху лодочкой; даже и толстый Трифоныч, весь в муке. Все берут в горсть и нюхают: ааа... гру-шовка!..»</p>
+  <p class="author">«Лето Господне», Иван Шмелёв</p>
+</article>
+</body>
+</html>

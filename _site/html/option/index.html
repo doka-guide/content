@@ -1,0 +1,66 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;option&gt;</code> используется в интерактивных элементах управления для вёрстки одиночного пункта списка.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label for=&quot;city-select&quot;&gt;Ваш город&lt;/label&gt;
+  &lt;select name=&quot;city&quot; id=&quot;city-select&quot;&gt;
+    &lt;option value=&quot;&quot;&gt;-- Выберите город --&lt;/option&gt;
+    &lt;option value=&quot;petersburg&quot;&gt;Санкт-Петербург&lt;/option&gt;
+    &lt;option value=&quot;moscow&quot;&gt;Москва&lt;/option&gt;
+    &lt;option value=&quot;kazan&quot;&gt;Казань&lt;/option&gt;
+    &lt;option value=&quot;samara&quot;&gt;Самара&lt;/option&gt;
+    &lt;option value=&quot;perm&quot;&gt;Пермь&lt;/option&gt;
+    &lt;option value=&quot;novosibirsk&quot;&gt;Новосибирск&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/form&gt;
+</code></pre>
+<iframe title="Стандартный выпадающий список" src="demos/default/" height="320"></iframe>
+<h2>Подробно</h2>
+<p>Тегом <code>&lt;option&gt;</code> размечается каждый элемент выпадающего списка <a href="/html/select/"><code>&lt;select&gt;</code></a>, группы опций <a href="/html/optgroup/"><code>&lt;optgroup&gt;</code></a> или перечня <a href="/html/datalist/"><code>&lt;datalist&gt;</code></a>.</p>
+<h2>Атрибуты</h2>
+<h3><code>disabled</code></h3>
+<p>Атрибут булевого типа. Если задан, то пункт списка нельзя выбрать. Часто браузеры выделяют такой элемент управления серым цветом, и на нём не срабатывают события клика или фокуса. Даже если атрибут не задан, элемент всё равно может быть отключён, если находится внутри тега <code>&lt;optgroup&gt;</code> с заданным атрибутом <code>disabled</code>.</p>
+<pre><code class="language-html">&lt;select name=&quot;city1&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Выберите город --&lt;/option&gt;
+  &lt;option value=&quot;petersburg&quot;&gt;Санкт-Петербург&lt;/option&gt;
+  &lt;option value=&quot;moscow&quot;&gt;Москва&lt;/option&gt;
+  &lt;option value=&quot;kazan&quot;&gt;Казань&lt;/option&gt;
+  &lt;option value=&quot;samara&quot; disabled&gt;Самара&lt;/option&gt;
+  &lt;option value=&quot;perm&quot;&gt;Пермь&lt;/option&gt;
+  &lt;option value=&quot;novosibirsk&quot;&gt;Новосибирск&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<h3><code>label</code></h3>
+<p>Значение этого атрибута задаёт текст пункта в списке. Если атрибут не задан, то в качестве значения берётся текстовое содержимое тега <code>&lt;option&gt;</code>.</p>
+<pre><code class="language-html">&lt;select name=&quot;city2&quot;&gt;
+  &lt;option value=&quot;petersburg&quot; selected label=&quot;Ленинград&quot;&gt;Санкт-Петербург&lt;/option&gt;
+  &lt;option value=&quot;samara&quot; label=&quot;Куйбышев&quot;&gt;Самара&lt;/option&gt;
+  &lt;option value=&quot;volgograd&quot; label=&quot;Сталинград&quot;&gt;Волгоград&lt;/option&gt;
+  &lt;option value=&quot;ekaterinburg&quot; label=&quot;Свердловск&quot;&gt;Екатеринбург&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<p>В примере выше, несмотря на то, что задано текстовое содержимое тега <code>&lt;option&gt;</code>, в выпадающем списке отображаются значения из атрибутов <code>label</code>.</p>
+<h3><code>selected</code></h3>
+<p>Атрибут булевого типа. Если он задан, это означает, что пункт списка будет выбран по умолчанию. Если у выпадающего списка <a href="/html/select/"><code>&lt;select&gt;</code></a> не задан атрибут <code>multiple</code>, то атрибут <code>selected</code> может быть задан только одному тегу <code>&lt;option&gt;</code> в пределах этого списка. Если тегу <code>&lt;select&gt;</code> задан атрибут <code>multiple</code>, то атрибут <code>selected</code> может быть задан любому количеству тегов <code>&lt;option&gt;</code> в пределах списка.</p>
+<pre><code class="language-html">&lt;select name=&quot;city3&quot;&gt;
+  &lt;option value=&quot;&quot;&gt;-- Выберите город --&lt;/option&gt;
+  &lt;option value=&quot;petersburg&quot;&gt;Санкт-Петербург&lt;/option&gt;
+  &lt;option value=&quot;moscow&quot;&gt;Москва&lt;/option&gt;
+  &lt;option value=&quot;kazan&quot; selected&gt;Казань&lt;/option&gt;
+  &lt;option value=&quot;samara&quot;&gt;Самара&lt;/option&gt;
+  &lt;option value=&quot;perm&quot;&gt;Пермь&lt;/option&gt;
+  &lt;option value=&quot;novosibirsk&quot;&gt;Новосибирск&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-html">&lt;select name=&quot;city4&quot; multiple size=&quot;6&quot;&gt;
+  &lt;option value=&quot;petersburg&quot;&gt;Санкт-Петербург&lt;/option&gt;
+  &lt;option value=&quot;moscow&quot; selected&gt;Москва&lt;/option&gt;
+  &lt;option value=&quot;kazan&quot; &gt;Казань&lt;/option&gt;
+  &lt;option value=&quot;samara&quot; selected&gt;Самара&lt;/option&gt;
+  &lt;option value=&quot;perm&quot;&gt;Пермь&lt;/option&gt;
+  &lt;option value=&quot;novosibirsk&quot;&gt;Новосибирск&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<iframe title="Разные атрибуты" src="demos/option-attrs/" height="520"></iframe>
+<h3><code>value</code></h3>
+<p>Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута <code>value</code> этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега <code>&lt;option&gt;</code>.</p>

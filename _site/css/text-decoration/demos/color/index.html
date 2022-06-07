@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимированный декор текста — text-decoration — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 29px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    p {
+      position: relative;
+      max-width: 900px;
+      margin-top: 30px;
+      padding-left: 320px;
+    }
+
+    p::before {
+      content: attr(class);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      font-size: 17px;
+    }
+
+    h1, p::before {
+      width: 320px;
+      padding-right: 50px;
+      font-family: "Roboto Mono", monospace;
+      text-align: right;
+    }
+
+    .none {
+      text-decoration: none;
+    }
+
+    .underline {
+      text-decoration: underline;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+    }
+
+    .overline {
+      text-decoration: overline;
+    }
+
+    .dotted {
+      text-decoration-style: dotted;
+    }
+
+    .double {
+      text-decoration-style: double;
+    }
+
+    .wavy {
+      text-decoration-style: wavy;
+    }
+
+    .blue:hover {
+      text-decoration-color: #2E9AFF;
+    }
+
+    .pink:hover {
+      text-decoration-color: #F498AD;
+    }
+
+    .green:hover {
+      text-decoration-color: #41E847;
+    }
+
+    .blue:hover, .pink:hover, .green:hover {
+      cursor: pointer;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 19px;
+      }
+
+      h1, p::before {
+        width: 230px;
+      }
+
+      p {
+        padding-left: 230px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>text-decoration</h1>
+    <p class="none">К диакритикам прибегают в случае, если букв алфавита не хватает для передачи звуков речи или же для смыслоразличения. </p>
+    <p class="underline dotted blue">Дополнение подчёркивается пунктирной линией. Это второстепенный член предложения.</p>
+    <p class="line-through double pink">Эпанортозис (рус. поправление) — фигура речи.</p>
+    <p class="overline wavy green">В большинстве языков тильда сверху соответствует знаку, произошедшему из букв N и V.</p>
+  </div>
+</body>
+</html>

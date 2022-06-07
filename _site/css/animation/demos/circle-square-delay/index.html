@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Круг и квадрат c задержкой — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+    }
+
+    .parent {
+      display: flex;
+      width: 500px;
+    }
+
+    .child-container {
+      display: flex;
+      width: 200px;
+      height: 200px;
+    }
+
+    .child-container + .child-container {
+      margin-left: 50px;
+    }
+
+    .child-container-one {
+      align-items: flex-start;
+      justify-content: end;
+    }
+
+    .child-container-two {
+      align-items: flex-end;
+    }
+
+    .child {
+      border-radius: 25px;
+    }
+
+    .child-one {
+      width: 50px;
+      height: 50px;
+      background-color: #F498AD;
+      animation-name: circle-to-square;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-timing-function: ease-in;
+    }
+
+    .child-two {
+      width: 200px;
+      height: 200px;
+      background-color: #2E9AFF;
+      animation-name: circle-to-square;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate-reverse;
+      animation-timing-function: ease-in;
+      animation-delay: -2.5s;
+    }
+
+    @keyframes circle-to-square {
+      from {
+        width: 50px;
+        height: 50px;
+        background-color: #F498AD;
+      }
+      50% {
+        width: 50px;
+        height: 200px;
+        background-color: #7F6EDB;
+      }
+      to {
+        width: 200px;
+        height: 200px;
+        background-color: #2E9AFF;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .parent {
+        flex-direction: column;
+        width: 200px;
+      }
+
+      .child-container + .child-container {
+        margin-left: initial;
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child-container child-container-one">
+      <div class="child child-one"></div>
+    </div>
+    <div class="child-container child-container-two">
+      <div class="child child-two"></div>
+    </div>
+  </div>
+</body>
+</html>

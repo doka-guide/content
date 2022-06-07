@@ -1,0 +1,31 @@
+<h2>Кратко</h2>
+<p>Undefined — это примитивный тип данных, состоящий из одного значения <code>undefined</code>. Оно используется, чтобы обозначить неизвестное или неопределённое значение.</p>
+<p>JavaScript автоматически устанавливает значение <code>undefined</code> объявленным переменным, которые не были проинициализированы значением.</p>
+<h2>Пример</h2>
+<p>JavaScript автоматически устанавливает значение <code>undefined</code> новой переменной:</p>
+<pre><code class="language-js">let name
+
+console.log(name)
+// undefined
+</code></pre>
+<p>Также JavaScript автоматически устанавливает значение <code>undefined</code> в аргумент функции, если значение не передали при вызове:</p>
+<pre><code class="language-js">function hello(name) {
+  console.log('Привет, ' + name)
+}
+
+hello('Витя')
+// Привет, Витя
+hello()
+// Привет, undefined
+</code></pre>
+<p>Вручную установленное <code>undefined</code>, чтобы обозначить неизвестное значение:</p>
+<pre><code class="language-js">const person = {
+  name: 'Пётр',
+  lastName: 'Романов',
+  age: undefined
+}
+</code></pre>
+<p>Но будьте аккуратны, когда устанавливаете <code>undefined</code> свойствам объектов. Если у объекта <code>person</code> удалить <code>age</code>, то при обращении к несуществующему свойству также вернётся <code>undefined</code>.</p>
+<h2>Как понять</h2>
+<p><code>undefined</code> обозначает, что значение по каким-то причинам ещё не установлено или неизвестно. В этом контексте его использует сам язык JavaScript.</p>
+<p>В языке существует похожий примитив <a href="/js/null-primitive/"><code>null</code></a>. Он обозначает, что значение отсутствует. <code>undefined</code> и <code>null</code> можно легко спутать, потому что это близкие понятия. Различие состоит в том, что <code>null</code> обозначает отсутствие значения, а <code>undefined</code> — что значение <em>неизвестно</em> или не задано.</p>

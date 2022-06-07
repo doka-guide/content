@@ -1,0 +1,131 @@
+<h2>Кратко</h2>
+<p>Позволяет загружать на страницу содержимое из внешнего файла.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p>Матёрые программисты советуют описывать CSS-стили в отдельных файлах: так их легче редактировать, сортировать и подключать к разным страницам сайта. Чтобы применить стили из внешнего файла на странице, используйте тег <code>&lt;link&gt;</code>.</p>
+<p>Однако внешним ресурсом может выступать не только файл со стилями, но и любой другой, или же ссылка на него.</p>
+<p>Рассмотрим два наиболее часто встречающихся случая:</p>
+<ol>
+<li>Изображение, которое будет отображено в качестве фавиконки на вашем сайте;</li>
+<li>Внешняя ссылка на шрифт, который применяется на сайте.</li>
+</ol>
+<p>Во всех описанных случаях <code>&lt;link&gt;</code> пишется внутри <a href="/html/head/"><code>&lt;head&gt;</code></a>.</p>
+<h2>Атрибуты</h2>
+<ul>
+<li>
+<p><code>href</code> — URL-ссылка на внешний файл. Ссылка может быть как полной или абсолютной <code>http://localhost/sitename/css/style.css</code>, так и неполной или относительной <code>/sitename/css/style.css</code>.</p>
+</li>
+<li>
+<p><code>rel</code> — говорит браузеру, какую роль играет ссылка внутри тега. Иными словами, этот атрибут выражает отношения между вашей страницей и файлом, на который ведёт ссылка. Самое часто встречающееся значение — <code>rel=&quot;stylesheet&quot;</code>, оно означает, что ссылка внутри <code>&lt;link&gt;</code> ведёт на внешний файл с CSS-стилями. А для добавления фавиконки используется <code>rel=&quot;icon&quot;</code>. Также <code>rel</code> помогает определить, какую фавиконку на каком устройстве загружать, например: <code>rel=&quot;apple-touch-icon-precomposed&quot;</code>.</p>
+</li>
+<li>
+<p><code>sizes</code> — устанавливает размер — ширину и высоту — фавиконки в пикселях, например <code>sizes=&quot;114x114&quot;</code>. А если написать <code>sizes=&quot;any&quot;</code>, то браузер сможет масштабировать иконку под любой размер. Так можно делать с иконками в векторном формате, например SVG.</p>
+</li>
+<li>
+<p><code>media</code> — в зависимости от того, на каком устройстве открывают вашу страницу, можно применять разные стили к тексту или показывать разные иконки. Атрибут <code>media</code> указывает устройство, на котором работает тот или иной стиль. Например, <code>&lt;link href=&quot;mobile.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen and (max-width: 600px)&quot;&gt;</code>.</p>
+<p>Также атрибут <code>media</code> может определять, какая тема используется в ОС. Благодаря этому можно произвести небольшие оптимизации. Например, если у нас есть два разделённых CSS-файла, каждый из которых содержит стили для одной из тем, то приоритет при загрузке будет отдаваться именно тому файлу, который относится к выбранной системной теме:</p>
+</li>
+</ul>
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/light.css&quot; media=&quot;(prefers-color-scheme: light)&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/dark.css&quot; media=&quot;(prefers-color-scheme: dark)&quot;&gt;
+</code></pre>
+<ul>
+<li><code>as</code> — позволяет указать тип загружаемого контента. Благодаря ему мы помогаем браузеру правильно расставлять приоритеты и планировать загрузку. <code>as</code> стоит применять, если указан атрибут <code>rel=&quot;preload&quot;</code> или <code>rel=&quot;prefetch&quot;</code>.</li>
+<li><code>crossorigin</code> — указывает должен ли ресурс загружаться с помощью запроса CORS. Данный атрибут имеет два доступных значения:
+<ul>
+<li><code>anonymous</code> —  Cross-origin запрос выполняется без отправки учётных данных;</li>
+<li><code>use-credentials</code> — Cross-origin запрос выполняется с отправкой учётных данных.</li>
+</ul>
+</li>
+</ul>
+<h2>Пример</h2>
+<p>Самый простой пример, как подключить файл со стилями:</p>
+<pre><code class="language-html">&lt;link href=&quot;style.css&quot; rel=&quot;stylesheet&quot;&gt;
+</code></pre>
+<p>Можно сделать разные версии сайта, чтобы пользователь мог выбрать удобную для него, например, версию для слабовидящих. Тогда для каждой версии можно подключить свой файл стилей:</p>
+<pre><code class="language-html">&lt;link href=&quot;default.css&quot; rel=&quot;stylesheet&quot; title=&quot;Default Style&quot;&gt;
+&lt;link href=&quot;accessibility.css&quot; rel=&quot;alternate stylesheet&quot; title=&quot;Accessibility&quot;&gt;
+</code></pre>
+<p>Вот как можно использовать разные фавиконки для разных экранов и устройств:</p>
+<pre><code class="language-html">&lt;!-- На iPad третьего поколения с Retina-дисплеем: --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;favicon144.png&quot;&gt;
+&lt;!-- iPhone с Retina-дисплеем: --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;favicon114.png&quot;&gt;
+&lt;!-- iPad первого и второго поколений: --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;favicon72.png&quot;&gt;
+&lt;!-- iPhone, iPod Touch и Android 2.1+ устройства без Retina дисплея: --&gt;
+&lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;favicon57.png&quot;&gt;
+&lt;!-- стандартная фавиконка --&gt;
+&lt;link rel=&quot;icon&quot; href=&quot;favicon32.png&quot;&gt;
+</code></pre>
+<p>Страница может выглядеть по-разному на разных устройствах. Для этого подключим разные стили, в зависимости от устройства и размера экрана:</p>
+<pre><code class="language-html">&lt;link href=&quot;print.css&quot; rel=&quot;stylesheet&quot; media=&quot;print&quot;&gt;
+&lt;link href=&quot;mobile.css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot;&gt;
+&lt;link href=&quot;desktop.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen and (min-width: 600px)&quot;&gt;
+&lt;link href=&quot;highres.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen and (min-resolution: 300dpi)&quot;&gt;
+</code></pre>
+<p>В этом примере мы подключаем внешний файл со стилями с помощью атрибута <code>rel=&quot;stylesheet&quot;</code> тега <code>&lt;link&gt;</code>, указываем RSS-документ текущего сайта (<code>&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;&gt;</code>) и устанавливаем иконку сайта — фавиконку — в адресной строке браузера (<code>&lt;link rel=&quot;shortcut icon&quot;&gt;</code>):</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;title&gt;Кулинарный блог&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;ie.css&quot;&gt;
+  &lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;Статьи с сайта cookbook.ru&quot; href=&quot;http://cookbook.ru/rss.xml&quot;&gt;
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;http://cookbook.ru/favicon.ico&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Оптимизация</h2>
+<p><code>&lt;link&gt;</code> — очень мощный и гибко настраиваемый тег. С его помощью можно многое оптимизировать, давайте посмотрим, как.</p>
+<h3>Условная загрузка ресурсов с медиавыражениями</h3>
+<p>Вы можете обозначить тип или условие внутри атрибута <code>media</code>. Этот ресурс будет загружен только в том случае, если прописанные условия соответствуют действительности.</p>
+<pre><code class="language-html">&lt;link href=&quot;print.css&quot; rel=&quot;stylesheet&quot; media=&quot;print&quot;&gt;
+&lt;link href=&quot;mobile.css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot;&gt;
+&lt;link href=&quot;desktop.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen and (min-width: 600px)&quot;&gt;
+&lt;link href=&quot;highres.css&quot; rel=&quot;stylesheet&quot; media=&quot;screen and (min-resolution: 300dpi)&quot;&gt;
+</code></pre>
+<h3>Предзагрузка ресурсов (<code>preload</code>)</h3>
+<p><code>&lt;link rel=&quot;preload&quot;&gt;</code> говорит браузеру как можно скорее загрузить и кэшировать ресурс (например, скрипт или таблицу стилей). Это полезно, когда ресурс понадобится через несколько секунд после загрузки страницы, и вы хотите ускорить процесс.</p>
+<p>Браузер ничего не делает с ресурсом после загрузки. Скрипты не выполняются, таблицы стилей не применяются. Ресурс просто кэшируется и немедленно предоставляется по запросу.</p>
+<pre><code class="language-html">&lt;link rel=&quot;preload&quot; href=&quot;style.css&quot; as=&quot;style&quot;&gt;
+</code></pre>
+<p>Используйте предзагрузку, когда ресурс понадобится в самое ближайшее время.</p>
+<h3>Предзагрузка и кэширование (<code>prefetch</code>)</h3>
+<p><code>&lt;link rel=&quot;prefetch&quot;&gt;</code> просит браузер загрузить и кэшировать ресурс в фоновом режиме. Загрузка происходит с низким приоритетом, поэтому не мешает более важным ресурсам. Это полезно, если ресурс понадобится на следующей странице, а вы хотите заранее его кэшировать.</p>
+<p>Здесь та же ситуация, что и у <code>rel=&quot;preload&quot;</code> — браузер ничего не делает с ресурсом после загрузки. Скрипты не выполняются, таблицы стилей не применяются. Ресурс просто кэшируется и немедленно предоставляется по запросу.</p>
+<pre><code class="language-html">&lt;link rel=&quot;prefetch&quot; href=&quot;style.css&quot; as=&quot;style&quot;&gt;
+</code></pre>
+<p>Вероятно, этот тег можно безопасно использовать в любом объёме. Браузеры обычно планируют <code>prefetch</code> с наименьшим приоритетом, так что он никому не мешает. Только всегда стоит учитывать тот факт, что расходуется трафик пользователя, который может стоить денег.</p>
+<h3>Предварительное подключение к домену (<code>preconnect</code>)</h3>
+<p><code>&lt;link rel=&quot;preconnect&quot;&gt;</code> просит браузер заранее подключиться к домену, когда вы хотите ускорить установку соединения в будущем.</p>
+<p>Браузер должен установить соединение, если извлекает какие-то ресурсы с нового стороннего домена. Например, если загружает шрифты Google Fonts или запрашивает ответ в формате JSON с сервера.</p>
+<p>Установка нового соединения обычно занимает несколько сотен миллисекунд. Она производится один раз, но всё равно отнимает время. Если вы заранее установили соединение, то сэкономите время и быстрее загрузите ресурсы с этого домена.</p>
+<pre><code class="language-html">&lt;link rel= &quot;preconnect&quot; href=&quot;https://api.my-app.com&quot;&gt;
+</code></pre>
+<p>Используйте этот тег, чтобы немного ускорить загрузку стороннего скрипта или стилей за счёт предварительной установки соединения. Но не забывайте о том, что установка и поддержание соединения — дорогостоящая операция как для клиента, так и для сервера. Поэтому используйте <code>preconnect</code> максимум для 4-6 доменов.</p>
+<h3>Предварительное разрешение записи DNS (<code>dns-prefetch</code>)</h3>
+<p><code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code> просит браузер заранее выполнить резолвинг DNS для домена, если вы скоро будете подключаться к нему и хотите ускорить начальное соединение.</p>
+<p>Браузер должен определить его IP-адрес, если будет извлекать какие-то ресурсы оттуда. Например, загружать React из CDN.</p>
+<p>Для каждого нового домена разрешение записи DNS обычно занимает около 20−120 мс. Это влияет только на загрузку первого ресурса с данного домена. Если осуществить разрешение DNS заранее, то мы сэкономим время и загрузим ресурс быстрее.</p>
+<pre><code class="language-html">&lt;link rel=&quot;dns-prefetch&quot; href=&quot;https://api.my-app.com&quot;&gt;
+</code></pre>
+<p>Обратите внимание на схожие характеристики у <code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code> и <code>&lt;link rel=&quot;preconnect&quot;&gt;</code>.</p>
+<p>Использовать их вместе для одного домена обычно не имеет смысла, так как <code>&lt;link rel=&quot;preconnect&quot;&gt;</code> уже включает в себя <code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code> и многое другое. Это может быть оправданным в двух случаях:</p>
+<ol>
+<li>Вы планируете поддерживать старые браузеры: используйте <code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code> в качестве запасного варианта для <code>&lt;link rel=&quot;preconnect&quot;&gt;</code>.</li>
+<li>Вы планируете ускорить подключение более чем к 4−6 доменам: тег <code>&lt;link rel=&quot;preconnect&quot;&gt;</code> не рекомендуется использовать более чем с 4−6 доменами. <code>&lt;link rel=&quot;dns-prefetch&quot;&gt;</code> потребляет меньше ресурсов, поэтому в случае необходимости используйте его.</li>
+</ol>
+<h3>Предзагрузка и пререндер страницы (<code>prerender</code>)</h3>
+<p><code>&lt;link rel=&quot;prerender&quot;&gt;</code> просит браузер загрузить URL-адрес и отобразить его на невидимой вкладке.</p>
+<p>Когда пользователь нажимает на ссылку, страница должна отобразиться немедленно. Это полезно, если вы уверены, что пользователь посетит определённую страницу, и хотите ускорить её отображение.</p>
+<pre><code class="language-html">&lt;link rel=&quot;prerender&quot; href=&quot;https://my-app.com/pricing&quot;&gt;
+</code></pre>
+<p>Но не злоупотребляйте такой возможностью! Предварительный рендеринг чрезвычайно дорого обходится с точки зрения трафика и памяти. Поэтому не используйте <code>&lt;link rel=&quot;prerender&quot;&gt;</code> более чем для одной страницы.</p>

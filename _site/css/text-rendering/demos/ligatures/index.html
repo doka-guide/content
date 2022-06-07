@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между значениями — text-rendering — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    h1 code {
+      line-height: 1;
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    h1, .description {
+      text-transform: lowercase;
+      text-align: right;
+      width: 260px;
+    }
+
+    .description {
+      line-height: 1.2;
+      margin-right: 50px;
+    }
+
+    .render-option {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .render-option {
+      margin-top: 30px;
+    }
+
+    .example {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 60px;
+      line-height: 0.9;
+    }
+
+    .ligatures {
+      color: #F498AD;
+      text-rendering: optimizeLegibility;
+    }
+
+    .no-ligatures {
+      color: #2E9AFF;
+      text-rendering: optimizeSpeed;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .description {
+        width: 100%;
+      }
+
+      .description {
+        margin-right: auto;
+        margin-bottom: 10px;
+      }
+
+      .render-option {
+        flex-direction: column;
+        margin-top: 50px;
+      }
+
+      .example {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>text-rendering</code></h1>
+    <div class="render-options">
+      <div class="render-option">
+        <p class="description"><code>optimizeLegibility</code></p>
+        <p class="example ligatures">fine flower</p>
+      </div>
+      <div class="render-option">
+        <p class="description"><code>optimizeSpeed</code></p>
+        <p class="example no-ligatures">fine flower</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

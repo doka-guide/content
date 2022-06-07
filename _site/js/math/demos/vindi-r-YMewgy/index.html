@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Math в работе - parseInt, parseFloat — Дока</title>
+</head>
+<body>
+Введите в поле ниже число и нажмите кнопку
+<br>
+<input type="text"> <button onclick="parseInput()">Распознать</button>
+<br>
+<div id="result"></div>
+  <script>
+    function parseInput(){
+      let val = document.querySelector('input').value;
+      let resultF = parseFloat(val);
+      let resultI = parseInt(val, 10);
+      if (isNaN(resultF)) {
+        resultF = 'parseFloat не удался'
+      }
+      if (isNaN(resultI)) {
+        resultI = 'parseInt не удался'
+      }
+      document.querySelector('#result').innerText = `Результат parseFloat: ${resultF}\nРезультат parseInt: ${resultI}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Math в работе - функции — Дока</title>
+</head>
+<body>
+Функции для графика расположены в fx1 и fx2
+<br>
+<canvas id="canvas" width="500" height="200"></canvas>
+  <script>
+    function fx1(x) {return Math.sin(x);  }
+    function fx2(x) {return Math.cos(3*x);}
+
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (null==canvas || !canvas.getContext) return;
+      var axes={}, ctx=canvas.getContext("2d");
+        ctx.clearRect(0,0,canvas.width,canvas.height)
+
+      axes.x0 = .5 + .5*canvas.width;
+      axes.y0 = .5 + .5*canvas.height;
+      axes.scale = 50;
+      axes.doNegativeX = true;
+
+      funGraph(ctx,axes,fx1,"red",1);
+      funGraph(ctx,axes,fx2,"blue",2);
+    }
+
+    function funGraph (ctx,axes,func,color,thick) {
+      var xx, yy, x0=axes.x0, y0=axes.y0, scale=axes.scale;
+      var iMax = ctx.canvas.width-x0;
+      var iMin = axes.doNegativeX ? -x0 : 0;
+      ctx.beginPath();
+      ctx.lineWidth = thick;
+      ctx.strokeStyle = color;
+
+      for (var i=iMin;i<=iMax;i++) {
+      yy = scale*func(i/scale);
+      if (i==iMin) ctx.moveTo(x0+i,y0-yy);
+      else         ctx.lineTo(x0+i,y0-yy);
+      }
+      ctx.stroke();
+    }
+
+    draw();
+  </script>
+</body>
+</html>

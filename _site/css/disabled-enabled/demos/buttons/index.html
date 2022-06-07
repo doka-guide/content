@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация состояний кнопок — :disabled и :enabled — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #ffd829;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    button {
+      margin-bottom: 1em;
+    }
+
+    button:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .additional-btn {
+      padding: 2rem 3rem;
+      border: 1px solid currentColor;
+      font-family: inherit;
+      font-size: 1.6rem;
+      color: #FF6650;
+      text-decoration: none;
+      background-color: transparent;
+      transition: border 0.3s, color 0.3s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .additional-btn:active,
+    .additional-btn:hover {
+      color: #FF5050;
+      transition: none;
+    }
+
+    .additional-btn:disabled {
+      cursor: default;
+      color: #A44234;
+    }
+  </style>
+</head>
+<body>
+  <button class="additional-btn">Активная кнопка</button>
+  <button class="additional-btn" disabled>Выключенная кнопка</button>
+</body>
+</html>

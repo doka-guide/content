@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений — column-count — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .buttons-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      height: 30px;
+      padding: 0 12px;
+      margin-right: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+      background: none;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    button:hover {
+      background: white;
+      color: #18191c;
+    }
+
+    .active-button,
+    .active-button:hover {
+      background: #ffd829;
+      border-color: #ffd829;
+      color: #18191c;
+    }
+
+    .text-wrapper {
+      column-count: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="buttons-wrapper">
+    <button data-column-count="1" class="active-button">1 колонка</button>
+    <button data-column-count="2">2 колонки</button>
+    <button data-column-count="3">3 колонки</button>
+    <button data-column-count="auto">auto</button>
+  </div>
+
+  <div class="text-wrapper">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+  </div>
+
+  <script>
+    const wrapper = document.querySelector('.text-wrapper')
+    const buttons = document.querySelectorAll('button')
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const columnCount = button.getAttribute('data-column-count')
+        wrapper.style.columnCount = columnCount
+        wrapper.style.columnWidth = columnCount === 'auto' ? '160px' : 'auto'
+        buttons.forEach(btn => btn.classList.remove('active-button'))
+        button.classList.add('active-button')
+      })
+    })
+  </script>
+</body>
+</html>

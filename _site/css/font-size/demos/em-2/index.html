@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Размер шрифта в em — font-size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* Задаём размер шрифта для всей страницы. При стандартных настройках браузера 1em будет равен 10px (62.5% от 16) */
+    html {
+      font-size: 62.5%;
+    }
+
+    /* Задаём для <span> размер шрифта в единице em, зависящей от родительского элемента */
+    span {
+      font-size: 1.6em;
+    }
+
+    /* Оформление */
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    span span {
+      background-color: #1a5ad7;
+    }
+  </style>
+</head>
+<body>
+  <span>Здесь основной текст такой же, как в стандартных настройках браузера, <span>а эта фраза в 1.6 раз больше, чем основной текст</span>.</span>
+</body>
+</html>

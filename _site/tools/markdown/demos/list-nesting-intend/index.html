@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Отступ вложенных списков — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background: #18191c;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      line-height: 1.4;
+    }
+
+    .wrapper {
+      display: flex;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+
+    code {
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 20px 50px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1.125em;
+    }
+
+    .text {
+      width: 220px;
+      margin-right: 50px;
+    }
+
+    .code, .checkbox-container, .range {
+      width: 270px;
+    }
+
+    .checkbox-container, .range {
+      margin: 20px 50px 0 auto;
+    }
+
+    .text .line {
+      width: 100%;
+    }
+
+    .line {
+      display: flex;
+    }
+
+    .line + .line {
+      margin-top: 2px;
+    }
+
+    .line span + span {
+      margin-left: 2px;
+    }
+
+    .parent-marker,
+    .child-intend,
+    .child-max-intend,
+    .item {
+      border-radius: 3px;
+      transition: 0.1s ease-out background-color;
+      white-space: pre;
+    }
+
+    .highlight .parent-marker {
+      background-color: #663613;
+    }
+
+    .highlight .child-intend {
+      background-color: #41E847;
+    }
+
+    .highlight .child-max-intend {
+      background-color: #286C2D;
+    }
+
+    #marker-length-text {
+      color: #FF8630;
+    }
+
+    #intend-length-text {
+      color: #41E847;
+    }
+
+    .checkbox-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      opacity: 0;
+    }
+
+    .checkbox,
+    .checkbox-title {
+      cursor: pointer;
+    }
+
+    .checkbox + .checkbox-title::before {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 0;
+      width: 24px;
+      height: 24px;
+      box-sizing: border-box;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      content: "";
+    }
+
+    .checkbox:focus-visible + .checkbox-title::before {
+      border-color: #fff;
+    }
+
+    .checkbox + .checkbox-title::after {
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 5px;
+      width: 14px;
+      height: 14px;
+      background-color: transparent;
+      border-radius: 3px;
+      content: "";
+      transition: 0.1s ease-out background-color;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      background-color: #41E847;
+    }
+
+    .checkbox-container:hover .checkbox:checked + .checkbox-title::after {
+      background-color: #41E847;
+    }
+
+    .range {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+      outline: none;
+    }
+
+    .range::-webkit-slider-runnable-track {
+      height: 7px;
+      background-color: #286C2D;
+    }
+
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 17px;
+      height: 17px;
+      border-width: 0;
+      border-radius: 50%;
+      margin-top: -5px;
+      background-color: #41E847;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .range::-moz-range-track {
+      height: 7px;
+      background-color: #286C2D;
+    }
+
+
+    .range::-moz-range-thumb {
+      -webkit-appearance: none;
+      width: 17px;
+      height: 17px;
+      border-width: 0;
+      border-radius: 50%;
+      margin-top: -5px;
+      background-color: #41E847;
+      outline: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      code {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .text {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-container, .range {
+        margin-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <code id="code-block" class="highlight">
+      <div class="text">
+        <div class="line" id="marker-length-text"></div>
+        <div class="line" id="intend-length-text"></div>
+      </div>
+      <div class="code">
+        <div class="line" id="parent-list"></div>
+        <div class="line" id="child-list-1"></div>
+        <div class="line" id="child-list-2"></div>
+      </div>
+    </code>
+    <label class="checkbox-container">
+      <input class="checkbox" id="highlight-checkbox" type="checkbox" checked>
+      <span class="checkbox-title">подсветить отступы</span>
+    </label>
+    <input class="range" id="marker-length-range" type="range" min="1" max="10" value="8">
+  </div>
+  <script>
+    const markerLengthText = document.getElementById('marker-length-text')
+    const intendLengthText = document.getElementById('intend-length-text')
+    const codeBlock = document.getElementById('code-block')
+    const parentList = document.getElementById('parent-list')
+    const childList1 = document.getElementById('child-list-1')
+    const childList2 = document.getElementById('child-list-2')
+    const range = document.getElementById('marker-length-range')
+    const checkbox = document.getElementById('highlight-checkbox')
+
+    function wrapChars(string, className) {
+      let chars = Array.from(string)
+
+      chars = chars.map(
+        (char) => `<span class='${className}'>${char}</span>`
+      )
+
+      return chars.join('')
+    }
+
+    function renderList(markerLength) {
+      markerLength = parseInt(markerLength)
+
+      let parentMarker
+
+      if (markerLength > 1) {
+        parentMarker = '123456789'.substring(0, markerLength - 1) + '.'
+      } else {
+        parentMarker = '+'
+      }
+
+      parentMarker = wrapChars(parentMarker, 'parent-marker')
+
+      let childIntend
+      childIntend = wrapChars(' '.repeat(markerLength + 1), 'child-intend')
+      childIntend += wrapChars(' '.repeat(3), 'child-max-intend')
+
+      parentList.innerHTML = parentMarker + wrapChars(' Родитель', 'item')
+      childList1.innerHTML = childIntend + wrapChars('1. Сын', 'item')
+      childList2.innerHTML = childIntend + wrapChars('2. Дочь', 'item')
+      markerLengthText.innerText = `Длина маркера: ${markerLength}`
+      intendLengthText.innerText = `От ${markerLength + 1} до ${markerLength + 4} пробелов`
+    }
+
+    checkbox.addEventListener('input', () =>
+      codeBlock.classList.toggle('highlight')
+    )
+
+    range.addEventListener('input', () => renderList(range.value))
+    renderList(range.value)
+  </script>
+</body>
+</html>

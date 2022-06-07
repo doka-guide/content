@@ -1,0 +1,27 @@
+<p>🛠 К сожалению браузер не предоставляет никаких средств для нормальной стилизации элемента <code>&lt;option&gt;</code>, и это доставляет очень много головной боли фронтенд-разработчикам :( Стиль элементов <code>&lt;option&gt;</code> можно поменять, только если тегу <a href="/html/select/"><code>&lt;select&gt;</code></a> задан атрибут <code>multiple</code>. Тогда список целиком становится частью потока страницы, и мы имеем возможность применять стили к его элементам:</p>
+<pre><code class="language-html">&lt;select name=&quot;city&quot; id=&quot;city-select&quot; multiple&gt;
+  &lt;option value=&quot;petersburg&quot;&gt;Санкт-Петербург&lt;/option&gt;
+  &lt;option value=&quot;moscow&quot;&gt;Москва&lt;/option&gt;
+  &lt;option value=&quot;kazan&quot;&gt;Казань&lt;/option&gt;
+  &lt;option value=&quot;samara&quot;&gt;Самара&lt;/option&gt;
+  &lt;option value=&quot;perm&quot;&gt;Пермь&lt;/option&gt;
+  &lt;option value=&quot;novosibirsk&quot;&gt;Новосибирск&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<pre><code class="language-css">select {
+  counter-reset: cnt;
+}
+
+option:nth-child(2n) {
+  background-color: #282a2e;
+}
+
+option {
+  counter-increment: cnt;
+}
+
+option::before {
+  content: counter(cnt) &quot;. &quot;;
+}
+</code></pre>
+<iframe title="Стилизация option" src="../demos/option-styles/" height="220"></iframe>

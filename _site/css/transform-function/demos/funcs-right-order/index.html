@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Правильный порядок функций — transforms — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #18191c;
+    }
+
+    .elem {
+      position: absolute;
+      left: calc(50% - 150px);
+      top: calc(50% - 150px);
+      width: 200px;
+      height: 200px;
+    }
+
+    .elem1 {
+      border: 2px solid #2E9AFF;
+      background-color: rgb(46 154 255 / 30%);
+      animation: transform1 5s linear infinite;
+    }
+
+    .elem2 {
+      border: 2px solid #F498AD;
+      background-color: rgb(244 152 173 / 30%);
+      animation: transform2 5s linear infinite;
+    }
+
+    @keyframes transform1 {
+      0% {
+        rotate: 0deg;
+        translate: 0 0;
+      }
+      20% {
+        rotate: 15deg;
+        translate: 0 0;
+      }
+      40% {
+        rotate: 15deg;
+        translate: 100px 0;
+      }
+      60% {
+        rotate: 15deg;
+        translate: 100px 30px;
+      }
+      100% {
+        rotate: 15deg;
+        translate: 100px 30px;
+      }
+    }
+
+    @keyframes transform2 {
+      0% {
+        translate: 0 0;
+        rotate: 0deg;
+      }
+      20% {
+        translate: 100px 0;
+        rotate: 0deg;
+      }
+      40% {
+        translate: 100px 30px;
+        rotate: 0deg;
+      }
+      60% {
+        translate: 100px 30px;
+        rotate: 15deg;
+      }
+      100% {
+        translate: 100px 30px;
+        rotate: 15deg;
+      }
+}
+  </style>
+</head>
+<body>
+<div class="elem elem1"></div>
+<div class="elem elem2"></div>
+</body>
+</html>

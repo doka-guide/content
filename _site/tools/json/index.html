@@ -1,0 +1,101 @@
+<h2>Кратко</h2>
+<p>JSON — самый популярный формат обмена данными между приложениями. Этот формат очень похож на объекты JavaScript. Объекты легко трансформируются в JSON для отправки на сервер.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-json">{
+  &quot;brand&quot;: &quot;Apple&quot;,
+  &quot;model&quot;: &quot;iPhone 11 Pro&quot;,
+  &quot;isAvailable&quot;: true,
+  &quot;display&quot;: 5.8,
+  &quot;memories&quot;: [64, 256, 512],
+  &quot;features&quot;: {
+    &quot;tripleCamera&quot;: true,
+    &quot;faceId&quot;: true,
+    &quot;touchId&quot;: false,
+    &quot;eSIM&quot;: true
+  }
+}
+</code></pre>
+<p>JSON состоит из пар ключ-значение. Пары разделяются между собой запятыми — <code>,</code>, а ключ отделяется от значения через двоеточие — <code>:</code>. Ключом может быть <strong>только</strong> строка, обёрнутая в двойные кавычки. А вот значением — почти всё что угодно:</p>
+<ul>
+<li>Строка в двойных кавычках — <code>&quot;I love JSON!&quot;</code></li>
+<li>Число — <code>21</code></li>
+<li>Логическое значение — <code>true</code></li>
+<li>Массив — <code>[18, true, &quot;lost&quot;, [4, 8, 15, 16, 23, 42]]</code></li>
+<li>Объект — <code>{&quot;isValid&quot;: true, &quot;isPayed&quot;: false}</code></li>
+</ul>
+<p>JSON основан на JavaScript, но является независимой от языка спецификацией для данных и может использоваться почти с любым языком программирования, поэтому он <strong>пропускает</strong> некоторые специфические значения объектов JavaScript:</p>
+<ul>
+<li>Методы объектов (функции) — <code>{greetings() {alert(&quot;Hello World!&quot;)}}</code></li>
+<li>Ключи со значением <code>undefined</code> — <code>{&quot;value&quot;: undefined}</code></li>
+</ul>
+<p>Если нужно сохранить JSON в файл, то используют расширение <code>.json</code></p>
+<h2>Как понять</h2>
+<p>JSON используется для того чтобы получить данные от сервера. Типичная схема работы:</p>
+<ol>
+<li>Отправляем запрос на сервер</li>
+<li>Ждём ответ</li>
+<li>Получаем JSON с набором данных</li>
+<li>Превращаем JSON в объект JavaScript</li>
+<li>Используем данные</li>
+</ol>
+<p>Пример:</p>
+<iframe title="Название — JSON — Дока" src="demos/Stegur-XWddLpK/" height="210"></iframe>
+<h3>Преобразование в JSON</h3>
+<p>Для того что бы превратить данные в JSON-код, используйте метод <code>JSON.stringify()</code>. Первым аргументом метод принимает значение, которое нужно преобразовать.</p>
+<p>Преобразуем JavaScript-объект в JSON:</p>
+<pre><code class="language-js">let hero = {
+  nickname: &quot;BestHealerEver&quot;,
+  level: 7,
+  age: 141,
+  race: &quot;Gnome&quot;,
+  isImmortal: false,
+  things: [&quot;sword&quot;, &quot;helmet&quot;, &quot;belt&quot;],
+  money: {
+    gold: 6387,
+    silver: 1264,
+    bronze: 931,
+    diamonds: 2,
+  },
+}
+
+console.log(typeof hero) // object
+console.log(typeof JSON.stringify(hero)) // string
+console.log(JSON.stringify(hero))
+</code></pre>
+<p>Результатом конвертации будет строка:</p>
+<pre><code class="language-json">{
+  &quot;nickname&quot;: &quot;BestHealerEver&quot;,
+  &quot;level&quot;: 7,
+  &quot;age&quot;: 141,
+  &quot;race&quot;: &quot;Gnome&quot;,
+  &quot;things&quot;: [&quot;sword&quot;, &quot;helmet&quot;, &quot;belt&quot;],
+  &quot;isImmortal&quot;: false,
+  &quot;money&quot;: { &quot;gold&quot;: 6387, &quot;silver&quot;: 1264, &quot;bronze&quot;: 931, &quot;diamonds&quot;: 2 }
+}
+</code></pre>
+<h3>Пример преобразования объекта JavaScript в формат JSON</h3>
+<iframe title="Преобразование в JSON — JSON — Дока" src="demos/transform-json/" height="350" loading="lazy"></iframe>
+<h3>Преобразование из JSON</h3>
+<p>Преобразовать строку с JSON в объект JavaScript можно с помощью метода <code>JSON.parse()</code>. Он принимает JSON-строку в качестве аргумента.</p>
+<p>Попробуем преобразовать JSON:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Luke Skywalker&quot;,
+  &quot;height&quot;: &quot;172&quot;,
+  &quot;mass&quot;: &quot;77&quot;,
+  &quot;hair_color&quot;: &quot;blond&quot;,
+  &quot;skin_color&quot;: &quot;fair&quot;,
+  &quot;eye_color&quot;: &quot;blue&quot;,
+  &quot;birth_year&quot;: &quot;19BBY&quot;,
+  &quot;gender&quot;: &quot;male&quot;
+}
+</code></pre>
+<p>С помощью <code>JSON.parse()</code> мы получим стандартный объект, с которым можно взаимодействовать:</p>
+<pre><code class="language-js">let json =
+  '{&quot;name&quot;:&quot;Luke Skywalker&quot;,&quot;height&quot;:&quot;172&quot;,&quot;mass&quot;:&quot;77&quot;,&quot;hair_color&quot;:&quot;blond&quot;,&quot;skin_color&quot;:&quot;fair&quot;,&quot;eye_color&quot;:&quot;blue&quot;,&quot;birth_year&quot;:&quot;19BBY&quot;,&quot;gender&quot;:&quot;male&quot;}'
+let jedi = JSON.parse(json)
+
+console.log(jedi.name) // Luke Skywalker
+console.log(jedi.gender) // male
+console.log(jedi.birth_year) // 19BBY
+</code></pre>
+<p>В случае, если строка не является валидным JSON-кодом, метод <code>JSON.parse()</code> выбросит ошибку <strong>SyntaxError.</strong></p>

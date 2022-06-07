@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - for — Дока</title>
+  <style>
+    div{
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+Вывод с 0 до 10
+<div id="countOne"></div>
+Вывод с 10 до 0
+<div id="countTwo"></div>
+Вывод с 30 до 40
+<div id="countThree"></div>
+  <script>
+    let countOne = document.querySelector('#countOne');
+    let countTwo = document.querySelector('#countTwo');
+    let countThree = document.querySelector('#countThree');
+
+    let strOne = '';
+    let strTwo = '';
+    let strThree = '';
+
+    for(let i=0;i<=10;i++){
+      strOne += i;
+    }
+    countOne.innerText = strOne;
+
+    for(let i=10;i>=0;i--){
+      strTwo += i;
+    }
+    countTwo.innerText = strTwo;
+
+    for(let i=30;i<=40;i++){
+      strThree += i;
+    }
+    countThree.innerText = strThree;
+  </script>
+</body>
+</html>

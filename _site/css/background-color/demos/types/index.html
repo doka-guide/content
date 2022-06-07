@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Фоновый цвет у элементов разных типов — background-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+    }
+
+    .parent {
+      line-height: 1.5;
+    }
+
+    .block {
+      background-color: pink;
+      margin-bottom: 15px;
+    }
+
+    .inline {
+      background-color: rgb(255, 216, 41);
+    }
+
+    .inline-block {
+      display: inline-block;
+      margin-top: 15px;
+      background-color: #49a16c;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <p class="block">Розовый — цвет, образующийся при смешивании красного и белого. Несмотря на широкое употребление слова, точный оттенок установить трудно; например, в английском языке используется два слова для существенно различных оттенков розового: Rose (более красный оттенок) и Pink («маргаритковый»).</p>
+
+    <span class="inline">Жёлтый — самый лёгкий и яркий цвет в спектре. Психологи называют жёлтый тонизирующим и «ободряющим» цветом, который стимулирующе воздействует на умственную жизнь человека. В Российской империи до 1917 года в этот цвет выкрашивали государственные здания. «Жёлтым домом» в целом называли психиатрические больницы (например, «Горе от ума» А. С. Грибоедова, Явление 16: «Загорецкий: „Схватили, в жёлтый дом, и на цепь посадили“».</span>
+
+    <div class="inline-block">Зелёный цвет широко распространён в живой природе. Большинство растений имеют зелёный цвет, так как содержат пигмент фотосинтеза — хлорофилл (хлорофилл поглощает большую долю красных лучей из солнечного спектра, оставляя для восприятия отражённый и отфильтрованный зелёный цвет).</div>
+  </div>
+</body>
+</html>

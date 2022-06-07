@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные элементы формы — appearance — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      justify-content: center;
+    }
+
+    form {
+      width: 200px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .custom input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .custom input[type="checkbox"] {
+        border: 2px solid #49a16c;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+
+    .custom input[type="checkbox"]:checked {
+        background: #49a16c;
+        background-clip: content-box;
+    }
+
+    .custom input[type="radio"] {
+        border: 2px solid #49a16c;
+        border-radius: 10px;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        padding: 4px;
+    }
+
+    .custom input[type="radio"]:checked {
+        background: #49a16c;
+        background-clip: content-box;
+    }
+  </style>
+</head>
+<body>
+  <form action="">
+    <p>Форма со стилями по умолчанию</p>
+    <h3>Чекбокс:</h3>
+    <p>
+      <input type="checkbox" id="check1">
+      <label for="check1">Выбери меня</label>
+    </p>
+    <h3>Радио-кнопки:</h3>
+    <p>
+      <input type="radio" name="radio" id="radio11">
+      <label for="radio11">Option A</label>
+    </p>
+    <p>
+      <input type="radio" name="radio" id="radio12">
+      <label for="radio12">Option B</label>
+    </p>
+  </form>
+  <form action="" class="custom">
+    <p>Форма с нестандартными стилями</p>
+    <h3>Чекбокс:</h3>
+    <p>
+      <input type="checkbox" id="check2">
+      <label for="check2">Выбери меня</label>
+    </p>
+    <h3>Радио-кнопки:</h3>
+    <p>
+      <input type="radio" name="radio2" id="radio21">
+      <label for="radio21">Option A</label>
+    </p>
+    <p>
+      <input type="radio" name="radio2" id="radio22">
+      <label for="radio22">Option B</label>
+    </p>
+  </form>
+</body>
+</html>

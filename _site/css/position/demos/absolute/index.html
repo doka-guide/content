@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Абсолютное позиционирование — position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .option + .option {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 240px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .parent {
+      position: relative;
+      display: flex;
+      width: 440px;
+      padding: 20px;
+      background-color: #282A2E;
+    }
+
+    .child {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      border: 2px solid #2E9AFF;
+      background-color: rgb(46 154 255 / 30%);
+      font-size: 40px;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    .child:nth-of-type(2) {
+      border: 2px solid #F498AD;
+      background-color: rgb(244 152 173 / 30%);
+    }
+
+    .positioned {
+      position: absolute;
+      left: 90px;
+      top: 70px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option {
+        display: block;
+      }
+
+      .option-title {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .parent {
+        width: 100%;
+      }
+
+      .child {
+        width: 80px;
+        height: 80px;
+        font-size: 35px;
+        line-height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="option">
+    <p class="option-title">Блоки находятся<br>в нормальном потоке</p>
+    <div class="parent">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+    </div>
+  </div>
+  <div class="option">
+  <p class="option-title">Один из блоков позиционирован абсолютно</p>
+    <div class="parent">
+      <div class="child">1</div>
+      <div class="child positioned">2</div>
+      <div class="child">3</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<h2>Мониторинг сети</h2>
+<h3>Обзор сетевых устройств</h3>
+<p>Если компьютер имеет один или несколько подключённых к сети сетевых интерфейсов, то в первую очередь необходимо получить их список. Это можно сделать через графический интерфейс или с помощью терминала:</p>
+<ul>
+<li><code>ifconfig</code> — для Unix-подобных операционных систем;</li>
+<li><code>ipconfig /all</code> — для операционной системы Windows.</li>
+</ul>
+<p>В списке сетевых интерфейсов можно будет посмотреть и IP-адреса, к которым они будут привязаны.</p>
+<p>С помощью консольной утилиты <code>ping</code> можно получить информацию о том, присутствует ли сетевое устройство в сети. Например, проверить доступность известного прокси-сервера от Google можно так:</p>
+<pre><code class="language-bash">ping 8.8.8.8
+</code></pre>
+<h3>Мониторинг соединений</h3>
+<p>Существует масса утилит для мониторинга соединений, которые собирают и отображают информацию об открытых соединениях, портах и приложениях, использующих эти соединения. Среди прочих утилита <code>netstat</code> присутствует практически в любой операционной системе. Например, эта утилита есть в Windows, macOS и Linux. В Linux она не всегда предустановлена, но поставляется в составе пакета <a href="https://wiki.linuxfoundation.org/networking/net-tools">net-tools</a>.</p>
+<p>Чтобы посмотреть все активные соединения, выполните в терминале команду:</p>
+<pre><code class="language-bash">netstat
+</code></pre>
+<p>Для фильтрации списка соединений необходимо использовать ключи. Например, для анализа активных сетевых соединений, использующих определённые протоколы, понадобится ключ <code>-p</code>. Так, для анализа соединений, работающих по протоколу TCP, надо выполнить команду:</p>
+<pre><code class="language-bash">netstat -p tcp
+</code></pre>
+<p>Если воспользоваться ключом <code>-n</code>, то можно вывести все IP-адреса с указанием портов для каждого приложения на компьютере, которое использует сетевой интерфейс:</p>
+<pre><code class="language-bash">netstat -n
+</code></pre>
+<p>Для анализа безопасности компьютера важно знать, какие существуют входящие соединения. Посмотреть их можно с помощью ключа <code>-L</code>:</p>
+<pre><code class="language-bash">netstat -L
+</code></pre>
+<p>Если воспользоваться ключом <code>-s</code>, можно вывести статистику по протоколам:</p>
+<pre><code class="language-bash">netstat -s
+</code></pre>
+<p>Ключ <code>-i</code> позволяет посмотреть доступные сетевые интерфейсы:</p>
+<pre><code class="language-bash">netstat -i
+</code></pre>
+<p>Перед использованием утилиты изучите руководство с помощью команды:</p>
+<pre><code class="language-bash">man netstat
+</code></pre>
+<p>Использование команды <code>man</code> подробно описано в статье «<a href="/tools/cli/">Интерфейс командной строки</a>».</p>
+<p>Операционная система Linux постоянно обновляется, обновляются и утилиты. Например, вместо <code>netstat</code> лучше использовать <code>ss</code>, а вместо <code>ifconfig</code> — утилиту <code>ip</code>.</p>
+<details>
+  <summary>Подробности</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Старые команды</th>
+<th style="text-align:left">Новые команды</th>
+<th style="text-align:left">Применение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ifconfig -a</code></td>
+<td style="text-align:left"><code>ip a</code></td>
+<td style="text-align:left">Вывод списка всех IP-адресов всех сетевых интерфейсов</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ifconfig enp6s0 down</code></td>
+<td style="text-align:left"><code>ip link set enp6s0 down</code></td>
+<td style="text-align:left">Выключить сетевой интерфейс</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ifconfig enp6s0 up</code></td>
+<td style="text-align:left"><code>ip link set enp6s0 up</code></td>
+<td style="text-align:left">Включить сетевой интерфейс</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>netstat</code></td>
+<td style="text-align:left"><code>ss</code></td>
+<td style="text-align:left">Вывод всех активных соединений</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>netstat &lt;keys&gt;</code></td>
+<td style="text-align:left"><code>ss &lt;keys&gt;</code></td>
+<td style="text-align:left">Ключи у команд практически совпадают, подробнее: <code>man ss</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<h2>Настройка сетевых служб</h2>
+<h3>Управление брандмауэром, фильтрация пакетов</h3>
+<p>Для обеспечения безопасности в сети используют брандмауэр. Это программа, которая позволяет фильтровать пакеты, проходящие через определённый порт, с учётом IP-адреса. В Unix-подобных системах используются утилиты типа <code>iptables</code> или <code>nftables</code> для анализа и перенаправления трафика. Поскольку Unix-подобные системы являются сетевыми, сама фильтрация пакетов осуществляется на уровне ядра системы, а утилиты позволяют лишь поработать с настройкой фильтрации. Правила фильтрации, описанные в настройках, применяются по цепочке. Существуют правила для входящих, исходящих и транзитных пакетов.</p>
+<p>Например, рассмотрим запрет приёма пакетов, которые приходят по протоколу <a href="https://ru.wikipedia.org/wiki/ICMP">ICMP</a>. Чтобы запретить утилите <code>ping</code> обнаруживать компьютер в сети, надо выполнить команду:</p>
+<pre><code class="language-bash">iptables -A INPUT -p icmp --icmp-type echo-request - j REJECT
+</code></pre>
+<p>Ключ <code>-A</code> означает, что необходимо добавить правило в конец цепочки правил <code>INPUT</code>, которые обрабатывают входящие пакеты. По ключу <code>-p</code> можно задать протокол, у нас это — ICMP. <code>--icmp-type</code> — специальный ключ для этого протокола, который определяет тип пакетов для этого протокола. <code>-j</code> определяет действие, у нас это — отклонить. То есть входящие пакеты по протоколу ICMP типа <code>echo-request</code> необходимо отклонить.</p>
+<p>Чтобы посмотреть все правила, выполняем команду:</p>
+<pre><code class="language-bash">iptables -L
+</code></pre>

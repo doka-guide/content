@@ -1,0 +1,17 @@
+<h2>Кратко</h2>
+<p>Свойство <code>text-overflow</code> определяет, как будет обрезаться текст, если он не влезает в доступную область полностью. Работает только если элементу заданы также свойства <a href="/css/white-space/"><code>white-space</code></a> со значением <code>nowrap</code> и <a href="/css/overflow/"><code>overflow</code></a> со значением <code>hidden</code>, <code>scroll</code> или <code>auto</code>.</p>
+<h2>Пример</h2>
+<p>Код ниже обрежет текст, добавив в конце строки многоточие. Также добавлены свойства, без которых <code>text-overflow</code> не сработает:</p>
+<pre><code class="language-css">p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+</code></pre>
+<h2>Как пишется</h2>
+<p>Доступны два значения этого свойства:</p>
+<ul>
+<li><code>clip</code> — текст обрезается ровно по краю родительского блока.</li>
+<li><code>ellipsis</code> — при обрезке текста в конце строки добавляется многоточие «…», показывая незавершённость предложения.</li>
+</ul>
+<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="200"></iframe>

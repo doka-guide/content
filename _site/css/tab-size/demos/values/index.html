@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений — tab-size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    html {
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .four {
+      tab-size: 4;
+    }
+
+    .two {
+      tab-size: 2;
+    }
+
+    .px {
+      tab-size: 50px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- editorconfig-checker-disable -->
+<pre><code>pre {
+	tab-size: 8;
+}</code></pre>
+
+<pre class="four"><code>pre {
+	tab-size: 4;
+}</code></pre>
+
+<pre class="two"><code>pre {
+	tab-size: 2;
+}</code></pre>
+
+<pre class="px"><code>pre {
+	tab-size: 50px;
+}</code></pre>
+<!-- editorconfig-checker-enable -->
+
+</body>
+</html>

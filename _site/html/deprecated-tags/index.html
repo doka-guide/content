@@ -1,0 +1,247 @@
+<p>По мере развития веб-технологий появляются новые теги и CSS-свойства. Но некоторые теги устаревают и их использование уже не является хорошей практикой. Есть и такие, которые уже не поддерживаются браузером или никогда не были частью спецификации W3C.</p>
+<p>Что делать, если в вашем проекте встретится один из таких тегов? Есть ли современная замена или альтернатива?</p>
+<p>Попробуем разобраться.</p>
+<p>Список всех устаревших тегов и свойств <a href="https://html.spec.whatwg.org/multipage/obsolete.html">в спецификации HTML</a>.</p>
+<h2>Разметка текста</h2>
+<h3><code>&lt;acronym&gt;</code> — акронимы и аббревиатуры</h3>
+<p>Акро́ним — вид аббревиатуры. Акронимы образуются начальными звуками. Фактически, акроним представляет собой слово, являющееся сокращением, которое можно произнести слитно, в отличие от других видов аббревиатур, которые произносят «по буквам», например: СНГ — [эс-эн-гэ], МВД — [эм-вэ-дэ].</p>
+<h4>Когда использовалось</h4>
+<p>Для опциональной расшифровки аббревиатуры или целого текста — пояснение отображается во всплывающем подсказке при наведении курсора.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;acronym title=&quot;Graphics Interchange Format&quot;&gt;
+  GIF
+&lt;/acronym&gt; — устаревший формат графики
+</code></pre>
+<p>Несмотря на то, что слово GIF очень похоже на аббревиатуру, произносят его одним словом «гиф», а не «джи-ай-эф» — даже в английском языке.</p>
+<h4>Чем заменить</h4>
+<p>Для <code>&lt;acronym&gt;</code> есть современная альтернатива — <code>&lt;abbr&gt;</code>.</p>
+<h3><code>&lt;blink&gt;</code> — мигающий текст</h3>
+<h4>Когда использовалось</h4>
+<p>Для визуального выделения текста, который в результате буквально будет мигать.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;blink&gt;Зачем кому-либо так делать? Выглядит не гуманно.&lt;/blink&gt;
+</code></pre>
+<h4>Чем заменить</h4>
+<p>Сложно придумать реальный случай, когда подобное визуальное поведение не будет иметь явно отвлекающий эффект, но если очень хочется, можно повторить подобное с помощью CSS:</p>
+<pre><code class="language-css">blink {
+  animation: 2s linear infinite condemned_blink_effect;
+}
+
+@keyframes condemned_blink_effect {
+  0% {
+    visibility: hidden;
+  }
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+</code></pre>
+<h3><code>&lt;font&gt;</code> — стилизация текста</h3>
+<h4>Когда использовалось</h4>
+<p>До полноценной поддержки браузерами стилизации текста с помощью CSS это был единственный способ изменить цвет, шрифт или размер. К сожалению, для вёрстки писем под клиентов, не поддерживающих CSS, это остаётся единственной возможностью изменить внешний вид текста.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">Летели два &lt;font size=&quot;+1&quot;&gt;крокодила&lt;/font&gt;.
+Один — &lt;font color=&quot;green&quot;&gt;зелёный&lt;/font&gt;, а другой — в Африку.
+</code></pre>
+<h4>Чем заменить</h4>
+<p>Современные возможности CSS предоставляют гораздо больше возможностей для стилизации текста:</p>
+<pre><code class="language-css">h1 {
+  font-family: Arial, Helvetica, Verdana, sans-serif; /* Гарнитура шрифта */
+  font-size: 150%; /* Размер текста */
+  font-weight: lighter; /* Светлое начертание */
+}
+
+.text_color_green {
+  color: green; /* Цвет текста */
+}
+
+.text_style_italic {
+  font-style: oblique; /* Наклонный шрифт */
+}
+
+.text_transform_uppercase {
+  text-transform: uppercase; /* Все буквы — заглавные */
+}
+
+.text_emphasis {
+  letter-spacing: .5em; /* Межбуквенный интервал (трекинг) */
+  word-spacing: 2em; /* Расстояние между словами (ширина пробела) */
+  text-shadow: 3px 5px 6px #6C9; /* Тень */
+}
+</code></pre>
+<h3><code>&lt;nobr&gt;</code> — неразрывный текст</h3>
+<p>Тег <code>&lt;nobr&gt;</code> использовался для запрета переноса текста на новую строку. По умолчанию, если текст не помещается по ширине, он автоматически разбивается на ближайшем пробельном символе и переносится на новую строку. Текст, помещённый в тег <code>&lt;nobr&gt;</code> будет сохранять свою однострочность и может привести к появлению полосы прокрутки.</p>
+<p>Тег никогда не был частью спецификации W3C, его поддержка — личная инициатива каждого браузера.</p>
+<h4>Когда использовалось</h4>
+<p>Хорошим тоном считается использование склеивания союзов и предлогов с последующим словом, единиц измерения.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">Современные технологии достигли
+&lt;nobr&gt;такого уровня…&lt;/nobr&gt;
+кластеризации усилий.
+</code></pre>
+<iframe title="Тег nobr" src="demos/nobr/" height="280"></iframe>
+<h4>Чем заменить</h4>
+<p>Для коротких текстов, когда нужно соединить пару слов или символов, можно использовать неразрывный пробел (<code>&amp;nbsp;</code>, <code>&amp;thinsp;</code> и другие):</p>
+<pre><code class="language-html">В&amp;nbsp;вашей корзине товаров на&amp;nbsp;1&amp;thinsp;200&amp;nbsp;₽
+</code></pre>
+<p>Для остальных случаев есть соответствующее CSS-свойство:</p>
+<pre><code class="language-html">Современные технологии достигли
+&lt;span style=&quot;white-space: nowrap&quot;&gt;такого уровня…&lt;/span&gt;
+кластеризации усилий.
+</code></pre>
+<p>Для больших объёмов текста проще воспользоваться программами-типографами, которые могут автоматически расставить символы неразрывного пробела, например <a href="https://www.artlebedev.ru/typograf/">типограф Артемия Лебедева</a> или <a href="https://www.typograf.ru">типограф Евгения Лепёшкина</a>.</p>
+<h3><code>&lt;strike&gt;</code> — зачёркнутый текст</h3>
+<h4>Когда использовалось</h4>
+<p>Для обозначения текста, который потерял свою актуальность, например, изменения цены: «Распродажа: <s>1200</s> 990 ₽»</p>
+<h4>Пример</h4>
+<pre><code class="language-html">Распродажа: &lt;strike&gt;1200&lt;/strike&gt; 990 ₽
+</code></pre>
+<h4>Чем заменить</h4>
+<p>В HTML5 добавили семантический тег: <code>&lt;del&gt;</code>, который отлично дополняется тегом <code>&lt;ins&gt;</code>, содержащим обновлённую информацию:</p>
+<pre><code class="language-html">Распродажа: &lt;del&gt;1200 ₽&lt;/del&gt; &lt;ins&gt;990 ₽&lt;/ins&gt;
+</code></pre>
+<p>А для ситуации, когда нужно просто зачеркнуть текст, добавили более сокращённую запись: <code>&lt;s&gt;</code>:</p>
+<pre><code class="language-html">Список покупок:
+&lt;ol&gt;
+  &lt;li&gt;&lt;s&gt;Молоко&lt;/s&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;s&gt;Хлеб&lt;/s&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;s&gt;Яйца&lt;/s&gt;&lt;/li&gt;
+  &lt;li&gt;Сыр&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>Список покупок:</p>
+<ol>
+<li><s>Молоко</s></li>
+<li><s>Хлеб</s></li>
+<li><s>Яйца</s></li>
+<li>Сыр</li>
+</ol>
+<h2>Блочные элементы</h2>
+<h3><code>&lt;applet&gt;</code> — встраиваемый Java-апплет</h3>
+<p>Поддержка этого тега сохранилась только в Internet Explorer и Safari.</p>
+<h4>Когда использовалось</h4>
+<p>До заката эпохи Adobe Flash возможности динамического контента в браузере были весьма ограничены. Тег <code>&lt;applet&gt;</code> позволял встроить в страницу целую программу со своим интерфейсом, написанную на Java.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;applet code=&quot;game.class&quot; archive=&quot;game.zip&quot; height=&quot;250&quot; width=&quot;350&quot;&gt;
+  &lt;param name=&quot;difficulty&quot; value=&quot;easy&quot;&gt;
+  &lt;p&gt;Извините, у вас не установленна Java
+    или ваш браузер не поддерживает встраиваемые Java-апплеты.&lt;/p&gt;
+&lt;/applet&gt;
+</code></pre>
+<h4>Чем заменить</h4>
+<p>Современные браузеры поддерживают «встраиваемое содержимое» с помощью тега <code>&lt;object&gt;</code>:</p>
+<pre><code class="language-html">&lt;object type=&quot;application/pdf&quot;
+  data=&quot;/media/examples/In-CC0.pdf&quot;
+  width=&quot;250&quot;
+  height=&quot;200&quot;&gt;
+&lt;/object&gt;
+</code></pre>
+<h3><code>&lt;bgsound&gt;</code> — фоновая музыка</h3>
+<h4>Когда использовалось</h4>
+<p>Для автоматического воспроизведения музыкального файла. В отличие от современного использования встраивания аудио-контента с помощью <a href="/html/embed/"><code>&lt;embed&gt;</code></a> или <a href="/html/audio/"><code>&lt;audio&gt;</code></a>, не отображает на странице кнопок управления (стоп, пауза, громкость). Такая бесконтрольность допускала злоупотребление этим эффектом. Поддержка тега была реализована только в Internet Explorer.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;bgsound src=&quot;sound2.mid&quot; loop=&quot;infinite&quot;&gt;
+</code></pre>
+<h4>Чем заменить</h4>
+<p>Для контролируемого воспроизведения аудиофайлов —  <code>&lt;embed&gt;</code> или <code>&lt;audio&gt;</code>.</p>
+<h3><code>&lt;center&gt;</code> — центрирование контента</h3>
+<p>Достаточно популярный тег даже в наши дни, например, при вёрстке писем — почтовые клиенты могут не поддерживать или просто вырезать стили и порой это единственный способ центрирования.</p>
+<h4>Когда использовалось</h4>
+<p>Для выравнивания содержимого по центру родительского блока.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;center&gt;Мама, смотри — я в центре!&lt;/center&gt;
+</code></pre>
+<h4>Чем заменить</h4>
+<pre><code class="language-html">&lt;div class=&quot;title-center&quot;&gt;Мама, смотри — я в центре!&lt;/div&gt;
+
+&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;child&quot;&gt;
+    Этот вложенный блок отцентрирован по горизонтали.
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.title-center {
+  text-align: center;
+}
+
+.parent {
+  width: 500px;
+  border: solid;
+}
+
+.child {
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: solid;
+}
+</code></pre>
+<h3><code>&lt;marquee&gt;</code> — бегущая строка</h3>
+<p>Тег <code>&lt;marquee&gt;</code> позволяет задать область, в которой содержимое будет зациклено двигаться по заданной траектории (горизонтально, вертикально или отражаясь от краёв).</p>
+<h4>Когда использовалось</h4>
+<p>Чётких рекомендаций, когда был бы полезен этот приём, нет. Скорее всего именно поэтому <code>&lt;marquee&gt;</code> был в последствии удалён из спецификации. Была идея перенести эффект в CSS, но от неё отказались.</p>
+<h4>Пример</h4>
+<pre><code class="language-html">&lt;marquee&gt;Этот текст будет двигаться справа налево&lt;/marquee&gt;
+
+&lt;marquee direction=&quot;up&quot;&gt;Этот текст будет двигаться снизу вверх&lt;/marquee&gt;
+
+&lt;marquee direction=&quot;down&quot; width=&quot;250&quot; height=&quot;200&quot; behavior=&quot;alternate&quot; style=&quot;border:solid&quot;&gt;
+  &lt;marquee behavior=&quot;alternate&quot;&gt;
+    Этот текст будет отражаться от стенок
+  &lt;/marquee&gt;
+&lt;/marquee&gt;
+</code></pre>
+<iframe title="Тег marquee" src="demos/marquee/" height="360"></iframe>
+<h4>Чем заменить</h4>
+<p>Современных аналогов нет, можно сымитировать анимацию с помощью JavaScript или CSS.</p>
+<pre><code class="language-html">&lt;div class=&quot;marquee&quot;&gt;
+  &lt;div class=&quot;marquee__inner&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;span class=&quot;marquee__content&quot;&gt;Showreel&lt;/span&gt;
+    &lt;span class=&quot;marquee__content&quot;&gt;Showreel&lt;/span&gt;
+    &lt;span class=&quot;marquee__content&quot;&gt;Showreel&lt;/span&gt;
+    &lt;span class=&quot;marquee__content&quot;&gt;Showreel&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-25% + var(--offset));
+  --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+  width: fit-content;
+  display: flex;
+  position: relative;
+  transform: translate3d(var(--move-initial), 0, 0);
+  animation: marquee 5s linear infinite;
+  animation-play-state: paused;
+}
+
+.marquee__content {
+  font-size: 10vw;
+  padding: 0 2vw;
+}
+
+.marquee:hover .marquee__inner {
+  animation-play-state: running;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+</code></pre>
+<iframe title="Имитация marquee" src="demos/marquee-fallback/" height="280"></iframe>
+<h2>Вывод</h2>
+<p>Авторы спецификаций постоянно ведут работу над улучшением пользовательского и разработческого опыта (UX и DX), потенциально вредные теги (<code>&lt;blink&gt;</code>, <code>&lt;marquee&gt;</code>, <code>&lt;bgsound&gt;</code>) удаляются из спецификации, заменяются на семантические (<code>&lt;del&gt;</code> вместо <code>&lt;strike&gt;</code>) или переносят управление на уровень CSS (<code>&lt;nobr&gt;</code>, <code>&lt;center&gt;</code>). Некоторые из таких тегов можно встретить в коде и сейчас, но разработчики браузеров не гарантируют, что в скором времени сохранится их поддержка — их лучше заменить на современный аналог или пересмотреть, на сколько целесообразно его использование в принципе.</p>

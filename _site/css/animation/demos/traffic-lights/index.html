@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Эквалайзеры с разными режимами animation-fill-mode — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    h1 {
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    h1, code {
+      width: 300px;
+      text-align: right;
+      line-height: 1;
+    }
+
+    .modes {
+      margin-top: 25px;
+      margin-bottom: 70px;
+    }
+
+    .mode + .mode {
+      margin-top: 30px;
+    }
+
+    .mode {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    ul {
+      display: flex;
+      align-items: flex-end;
+      margin-left: 50px;
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+      width: 80px;
+      background: linear-gradient(to top, #123E66 10px, transparent 10px);
+    }
+
+    li + li {
+      margin-left: 10px;
+    }
+
+    li:first-of-type {
+      height: 10px;
+    }
+
+    li:nth-of-type(2) {
+      height: 30px;
+    }
+
+    li:nth-of-type(3) {
+      height: 50px;
+    }
+
+    @keyframes traffic {
+      100% {
+        background: linear-gradient(to top, #2E9AFF 10px, transparent);
+      }
+    }
+
+    @keyframes traffic1 {
+      100%{
+        background: linear-gradient(to top, #2E9AFF 10px, transparent 10px 20px, #2E9AFF 20px 30px);
+      }
+    }
+
+    @keyframes traffic2 {
+      100%{
+        background: linear-gradient(to top, #2E9AFF 10px, transparent 10px 20px, #2E9AFF 20px 30px, transparent 30px 40px, #2E9AFF 40px 50px);
+      }
+    }
+
+    .mode-none li:nth-of-type(1) {
+      animation: traffic 2s none;
+    }
+
+    .mode-none li:nth-of-type(2) {
+      animation: traffic1 2s none 2s;
+    }
+
+    .mode-none li:nth-of-type(3) {
+      animation: traffic2 2s none 4s;
+    }
+
+    .mode-forwards li:nth-of-type(1) {
+      animation: traffic 2s forwards;
+    }
+
+    .mode-forwards li:nth-of-type(2) {
+      animation: traffic1 2s forwards 2s;
+    }
+
+    .mode-forwards li:nth-of-type(3) {
+      animation: traffic2 2s forwards 4s;
+    }
+
+    .mode-backwards li:nth-of-type(1) {
+      animation: traffic 2s backwards;
+    }
+
+    .mode-backwards li:nth-of-type(2) {
+      animation: traffic1 2s backwards 2s;
+    }
+
+    .mode-backwards li:nth-of-type(3) {
+      animation: traffic2 2s backwards 4s;
+    }
+
+    .mode-both li:nth-of-type(1) {
+      animation: traffic 2s both;
+    }
+
+    .mode-both li:nth-of-type(2) {
+      animation: traffic1 2s both 2s;
+    }
+
+    .mode-both li:nth-of-type(3) {
+      animation: traffic2 2s both 4s;
+    }
+
+    footer {
+      color: #979797;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-left: auto;
+      margin-top: 15px;
+      padding: 9px 15px;
+      background-color: #E6E6E6;
+      color: #000000;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus, button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, code {
+        width: 100%;
+        text-align: left;
+      }
+
+      .mode {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      ul {
+        margin-left: initial;
+        margin-top: 15px;
+      }
+
+      .modes {
+        margin-bottom: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>animation-fill-mode</code></h1>
+    <div class="modes">
+      <div class="mode mode-none">
+        <code>none</code>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="mode mode-forwards">
+        <code>forwards</code>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="mode mode-backwards">
+        <code>backwards</code>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="mode mode-both">
+        <code>both</code>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+    <footer><p>Обновите страницу или нажмите кнопку, чтобы просмотреть анимацию:</p><button onclick="document.location.reload(true);">Сначала</button></footer>
+  </section>
+</body>
+</html>

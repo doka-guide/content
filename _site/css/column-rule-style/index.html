@@ -1,0 +1,21 @@
+<h2>Кратко</h2>
+<p>Свойство <code>column-rule-style</code> отвечает за стиль линии между колонками в многоколоночной вёрстке.</p>
+<h2>Как понять</h2>
+<p>Стиль межколоночной линии задаётся при помощи ключевых слов. Более подробно можно прочесть в описании <a href="/css/border-style/"><code>border-style</code></a>, стиль межколоночной линии задаётся так же, как и стиль рамки.</p>
+<h2>Как пишется</h2>
+<p>Для того, чтобы задать пунктирную межколоночную линию, мы напишем:</p>
+<pre><code class="language-css">p {
+  column-count: 3;
+  column-rule-style: dashed;
+}
+</code></pre>
+<p>Также <code>column-rule-style</code> — это второе значение в свойстве <a href="/css/column-rule/"><code>column-rule</code></a>.</p>
+<h2>Пример</h2>
+<p>В примере ниже вы можете поменять стиль линии между колонками. По умолчанию заданы такие стили:</p>
+<pre><code class="language-css">.text-wrapper {
+  column-count: 3;
+  column-rule: 5px solid #ffd829;
+  column-gap: 25px;
+}
+</code></pre>
+<iframe title="Варианты значений column-rule-style" src="demos/multiple-values/" height="380"></iframe>

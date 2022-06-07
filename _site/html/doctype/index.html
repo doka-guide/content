@@ -1,0 +1,32 @@
+<h2>Кратко</h2>
+<p><code>&lt;!DOCTYPE&gt;</code> или «доктайп» — это сокращение от «тип документа» (document type). Доктайп говорит браузеру: «работай со страницей в стандартном режиме, пожалуйста». Единственный доктайп, который вам нужно знать — это <code>&lt;!DOCTYPE html&gt;</code>. Поставьте его первой строчкой HTML-документа, и браузер обработает страницу правильно.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ru&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;
+    &lt;title&gt;Дока&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/styles/main.css&quot;&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="images/1.png" alt="Схема тега &lt;!DOCTYPE&gt;"></p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p>Есть несколько исторических версий HTML, включая специальную — XHTML. Все они обозначались своими доктайпами и их вариациями, которые вы можете встретить в старом коде:</p>
+<pre><code class="language-html">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+</code></pre>
+<p>Сегодня доктайп <a href="https://html.spec.whatwg.org/multipage/syntax.html#the-doctype">по спецификации</a> нужен исключительно потому, что без него браузеры переключатся в режим совместимости со старым кодом (quirks mode). Поверьте, вы не хотите оказаться в режиме совместимости. Чтобы переключить браузер в стандартный режим (standards mode), достаточно написать в самом начале документа: <code>&lt;!DOCTYPE html&gt;</code>. Это единственный стандартный доктайп для современного HTML. Всё, что сверх этого — только риск лишней путаницы и для автора, и для браузера.</p>
+<p>Теги и атрибуты в HTML не зависят от регистра (хотя доктайп это не тег, строго говоря), поэтому все вариации ниже абсолютно равнозначны, даже последняя — но лучше не надо так писать.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;!DOCTYPE HTML&gt;
+&lt;!doctype HTML&gt;
+&lt;!doctype html&gt;
+&lt;!DoCtYPe hTMl&gt;
+</code></pre>
+<p>Доктайп стал для HTML чем-то вроде <a href="/js/use-strict/"><code>use strict</code></a> в JS.</p>

@@ -1,0 +1,17 @@
+<h2>Кратко</h2>
+<p>Элемент <code>&lt;head&gt;</code> содержит основную информацию о документе: метаданные (например, заголовок окна или кодировку), ссылки на скрипты и таблицы стилей.</p>
+<p>Эта информация не отображается на странице браузера. Пользователи увидят только заголовок окна страницы — его задаёт тег <a href="/html/title/"><code>&lt;title&gt;</code></a>, ну и <a href="https://ru.wikipedia.org/wiki/Favicon">фавиконку</a>, если вы её поставите.</p>
+<p><img src="images/1.png" alt="Пример выдачи страницы в поисковике, показаны заголовок и фавикон"></p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Заголовок страницы&lt;/title&gt;
+  &lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Как пишется</h2>
+<p>Кроме <code>&lt;title&gt;</code>, внутри контейнера <code>&lt;head&gt;</code> можно разместить и другие элементы: <a href="/html/base/"><code>&lt;base&gt;</code></a>, <a href="/html/link/"><code>&lt;link&gt;</code></a>, <a href="/html/meta/"><code>&lt;meta&gt;</code></a>, <a href="/html/script/"><code>&lt;script&gt;</code></a>, <a href="/html/style/"><code>&lt;style&gt;</code></a>. Вот пример того, как можно поставить фавиконку — маленькую иконку в углу вкладки браузера.</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;/favicon.png&quot;&gt;
+&lt;/head&gt;
+</code></pre>

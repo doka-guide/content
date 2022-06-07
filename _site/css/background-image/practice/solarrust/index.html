@@ -1,0 +1,71 @@
+<p>🛠 Если задаём фоновую картинку для блока со светлым текстом, то обязательно задаём и фоновый цвет.</p>
+<p>Почему это важно: если при загрузке страницы картинка будет долго загружаться или вообще не загрузится, то светлый текст на белом будет совершенно не виден. Пользователь потеряет контекст и, вероятнее всего, интерес к вашей странице.</p>
+<p>Пример ниже не пустой, но в нём не загрузилась фоновая картинка:</p>
+<pre><code class="language-html">&lt;div class=&quot;element&quot;&gt;
+  &lt;h1 class=&quot;main-title&quot;&gt;Фронтенд-блог: чиним вёрстку одной строкой&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(&quot;broken-link-to-image.png&quot;);
+}
+
+.main-title {
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 3rem;
+}
+</code></pre>
+<p>Демка будет наглядной, если на сайте включить светлую тему ☀️</p>
+<iframe title="Ошибка загрузки" src="../demos/fix/" height="150"></iframe>
+<p>Чиним одной строкой:</p>
+<pre><code class="language-css">.element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(&quot;broken-link-to-image.png&quot;);
+  background-color: gray;
+}
+</code></pre>
+<iframe title="Ошибка загрузки" src="../demos/fix-2/" height="150"></iframe>
+<p>Да, будет не так красиво, как нарисовал дизайнер, но вся информация будет доступна.</p>
+<p>🛠 Кроме линейного градиента можно задавать радиальный — круглый — градиент. Для этого нужно написать следующее:</p>
+<pre><code class="language-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;spread-gradient&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;smooth-circle&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;sharp-circle&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.parent {
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+  background-color: #1a5ad7;
+}
+
+.spread-gradient,
+.smooth-circle,
+.sharp-circle {
+  width: 200px;
+  height: 200px;
+}
+
+.spread-gradient {
+  background-image: radial-gradient(#e6e6e6, #1a5ad7);
+}
+
+.smooth-circle {
+  background-image: radial-gradient(#e6e6e6, #1a5ad7 70%);
+}
+
+.sharp-circle {
+  background-image: radial-gradient(#e6e6e6 70%, #1a5ad7 70%);
+}
+</code></pre>
+<iframe title="Радиальные градиенты" src="../demos/gradient/" height="400"></iframe>

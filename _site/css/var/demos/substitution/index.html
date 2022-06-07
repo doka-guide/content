@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подмена значения кастомного свойства — var() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
+  <style>
+    :root {
+      --card-color: lightblue;
+    }
+
+    html {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f7f7f7;
+    }
+
+    body,
+    code {
+      font-family: "Roboto Mono",  monospace;
+    }
+
+    .card {
+      background-color: var(--card-color);
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    @media (max-width: 350px) {
+      .card {
+        padding: 0.5rem;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+<pre><code class="code">:root {
+  --color: lightblue;
+}</code><code>
+
+.card {
+  background-color: var(--color);
+}</code></pre>
+
+  </div>
+  <label for="color-lightblue">
+    <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
+    Синий
+  </label>
+  <label for="color-orange">
+    <input type="radio" id="color-orange" name="card-color" value="orange">
+    Оранжевый
+  </label>
+
+  <script>
+    const code = document.querySelector('.code')
+
+    document.getElementById('color-lightblue').addEventListener('change', setColor)
+    document.getElementById('color-orange').addEventListener('change', setColor)
+
+    function setColor(event) {
+      const color = event.target.value
+      document.documentElement.style.setProperty('--card-color', color);
+      code.innerHTML = `:root {\n  --color: ${color};\n}`
+    }
+  </script>
+</body>
+</html>

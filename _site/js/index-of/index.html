@@ -1,0 +1,24 @@
+<h2>Кратко</h2>
+<p>Этот метод служит для поиска. Он определён для <a href="/js/arrays/">массивов</a> и <a href="/js/string/">строк</a>.</p>
+<p>При вызове нужно передать, что искать. Вернётся индекс первого найденного элемента или <code>-1</code>, если ничего не нашлось.</p>
+<h2>Как пишется</h2>
+<p>Искомый элемент передаётся первым аргументом — <code>array1.indexOf(&quot;иголка&quot;)</code></p>
+<pre><code class="language-js">let example = [&quot;чебурашка&quot;, &quot;гена&quot;, &quot;шапокляк&quot;, &quot;лариска&quot;]
+
+console.log(example.indexOf(&quot;гена&quot;)) // напечатает 1
+</code></pre>
+<h2>Как это понять</h2>
+<p><em>Для массивов</em>: ищет переданный элемент в массиве. Если элемент один, то возвращает индекс этого элемента. Если элементов много — возвращает индекс первого подходящего элемента. Элемента в массиве нет — вернёт <code>-1</code></p>
+<pre><code class="language-js">let haystack = [&quot;Петя&quot;, &quot;Настя&quot;, &quot;Артур&quot;, &quot;Лена&quot;, &quot;Настя&quot;]
+
+console.log(haystack.indexOf(&quot;Лена&quot;)) // напечатает 3
+console.log(haystack.indexOf(&quot;Настя&quot;)) // напечатает 1
+console.log(haystack.indexOf(&quot;Эдуард Аркадьевич&quot;)) // напечатает -1
+</code></pre>
+<p><em>Для строк</em>: работает так же, как с массивами, но можно искать не только буквы в строке, но и подстроки. Например:</p>
+<pre><code class="language-js">let haystack = &quot;Мама мыла раму&quot;
+
+console.log(haystack.indexOf(&quot;а&quot;)) // напечатает 1
+console.log(haystack.indexOf(&quot;мыла&quot;)) // напечатает 5
+console.log(haystack.indexOf(&quot;ё&quot;)) // напечатает -1
+</code></pre>

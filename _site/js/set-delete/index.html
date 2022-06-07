@@ -1,0 +1,26 @@
+<h2>Кратко</h2>
+<p>Метод <code>delete</code> удаляет значение из коллекции <a href="/js/set/"><code>Set</code></a>.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
+console.log(watchlist.length)
+// 3
+
+const firstTry = watchlist.delete('Казино')
+console.log(firstTry)
+// true
+console.log(watchlist.size)
+// 2
+
+const secondTry = watchlist.delete('Казино')
+console.log(secondTry)
+// false
+console.log(watchlist.size)
+// 2
+</code></pre>
+<h2>Как пишется</h2>
+<p>Метод принимает один аргумент — значение, которое нужно удалить.</p>
+<p>Возвращает:</p>
+<ul>
+<li><code>true</code> если значение было найдено в коллекции и удалено</li>
+<li><code>false</code> если значения нет в коллекции</li>
+</ul>

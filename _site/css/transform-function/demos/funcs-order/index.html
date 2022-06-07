@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Порядок функций — transform-function — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #18191c;
+    }
+
+    .elem {
+      position: absolute;
+      left: calc(50% - 150px);
+      top: calc(50% - 150px);
+      width: 200px;
+      height: 200px;
+    }
+
+    .elem1 {
+      border: 2px solid #2E9AFF;
+      background-color: rgb(46 154 255 / 30%);
+      animation: transform1 5s linear infinite;
+    }
+
+    .elem2 {
+      border: 2px solid #F498AD;
+      background-color: rgb(244 152 173 / 30%);
+      animation: transform2 5s linear infinite;
+    }
+
+    @keyframes transform1 {
+      0% {
+        transform: rotate(0deg) translateX(0) translateY(0);
+      }
+      20% {
+        transform: rotate(15deg) translateX(0) translateY(0);
+      }
+      40% {
+        transform: rotate(15deg) translateX(100px) translateY(0);
+      }
+      60% {
+        transform: rotate(15deg) translateX(100px) translateY(30px);
+      }
+      100% {
+        transform: rotate(15deg) translateX(100px) translateY(30px);
+      }
+    }
+
+    @keyframes transform2 {
+      0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+      }
+      20% {
+        transform: translateX(100px) translateY(0) rotate(0deg);
+      }
+      40% {
+        transform: translateX(100px) translateY(30px) rotate(0deg);
+      }
+      60% {
+        transform: translateX(100px) translateY(30px) rotate(15deg);
+      }
+      100% {
+        transform: translateX(100px) translateY(30px) rotate(15deg);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="elem elem1"></div>
+<div class="elem elem2"></div>
+</body>
+</html>

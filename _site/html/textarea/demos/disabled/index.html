@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Textarea - disabled — <textarea> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form {
+      width: 500px;
+      margin: auto;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input-textarea {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    .input-textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .input-textarea:disabled {
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <form class="form" action="">
+    <label class="input-label" for="story">Расскажите о себе:</label>
+    <textarea class="input-textarea" id="story" name="story" rows="4" cols="33" disabled>Фронтенд-разработчик со стажем (поле нельзя редактировать)</textarea>
+  </form>
+</body>
+</html>

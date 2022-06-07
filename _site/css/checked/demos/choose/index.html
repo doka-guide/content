@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выпадающее меню — :checked — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    .dropdown {
+      position: relative; /* Относительное позиционирование */
+    }
+
+    .dropdown input,
+    .dropdown ul {
+      display: none; /* Прячем */
+    }
+
+    .dropdown label {
+      cursor: pointer; /* Вид курсора */
+      border-bottom: 3px dashed #2E9AFF; /* Пунктир снизу */
+    }
+
+    .dropdown ul {
+      position: absolute; /* Абсолютное позиционирование */
+      left: calc(100% + 25px);
+      top: 50%;
+      transform: translateY(-50%); /* Положение меню */
+      margin: 0;
+      padding: 40px 10px; /* Убираем отступы и задаём поля */
+      list-style: none; /* Убираем маркеры списка */
+      background: #FFFFFF; /* Цвет фона */
+      font-size: 20px;
+    }
+
+    .dropdown li + li {
+      margin-top: 7px;
+    }
+
+    .dropdown a {
+      border-radius: 3px;
+      color: #000000; /* Цвет ссылок */
+    }
+
+    .dropdown a:hover {
+      background-color: #000000;
+      color: #FFFFFF;
+      transition: background-color 0.2s linear;
+    }
+
+    .dropdown :checked ~ label {
+      color: #2E9AFF;
+    }
+
+    .dropdown :checked ~ ul {
+      display: inline-block; /* Показываем меню */
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .dropdown {
+        max-width: 100%;
+      }
+
+      .dropdown ul {
+        left: initial;
+        right: -25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown">
+    <input type="checkbox" id="menu">
+    <label for="menu">Выбери черепашку</label>
+    <ul>
+      <li><a href="#">Леонардо</a></li>
+      <li><a href="#">Рафаэль</a></li>
+      <li><a href="#">Донателло</a></li>
+      <li><a href="#">Микеланджело</a></li>
+      <li><a href="#">Боттичелли</a></li>
+      <li><a href="#">Караваджо</a></li>
+    </ul>
+  </div>
+</body>
+</html>

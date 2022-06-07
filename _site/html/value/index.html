@@ -1,0 +1,88 @@
+<h2>Кратко</h2>
+<p>Атрибут <code>value</code> можно использовать для разных тегов:</p>
+<ul>
+<li><a href="/html/button/"><code>&lt;button&gt;</code></a>,</li>
+<li><a href="/html/option/"><code>&lt;option&gt;</code></a>,</li>
+<li><code>&lt;data&gt;</code>,</li>
+<li><a href="/html/input/"><code>&lt;input&gt;</code></a>,</li>
+<li><a href="/html/li/"><code>&lt;li&gt;</code></a>,</li>
+<li><a href="/html/meter/"><code>&lt;meter&gt;</code></a>,</li>
+<li><a href="/html/progress/"><code>&lt;progress&gt;</code></a>.</li>
+</ul>
+<p>У разных тегов атрибут отвечает за разные функции.</p>
+<h2>Пример</h2>
+<p>В примере ниже нумерация элементов списка начнётся с 5:</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li value=&quot;5&quot;&gt;Номер 5&lt;/li&gt;
+  &lt;li&gt;Номер 6&lt;/li&gt;
+  &lt;li&gt;Номер 7&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>А в этом примере в поле ввода уже будет написано «Дока»:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label&gt;
+    Название лучшего справочника по вебу:
+    &lt;input type=&quot;text&quot; value=&quot;Дока&quot;&gt;
+  &lt;/label&gt;
+  &lt;button type=&quot;submit&quot;&gt;Соглашусь!&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h2>Как пишется</h2>
+<h3><code>&lt;button&gt;</code></h3>
+<p>Если указать у кнопки атрибут <code>value</code> с каким-то значением, то это значение будет передано на сервер в момент отправки данных из формы. На сервер передаётся пара «имя=значение». Имя кнопки можно задать атрибутом <code>name</code>.</p>
+<p>В примере ниже вместе с данными формы на сервер отправится информация «diversion=Нет!»:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label&gt;
+    Соглашаетесь с нашими правилами?
+    &lt;input type=&quot;checkbox&quot; name=&quot;agreement&quot;&gt;
+  &lt;/label&gt;
+  &lt;button type=&quot;submit&quot; value=&quot;Нет!&quot; name=&quot;diversion&quot;&gt;Соглашаюсь&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3><code>&lt;option&gt;</code></h3>
+<p>Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута <code>value</code> этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега <code>&lt;option&gt;</code>.</p>
+<h3><code>&lt;data&gt;</code></h3>
+<p>Для тега <code>&lt;data&gt;</code> атрибут <code>value</code> является обязательным. В нём указывается понятная для компьютера информация.</p>
+<p>Например, в интернет-магазине у каждого товара есть идентификатор. Можно указать его в качестве значения атрибута <code>value</code>:</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;data value=&quot;item001&quot;&gt;Модный телефон&lt;/data&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;data value=&quot;item002&quot;&gt;Нужный компьютер&lt;/data&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;data value=&quot;item003&quot;&gt;Классный телефон&lt;/data&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;data value=&quot;item004&quot;&gt;Удобный телефон&lt;/data&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;data value=&quot;item005&quot;&gt;Нормальный телефон&lt;/data&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3><code>&lt;input&gt;</code></h3>
+<p>Атрибут <code>value</code> задаёт значение по умолчанию для поля ввода. Это значение будет передано на сервер в момент отправки формы. Поскольку у тега <code>&lt;input&gt;</code> большой список разных типов, то и атрибут в каждом конкретном случае имеет своё значение:</p>
+<ul>
+<li>Для инпутов с типами <code>button</code>, <code>reset</code>, и <code>submit</code> задаёт текст на кнопке.</li>
+<li>Для типов <code>text</code>, <code>password</code>, и <code>hidden</code> задаёт начальное значение. В первых двух случаях пользователь сможет стереть его и написать что-то своё.</li>
+<li>Для типов <code>checkbox</code>, <code>radio</code>, и <code>image</code> — задаёт отправляемое на сервер значение, которое пользователь поменять не может.</li>
+</ul>
+<p>Атрибут <code>value</code> можно задать для инпута любого типа, кроме <code>file</code>.</p>
+<h3><code>&lt;li&gt;</code></h3>
+<p>Атрибут <code>value</code> можно применить к пунктам нумерованного списка (<a href="/html/ol/"><code>&lt;ol&gt;</code></a>). Значение атрибута установит начало отсчёта для автоматического счётчика. Значение должно быть целым положительным числом.</p>
+<pre><code class="language-html">&lt;ol&gt;
+  &lt;li value=&quot;5&quot;&gt;Номер 5&lt;/li&gt;
+  &lt;li&gt;Номер 6&lt;/li&gt;
+  &lt;li&gt;Номер 7&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<h3><code>&lt;meter&gt;</code></h3>
+<p>Атрибут <code>value</code> определяет текущее значение элемента. Обязательно должно быть числом. Если атрибут не задан, то текущее значение равно 0.</p>
+<pre><code class="language-html">&lt;meter max=&quot;100&quot; min=&quot;0&quot; value=&quot;50&quot;&gt;&lt;/meter&gt;
+</code></pre>
+<h3><code>&lt;progress&gt;</code></h3>
+<p>Поскольку тег <code>&lt;progress&gt;</code> показывает процесс выполнения какого-то действия, то атрибут <code>value</code> в данном случае показывает, сколько от задачи выполнено в данный момент. Значение должно быть числом.</p>
+<pre><code class="language-html">&lt;progress id=&quot;file&quot; max=&quot;100&quot; value=&quot;70&quot;&gt;70%&lt;/progress&gt;
+</code></pre>

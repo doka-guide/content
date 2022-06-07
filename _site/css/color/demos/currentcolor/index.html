@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>currentColor — color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .parent {
+      color: #49a16c;
+      padding: 20px 0;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .child {
+      background: currentColor;
+      height: 110px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    Мы сделали этот текст зелёным с помощью свойства «color». Рамки блока наследуют цвет от текста.
+    <div class="child"></div>
+    Блок выше 👆 тоже наследует фоновый цвет от текста, для которого задано свойство «color».
+  </div>
+</body>
+</html>

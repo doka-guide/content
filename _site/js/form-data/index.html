@@ -1,0 +1,188 @@
+<h2>Кратко</h2>
+<p><code>FormData</code> — это специальная коллекция данных, которая позволяет передавать данные в виде пар <code>[ключ, значение]</code> на сервер при помощи <a href="/js/fetch/"><code>fetch()</code></a> или <code>XMLHttpRequest</code>. При этом используется точно такой же формат данных, какой использует тег <a href="/html/form/"><code>&lt;form&gt;</code></a> с типом кодирования <code>&quot;multipart/form-data&quot;</code>. Поэтому, значения в <code>FormData</code>, как и у обычной HTML формы, могут быть только строками или файлами.</p>
+<h2>Пример</h2>
+<p>Предположим, что мы пишем функцию, которая отправляет на сервер два поля <code>name</code> и <code>email</code>. Значения полей она получает через аргументы:</p>
+<pre><code class="language-javascript">async function sendData(name, email) {
+  const data = new FormData()
+
+  data.append(&quot;name&quot;, name)
+  data.append(&quot;email&quot;, email)
+
+  return await fetch('/api/subscribe/', {
+    method: &quot;POST&quot;,
+    body: data,
+  })
+}
+</code></pre>
+<p>Данные отправляются на сервер с помощью объекта <code>FormData</code>. Мы используем метод <code>append()</code> чтобы добавить значения, а затем передаём полученный объект функции <a href="/js/fetch/"><code>fetch()</code></a>.</p>
+<h2>Как пишется</h2>
+<p>Для работы с <code>FormData</code> сначала с помощью конструктора <code>new</code> создаётся объект этого типа: <code>const form = new FormData()</code>. Затем у полученного объекта можно вызывать методы.</p>
+<p>Основные методы для работы с <code>FormData</code>:</p>
+<ul>
+<li><code>append(ключ, значение)</code> — добавляет значение для ключа с сохранением предыдущих значений;</li>
+<li><code>set(ключ, значение)</code> — устанавливает значение для ключа, перезаписывая предыдущие значения;</li>
+<li><code>get(ключ)</code> — возвращает первое значение ключа;</li>
+<li><code>getAll(ключ)</code> — возвращает все значения ключа;</li>
+<li><code>has(ключ)</code> — проверяет наличие переданного ключа;</li>
+<li><code>entries()</code> — возвращает <a href="/js/iterator/">итератор</a> пар <code>[ключ, значение]</code>;</li>
+<li><code>values()</code> — возвращает <a href="/js/iterator/">итератор</a> всех значений коллекции;</li>
+<li><code>keys()</code> — возвращает <a href="/js/iterator/">итератор</a> всех ключей коллекции;</li>
+<li><code>delete(ключ)</code> — удаляет конкретное значение;</li>
+</ul>
+<h2>Как понять</h2>
+<p>При отправке данных на сервер и сервер и клиент должны понимать друг друга, то есть использовали понятные обоим способы кодирования и декодирования данных. Таких способов существует большое количество и <code>FormData</code> позволяет работать с одним из них — <code>&quot;multipart/form-data&quot;</code>.</p>
+<p><code>FormData</code> похожа на коллекцию <a href="/js/map/"><code>Map</code></a> — предоставляет удобные методы для добавления и удаления данных. Но если передать её в качестве тела запроса при вызове <code>fetch</code> (как в примере выше), данные «под капотом» будут преобразованы в нужный формат, а <a href="/tools/http-protocol/#ispolzovanie-zagolovkov">HTTP-заголовку</a> <code>Content-Type</code> будет присвоено значение <code>&quot;multipart/form-data&quot;</code>, чтобы сервер знал, что именно с этим форматом ему предстоит работать.</p>
+<p><code>FormData</code> является отражением данных обычной HTML-формы с атрибутом <code>enctype=&quot;multipart/form-data&quot;</code>, поэтому пример выше можно представить следующим образом без JavaScript:</p>
+<pre><code class="language-html">&lt;form method=&quot;post&quot; action=&quot;/api/subscribe/&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&quot; /&gt;
+  &lt;input type=&quot;email&quot; name=&quot;email&quot; value=&quot;&quot; /&gt;
+  &lt;button type=&quot;submit&quot;&gt;Отправить&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<h3>Когда выбирать</h3>
+<p>Существует несколько самых популярных способов кодирования данных для отправки на сервер: <code>&quot;application/x-www-form-urlencoded&quot;</code>, <code>&quot;multipart/form-data&quot;</code> и <code>&quot;application/json&quot;</code>. Иногда бывает так, что сервер поддерживает только какой-то определённый способ. Тогда выбирать не приходится. Но чаще всего современные решения на бэкенде поддерживают несколько способов, поэтому выбирать нужно в зависимости от задачи.</p>
+<ul>
+<li><code>&quot;application/x-www-form-urlencoded&quot;</code> — способ, который используют HTML-формы по умолчанию. Из-за особенностей преобразования, этот способ плохо подходит для больших объёмов данных, в особенности, файлов или строк с большим количеством символов не из <a href="https://ru.wikipedia.org/wiki/ASCII">ASCII</a> таблицы (например, символы русского алфавита).</li>
+<li><code>&quot;application/json&quot;</code> — достаточно популярный формат из-за широкого распространения <a href="/tools/json/">JSON</a> как формата обмена данными. Из плюсов - поддерживает вложенные структуры, поэтому можно в одном запросе отправить, например, целый объект с данными. Однако, чтобы отправить файл при помощи этого формата, необходимо файл дополнительно закодировать в строку каким-нибудь алгоритмом, например <a href="https://ru.wikipedia.org/wiki/Base64">Base64</a>. Причём на сервере нужно декодировать эти данные обратно.</li>
+<li><code>&quot;multipart/form-data&quot;</code> — удобный способ для загрузки файлов, оптимален с точки зрения размера закодированных данных, но в качестве значений может хранить только строки или файлы.</li>
+</ul>
+<p>Поэтому, лучше всего использовать <code>FormData</code> для отправки файлов на сервер или когда поддержка только строковых данных не является проблемой. Дополнительно, при создании <code>FormData</code> можно передать DOM-элемент формы (будет рассмотрено ниже), и коллекция вытащит из этой формы все данные. Поэтому, если стоит задача отравить данные какой-либо формы, <code>FormData</code> позволит сделать это с минимумом кода.</p>
+<h3>Создание <code>FormData</code></h3>
+<p>Создать новый <em>пустой</em> объект <code>FormData</code> можно с помощью конструктора:</p>
+<pre><code class="language-javascript">const data = new FormData()
+</code></pre>
+<p>Также, конструктор может принимать в качестве аргумента DOM-элемент формы, в этом случае <code>FormData</code> запишет текущие значения полей формы:</p>
+<pre><code class="language-html">&lt;form id=&quot;user-form&quot;&gt;
+  &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;Аня&quot; /&gt;
+  &lt;input type=&quot;text&quot; name=&quot;language&quot; value=&quot;JavaScript&quot; /&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-javascript">const form = document.querySelector(&quot;#user-form&quot;)
+const data = new FormData(form)
+
+for (let [key, value] of data) {
+  console.log(`${key} - ${value}`)
+}
+// &quot;name - Аня&quot;
+// &quot;language - JavaScript&quot;
+</code></pre>
+<h3>Работа с коллекцией</h3>
+<p>Для добавления данных в коллекцию есть метод <code>append()</code>:</p>
+<pre><code class="language-javascript">const data = new FormData()
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+</code></pre>
+<p>Теперь в коллекции появилось одно значение с ключом <code>name</code> и значением <em>&quot;Вася&quot;</em>.</p>
+<aside>
+<p>☝️ <code>FormData</code> может хранить несколько значений для одного ключа! Метод <code>append()</code>, вызванный для ключа, по которому уже есть значение, добавит для этого ключа новые данные, не удаляя старые.</p>
+</aside>
+<p>После выполнения этого кода, в коллекции будет два значения (&quot;Вася&quot; и &quot;Лена&quot;) для одного ключа <code>name</code>:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+</code></pre>
+<p><code>FormData</code> поддерживает ещё один метод для записи данных: <code>set()</code>. В отличие от <code>append()</code>, он перезапишет старые данные для переданного ключа, если они были:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.set(&quot;name&quot;, &quot;Вася&quot;)
+data.set(&quot;name&quot;, &quot;Лена&quot;)
+</code></pre>
+<p>В коллекции у ключа <code>name</code> будет одно значение &quot;Лена&quot;, потому что прошлое значение было перезаписано.</p>
+<aside>
+<p>☝️ <code>FormData</code> может хранить только строки или файлы в качестве значений. Все данные других типов будут <a href="/js/typecasting/">преобразованы</a> в строку.</p>
+</aside>
+<p>Вот пример такого поведения. Записываем <em>число</em> <code>30</code>, но фактически записывается строка <code>&quot;30&quot;</code>:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.append(&quot;age&quot;, 30)
+
+console.log(data.get(&quot;age&quot;) === 30);
+// false
+
+console.log(data.get(&quot;age&quot;) === &quot;30&quot;);
+// true
+
+console.log(typeof data.get(&quot;age&quot;));
+// &quot;string&quot;
+</code></pre>
+<p>Для получения записанных значений есть два метода: <code>get()</code> и <code>getAll()</code>. <code>get()</code> вернёт <em>первое</em> значение для ключа или <code>null</code>, если для указанного ключа значений не было:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+console.log(data.get(&quot;name&quot;))
+// null
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+console.log(data.get(&quot;name&quot;))
+// &quot;Вася&quot;
+</code></pre>
+<p>В примере выше второе значение <em>&quot;Лена&quot;</em> при помощи метода <code>get()</code> недоступно, потому что он всегда возвращает только первое значение. Поэтому, чтобы получить все значения, на помощь приходит <code>getAll()</code>. Он всегда возвращает массив значений для указанного ключа. Если значений не было, возвращаемый массив будет пустой:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+console.log(data.getAll(&quot;name&quot;))
+// []
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+console.log(data.getAll(&quot;name&quot;))
+// [&quot;Вася&quot;, &quot;Лена&quot;]
+</code></pre>
+<p>Чтобы проверить, есть ли в коллекции данные для определённого ключа, есть метод <code>has()</code>, он вернёт <em>true</em> или <em>false</em>:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+console.log(data.has(&quot;name&quot;))
+// false
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+
+console.log(data.has(&quot;name&quot;))
+// true
+</code></pre>
+<p>Для удаления значений для определённого ключа можно воспользоваться методом <code>delete()</code>. Важно помнить, что если у указанного ключа несколько значений, то удалятся все значения:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+
+data.delete(&quot;name&quot;)
+</code></pre>
+<p>После выполнения кода, коллекция снова будет пустая. Мы удалили ключ целиком, поэтому оба значения по этому ключу исчезли.</p>
+<h3>Обход значений</h3>
+<p><code>FormData</code> предоставляет встроенный <a href="/js/iterator/">итератор</a> для обхода значений:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+data.append(&quot;language&quot;, &quot;JavaScript&quot;)
+
+for (let [key, value] of data) {
+  console.log(`${key} - ${value}`)
+}
+// name - Вася
+// name - Лена
+// language - JavaScript
+</code></pre>
+<p>Тот же итератор доступен при помощи метода <code>entries()</code>. Обратите внимание, что каждый элемент итератора — массив из двух элементов. Первый элемент — ключ, а второй — значение.</p>
+<p>В дополнение к этому, <code>FormData</code> предоставляет два других итератора: только ключей при помощи метода <code>keys()</code> и только значений при помощи <code>values()</code>. Каждый ключ при перечислении ключей будет появляться ровно столько раз, сколько значений он содержит:</p>
+<pre><code class="language-javascript">const data = new FormData()
+
+data.append(&quot;name&quot;, &quot;Вася&quot;)
+data.append(&quot;name&quot;, &quot;Лена&quot;)
+data.append(&quot;language&quot;, &quot;JavaScript&quot;)
+
+console.log(&quot;Проходимся по значениям:&quot;)
+for (let value of data.values()) {
+  console.log(value)
+}
+// &quot;Вася&quot;
+// &quot;Лена&quot;
+// &quot;JavaScript&quot;
+
+console.log(&quot;Проходимся по ключам:&quot;)
+for (let key of data.keys()) {
+  console.log(key)
+}
+// &quot;name&quot;
+// &quot;name&quot; &lt;-- ключ появился второй раз, потому что содержит два значения
+// &quot;language&quot;
+</code></pre>

@@ -1,0 +1,39 @@
+<p>🛠 Псевдоэлемент <code>::before</code> очень часто используют для стилизации нестандартных маркеров списка:</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Сделать настоящее тату&lt;/li&gt;
+  &lt;li&gt;Посмотреть «Звездные войны»&lt;/li&gt;
+  &lt;li&gt;Научиться играть на укулеле&lt;/li&gt;
+  &lt;li&gt;Не бриться полгода&lt;/li&gt;
+  &lt;li&gt;Поучаствовать в чайной церемонии&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-css">li::before {
+  content: &quot;💜&quot;;
+  margin-right: 5px;
+}
+</code></pre>
+<iframe title="Нестандартный маркер" src="../demos/list/" height="300"></iframe>
+<p>🛠 Пример с пустым свойством <code>content</code>:</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Милый маленький грибочек&lt;/li&gt;
+  &lt;li&gt;Сколопендровый листочек&lt;/li&gt;
+  &lt;li&gt;Жёлтой пыльки чуть&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-css">li {
+  position: relative;
+  padding-left: 25px;
+}
+
+li::before {
+  /* Не забываем о свойстве content */
+  content: &quot;&quot;;
+  width: 14px;
+  height: 14px;
+  background-color: #2E9AFF;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+</code></pre>
+<iframe title="Пустое свойство content" src="../demos/empty-content/" height="300"></iframe>

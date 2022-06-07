@@ -1,5 +1,5 @@
 #!/bin/bash
-options=("CSS" "HTML" "JavaScript" "Инструменты" "Рецепты")
+options=("CSS" "HTML" "JavaScript" "Python" "Инструменты" "Рецепты")
 tags=("Дока" "Статья")
 
 CATEGORY=""
@@ -43,6 +43,10 @@ do
       ;;
     "JavaScript")
       CATEGORY=js
+      break
+      ;;
+    "Python")
+      CATEGORY=python
       break
       ;;
     "Инструменты")

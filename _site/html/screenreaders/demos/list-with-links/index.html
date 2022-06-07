@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список со ссылками — Скринридеры — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #eee;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .list {
+      display: flex;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list-item {
+      font-size: 18px;
+    }
+
+    .list-item__link {
+      color: #0d47a1;
+    }
+
+    .list-item__link:hover {
+      color: #e65100;
+    }
+
+    .list-item__link:focus {
+      outline: 3px solid #e65100;
+      outline-offset: 4px;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list">
+    <li class="list-item">
+      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%A0%D1%8B%D0%B1%D1%8B">Рыбы</a>
+    </li>
+    <li class="list-item">
+      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0">Пёсели</a>
+    </li>
+    <li class="list-item">
+      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%9B%D1%8F%D0%B3%D1%83%D1%88%D0%BA%D0%B8">Лягухи</a>
+    </li>
+  </ul>
+</body>
+</html>

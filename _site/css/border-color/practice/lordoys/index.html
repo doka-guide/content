@@ -1,0 +1,15 @@
+<p>🛠 Чаще всего это свойство используется в шорткате <a href="/css/border/"><code>border</code></a>, а отдельно пишется, если все свойства рамки сохраняются, а цвет нужно изменить, например по событию <a href="/css/hover/"><code>:hover</code></a> или <a href="/css/focus/"><code>:focus</code></a>. Или когда вы используете методологию БЭМ, и все свойства рамки прописаны у элемента, а цвет рамки — у модификатора. Вот пример:</p>
+<pre><code class="language-html">&lt;div class=&quot;block&quot;&gt;
+  &lt;p class=&quot;block__element&quot;&gt;Текст&lt;/p&gt;
+  &lt;p class=&quot;block__element block__element--modify&quot;&gt;Текст с модификатором&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.block__element {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.block__element--modify {
+  border-color: tomato;
+}
+</code></pre>

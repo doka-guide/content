@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Таблица — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      padding: 50px;
+      margin: 0;
+      background: #18191c;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      line-height: 1.4;
+    }
+
+    table {
+      width: 100%;
+      max-width: 400px;
+      border-top: 7px solid #41E847;
+      border-collapse: collapse;
+    }
+
+    table th,
+    table td {
+      padding: 14px;
+      border: 1px solid #41E847;
+      border-left-width: 0;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>Место</th>
+          <th>Участник</th>
+          <th>Рейтинг</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Саша</td>
+          <td>118</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Юля</td>
+          <td>92</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Даниил</td>
+          <td>36</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

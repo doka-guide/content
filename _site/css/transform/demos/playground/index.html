@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница Transform — transform — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --translateX: 0px;
+      --translateY: 0px;
+      --translateZ: 0px;
+      --rotateX: 0deg;
+      --rotateY: 0deg;
+      --rotateZ: 0deg;
+      --scaleX: 1;
+      --scaleY: 1;
+      --scaleZ: 1;
+      --skewX: 0deg;
+      --skewY: 0deg;
+    }
+
+    body {
+      box-sizing: border-box;
+      min-height: 100vh;
+      margin: 0;
+      padding-right: 245px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
+    .parent {
+      position: relative;
+      width: calc(100% - 245px);
+      perspective: 500px;
+      text-align: center;
+    }
+
+    .parent::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      outline: 1px solid rgb(255 255 255 / 30%);
+      outline-offset: -2px;
+      z-index: 10;
+    }
+
+    .obj {
+      position: relative;
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-repeat: no-repeat;
+      transform:
+        translate3d(var(--translateX), var(--translateY), var(--translateZ))
+        scale3d(var(--scaleX), var(--scaleY), var(--scaleZ))
+        rotateX(var(--rotateX))
+        rotateY(var(--rotateY))
+        rotateZ(var(--rotateZ))
+        skew(var(--skewX), var(--skewY));
+      transform-style: preserve-3d;
+    }
+
+    .obj::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #2E9AFF;
+      background-image: url("images/face.svg");
+      background-size: cover;
+      background-position: center;
+      backface-visibility: hidden;
+    }
+
+    .obj::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #FFFFFF;
+      background-image: url("images/back.svg");
+      background-size: cover;
+      background-position: center;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+    }
+
+    .dg {
+      font-size: 0.8rem!important;
+    }
+
+    .dg .slider-fg {
+      background: #2E9AFF!important;
+    }
+
+    .dg .slider:hover .slider-fg {
+      background: #FFFFFF!important;
+    }
+
+    .dg .cr.number {
+      border-left-color: #2E9AFF!important;
+    }
+
+    .dg .cr.function {
+      border-left-color: #F498AD!important;
+    }
+
+    .dg .cr.number input[type=text] {
+      color: #FFFFFF!important;
+    }
+
+    .dg .dg.a {
+      margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-right: 0;
+      }
+
+      .parent {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="obj"></div>
+  </div>
+  <script src="dat-gui-min.js"></script>
+  <script>
+    const params = {
+      translateX: 0,
+      translateY: 0,
+      translateZ: 0,
+      skewX: 0,
+      skewY: 0,
+      rotateX: 0,
+      rotateY: 0,
+      rotateZ: 0,
+      scaleX: 1,
+      scaleY: 1,
+      scaleZ: 1,
+      reset() {
+        for (key in this) {
+          if (key !== 'reset') {
+            if (['scaleX', 'scaleY', 'scaleZ'].includes(key)) {
+              this[key] = 1
+              setter(`--${key}`, '')(1)
+            } else {
+              this[key] = 0
+              if (['translateX', 'translateY', 'translateZ'].includes(key)) {
+                setter(`--${key}`, 'px')(0)
+              } else {
+                setter(`--${key}`, 'deg')(0)
+              }
+            }
+          }
+        }
+        gui.updateDisplay()
+      }
+    }
+
+    const gui = new dat.GUI({name: 'My GUI'})
+    const guiTranslate = gui.addFolder('translate')
+    const guiRotate = gui.addFolder('rotate')
+    const guiScale = gui.addFolder('scale')
+    const guiSkew = gui.addFolder('skew')
+    const root = document.documentElement
+
+    const setter = (prop, suffix) => val => {
+      root.style.setProperty(prop, `${val}${suffix}`)
+    }
+    gui.add(params, 'reset')
+
+    guiTranslate.add(params, 'translateX', -100, 100, 1).onChange(setter('--translateX', 'px')).listen()
+    guiTranslate.add(params, 'translateY', -100, 100, 1).onChange(setter('--translateY', 'px'))
+    guiTranslate.add(params, 'translateZ', -100, 100, 1).onChange(setter('--translateZ', 'px'))
+    guiRotate.add(params, 'rotateX', -180, 180, 1).onChange(setter('--rotateX', 'deg'))
+    guiRotate.add(params, 'rotateY', -180, 180, 1).onChange(setter('--rotateY', 'deg'))
+    guiRotate.add(params, 'rotateZ', -180, 180, 1).onChange(setter('--rotateZ', 'deg'))
+    guiScale.add(params, 'scaleX', 0, 2).onChange(setter('--scaleX', ''))
+    guiScale.add(params, 'scaleY', 0, 2).onChange(setter('--scaleY', ''))
+    guiScale.add(params, 'scaleZ', 0, 2).onChange(setter('--scaleZ', ''))
+    guiSkew.add(params, 'skewX', -90, 90, 1).onChange(setter('--skewX', 'deg'))
+    guiSkew.add(params, 'skewY', -90, 90, 1).onChange(setter('--skewY', 'deg'))
+
+    guiTranslate.open()
+  </script>
+</body>
+</html>

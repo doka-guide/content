@@ -1,0 +1,133 @@
+<h2>Кратко</h2>
+<p>Браузерное API, которое выполняет переданный код асинхронно.</p>
+<h2>Как пишется</h2>
+<p><code>queueMicrotask()</code>:</p>
+<ul>
+<li>Принимает функцию, которая будет передана в очередь микрозадач;</li>
+<li>Возвращает <code>undefined</code>.</li>
+</ul>
+<pre><code class="language-js">queueMicrotask(() =&gt; {
+    console.log('Хэй, я выполнюсь асинхронно!')
+})
+</code></pre>
+<h2>Как понять</h2>
+<p>Код выше схож со сценарием использования <a href="/js/settimeout/"><code>setTimeout()</code></a>. Оба выполнят код асинхронно:</p>
+<pre><code class="language-js">setTimeout(() =&gt; {
+    console.log('Хэй, я выполнюсь асинхронно благодаря setTimeout')
+}, 0)
+</code></pre>
+<p>Так в чем же принципиальная разница между ними?</p>
+<p><code>queueMicrotask()</code> добавляет переданную функцию в <em>очередь микрозадач</em>. Функции в этой очереди выполняются одна за другой (<em>FIFO: First in First Out</em>) — когда текущая функция выполнилась, запускается следующая функция в очереди.</p>
+<p>Все микрозадачи в очереди будут выполнены только после того, как текущий <em><a href="/js/async-in-js/#stek-vyzovov">стек вызовов</a></em> окажется пустым, но перед выполнением следующей макрозадачей.</p>
+<p>Если вернуться к сравнению с <code>setTimeout()</code>, то передаваемые в него функции этого относятся к <em>макрозадачам</em>. Каждая из них будет взята из очереди задач, после того как управление передастся циклу событий.</p>
+<p>Поэтому, если вызвать <code>queueMicrotask()</code> после <code>setTimeout()</code>, или наоборот — функция, переданная в <code>queueMicrotask()</code>, начнёт своё исполнение первой.</p>
+<details>
+<summary>Подробнее про микро и макрозадачи</summary>
+<p><img src="/js/queueMicrotask/images/event-loop-schema.png" alt="схема событийного цикла"></p>
+<p>JavaScript имеет в своём арсенале различные <em>виды очередей</em>, а также <em>стек вызовов</em>. Давайте кратко разберём необходимый минимум, который поможет разобраться с процессом работы:</p>
+<ul>
+<li><em>Стек вызовов</em> — служит для выполнения синхронных операций;</li>
+<li><em>Очередь микрозадач</em> — контейнер для хранения асинхронных операций, имеющих высокий приоритет;</li>
+<li><em>Очередь макрозадач</em> — контейнер для хранения асинхронных операций с низким приоритетом.</li>
+</ul>
+<p>Что же, кажется, самое время рассмотреть процесс работы между этими самыми элементами:</p>
+<ul>
+<li>Первый, кто начинает процесс выполнения — стек вызовов;</li>
+<li>После того, как JavaScript убеждается, в том, что стек пуст — в него по очереди добавляются задачи из очереди микрозадач;</li>
+<li>Процесс выполнения продолжается до тех пор, пока не станет ясно, что очередь опустела. Как только это произойдёт — выполняются задачи из очередь макрозадач;</li>
+<li>Очередь макрозадач является завершающим этапом. После того как список в нем станет пустым — все повторяется по новой.</li>
+</ul>
+</details>
+<h2>Пример</h2>
+<p>Убедимся, что функция, переданная в <code>queueMicrotask()</code> выполнится раньше, чем через <code>setTimeout()</code>. Для этого создадим страницу с формой, при отправке которой будут запускаться оба задания. Каждое из них будет печатать на экран уникальный текст:</p>
+<pre><code class="language-html">&lt;form class=&quot;compare-form&quot; name=&quot;compare-form&quot;&gt;
+  &lt;h2&gt;
+    Вывод значений с помощью &lt;code&gt;queueMicrotask&lt;/code&gt; и &lt;code&gt;setTimeout&lt;/code&gt;:
+  &lt;/h2&gt;
+  &lt;p id=&quot;compare-output&quot;
+    class=&quot;compare-form__output&quot;
+  &gt;&lt;/p&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;button compare-form__submit-button&quot;&gt;
+    Вывести текст
+  &lt;/button&gt;
+  &lt;button type=&quot;reset&quot; class=&quot;button compare-form__reset-button&quot;&gt;
+    Очистить содержимое
+  &lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>При отправке формы запустим наши задачи — первым будет располагаться <code>setTimeout()</code>, а после него <code>queueMicrotask()</code>.</p>
+<pre><code class="language-html">&lt;script&gt;
+  const handleFormSubmit = (e) =&gt; {
+    e.preventDefault()
+
+    setTimeout(() =&gt; {
+      output.innerText += 'Фраза добавлена из setTimeout()\n\n'
+    }, 0)
+    queueMicrotask(() =&gt; {
+      output.innerText += 'Фраза добавлена из queueMicrotask()\n'
+    })
+  }
+&lt;/script&gt;
+</code></pre>
+<p>Вот и все! Давайте посмотрим, что у нас получилось:</p>
+<iframe title="Сравнение queueMicrotask() и setTimeout()" src="demos/queueMicrotask-vs-setTimeout/" height="450"></iframe>
+<h2>Подсказки</h2>
+<p>Основная причина использования <code>queueMicrotask()</code> — обеспечение последовательности выполнения задач, одновременно снижая риск заметных пользователю задержек в операциях.</p>
+<p>Представим ситуацию, в которой необходимо получать данные по указанному урлу. Либо же, если запрос выполнялся ранее  — запросить данные из кэша:</p>
+<pre><code class="language-js">const output = document.querySelector('.logging-form__output')
+let data = []
+const cache = {}
+
+function getData(url) {
+  if (url in cache) {
+    data = cache[url]
+    output.dispatchEvent(new Event('data-loaded'))
+  } else {
+    fetch(url)
+      .then((response) =&gt; response.json())
+      .then(({ data }) =&gt; {
+        cache[url] = data
+        data = data
+        output.dispatchEvent(new Event('data-loaded'))
+      })
+  }
+}
+</code></pre>
+<p><em>Какую проблему тут можно заметить?</em></p>
+<p>В теле одного условия используется цепочка промисов, в другом — обычное синхронное выполнение. Из этого можно сделать вывод, что в разных условиях, процесс выполнения также будет отличаться.</p>
+<p>Для наглядности, навесим обработчик на событие <code>submit</code>, в котором будет происходить вызов функции <code>getData</code>:</p>
+<pre><code class="language-js">const form = document.querySelector('.logging-form')
+
+const handleFormSubmit = (e) =&gt; {
+  e.preventDefault()
+
+  output.innerText += 'Процесс загрузки данных...\n'
+  getData('https://reqres.in/api/users/2')
+  output.innerText += 'Процесс загрузки данных выполняется...\n'
+}
+
+form.addEventListener('submit', handleFormSubmit)
+</code></pre>
+<p>Не забываем про кастомное событие <code>data-loaded</code>, инициируемое внутри функции <code>getData</code>. Навесим обработчик и на него:</p>
+<pre><code class="language-js">const output = document.querySelector('.logging-form__output')
+
+const handleOutputDataLoaded = () =&gt; {
+  output.innerText += 'Данные загружены\n'
+}
+
+output.addEventListener('data-loaded', handleOutputDataLoaded)
+</code></pre>
+<p>Давайте посмотрим, к каким результатам это может привести. Для этого необходимо нажать на кнопку получения данных 2 раза:</p>
+<iframe title="Неочевидный порядок выполнения кода" src="demos/when-to-use/ordering-with-conditional-operator/not-obvious/" height="450"></iframe>
+<p>После второго нажатия, когда данные берутся из кэша, можно заметить недочёт. Строка «Процесс загрузки данных выполняется...» выводится после «Данные загружены». Причём, когда данные приходили впервые — вывод строк был совершенно иным. Это происходит из-за того, что при первом чтении событие <code>data-loaded</code> отправляется из асинхронного кода, а в случае чтения из кэша — из синхронного.</p>
+<p>Чтобы исправить проблему, необходимо обернуть тело первого условного блока в <code>queueMicrotask()</code> и таким образом сделать чтение данных из кэша асинхронной операцией:</p>
+<pre><code class="language-js">if (url in cache) {
+  queueMicrotask(() =&gt; {
+    data = cache[url]
+    textarea.dispatchEvent(new Event('data-loaded'))
+  })
+}
+</code></pre>
+<p>Взглянем на итоговое решение после небольшой корректировки:</p>
+<iframe title="Очевидный порядок выполнения кода" src="demos/when-to-use/ordering-with-conditional-operator/obvious/" height="450"></iframe>
+<p>Отлично! Теперь процесс выполнения работает идентично как при получении данных с сервера, так и при вытаскивании их из кэша.</p>

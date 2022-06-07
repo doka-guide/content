@@ -1,0 +1,74 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;fieldset&gt;</code> группирует элементы формы (поля ввода <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, выпадающие списки <code>&lt;select&gt;</code> и другие) в блок с характерным выделением границ. Опционально с помощью тега <a href="/html/legend/"><code>&lt;legend&gt;</code></a> внутри <code>&lt;fieldset&gt;</code> можно задать заголовок для создаваемой группы (он может быть только один и обязательно должен идти первым вложенным элементом).</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;legend&gt;Прозвище Дракса из «Стражей Галактики»?&lt;/legend&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;Exterminator&quot;&gt;
+      Уничтожитель
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;Destroyer&quot;&gt;
+      Разрушитель
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;Accuser&quot;&gt;
+      Обвинитель
+    &lt;/label&gt;
+    &lt;label&gt;
+      &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;Sweet-tooth&quot;&gt;
+      Сладкоежка
+    &lt;/label&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p>В сложных формах количество контролов может устрашающе перегружать интерфейс, и правильным решением в этом случае будет группировка смысловых элементов.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;fieldset&gt;…&lt;/fieldset&gt;
+</code></pre>
+<p>Для добавления подписи внутри <code>&lt;fieldset&gt;</code> следует использовать <a href="/html/legend/"><code>&lt;legend&gt;</code></a>:</p>
+<pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Заголовок для группы&lt;/legend&gt;
+  …
+&lt;/fieldset&gt;
+</code></pre>
+<h2>Атрибуты</h2>
+<ul>
+<li><code>disabled</code> — блокирует все контролы <strong>внутри</strong> тега (как будто каждому из них указали этот атрибут — очень удобно);</li>
+<li><code>form</code> — связывает контролы <strong>внутри</strong> тега с формой (будто они располагаются внутри) — для этого в значении атрибута следует указать ID формы;</li>
+<li>также для <code>&lt;fieldset&gt;</code> доступны все <a href="/html/global-attrs/">глобальные атрибуты</a>.</li>
+</ul>
+<h2>Подсказки</h2>
+<aside>
+<p>💡 Самое удобное в использовании <code>&lt;fieldset&gt;</code> — возможность заблокировать <strong>все</strong> вложенные контролы внутри тега одним атрибутом <code>disabled</code>:</p>
+</aside>
+<iframe title="Блокирование всей формы при помощи disabled" src="demos/disabling/" height="370"></iframe>
+<p>Внешний вид оформления рамки по умолчанию у <code>&lt;legend&gt;</code> немного отличается в зависимости от браузера и операционной системы:</p>
+<section class="section section_column_2">
+  <figure class="section__item">
+    <img src="images/win-10-chrome-71.png" alt="Windows 10, Google Chrome 71.0">
+    <figcaption>Windows 10, Google Chrome 71.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/mac-chrome-71.png" alt="macOS Big Sur Big Sur, Google Chrome 71.0">
+    <figcaption>macOS Big Sur Big Sur, Google Chrome 71.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/win-10-edge-18.png" alt="Windows 10, Edge 18.0">
+    <figcaption>Windows 10, Edge 18.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/mac-safari-14.jpg" alt="macOS Big Sur Big Sur, Safari 14.0">
+    <figcaption>macOS Big Sur Big Sur, Safari 14.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">
+    <figcaption>Samsung Galaxy S7</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/google-nexus.png" alt="Google Nexus 6">
+    <figcaption>Google Nexus 6</figcaption>
+  </figure>
+</section>

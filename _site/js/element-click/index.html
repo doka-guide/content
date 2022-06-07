@@ -1,0 +1,31 @@
+<h2>Кратко</h2>
+<p><a href="/js/events/">Событие</a> клика на HTML-элементе. Когда пользователь кликает мышкой по странице, браузер определяет, на каком элементе произошёл клик и создаёт событие <code>click</code>.</p>
+<p>На события можно подписаться и выполнять JavaScript-код, когда событие произошло.</p>
+<h2>Как пишется</h2>
+<p>Подписаться на все клики на странице:</p>
+<pre><code class="language-js">document.addEventListener(&quot;click&quot;, function () {
+  alert(&quot;Вы кликнули по странице!&quot;)
+})
+</code></pre>
+<p>Подписаться только на клики по кнопке (она должна быть на странице):</p>
+<pre><code class="language-js">let button = document.getElementsByTagName(&quot;button&quot;)[0] // получаем кнопку
+
+// навешиваем обработчик на событие клик
+button.addEventListener(&quot;click&quot;, function () {
+  alert(&quot;Вы кликнули по кнопке!&quot;)
+})
+</code></pre>
+<h2>Как понять</h2>
+<p>Подробнее о механизме событий читай в статье <a href="/js/events/">«События»</a>.</p>
+<p>В функцию-обработчик так же передаётся объект события, который содержит дополнительную информацию о клике. Самые полезные свойства:</p>
+<ul>
+<li><code>detail</code> — количество кликов, которые произвёл пользователь. <code>1</code> — для одиночного клика, <code>2</code> — для двойного и так далее.</li>
+<li><code>view</code> — возвращает объект <code>window</code>, в котором произошло событие.</li>
+</ul>
+<p>Чтобы получить доступ к объекту события, функция-обработчик должна принимать на вход параметр:</p>
+<pre><code class="language-js">button.addEventListener(&quot;click&quot;, function (event) {
+  alert(event.detail) // напечатает количество кликов
+})
+</code></pre>
+<p>Пример, использующий эти свойства:</p>
+<iframe title="Название — Element.click — Дока" src="demos/Lopinopulos-gJZxeK/" height="150"></iframe>

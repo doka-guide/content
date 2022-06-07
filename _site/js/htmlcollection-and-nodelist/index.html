@@ -1,0 +1,19 @@
+<h2>Кратко</h2>
+<p><code>HTMLCollection</code> и <code>NodeList</code> — это очень похожие на массив коллекции. Они хранят элементы веб-страницы (узлы DOM). <code>NodeList</code> может хранить любые типы узлов, а <code>HTMLCollection</code> — только узлы HTML элементов. К элементам коллекций можно обращаться по индексу, но у них нет привычных <a href="/js/arrays/">методов массива</a>.</p>
+<p><code>HTMLCollection</code> возвращают методы <a href="/js/getelementsbytagname/"><code>getElementsByTagName</code></a> и <a href="/js/getelementsbyclassname/"><code>getElementsByClassName</code></a>.</p>
+<p><code>NodeList</code> возвращают методы <a href="/js/query-selector-all/"><code>querySelectorAll</code></a> и <code>childNodes</code>.</p>
+<p>Полный список всех методов, возвращающих типы <code>NodeList</code> или <code>HTMLCollection</code> можно узнать в <a href="https://dom.spec.whatwg.org/#document">стандарте DOM</a>.</p>
+<h2>Как понять</h2>
+<p><code>HTMLCollection</code> возвращают методы, которые работают с DOM — представлением HTML-кода страницы в JavaScript.</p>
+<p>Полученная один раз коллекция всегда остаётся актуальной — JavaScript будет обновлять её в случае, если на странице появляется подходящий элемент. Поэтому <code>HTMLCollection</code> называют «живой» коллекцией.</p>
+<p>Например, единожды получив коллекцию мы можем не заботиться о её поддержке:</p>
+<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350"></iframe>
+<p><code>NodeList</code> работает почти так же, как и <code>HTMLCollection</code>.</p>
+<p>Разница:</p>
+<ol>
+<li><code>NodeList</code> может хранить любые типы узлов, например текстовые узлы и комментарии, а <code>HTMLCollection</code> — только узлы HTML элементов;</li>
+<li><code>HTMLCollection</code> позволяет обращаться к элементам не только по индексу, но и по имени с помощью метода <code>namedItem</code>;</li>
+<li><code>NodeList</code> может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.</li>
+</ol>
+<p>«Живой» <code>NodeList</code> возвращают методы <code>getElementsByName</code> и <code>childNodes</code>.</p>
+<p>Статический <code>NodeList</code> возвращает метод <code>querySelectorAll</code>.</p>

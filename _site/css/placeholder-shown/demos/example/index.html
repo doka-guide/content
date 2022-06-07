@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример placeholder-shown — placeholder-shown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 300px;
+      padding: 5px;
+    }
+
+    .no-pseudo {
+      text-overflow: ellipsis;
+    }
+
+    .pseudo:placeholder-shown {
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <p>Обычная обрезка</p>
+  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email">
+
+  <p>Попытка обрезки без псевдокласса <br>Если ввести длинную строку, то она тоже обрежется многоточием</p>
+  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="no-pseudo">
+
+  <p>Красивая обрезка с использованием псевдокласса</p>
+  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="pseudo">
+</body>
+</html>

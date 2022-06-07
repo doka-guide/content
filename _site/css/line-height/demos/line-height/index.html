@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Высота строки — line-height — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .green {
+      line-height: 1.2;
+      background-color: #49a16c;
+    }
+
+    .blue {
+      line-height: 1.2em;
+      background-color: #1a5ad7;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .box {
+      width: 18em;
+      padding: 20px;
+      display: inline-block;
+      vertical-align: top;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .box + .box {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box green">
+    <h1>Тут мы задали интервал с помощью числа 1.2</h1>
+    Оно умножается на размер шрифта этого же элемента. Это удобно и предсказуемо.
+  </div>
+
+  <div class="box blue">
+    <h1>А здесь мы ввели 1.2em</h1>
+    Это значит, что 1.2 умножается на размер шрифта родительского элемента, в нашем случае &#60;div&#62;, а не на размер заголовка. Это вносит путаницу.
+  </div>
+</body>
+</html>

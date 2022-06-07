@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Липкое позиционирование — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .section {
+      border: 2px solid black;
+      margin: 5px 10px;
+      display: flex;
+    }
+
+    .section__left {
+      flex-shrink: 0;
+      width: 30%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .section__right {
+      box-sizing: border-box;
+      padding: 20px;
+    }
+
+    .section__title {
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 23px;
+      margin: 0;
+      position: sticky;
+      top: 20px;
+    }
+
+    .squares {
+      margin: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 15px;
+      width: 100%;
+    }
+
+    .squares__item {
+      background-color: tomato;
+      height: 120px;
+    }
+
+    .squares__item:last-of-type {
+      background-color: cornflowerblue;
+      position: sticky;
+      bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <section class="section">
+    <div class="section__left">
+      <p class="section__title">Sticky Title 1</p>
+    </div>
+    <ul class="section__right squares">
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+    </ul>
+  </section>
+  <section class="section">
+    <div class="section__left">
+      <p class="section__title">Sticky Title 2</p>
+    </div>
+    <ul class="section__right squares">
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+    </ul>
+  </section>
+  <section class="section">
+    <div class="section__left">
+      <p class="section__title">Sticky Title 3</p>
+    </div>
+    <ul class="section__right squares">
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+      <li class="squares__item"></li>
+    </ul>
+  </section>
+</body>
+</html>

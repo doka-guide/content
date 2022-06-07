@@ -1,0 +1,58 @@
+<p>🛠 С помощью смежного комбинатора удобно выбирать группу одинаковых элементов по принципу «все, кроме первого» — например, чтобы задать отступ.</p>
+<p>К первому <code>&lt;li&gt;</code> стили не применятся, поскольку перед ним нет другого <code>&lt;li&gt;</code>:</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Первый пункт&lt;/li&gt;
+  &lt;li&gt;Второй пункт&lt;/li&gt;
+  &lt;li&gt;Третий пункт&lt;/li&gt;
+  &lt;li&gt;Четвёртый пункт&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-css">li + li {
+  margin-top: 1em;
+}
+</code></pre>
+<p>Классический пример — вёрстка «звёздного» рейтинга. Для начала опишем структуру:</p>
+<pre><code class="language-html">&lt;div class=&quot;rating&quot;&gt;
+  &lt;button&gt;★&lt;/button&gt;
+  &lt;button&gt;★&lt;/button&gt;
+  &lt;button&gt;★&lt;/button&gt;
+  &lt;button&gt;★&lt;/button&gt;
+  &lt;button&gt;★&lt;/button&gt;
+&lt;/div&gt;
+</code></pre>
+<p>И стили:</p>
+<pre><code class="language-css">button {
+  border: none;
+  background-color: transparent;
+  font-size: 5em;
+}
+
+button:hover,
+button:focus,
+button:hover ~ button,
+button:focus ~ button {
+  color: #F498AD;
+}
+</code></pre>
+<p>Но сейчас при наведении курсора будут выделяться все элементы <em>после</em> (то есть справа).</p>
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating-bug/" height="250"></iframe>
+<p>Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства <code>direction: rtl</code>.</p>
+<p>Добавим это свойство родителю звёздочек <code>.rating</code>:</p>
+<pre><code class="language-css">.rating {
+  direction: rtl;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  font-size: 5em;
+}
+
+button:hover,
+button:focus,
+button:hover ~ button,
+button:focus ~ button {
+  color: #F498AD;
+}
+</code></pre>
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="250"></iframe>

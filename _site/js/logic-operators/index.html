@@ -1,0 +1,79 @@
+<h2>Кратко</h2>
+<p>Логические операторы помогают составлять сложные логические условия, которые часто нужны при ветвлении с помощью <code>if...else</code>.</p>
+<h2>Как пишется</h2>
+<h3>И, <code>&amp;&amp;</code></h3>
+<p>Интернет-магазин показывает цены со скидкой только зарегистрированному пользователю, сделавшему больше одной покупки.</p>
+<p>В описании два условия, которые должны одновременно быть верными:</p>
+<ul>
+<li>пользователь должен быть зарегистрирован</li>
+<li>количество покупок должно быть больше одной</li>
+</ul>
+<p>Если одно из условий, или оба сразу неверны, то цену показывать не нужно.</p>
+<p>Именно по такому принципу работает оператор логическое И, пишется <code>&amp;&amp;</code>. Если соединить с его помощью два выражения, то результат будет равен истине только тогда, когда оба выражения истинны:</p>
+<pre><code class="language-js">if (isRegistered === true &amp;&amp; orders &gt; 1) {
+  // показываем цены
+}
+</code></pre>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-wLGJgz/" height="150"></iframe>
+<p>Обычно для того, чтобы понять, как работают логические операторы, рисуют таблицу истинности. В ячейках — итоговое значение операции при соответствующих операндах:</p>
+<div class="article__table article__table_all-third">
+<table>
+<thead>
+<tr>
+<th><code>&amp;&amp;</code></th>
+<th style="text-align:right"><code>true</code></th>
+<th style="text-align:right"><code>false</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>true</code></td>
+<td style="text-align:right"><code>true</code></td>
+<td style="text-align:right"><code>false</code></td>
+</tr>
+<tr>
+<td><code>false</code></td>
+<td style="text-align:right"><code>false</code></td>
+<td style="text-align:right"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>ИЛИ, <code>||</code></h3>
+<p>Представь, что мы проверяем билеты на концерт. Пропускать нужно людей с билетами, а также тех, кто находится в списке приглашённых. Выполнение любого из этих условий гарантирует попадание на концерт.</p>
+<p>Чтобы написать такое составное условие, воспользуйся оператором логического ИЛИ, обозначается как две вертикальные черты <code>||</code>. Логическое или вернёт <code>true</code>, если хотя бы одно из условий <code>true</code>.</p>
+<p>Погенерируй гостей в демо и посмотри, как отрабатывает условие, которое записано так:</p>
+<pre><code class="language-js">if (hasTicket || isInvited) { ... }
+</code></pre>
+<iframe title="Название — Логические операторы — Дока" src="demos/Lopinopulos-VJjboW/" height="300"></iframe>
+<div class="article__table article__table_all-third">
+<table>
+<thead>
+<tr>
+<th><code>||</code></th>
+<th style="text-align:right"><code>true</code></th>
+<th style="text-align:right"><code>false</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>true</code></td>
+<td style="text-align:right"><code>true</code></td>
+<td style="text-align:right"><code>true</code></td>
+</tr>
+<tr>
+<td><code>false</code></td>
+<td style="text-align:right"><code>true</code></td>
+<td style="text-align:right"><code>false</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>НЕ <code>!</code></h3>
+<p>Оператор «логическое НЕ» превращает <code>true</code> в <code>false</code> и наоборот.</p>
+<p>Он записывается в виде восклицательного знака <code>!</code> перед операндом: <code>!операнд</code> . Чаще всего это переменная. Например, <code>!myVariable</code> . Операторы, которые производят операцию над одним операндом называются унарными.</p>
+<p>Например, мы можем предлагать купить билет посетителю без билета:</p>
+<pre><code class="language-js">if (!hasTicket) {
+  // купи билет, дорогой!
+}
+</code></pre>

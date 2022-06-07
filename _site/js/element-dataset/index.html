@@ -1,0 +1,118 @@
+<h2>Кратко</h2>
+<p><code>Element.dataset</code> позволяет считывать или устанавливать любые дата-атрибуты на HTML-элемент.</p>
+<p>Дата-атрибут — это пользовательский атрибут на элементе, название которого начинается с <code>data-</code>, например <code>data-testid</code>. Дата атрибуты используются, чтобы хранить значения на элементах в HTML.</p>
+<h2>Как пишется</h2>
+<p>Обращение к <code>Element.dataset</code> вернёт объект со всеми дата-атрибутами, которые есть на элементе. Названиями полей в объекте будут имена дата-атрибутов после префикса <code>data-</code>. Например, если атрибут называется <code>data-columns</code>, то поле в объекте для этого атрибута будет называться <code>columns</code>.</p>
+<pre><code class="language-html">&lt;h1&gt;Известные ситхи&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li data-id=&quot;1541&quot; data-episode=&quot;1&quot;&gt;Дарт Мол&lt;/li&gt;
+  &lt;li data-id=&quot;9434&quot; data-episode=&quot;4&quot;&gt;Дарт Вейдер&lt;/li&gt;
+  &lt;li data-id=&quot;5549&quot; data-episode=&quot;4&quot;&gt;Дарт Сидиус&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-js">const items = document.querySelectorAll('li')
+
+const firstItem = items[0]
+
+// Вернёт { id: '1541', episode: '1' }
+firstItem.dataset
+</code></pre>
+<p>Если дата-атрибутов на элементе нет, то вернётся пустой объект.</p>
+<pre><code class="language-js">const heading = document.querySelector('h1')
+
+// Вернёт пустой объект {}, так как нет дата-атрибутов
+heading.dataset
+</code></pre>
+<p>Чтобы добавить дата-атрибут к элементу, нужно добавить новое поле в объект <code>Element.dataset</code>. Название поля так же должно быть без префикса <code>data-</code>, браузер автоматически подставит его. В значениях атрибутов в HTML могут быть только строки, потому любое значение будет автоматически приведено к строке.</p>
+<p>Возьмём тот же HTML из примера выше и добавим дата-атрибуты ко второму элементу:</p>
+<pre><code class="language-js">// Используем тот же HTML из примера выше
+const items = document.querySelectorAll('li')
+
+const secondItem = items[1]
+
+// Объекты тоже приводятся в строке
+secondItem.dataset.side = 'evil'
+secondItem.dataset.age = 46
+secondItem.dataset.lightsaber = { color: 'red' }
+</code></pre>
+<p>В результате получим такой элемент:</p>
+<pre><code class="language-html">&lt;li
+  data-id=&quot;9434&quot;
+  data-episode=&quot;4&quot;
+  data-side=&quot;evil&quot;
+  data-age=&quot;46&quot;
+  data-lightsaber=&quot;[object Object]&quot;&gt;
+  Дарт Вейдер
+&lt;/li&gt;
+</code></pre>
+<p>Если в <code>Element.dataset</code> добавить поле с пустым значением, то в HTML будет создан дата-атрибут без значения.</p>
+<h3>Использование camelCase и kebab-case</h3>
+<p>В <code>Element.dataset</code> необходимо присваивать поля, название которых записывается в одно слово. Потому для составных имён используется только <code>camelCase</code> нотация. При попытке присвоить название в <code>kebab-case</code> будет выброшена ошибка.</p>
+<pre><code class="language-js">const body = document.querySelector('body')
+
+body.dataset['dark-theme'] = true
+
+// Uncaught DOMException: Failed to set
+// a named property on 'DOMStringMap':
+// 'dark-theme' is not a valid property name.
+</code></pre>
+<p>Дата-атрибуты, записанные в <code>Element.dataset</code> с помощью <code>camelCase</code>, в HTML будут иметь названия в <code>kebab-case</code>. Браузер преобразует <code>camelCase</code> в <code>kebab-case</code>. В <code>Element.dataset</code> название останется в <code>camelCase</code>.</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;Иван Иванов&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-js">const item = document.querySelector('li')
+
+// Создаст дата-атрибут data-years-of-experience=&quot;1&quot;
+item.dataset.yearsOfExperience = 2
+
+// Создаст дата-атрибут data-candidate-role=&quot;junior&quot;
+item.dataset.candidateRole = 'junior'
+</code></pre>
+<p>В результате выполнения примера выше получится следующий HTML:</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li data-candidate-role=&quot;junior&quot; data-years-of-experience=&quot;1&quot;&gt;Иван Иванов&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>Преобразование названий работает и в обратную сторону – дата-атрибут на HTML-элементе, записанный в <code>kebab-case</code>, будет превращён в <code>Element.dataset</code> в <code>camelCase</code>.</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li data-candidate-role=&quot;junior&quot;&gt;Иван Иванов&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-js">const item = document.querySelector('li')
+
+// Вернёт { candidateRole: 'junior' }
+item.dataset
+</code></pre>
+<h3>Удаление дата-атрибута</h3>
+<p>Удалить дата-атрибут можно только с помощью оператора <code>delete</code>. Если попытаться присвоить к полю значение <code>undefined</code> или <code>null</code>, то браузер просто присвоит атрибуту строку <code>'undefined'</code> или <code>'null'</code>.</p>
+<p>Возьмём следующий HTML:</p>
+<pre><code class="language-html">&lt;div data-testid=&quot;test&quot;&gt;Любое содержимое&lt;div&gt;
+</code></pre>
+<p>При установке <code>undefined</code> в значение дата-атрибута, он не удалится с элемента.</p>
+<pre><code class="language-js">const element = document.querySelector('div')
+
+element.dataset.testid = undefined
+</code></pre>
+<p>В результате получится следующий HTML:</p>
+<pre><code class="language-html">&lt;div data-testid=&quot;undefined&quot;&gt;Любое содержимое&lt;div&gt;
+</code></pre>
+<p>Если использовать оператор <code>delete</code>, то получим элемент без дата-атрибута.</p>
+<pre><code class="language-js">delete element.dataset.testid
+</code></pre>
+<pre><code class="language-html">&lt;div&gt;Любое содержимое&lt;/div&gt;
+</code></pre>
+<p><code>Element.dataset</code> защищён от перезаписи. Это значит что попытка присвоить в <code>Element.dataset</code> новое значение будет проигнорирована.</p>
+<pre><code class="language-js">const element = document.querySelector('div')
+
+// Ничего не произойдёт, дата-атрибуты на элементах тоже не изменятся
+element.dataset = {}
+element.dataset = 'string'
+</code></pre>
+<h2>Как понять</h2>
+<p>Дата-атрибуты появились в HTML5 и добавили возможность разработчикам добавлять свои собственные атрибуты к элементам. Причин для использования таких атрибутов можно придумать множество, чаще всего в дата атрибутах хранят нужные значения, которые используют в CSS или JavaScript.</p>
+<p>Дата-атрибуты были созданы специально для того, чтобы хранить и работать с <em>данными</em> прямо в HTML. Отсюда и префикс <em>data</em>, что в переводе значит данные. Например, с помощью дата-атрибутов можно хранить значение выбранное в <a href="/html/select/">селекте</a> прямо на элементе.</p>
+<p>Хранение данных на HTML-элементах так же полезно для инициализации виджетов в JavaScript. Они могут находить нужные элементы используя дата-атрибут как селектор, и читать данные из атрибута. Например, в многостраничных приложениях HTML генерируется на сервере и готовая страница отправляется в ответ на запрос. Во время генерации в HTML можно подставить дата-атрибуты с данными с сервера, и таким образом пробросить их в JavaScript.</p>
+<p>В теории для такой же цели можно использовать и обычный идентификатор <code>id</code>, но цель у этого атрибута совсем другая. Плюс спецификация требует чтобы значение атрибута <code>id</code> было уникальным на всем странице.</p>
+<p>Дата-атрибутов на элементе может быть сколько угодно, потому удобно располагать отдельные кусочки данных в свой атрибут. Такого точно нельзя достичь, используя только идентификатор.</p>
+<p>Браузер даёт возможность управлять дата-атрибутами через специальное API <code>Element.dataset</code>.</p>

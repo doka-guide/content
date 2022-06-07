@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Программный вызов печати — window.print — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    blockquote {
+      display: inline-block;
+      padding: 0.5rem;
+      background-color: rgba(255, 216, 41, 0.4);
+    }
+
+    @media print {
+      button {
+        display: none;
+      }
+
+      blockquote {
+        background-color: inherit;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="print-button">Напечатать страницу</button>
+  <blockquote>
+    Любовь — лучший учитель, чем долг. (Альберт Эйнштейн)
+  </blockquote>
+  <script>
+    const printButton = document.getElementById('print-button')
+
+    printButton.addEventListener('click', () => {
+      window.print()
+    })
+  </script>
+</body>
+</html>

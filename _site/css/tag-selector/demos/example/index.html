@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Селектор по тегу — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    span {
+      border-radius: 3px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 20px;
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      line-height: 1;
+    }
+
+    li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 7px);
+      width: 15px;
+      height: 15px;
+      background-color: #F498AD;
+    }
+
+    li + li {
+      margin-top: 9px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Собираясь в отпуск, нужно <span>не забыть</span>:</p>
+    <ul>
+      <li>взять носки;</li>
+      <li><span>взять документы</span>;</li>
+      <li>взять топор.</li>
+    </ul>
+    <p>И выделить в списке <span>самое главное</span>.</p>
+  </div>
+</body>
+</html>

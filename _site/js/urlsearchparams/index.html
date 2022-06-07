@@ -1,0 +1,125 @@
+<h2>Кратко</h2>
+<p><code>URLSearchParams</code> — это класс, предоставляющий удобное API для формирования строки поисковых параметров, которую потом можно использовать для формирования полного адреса. Все параметры в строке будут закодированы для безопасной вставки в адрес. Также этот класс можно встретить как часть класса <code>URL</code>.</p>
+<h2>Пример</h2>
+<p>Создаём экземпляр класса параметров поиска:</p>
+<pre><code class="language-js">const params = new URLSearchParams({ count: &quot;10&quot; });
+</code></pre>
+<p>Далее мы можем добавлять или удалять параметры:</p>
+<pre><code class="language-js">params.append(&quot;size&quot;, &quot;lg&quot;); // добавление
+console.log(params.toString()); // &quot;count=10&amp;size=lg&quot;
+params.delete(&quot;count&quot;); // удаление
+console.log(params.toString()); // &quot;size=lg&quot;
+</code></pre>
+<p>Повторное добавление параметра с тем же именем добавит ещё одно значение с таким же именем, а получение всех возможных значений вернёт все добавленные значения:</p>
+<pre><code class="language-js">params.append(&quot;size&quot;, &quot;xl&quot;);
+params.getAll(&quot;size&quot;); // ['lg', 'xl']
+</code></pre>
+<p>Получение параметров в виде строки:</p>
+<pre><code class="language-js">const paramsString = params.toString(); // 'count=10&amp;size=lg&amp;size=xl'
+const url = `/catalog/?${paramsSting}`;
+</code></pre>
+<h2>Как это понять</h2>
+<p>Когда нужно сформировать URL, включающий в себя строку поиска, то удобнее всего использовать <code>URLSearchParams</code>. Раньше для той же операции нужно было использовать цикл, в котором строка собиралась вручную, а также делать её безопасной для вставки в адрес с помощью <code>encodeURLComponent</code>. Сейчас же можно использовать специальный класс и управлять им с помощью предоставляемого API.</p>
+<h2>Как пишется</h2>
+<h3>Создание экземпляра класса</h3>
+<p>При создании <code>URLSearchParams</code> мы можем передать аргумент в виде объекта, состоящего из полей со строками/цифрами или поисковую строку из адреса страницы. Это создаст новый экземпляр с уже добавленными в него параметрами</p>
+<pre><code class="language-js">const emptyParams = new URLSearchParams();
+const paramsFromUrl = new URLSearchParams(window.location.search);
+const params = new URLSearchParams({ minPrice: &quot;1000&quot;, maxPrice: &quot;2000&quot; });
+
+console.log(emptyParams.toString()); // ''
+console.log(params.toString()); // 'minPrice=1000&amp;maxPrice=2000'
+</code></pre>
+<h3>Добавление</h3>
+<p>Добавление нового параметра в поиск производится с помощью метода <code>append(&quot;ключ&quot;, &quot;значение&quot;)</code> и принимает пару ключ/значение.</p>
+<pre><code class="language-js">const params = new URLSearchParams();
+
+params.append(&quot;color&quot;, &quot;red&quot;);
+console.log(params.toString()); // 'color=red'
+</code></pre>
+<h3>Запись</h3>
+<p>При записи по имени, параметр добавится, если до этого такого не существовало, и заменит значение, если таковой существовал ранее.</p>
+<pre><code class="language-js">const params = new URLSearchParams();
+
+params.set(&quot;size&quot;, &quot;lg&quot;);
+console.log(params.toString()); // 'size=lg'
+params.append(&quot;size&quot;, &quot;xl&quot;);
+console.log(params.toString()); // 'size=lg&amp;size=xl'
+params.set(&quot;size&quot;, &quot;sm&quot;);
+console.log(params.toString()); // 'size=sm'
+</code></pre>
+<h3>Получение</h3>
+<p>С помощью методов <code>get(&quot;ключ&quot;)</code> и <code>getAll(&quot;ключ&quot;)</code> можно читать уже хранящиеся параметры.
+<code>get</code> - вернёт первое добавленное в поле значение
+<code>getAll</code> – вернёт все значения, добавленные в поле</p>
+<pre><code class="language-js">const params = new URLSearchParams();
+
+params.append(&quot;size&quot;, &quot;lg&quot;);
+console.log(params.get(&quot;size&quot;)); // 'lg'
+params.append(&quot;size&quot;, &quot;xl&quot;);
+console.log(params.get(&quot;size&quot;)); // 'lg'
+console.log(params.getAll(&quot;size&quot;)); // ['lg', 'xl']
+</code></pre>
+<h3>Проверка наличия</h3>
+<p><code>has(&quot;ключ&quot;)</code> – проверяет, был ли добавлен параметр с таким именем</p>
+<pre><code class="language-js">const params = new URLSearchParams();
+
+params.append(&quot;size&quot;, &quot;lg&quot;);
+console.log(params.has(&quot;size&quot;)); // true
+console.log(params.has(&quot;count&quot;)); // false
+</code></pre>
+<h3>Получение имён всех параметров</h3>
+<p>Можно получить имена всех параметров, записанных в поиск, используя метод <code>keys()</code>. Результатом выбора будет итератор.</p>
+<pre><code class="language-js">const params = new URLSearchParams(&quot;count=10&amp;size=lg&amp;size=xl&quot;);
+
+for (let value of params.keys()) {
+  console.log(value);
+}
+</code></pre>
+<aside>
+<p>💡 Если параметр был добавлен несколько раз, он также будет добавлен в итератор в том же количестве, сколько раз был добавлен.</p>
+</aside>
+<h3>Получение всех значений параметров</h3>
+<p>Метод <code>values()</code> получает значения параметров аналогично получению имён их параметров из примера выше.</p>
+<pre><code class="language-js">const params = new URLSearchParams(&quot;count=10&amp;size=lg&amp;size=xl&quot;);
+
+for (let value of params.values()) {
+  console.log(value);
+}
+</code></pre>
+<h3>Получение всех параметров</h3>
+<p>По аналогии с предыдущими двумя методами <code>entries()</code> получает итератор, содержащий пары ключ/значение.</p>
+<pre><code class="language-js">const params = new URLSearchParams(&quot;count=10&amp;size=lg&amp;size=xl&quot;);
+
+for (let [key, value] of params.entries()) {
+  console.log(key, value);
+}
+</code></pre>
+<h3>Удаление</h3>
+<p>Удаляет параметр из поиска по ключу <code>delete(&quot;ключ&quot;)</code></p>
+<pre><code class="language-js">params.delete(&quot;size&quot;);
+</code></pre>
+<h3>Сортировка</h3>
+<p>Метод <code>sort()</code> предоставляет возможность отсортировать параметры по алфавиту.</p>
+<pre><code class="language-js">const params = new URLSearchParams(&quot;a=1&amp;z=4&amp;d=2&amp;x=3&quot;);
+
+params.sort();
+console.log(params.toString()); // &quot;a=1&amp;d=2&amp;x=3&amp;z=4&quot;
+</code></pre>
+<h3>Перебор</h3>
+<p>Метод <code>forEach()</code> перебирает значения, содержащиеся в поиске. Функция, переданная в метод, будет вызвана для каждого элемента в поиске и получит три аргумента – название параметра, значение параметра и сам экземпляр поиска.</p>
+<pre><code class="language-js">const params = new URLSearchParams(&quot;count=10&amp;size=lg&amp;size=xl&quot;);
+
+params.forEach((key, value, params) =&gt; {
+  console.log(key, value, params);
+});
+</code></pre>
+<h3>Приведение параметров к строке</h3>
+<p>После того как параметры сформированы, можно сохранить их в строку с помощью метода <code>toString()</code> и использовать для обновления адреса страницы.</p>
+<pre><code class="language-js">const params = new URLSearchParams();
+
+params.append(&quot;size&quot;, &quot;lg&quot;);
+params.append(&quot;size&quot;, &quot;xl&quot;);
+
+params.toString();
+</code></pre>

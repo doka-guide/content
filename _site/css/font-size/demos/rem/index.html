@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Размер шрифта в rem — font-size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* Задаём для <span> размер шрифта в единице rem, зависящей не от родительского элемента, а от размера шрифта на странице */
+    span {
+      font-size: 2rem;
+    }
+
+    /* Оформление */
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    span span {
+      background-color: #ed6742;
+    }
+  </style>
+</head>
+<body>
+  <span>Теперь один контейнер находится <span>внутри другого</span>, но относительный размер текста больше не зависит от родительского элемента.</span>
+</body>
+</html>

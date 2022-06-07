@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - for, битый цикл — Дока</title>
+</head>
+<body>
+Данный цикл имеет неверное условие выхода, что приводит к бесконечному выполнению.
+<br> Эта песочница умеет определять такие циклы и не допускать их
+<br> Если же такой цикл был на обычной странице - он бы её "подвесил"
+<br>
+<button onclick="badFor()">Сломанный цикл</button>
+<br>
+Это корректный цикл, который нам встречались ранее.
+<br>
+Его выполнение не "подвешивает" страницу
+<br>
+<button onclick="goodFor()">Корректный цикл</button>
+<div id="result">
+
+</div>
+  <script>
+    let container = document.querySelector('#result');
+    function badFor(){
+      let str = '';
+      for (let i=0;i<10; i--){
+        str += i;
+      }
+      container.innerText = str;
+    }
+    function goodFor(){
+      let str = '';
+      for (let i=0;i<10; i++){
+        str += i;
+      }
+      container.innerText = str;
+    }
+  </script>
+</body>
+</html>

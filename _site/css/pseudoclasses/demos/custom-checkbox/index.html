@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомный чекбокс — Псевдоклассы — Дока</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      display: inline-block;
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      -webkit-user-select: none;
+        -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+    }
+
+    .checkbox-label + .checkbox-label {
+      margin-top: 25px;
+    }
+
+    .checkbox-title {
+      margin-left: 40px;
+    }
+
+    .checkbox-title, .checkbox {
+      cursor: pointer;
+    }
+
+    /* Прячем дефолтный чекбокс */
+    .checkbox {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Создаём собственный стиль для чекбокса */
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    /* И собственные стили для галочки */
+    .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      width: 8px;
+      height: 14px;
+      border: solid #2E9AFF;
+      border-width: 0 3px 3px 0;
+      border-radius: 2px;
+      transform: rotate(45deg);
+    }
+
+    /* Подчеркиваем элемент при наведении курсора */
+    .checkbox-label:hover .checkbox + .checkbox-title {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Когда чекбокс активен, меняем цвет текста */
+    .checkbox:checked + .checkbox-title {
+      color: #2E9AFF;
+    }
+
+    /* «Галочка» скрыта, если чекбокс не выбран */
+    .checkbox-title::after {
+      display: none;
+    }
+
+    /* Показываем «галочку», если чекбокс выбран */
+    .checkbox:checked + .checkbox-title::after {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label class="checkbox-label">
+      <input type="checkbox" checked="checked" class="checkbox">
+      <span class="checkbox-title">Бороться</span>
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" class="checkbox">
+      <span class="checkbox-title">Искать</span>
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" class="checkbox">
+      <span class="checkbox-title">Найти</span>
+    </label>
+    <label class="checkbox-label">
+      <input type="checkbox" class="checkbox">
+      <span class="checkbox-title">Перепрятать</span>
+    </label>
+  </div>
+</body>
+</html>

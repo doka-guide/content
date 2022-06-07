@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Регистр заголовка — text-transform — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      font-family: "Roboto", sans-serif;
+      background-color: #282a2e;
+      color: #ffffff;
+    }
+
+    .parent {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    .news {
+      background-color: #e6e6e6;
+      color: #282a2e;
+      padding: 50px;
+      margin-top: 50px;
+    }
+
+    .title {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .title-case {
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    .paragraph {
+      text-transform: initial;
+    }
+
+    h1,
+    h2 {
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <h1 class="title">Title case</h1>
+    <p class="paragraph">Title case (англ. «регистр заголовка») — это стиль использования заглавных букв, используемый для отображения названий опубликованных работ или произведений искусства на английском языке.</p>
+    <article class="news">
+      <h2 class="title-case">who framed roger rabbit?</h2>
+      <p class="paragraph">The overarching villain in Who Framed Roger Rabbit is Christopher Lloyd’s legendary baddie Judge Doom, a man we know to be a criminal and cartoon in disguise as a human. And his big scheme starts years before the film begins, as Doom steals a whole bunch of Toontown’s currency, Simolians, in order to buy his election to the position of judge.</p>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Окружение DOM-элементов — Element — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-bottom: 17px;
+      font-weight: 500;
+    }
+
+    h2,
+    h3 {
+      margin-top: 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 140%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .playground {
+      padding: 20px;
+      background-color: #282A2E;
+    }
+
+    .menu {
+      padding: 20px;
+      border: 1px solid currentColor;
+      list-style: none;
+    }
+
+    .menu-item {
+      position: relative;
+      padding: 5px 10px 5px 30px;
+      background-color: #E6E6E6;
+      color: #282A2E;
+    }
+
+    .menu-item::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      background-color: currentColor;
+    }
+
+    .menu-item + .menu-item {
+      margin-top: 5px;
+    }
+
+    .description {
+      margin-top: 40px;
+    }
+
+    .active {
+      background-color: #FFD829;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <header class="playground">
+    <ul id="main-menu" class="menu">
+      <li id="1" class="menu-item"><a href="#">Главная</a></li>
+      <li id="2" class="menu-item"><a href="#">Статьи</a></li>
+      <li id="3" class="menu-item"><a href="#">Контакты</a></li>
+    </ul>
+  </header>
+  <article id="description" class="description">
+    <h1>Кто вокруг?</h1>
+    <p>Кликай на элементы страницы, чтобы получить информацию об их окружении</p>
+    <h2></h2>
+    <p id="parent"></p>
+    <p id="prev"></p>
+    <p id="next"></p>
+    <p id="children"></p>
+  </article>
+  <script>
+    const currentInfo = document.getElementsByTagName('h2')[0]
+    const parentInfo = document.getElementById('parent')
+    const prevSiblingInfo = document.getElementById('prev')
+    const nextSiblingInfo = document.getElementById('next')
+    const childrenInfo = document.getElementById('children')
+    let active
+
+    window.addEventListener('click', function(event) {
+      let current = event.target
+
+      if (active) {
+        active.classList.remove('active')
+      }
+      current.classList.add('active')
+
+      currentInfo.innerText = 'Выделен ' + getInfo(current)
+      parentInfo.textContent = 'Родитель: ' + getInfo(current.parentElement)
+      nextSiblingInfo.textContent = 'Следующий сосед: ' + getInfo(current.nextElementSibling)
+      prevSiblingInfo.textContent = 'Предыдущий сосед: ' + getInfo(current.previousElementSibling)
+      childrenInfo.textContent = 'Дочерних элементов: ' + current.children.length
+
+      active = current
+    })
+
+    function getInfo(el) {
+      if (!el) {
+        return 'Нет'
+      }
+      return `<${el.tagName.toLowerCase()}>` + (el.id ? ', id: ' + el.id : '')
+    }
+  </script>
+</body>
+</html>

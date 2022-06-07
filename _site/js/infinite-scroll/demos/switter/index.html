@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Бесконечная социальная сеть Switter — Подгрузка контента при прокрутке — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+      background-image: url("images/sweater.png");
+      background-attachment: fixed;
+      background-position: center bottom;
+      background-repeat: repeat-x;
+      background-size: 100vh auto;
+      color: #E6E6E6;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1, button {
+      font-family: "Roboto Slab", serif;
+    }
+
+    .container {
+      width: 65%;
+      min-width: 750px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 80px;
+      background-color: #18191C;
+    }
+
+    .header,
+    .footer {
+      text-align: center;
+    }
+
+    header {
+      padding: 30px 0 50px;
+    }
+
+    h1 {
+      position: relative;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 70px;
+      font-weight: 500;
+      line-height: 1;
+      text-transform: lowercase;
+    }
+
+    h1::after {
+      content: 's olenyami';
+      position: absolute;
+      bottom: -15px;
+      right: 0px;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 18px;
+      line-height: 140%;
+    }
+
+    .post + .post {
+      margin-top: 60px;
+    }
+
+    .post footer {
+      margin-top: 17px;
+    }
+
+    .button + .button {
+      margin-left: 50px;
+    }
+
+    .button {
+      position: relative;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: #FFD829;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 9px);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .button-like {
+      padding-left: 30px;
+    }
+
+    .button-like::before {
+      width: 20px;
+      height: 18px;
+      background-image: url("images/like.svg");
+    }
+
+    .button-resweet {
+      padding-left: 35px;
+    }
+
+    .button-resweet::before {
+      width: 28px;
+      height: 18px;
+      background-image: url("images/resweet.svg");
+    }
+
+    .footer {
+      padding: 70px 0 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Switter</h1>
+    </header>
+    <main>
+      <article class="post">
+        <h2>Заголовок поста</h2>
+        <p>Текст поста в лучшей на свете социальной сети Switter. Все совпадения вымышлены и случайны.</p>
+        <footer>
+          <button type="button" class="button button-like" aria-label="Лайков: 20">20</button>
+          <button type="button" class="button button-resweet" aria-label="Ресвитов: 20">20</button>
+        </footer>
+      </article>
+
+      <article class="post">
+        <h2>Другой пост</h2>
+        <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. Маленький ручеёк Даль журчит по всей стране и обеспечивает её всеми необходимыми правилами.</p>
+        <footer>
+          <button type="button" class="button button-like" aria-label="Лайков: 42">42</button>
+          <button type="button" class="button button-resweet" aria-label="Ресвитов: 69">69</button>
+        </footer>
+      </article>
+
+      <article class="post">
+        <h2>Проснувшись однажды утром после беспокойного сна...</h2>
+        <p>...Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лёжа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый...</p>
+        <footer>
+          <button type="button" class="button button-like">146</button>
+          <button type="button" class="button button-resweet">34</button>
+        </footer>
+      </article>
+
+      <article class="post">
+        <h2>Страдания юного Вертера</h2>
+        <p>Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я.</p>
+        <footer>
+          <button type="button" class="button button-like" aria-label="Лайков: 4">4</button>
+          <button type="button" class="button button-resweet" aria-label="Ресвитов: 20">20</button>
+        </footer>
+      </article>
+    </main>
+    <footer class="footer">
+      © Switter, 2020
+    </footer>
+  </div>
+
+  <template id="post_template">
+    <article class="post">
+      <h2></h2>
+      <p></p>
+      <footer>
+        <button type="button" class="button button-like" aria-label="Лайков: "></button>
+        <button type="button" class="button button-resweet" aria-label="Ресвитов: "></button>
+      </footer>
+    </article>
+  </template>
+  <script>
+    // «База данных»
+
+    const post = {
+      title: 'Заголовок поста',
+      body: 'Текст поста в лучшей на свете социальной сети Switter. Все совпадения вымышлены и случайны.',
+      likes: 77,
+      reposts: 7,
+    }
+
+    // «Сервер API»
+
+    const server = {
+      posts(page = 2) {
+        const finished = page >= 5
+        const next = finished ? null : page + 1
+        const posts = Array(5).fill(post)
+
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({posts, next})
+          }, 0)
+        })
+      }
+    }
+
+    // Клиент
+
+    let nextPage = 2
+    let isLoading = false
+    let shouldLoad = true
+
+    function appendPost(postData) {
+      if (!postData) return;
+      const main = document.querySelector('main')
+      const postNode = composePost(postData)
+      main.append(postNode)
+    }
+
+    function composePost(postData) {
+      if (!postData) return
+      const template = document.getElementById('post_template')
+      const post = template.content.cloneNode(true)
+      const likesButton = post.querySelector('button:first-child')
+      const repostsButton = post.querySelector('button:last-child')
+
+      const {title, body, likes, reposts} = postData
+      post.querySelector('h2').innerText = title
+      post.querySelector('p').innerText = body
+      likesButton.innerText += likes
+      likesButton.ariaLabel += likes
+      repostsButton.innerText += reposts
+      repostsButton.ariaLabel += reposts
+
+      return post
+    }
+
+    async function fetchPosts() {
+      if (isLoading || !shouldLoad) return
+      isLoading = true
+
+      const {posts, next} = await server.posts(nextPage)
+      nextPage = next
+
+      posts.forEach(appendPost)
+
+      // Здесь можно менять адресную строку,
+      // чтобы сохранить положение прокрутки.
+
+      if (!next) shouldLoad = false
+      isLoading = false
+    }
+
+    function throttle(callee, timeout) {
+      let timer = null
+
+      return function perform(...args) {
+        if (timer) return
+
+        timer = setTimeout(() => {
+          callee(...args)
+
+          clearTimeout(timer)
+          timer = null
+        }, timeout)
+      }
+    }
+
+    async function checkPosition() {
+      const height = document.body.offsetHeight
+      const screenHeight = window.innerHeight
+      const scrolled = window.scrollY
+
+      const threshold = height - screenHeight / 4
+      const position = scrolled + screenHeight
+
+      if (position >= threshold) {
+        await fetchPosts()
+      }
+    }
+
+    (() => {
+      window.addEventListener('scroll', throttle(checkPosition))
+      window.addEventListener('resize', throttle(checkPosition))
+    })()
+  </script>
+</body>
+</html>

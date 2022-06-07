@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Многострочный код — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      padding: 50px;
+      margin: 0;
+      background: #18191c;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      line-height: 1.4;
+    }
+
+    pre {
+      overflow: auto;
+      padding: 10px 15px;
+      background-color: #282A2E;
+    }
+
+    code {
+      color: #41E847;
+      font-family: "Roboto Mono", monospace;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 7px 0;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Метод <code>.toString()</code> превращает числа в строку.</p>
+    <p>Его можно использовать так:</p>
+    <pre><code>let a = 1;
+let b = 2;
+
+(a + b).toString();</code></pre>
+  </div>
+</body>
+</html>

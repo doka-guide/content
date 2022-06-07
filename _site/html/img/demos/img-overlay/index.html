@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Картинка с цветным оверлеем — <img> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      text-align: center;
+    }
+
+    .parent {
+      position: relative;
+      width: 50%;
+      margin: auto;
+      padding: 10px;
+    }
+
+    .parent::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(46 154 255 / 20%);
+    }
+
+    .child {
+      display: block;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <img class="child" src="images/sleeping-dogs.png" alt="Три собаки, все закрыли глаза и спят">
+  </div>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные варианты заполнения атрибутов — <meter> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      margin: 0 auto;
+      max-width: 1000px;
+      padding: 25px;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    dl, dd {
+      margin: 0 0 2.5em;
+    }
+
+    xmp {
+      color: #000000;
+      background: #ff8;
+      border: 1px dotted #888;
+      font: 100%/1.75 monospace;
+      word-spacing: 0;
+      letter-spacing: 0;
+      padding: .5em;
+    }
+
+    h1 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: .5em;
+      margin-bottom: 2.5em;
+    }
+
+    span {
+      color: #c00;
+      font-size: 100%;
+    }
+
+    #meter {
+      margin: 0 auto 4.5em;
+      width: 450px;
+      height: 50px;
+      display: block;
+    }
+
+    .live-code {
+      margin: 1em auto 3.5em;
+      display: block;
+      font-size: 1.25em;
+      padding: .5em;
+      color: #000000;
+      background-color: #999999;
+      text-align: center;
+    }
+
+    input {
+      border: none;
+      background-color: #ddd;
+      border-bottom: 1px dotted #333;
+      width: 35px;
+      line-height: 1.5;
+      font-size: 1em;
+      color: #c00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Элемент <code>&lt;meter></code></h1>
+
+  <meter id="meter" value=".5" max="1" max="0" high=".75" low=".25"></meter>
+
+  <p>Вносите разные значения в код выше и смотрите как меняется элемент выше</p>
+  <div class="live-code">
+    &lt;meter max=<input id="max" value="1.0" maxlength="3"> min=<input id="min" value="0.0" maxlength="3"> value=<input id="value" value="0.5" maxlength="3"> high=<input id="high" value=".75" maxlength="3"> low=<input id="low" value=".25" maxlength="3"> optimum=<input id="optimum" value="0.5" maxlength="3">&gt;&lt;/meter&gt;
+  </div>
+
+  <dl>
+    <dt>
+      Кейс 1 - Атрибуты не указаны
+      <xmp><meter></meter></xmp>
+    </dt>
+    <dd><meter></meter></dd>
+
+    <dt>
+      Кейс 2 - value < max (по умолчанию: min=0, max=1)
+      <xmp><meter value=".5"></meter></xmp>
+    </dt>
+    <dd><meter value=".5"></meter></dd>
+
+    <dt>
+      Кейс 3 - value = max (по умолчанию: min=0, max=1)
+      <xmp><meter value="1"></meter></xmp>
+    </dt>
+    <dd><meter value="1"></meter></dd>
+
+    <dt>
+      Кейс 4 - value > max (по умолчанию: min=0, max=1)
+      <xmp><meter value="5"></meter></xmp>
+    </dt>
+    <dd><meter value="5"></meter> <span>(если value > max, тогда value = max)</span></dd>
+
+    <dt>
+      Кейс 5 - value < min (по умолчанию: min=0, max=1)
+      <xmp><meter value="-.5"></meter></xmp>
+    </dt>
+    <dd><meter value="-.5"></meter> <span>(если value < min, тогда value = min)</span></dd>
+
+    <dt>
+      Кейс 6 - value = min (по умолчанию: min=0, max=1)
+      <xmp><meter value="0"></meter></xmp>
+    </dt>
+    <dd><meter value="0"></meter></dd>
+
+    <dt>
+      Кейс 7 - value > min (по умолчанию: min=0, max=1)
+      <xmp><meter value=".5"></meter></xmp>
+    </dt>
+    <dd><meter value=".5"></meter></dd>
+
+    <dt>
+      Кейс 8 - value < high (по умолчанию: min=0, max=1)
+      <xmp><meter value=".5" high=".8"></meter></xmp>
+    </dt>
+    <dd><meter value=".5" high=".8"></meter></dd>
+
+    <dt>
+      Кейс 9 - value = high (по умолчанию: min=0, max=1)
+      <xmp><meter value=".8" high=".8"></meter></xmp>
+    </dt>
+    <dd><meter value=".8" high=".8"></meter></dd>
+
+    <dt>
+      Кейс 10 - value > high (по умолчанию: min=0, max=1)
+      <xmp><meter value=".9" high=".8"></meter></xmp>
+    </dt>
+    <dd>
+      <meter value=".9" high=".8"></meter>
+      <span>(обратите внимание на изменение цвета если value > high)</span>
+    </dd>
+
+    <dt>
+      Кейс 11 - value < low (по умолчанию: min=0, max=1)
+      <xmp><meter value=".15" low=".25"></meter></xmp>
+    </dt>
+    <dd>
+      <meter value=".15" low=".25"></meter>
+      <span>(обратите внимание на изменение цвета если value < low)</span>
+    </dd>
+
+    <dt>
+      Кейс 12 - value = low (по умолчанию: min=0, max=1)
+      <xmp><meter value=".25" low=".25"></meter></xmp>
+    </dt>
+    <dd><meter value=".25" low=".25"></meter></dd>
+
+    <dt>
+      Кейс 13 - value > low (по умолчанию: min=0, max=1)
+      <xmp><meter value=".5" low=".25"></meter></xmp>
+    </dt>
+    <dd>
+      <meter value=".5" low=".25"></meter>
+    </dd>
+
+    <dt>
+      Кейс 14 - optimum < low < high (по умолчанию: min=0, max=1)
+      <xmp><meter low=".25" optimum=".15" high=".75" value=".5"></meter></xmp>
+    </dt>
+    <dd>
+      <meter low=".25" optimum=".15" high=".75" value=".5"></meter>
+      <span>(обратите внимание на изменение цвета если optimum < low)</span>
+    </dd>
+
+    <dt>
+      Кейс 15 - low < optimum < high (по умолчанию: min=0, max=1)
+      <xmp><meter low=".25" optimum=".5" high=".75" value=".5"></meter></xmp>
+    </dt>
+    <dd>
+      <meter low=".25" optimum=".5" high=".75" value=".5"></meter>
+    </dd>
+
+    <dt>
+      Кейс 16 - low < high < optimum (по умолчанию: min=0, max=1)
+      <xmp><meter low=".25" optimum=".85" high=".75" value=".5"></meter></xmp>
+    </dt>
+    <dd>
+      <meter low=".25" optimum=".85" high=".75" value=".5"></meter>
+      <span>(обратите внимание на изменение цвета если optimum > high)</span>
+    </dd>
+
+    <dt>
+      Кейс 17 - value < low < high < optimum (по умолчанию: min=0, max=1)
+      <xmp><meter low=".25" optimum=".8" high=".75" value=".2"></meter></xmp>
+    </dt>
+    <dd>
+      <meter low=".25" optimum=".8" high=".75" value=".2"></meter>
+      <span>(обратите внимание на изменение цвета если value < low и optimum > high)</span>
+    </dd>
+
+    <dt>
+      Кейс 18 - value > high > low > optimum (по умолчанию: min=0, max=1)
+      <xmp><meter low=".25" optimum=".2" high=".75" value=".8"></meter></xmp>
+    </dt>
+    <dd>
+      <meter low=".25" optimum=".2" high=".75" value=".8"></meter>
+      <span>(обратите внимание на изменение цвета если value > high и optimum < low)</span>
+    </dd>
+  </dl>
+  <p>На основе <a href="https://codepen.io/pankajparashar/pen/GnFpA">Codepen "HTML5 Meter Element"</a> Панкаджа Парашара.</p>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#max').on('input', function() {
+        $('#meter').prop('max', $('#max').val())
+      });
+
+      $('#min').on('input', function() {
+        $('#meter').prop('min', $('#min').val())
+      });
+
+      $('#value').on('input', function() {
+        $('#meter').prop('value', $('#value').val())
+      });
+
+      $('#high').on('input', function() {
+        $('#meter').prop('high', $('#high').val())
+      });
+
+      $('#low').on('input', function() {
+        $('#meter').prop('low', $('#low').val())
+      });
+
+      $('#optimum').on('input', function() {
+        $('#meter').prop('optimum', $('#optimum').val())
+      });
+    });
+  </script>
+</body>
+</html>

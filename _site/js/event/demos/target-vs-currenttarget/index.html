@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между target и currentTarget — Событие Event — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      appearance: none;
+      border: 2px solid #ccc;
+      margin: 0;
+      padding: 0;
+      border-radius: 8px;
+      background: #fff;
+      font: inherit;
+    }
+
+    .button:hover {
+      border-color: #ffd829;
+    }
+
+    .button-label {
+      display: block;
+      margin: 16px;
+      padding: 16px 24px;
+      border-radius: 4px;
+      background: #ccc;
+      font-size: 16px;
+    }
+
+    .button-label:hover {
+      background: #ffd829;
+    }
+  </style>
+</head>
+<body>
+  <button class="button" type="button">
+    <span class="button-label">Моя кнопочка</span>
+  </button>
+  <div class="output">
+    <pre><b>target:</b><span class="output-target"></span></pre>
+    <pre><b>currentTarget:</b><span class="output-currentTarget"></span></pre>
+  </div>
+  <script>
+    (function () {
+      const targetElement = document.querySelector('.output-target')
+      const currentTargetElement = document.querySelector('.output-currentTarget')
+      const buttonElement = document.querySelector('.button')
+
+      buttonElement.addEventListener('click', function (event) {
+        targetElement.textContent = event.target.outerHTML
+        currentTargetElement.textContent = event.currentTarget.outerHTML
+      })
+    })()
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Фиксированное позиционирование — position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    .content {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .fixed {
+      background-color: #FFFFFF;
+      color: #000000;
+      position: fixed;
+      left: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px 40px;
+      font-size: 18px;
+    }
+
+    .fixed ul {
+      position: relative;
+      list-style-type: none;
+      text-transform: lowercase;
+    }
+
+    .fixed li + li {
+      margin-top: 3px;
+    }
+
+    .fixed a {
+      border-radius: 3px;
+      color: #000000;
+      -webkit-text-decoration-color: currentColor;
+      text-decoration-color: currentColor;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .fixed a:hover, a:focus {
+      background-color: #000000;
+      color: #FFFFFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .content {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <p>Где мы? В какой благословенный уголок земли перенёс нас сон Обломова? Что за чудный край!</p>
+    <p>Нет, правда, там моря, нет высоких гор, скал и пропастей, ни дремучих лесов — нет ничего грандиозного, дикого и угрюмого.</p>
+    <p>Да и зачем оно, это дикое и грандиозное? Море, например? Бог с ним! Оно наводит только грусть на человека: глядя на него, хочется плакать. Сердце смущается робостью перед необозримой пеленой вод, и не на чем отдохнуть взгляду, измученному однообразием бесконечной картины.</p>
+    <p>Рёв и бешеные раскаты валов не нежат слабого слуха: они всё твердят свою, от начала мира одну и ту же песнь мрачного и неразгаданного содержания; и все слышится в ней один и тот же стон, одни и те же жалобы будто обречённого на муку чудовища, да чьи-то пронзительные, зловещие голоса. Птицы не щебечут вокруг; только безмолвные чайки, как осуждённые, уныло носятся у прибрежья и кружатся над водой.</p>
+    <p>Бессилен рёв зверя перед этими воплями природы, ничтожен и голос человека, и сам человек так мал, слаб, так незаметно исчезает в мелких подробностях широкой картины! От этого, может быть, так и тяжело ему смотреть на море.</p>
+    <p>Нет, Бог с ним, с морем! Самая тишина и неподвижность его не рождают отрадного чувства в душе: в едва заметном колебании водяной массы человек все видит ту же необъятную, хотя и спящую силу, которая подчас так ядовито издевается над его гордой волей и так глубоко хоронит его отважные замыслы, все его хлопоты и труды.</p>
+    <p>Горы и пропасти созданы тоже не для увеселения человека. Они грозны, страшны, как выпущенные и устремлённые на него когти и зубы дикого зверя; они слишком живо напоминают нам бренный состав наш и держат в страхе и тоске за жизнь. И небо там, над скалами и пропастями, кажется таким далёким и недосягаемым, как будто оно отступилось от людей.</p>
+    <p>Не таков мирный уголок, где вдруг очутился наш герой.</p>
+  </div>
+  <nav class="fixed">
+    <ul>
+      <li><a href="#">О нас</a></li>
+      <li><a href="#">О классике</a></li>
+      <li><a href="#">Контакты</a></li>
+      <li><a href="#">Блог</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

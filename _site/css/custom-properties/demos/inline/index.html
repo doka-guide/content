@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомные свойства в инлайновых стилях — Кастомные свойства — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(var(--item-width), 1fr));
+      grid-gap: 10px 25px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .grid + .grid {
+      margin-top: 25px;
+    }
+
+    .card {
+      min-height: 60px;
+      padding: 25px;
+      background-color: var(--item-color);
+      text-align: center;
+    }
+
+    .card__name {
+      margin-bottom: 5px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .card__image {
+      width: 80px;
+      height: 80px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background-color: rgb(0 0 0 / 15%);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" style="--item-width: 250px; --item-color: #2E9AFF;">
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">John Doe</h2>
+      <p class="card__location">London, UK</p>
+    </div>
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Jan Novák</h2>
+      <p class="card__location">Prague, CZ</p>
+    </div>
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Иван Иванов</h2>
+      <p class="card__location">Moscow, RU</p>
+    </div>
+  </div>
+
+  <div class="grid" style="--item-width: 350px; --item-color: #F498AD;">
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Navn Navnesen</h2>
+      <p class="card__location">Copenhagen, DK</p>
+    </div>
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Jan Jansen</h2>
+      <p class="card__location">Amsterdam, NL</p>
+    </div>
+  </div>
+
+  <div class="grid" style="--item-width: 150px; --item-color: #2E9AFF;">
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Max Mustermann</h2>
+      <p class="card__location">Berlin, DE</p>
+    </div>
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Yamada Tarō</h2>
+      <p class="card__location">Tokyo, JP</p>
+    </div>
+    <div class="card">
+      <div class="card__image"></div>
+      <h2 class="card__name">Peder Ås</h2>
+      <p class="card__location">Oslo, NO</p>
+    </div>
+  </div>
+</body>
+</html>

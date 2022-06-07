@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования с <var> и <kbd> — <samp> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100%;
+      padding: 20px;
+      background-color: #18191C;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      max-width: 860px;
+      margin: 0 auto 32px;
+    }
+
+    div:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-bottom: 8px;
+    }
+
+    .console-name {
+      color: #d0d150;
+    }
+
+    samp > kbd {
+      font-weight: bold;
+    }
+
+    .console-cursor {
+      font-weight: bold;
+      color: #00ff00;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>
+      В ходе выполнения программы вам будет предложено указать расстояние:
+    </p>
+    <p>
+      <samp>Введите значение для переменной <var>Distance</var>:</samp>
+    </p>
+  </div>
+
+  <div>
+    <p>Следующая команда выведет в консоли браузера результат сложения двух чисел:</p>
+    <pre>
+    <code>console.log(2.3 + 2.4)</code>
+    <samp>4.699999999999999</samp>
+    </pre>
+  </div>
+
+  <div>
+    <p>Неправильно введённая команда не будет выполнена и в консоли отобразится ошибка:</p>
+    <samp>
+      <span class="console-name">user@machine:~$</span> <kbd>ckear</kbd>
+      <br>
+      ckear: The term 'ckear' unidentified as a name of a cmdlet, function, script file, or executable program.
+      <br>
+      <span class="console-name">user@machine:~$</span> <span class="console-cursor">_</span>
+    </samp>
+  </div>
+</body>
+</html>

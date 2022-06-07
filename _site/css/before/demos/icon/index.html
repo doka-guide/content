@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Добавление иконки — ::before — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .message {
+      width: 680px;
+      text-align: center;
+    }
+
+    .message + .message {
+      margin-top: 30px;
+    }
+
+    .message p {
+      padding: 55px 40px;
+    }
+
+    .warning {
+      background-color: #F498AD;
+    }
+
+    .warning::before {
+      content: "⚠";
+      margin-right: 0.5em;
+      font-size: 3em;
+      line-height: 1;
+      vertical-align: middle;
+    }
+
+    .info {
+      background-color: #2E9AFF;
+    }
+
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .message {
+        width: 100%;
+      }
+
+      .message p {
+        padding: 55px 30px;
+      }
+
+      .warning::before {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <p class="warning">Внимание! Этот абзац является важным предупреждением!</p>
+  </div>
+
+  <div class="message">
+    <p class="info">Этот абзац является информационным.</p>
+  </div>
+</body>
+</html>

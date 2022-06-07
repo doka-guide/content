@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>ex — Единицы измерения в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      background: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .element {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    p {
+      margin: 0;
+      font-size: 24px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      color: #000;
+    }
+
+    span {
+      position: relative;
+    }
+
+    p::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 1ex;
+      background: #A1A5D7;
+    }
+
+    sup {
+      position: relative;
+      bottom: 1ex;
+      vertical-align: baseline;
+    }
+  </style>
+</head>
+<body>
+  <div class="element">
+    <p><span>ABCDEfghxn</span><sup>2</sup></p>
+  </div>
+</body>
+</html>

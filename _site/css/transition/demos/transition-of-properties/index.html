@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Transition одного или двух свойств — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .col + .col {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 150px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .button-container {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background-color 0.6s;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button-pink {
+      background-color: #F498AD;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .transitioned .button {
+      transition: background-color 0.6s, transform 0.5s;
+    }
+
+    .transitioned .button:hover {
+      transform: scale(110%);
+      background-color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .option-title {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="col">
+      <span class="option-title">Одно свойство</span>
+      <div class="button-container">
+        <button class="button button-blue">В избранное</button>
+      </div>
+    </div>
+    <div class="col transitioned">
+      <span class="option-title">Два свойства</span>
+      <div class="button-container">
+        <button class="button button-pink">Купить скорее!</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

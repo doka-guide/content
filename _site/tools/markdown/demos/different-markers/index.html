@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные маркеры — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      padding: 50px;
+      margin: 0;
+      background: #18191c;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+      line-height: 1.4;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul>li {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    ul>li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      right: 100%;
+      width: 14px;
+      height: 14px;
+      background-color: #41E847;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <ul>
+      <li>Помидор</li>
+    </ul>
+    <ul>
+      <li>Бублик</li>
+    </ul>
+    <ul>
+      <li>Молоко</li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<p>🛠 Довольно часто в макетах встречаются пункты меню, написанные заглавными буквами. Не нужно в разметке набирать текст заглавными. Скопируй текст из макета и примени свойство <code>text-transform</code>.</p>
+<pre><code class="language-html">&lt;div class=&quot;element&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;logo&quot;&gt;
+    &lt;img src=&quot;../images/logo.png&quot; alt=&quot;Company logo&quot;&gt;
+  &lt;/a&gt;
+  &lt;nav class=&quot;menu&quot;&gt;
+    &lt;ul class=&quot;menu-list&quot;&gt;
+      &lt;li class=&quot;menu-list__item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;menu-list__link&quot;&gt;Главная&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;menu-list__item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;menu-list__link&quot;&gt;О компании&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;menu-list__item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;menu-list__link&quot;&gt;Проекты&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;menu-list__item&quot;&gt;
+        &lt;a href=&quot;#&quot; class=&quot;menu-list__link&quot;&gt;Контакты&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.menu-list {
+  text-transform: uppercase;
+}
+</code></pre>
+<iframe title="Вёрстка навигации" src="../demos/menu/" height="120"></iframe>
+<p>Теперь если даже в меню добавится ещё пара пунктов, то они также будут отображаться заглавными буквами.</p>

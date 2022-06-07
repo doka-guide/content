@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Насыщенность шрифта — font-weight — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      margin: 0 auto;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: 16px;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    /* Зададим толщину заголовка с помощью слова bold. */
+    h1 {
+      font-weight: bold;
+    }
+
+    /* Обычный текст в абзаце <p> сделаем стандартным normal */
+    p {
+      font-weight: normal;
+    }
+
+    /* В контейнере <div> текст будет средним по жирности между normal и bold */
+    div {
+      font-weight: 500;
+    }
+
+    /* В элементе <span> текст будет на один уровень меньше по жирности,
+    чем у родительского элемента, внутри которого он находится */
+    span {
+      font-weight: lighter;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Шрифт этого заголовка — жирный. Мы задали его с помощью ключевого слова bold. В цифровом значении он равен 700 единицам.</h1>
+    <p>Это текст стандартной толщины внутри контейнера &lt;p&gt;. Он эквивалентен 400 единицам толщины.</p>
+    <div>
+      Это текст внутри контейнера &lt;div&gt; — и он чуть толще, чем стандартный normal, но тоньше, чем bold.
+      Мы задали его насыщенность с помощью значения 500.
+      <span>
+        В контейнере &lt;span&gt; шрифт тоньше, чем в &lt;div&gt;, внутри которого он находится.
+        Его мы задали с помощью значения lighter. Цифровой эквивалент — 100.
+      </span>
+    </div>
+  </div>
+</body>
+</html>

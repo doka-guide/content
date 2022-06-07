@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Драг-н-дроп — Позиционирование элементов с помощью JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 225px;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+      margin: auto;
+      border: 25px solid #18191C;
+      outline: 1px solid #665610;
+      outline-offset: -26px;
+      background:
+        linear-gradient(to top, #665610 1px, transparent 1px)
+        repeat 0 0 / 100% 75px,
+        linear-gradient(to right, #665610 1px, transparent 1px)
+        repeat 0 0 / 75px 100%;
+    }
+
+    .element {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #FFD829;
+      cursor: grab;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element"></div>
+  </div>
+  <script>
+    const element = document.querySelector('.element')
+
+    let dragging = false
+    let startX = 0
+    let startY = 0
+
+    element.addEventListener('mousedown', (e) => {
+      dragging = true
+      startX = e.pageX - Number.parseInt(element.style.left || 0)
+      startY = e.pageY - Number.parseInt(element.style.top || 0)
+    })
+
+    document.body.addEventListener('mouseup', () => {
+      dragging = false
+    })
+
+    document.body.addEventListener('mousemove', (e) => {
+      if (!dragging) return
+
+      element.style.top = `${e.pageY - startY}px`
+      element.style.left = `${e.pageX - startX}px`
+    })
+
+    function setRoundWidth() {
+      const container = document.querySelector('.container')
+      const newWidth = Math.floor(document.documentElement.clientWidth / 75) * 75 - 50 - 25
+      container.style.width = newWidth + 'px'
+    }
+    setRoundWidth()
+    window.addEventListener('resize', setRoundWidth)
+  </script>
+</body>
+</html>

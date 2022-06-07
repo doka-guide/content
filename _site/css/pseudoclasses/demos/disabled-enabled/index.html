@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стили для неактивного поля ввода — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    .container {
+      width: 550px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 30px;
+      margin-bottom: 17px;
+      font-weight: 500;
+    }
+
+    .description {
+      margin: 7px 0;
+      color: #2E9AFF;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .fieldset {
+      margin-top: 25px;
+      padding: 20px;
+    }
+
+    .fieldset-legend {
+      padding: 0 10px;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .input:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .fieldset:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .fieldset:disabled > .input:disabled {
+      opacity: 1;
+    }
+    /* иначе прозрачности накладываются друг на друга */
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 class="title">Пиццерия «Нам видней»</h1>
+  <p class="description">Выбрать можно только сыр.</p>
+  <form class="form">
+    <fieldset class="fieldset" disabled>
+      <legend class="fieldset-legend">
+        <code>&ltfieldset disabled&gt;</code>
+      </legend>
+      <input class="input" type="text" value="Томатный соус">
+    </fieldset>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">
+        <code>&lt;input disabled&gt;</code>
+      </legend>
+      <input class="input" type="text" disabled value="Ветчина, ананас, маслины">
+    </fieldset>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">
+        <code>:enabled</code>
+      </legend>
+      <input class="input" type="text" value="Двойной сыр">
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

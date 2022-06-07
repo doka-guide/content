@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Element.removeEventListener — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    kbd {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+    }
+
+    .event {
+      position: relative;
+      min-height: 100px;
+    }
+
+    .event span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-style: italic;
+    }
+
+    .event kbd {
+      font-size: 100px;
+      line-height: 1;
+    }
+
+    .hint {
+      margin-top: 20px;
+    }
+
+    .inline-key {
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="event" id="output"><span>Нажмите любую клавишу</span></div>
+
+    <div class="hint">Чтобы остановить обработку нажатий клавиатуры нажмите <kbd class="inline-key">Escape</kbd></div>
+  </div>
+
+  <script>
+    const output = document.getElementById('output')
+
+    function handleKey(event) {
+      const msg = '<kbd>' + event.key + '</kbd>'
+
+      if (event.key === 'Escape') {
+        window.removeEventListener('keydown', handleKey)
+      }
+
+      output.innerHTML = msg
+    }
+
+    window.addEventListener('keydown', handleKey)
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html lang="ru">
+<head>
+  <title>Варианты значений — scroll-behavior — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto,Roboto+Mono&display=swap">
+  <style>
+    :root {
+      --gradient-start-color: lightpink;
+      --gradient-end-color: lightblue;
+      background-color: white;
+      color: black;
+    }
+
+    body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(150px, 300px));
+      grid-template-rows: minmax(0, 1fr);
+      justify-content: center;
+      grid-gap: 5%;
+      box-sizing: border-box;
+      height: 100vh;
+      padding: 10px;
+      margin: 0;
+      font-family: Roboto, sans-serif;
+      font-size: 14px;
+    }
+
+    @media (min-width: 700px) {
+      body {
+        font-size: 20px;
+      }
+    }
+
+    code {
+      font-family: Roboto Mono, sans-serif;
+    }
+
+    .demo-block {
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) 40px;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .demo-block__title {
+      text-align: center;
+      align-self: center;
+    }
+
+    .demo-block__scroll-container {
+      box-sizing: border-box;
+      overflow: auto;
+    }
+
+    .demo-block__long-content-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 300vh;
+      background: linear-gradient(to bottom, var(--gradient-start-color), var(--gradient-end-color));
+    }
+
+    .demo-block__link {
+      padding: 20px;
+      color: inherit;
+      text-align: center;
+    }
+
+    .smooth-scroll {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <figure class="demo-block">
+    <div class="demo-block__scroll-container">
+      <div class="demo-block__long-content-block">
+        <a href="#demo-1-bottom" id="demo-1-top" class="demo-block__link">Прокрутить вниз</a>
+        <a href="#demo-1-top" id="demo-1-bottom" class="demo-block__link">Прокрутить наверх</a>
+      </div>
+    </div>
+    <figcaption class="demo-block__title">
+      <code>scroll-behavior: auto</code>
+    </figcaption>
+  </figure>
+
+  <figure class="demo-block">
+    <div class="demo-block__scroll-container smooth-scroll">
+      <div class="demo-block__long-content-block">
+        <a href="#demo-2-bottom" id="demo-2-top" class="demo-block__link">Прокрутить вниз</a>
+        <a href="#demo-2-top" id="demo-2-bottom" class="demo-block__link">Прокрутить наверх</a>
+      </div>
+    </div>
+    <figcaption class="demo-block__title">
+      <code>scroll-behavior: smooth</code>
+    </figcaption>
+  </figure>
+</body>
+</html>

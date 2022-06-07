@@ -1,0 +1,42 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;code&gt;</code> используется для вывода фрагментов программного кода.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;code&gt;
+  const element = document.getElementById('#some-id');
+&lt;/code&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="100"></iframe>
+<h2>Как понять</h2>
+<p><code>&lt;code&gt;</code> используется для вывода любой информации, которая может быть обработана компьютером как программный код. Помимо непосредственно кода, сюда также относятся названия файлов, конфигурационные файлы, XML-элементы и т. д.</p>
+<p>Тег <code>&lt;code&gt;</code> по умолчанию строчный и браузеры не применяют к тексту внутри него никакого форматирования, кроме <code>font-family: monospace;</code>, и не подсвечивают синтаксис. Они не анализируют содержимое и не делают никаких предположений, на каком языке программирования написан вставленный код.</p>
+<p>Изначально <code>&lt;code&gt;</code> предназначен для вывода информации во фразовом контексте. Например, мы можем вставить код в середину предложения.</p>
+<pre><code class="language-html">&lt;p&gt;Пожалуй, &lt;code&gt;i&lt;/code&gt; — самое часто встречающееся имя переменной.&lt;/p&gt;
+</code></pre>
+<p>Если мы хотим вывести блок кода, то нужно дополнительно использовать тег <a href="/html/pre/"><code>&lt;pre&gt;</code></a> для вывода кода с сохранением форматирования.</p>
+<pre><code class="language-html">&lt;pre&gt;&lt;code&gt;
+  for(let i = 0; i &lt; 10; i++){
+    console.log(i)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+<h2>Подсветка синтаксиса</h2>
+<p>Если мы хотим красивого форматирования и подсветки синтаксиса, мы должны использовать сторонние инструменты и дополнительно пометить код, например, при помощи атрибута <a href="/html/class/"><code>class</code></a>. Для этого обычно используются библиотеки, такие как <a href="https://highlightjs.org/">highlight.js</a> и <a href="https://prismjs.com/">prism.js</a>.</p>
+<p>Например, они генерируют HTML приблизительно такого вида:</p>
+<pre><code class="language-html">&lt;pre class=&quot;block-code font-theme font-theme--code&quot; data-lang=&quot;html&quot;&gt;
+  &lt;code class=&quot;block-code__highlight&quot;&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt;
+    element
+    &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;token dom variable&quot;&gt;document&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token method function property-access&quot;&gt;getElementById&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;'#some-id'&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+<p>А пользователи его увидят вот так:</p>
+<pre><code class="language-js">const element = document.getElementById('#some-id')
+</code></pre>
+<p>Этот пример кода был обёрнут в теги <a href="/html/pre/"><code>&lt;pre&gt;</code></a> и <code>&lt;code&gt;</code> (вы можете проверить это, выбрав фрагмент в инспекторе элементов), а подсветку синтаксиса обеспечила библиотека prism.js.</p>

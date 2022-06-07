@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Демонстрация работы обработки события beforeunload</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&amp;family=Roboto+Mono&amp;display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    html {
+      font-size: 62.5%;
+
+      background-color: snow;
+    }
+
+    body,
+    button,
+    input {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      width: 1000px;
+      max-width: 100%;
+
+      margin: auto;
+      padding: 1em;
+
+      font-size: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        font-size: 1.6rem;
+      }
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    code {
+      font-family: 'Roboto Mono',  monospace;
+      white-space: pre-wrap;
+
+      background-color: aquamarine;
+    }
+
+    button {
+      padding: 0.5em 1em;
+
+      border: none;
+      border-radius: 12px;
+
+      font-size: inherit;
+      color: white;
+
+      background-color: rgb(0 0 0 / 100%);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    input {
+      padding: 0.5em 1em;
+
+      border: 1px solid black;
+    }
+
+    header,
+    main {
+      margin-bottom: 2em;
+    }
+
+    main,
+    footer {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>Обработка события <code>beforeunload</code></h1>
+  <p>При вводе текста в поле ввода, на объект <code>window</code> будет добавлен обработчик события <code>beforeunload</code>. При очистке поля ввода, обработчик снимется. Для того, чтобы проверить его работу, попробуйте обновить страницу или нажмите на кнопку под полем ввода.</p>
+</header>
+<main>
+  <input type="text">
+</main>
+<footer>
+  <button onclick="window.location.reload()">Обновить страницу</button>
+</footer>
+<script>
+  const checkInput = (event) => {
+    if (event.target.value !== '') {
+      window.addEventListener('beforeunload', onBeforeUnloadCallback)
+    } else {
+      window.removeEventListener('beforeunload', onBeforeUnloadCallback)
+    }
+  }
+
+  const onBeforeUnloadCallback = (event) => {
+    event.preventDefault()
+
+    event.returnValue = ''
+  }
+
+  const input = document.querySelector('input')
+
+  input.addEventListener('input', checkInput)
+</script>
+</body>
+</html>

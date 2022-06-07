@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - return() Кратко — Дока</title>
+  <style>
+    div{
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+<p>
+  <input id="input1" type="text"> <button onclick="runExample1()">isAdult</button> <div id="example1"></div>
+</p>
+<p>
+  <input  id="input2"  type="text"> <button onclick="runExample2()">randomString</button> <div id="example2"></div>
+</p>
+  <script>
+    function isAdult(age) {
+      return age > 18;
+    }
+    function randomString(len) {
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let str = [];
+      for (let i=0;i< len; i++) str.push(letters.charAt(Math.floor(Math.random() * letters.length)));
+      return str.join('');
+    }
+    function runExample1(){
+      document.querySelector('#example1').textContent = isAdult(document.querySelector("#input1").value);
+    }
+
+    function runExample2(){
+      document.querySelector('#example2').textContent = randomString(document.querySelector("#input2").value);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<h2>Кратко</h2>
+<p>Функция-псевдокласс <code>:where()</code> принимает один или несколько селекторов в качестве аргумента. Браузер при чтении применяет стили к любому из селекторов-аргументов.</p>
+<p><code>:where()</code> похож на <a href="/css/is/"><code>:is()</code></a> по своей механике и также полностью поддерживается во всех стабильных браузерах с <a href="https://caniuse.com/mdn-css_selectors_where">января 2021 года</a>. Различие заключается в <a href="/css/specificity/">специфичности</a>: у <code>:where()</code> она нулевая, а у <code>:is()</code> равна наиболее специфичному из переданных селекторов.</p>
+<h2>Пример</h2>
+<p>Применим стили для ссылок, вложенных в <a href="/html/header/"><code>&lt;header&gt;</code></a>, <a href="/html/main/"><code>&lt;main&gt;</code></a> или <a href="/html/footer/"><code>&lt;footer&gt;</code></a>:</p>
+<pre><code class="language-css">:where(header, main, footer) a {
+  color: blue;
+}
+</code></pre>
+<p>Без использования <code>:where()</code> пришлось бы <a href="/css/selector-list/">перечислять селекторы</a>:</p>
+<pre><code class="language-css">header a,
+main a,
+footer a {
+  color: blue;
+}
+</code></pre>
+<h2>Как пишется</h2>
+<p>Любой из переданных селекторов:</p>
+<pre><code class="language-css">:where(header, main, footer) {
+  color: blue;
+}
+</code></pre>
+<p><code>&lt;header&gt;</code> с любым из переданных классов:</p>
+<pre><code class="language-css">header:where(.content-header, .section-header) {
+  color: blue;
+}
+</code></pre>
+<h2>Как это понять</h2>
+<p>Можно объяснить работу <code>:where()</code> как «возьми все селекторы из списка, но не добавляй им веса». Это полезно, если вы хотите применить стили к нескольким селекторам и при этом обойтись без перечисления, вдобавок не переживая о повышенной специфичности итогового селектора. Пример ниже демонстрирует возможность легко переопределить свойства, заданные с помощью <code>:where()</code>:</p>
+<iframe title="Объяснение работы :where()" src="demos/basic" height="500"></iframe>
+<h2>Разница специфичности между <code>:where()</code> и <code>:is()</code></h2>
+<p>Не забываем про разницу в специфичности <code>:where()</code> и <code>:is()</code>. Несмотря на то, что <code>:where()</code> расположен ниже, текст ссылок будет окрашен в красный цвет за счёт специфичности селекторов, переданных в псевдокласс <code>:is()</code>:</p>
+<pre><code class="language-css">:is(header, main, footer) a {
+  color: red;
+}
+
+:where(header, main, footer) a {
+  color: blue;
+}
+</code></pre>
+<p>По этой же причине текст внутри <a href="/html/div/"><code>&lt;div&gt;</code></a> с классом <code>meow</code> будет синим:</p>
+<pre><code class="language-css">div.meow {
+  color: blue;
+}
+
+div:where(.meow) {
+  color: red;
+}
+</code></pre>
+<iframe title="Разница в специфичности :where() и :is()" src="demos/specificity-battle" height="700"></iframe>
+<h2>Прощающие селекторы</h2>
+<p>Псевдоклассы <code>:where()</code> и <code>:is()</code> относятся к <a href="https://drafts.csswg.org/selectors-4/#typedef-forgiving-selector-list">«прощающему списку селекторов»</a>. Невалидный селектор в списке аргументов <em>не приведёт</em> к игнорированию валидных селекторов.</p>
+<p>Стили ниже применятся к <a href="/html/span/"><code>&lt;span&gt;</code></a>, а нерабочий селектор <code>:some-unsupported-feature</code> будет проигнорирован:</p>
+<pre><code class="language-css">:where(span, :some-unsupported-feature) {
+  color: blue;
+}
+</code></pre>
+<p>Тут та же история:</p>
+<pre><code class="language-css">:is(span, :some-unsupported-feature) {
+  color: blue;
+}
+</code></pre>
+<p>А вот если указать неподдерживаемое свойство <code>:some-unsupported-feature</code> в перечислении, то всё сломается, не сработает ни один из селекторов:</p>
+<pre><code class="language-css">span,
+:some-unsupported-feature {
+  color: red;
+}
+</code></pre>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вёрстка навигации — text-transform — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #ffd829;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .element {
+      width: 85%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .menu-list {
+      display: flex;
+      text-transform: uppercase;
+      list-style: none;
+    }
+
+    .menu-list__item:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    .menu-list__item:hover {
+      color: #d04d4d;
+    }
+
+    .menu-list__link {
+      color: currentColor;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+  </style>
+</head>
+<body>
+  <div class="element">
+    <a href="#" class="logo">
+      <img src="images/logo.png" alt="Company logo">
+    </a>
+    <nav class="menu">
+      <ul class="menu-list">
+        <li class="menu-list__item">
+          <a href="#" class="menu-list__link">Главная</a>
+        </li>
+        <li class="menu-list__item">
+          <a href="#" class="menu-list__link">О компании</a>
+        </li>
+        <li class="menu-list__item">
+          <a href="#" class="menu-list__link">Проекты</a>
+        </li>
+        <li class="menu-list__item">
+          <a href="#" class="menu-list__link">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>

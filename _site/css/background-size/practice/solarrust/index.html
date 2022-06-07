@@ -1,0 +1,13 @@
+<p>🛠 Если для задания фона используется шорткат <code>background</code>, то значение для <code>background-size</code> указывается последним, после слэша <code>/</code>. Пример: <code>background: url('example.jpg') no-repeat center / cover</code></p>
+<p>🛠 Свойство <code>background-size</code> очень пригодится, если хочется сделать фон с повторяющимся элементом. Так называемым паттерном.</p>
+<pre><code class="language-html">&lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.element {
+  height: 100vh;
+  background-color: #f1f1f1;
+  background-image: url(&quot;pattern.svg&quot;);
+  background-size: 40px auto;
+}
+</code></pre>
+<iframe title="Паттерн на фоне" src="../demos/pattern/" height="400"></iframe>
+<p>Попробуйте поменять размеры фоновой картинки и посмотреть, как будет меняться фоновый паттерн.</p>

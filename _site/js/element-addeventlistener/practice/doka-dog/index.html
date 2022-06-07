@@ -1,0 +1,47 @@
+<p>🛠 Базовая обработка событий клавиатуры.</p>
+<p>С помощью событий, можно обрабатывать нажатие клавиш на клавиатуре, когда фокус установлен в поле ввода.
+В момент нажатия клавиш будем выводить код клавиши, а по нажатию клавиши <em>Enter</em> добавлять сообщение, которое было введено в поле.</p>
+<pre><code class="language-html">&lt;div class=&quot;event&quot;&gt;Ожидание ввода...&lt;/div&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;Введите сообщение&quot;&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Для этого подпишемся на событие <a href="/js/element-keydown-keyup/"><code>keydown</code></a>. Каждое нажатие клавиши будет создавать событие 'keydown' и функция будет срабатывать. Внутри функции будем получать код клавиши из свойства <code>key</code> объекта события. Если код клавиши оказался <code>'Enter'</code>, то будем сбрасывать значение в поле ввода и выводить результат.</p>
+<pre><code class="language-js">const element = document.querySelector('input')
+
+element.addEventListener('keydown', function (event) {
+  const message = '&lt;code&gt;' + event.key + '&lt;/code&gt;'
+  const value = event.target.value
+
+  if (event.key === 'Enter' &amp;&amp; value.length &gt; 0) {
+    const messageElement = document.createElement('div')
+
+    messageElement.classList.add('message')
+    messageElement.innerText = value
+    document.querySelector('.result').appendChild(messageElement)
+    event.target.value = ''
+  }
+
+  document.querySelector('.event').innerHTML = message
+})
+</code></pre>
+<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450"></iframe>
+<p>🛠 Предотвращение срабатывания события по умолчанию.</p>
+<p>В этом примере мы заменим стандартное поведение в случае, когда пользователь кликает на ссылку. Чтобы стандартное поведение не сработало, нужно вызывать метод <code>preventDefault</code> у события.</p>
+<pre><code class="language-html">&lt;a href=&quot;https://yandex.ru&quot; target=&quot;_blank&quot;&gt;Ссылка на Яндекс&lt;/a&gt;
+&lt;a href=&quot;https://yandex.ru&quot; target=&quot;_blank&quot; id=&quot;custom&quot;&gt;Ссылка с измененным поведением&lt;/a&gt;
+&lt;div id=&quot;result&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>Подпишемся на событие клика по ссылке и вызовем метод <code>preventDefault</code>. После этого определим собственное поведение элемента. Например, будем выводить сообщение на экран:</p>
+<pre><code class="language-js">const linkElement = document.querySelector('#custom')
+const resultElement = document.querySelector('#result')
+
+linkElement.addEventListener('click', function (event) {
+  event.preventDefault()
+
+  resultElement.innerText = 'Вы нажали на ссылку, но ничего не произошло!'
+  setTimeout(function () {
+    resultElement.innerText = ''
+  }, 2500)
+})
+</code></pre>
+<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320"></iframe>

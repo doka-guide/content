@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа Array.map — Array.map — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    pre {
+      font-family: "Roboto Mono";
+      white-space: pre-wrap;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
+    }
+
+    .subtitle:first-child {
+      margin-top: 0;
+    }
+
+    .header-container {
+      margin-bottom: 40px;
+    }
+
+    .header-container pre,
+    .does-container pre {
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+
+    .does-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .does-container + .does-container {
+      margin-top: 25px;
+    }
+
+    .does-container pre {
+      margin-left: 25px;
+      flex-grow: 1;
+      line-height: 1;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .items {
+      display: flex;
+      min-height: 32px;
+    }
+
+    .item {
+      width: 50px;
+      height: 30px;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .item + .item {
+      margin-left: 10px;
+    }
+
+    .active {
+      background-color: #41E847;
+    }
+
+    .execute {
+      min-height: 52px;
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="header-container">
+        <h2 class="subtitle">Наш код</h2>
+        <pre>
+const products = [1, 2, 3, 4, 5, 6, 7, 8]<br>
+function transformToSquare(num) {
+  return num * num
+}<br>
+function transformToCube(num) {
+  return num * num * num
+}
+  </pre>
+      </div>
+      <div class="does-container">
+        <button id="square" class="button button-yellow start">Давай квадраты</button>
+        <pre>products.map(transformToSquares)</pre>
+      </div>
+      <div class="does-container">
+        <button id="cubes" class="button button-green start">А теперь кубы</button>
+        <pre>products.map(transformToCubes)</pre>
+      </div>
+      <h2 class="subtitle">С каким элементом работаем</h2>
+      <div class="items" id="container"></div>
+      <h2 class="subtitle">Что выполняется</h2>
+      <pre class="execute" id="execute"></pre>
+      <h2 class="subtitle">Итоговый массив</h2>
+      <div class="items" id="result"></div>
+    </div>
+
+  <script>
+    const SECOND = 1000
+    const products = [1, 2, 3, 4, 5, 6, 7, 8]
+
+    function transformToSquare(num) {
+      return num * num
+    }
+
+    function transformToCube(num) {
+      return num * num * num
+    }
+
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const squareButton = document.getElementById('square')
+    const cubesButton = document.getElementById('cubes')
+    let isActive = false
+
+    function createItem(content) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = content
+
+      return itemElement
+    }
+
+    products.forEach((product, index) => {
+      const element = createItem(product)
+      element.id = index + 1
+
+      container.appendChild(element)
+    })
+
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
+
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
+
+    function createSquareIteration(num, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const square = transformToSquare(num)
+
+          execute.textContent = `transformToSquares(${num}) -> ${square}`
+
+          result.appendChild(createItem(square))
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function createCubeIteration(num, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const cube = transformToCube(num)
+
+          execute.textContent = `transformToCubes(${num}) -> ${cube}`
+
+          result.appendChild(createItem(cube))
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function getSquaresPromises() {
+      const iterations = []
+
+      products.forEach((item, index) => {
+        iterations.push(createSquareIteration(item, index + 1))
+      })
+
+      return iterations
+    }
+
+    function getCubesPromises() {
+      const iterations = []
+
+      products.forEach((item, index) => {
+        iterations.push(createCubeIteration(item, index + 1))
+      })
+
+      return iterations
+    }
+
+    squareButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getSquaresPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+
+    cubesButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const iterations = getCubesPromises()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
+</body>
+</html>

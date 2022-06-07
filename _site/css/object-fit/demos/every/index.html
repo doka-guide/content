@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты object-fit — object-fit — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    img {
+      width: 80%;
+      height: 200px;
+      border: 1px solid #ffffff;
+    }
+
+    .fill {
+      object-fit: fill;
+    }
+
+    .contain {
+      object-fit: contain;
+    }
+
+    .cover {
+      object-fit: cover;
+    }
+
+    .none {
+      object-fit: none;
+    }
+
+    .scale-down {
+      object-fit: scale-down;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    p:not(:first-child) {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <p>Оригинальная картинка</p>
+  <img src="images/landscape.jpg" alt="" class="img original">
+  <p>fill</p>
+  <img src="images/landscape.jpg" alt="" class="img fill">
+  <p>contain</p>
+  <img src="images/landscape.jpg" alt="" class="img contain">
+  <p>cover</p>
+  <img src="images/landscape.jpg" alt="" class="img cover">
+  <p>none</p>
+  <img src="images/landscape.jpg" alt="" class="img none">
+  <p>scale-down</p>
+  <img src="images/landscape.jpg" alt="" class="img scale-down">
+</body>
+</html>

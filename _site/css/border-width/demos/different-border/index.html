@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры разных вариантов рамки — border-width — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 500px;
+      max-width: 95%;
+      min-height: 100vh;
+      margin: auto;
+      padding: 70px 10px 30px;
+    }
+
+    .text {
+      font-size: 16px;
+      padding: 10px 20px;
+      border-style: solid;
+      border-width: 3px;
+    }
+
+    .control {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .control__title {
+      margin-bottom: 10px;
+    }
+
+    .control__range {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+    }
+
+    .list__item {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    .list__input {
+      cursor: pointer;
+    }
+
+    .list__label {
+      position: relative;
+      cursor: pointer;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="controls">
+      <p class="controls__title">border-style:</p>
+      <ul class="list">
+        <li class="list__item">
+          <input class="list__input js-radio" id="solid" type="radio" name="style" value="solid" checked>
+          <label class="list__label" for="solid">solid</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="dotted" type="radio" name="style" value="dotted">
+          <label class="list__label" for="dotted">dotted</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="dashed" type="radio" name="style" value="dashed">
+          <label class="list__label" for="dashed">dashed</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="double" type="radio" name="style" value="double">
+          <label class="list__label" for="double">double</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="groove" type="radio" name="style" value="groove">
+          <label class="list__label" for="groove">groove</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="ridge" type="radio" name="style" value="ridge">
+          <label class="list__label" for="ridge">ridge</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="inset" type="radio" name="style" value="inset">
+          <label class="list__label" for="inset">inset</label>
+        </li>
+        <li class="list__item">
+          <input class="list__input js-radio" id="outset" type="radio" name="style" value="outset">
+          <label class="list__label" for="outset">outset</label>
+        </li>
+      </ul>
+    </div>
+    <div class="control">
+      <p class="control__title">border-width: <span class="js-b-width">3px</span></p>
+      <input class="control__range js-range" type="range" min="1" max="20" value="3">
+    </div>
+    <p class="text js-text">
+      Таким образом начало повседневной работы по формированию позиции позволяет выполнять важные задания по разработке позиций, занимаемых участниками в отношении поставленных задач.
+    </p>
+  </div>
+  <script>
+    const SELECTORS = {
+      radios: '.js-radio',
+      range: '.js-range',
+      text: '.js-text',
+      width: '.js-b-width',
+    }
+
+    const radios = document.querySelectorAll(SELECTORS.radios)
+    const range = document.querySelector(SELECTORS.range)
+    const text = document.querySelector(SELECTORS.text)
+    const width = document.querySelector(SELECTORS.width)
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        text.style.borderStyle = event.target.value
+      })
+    })
+
+    range.addEventListener('input', () => {
+      const size = range.value + 'px'
+
+      text.style.borderWidth = size
+      width.textContent = size
+    })
+  </script>
+</body>
+</html>

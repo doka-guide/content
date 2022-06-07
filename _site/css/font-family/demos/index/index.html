@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шрифты с засечками и без — font-family — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    h1, h2 {
+      color: #f498ad;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
+      font-size: 26px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
+    }
+
+    .generic {
+      margin-top: 40px;
+    }
+
+    .generic h2 {
+      font-family: sans-serif;
+      font-size: 24px;
+    }
+
+    .generic p {
+      font-family: serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Этот заголовок написан шрифтом Roboto без засечек</h1>
+  <p>А параграф — шрифтом Roboto Slab с засечками.</p>
+  <div class="generic">
+    <h2>Для второго заголовка установлено семейство sans-serif</h2>
+    <p>Семейство шрифтов этого параграфа указано как serif — это шрифт с засечками, установленный в системе по умолчанию.</p>
+  </div>
+</body>
+</html>

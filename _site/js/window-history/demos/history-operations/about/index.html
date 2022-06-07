@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа window.history</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+</head>
+<div>
+  <h1>Страница "О нас"</h1>
+  <br>
+  <div id="url">Текущий URL: _</div>
+  <div id="history-count">Количество записей в истории: 1</div>
+  <br>
+  <div class="centered">
+    <button id="replace" class="button button-green">Изменить текущую запись</button>
+
+    <a id="move" class="button button-green hidden" href="prices.html">Переход на страницу цен</a>
+  </div>
+  <script>
+    const urlEl = document.getElementById('url')
+    const countEl = document.getElementById('history-count')
+    const replaceButton = document.getElementById('replace')
+    const moveButton = document.getElementById('move')
+
+    function updateTexts() {
+      urlEl.innerText = `Текущий путь: ${document.location.pathname}`
+      countEl.innerText = `Количество записей в истории: ${history.length}`
+    }
+
+    function hide(el) {
+      el.classList.add('hidden')
+    }
+
+    function show(el) {
+      el.classList.remove('hidden')
+    }
+
+    replaceButton.addEventListener('click', () => {
+      window.history.replaceState(
+        {},
+        '',
+        'index.html'
+      )
+
+      hide(replaceButton)
+      show(moveButton)
+      updateTexts()
+    }, { once: true })
+
+    updateTexts()
+  </script>
+</body>
+</html>

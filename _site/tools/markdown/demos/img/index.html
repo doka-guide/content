@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изображение — Markdown — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      margin: 0;
+      background: #18191c;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: scale-down;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img
+    src="images/dog.svg"
+    alt="Одна собака"
+    title="Cобака смотрит влево"
+  >
+</body>
+</html>

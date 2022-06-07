@@ -1,0 +1,252 @@
+<h2>Кратко</h2>
+<p><code>Map</code> - коллекция для хранения данных любого типа в виде пар <code>[ключ, значение]</code>, то есть каждое значение сохраняется по <em>уникальному</em> ключу, который потом используется для доступа к этому значению. Причём в качестве ключей тоже принимаются значения любого типа.</p>
+<p>Основные методы для работы с коллекцией <code>Map</code>:</p>
+<ul>
+<li><code>set(ключ, значение)</code> — устанавливает значение;</li>
+<li><code>get(ключ)</code> — возвращает значение;</li>
+<li><code>has(ключ)</code> — проверяет наличие переданного ключа;</li>
+<li><code>values()</code> — возвращает <a href="/js/iterator/">итератор</a> всех значений коллекции;</li>
+<li><code>keys()</code> — возвращает <a href="/js/iterator/">итератор</a> всех ключей коллекции;</li>
+<li><code>entries()</code> — возвращает <a href="/js/iterator/">итератор</a> пар <code>[ключ, значение]</code>;</li>
+<li><code>delete(ключ)</code> — удаляет конкретное значение;</li>
+<li><code>clear()</code> — полностью очищает коллекцию;</li>
+<li><code>forEach(колбэк)</code> — перебирает ключи и значения коллекции.</li>
+</ul>
+<p>Содержит свойство <code>size</code> для получения количества значений в коллекции.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const someData = new Map()
+
+someData.set('1', 'Значение под строковым ключом 1')
+someData.set(1, 'Значение под числовым ключом 1')
+someData.set(true, 'Значение под булевым ключом true')
+
+console.log(someData.size)
+// 3
+
+console.log(someData.get(1))
+// Значение под числовым ключом 1
+
+console.log(someData.get('1'))
+// Значение под строковым ключом 1
+
+console.log(someData.has(true))
+// true
+
+someData.clear()
+
+console.log(someData.size)
+// 0
+</code></pre>
+<h2>Как понять</h2>
+<h3>Создание коллекции</h3>
+<p>Коллекция создаётся при помощи конструктора. Можно создать пустой <code>Map</code>:</p>
+<pre><code class="language-js">const map = new Map()
+
+console.log(map.size)
+// 0
+</code></pre>
+<p>А можно сразу передать начальные значения. Для этого в конструктор нужно передать массив, состоящий из других массивов. Эти массивы должны состоять из двух элементов: первый элемент — ключ, а второй — значение:</p>
+<pre><code class="language-js">const map = new Map([['js', 'JavaScript'], ['css', 'Cascading Style Sheets']])
+
+console.log(map.size)
+// 2
+
+console.log(map.get('js'))
+// JavaScript
+</code></pre>
+<h3>Работа с коллекцией</h3>
+<p><code>Map</code> предоставляет небольшой набор удобных методов для работы с данными.</p>
+<p>Чтобы сохранить значение в коллекции, нужно использовать метод <code>set()</code>. Первым аргументом передаём ключ, а вторым - значение:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('js', 'JavaScript')
+</code></pre>
+<p>Получить значение можно при помощи метода <code>get()</code> единственным аргументом которого передаём ключ, данные которого хотим получить. Если в коллекции нет значения для переданного ключа, <code>get()</code> вернёт <a href="/js/undefined/"><code>undefined</code></a>.</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('js', 'JavaScript')
+console.log(map.get('js'))
+// JavaScript
+</code></pre>
+<p>Узнать, есть ли в коллекции значение с конкретным ключом, можно с помощью метода <code>has()</code>:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('js', 'JavaScript')
+
+console.log(map.has('js'))
+// true
+
+console.log(map.has('css'))
+// false
+</code></pre>
+<p>Удалять конкретное значение можно методом <code>delete()</code>, который также принимает ключ в качестве аргумента. <code>delete()</code> возвращает <code>true</code>, если элемент для переданного ключа <em>существовал и был удалён</em>. Полностью очищает коллекцию метод <code>clear()</code>:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('html', 'HTML')
+map.set('css', 'CSS')
+map.set('js', 'JavaScript')
+
+console.log(map.size)
+// 3
+
+map.delete('css')
+
+console.log(map.size)
+// 2
+
+map.clear()
+
+console.log(map.size)
+// 0
+</code></pre>
+<h3>Обход значений</h3>
+<p><code>Map</code> предоставляет встроенный итератор для обхода значений:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('html', 'HTML')
+map.set('css', 'CSS')
+map.set('js', 'JavaScript')
+
+for (let [key, value] of map) {
+  console.log(`${key} - ${value}`)
+}
+// html - HTML
+// css - CSS
+// js - JavaScript
+</code></pre>
+<p>А ещё можно сделать то же самое при помощи метода <code>forEach()</code>:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set('html', 'HTML')
+map.set('css', 'CSS')
+map.set('js', 'JavaScript')
+
+map.forEach((value, key) =&gt; {
+  console.log(`${key} - ${value}`)
+})
+// html - HTML
+// css - CSS
+// js - JavaScript
+</code></pre>
+<aside>
+<p>⚠️ Обратите внимание: когда вызывается метод <code>forEach()</code>, в колбэк передаются текущий ключ и соответствующее ему значение — индексов в <code>Map</code> нет.</p>
+</aside>
+<p>При обходе значений <code>Map</code> всегда выводит их в том порядке, в котором они были добавлены.</p>
+<h3>Отличия от объектов</h3>
+<p>Обычные объекты тоже подходят для хранения данных. Однако ключи в них могут быть только <a href="/js/string/">строками</a> или <a href="/js/symbol/">символами</a>:</p>
+<pre><code class="language-js">const obj = {
+  1: 'String',
+  '2': 'Number',
+  true:'Bool',
+}
+
+console.log(Object.keys(obj))
+// [ '1', '2', 'true' ]
+</code></pre>
+<p><code>Map</code> же позволяет использовать в качестве ключа любое значение: объект, функцию, примитивные значения и даже <code>null</code>, <code>undefined</code> и <code>NaN</code>. Для сравнения ключей используется алгоритм <em>SameValueZero</em>.</p>
+<details>
+  <summary>Как работает алгоритм SameValueZero</summary>
+<p><strong>Кратко</strong></p>
+<p>Алгоритм SameValueZero работает так же, как и строгое сравнение при помощи <code>===</code> с единственным отличием: для SameValueZero <code>NaN</code> равен <code>NaN</code>. Именно по этой причине в качестве ключей <code>Map</code> можно использовать <code>NaN</code> — мы можем найти такой ключ простым сравнением.</p>
+<p><strong>Подробно</strong></p>
+<p>Алгоритм SameValueZero для сравнения переменных <code>x</code> и <code>y</code> согласно <a href="https://tc39.es/ecma262/#sec-ecmascript-specification-types">спецификации</a>:</p>
+<ol>
+<li>Если типы <code>x</code> и <code>y</code> отличаются, возвращаем <strong>false</strong> (Возможные типы: Undefined, Null, Boolean, String, Number, BigInt, Object или Symbol. Не путать с результатом выполнения оператора <a href="/js/typecasting/#typeof"><code>typeof</code></a>).</li>
+<li>Если тип <code>x</code> и <code>y</code> Number, то:
+<ul>
+<li>Если значение <code>x</code> <strong>NaN</strong> и значение <code>y</code> <strong>NaN</strong>, возвращаем <strong>true</strong>.</li>
+<li>Если значение <code>x</code> <strong>-0</strong>, а значение <code>y</code> <strong>+0</strong>, возвращаем <strong>true</strong>.</li>
+<li>Если значение <code>x</code> <strong>+0</strong>, а значение <code>y</code> <strong>-0</strong>, возвращаем <strong>true</strong>.</li>
+<li>Возвращаем <strong>true</strong>, если значение <code>x</code> равно значению <code>y</code>. В противном случае возвращаем <strong>false</strong>.</li>
+</ul>
+</li>
+<li>Если тип <code>x</code> и <code>y</code> BigInt, то возвращаем <strong>true</strong>, если значение <code>x</code> равно значению <code>y</code>. В противном случае возвращаем <strong>false</strong>.</li>
+<li>Если тип <code>x</code> и <code>y</code> Undefined, то возвращаем <strong>true</strong>.</li>
+<li>Если тип <code>x</code> и <code>y</code> Null, то возвращаем <strong>true</strong>.</li>
+<li>Если тип <code>x</code> и <code>y</code> String, то возвращаем <strong>true</strong>, если <code>x</code> и <code>y</code> одинаковые последовательности символов (одинаковая длина и такие же коды символов на соответствующих индексах). В противном случае возвращаем <strong>false</strong>.</li>
+<li>Если тип <code>x</code> и <code>y</code> Boolean, то возвращаем <strong>true</strong>, если оба значения <code>x</code> и <code>y</code> <strong>true</strong> или оба значения <code>x</code> и <code>y</code> <strong>false</strong>. В противном случае возвращаем <strong>false</strong>.</li>
+<li>Если тип <code>x</code> и <code>y</code> <a href="/js/symbol/">Symbol</a>, то возвращаем <strong>true</strong>, если <code>x</code> и <code>y</code> являются одним и тем же значением символа. В противном случае возвращаем <strong>false</strong>.</li>
+<li>Если типы <code>x</code> и <code>y</code> наследуются от Object, то возвращаем <strong>true</strong>, если <code>x</code> и <code>y</code> <a href="/js/ref-type-vs-value-type/">ссылаются на один и тот же объект</a>. В противном случае возвращаем <strong>false</strong>.</li>
+</ol>
+</details>
+<pre><code class="language-js">const func = (name) =&gt; `Hello, ${name}`
+const obj = { foo: 'bar' }
+
+const map = new Map()
+map.set(func, 'func value')
+map.set(obj, 'object value')
+map.set(undefined, 'undefined value')
+map.set(NaN, 'NaN value')
+map.set(null, 'null value')
+
+console.log(map.get(func))
+// func value
+
+console.log(map.get(obj))
+// object value
+
+console.log(map.get(undefined))
+// undefined value
+
+console.log(map.get(NaN))
+// NaN value
+
+console.log(map.get(null))
+// null value
+</code></pre>
+<p>При использовании SameValueZero для сравнения ключей, приведение типов не происходит. Поэтому, число и строковое представление этого же числа будут являться двумя разными ключами:</p>
+<pre><code class="language-js">const map = new Map()
+
+map.set(1, 'numeric 1')
+map.set('1', 'string 1')
+
+console.log(map.size)
+// 2
+
+console.log(map.get(1))
+// numeric 1
+
+console.log(map.get('1'))
+// string 1
+</code></pre>
+<p>При использовании непримитивных типов в качестве ключей стоит помнить, что они <a href="/js/ref-type-vs-value-type/">хранятся по ссылке</a>, поэтому для доступа к заданному с помощью объекта ключу, необходимо передавать <em>тот же самый объект</em>.</p>
+<p>Создадим две переменные, которые указывают на один и тот же объект и добавим их ключами в Map:</p>
+<pre><code class="language-js">const dataObject = { position: 'left' }
+const sameObject = dataObject
+
+console.log(dataObject === sameObject)
+// true
+
+const map = new Map()
+map.set(dataObject, 'value for dataObject')
+map.set(sameObject, 'value for sameObject')
+
+console.log(map.size)
+// 1
+
+console.log(map.get(dataObject))
+// value for sameObject
+
+console.log(map.get(sameObject))
+// value for sameObject
+</code></pre>
+<p>А вот если мы возьмём два отдельных объекта с одинаковым содержимым, то мы получим два разных ключа:</p>
+<pre><code class="language-js">const playerOne = { position: 'left' }
+const playerTwo = { position: 'left' }
+
+console.log(playerOne === playerTwo)
+// false
+
+const map = new Map()
+map.set(playerOne, 'player 1')
+map.set(playerTwo, 'player 2')
+
+console.log(map.size)
+// 2
+
+console.log(map.get(playerOne))
+// player 1
+
+console.log(map.get(playerTwo))
+// player 2
+</code></pre>

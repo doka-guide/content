@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Валидация формы — :invalid и :valid — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .input-title {
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .input + .validity-icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+
+    .input:invalid {
+      border-color: #FF8630;
+      background-color: rgba(255, 134, 48, 0.1);
+    }
+
+    .input:invalid + .validity-icon::before {
+      content: '✖';
+      color: #FF8630;
+    }
+
+    .input:valid + .validity-icon::before {
+      content: '✓';
+    }
+
+    .checkbox:invalid + .checkbox-title::before {
+      border-color: #FF8630;
+      background-color: rgba(255, 134, 48, 0.1);
+    }
+
+    .input, .button, .checkbox-container {
+      width: 350px;
+    }
+
+    .button, .checkbox-container {
+      margin-left: auto;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .input:invalid:placeholder-shown {
+      border-color: #ffffff;
+      background-color: transparent;
+    }
+
+    .input:invalid:placeholder-shown + .validity-icon::before,
+    .input:valid:placeholder-shown + .validity-icon::before {
+      visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        min-width: 280px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
+
+      .input-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label class="input-title" for="first-name">Имя:</label>
+      <input class="input" type="text" name="first-name" id="first-name" required placeholder="Например, Пётр">
+      <span class="validity-icon"></span>
+    </div>
+    <div class="form-row">
+      <label class="input-title" for="email">E-mail:</label>
+      <input class="input" type="email" name="email" id="email" placeholder="Например, mymail@gmail.com">
+      <span class="validity-icon"></span>
+    </div>
+    <div class="form-row">
+      <button class="button button-blue" type="submit">Отправить</button>
+    </div>
+  </form>
+</body>
+</html>

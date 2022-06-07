@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация подсказки для поля ввода — :required — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    label {
+      display: block;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .label-required::after {
+      content: "*";
+      margin-left: 5px;
+      font-size: 0.7em;
+      vertical-align: super;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 10px;
+      color: #FFFFFF;
+      font-size: 14px;
+      line-height: 1;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    input:required + .hint {
+      color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        min-width: 280px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label class="label-required" for="first_name">Имя</label>
+      <span>
+        <input type="text" id="first_name" required>
+        <span class="hint">Обязательно к заполнению</span>
+      </span>
+    </div>
+    <div class="form-row">
+      <label for="last_name">Фамилия</label>
+      <span>
+        <input type="text" id="last_name">
+        <span class="hint">Необязательно</span>
+      </span>
+    </div>
+  </form>
+</body>
+</html>

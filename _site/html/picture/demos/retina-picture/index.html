@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Отдельная картинка для ретины — picture — Дока</title>
+  <meta charset="utf-8">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
+    .code {
+      position: absolute;
+      left: 50%;
+      bottom: 75px;
+      transform: translateX(-50%);
+      width: 750px;
+      padding: 0 110px;
+      font-size: 16px;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .code-line {
+      display: block;
+    }
+
+    .small {
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    @media (min-resolution: 2x), (-webkit-min-device-pixel-ratio: 2) {
+      .small {
+        background-color: inherit;
+        color: inherit;
+      }
+
+      .big {
+        background-color: #18191C;
+        color: #FFFFFF;
+      }
+    }
+  </style>
+</head>
+<body>
+  <picture>
+    <source srcset="images/750x300.png, images/1500x600.png 2x">
+    <img src="images/750x300.png" alt="">
+  </picture>
+  <div class="code">
+    <span class="code-line">&lt;picture&gt;</span>
+      <span class="code-line">&nbsp;&nbsp;&lt;source srcset="<span class="small">750x300.png</span>, <span class="big">1500x600.png 2x</span>"&gt;</span>
+      <span class="code-line">&nbsp;&nbsp;&lt;img src="750x300.png" alt="Картинка с размерами"&gt;</span>
+    <span class="code-line">&lt;/picture&gt;</span>
+  </div>
+</body>
+</html>

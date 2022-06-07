@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вложенные теги — <sub> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    body {
+      min-height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    Первый уровень<sub>второй уровень<sub>третий уровень<sub>четвёртый уровень</sub></sub></sub><br>
+    Текст на этой строке не будет налезать на предыдущую строку – браузер увеличит высоту предыдущей строки, чтобы этого не произошло.
+  </p>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<h2>Кратко</h2>
+<p><code>Boolean</code> — это логический тип в JavaScript. Его значение может быть либо истинным, либо ложным. На основе этого типа в программах составляют логические условия.</p>
+<p>Значения такого типа часто называют булевыми, в честь <a href="https://ru.wikipedia.org/wiki/%D0%91%D1%83%D0%BB%D1%8C,_%D0%94%D0%B6%D0%BE%D1%80%D0%B4%D0%B6">Джорджа Буля</a>, одного из основателей математической логики.</p>
+<p>Значением логического типа может быть либо «истина», либо «ложь». Из-за этого логический тип также часто называют <em>бинарным</em>.</p>
+<p>Создать булево значение можно несколькими способами.</p>
+<p>Первый — явно указать значение используя ключевые слова:</p>
+<pre><code class="language-js">const truthyValue = true // «Истина»
+const falsyValue = false // «Ложь»
+</code></pre>
+<p>Второй способ — использовать конструктор <code>Boolean</code>:</p>
+<pre><code class="language-js">const truthyValue = new Boolean(true) // также «Истина»
+const falsyValue = new Boolean(false) // также «Ложь»
+</code></pre>
+<p>Этот способ считается устаревшим; не используйте его.</p>
+<p>Используйте примитив вместо типа <code>Boolean</code>.</p>
+<p>Третий — использовать выражение, которое можно свести к «истине» либо «лжи». (Мы поговорим о таких выражениях подробнее ниже.)</p>
+<p>Следующие два выражения истинны, потому что 4 действительно меньше 5.</p>
+<pre><code class="language-js">const truthyValue = new Boolean(4 &lt; 5)
+const anotherTruthy = 4 &lt; 5
+</code></pre>
+<p>Следующие два — ложны, потому что 2 * 2 === 4:</p>
+<pre><code class="language-js">const falsyValue = new Boolean(2 * 2 === 5)
+const anotherFalsy = 2 * 2 === 5
+</code></pre>
+<h2>Как пишется</h2>
+<p>С помощью явного присвоения логических значений:</p>
+<pre><code class="language-js">const truthyValue = true
+const falsyValue = false
+</code></pre>
+<p>С помощью конструктора Boolean. Способ устарел, и лучше его не использовать.</p>
+<pre><code class="language-js">const truthyValue = new Boolean(true)
+const falsyValue = new Boolean(false)
+</code></pre>
+<p>С помощью приведения выражений к логическим значениям через функцию <code>Boolean</code>:</p>
+<pre><code class="language-js">const truthyValue = Boolean(4 &lt; 5)
+const anotherTruthy = 4 &lt; 5
+
+const falsyValue = Boolean(2 * 2 === 5)
+const anotherFalsy = 2 * 2 === 5
+</code></pre>
+<p>Булевы значения можно использовать в <a href="/js/if-else/"><code>if</code> условиях</a>.</p>
+<pre><code class="language-js">const truthyValue = true
+if (truthyValue) {
+  // Выполнится эта ветка кода,
+  // потому что оператор if проверяет,
+  // истинно ли выражение в скобках,
+  // и если да, то выполняет этот код.
+} else {
+  // Эта ветка не выполнится.
+}
+
+const falsyValue = false
+if (falsyValue) {
+  // Теперь не выполнится эта ветка,
+  // потому что выражение в скобках ложно.
+} else {
+  // А вот эта — выполнится.
+}
+</code></pre>
+<h2>Как понять</h2>
+<p>Логические значения можно воспринимать, как ответ на закрытый вопрос — на который можно ответить только «Да» или «Нет».</p>
+<p>Это же правило позволяет придумывать более подходящие названия для переменных, которые несут в себе логические значения.</p>
+<p>Плохое название для логического значения не помогает понять, на какой вопрос отвечает переменная. Например, <code>const waitResponse = false</code> — плохое название.</p>
+<p>Хорошее название даёт понимание. Например, <code>const shouldWaitForResponse = false</code> отвечает на вопрос «Должен ли процесс подождать ответа за запрос?», а  <code>const isWaitingForResponse = false</code> — на вопрос «Ждёт ли процесс ответа прямо сейчас?».</p>
+<h3>Выражения</h3>
+<p>Выше мы говорили о выражениях, которые можно привести к логическим значениям. В JavaScript такими выражениями часто пользуются, чтобы построить условия.</p>
+<p>Булевым выражением в JavaScript может быть что угодно.</p>
+<p>Хитрость в том, чтобы знать, какое выражение в какое значение в итоге будет преобразовано. Например, все эти выражения трансформируются в <code>false</code>:</p>
+<pre><code class="language-js">const falsy1 = Boolean(),
+  falsy2 = Boolean(0),
+  falsy3 = Boolean(null),
+  falsy4 = Boolean(&quot;&quot;),
+  falsy5 = Boolean(false)
+</code></pre>
+<p>А все эти — в <code>true</code>:</p>
+<pre><code class="language-js">const truthy1 = Boolean(true),
+  truthy2 = Boolean(&quot;true&quot;),
+  truthy3 = Boolean(&quot;false&quot;),
+  truthy4 = Boolean(&quot;Су Лин&quot;),
+  truthy5 = Boolean([]),
+  truthy6 = Boolean({})
+</code></pre>
+<p>Обратите внимание, что строка <code>'false'</code> преобразуется в логическое <code>true</code>. Так происходит потому, что непустая строка в JavaScript считается <em>truthy</em> значением — то есть таким, которое приводится к <code>true</code>.</p>
+<p>То же и с пустыми массивом <code>[]</code> и объектом <code>{}</code>. Они считаются <em>truthy</em> значениями, поэтому приводятся к <code>true</code>.</p>
+<p>Обратите внимание на списки <a href="https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Truthy">truthy</a> и <a href="https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Falsy">falsy</a> значений в JavaScript.</p>
+<h3>Сравнить строку с числом</h3>
+<p>В JavaScript интерпретатор может сам <a href="https://developer.mozilla.org/ru/docs/%D0%A1%D0%BB%D0%BE%D0%B2%D0%B0%D1%80%D1%8C/Type_coercion">приводить типы</a>, из-за чего мы можем сравнивать разные типы данных друг с другом.</p>
+<p>JavaScript многие за это не любят, потому что сравнивая число со строкой, можно наделать ошибок.</p>
+<p>Например, если мы сравним:</p>
+<pre><code class="language-js">5 &gt; &quot;4&quot;
+// true
+5 &gt; &quot;4 &quot;
+// true
+5 &gt; &quot; 4 &quot;
+// true
+5 &gt; &quot;4.&quot;
+// true
+</code></pre>
+<p>При этом:</p>
+<pre><code class="language-js">5 &gt; &quot;4 .&quot;
+// false
+</code></pre>
+<p>Здесь всё дело в том, что именно JavaScript будет приводить (<a href="/js/typecasting/">преобразование типов</a>) и к какому типу.</p>
+<p>Поэтому надо быть аккуратными со сравнениями, когда мы их используем как выражения для логических переменных.</p>
+<h3>Отрицание</h3>
+<p>Чтобы инвертировать значение логического типа, можно использовать <em>логическое отрицание</em>. Логическое отрицание в JS записывается через унарный оператор <code>!</code>:</p>
+<pre><code class="language-js">const truthy = true
+const falsy = !truthy
+// false
+</code></pre>
+<p>Оно также используется, чтобы проверять обратные условия. Функция <code>goToBed</code> выполнится, если <code>isSleeping === false</code>.</p>
+<pre><code class="language-js">const isSleeping = false
+
+if (!isSleeping) {
+  goToBed()
+}
+</code></pre>

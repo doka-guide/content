@@ -1,0 +1,49 @@
+<h2>Публикация для сайта на 11ty</h2>
+<p>Попробуем сделать экшен для своего репозитория. Например, мы работаем с движком генератора статики <a href="https://www.11ty.dev">11ty</a>, и в проекте поддерживается проверка линтерами <a href="https://editorconfig.org">EditorConfig</a>, <a href="https://stylelint.io">stylelint</a> и <a href="https://eslint.org">ESLint</a>, которые выполняют функцию тестирования текстов и кода. Список скриптов в файле конфигурации <code>package.json</code> будет примерно таким:</p>
+<pre><code class="language-js">&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;eleventy --serve --quiet&quot;,
+  &quot;test&quot;: &quot;editorconfig-checker &amp;&amp; stylelint \&quot;src/styles/**/*.css\&quot; &amp;&amp; eslint src/**/*.js&quot;,
+  &quot;build&quot;: &quot;eleventy&quot;,
+  &quot;deploy&quot;: &quot;cd dist &amp;&amp; rsync --archive --compress --delete . user@example.com:/var/www/example.com/html/&quot;
+}
+</code></pre>
+<p>Тогда можно реализовать такую схему работы:</p>
+<ol>
+<li>Загрузка репозитория.</li>
+<li>Установка Node.js нужных версий.</li>
+<li>Установка зависимостей.</li>
+<li>Тестирование кодовой базы и контента на соответствие правилам линтеров.</li>
+<li>Сборка приложения.</li>
+<li>Публикация приложения.</li>
+</ol>
+<p>Наложим дополнительные условия: будет отслеживаться пуш только в ветку <code>main</code> и все ветки, названия которых будет начинаться с <code>releases/</code>.</p>
+<p>Конфигурация для экшена будет выглядеть так:</p>
+<pre><code class="language-yaml">name: Публикация сайта
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js $
+        uses: actions/setup-node@v1
+        with:
+          node-version: $
+      - run: |
+        npm ci
+        npm run test
+        npm run build
+        npm run deploy
+</code></pre>

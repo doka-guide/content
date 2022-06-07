@@ -1,0 +1,15 @@
+<h2>Управление и мониторинг</h2>
+<p>С помощью сигналов в Unix-подобных операционных системах веб-сервером можно управлять, как это описано в статье «<a href="/tools/nginx-web-server/">Веб-сервер Nginx</a>». Управление веб-сервером Apache осуществляется так:</p>
+<ul>
+<li><code>sudo systemctl status httpd</code> — получить информацию о запущенном сервере;</li>
+<li><code>sudo systemctl stop httpd</code> — остановить сервер;</li>
+<li><code>sudo systemctl start httpd</code> — запустить сервер;</li>
+<li><code>sudo systemctl reload httpd</code> — перезапустить сервер, дождавшись завершения обработки всех текущих запросов;</li>
+<li><code>sudo systemctl restart httpd</code> — перезапустить сервер, не дожидаясь окончания обработки текущих запросов.</li>
+</ul>
+<p>В Windows управление веб-сервером зависит от того, как он был запущен. Apache может использоваться как консольное приложение. В этом случае запуск, установка и перезапуск Apache можно осуществить с помощью команд:</p>
+<pre><code class="language-bash">httpd.exe
+httpd.exe -k shutdown
+httpd.exe -k restart
+</code></pre>
+<p>Больше настроек можно посмотреть в <a href="https://httpd.apache.org/docs/current/platform/windows.html#winsvc">официальной документации</a>.</p>

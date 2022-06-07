@@ -1,0 +1,72 @@
+<h2>Кратко</h2>
+<p>Свойство <code>length</code> возвращает количество элементов в массиве. Если элементов нет, то свойство возвращает 0.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const series = ['Silicon Valley', 'Game of Thrones', 'Rick &amp; Morty', 'Gravity Falls']
+console.log(series.length)
+// 4
+
+const empty = []
+console.log(series.length)
+// 0
+</code></pre>
+<h2>Как понять</h2>
+<p>Свойство <code>length</code> хранит количество ячеек в массиве. Строго говоря, количество ячеек может быть больше, чем количество элементов в массиве, но на практике они почти всегда совпадают.</p>
+<p>Значение свойства <code>length</code> — целое положительное число в диапазоне от 0 до 2<sup>32</sup>.</p>
+<h3>Запись в свойство <code>length</code></h3>
+<p>Свойство <code>length</code> перезаписываемое, вы можете записать в него любое число из диапазона возможных значений. Это изменит количество ячеек массива.</p>
+<p>Если уменьшить значение свойства <code>length</code>, то из конца массива будут отброшены элементы, которые не входят в новый размер массива:</p>
+<pre><code class="language-js">const series = ['Silicon Valley', 'Game of Thrones', 'Rick &amp; Morty', 'Gravity Falls']
+console.log(series.length)
+// 4
+
+series.length = 2
+console.log(series)
+// ['Silicon Valley', 'Game of Thrones']
+</code></pre>
+<p>Если увеличить значение свойства <code>length</code>, то в конец массива добавятся пустые ячейки массива. Значение в них не будет установлено и они будут игнорироваться при обходе массива:</p>
+<pre><code class="language-js">const todos = ['buy milk', 'contribute to Doka']
+console.log(todos.length)
+// 2
+
+todos.length = 4
+console.log(todos)
+// ['buy milk', 'contribute to Doka', &lt;2 empty slots&gt;]
+
+todos.forEach(function(todo, index) {
+  console.log(`${index + 1}. todo`)
+})
+// 1. buy milk
+// 2. contribute to Doka
+</code></pre>
+<h3>Случаи, когда <code>length</code> не совпадает с количеством элементов в массиве</h3>
+<p>Корректнее всего говорить, что свойство <code>length</code> хранит количество ячеек доступных для записи в массиве, а не количество элементов. Они почти всегда совпадают, но есть случаи, когда в массиве больше ячеек, чем значений. Разберём эти случаи.</p>
+<p>1️⃣ При создании пустого массива с помощью конструктора <code>new Array()</code> можно указать количество ячеек в массиве. Тогда количество ячеек и количество элементов не будут совпадать:</p>
+<pre><code class="language-js">const emptyArray = new Array(100)
+console.log(emptyArray.length)
+// 100
+</code></pre>
+<p>Такой проблемы не случится, если создавать массив с помощью литерала:</p>
+<pre><code class="language-js">const anotherEmptyArray = []
+console.log(anotherEmptyArray.length)
+// 0
+</code></pre>
+<p>2️⃣ При записи нового элемента в индекс далеко за пределами массива. В этом случае между последним элементом и новым появляется «дыра» из пустых ячеек:</p>
+<pre><code class="language-js">const priorities = ['sleep', 'eat', 'drink']
+console.log(priorities.length)
+// 3
+
+priorities[999] = 'work'
+console.log(priorities.length)
+// 1000
+console.log(priorities)
+// ['sleep', 'eat', 'drink', &lt;996 empty slots&gt;, 'work']
+</code></pre>
+<p>3️⃣ При ручном увеличении значения свойства <code>length</code>:</p>
+<pre><code class="language-js">const todos = ['buy milk', 'contribute to Doka']
+console.log(todos.length)
+// 2
+
+todos.length = 4
+console.log(todos)
+// ['buy milk', 'contribute to Doka', &lt;2 empty slots&gt;]
+</code></pre>

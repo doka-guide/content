@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Тег marquee — Устаревшие теги — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: stretch;
+      height: 300px;
+      padding: 25px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container + .container {
+      margin-left: 20px;
+    }
+
+    marquee {
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    marquee + marquee {
+      margin-top: 20px;
+    }
+
+    .to-left {
+      height: 20%;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-size: 4rem;
+    }
+
+    .to-top {
+      height: 80%;
+      background-color: #FFFFFF;
+      color: #665610;
+    }
+
+    .to-other {
+      height: 100%;
+      background-color: #FF8630;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <marquee class="to-left">этот текст будет двигаться справа налево</marquee>
+    <marquee class="to-top" direction="up">этот текст будет двигаться снизу вверх</marquee>
+  </div>
+  <div class="container">
+    <marquee class="to-other" direction="down" behavior="alternate">
+      <marquee behavior="alternate">
+        этот текст будет отражаться от стенок
+      </marquee>
+    </marquee>
+  </div>
+</body>
+</html>

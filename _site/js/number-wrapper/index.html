@@ -1,0 +1,135 @@
+<h2>Кратко</h2>
+<p><code>Number</code> — это обёртка над <a href="/js/number/">примитивным числовым типом</a>, которая содержит дополнительные значения и методы работы с числами:</p>
+<ul>
+<li>проверки на специальные значения <a href="/js/number-is-nan/"><code>isNaN</code></a>, <a href="/js/number-isfinite/"><code>isFinite</code></a></li>
+<li>конвертирование в строку <a href="/js/number-tostring/"><code>toString</code></a> и <code>toLocaleString</code></li>
+</ul>
+<p>Числа автоматически оборачиваются в обёртку <code>Number</code> при вызове методов над ними.</p>
+<h2>Как пишется</h2>
+<p>Обернуть числа в <code>Number</code> можно вручную, вызвав конструктор <code>new Number()</code>:</p>
+<pre><code class="language-js">const primitive = 50
+const num = new Number(100)
+</code></pre>
+<p>В этом случае переменные <code>primitive</code> и <code>num</code> будут разных типов:</p>
+<pre><code class="language-js">console.log(typeof primitive)
+// number
+console.log(typeof num)
+// object
+
+console.log(num == 100)
+// true, при приведении к числовому типу значения будут одинаковыми
+console.log(num === 100)
+// false, потому что разные типы данных
+</code></pre>
+<p>Можно вызывать методы на примитиве, JavaScript автоматически обернёт его в обёртку:</p>
+<pre><code class="language-js">const primitive = 5.001
+console.log(primitive.toFixed(1))
+// '5.0'
+
+console.log(6.04.toFixed(1))
+// '6.0'
+</code></pre>
+<p>Если необходимо вызвать методы на целом числе, то нужно либо обернуть число в скобки, либо поставить точку дважды:</p>
+<pre><code class="language-js">console.log((5).toFixed(3))
+// '5.000'
+
+console.log(6..toFixed(3))
+// '6.000'
+
+</code></pre>
+<h2>Как это понять</h2>
+<p>Обычно в JavaScript работают с <a href="/js/number/">примитивным числовым типом</a>. Например, <code>const num = 58</code>.</p>
+<p>Обёртка содержит дополнительные функции и методы для работы с числами. Они не входят в стандарт типа данных «число» и поэтому выделены в отдельный модуль.</p>
+<p>Обёртка используется автоматически и не требует дополнительной работы от программиста. JavaScript сам оборачивает число, когда программист вызывает метод, который находится в обёртке.</p>
+<h3>Проверки на специальные значения</h3>
+<p>Тип данных «число» содержит <a href="/js/number/#specialnye-znacheniya">три специальных значения</a>: <code>NaN</code>, <code>Infinity</code> и <code>-Infinity</code>.</p>
+<p>Обёртка предоставляет две полезные функции для проверки специальных значений:</p>
+<p>1️⃣ Функция <a href="/js/number-is-nan/"><code>Number.isNaN</code></a> — нативный способ проверить значение на <code>NaN</code>, потому что <code>NaN</code> не равен ничему, даже самому себе:</p>
+<pre><code class="language-js">const nanResult = 5 * undefined
+console.log(nanResult == NaN)
+// false
+console.log(nanResult === NaN)
+// false
+
+console.log(Number.isNaN(nanResult))
+// true
+</code></pre>
+<p>2️⃣ Функция <a href="/js/number-isfinite/"><code>Number.isFinite</code></a> — проверит, что значение не является специальным. Возвращает <code>true</code> — если при вызове в неё было передано число и <code>false</code> — если специальное значение или нечисловой тип:</p>
+<pre><code class="language-js">const number = 4
+const nan = NaN
+const inf = Infinity
+const string = 'hello'
+
+console.log(Number.isFinite(number))
+// true
+console.log(Number.isFinite(nan))
+// false
+console.log(Number.isFinite(inf))
+// false
+console.log(Number.isFinite(string))
+// false
+
+</code></pre>
+<h3>Форматирование числа</h3>
+<p>Обёртка содержит несколько методов для форматирования числа:</p>
+<p>1️⃣ Метод <a href="/js/number-tostring/"><code>toString</code></a> преобразует число в строку в указанной системе счисления. По умолчанию используется десятичная, но можно использовать и другую:</p>
+<pre><code class="language-js">const num = 5
+
+console.log(num.toString())
+// '5'
+console.log(num.toString(2))
+// '101' в двоичной системе счисления
+</code></pre>
+<p>2️⃣ Метод <code>toFixed</code> преобразует число в строку с указанным количеством знаков после запятой. Если необходимо, число округляется:</p>
+<pre><code class="language-js">const num = 10.468
+console.log(num.toFixed(4))
+// '10.4680'
+console.log(num.toFixed(3))
+// '10.468'
+console.log(num.toFixed(2))
+// '10.47'
+console.log(num.toFixed(1))
+// '10.5'
+console.log(num.toFixed(0))
+// '10'
+</code></pre>
+<aside>
+<p>☝️ <code>toFixed</code> возвращает строку, а не число. Если после округления нужно производить другие арифметические операции, то лучше распарсить число с помощью <a href="/js/parsefloat/"><code>parseFloat</code></a>.</p>
+</aside>
+<p>Если нужно округлять до целого, то ноль при вызове можно не передавать:</p>
+<pre><code class="language-js">const num = 10.468
+console.log(num.toFixed())
+// '10'
+</code></pre>
+<p>3️⃣ Метод <code>toLocaleString</code> преобразует число в строку, учитывая локаль пользователя.</p>
+<p>Локаль — это информация о языке пользователя, а также региональных настройках: какие символы чисел используются, какие разделители между разрядами считаются стандартными и так далее.</p>
+<p>Локаль представляет собой <a href="https://datatracker.ietf.org/doc/html/rfc5646">строку сформированную по спецификации</a>. Чаще всего используются два вида:</p>
+<ul>
+<li><code>код_языка</code>. Например, <code>'ru'</code> (русский язык), <code>'de'</code> (немецкий), <code>'en'</code> (английский).</li>
+<li><code>код_языка-код_региона</code>. Например, <code>de-AT</code> (австрийский немецкий), <code>'en-US'</code> (американский английский), <code>es-AR</code> (аргентинский испанский).</li>
+</ul>
+<p>По умолчанию используется локаль браузера, но первым аргументов можно передать любую.</p>
+<pre><code class="language-js">const bigNumber = 100000000
+
+console.log(bigNumber.toLocaleString(&quot;ru&quot;)) // 100 000 000
+console.log(bigNumber.toLocaleString(&quot;en-US&quot;)) // 100,000,000
+console.log(bigNumber.toLocaleString(&quot;ar-SA&quot;)) // ١٠٠٬٠٠٠٬٠٠٠
+</code></pre>
+<iframe title="Number - метод toLocaleString" src="demos/number-format/" height="150"></iframe>
+<p>Вторым аргументом в метод можно передать объект с тонкими настройками форматирования. Например, указать, что форматируемое число — деньги:</p>
+<pre><code class="language-js">const bigNumber = 100000000
+console.log(bigNumber.toLocaleString('es', { style: 'currency', currency: 'EUR' }))
+// 100.000.000,00 €
+
+console.log(bigNumber.toLocaleString('ru', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }))
+// 100 000 000 ₽
+</code></pre>
+<h3>Константы</h3>
+<p>Обёртка хранит несколько полезных констант:</p>
+<ul>
+<li><code>Number.MAX_SAFE_INTEGER</code> — максимально возможное целое значение числового типа, 2<sup>53</sup>-1;</li>
+<li><code>Number.MIN_SAFE_INTEGER</code> — минимально возможное целое значение числового типа, -2<sup>53</sup>-1;</li>
+<li><code>Number.MAX_VALUE</code> — максимально большое число, представимое с помощью числового типа;</li>
+<li><code>Number.MIN_VALUE</code> — минимальное <em>положительное</em> число, представимое с помощью числового типа.</li>
+</ul>
+<p>Важно отметить, что <code>Number.MAX_VALUE</code> много больше, чем <code>Number.MAX_SAFE_INTEGER</code>, из-за особенностей хранения чисел с плавающей точкой.</p>

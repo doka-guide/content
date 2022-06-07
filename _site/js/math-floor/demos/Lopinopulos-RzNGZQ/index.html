@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Округление — Дока</title>
+  <style>
+    button {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+<input type="text" id="num" value="5.5">
+<br>
+<div style="margin-top: 10px;">
+  <button id="round">Стандартное округление</button>
+  <button id="floor">Округление вниз</button>
+  <button id="ceil">Округление вверх</button>
+</div>
+
+<p>Результат округления: <span id="result"></span></p>
+  <script>
+    let input = document.getElementById('num');
+    let roundBtn = document.getElementById('round');
+    let floorBtn = document.getElementById('floor');
+    let ceilBtn = document.getElementById('ceil');
+    let resultEl = document.getElementById('result');
+
+    roundBtn.addEventListener('click', function() {
+      resultEl.textContent = Math.round(input.value);
+    });
+
+    floorBtn.addEventListener('click', function() {
+      resultEl.textContent = Math.floor(input.value);
+    });
+
+    ceilBtn.addEventListener('click', function() {
+      resultEl.textContent = Math.ceil(input.value);
+    });
+  </script>
+</body>
+</html>

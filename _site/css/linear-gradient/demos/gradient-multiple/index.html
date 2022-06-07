@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Множественный линейный градиент — linear-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 50px;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .element {
+        width: 65%;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        background:
+          linear-gradient(
+            217deg,
+            rgb(46 154 255 / 1),
+            rgb(255 100 100 / 0) 70.71%
+          ),
+          linear-gradient(
+            127deg,
+            rgb(244 152 173 / 1),
+            rgb(100 255 100 / 0) 70.71%
+          ),
+          linear-gradient(
+            336deg,
+            rgb(255 216 41 / 1),
+            rgb(100 100 255 / 0) 70.71%
+          );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="element"></div>
+  </body>
+</html>

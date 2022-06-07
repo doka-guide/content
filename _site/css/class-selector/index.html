@@ -1,0 +1,72 @@
+<h2>Кратко</h2>
+<p>Селектор по классу находит элемент на странице по значению атрибута <a href="/html/class/"><code>class</code></a>.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;h2 class=&quot;article-title&quot;&gt;Нобелевская премия по физике 2020 года&lt;/h2&gt;
+&lt;h3 class=&quot;article-title&quot;&gt;Шнобелевская премия 2020&lt;/h3&gt;
+</code></pre>
+<p>Селектор ниже <em>найдёт</em> все элементы, значение атрибута <code>class</code> которых равно <code>article-title</code>.</p>
+<pre><code class="language-css">.article-title {
+  margin-bottom: 1.6em;
+}
+</code></pre>
+<h2>Как пишется</h2>
+<p>Самое важное — поставить точку перед значением атрибута <code>class</code> того элемента, к которому вы хотите применить стили. Селектор без точки в начале — <a href="/css/tag-selector/">селектор по тегу</a>.</p>
+<p>Вот так сработает:</p>
+<pre><code class="language-css">.class-value {
+  color: red;
+}
+</code></pre>
+<p>А вот так не сработает:</p>
+<pre><code class="language-css">class-value {
+  color: red;
+}
+</code></pre>
+<p>Стиль применится ко всем элементам с атрибутом <code>class=&quot;article-title&quot;</code>.</p>
+<pre><code class="language-css">.article-title {
+  margin-bottom: 1.6em;
+}
+</code></pre>
+<p>Стиль применится ко всем заголовкам <code>&lt;h2&gt;</code> с атрибутом <code>class=&quot;article-title&quot;</code>.</p>
+<pre><code class="language-css">h2.article-title {
+  margin-bottom: 1.6em;
+}
+</code></pre>
+<p>Стиль применится ко всем заголовкам <code>&lt;h2&gt;</code>, атрибут <code>class</code> которых содержит несколько значений, разделённых пробелом, и среди этих значений есть <code>&quot;article-title&quot;</code> и <code>&quot;title-primary&quot;</code>.</p>
+<pre><code class="language-css">h2.article-title.title-primary {
+  text-decoration: underline;
+}
+</code></pre>
+<aside>
+<p>⚠️ Обратите внимание: селектор <code>.article-title</code> эквивалентен <a href="/css/attribute-selector/">селектору по атрибуту</a> <code>[class~=&quot;article-title&quot;]</code>.</p>
+</aside>
+<h2>Подсказки</h2>
+<p>Селектор по классу довольно прост в понимании, а особенности атрибута <code>class</code> дают большую гибкость в стилизации. Мы всегда можем придумать уникальное значение для атрибута <code>class</code> и по этому значению точечно применить нужные стили. Но также мы можем задать элементу любое количество классов, просто перечислив их через пробел. Благодаря этому мы можем переиспользовать некоторые стили на разных элементах.</p>
+<pre><code class="language-html">&lt;blockquote class=&quot;color&quot; cite=&quot;Эрих Мария Ремарк&quot;&gt;Зима пробуждает аппетит...&lt;/blockquote&gt;
+&lt;blockquote class=&quot;author&quot; cite=&quot;Эрих Мария Ремарк&quot;&gt;Зима пробуждает аппетит...&lt;/blockquote&gt;
+&lt;blockquote class=&quot;author color&quot; cite=&quot;Эрих Мария Ремарк&quot;&gt;Зима пробуждает аппетит...&lt;/blockquote&gt;
+</code></pre>
+<pre><code class="language-css">blockquote {
+  position: relative;
+  background-color: white;
+  color: #123E66;
+}
+</code></pre>
+<p>Если цитате добавить класс <code>.color</code>, то фоновый цвет сменится на голубой:</p>
+<pre><code class="language-css">.color {
+  background-color: blue;
+  color: black;
+}
+</code></pre>
+<p>Если элементу добавить класс <code>.author</code>, то перед текстом цитаты будет декоративная кавычка, а после — имя автора:</p>
+<pre><code class="language-css">.author::before {
+  content: &quot;“&quot;;
+  position: absolute;
+}
+
+.author::after {
+  content: attr(cite);
+  display: block;
+  font-style: italic;
+}
+</code></pre>
+<iframe title="Несколько классов" src="demos/several-classes/" height="820"></iframe>

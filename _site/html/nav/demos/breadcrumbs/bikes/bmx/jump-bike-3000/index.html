@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Хлебные крошки — <nav> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      min-width: 650px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .crumbs {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #FF8630;
+    }
+
+    .crumbs ol {
+      list-style-type: none;
+    }
+
+    .crumb {
+      display: inline-block;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .crumb + .crumb {
+      margin-left: 15px;
+    }
+
+    .crumb a {
+      position: relative;
+      color: #FF8630;
+      text-decoration: none;
+      transition: background-color 0.2s linear;
+    }
+
+    .crumb a:hover {
+      border-radius: 3px;
+      background-color: #FF8630;
+      color: #FFFFFF;
+      transition: background-color 0.2s linear;
+    }
+
+    .crumb a::after {
+      content: ">";
+      position: absolute;
+      padding: 0 5px;
+      color: #ffffff;
+      font-size: 80%;
+    }
+
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 26px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 16px;
+      line-height: 140%;
+    }
+
+    a {
+      color: #ffffff;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      background-color: #FF8630;
+      border-radius: 3px;
+      transition: background-color 0.2s linear;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav class="crumbs">
+      <ol>
+        <li class="crumb"><a href="../../">Велосипеды</a></li>
+        <li class="crumb"><a href="../">BMX</a></li>
+        <li class="crumb">Jump Bike 3000</li>
+      </ol>
+    </nav>
+
+    <h1>Jump Bike 3000</h1>
+    <p>Стальная рама, хром молибденовый руль, интегрированная рулевая колонка, две скорости. Отличный вариант для профессионалов. С ним вы отточите свои навыки.</p>
+  </div>
+</body>
+</html>

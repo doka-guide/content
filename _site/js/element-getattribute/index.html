@@ -1,0 +1,33 @@
+<h2>Кратко</h2>
+<p>Метод <code>Element.getAttribute</code> позволяет получить значение указанного атрибута у HTML-элемента. Если атрибута нет, то метод вернёт <code>null</code>.</p>
+<h2>Как пишется</h2>
+<p><code>Element.getAttribute</code> принимает один аргумент – строку с именем атрибута. В ответ метод возвращает значение атрибута в виде строки или <code>null</code>, если атрибута нет на элементе.</p>
+<pre><code class="language-html">&lt;script type=&quot;application/json&quot; id=&quot;hydration&quot;&gt;&lt;/script&gt;
+</code></pre>
+<pre><code class="language-js">const scriptElement = document.querySelector('script')
+
+scriptElement.getAttribute('type')
+// 'application/json'
+scriptElement.getAttribute('id')
+// 'hydration'
+scriptElement.getAttribute('class')
+// null
+</code></pre>
+<h2>Как понять</h2>
+<p>Существует множество стандартных HTML-атрибутов, и разработчики могут задавать элементу свои собственные атрибуты. Метод <code>Element.getAttribute</code> является универсальным способом прочитать значение любого атрибута.</p>
+<p>Не все атрибуты имеет смысл считывать с помощью  <code>Element.getAttribute</code>. Значения атрибутов, доступные в объекте <a href="/js/element/">DOM-элемента</a>, как например <a href="/js/element-hidden/"><code>Element.hidden</code></a> или <a href="/js/element-dataset/"><code>Element.dataset</code></a>, лучше считывать из соответствующих полей.</p>
+<p>Сравним два варианта получения значения атрибута. Возьмём элемент и считаем его атрибуты:</p>
+<pre><code class="language-html">&lt;div data-color=&quot;red&quot; hidden&gt;Ошибка!&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const element = document.querySelector('div')
+
+console.log(element.hidden)
+// true
+console.log(element.getAttribute('hidden'))
+// &quot;&quot; – пустая строка, т.к строкового значения у атрибута нет
+
+console.log(element.dataset.color)
+// &quot;red&quot;
+console.log(element.getAttribute('data-color'))
+// &quot;red&quot;
+</code></pre>

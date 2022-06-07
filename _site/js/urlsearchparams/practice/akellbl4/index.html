@@ -1,0 +1,37 @@
+<h3>Формирование url для запроса в API</h3>
+<p>Класс <code>URLSearchParams</code> хорошо подходит для формирования строки адреса при запросе в API. Например, если нужно сделать запрос с фильтрами или другими параметрами поиска.</p>
+<p>Без <code>URLSearchParams</code>:</p>
+<pre><code class="language-js">const params = {
+  size: &quot;xl&quot;,
+  count: 10,
+  page: 2,
+};
+
+// формируем строку вручную
+const paramsString = Object.entries(params)
+  .map(
+    ([key, value]) =&gt; `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+  )
+  .join(&quot;&amp;&quot;);
+
+fetch(`/catalog/t-shirts?${paramsString}`);
+</code></pre>
+<p><code>URLSearchParams</code> упрощает решение этой задачи:</p>
+<pre><code class="language-js">const paramsString = new URLSearchParams({
+  size: &quot;xl&quot;,
+  count: 10,
+  page: 2,
+}).toString();
+
+fetch(`/catalog/t-shirts?${paramsString}`);
+</code></pre>
+<h3>Парсинг параметров из URL</h3>
+<p>Так как <code>URLSearchParams</code> может получать параметры в виде строки, то его можно использовать как парсер текущего адреса страницы. Так мы можем без труда модифицировать их и обновлять адрес.</p>
+<pre><code class="language-js">const params = new URLSearchParams(window.location.search);
+
+params.append(&quot;size&quot;, &quot;lg&quot;);
+
+window.location.assign(
+  `${window.location.origin}${window.location.pathname}?${params.toString()}`
+);
+</code></pre>

@@ -1,0 +1,29 @@
+<h2>Кратко</h2>
+<p>CSS-функция <code>image-set()</code> позволяет перечислить несколько фоновых изображений с условиями, по которым браузер решит, какое из них наиболее подходящее для загрузки в данный момент.</p>
+<p>Похож по принципу работы на тег <a href="/html/picture/"><code>&lt;picture&gt;</code></a>.</p>
+<h2>Как пишется</h2>
+<p>Внутри круглых скобок указываем через запятую два и более изображения при помощи функции <code>url()</code> и пишем условие для выбора этой картинки.</p>
+<p>В качестве условия можно использовать коэффициент плотности пикселей: <code>1x</code>, <code>2x</code> и так далее. Или указываем тип изображения в формате MIME. Картинка будет загружена, если формат поддерживается браузером. Можно комбинировать условия.</p>
+<pre><code class="language-css">div {
+  background-image: image-set(
+    url(&quot;puppy@1x.webp&quot;) type(&quot;image/webp&quot;) 1x,
+    url(&quot;puppy@2x.webp&quot;) type(&quot;image/webp&quot;) 2x,
+    url(&quot;puppy@1x.png&quot;) type(&quot;image/png&quot;) 1x,
+    url(&quot;puppy@2x.png&quot;) type(&quot;image/png&quot;) 2x
+  );
+}
+</code></pre>
+<p>Как и в случае с <a href="/html/picture/"><code>&lt;picture&gt;</code></a>, важен порядок перечисления форматов картинок: сначала более предпочтительные (AVIF, WebP), потом — менее (PNG, JPEG). Так браузер поймёт, какой из форматов ему выбрать, если он поддерживает все. Порядок перечисления картинок разной плотности не важен, браузер сам выберет подходящую.</p>
+<p>Пока не поддерживается всеми браузерами. Нужно использовать фолбэк и запись с <a href="/css/vendor-prefixes/">вендорным префиксом</a>:</p>
+<pre><code class="language-css">div {
+  background-image: url(&quot;puppy@1x.png&quot;);
+  background-image: -webkit-image-set(
+    url(&quot;puppy@1x.png&quot;) 1x,
+    url(&quot;puppy@2x.png&quot;) 2x
+  );
+  background-image: image-set(
+    url(&quot;puppy@1x.png&quot;) 1x,
+    url(&quot;puppy@2x.png&quot;) 2x
+  );
+}
+</code></pre>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Удаление объекта — Дока</title>
+</head>
+<body>
+Рассмотрите вкладку JS
+<br>
+Откройте консоль разработчика (для Chrome это F12) и посмотрите вывод в консоли.
+<br>
+Консоль содержит вывод ключей объекта cat
+<br>
+Затем ключ age удаляется из объекта cat
+<br>
+Повторный вывод ключей объекта cat -- в нем отсутствует ключ age
+  <script>
+    let cat = {
+      name: 'Tomas',
+      age: 10,
+    }
+    console.log(Object.keys(cat));
+    delete cat.age;
+    console.log(Object.keys(cat));
+  </script>
+</body>
+</html>

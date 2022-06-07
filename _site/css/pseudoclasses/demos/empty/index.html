@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Крестики-нолики с :empty — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      display: inline-table;
+    }
+
+    td {
+      width: 75px;
+      height: 75px;
+      vertical-align: middle;
+      border: 1px solid #2E9AFF;
+      font-size: 50px;
+      line-height: 1;
+      color: #2E9AFF;
+    }
+
+    td:empty {
+      background-color: #123E66;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <tr>
+    <td>✕</td>
+    <td></td>
+    <td>◯</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>✕</td>
+    <td>◯</td>
+  </tr>
+  <tr>
+    <td>✕</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+</body>
+</html>

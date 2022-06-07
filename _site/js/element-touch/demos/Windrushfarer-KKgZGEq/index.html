@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Element.touch — Дока</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <style>
+    h1, h2 {
+      text-align: center;
+      touch-action: none;
+    }
+  </style>
+</head>
+<body>
+<h1>Проведите пальцем по экрану</h1>
+<h2 id="result"></h2>
+  <script>
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+
+    const result = document.getElementById('result')
+
+    // Здесь будем хранить координаты прикосновения
+    const touchCoords = {
+      x: 0,
+      y: 0
+    };
+
+    function handleTouchStart(event) {
+      const firstTouch = event.touches[0];
+      // Сохраняем начальные координаты когда прикоснулись
+      touchCoords.x = firstTouch.clientX;
+      touchCoords.y = firstTouch.clientY;
+    }
+
+    const DETECT_TRESHHOLD = 100;
+
+    function handleTouchMove(event) {
+      if (!touchCoords.x || !touchCoords.y) {
+        return;
+      }
+
+      const { x, y } = touchCoords;
+
+      // Сохраняем текущие координаты
+      const xUp = event.touches[0].clientX;
+      const yUp = event.touches[0].clientY;
+
+      // Вычисляем разницу
+      const xDiff = x - xUp;
+      const yDiff = y - yUp;
+
+      // Определяем в какую сторону было больше движения
+      const isHorizontal = Math.abs(xDiff) > Math.abs(yDiff);
+
+      if (isHorizontal) {
+        // Реагируем только если движение было существенным
+        if (Math.abs(xDiff) > DETECT_TRESHHOLD) {
+          if (xDiff > 0) {
+            result.textContent = 'Свайп налево'
+          } else {
+            result.textContent = 'Свайп направо'
+          }
+        }
+      } else {
+        if (Math.abs(yDiff) > DETECT_TRESHHOLD) {
+          if (yDiff > 0) {
+            result.textContent = 'Свайп вверх'
+          } else {
+            result.textContent = 'Свайп вниз'
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выравнивание текста в контейнере — text-align — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* Меняем выравнивание текста */
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
+    .center {
+      text-align: center;
+    }
+
+    /* Оформление */
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      padding: 5%;
+      margin: 0;
+    }
+
+    div {
+      border: 1px solid;
+      padding: 15px;
+      margin-bottom: 25px;
+    }
+
+    .content {
+      width: 75%;
+      margin-bottom: 0;
+    }
+
+    .left {
+      border-color: #1a5ad7;
+    }
+
+    .left .content {
+      background-color: #1a5ad7;
+      border-color: #1a5ad7;
+    }
+
+    .center {
+      border-color: #49a16c;
+    }
+
+    .center .content {
+      background-color: #49a16c;
+      border-color: #49a16c;
+    }
+
+    .right {
+      border-color: #f498ad;
+    }
+
+    .right .content {
+      background-color: #f498ad;
+      border-color: #f498ad;
+    }
+  </style>
+</head>
+<body>
+
+<div class="left">
+  <div class="content">Выравнивание по левому краю</div>
+</div>
+<div class="center">
+  <div class="content">Выравнивание по центру</div>
+</div>
+<div class="right">
+  <div class="content">Выравнивание по правому краю</div>
+</div>
+
+</body>
+</html>

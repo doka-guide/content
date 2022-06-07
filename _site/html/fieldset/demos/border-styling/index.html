@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация рамки fieldset — <fieldset> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    fieldset {
+      padding: 40px 50px 50px;
+      border-image: url('images/border.png');
+      border-image-slice: 15;
+      border-image-width: 15px;
+      border-image-repeat: repeat;
+    }
+
+    legend {
+      display: block;
+      padding: 0 0.5em;
+      font-size: 26px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 10px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .button + .button {
+      margin-left: 40px;
+    }
+  </style>
+</head>
+<body>
+  <fieldset>
+    <legend>Стражи Галактики. Часть 2</legend>
+    <blockquote>
+      Просто представил, как ты по утру просыпаешься, смотришь в зеркало и на полном серьёзе говоришь себе: «Я наконец придумал реально отвязное имя — Шокерфейс!» Прям... Прям нарисовалась картинка. Ой, не могу! Слушай, слушай, а у тебя был второй вариант, типа «Чпок-в-пупок»?
+    </blockquote>
+    <div class="buttons">
+      <button class="button button-orange">Был, но я тебе не скажу</button>
+      <button class="button button-orange">Нет, не было</button>
+    </div>
+  </fieldset>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Свойства события click — Дока</title>
+</head>
+<body>
+<p>Кликните по экрану</p>
+<p id="info"></p>
+  <script>
+    let info = document.getElementById('info');
+    window.addEventListener('click', function(e) {
+      info.textContent = 'Вы кликнули подряд: ' + e.detail;
+    });
+  </script>
+</body>
+</html>

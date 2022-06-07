@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Смена положения при клике — Позиционирование элементов с помощью JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 225px;
+      background-color: #18191C;
+      overflow: hidden;
+    }
+
+    .container {
+      position: relative;
+      height: 100%;
+      margin: auto;
+      border: 25px solid #18191C;
+      outline: 1px solid #665610;
+      outline-offset: -26px;
+      background:
+        linear-gradient(to top, #665610 1px, transparent 1px)
+        repeat 0 0 / 100% 75px,
+        linear-gradient(to right, #665610 1px, transparent 1px)
+        repeat 0 0 / 75px 100%;
+    }
+
+    .element {
+      position: absolute;
+      left: 175px;
+      top: 25px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #FFD829;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .element-initial {
+      transform: translateX(0px);
+    }
+
+    .element-final {
+      transform: translateX(150px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="element element-initial"></div>
+  </div>
+  <script>
+    const el = document.querySelector('.element')
+
+    el.addEventListener('click', () => {
+      el.classList.toggle('element-final')
+      el.classList.toggle('element-initial')
+    })
+
+    function setRoundWidth() {
+      const container = document.querySelector('.container')
+      const newWidth = Math.floor(document.documentElement.clientWidth / 75) * 75 - 50 - 25
+      container.style.width = newWidth + 'px'
+    }
+    setRoundWidth()
+    window.addEventListener('resize', setRoundWidth)
+  </script>
+</body>
+</html>

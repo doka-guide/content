@@ -1,0 +1,16 @@
+<p>Если у вас нет возможности использовать TypeScript, а типизировать код хочется, то можно использовать JavaScript с аннотациями типов в <a href="https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html">JSDoc</a>.</p>
+<pre><code class="language-js">/** @type {number} */
+let age;
+
+/**
+ * @param {string}  name
+ */
+function sayMyName(name) {...}
+
+/**
+ * @returns {Date}
+ */
+function getCurrentDate() {...}
+</code></pre>
+<p>Это, конечно, не полноценная проверка типов, а только документация и удобное автодополнение в IDE:</p>
+<p><img src="../images/vscode-autocomplete.png" alt="Пример автодополнения из среды разработки VSCode"></p>

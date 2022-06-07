@@ -1,0 +1,64 @@
+<p>🛠 Частый паттерн — установить значение по умолчанию, если в переменной нет значения. Можно сделать так:</p>
+<pre><code class="language-js">let value = 0 // значение по умолчанию
+
+if (externalValue) {
+  value = externalValue // установить значение, если в externalValue что-либо хранится
+}
+</code></pre>
+<p>Код можно сократить, воспользовавшись операцией логического ИЛИ <code>||</code>:</p>
+<pre><code class="language-js">let value = externalValue || 0 // если externalValue не объявлен, то значение установится в 0
+</code></pre>
+<p>Неявное приведение <code>externalValue</code> к логическому типу также игнорирует <em>определённые ложные</em> значения, возможно, вполне валидные: <code>&quot;&quot;</code>, <code>NaN</code>, <code>0</code> , <code>-0</code>, <code>0n</code>, <code>false</code>. Чтобы их не терять, нужно вместо <code>||</code> использовать <code>??</code> — новый, уже <a href="https://caniuse.com/?search=coalescing">неплохо поддерживаемый</a> логический оператор <a href="https://learn.javascript.ru/nullish-coalescing-operator">nullish coalescing</a> из <a href="/js/language-versions/#es2020">ES2020</a>:</p>
+<pre><code class="language-js">let value = externalValue ?? 42
+</code></pre>
+<p>Что будет аналогично записи:</p>
+<pre><code class="language-js">let value = (externalValue !== null &amp;&amp; externalValue !== undefined) ? externalValue : 42
+</code></pre>
+<p>Оператор <code>??</code> возвращает первый операнд (<code>externalValue</code>), если он не <code>null</code> и не <code>undefined</code>, иначе - второй (42). Теперь через <code>externalValue</code> можно передать <code>&quot;&quot;</code>, <code>NaN</code>, <code>0</code> , <code>-0</code>, <code>0n</code>, <code>false</code>, в отличии от кейса с <code>||</code>.</p>
+<p>Сравните результат операций с <code>||</code> и <code>??</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><code>externalValue</code></th>
+<th style="text-align:center"><code>externalValue || 42</code></th>
+<th style="text-align:center"><code>externalValue ?? 42</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center"><code>1</code></td>
+<td style="text-align:center"><code>1</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&quot;hi&quot;</code></td>
+<td style="text-align:center"><code>&quot;hi&quot;</code></td>
+<td style="text-align:center"><code>&quot;hi&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>null</code></td>
+<td style="text-align:center"><code>42</code></td>
+<td style="text-align:center"><code>42</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>undefined</code></td>
+<td style="text-align:center"><code>42</code></td>
+<td style="text-align:center"><code>42</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>0</code></td>
+<td style="text-align:center"><code>42</code></td>
+<td style="text-align:center"><code>0</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&quot;&quot;</code></td>
+<td style="text-align:center"><code>42</code></td>
+<td style="text-align:center"><code>&quot;&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>false</code></td>
+<td style="text-align:center"><code>42</code></td>
+<td style="text-align:center"><code>false</code></td>
+</tr>
+</tbody>
+</table>

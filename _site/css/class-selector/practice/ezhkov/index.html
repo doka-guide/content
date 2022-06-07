@@ -1,0 +1,34 @@
+<p>🛠 Селектор по классу является основным селектором для стилизации любой веб-страницы. Благодаря тому, что одному элементу можно задать несколько классов, а нескольким элементам — один и тот же класс, мы получаем очень гибкий способ стилизации страниц любой сложности.</p>
+<p>Например, мы можем уточнить один селектор по классу другим:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label class=&quot;form-label invalid&quot; for=&quot;input&quot;&gt;Ваш email&lt;/label&gt;
+  &lt;input class=&quot;form-input invalid&quot; type=&quot;email&quot; id=&quot;input&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-css">.form-label.invalid {
+  color: pink;
+}
+
+.form-input.invalid {
+  border-color: pink;
+  background-color: #623D45;
+}
+</code></pre>
+<iframe title="Несколько классов" src="../demos/specific-class-selector/" height="300"></iframe>
+<p>А можем добавить класс родительскому элементу, чуть изменить селекторы и получить тот же результат:</p>
+<pre><code class="language-html">&lt;form class=&quot;invalid&quot;&gt;
+  &lt;label class=&quot;form-label&quot; for=&quot;input&quot;&gt;Ваш email&lt;/label&gt;
+  &lt;input class=&quot;form-input&quot; type=&quot;email&quot; id=&quot;input&quot;&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-css">.invalid .form-label {
+  color: pink;
+}
+
+.invalid .form-input {
+  border-color: pink;
+  background-color: #623D45;
+}
+</code></pre>
+<iframe title="Вложенный селектор по классу" src="../demos/parent-child-selector/" height="300"></iframe>
+<p>Самое сложное в вёрстке — выбрать способ решения задачи, потому что любая задача решается двумя и более способами 🙂</p>

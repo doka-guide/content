@@ -1,0 +1,8 @@
+<p>🛠 Использование атрибутов <code>srcset</code> и <code>sizes</code> отлично работает и просто в теге <a href="/html/img/"><code>&lt;img&gt;</code></a>, а теги <code>&lt;source&gt;</code> чаще всего используются совместно с атрибутом <code>type</code>. Подготовка и указание изображений, видео или аудио различных типов помогает браузеру выбрать наиболее эффективный поддерживаемый формат.</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source type=&quot;image/avif&quot; srcset=&quot;photo.avif&quot;&gt;
+  &lt;source type=&quot;image/webp&quot; srcset=&quot;photo.webp&quot;&gt;
+  &lt;source type=&quot;image/jpeg&quot; srcset=&quot;photo.jpg&quot;&gt;
+  &lt;img src=&quot;photo.jpg&quot; alt=&quot;Тестовая картинка&quot;&gt;
+&lt;/picture&gt;
+</code></pre>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма с отправкой на email — <form> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form {
+      width: 630px;
+      margin: auto;
+    }
+
+    .input-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input-label + .input-label {
+      margin-top: 25px;
+    }
+
+    .input-title {
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .input, .button {
+      width: 300px;
+      flex-shrink: 0;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      margin-top: 25px;
+      margin-left: auto;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        width: 100%;
+      }
+
+      .input-label {
+        display: block;
+      }
+
+      .input-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="form" action="mailto:html@yandex.ru" enctype="text/plain">
+    <label class="input-label"><span class="input-title">Ваше имя</span>
+      <input class="input" type="text" name="name" required>
+    </label>
+    <label class="input-label"><span class="input-title">Что вы хотите заказать?</span>
+      <input class="input" type="text" name="order" required>
+    </label>
+    <button class="button button-orange" type="submit">Сделать заказ</button>
+  </form>
+</body>
+</html>

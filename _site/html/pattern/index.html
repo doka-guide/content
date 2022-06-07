@@ -1,0 +1,27 @@
+<h2>Кратко</h2>
+<p>В атрибуте <code>pattern</code> пишется регулярное выражение, которому должно соответствовать введённое в <a href="/html/input/"><code>&lt;input&gt;</code></a> значение.</p>
+<h2>Пример</h2>
+<p>В этом примере браузер проверит перед отправкой формы, что пароль не меньше 6 символов в длину:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;input type=&quot;password&quot; pattern=&quot;.{6,}&quot;&gt;
+  &lt;button&gt;Отправить&lt;/button&gt;
+&lt;form&gt;
+</code></pre>
+<h2>Как пишется</h2>
+<p>Атрибут <code>pattern</code> можно применить только к тегам <code>&lt;input&gt;</code> и только со следующими значениями атрибута <code>type</code>:</p>
+<ul>
+<li><code>text</code>;</li>
+<li><code>tel</code>;</li>
+<li><code>email</code>;</li>
+<li><code>url</code>;</li>
+<li><code>password</code>;</li>
+<li><code>search</code>.</li>
+</ul>
+<p>Значением должно быть <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Regular_Expressions">регулярное выражение</a>, по которому браузер перед отправкой формы будет проверять то, что введено в поле. Если значение не соответствует регулярному выражению браузер покажет всплывающую подсказку с ошибкой. Механизм с ошибкой сработает только при отправке поля из «настоящей» формы с тегом <code>&lt;form&gt;</code>, без формы вам придётся проверять поле самостоятельно.</p>
+<p>Текст всплывающей подсказки можно дополнить при помощи атрибута <code>title</code>. Большинство браузеров покажут этот текст вместе с ошибкой. В примере ниже в подсказке помимо стандартного текста будет написано «Минимум 6 символов».</p>
+<pre><code class="language-html">&lt;label&gt;
+  Придумайте пароль:
+  &lt;input type=&quot;password&quot; pattern=&quot;.{6,}&quot; title=&quot;Минимум 6 символов&quot;&gt;
+&lt;/label&gt;
+</code></pre>
+<p><img src="images/chrome_tooltip.png" alt="Всплывающая подсказка в Google Chrome"></p>

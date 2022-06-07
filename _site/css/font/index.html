@@ -1,0 +1,19 @@
+<h2>Кратко</h2>
+<p>Шорткат <code>font</code> позволяет одновременно указать значение для нескольких свойств, относящихся к стилизации шрифта:</p>
+<ul>
+<li><a href="/css/font-family/"><code>font-family</code></a></li>
+<li><a href="/css/font-size/"><code>font-size</code></a></li>
+<li><a href="/css/font-stretch/"><code>font-stretch</code></a></li>
+<li><a href="/css/font-style/"><code>font-style</code></a></li>
+<li><a href="/css/font-variant/"><code>font-variant</code></a></li>
+<li><a href="/css/font-weight/"><code>font-weight</code></a></li>
+<li><a href="/css/line-height/"><code>line-height</code></a></li>
+</ul>
+<h2>Как пишется</h2>
+<p>Обязательными являются значения для свойств <a href="/css/font-size/"><code>font-size</code></a> и <a href="/css/font-family/"><code>font-family</code></a>. Остальные значения опциональны.</p>
+<p>Если нужно указать высоту строки, то она записывается через слэш (/) после размера шрифта.</p>
+<pre><code class="language-css">div {
+  font: 12px/1.2 sans-serif;
+}
+</code></pre>
+<p>Любые не указанные значения сбрасываются до дефолтных. Хотя значения для свойств <a href="/css/font-size-adjust/"><code>font-size-adjust</code></a> и <a href="/css/font-kerning/"><code>font-kerning</code></a> не могут быть указаны внутри шортката <code>font</code>, они тоже сбрасываются до дефолтных.</p>

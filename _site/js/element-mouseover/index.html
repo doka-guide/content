@@ -1,0 +1,33 @@
+<h2>Кратко</h2>
+<p><a href="/js/events/">Событие</a> на HTML-элементе. Происходит, когда пользователь передвигает курсор на сам элемент или на вложенные элементы.</p>
+<p>На события можно подписаться и выполнять JavaScript-код, когда событие произошло.</p>
+<p>Событие является противоположным событию <a href="/js/element-mouseout/"><code>mouseout</code></a>. Эти события часто используются в паре.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-js">let divEl = document.getElementsByTagName(&quot;div&quot;)[0]
+divEl.addEventListener(&quot;mouseover&quot;, function () {
+  alert(&quot;курсор вошел в границы элемента!&quot;)
+})
+</code></pre>
+<h2>Как понять</h2>
+<p>Подробнее о механизме событий читай в статье <a href="/js/events/">«События»</a>.</p>
+<p>Событие проще всего понять на демо. При событии <code>mouseover</code> мы устанавливаем элементу, на котором произошло событие, синий фоновый цвет:</p>
+<pre><code class="language-js">let current = undefined;
+
+function onMouseover() {
+  if (current) {
+    current.classList.remove('mouseover');
+  }
+  this.classList.add('mouseover');
+  current = this;
+  // Записываем текущий пункт,
+  // чтобы удалить с него класс
+  // при переходе курсора на новый элемент
+}
+
+let items = document.getElementsByTagName('li');
+for (let i=0; i &lt; items.length; ++i) {
+  let item = items[i];
+  item.addEventListener('mouseover', onMouseover);
+}
+</code></pre>
+<iframe title="Ховер-эффект при помощи события mouseover — Element.mouseover — Дока" src="demos/index/" height="250"></iframe>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - querySelectorAll — Дока</title>
+  <style>
+    #selector {
+      margin-bottom: 20px;
+    }
+    .highlight {
+      background-color: red;
+    }
+
+    #result {
+      font-style:italic;
+    }
+
+    div {
+      border: black thin solid;
+    }
+
+    div:before {
+      content: "div";
+      background-color:black;
+      color: white;
+      position: absolute;
+    }
+
+    p {
+      border: #f26600 thin solid;
+      padding-top: 20px;
+      position:relative;
+    }
+
+    p:before {
+      content: "p";
+      background-color:#f26600;
+      color: white;
+      position: absolute;
+      top:0
+    }
+  </style>
+</head>
+<body>
+<input type="text" id="selector" name="selector" value="p">
+<button id="search-btn">Искать</button>
+<span id="result"></span>
+
+<h1>Работа querySelectorAll</h1>
+<div id="title">
+  <h2>Глава 1</h2>
+  <p class="first">Это первый параграф внутри div</p>
+  <p>Первый параграф внутри div</p>
+</div>
+<p>Параграф, но не внутри div</p>
+<p>Параграф со <a id="link" href="#">ссылкой</a></p>
+  <script>
+    let selectorInput = document.getElementById('selector');
+    let result = document.getElementById('result');
+    let found = null;
+
+    document.getElementById('search-btn').addEventListener('click', function() {
+      result.textContent = '';
+      found && removeHighlight(found);
+      try {
+          found = document.querySelectorAll(selectorInput.value);
+          if (found.length === 0) {
+            result.textContent = 'Ничего не найдено, размер коллекции: ' + found;
+          } else {
+            addHighlight(found);
+          }
+      } catch (e) {
+        result.textContent = 'Ошибка! Это не CSS селектор!';
+      }
+
+    });
+
+    function addHighlight(elements) {
+      for (let i=0; i<elements.length;++i) {
+        let element = elements[i];
+        element.classList.add('highlight');
+      }
+    }
+
+
+    function removeHighlight(elements) {
+      for (let i=0; i<elements.length;++i) {
+        let element = elements[i];
+        element.classList.remove('highlight');
+      }
+    }
+  </script>
+</body>
+</html>

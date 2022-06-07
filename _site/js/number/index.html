@@ -1,0 +1,183 @@
+<h2>Кратко</h2>
+<p>Тип данных «число» (<code>number</code>) содержит числа с плавающей точкой в диапазоне от -(2<sup>53</sup> − 1) до 2<sup>53</sup> − 1, а также специальные значения <code>Infinity</code>, <code>-Infinity</code> и <code>NaN</code>.</p>
+<p>Для этого типа данных определены стандартные арифметические операции сложения <code>+</code>, вычитания <code>-</code>, умножения <code>*</code>, деления <code>/</code>, взятия остатка от целочисленного деления <code>%</code>, <a href="/js/typecasting/#strogoe-i-nestrogoe-ravenstvo">сравнения</a> <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>.</p>
+<p>В JavaScript отсутствует отдельный тип данных для целых чисел, для целых чисел также используется тип <code>number</code>.</p>
+<h2>Как пишется</h2>
+<p>Для записи чисел используются цифры, для разделения целой и десятичной части используется точка:</p>
+<pre><code class="language-js">const int = 4
+const decimal = 0.101
+const sameDecimal = .101
+</code></pre>
+<p>Можно использовать экспоненциальную запись. Например, один миллион в экспоненциальной записи:</p>
+<pre><code class="language-js">const scientific = 1e6
+</code></pre>
+<p>Числа так же могут быть представлены в <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B2%D0%BE%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F">двоичном</a>, <a href="https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%81%D1%8C%D0%BC%D0%B5%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F">восьмеричном</a> или <a href="https://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D1%81%D1%82%D0%BD%D0%B0%D0%B4%D1%86%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0_%D1%81%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F">шестнадцатеричном</a> виде. Такие числа начинаются с приставки <code>0b</code>, <code>0o</code>, <code>0x</code> соответственно. При выводе на экран они будут преобразованы в десятичную систему счисления:</p>
+<pre><code class="language-js">const binary = 0b11
+console.log(binary)
+// 3
+
+const octal = 0o77
+console.log(octal)
+// 63
+
+const hexadecimal = 0xFF
+console.log(hexadecimal)
+// 255
+</code></pre>
+<h2>Как понять</h2>
+<h3>Число с плавающей точкой</h3>
+<p>Число в JavaScript представлено в виде 64-битного формата <a href="https://ru.wikipedia.org/wiki/IEEE_754-1985">IEEE-754</a>. Формат хранит произвольное число в виде трёх значений: 1 бит на знак числа, 52 бита значения числа и ещё 11 бит местоположения точки. С таким подходом можно эффективно хранить значения в большом диапазоне от -(2<sup>53</sup> − 1) до 2<sup>53</sup> − 1.</p>
+<p>Из-за того, что положение точки в числе хранится отдельным значением, формат и называется числом с плавающей точкой (floating point number).</p>
+<p>Проблема этого представления в том, что оно не может представить числа абсолютно точно, а только с некоторой погрешностью.</p>
+<h3>Неточные вычисления</h3>
+<p>В десятичной системе счисления есть числа, которые не могут быть записаны точно. Например, треть ¹⁄₃ записывается как бесконечная дробь 0.33(3).</p>
+<p>Компьютер хранит данные в двоичном виде — наборе нулей и единиц. В этой системе счисления тоже есть дроби, которые не могут быть записаны точно. В этом случае формат округляет значение до ближайшего представимого. При арифметических операциях эти неточности складываются и приводят к эффектам, подобным этому:</p>
+<pre><code class="language-js">console.log(0.2 + 0.7)
+// 0.8999999999999999
+</code></pre>
+<p>Это не ошибка JavaScript, а фундаментальная особенность хранения дробных чисел в памяти компьютера, с ней нужно уметь работать. Для уменьшения эффекта используется комбинация подходов — использовать как можно меньше дробных значений, а когда этого невозможно избежать — округлять числа, тем самым сбрасывая накопившийся остаток.</p>
+<p>Например, если ваша система работает с деньгами, то лучше хранить цены в копейках или центах. Это позволит избежать большого количества операций с дробями. Для вывода цен можно пользоваться методом <code>toFixed</code>, который округлит число до указанного разряда:</p>
+<pre><code class="language-js">const priceInCents = 15650
+const discount = priceInCents * 0.33
+const total = (priceInCents - discount) / 100
+console.log(total.toFixed(2))
+// 104.86
+</code></pre>
+<p>Похожую проблему можно наблюдать при сравнении очень маленьких и очень больших чисел. В таких случаях из-за округления точность теряется и различные числа компьютер представляет одинаковыми:</p>
+<pre><code class="language-js">const small = 0.11111111111111111
+const smaller = 0.11111111111111110
+
+console.log(small.toFixed(20))
+// 0.11111111111111110494
+console.log(smaller.toFixed(20))
+// 0.11111111111111110494
+console.log(small === smaller)
+// true
+</code></pre>
+<h3>Специальные значения</h3>
+<p>Стандарт <a href="https://ru.wikipedia.org/wiki/IEEE_754-1985">IEEE-754</a> определяет три специальных значения. Эти значения принадлежат типу <code>number</code>, но не работают, как обычные числа:</p>
+<ul>
+<li>бесконечность <code>Infinity</code></li>
+<li>минус бесконечность <code>-Infinity</code></li>
+<li>не число (not a number) <code>NaN</code></li>
+</ul>
+<p>Бесконечности используются, чтобы определить результат некоторых арифметических операций. Например, деление на ноль в JavaScript вернёт бесконечность:</p>
+<pre><code class="language-js">console.log(5 / 0)
+// Infinity
+
+console.log(-3 / 0)
+// -Infinity
+</code></pre>
+<p>Если попытаться создать число, которое находится вне диапазона доступных чисел, результатом будет тоже бесконечность:</p>
+<pre><code class="language-js">console.log(1e999)
+// Infinity
+</code></pre>
+<p>Значение <code>NaN</code> используется, чтобы сообщить об операции, результатом которой оказалось не число. В JavaScript существует пять операций, которые могут вернуть <code>NaN</code>:</p>
+<ul>
+<li>ошибка парсинга числа (например, при попытке превратить строку в число <a href="/js/parseint/"><code>parseInt('привет')</code></a>).</li>
+<li>результат математической операции не находится в полей действительных чисел (например, взятие корня от -1).</li>
+<li>один из операндов в арифметической операции — <code>NaN</code> (<code>5 + NaN</code>).</li>
+<li>результат арифметической операции не определён для переданных операндов (<code>undefined + undefined</code>).</li>
+<li>арифметическая операция со строкой, кроме сложения (&quot;привет&quot; * 5)</li>
+</ul>
+<p>Согласно спецификации, <code>NaN</code> <em>не равен самому себе</em>. Проверить, что в переменной хранится <code>NaN</code> простым сравнением не получится:</p>
+<pre><code class="language-js">const result = NaN
+
+console.log(result === NaN)
+// false
+</code></pre>
+<p>Для проверки на <code>NaN</code> пользуйтесь функцией <a href="/js/number-is-nan/"><code>Number.isNaN</code></a>, которая возвращает <code>true</code> если переданное значение — <code>NaN</code>:</p>
+<pre><code class="language-js">const result = NaN
+
+console.log(Number.isNaN(result))
+// true
+</code></pre>
+<p>Для проверки, что значение в переменной является конечным числом, а не специальным значением, пользуйтесь функцией <a href="/js/number-isfinite/"><code>Number.isFinite</code></a>, она возвращает <code>true</code>, если переданный аргумент — число.</p>
+<pre><code class="language-js">const inf = Infinity
+const nan = NaN
+const num = 99999
+
+console.log(Number.isFinite(inf))
+// false
+console.log(Number.isFinite(nan))
+// false
+console.log(Number.isFinite(num))
+// true
+</code></pre>
+<h3>Операции с числами</h3>
+<p>С числами можно выполнять стандартные математические операции, для определения приоритета операций пользуются скобками:</p>
+<pre><code class="language-js">const a = 5
+const b = 10
+
+console.log(-a)
+// -5
+console.log(a + b)
+// 15
+console.log(a - b)
+// -5
+console.log(a / b)
+// 0.5
+console.log(a * b)
+// 50
+
+console.log((a + b) / 10)
+// 1.5
+</code></pre>
+<p>Существует оператор взятия остатка от деления нацело <code>%</code>:</p>
+<pre><code class="language-js">console.log(5 % 2)
+// 1, потому что 5 = 2 * 2 + 1
+console.log(5 % 3)
+// 2, потому что 5 = 1 * 3 + 2
+console.log(5 % 5)
+// 0, потому что 5 = 5 * 1 + 0
+</code></pre>
+<p>Возведения в степень <code>**</code>:</p>
+<pre><code class="language-js">console.log(2 ** 4)
+// 16
+</code></pre>
+<p>Для округления, взятия корней и других математических операций в JavaScript существует отдельный модуль <a href="/js/math/"><code>Math</code></a>.</p>
+<p>Операторы сравнения, возвращают <a href="/js/boolean/">булевое значение</a>:</p>
+<pre><code class="language-js">console.log(5 &gt; 10)
+// false
+console.log(5 &gt;= 10)
+// false
+console.log(5 &lt; 10)
+// true
+console.log(10 &lt;= 10)
+// true
+console.log(5 == 10)
+// false
+console.log(5 === 10)
+// false
+console.log(5 != 10)
+// true
+console.log(5 !== 10)
+// true
+</code></pre>
+<aside>
+<p>☝️ Строгое <code>===</code> и нестрогое <code>==</code> сравнение работает одинаково, когда оба сравниваемых значения имеют тип «число». В других случаях их поведение <a href="/js/typecasting/#strogoe-i-nestrogoe-ravenstvo">отличается</a>.</p>
+</aside>
+<h3>Числовой разделитель</h3>
+<p>В спецификации EcmaScript 2021 года (<em>ES12</em>) появилась возможность добавлять в числа разделители. Например:</p>
+<pre><code class="language-js">const number = 1_000_000_000
+
+console.log(number)
+// 1000000000
+</code></pre>
+<p>Разделители делают большие числа более читаемыми, внешне выделяя разряды чисел.</p>
+<pre><code class="language-js">const integer = 1_234_567_890
+const float = 0.123_456_789
+</code></pre>
+<p>Разделители доступны для чисел других счислений и <a href="/js/bigint/"><code>BigInt</code></a>:</p>
+<pre><code class="language-js">const binary = 0b0101_1111_0001
+const hex = 0x12_AB_34_CD
+const bigInt = 1_234_567_890n
+</code></pre>
+<h3>Дополнительные методы</h3>
+<p>Сам по себе примитивный тип «число» не имеет методов. Когда происходит вызов метода у числа, оно автоматически оборачивается в специальную обёртку, которая и содержит методы:</p>
+<pre><code class="language-js">const num = 99.99
+
+console.log(num.toFixed(1))
+// 100.0
+</code></pre>
+<p>Часто используемые методы обёртки, такие как <code>toFixed</code>, <a href="/js/number-tostring/"><code>toString</code></a> и <code>toLocaleString</code>, описаны в <a href="/js/number-wrapper/">отдельной статье</a>.</p>

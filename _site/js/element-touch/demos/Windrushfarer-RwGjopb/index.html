@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Touch Draw — Дока</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+        font-size: 32px;
+        overflow: hidden;
+    }
+
+    #wrapper {
+      box-sizing: border-box;
+      text-align: center;
+      margin-bottom: 30px;
+      touch-action: none;
+    }
+
+    canvas {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+<div id="wrapper">
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <div>
+  Ведите пальцем или стилусом чтобы рисовать
+</div>
+</div>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    function start(coors) {
+      context.beginPath();
+      context.moveTo(coors.x, coors.y);
+      this.isDrawing = true;
+    }
+
+    function move(coors) {
+      if (this.isDrawing) {
+        context.strokeStyle = "#000";
+        context.lineJoin = "round";
+        context.lineWidth = 3;
+        context.lineTo(coors.x, coors.y);
+        context.stroke();
+      }
+    }
+
+    function stop(coors) {
+      if (this.isDrawing) {
+        this.touchmove(coors);
+        this.isDrawing = false;
+      }
+    }
+
+    const drawer = {
+      isDrawing: false,
+      touchstart: start,
+      touchmove: move,
+      touchend: stop
+    };
+
+    function draw(coords) {
+      context.strokeStyle = "#000";
+      context.lineJoin = "round";
+      context.lineWidth = 3;
+      context.lineTo(coords.x, coords.y);
+      context.stroke();
+    }
+
+    canvas.addEventListener("touchstart", (e) => {
+      const coords = {
+        x: e.targetTouches[0].pageX,
+        y: e.targetTouches[0].pageY
+      };
+
+      context.beginPath();
+      context.moveTo(coords.x, coords.y);
+
+    });
+    canvas.addEventListener("touchmove", (e) => {
+      const coords = {
+        x: e.targetTouches[0].pageX,
+        y: e.targetTouches[0].pageY
+      };
+
+      draw(coords)
+    });
+
+    canvas.addEventListener("touchend", (e) => {
+      const coords = {
+        x: e.targetTouches[0].pageX,
+        y: e.targetTouches[0].pageY
+      };
+
+      draw(coords)
+    });
+  </script>
+</body>
+</html>

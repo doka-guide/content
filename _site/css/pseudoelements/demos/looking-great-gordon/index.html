@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Дополнительный текст через ::before и ::after — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      width: 600px;
+    }
+
+    .container + .container {
+      margin-top: 20px;
+    }
+
+    .container:first-child {
+      text-align: right;
+    }
+
+    .message {
+      display: inline-block;
+      padding: 20px 60px;
+      border-radius: 32px;
+      color: #000000;
+    }
+
+    .outcoming {
+      border-bottom-right-radius: 0;
+      background-color: #F498AD;
+    }
+
+    .incoming {
+      border-bottom-left-radius: 0;
+      background-color: #2E9AFF;
+    }
+
+    .incoming::before {
+      content: "Привет, ";
+    }
+
+    .incoming::after {
+      content: ", ты отлично выглядишь!";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="message outcoming">Привет!</span>
+  </div>
+  <div class="container">
+    <span class="message incoming">Гордон</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вуаль для картинки — z-index — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      position: relative;
+      background: #f5f5f5 url("../../images/landscape.jpg") no-repeat center / cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(125, 20, 204, 0.5);
+      z-index: -1;
+    }
+
+    h1 {
+      color: white;
+      font-size: 4rem;
+      max-width: 50%;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Under the light of the purple sun</h1>
+  </header>
+</body>
+</html>

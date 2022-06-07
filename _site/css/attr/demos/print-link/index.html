@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ссылка, видная при печати — attr() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    p {
+      line-height: 1.4;
+    }
+
+    .section {
+      width: 65%;
+      padding: 55px 40px;
+      color: #000000;
+    }
+
+    .section + .section {
+      margin-top: 50px;
+    }
+
+    .browser {
+      background: #2E9AFF;
+    }
+
+    .browser a {
+      border-radius: 3px;
+      color: #000000;
+      -webkit-text-decoration-color: currentColor;
+      text-decoration-color: currentColor;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .browser a:hover, .browser a:focus {
+      background-color: #000000;
+      color: #2E9AFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .print {
+      background-color: #FFFFFF;
+    }
+
+    .print a::after {
+      content: " [" attr(href) "]";
+    }
+
+    @media print {
+      a::after {
+        content: " [" attr(href) "]";
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .section {
+        width: 100%;
+        padding: 55px 30px;
+      }
+
+      .section + .section {
+        margin-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="section browser">
+    <h2>Как выглядит в браузере</h2>
+    <p>Подробнее о скидках и акциях можно узнать <a href="http://best-site.ru/sales">по ссылке</a></p>
+  </div>
+
+  <div class="section print">
+    <h2>Как выглядит при печати</h2>
+    <p>Подробнее о скидках и акциях можно узнать <a href="http://best-site.ru/sales">по ссылке</a></p>
+  </div>
+
+  <script>
+    document.querySelectorAll('a')
+      .forEach(
+        link => link.addEventListener('click', event => {
+          event.preventDefault()
+          event.target.blur()
+        })
+      )
+  </script>
+</body>
+</html>

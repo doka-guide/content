@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Атрибуты — <select> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 10px 50px 100px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .select-container {
+      width: 650px;
+      margin: auto;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .select-container + .select-container {
+      margin-top: 50px;
+    }
+
+    .select-label {
+      margin-right: 35px;
+      padding: 10px 0;
+      flex-grow: 1;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: right;
+    }
+
+    .select {
+      position: relative;
+      width: 400px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .select:disabled {
+      cursor: not-allowed;
+    }
+
+    .select:focus {
+      border: 1px solid #ff8630;
+      outline: none;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .select-single {
+      padding: 10px 15px;
+    }
+
+    .select-multi {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .select-container {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .select-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      .select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="select-form">
+    <div class="select-container">
+      <label class="select-label" for="city-select">Атрибут selected</label>
+      <div class="select-wrapper">
+        <select class="select select-single" name="city" id="city-select">
+          <option value="">-- Выберите город --</option>
+          <option value="petersburg">Санкт-Петербург</option>
+          <option value="moscow">Москва</option>
+          <option value="kazan" selected>Казань</option>
+          <option value="samara">Самара</option>
+          <option value="perm">Пермь</option>
+          <option value="novosibirsk">Новосибирск</option>
+        </select>
+      </div>
+    </div>
+    <div class="select-container">
+      <label class="select-label" for="city-select2">Атрибут disabled</label>
+      <div class="select-wrapper">
+        <select class="select select-single" disabled name="city2" id="city-select2">
+          <option value="">-- Выберите город --</option>
+          <option value="petersburg" selected>Санкт-Петербург</option>
+          <option value="moscow">Москва</option>
+          <option value="kazan">Казань</option>
+          <option value="samara">Самара</option>
+          <option value="perm">Пермь</option>
+          <option value="novosibirsk">Новосибирск</option>
+        </select>
+      </div>
+    </div>
+    <div class="select-container">
+      <label class="select-label" for="city-select3">Атрибут multiple</label>
+      <select class="select select-multi" name="city3" id="city-select3" multiple>
+        <option value="petersburg">Санкт-Петербург</option>
+        <option value="moscow">Москва</option>
+        <option value="kazan" selected>Казань</option>
+        <option value="samara">Самара</option>
+        <option value="perm">Пермь</option>
+        <option value="irkutsk">Иркутск</option>
+        <option value="novosibirsk">Новосибирск</option>
+      </select>
+    </div>
+    <div class="select-container">
+      <label class="select-label" for="city-select2">Атрибут size="6"</label>
+      <select class="select select-multi" name="city4" id="city-select4" multiple size="6">
+        <option value="petersburg" selected>Санкт-Петербург</option>
+        <option value="moscow">Москва</option>
+        <option value="kazan">Казань</option>
+        <option value="samara">Самара</option>
+        <option value="perm">Пермь</option>
+        <option value="irkutsk">Иркутск</option>
+        <option value="novosibirsk">Новосибирск</option>
+      </select>
+    </div>
+  </form>
+</body>
+</html>

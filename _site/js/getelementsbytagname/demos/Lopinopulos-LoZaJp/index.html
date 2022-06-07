@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - getElementsByTagName — Дока</title>
+  <style>
+    div {
+      border: black thin solid;
+    }
+
+    div:before {
+      content: "div";
+      background-color:black;
+      color: white;
+      position: absolute;
+    }
+
+    p {
+      border: #f26600 thin solid;
+      padding-top: 20px;
+      position:relative;
+    }
+
+    p:before {
+      content: "p";
+      background-color:#f26600;
+      color: white;
+      position: absolute;
+      top:0
+    }
+
+    h1 {
+      border: green thin solid;
+      padding-top: 20px;
+      position:relative;
+    }
+
+    h1:before {
+      content: "h1";
+      background-color:green;
+      color: white;
+      position: absolute;
+      top:0;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+<html>
+  <head></head>
+  <body>
+    <div id="title">
+      <h1>Кликни на блоке, в котором искать параграфы</h1>
+      <p>Это параграф дочерний и для div, и для body</p>
+    </div>
+    <p>Это параграф, дочерний для body</p>
+    <button id="clear">Очистить</button>
+  </body>
+</html>
+  <script>
+    let allParagraphs = document.getElementsByTagName('p');
+    window.addEventListener('click', function(event) {
+      if (event.target.tagName === "BUTTON") {
+        return;
+      }
+
+      cleanParagraphsStyle();
+
+      let foundParagraphs = event.target.getElementsByTagName('p');
+      alert('Клик по тегу ' + event.target.tagName  + ' внутри него нашлось параграфов: ' + foundParagraphs.length);
+      for(let i=0; i<foundParagraphs.length; ++i) {
+        let el = foundParagraphs[i];
+        el.style = 'border-width: 5px;';
+      }
+    });
+
+    document.getElementById('clear').addEventListener('click', cleanParagraphsStyle);
+
+    function cleanParagraphsStyle() {
+      for(let i=0; i<allParagraphs.length; ++i) {
+        let el = allParagraphs[i];
+        el.style = "";
+      }
+    }
+  </script>
+</body>
+</html>

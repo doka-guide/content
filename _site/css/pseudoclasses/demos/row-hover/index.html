@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изменение цвета по ховеру — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-collapse: collapse;
+      margin: auto;
+      text-align: center;
+    }
+
+    caption {
+      border-bottom: 7px solid #2E9AFF;
+      padding: 14px 14px 14px 0;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    th {
+      font-weight: 500;
+    }
+
+    th:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td, th {
+      border: 1px solid #2E9AFF;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    tr {
+      background-color: #18191C;
+    }
+
+    /* При наведении курсора… */
+    tr:hover {
+      /* …цвет фона изменится на голубой */
+      background-color: #123E66;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <caption>Чемпионат по поеданию хот-догов</caption>
+  <thead>
+  <tr>
+    <th></th>
+    <th>Матчи</th>
+    <th>Выигрыши</th>
+    <th>Ничьи</th>
+    <th>Проигрыши</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Танос</th>
+    <td>5</td><td>2</td><td>4</td><td>1</td>
+  </tr>
+  <tr>
+    <th>Звёздный Лорд</th>
+    <td>4</td><td>1</td><td>1</td><td>2</td>
+  </tr>
+  <tr>
+    <th>Гамора</th>
+    <td>5</td><td>3</td><td>2</td><td>0</td>
+  </tr>
+  <tr>
+    <th>Ронан Обвинитель</th>
+    <td>3</td><td>2</td><td>0</td><td>1</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

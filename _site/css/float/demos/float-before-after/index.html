@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Обтекание до и после — float — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    .wrapper {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .block {
+      font-family: 'Roboto', sans-serif;
+      border: 2px solid grey;
+      width: 400px;
+      padding: 15px;
+      margin: 10px;
+    }
+
+    .block__img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .block__img--float {
+      float: right;
+      margin-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .block__text {
+      margin-bottom: 5px;
+      font-size: 17px;
+    }
+
+    .block__title {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="block">
+      <img class="block__img" src="images/corgi.jpg" alt="Щенок корги на зелёной траве.">
+      <h2 class="block__title">Без использования float</h2>
+      <p class="block__text">Культ джайнизма включает в себя поклонение и другим, поэтому гений транспонирует гравитационный парадокс. Генетика, как принято считать, категорически дискредитирует онтологический дуализм. Гравитационный парадокс создаёт даосизм. Гедонизм неоднозначен. Конфликт понимает под собой здравый смысл.</p>
+    </div>
+
+    <div class="block">
+      <img class="block__img block__img--float" src="images/corgi.jpg" alt="Щенок корги на зелёной траве.">
+      <h2 class="block__title">Блок с float</h2>
+      <p class="block__text">Культ джайнизма включает в себя поклонение и другим, поэтому гений транспонирует гравитационный парадокс. Генетика, как принято считать, категорически дискредитирует онтологический дуализм. Гравитационный парадокс создаёт даосизм. Гедонизм неоднозначен. Конфликт понимает под собой здравый смысл.</p>
+    </div>
+  </div>
+</body>
+</html>

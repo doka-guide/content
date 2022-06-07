@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация подсказки при помощи transition — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .col + .col {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 150px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .tooltip-target {
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .tooltip-cnt {
+      position: relative;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: -50%;
+      left: 70%;
+      box-sizing: border-box;
+      width: 220px;
+      padding: 10px 40px;
+      color: #000000;
+      background-color: #ffffff;
+      font-size: 16px;
+      text-align: left;
+      z-index: 10;
+
+      /* Описываем переход */
+      transition: opacity 0.4s, visibility 0.4s, transform 0.4s;
+      /* прячем элемент */
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .transitioned .tooltip {
+      /* Другой тултип еще опускаем вниз */
+      transform: translateY(20px);
+    }
+
+    .tooltip-target:hover {
+      color: #2E9AFF;
+    }
+
+    .tooltip-target:hover + .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .transitioned .tooltip-target:hover + .tooltip {
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .col + .col {
+        margin-top: 50px;
+      }
+
+      .option-title {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .tooltip {
+        top: auto;
+        left: calc(50% - 110px);
+        bottom: 120%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="col">
+      <span class="option-title">Fade in</span>
+      <div class="tooltip-cnt">
+        <span class="tooltip-target">Наведи на меня</span>
+        <div class="tooltip">Эта подсказка проявилась</div>
+      </div>
+
+    </div>
+    <div class="col transitioned">
+      <span class="option-title">Slide up</span>
+      <div class="tooltip-cnt">
+        <span class="tooltip-target">Наведи на меня</span>
+        <div class="tooltip">Это подсказка, которая всплыла</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

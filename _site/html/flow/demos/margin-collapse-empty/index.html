@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выпадение отступов — Поток документа — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 65%;
+      min-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 25px;
+    }
+
+    .normal-flow {
+      height: 100%;
+      padding: 0 20px;
+      background-color: #282A2E;
+    }
+
+    .normal-flow-child {
+      position: relative;
+      margin: 30px 0;
+      padding: 35px 20px;
+      background-color: #FFFFFF;
+      color: #663613;
+      transform: translateY(100vh);
+    }
+
+    .normal-flow-child:nth-child(2) {
+      margin-top: 50px;
+    }
+
+    .normal-flow-child:after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background-color: rgb(255 134 48 / 25%);
+    }
+
+    .normal-flow-child:before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background-color: rgb(255 134 48 / 25%);
+    }
+
+    .normal-flow-child:nth-child(2):before {
+      height: 50px;
+    }
+
+    .normal-flow-child.show:before {
+      animation-name: blinker;
+      animation-duration: 0.8s;
+      animation-iteration-count: 3;
+    }
+
+    .normal-flow-child.show.floated:before, .normal-flow-child.floated:after {
+      display: none;
+    }
+
+    .floated {
+      z-index: 2;
+      background: #ffffff;
+    }
+
+    .button {
+      display: block;
+      min-width: 150px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:not(:last-child), .input-range {
+      margin-right: 25px;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .input-range {
+      width: 300px;
+      flex-grow: 1;
+    }
+
+    @keyframes blinker {
+      0% {opacity: 1.0;}
+      50% {opacity: 0;}
+      100% {opacity: 1.0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <button class="button button-blue restart">Рестарт</button>
+      <input class="input-range" type="range" name="" value="0" min="0" max="100" id="timeline">
+      <button class="button button-blue stop">Пауза</button>
+      <button class="button button-orange play">Пуск</button>
+    </div>
+    <div class="normal-flow">
+      <p class="normal-flow-child">Азимут решает метеорный дождь. Движение однократно. Зоркость наблюдателя, после осторожного анализа, гасит аргумент перигелия. Очевидно, что азимут меняет возмущающий фактор.</p>
+      <p class="normal-flow-child">Перигелий неустойчив. Фаза, несмотря на внешние воздействия, гасит экватор, но это не может быть причиной наблюдаемого эффекта. Угловое расстояние, после осторожного анализа, однократно. Метеорит, как бы это ни казалось парадоксальным, вызывает близкий зенит. Зенит, на первый взгляд, неравномерен. Тропический год прекрасно перечёркивает далёкий узел. Скорость кометы в перигелии меняет непреложный параллакс. Когда речь идёт о галактиках, прямое восхождение недоступно оценивает афелий .</p>
+    </div>
+  </div>
+
+  <script src="../resources/gsap.min.js"></script>
+  <script>
+    const flowChildren = document.querySelectorAll('.normal-flow-child')
+    const progress = document.getElementById('timeline')
+    const playButton = document.querySelector('.play')
+    const stopButton = document.querySelector('.stop')
+    const restartButton = document.querySelector('.restart')
+
+    const tl = gsap.timeline({paused:true})
+
+    tl.to(flowChildren[0], {duration: 2, y: 30, onComplete: () => {flowChildren[0].classList.add('show')}})
+    .to(flowChildren[0], {duration: 2, y: 0}, '+=3')
+      .to(flowChildren[1], {duration: 2, y: 30, onComplete: () => {flowChildren[1].classList.add('show')}})
+      .to(flowChildren[1], {duration: 2, y: 0}, '+=3')
+
+
+    tl.eventCallback('onUpdate', () => {
+      progress.value = tl.progress() * 100
+    })
+
+    progress.addEventListener('input', (e) => {
+      tl.progress(e.target.value / 100)
+      if (e.target.value < 19) {
+        flowChildren[1].classList.remove('show')
+        flowChildren[1].classList.remove('floated')
+        void flowChildren[1].offsetWidth
+      }
+      console.log(e.target.value)
+    })
+
+    playButton.addEventListener('click', () => {
+      tl.play()
+    })
+
+    stopButton.addEventListener('click', () => {
+      tl.pause()
+    })
+
+    restartButton.addEventListener('click', () => {
+      tl.pause()
+      tl.seek(0)
+      flowChildren[1].classList.remove('show')
+      flowChildren[1].classList.remove('floated')
+      tl.play()
+    })
+  </script>
+</body>
+</html>

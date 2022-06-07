@@ -1,0 +1,376 @@
+<h2>Задача</h2>
+<p>Загрузка пользователем файлов на сервер — часто встречающаяся задача при создании сайтов и приложений. Если файлы большие, то хорошей практикой будет показывать пользователю прогресс и результат загрузки файла. Для этого можно использовать прогресс-бар.</p>
+<p>Организовать полный процесс загрузки файла возможно только с использованием серверной части, реализация которой выходит за рамки данной статьи. Поэтому далее будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JS-код для передачи файла на сервер.</p>
+<p>Загрузка файла на сервер состоит из трёх частей:</p>
+<ol>
+<li>Выбор пользователем файла на своём устройстве.</li>
+<li>Проверка параметров обработки файла и формирование данных с обращением к серверу.</li>
+<li>Обработка данных на сервере и отправка ответа.</li>
+</ol>
+<p>Серверная часть для обмена файлами может быть реализована на разных языках программирования. Например, про обработку файлов на стороне сервера с использованием PHP можно подробнее узнать <a href="https://www.php.net/manual/ru/features.file-upload.php">в разделе документации PHP</a>.</p>
+<h2>Решение для загрузки файла</h2>
+<p>На странице разместим HTML-разметку формы с необходимыми элементами:</p>
+<pre><code class="language-html">&lt;div class=&quot;demo-wrapper&quot;&gt;
+  &lt;form
+    class=&quot;form-upload&quot;
+    id=&quot;uploadForm&quot;
+    method=&quot;post&quot;
+    enctype=&quot;multipart/form-data&quot;
+  &gt;
+    &lt;label class=&quot;form-upload__label&quot; for=&quot;uploadForm_File&quot;&gt;
+      &lt;span class=&quot;form-upload__title&quot;&gt;Изображение:&lt;/span&gt;
+      &lt;input
+        class=&quot;form-upload__input&quot;
+        id=&quot;uploadForm_File&quot;
+        type=&quot;file&quot;
+        name=&quot;file_name&quot;
+        accept=&quot;image/*&quot;
+      &gt;
+    &lt;/label&gt;
+    &lt;input
+      class=&quot;form-upload__submit form-upload__submit_purple&quot;
+      id=&quot;uploadForm_Submit&quot;
+      type=&quot;submit&quot;
+      value=&quot;Загрузить файл&quot;
+    &gt;
+    &lt;progress id=&quot;progressBar&quot; value=&quot;0&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;
+    &lt;div class=&quot;form-upload__container&quot;&gt;
+      &lt;span class=&quot;form-upload__status&quot; id=&quot;uploadForm_Status&quot;&gt;&lt;/span&gt;
+      &lt;span id=&quot;uploadForm_Size&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Для внешнего оформления элементов формы создадим следующие <a href="/css/css-rule/">CSS-правила</a>:</p>
+<pre><code class="language-css">.form-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.form-upload__label {
+  display: flex;
+  align-items: center;
+}
+
+.form-upload__title {
+  max-width: 200px;
+  margin-right: 55px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.form-upload__input {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: inherit;
+}
+
+.form-upload__input::file-selector-button {
+  min-width: 190px;
+  margin-right: 30px;
+  padding: 9px 15px;
+  border: none;
+  border-radius: 6px;
+  font-weight: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#uploadForm_File {
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+#uploadForm_File,
+.form-upload__submit,
+progress,
+.form-upload__container {
+  width: 360px;
+}
+
+.form-upload__submit {
+  display: block;
+  margin-top: 25px;
+  padding: 9px 15px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: inherit;
+  transition: background-color 0.2s linear;
+}
+
+.form-upload__submit:hover {
+  background-color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+.form-upload__submit:focus-visible {
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+.form-upload__submit:focus {
+  border: 2px solid #ffffff;
+  outline: none;
+}
+
+.form-upload__submit_purple {
+  background-color: #C56FFF;
+}
+
+progress {
+  height: 5px;
+  margin-top: 25px;
+  border: none;
+  background-color: #286C2D;
+}
+
+progress::-webkit-progress-bar {
+  border: none;
+  background-color: #286C2D;
+}
+
+progress::-webkit-progress-value {
+  background-color: #41E847;
+}
+
+progress::-moz-progress-bar {
+  border: none;
+  background-color: #41E847;
+}
+
+.form-upload__container {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.form-upload__status:empty::before {
+  content: &quot;Не загружено&quot;;
+}
+
+.form-upload__status:empty + span {
+  display: none;
+}
+</code></pre>
+<p>В конце HTML-страницы или в отдельном JS-файле добавим код, который обеспечит связь между пользователем и сервером:</p>
+<pre><code class="language-javascript">const BYTES_IN_MB = 1048576
+
+const form = document.getElementById('uploadForm')
+const fileInput = document.getElementById('uploadForm_File')
+const sizeText = document.getElementById('uploadForm_Size')
+const statusText = document.getElementById('uploadForm_Status')
+const progressBar = document.getElementById('progressBar')
+
+fileInput.addEventListener('change', function () {
+  const file = this.files[0]
+  if (file.size &gt; 5 * BYTES_IN_MB) {
+    alert('Принимается файл до 5 МБ')
+    this.value = null
+  }
+});
+
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
+  const fileToUpload = fileInput.files[0]
+  const formSent = new FormData()
+  const xhr = new XMLHttpRequest()
+
+  if (fileInput.files.length &gt; 0) {
+    formSent.append('uploadForm_File', fileToUpload)
+
+    // собираем запрос и подписываемся на событие progress
+    xhr.upload.addEventListener('progress', progressHandler, false)
+    xhr.addEventListener('load', loadHandler, false)
+    xhr.open('POST', 'upload_processing.php')
+    xhr.send(formSent)
+  } else {
+    alert('Сначала выберите файл')
+  }
+  return false
+});
+
+function progressHandler(event) {
+  // считаем размер загруженного и процент от полного размера
+  const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+  const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+  const percentLoaded = Math.round((event.loaded / event.total) * 100)
+
+  progressBar.value = percentLoaded
+  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+  statusText.textContent = `Загружено ${percentLoaded}% | `
+}
+
+function loadHandler(event) {
+  statusText.textContent = event.target.responseText
+  progressBar.value = 0
+}
+</code></pre>
+<iframe title="Пример загрузки одного файла" src="demos/single-file/" height="330"></iframe>
+<p>Полный вариант загрузки файла с его сохранением на сервере выглядит так:</p>
+<video controls width="640">
+  <source src="video/progress_example.mp4" type="video/mp4">
+</video>
+<h2>Разбор решения</h2>
+<h3>Разметка</h3>
+<pre><code class="language-html">&lt;div class=&quot;demo-wrapper&quot;&gt;
+  &lt;form
+    class=&quot;form-upload&quot;
+    id=&quot;uploadForm&quot;
+    method=&quot;post&quot;
+    enctype=&quot;multipart/form-data&quot;
+  &gt;
+    &lt;label class=&quot;form-upload__label&quot; for=&quot;uploadForm_File&quot;&gt;
+      &lt;span class=&quot;form-upload__title&quot;&gt;Изображение:&lt;/span&gt;
+      &lt;input
+        class=&quot;form-upload__input&quot;
+        id=&quot;uploadForm_File&quot;
+        type=&quot;file&quot;
+        name=&quot;file_name&quot;
+        accept=&quot;image/*&quot;
+      &gt;
+    &lt;/label&gt;
+    &lt;input
+      class=&quot;form-upload__submit form-upload__submit_purple&quot;
+      id=&quot;uploadForm_Submit&quot;
+      type=&quot;submit&quot;
+      value=&quot;Загрузить файл&quot;
+    &gt;
+    &lt;progress id=&quot;progressBar&quot; value=&quot;0&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;
+    &lt;div class=&quot;form-upload__container&quot;&gt;
+      &lt;span class=&quot;form-upload__status&quot; id=&quot;uploadForm_Status&quot;&gt;&lt;/span&gt;
+      &lt;span id=&quot;uploadForm_Size&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Все элементы, которые участвуют в обработке и отправке файла, размещаются внутри <a href="/html/form/">формы</a>.</p>
+<p>Для формы указывается атрибут <code>enctype</code> со значением <code>multipart/form-data</code>, поскольку будет использоваться элемент управления для выбора файлов.</p>
+<p>Файл для отправки пользователь сможет выбрать с помощью элемента <a href="/html/input/"><code>&lt;input&gt;</code></a>, для которого установлен тип <code>file</code>. Формат файлов, которые можно будет загрузить, устанавливается значением атрибута <code>accept</code>. В данном случае допускается использование изображений любого формата.</p>
+<p>Отправка файла на сервер выполняется при отправке формы. Для этого в JS-коде мы подписываемся на событие <code>submit</code>. Обработчик этого события будет обрабатывать выбранный файл и передавать его на сервер.</p>
+<p>Ход выполнения загрузки будет показываться с использованием специального элемента <a href="/html/progress/"><code>&lt;progress&gt;</code></a>.</p>
+<p>Чтобы показать текстовую информацию о результатах загрузки, используются текстовые элементы <a href="/html/span/"><code>&lt;span&gt;</code></a>.</p>
+<p>Для каждого элемента внутри формы указывается атрибут <a href="/html/global-attrs/#id"><code>id</code></a> — это позволит JS-коду обращаться к нужным элементам для выполнения необходимых действий.</p>
+<h3>Стили</h3>
+<p>Внешний вид элемента <a href="/html/progress/"><code>&lt;progress&gt;</code></a> может быть разным — это зависит от браузера и операционной системы устройства пользователя. Например, вот так прогресс-бар будет выглядеть на устройствах с macOS и Windows:</p>
+<p><img src="images/default_progressbar.png" alt="Внешний вид прогресс-бара в macOS и Windows"></p>
+<p>Чтобы прогресс-бар выглядел одинаково в разных браузерах, необходимо создать стилевые правила. Правило ниже определяет следующие свойства индикатора:</p>
+<ul>
+<li>добавляет верхний отступ;</li>
+<li>убирает границу по умолчанию;</li>
+<li>меняет цвет фона.</li>
+</ul>
+<pre><code class="language-css">progress {
+  height: 5px;
+  margin-top: 25px;
+  border: none;
+  background-color: #286C2D;
+}
+</code></pre>
+<p>В Firefox эти стили не затронут бегунок, поэтому дополнительно потребуется использовать <a href="/css/vendor-prefixes/">вендорный префикс</a> <code>-moz</code>. Для стилизации в Chrome и Safari как самого элемента, так и его бегунка, необходимо использовать браузерные префиксы <code>-webkit</code>.</p>
+<p>В итоге для одинакового отображения прогресс-бара и бегунка во всех основных браузерах, добавим следующие правила:</p>
+<pre><code class="language-css">progress::-webkit-progress-bar {
+  border: none;
+  background-color: #286C2D;
+}
+
+progress::-webkit-progress-value {
+  background-color: #41E847;
+}
+
+progress::-moz-progress-bar {
+  border: none;
+  background-color: #41E847;
+}
+</code></pre>
+<p>Остальным элементам определим стили для организации их взаимного расположения:</p>
+<pre><code class="language-css">.form-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#uploadForm_File {
+  cursor: pointer;
+}
+
+.form-upload__submit {
+  display: block;
+  margin-top: 25px;
+  padding: 9px 15px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  color: #000000;
+}
+
+.form-upload__container {
+  margin-top: 10px;
+}
+</code></pre>
+<h3>JavaScript</h3>
+<p>Для начала объявим константы и получим все необходимые элементы DOM-дерева, чтобы подписываться на события:</p>
+<pre><code class="language-javascript">// сколько байтов в мегабайте
+const BYTES_IN_MB = 1048576
+
+const form = document.getElementById('uploadForm')
+const fileInput = document.getElementById('uploadForm_File')
+const sizeText = document.getElementById('uploadForm_Size')
+const statusText = document.getElementById('uploadForm_Status')
+const progressBar = document.getElementById('progressBar')
+</code></pre>
+<p>Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся <code>XMLHttpRequest</code> — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на <a href="https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest">странице документации MDN</a>. Чаще всего для отправки данных используется метод <a href="/js/fetch/"><code>fetch</code></a>, но он не позволяет отслеживать прогресс загрузки файлов.</p>
+<p>Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого получим информацию о файле с помощью выражения <code>this.files[0]</code>.</p>
+<pre><code class="language-javascript">fileInput.addEventListener('change', function () {
+  const file = this.files[0]
+  if (file.size &gt; 5 * BYTES_IN_MB) {
+    alert('Принимается файл до 5 МБ')
+    this.value = null
+  }
+});
+</code></pre>
+<p>Основную работу будет выполнять функция-обработчик отправки формы. Она которая принимает выбранный пользователем файл и отправляет его на сервер. Функция выполняется после нажатия кнопки «Загрузить файл».</p>
+<p>Первым делом объявляем переменные:</p>
+<ul>
+<li><code>fileToLoad</code> получает данные выбранного файла;</li>
+<li><code>formSent</code>, в которой с использованием объекта <code>FormData</code> будут храниться данные формы для отправки;</li>
+<li><code>xhr</code> для обращения к серверу с использованием <code>XMLHttpRequest</code>.</li>
+</ul>
+<pre><code class="language-javascript">const fileToUpload = fileInput.files[0]
+const formSent = new FormData()
+const xhr = new XMLHttpRequest()
+</code></pre>
+<p>После этого указываем последовательность работы <code>XMLHttpRequest</code> при передаче файла на сервер:</p>
+<ul>
+<li>если файл выбран — выполняется его обработка, иначе появляется предупреждение;</li>
+<li>выбранный файл сохраняется для отправки;</li>
+<li>для <code>XMLHttpRequest</code> добавляется обработчик события <code>progress</code>, который выполняет отслеживание состояния загрузки файла;</li>
+<li>для <code>XMLHttpRequest</code> добавляется обработчик события <code>load</code>, который отслеживает статус загрузки;</li>
+<li>метод <code>open()</code> выполняет POST-запрос к управляющему файлу, который хранится на сервере;</li>
+<li>выбранный пользователем файл передаётся на сервер с использованием <code>FormData</code>.</li>
+</ul>
+<pre><code class="language-javascript">if (fileInput.files.length &gt; 0) {
+  formSent.append('uploadForm_File', fileToUpload)
+
+  xhr.upload.addEventListener('progress', progressHandler, false)
+  xhr.addEventListener('load', loadHandler, false)
+  xhr.open('POST', 'upload_processing.php')
+  xhr.send(formSent)
+} else {
+  alert('Сначала выберите файл')
+}
+</code></pre>
+<p>Для показа индикации загрузки файла создадим функцию <code>progressHandler()</code>. Функция будет вызываться при загрузке каждого нового пакета. Это позволит показывать и обновлять прогресс-бар в реальном времени. Посчитаем нужные данные: сколько мегабайт уже загружено, размер файла и процент загрузки. Воспользуемся полученными значениями, чтобы обновить текст на экране.</p>
+<pre><code class="language-javascript">function progressHandler(event) {
+  const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+  const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+  const percentLoaded = Math.round((event.loaded / event.total) * 100)
+
+  progressBar.value = percentLoaded
+  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+  statusText.textContent = `Загружено ${percentLoaded}% | `
+}
+</code></pre>

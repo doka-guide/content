@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блоки разного размера со скруглением — border-radius — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    .selector {
+      border-radius: 5em / 50%;
+    }
+
+    .selector {
+      width: 200px;
+      height: 200px;
+      color: #fff;
+      background-color: #123;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1em;
+    }
+
+    .selector_view_horizontal {
+      width: 400px;
+    }
+
+    .selector_view_vertical {
+      height: 400px;
+    }
+
+    .list__item {
+      display: flex;
+    }
+
+    .list__key {
+      margin: 0;
+    }
+
+    .list__key:after {
+      content: ':'
+    }
+
+    .list__key + .list__value {
+      margin-left: .5em;
+    }
+  </style>
+</head>
+<body>
+<div class="selector selector_view_horizontal">
+  <dl>
+    <div class="list__item">
+      <dd class="list__key">width</dd>
+      <dt class="list__value">400px</dt>
+    </div>
+    <div class="list__item">
+      <dd class="list__key">height</dd>
+      <dt class="list__value">200px</dt>
+    </div>
+  </dl>
+</div>
+
+<div class="selector">
+  <dl>
+    <div class="list__item">
+      <dd class="list__key">width</dd>
+      <dt class="list__value">200px</dt>
+    </div>
+    <div class="list__item">
+      <dd class="list__key">height</dd>
+      <dt class="list__value">200px</dt>
+    </div>
+  </dl>
+</div>
+
+<div class="selector selector_view_vertical">
+  <dl>
+    <div class="list__item">
+      <dd class="list__key">width</dd>
+      <dt class="list__value">200px</dt>
+    </div>
+    <div class="list__item">
+      <dd class="list__key">height</dd>
+      <dt class="list__value">400px</dt>
+    </div>
+  </dl>
+</div>
+</body>
+</html>

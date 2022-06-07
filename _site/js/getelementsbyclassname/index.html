@@ -1,0 +1,43 @@
+<h2>Кратко</h2>
+<p>Метод определён для объекта <code>document</code> и любого HTML-элемента (<a href="/js/element/"><code>Element</code></a>) страницы. Позволяет найти все элементы с заданным классом или классами среди дочерних.</p>
+<p>Метод принимает один параметр — название класса или список классов в виде строки. Если передаёшь список классов, то раздели их названия пробелами <code>class1 class2</code>. Элемент подходит, если у него есть все классы из перечисленных.</p>
+<p>Возвращает похожую на массив HTMLCollection с найденными элементами. Если элементов не нашлось, то коллекция будет пустая, то есть с размером 0.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;title&quot;&gt;
+      &lt;h1&gt;Привет, незнакомец!&lt;/h1&gt;
+      &lt;div class=&quot;paragraph subtitle&quot;&gt;Div с классом paragraph и subtitle&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;paragraph&quot;&gt;Параграф с классом paragraph&lt;/p&gt;
+    &lt;script&gt;
+      let paragraphs = document.getElementsByClassName(&quot;paragraph&quot;)
+      console.log(paragraphs.length) // напечатает 2, так как поиск ведется по всей странице
+
+      let divEl = document.getElementById(&quot;title&quot;)
+      // ищем параграфы внутри div:
+      let paragraphsFromDiv = document.getElementsByClassName(&quot;paragraph&quot;)
+      console.log(paragraphsFromDiv.length) // напечатает 1, так как внутри div только один элемент с классом paragraph
+
+      let subtitleParagraphs = document.getElementsByClassName(
+        &quot;paragraph subtitle&quot;
+      )
+      console.log(subtitleParagraphs.length) // напечатает 1, так как на странице только один элемент, у которого есть и класс paragraph, и класс subtitle
+
+      // ищем несуществующий элемент
+      let spanFromBody = document.getElementsByClassName(&quot;hello&quot;)
+      console.log(spanFromBody.length) // напечатает 0
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p>Метод работает с DOM, который связан с HTML-разметкой. Каждый HTML-элемент имеет родительские и дочерние элементы:</p>
+<ul>
+<li>Родительские элементы — это элементы, внутри которых находится элемент. В примере выше у элемента <code>h1</code> есть два родительских элемента — <code>div</code> и <code>body</code>.</li>
+<li>Дочерние элементы — это элементы, которые содержит текущий элемент. Они могут быть, а могут не быть. Например, для тега <code>body</code> все элементы страницы дочерние. У <code>h1</code> дочерний элемент — текст внутри тега.</li>
+</ul>
+<p>Если работаешь с корнем страницы, объектом <code>document</code>, то поиск идёт по всем элементам страницы (т.е. от <code>body</code>), если от конкретного элемента, то поиск идёт только по всем дочерним.</p>
+<p>Так как мы заранее не знаем, сколько элементов с искомым тегом найдётся, то метод возвращает коллекцию элементов.</p>
+<p>Каждый элемент HTML может иметь класс или несколько классов. Когда пользуешься <code>getElementsByClassName</code>, поиск идёт только по классам (атрибут <code>class</code>). Названия тегов и все остальные атрибуты игнорируются.</p>

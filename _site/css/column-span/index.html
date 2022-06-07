@@ -1,0 +1,36 @@
+<h2>Кратко</h2>
+<p>Свойство <code>column-span</code> позволяет элементу растянуться на несколько колонок при многоколоночной вёрстке.</p>
+<h2>Как пишется</h2>
+<p>Можно указать одно из двух ключевых слов – <code>none</code> или <code>all</code>.</p>
+<pre><code class="language-css">  .item1 {
+    column-span: none;
+  }
+
+  .item2 {
+    column-span: all;
+  }
+</code></pre>
+<h2>Как понять</h2>
+<p>Если указать <code>none</code>, то элемент не будет растягиваться на несколько колонок. <code>none</code> – значение по умолчанию.</p>
+<p>Если указать <code>all</code>, то элемент выпадет из <a href="/html/flow/">потока</a> и растянется на все колонки. До и после него появятся переносы, контент до и после независимо разделится на колонки.</p>
+<h2>Пример</h2>
+<p>Создадим простой блок, в котором будут два параграфа, разделённых заголовком.</p>
+<pre><code class="language-html">  &lt;div class=&quot;wrapper&quot;&gt;
+    &lt;p&gt;Душа моя озарена неземной радостью...&lt;/p&gt;
+    &lt;h2&gt;Заголовок 2 уровня&lt;/h2&gt;
+    &lt;p&gt;Душа моя озарена неземной радостью...&lt;/p&gt;
+  &lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.wrapper {
+  column-count: 4;
+  column-width: 250px;
+}
+</code></pre>
+<iframe title="Пример без column-span" src="demos/without-span/" height="270"></iframe>
+<p>Как мы видим, получилось не очень красиво. Заголовок может переноситься по колонкам – скорее всего, мы не ожидаем такого поведения от <a href="/css/display/#kak-ponyat">блочного</a> элемента. Чтобы было красиво, зададим для заголовка <code>column-span</code>.</p>
+<pre><code class="language-css">h2 {
+  column-span: all;
+}
+</code></pre>
+<iframe title="Пример с column-span" src="demos/with-span/" height="300"></iframe>
+<p>Заголовок «выпал» из общего потока многоколоночного текста. Теперь он растянут на всю ширину, до и после него есть переносы, а параграфы разделились по колонкам так, словно мы задали <code>column-count</code> для каждого из них.</p>

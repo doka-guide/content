@@ -1,0 +1,21 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;bdo&gt;</code> переопределяет направление текста внутри — он отображается в другом направлении. Используется обычно для языков, где текст читается справа налево.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;bdo&gt;В Великобритании левостороннее дорожное движение.&lt;/bdo&gt;
+&lt;/p&gt;
+</code></pre>
+<h2>Атрибуты</h2>
+<p>Атрибут <code>dir</code> определяет направление текста внутри элемента <code>&lt;bdo&gt;</code>. Доступные значения:</p>
+<ul>
+<li><code>ltr</code> — направление текста слева направо;</li>
+<li><code>rtl</code> — направление текста справа налево.</li>
+</ul>
+<p>Тег <code>&lt;bdo&gt;</code> поддерживает <a href="/html/global-attrs/">глобальные атрибуты</a> и <a href="/js/events/">события</a>.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;p&gt;Этот текст написан слева направо.&lt;/p&gt;
+&lt;p&gt;
+  &lt;bdo dir=&quot;rtl&quot;&gt;Этот текст написан справа налево.&lt;/bdo&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Визуальное отображение" src="demos/view/" height="110"></iframe>

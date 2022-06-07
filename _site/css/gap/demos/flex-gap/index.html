@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Свойство gap с display: flex — gap — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+    }
+
+    .flex-container {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 40px 50px;
+    }
+
+    .flex-container__card {
+      border: 1px solid whitesmoke;
+      padding: 1rem;
+      border-radius: 5px;
+      flex: 1 1 16rem;
+    }
+  </style>
+</head>
+<body>
+  <section class="flex-container">
+    <div class="flex-container__card">🍌</div>
+    <div class="flex-container__card">🍉</div>
+    <div class="flex-container__card">🍇</div>
+    <div class="flex-container__card">🍓</div>
+  </section>
+</body>
+</html>

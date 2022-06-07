@@ -1,0 +1,136 @@
+<h2>Кратко</h2>
+<p>Performance API — это API браузера, позволяющее измерять время работы программы при помощи различных методов. Для этого используется очень точный тип измерения времени – <code>DOMHighResTimeStamp</code>, работающий с точностью до 5 микросекунд (в одной миллисекунде их тысяча).</p>
+<h2>Пример</h2>
+<h3>Создание меток и измерений</h3>
+<p>Получаем время, прошедшее с начала навигации на страницу</p>
+<pre><code class="language-js">const t = performance.now()
+console.log(t)
+// 471359
+</code></pre>
+<p>Создаём именованную метку времени, сохраняющую время в миллисекундах с начала навигации на страницу. Это полезно для измерения работы программы, например, можно вычислить разницу между метками и узнать время работы функции.</p>
+<pre><code class="language-js">performance.mark('старт приложения')
+console.log(t)
+</code></pre>
+<p>Вычисляем время между двумя метками:</p>
+<pre><code class="language-js">const start = performance.mark('начало')
+const finish = performance.mark('конец')
+
+performance.measure('итого', 'начало', 'конец')
+console.log(performance.getEntriesByName('итого')[0].duration)
+// количество миллисекунд между метками &quot;начало&quot; и &quot;конец&quot;
+</code></pre>
+<h3>Работа с записанными данными</h3>
+<p>Получаем список меток и измерений:</p>
+<pre><code class="language-js">for (const entry of performance.getEntries()) {
+  console.log(`
+    Запись &quot;${entry.name}&quot;, тип ${entry.entryType}.
+    Старт в ${entry.startTime}мс, продолжительность ${entry.duration}мс
+  `)
+}
+</code></pre>
+<p>Очищаем список меток и измерений:</p>
+<pre><code class="language-js">performance.clearMeasures()
+performance.clearMarks()
+</code></pre>
+<p>Или можем очистить всё сразу:</p>
+<pre><code class="language-js">performance.clearResourceTimings()
+</code></pre>
+<h2>Как пишется</h2>
+<h3>Создание меток</h3>
+<p>Метка (mark) — время с начала перехода на страницу до создания метки в миллисекундах. Например, от клика по ссылке или после подтверждения введённого урла в строку поиска.</p>
+<p>При создании меток мы можем передать первым аргументом строку - имя метки. В дальнейшем, мы можем обращаться к этому имени для поиска.</p>
+<pre><code class="language-js">const markName = 'старт выполнения функции'
+performance.mark(markName)
+
+const entries = performance.getEntriesByName(markName)
+console.log(entries)
+</code></pre>
+<p>Объект метки содержит значение <code>mark</code> в поле <code>entryType</code>.</p>
+<h3>Создание измерений</h3>
+<p>Измерение (measure) - разница во времени между двумя метками. Измерение принимает несколько аргументов:</p>
+<ol>
+<li>Имя измерения</li>
+<li>Имя первой метки - необязательный параметр, если не указать, то первой меткой будет время со старта навигации на страницу;</li>
+<li>Имя второй метки - необязательный параметр, если не указать, то второй меткой будет вызов <code>performance.now()</code> в момент создания измерения.</li>
+</ol>
+<p>В Firefox и некоторых мобильных браузерах вызов метода <code>measure()</code> не возвращает полученное измерение и его нужно запрашивать вручную с помощью <code>getEntriesByName()</code>. Следите за <a href="https://caniuse.com/mdn-api_performance_measure_returns_undefined">таблицей поддержки</a>.</p>
+<pre><code class="language-js">const markOne = 'метка_1'
+const markTwo = 'метка_2'
+performance.mark(markOne);
+performance.mark(markTwo);
+
+performance.measure('время со старта навигации на странице')
+performance.measure('от первой метки до сейчас', markOne)
+performance.measure('время между двумя метками', markOne, markTwo)
+
+
+const m1 = performance.getEntriesByName('время со старта навигации на странице')[0]
+const m2 = performance.getEntriesByName('от первой метки до сейчас')[0]
+const m3 = performance.getEntriesByName('время между двумя метками')[0]
+
+console.log({ m1, m2, m3 })
+</code></pre>
+<h3>Способы получения меток и измерений</h3>
+<p>Получить измерения и метки можно тремя разными способами:</p>
+<ol>
+<li><code>performance.getEntries()</code> - получить список всех меток и измерений, включая записываемые браузером.</li>
+<li><code>performance.getEntriesByType(тип)</code> - получить список из записей заданного типа, например, <code>mark</code> или <code>measure</code>.</li>
+<li><code>performance.getEntriesByName(имя)</code> - получить список из записей с указанным именем.</li>
+</ol>
+<details>
+  <summary>Подробнее про метки автоматически записываемые браузером</summary>
+<p>Для улучшения анализа производительности страницы, браузер автоматически записывает некоторые метки:</p>
+<ol>
+<li><code>navigation</code> – события навигации браузера <code>domComplete</code>, <code>loadEventStart</code>, <code>loadEventEnd</code>, <code>redirectCount</code>, <code>domContentLoadedEventStart</code>, <code>domContentLoadedEventEnd</code>, <code>domInteractive</code>, <code>requestStart</code>, <code>responseStart</code>, <code>unloadEventEnd</code>, <code>unloadEventStart</code>.</li>
+<li><code>resource</code> – содержат информацию о загрузке ресурсов сайтом. Например, можно узнать про загрузку стилей или выполнение запросов к API.</li>
+<li><code>paint</code> – информация о рендере страницы, например, время отрисовки первого контента – <code>first-paint</code>, <code>first-contentful-paint</code>.</li>
+</ol>
+</details>
+<p>Любой из способов вернёт массив записей:</p>
+<pre><code class="language-js">const mark = performance.mark('старт')
+const measure = performance.measure('прошло со старта', 'старт')
+const entries = performance.getEntries()
+const entriesByName = performance.getEntriesByName('прошло со старта')
+const onlyMarks = performance.getEntriesByType('mark')
+
+console.log(entries)
+console.log(entriesByName)
+console.log(onlyMarks)
+</code></pre>
+<h3>Способы очистить записи</h3>
+<p>Метки и измерения с одинаковыми именами не перезаписывают друг друга. Если одно и то же имя может использоваться в разных частях кода, например, если имена создаются динамически, может быть полезно удалять уже созданные метки перед записью новых с тем же именем. Очистить записанные метки и измерения можно разными методами:</p>
+<ol>
+<li><code>performance.clearMarks(имя_метки)</code> - очистить все записанные метки с переданным именем. Если имя не передать, то удалятся все метки, созданные методом <code>performance.mark()</code>.</li>
+<li><code>performance.clearMeasures(имя_измерения)</code> - очищаем все записанные измерения с переданным именем. Если имя не передать, то удалятся все измерения, созданные методом <code>performance.measure()</code>.</li>
+<li><code>performance.clearResourceTimings()</code> - очистить все метки, связанные с загрузкой ресурсов браузером.</li>
+</ol>
+<pre><code class="language-js">const mark = performance.mark('метка')
+const measure = performance.measure('измерение')
+
+console.log(performance.getEntriesByName('метка').length)
+// 1
+
+performance.clearMarks('метка')
+performance.clearMeasures('измерение')
+
+console.log(performance.getEntriesByName('метка').length)
+// 0
+
+performance.clearResourceTimings()
+</code></pre>
+<h2>Как понять</h2>
+<p>Когда нужно проверить скорость работы кода, провести тесты производительности или найти узкие места — на помощь приходит Performance API с его удобными методами и точностью измерений.</p>
+<aside>
+<p>⏱ Для измерения времени мы можем так же использовать класс <code>Date</code> с его методом <code>Date.now()</code>, возвращающий <code>timestamp</code> – текущее время в миллисекундах. Сохранив в переменные два вызова <code>Date.now()</code> (например, перед функцией и после) мы можем вычислить разницу и узнать время работы функции. Но Performance API предоставляет удобные функции для работы со временем, позволяет именовать сохранённые метки времени и обладает большей точностью.</p>
+</aside>
+<p>Performance API представляет собой реестр записей. Записи бывают разных типов:</p>
+<ul>
+<li><code>mark</code> — именная метка времени;</li>
+<li><code>measure</code> — измерение. Продолжительность между двумя метками;</li>
+<li><code>element</code> — время загрузки элементов;</li>
+<li><code>navigation</code> — для записей, связанных с навигацией по сайту;</li>
+<li><code>resource</code> — время получение внешних ресурсов (css, запросы API);</li>
+<li><code>paint</code> — время первой отрисовки (first paint), либо первой отрисовки контента (first contentful paint);</li>
+<li><code>longtask</code> — время работы задачи из <a href="http://developer.mozilla.org/en-US/docs/Web/API/Long_Tasks_API">LongTasks API</a>;</li>
+</ul>
+<p>Тип записи хранится в поле <code>entryType</code>. В ручном режиме мы работаем с метками и измерениями.</p>

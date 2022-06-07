@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>String - метод toLowerCase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      height: 150px;
+      background-color: #18191C;
+      color: #FFD829;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    form {
+      padding: 1rem .5rem;
+    }
+
+    .row {
+      padding-bottom: .5rem;
+    }
+
+    .match {
+      color: rgb(64, 231, 70);
+    }
+
+    .mismatch {
+      color: rgb(255, 133, 46);
+    }
+  </style>
+</head>
+<body>
+  <h1>Регистронезависимое подтверждение почты</h1>
+  <form>
+    <div class="row">
+      <label>
+        Почта:
+        <input type="email" name="email">
+      </label>
+    </div>
+    <div class="row">
+      <label>
+        Подтверждение почты:
+        <input type="email" name="confirm-email">
+      </label>
+    </div>
+    <div class="row">
+      <button type="submit">Сравнить</button>
+    </div>
+  </form>
+  <p id='result'></p>
+  <script>
+    const emailInput = document.querySelector('[name=email]')
+    const confirmEmailInput = document.querySelector('[name=confirm-email]')
+    const output = document.getElementById('result')
+    const button = document.querySelector('button[type=submit]')
+
+    button.addEventListener('click', function(e) {
+      e.preventDefault()
+      const email = emailInput.value.toLowerCase()
+      const confirmEmail = confirmEmailInput.value.toLowerCase()
+      const isMatch = email === confirmEmail
+      const comparison = isMatch ? 'равен' : 'не равен'
+
+      output.className = isMatch ? 'match' : 'mismatch'
+      output.textContent = `"${email}" ${comparison} "${email}"`
+    });
+  </script>
+</body>
+</html>

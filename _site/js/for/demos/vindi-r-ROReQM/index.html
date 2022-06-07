@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - for — Дока</title>
+  <style>
+    #result{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .winner{
+      background: yellow;
+    }
+    span{
+      margin: 2px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+Выигрывает каждый третий билет!
+<br>
+Всего билетов: 100
+<div id="result">
+</div>
+  <script>
+    // Генерация номеров билетов
+    let container = document.querySelector('#result');
+    for(let i = 250;i<350;i++) {
+      let element = document.createElement('span');
+      element.innerText = 'Ticket #'+i
+      container.appendChild(element);
+    }
+    // Получить все созданные билеты в переменную
+    let tickets = document.querySelectorAll('span');
+    // Выбор каждого третьего
+    for(let i = 0;i<tickets.length;i = i + 3){
+      tickets[i].classList.add('winner');
+    }
+  </script>
+</body>
+</html>

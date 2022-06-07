@@ -1,0 +1,14 @@
+<p>🛠 Из-за того, что результат выполнения метода <code>Array.every</code> – это boolean-значение, метод можно удобно использовать прямо в условных конструкциях:</p>
+<pre><code class="language-js">const drinks = ['🍺', '🍺', '🍺', '🍺', '🍺']
+
+if (drinks.every(drink =&gt; drink === '🍺')) {
+  console.log('This is a beer party! 🎉')
+}
+</code></pre>
+<p>Но следует помнить, что проверка пустого массива всегда вернёт <code>true</code></p>
+<pre><code class="language-js">const drinks = []
+
+if (drinks.every(drink =&gt; drink === '🍺') {
+  console.log('This is a beer party! 🎉 without BEER :)')
+}
+</code></pre>

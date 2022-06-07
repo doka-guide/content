@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Math.random — Дока</title>
+  <style>
+    button {
+      padding: 5px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+<label for="from">
+  От:
+  <input type="text" name="from" id="from" value="1">
+</label>
+<label for="to">
+  До:
+  <input type="text" name="to" id="to" value="10">
+</label>
+<br>
+<button onclick="randomNumber()">Сгенерировать случайное число из заданного диапазона</button>
+<br>
+<br>
+<div id="result">
+  Random...
+</div>
+  <script>
+    let div = document.getElementById('result');
+    let from = document.getElementById('from');
+    let to = document.getElementById('to');
+
+
+    function randomNumber(){
+      let min = parseInt(from.value) || 0;
+      let max = parseInt(to.value) || 10;
+      let num = min + Math.floor(Math.random() * (max-min));
+      div.textContent = num;
+    }
+  </script>
+</body>
+</html>

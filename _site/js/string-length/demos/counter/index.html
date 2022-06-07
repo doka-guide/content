@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Строки - свойство length — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      height: 150px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    form {
+      display: flex;
+      padding: 1rem .5rem;
+    }
+
+    .error {
+      color: #FF8630;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <label for='message'>
+    Сообщение <br>
+    (не более 50 символов):
+  </label>
+  <div>
+    <textarea name="text" id="message" cols="60" rows="10"></textarea>
+    <p>
+      Использовано символов: <span id="result">0</span>
+    </p>
+  </div>
+</form>
+
+<script>
+  const textarea = document.getElementById('message')
+  const result = document.getElementById('result')
+  const MAX = 50
+  textarea.addEventListener('input', function () {
+    const text = textarea.value
+    result.innerText = text.length
+    if (text.length >= MAX) {
+      result.parentElement.classList.add('error')
+    } else {
+      result.parentElement.classList.remove('error')
+    }
+  })
+
+</script>
+</body>
+</html>

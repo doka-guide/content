@@ -1,0 +1,21 @@
+<h2>Кратко</h2>
+<p>Свойство <code>column-rule-width</code> отвечает за ширину линии между колонками в многоколоночной вёрстке.</p>
+<h2>Как понять</h2>
+<p>Можно использовать любые <a href="/css/numeric-types/">единицы измерения</a>, доступные в вебе, кроме процентов. По умолчанию установлено значение <a href="/css/border-width/"><code>medium</code></a>. Более подробно можно прочесть в описании <a href="/css/border-width/"><code>border-width</code></a>, ширина межколоночной линии описывается и вычисляется так же, как и ширина рамки.</p>
+<h2>Как пишется</h2>
+<p>Для того, чтобы задать межколоночной линии ширину 2 px, мы напишем:</p>
+<pre><code class="language-css">p {
+  column-count: 3;
+  column-rule: 2px;
+}
+</code></pre>
+<p>Также <code>column-rule-width</code> — это первое значение в свойстве <a href="/css/column-rule/"><code>column-rule</code></a>.</p>
+<h2>Пример</h2>
+<p>В примере ниже вы можете поменять ширину линии между колонками. По умолчанию заданы такие стили:</p>
+<pre><code class="language-css">.text-wrapper {
+  column-count: 3;
+  column-rule: 3px solid #ffd829;
+  column-gap: 25px;
+}
+</code></pre>
+<iframe title="Варианты значений column-rule-width" src="demos/multiple-values/" height="400"></iframe>

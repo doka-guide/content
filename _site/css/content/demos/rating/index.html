@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Всплывающая подсказка к рейтингу — counter — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      text-align: center;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    [data-tip] {
+      position: relative;
+      border-bottom: 2px solid #1a5ad7;
+      cursor: help;
+    }
+
+    [data-tip]:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 1px solid #1a5ad7;
+      padding: 10px 15px;
+      background-color: #18191c;
+      box-shadow: 5px 5px 0 #1a5ad7;
+      font-size: 0.8em;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    Ваш рейтинг: <span data-tip="Вычисляется на основе активности">212</span>
+  </p>
+</body>
+</html>

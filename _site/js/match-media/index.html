@@ -1,0 +1,42 @@
+<h2>Кратко</h2>
+<p>Интерфейс в глобальной области видимости <code>window.matchMedia</code>, который позволяет получить доступ к медиавыражениям из JavaScript и подписываться на их срабатывание. Также вы можете найти информацию про написание медиавыражений в CSS в статье <a href="/css/media/">@media</a>.</p>
+<h2>Пример</h2>
+<h3>Определение ширины экрана по заданному медиавыражению</h3>
+<p>Создадим медиавыражение с параметрами ширины и подпишемся его изменение. Теперь при изменении ширины экрана, в момент прохода через пороговое значение 420px, будет выведено сообщение:</p>
+<pre><code class="language-js">const mobileWidthMediaQuery = window.matchMedia('(max-width: 420px)')
+
+function printLog(isMobileSize) {
+  const size = isMobileSize ? 'уже или равен' : 'шире'
+
+  console.log(`Размер экрана ${size} 420px`)
+}
+
+printLog(mobileWidthMediaQuery.matches)
+
+mobileWidthMediaQuery.addEventListener('change', function (event) {
+  printLog(event.matches)
+})
+</code></pre>
+<h3>Определение системной темы оформления</h3>
+<p>Создадим медиавыражение и предадим условие, которое будет положительным в случае, когда установлена тёмная тема оформления. Выведем сообщение о текущем состоянии системы, а также подпишемся на её изменение.</p>
+<p>При смене темы оформления, в системе будет выводиться сообщение и сообщать текущее состояние.</p>
+<pre><code class="language-js">const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+function printLog(isDark) {
+  const theme = isDark ? 'темная' : 'светлая'
+
+  console.log(`В системе используется ${theme} тема`)
+}
+
+printLog(themeMediaQuery.matches)
+
+themeMediaQuery.addEventListener('change', function (event) {
+  printLog(event.matches)
+})
+</code></pre>
+<h2>Как пишется</h2>
+<p>Для создания медиа объекта нужно вызвать функцию <code>matchMedia</code> и передать ей медиавыражение. Синтаксис медиавыражений и их варианты полностью совпадают с <a href="/css/media/">выражениями, которые используются в CSS</a>.</p>
+<pre><code class="language-js">const mediaQueryList  = window.matchMedia('(медиавыражение)')
+</code></pre>
+<h2>Как понять</h2>
+<p>Если вам нужно реагировать на изменения в браузере одновременно с изменениями в вёрстке, вы можете создавать медиавыражения в JavaScript и реагировать на эти события синхронно с CSS.</p>

@@ -1,0 +1,74 @@
+<p>🛠 Современные версии JavaScript содержат много упрощений синтаксиса.</p>
+<p>Например, методы объявлять по-старому:</p>
+<pre><code class="language-js">const cat = {
+  name: 'Том',
+  meow: function () {
+    console.log('мяу мяу')
+  },
+}
+</code></pre>
+<p>А можно использовать короткий синтаксис:</p>
+<pre><code class="language-js">const cat = {
+  name: 'Том',
+  meow() {
+    console.log('мяу мяу')
+  },
+}
+</code></pre>
+<p>Если у вас есть переменная со значением, и вы хотите создать свойство с тем же именем, то вместо старого подхода:</p>
+<pre><code class="language-js">const firstName = 'Иван'
+const username = 'Killer3000'
+
+const user = {
+  firstName: firstName,
+  username: username
+}
+
+console.log(user)
+// { firstName: 'Иван', username: 'Killer3000' }
+</code></pre>
+<p>Можно сократить запись:</p>
+<pre><code class="language-js">const firstName = 'Иван'
+const username = 'Killer3000'
+
+const user = {
+  firstName,
+  username
+}
+
+console.log(user)
+// { firstName: 'Иван', username: 'Killer3000' }
+</code></pre>
+<p>🛠 Если название свойства хранится в переменной, его значение можно прочитать через синтаксис квадратных скобок:</p>
+<pre><code class="language-js">const user = {
+  firstName: 'Марина',
+  username: 'zloyDuh'
+}
+
+const prop = 'firstName'
+console.log(user[prop])
+// Марина
+</code></pre>
+<p>🛠 Для проверки, есть ли свойство у объекта, используйте оператор <code>in</code>:</p>
+<pre><code class="language-js">const user = {
+  firstName: 'Марина',
+  username: 'zloyDuh'
+}
+
+console.log('firstName' in user)
+// true
+console.log('age' in user)
+// false
+</code></pre>
+<p>🛠 Чтобы обойти все ключи объекта, используют цикл <a href="/js/for-in/"><code>for...in</code></a></p>
+<p>🛠 Для копирования объектов используется спред-синтаксис:</p>
+<pre><code class="language-js">const user = {
+  firstName: 'Марина',
+  username: 'zloyDuh'
+}
+
+const copy = { ...user }
+console.log(copy)
+// { firstName: 'Марина', username: 'zloyDuh'}
+</code></pre>
+<p>При этом происходит поверхностное копирование — полностью копируются только свойства первого уровня вложенности. Подробнее об этом читайте статью <a href="/js/shallow-or-deep-clone/">«Поверхностное и глубокое копирование»</a>.</p>

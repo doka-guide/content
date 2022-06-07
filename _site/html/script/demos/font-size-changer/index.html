@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>JavaScript меняет размер шрифта — script — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      margin: auto;
+      padding: 55px 40px;
+      background-color: #FF8630;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 17px;
+    }
+
+    p {
+      transition: font-size 0.3s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Подключение скриптов</h1>
+    <p id="blinking">Скрипты можно подключить разными способами. Например, описать их прямо внутри HTML-страницы. Но лучше всё же в отдельном файле.</p>
+  </div>
+  <script>
+    const p = document.getElementById('blinking')
+    setInterval(function () {
+      const newFontSize = p.style.fontSize !== '10px' ? 10 : 20
+      p.style.fontSize = `${newFontSize}px`
+    }, 2000)
+  </script>
+</body>
+</html>

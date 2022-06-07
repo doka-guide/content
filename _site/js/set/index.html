@@ -1,0 +1,156 @@
+<h2>Кратко</h2>
+<p><code>Set</code> (по-русски говорят <em>множество</em>) — коллекция для хранения уникальных значений любого типа. Одно и то же значение нельзя добавить в <code>Set</code> больше одного раза.</p>
+<p><code>Set</code> — это неиндексированная коллекция, положить элемент в коллекцию можно, но достать нельзя. По элементам коллекции можно итерироваться.</p>
+<p>Основные методы для работы с коллекцией:</p>
+<ul>
+<li><a href="/js/set-add/"><code>add</code></a> — добавить элемент.</li>
+<li><a href="/js/set-delete/"><code>delete</code></a> — удалить элемент.</li>
+<li><a href="/js/set-has/"><code>has</code></a> — проверить, есть ли элемент в коллекции.</li>
+<li><a href="/js/set-clear/"><code>clear</code></a> — очистить коллекцию.</li>
+<li><a href="/js/set-foreach/"><code>forEach</code></a> — выполнить функцию для каждого элемента в коллекции, аналогично <a href="/js/array-foreach/">одноимённому методу массива</a>.</li>
+</ul>
+<p>Содержит свойство <a href="/js/set-size/"><code>size</code></a> для получения количества элементов в коллекции.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const uniqueIds = new Set()
+
+uniqueIds.add(123)
+uniqueIds.add(456)
+uniqueIds.add(111)
+uniqueIds.add(123)
+
+console.log(uniqueIds.size)
+// 3
+
+console.log(uniqueIds.has(111))
+// true
+
+uniqueIds.delete(111)
+console.log(uniqueIds.size)
+// 2
+
+uniqueIds.clear()
+console.log(uniqueIds.size)
+// 0
+</code></pre>
+<h2>Как понять</h2>
+<p>Коллекция <code>Set</code> может хранить произвольный набор значений — нет разницы, хранить в коллекции примитивные типы, объекты или массивы. <code>Set</code> гарантирует, что одно и то же значение не может попасть в коллекцию больше одного раза. Если нам нужно получить коллекцию уникальных значений из массива неуникальных — <code>Set</code> один из способов этого достичь.</p>
+<p>Добавляйте элемент в массив и множество, чтобы понять разницу:</p>
+<iframe title="Отличие массива от Set" src="demos/index.html" height="400"></iframe>
+<h3>Создание коллекции</h3>
+<p>Коллекция создаётся при помощи <a href="/js/set-constructor/">конструктора</a>.</p>
+<p>Можно создать пустой <code>Set</code>:</p>
+<pre><code class="language-js">const set = new Set()
+
+console.log(set.size)
+// 0
+</code></pre>
+<p>Или сразу добавить в него элементы. Для этого нужно передать в конструктор итерируемый список значений. Обычно это массив:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
+console.log(filled.size)
+// 4
+</code></pre>
+<h3>Работа с коллекцией</h3>
+<p><code>Set</code> предоставляет небольшой набор методов, но их достаточно в большинстве случаев.</p>
+<p>Добавляют элемент в <code>Set</code> с помощью метода <a href="/js/set-add/"><code>add()</code></a>, а удаляют с помощью <a href="/js/set-delete/"><code>delete()</code></a>. В оба метода передаётся элемент, который нужно добавить или удалить:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, '3', 3, 'hello'])
+
+filled.add(100)
+filled.delete(1)
+</code></pre>
+<p>Количество элементов в множестве хранится в свойстве <code>size</code>. Проверить количество элементов в множестве <code>filled</code>:</p>
+<pre><code class="language-js">console.log(filled.size)
+// 5
+</code></pre>
+<p><code>Set</code> позволяет проверить, был ли элемент уже добавлен. За это отвечает метод <a href="/js/set-has/"><code>has()</code></a>:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, '3', 3, 'hello'])
+
+console.log(filled.has(3))
+// true
+console.log(filled.has('3'))
+// true
+
+console.log(filled.has('My name'))
+//false
+</code></pre>
+<p>Полностью очистить <code>Set</code> можно методом <a href="/js/set-clear/"><code>clear()</code></a>. Технически это то же самое, что и создать новый <code>Set</code>:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+filled.clear()
+
+console.log(filled.size)
+// 0
+</code></pre>
+<h3>Обход</h3>
+<p><code>Set</code> — это неиндексированная коллекция. В этой структуре данных нет понятия индекса элемента, поэтому нельзя получить произвольный элемент коллекции. В коллекцию можно только положить значение, а получить отдельное значение нельзя.</p>
+<p>Основной инструмент работы с <code>Set</code> — обход коллекции. При обходе коллекции нам гарантируется, что мы будем получать элементы <em>в порядке их добавления в <code>Set</code></em>, то есть первыми обойдём элементы добавленные раньше всего.</p>
+<p>Обход можно организовать двумя способами:</p>
+<p>1️⃣ Использовать метод <a href="/js/set-foreach/"><code>forEach()</code></a>, который работает аналогично одноимённому методу массива:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
+filled.forEach(function(value) {
+  console.log(value)
+})
+
+// 1
+// 2
+// 3
+// 'hello'
+</code></pre>
+<p>2️⃣ Воспользоваться <code>for...of</code>:</p>
+<pre><code class="language-js">const filled = new Set([1, 2, 3, 3, 3, 'hello'])
+
+for (let n of filled) {
+  console.log(n)
+}
+
+// 1
+// 2
+// 3
+// 'hello'
+</code></pre>
+<h3>Особенности работы с непримитивными типами</h3>
+<p><code>Set</code> использует строгое сравнение для проверки, есть ли элемент в коллекции или нет. Добавление примитивных значений разных типов будет работать как ожидается, приведения типов нет. При добавлении числа и строки с этим числом оба добавятся в коллекцию:</p>
+<pre><code class="language-js">const set = new Set()
+
+set.add(1)
+set.add('1')
+
+console.log(set.size)
+// 2
+</code></pre>
+<p>Непримитивные типы <a href="/js/ref-type-vs-value-type/">хранятся по ссылке</a>, поэтому <code>Set</code> будет проверять что мы действительно пытаемся добавить <em>тот же самый объект</em> в коллекцию или нет. Это может казаться нелогичным, потому что объекты могут выглядеть одинаково, но не быть одним и тем же объектом (то есть у них разные адреса в памяти):</p>
+<p>Создадим два различных объекта с одинаковым набором свойств. Сравним их друг с другом и с собой:</p>
+<pre><code class="language-js">const cheapShirt = { size: 'L', color: 'white' }
+const fancyShirt = { size: 'L', color: 'white' }
+
+console.log(cheapShirt === fancyShirt)
+// false
+console.log(cheapShirt === cheapShirt)
+// true
+console.log(fancyShirt === fancyShirt)
+// true
+</code></pre>
+<p>Мы создали два разных объекта (фигурные скобки создают новый объект), которые выглядят одинаково, но по факту это разные объекты. Они не равны друг другу — если в один добавить новое свойство, то второй не изменится.</p>
+<p>Попробуем добавить эти объекты в <code>Set</code>:</p>
+<pre><code class="language-js">const closet = new Set()
+closet.add(cheapShirt)
+closet.add(fancyShirt)
+
+console.log(closet.size)
+// 2
+</code></pre>
+<p>Так как это разные объекты, то оба добавились в коллекцию. Если же попробовать добавить их второй раз, то эта операция будет проигнорирована:</p>
+<pre><code class="language-js">const closet = new Set()
+closet.add(cheapShirt)
+closet.add(fancyShirt)
+
+console.log(closet.size)
+// 2
+
+closet.add(cheapShirt)
+closet.add(cheapShirt)
+closet.add(fancyShirt)
+
+console.log(closet.size)
+// 2
+</code></pre>

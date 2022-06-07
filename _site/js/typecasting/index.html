@@ -1,0 +1,280 @@
+<h2>Кратко</h2>
+<p>Представим ситуацию: у нас есть форма с полем, в которое пользователь вписывает свой возраст в годах.</p>
+<p>По умолчанию любой ввод в полях — это строка. Если мы хотим работать с этим значением, как с числом, то нам нужно <em>привести его к числу</em>.</p>
+<p>Приведение (или преобразование) типов — это процесс конвертации значения из одного типа в другой.</p>
+<p>В JavaScript типы можно преобразовывать явно и неявно.</p>
+<p>Когда мы вызываем функцию, чтобы получить конкретный тип — это явное преобразование:</p>
+<pre><code class="language-js">const x = &quot;4&quot;
+Number(x)
+
+const y = 4
+String(y)
+</code></pre>
+<p>Сравнение бывает строгим и нестрогим. При строгом сравнении (<code>===</code>) интерпретатор учитывает типы сравниваемых значений.</p>
+<p>Когда же мы <em><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B*%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F#%D0%A0%D0%B0%D0%B2%D0%BD%D0%BE">сравниваем значения нестрого</a></em> между собой с помощью <code>==</code>, JavaScript приводит типы самостоятельно:</p>
+<pre><code class="language-js">5 == &quot;5&quot; // true
+5 === &quot;5&quot; // false
+</code></pre>
+<p>Чтобы понять, почему так, нам надо сперва разобраться, какие типы в JS есть.</p>
+<p>Сперва проведём границу между примитивными типами, объектами и другими.</p>
+<h2>Примитивные типы</h2>
+<p>В JavaScript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#javascript_types">примитивные типы</a> следующие:</p>
+<pre><code class="language-js">// 1. Undefined
+typeof undefined === &quot;undefined&quot;
+
+// 2. Boolean, логический
+typeof true === &quot;boolean&quot;
+typeof false === &quot;boolean&quot;
+
+// 3. Number, число
+typeof 42 === &quot;number&quot;
+typeof 4.2 === &quot;number&quot;
+typeof -42 === &quot;number&quot;
+typeof Infinity === &quot;number&quot;
+typeof -Infinity === &quot;number&quot;
+
+// 4. String, строка
+typeof &quot;&quot; === &quot;string&quot;
+typeof &quot;string&quot; === &quot;string&quot;
+typeof &quot;number&quot; === &quot;string&quot;
+typeof &quot;boolean&quot; === &quot;string&quot;
+
+// 5. Symbol, символ, ES6
+typeof Symbol() === &quot;symbol&quot;
+
+// 6. BigInt, большое число, ES6
+typeof 9007199254740991n === &quot;bigint&quot;
+typeof BigInt(9007199254740991) === &quot;bigint&quot;
+
+// 7. Null
+typeof null === 'object'
+// О том, почему здесь “object” — чуть позже.
+</code></pre>
+<p>Примитивные типы — это такие типы, значения которых можно только перезаписать, но нельзя изменить.</p>
+<p>Например, если мы создали переменную со значением <code>42</code>, изменить это значение будет нельзя. Мы сможем его только полностью перезаписать:</p>
+<pre><code class="language-js">let theAnswerToUltimateQuestion = 42
+theAnswerToUltimateQuestion = 43
+// Новое значение полностью перезаписало старое;
+// старое собрано сборщиком мусора и забыто.
+
+let theAnswers = [42, 43, 44]
+theAnswers[0] = 142
+// Теперь значение переменной [142, 43, 44];
+// мы не перезаписали его полностью, а лишь изменили часть.
+</code></pre>
+<p>Этот механизм связан с тем, как значения переменных хранятся в памяти. Мы не пойдём слишком глубоко в эту тему, но, грубо говоря, примитивные типы «ссылаются на одно и то же значение в памяти», а не примитивные — на разные.</p>
+<p>Из-за этого, например, примитивы можно сравнивать по значению:</p>
+<pre><code class="language-js">const a = 5
+const b = 5
+a == b // true
+</code></pre>
+<p>А вот не примитивы — не получится:</p>
+<pre><code class="language-js">const a = [1, 2, 3]
+const b = [1, 2, 3]
+a == b // false
+
+// Даже несмотря на то, что массивы содержат одни и те же числа,
+// при сравнении они не являются «одинаковыми».
+
+// Когда JavaScript сравнивает a и b, он грубо говоря
+// «сравнивает места в памяти, на которые ссылаются эти переменные».
+// У не примитивов, эти места — разные, из-за чего они считаются неодинаковыми.
+</code></pre>
+<h2>Объекты</h2>
+<p>Объекты в JavaScript используются для хранения коллекций значений.</p>
+<p>Массивы (Array) в JS — <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array">тоже объекты</a>.</p>
+<p>Как мы уже говорили, не примитивы сравниваются по ссылке, а не по значению. Объекты и массивы — это как раз не примитивы.</p>
+<p>У объектов в JavaScript собственный тип — <code>object</code>.</p>
+<pre><code class="language-js">const keyValueCollection = { key: &quot;value&quot; }
+typeof keyValueCollection === &quot;object&quot;
+
+const listCollection = [1, 2, 3]
+typeof listCollection === &quot;object&quot;
+</code></pre>
+<p>У <a href="https://doka.guide/js/null-primitive/"><code>null</code></a> оператор <code>typeof</code> возвращает <code>object</code>, хотя это тоже примитив:</p>
+<pre><code class="language-js">typeof null === &quot;object&quot;
+</code></pre>
+<h2>Функции</h2>
+<p>У функций в JavaScript тоже тип — <code>object</code>, хотя <code>typeof</code> возвращает <code>function</code>:</p>
+<pre><code class="language-js">function simpleFunction() {}
+typeof simpleFunction === &quot;function&quot;
+
+const assignedFunction = function () {}
+typeof assignedFunction === &quot;function&quot;
+
+const arrowFunction = () =&gt; {}
+typeof arrowFunction === &quot;function&quot;
+
+typeof function () {} === &quot;function&quot;
+</code></pre>
+<p>Разницу между разными видами функций мы описали в статье о функциях <a href="/js/function/">Функции</a>.</p>
+<h2><code>typeof</code></h2>
+<p>Оператор <code>typeof</code> <a href="https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-typeof-operator">возвращает не непосредственно «тип», а строку</a>. Для всех примитивов, кроме <code>null</code>, этой строкой будет название этого примитива.</p>
+<p>Для объектов он сначала проверит, <a href="https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#function-object">можно ли его «вызвать»</a>. Функции — это как раз такие объекты, поэтому оператор возвращает <code>function</code>.</p>
+<p>Несмотря на то, что <code>typeof</code> не всегда возвращает то, что мы бы могли ожидать, им удобно пользоваться в некоторых случаях в коде, например, для определения функций.</p>
+<h2>Преобразование типов</h2>
+<p>Теперь, когда мы разобрались с типами, посмотрим, как мы можем преобразовывать значения одного типа в значения другого.</p>
+<p>В JavaScript существует лишь 3 типа конвертации: в строку, в число или в логическое значение.</p>
+<p>Чтобы конвертировать значение в эти типы, можно воспользоваться одноимёнными функциями:</p>
+<pre><code class="language-js">String(42) // Приводит к строке.
+Number(&quot;42&quot;) // Приводит к числу.
+Boolean(42) // Приводит к логическому значению.
+</code></pre>
+<p>Приведение к строке, числу и логическому значению можно проводить над любыми значениями:</p>
+<pre><code class="language-js">// К строке:
+String(123) // &quot;123&quot;
+String(-12.3) // &quot;-12.3&quot;
+String(null) // &quot;null&quot;
+String(undefined) // &quot;undefined&quot;
+String(true) // &quot;true&quot;
+String(false) // &quot;false&quot;
+String(function () {}) // &quot;function () {}&quot;
+String({}) // &quot;[object Object]&quot;
+String({ key: 42 }) // &quot;[object Object]&quot;
+String([]) // &quot;&quot;
+String([1, 2]) // &quot;1,2&quot;
+</code></pre>
+<p>К числу также можно пытаться приводить любые значения. Если JavaScript не сможет привести какое-то значение к числу, мы получим <code>NaN</code> — <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/NaN">особое значение</a>, представляющее не-число (Not-a-Number).</p>
+<pre><code class="language-js">// К числу:
+Number(&quot;123&quot;) // 123
+Number(&quot;123.4&quot;) // 123.4
+Number(&quot;123,4&quot;) // NaN
+Number(&quot;&quot;) // 0
+Number(null) // 0
+Number(undefined) // NaN
+Number(true) // 1
+Number(false) // 0
+Number(function () {}) // NaN
+Number({}) // NaN
+Number([]) // 0
+Number([1]) // 1
+Number([1, 2]) // NaN
+
+// Обратите внимание, что Number от пустого массива — 0,
+// от массива с одним числом — это число
+// и от массива с несколькими числами — NaN.
+// Почему так происходит, мы поймём чуть ниже.
+</code></pre>
+<p>К логическому также можно приводить любые значения:</p>
+<pre><code class="language-js">Boolean(&quot;&quot;) // false
+Boolean(&quot;string&quot;) // true
+Boolean(&quot;false&quot;) // true
+Boolean(0) // false
+Boolean(42) // true
+Boolean(-42) // true
+Boolean(NaN) // false
+Boolean(null) // false
+Boolean(undefined) // false
+Boolean(function () {}) // true
+Boolean({}) // true
+Boolean({ key: 42 }) // true
+Boolean([]) // true
+Boolean([1, 2]) // true
+
+// Грубо говоря, всё, кроме пустой строки, нуля,
+// NaN, null и undefined — true.
+</code></pre>
+<h2>Неявное преобразование типов</h2>
+<p>В секции выше мы преобразовывали типы «руками», с помощью функций. Но JavaScript может делать такие преобразования за нас самостоятельно. (Из-за чего в языке появляется много <a href="https://github.com/denysdovhan/wtfjs">странностей</a>, за которые его <a href="https://www.destroyallsoftware.com/talks/wat">не очень сильно любят</a>.)</p>
+<p>Такая типизация, при которой тип значения определяется во время присвоения, а по ходу программы может меняться, — называется <a href="https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F_%D1%82%D0%B8%D0%BF%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">динамической</a>.</p>
+<p>Неявное преобразование происходит, когда мы заставляем JavaScript работать со значениями разных типов. Например, если мы хотим «сложить» число и строку:</p>
+<pre><code class="language-js">5 + &quot;3&quot; === &quot;53&quot;
+5 - &quot;3&quot; === 2
+5 + &quot;-3&quot; === &quot;5-3&quot;
+5 - +3 === 2
+5 + -3 === 2
+
+// Из-за этого же появилась и такая шутка:
+Array(16).join(&quot;wat&quot; - 1) + &quot; Batman!&quot;
+// &quot;NaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaN Batman!&quot;
+</code></pre>
+<p>Дело в том, как JavaScript пробует эти два типа «сопоставить» друг с другом, чтобы с ними работать.</p>
+<p>Вначале посмотрим на примитивы.</p>
+<!-- prettier-ignore -->
+<ol>
+<li>Интерпретатор приведёт примитивные значения к логическим, если мы используем <code>&amp;&amp;</code> или <code>||</code>.</li>
+<li>К строке, если мы используем <code>+</code>, когда один из операндов — строка.</li>
+<li>К числу, если:
+<ol>
+<li>мы используем операторы сравнения <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>;</li>
+<li>используем арифметические операции <code>-</code>, <code>+</code> (за исключением пункта 2), <code>/</code>, <code>*</code>.</li>
+<li>используем унарный плюс: <code>+'2' === 2</code>;</li>
+<li>используем оператор <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/%D0%9E%D0%BF%D0%B5%D1%80%D0%B0%D1%82%D0%BE%D1%80%D1%8B_%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F#%D0%A0%D0%B0%D0%B2%D0%BD%D0%BE">нестрогого сравнения</a> <code>==</code>.</li>
+</ol>
+</li>
+</ol>
+<p>Но примитивами дело не заканчивается, JavaScript также неявно приводит и не примитивные значения.</p>
+<p>Интерпретатор приводит их к логическому, если мы используем <code>&amp;&amp;</code> или <code>||</code>. (Объекты — всегда <code>true</code>).</p>
+<p>С числом и строкой всё немного интереснее. Чтобы определить, к строке приводить значение или к числу, JavaScript смотрит, какой из двух методов (<code>valueOf</code> и <code>toString</code>) в текущем объекте объявлен.</p>
+<ol>
+<li>Если перед нами не объект <code>Date</code>, то метод <code>valueOf</code> вызывается, обычно, первым (если не сильно углубляться в <a href="http://es5.github.io/#x8.12.8">детали спецификации</a>).</li>
+<li>Если возвращённое после этого значение — это примитив, то возвращается оно.</li>
+<li>Если нет, то вызывается другой метод (если <code>valueOf</code> не вернул примитив, то вызывается <code>toString</code> и наоборот).</li>
+<li>Если после этого вернулся примитив, возвращается он.</li>
+<li>Если даже после этого не вернулся примитив, то будет ошибка <code>Uncaught TypeError: Cannot convert object to primitive value</code>.</li>
+</ol>
+<h2>На примерах</h2>
+<pre><code class="language-js">// 1. Простой объект
+const obj1 = {}
+obj1.valueOf() // {}
+obj1.toString() // &quot;[object Object]&quot;
+
+// Чтобы «сложить» число с объектом,
+// вначале будет вызван obj1.valueOf().
+// Он вернёт объект (непримитив),
+// после чего будет вызван obj1.toString().
+
+1 + obj1
+// 1 + &quot;[object Object]&quot;
+// &quot;1&quot; + &quot;[object Object]&quot;
+// &quot;1[object Object]&quot;
+
+// 2. Объект с указанным .valueOf()
+const obj2 = {}
+obj2.valueOf = () =&gt; &quot;obj2&quot;
+obj2.valueOf() // &quot;obj2&quot;;
+obj2.toString() // &quot;[object Object]&quot;
+
+// Теперь, когда мы объявили метод .valueOf(),
+// при вызове он будет возвращать строку.
+// Так как строка — примитив,
+// она и будет использована при «сложении».
+
+1 + obj2
+// 1 + &quot;obj2&quot;
+// &quot;1&quot; + &quot;obj2&quot;
+// &quot;1obj2&quot;
+
+// 2.1. Если же мы будем возвращать число
+const obj2 = {}
+obj2.valueOf = () =&gt; 42
+obj2.valueOf() // 42
+obj2.toString() // &quot;[object Object]&quot;
+
+1 + obj2
+// 1 + 42
+// 43
+
+// 3. Даты
+const date = new Date()
+date.valueOf() // 1467864738527
+date.toString() // &quot;Sun Sep 15 2019...&quot;
+
+// У дат приоритет методов обратный:
+// то есть вначале будет вызываться .toString(),
+// и только после него — .valueOf().
+
+1 + date
+// 1 + &quot;Sun Sep 15 2019...&quot;
+// &quot;1&quot; + &quot;Sun Sep 15 2019...&quot;
+// &quot;1Sun Sep 15 2019...&quot;
+</code></pre>
+<h2>Строгое и нестрогое равенство</h2>
+<p>Неявное преобразование также используется, когда мы сравниваем значения через нестрогое равенство <code>==</code>.</p>
+<p>В отличие от строгого равенства (<code>===</code>), в нём интерпретатор пробует привести типы к одному, чтобы сравнить.</p>
+<p>Полный алгоритм <a href="https://262.ecma-international.org/5.1/#sec-11.9.3">сложный</a>. Для удобства его свели в <a href="https://dorey.github.io/JavaScript-Equality-Table/unified/">большую матрицу</a>, которая показывает, «что чему равно» при строгом и нестрогом равенстве.</p>
+<p>Вот таблица нестрогого равенства (зелёным отмечены значения, которые «равны»):</p>
+<p><img src="images/1.png" alt="Таблица нестрогого равенства"></p>
+<p>А вот — для строгого:</p>
+<p><img src="images/2.png" alt="Таблица строгого равенства"></p>
+<p>Хорошей практикой считается использовать только строгое сравнение, чтобы избежать неявного преобразования типов при сравнении.</p>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация кавычек — quotes — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      quotes: "«" "»" "„" "“";
+      background-color: #282a2e;
+      color: #afc9da;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 300;
+      font-family: "Roboto", serif;
+    }
+
+    span::before {
+      content: open-quote;
+    }
+
+    span::after {
+      content: close-quote;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <q>Скажи <span>церемония</span> по слогам</q>, — попросила она.
+  </p>
+</body>
+</html>

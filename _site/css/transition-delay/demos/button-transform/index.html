@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кнопка с трансформацией по наведению — transition-delay — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      height: 44px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 25px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    button span {
+      transition-property: font-size, transform;
+      transition-duration: .5s, .5s;
+      transition-delay: .5s, 0s;
+    }
+
+    button:before {
+      content: 'Спасибо! U*ᴥ*U';
+      font-size: 0;
+      transition-property: font-size;
+      transition-duration: .5s;
+      transition-delay: 0s;
+    }
+
+    button:hover:before {
+      font-size: 18px;
+      transition-property: font-size;
+      transition-duration: .5s;
+      transition-delay: .5s;
+    }
+
+    button:hover span{
+      transform: scale(0);
+      font-size: 0;
+      transition-property: font-size, transform;
+      transition-duration: .5s, .5s;
+      transition-delay: .5s, 0s;
+    }
+  </style>
+</head>
+<body>
+<button class="button button-blue"><span>Наведи на меня</span></button>
+</body>
+</html>

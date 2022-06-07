@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Math.random — Дока</title>
+  <style>
+    #result {
+      font-size: 50px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+Массив значений: <span id="array"></span> <br>
+<button onclick="randomFromArray()">Выбрать случайный элемент</button>
+<br>
+<br>
+<div id="result">
+</div>
+  <script>
+    let zoo = ['🐶', '🐮', '🐰', '🦊', '🦁', '🐷'];
+    let div = document.getElementById('result');
+    let arrayEl = document.getElementById('array');
+
+    arrayEl.textContent = zoo.join(' ,');
+
+    function randomFromArray(){
+      let randomIndex = Math.floor(Math.random() * zoo.length);
+      let selected = zoo[randomIndex];
+      div.textContent = selected;
+    }
+  </script>
+</body>
+</html>

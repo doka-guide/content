@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные виды скрытия — overflow — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+      height: 100vh;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buttons, .text {
+      width: 45%;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button > code {
+      pointer-events: none;
+    }
+
+    button._active {
+      outline: 2px solid #1a5ad7;
+    }
+
+    .text {
+      height: 150px;
+      border: 2px solid #49a16c;
+    }
+  </style>
+</head>
+<body>
+    <h2><code>overflow</code></h2>
+    <div class="container">
+      <div class="buttons">
+        <button class="visible"><code>overflow: visible</code></button>
+        <button class="hidden"><code>overflow: hidden</code></button>
+        <button class="scroll"><code>overflow: scroll</code></button>
+        <button class="auto"><code>overflow: auto</code></button>
+      </div>
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque eaque error et facere id, necessitatibus odit, officia quia repellendus voluptates? Ab aliquid architecto atque eius impedit quo quos.
+      </p>
+    </div>
+  <script>
+    let textBlock = document.querySelector('.text')
+    let buttons = Array.from(document.querySelectorAll('button'))
+    buttons.map((btn) => {
+      btn.addEventListener('click', (e) => {
+        buttons.forEach(el => el.classList.remove('_active'))
+        textBlock.style.overflow = e.target.classList
+        e.target.classList.add('_active')
+      })
+    })
+  </script>
+</body>
+</html>

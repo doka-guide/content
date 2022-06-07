@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Множественный радиальный градиент — radial-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 10% 5%;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .element {
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+        background:
+          radial-gradient(circle at 50% 0, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0) 70.71%),
+          radial-gradient(circle at 6.7% 75%, rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0) 70.71%),
+          radial-gradient(circle at 93.3% 75%, rgba(0, 255, 0, 0.5), rgba(0, 255, 0, 0) 70.71%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="element"></div>
+  </body>
+</html>

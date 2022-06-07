@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между массивом и Set — setTimeout — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body, input, button {
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <p id="array">
+    []
+  </p>
+  <p id="set">
+    []
+  </p>
+  <form id="add-element">
+    <input type="text" placeholder="Введите значение, которое нужно добавить" id="new-element">
+    <button type="submit">Добавить</button>
+  </form>
+  <script>
+    const animals = ['🐮', '🐯', '🐼', '🐨', '🐤', '🐷', '🐸']
+    const form = document.getElementById('add-element')
+    const valueEl = document.getElementById('new-element')
+    const arrayEl = document.getElementById('array')
+    const setEl = document.getElementById('set')
+    const array = []
+    const set = new Set()
+
+    function getRandomAnimal() {
+      return animals[Math.floor(Math.random() * animals.length)]
+    }
+
+    function printArray(arr) {
+      return `[ ${arr.join()} ]`
+    }
+
+    function printSet(set) {
+      return printArray(Array.from(set))
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const value = valueEl.value
+      array.push(value)
+      set.add(value)
+
+      arrayEl.textContent = printArray(array)
+      setEl.textContent = printSet(set)
+      valueEl.value = getRandomAnimal()
+    })
+
+    document.addEventListener('DOMContentLoaded', function() {
+      valueEl.value = getRandomAnimal()
+    })
+  </script>
+</body>
+</html>
