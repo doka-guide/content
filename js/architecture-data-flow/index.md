@@ -1,5 +1,6 @@
 ---
 title: "Организация потоков данных"
+description: "Данные приходят в программу, а вот как с ними работать дальше нужно придумывать."
 authors:
   - bespoyasov
 editors:
@@ -13,6 +14,10 @@ keywords:
   - redux
   - react
   - reactivity
+related:
+  - js/web-app-works
+  - js/architecture-and-design-patterns
+  - js/react-and-alternatives
 tags:
   - article
 ---
@@ -80,7 +85,7 @@ tags:
 
 ## Двунаправленный поток
 
-В двунаправленном потоке данные могут передаваться между частями программы в обе стороны.
+Данные в двунаправленном потоке могут передаваться между частями программы в обе стороны.
 
 ![Модуль может получить и передать данные предыдущему модулю](images/data-flow-two-way-v2.png)
 
@@ -120,25 +125,28 @@ tags:
 
 ```js
 function sum(a, b) {
-  return a + b;
+  return a + b
 }
 
-let a1 = 2;
-let a2 = 3;
-let a3 = sum(a1, a2); // 5
+let a1 = 2
+let a2 = 3
+let a3 = sum(a1, a2)
+// 5
 ```
 
 Если мы изменим значение `a1`, значение `a3` не поменяется:
 
 ```js
-a1 = 22;
-console.log(a3); // 5
+a1 = 22
+console.log(a3)
+// 5
 ```
 
 Чтобы значение реактивно отреагировало (to _re-act_) на изменение, нам нужно перезапустить его подсчёт:
 
 ```js
-a3 = sum(a1, a2); // 25
+a3 = sum(a1, a2)
+// 25
 ```
 
 Фреймворки типа Vue [берут на себя](https://v3.vuejs.org/guide/reactivity.html#how-vue-knows-what-code-is-running) заботу о реактивности значений.
