@@ -17,7 +17,7 @@ keywords:
 related:
   - js/web-app-works
   - js/architecture-and-design-patterns
-  - js/technical-debt
+  - js/react-and-alternatives
 tags:
   - article
 ---
