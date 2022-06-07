@@ -1,6 +1,6 @@
 ---
 title: "`.filter()`"
-description: "Водяные фильтры удерживают вредные частицы, а фильтр JS — плохие значения"
+description: "Фильтры для воды удерживают вредные частицы, а фильтр JS — плохие значения."
 authors:
   - windrushfarer
 contributors:
