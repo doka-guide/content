@@ -1,6 +1,6 @@
 ---
 title: "Селектор по атрибуту"
-description: "Находим элемент на странице по наличию конкретного атрибута."
+description: "Находим элемент на странице по конкретному атрибуту."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
