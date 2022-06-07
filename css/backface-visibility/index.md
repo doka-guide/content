@@ -1,6 +1,6 @@
 ---
 title: "`backface-visibility`"
-description: "Если создаёте 3D-трансформацию, не забывайте про заднюю сторону элемента."
+description: "Если создаёте 3D-трансформацию, не забывайте про изнанку элемента."
 authors:
   - doka-dog
 keywords:
