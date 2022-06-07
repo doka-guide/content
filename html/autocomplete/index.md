@@ -6,7 +6,6 @@ authors:
 editors:
   - tachisis
 keywords:
-  - атрибут
   - автозаполнение
 related:
   - js/deal-with-forms
