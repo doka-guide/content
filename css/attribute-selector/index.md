@@ -1,5 +1,6 @@
 ---
 title: "Селектор по атрибуту"
+description: "Находим элемент на странице по конкретному атрибуту."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,9 +12,10 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
-keywords:
-  - селектор
-  - атрибут
+related:
+  - css/selector-list
+  - html/global-attrs
+  - css/class-selector
 tags:
   - doka
 ---
