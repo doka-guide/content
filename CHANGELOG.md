@@ -2,6 +2,13 @@
 
 <!-- yaspeller ignore:start -->
 
+## Май 2022
+
+- 26 мая [`queueMicrotask()`](https://doka.guide/js/queuemicrotask/), Артём Гусев
+- 15 мая [`FormData`](https://doka.guide/js/form-data/), Виталий Баев
+- 4 мая [Метод `flatMap()`](https://doka.guide/js/array-map/), Антон Горелов
+- 4 мая [`outline-width`](https://doka.guide/css/outline-width/), Владимир
+
 ## Апрель 2022
 
 - 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко
