@@ -10,7 +10,7 @@ keywords:
 related:
   - css/numeric-types
   - css/animation-play-state
-  - css/timing-function
+  - css/animation-timing-function
 tags:
   - doka
 ---

@@ -9,7 +9,7 @@ keywords:
   - длительность анимации
 related:
   - css/animation
-  - css/timing-function
+  - css/animation-timing-function
   - css/animation
 tags:
   - doka
