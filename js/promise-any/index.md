@@ -141,18 +141,51 @@ Promise.any([promise1, promise2])
 
 ### Не промисы в массиве промисов
 
-Если в `Promise.any()` передать не промисы, он вернёт переданные не промисы в результат выполнения как есть (под капотом при этом произойдёт его преобразование с помощью метода `Promise.resolve()`).
+Если в `Promise.any()` передать не промисы, он вернёт *первый* переданный аргумент, независимо от его типа, в результат выполнения как есть (под капотом при этом произойдёт его преобразование с помощью метода `Promise.resolve()`).
 
-Передадим в `Promise.any()` промис `promise1`, число `number` и объект `obj`:
+Передадим в `Promise.any()` массив значений, которые не являются промисами:
 
 ```js
-const promise1 = new Promise(resolve => setTimeout(() => resolve(1), 5000))
 const number = 2
 const obj = {key: 'value'}
+const func = () => true
+const bool = false
+const nulled = null
+const undef = undefined
 
-Promise.any([promise1, number, obj])
+Promise.any([number, obj, func, bool, nulled, undef])
   .then((result) => {
     console.log(result)
     // 2
+  })
+
+Promise.any([obj, func, bool, nulled, undef, number])
+  .then((result) => {
+    console.log(result)
+    // {key: 'value}
+  })
+
+Promise.any([func, bool, nulled, undef, number, obj])
+  .then((result) => {
+    console.log(result)
+    // () => true
+  })
+
+Promise.any([bool, nulled, undef, number, obj, func])
+  .then((result) => {
+    console.log(result)
+    // false
+  })
+
+Promise.any([nulled, undef, number, obj, func, bool])
+  .then((result) => {
+    console.log(result)
+    // null
+  })
+
+Promise.any([undef, number, obj, func, bool, nulled])
+  .then((result) => {
+    console.log(result)
+    // undefined
   })
 ```
