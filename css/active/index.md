@@ -1,13 +1,17 @@
 ---
 title: "`:active`"
+description: "Один из псевдоклассов, показывающих, что интерфейс откликается на действия пользователя"
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - :active
   - LVHA
-  - псевдокласс
+  - активное состояние
+related:
+  - css/hover
+  - css/visited
+  - css/transition
 tags:
   - doka
 ---
@@ -43,7 +47,7 @@ button:active {
 
 К любому селектору добавляем двоеточие и ключевое слово `active`.
 
-### Селектор по тегу в состоянии :active
+### Селектор по тегу в состоянии `:active`
 
 ```css
 a:active {
@@ -51,7 +55,7 @@ a:active {
 }
 ```
 
-### Селектор по классу в состоянии :active
+### Селектор по классу в состоянии `:active`
 
 ```css
 .link:active {
@@ -59,7 +63,7 @@ a:active {
 }
 ```
 
-### Составной селектор в состоянии :active
+### Составной селектор в состоянии `:active`
 
 ```css
 li .link:focus {
@@ -67,7 +71,7 @@ li .link:focus {
 }
 ```
 
-### Селектор по id в состоянии :active
+### Селектор по id в состоянии `:active`
 
 ```css
 #id:active {
@@ -75,10 +79,10 @@ li .link:focus {
 }
 ```
 
-### Селектор по классу и его псевдоэлемент в состоянии :active
+### Селектор по классу и его псевдоэлемент в состоянии `:active`
 
 ```css
-.link:before:active {
+.link::before:active {
   /* Стили */
 }
 ```
