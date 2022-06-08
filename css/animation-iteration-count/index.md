@@ -1,12 +1,16 @@
 ---
 title: "`animation-iteration-count`"
+description: "Бесконечная анимация? Легко! Для этого есть отдельное свойство."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - количество повторов анимации
+related:
+  - css/numeric-types
+  - css/animation-duration
+  - css/animation
 tags:
   - doka
 ---
