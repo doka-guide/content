@@ -11,7 +11,7 @@ keywords:
 related:
   - css/animation
   - css/keyframes
-  - css/duration
+  - css/animation-duration
 tags:
   - doka
 ---

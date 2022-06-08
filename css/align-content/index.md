@@ -10,7 +10,7 @@ keywords:
   - выравнивание по дополнительной оси
 related:
   - css/justify-content
-  - css/flexbox
+  - css/flexbox-guide
   - css/display
 tags:
   - doka
