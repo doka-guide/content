@@ -8,7 +8,6 @@ editors:
 keywords:
   - aside
   - сайдбар
-  - семантический тег
 related:
   - html/global-attrs
   - html/main
