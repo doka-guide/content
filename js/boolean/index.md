@@ -34,8 +34,8 @@ const falsyValue = false // «Ложь»
 Второй способ — использовать конструктор `Boolean`:
 
 ```js
-const truthyValue = new Boolean(true) // также «Истина»
-const falsyValue = new Boolean(false) // также «Ложь»
+const truthyValue = Boolean(true) // также «Истина»
+const falsyValue = Boolean(false) // также «Ложь»
 ```
 
 Этот способ считается устаревшим; не используйте его.
@@ -55,31 +55,6 @@ const anotherTruthy = 4 < 5
 
 ```js
 const falsyValue = new Boolean(2 * 2 === 5)
-const anotherFalsy = 2 * 2 === 5
-```
-
-## Как пишется
-
-С помощью явного присвоения логических значений:
-```js
-const truthyValue = true
-const falsyValue = false
-```
-
-С помощью конструктора Boolean. Способ устарел, и лучше его не использовать.
-
-```js
-const truthyValue = new Boolean(true)
-const falsyValue = new Boolean(false)
-```
-
-С помощью приведения выражений к логическим значениям через функцию `Boolean`:
-
-```js
-const truthyValue = Boolean(4 < 5)
-const anotherTruthy = 4 < 5
-
-const falsyValue = Boolean(2 * 2 === 5)
 const anotherFalsy = 2 * 2 === 5
 ```
 
