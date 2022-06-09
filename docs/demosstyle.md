@@ -78,7 +78,7 @@
 
 Задайте тёмно-серый цвет фона для `<body>` и белый цвет для текста и начало положено:
 
-```CSS
+```css
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -94,7 +94,7 @@ body {
 
 ### Центр внимания
 
-Каждую демку можно открыть в новой вкладке браузера, нажав на соответствующую ссылку под демкой. Чтобы контент не ютился в левом верхнем углу, выровните его по центру страницы любым удобным способом, например, при помощи флексов:
+Каждую демку можно открыть в новой вкладке браузера, нажав на соответствующую ссылку под демкой. Чтобы контент не ютился в левом верхнем углу, выровняйте его по центру страницы любым удобным способом, например, при помощи флексов:
 
 ```css
 body {
@@ -108,11 +108,11 @@ body {
 
 ### Что делать с мобильными?
 
-У Доки щедрый дизайн, который хорошо смотрится на десктопе. У демок — тоже, поэтому они верстаются в подходе Desktop first. При необходимости стили для мобильных задаются отдельно с использованием того же брейкпоинта, что и на самом сайте: `max-width: 768px`.
+У Доки щедрый дизайн, который хорошо выглядит на десктопе. У демок — тоже, поэтому они верстаются в подходе Desktop first. При необходимости стили для мобильных задаются отдельно с использованием того же брейкпоинта, что и на самом сайте: `max-width: 768px`.
 
 Стили для мобильных будут приводиться внизу.
 
-```CSS
+```css
 @media (max-width: 768px) {
   body {
     padding: 30px;
@@ -160,7 +160,7 @@ JS: Основной `#FFD829`, вспомогательный `#41E847`.
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
 ```
 
-```CSS
+```css
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -168,7 +168,7 @@ body {
 
 Вот размеры шрифта и отступов для заголовков разных уровней и параграфов:
 
-```CSS
+```css
 body {
   font-size: 16px;
 }
@@ -224,7 +224,7 @@ p {
 
 Бывают демки, которые состоят только из небольшого параграфа размером в 2-4 строки. Чтобы такое демо не выглядело сиротливо, можно пропорционально увеличить размер текста на всей странице:
 
-```CSS
+```css
 body {
   font-size: 18px;
 }
@@ -253,12 +253,12 @@ code {
 
 ### Инлайновые элементы
 
-Если нужно визуально выделить несколько слов в тексте, а курсивное и полужирное начертания исчерпали свои семантические возможности, можно использовать выделение основным цветом:
+Если нужно визуально выделить несколько слов в тексте, а курсивное и полужирное начертания исчерпали свои семантические возможности, можно использовать выделение основным цветом раздела (`mainColor`):
 
 ```css
 span {
   border-radius: 3px;
-  background-color: #2E9AFF;
+  background-color: mainColor;
 }
 ```
 
@@ -272,15 +272,16 @@ span {
 a {
   border-radius: 3px;
   color: inherit;
-  -webkit-text-decoration-color: #2E9AFF;
-  text-decoration-color: #2E9AFF;
+  -webkit-text-decoration-color: mainColor;
+  text-decoration-color: mainColor;
   text-decoration-thickness: 2px;
   transition: background-color 0.2s linear;
 }
 
-a:hover {
-  background-color: #2E9AFF;
+a:hover, a:focus {
+  background-color: mainColor;
   transition: background-color 0.2s linear;
+  outline-width: 0;
 }
 ```
 
@@ -290,7 +291,7 @@ a:hover {
 
 ### Навигация
 
-Ссылки в списке, представляющем собой навигацию, оформляются так же, как инлайновые ссылки.
+Ссылки в списке, представляющем собой навигацию, оформляются так же, как инлайновые ссылки в предыдущем разделе.
 
 Будьте стильными, придумайте для списка название и подпишите его:
 
@@ -303,15 +304,21 @@ a:hover {
 ```
 
 ```css
+ul {
+  position: relative;
+  list-style-type: none;
+  font-size: 24px;
+}
+
 ul::before {
-  content: 'меню-с';
+  content: 'меню';
   position: absolute;
   right: calc(100% + 25px); /* размещаем у левого края + отступ 25 пикселей */
   top: 7px;
   padding: 2px 7px;
-  background-color: #2E9AFF;
+  background-color: mainColor;
   color: #000000;
-  font-size: calc(1em - 2px);
+  font-size: 14px;
 }
 ```
 
@@ -365,7 +372,6 @@ ol {
 li {
   position: relative;
   padding-left: 10px;
-  text-transform: lowercase;
   counter-increment: num;
 }
 
@@ -520,7 +526,7 @@ input {
 }
 
 input:focus {
-  border-color: #FF8630;
+  border-color: mainColor;
   outline: none;
 }
 
@@ -540,7 +546,7 @@ textarea {
 }
 
 textarea:focus {
-  border-color: #FF8630;
+  border-color: mainColor;
   outline: none;
 }
 ```
@@ -565,6 +571,7 @@ textarea:focus {
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .radio-title::before {
@@ -589,8 +596,8 @@ textarea:focus {
   background-color: #FFFFFF;
   background: radial-gradient(
     circle,
-    #FF8630 0%,
-    #FF8630 40%,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
     transparent 50%,
     transparent 100%
   );
@@ -613,6 +620,7 @@ textarea:focus {
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .checkbox {
@@ -641,7 +649,7 @@ textarea:focus {
   width: 14px;
   height: 14px;
   border-radius: 3px;
-  background-color: #2E9AFF;
+  background-color: mainColor;
 }
 ```
 
@@ -735,7 +743,7 @@ textarea:focus {
 
 Если нужно добавить какие-то элементы управления, например кнопки, то, чтобы в глазах не пестрило, для текстового блока предусмотрена серая неконтрастная гамма. Так внимание будет отдано контролам.
 
-```css
+```html
 div {
   background-color: #282A2E;
   color: #E6E6E6;
@@ -762,18 +770,20 @@ div {
 Чтобы не растягивать демо по высоте больше, чем необходимо, демки, где нужно продемонстрировать несколько вариантов — например, разные значения одного CSS-свойства — опции и подписи к ним мы размещаем бок о бок. Заголовок сдвинут вровень с подписями вариантов ради эстетики :)
 
 ```html
-<h1>Свойство <code>font-style</code></h1>
-<div class="option-container">
-  <span class="option-title"><code>normal</code></span>
-  <span class="option">Ничего на свете лучше нету</span>
-</div>
-<div class="option-container">
-  <span class="option-title"><code>italic</code></span>
-  <span class="option">Чем бродить друзьям по белу свету</span>
-</div>
-<div class="option-container">
-  <span class="option-title"><code>oblique</code></span>
-  <span class="option">Тем, кто дружен, не страшны тревоги</span>
+<div class="container">
+  <h1><code>font-style</code></h1>
+  <div class="option-container">
+    <span class="option-title"><code>normal</code></span>
+    <span class="option">Ничего на свете лучше нету</span>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>italic</code></span>
+    <span class="option">Чем бродить друзьям по белу свету</span>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>oblique</code></span>
+    <span class="option">Тем, кто дружен, не страшны тревоги</span>
+  </div>
 </div>
 ```
 
@@ -807,7 +817,15 @@ h1, .option-title {
 Но на мобильных нам ничего не остаётся, кроме как размещать элементы друг под другом:
 
 ```css
-
+@media (max-width: 768px) {
+  .option-title {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .option-container {
+    flex-direction: column;
+  }
+}
 ```
 
 ![картинка]()
@@ -849,7 +867,34 @@ span:hover::after {
 Если во всплывающем окне есть элементы, которые обычно цветные (подчеркивания для ссылок, кнопки), здесь они лишены цвета:
 
 ```css
-стили для ссылки и для кнопки
+a {
+  border-radius: 3px;
+  color: #ffffff;
+  -webkit-text-decoration-color: #000000;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2px;
+  transition: background-color 0.2s linear;
+}
+
+a:hover, a:focus {
+  background-color: #000000;
+  transition: background-color 0.2s linear;
+  outline-width: 0;
+}
+
+.button:focus-visible {
+  border: 2px solid mainColor;
+  outline: none;
+}
+
+.button:focus {
+  border: 2px solid mainColor;
+  outline: none;
+}
+
+.button-black {
+  background-color: #000000;
+}
 ```
 
 ![картинка]()
@@ -867,7 +912,7 @@ header {
 }
 ```
 
-Если такой элемент содержит ссылки, например, вы верстаете навигацию, то подчекиваний у них не будет. Слишком много черточек это нехорошо.
+Если такой элемент содержит ссылки — например, вы верстаете навигацию — то подчекиваний у них не будет. Слишком много черточек это нехорошо.
 
 ```css
 footer {
