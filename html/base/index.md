@@ -7,6 +7,10 @@ editors:
   - tachisis
 keywords:
   - основной адрес
+related:
+  - html/head
+  - html/a
+  - html/global-attrs
 tags:
   - doka
 ---
