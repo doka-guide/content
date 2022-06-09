@@ -69,7 +69,7 @@ tags:
 
 ```css
 .element {
-	background-color: black;
+  background-color: black;
 }
 ```
 
