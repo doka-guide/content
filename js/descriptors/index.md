@@ -3,6 +3,10 @@ title: "Дескрипторы"
 description: "Не все свойства объектов работают одинаково! Задаём особые режимы работы свойств с помощью дескрипторов"
 authors:
   - AntonGorelov
+related:
+  - js/object
+  - js/fp
+  - js/ref-type-vs-value-type
 tags:
   - doka
 ---
@@ -95,7 +99,7 @@ JSON.stringify(descriptor, null, 2)
 
 Мы не указали флаги явно, поэтому свойство имеет следующие параметры:
 
-```js
+```json
 {
   "value": "15",
   "writable": false,
@@ -290,7 +294,7 @@ Object.defineProperty(
   'mediumFormat',
   {
     get: () => {
-      return new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(this._date) 
+      return new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'long' }).format(this._date)
     },
     enumerable: true
   }
