@@ -68,13 +68,13 @@ curl -X GET localhost:9200
 }
 ```
 
-Альтернативный способ - запустить ES в докер-контейнере. Про [docker](https://doka.guide/tools/docker/) можно почитать на платформе в разделе инструментов. Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Стянули контейнер - настроили по инструкции - двигаемся дальше.
+Альтернативный способ - запустить ES в докер-контейнере. Узнать больше про Docker можно в [статье «Docker»](/tools/docker). Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Скачали контейнер, настроили по инструкции, и двигаемся дальше.
 
 ## Как использовать
 
 Рассмотрим на практике создание индекса, его настройку, индексацию и поиск записей. Для работы используется фреймворк Express JS.
 
-Для работы нам нужно инициализировать проект и поставить библиотеку для работы с ES. Чтобы развернуть проект используем [express-generator](https://expressjs.com/ru/starter/generator.html) - генератор приложений для Express.js:
+Для работы нам нужно инициализировать проект и поставить библиотеку для работы с ES. Чтобы развернуть проект используем [express-generator](https://expressjs.com/ru/starter/generator.html) - генератор приложений для Express.js. С помощью команды создадим новый проект _elastic-js_ в текущей директории, а затем установим клиент ES:
 
 ```bash
 npx express-generator elastic-js && cd elastic-js
