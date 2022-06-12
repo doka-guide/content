@@ -77,9 +77,7 @@ curl -X GET localhost:9200
 Для работы нам нужно инициализировать проект и поставить библиотеку для работы с ES. Чтобы развернуть проект используем [express-generator](https://expressjs.com/ru/starter/generator.html) - генератор приложений для Express.js:
 
 ```bash
-npm install -g express-generator
-
-express ./elastic-js && cd elastic-js
+npx express-generator elastic-js && cd elastic-js
 
 npm install && npm install elasticsearch --save
 ```
