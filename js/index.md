@@ -93,6 +93,7 @@ groups:
     items:
       - object
       - object-tostring
+      - descriptors
       - objects-objects-everywhere
   - name : "Множества (`Set`)"
     items:
