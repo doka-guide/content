@@ -1,12 +1,14 @@
 ---
 title: "`border-width`"
+description: "Задаёт ширину рамки элемента. Часто указывается в шорткате, но иногда пригождяется и отдельно."
 authors:
   - lordoys
 keywords:
-  - border-width
-  - border
-  - рамка
-  - толщина рамки
+  - ширина рамки
+related:
+  - css/border-style
+  - css/numeric-types
+  - css/border
 tags:
   - doka
 ---
