@@ -1,5 +1,6 @@
 ---
 title: "`<output>`"
+description: "Элемент для вывода результатов вычислений или действий пользователя"
 authors:
   - webdb81
 keywords:
