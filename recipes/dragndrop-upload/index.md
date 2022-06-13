@@ -125,12 +125,12 @@ dropFileZone.addEventListener('drop', function(event) {
   }
 })
 
-function processingUploadFile(fileInstance_Upload) {
-  if(fileInstance_Upload != undefined) {
-    const dropZone_Data = new FormData()
+function processingUploadFile(fileInstanceUpload) {
+  if(fileInstanceUpload != undefined) {
+    const dropZoneData = new FormData()
     const xhr = new XMLHttpRequest()
 
-    dropZone_Data.append('file', fileInstance_Upload)
+    dropZoneData.append('file', fileInstanceUpload)
 
     xhr.upload.addEventListener('progress', function() {
       loaderImage.classList.add('upload-loader_visible')
@@ -138,12 +138,12 @@ function processingUploadFile(fileInstance_Upload) {
 
     xhr.open('POST', 'upload_processing.php', true)
 
-    xhr.send(dropZone_Data)
+    xhr.send(dropZoneData)
 
     xhr.onload = function (event){
       if (xhr.status == 200) {
         loaderImage.classList.remove('upload-loader_visible')
-        outputText.textContent = `Файл «${fileInstance_Upload.name}» загружен успешно`
+        outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
       } else {
         loaderImage.classList.remove('upload-loader_visible')
         outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла.`
@@ -262,7 +262,7 @@ let fileInstance
 
 При отслеживании перетаскивания файла будут использоваться следующие события:
 
-- `dragover` выполняется во время перемещения файла;
+- `dragover` выполняется во время перемещения файла над областью обработки файла;
 - `drop` выполняется в тот момент, когда пользователь отпустил кнопку мыши и выбранный файл был помещён («сброшен») в заданную область.
 
 Когда при перетаскивании выбранный файл будет находиться в пределах активной страницы, браузер его откроет. Чтобы файл был обработан в назначенной для этого области, необходимо отменить стандартное поведение браузера для событий `dragover` и `drop` путём вызова метода `preventDefault()`:
@@ -296,11 +296,11 @@ dropFileZone.addEventListener('drop', function uploadFile(event) {
 
 Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки страницы. Подробней о нём можно почитать на [MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
 
-Основную работу будет выполнять функция `processingUploadFile()`, которая принимает выбранный пользователем файл `fileInstance_Upload` и отправляет его на сервер:
+Основную работу будет выполнять функция `processingUploadFile()`, которая принимает выбранный пользователем файл `fileInstanceUpload` и отправляет его на сервер:
 
 ```javascript
-function processingUploadFile(fileInstance_Upload) {
-  if(fileInstance_Upload != undefined) {
+function processingUploadFile(fileInstanceUpload) {
+  if(fileInstanceUpload != undefined) {
     // код функции рассматривается ниже
   }
 }
@@ -308,11 +308,11 @@ function processingUploadFile(fileInstance_Upload) {
 
 Первым делом объявляем переменные:
 
-- `dropZone_Data`, в которой с использованием объекта `FormData` будут храниться данные для отправки на сервер;
+- `dropZoneData`, в которой с использованием объекта `FormData` будут храниться данные для отправки на сервер;
 - `xhr` для обращения к серверу с использованием `XMLHttpRequest`.
 
 ```javascript
-const dropZone_Data = new FormData()
+const dropZoneData = new FormData()
 const xhr = new XMLHttpRequest()
 ```
 
@@ -327,7 +327,7 @@ const xhr = new XMLHttpRequest()
     - если файл не принят сервером, индикатор загрузки скрывается и пользователю показывается сообщение об ошибке.
 
 ```javascript
-dropZone_Data.append('file', fileInstance_Upload)
+dropZoneData.append('file', fileInstanceUpload)
 
 xhr.upload.addEventListener('progress', function() {
   loaderImage.classList.add('upload-loader_visible')
@@ -335,12 +335,12 @@ xhr.upload.addEventListener('progress', function() {
 
 xhr.open('POST', 'upload_processing.php', true)
 
-xhr.send(dropZone_Data)
+xhr.send(dropZoneData)
 
 xhr.onload = function (event){
   if (xhr.status == 200) {
     loaderImage.classList.remove('upload-loader_visible')
-    outputText.textContent = `Файл «${fileInstance_Upload.name}» загружен успешно`
+    outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
   } else {
     loaderImage.classList.remove('upload-loader_visible')
     outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла.`

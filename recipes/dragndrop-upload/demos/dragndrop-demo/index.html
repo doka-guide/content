@@ -86,7 +86,11 @@
     <p>Для загрузки изображения, перетащите его в выделенную область:</p>
     <div id="dropFile_Zone" class="upload-zone">
       <div id="uploadFile_Loader" class="upload-loader">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image"><path fill="#fff" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50"><animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"/></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
+          <path fill="#fff" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"/>
+          </path>
+        </svg>
       </div>
       <p id="uploadFile_Status"></p>
     </div>
@@ -107,7 +111,7 @@
       })
     })
 
-    dropFileZone.addEventListener('drop', function uploadFile(event) {
+    dropFileZone.addEventListener('drop', function(event) {
       fileInstance = event.dataTransfer.files[0]
       if (fileInstance.size > 5 * BYTES_IN_MB) {
         alert('Принимается файл до 5 МБ')
@@ -121,12 +125,12 @@
       }
     })
 
-    function processingUploadFile(fileInstance_Upload) {
-      if(fileInstance_Upload != undefined) {
-        const dropZone_Data = new FormData()
+    function processingUploadFile(fileInstanceUpload) {
+      if(fileInstanceUpload != undefined) {
+        const dropZoneData = new FormData()
         const xhr = new XMLHttpRequest()
 
-        dropZone_Data.append('file', fileInstance_Upload)
+        dropZoneData.append('file', fileInstanceUpload)
 
         xhr.upload.addEventListener('progress', function() {
           loaderImage.classList.add('upload-loader_visible')
@@ -134,12 +138,12 @@
 
         xhr.open('POST', 'upload_processing.php', true)
 
-        xhr.send(dropZone_Data)
+        xhr.send(dropZoneData)
 
         xhr.onload = function (event){
           if (xhr.status == 200) {
             loaderImage.classList.remove('upload-loader_visible')
-            outputText.textContent = `Файл «${fileInstance_Upload.name}» загружен успешно`
+            outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
           } else {
             loaderImage.classList.remove('upload-loader_visible')
             outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла.`
