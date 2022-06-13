@@ -111,7 +111,7 @@ let fileInstance
   })
 })
 
-dropFileZone.addEventListener('drop', function uploadFile(event) {
+dropFileZone.addEventListener('drop', function(event) {
   fileInstance = event.dataTransfer.files[0]
   if (fileInstance.size > 5 * BYTES_IN_MB) {
     alert('Принимается файл до 5 МБ')
