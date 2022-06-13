@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2022
+
+- 13 июня [`Дескрипторы`](https://doka.guide/js/descriptors/), Антон Горелов
+- 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков
+
 ## Май 2022
 
 - 26 мая [`queueMicrotask()`](https://doka.guide/js/queuemicrotask/), Артём Гусев
