@@ -1,11 +1,16 @@
 ---
 title: "`border-radius`"
+description: "Сглаживает острые углы."
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
-  - border-radius
+  - скругление углов
+related:
+  - css/border
+  - css/numeric-types
+  - css/outline
 tags:
   - doka
 ---
