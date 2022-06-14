@@ -1,5 +1,6 @@
 ---
 title: "`border-image`"
+description: "Надоели скучные одноцветные рамки? Используйте картинку!"
 authors:
   - solarrust
 contributors:
@@ -8,6 +9,10 @@ editors:
   - tachisis
 keywords:
   - картинка рамки
+related:
+  - css/linear-gradient
+  - css/radial-gradient
+  - css/border
 tags:
   - doka
 ---
