@@ -37,7 +37,7 @@ if (ghKey) {
         const hasDescription = metaKeys.includes('description') && metaKeys['description'] !== ""
         const item = printItem(fileName, meta.title, hasDescription, meta.tags ? meta.tags.includes('placeholder') : false)
         if (hasDescription) {
-          issueLists[chapter].pull(item)
+          issueLists[chapter].pop(item)
         } else {
           issueLists[chapter].push(item)
         }
