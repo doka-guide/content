@@ -21,3 +21,5 @@ jobs:
         run: node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
       - name: Обновление списков материалов-кандидатов на доработку демок
         run: node .github/scripts/demos-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
+      - name: Обновление списков материалов с дескрипшенами и без
+        run: node .github/scripts/description-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
