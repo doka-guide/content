@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования — <output> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #18191C;
+      color: #ffffff;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .form-rating {
+      max-width: 260px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .form-rating__output {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      margin-right: 12px;
+      border: 1px solid currentColor;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 1;
+      color: #ffffff;
+    }
+
+    .form-rating__controls {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .form-rating__range {
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <p>Оцените удобство пользования сервисом:</p>
+  <form class="form-rating" oninput="rating.value = parseInt(rating_range.value)">
+    <output name="rating" for="serviceRating" class="form-rating__output">10</output>
+    <div class="form-rating__controls">
+      <span>0</span><input type="range" name="rating_range" id="serviceRating" min="0" max="10" value="10" class="form-rating__range"><span>10</span>
+    </div>
+  </form>
+
+</body>
+</html>
