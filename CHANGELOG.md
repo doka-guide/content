@@ -7,7 +7,7 @@
 - 13 июня [`Дескрипторы`](https://doka.guide/js/descriptors/), Антон Горелов
 - 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков
 - 16 июня [`<output>`](https://doka.guide/html/output), Борис Демченко
-16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
+- 16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
 
 ## Май 2022
 
