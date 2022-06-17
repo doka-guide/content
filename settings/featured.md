@@ -1,9 +1,9 @@
 ---
 pinned:
-  - html/article
-  - js/var-let
-  - html/img
+  - html/screenreaders
 ready:
+  - html/img
+  - html/article
   - html/form
   - html/nav
   - html/section
@@ -13,6 +13,8 @@ ready:
   - html/doctype
   - html/div
   - html/head
+  - css/transform-function
+  - css/keyframes
   - css/position
   - css/attr
   - css/media
@@ -24,6 +26,8 @@ ready:
   - css/box-model
   - css/display
   - css/grid-guide
+  - js/var-let
+  - js/boolean
   - js/function
   - js/function-context
   - js/infinite-scroll
