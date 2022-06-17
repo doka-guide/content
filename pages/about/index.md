@@ -15,11 +15,11 @@ location: "/about/"
 
 В редакцию входят:
 
-- **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/).
+- **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/), тимлид Доки.
 - **<!-- yaspeller ignore:start -->[Вадим Макеев](/people/pepelsbey/)<!-- yaspeller ignore:end -->** — ревьюер разделов [HTML](/html/) и [CSS](/css/).
 - **<!-- yaspeller ignore:start -->[Николай Лопин](/people/nlopin/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Инструменты](/tools/).
 - **<!-- yaspeller ignore:start -->[Саша Беспоясов](/people/bespoyasov/)<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js/) и [Инструменты](/tools/).
-- **<!-- yaspeller ignore:start -->[Ольга Алексашенко](/people/tachisis/)<!-- yaspeller ignore:end -->** — литературный редактор.
+- **<!-- yaspeller ignore:start -->Саша Патлух<!-- yaspeller ignore:end -->** — продюсер и стратег Доки.
 
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
 
@@ -49,3 +49,4 @@ location: "/about/"
 - <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> — за то, что собрал нас вместе.
 - <!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end --> — за контентный дизайн.
 - <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
+- <!-- yaspeller ignore:start -->[Ольга Алексашенко](/people/tachisis/)<!-- yaspeller ignore:end --> — за литературную редактуру.
