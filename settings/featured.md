@@ -50,47 +50,47 @@ active:
   - html/article
   - js/var-let
   - html/img
-  - js/oop
-  - css/media
-  - tools/webpack
-  - js/closures
-  - tools/ci-cd
-  - js/deal-with-forms
-  - tools/bundlers
-  - css/specificity
-  - tools/docker
-  - js/execution-order
-  - js/infinite-scroll
-  - js/clean-architecture
-  - tools/agile
-  - js/how-to-test-and-why
-  - tools/cli
-  - tools/gitlab-ci-cd
-  - tools/network
-  - css/flexbox-guide
-  - html/input
-  - js/function-context
-  - tools/static-types
-  - html/nav
-  - html/doctype
-  - html/form
-  - html/flow
-  - js/async-in-js
-  - html/div
-  - css/pseudoelements
-  - css/display
-  - css/custom-properties
-  - css/position
-  - html/video
-  - js/how-the-browser-creates-pages
-  - css/grid-guide
-  - html/section
   - css/attr
+  - tools/webpack
+  - html/nav
+  - css/media
+  - css/pseudoelements
+  - js/function-context
+  - html/video
+  - tools/ci-cd
+  - js/how-the-browser-creates-pages
+  - js/clean-architecture
+  - js/how-to-test-and-why
+  - css/position
   - tools/markdown
   - css/box-shadow
-  - recipes/snow
+  - js/infinite-scroll
+  - js/oop
+  - tools/gitlab-ci-cd
+  - css/grid-guide
+  - html/section
+  - css/specificity
   - css/box-model
+  - html/flow
+  - js/async-in-js
+  - tools/bundlers
   - js/function
+  - js/closures
+  - html/doctype
+  - tools/agile
+  - recipes/snow
+  - html/div
+  - css/flexbox-guide
   - html/head
+  - tools/docker
+  - css/display
+  - html/form
+  - html/input
+  - js/execution-order
+  - tools/network
+  - tools/static-types
+  - js/deal-with-forms
+  - tools/cli
+  - css/custom-properties
 ---
 
