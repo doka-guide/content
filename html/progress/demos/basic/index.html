@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример индикатора загрузки файла — <progress> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      background-color: #18191c;
+    }
+
+    .demo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .demo-title {
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .upload {
+      position: relative;
+      width: 100%;
+      height: 28px;
+      margin-bottom: 12px;
+      border: 1px solid #5068f6;
+      border-radius: 16px;
+    }
+
+    .upload__counter {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    progress {
+      width: 0;
+      border: none;
+      border-radius: 16px;
+      height: 28px;
+      background-color: #5068f6;
+    }
+
+    progress::-webkit-progress-bar {
+      border: none;
+      background-color: #5068f6;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: #5068f6;
+    }
+
+    progress::-moz-progress-bar {
+      border: none;
+      background-color: #5068f6;
+    }
+
+    #successText {
+      height: 22px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 24px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #5068f6;
+      cursor: pointer;
+      transition: border-color 0.2s linear;
+    }
+
+    button:hover {
+      border: 1px solid #ffffff;
+      transition: border-color 0.2s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-wrap">
+    <div class="demo-title">Индикатор загрузки файла</div>
+    <div class="upload">
+      <div id="progressCounter" class="upload__counter">0%</div>
+      <progress id="progressBar" value="0" max="100"></progress>
+    </div>
+    <p id="successText"></p>
+    <button onclick="start()">Загрузить файл</button>
+  </div>
+
+  <script>
+    const progressBar = document.getElementById('progressBar')
+    const uploadSuccess = document.getElementById('successText')
+    const uploadCounter = document.getElementById('progressCounter')
+    let progressWidth = 0;
+
+    function start() {
+      setInterval(() => {
+        if (progressWidth >= 100) {
+          uploadSuccess.textContent = 'Файл загружен успешно.'
+          clearInterval()
+        } else {
+          progressWidth++;
+          progressBar.style.width = progressWidth + '%'
+          uploadCounter.textContent = progressWidth + '%'
+        }
+      }, 10)
+    }
+  </script>
+</body>
+</html>
