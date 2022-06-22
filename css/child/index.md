@@ -1,13 +1,16 @@
 ---
 title: "Псевдоклассы группы child"
+description: "Группа этих псевдоклассов позволяет выбирать элементы не по классу или тегу, а по порядковому номеру."
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - псевдокласс
+related:
+  - css/pseudoclasses
+  - js/htmlcollection-and-nodelist
+  - css/nth-of-type
 tags:
   - doka
 ---
