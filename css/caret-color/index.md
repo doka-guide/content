@@ -3,6 +3,10 @@ title: "`caret-color`"
 description: "С помощью `сaret-color` можно менять цвет курсора в режиме набора текста."
 authors:
   - mishamad
+related:
+  - html/input
+  - html/textarea
+  - css/currentcolor
 tags:
   - doka
 ---
@@ -79,41 +83,3 @@ form p {
 ```
 
 <iframe title="Наследование и переопределение значения" src="demos/form/" height="330"></iframe>
-
-## И ещё пример
-
-Добавим немного радуги в наш [`<input>`](/html/input/):
-
-```html
-<input type="text">
-```
-
-```css
-@keyframes rainbow {
-  0% { caret-color: red; }
-  20% { caret-color: orange; }
-  40% { caret-color: yellow; }
-  60% { caret-color: green; }
-  80% { caret-color: blue; }
-  100% { caret-color: purple; }
-}
-
-input {
-  display: block;
-  width: 60vw;
-  height: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 50px;
-  caret-color: red;
-  background: rgb(255 255 255 / .1);
-  color: #eee;
-  border-radius: 1rem;
-  border: 2px dotted rgb(255 255 255 / .1);
-}
-
-input:focus {
-  animation: 3s infinite rainbow;
-}
-```
-
-<iframe title="Анимированная радужная каретка" src="demos/rainbow-input/" height="330" sandbox></iframe>
