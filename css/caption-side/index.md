@@ -3,6 +3,10 @@ title: "`caption-side`"
 description: "Способ управлять положением подписи к таблице"
 authors:
   - solarrust
+related:
+  - html/caption
+  - html/screenreaders
+  - css/position
 tags:
   - doka
 ---
