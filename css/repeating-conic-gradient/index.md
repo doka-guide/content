@@ -17,7 +17,13 @@ tags:
 
 ```css
 div {
-  background-image: repeating-conic-gradient(from 0deg, #9d6eea 0deg 15deg, #6600e9 15deg 30deg, #b394e9 30deg 45deg);
+  background-image:
+    repeating-conic-gradient(
+      from 0deg,
+      #9d6eea 0deg 15deg,
+      #6600e9 15deg 30deg,
+      #b394e9 30deg 45deg
+    );
 }
 ```
 
@@ -33,7 +39,12 @@ div {
 
 ```css
 div {
-  background-image: repeating-conic-gradient(from 0deg, #A100FFFF 0 30deg, #71C4FFFF 30deg 60deg);
+  background-image:
+    repeating-conic-gradient(
+      from 0deg,
+      #A100FFFF 0 30deg,
+      #71C4FFFF 30deg 60deg
+    );
 }
 ```
 
@@ -44,10 +55,13 @@ div {
 ```css
 body {
   background-size: 260px 260px;
-  background-image: repeating-conic-gradient(from 45deg, #000 0% 25%, #eee 0% 50%);
+  background-image:
+    repeating-conic-gradient(
+      from 45deg,
+      #000 0% 25%,
+      #eee 0% 50%
+    );
 }
 ```
 
 <iframe title="Паттерн" src="demos/pattern/" height="250"></iframe>
-
-
