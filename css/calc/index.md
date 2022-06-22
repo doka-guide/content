@@ -7,7 +7,7 @@ contributors:
   - skorobaeus
 keywords:
   - математика
-relative:
+related:
   - css/numeric-types
   - css/media
   - js/math
