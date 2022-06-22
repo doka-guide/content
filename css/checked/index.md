@@ -8,7 +8,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - чекнутый
   - отмеченный
 related:
   - css/pseudoclasses
