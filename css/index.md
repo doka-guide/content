@@ -65,6 +65,7 @@ groups:
       - linear-gradient
       - radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - var
       - filter-functions
@@ -129,6 +130,7 @@ groups:
       - linear-gradient
       - radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
