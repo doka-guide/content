@@ -1,6 +1,6 @@
 ---
 title: "`<b>`"
-description: "Исторический тег, для стилизации текста жирным"
+description: "Тег для привлечения внимания, но без лишней важности"
 authors:
   - gkhabada
 contributors:
