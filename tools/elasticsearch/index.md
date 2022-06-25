@@ -68,55 +68,60 @@ curl -X GET localhost:9200
 }
 ```
 
-Альтернативный способ - запустить ES в докер-контейнере. Узнать больше про Docker можно в [статье «Docker»](/tools/docker). Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Скачали контейнер, настроили по инструкции, и двигаемся дальше.
+Альтернативный способ - запустить ES в докер-контейнере. Узнать больше про Docker можно в [статье «Docker»](/tools/docker). Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Скачали контейнер, настроили по инструкции и двигаемся дальше.
 
 ## Как использовать
 
-Рассмотрим на практике создание индекса, его настройку, индексацию и поиск записей. Для работы используется фреймворк Express JS.
+Рассмотрим на практике создание индекса, его настройку, индексацию и поиск записей. Будем использовать Node.js.
 
-Для работы нам нужно инициализировать проект и поставить библиотеку для работы с ES. Чтобы развернуть проект используем [express-generator](https://expressjs.com/ru/starter/generator.html) - генератор приложений для Express.js. С помощью команды создадим новый проект _elastic-js_ в текущей директории, а затем установим клиент ES:
+Для работы нам нужно инициализировать проект и поставить библиотеку для работы с ES. С помощью команды создадим новый проект _elastic-js_ в текущей директории, а затем установим клиент ES:
 
 ```bash
-npx express-generator elastic-js && cd elastic-js
+mkdir elastic-js && cd elastic-js
 
-npm install && npm install elasticsearch --save
+npm init -y && npm install @elastic/elasticsearch --save
 ```
 
-Создаём любой файл для работы и начинаем писать код.
+Нам понадобятся 2 файла: **functions.js** и **index.js**. В первом мы опишем функции для работы с ES, а во втором будем их вызывать. Выполнять код будем максимально просто:
+
+```bash
+node index.js
+```
 
 ### Подключение к ES
 
-Для начала нам нужно подключиться к нашему ES:
+Для начала нам нужно подключиться к нашему ES. В файле functions.js напишем следующий код:
 
 ```javascript
-const {Client} = require('@elastic/elasticsearch')
-const Client = new Client({
+import * as ElasticSearch from "@elastic/elasticsearch";
+
+const client = new ElasticSearch.Client({
   node: 'https://localhost:9200',
   auth: {
-      username: 'elastic',
-      password: 'changeme'
+    username: 'elastic',
+    password: 'changeme'
   }
 })
 ```
 
-Здесь **node** - хост для подключения к ES, а **auth** - логин и пароль, увидеть их вы можете после запуска ES в логах. Вместо логина и пароля можно использовать ApiKey, подробности в [документации](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/client-connecting.html).\
+Здесь **node** - хост для подключения к ES, а **auth** - логин и пароль, увидеть их вы можете после запуска ES в логах. Вместо логина и пароля можно использовать ApiKey, подробности в [документации](https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/client-connecting.html).
 
 ### Создание и настройка индекса
 
 Далее нам нужно создать поисковый индекс - в нем будут храниться наши документы. Напишем для этого функцию:
 
 ```javascript
-async function createIndex() {
-    return await client.indices.create({
-        index: 'search_index'
-    })
+export async function createIndex() {
+  return await client.indices.create({
+    index: 'search_index'
+  })
 }
 ```
 
 Заодно напишем функцию для удаления индекса:
 
 ```javascript
-async function deleteIndex() {
+export async function deleteIndex() {
   return await client.indices.delete({
     index: 'search_index'
   })
@@ -128,100 +133,114 @@ async function deleteIndex() {
 Теперь давайте добавим в наш индекс **mapping** - список полей документа. Но для начала немного теории. Маппинг позволяет указать поля и их типы внутри поискового индекса. Это нужно для того, чтобы можно было эффективно работать с разными типами данных и ES понимал какие данные как индексировать. Подробное описание типов данных можно найти в [документации](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html). А мы же перейдём к практике. Не будем усложнять - возьмём простой пример и будем хранить товары: id и title и description.
 
 ```javascript
-async function addMapping() {
-    return await client.indices.putMapping({
-        index: 'search_index',
-        body: {
-            properties: {
-                id: {type: 'keyword'},
-                name: {type: 'text'},
-                description: {type: 'text'}
-            }
+export async function createIndex() {
+  return await client.indices.create({
+    index: 'search_index',
+    body: {
+      mappings: {
+        properties: {
+          id: {type: 'keyword'},
+          name: {type: 'text'},
+          description: {type: 'text'}
         }
-    })
+      }
+    }
+  })
 }
 ```
 
 Это самый простой пример маппинга - название и типы полей. Но давайте добавим анализатор и фильтр, чтобы нормализация текста была лучше. Это нужно для того, чтобы сделать наш поиск точнее - ES предлагает нам огромные возможности для работы с разными данными, не только с текстом. Чем тщательнее мы анализируем наши документы, тем качественнее можем сделать их поиск. Для этого нужно добавить в наш индекс новые настройки:
 
 ```javascript
-async function addSettings() {
-    return await client.indices.putSettings({
-        index: 'search_index',
-        body: {
-            index: {
-                analysis: {
-                    char_filter: {
-                        text_char_filter: {
-                            type: 'mapping',
-                            mappings: [
-                                'Ё => ё',
-                                'ё => е',
-                                ', => .'
-                            ]
-                        }
-                    },
-                    analyzer: {
-                        search_analyzer: {
-                            type: 'custom',
-                            tokenizer: 'standard',
-                            filter: [
-                                'lowercase',
-                                'shingle',
-                                'russian_stop',
-                                'russian_stemmer'
-                            ],
-                            char_filter: 'text_char_filter'
-                        }
-                    },
-                    filter: {
-                        shingle: {
-                            type: 'shingle',
-                            min_shingle_size: 2,
-                            max_shingle_size: 4,
-                        },
-                        russian_stop: {
-                            type: 'stop'
-                        },
-                        russian_stemmer: {
-                            type: 'stemmer',
-                            language: 'russian'
-                        }
-                    }
-                }
-            }
+export async function createIndex() {
+  return await client.indices.create({
+    index: 'search_index',
+    body: {
+      mappings: {
+        properties: {
+          id: {type: 'keyword'},
+          name: {
+            type: 'text',
+            analyzer: 'search_analyzer'
+          },
+          description: {
+            type: 'text',
+            analyzer: 'search_analyzer'
+          }
         }
-    })
+      },
+      settings: {
+        index: {
+          analysis: {
+            char_filter: {
+              text_char_filter: {
+                type: 'mapping',
+                mappings: [
+                  'Ё => ё',
+                  'ё => е',
+                  ', => .'
+                ]
+              }
+            },
+            analyzer: {
+              search_analyzer: {
+                type: 'custom',
+                tokenizer: 'standard',
+                filter: [
+                  'lowercase',
+                  'shingle',
+                  'russian_stop',
+                  'russian_stemmer'
+                ],
+                char_filter: 'text_char_filter'
+              }
+            },
+            filter: {
+              shingle: {
+                type: 'shingle',
+                min_shingle_size: 2,
+                max_shingle_size: 4,
+              },
+              russian_stop: {
+                type: 'stop'
+              },
+              russian_stemmer: {
+                type: 'stemmer',
+                language: 'russian'
+              }
+            }
+          }
+        }
+      }
+    }
+  })
 }
-
 ```
 
-Давайте разберём. В блоке **analysis** мы описываем настройки анализатора. **char_filter** - символьный фильтр, его задача заменить указанные символы. **analyzer** - анализатор текста, который использует фильтры из блока **filter**. Фильтр `"shingle"` отвечает за расстояние между двумя словами для поиска искомой фразы, в нашем случае от 2 до 4. Дальше описываем фильтр для стоп-слов и стемминга. Стемминг - удаление окончаний и суффиксов из слова, получение основы.
+Давайте разберём. В блоке **analysis** мы описываем настройки анализатора. **char_filter** - символьный фильтр, его задача заменить указанные символы. **analyzer** - анализатор текста, который использует фильтры из блока **filter**. Фильтр `"shingle"` отвечает за расстояние между двумя словами для поиска искомой фразы, в нашем случае от 2 до 4. Дальше описываем фильтр для стоп-слов и стемминга. Стемминг - удаление окончаний и суффиксов из слова, получение основы. Наш анализатор мы явно прописываем в текстовые поля - **name** и **description**.
 
-Дальше нам нужно дополнить наш метод для создания маппинга, чтобы ES начал использовать наши настройки, созданные выше:
+Теперь при добавлении документов в ES текстовые данные будут обработаны нашим кастомным анализатором. Давайте создадим поисковый индекс и добавим в него настройки с маппингом. Содержимое файла index.js:
 
 ```javascript
-async function addMapping() {
-    return await client.indices.putMapping({
-        index: 'search_index',
-        body: {
-            properties: {
-                id: {type: 'keyword'},
-                name: {
-                    type: 'text',
-                    analyzer: 'search_analyzer'
-                },
-                description: {
-                    type: 'text',
-                    analyzer: 'search_analyzer'
-                }
-            }
-        }
-    })
+import {createIndex} from "./functions.js";
+
+const run = async () => {
+  const result = await createIndex();
+  console.log(result);
 }
+
+run();
 ```
 
-Теперь при добавлении документов в ES текстовые данные будут обработаны нашим кастомным анализатором.
+Выполняем данный код через терминал и видим успешный ответ от ES:
+
+```bash
+{
+  acknowledged: true,
+  shards_acknowledged: true,
+  index: 'search_index'
+}
+```
 
 ### Индексация записей
 
@@ -230,49 +249,123 @@ async function addMapping() {
 Значительная часть работы уже сделана - мы описали наш поисковый индекс и можем с ним работать. Давайте добавим парочку товаров в наш индекс:
 
 ```javascript
-async function indexElement(data) {
-    return await client.index({
-        index: 'search_index',
-        type: 'products',
-        body: data
-    })
+export async function indexElement(data) {
+  return await client.index({
+    index: 'search_index',
+    body: data
+  })
 }
+```
 
-indexElement({
+Обновим файл index.js и запустим следующий код:
+
+```javascript
+import {indexElement} from "./functions.js";
+
+const run = async () => {
+  let result = await indexElement({
     id: 1,
     name: 'Apple iPhone 12 256GB (PRODUCT)RED',
     description: 'iPhone 12. Во-первых, это быстро. iPhone 12 поражает возможностями.'
-})
+  })
+  console.log(result);
 
-indexElement({
-    id: 1,
+  result = await indexElement({
+    id: 2,
     name: 'Lenovo Legion 5',
     description: 'Мощный игровой ноутбук'
-})
+  })
+  console.log(result);
+}
+
+run();
 ```
 
-Множественная вставка записей поддерживается при помощи **Bulk**, но его мы пропустим.
+В результате увидим подобный ответ от ES:
+
+```bash
+{
+  _index: 'search_index',
+  _id: 'ZWgomoEBOs_ZEts5qraF',
+  _version: 1,
+  result: 'created',
+  _shards: { total: 2, successful: 1, failed: 0 },
+  _seq_no: 0,
+  _primary_term: 1
+}
+{
+  _index: 'search_index',
+  _id: 'ZmgomoEBOs_ZEts5qrbI',
+  _version: 1,
+  result: 'created',
+  _shards: { total: 2, successful: 1, failed: 0 },
+  _seq_no: 1,
+  _primary_term: 1
+}
+```
+
+Множественная вставка записей поддерживается при помощи [**Bulk**](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html), но его мы пропустим.
 
 ### Поиск записей
 
 Теперь давайте попробуем найти наши документы:
 
 ```javascript
-async function search(query) {
-    return await client.search({
-        index: 'search_index',
-        query: query
-    })
+export async function search(query) {
+  return await client.search({
+    index: 'search_index',
+    query: query
+  })
 }
+```
 
-const query = {
+Код файла index.js:
+
+```javascript
+import {search} from "./functions.js";
+
+const run = async () => {
+  const query = {
     match: {
-        name: 'Iphone'
+      name: 'Iphone'
     }
+  }
+
+  const result = await search(query);
+  console.log(result);
+
+  const products = result.hits.hits;
+  console.log(products);
 }
 
-const result = search(query);
-const products = result.hits.hits;
+run();
+```
+
+Ответ от ES:
+
+```bash
+{
+  took: 4,
+  timed_out: false,
+  _shards: { total: 1, successful: 1, skipped: 0, failed: 0 },
+  hits: {
+    total: { value: 1, relation: 'eq' },
+    max_score: 0.8713851,
+    hits: [ [Object] ]
+  }
+}
+[
+  {
+    _index: 'search_index',
+    _id: 'ZWgomoEBOs_ZEts5qraF',
+    _score: 0.8713851,
+    _source: {
+      id: 1,
+      name: 'Apple iPhone 12 256GB (PRODUCT)RED',
+      description: 'iPhone 12. Во-первых, это быстро. iPhone 12 поражает возможностями.'
+    }
+  }
+]
 ```
 
 Это самый простой пример поиска - мы ищем товары, у которых в названии будет слово "Iphone". Сами элементы находятся в поле **result.hits.hits** - такая уж структура ответа в ES.
@@ -281,33 +374,60 @@ const products = result.hits.hits;
 
 ```javascript
 const query = {
-    function_score: {
-        query: {
-            bool: {
-                should: [
-                    {
-                        match_phrase: {
-                            name: {
-                                query: 'Iphone Pro',
-                                slop: 3,
-                                boost: 1000
-                            }
-                        }
-                    },
-                    {
-                        match_phrase: {
-                            name: {
-                                description: 'Iphone Pro',
-                                slop: 3,
-                                boost: 10
-                            }
-                        }
-                    }
-                ]
+  function_score: {
+    query: {
+      bool: {
+        should: [
+          {
+            match_phrase: {
+              name: {
+                query: 'Iphone Pro',
+                slop: 3,
+                boost: 1000
+              }
             }
-        }
+          },
+          {
+            match_phrase: {
+              name: {
+                description: 'Iphone Pro',
+                slop: 3,
+                boost: 10
+              }
+            }
+          }
+        ]
+      }
     }
+  }
 }
+```
+
+Результат:
+
+```bash
+{
+  took: 31,
+  timed_out: false,
+  _shards: { total: 1, successful: 1, skipped: 0, failed: 0 },
+  hits: {
+    total: { value: 1, relation: 'eq' },
+    max_score: 882.4754,
+    hits: [ [Object] ]
+  }
+}
+[
+  {
+    _index: 'search_index',
+    _id: 'ZWgomoEBOs_ZEts5qraF',
+    _score: 882.4754,
+    _source: {
+      id: 1,
+      name: 'Apple iPhone 12 256GB (PRODUCT)RED',
+      description: 'iPhone 12. Во-первых, это быстро. iPhone 12 поражает возможностями.'
+    }
+  }
+]
 ```
 
 В ES можно описывать функции для расчёта релевантности документов - за это отвечает **function_score**. В данном запросе нас устроит первое условие ИЛИ второе условие - логическая функция **bool** с **should**. Конструкция **match_phrase** позволяет искать соответствие по поисковой фразе, **slop** отвечает за то, сколько слов может быть между нашей поисковой фразой, а **boost**, как можно догадаться, отвечает за веса полей.
