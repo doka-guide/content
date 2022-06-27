@@ -4,9 +4,12 @@ description: "Элемент, который показывает ход вып�
 authors:
   - webdb81
 keywords:
-  - progress
   - индикация загрузки
   - индикатор процесса
+related:
+  - html/meter
+  - recipes/progress
+  - css/vendor-prefixes
 tags:
   - doka
 ---
