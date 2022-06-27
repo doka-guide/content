@@ -66,7 +66,7 @@ curl -X GET localhost:9200
 }
 ```
 
-Альтернативный способ — запустить ES в докер-контейнере. Узнать больше про Docker можно в [статье «Docker»](/tools/docker). Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Скачали контейнер, настроили по инструкции и двигаемся дальше.
+Альтернативный способ — запустить ES в докер-контейнере. Узнать больше про Docker можно в [статье «Docker»](/tools/docker/). Официальный образ можно найти на [Docker Hub](https://hub.docker.com/_/elasticsearch), а инструкция по запуску и настройке контейнера есть в [документации по ES](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html). Скачали контейнер, настроили по инструкции и двигаемся дальше.
 
 ## Как использовать
 
@@ -302,7 +302,7 @@ run();
 }
 ```
 
-Множественная вставка записей поддерживается при помощи [**Bulk**](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html), но его мы пропустим.
+Множественная вставка записей поддерживается при помощи [bulk](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html), но его мы пропустим.
 
 ### Поиск записей
 
