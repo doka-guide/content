@@ -4,6 +4,7 @@
 
 ## Июнь 2022
 
+- 28 июня [Основы работы с ElasticSearch](https://doka.guide/js/elasticsearch/), Даниил Хлебовский
 - 16 июня [`<output>`](https://doka.guide/html/output), Борис Демченко
 - 16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
 - 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков
