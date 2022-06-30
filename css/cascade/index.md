@@ -9,7 +9,7 @@ keywords:
 related:
   - css/all
   - css/specificity
-  - js/element-style/
+  - js/element-style
 tags:
   - article
 ---
