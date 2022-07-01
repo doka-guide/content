@@ -52,53 +52,53 @@ ready:
   - recipes/snow
 active:
   - html/screenreaders
-  - html/img
-  - js/execution-order
-  - js/closures
-  - css/media
-  - tools/gitlab-ci-cd
-  - js/boolean
+  - js/var-let
+  - tools/ci-cd
+  - html/doctype
+  - css/keyframes
+  - html/input
+  - css/transform-function
+  - js/infinite-scroll
   - tools/cli
-  - tools/docker
-  - js/function
-  - tools/agile
-  - js/async-in-js
-  - html/section
+  - tools/static-types
+  - html/img
   - html/div
-  - css/attr
-  - css/box-model
-  - css/box-shadow
-  - css/position
+  - html/article
+  - html/section
+  - js/async-in-js
+  - js/oop
+  - css/specificity
+  - tools/bundlers
+  - css/display
+  - tools/webpack
+  - tools/agile
+  - tools/docker
   - html/head
+  - html/video
   - css/flexbox-guide
   - html/nav
-  - js/function-context
-  - tools/webpack
-  - tools/network
-  - css/pseudoelements
-  - recipes/snow
-  - html/form
+  - css/attr
+  - css/media
   - js/clean-architecture
-  - html/input
-  - html/doctype
-  - css/display
-  - css/keyframes
-  - tools/static-types
-  - html/flow
-  - tools/ci-cd
-  - js/deal-with-forms
-  - tools/bundlers
-  - css/transform-function
-  - css/custom-properties
-  - js/oop
-  - js/how-the-browser-creates-pages
-  - html/video
-  - css/grid-guide
-  - js/infinite-scroll
-  - css/specificity
-  - js/var-let
-  - html/article
+  - html/form
   - js/how-to-test-and-why
   - tools/markdown
+  - css/pseudoelements
+  - css/custom-properties
+  - tools/gitlab-ci-cd
+  - js/boolean
+  - js/function
+  - js/execution-order
+  - js/closures
+  - html/flow
+  - tools/network
+  - css/box-shadow
+  - css/grid-guide
+  - recipes/snow
+  - js/deal-with-forms
+  - js/how-the-browser-creates-pages
+  - css/position
+  - css/box-model
+  - js/function-context
 ---
 
