@@ -5,7 +5,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Картина в рамке, разложенная по слоям: задний фон, контуры, заливка, рамка'
+  alt: 'Картина в рамке, разложенная по слоям: фон, контуры, заливка, рамка'
 authors:
   - bespoyasov
 editors:
