@@ -1,6 +1,11 @@
 ---
 title: "Как браузер рисует страницы"
 description: "Как обрабатывается HTML, CSS и JS код перед тем, как станет веб-страницей"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Картина в рамке, разложенная по слоям: задний фон, контуры, заливка, рамка'
 authors:
   - bespoyasov
 editors:
