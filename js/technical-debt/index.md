@@ -1,5 +1,10 @@
 ---
 title: "Что такое технический долг"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Сломанное окно браузера, склеенное пластырем. На заднем фоне бомба с фитилём'
 authors:
   - bespoyasov
 keywords:
