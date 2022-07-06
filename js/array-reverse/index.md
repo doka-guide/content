@@ -5,6 +5,10 @@ authors:
   - yurlovr
 editors:
   - tachisis
+related:
+  - js/arrays
+  - js/console-log
+  - js/expressions-vs-statements
 tags:
   - doka
 ---
