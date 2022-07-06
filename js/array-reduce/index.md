@@ -132,7 +132,7 @@ const totalAmount = bankAccounts.reduce(
     // на текущем счету
     return sum + currentAccount.amount
   },
-  0 // Начальное значение
+  0 // Начальное значение аккумулятора
 )
 
 console.log(totalAmount)
