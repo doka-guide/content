@@ -171,53 +171,54 @@ body {
   font-size: 16px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 17px;
-  font-weight: 500;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 40px;
-}
-
-h1 {
-  font-size: 1.625rem;
-}
-
-h2 {
-  font-size: 1.375rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-h4 {
-  font-size: 1.125rem;
-}
-
-h5 {
-  font-size: 1.0625rem;
-}
-
-h6 {
-  font-size: 1rem;
-}
-
 p {
   margin: 7px 0;
   font-size: 1rem;
   line-height: 1.4;
 }
+
+h1 {
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1.625rem;
+}
+
+h2 {
+  margin-top: 40px;
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1.375rem;
+}
+
+h3 {
+  margin-top: 40px;
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+h4 {
+  margin-top: 40px;
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+h5 {
+  margin-top: 40px;
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1.0625rem;
+}
+
+h6 {
+  margin-top: 40px;
+  margin-bottom: 17px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+/* в демо редко бывает больше одного уровня заголовков,
+   поэтому я дублирую свойства для удобства копирования */
 ```
 
 Бывают демки, которые состоят только из небольшого параграфа размером в 2-4 строки. Чтобы такое демо не выглядело сиротливо, можно пропорционально увеличить размер текста на всей странице:
@@ -410,24 +411,24 @@ div {
 }
 ```
 
-![картинка](images/demosstyle/only-text.png)
+![Демо только из текста](images/demosstyle/only-text.png)
 
 Если в демо не только нет ничего, кроме текста, но ещё и текста этого всего одна строчка (или одно слово), то смело увеличивайте размер шрифта до 24px.
 
 ```css
-a {
+div {
   font-size: 24px;
 }
 ```
 
-![демка из одной ссылки](images/demosstyle/only-line.png)
+![Демка из одной строки](images/demosstyle/only-line.png)
 
 ### Не текст, а код
 
 Если нужно оформить не параграф текста, а блок исходного кода, такой блок оформляется нижней рамкой:
 
 ```css
-pre {
+code {
   border-bottom: 1px solid #979797;
   padding: 15px 0;
 }
@@ -712,6 +713,8 @@ textarea:focus {
 }
 ```
 
+![Форма](images/demosstyle/form.png)
+
 В мобильной версии, для компактности, подписи и элементы идут друг под другом:
 
 ```css
@@ -731,7 +734,7 @@ textarea:focus {
 }
 ```
 
-![Форма](images/demosstyle/form.png)
+![Мобильная форма](images/demosstyle/form-mobile.png)
 
 ## Текст с элементами управления
 
@@ -901,25 +904,25 @@ a:hover, a:focus {
 
 ```css
 header {
-  border-bottom: 2px solid #F498AD;
+  border-bottom: 2px solid mainColor;
   padding-bottom: 10px;
   font-size: 14px; /* на 2px меньше, чем основной шрифт демо */
   font-style: italic;
 }
 ```
 
-Если такой элемент содержит ссылки — например, вы верстаете навигацию — то подчекиваний у них не будет. Слишком много черточек это нехорошо.
+Если такой элемент содержит ссылки — например, вы верстаете навигацию — то подчеркиваний у них не будет. Слишком много черточек это нехорошо.
 
 ```css
 footer {
-  border-top: 2px solid #F498AD;
+  border-top: 2px solid mainColor;
   padding-top: 10px;
   font-size: 14px; /* на 2px меньше, чем основной шрифт демо */
   font-style: italic;
 }
 
-footer a {
-  color: #F498AD;
+a {
+  color: mainColor;
   text-decoration: none;
 }
 ```
