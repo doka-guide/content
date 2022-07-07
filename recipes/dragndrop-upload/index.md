@@ -3,6 +3,8 @@ title: "Драг-н-дроп для загрузки файлов"
 description: "Будем загружать файлы простым перетаскиванием без кликов."
 authors:
   - webdb81
+contributors:
+  - skorobaeeus
 keywords:
   - drag and drop
   - загрузка файла
