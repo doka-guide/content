@@ -27,50 +27,79 @@
 
     code {
         text-align: center;
-        display: block;
+        display: flex;
         font-family: "Roboto Mono", monospace;
         margin-top: 2rem;
-    }
-
-    div {
-        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
 
     .normal {
-        word-spacing: normal;
+        text-align: center;
     }
 
-    .px {
-        word-spacing: 20px;
+    input {
+        outline: none;
+        background-color: inherit;
+        border: 2px solid white;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 3px;
+        display: none;
+        text-align: center;
     }
 
-    .percents {
-        word-spacing: 170%;
+    input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 
-    .rem {
-        word-spacing: 2rem;
+    select {
+        outline: none;
+        background-color: inherit;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 3px;
     }
 
   </style>
 </head>
 <body>
-    <code>normal</code>
+
+    <code>
+        word-spacing:
+        <input type="number" name="number" id="number" min="-50" max="150" value="0">
+        <select name="word-spacing" id="word-spacing">
+            <option value="normal" selected>normal</option>
+            <option value="px">px</option>
+            <option value="%">%</option>
+            <option value="rem">rem</option>
+        </select>
+    </code>
     <div class="normal">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi illum explicabo incidunt facilis, excepturi impedit id quo sunt consequuntur ipsum labore ipsam. Necessitatibus nemo, id autem labore accusantium facilis eligendi cupiditate illo pariatur delectus, itaque officiis eos aliquid? Est, dicta!
     </div>
-    <code>20px</code>
-    <div class="px">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus excepturi sunt deserunt doloribus tempore eum et numquam unde, incidunt eveniet, velit distinctio consectetur odio. Facere quis corrupti beatae accusamus inventore! Cumque mollitia velit et quos excepturi eos iure omnis aperiam.
-    </div>
-    <code>170%</code>
-    <div class="percents">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae saepe obcaecati facilis vel quisquam iure reiciendis velit magnam nam, in maxime accusantium! Voluptatibus qui itaque ex sequi dignissimos dolorum sed a temporibus, commodi nam veritatis eum, facilis magni iste omnis.
-    </div>
-    <code>2rem</code>
-    <div class="rem">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem sunt deleniti repudiandae cum minima esse fugiat possimus dolore nisi nam reiciendis rerum aliquid, et, deserunt dignissimos eligendi repellendus soluta nihil necessitatibus! Natus ullam voluptatibus laboriosam animi officia nulla, adipisci sit.
-    </div>
+
+
+    <script>
+        document.querySelector('#number').addEventListener('input', function(e) {
+            let sel = document.querySelector('#word-spacing')
+            document.querySelector('.normal').style.wordSpacing = this.value.toString() + sel.options[sel.selectedIndex].value
+        });
+        document.querySelector('#word-spacing').addEventListener('change', function(e) {
+            if (this.options[this.selectedIndex].value != 'normal') {
+                document.querySelector('#number').style.display = 'block'
+                document.querySelector('.normal').style.wordSpacing = document.querySelector('#number').value.toString() + this.options[this.selectedIndex].value
+            } else {
+                document.querySelector('#number').style.display = 'none'
+                document.querySelector('#number').value = 0
+                document.querySelector('.normal').style.wordSpacing = 'normal'
+            }
+        });
+    </script>
 
 </body>
 </html>

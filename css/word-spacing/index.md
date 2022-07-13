@@ -2,6 +2,7 @@
 title: "`word-spacing`"
 authors:
   - ra1nbow1
+description: "Свойство, которое задает отступ между символами"
 keywords:
   - отступы между символами
   - отступы в тексте
@@ -15,59 +16,32 @@ tags:
 
 ## Пример
 
-Ключевое слово:
 ```css
 div {
-  word-spacing: normal;
+  word-spacing: 5px;
 }
 ```
-
-Значения в пикселях и других единицах измерения:
-```css
-div {
-  word-spacing: 10px;
-}
-```
-
-```css
-div {
-  word-spacing: 150%;
-}
-```
-
-```css
-div {
-  word-spacing: 2rem;
-}
-```
-
-Глобальные значения
-```css
-div {
-  word-spacing: initial;
-  }
-```
-
-```css
-div {
-  word-spacing: unset;
-  }
-```
-
-Варианты значений:
-
-<iframe title="Варианты значений" src="demos/basic/" height="375"></iframe>
 
 ## Как пишется
 
+Возможные варианты значений:
+
 ```css
 div {
-  word-spacing: normal|length|percentage|initial|inherit;
+  word-spacing: normal;
+  word-spacing: 10px;
+  word-spacing: 150%;
+  word-spacing: 2rem;
+  word-spacing: initial;
+  word-spacing: unset;
+  word-spacing: inherit;
 }
 ```
+
+<iframe title="Варианты значений" src="demos/basic/" height="375"></iframe>
 
 ### Значения
 
 - `normal` - нормальный интервал между словами, определённый текущим шрифтом и/или браузером;
-- `length` - определяет дополнительный интервал в дополнение к внутреннему интервалу между словами, определяемому шрифтом;
-- `percentage` - определяет дополнительный интервал как процент от предварительной ширины символа.
+- `length` - указывается в паре с числовым значением. Включает в себя `px`, `rem` и другие;
+- `percentage` - указывается в паре с числовым значением. Например, 20%.
