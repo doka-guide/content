@@ -1,6 +1,11 @@
 ---
 title: "`position`"
 description: "Нужно наложить элемент на элемент? Без позиционирования не обойтись."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'На переднем плане облокотившись на чемодан спит парень, а на заднем в небе висит солнце, а ещё летит девочка-супермен'
 authors:
   - ezhkov
 contributors:
