@@ -3,6 +3,8 @@ title: "Специфичность"
 description: "Как браузер решает, какие стили применять к элементу? Разбираемся, почему у селектора есть вес"
 authors:
   - solarrust
+contributors:
+  - artur-demidov
 editors:
   - tachisis
 keywords:
