@@ -48,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
@@ -87,7 +87,7 @@
 
 body {
   padding: 50px;
-  background-color: #18191c;
+  background-color: #18191C;
   color: #FFFFFF;
 }
 ```
@@ -132,15 +132,13 @@ body {
 
 Если в демо нужно покрасить элемент, используйте основной цвет раздела, к которому относится статья. Если окрашенных элементов много и нужно некоторые из них выделить визуально — подключите вспомогательный цвет.
 
-HTML: Основной `#FF8630`, вспомогательный `#2E9AFF`.
-
-CSS: Основной `#2E9AFF`, вспомогательный `#F498AD`.
-
-JS: Основной `#FFD829`, вспомогательный `#41E847`.
-
-Инструменты: Основной `#41E847`, вспомогательный `#FF8630`.
-
-Рецепты: Основной `#C56FFF`, вспомогательный `#41E847`.
+|             | Основной цвет | Дополнительный |
+|-------------|---------------|----------------|
+| HTML        | #FF8630       | #2E9AFF        |
+| CSS         | #2E9AFF       | #F498AD        |
+| JS          | #FFD829       | #41E847        |
+| Инструменты | #41E847       | #FF8630        |
+| Рецепты     | #C56FFF       | #41E847        |
 
 ## Текст и типографика
 
@@ -467,12 +465,12 @@ code {
 }
 
 .button:focus-visible {
-  border: 2px solid #ffffff;
+  border: 2px solid #FFFFFF;
   outline: none;
 }
 
 .button:focus {
-  border: 2px solid #ffffff;
+  border: 2px solid #FFFFFF;
   outline: none;
 }
 ```
@@ -510,11 +508,11 @@ code {
 ```css
 input {
   width: 300px;
-  border: 1px solid #ffffff;
+  border: 1px solid #FFFFFF;
   border-radius: 6px;
   padding: 10px 15px;
   background-color: transparent;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 18px;
   font-weight: 300;
   font-family: inherit;
@@ -532,11 +530,11 @@ textarea {
   max-width: 300px;
   min-height: 100px;
   max-height: 300px;
-  border: 1px solid #ffffff;
+  border: 1px solid #FFFFFF;
   border-radius: 6px;
   padding: 10px 15px;
   background-color: transparent;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 18px;
   font-weight: 300;
   font-family: inherit;
@@ -766,7 +764,7 @@ div {
 
 ## Показать несколько вариантов
 
-Чтобы не растягивать демо по высоте больше, чем необходимо, демки, где нужно продемонстрировать несколько вариантов — например, разные значения одного CSS-свойства — опции и подписи к ним мы размещаем бок о бок. Заголовок сдвинут вровень с подписями вариантов ради эстетики :)
+Часто нужно продемонстрировать несколько вариантов чего-то, например, разные значения CSS-свойства. Чтобы не растягивать демо по высоте, опции и подписи к ним размещаем бок о бок. Заголовок сдвинут вровень с подписями вариантов ради эстетики :)
 
 ```html
 <div class="container">
@@ -868,7 +866,7 @@ span:hover::after {
 ```css
 a {
   border-radius: 3px;
-  color: #ffffff;
+  color: #FFFFFF;
   -webkit-text-decoration-color: #000000;
   text-decoration-color: #000000;
   text-decoration-thickness: 2px;
