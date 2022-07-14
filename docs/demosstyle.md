@@ -917,7 +917,7 @@ header {
 footer {
   border-top: 2px solid mainColor;
   padding-top: 10px;
-  font-size: 14px; /* на 2px меньше, чем основной шрифт демо */
+  font-size: 14px; /* на 2 px меньше, чем основной шрифт демо */
   font-style: italic;
 }
 
