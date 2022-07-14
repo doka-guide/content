@@ -140,6 +140,8 @@ body {
 | Инструменты | #41E847       | #FF8630        |
 | Рецепты     | #C56FFF       | #41E847        |
 
+В примерах этого гайда мы будем использовать цвет раздела CSS — `#2E9AFF`, но если вы делаете демку для другого раздела, замените его на подходящий.
+
 ## Текст и типографика
 
 ### Пишите по-русски
@@ -248,12 +250,12 @@ code {
 
 ### Инлайновые элементы
 
-Если нужно визуально выделить несколько слов в тексте, а курсивное и полужирное начертания исчерпали свои семантические возможности, можно использовать выделение основным цветом раздела (`mainColor`):
+Если нужно визуально выделить несколько слов в тексте, а курсивное и полужирное начертания исчерпали свои семантические возможности, можно использовать выделение основным цветом раздела:
 
 ```css
 span {
   border-radius: 3px;
-  background-color: mainColor;
+  background-color: #2E9AFF;
 }
 ```
 
@@ -267,14 +269,14 @@ span {
 a {
   border-radius: 3px;
   color: inherit;
-  -webkit-text-decoration-color: mainColor;
-  text-decoration-color: mainColor;
+  -webkit-text-decoration-color: #2E9AFF;
+  text-decoration-color: #2E9AFF;
   text-decoration-thickness: 2px;
   transition: background-color 0.2s linear;
 }
 
 a:hover, a:focus {
-  background-color: mainColor;
+  background-color: #2E9AFF;
   transition: background-color 0.2s linear;
   outline-width: 0;
 }
@@ -311,7 +313,7 @@ ul::before {
   right: calc(100% + 25px); /* размещаем у левого края + отступ 25 пикселей */
   top: 7px;
   padding: 2px 7px;
-  background-color: mainColor;
+  background-color: #2E9AFF;
   color: #000000;
   font-size: 14px;
 }
@@ -521,7 +523,7 @@ input {
 }
 
 input:focus {
-  border-color: mainColor;
+  border-color: #2E9AFF;
   outline: none;
 }
 
@@ -541,7 +543,7 @@ textarea {
 }
 
 textarea:focus {
-  border-color: mainColor;
+  border-color: #2E9AFF;
   outline: none;
 }
 ```
@@ -644,7 +646,7 @@ textarea:focus {
   width: 14px;
   height: 14px;
   border-radius: 3px;
-  background-color: mainColor;
+  background-color: #2E9AFF;
 }
 ```
 
@@ -880,12 +882,12 @@ a:hover, a:focus {
 }
 
 .button:focus-visible {
-  border: 2px solid mainColor;
+  border: 2px solid #2E9AFF;
   outline: none;
 }
 
 .button:focus {
-  border: 2px solid mainColor;
+  border: 2px solid #2E9AFF;
   outline: none;
 }
 
@@ -902,7 +904,7 @@ a:hover, a:focus {
 
 ```css
 header {
-  border-bottom: 2px solid mainColor;
+  border-bottom: 2px solid #2E9AFF;
   padding-bottom: 10px;
   font-size: 14px; /* на 2 px меньше, чем основной шрифт демо */
   font-style: italic;
@@ -913,14 +915,14 @@ header {
 
 ```css
 footer {
-  border-top: 2px solid mainColor;
+  border-top: 2px solid #2E9AFF;
   padding-top: 10px;
   font-size: 14px; /* на 2 px меньше, чем основной шрифт демо */
   font-style: italic;
 }
 
 a {
-  color: mainColor;
+  color: #2E9AFF;
   text-decoration: none;
 }
 ```
