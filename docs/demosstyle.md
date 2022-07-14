@@ -848,7 +848,7 @@ span::after {
   padding: 10px 40px;
   background-color: #FFFFFF;
   color: #000000;
-  font-size: calc(1rem - 2px); /* на 2px меньше, чем основной шрифт демо */
+  font-size: calc(1rem - 2px); /* на 2 px меньше, чем основной шрифт демо */
   text-align: left;
   opacity: 0;
   visibility: hidden;
