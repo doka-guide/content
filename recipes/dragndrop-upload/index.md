@@ -4,7 +4,7 @@ description: "Будем загружать файлы простым перет
 authors:
   - webdb81
 contributors:
-  - skorobaeeus
+  - skorobaeus
 keywords:
   - drag and drop
   - загрузка файла
@@ -37,7 +37,6 @@ tags:
 
 ```html
 <div class="demo-wrapper">
-  <p>Для загрузки изображения, перетащите его в выделенную область:</p>
   <div id="dropFile_Zone" class="upload-zone">
     <div id="uploadFile_Loader" class="upload-loader">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
@@ -46,7 +45,8 @@ tags:
         </path>
       </svg>
     </div>
-    <p id="uploadFile_Status"></p>
+    <p id="uploadFile_Hint" class="upload-hint upload-hint_visible">Для загрузки изображения перетащите его в эту область</p>
+    <p id="uploadFile_Status" class="upload-status"></p>
   </div>
 </div>
 ```
@@ -55,8 +55,6 @@ tags:
 
 ```css
 p {
-  margin-top: 0;
-  margin-bottom: 12px;
   text-align: center;
 }
 
@@ -67,11 +65,26 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 180px;
-  padding: 20px;
-  border: 2px solid #ffffff;
-  border-radius: 16px;
+  height: 250px;
+  padding: 55px 40px;
   overflow: hidden;
+  background-color: #C56FFF;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.upload-zone_dragover {
+  background-color: #593273;
+}
+
+.upload-hint {
+  display: none;
+}
+
+.upload-hint_visible {
+  display: block;
+  pointer-events: none;
 }
 
 .upload-loader {
@@ -87,7 +100,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5a57a6;
+  background-color: #593273;
 }
 
 .upload-loader__image {
@@ -102,6 +115,7 @@ p {
 const BYTES_IN_MB = 1048576
 
 const dropFileZone = document.getElementById('dropFile_Zone')
+const hintText = document.getElementById('uploadFile_Hint')
 const outputText = document.getElementById('uploadFile_Status')
 const loaderImage = document.getElementById('uploadFile_Loader')
 let fileInstance
@@ -111,6 +125,14 @@ let fileInstance
     evt.preventDefault()
     return false
   })
+})
+
+dropFileZone.addEventListener('dragenter', function(event) {
+  dropFileZone.classList.add('upload-zone_dragover')
+})
+
+dropFileZone.addEventListener('dragleave', function(event) {
+  dropFileZone.classList.remove('upload-zone_dragover')
 })
 
 dropFileZone.addEventListener('drop', function(event) {
@@ -135,6 +157,7 @@ function processingUploadFile(fileInstanceUpload) {
     dropZoneData.append('file', fileInstanceUpload)
 
     xhr.upload.addEventListener('progress', function() {
+      hintText.classList.remove('upload-hint_visible')
       loaderImage.classList.add('upload-loader_visible')
     })
 
@@ -176,7 +199,6 @@ function processingUploadFile(fileInstanceUpload) {
 
 ```html
 <div class="demo-wrapper">
-  <p>Для загрузки изображения, перетащите его в выделенную область:</p>
   <div id="dropFile_Zone" class="upload-zone">
     <div id="uploadFile_Loader" class="upload-loader">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
@@ -185,7 +207,8 @@ function processingUploadFile(fileInstanceUpload) {
         </path>
       </svg>
     </div>
-    <p id="uploadFile_Status"></p>
+    <p id="uploadFile_Hint" class="upload-hint upload-hint_visible">Для загрузки изображения перетащите его в эту область</p>
+    <p id="uploadFile_Status" class="upload-status"></p>
   </div>
 </div>
 ```
@@ -194,7 +217,7 @@ function processingUploadFile(fileInstanceUpload) {
 
 ### Стили
 
-Область для загрузки файла выделим рамкой со скруглёнными углами и укажем фиксированную высоту:
+Область для загрузки файла выделим фоновым цветом и укажем фиксированную высоту:
 
 ```css
 .upload-zone {
@@ -204,11 +227,21 @@ function processingUploadFile(fileInstanceUpload) {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 180px;
-  padding: 20px;
-  border: 2px solid #ffffff;
-  border-radius: 16px;
+  height: 250px;
+  padding: 55px 40px;
   overflow: hidden;
+  background-color: #C56FFF;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 500;
+}
+```
+
+При перетаскивании файла в область загрузки будем менять фоновый цвет при помощи дополнительного класса:
+
+```css
+.upload-zone_dragover {
+  background-color: #593273;
 }
 ```
 
@@ -232,7 +265,7 @@ function processingUploadFile(fileInstanceUpload) {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5a57a6;
+  background-color: #593273;
 }
 
 .upload-loader__image {
@@ -247,6 +280,7 @@ function processingUploadFile(fileInstanceUpload) {
 
 - переменная `BYTES_IN_MB`, в которой указывается количество байтов в одном мегабайте, будет использоваться при вычислении размера файла;
 - `dropFileZone` устанавливает область обработки выбранного файла;
+- `hintText` указывает на подсказку о загрузке файла;
 - в переменной `outputText` указывается элемент, в котором будет показан полученный от сервера ответ;
 - переменная `loaderImage` определяет графический элемент индикатора обработки файла;
 - в переменной `fileInstance` будут храниться данные выбранного файла.
@@ -255,6 +289,7 @@ function processingUploadFile(fileInstanceUpload) {
 const BYTES_IN_MB = 1048576
 
 const dropFileZone = document.getElementById('dropFile_Zone')
+const hintText = document.getElementById('uploadFile_Hint')
 const outputText = document.getElementById('uploadFile_Status')
 const loaderImage = document.getElementById('uploadFile_Loader')
 let fileInstance
@@ -265,6 +300,8 @@ let fileInstance
 При отслеживании перетаскивания файла будут использоваться следующие события:
 
 - `dragover` выполняется во время перемещения файла над областью обработки файла;
+- `dragenter` срабатывает, когда файл входит в область обработки файла;
+- `dragleave` срабатывает, если файл покидает область обработки, но ещё не «сброшен»;
 - `drop` выполняется в тот момент, когда пользователь отпустил кнопку мыши и выбранный файл был помещён («сброшен») в заданную область.
 
 Когда при перетаскивании выбранный файл будет находиться в пределах активной страницы, браузер его откроет. Чтобы файл был обработан в назначенной для этого области, необходимо отменить стандартное поведение браузера для событий `dragover` и `drop` путём вызова метода `preventDefault()`:
@@ -275,6 +312,14 @@ let fileInstance
     evt.preventDefault()
     return false
   })
+})
+
+dropFileZone.addEventListener('dragenter', function(event) {
+  dropFileZone.classList.add('upload-zone_dragover')
+})
+
+dropFileZone.addEventListener('dragleave', function(event) {
+  dropFileZone.classList.remove('upload-zone_dragover')
 })
 ```
 
@@ -321,7 +366,7 @@ const xhr = new XMLHttpRequest()
 После этого указываем последовательность работы `XMLHttpRequest` при передаче файла на сервер:
 
 1. Выбранный файл сохраняется для отправки.
-1. Для `XMLHttpRequest` добавляется обработчик события `progress`, который отслеживает процесс загрузки файла. Чтобы показать скрытый графический элемент индикатора загрузки, ему добавляется класс `upload-loader_visible`.
+1. Для `XMLHttpRequest` добавляется обработчик события `progress`, который отслеживает процесс загрузки файла. Чтобы показать скрытый графический элемент индикатора загрузки, ему добавляется класс `upload-loader_visible`, а подсказка о загрузке скрывается через удаление класса `upload-hint_visible`.
 1. Метод `open()` выполняет POST-запрос к управляющему файлу, который хранится на сервере.
 1. Выбранный пользователем файл передаётся на сервер.
 1. Для `XMLHttpRequest` выполняется обработка события загрузки файла:
@@ -332,6 +377,7 @@ const xhr = new XMLHttpRequest()
 dropZoneData.append('file', fileInstanceUpload)
 
 xhr.upload.addEventListener('progress', function() {
+  hintText.classList.remove('upload-hint_visible')
   loaderImage.classList.add('upload-loader_visible')
 })
 
