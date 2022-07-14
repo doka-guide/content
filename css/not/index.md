@@ -2,6 +2,8 @@
 title: "`:not`"
 authors:
   - solarrust
+contributors:
+  - artur-demidov
 editors:
   - tachisis
 keywords:
