@@ -1,7 +1,12 @@
 ---
 title: "`column-span`"
+description: "Нарушаем правила колоночной вёрстки и растягиваем элемент сразу на несколько колонок."
 authors:
   - xpleesid
+related:
+  - html/flow
+  - css/display
+  - css/columns
 tags:
   - doka
 ---
