@@ -1,8 +1,12 @@
 ---
 title: "`counter-increment`"
-description: "Свойство, которое управляет шагом числового значения существующих CSS-счётчиков"
+description: "Свойство, которое управляет шагом числового значения существующих CSS-счётчиков."
 authors:
   - blueingreen68
+related:
+  - css/pseudoelements
+  - html/ul
+  - html/li
 tags:
   - doka
 ---
