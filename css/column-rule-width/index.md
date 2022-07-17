@@ -1,7 +1,12 @@
 ---
 title: "`column-rule-width`"
+description: "Хочется сделать линию между колонками пожирнее? Используйте это свойство!"
 authors:
   - xpleesid
+related:
+  - css/numeric-types
+  - css/border-width
+  - css/column-rule
 tags:
   - doka
 ---
@@ -16,7 +21,7 @@ tags:
 
 ## Как пишется
 
-Для того, чтобы задать межколоночной линии ширину 2 px, мы напишем:
+Для того чтобы задать межколоночной линии ширину 2 px, мы напишем:
 
 ```css
 p {
