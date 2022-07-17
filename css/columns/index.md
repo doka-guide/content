@@ -1,7 +1,12 @@
 ---
 title: "`columns`"
+description: "Удобный шорткат для количества и ширины колонок текста."
 authors:
   - solarrust
+related:
+  - css/column-count
+  - css/column-rule
+  - css/column-span
 tags:
   - doka
 ---
