@@ -1,8 +1,12 @@
 ---
 title: "`counter-reset`"
-description: "Одно из свойств для создания CSS-счётчика"
+description: "Одно из свойств для создания CSS-счётчика."
 authors:
   - blueingreen68
+related:
+  - css/content
+  - css/css-rule
+  - css/pseudoelements
 tags:
   - doka
 ---
