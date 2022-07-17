@@ -1,7 +1,12 @@
 ---
 title: "Большое целое"
+description: "В математике числе бесконечны, а в программировании — нет. Если число не влазит в стандартный `number`, то есть его большой брат."
 authors:
   - doka-dog
+related:
+  - js/number
+  - js/typecasting
+  - tools/json
 tags:
   - doka
   - placeholder
