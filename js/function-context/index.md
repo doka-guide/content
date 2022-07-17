@@ -335,7 +335,7 @@ const user2 = { name: "Ivan" }
 greet.call(user1, "Hello,", ":-)")
 // Hello, Alex :-)
 greet.call(user2, "Good morning,", ":-D")
-
+// Good morning, Ivan :-D
 greet.apply(user1, ["Hello,", ":-)"])
 // Hello, Alex :-)
 greet.apply(user2, ["Good morning,", ":-D"])
