@@ -2,16 +2,15 @@
 title: "`word-spacing`"
 description: "Стандратный пробел не достаточно широк? Управляйте его размером через CSS."
 authors:
-
-- ra1nbow1
-  keywords:
-- отступы между словами
-  related:
-- css/line-height
-- css/white-space
-- css/word-break
-  tags:
-- doka
+  - ra1nbow1
+keywords:
+  - отступы между словами
+related:
+  - css/line-height
+  - css/white-space
+  - css/word-break
+tags:
+  - doka
 
 ---
 
