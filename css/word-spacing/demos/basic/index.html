@@ -3,11 +3,11 @@
 <head>
   <title>Варианты значений — word-spacing — Дока</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <style>
     html {
       height: 100%;
@@ -19,87 +19,115 @@
     }
 
     body {
-      background-color: #18191c;
-      color: white;
-      font-family: "Roboto", Arial, sans-serif;
       width: 600px;
+      font-size: 2rem;
+      font-family: "Roboto", Arial, sans-serif;
+      color: white;
+      background-color: #18191c;
+    }
+
+    fieldset {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding: 25px;
+      font-size: 1.5rem;
+      gap: 10px;
+    }
+
+    .label {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      gap: 10px;
     }
 
     code {
-        text-align: center;
-        display: flex;
-        font-family: "Roboto Mono", monospace;
-        margin-top: 2rem;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .normal {
-        text-align: center;
+      font-family: "Roboto Mono", monospace;
     }
 
     input {
-        outline: none;
-        background-color: inherit;
-        border: 2px solid white;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem;
-        padding: 3px;
-        display: none;
-        text-align: center;
+      border: 1px solid white;
+      padding: 3px;
+      font-size: inherit;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      outline: none;
+      background-color: inherit;
     }
 
     input[type=number]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+      margin: 0;
+      -webkit-appearance: none;
+    }
+
+    input[disabled] {
+      opacity: 0.3;
+      cursor: not-allowed;
     }
 
     select {
-        outline: none;
-        background-color: inherit;
-        border: none;
-        color: white;
-        font-weight: bold;
-        font-size: 1.1rem;
-        padding: 3px;
+      border: none;
+      padding: 3px;
+      font-size: inherit;
+      font-weight: bold;
+      color: white;
+      outline: none;
+      background-color: inherit;
     }
 
+    .visually-hidden {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      margin: -1px;
+      border: 0;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+    }
+
+    p {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
+<fieldset>
+  <label class="label" for="number">
+    <code>word-spacing:</code>
+    <input disabled id="number" max="150" min="-50" name="number" type="number" value="0">
+  </label>
+  <label class="visually-hidden" for="numeric-type">Ключевое слово или единица измерения:</label>
+  <select id="numeric-type" name="word-spacing">
+    <option selected value="normal">normal</option>
+    <option value="px">px</option>
+    <option value="%">%</option>
+    <option value="rem">rem</option>
+  </select>
+</fieldset>
+<p>
+  Петька на заднем дворе играл сам с собою в «классики» и надувал щеки, потому что так прыгать было значительно легче.
+</p>
 
-    <code>
-        word-spacing:
-        <input type="number" name="number" id="number" min="-50" max="150" value="0">
-        <select name="word-spacing" id="word-spacing">
-            <option value="normal" selected>normal</option>
-            <option value="px">px</option>
-            <option value="%">%</option>
-            <option value="rem">rem</option>
-        </select>
-    </code>
-    <div class="normal">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi illum explicabo incidunt facilis, excepturi impedit id quo sunt consequuntur ipsum labore ipsam. Necessitatibus nemo, id autem labore accusantium facilis eligendi cupiditate illo pariatur delectus, itaque officiis eos aliquid? Est, dicta!
-    </div>
-
-
-    <script>
-        document.querySelector('#number').addEventListener('input', function(e) {
-            let sel = document.querySelector('#word-spacing')
-            document.querySelector('.normal').style.wordSpacing = this.value.toString() + sel.options[sel.selectedIndex].value
-        });
-        document.querySelector('#word-spacing').addEventListener('change', function(e) {
-            if (this.options[this.selectedIndex].value != 'normal') {
-                document.querySelector('#number').style.display = 'block'
-                document.querySelector('.normal').style.wordSpacing = document.querySelector('#number').value.toString() + this.options[this.selectedIndex].value
-            } else {
-                document.querySelector('#number').style.display = 'none'
-                document.querySelector('#number').value = 0
-                document.querySelector('.normal').style.wordSpacing = 'normal'
-            }
-        });
-    </script>
-
+<script>
+  const numInput = document.querySelector('#number');
+  const typeInput = document.querySelector('#numeric-type');
+  const text = document.querySelector('p');
+  numInput.addEventListener('input', function (e) {
+    text.style.wordSpacing = this.value.toString() + typeInput.options[typeInput.selectedIndex].value;
+  });
+  typeInput.addEventListener('change', function (e) {
+    if (this.options[this.selectedIndex].value !== 'normal') {
+      numInput.disabled = false;
+      text.style.wordSpacing = numInput.value.toString() + this.options[this.selectedIndex].value;
+    } else {
+      numInput.disabled = true;
+      numInput.value = 0;
+      text.style.wordSpacing = 'normal';
+    }
+  });
+</script>
 </body>
 </html>
