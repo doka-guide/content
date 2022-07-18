@@ -1,12 +1,16 @@
 ---
 title: "`animation-delay`"
+description: "Если хочется, чтобы анимация начиналась не сразу."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - задержка анимации
+related:
+  - css/numeric-types
+  - css/animation-play-state
+  - css/animation-timing-function
 tags:
   - doka
 ---

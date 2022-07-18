@@ -22,6 +22,7 @@ groups:
       - spread
       - for-in
       - shallow-or-deep-clone
+      - iterator
   - name: "Примитивные типы данных"
     items:
       - number
@@ -35,23 +36,22 @@ groups:
   - name: "Коллекции"
     items:
       - object
-      - function-as-datatype
       - arrays
+      - function-as-datatype
       - set
-      - objects-objects-everywhere
+      - map
   - name: "Числа"
     items:
-      - number-wrapper
-      - number-is-nan
-      - number-isfinite
-      - number-tostring
+      - number
       - parseint
       - parsefloat
-      - math
-      - math-floor
-      - math-random
+      - number-wrapper
+      - number-tostring
+      - number-is-nan
+      - number-isfinite
   - name: "Строки"
     items:
+      - string
       - string-wrapper
       - template-strings
       - index-of
@@ -78,6 +78,9 @@ groups:
       - array-reduce
       - array-filter
       - array-find
+      - array-find-index
+      - array-flat
+      - array-flatmap
       - array-every
       - array-some
       - array-reverse
@@ -86,11 +89,16 @@ groups:
       - array-length
       - array-from
       - array-isarray
-  - name : "Множество Set"
+  - name: "Объекты"
+    items:
+      - object
+      - object-tostring
+      - descriptors
+      - objects-objects-everywhere
+  - name : "Множества (`Set`)"
     items:
       - set
       - set-constructor
-      - set-size
       - set-add
       - set-delete
       - set-has
@@ -99,15 +107,22 @@ groups:
       - set-values
       - set-keys
       - set-entries
+      - set-size
   - name: "Обработка исключений"
     items:
       - try-catch
       - errors
+  - name: "`Math`"
+    items:
+      - math
+      - math-floor
+      - math-random
   - name: "Браузерное окружение и API"
     items:
       - bom
       - dom
       - fetch
+      - form-data
       - console-log
       - window-history
       - window-location
@@ -115,15 +130,16 @@ groups:
       - match-media
       - urlsearchparams
       - local-storage
+      - session-storage
+      - performance
       - alert
       - prompt
       - confirm
-      - session-storage
+      - queuemicrotask
       - settimeout
       - cleartimeout
       - setinterval
       - clearinterval
-      - parseint
       - window-print
   - name: "О браузере"
     items:
@@ -136,10 +152,8 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
-  - name: "Объект страницы `document`"
+  - name: "Объект страницы (`document`)"
     items:
-      - cookie
-      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
@@ -147,7 +161,9 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
-  - name: "Элемент на странице `Element`"
+      - forms
+      - cookie
+  - name: "Элемент на странице (`Element`)"
     items:
       - element
       - element-addeventlistener
@@ -169,11 +185,14 @@ groups:
       - element-innertext
       - element-textcontent
       - element-hidden
-  - name: "События `Event`"
+  - name: "События"
     items:
       - events
+      - event
       - element-click
       - event-load-and-domcontentloaded
+      - event-unload
+      - event-beforeunload
       - element-keydown-keyup
       - element-mouseout
       - element-mouseover
@@ -194,6 +213,7 @@ groups:
       - promise-finally
       - promise-all
       - promise-allsettled
+      - promise-any
       - promise-race
       - async-await
   - name: "Обмен данными с API"

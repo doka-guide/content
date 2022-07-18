@@ -45,7 +45,7 @@ tags:
 ```css
 .text {
   color: #ffffff;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 ```
 
@@ -57,7 +57,7 @@ tags:
 }
 ```
 
-<iframe title="Селектор потомка" src="demos/nested-selector/" height="388"></iframe>
+<iframe title="Селектор потомка" src="demos/nested-selector/" height="420"></iframe>
 
 ## Как это понять
 

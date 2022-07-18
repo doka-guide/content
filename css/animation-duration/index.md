@@ -1,12 +1,16 @@
 ---
 title: "`animation-duration`"
+description: "Сколько продлится анимация? Секунду, две или всего пару миллисекунд?"
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - длительность анимации
+related:
+  - css/animation
+  - css/animation-timing-function
+  - css/animation
 tags:
   - doka
 ---

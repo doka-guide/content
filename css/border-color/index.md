@@ -1,11 +1,14 @@
 ---
 title: "`border-color`"
+description: "Какого цвета будет рамка вокруг элемента? Решать вам!"
 authors:
   - lordoys
 editors:
   - tachisis
-keywords:
-  - border-color
+related:
+  - css/border-style
+  - css/web-colors
+  - css/animation
 tags:
   - doka
 ---

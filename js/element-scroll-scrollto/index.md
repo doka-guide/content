@@ -1,5 +1,5 @@
 ---
-title: "`Element.scrollTo()`"
+title: "`.scrollTo()`"
 authors:
   - doka-dog
 contributors:

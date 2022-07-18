@@ -1,7 +1,12 @@
 ---
 title: "`column-fill`"
+description: "Управляем разделением текста на колонки в блоках с фиксированной высотой"
 authors:
   - xpleesid
+related:
+  - css/column-rule
+  - css/column-width
+  - css/columns
 tags:
   - doka
 ---

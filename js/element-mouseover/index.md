@@ -1,5 +1,5 @@
 ---
-title: "Событие `mouseover`"
+title: "`mouseover`"
 authors:
   - nlopin
 contributors:
@@ -39,8 +39,10 @@ function onMouseover() {
     current.classList.remove('mouseover');
   }
   this.classList.add('mouseover');
-  current = this; // записываем текущий пункт, чтобы удалить с него класс
-                  // при переходе курсора на новый элемент
+  current = this;
+  // Записываем текущий пункт,
+  // чтобы удалить с него класс
+  // при переходе курсора на новый элемент
 }
 
 let items = document.getElementsByTagName('li');

@@ -1,5 +1,10 @@
 ---
 title: "Глобальные атрибуты"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Принц в руках держит лягушку в короне'
 authors:
   - solarrust
 editors:

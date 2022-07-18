@@ -2,6 +2,11 @@
 title: "Стиль написания кода в команде"
 authors:
   - bespoyasov
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Книга с названием: How to style — карандаш, лист бумаги и кружка с улыбающимся смайлом'
 keywords:
   - code-style
   - код-стайл

@@ -1,54 +1,104 @@
 ---
 pinned:
-  - css/box-model
-  - tools/docker
-  - html/doctype
-  - html/div
-  - css/display
-  - tools/webpack
-  - js/clean-architecture
-  - html/head
-  - js/closures
-  - tools/ci-cd
-  - js/execution-order
-  - css/grid-guide
+  - html/screenreaders
 ready:
+  - html/img
+  - html/article
+  - html/form
+  - html/nav
+  - html/section
   - html/flow
   - html/input
   - html/video
-  - css/box-shadow
-  - css/custom-properties
-  - css/flexbox-guide
-  - js/async-in-js
-  - js/deal-with-forms
-  - js/how-the-browser-creates-pages
-  - js/how-to-test-and-why
-  - tools/cli
-  - tools/static-types
-active:
-  - css/box-model
-  - tools/docker
   - html/doctype
   - html/div
-  - css/display
-  - tools/webpack
-  - js/clean-architecture
   - html/head
-  - js/closures
-  - tools/ci-cd
-  - js/execution-order
-  - css/grid-guide
-  - css/flexbox-guide
-  - html/flow
-  - html/video
+  - css/transform-function
+  - css/keyframes
+  - css/position
+  - css/attr
+  - css/media
+  - css/pseudoelements
+  - css/specificity
   - css/box-shadow
   - css/custom-properties
-  - tools/cli
-  - js/deal-with-forms
-  - tools/static-types
-  - html/input
+  - css/flexbox-guide
+  - css/box-model
+  - css/display
+  - css/grid-guide
+  - js/var-let
+  - js/boolean
+  - js/function
+  - js/function-context
+  - js/infinite-scroll
+  - js/oop
   - js/async-in-js
-  - js/how-to-test-and-why
+  - js/deal-with-forms
   - js/how-the-browser-creates-pages
+  - js/how-to-test-and-why
+  - js/execution-order
+  - js/closures
+  - js/clean-architecture
+  - tools/agile
+  - tools/markdown
+  - tools/network
+  - tools/bundlers
+  - tools/gitlab-ci-cd
+  - tools/cli
+  - tools/static-types
+  - tools/docker
+  - tools/webpack
+  - tools/ci-cd
+  - recipes/snow
+active:
+  - html/screenreaders
+  - js/oop
+  - tools/docker
+  - js/infinite-scroll
+  - html/video
+  - tools/cli
+  - css/pseudoelements
+  - css/box-model
+  - js/clean-architecture
+  - css/display
+  - css/transform-function
+  - css/attr
+  - tools/static-types
+  - css/box-shadow
+  - tools/gitlab-ci-cd
+  - css/custom-properties
+  - tools/ci-cd
+  - js/async-in-js
+  - tools/network
+  - tools/markdown
+  - css/media
+  - css/position
+  - tools/webpack
+  - js/function-context
+  - js/execution-order
+  - html/section
+  - css/flexbox-guide
+  - css/specificity
+  - recipes/snow
+  - js/var-let
+  - js/how-to-test-and-why
+  - html/flow
+  - html/nav
+  - html/form
+  - html/head
+  - html/div
+  - js/closures
+  - tools/bundlers
+  - js/deal-with-forms
+  - js/boolean
+  - js/how-the-browser-creates-pages
+  - html/doctype
+  - html/img
+  - html/article
+  - js/function
+  - css/grid-guide
+  - tools/agile
+  - html/input
+  - css/keyframes
 ---
 

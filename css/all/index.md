@@ -1,9 +1,14 @@
 ---
 title: "`all`"
+description: "Удобное свойство для сброса сразу всех стилей."
 authors:
   - doka-dog
 keywords:
   - сброс стилей
+related:
+  - css/global-keywords
+  - css/universal-selector
+  - css/appearance
 tags:
   - doka
   - placeholder

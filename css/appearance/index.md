@@ -1,11 +1,17 @@
 ---
 title: "`appearance`"
+description: "Сбрасывает стандартный внешний вид элементов."
 authors:
   - ezhkov
 editors:
   - tachisis
 keywords:
-  - отображение
+  - сброс внешнего вида
+  - сброс поведения
+related:
+  - css/vendor-prefixes
+  - html/input
+  - css/all
 tags:
   - doka
 ---

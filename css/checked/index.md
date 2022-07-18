@@ -1,5 +1,6 @@
 ---
 title: "`:checked`"
+description: "Псевдокласс, который отражает состояние чекбокса или радиокнопки."
 authors:
   - solarrust
 contributors:
@@ -7,50 +8,57 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - псевдокласс
-  - :checked
+  - отмеченный
+related:
+  - css/pseudoclasses
+  - html/option
+  - js/deal-with-forms
 tags:
   - doka
 ---
 
 ## Кратко
 
-Псевдокласс, который активируется, когда пользователь отмечает чекбокс или выбирает одну из радиокнопок.
+[Псевдокласс](/css/pseudoclasses/), который активируется, когда пользователь отмечает чекбокс или выбирает одну из радиокнопок.
 
 С его помощью удобно стилизовать эти элементы в их активном состоянии.
 
 ## Пример
 
-Будем менять обводку и цвет текста у чекбокса, когда он отмечен:
+Чекбокс полупрозрачный. Будем менять прозрачность ([`opacity`](/css/opacity/)) и цвет текста у чекбокса, когда он отмечен:
 
 ```html
+<span>Обратный билет</span>
 <label>
   <input type="checkbox">
-  <span class="input-text"> Чекбокс (нажми!) </span>
+  <span>Нужен</span>
 </label>
 ```
 
-Белая обводка в дефолтном состоянии:
+Прозрачность в дефолтном состоянии:
 
 ```css
-input[type="checkbox"] {
-  outline: 2px solid #ffffff;
+input[type="checkbox"],
+input[type="checkbox"] ~ span
+{
+  opacity: 0.5;
 }
 ```
 
-Обводка становится синей, когда на чекбокс кликнули:
+Чекбокс становится непрозрачным, когда на него кликнули:
 
 ```css
 input[type="checkbox"]:checked {
-  outline: 2px solid #1a5ad7;
+  opacity: 1;
 }
 ```
 
-Цвет текста тоже меняется на синий:
+Текст тоже становится непрозрачным, а цвет меняется на синий:
 
 ```css
-input[type="checkbox"]:checked ~ .input-text {
-  color: #1a5ad7;
+input[type="checkbox"]:checked ~ span {
+  opacity: 1;
+  color: #2E9AFF;
 }
 ```
 

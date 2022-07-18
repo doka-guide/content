@@ -165,7 +165,7 @@
       keyCode.innerText = event.keyCode
       code.innerText = event.code
 
-      if (!event.shiftKey && !event.altKey && !event.ctrlKey) {
+      if (!event.shiftKey && !event.altKey && !event.ctrlKey && !event.metaKey) {
         extra.innerText = ''
       } else if (event.shiftKey) {
         extra.innerHTML = '+ <code>Shift</code>'
@@ -173,6 +173,8 @@
         extra.innerHTML = '+ <code>Alt</code>'
       } else if (event.ctrlKey) {
         extra.innerHTML = '+ <code>Ctrl</code>'
+      } else if (event.metaKey) {
+        extra.innerHTML = '+ <code>Meta</code>'
       }
     })
   </script>

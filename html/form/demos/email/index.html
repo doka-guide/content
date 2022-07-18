@@ -14,7 +14,10 @@
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-size: 18px;
@@ -22,9 +25,8 @@
     }
 
     .form {
-      width: 790px;
+      width: 630px;
       margin: auto;
-      padding: 60px 80px;
     }
 
     .input-label {
@@ -93,6 +95,30 @@
 
     .button-orange {
       background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        width: 100%;
+      }
+
+      .input-label {
+        display: block;
+      }
+
+      .input-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
     }
   </style>
 </head>

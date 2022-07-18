@@ -1,5 +1,5 @@
 ---
-title: "Событие `mouseout`"
+title: "`mouseout`"
 authors:
   - nlopin
 contributors:

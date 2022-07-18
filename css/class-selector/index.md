@@ -1,5 +1,6 @@
 ---
 title: "Селектор по классу"
+description: "Удобный способ выбрать из HTML-разметки элементы только с нужным классом. И применить к ним стили."
 authors:
   - ezhkov
 contributors:
@@ -9,6 +10,10 @@ editors:
 keywords:
   - селектор
   - класс
+related:
+  - html/class
+  - css/tag-selector
+  - js/query-selector
 tags:
   - doka
 ---

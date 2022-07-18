@@ -1,5 +1,6 @@
 ---
 title: "`::after`"
+description: "Загадочный элемент, которого нет в разметке. Но вот же он, стоит после настоящего элемента!"
 authors:
   - ezhkov
 contributors:
@@ -7,9 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - ::after
-  - :after
-  - псевдоэлемент
+  - дополнительный элемент
+related:
+  - css/pseudoelements
+  - css/before
+  - css/content
 tags:
   - doka
 ---
@@ -78,7 +81,7 @@ a::after {
 }
 ```
 
-<iframe title="Выделение слова в предложении" src="demos/word/" height="525"></iframe>
+<iframe title="Выделение слова в предложении" src="demos/word/" height="510"></iframe>
 
 ## Подсказки
 

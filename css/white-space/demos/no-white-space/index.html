@@ -8,23 +8,58 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    div {
+      width: 65%;
+      max-width: 600px;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-<p>Я пришёл    домой</p>
-<p>
-  Однажды    <!-- Перенос строки -->
-  в студёную    <!-- Перенос строки -->
-  зимнюю    <!-- Перенос строки -->
-  пору
-</p>
+<div>
+  <p>
+    Однажды,    <!-- Перенос строки -->
+    в студёную    <!-- Перенос строки -->
+    зимнюю    <!-- Перенос строки -->
+    пору
+  </p>
+  <p>Я     из     лесу    вышел;</p>
+</div>
 </body>
 </html>

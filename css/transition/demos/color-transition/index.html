@@ -11,14 +11,19 @@
     *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 10% 5%;
-      overflow: hidden;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
-      color: #ffffff;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .wrapper {
@@ -29,45 +34,71 @@
 
     .col {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: center;
     }
 
     .col + .col {
-      margin-top: 70px;
+      margin-top: 30px;
     }
 
-    .title {
-      width: 50%;
-      font-size: 24px;
-      font-weight: 600;
+    .option-title {
+      width: 150px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
     }
 
     .link {
-      width: 50%;
+      border-radius: 3px;
       color: #ffffff;
       font-size: 24px;
       text-align: center;
-      text-decoration-color: #1a5ad7;
+      text-decoration-color: #2E9AFF;
       text-decoration-thickness: 2px;
     }
 
     .link:hover {
-      color: #1a5ad7;
+      background-color: #2E9AFF;
     }
 
     .transitioned .link {
-      transition: color 0.6s;
+      transition: background-color 0.6s;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .col + .col {
+        margin-top: 50px;
+      }
+
+      .option-title {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <div class="col">
-      <h2 class="title">Без transition</h2>
+      <span class="option-title">Без transition</span>
       <a href="#" class="link">Наведи на меня</a>
     </div>
     <div class="col transitioned">
-      <h2 class="title">C transition</h2>
+      <span class="option-title">C transition</span>
       <a href="#" class="link">Наведи на меня</a>
     </div>
   </div>

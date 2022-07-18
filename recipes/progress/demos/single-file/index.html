@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Прогресс-бар загрузки файла — Рецепты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      background-color: #18191c;
+    }
+
+    .form-upload {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .form-upload__label {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-upload__title {
+      max-width: 200px;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .form-upload__input {
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .form-upload__input::file-selector-button {
+      min-width: 190px;
+      margin-right: 30px;
+      padding: 9px 15px;
+      border: none;
+      border-radius: 6px;
+      font-weight: inherit;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    #uploadForm_File {
+      text-transform: lowercase;
+      cursor: pointer;
+    }
+
+    #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+      width: 360px;
+    }
+
+    .form-upload__submit {
+      display: block;
+      margin-top: 25px;
+      padding: 9px 15px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .form-upload__submit:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .form-upload__submit:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .form-upload__submit:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .form-upload__submit_purple {
+      background-color: #C56FFF;
+    }
+
+    progress {
+      height: 5px;
+      margin-top: 25px;
+      border: none;
+      background-color: #286C2D;
+    }
+
+    progress::-webkit-progress-bar {
+      border: none;
+      background-color: #286C2D;
+    }
+
+    progress::-webkit-progress-value {
+      background-color: #41E847;
+    }
+
+    progress::-moz-progress-bar {
+      border: none;
+      background-color: #41E847;
+    }
+
+    .form-upload__container {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .form-upload__status:empty::before {
+      content: "Не загружено";
+    }
+
+    .form-upload__status:empty + span {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-upload__label {
+        display: block;
+      }
+
+      .form-upload__title {
+        display: block;
+        max-width: initial;
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+
+      #uploadForm_File, .form-upload__submit, progress, .form-upload__container {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .form-upload__input::file-selector-button {
+        min-width: initial;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-wrapper">
+    <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
+      <label for="uploadForm_File" class="form-upload__label">
+        <span class="form-upload__title">Изображение:</span>
+        <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
+      </label>
+      <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
+      <progress id="progressBar" value="0" max="100"></progress>
+      <div class="form-upload__container"><span id="uploadForm_Status" class="form-upload__status"></span><span id="uploadForm_Size"></span></div>
+    </form>
+  </div>
+
+  <script>
+    const BYTES_IN_MB = 1048576
+
+    const form = document.getElementById('uploadForm')
+    const fileInput = document.getElementById('uploadForm_File')
+    const sizeText = document.getElementById('uploadForm_Size')
+    const statusText = document.getElementById('uploadForm_Status')
+    const progressBar = document.getElementById('progressBar')
+
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0]
+      if (file.size > 5 * BYTES_IN_MB) {
+        alert('Принимается файл до 5 МБ')
+        this.value = null
+      }
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault()
+      const fileToUpload = fileInput.files[0]
+      const formSent = new FormData()
+      const xhr = new XMLHttpRequest()
+
+      if (fileInput.files.length > 0) {
+        formSent.append('uploadForm_File', fileToUpload)
+
+        xhr.upload.addEventListener('progress', progressHandler, false)
+        xhr.addEventListener('load', loadHandler, false)
+        xhr.open('POST', 'upload_processing.php')
+        xhr.send(formSent)
+      } else {
+        alert('Сначала выберите файл')
+      }
+      return false
+    });
+
+    function progressHandler(event) {
+      const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
+      const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
+      const percentLoaded = Math.round((event.loaded / event.total) * 100)
+
+      progressBar.value = percentLoaded
+      sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+      statusText.textContent = `Загружено ${percentLoaded}% | `
+    }
+
+    function loadHandler(event) {
+      statusText.textContent = event.target.responseText
+      progressBar.value = 0
+    }
+  </script>
+</body>
+</html>

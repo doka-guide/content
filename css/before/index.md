@@ -1,5 +1,6 @@
 ---
 title: "`::before`"
+description: "Удобный способ создать элемент без дополнительной HTML-разметки."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,9 +12,10 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - :before
-  - псевдоэлемент
+related:
+  - css/after
+  - css/box-model
+  - css/pseudoelements
 tags:
   - doka
 ---
@@ -69,14 +71,9 @@ a::before {
   content: "⚠";
   margin-right: 0.5em;
 }
-
-.info::before {
-  content: "ℹ️";
-  margin-right: 0.5em;
-}
 ```
 
-<iframe title="Добавление иконки" src="demos/icon/" height="350"></iframe>
+<iframe title="Добавление иконки" src="demos/icon/" height="440"></iframe>
 
 ## Подсказки
 

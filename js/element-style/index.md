@@ -1,5 +1,5 @@
 ---
-title: "`Element.style`"
+title: "`.style`"
 authors:
   - bespoyasov
 tags:
@@ -70,24 +70,24 @@ element.style.fontFamily = "Arial"
 | [background-position](/css/background-position/) | backgroundPosition |
 | [background-repeat](/css/background-repeat/) | backgroundRepeat |
 | [border](/css/border/) | border |
-| [border-bottom](/css/border/#kak-eto-ponyat) | borderBottom |
-| [border-bottom-color](/css/border/#kak-eto-ponyat) | borderBottomColor |
-| [border-bottom-style](/css/border/#kak-eto-ponyat) | borderBottomStyle |
-| [border-bottom-width](/css/border/#kak-eto-ponyat) | borderBottomWidth |
+| [border-bottom](/css/border/) | borderBottom |
+| [border-bottom-color](/css/border/) | borderBottomColor |
+| [border-bottom-style](/css/border/) | borderBottomStyle |
+| [border-bottom-width](/css/border/) | borderBottomWidth |
 | [border-color](/css/border-color/) | borderColor |
-| [border-left](/css/border/#kak-eto-ponyat) | borderLeft |
-| [border-left-color](/css/border/#kak-eto-ponyat) | borderLeftColor |
-| [border-left-style](/css/border/#kak-eto-ponyat) | borderLeftStyle |
-| [border-left-width](/css/border/#kak-eto-ponyat) | borderLeftWidth |
-| [border-right](/css/border/#kak-eto-ponyat) | borderRight |
-| [border-right-color](/css/border/#kak-eto-ponyat) | borderRightColor |
-| [border-right-style](/css/border/#kak-eto-ponyat) | borderRightStyle |
-| [border-right-width](/css/border/#kak-eto-ponyat) | borderRightWidth |
+| [border-left](/css/border/) | borderLeft |
+| [border-left-color](/css/border/) | borderLeftColor |
+| [border-left-style](/css/border/) | borderLeftStyle |
+| [border-left-width](/css/border/) | borderLeftWidth |
+| [border-right](/css/border/) | borderRight |
+| [border-right-color](/css/border/) | borderRightColor |
+| [border-right-style](/css/border/) | borderRightStyle |
+| [border-right-width](/css/border/) | borderRightWidth |
 | [border-style](/css/border-style/) | borderStyle |
-| [border-top](/css/border/#kak-eto-ponyat) | borderTop |
-| [border-top-color](/css/border/#kak-eto-ponyat) | borderTopColor |
-| [border-top-style](/css/border/#kak-eto-ponyat) | borderTopStyle |
-| [border-top-width](/css/border/#kak-eto-ponyat) | borderTopWidth |
+| [border-top](/css/border/) | borderTop |
+| [border-top-color](/css/border/) | borderTopColor |
+| [border-top-style](/css/border/) | borderTopStyle |
+| [border-top-width](/css/border/) | borderTopWidth |
 | [border-width](/css/border-width/) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |

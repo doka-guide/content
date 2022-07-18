@@ -1,9 +1,17 @@
 ---
 title: "Преобразование типов"
+description: "Брюки превращаются в элегантные шорты, а во что превращается строка «55ab» при преобразовании в число?"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Прогноз погоды, где ведущий показывает на облака с разными типами'
 authors:
   - bespoyasov
 tags:
   - article
+keywords:
+  - приведение типов
 ---
 
 ## Кратко

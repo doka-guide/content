@@ -21,8 +21,9 @@
     }
 
     .container {
-      width: 75%;
+      width: 65%;
       min-width: 650px;
+      max-width: 1000px;
       margin: auto;
     }
 
@@ -83,16 +84,27 @@
 
     a {
       color: #ffffff;
-      -webkit-text-decoration-color: #2E9AFF;
-      text-decoration-color: #2E9AFF;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
       text-decoration-thickness: 2px;
       transition: background-color 0.2s linear;
     }
 
     a:hover {
-      background-color: #2E9AFF;
+      background-color: #FF8630;
       border-radius: 3px;
       transition: background-color 0.2s linear;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        min-width: auto;
+      }
     }
   </style>
 </head>

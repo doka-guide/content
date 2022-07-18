@@ -1,5 +1,10 @@
 ---
 title: "Позиционирование элементов с помощью JS"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Компьютерная стрелочка передвигает окошки с изображениями'
 authors:
   - bespoyasov
 contributors:

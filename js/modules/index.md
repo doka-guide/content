@@ -65,7 +65,7 @@ _AMD (asynchronous module definition)_ — асинхронное определ
 
 // Например, определение модуля-объекта с данными:
 define(function() {
-  return
+  return {
     color: "black",
     size: "unisize"
   }
@@ -84,7 +84,7 @@ define(function() {
 // от которых зависит текущий,
 // можно было определять массив зависимостей:
 define(['path/to/module1', 'path/to/module2'],
-function(module1,           module2) {
+function(module1, module2) {
   return {
     someComplicatedLogic: function(arg) {
       return module1.doStuff(module2.doMoreStuff(arg));
@@ -248,7 +248,7 @@ import { user } from "./module1.js" // Выведет 'Alex'.
 import { user } from "./module1.js" // Не выведет ничего.
 ```
 
-Из-за этого же может получиться, что объект и одного модуля может меняться другими.
+Из-за этого же может получиться, что объект из одного модуля может меняться другими.
 
 ```javascript
 // module1.js

@@ -1,5 +1,5 @@
 ---
-title: "`Promise`. Метод `catch`"
+title: "`.catch()`"
 authors:
   - nlopin
 keywords:

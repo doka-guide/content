@@ -25,10 +25,11 @@ groups:
       - i
       - s
       - u
-      - pre
       - bdo
       - bdi
       - small
+      - pre
+      - code
   - name: 'Семантика'
     items:
       - div
@@ -53,6 +54,7 @@ groups:
       - cite
       - var
       - dfn
+      - samp
       - screenreaders
   - name: 'Формы'
     items:
@@ -69,6 +71,12 @@ groups:
       - label
       - fieldset
       - legend
+      - inputmode
+      - placeholder
+      - disabled
+      - required
+      - value
+      - pattern
   - name: 'Картинки'
     items:
       - img
@@ -101,6 +109,7 @@ groups:
   - name: 'Таблицы'
     items:
       - tables
+      - caption
   - name: 'Мета'
     items:
       - head
@@ -110,6 +119,7 @@ groups:
     items:
       - style
       - script
+      - defer-async
       - template
       - output
   - name: 'Глобальные атрибуты'

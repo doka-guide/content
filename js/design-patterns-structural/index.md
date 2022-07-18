@@ -149,7 +149,7 @@ function heatWater() {
 
   machine.turnOnHeater();
 
-  if (machine.getTemperature() <= 90) {
+  if (machine.getTemperature() >= 90) {
     machine.turnOffHeater();
   }
 }
