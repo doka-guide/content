@@ -11,8 +11,8 @@ keywords:
   - combined
   - selector
 related:
-  - css/rule
-  - css/selector
+  - css/column-rule
+  - css/selector-list
   - html/class
 tags:
   - article
