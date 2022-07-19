@@ -72,7 +72,7 @@ Promise.race([promise1, promise2]).then((value) => {
 
 Просто использовать цикл [`for`](/js/for/) или метод [`forEach`](/js/array-foreach/) с асинхронными операциями мы не можем. И цикл `for` и метод `forEach` ожидают синхронный код.
 
-Однако мы можем использовать [`for await...of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for-await...of), который появился в ES2018, для обхода асинхронными итерируемыми сущностями.
+Однако мы можем использовать [`for await...of`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/for-await...of), который появился в ES2018, для обхода асинхронных итерируемых сущностей.
 
 Простой генератор создаёт итерируемую сущность, которую можно «перебрать» через `for...of`:
 
