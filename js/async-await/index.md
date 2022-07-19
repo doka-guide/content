@@ -9,7 +9,7 @@ keywords:
 related:
   - js/async-in-js
   - js/promise
-  - js/
+  - js/fetch
 tags:
   - doka
 ---
