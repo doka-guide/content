@@ -1,5 +1,6 @@
 ---
 title: "Трёхслойная архитектура"
+description: "Как поделить весь код приложения на три части так, чтобы потом добавлять новые фичи легче."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -10,15 +11,16 @@ authors:
 editors:
   - tachisis
 keywords:
-  - домен
-  - адаптер
-  - порт
   - ddd
   - Мартин
   - Martin
   - layer
   - onion
   - hexagonal
+related:
+  - js/architecture-and-design-patterns
+  - js/web-app-works
+  - tools/code-review
 tags:
   - article
 ---
@@ -98,8 +100,8 @@ JavaScript же для описания типов может предложит
 ```js
 class User {
   constructor(name, email) {
-    this.name = name;
-    this.email = email;
+    this.name = name
+    this.email = email
   }
 }
 ```
@@ -139,19 +141,19 @@ class User {
 Прикладной слой может выполнять роль «нечистого» контекста, который заботится о том, чтобы передать доменному слою данные в нужном ему виде и обработать результат.
 
 ```js
-import { source } from "ports/input";
-import { target } from "ports/output";
-import { updateProduct } from "domain/product";
+import { source } from 'ports/input'
+import { target } from 'ports/output'
+import { updateProduct } from 'domain/product'
 
 function renameProductHandler(command) {
   // Получаем продукт из внешнего сервиса через порт (сайд-эффект):
-  const product = source.getProductById(command.productId);
+  const product = source.getProductById(command.productId)
 
   // Вызываем доменную функцию обновления (чистая функция):
-  const updated = updateProduct(product, { name });
+  const updated = updateProduct(product, { name })
 
   // Сохраняем продукт во внешнем сервисе через порт (сайд-эффект):
-  target.saveProduct(updated);
+  target.saveProduct(updated)
 }
 ```
 
@@ -181,13 +183,13 @@ interface ProductsStorage {
 ```js
 // Адаптер к сервису получения данных (браузерному fetch):
 function fetchUser(id) {
-  return fetch(`/users/${id}`);
+  return fetch(`/users/${id}`)
 }
 
 // Адаптер данных пользователя, приводит названия полей в нужный вид:
 function fromResponse(serverUser) {
-  const { Name, Email } = serverUser;
-  return { name: Name, email: Email };
+  const { Name, Email } = serverUser
+  return { name: Name, email: Email }
 }
 ```
 
