@@ -1,6 +1,6 @@
 ---
 title: "Трёхслойная архитектура"
-description: "Как поделить весь код приложения на три части так, чтобы потом добавлять новые фичи легче."
+description: "Как поделить весь код приложения на три части так, чтобы добавлять новые фичи было быстрее, а править баги — легче"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -20,7 +20,7 @@ keywords:
 related:
   - js/architecture-and-design-patterns
   - js/web-app-works
-  - tools/code-review
+  - js/how-to-test-and-why
 tags:
   - article
 ---
