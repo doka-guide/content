@@ -3,6 +3,8 @@
 ```js
 const sum = 2 + 2
 const truthy = !!sum
+
+console.log(truthy)
 // true
 ```
 
