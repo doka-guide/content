@@ -2,6 +2,8 @@
 title: "Контекст наложения"
 authors:
   - solarrust
+contributors:
+  - nsbarsukov
 keywords:
   - stacking context
 tags:
