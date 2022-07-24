@@ -1,6 +1,6 @@
 ---
 title: "`.add()`"
-description: "Добавляет значение в коллекцию Set"
+description: "Добавляет значение в коллекцию `Set`."
 authors:
   - nlopin
 tags:

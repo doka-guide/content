@@ -1,6 +1,6 @@
 ---
 title: "`.clear()`"
-description: "Удаляет все значения из коллекции Set"
+description: "Удаляет все значения из коллекции `Set`."
 authors:
   - nlopin
 tags:
@@ -27,4 +27,4 @@ console.log(numbers.size)
 
 ## Как пишется
 
-Метод вызывается без аргументов. Возвращает `undefined`.
+Метод вызывается без аргументов. Возвращает [`undefined`](/js/undefined/).

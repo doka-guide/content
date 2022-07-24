@@ -1,6 +1,6 @@
 ---
 title: "`for`...`in`"
-description: "Цикл for...in обходит перечисляемые ключи объекта"
+description: "Цикл `for...in` обходит перечисляемые ключи объекта."
 authors:
   - windrushfarer
 tags:
