@@ -1,6 +1,6 @@
 ---
 title: "Конструктор"
-description: "Создаёт экземпляр коллекции Set"
+description: "Создаёт экземпляр коллекции `Set`."
 authors:
   - nlopin
 tags:
