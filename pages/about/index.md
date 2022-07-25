@@ -48,5 +48,5 @@ location: "/about/"
 - <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> — за то, что собрал нас вместе.
 - <!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end --> — за контентный дизайн.
 - <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
-- <!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end --> — за литературную редактуру.
-- <!-- yaspeller ignore:start -->[Вадим Макеев](/people/pepelsbey/)<!-- yaspeller ignore:end --> — за запуск.
+- [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
+- [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
