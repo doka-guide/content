@@ -3,7 +3,7 @@ title: "`repeating-radial-gradient()`"
 description: "Создаёт градиент из повторяющихся круговых или эллиптических узоров."
 authors:
   - inventoris
-realted:
+related:
   - css/radial-gradient
   - css/linear-gradient
   - css/background-image
@@ -24,8 +24,8 @@ tags:
     background-image: 
         repeating-radial-gradient(
             circle at center, 
-            #fff 0px, 
-            #fff 10px, 
+            #ffffff 0px, 
+            #ffffff 10px, 
             #40e3e0 10px, 
             #40e3e0 20px
         );
