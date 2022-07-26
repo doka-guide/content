@@ -11,10 +11,6 @@ related:
   - css/pseudoclasses
   - css/cursor
   - js/deal-with-forms
-keywords:
-  - задизейбленный
-  - дизейбл
-  - энейбл
 tags:
   - doka
 ---
