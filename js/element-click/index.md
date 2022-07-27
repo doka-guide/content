@@ -1,7 +1,12 @@
 ---
 title: "`click`"
+description: "Если у пользователя есть мышка, то он точно будет кликать курсором по странице."
 authors:
   - nlopin
+related:
+  - html/button
+  - js/element-addeventlistener
+  - js/dom
 tags:
   - doka
 ---
@@ -17,36 +22,36 @@ tags:
 Подписаться на все клики на странице:
 
 ```js
-document.addEventListener("click", function () {
-  alert("Вы кликнули по странице!")
+document.addEventListener('click', function () {
+  alert('Вы кликнули по странице!')
 })
 ```
 
 Подписаться только на клики по кнопке (она должна быть на странице):
 
 ```js
-let button = document.getElementsByTagName("button")[0] // получаем кнопку
+const button = document.getElementsByTagName('button')[0]
 
 // навешиваем обработчик на событие клик
-button.addEventListener("click", function () {
-  alert("Вы кликнули по кнопке!")
+button.addEventListener('click', function () {
+  alert('Вы кликнули по кнопке!')
 })
 ```
 
 ## Как понять
 
-Подробнее о механизме событий читай в статье [«События»](/js/events/).
+Подробнее о механизме событий читайте в статье [«События»](/js/events/).
 
 В функцию-обработчик так же передаётся объект события, который содержит дополнительную информацию о клике. Самые полезные свойства:
 
-- `detail` — количество кликов, которые произвёл пользователь. `1` — для одиночного клика, `2` — для двойного и так далее.
+- `detail` — количество кликов, которые произвёл пользователь. _1_ — для одиночного клика, _2_ — для двойного и так далее.
 - `view` — возвращает объект `window`, в котором произошло событие.
 
 
 Чтобы получить доступ к объекту события, функция-обработчик должна принимать на вход параметр:
 
 ```js
-button.addEventListener("click", function (event) {
+button.addEventListener('click', function (event) {
   alert(event.detail) // напечатает количество кликов
 })
 ```
