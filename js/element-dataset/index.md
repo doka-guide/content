@@ -46,7 +46,7 @@ console.log(firstItem.dataset)
 ```js
 const heading = document.querySelector('h1')
 
-console.log(heading.dataset);
+console.log(heading.dataset)
 // {}
 ```
 
@@ -129,7 +129,7 @@ item.dataset.candidateRole = 'junior'
 ```js
 const item = document.querySelector('li')
 
-console.log(item.dataset);
+console.log(item.dataset)
 // { candidateRole: 'junior' }
 ```
 
