@@ -21,6 +21,7 @@ tags:
 
 <video controls width="580" poster="images/poster.png">
   <source src="video/1.mp4" type="video/mp4">
+  <source src="video/1_safari.mp4" type="video/mp4">
 </video>
 
 Событие `keydown` фиксирует момент нажатия клавиши, до того как эта клавиша будет отпущена, что, по сути, является первой фазой нажатия. Продолжением является событие `keyup` — момент, когда клавиша будет отпущена.
