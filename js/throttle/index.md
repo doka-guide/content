@@ -32,6 +32,7 @@ tags:
 
 <video controls width="580" poster="images/poster.png">
   <source src="video/1.mp4" type="video/mp4">
+  <source src="video/1_safari.mp4" type="video/mp4">
 </video>
 
 ## Дизайн и задача
