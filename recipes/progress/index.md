@@ -245,7 +245,8 @@ function loadHandler(event) {
 Полный вариант загрузки файла с его сохранением на сервере выглядит так:
 
 <video controls width="640">
-  <source src="video/progress_example.mp4" type="video/mp4">
+  <source src="video/progress.mp4" type="video/mp4">
+  <source src="video/progress_safari.mp4" type="video/mp4">
 </video>
 
 ## Разбор решения
