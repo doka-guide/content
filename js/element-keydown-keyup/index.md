@@ -1,5 +1,6 @@
 ---
 title: "`keydown` и `keyup`"
+description: "События происходят при нажатии клавиш клавиатуры. Но в чем между ними разница?"
 authors:
   - stegur
 contributors:
@@ -9,6 +10,10 @@ contributors:
 keywords:
   - события
   - клавиатура
+related:
+  - js/dom
+  - js/event
+  - js/deal-with-forms
 tags:
   - doka
 ---
@@ -30,34 +35,34 @@ tags:
 ### keydown
 
 ```js
-const spy = document.getElementById("keyboardSpy")
+const spy = document.getElementById('keyboardSpy')
 
-spy.addEventListener("keydown", function (event) {
-  alert("Нажата клавиша " + event.key)
+spy.addEventListener('keydown', function (event) {
+  alert('Нажата клавиша ' + event.key)
 })
 ```
 
 ### keyup
 
 ```js
-const spy = document.getElementById("keyboardSpy")
+const spy = document.getElementById('keyboardSpy')
 
-spy.addEventListener("keyup", function (event) {
-  alert("Клавиша " + event.key + " отпущена")
+spy.addEventListener('keyup', function (event) {
+  alert(`Клавиша ${event.key} отпущена`)
 })
 ```
 
 ## Как понять
 
-В функцию-обработчик также передаётся объект события, в котором есть информация о нажатой кнопке:
+В функцию-обработчик также передаётся [объект события](/js/event/), в котором есть информация о нажатой кнопке:
 
-- `key` — символьное значение. *`s`, `Я` , `U`* и т.д.
-- `code` — название клавиши. `KeyS`, `KeyZ`, `KeyU` и т.д.
-- `altKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Alt</kbd>
-- `ctrlKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Ctrl</kbd>
-- `shiftKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Shift</kbd>
-- `metaKey` — `true` или `false`, была ли одновременно нажата/отпущена так называемая мета-клавиша (на Mac клавиатурах это <kbd>⌘ Command</kbd>, а в Windows клавиатурах — Windows key <kbd>⊞</kbd>)
-- ~~`keyCode`~~ — код нажатой клавиши. `83`*,* `90`*,* `85` и т.д.
+- `key` — символьное значение. *`s`, `Я` , `U`* и так далее.
+- `code` — название клавиши. `KeyS`, `KeyZ`, `KeyU` и так далее.
+- `altKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Alt</kbd>.
+- `ctrlKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Ctrl</kbd>.
+- `shiftKey` — `true` или `false`, была ли одновременно нажата/отпущена клавиша <kbd>Shift</kbd>.
+- `metaKey` — `true` или `false`, была ли одновременно нажата/отпущена так называемая мета-клавиша (на Mac клавиатурах это <kbd>⌘ Command</kbd>, а в Windows клавиатурах — Windows key <kbd>⊞</kbd>).
+- ~~`keyCode`~~ — код нажатой клавиши. `83`*,* `90`*,* `85` и так далее.
 
 <aside>
 
