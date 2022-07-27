@@ -1,6 +1,6 @@
 ---
 title: "`.classList`"
-description: "Динамически добавляем и удаляем классы у элементов."
+description: "Динамически читаем, добавляем и удаляем классы у элементов."
 authors:
   - windrushfarer
 contributors:
@@ -32,7 +32,7 @@ button.classList.remove('active')
 button.classList.contains('active')
 ```
 
-<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="150"></iframe>
+<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="380"></iframe>
 
 ## Как понять
 
