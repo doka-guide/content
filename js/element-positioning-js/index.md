@@ -257,7 +257,7 @@ document.body.addEventListener('mousemove', (e) => {
 
 <iframe title="Драг-н-дроп, работающий на transform — Позиционирование элементов с помощью JS — Дока" src="demos/drag-n-drop-transform/" height="275"></iframe>
 
-Но мы можем ещё лучше 😎.
+Но мы можем ещё лучше 😎
 
 #### Изменение кастомных свойств CSS
 
