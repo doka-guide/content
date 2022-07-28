@@ -87,6 +87,7 @@ jobs:
         id: preview
         continue-on-error: true
         run: |
+          cp .env.example .env
           npm run preview
           cd dist && rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress --delete . deploy@dev.doka.guide:$(echo $($(grep 'SERVER_PATH' ../.env | cut -d '=' -f2)) | sed -r 's/[w]+/${{ github.repository }}\/${{ github.event.pull_request.number }}/g')
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
