@@ -1,6 +1,6 @@
 ---
 title: "`.hidden`"
-description: "Свойство `hidden` у DOM-элементов позволяет узнать или изменить значение HTML-атрибута `hidden`"
+description: "Свойство `hidden` у DOM-элементов позволяет узнать или изменить значение HTML-атрибута `hidden`."
 authors:
   - windrushfarer
 related:
