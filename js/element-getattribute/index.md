@@ -8,7 +8,7 @@ keywords:
 related:
   - html/global-attrs
   - js/dom
-  - js/hidden
+  - js/element-hidden
 tags:
   - doka
 ---
