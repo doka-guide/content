@@ -23,7 +23,7 @@ jobs:
     needs:
       - prepare
     env:
-      DEPLOY_DOMAIN: "https://content-${{ github.event.pull_request.number }}.dev.doka.guide"
+      DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PATH_TO_CONTENT: ./content
     steps:
