@@ -1,6 +1,6 @@
 ---
 title: "`.dataset`"
-description: "Простейший способ хранить данные в HTML и читать их за JavaScript."
+description: "Простейший способ хранить данные в HTML и читать их из JavaScript."
 authors:
   - Windrushfarer
 keywords:
