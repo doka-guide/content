@@ -84,7 +84,7 @@ jobs:
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
-        id: preview
+        id: pr-preview
         continue-on-error: true
         run: |
           cp .env.example .env
