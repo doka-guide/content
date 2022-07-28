@@ -23,7 +23,7 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/id_rsa"
           chmod 600 "$HOME/.ssh/id_rsa"
-          ssh-keyscan -H doka.guide >> ~/.ssh/known_hosts
+          ssh-keyscan -H dev.doka.guide >> ~/.ssh/known_hosts
       - name: Публикация поискового индекса
         run: |
           CONTENT_PATH="/web/sites/search.doka.guide/www"
