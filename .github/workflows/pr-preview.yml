@@ -28,14 +28,14 @@ jobs:
       PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: content
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Кэширование модулей
