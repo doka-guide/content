@@ -18,34 +18,33 @@ jobs:
           list=$(echo $pr_files | grep -o '"filename": "[^"]*' | cut -d'"' -f4)
           echo "::set-output name=all::$list"
           echo $list
-  surge-preview:
+  pr-preview:
     runs-on: ubuntu-latest
     needs:
       - prepare
     env:
-      DEPLOY_DOMAIN: "https://${{ github.repository_owner }}-content-pr-${{ github.event.pull_request.number }}.surge.sh"
-      SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+      DEPLOY_DOMAIN: https://content-${{ github.event.pull_request.number }}.dev.doka.guide
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: content
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - name: Кэширование модулей
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles("**/package-lock.json") }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
@@ -54,7 +53,6 @@ jobs:
         run: npm ci
       - name: Получение идентификатора
         id: check
-        if: ${{ env.SURGE_TOKEN != '' }}
         run: |
           check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
           check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
@@ -65,7 +63,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
-          id: surge-progress-${{ github.event.pull_request.number }}
+          id: preview-${{ github.event.pull_request.number }}
           message: "Идёт сборка и публикация превью... [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
           recreate: true
       - name: Форматирование списка файлов
@@ -86,16 +84,12 @@ jobs:
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
       - name: Сборка и публикация сайта
-        id: surge
+        id: build-preview
         continue-on-error: true
         run: |
+          cp .env.example .env
           npm run preview
-          if ! [[ ${{ env.SURGE_TOKEN == "" }} ]]; then
-            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token ${{ env.SURGE_TOKEN }}
-          else
-            echo "Публикация для форка репозитория"
-            npx surge ./dist ${{ env.DEPLOY_DOMAIN }} --token "6973bdb764f0d5fd07c910de27e2d7d0"
-          fi
+          cd dist && rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress --delete . deploy@dev.doka.guide:$(echo $($(grep 'SERVER_PATH' ../.env | cut -d '=' -f2)) | sed -r 's/[w]+/${{ github.repository }}\/${{ github.event.pull_request.number }}/g')
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
           echo -e "${{ steps.links.outputs.list }}"
       - name: Сообщение о неудаче публикации превью
@@ -105,7 +99,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
-          id: surge-progress-${{ github.event.pull_request.number }}
+          id: preview-${{ github.event.pull_request.number }}
           message: "Превью контента из ${{ github.event.after }} не опубликовано. Ошибка сборки или публикации. [Подробнее](https://github.com/${{ github.repository }}/runs/${{ steps.check.outputs.check_id }}?check_suite_focus=true)"
           fail: true
           recreate: true
@@ -116,6 +110,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           number: ${{ github.event.pull_request.number }}
-          id: surge-progress-${{ github.event.pull_request.number }}
+          id: preview-${{ github.event.pull_request.number }}
           message: '<details><summary><a href="${{ env.DEPLOY_DOMAIN }}">Превью контента</a> из ${{ github.event.after }} опубликовано.</summary>${{ steps.links.outputs.list }}</details>'
           recreate: true
