@@ -21,14 +21,14 @@ tags:
 
 ```css
 .element {
-    background-image: 
-        repeating-radial-gradient(
-            circle at center, 
-            #ffffff 0px, 
-            #ffffff 10px, 
-            #40e3e0 10px, 
-            #40e3e0 20px
-        );
+  background-image: 
+    repeating-radial-gradient(
+      circle at center, 
+      #ffffff 0, 
+      #ffffff 10px, 
+      #40e3e0 10px, 
+      #40e3e0 20px
+    );
 }
 ```
 
@@ -40,16 +40,16 @@ tags:
 
 ```css
 .element {
-    background-image: 
-        repeating-radial-gradient(
-            ellipse farthest-corner at left, 
-            blue 0px, 
-            blue 10px, 
-            white 10px, 
-            white 20px, 
-            aqua 20px, 
-            aqua 30px
-        );
+  background-image: 
+    repeating-radial-gradient(
+      ellipse farthest-corner at left, 
+      blue 0, 
+      blue 10px, 
+      white 10px, 
+      white 20px, 
+      aqua 20px, 
+      aqua 30px
+    );
 }
 ```
 
@@ -61,7 +61,12 @@ tags:
 
 ```css
 .element {
-    background-image: repeating-radial-gradient(blue, white, blue);
+  background-image: 
+    repeating-radial-gradient(
+      blue, 
+      white, 
+      blue
+    );
 }
 ```
 
