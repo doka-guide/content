@@ -5,7 +5,6 @@
 ## Июль 2022
 
 - 29 июля [`repeating-radial-gradient()`](https://doka.guide/css/repeating-radial-gradient/), Алексей Никитченко
--
 
 ## Июнь 2022
 
