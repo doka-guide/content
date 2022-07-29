@@ -62,8 +62,10 @@ groups:
     items:
       - attr
       - calc
+      - min
       - linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
       - repeating-conic-gradient
       - image-set
@@ -198,6 +200,7 @@ groups:
       - padding
       - margin
       - box-sizing
+      - min
   - name: 'Позиционирование'
     items:
       - position
