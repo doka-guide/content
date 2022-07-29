@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2022
+
+- 29 июля [`repeating-radial-gradient()`](https://doka.guide/css/repeating-radial-gradient/), Алексей Никитченко
+-
+
 ## Июнь 2022
 
 - 28 июня [Основы работы с ElasticSearch](https://doka.guide/js/elasticsearch/), Даниил Хлебовский
