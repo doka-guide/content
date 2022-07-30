@@ -98,7 +98,7 @@ tags:
 
 ### Повторяющийся градиент
 
-Если градиент должен многократно повторяться, можно использовать функцию `repeating-linear-gradient()`.
+Если градиент должен многократно повторяться, можно использовать функцию [`repeating-linear-gradient()`](/css/repeating-linear-gradient/).
 
 <iframe title="Повторяющийся линейный градиент" src="demos/gradient-repeat/" height="300"></iframe>
 
