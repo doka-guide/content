@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-Создаёт фон в виде полос из повторяющегося линейного градиента. 
+Создаёт фон в виде полос из повторяющегося линейного градиента.
 
 ## Пример
 
@@ -25,9 +25,9 @@ tags:
   background-image:
     repeating-linear-gradient(
       -45deg,
-      black 0, 
-      black 25px, 
-      orange 25px, 
+      black 0,
+      black 25px,
+      orange 25px,
       orange 50px
     );
 }
