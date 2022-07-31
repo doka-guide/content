@@ -31,7 +31,7 @@ document.addEventListener('scroll', function(event) {
 })
 ```
 
-Отловим все случаи, когда пользователь крутит колесо мыши при наведенном на первый [`<div>`](/html/div/) курсоре:
+Отловим все случаи, когда пользователь крутит колесо мыши при наведённом на первый [`<div>`](/html/div/) курсоре:
 
 ```js
 const div = document.getElementsByTagName('div')[0]
