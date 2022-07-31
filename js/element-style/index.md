@@ -37,7 +37,7 @@ element.style.cssText = 'color: blue; border: 1px solid black'
 element.setAttribute('style', 'color:red; border: 1px solid blue;')
 ```
 
-Следующая — устанавливает значение определенного свойства, оставляя другие значения стиля нетронутыми:
+Следующая — устанавливает значение определённого свойства, оставляя другие значения стиля нетронутыми:
 
 ```js
 element.style.color = 'blue'
