@@ -1,6 +1,6 @@
 ---
 title: "`.addEventListener()`"
-description: "Как подслушивать и подглядывать за пользователем так, чтобы было незаметно."
+description: "Учим приложение реагировать на действия пользователя."
 authors:
   - akellbl4
 contributors:
