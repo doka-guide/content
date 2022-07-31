@@ -1,12 +1,12 @@
 ---
 title: "`.innerText`"
-description: ""
+description: "Читаем весь текст во вложенных элементах или записываем свой."
 authors:
   - Windrushfarer
 related:
   - js/dom
   - js/web-security
-  - js/react-and-alternatives/
+  - js/react-and-alternatives
 tags:
   - doka
 ---
