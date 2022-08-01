@@ -40,6 +40,7 @@ keywords:
 
 <video controls width="700">
   <source src="video/diw-di.mp4" type="video/mp4">
+  <source src="video/diw-di_safari.mp4" type="video/mp4">
 </video>
 
 ## Клавиши hjkl
@@ -67,6 +68,7 @@ keywords:
 
 <video controls width="700">
   <source src="video/rewrite.mp4" type="video/mp4">
+  <source src="video/rewrite_safari.mp4" type="video/mp4">
 </video>
 
 ## Undo-Redo

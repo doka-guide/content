@@ -20,12 +20,14 @@ tags:
 
 <video controls width="700">
   <source src="video/tab-focus.mp4" type="video/mp4">
+  <source src="video/tab-focus_safari.mp4" type="video/mp4">
 </video>
 
 Элементы формы могут получить фокус и при клике мышкой на него. Например, если кликнуть по кнопке или в поле ввода текста, то им будет добавлен псевдокласс `:focus`.
 
 <video controls width="700">
   <source src="video/mouse-focus.mp4" type="video/mp4">
+  <source src="video/mouse-focus_safari.mp4" type="video/mp4">
 </video>
 
 Важно! В браузерах Safari и Firefox на Mac при клике мышкой на кнопку фокус не устанавливается.
