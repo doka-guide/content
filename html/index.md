@@ -42,6 +42,7 @@ groups:
       - aside
       - nav
       - time
+      - data
       - sub
       - sup
       - del

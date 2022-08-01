@@ -1,8 +1,12 @@
 ---
 title: "`beforeunload`"
-description: "Обработка ухода пользователя со страницы"
+description: "Событие ухода пользователя со страницы."
 authors:
   - kotosha-real
+related:
+  - js/events
+  - js/element-addeventlistener
+  - js/fetch
 tags:
   - doka
 ---
@@ -30,29 +34,29 @@ window.addEventListener('beforeunload', function () {
 
 Есть страницы, на которых выполняется некоторая работа. Если эта работа не сохраняется, например, в [localStorage](/js/local-storage/), стоит защитить пользователя от фрустрации при возможной потере. В этом нам поможет обработка события `beforeunload`.
 
-Обработка с помощью `addEventListener`:
+Обработка с помощью [`addEventListener()`](/js/element-addeventlistener/):
 
 ```js
 window.addEventListener('beforeunload', function (event) {
   // Отменяем поведение по умолчанию
-  event.preventDefault();
+  event.preventDefault()
 
   // Chrome требует наличия returnValue
-  event.returnValue = '';
+  event.returnValue = ''
 })
 ```
 
 Обработка через определение `onbeforeunload` на объекте `window`:
 
 ```js
-window.onbeforeunload = () => false;
+window.onbeforeunload = () => false
 ```
 
-Во втором случае [необязательно](https://html.spec.whatwg.org/multipage/webappapis.html#handler-window-onbeforeunload) возвращать `false`, можно вернуть любое значение, кроме `null` и `undefined`. Раньше браузеры использовали возвращаемое значение в качестве сообщения, но в [современной спецификации](https://html.spec.whatwg.org/#unloading-documents) данное поведение изменили. Встречали сайты, которые при попытке закрыть страницу показывали сообщения про нигерийских родственников или правоохранительные органы? Потому и изменили.
+Во втором случае [необязательно](https://html.spec.whatwg.org/multipage/webappapis.html#handler-window-onbeforeunload) возвращать `false`, можно вернуть любое значение, кроме [`null`](/js/null-primitive/) и [`undefined`](/js/undefined/). Раньше браузеры использовали возвращаемое значение в качестве сообщения, но в [современной спецификации](https://html.spec.whatwg.org/#unloading-documents) данное поведение изменили. Встречали сайты, которые при попытке закрыть страницу показывали сообщения про нигерийских родственников или правоохранительные органы? Потому и изменили.
 
 При обработке этого события браузер покажет всплывающее окно, в котором нужно будет подтвердить своё намерение покинуть страницу. В Яндекс Браузере, например, оно выглядит так:
 
-![Всплывающее окно браузера, появляющееся при обработке beforeunload. Содержит вопрос "Хотите покинуть страницу" и две кнопки "да" и "отменить".](images/beforeunload-prompt.png)
+![Всплывающее окно браузера, появляющееся при обработке beforeunload. Содержит вопрос «Хотите покинуть страницу» и две кнопки «да» и «отменить».](images/beforeunload-prompt.png)
 
 Как оно выглядит в вашем браузере можно проверить с помощью демо ниже.
 
