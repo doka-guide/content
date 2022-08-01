@@ -29,6 +29,7 @@ tags:
 
 <video controls width="580" height="335" poster="images/poster-debounce.png">
   <source src="videos/debounce.mp4" type="video/mp4">
+  <source src="videos/debounce_safari.mp4" type="video/mp4">
 </video>
 
 Такую функцию используют, чтобы не бомбардировать сервер кучей запросов на каждый чих, а подождать, когда пользователь закончит или приостановит ввод, и только после этого отправить запрос на сервер.
