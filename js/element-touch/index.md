@@ -1,6 +1,6 @@
 ---
 title: "`touch`"
-description: "Тач экраны отправляют не только событие клика, но и собственное — `touch`."
+description: "Сенсорные экраны отправляют не только событие клика, но и собственное — `touch`."
 authors:
   - windrushfarer
 keywords:
