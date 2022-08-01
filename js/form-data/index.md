@@ -4,9 +4,10 @@ description: "Асинхронно отправлять JSON на сервер �
 authors:
   - vitalybaev
 related:
-  -
-  -
-  -
+related:
+  - html/form
+  - js/deal-with-forms
+  - tools/http-protocol
 tags:
   - doka
 ---
