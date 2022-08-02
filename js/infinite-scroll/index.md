@@ -13,10 +13,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - scroll
-  - loading
   - lazy
-  - event
+related:
+  - js/api
+  - js/web-app-works
+  - js/web-security
 tags:
   - article
 ---
@@ -112,16 +113,15 @@ tags:
 <details>
   <summary>Но если вам интересно, как всё устроено — добро пожаловать под капот :–)</summary>
 
-Вначале создадим «базу данных»:
+Вначале создадим «базу данных».
 
+Это объект поста, которые мы будем отдавать в качестве новой порции контента:
 ```js
-// Это объект поста, которые мы будем отдавать
-// в качестве новой порции контента.
 
 const post = {
-  title: "Заголовок поста",
+  title: 'Заголовок поста',
   body:
-    "Текст поста в лучшей на свете социальной сети Switter. Все совпадения вымышлены и случайны.",
+    'Текст поста в лучшей на свете социальной сети Switter. Все совпадения вымышлены и случайны.',
   likes: 77,
   reposts: 7,
 }
@@ -163,7 +163,7 @@ const server = {
 
 </details>
 
-Вызывать метод для получения новых постов `posts` мы будем с помощью [`await`](/js/async-in-js/):
+Вызывать метод для получения новых постов `posts()` мы будем с помощью [`await`](/js/async-in-js/):
 
 ```js
 const response = await server.posts()
@@ -186,7 +186,7 @@ const response = await server.posts()
 
 ### Вёрстка и шаблоны
 
-Свит свёрстан как `article`, внутри есть заголовок, текст и кнопки «Нравится» и «Ресвитнуть»:
+Свит свёрстан как [`<article>`](/html/article/), внутри есть заголовок, текст и кнопки «Нравится» и «Ресвитнуть»:
 
 ```html
 <article class="post">
@@ -202,7 +202,7 @@ const response = await server.posts()
 </article>
 ```
 
-Вёрстка нас устраивает. (`footer` можно заменить на `menu`, но в целом ок.)
+Вёрстка нас устраивает. ([`<footer>`](/html/footer/) можно заменить на `<menu>`, но в целом ок.)
 
 Из этой вёрстки мы сделаем шаблон для будущих свитов, которые мы будем загружать с сервера. Шаблон нужен, потому что с сервера мы будем загружать только данные. Как эти данные должны отображаться, сервер не знает. Шаблон будет нужен именно для этого — чтобы браузер мог правильно отобразить данные на странице.
 
@@ -268,8 +268,8 @@ function checkPosition() {
 
 ```js
 ;(() => {
-  window.addEventListener("scroll", checkPosition)
-  window.addEventListener("resize", checkPosition)
+  window.addEventListener('scroll', checkPosition)
+  window.addEventListener('resize', checkPosition)
 })()
 ```
 
@@ -277,8 +277,8 @@ function checkPosition() {
 
 Обработку прокрутки [стоит немного притормаживать](/js/throttle/), чтобы она выполнялась чуть реже и таким образом меньше нагружала браузер.
 
+Добавим функцию `throttle()`:
 ```js
-// Добавим функцию throttle:
 function throttle(callee, timeout) {
   let timer = null
 
@@ -293,12 +293,14 @@ function throttle(callee, timeout) {
     }, timeout)
   }
 }
+```
 
-// И теперь назначим обработчиком событий
-// слегка приторможенную функцию:
+И теперь назначим обработчиком событий слегка приторможенную функцию:
+
+```js
 ;(() => {
-  window.addEventListener("scroll", throttle(checkPosition, 250))
-  window.addEventListener("resize", throttle(checkPosition, 250))
+  window.addEventListener('scroll', throttle(checkPosition, 250))
+  window.addEventListener('resize', throttle(checkPosition, 250))
 })()
 ```
 
@@ -313,16 +315,13 @@ async function fetchPosts() {
 }
 ```
 
-И используем её в `checkPosition`:
+И используем её в `checkPosition()`. Так как `fetchPosts()` асинхронная, `checkPosition()` тоже станет асинхронной:
 
 ```js
-// Так как fetchPosts асинхронная,
-// checkPosition тоже станет асинхронной:
 async function checkPosition() {
   // ...Старый код.
 
   if (position >= threshold) {
-    // Используем fetchPosts:
     await fetchPosts()
   }
 }
@@ -330,7 +329,7 @@ async function checkPosition() {
 
 ### Обработка данных от сервера
 
-В функции `fetchPosts` мы получаем список постов, каждый из которых мы хотим добавить на страницу. Напишем функцию `appendPost`, которая будет этим заниматься:
+В функции `fetchPosts()` мы получаем список постов, каждый из которых мы хотим добавить на страницу. Напишем функцию `appendPost()`, которая будет этим заниматься:
 
 ```js
 function appendPost(postData) {
@@ -339,7 +338,7 @@ function appendPost(postData) {
 
   // Храним ссылку на элемент, внутрь которого
   // добавим новые элементы-свиты:
-  const main = document.querySelector("main")
+  const main = document.querySelector('main')
 
   // Используем функцию composePost,
   // которую напишем чуть позже —
@@ -351,7 +350,7 @@ function appendPost(postData) {
 }
 ```
 
-Функция `appendPost` использует внутри себя `composePost`. Напишем и её тоже:
+Функция `appendPost()` использует внутри себя `composePost()`. Напишем и её тоже:
 
 ```js
 function composePost(postData) {
@@ -359,7 +358,7 @@ function composePost(postData) {
   if (!postData) return
 
   // Обращаемся к шаблону, который создали ранее:
-  const template = document.getElementById("post_template")
+  const template = document.getElementById('post_template')
 
   // ...и вытаскиваем его содержимое.
   // В нашем случае содержимым будет «скелет» свита, элемент article.
@@ -371,10 +370,10 @@ function composePost(postData) {
   const { title, body, likes, reposts } = postData
 
   // Добавляем соответствующие тексты и числа в нужные места в «скелете»:
-  post.querySelector("h1").innerText = title
-  post.querySelector("p").innerText = body
-  post.querySelector("button:first-child").innerText += likes
-  post.querySelector("button:last-child").innerText += reposts
+  post.querySelector('h1').innerText = title
+  post.querySelector('p').innerText = body
+  post.querySelector('button:first-child').innerText += likes
+  post.querySelector('button:last-child').innerText += reposts
 
   // Возвращаем созданный элемент,
   // чтобы его можно было добавить на страницу:
@@ -388,7 +387,7 @@ function composePost(postData) {
 
 В реальном приложении нам бы потребовалось ещё повесить обработчики кликов по кнопкам в этом новом свите. Без обработчиков кнопки не будут ничего делать. Но для краткости эту часть в статье мы опустим.
 
-Добавим обработку данных в `fetchPosts`:
+Добавим обработку данных в `fetchPosts()`:
 
 ```js
 async function fetchPosts() {
@@ -418,7 +417,7 @@ let isLoading = false
 let shouldLoad = true
 ```
 
-Подправим функцию `fetchPosts`:
+Подправим функцию `fetchPosts()`:
 
 ```js
 async function fetchPosts() {
@@ -459,7 +458,7 @@ async function fetchPosts() {
 
 <aside>
 
-☝️ Для таких задач можно использовать [History API](/js/bom/#history).
+☝️ Для таких задач можно использовать [History API](/js/window-history/).
 
 </aside>
 
