@@ -1,9 +1,14 @@
 ---
 title: "`Math.random()`"
+description: "Генерирует случайные числа от 0 до 1."
 authors:
   - nlopin
 contributors:
   - corocoto
+related:
+  - js/arrays
+  - js/number
+  - js/expressions-vs-statements
 tags:
   - doka
 ---
@@ -15,9 +20,10 @@ tags:
 ## Как пишется
 
 ```js
-let value = Math.random()
+const value = Math.random()
 
-console.log(value) // выведет случайное число
+console.log(value)
+// выведет случайное число
 ```
 
 <iframe title="Название — Math.random() — Дока" src="demos/Lopinopulos-agoXBj/" height="150"></iframe>
