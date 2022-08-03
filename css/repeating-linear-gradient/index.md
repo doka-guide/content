@@ -7,7 +7,6 @@ related:
   - css/conic-gradient
   - css/radial-gradient
   - css/linear-gradient
-  - css/background-image
 tags:
   - doka
 ---
@@ -21,7 +20,7 @@ tags:
 Зададим узор из чёрно-оранжевых полос.
 
 ```css
-.element {
+div {
   background-image:
     repeating-linear-gradient(
       -45deg,
@@ -42,7 +41,7 @@ tags:
 Лучше всего разница между двумя градиентами видна на примерах. Зададим повторяющийся линейный градиент в виде зебры.
 
 ```css
-.element {
+div {
   background-image:
     repeating-linear-gradient(
       to right,
@@ -54,10 +53,10 @@ tags:
 
 <iframe title="Пример зебры через повторяющийся линейный градиент" src="demos/zebra_repeating-linear-gradient" height="500"></iframe>
 
-Когда полоска чёрного цвета заканчивается на `20%`, градиент снова наполняется белыми и чёрными полосами, хотя мы не задавали их снова, — поэтому он называется повторяющимся линейным градиентом. Такой эффект не сработает с обычным [`linear-gradient`](/css/linear-gradient/).
+Когда полоска чёрного цвета заканчивается на 20%, градиент снова наполняется белыми и чёрными полосами, хотя мы не задавали их снова, — поэтому он называется повторяющимся линейным градиентом. Такой эффект не сработает с обычным [`linear-gradient`](/css/linear-gradient/).
 
 ```css
-.element {
+div {
   background-image:
     linear-gradient(
       to right,
@@ -69,12 +68,12 @@ tags:
 
 <iframe title="Пример зебры через обычный линейный градиент" src="demos/zebra_linear-gradient" height="500"></iframe>
 
-Когда чёрная полоска достигла `20%`, градиент не повторился, а лишь заполнил фон элемента последним цветом.
+Когда чёрная полоска достигла 20%, градиент не повторился, а лишь заполнил фон элемента последним цветом.
 
 Полосы `repeating-linear-gradient()` не обязательно всегда такие ровные. Если каждый следующий цвет не начинается в точке окончания предыдущего, то линии смажутся, и фон примет иной вид.
 
 ```css
-.element {
+div {
   background-image:
     repeating-radial-gradient(
       0.50turn,
