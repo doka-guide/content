@@ -1,39 +1,44 @@
 ---
 title: "`Number.isNaN()`"
+description: "Проверяет, а не `NaN` ли нам прислали."
 authors:
   - ruslauz
 contributors:
   - skorobaeus
+related:
+  - js/function
+  - js/typecasting
+  - js/deal-with-forms
 tags:
   - doka
 ---
 
 ## Кратко
 
-Статический метод `Number.isNaN()` проверяет переданное аргументом значение и возвращает `true`, если это значение `NaN`.
+Статический метод `Number.isNaN()` проверяет переданное аргументом значение и возвращает [`true`](/js/boolean/), если это значение `NaN`.
 
 ## Как пишется
 
 ```js
-// В этом случае вернет true
 Number.isNaN(NaN)
+// true
 
-// В остальных случаях всегда false
 Number.isNaN()
 Number.isNaN(42)
 Number.isNaN('42')
 Number.isNaN(null)
 Number.isNaN(undefined)
 Number.isNaN(false)
+// false
 ```
 
 ## Как это понять
 
-Существуют [ситуации](/js/number/#specialnye-znacheniya), когда результат математической обработки не может быть получен. Например, `Math.sqrt(-9)` или `parseInt('text')`. Результатом выполнения в таком случае будет `NaN`. `NaN` расшифровывается как _Not a Number_, то есть «не число». Однако, он относится к числовому типу данных.
+Существуют [ситуации](/js/number/#specialnye-znacheniya), когда результат математической обработки не может быть получен. Например, `Math.sqrt(-9)` или [`parseInt('text')`](/js/parseint/). Результатом выполнения в таком случае будет `NaN`. `NaN` расшифровывается как _Not a Number_, то есть «не число». Однако, он относится к числовому типу данных.
 
 ```js
 typeof NaN
-// number
+// 'number'
 ```
 
 Сравнение `NaN` с чем угодно, даже с самим собой, вернёт `false`. Поэтому проверка результатов математических операций стандартным способом не принесёт успеха. В примере ниже валидация введённых пользователем данных не будет работать.
@@ -81,7 +86,7 @@ if (isNaN(age)) {
 
 ```js
 isNaN(undefined)
-//  true
+// true
 
 Number.isNaN(undefined)
 // false
