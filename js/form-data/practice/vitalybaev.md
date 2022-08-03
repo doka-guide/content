@@ -1,4 +1,4 @@
-Сильной стороной `FormData` является загрузка файлов на сервер. Если при использовании `"application/json"` файлы необходимо дополнительно кодировать каким-то способом, чтобы привести к строке (и точно так-же декодировать на сервере), то `FormData` умеет это делать «из коробки».
+Сильной стороной `FormData` является загрузка файлов на сервер. Если при использовании `'application/json'` файлы необходимо дополнительно кодировать каким-то способом, чтобы привести к строке (и точно так-же декодировать на сервере), то `FormData` умеет это делать «из коробки».
 
 Например, если мы хотим после выбора файла сразу же загрузить его на сервер, то нам понадобится следующий HTML:
 
@@ -11,19 +11,19 @@
 ```javascript
 // Объявляем функцию загрузки файла
 function sendFile(file) {
-  const data = new FormData();
+  const data = new FormData()
 
   // Добавляем файл
-  data.append("document", file)
+  data.append('document', file)
 
   return fetch('/api/upload/', {
-    method: "POST",
+    method: 'POST',
     body: data,
   })
 }
 
-const fileInput = document.querySelector("#file-input")
-fileInput.addEventListener("change", (event) => {
+const fileInput = document.querySelector('#file-input')
+fileInput.addEventListener('change', (event) => {
   // Получаем файл. Обратите внимание, что файлов может быть несколько если у инпута стоит атрибут `multiple`
   const file = event.target.files[0]
 
