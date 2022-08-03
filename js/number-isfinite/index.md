@@ -1,6 +1,6 @@
 ---
 title: "`Number.isFinite()`"
-description: "Убедится, что переданное значение — конечное число."
+description: "Поможет убедиться, что переданное значение — конечное число."
 authors:
   - windrushfarer
 related:
