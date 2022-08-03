@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример использования неявного счётчика с функцией counters() — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .container {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      li {
+         padding-top: 0.625rem;
+      }
+
+      li::marker {
+         content: counters(list-item, '.') ' ';
+      }
+   </style>
+</head>
+
+<body>
+   <ol class="container">
+      <li> Первый элемент первого списка
+         <ol>
+            <li>Первый элемент второго списка</li>
+            <li>Второй элемент второго списка</li>
+         </ol>
+      </li>
+      <li>Второй элемент первого списка</li>
+   </ol>
+</body>
+
+</html>

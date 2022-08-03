@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример использования счётчиков — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .container {
+         display: grid;
+         grid-template-columns: 0.4fr 2fr;
+         grid-template-rows: repeat(4, 1fr);
+         counter-reset: part 0;
+         justify-items: center;
+      }
+
+      @media (max-width: 1088px) {
+         .container {
+            display: grid;
+            grid-template-columns: 0.7fr 2fr;
+            grid-template-rows: repeat(4, 1fr);
+            counter-reset: part 0;
+            justify-items: center;
+         }
+      }
+
+      .countainer__elem {
+         margin: 0 0;
+      }
+
+      .countainer__elem_counter::before {
+         counter-increment: part 1;
+         content: counter(part, decimal-leading-zero);
+         font-size: 10rem;
+         font-weight: 600;
+         position: sticky;
+         top: 0;
+      }
+
+      .container__section {
+         display: flex;
+         border-top: 2px solid black;
+         font-size: 1.0625rem;
+         line-height: 2.1875rem;
+         margin-top: 2.95rem;
+      }
+
+      .title {
+         flex: 0.5 1 0;
+      }
+
+      .title__header {
+         margin-bottom: 0;
+      }
+
+      .title__name {
+         margin-top: 0;
+      }
+
+      .main {
+         flex: 2 1 0;
+         font-family: 'PT Serif', serif;
+      }
+
+      @media (max-width: 1088px) {
+         .title {
+            flex: 0.7 1 0;
+            gap: 1.25rem;
+         }
+
+         .main {
+            flex: 1 1 0;
+         }
+      }
+
+      .content__reference {
+         writing-mode: vertical-lr;
+         transform: rotate(180deg);
+         text-align: end;
+         margin-top: 1.0625rem;
+      }
+
+      .content__reference-link {
+         color: #282A2E;
+         text-decoration-line: underline;
+         text-decoration-thickness: 1px;
+         text-decoration-color: rgba(40, 42, 46, 0.3);
+         transition: text-decoration-color 0.5s;
+      }
+
+      .content__reference-link:hover {
+         text-decoration-color: rgba(40, 42, 46, 0.1);
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <!-- 1 -->
+      <p class="countainer__elem countainer__elem_counter"></p>
+      <section class="container__section content">
+         <section class="content__title title">
+            <h2 class="title__header">Далеко-далеко, за словесными.</h2>
+            <p class="title__name">Далеко-далеко, за.</p>
+         </section>
+         <section class="content__main main">
+            <p class="main__text">Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные
+               тексты. Правилами курсивных буквенных строчка, заманивший родного коварных, семантика океана свой семь
+               снова прямо взобравшись запятой своего рекламных сих. Правилами своего бросил курсивных рукописи города
+               журчит переписывается составитель своё, повстречался ведущими свой вопроса заголовок предупредила большой
+            </p>
+            <p class="main__caption-list">Рыбные тексты</p>
+            <ul class="main__list">
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут.
+               </li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут
+                  рыбные.
+               </li>
+            </ul>
+         </section>
+         <p class="content__reference">Референс: <a class="content__reference-link"
+               href="https://dribbble.com/shots/14154131-TM-Website-002" target="_blank">Aristide
+               Benoist</a></p>
+      </section>
+      <!-- 2 -->
+      <p class="countainer__elem countainer__elem_counter"></p>
+      <section class="container__section content">
+         <section class="content__title title">
+            <h2 class="title__header">Далеко-далеко, за словесными.</h2>
+            <p class="title__name">Далеко-далеко, за.</p>
+         </section>
+         <section class="content__main main">
+            <p class="main__text">Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные
+               тексты. Правилами курсивных буквенных строчка, заманивший родного коварных, семантика океана свой семь
+               снова прямо взобравшись запятой своего рекламных сих. Правилами своего бросил курсивных рукописи города
+               журчит переписывается составитель своё, повстречался ведущими свой вопроса заголовок предупредила большой
+            </p>
+            <p class="main__caption-list">Рыбные тексты</p>
+            <ul class="main__list">
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут.
+               </li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут
+                  рыбные.
+               </li>
+            </ul>
+         </section>
+      </section>
+      <!-- 3 -->
+      <p class="countainer__elem countainer__elem_counter"></p>
+      <section class="container__section content">
+         <section class="content__title title">
+            <h2 class="title__header">Далеко-далеко, за словесными.</h2>
+            <p class="title__name">Далеко-далеко, за.</p>
+         </section>
+         <section class="content__main main">
+            <p class="main__text">Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные
+               тексты. Правилами курсивных буквенных строчка, заманивший родного коварных, семантика океана свой семь
+               снова прямо взобравшись запятой своего рекламных сих. Правилами своего бросил курсивных рукописи города
+               журчит переписывается составитель своё, повстречался ведущими свой вопроса заголовок предупредила большой
+            </p>
+            <p class="main__caption-list">Рыбные тексты</p>
+            <ul class="main__list">
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут.
+               </li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут
+                  рыбные.
+               </li>
+            </ul>
+         </section>
+      </section>
+      <!-- 4 -->
+      <p class="countainer__elem countainer__elem_counter"></p>
+      <section class="container__section content">
+         <section class="content__title title">
+            <h2 class="title__header">Далеко-далеко, за словесными.</h2>
+            <p class="title__name">Далеко-далеко, за.</p>
+         </section>
+         <section class="content__main main">
+            <p class="main__text">Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные
+               тексты. Правилами курсивных буквенных строчка, заманивший родного коварных, семантика океана свой семь
+               снова прямо взобравшись запятой своего рекламных сих. Правилами своего бросил курсивных рукописи города
+               журчит переписывается составитель своё, повстречался ведущими свой вопроса заголовок предупредила большой
+            </p>
+            <p class="main__caption-list">Рыбные тексты</p>
+            <ul class="main__list">
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных.</li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут.
+               </li>
+               <li class="main__list-item">Далеко-далеко за словесными горами в стране гласных и согласных живут
+                  рыбные.
+               </li>
+            </ul>
+         </section>
+      </section>
+   </div>
+</body>
+
+</html>

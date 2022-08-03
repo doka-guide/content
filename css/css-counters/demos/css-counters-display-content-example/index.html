@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример работы счётчиков со свойством display, content, если их значение none — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .container {
+         counter-reset: new 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      .container__elem:nth-of-type(3),
+      .container__elem:nth-of-type(4) {
+         counter-increment: new 1;
+      }
+
+      .container__elem:first-child {
+         display: none;
+      }
+
+      .container__elem:first-child+p::before {
+         counter-increment: new 2;
+         content: none;
+      }
+
+      .container__elem::before {
+         content: counter(new) '. ';
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <p class="container__elem">Абзац с display: none</p>
+      <p class="container__elem">Абзац с content: none</p>
+      <p class="container__elem">Нормальный абзац</p>
+      <p class="container__elem">Последний нормальный абзац</p>
+   </div>
+</body>
+
+</html>

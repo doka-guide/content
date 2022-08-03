@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример вложенных счётчиков — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .first-list {
+         counter-reset: new 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      li {
+         padding-top: 0.625rem;
+      }
+
+      .second-list {
+         counter-reset: new 0;
+      }
+
+      .first-list__item,
+      .second-list__item {
+         counter-increment: new 1;
+      }
+
+      li::marker {
+         content: counters(new, '.') ' ';
+      }
+   </style>
+</head>
+
+<body>
+   <ul class="first-list">
+      <li class="first-list__item"> Первый элемент первого списка
+         <ul class="second-list">
+            <li class="second-list__item">Первый элемент второго списка</li>
+            <li class="second-list__item">Второй элемент второго списка</li>
+         </ul>
+      </li>
+      <li class="first-list__item">Второй элемент первого списка</li>
+   </ul>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример использования свойства counter-reset — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .container {
+         counter-reset: new 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      .container__elem {
+         counter-reset: paragraph 1;
+      }
+
+      .container__elem::before {
+         content: counter(paragraph) '. ';
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+      <p class="container__elem">Первый абзац</p>
+      <p class="container__elem">Второй абзац</p>
+      <p class="container__elem">Третий абзац</p>
+   </div>
+</body>
+
+</html>

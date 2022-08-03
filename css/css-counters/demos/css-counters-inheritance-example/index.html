@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример наследования набора счётчиков — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .list {
+         counter-reset: new 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      .list__item,
+      .list__paragraph {
+         counter-increment: new 1;
+      }
+
+      .list__item::marker,
+      .list__paragraph::before {
+         content: counter(new) '. ';
+      }
+   </style>
+</head>
+
+<body>
+   <ul class="list">
+      <li class="list__item"> Первый элемент
+         <p class="list__paragraph">Параграф</p>
+      </li>
+      <li class="list__item">Второй элемент</li>
+   </ul>
+</body>
+
+</html>

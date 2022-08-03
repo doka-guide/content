@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+   <title>Пример использования свойства counter-set — css-counters — Статья</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <style>
+      body {
+         font-family: 'Roboto Mono', sans-serif;
+         font-size: 1.25rem;
+         background-color: rgb(233, 233, 233);
+      }
+
+      .list {
+         counter-increment: example 0;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+      }
+
+      li {
+         padding-top: 0.625rem;
+         counter-increment: example 1;
+      }
+
+      .list__item:first-child+li {
+         counter-set: example 9;
+      }
+
+      .list__item::marker {
+         content: counter(example) '. ';
+      }
+   </style>
+</head>
+
+<body>
+   <ul class="list">
+      <li class="list__item">Значение счётчика <i>example</i> равно 1</li>
+      <li class="list__item">Значение счётчика <i>example</i> равно 9</li>
+      <li class="list__item">Значение счётчика <i>example</i> равно 10</li>
+   </ul>
+</body>
+
+</html>
