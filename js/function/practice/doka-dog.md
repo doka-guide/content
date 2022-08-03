@@ -7,16 +7,16 @@
 Анонимную функцию будет сложнее отлаживать, потому что в стеке вызовов не будет её имени.
 
 ```js
-someElement.addEventListener("click", function () {
-  throw new Error("Error when clicked!")
+someElement.addEventListener('click', function () {
+  throw new Error('Error when clicked!')
 })
 ```
 
 В отличие от именованной:
 
 ```js
-someElement.addEventListener("click", function someElementClickHandler() {
-  throw new Error("Error when clicked!")
+someElement.addEventListener('click', function someElementClickHandler() {
+  throw new Error('Error when clicked!')
 })
 ```
 
@@ -36,12 +36,12 @@ arrowFunc1() === arrowFunc2()
 Также можно возвращать любые структуры и типы данных:
 
 ```js
-const arrowFunc3 = () => "string"
-const arrowFunc4 = () => ["array", "of", "strings"]
+const arrowFunc3 = () => 'string'
+const arrowFunc4 = () => ['array', 'of', 'strings']
 ```
 
 Чтобы вернуть объект, его необходимо обернуть в скобки. Только так JS поймёт, что мы не открываем тело функции, а возвращаем результат:
 
 ```js
-const arrowFunc5 = () => ({ some: "object" })
+const arrowFunc5 = () => ({ some: 'object' })
 ```
