@@ -1,6 +1,6 @@
 ---
 title: "`Promise`"
-description: "Как уйти за значением выражения и вернуться назад."
+description: "Как уйти за значением выражения и вернуться, когда оно будет доступно."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
