@@ -3,13 +3,17 @@ title: "`.clear()`"
 description: "Удаляет все значения из коллекции `Set`."
 authors:
   - nlopin
+related:
+  - js/arrays
+  - js/map
+  - js/local-storage
 tags:
   - doka
 ---
 
 ## Кратко
 
-Вызов метода `clear` удаляет все значения из коллекции [`Set`](/js/set/).
+Вызов метода `clear()` удаляет все значения из коллекции [`Set`](/js/set/).
 
 ## Пример
 
