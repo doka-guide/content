@@ -3,6 +3,10 @@ title: "`.size`"
 description: "Свойство коллекции `Set`, содержит количество значений в коллекции."
 authors:
   - nlopin
+related:
+  - js/set-constructor
+  - js/arrays
+  - js/map
 tags:
   - doka
 ---
