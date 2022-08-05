@@ -36,11 +36,11 @@ const greetings = function(isRegistered, userName, bePolite) {
 
 ```js
 const greetings = function(role) {
-  return result = role === 'admin' ? 'Приветствую, босс' : role === 'moder' ? 'Приветствую, смотритель порядка' : role === 'user' : 'Здравствуй, пользователь' ? role === 'guest' ? 'Здравствуй, гость' : 'Привет, некто'
+  return result = role === 'admin' ? 'Приветствую, босс' : role === 'moder' ? 'Приветствую, смотритель порядка' : role === 'user' ? 'Здравствуй, пользователь' : role === 'guest' ? 'Здравствуй, гость' : 'Привет, некто'
 }
 ```
 
-Такой код можно улучшить форматированием, но лучше использовать `switch`:
+Такой код можно улучшить форматированием, но лучше использовать [`switch`](/js/switch/):
 
 ```js
 const greetings = function(role) {
