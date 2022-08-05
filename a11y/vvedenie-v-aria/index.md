@@ -1,5 +1,5 @@
 ---
-title: "Основы ARIA"
+title: "Введение в ARIA"
 description: "Что такое ARIA и как правильно этим пользоваться."
 authors:
   - tatianafokina
