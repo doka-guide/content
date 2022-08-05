@@ -1,5 +1,6 @@
 ---
 title: "`sessionStorage`"
+description: "Храним данные пользователя в браузере, но только до момента, пока открыта текущая вкладка."
 authors:
   - akellbl4
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - sessionstorage
   - webstorage
   - storage
+related:
+  - js/bom
+  - tools/json
+  - js/events
 tags:
   - doka
 ---
@@ -31,22 +36,24 @@ tags:
 Записываем данные:
 
 ```js
-window.sessionStorage.setItem("name", "Doka Dog")
+window.sessionStorage.setItem('name', 'Дока Дог')
 ```
 
-При чтении ранее записанных данных по ключу `name` мы получим `Doka Dog`:
+При чтении ранее записанных данных по ключу `name` мы получим `Дока Дог`:
 
 ```js
-const name = window.sessionStorage.getItem("name")
+const name = window.sessionStorage.getItem('name')
 console.log(name)
+// Дока Дог
 ```
 
 Повторная запись по тому же ключу приведёт к замене данных:
 
 ```js
-window.sessionStorage.setItem("name", "Dog Doka")
-const name = window.sessionStorage.getItem("name")
+window.sessionStorage.setItem('name', 'Собака Дока')
+const name = window.sessionStorage.getItem('name')
 console.log(name)
+// Собака Дока
 ```
 
 ## Как это понять
@@ -57,28 +64,30 @@ console.log(name)
 
 ### Запись
 
-Запись производит метод `setItem("ключ", "значение")`, который принимает два строковых параметра: ключ, по которому будет сохранено значение, и само значение.
+Запись производит метод `setItem('ключ', 'значение')`, который принимает два строковых параметра: ключ, по которому будет сохранено значение, и само значение.
 
 ```js
-window.sessionStorage.setItem("name", "Doka Dog")
+window.sessionStorage.setItem('name', 'Дока Дог')
 ```
 
 ### Чтение
 
-За чтение отвечает `getItem("ключ")` c одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт `null`.
+За чтение отвечает `getItem('ключ')` c одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт [`null`](/js/null-primitive/).
 
 ```js
-window.sessionStorage.getItem("name") // вернет "Doka Dog"
-window.sessionStorage.getItem("user") // вернет `null`
+window.sessionStorage.getItem('name')
+// вернёт 'Дока Дог'
+window.sessionStorage.getItem('user')
+// вернёт null
 ```
 
 ### Удаление
 
-Удаляет запись из хранилища `removeItem("ключ")`. Он успешно выполнится даже если указанного ключа не существует в хранилище.
+Удаляет запись из хранилища `removeItem('ключ')`. Он успешно выполнится даже если указанного ключа не существует в хранилище.
 
 ```js
-window.sessionStorage.removeItem("name")
-window.sessionStorage.removeItem("user")
+window.sessionStorage.removeItem('name')
+window.sessionStorage.removeItem('user')
 ```
 
 ### Очистка хранилища
@@ -102,9 +111,11 @@ window.sessionStorage.length
 Метод `key()` получает ключ по индексу. Значения в хранилище хранятся в порядке их добавления, поэтому значение, добавленное первым, будет храниться в позиции `0` и так далее.
 
 ```js
-window.sessionStorage.setItem("name", "Doka Dog")
-window.sessionStorage.setItem("id", "5ac9bc9d1984")
-widow.sessionStorage.key(0) // вернет "name"
+window.sessionStorage.setItem('name', 'Дока Дог')
+window.sessionStorage.setItem('id', '5ac9bc9d1984')
+
+console.log(window.sessionStorage.key(0))
+// 'name'
 ```
 
 Таким образом, используя количество полей в хранилище и получение ключа по индексу, можно перебрать все значения в хранилище.
