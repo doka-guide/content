@@ -10,7 +10,7 @@ keywords:
   - touchmove
 related:
   - js/events
-  - js/click
+  - js/element-click
   - js/element-addeventlistener
 tags:
   - doka
