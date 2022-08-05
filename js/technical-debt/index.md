@@ -17,9 +17,9 @@ keywords:
   - издержки
   - выгода
 related:
+  - tools/code-review
   - js/clean-architecture
   - tools/static-analysis
-  - js/programming-paradigms
 tags:
   - article
 ---
