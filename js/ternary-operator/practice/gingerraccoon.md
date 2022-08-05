@@ -44,16 +44,17 @@ const greetings = function(role) {
 
 ```js
 const greetings = function(role) {
-  switch (role) {
-    case 'admin':
-      return 'Приветствую, босс'
-    case 'moder':
-      return 'Приветствую, смотритель порядка'
-    case 'user':
-      return 'Здравствуй, пользователь'
-    case 'guest':
-      return 'Здравствуй, гость'
-    default:
-      return 'Привет, некто'
+    switch (role) {
+        case 'admin':
+            return 'Приветствую, босс'
+        case 'moder':
+            return 'Приветствую, смотритель порядка'
+        case 'user':
+            return 'Здравствуй, пользователь'
+        case 'guest':
+            return 'Здравствуй, гость'
+        default:
+            return 'Привет, некто'
+    }
 }
 ```
