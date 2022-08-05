@@ -1,6 +1,6 @@
 ---
 title: "Веб-сервер Apache"
-description: "Веб-сервер почти такой же старый, как весь Интернет."
+description: "Веб-сервер почти такой же старый, как сам Интернет."
 authors:
   - igsekor
 contributors:
