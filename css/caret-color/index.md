@@ -1,6 +1,6 @@
 ---
 title: "`caret-color`"
-description: "С помощью `сaret-color` можно менять цвет курсора в режиме набора текста."
+description: "С помощью `caret-color` можно менять цвет курсора в режиме набора текста."
 authors:
   - mishamad
 related:
