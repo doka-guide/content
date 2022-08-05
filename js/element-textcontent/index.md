@@ -4,7 +4,7 @@ description: "Считываем и записываем текстовое со
 authors:
   - windrushfarer
 related:
-  - js/innerHTML
+  - js/element-innerhtml
   - js/dom
   - js/element
 tags:
