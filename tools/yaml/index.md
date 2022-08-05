@@ -1,5 +1,6 @@
 ---
 title: "YAML"
+description: "Популярный язык для хранения конфигураций."
 authors:
   - kognitivnayabuena
 keywords:
