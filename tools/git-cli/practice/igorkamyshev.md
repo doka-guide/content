@@ -24,11 +24,11 @@ build
 Вот несколько красивых и простых клиентов:
 
 __Бесплатные__
-- [GitKraken](https://www.gitkraken.com/) для Windows, macOS и Linux
-- [Sourcetree](https://www.sourcetreeapp.com/) для Windows и macOS
-- [GitHub Desktop](https://desktop.github.com) для Windows и macOS
+- [GitKraken](https://www.gitkraken.com/) для Windows, macOS и Linux;
+- [Sourcetree](https://www.sourcetreeapp.com/) для Windows и macOS;
+- [GitHub Desktop](https://desktop.github.com) для Windows и macOS.
 
 __Платные__
-- [Tower](https://www.git-tower.com/) для Windows и macOS
-- [Fork](https://git-fork.com/) для Windows и macOS
-- [Sublime Merge](https://www.sublimemerge.com/) для Windows, macOS и Linux
+- [Tower](https://www.git-tower.com/) для Windows и macOS;
+- [Fork](https://git-fork.com/) для Windows и macOS;
+- [Sublime Merge](https://www.sublimemerge.com/) для Windows, macOS и Linux.
