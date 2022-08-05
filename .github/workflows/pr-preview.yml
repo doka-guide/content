@@ -89,6 +89,7 @@ jobs:
         run: |
           cp .env.example .env
           npm run preview
+          ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no dev.doka.guide mkdir -p /web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
           cd dist && rsync -e \"ssh -i $HOME/.ssh/doka_deploy -o StrictHostKeyChecking=no\" --archive --progress --compress --delete . deploy@dev.doka.guide:/web/sites/dev.doka.guide/content/${{ github.event.pull_request.number }}
           echo "Ссылка на превью — ${{ env.DEPLOY_DOMAIN }}"
           echo -e "${{ steps.links.outputs.list }}"
