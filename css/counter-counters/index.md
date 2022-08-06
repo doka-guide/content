@@ -43,6 +43,7 @@ tags:
 .chapter {
   counter-increment: chapter 1;
 }
+
 .chapter::before {
   content: "Глава "counter(chapter) ": ";
 }
