@@ -1,5 +1,5 @@
 ---
-title: "CSS-счётчики"
+title: "Счётчики в CSS"
 description: "Руководство по CSS-счётчикам."
 authors:
   - blueingreen68
