@@ -85,6 +85,7 @@ tags:
 .paragraph {
   counter-increment: paragraph 1;
 }
+
 .paragraph::marker {
   content: counters(paragraph, '.');
 }
