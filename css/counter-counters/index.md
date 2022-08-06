@@ -29,7 +29,7 @@ tags:
 </section>
 ```
 
-Создаём счётчик с именем `chapter` на элементе [`section`](/html/section) с начальным значением 0:
+Создаём счётчик с именем `chapter` на элементе [`<section>`](/html/section/) с начальным значением 0:
 
 ```css
 .table-of-contents {
