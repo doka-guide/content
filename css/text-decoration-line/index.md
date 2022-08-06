@@ -25,11 +25,11 @@ tags:
   text-decoration-line: underline;
 }
 .second-1 {
- text-decoration-line: overline underline line-through;
+  text-decoration-line: overline underline line-through;
 }
 .second-2 {
   text-decoration-line: overline underline;
-} 
+}
 .second-3 {
   text-decoration-line: overline;
 }
