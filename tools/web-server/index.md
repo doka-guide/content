@@ -1,5 +1,6 @@
 ---
 title: "Веб-сервер"
+description: "Программа, которая умеет отвечать на HTTP-запросы."
 authors:
   - igsekor
 contributors:
@@ -13,6 +14,10 @@ keywords:
   - headers
   - заголовки
   - сжатие
+related:
+  - js/web-app-types
+  - tools/http-protocol
+  - tools/gateway-bff
 tags:
   - article
 ---
