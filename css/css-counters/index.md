@@ -243,7 +243,7 @@ li::marker {
 
 <iframe title="Демонстрация свойства" src="demos/css-counters-lower-roman-example" height="475"></iframe>
 
-О других стилях счётчика можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type).
+О других стилях счётчика можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type/).
 
 ## Основные термины
 
