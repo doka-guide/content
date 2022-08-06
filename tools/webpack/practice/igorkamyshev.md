@@ -7,7 +7,7 @@ npm install --save-dev html-webpack-plugin
 ```
 
 ```js
-const { HtmlWebpackPlugin } = require("html-webpack-plugin")
+const { HtmlWebpackPlugin } = require('html-webpack-plugin')
 
 module.exports = {
   plugins: [new HtmlWebpackPlugin()]
@@ -29,14 +29,14 @@ module.exports = {
 - `path.resolve` — функция, которая принимает любое число сегментов пути и возвращает абсолютный путь. Работает так:
 
 ```js
-path.resolve("/foo/bar", "./baz")
-// "/foo/bar/baz"
-path.resolve("/foo/bar", "/tmp/file/")
-// "/tmp/file"
+path.resolve('/foo/bar', './baz')
+// '/foo/bar/baz'
+path.resolve('/foo/bar', '/tmp/file/')
+// '/tmp/file'
 
 // Если текущая рабочая директория /home/user:
-path.resolve("www", "static_files/png", "../gif/image.gif")
-// "/home/user/www/static_files/gif/image.gif"
+path.resolve('www', 'static_files/png', '../gif/image.gif')
+// '/home/user/www/static_files/gif/image.gif'
 ```
 
 - `path.sep` — строка разделителя путей в текущем окружении (`/` или `\`).
