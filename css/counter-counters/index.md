@@ -152,4 +152,4 @@ h2::before {
 
 <iframe title="Демонстрация свойства" src="demos/counter-func-upper-roman-example" height="475"></iframe>
 
-Более подробно о других значениях можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type).
+Более подробно о других значениях можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type/).
