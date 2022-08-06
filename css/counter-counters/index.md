@@ -37,7 +37,7 @@ tags:
 }
 ```
 
-Устанавливаем увеличение значения счётчика `сhapter`, использовав свойство [`counter-increment`](/css/counter-increment). Далее подставляем значение счётчика `chapter` через функцию `counter()`:
+Устанавливаем увеличение значения счётчика `сhapter`, использовав свойство [`counter-increment`](/css/counter-increment/). Далее подставляем значение счётчика `chapter` через функцию `counter()`:
 
 ```css
 .chapter {
