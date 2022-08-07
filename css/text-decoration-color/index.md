@@ -37,10 +37,6 @@ span {
 .white {
   text-decoration-color: white;
 }
-
-.black {
-  text-decoration-color: black;
-}
 ```
 
 <iframe title="Базовый пример" src="demos/basic/" height="250"></iframe>
