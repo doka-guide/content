@@ -19,9 +19,16 @@ tags:
 ## Пример
 
 ```css
-span {
-  text-decoration-line: underline;
+.subject {
+  text-decoration-style: solid;
+}
+
+.participle {
   text-decoration-style: dotted;
+}
+
+.predicate {
+  text-decoration-style: double;
 }
 ```
 
