@@ -18,20 +18,15 @@ tags:
 
 ## Пример
 
-Украсим текст разными линиями.
+Украсим текст парой линий.
 
 ```css
 .underline {
   text-decoration-line: underline;
 }
-.second-1 {
-  text-decoration-line: overline underline line-through;
-}
-.second-2 {
-  text-decoration-line: overline underline;
-}
-.second-3 {
-  text-decoration-line: overline;
+
+.line-through {
+  text-decoration-line: line-through;
 }
 ```
 
