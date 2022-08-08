@@ -8,9 +8,10 @@ contributors:
   - matiesha
 editors:
   - tachisis
-keywords:
-  - agile
-  - scrum
+related:
+  - js/code-style
+  - tools/version-control
+  - js/technical-debt
 tags:
   - article
 ---
