@@ -1,15 +1,12 @@
 ---
 title: "`text-decoration-color`"
-description: "Раскрашивает декоративные линии текста."
+description: "Раскрашивает декоративные линии текста во все цвета радуги."
 authors:
-  - doka-dog
-contributors:
   - inventoris
 keywords:
-  - цвет декоративного элемента
+  - цвет декоративной линии
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
