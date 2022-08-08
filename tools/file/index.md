@@ -1,12 +1,14 @@
 ---
 title: "Файл и файловые системы"
+description: "Вы когда-нибудь задумывались, что такое файл? Мы всё выяснили."
 authors:
   - igsekor
 contributors:
   - furtivite
-keywords:
-  - файл
-  - Unix
+related:
+  - tools/network
+  - tools/web-server
+  - js/web-app-works
 tags:
   - article
 ---
