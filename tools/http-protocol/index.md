@@ -1,6 +1,6 @@
 ---
 title: "Протокол HTTP"
-description: "Главный протокол интернета."
+description: "Главный протокол для браузера."
 authors:
   - igsekor
 contributors:
