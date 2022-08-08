@@ -14,9 +14,9 @@ keywords:
   - csrf
   - SQL-инъекции
 related:
-  - https://doka.guide/tools/web-server/
-  - https://doka.guide/js/how-to-test-and-why/
-  - https://doka.guide/tools/ssh/
+  - tools/web-server
+  - js/how-to-test-and-why
+  - tools/ssh
 tags:
   - article
 ---
