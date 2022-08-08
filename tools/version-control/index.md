@@ -1,18 +1,19 @@
 ---
 title: "Системы управления версиями"
+description: "Удобнейший способ хранить код приложения и разрабатывать его параллельно с другими программистами."
 authors:
   - igorkamyshev
 contributors:
   - furtivite
   - gurugray
+keywords:
+  - гит
+related:
+  - tools/code-review
+  - tools/ci-cd
+  - js/code-style
 tags:
   - article
-keywords:
-  - git
-  - vcs
-  - гит
-  - create repository
-  - создать репозиторий
 ---
 
 ## Кратко
