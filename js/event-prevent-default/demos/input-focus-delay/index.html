@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Метод addEventListener — events — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .timer {
+        visibility: hidden;
+        padding: 20px;
+        padding-left: 0;
+    }
+
+    .input,
+    .timer__title {
+        font-size: 24px;
+    }
+
+    .timer__clock {
+        font-size: 32px;
+    }
+
+    .timer_show {
+        visibility: visible;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="timer">
+        <span class="timer__title">Фокус в input появится через:</span>
+        <span class="timer__clock">5</span>
+    </div>
+    <input class="input" placeholder="Нажми меня =)"/>
+  </div>
+
+  <script>
+    const runTimer = (inputElement) => {
+        const timerElement = document.querySelector('.timer');
+        timerElement.classList.toggle('timer_show');
+        const clockElement = document.querySelector('.timer__clock');
+        let focusDelay = 4;
+
+        const clockInterval = setInterval(() => {
+            if (focusDelay === 0) {
+                clearInterval(clockInterval);
+                timerElement.classList.toggle('timer_show');
+                inputElement.focus();
+            }
+            clockElement.textContent = `${focusDelay}`
+            focusDelay--;
+        }, 1000);
+    }
+    const inputElement = document.querySelector('.input');
+    inputElement.addEventListener('mousedown', (event) => {
+        event.preventDefault();
+        runTimer(inputElement)
+    });
+  </script>
+</body>
+</html>
