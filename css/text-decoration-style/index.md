@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-Свойство `text-decoration-style` управляет стилем декоративной линии для текста (подчёркивание, перечёркивание и другие), назначенной свойством [`text-decoration-line`](/css/text-decoration-line/).
+Свойство `text-decoration-style` управляет стилем декоративной линии для текста (подчёркивание, перечёркивание и другие).
 
 ## Пример
 
@@ -64,3 +64,29 @@ a {
 ```
 
 <iframe title="Пример стилизации ссылки" src="demos/dotted-link/" height="250"></iframe>
+
+Добавить декоративную линию и навести красоту можно с помощью псевдоэлементов [`::first-line`](/css/first-line/) для первой строки текста или [`::first-letter`](/css/first-letter/) для первой буквы в нём.
+
+```css
+.dotted::first-line {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+}
+
+.double::first-letter {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+```
+
+<iframe title="Пример создания и стилизации линий с помощью псевдоэлементов" src="demos/pseudo-element-line/" height="250"></iframe>
+
+Стилизуются и другие линии, кроме назначенных свойством [`text-decoration-line`](/css/text-decoration-line/). Например, созданные внутри html-разметки с помощью тегов вроде [`<del>`](/html/del/) или [`<u>`](/html/u/).
+
+```css
+u {
+  text-decoration-style: wavy;
+}
+```
+
+<iframe title="Пример стилизации линии, созданной html-тегом" src="demos/html-line/" height="250"></iframe>
