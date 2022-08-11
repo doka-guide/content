@@ -5,6 +5,10 @@ authors:
   - inventoris
 keywords:
   - стиль декоративной линии
+related: 
+  - html/del
+  - css/first-line
+  - css/first-letter
 tags:
   - doka
 ---
@@ -81,7 +85,7 @@ a {
 
 <iframe title="Пример создания и стилизации линий с помощью псевдоэлементов" src="demos/pseudo-element-line/" height="250"></iframe>
 
-Стилизуются и другие линии, кроме назначенных свойством [`text-decoration-line`](/css/text-decoration-line/). Например, созданные внутри html-разметки с помощью тегов вроде [`<del>`](/html/del/) или [`<u>`](/html/u/).
+Стилизуются и другие линии, кроме назначенных свойством [`text-decoration-line`](/css/text-decoration-line/). Например, созданные внутри HTML-разметки с помощью тегов вроде [`<del>`](/html/del/) или [`<u>`](/html/u/).
 
 ```css
 u {
