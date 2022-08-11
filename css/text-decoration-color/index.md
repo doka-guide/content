@@ -5,6 +5,10 @@ authors:
   - inventoris
 keywords:
   - цвет декоративной линии
+related:
+  - html/del
+  - css/currentcolor
+  - css/web-colors
 tags:
   - doka
 ---
@@ -59,7 +63,7 @@ span {
 
 Это можно легко поменять: `text-decoration-color` принимает [цвет](/css/web-colors/) в любом доступном формате, например, жёлтый `yellow` или фиолетовый `#8b00ff`.
 
-Раскрасить можно не только `text-decoration-line`, но и линии, обозначенные в html-разметке тегами, как [`<u>`](/html/u/) или [`<del>`](/html/del/). У `text-decoration-color` краски хватит на всех!
+Раскрасить можно не только `text-decoration-line`, но и линии, обозначенные в HTML-разметке тегами, например [`<u>`](/html/u/) или [`<del>`](/html/del/). У `text-decoration-color` краски хватит на всех!
 
 ```css
 del {
