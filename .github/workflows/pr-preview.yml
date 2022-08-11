@@ -83,6 +83,12 @@ jobs:
             file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
           fi
           echo ::set-output name=list::$(echo -e "${file_list}")
+      - name: Установка ключа для пользователя
+        run: |
+          set -eu
+          mkdir "$HOME/.ssh"
+          echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
+          chmod 600 "$HOME/.ssh/doka_deploy"
       - name: Сборка и публикация сайта
         id: build-preview
         continue-on-error: true
