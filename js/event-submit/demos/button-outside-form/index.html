@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример когда событие submit не вызвать — Событие submit — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      padding: 50px;
+    }
+
+    .elements {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form,
+    .button {
+      margin-top: 30px;
+    }
+
+    label {
+      padding-right: 10px;
+    }
+
+    input {
+      width: 170px;
+      height: 25px;
+    }
+
+    button {
+      height: 30px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="elements">
+    <div class="form">
+      <form>
+        <label for="input-field">Нажмите Enter в поле:</label>
+        <input id="input-field" type="text">
+      </form>
+    </div>
+    <div class="button">
+      <button>Или кликните тут</button>
+    </div>
+  </div> 
+  <script>
+    document.addEventListener('submit', function () {
+      alert('Случился submit')
+    })
+  </script>
+</body>
+</html>
