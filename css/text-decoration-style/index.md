@@ -5,7 +5,7 @@ authors:
   - inventoris
 keywords:
   - стиль декоративной линии
-related: 
+related:
   - html/del
   - css/first-line
   - css/first-letter
