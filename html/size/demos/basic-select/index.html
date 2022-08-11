@@ -20,33 +20,24 @@
       justify-content: center;
       min-height: 100vh;
       padding: 100px 50px;
-      background-color: #18191c;
-      color: #ffffff;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
     }
 
     .select-label {
       display: block;
-      font-size: 24px;
-      font-weight: 500;
-      margin-right: 35px;
+      font-size: 20px;
+      font-weight: 400;
+      margin-right: 20px;
     }
 
     .select {
-      position: relative;
-      width: 400px;
-      border: 1px solid #ffffff;
-      border-radius: 6px;
+      width: 300px;
+      border: 1px solid;
       padding: 3px 15px;
-      background-color: #18191c;
-      color: #ffffff;
       font-family: inherit;
       font-size: inherit;
-      font-weight: 300;
       cursor: pointer;
-      -webkit-appearance: none;
-      appearance: none;
     }
 
     .select:focus {
@@ -54,49 +45,13 @@
       border: 1px solid #ff8630;
     }
 
-    .select-wrapper {
-      position: relative;
-    }
-
-    .select-wrapper::after {
-      content: "";
-      position: absolute;
-      top: calc(50% - 4px);
-      right: 15px;
-      width: 14px;
-      height: 8px;
-      background-image: url("images/arrow-down.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 100%;
-    }
-
     option {
-      font-weight: inherit;
-      font-family: inherit;
-      font-size: inherit;
-    }
-
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-
-      .select-label {
-        margin-right: 20px;
-        margin-bottom: 10px;
-      }
-
-      .select {
-        width: 100%;
-      }
+      font-weight: 300;
     }
   </style>
 </head>
 <body>
   <label class="select-label" for="city-select">Ваш город</label>
-  <div class="select-wrapper">
     <select class="select" id="city-select" size="3">
       <option value="kaliningrad">Калининград</option>
       <option value="petrozavodsk">Петрозаводск</option>
@@ -105,6 +60,5 @@
       <option value="samara">Самара</option>
       <option value="perm">Пермь</option>
     </select>
-  </div>
 </body>
 </html>
