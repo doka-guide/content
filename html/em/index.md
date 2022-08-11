@@ -1,10 +1,15 @@
 ---
 title: "`<em>`"
+description: "Придаёт особый смысл отдельным словам или фразам в тексте."
 authors:
   - xpleesid
 keywords:
   - ударение
   - семантический акцент
+related:
+  - html/strong
+  - html/i
+  - html/screenreaders
 tags:
   - doka
 ---
