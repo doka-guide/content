@@ -9,7 +9,7 @@
 ```js
 switch (variable) {
   case 5: {
-    let myVar = "Hello"
+    const myVar = 'Hello'
   }
 }
 ```

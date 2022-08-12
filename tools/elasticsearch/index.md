@@ -1,12 +1,16 @@
 ---
 title: "Основы работы с Elasticsearch"
-description: "Хочется сделать свой поиск? Рассказываем, как базово настроить Elasticsearch и отправлять к нему запросы"
+description: "Хочется сделать свой поиск? Рассказываем, как базово настроить Elasticsearch и отправлять к нему запросы."
 authors:
   - khlebovsky
 keywords:
   - эластиксерч
   - nosql
   - база данных
+related:
+  - tools/docker
+  - js/debounce
+  - tools/microservices
 tags:
   - article
 ---
@@ -91,7 +95,7 @@ node index.js
 Для начала нам нужно подключиться к нашему ES. В файле _functions.js_ напишем следующий код:
 
 ```javascript
-import * as ElasticSearch from '@elastic/elasticsearch';
+import * as ElasticSearch from '@elastic/elasticsearch'
 
 const client = new ElasticSearch.Client({
   node: 'https://localhost:9200',
@@ -220,14 +224,14 @@ export async function createIndex() {
 Теперь при добавлении документов в ES текстовые данные будут обработаны нашим анализатором. Давайте создадим поисковый индекс и добавим в него настройки с маппингом. Содержимое файла `index.js`:
 
 ```javascript
-import { createIndex } from './functions.js';
+import { createIndex } from './functions.js'
 
 const run = async () => {
-  const result = await createIndex();
-  console.log(result);
+  const result = await createIndex()
+  console.log(result)
 }
 
-run();
+run()
 ```
 
 Выполняем код через терминал `node index.js` и видим успешный ответ от ES:
@@ -258,7 +262,7 @@ export async function indexElement(data) {
 Обновим файл _index.js_ и запустим следующий код:
 
 ```javascript
-import { indexElement } from './functions.js';
+import { indexElement } from './functions.js'
 
 const run = async () => {
   let result = await indexElement({
@@ -266,17 +270,17 @@ const run = async () => {
     name: 'Apple iPhone 12 256GB (PRODUCT)RED',
     description: 'iPhone 12. Во-первых, это быстро. iPhone 12 поражает возможностями.'
   })
-  console.log(result);
+  console.log(result)
 
   result = await indexElement({
     id: 2,
     name: 'Lenovo Legion 5',
     description: 'Мощный игровой ноутбук'
   })
-  console.log(result);
+  console.log(result)
 }
 
-run();
+run()
 ```
 
 Запустим через `node index.js`. В результате увидим подобный ответ от ES (ответ вашего ES может немного отличаться):
@@ -320,7 +324,7 @@ export async function search(query) {
 Код файла _index.js_:
 
 ```javascript
-import { search } from './functions.js';
+import { search } from './functions.js'
 
 const run = async () => {
   const query = {
@@ -329,14 +333,14 @@ const run = async () => {
     }
   }
 
-  const result = await search(query);
-  console.log(result);
+  const result = await search(query)
+  console.log(result)
 
-  const products = result.hits.hits;
-  console.log(products);
+  const products = result.hits.hits
+  console.log(products)
 }
 
-run();
+run()
 ```
 
 После запуска получим ответ от ES:

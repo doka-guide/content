@@ -9,7 +9,7 @@
 Чтобы пути импортов не были слишком длинными:
 
 ```javascript
-import { user } from "../domain/models/user/user.js"
+import { user } from '../domain/models/user/user.js'
 ```
 
 ... можно использовать реэкспорты — когда мы внутри файла импортируем функциональность из одного модуля и сразу же экспортируем её из него.
@@ -34,15 +34,15 @@ domain/
 */
 
 // domain/models/user/index.js
-import { user } from "./user.js"
+import { user } from './user.js'
 export { user }
 
 // Или же сразу:
-export { user } from "./user.js"
+export { user } from './user.js'
 
 // other-module.js
 // Тогда при импорте user.js мы можем прописать такой путь:
-import { user } from "./domain/models/user"
+import { user } from './domain/models/user'
 
 // Так как index.js — [индексный файл](https://nodejs.org/api/modules.html#modules_folders_as_modules),
 // он может быть опущен в пути до модуля.
@@ -63,16 +63,16 @@ domain/
 */
 
 // domain/models/index.js
-export * from "./user"
+export * from './user'
 
 // Эта запись означает, что мы хотим
 // ре-экспортировать из модуля user
 // всё, что он экспортирует сам.
 
 // domain/index.js
-export * from "./models"
+export * from './models'
 
 // other-module.js
 // Тогда наш первый пример превратится в:
-import { user } from "../domain"
+import { user } from '../domain'
 ```

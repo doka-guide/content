@@ -5,10 +5,10 @@ authors:
   - vitalybaev
 editors:
   - tachisis
-keywords:
-  - ci
-  - cd
-  - gitlab
+related:
+  - js/how-to-test-and-why
+  - tools/package-managers
+  - tools/code-review
 tags:
   - article
 ---

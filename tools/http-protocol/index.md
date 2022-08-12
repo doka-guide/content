@@ -1,5 +1,6 @@
 ---
 title: "Протокол HTTP"
+description: "Главный протокол для браузера."
 authors:
   - igsekor
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - https
   - гипертекст
   - протокол прикладного уровня
+related:
+  - js/web-app-works
+  - tools/web-server
+  - js/api
 tags:
   - article
 ---

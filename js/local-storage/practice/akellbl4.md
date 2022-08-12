@@ -9,29 +9,29 @@ function changePageFontSize(size) {
   document.style.fontSize = `${size}px`
 }
 
-window.addEventListener("storage", function (evt) {
-  if (evt.key === "pageFontSize") {
+window.addEventListener('storage', function (evt) {
+  if (evt.key === 'pageFontSize') {
     changePageFontSize(evt.newValue)
   }
 })
 ```
 
-🛠 Иногда нам нужно сохранить не просто текст, а целую структуру данных, и в этом нам поможет `JSON.stringify`.
+🛠 Иногда нам нужно сохранить не просто текст, а целую структуру данных, и в этом нам поможет [`JSON.stringify()`](/tools/json/#primer-preobrazovaniya-obekta-javascript-v-format-json).
 
 ```js
 const user = {
-  name: "Doka Dog",
-  avatarUrl: "mascot-doka.svg"
+  name: 'Дока Дог',
+  avatarUrl: 'mascot-doka.svg'
 }
 
-localStorage.setItem("user", JSON.stringify(user))
+localStorage.setItem('user', JSON.stringify(user))
 ```
 
 И после чтения парсим:
 
 ```js
 function readUser() {
-  const userJSON = localStorage.getItem("user")
+  const userJSON = localStorage.getItem('user')
 
   if (userJSON === null) {
     return undefined
@@ -41,10 +41,16 @@ function readUser() {
   try {
     return JSON.parse(userJSON)
   } catch (e) {
-    localStorage.removeItem("user")
+    localStorage.removeItem('user')
     return undefined
   }
 }
+
+console.log(readUser())
+// {
+//  name: 'Дока Дог',
+//  avatarUrl: 'mascot-doka.svg'
+// }
 ```
 
 🛠 Если ваш сайт использует скрипты аналитики или другие внешние библиотеки, то они также имеют доступ к хранилищу. Поэтому лучше именовать ключи для записи в хранилище с префиксом в едином стиле. Например, при записи чего-либо на таком сайте я бы выбрал префикс `YD_{название ключа}`, тогда можно сгруппировать только нужные значения или отфильтровать их в инструментах разработчика.
