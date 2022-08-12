@@ -15,6 +15,10 @@ keywords:
   - стрелочная функция
   - arrow function
   - new
+related:
+  - js/programming-paradigms
+  - tools/bundlers
+  - js/language-versions
 tags:
   - article
 ---
@@ -43,13 +47,13 @@ function hello(whom) {
   console.log(`Hello, ${whom}!`)
 }
 
-hello("World")
+hello('World')
 // Hello, World!
 ```
 
 Чтобы выполнить функцию, мы используем выражение `hello` и скобки с аргументами.
 
-Когда мы вызываем _функцию_, значением `this` может быть лишь _глобальный объект_ или `undefined` при использовании `'use strict'`.
+Когда мы вызываем _функцию_, значением `this` может быть лишь _глобальный объект_ или [`undefined`](/js/undefined/) при использовании [`'use strict'`](/js/use-strict/).
 
 ### Глобальный объект
 
@@ -69,12 +73,12 @@ function nonStrict() {
 }
 
 function strict() {
-  "use strict"
+  'use strict'
   // Будет выполняться в строгом режиме.
 }
 ```
 
-Также можно настроить строгий режим для всего файла, если указать 'use strict' в начале.
+Также можно настроить строгий режим для всего файла, если указать `'use strict'` в начале.
 
 ### Значение `this`
 
@@ -118,7 +122,7 @@ whatsThis()
 В строгом режиме — значение будет равно `undefined`:
 
 ```js
-"use strict"
+'use strict'
 
 function whatsThis() {
   console.log(this === undefined)
@@ -134,9 +138,9 @@ whatsThis()
 
 ```js
 const user = {
-  name: "Alex",
+  name: 'Alex',
   greet() {
-    console.log("Hello, my name is Alex")
+    console.log('Hello, my name is Alex')
   },
 }
 
@@ -144,13 +148,13 @@ user.greet()
 // Hello, my name is Alex
 ```
 
-`user.greet` — это метод объекта `user`.
+`user.greet()` — это метод объекта `user`.
 
 В этом случае значение `this` — этот объект.
 
 ```js
 const user = {
-  name: "Alex",
+  name: 'Alex',
   greet() {
     console.log(`Hello, my name is ${this.name}`)
   },
@@ -164,7 +168,7 @@ user.greet()
 
 ```js
 const user = {
-  name: "Alex",
+  name: 'Alex',
   greet() {
     console.log(`Hello, my name is ${this.name}`)
   },
@@ -175,7 +179,7 @@ greet()
 // Hello, my name is
 ```
 
-При вызове через точку `user.greet` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict/) мы бы получили ошибку «Cannot read properties of undefined».
+При вызове через точку `user.greet()` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict/) мы бы получили ошибку «Cannot read properties of undefined».
 
 Чтобы такого не происходило, [следует использовать `bind()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), о котором мы поговорим чуть позже.
 
@@ -189,11 +193,11 @@ _Конструктор_ — это функция, которую мы испо
 
 ```js
 function User() {
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 const firstUser = new User()
-firstUser.name === "Alex"
+firstUser.name === 'Alex'
 // true
 ```
 
@@ -205,7 +209,7 @@ firstUser.name === "Alex"
 function User() {
   console.log(this instanceof User)
   // true
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 const firstUser = new User()
@@ -226,7 +230,7 @@ function User() {
   // Происходит неявно:
   // this = {};
 
-  this.name = "Alex"
+  this.name = 'Alex'
 
   // Происходит неявно:
   // return this;
@@ -238,7 +242,7 @@ function User() {
 ```js
 class User {
   constructor() {
-    this.name = "Alex"
+    this.name = 'Alex'
   }
 
   greet() {
@@ -273,20 +277,20 @@ console.log(secondUser)
 ```js
 function User() {
   if (!(this instanceof User)) {
-    throw Error("Error: Incorrect invocation!")
+    throw Error('Error: Incorrect invocation!')
   }
 
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 // или
 
 function User() {
   if (!new.target) {
-    throw Error("Error: Incorrect invocation!")
+    throw Error('Error: Incorrect invocation!')
   }
 
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 const secondUser = User()
@@ -304,8 +308,8 @@ function greet() {
   console.log(`Hello, ${this.name}`)
 }
 
-const user1 = { name: "Alex" }
-const user2 = { name: "Ivan" }
+const user1 = { name: 'Alex' }
+const user2 = { name: 'Ivan' }
 
 greet.call(user1)
 // Hello, Alex
@@ -329,16 +333,16 @@ function greet(greetWord, emoticon) {
   console.log(`${greetWord} ${this.name} ${emoticon}`)
 }
 
-const user1 = { name: "Alex" }
-const user2 = { name: "Ivan" }
+const user1 = { name: 'Alex' }
+const user2 = { name: 'Ivan' }
 
-greet.call(user1, "Hello,", ":-)")
+greet.call(user1, 'Hello,', ':-)')
 // Hello, Alex :-)
-greet.call(user2, "Good morning,", ":-D")
+greet.call(user2, 'Good morning,', ':-D')
 // Good morning, Ivan :-D
-greet.apply(user1, ["Hello,", ":-)"])
+greet.apply(user1, ['Hello,', ':-)'])
 // Hello, Alex :-)
-greet.apply(user2, ["Good morning,", ":-D"])
+greet.apply(user2, ['Good morning,', ':-D'])
 // Good morning, Ivan :-D
 ```
 
@@ -351,7 +355,7 @@ function greet() {
   console.log(`Hello, ${this.name}`)
 }
 
-const user1 = { name: "Alex" }
+const user1 = { name: 'Alex' }
 
 const greetAlex = greet.bind(user1)
 greetAlex()
@@ -385,7 +389,7 @@ function greetWaitAndAgain() {
   })
 }
 
-const user = { name: "Alex" }
+const user = { name: 'Alex' }
 
 greetWaitAndAgain.call(user)
 

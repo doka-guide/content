@@ -52,53 +52,53 @@ ready:
   - recipes/snow
 active:
   - html/screenreaders
-  - tools/webpack
+  - tools/docker
+  - css/flexbox-guide
+  - tools/markdown
+  - css/specificity
+  - css/custom-properties
+  - js/how-to-test-and-why
+  - tools/cli
+  - css/position
+  - js/execution-order
+  - css/pseudoelements
+  - html/video
+  - html/section
+  - js/closures
+  - js/function
+  - html/nav
+  - css/box-shadow
+  - js/var-let
   - tools/agile
   - tools/ci-cd
-  - js/async-in-js
-  - tools/cli
-  - css/transform-function
-  - css/position
-  - css/specificity
-  - js/how-the-browser-creates-pages
-  - css/box-model
-  - css/flexbox-guide
-  - js/clean-architecture
-  - html/div
-  - css/keyframes
-  - html/input
-  - js/closures
-  - html/flow
-  - js/oop
-  - html/video
-  - html/img
-  - js/deal-with-forms
-  - js/boolean
-  - js/how-to-test-and-why
-  - tools/bundlers
-  - tools/gitlab-ci-cd
-  - html/head
-  - tools/static-types
-  - tools/docker
-  - recipes/snow
-  - js/var-let
-  - html/form
   - html/doctype
-  - html/article
-  - css/grid-guide
-  - js/function-context
+  - html/div
+  - html/form
   - css/media
-  - html/section
-  - css/pseudoelements
-  - js/function
-  - css/attr
-  - tools/network
+  - css/transform-function
+  - html/input
   - css/display
-  - html/nav
-  - css/custom-properties
-  - js/execution-order
+  - html/head
+  - js/async-in-js
+  - js/function-context
+  - html/article
+  - js/boolean
+  - css/grid-guide
+  - js/clean-architecture
+  - tools/gitlab-ci-cd
+  - css/box-model
+  - tools/static-types
+  - js/deal-with-forms
+  - tools/bundlers
+  - js/how-the-browser-creates-pages
+  - css/keyframes
+  - css/attr
+  - html/img
+  - tools/webpack
+  - recipes/snow
+  - tools/network
+  - js/oop
   - js/infinite-scroll
-  - tools/markdown
-  - css/box-shadow
+  - html/flow
 ---
 

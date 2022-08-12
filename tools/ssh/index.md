@@ -1,13 +1,15 @@
 ---
 title: "Доступ по SSH"
-description: "Удалённое управление операционной системой и организация туннелей для передачи данных"
+description: "Удалённое управление операционной системой и организация туннелей для передачи данных."
 authors:
   - igsekor
 keywords:
   - telnet
   - прикладной уровень
-  - rsa
-  - терминал
+related:
+  - tools/ssl-certificates
+  - tools/git-cli
+  - tools/cli
 tags:
   - article
 ---
