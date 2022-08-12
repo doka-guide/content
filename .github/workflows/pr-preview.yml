@@ -73,7 +73,9 @@ jobs:
         run: |
           file_list=""
           for f in ${{ steps.files.outputs.all }}; do
-            file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${f}">${f}</a></li>")
+            if [[ $changed_file =~ ".html" ]]; then
+              file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${f}">${f}</a></li>")
+            fi
           done
           if ! [[ $file_list == "" ]]; then
             file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
