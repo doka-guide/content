@@ -36,6 +36,7 @@ jobs:
       - name: Загрузка контента
         uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           path: content
       - uses: actions/setup-node@v3
         with:
