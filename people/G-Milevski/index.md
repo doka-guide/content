@@ -1,4 +1,4 @@
 ---
-name: ''
-url: https://github.com/G-Milevski
+name: 'Георгий Милевский'
+url: https://milevski.dev
 ---
