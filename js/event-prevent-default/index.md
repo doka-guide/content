@@ -34,7 +34,7 @@ links.addEventListener('click', (event) => {
 
 ## Пример
 
-<iframe title="Всплытие событий — События — Дока" src="demos/input-focus-delay" height="460"></iframe>
+<iframe title="Всплытие событий — События — Дока" src="demos/input-focus-delay" height="250"></iframe>
 
 ## Как понять
 

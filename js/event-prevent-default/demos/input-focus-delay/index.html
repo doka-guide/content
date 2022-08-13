@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Метод addEventListener — events — Дока</title>
+  <title>Метод addEventListener — События — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,65 +15,115 @@
     }
 
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
-    .timer {
-        visibility: hidden;
-        padding: 20px;
-        padding-left: 0;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
 
-    .input,
-    .timer__title {
-        font-size: 24px;
+    p {
+      margin: 14px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
-    .timer__clock {
-        font-size: 32px;
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
     }
 
-    .timer_show {
-        visibility: visible;
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    @keyframes blink {
+      0% {
+        background-color: inherit;
+      }
+      30% {
+        background-color: #2E9AFF;
+      }
+      90% {
+        background-color: inherit;
+      }
+    }
+
+    .animate {
+      animation: blink .5s;
     }
 
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="timer">
-        <span class="timer__title">Фокус в input появится через:</span>
-        <span class="timer__clock">5</span>
-    </div>
-    <input class="input" placeholder="Нажми меня =)"/>
-  </div>
+<div class="container">
+  <h1>Небыстрый фокус</h1>
+  <p><span class="timer__description">При клике на поле ввода фокус появится через </span><span class="timer__clock">5 секунд</span>.
+  </p>
+  <label>
+    <input placeholder="Нажми на меня =)"/>
+  </label>
+</div>
 
-  <script>
-    const runTimer = (inputElement) => {
-        const timerElement = document.querySelector('.timer');
-        timerElement.classList.toggle('timer_show');
-        const clockElement = document.querySelector('.timer__clock');
-        let focusDelay = 4;
+<script>
+  const seconds = ['', 'секунду', 'секунды', 'секунды', 'секунды']
+  const successText = 'Фокус уже в поле'
+  const description = 'При клике на поле ввода фокус появится через '
+  const clockElement = document.querySelector('.timer__clock')
+  const descElement = document.querySelector('.timer__description')
+  const runTimer = (inputElement) => {
+    let focusDelay = 4
 
-        const clockInterval = setInterval(() => {
-            if (focusDelay === 0) {
-                clearInterval(clockInterval);
-                timerElement.classList.toggle('timer_show');
-                inputElement.focus();
-            }
-            clockElement.textContent = `${focusDelay}`
-            focusDelay--;
-        }, 1000);
-    }
-    const inputElement = document.querySelector('.input');
-    inputElement.addEventListener('mousedown', (event) => {
-        event.preventDefault();
-        runTimer(inputElement)
-    });
-  </script>
+    const clockInterval = setInterval(() => {
+      if (focusDelay === 0) {
+        clearInterval(clockInterval)
+        descElement.textContent = successText
+        clockElement.textContent = ''
+        inputElement.focus()
+      } else {
+        clockElement.textContent = `${focusDelay} ${seconds[focusDelay]}`
+        focusDelay--
+      }
+    }, 1000)
+  }
+
+  const inputElement = document.querySelector('input')
+  inputElement.addEventListener('mousedown', (event) => {
+    event.preventDefault()
+    inputElement.classList.add('animate')
+    runTimer(inputElement)
+  })
+
+  inputElement.addEventListener('blur', (event) => {
+    descElement.textContent = description
+    clockElement.textContent = `5 секунд`
+  })
+</script>
 </body>
 </html>
