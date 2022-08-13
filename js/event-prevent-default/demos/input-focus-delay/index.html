@@ -105,6 +105,7 @@
         clearInterval(clockInterval)
         descElement.textContent = successText
         clockElement.textContent = ''
+        inputElement.disabled = false
         inputElement.focus()
       } else {
         clockElement.textContent = `${focusDelay} ${seconds[focusDelay]}`
@@ -116,13 +117,18 @@
   const inputElement = document.querySelector('input')
   inputElement.addEventListener('mousedown', (event) => {
     event.preventDefault()
-    inputElement.classList.add('animate')
-    runTimer(inputElement)
+    const isFocused = document.activeElement === inputElement
+    if (!isFocused) {
+      inputElement.disabled = true
+      inputElement.classList.add('animate')
+      runTimer(inputElement)
+    }
   })
 
   inputElement.addEventListener('blur', (event) => {
     descElement.textContent = description
     clockElement.textContent = `5 секунд`
+    inputElement.classList.remove('animate')
   })
 </script>
 </body>
