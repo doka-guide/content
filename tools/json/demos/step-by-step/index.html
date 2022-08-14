@@ -203,28 +203,28 @@
 
   <script>
     const buttons = document.querySelectorAll("li button")
-    let baseUrl = "https://pokeapi.co/api/v2/pokemon/"
+    const baseUrl = "https://pokeapi.co/api/v2/pokemon/"
 
     const list = document.getElementById("list")
 
     const name = document.getElementById("name")
     const img = document.getElementById("img")
 
-    buttons.forEach((link) =>
-      link.addEventListener("click", (event) => {
+    buttons.forEach((button) =>
+      button.addEventListener("click", (event) => {
         event.preventDefault()
 
         list.innerHTML = ""
         name.innerText = ""
 
-        baseUrl += event.target.dataset.name
+        const url = baseUrl + event.target.dataset.name
 
         let count = 0
         let timer = setInterval(() => {
           count++
           switch (count) {
             case 1:
-              list.innerHTML += `<li>Отправляем запрос на сервер — <a href="${baseUrl}">${baseUrl}</a></li>`
+              list.innerHTML += `<li>Отправляем запрос на сервер — <a href="${url}">${url}</a></li>`
               break
             case 2:
               list.innerHTML += `<li>Ждем ответ</li>`
@@ -242,7 +242,7 @@
         }, 1000)
 
         setTimeout(() => {
-          fetch(baseUrl)
+          fetch(url)
             .then((response) => {
               return response.json()
             })
@@ -252,8 +252,6 @@
 
               name.innerText = data.name.toUpperCase()
               img.src = data.sprites.other["official-artwork"].front_default
-
-              baseUrl = "https://pokeapi.co/api/v2/pokemon/"
             })
             .catch((error) => console.error(error))
         }, 3000)
