@@ -2,23 +2,31 @@
 <html lang="ru">
 
 <head>
-   <title>Пример использования counters() со стилем счётчика upper-roman — counter() и counters() — Дока</title>
+   <title>Пример использования counters() — counter() и counters() — Дока</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
    <style>
-      body {
-         font-family: Graphik, sans-serif;
-         font-size: 1.25rem;
+      *,
+      *::before,
+      *::after {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
       }
 
-      .table-of-contents {
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
+      body {
+         min-height: 100vh;
+         padding: 50px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: #18191C;
+         color: #FFFFFF;
+         font-family: "Roboto", sans-serif;
+         font-size: 18px;
       }
 
       .table-of-contents>*+* {
@@ -40,6 +48,7 @@
 
       .table-of-contents_counter-paragraph {
          counter-reset: paragraph 0;
+         margin-left: 22px;
       }
 
       .table-of-contents__paragraph,
@@ -55,10 +64,10 @@
 
       .table-of-contents__link,
       .subtable-of-contents__link {
-         color: #282A2E;
+         color: #FFF;
          text-decoration-line: underline;
          text-decoration-thickness: 1px;
-         text-decoration-color: rgba(40, 42, 46, 0.3);
+         text-decoration-color: rgba(255, 255, 255, 0.3);
          text-underline-position: auto;
          text-underline-offset: 0.125em;
          transition: text-decoration-color 0.5s;
@@ -66,7 +75,7 @@
 
       .table-of-contents__link:hover,
       .subtable-of-contents__link:hover {
-         text-decoration-color: rgba(40, 42, 46, 0.1);
+         text-decoration-color: rgba(255, 255, 255, 0.1);
       }
    </style>
 </head>

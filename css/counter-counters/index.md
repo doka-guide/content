@@ -49,7 +49,7 @@ tags:
 }
 ``` 
 
-<iframe title="Демонстрация свойства" src="demos/counter-func-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/counter-func-example" height="600"></iframe>
 
 ### `counters()`
 
@@ -137,7 +137,7 @@ h2::before {
 
 Нельзя использовать ключевые слова: `none`, `initial`, `inherit`, `unset`, `default` в качестве названий счётчиков.
 
-В обоих функциях есть два необязательных аргумента, которые указывают стиль счётчика, например, вместо использования десятичной системы счисления - данное значение устанавливается по умолчанию, можно указать заглавную римскую нумерация, то есть тип `upper-roman`:
+В обоих функциях есть необязательный аргумент, который указывает стиль счётчика, например, вместо использования десятичной системы счисления - данное значение устанавливается по умолчанию, можно указать заглавную римскую нумерация, то есть тип `upper-roman`:
 
 ```css
 .paragraph::marker {
@@ -150,6 +150,6 @@ h2::before {
 
 <iframe title="Демонстрация свойства" src="demos/counters-func-upper-roman-example" height="475"></iframe>
 
-<iframe title="Демонстрация свойства" src="demos/counter-func-upper-roman-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/counter-func-upper-roman-example" height="600"></iframe>
 
 Более подробно о других значениях можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type/).
