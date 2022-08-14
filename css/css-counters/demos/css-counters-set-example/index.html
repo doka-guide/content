@@ -8,32 +8,73 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
    <style>
+      *,
+      *::before,
+      *::after {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
       body {
-         font-family: 'Roboto Mono', sans-serif;
-         font-size: 1.25rem;
-         background-color: rgb(233, 233, 233);
+         min-height: 100vh;
+         padding: 50px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: #18191C;
+         color: #FFFFFF;
+         font-family: "Roboto", sans-serif;
+         font-size: 18px;
       }
 
       .list {
-         counter-increment: example 0;
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         transform: translate(-50%, -50%);
+         list-style-type: none;
       }
 
-      li {
+      .list__item {
+         position: relative;
+         padding-left: 10px;
          padding-top: 0.625rem;
-         counter-increment: example 1;
+         counter-increment: example 1
+      }
+
+      .list__item::after {
+         content: ".";
       }
 
       .list__item:first-child+li {
          counter-set: example 9;
       }
 
-      .list__item::marker {
-         content: counter(example) '. ';
+      .list__item::before {
+         content: counter(example);
+         position: absolute;
+         right: 100%;
+         width: 22px;
+         height: 20px;
+         padding: 4px 2.2px;
+         font-size: 16px;
+         line-height: 1;
+         color: #000000;
+         background-color: #2E9AFF;
+      }
+
+      .list__item:nth-child(-n+2):before {
+         content: counter(example);
+         position: absolute;
+         right: 100%;
+         width: 22px;
+         height: 20px;
+         padding: 4px 7px;
+         font-size: 16px;
+         line-height: 1;
+         color: #000000;
+         background-color: #2E9AFF;
       }
    </style>
 </head>
