@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <title>Пример использования counter() — counter() и counters() — Дока</title>
+  <title>Пример использования counter-set — counter-set — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +49,9 @@
       position: relative;
     }
 
+    .table-of-contents__chapter_counter {
+      counter-set: chapter 9;
+    }
 
     .table-of-contents__chapter::before {
       content: "Глава " counter(chapter) ": ";
@@ -69,7 +72,7 @@
     <h2 class="table-of-contents__chapter">HTML и CSS</h2>
     <h2 class="table-of-contents__chapter">Создание стилей и таблиц стилей</h2>
     <h2 class="table-of-contents__chapter">Селекторы: выбор форматируемых элементов</h2>
-    <h2 class="table-of-contents__chapter">Механизм наследования стилей</h2>
+    <h2 class="table-of-contents__chapter table-of-contents__chapter_counter">Механизм наследования стилей</h2>
     <h2 class="table-of-contents__chapter">Управление сложной структурой стилей: каскад</h2>
     <h2 class="table-of-contents__chapter">Поля, отступы, границы</h2>
   </section>
