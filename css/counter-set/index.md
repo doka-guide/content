@@ -36,7 +36,7 @@ li {
 </section>
 ```
 
-Создаём счётчик с именеи `chapter` на элементе [`<section>`](/html/section/) c начальным значением 0:
+Создаём счётчик с именем `chapter` на элементе [`<section>`](/html/section/) c начальным значением 0:
 
 ```css
 .table-of-contents {
