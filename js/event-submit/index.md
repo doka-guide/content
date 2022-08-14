@@ -17,7 +17,7 @@ tags:
 
 ## Как пишется
 
-На `submit` можно подписаться и отреагировать, например, сказать спасибо:
+На `submit` можно [подписаться](/js/element-addeventlistener/) и отреагировать, например, сказать спасибо:
 
 ```js
 document.addEventListener('submit', function () {
