@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2022
+
+- 14 августа, [Метод `preventDefault()`](https://doka.guide/js/event-prevent-default/), Георгий Милевский
+
 ## Июль 2022
 
 - 29 июля [`repeating-radial-gradient()`](https://doka.guide/css/repeating-radial-gradient/), Алексей Никитченко
