@@ -15,9 +15,20 @@
     }
 
     body {
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
 
     form {
@@ -35,30 +46,79 @@
     }
 
     input {
-      width: 170px;
-      height: 25px;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    button {
-      height: 30px;
-      width: 200px;
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
     }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      input {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
-  <form>
-    <div>
-      <label for="input-field">Нажмите Enter в поле:</label>
-      <input id="input-field" type="text">
-    </div>
-    <div>
-    <button>Или кликните тут</button>
-    </div>
-  </form>
-  <script>
-    document.addEventListener('submit', function () {
-      alert('Случился submit')
-    })
-  </script>
+<form>
+  <div>
+    <label for="input-field">Нажмите Enter в поле:</label>
+    <input id="input-field" type="text">
+  </div>
+  <div>
+    <button class="button button-blue">Или кликните тут</button>
+  </div>
+</form>
+<script>
+  document.addEventListener('submit', function () {
+    alert('Случился submit')
+  })
+</script>
 </body>
 </html>
