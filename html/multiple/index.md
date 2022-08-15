@@ -9,6 +9,10 @@ related:
   - html/input
   - html/select
   - html/datalist
+related:
+  - html/input
+  - html/select
+  - html/datalist
 tags:
   - doka
 ---
