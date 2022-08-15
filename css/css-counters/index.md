@@ -1,6 +1,6 @@
 ---
 title: "Счётчики в CSS"
-description: "Руководство по CSS-счётчикам."
+description: "Подробно разбираемся как браузер считает элементы и как этим управлять через CSS."
 authors:
   - blueingreen68
 related:
@@ -15,7 +15,7 @@ tags:
 
 CSS-счётчики — это мощный инструмент для нумерации любых элементов страницы, не только списков.
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-example" height="700"></iframe>
+<iframe title="Демонстрация свойства" src="demos/base-example" height="700"></iframe>
 
 Основные свойства для работы со счётчиками:
 
@@ -122,7 +122,7 @@ ul {
 
 Как это работает будет более подробно расписано дальше. Но в конечном итоге пример выше выглядит так:
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-increment-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/increment-example" height="475"></iframe>
 
 <aside>
 
@@ -171,7 +171,7 @@ li {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-set-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/set-example" height="475"></iframe>
 
 Может показаться, что второй элемент с классом `second` должен иметь значение 10, а не 9, потому что на него применяются сразу два свойства `counter-increment` и `counter-set`, однако при вычислении значения используется определённый [порядок](/css/css-counters/#poryadok-vychisleniya-znacheniya).
 
@@ -232,7 +232,7 @@ ul {
 }
 ```
 
-Теперь, чтобы значения счётчика начали отображаться в документе воспользуемся функцией `counter()`. 
+Теперь, чтобы значения счётчика начали отображаться в документе воспользуемся функцией `counter()`.
 
 Подставляем значение счётчика `example` на каждый [псевдоэлемент](/css/pseudoelements/) `::marker` элемента `<li>`:
 
@@ -242,7 +242,7 @@ li::marker {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-increment-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/increment-example" height="475"></iframe>
 
 В обоих функциях есть необязательный аргумент, который указывает стиль счётчика, например, вместо использования десятичной системы счисления — данное значение устанавливается по умолчанию, можно указать строчную римскую нумерацию, то есть тип `lower-roman`:
 
@@ -252,7 +252,7 @@ li::marker {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-lower-roman-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/lower-roman-example" height="475"></iframe>
 
 О других стилях счётчика можно посмотреть в доке по свойству [`list-style-type`](/css/list-style-type/).
 
@@ -261,15 +261,15 @@ li::marker {
 1. **Набор счётчиков** — это коллекция неповторяющихся между собой счётчиков, которые имеет элемент. Эта коллекция пополняется наследуемыми счётчиками от другого элемента и счётчиками которые элемент создал сам.
 
   Изначально каждый элемент или псевдоэлемент в документе имеет пустой набор счётчиков.
-  
+
   Каждый счётчик, который попадает в эту коллекцию, имеет внутри себя следующие данные:
-  
+
   - имя — идентификатор, который указывается при создании счётчика;
   - создатель — элемент, который его создал;
   - значение — целочисленное значение счётчика.
-  
+
   Представить это можно так:
-  
+
   ![Набор счётчиков элемента](images/1.png)
 
 2. **Явный счётчик** — это счётчик, который создали вы.
@@ -323,8 +323,8 @@ ul {
 Укажем, чтобы на элементах `<li>` с классом `first`, `second` и элементе [`<p>`](/html/p/) с классом `paragraph` значение счётчика `new` увеличивалось на 1:
 
 ```css
-.first, 
-.paragraph, 
+.first,
+.paragraph,
 .second {
   counter-increment: new 1;
 }
@@ -353,13 +353,13 @@ p::before {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-inheritance-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/inheritance-example" height="475"></iframe>
 
 ### Создание счётчиков
 
 После наследования набора счётчиков от предыдущего одноуровневого элемента и родительского элемента происходит создание счётчиков.
 
-Создавать новые счётчики может не только свойство `counter-reset`. 
+Создавать новые счётчики может не только свойство `counter-reset`.
 
 Если вы применили свойство `counter-increment` или `counter-set` или воспользовались функцией `counter()` или `counters()` и указали в значении свойства, функции имя несуществующего счётчика:
 
@@ -438,9 +438,9 @@ p::before {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-reset-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/reset-example" height="475"></iframe>
 
-Так как счётчик `paragraph` не увеличивался, при помощи свойства `counter-increment`, значение счётчика на всех элементах `<p>` будет 1. 
+Так как счётчик `paragraph` не увеличивался, при помощи свойства `counter-increment`, значение счётчика на всех элементах `<p>` будет 1.
 
 #### Вложенные счётчики и область применения
 
@@ -508,13 +508,13 @@ li {
 
 ![Вложенные счётчики в наборе](images/7.png)
 
-Самый последний элемент `<li>` с классом `two` наследует набор счётчиков от предыдущего одноуровневого элемента — элемента `<li>` с классом `one`. 
+Самый последний элемент `<li>` с классом `two` наследует набор счётчиков от предыдущего одноуровневого элемента — элемента `<li>` с классом `one`.
 
 Так как предыдущий элемент в порядке дерева — это элемент `<ul>` с классом `second-list`, элемент с классом `two` наследует значение счётчика `new`, но только не того счётчика `new`, который создал элемент `<ul>` с классом `second-list`, а счётчика который создал элемент `<ul>` с классом `first-list` и затем сразу же увеличивает его на 1.
 
 Теперь значение счётчика `new`, на элементе `<li>` с классом `two`, равняется 2.
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-nested-counters-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/nested-counters-example" height="475"></iframe>
 
 ## Разница между `counter()` и `counters()`
 
@@ -528,7 +528,7 @@ li {
 
 Выведем ту же саму демку, но используем функцию `counter()`:
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-counter-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/counter-example" height="475"></iframe>
 
 ![Пример работы функции `counter()`](images/10.png)
 
@@ -587,7 +587,7 @@ p.second::before {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-display-content-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/display-content-example" height="475"></iframe>
 
 Как видно элемент `<p>` с классом `display` и псевдоэлемент `::before` элемента с классом `content` не увеличили значение счётчика `new`.
 
@@ -642,7 +642,7 @@ li {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-implicit-counter-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/implicit-counter-example" height="475"></iframe>
 
 На самом деле это очень удобно, когда уже есть готовый неявный счётчик. Если вам нужно создать многоуровневый нумерованный список это можно сделать в два счёта:
 
@@ -668,7 +668,7 @@ li::marker {
 
 Всё! Больше ничего делать не нужно.
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-implicit-counter-counters-example" height="475"></iframe>
+<iframe title="Демонстрация свойства" src="demos/implicit-counter-counters-example" height="475"></iframe>
 
 ### Особенность списка `<ol>`
 
@@ -705,7 +705,7 @@ li::marker {
 }
 ```
 
-<iframe title="Демонстрация свойства" src="demos/css-counters-value-start-reversed-example" height="675"></iframe>
+<iframe title="Демонстрация свойства" src="demos/value-start-reversed-example" height="675"></iframe>
 
 Подобное поведение не работает в браузере Google Chrome, однако работает в Mozilla Firefox.
 
