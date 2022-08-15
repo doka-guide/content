@@ -4,7 +4,15 @@
 
 ## Август 2022
 
+- 15 августа, [Атрибут `size`](https://doka.guide/html/size/), Алексей Никитченко
+- 15 августа, [Атрибут `multiple`](https://doka.guide/html/multiple/), Алексей Никитченко
+- 15 августа, [`text-decoration-color`](https://doka.guide/css/text-decoration-color/), Алексей Никитченко
+- 15 августа, [`<abbr>`](https://doka.guide/html/abbr/), Иван Ельцов
 - 14 августа, [Метод `preventDefault()`](https://doka.guide/js/event-prevent-default/), Георгий Милевский
+- 11 августа, [`text-decoration-style`](https://doka.guide/css/text-decoration-style/), Алексей Никитченко
+- 11 августа, [`<em>`](https://doka.guide/html/em/), Иван Ельцов
+- 4 августа, [`repeating-linear-gradient()`](https://doka.guide/css/repeating-linear-gradient/), Алексей Никитченко
+- 1 августа, [`<canvas>`](https://doka.guide/html/canvas/), Евгений Подивилов
 
 ## Июль 2022
 
