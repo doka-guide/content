@@ -3,6 +3,10 @@ title: "Счётчики в CSS"
 description: "Руководство по CSS-счётчикам."
 authors:
   - blueingreen68
+related:
+  - css/cascade
+  - html/h1-h6
+  - css/pseudoelements
 tags:
   - article
 ---
