@@ -3,6 +3,8 @@ title: "Счётчики в CSS"
 description: "Подробно разбираемся как браузер считает элементы и как этим управлять через CSS."
 authors:
   - blueingreen68
+contributors:
+  - solarrust
 related:
   - css/cascade
   - html/h1-h6
