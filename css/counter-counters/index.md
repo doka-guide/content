@@ -3,6 +3,10 @@ title: "`counter()`, `counters()`"
 description: "Функции для возвращения текущего значения счётчика."
 authors:
   - blueingreen68
+related:
+  - css/css-counters
+  - css/content
+  - html/section
 tags:
   - doka
 ---
@@ -47,7 +51,7 @@ tags:
 .chapter::before {
   content: "Глава "counter(chapter) ": ";
 }
-``` 
+```
 
 <iframe title="Демонстрация свойства" src="demos/counter-func-example" height="600"></iframe>
 
@@ -94,7 +98,7 @@ tags:
 
 <iframe title="Демонстрация свойства" src="demos/counters-func-example" height="475"></iframe>
 
-## Как понять 
+## Как понять
 
 Функции `counter()` и `counters()` служат для того, чтобы возвращать текущее значение счётчика. Передавая функции аргумент в виде имени счётчика вернётся значение этого счётчика.
 
@@ -106,7 +110,7 @@ tags:
 
 ## Как пишется
 
-Функции `counter()` и `counters()` обычно используются в связке с [псевдоэлементами](/css/pseudoelements/) и свойством [`content`](/css/content/). 
+Функции `counter()` и `counters()` обычно используются в связке с [псевдоэлементами](/css/pseudoelements/) и свойством [`content`](/css/content/).
 
 Чтобы подставить значение счётчика на место псевдоэлемента нужно указать функцию `counter()` или `counters()` в качестве значения свойства `content` и передать ей аргумент - имя счётчика, в примере ниже это будет счётчик `chapterNum`:
 
