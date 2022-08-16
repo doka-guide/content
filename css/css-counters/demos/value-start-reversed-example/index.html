@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Пример нумерации с использованием атрибутов: value, start, reversed — Счётчики в CSS — Дока</title>
   <meta charset="utf-8">
@@ -83,7 +84,7 @@
       content: counters(list-item, '.');
       position: absolute;
       right: 100%;
-      width: 26px;
+      width: 40px;
       height: 20px;
       padding: 4px 2px;
       font-size: 16px;
@@ -92,11 +93,27 @@
       background-color: #2E9AFF;
     }
 
+    @-moz-document url-prefix() {
+
+      .second-list>li::before {
+        content: counters(list-item, '.');
+        position: absolute;
+        right: 100%;
+        width: 26px;
+        height: 20px;
+        padding: 3px 1px;
+        font-size: 16px;
+        line-height: 1;
+        color: #000000;
+        background-color: #2E9AFF;
+      }
+    }
+
     .third-list>li::before {
       content: counters(list-item, '.');
       position: absolute;
       right: 100%;
-      width: 38px;
+      width: 52px;
       height: 20px;
       padding: 3px 1px;
       font-size: 16px;
@@ -104,8 +121,26 @@
       color: #000000;
       background-color: #2E9AFF;
     }
+
+
+    @-moz-document url-prefix() {
+
+      .third-list>li::before {
+        content: counters(list-item, '.');
+        position: absolute;
+        right: 100%;
+        width: 38px;
+        height: 20px;
+        padding: 3px 1px;
+        font-size: 16px;
+        line-height: 1;
+        color: #000000;
+        background-color: #2E9AFF;
+      }
+    }
   </style>
 </head>
+
 <body>
   <ol class="first-list">
     <li>Первый элемент первого списка.</li>
@@ -126,4 +161,5 @@
     <li>Третий элемент первого списка.</li>
   </ol>
 </body>
+
 </html>
