@@ -40,4 +40,22 @@ location: "/letuchka/"
 
 Нам важен диалог с вами. Летучка не может быть вебинаром. Напишите, что вам интересно узнать про Доку. Или предложите любую идею. Мы на связи. Увидимся на летучке!
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNHp89GFa8qoUYb8G5tdOLndeztABFNcK_8QNIJaoMm9o77Q/viewform?embedded=true" width="100%" height="350" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+<form class="question-form" method="post" autocomplete="off" data-state="idle">
+  <div class="question-form__header font-theme font-theme--code">
+    <div class="question-form__title" data-state="idle">Вопросы для летучки</div>
+    <div class="question-form__title question-form__title--success" data-state="success">Спасибо</div>
+    <div class="question-form__title question-form__title--error" data-state="error">Спасибо</div>
+  </div>
+  <fieldset class="question-form__fieldset">
+    <div class="question-form__text">
+      <div class="text-control">
+        <textarea class="text-control__item text-control__input" name="question" placeholder="Ваш вопрос"></textarea>
+        <input class="text-control__item text-control__input" name="person" placeholder="Представьтесь, пожалуйста"/>
+        <button class="text-control__item text-control__button button button--invert" type="submit">Отправить</button>
+      </div>
+    </div>
+  </fieldset>
+  <p class="question-form__error" data-state="error">
+    Во время отправки формы что-то пошло не так. Попробуйте ещё раз?
+  </p>
+</form>
