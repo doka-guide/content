@@ -7,6 +7,8 @@ keywords:
   - доступность
   - ARIA
   - ARIA-роль
+related:
+  - a11y/aria-intro
 tags:
   - article
 ---
