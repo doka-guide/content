@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования неявного счётчика с функцией counters() — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    ol {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      padding-top: 0.625rem;
+    }
+
+    li::before {
+      content: counters(list-item, '.');
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 7px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+
+    .second-list>li::before {
+      content: counters(list-item, '.');
+      position: absolute;
+      right: 100%;
+      width: 26px;
+      height: 20px;
+      padding: 4px 2.2px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <ol>
+    <li> Первый элемент первого списка
+      <ol class="second-list">
+        <li>Первый элемент второго списка</li>
+        <li>Второй элемент второго списка</li>
+      </ol>
+    </li>
+    <li>Второй элемент первого списка</li>
+  </ol>
+</body>
+</html>
