@@ -41,16 +41,22 @@ location: "/letuchka/"
 Нам важен диалог с вами. Летучка не может быть вебинаром. Напишите, что вам интересно узнать про Доку. Или предложите любую идею. Мы на связи. Увидимся на летучке!
 
 <form class="question-form" method="post" autocomplete="off" data-state="idle">
-  <div class="question-form__header font-theme font-theme--code">
-    <div class="question-form__title" data-state="idle">Вопросы для летучки</div>
-    <div class="question-form__title question-form__title--success" data-state="success">Спасибо</div>
-    <div class="question-form__title question-form__title--error" data-state="error">Спасибо</div>
+  <div class="question-form__header font-theme">
+    <h4 class="question-form__title" data-state="idle">Вопросы для летучки</h4>
+    <span class="question-form__title question-form__title--success" data-state="success">Спасибо</span>
+    <span class="question-form__title question-form__title--error" data-state="error">Что-то пошло не так</span>
   </div>
   <fieldset class="question-form__fieldset">
     <div class="question-form__text">
       <div class="text-control">
-        <textarea class="text-control__item text-control__input" name="question" placeholder="Ваш вопрос"></textarea>
-        <input class="text-control__item text-control__input" name="person" placeholder="Представьтесь, пожалуйста"/>
+        <label for="question" class="text-control__label">
+          <textarea class="text-control__item text-control__input" name="question" placeholder="Как дела?"></textarea>
+          <span class="text-control__label-text">Ваш вопрос</span>
+        </label>
+        <label for="person" class="text-control__label">
+          <input class="text-control__item text-control__input" name="person" placeholder="Дока Дог">
+          <span class="text-control__label-text">Представьтесь, пожалуйста</span>
+        </label>
         <button class="text-control__item text-control__button button button--invert" type="submit">Отправить</button>
       </div>
     </div>
