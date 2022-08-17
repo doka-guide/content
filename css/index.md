@@ -64,6 +64,7 @@ groups:
       - calc
       - min
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
       - repeating-radial-gradient
       - conic-gradient
@@ -130,7 +131,9 @@ groups:
       - background-origin
       - background-blend-mode
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
       - repeating-conic-gradient
       - image-set
