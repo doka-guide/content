@@ -4,6 +4,7 @@
 
 ## Август 2022
 
+- 19 августа, [Событие `submit`](https://doka.guide/js/event-submit/), Алексей Никитченко
 - 15 августа, [Атрибут `size`](https://doka.guide/html/size/), Алексей Никитченко
 - 15 августа, [Атрибут `multiple`](https://doka.guide/html/multiple/), Алексей Никитченко
 - 15 августа, [`text-decoration-color`](https://doka.guide/css/text-decoration-color/), Алексей Никитченко
