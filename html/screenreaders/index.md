@@ -166,7 +166,10 @@ _Скринридер (screen reader)_ — программа, которая п
 
 <iframe title="Ненумированный список из трёх внешних ссылок" src="demos/list-with-links/" height="150"></iframe>
 
-<video controls src="video/list-and-screenreaders.mp4" poster="images/video-cover.png" width="700"></video>
+<video controls poster="images/video-cover.png" width="700">
+  <source src="video/list-and-screenreaders.mp4" type="video/mp4">
+  <source src="video/list-and-screenreaders_safari.mp4" type="video/mp4">
+</video>
 
 Расшифровка видео:
 - NVDA 2021.2 и Chrome 95: «Список из 3 элементов. Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка».

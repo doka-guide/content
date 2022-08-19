@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Использование атрибута size в select — Атрибут size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 100px 50px;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .select-label {
+      display: block;
+      font-size: 20px;
+      font-weight: 400;
+      margin-right: 20px;
+    }
+
+    .select {
+      width: 300px;
+      border: 1px solid;
+      padding: 3px 15px;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+    }
+
+    .select:focus {
+      outline: none;
+      border: 1px solid #ff8630;
+    }
+
+    option {
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+  <label class="select-label" for="city-select">Ваш город</label>
+    <select class="select" id="city-select" size="3">
+      <option value="kaliningrad">Калининград</option>
+      <option value="petrozavodsk">Петрозаводск</option>
+      <option value="zelenograd">Зеленоград</option>
+      <option value="petersburg">Санкт-Петербург</option>
+      <option value="samara">Самара</option>
+      <option value="perm">Пермь</option>
+    </select>
+</body>
+</html>

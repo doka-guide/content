@@ -5,6 +5,10 @@ authors:
   - nlopin
 keywords:
   - нул
+related:
+  - js/objects-objects-everywhere
+  - js/typecasting
+  - js/code-style
 tags:
   - doka
 ---
@@ -28,7 +32,7 @@ const password = null
 ```js
 const mainFocusByDays = {
   mon: 'Исправить баг в вёрстке',
-  tue: 'Разобрать почту'
+  tue: 'Разобрать почту',
   wed: 'Написать бота',
   thu: 'Изучить примитивные типы',
   fri: 'Отправить резюме в Яндекс',

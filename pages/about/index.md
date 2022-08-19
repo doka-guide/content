@@ -17,7 +17,6 @@ location: "/about/"
 
 - **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/), тимлид Доки.
 - **<!-- yaspeller ignore:start -->[Николай Лопин](/people/nlopin/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Инструменты](/tools/).
-- **<!-- yaspeller ignore:start -->[Саша Беспоясов](/people/bespoyasov/)<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js/) и [Инструменты](/tools/).
 - **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер и стратег Доки.
 
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
@@ -50,3 +49,4 @@ location: "/about/"
 - <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
 - [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
+- **<!-- yaspeller ignore:start -->[Саша Беспоясов](/people/bespoyasov/)<!-- yaspeller ignore:end -->** — за статьи и ревью.

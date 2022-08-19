@@ -1,5 +1,6 @@
 ---
 title: "Что такое Node.js"
+description: "Пишем JavaScript код для сервера."
 authors:
   - igorkamyshev
 contributors:
@@ -9,6 +10,10 @@ keywords:
   - npm
   - nodejs
   - package.json
+related:
+  - js/web-app-types
+  - tools/gateway-bff
+  - tools/webpack
 tags:
   - article
 ---
@@ -64,16 +69,16 @@ npm install express // добавим пакет для создания веб-
 
 ```js
 // express — фреймворк для создания веб-приложений
-const express = require("express")
+const express = require('express')
 
 // создаём express-приложение
 const app = express()
 // оно будет работать на определенном порту компьютера
 const port = 3000
 
-// если отправить GET-запрос на /, то получим ответ "Hello World!"
-app.get("/", (req, res) => {
-  res.send("Hello World!")
+// если отправить GET-запрос на /, то получим ответ 'Hello World!'
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 })
 
 // запускаем приложние

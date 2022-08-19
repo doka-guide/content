@@ -5,6 +5,8 @@
 [![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
 [![Статус деплоя](https://github.com/doka-guide/content/workflows/Product%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AProduct%20Deploy)
 
+[⚠️ Если сайт Доки медленно загружается или не работает совсем](docs/load-fix.md)
+
 Дока — это добрая энциклопедия для веб-разработчиков. Наша цель — сделать документацию по веб-разработке практичной, понятной и не унылой.
 
 ## Как устроена Дока

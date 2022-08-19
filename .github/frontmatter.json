@@ -14,5 +14,8 @@
     "keywords",
     "related",
     "tags"
-  ]
+  ],
+  "specialCheck": {
+    "related": "./related.mjs"
+  }
 }

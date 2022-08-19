@@ -1,5 +1,6 @@
 ---
 title: "Интеграционное и системное тестирование"
+description: "Бывает так, что все юнит-тесты прошли, а приложение не работает. Разбираемся как тестировать взаимодействие между частями системы."
 authors:
   - bespoyasov
 keywords:
@@ -9,6 +10,10 @@ keywords:
   - pentest
   - performance
   - perftest
+related:
+  - js/clean-architecture
+  - js/architecture-data-flow
+  - js/technical-debt
 tags:
   - article
 ---
@@ -45,8 +50,8 @@ tags:
 
 Среди самых популярных инструментов можно назвать:
 
-- [Testing Library](https://testing-library.com)
-- [Enzyme](https://enzymejs.github.io/enzyme/)
+- [Testing Library](https://testing-library.com);
+- [Enzyme](https://enzymejs.github.io/enzyme/).
 
 ### Рекомендации к тестам
 
@@ -103,12 +108,12 @@ _End-to-end (E2E)_ тесты — помогают нам имитировать
 
 Для описания таких сценариев у нас тоже богатый набор инструментов:
 
-- [Puppeteer](https://pptr.dev)
-- [Cypress](https://www.cypress.io)
-- [Playwright](https://playwright.dev)
-- [Selenium](https://www.selenium.dev)
-- [WebDriver.IO](https://webdriver.io)
-- [Nightwatch](https://nightwatchjs.org)
+- [Puppeteer](https://pptr.dev);
+- [Cypress](https://www.cypress.io);
+- [Playwright](https://playwright.dev);
+- [Selenium](https://www.selenium.dev);
+- [WebDriver.IO](https://webdriver.io);
+- [Nightwatch](https://nightwatchjs.org).
 
 Можно также адаптировать и инструменты для интеграционного тестирования под E2E нужды.
 
@@ -126,8 +131,8 @@ _End-to-end (E2E)_ тесты — помогают нам имитировать
 
 Некоторые из E2E-инструментов содержат и функциональность для скриншотного тестирования:
 
-- [Puppeteer](https://pptr.dev)
-- [Playwright](https://playwright.dev)
+- [Puppeteer](https://pptr.dev);
+- [Playwright](https://playwright.dev).
 
 ## Тестирование производительности
 
@@ -149,9 +154,9 @@ _End-to-end (E2E)_ тесты — помогают нам имитировать
 
 Мы можем использовать как встроенные в браузер инструменты, так и отдельные сервисы:
 
-- [jsperf](https://jsperf.com)
-- [Lighthouse](https://developers.google.com/web/tools/lighthouse/)
-- [`performance` в JS](https://developer.mozilla.org/ru/docs/Web/API/Performance)
+- [jsperf](https://jsperf.com);
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/);
+- [`performance` в JS](https://developer.mozilla.org/ru/docs/Web/API/Performance).
 
 ## Тестирование безопасности
 

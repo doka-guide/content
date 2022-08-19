@@ -1,5 +1,6 @@
 ---
 title: "Node.js для создания инструментов разработки"
+description: "Почему node.js из языка бэкенда превратился в язык разработки тулинга."
 authors:
   - igorkamyshev
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - тулинг
   - tooling
   - версии
+related:
+  - js/code-style
+  - tools/static-analysis
+  - js/language-versions
 tags:
   - article
 ---
@@ -57,7 +62,7 @@ node ./node_modules/.bin/eslint "./src/**/*.js"
 
 ```js
 const cliOptions = parseCommandLineArguments(process.args)
-const configOptions = parseConfigFile(".eslintrs")
+const configOptions = parseConfigFile('.eslintrs')
 const options = mergeConfigs([cliOptions, configOptions])
 const files = findFiles(options)
 const errors = analyzeFiles(files, options)
@@ -82,7 +87,7 @@ const cliOptions = parseCommandLineArguments(process.args)
 Читаем файл конфигурации, чтобы решить какие правила анализа нужно применить:
 
 ```js
-const configOptions = parseConfigFile(".eslintrs")
+const configOptions = parseConfigFile('.eslintrs')
 ```
 
 Собираем финальную конфигурацию:

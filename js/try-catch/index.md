@@ -1,5 +1,6 @@
 ---
 title: "`try`...`catch`"
+description: "Позволяет обработать ситуацию, когда код выбрасывает ошибку, и не сломать приложение."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,8 +12,11 @@ contributors:
   - furtivite
 keywords:
   - выбросить ошибку
-  - ошибки
   - errors
+related:
+  - js/async-await
+  - js/promise-catch
+  - js/async-in-js
 tags:
   - doka
 ---
@@ -44,15 +48,15 @@ try {
   someFunction()
   anotherFunction()
 } catch (err) {
-  console.log("Поймали ошибку! Вот она: ", err.message)
+  console.log('Поймали ошибку! Вот она: ', err.message)
 }
 ```
 
-Если в блоке `try` не произошло ошибок, то код в блоке `catch` __не выполнится__.
+Если в блоке `try` не произошло ошибок, то код в блоке `catch` не выполнится.
 
-Важно помнить, что код в `try` должен быть __синтаксически верным__. Если написать невалидный код (например, не закрыть фигурные скобки), то скрипт не запустится, потому что JavaScript не поймёт код. Ошибки, которые обработает блок `catch`, будут ошибками во время выполнения программы.
+Важно помнить, что код в `try` должен быть _синтаксически верным_. Если написать невалидный код (например, не закрыть фигурные скобки), то скрипт не запустится, потому что JavaScript не поймёт код. Ошибки, которые обработает блок `catch`, будут ошибками во время выполнения программы.
 
-В случае ошибки выполнение в блоке `try` прерывается и сразу же переходит в блок `catch` . После него скрипт продолжит своё выполнение как и прежде.
+В случае ошибки выполнение в блоке `try` прерывается и сразу же переходит в блок `catch` . После него скрипт продолжит своё выполнение, как и прежде.
 
 ```js
 try {
@@ -66,15 +70,15 @@ try {
   const nine = 9 // не выполнится
   console.log(six + nine) // и это тоже не исполнится
 } catch (err) {
-  console.log("Поймали ошибку!") // 3. Обработали ошибку
+  console.log('Поймали ошибку!') // 3. Обработали ошибку
 }
 
-console.log("Что ж, можно и продолжать") // 4. Будет выполняться дальше
+console.log('Что ж, можно и продолжать') // 4. Будет выполняться дальше
 ```
 
 ![блок-схема работы try...catch](images/try-catch-scheme.png)
 
-### Finally
+### `finally`
 
 Рассмотрим ситуацию, когда в случае успеха или неудачи выполнения какого-то участка кода нам необходимо проводить какие-то действия, чтобы корректно завершить работу скрипта.
 
@@ -96,12 +100,12 @@ webSocket.disconnect('ws://....')
 
 ```js
 function doSomeWithError(e) {
-  throw new Error("new error")
+  throw new Error('new error')
 }
 
 try {
   // подключаемся к вебсокету, но в конце нужно обязательно отключиться
-  webSocket.connect("ws://....")
+  webSocket.connect('ws://....')
 
   callMayThrowError()
 } catch (err) {
@@ -110,7 +114,7 @@ try {
 }
 
 // В случае ошибки эта строчка уже не выполнится
-webSocket.disconnect("ws://....")
+webSocket.disconnect('ws://....')
 ```
 
 Как же тогда гарантированно освободить ресурсы при любом исходе выполнения?
@@ -119,7 +123,7 @@ webSocket.disconnect("ws://....")
 
 ```js
 try {
-  webSocket.connect("ws://....")
+  webSocket.connect('ws://....')
 
   callMayThrowError()
 } catch (err) {
@@ -127,7 +131,7 @@ try {
   doSomeWithError(err)
 } finally {
   // Выполнится всегда
-  webSocket.disconnect("ws://....")
+  webSocket.disconnect('ws://....')
 }
 ```
 
@@ -141,7 +145,7 @@ try {
   sendData()
 } finally {
   // Закрыть соединение при любом результате
-  closeConnect()
+  closeConnection()
 }
 ```
 
@@ -163,7 +167,7 @@ function parse(data) {
   try {
     parseData(data)
   } catch (err) {
-    if (err.name !== "ParsingError") {
+    if (err.name !== 'ParsingError') {
       // Другой тип ошибок пробрасываем дальше
       throw err
     }
@@ -176,12 +180,12 @@ function parse(data) {
 Таким образом, можно разделить ответственность, а обработкой проброшенной ошибки займётся внешний catch.
 
 ```js
-import parse from "parse-module"
+import parse from 'parse-module'
 
 try {
   parse(data)
 } catch (e) {
-  console.log("Неизвестная ошибка парсинга:", e)
+  console.log('Неизвестная ошибка парсинга:', e)
 }
 ```
 
@@ -192,20 +196,20 @@ try {
 ```js
 try {
   // Код выполнится корректно, т.к. отсюда вернулся промис
-  Promise.reject("err")
+  Promise.reject('err')
 } catch (e) {
   // Ошибка не будет поймана
-  console.log("Ошибка", e)
+  console.log('Ошибка', e)
 }
 
 try {
   // Здесь также код выполнится корректно, потому что установил таймаут без ошибок
   setTimeout(() => {
-    throw Error("ошибка")
+    throw Error('ошибка')
   }, 1000)
 } catch (e) {
   // Ошибка из таймаута также сюда не попадёт
-  console.log("Ошибка", e)
+  console.log('Ошибка', e)
 }
 ```
 
@@ -215,14 +219,14 @@ try {
 async function handlePromise() {
   try {
     // Промис вернется с ошибкой
-    await Promise.reject("err")
+    await Promise.reject('err')
   } catch (e) {
     // Теперь ошибка будет поймана
-    console.log("Ошибка", e) // err
+    console.log('Ошибка', e) // err
   }
 }
 
 handlePromise()
 ```
 
-Чтобы поймать ошибку из `setTimeout`, блоки `try...catch` должны находиться внутри функции.
+Чтобы поймать ошибку из [`setTimeout()`](/js/settimeout/), блоки `try...catch` должны находиться внутри функции.

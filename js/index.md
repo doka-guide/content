@@ -189,6 +189,7 @@ groups:
     items:
       - events
       - event
+      - event-prevent-default
       - element-click
       - event-submit
       - event-load-and-domcontentloaded
