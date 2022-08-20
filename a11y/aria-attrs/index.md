@@ -48,7 +48,7 @@ ARIA-атрибуты поддерживают [роли](/a11y/aria-roles/) и 
 
 ```html
 <button aria-label="Копировать">
-	<img src="copy-icon.svg" alt="">
+  <img src="copy-icon.svg" alt="">
 </button>
 ```
 
