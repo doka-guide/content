@@ -49,4 +49,4 @@ location: "/about/"
 - <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
 - [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
-- <!-- yaspeller ignore:start -->[Саша Беспоясов](/people/bespoyasov/)<!-- yaspeller ignore:end --> — за статьи и ревью.
+- [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspellerignore:end -->](/people/bespoyasov/) — за статьи и ревью.
