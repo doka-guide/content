@@ -12,6 +12,12 @@ js:
 tools:
   - files:
     - tools/**/*.md
+a11y:
+  - files:
+    - a11y/**/*.md
+'рецепт':
+  - files:
+    - recipes/**/*.md
 'кухня':
   - files:
     - .github/*.yml
@@ -24,6 +30,8 @@ tools:
       - html/**/*.md
       - js/**/*.md
       - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -38,6 +46,8 @@ tools:
       - html/**/*.md
       - js/**/*.md
       - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -52,6 +62,8 @@ tools:
       - html/**/*.md
       - js/**/*.md
       - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
       - docs/*.md
       - docs/**/*.md
       - docs/images/*.png
@@ -67,6 +79,8 @@ tools:
     - html/**/demos/**/*.html
     - js/**/demos/**/*.html
     - tools/**/demos/**/*.html
+    - a11y/**/demos/**/*.html
+    - recipes/**/demos/**/*.html
   - assignee:
     - skorobaeus
 'дока':
@@ -76,6 +90,8 @@ tools:
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
   - meta:
     - tags:
       - doka
@@ -86,6 +102,8 @@ tools:
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
   - meta:
     - tags:
       - article
@@ -96,6 +114,8 @@ placeholder:
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
   - meta:
     - tags:
       - placeholder
