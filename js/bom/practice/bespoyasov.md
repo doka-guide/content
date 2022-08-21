@@ -66,7 +66,7 @@ history.pushState(transitionData, '', '/new/page/url')
 После изменения url может потребоваться изменить заголовок - используйте `document.title`.
 
 ```js
-document.title = 'New page!'
+document.title = 'Это новая страница!'
 ```
 
 ### `localStorage`
