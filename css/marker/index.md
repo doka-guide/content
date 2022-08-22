@@ -85,9 +85,9 @@ li::marker {
 
 ```html
 <div class="unordered-list">
-  <p class="list-item">Первый элемент псевдосписка</p>
-  <p class="list-item">Второй элемент псевдосписка</p>
-  <p class="list-item">Третий элемент псевдосписка</p>
+  <p class="list-item">первый элемент псевдосписка</p>
+  <p class="list-item">второй элемент псевдосписка</p>
+  <p class="list-item">третий элемент псевдосписка</p>
 </div>
 ```
 
