@@ -12,6 +12,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
+  - smigles
 keywords:
   - раскладка
   - схлопывание
