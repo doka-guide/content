@@ -62,11 +62,11 @@ tags:
 
 ```html
 <map name="catalog">
-  <area shape="rect" coords="75,49,585,251" 
+  <area shape="rect" coords="75,49,585,251"
   href="https://ru.wikipedia.org/wiki/ВАЗ-2107" target="_blank" alt="Машина">
-  <area shape="poly" coords="736,98,744,167,818,291,1099,192,1122,119,1006,24" 
+  <area shape="poly" coords="736,98,744,167,818,291,1099,192,1122,119,1006,24"
   href="https://ru.wikipedia.org/wiki/Мыло" target="_blank" alt="Мыло">
-  <area shape="poly" coords="1330,156,1399,309,1809,146,1721,1" 
+  <area shape="poly" coords="1330,156,1399,309,1809,146,1721,1"
   href="https://ru.wikipedia.org/wiki/Сотовый_телефон" target="_blank" alt="Мобильник">
 </map>
 <img usemap="#catalog">
