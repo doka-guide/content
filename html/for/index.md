@@ -46,7 +46,7 @@ tags:
 - [`<progress>`](/html/progress/);
 - [`<select>`](/html/select/);
 - [`<textarea>`](/html/textarea/);
-- И даже сам [`<output>`]().
+- И даже сам [`<output>`](/html/output/).
 
 Это значит, что элементам из списка выше можно задать уникальный `id`, на который сможет сослаться атрибут `for` в `<label>` или `<output>`.
 
