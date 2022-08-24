@@ -32,33 +32,33 @@
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
-			margin-top: 30px;
+      margin-top: 30px;
       color: #000000;
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
-		}
+    }
 
-		.button:hover {
-			background-color: #FFFFFF;
-			cursor: pointer;
-			transition: background-color 0.2s linear;
-		}
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
 
-		.button:focus-visible {
-			border: 2px solid #FFFFFF;
-			outline: none;
-		}
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
 
-		.button:focus {
-			border: 2px solid #FFFFFF;
-			outline: none;
-		}
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
 
-		.button-yellow {
-			background-color: #FFD829;
-		}
+    .button-yellow {
+      background-color: #FFD829;
+    }
 
     @media (max-width: 768px) {
       body {
@@ -68,15 +68,15 @@
   </style>
 </head>
 <body>
-		<button class="button button-yellow">Приготовить</button>
-	<script>
-		function makeShawarma(meat) {
-			alert(`Ваша шаурма с ${meat} готова 🌯`)
-		};
+<button class="button button-yellow">Приготовить</button>
+<script>
+  function makeShawarma(meat) {
+    alert(`Ваша шаурма с ${meat} готова 🌯`)
+  };
 
-		document.addEventListener('click', function() {
-      makeShawarma(`курочкой`);
-    });
-	</script>
+  document.addEventListener('click', function () {
+    makeShawarma(`курочкой`);
+  });
+</script>
 </body>
 </html>
