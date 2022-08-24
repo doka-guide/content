@@ -5,9 +5,10 @@ authors:
   - igsekor
 keywords:
   - microservice
-  - монолит
-  - ci
-  - cd
+related:
+  - tools/ci-cd
+  - tools/docker
+  - js/web-app-works
 tags:
   - article
 ---

@@ -1,14 +1,17 @@
 ---
 title: "Мультиконтейнерное приложение и Docker Compose"
+description: "Как собирать целые системы на основе докер контейнеров."
 authors:
   - igsekor
 editors:
   - tachisis
 keywords:
-  - контейнер
   - container
-  - приложение
   - докер
+related:
+  - tools/microservices
+  - tools/web-server
+  - tools/http-protocol
 tags:
   - article
 ---

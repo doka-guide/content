@@ -1,10 +1,15 @@
 ---
 title: "`load` и `DOMContentLoaded`"
+description: "События загрузки страницы. Запускаем код, когда страница загрузилась."
 authors:
   - nlopin
 contributors:
   - furtivite
   - skorobaeus
+related:
+  - js/element-addeventlistener
+  - js/web-app-types
+  - js/api
 tags:
   - doka
 ---
@@ -21,26 +26,26 @@ tags:
 ## Как пишется
 
 ```js
-window.addEventListener("load", function () {
-  console.log("load!")
+window.addEventListener('load', function () {
+  console.log('load!')
 })
 
 // это событие можно обрабатывать так же и на document
-window.addEventListener("DOMContentLoaded", function () {
-  console.log("dom loaded!")
+window.addEventListener('DOMContentLoaded', function () {
+  console.log('dom loaded!')
 })
 ```
 
 ## Как понять
 
-Для того, чтобы показать пользователю страницу, браузер делает следующие шаги:
+Чтобы показать пользователю страницу, браузер делает следующие шаги:
 
 1. Запрашивает HTML-страницу с сервера;
 2. Обрабатывает полученный HTML и создаёт [DOM](/js/dom/) для взаимодействия между JavaScript и HTML (☝️ в конце этого этапа происходит событие `DOMContentLoaded`);
 3. Запрашивает у сервера дополнительные файлы, встретившиеся при разборе HTML: картинки, шрифты, CSS- и JS-файлы;
 4. Получив все данные, отображает страницу пользователю (☝️ тут происходит событие `load`).
 
-Событие `DOMContentLoaded` гарантирует, что DOM готов. Можешь искать узлы по нему и не бояться, что что-то не догрузилось.
+Событие `DOMContentLoaded` гарантирует, что DOM готов. Можно искать узлы по нему и не бояться, что что-то не догрузилось.
 
 Событие `load` дополнительно гарантирует, что все стили и картинки готовы. В этот момент размеры элементов на страницы посчитаны верно и доступны. `DOMContentLoaded` таких гарантий не даёт.
 

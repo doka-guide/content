@@ -4,7 +4,7 @@ description: "Отменяет регулярное выполнение фун�
 authors:
   - windrushfarer
 related:
-  - js/queueMicrotask
+  - js/queuemicrotask
   - js/async-in-js
   - js/closures
 tags:

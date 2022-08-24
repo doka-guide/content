@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования счётчиков — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      gap: .625rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      counter-reset: verse 0;
+    }
+
+    .container__elem {
+      width: 20%;
+      padding: 45px 30px;
+      background-color: #2E9AFF;
+      counter-increment: verse 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container__elem::after {
+      content: counter(verse);
+      position: absolute;
+      font-size: 5rem;
+      font-weight: bold;
+      top: 2%;
+      left: 60%;
+      z-index: -1;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .container__paragraph {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container__elem {
+        width: 100%;
+        padding: 45px 30px;
+        background-color: #2E9AFF;
+      }
+
+      .container__elem::after {
+        content: counter(verse);
+        font-size: 3.5rem;
+        position: absolute;
+        font-weight: bold;
+        top: 2%;
+        left: 85%;
+        z-index: -1;
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">В России расстаются навсегда. В России друг от друга города столь далеки,</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">что вздрагиваю я, шепнув «прощай». Рукой своей касаюсь невзначай её руки.</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">Длиною в жизнь любая из дорог. Скажите, что такое русский Бог? «Конечно, я приеду».</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">Не приеду никогда. В России расстаются навсегда. «Душа моя, приеду».
+      </p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">Через сотни лет вернусь.
+      Какая малость, милость, что за грусть —
+      мы насовсем прощаемся.</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">«Дай капельку сотру».
+      Да, не приеду. Видимо, умру
+      скорее, чем.</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">В России расстаются навсегда.
+      Ещё один подкинь кусочек льда
+      в холодный стих.</p>
+    </div>
+    <div class="container__elem container__elem_counter">
+      <p class="container__paragraph">…И поезда уходят под откос,
+      …И самолёты, долетев до звёзд,
+      сгорают в них.</p>
+    </div>
+  </div>
+</body>
+</html>

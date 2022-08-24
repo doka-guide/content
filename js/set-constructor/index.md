@@ -3,6 +3,10 @@ title: "Конструктор"
 description: "Создаёт экземпляр коллекции `Set`."
 authors:
   - nlopin
+related:
+  - js/oop
+  - js/arrays
+  - js/map
 tags:
   - doka
 ---

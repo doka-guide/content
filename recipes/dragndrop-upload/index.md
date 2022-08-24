@@ -183,7 +183,8 @@ function processingUploadFile(fileInstanceUpload) {
 Полный вариант загрузки файла с его сохранением на сервере выглядит так:
 
 <video controls width="640">
-  <source src="video/dragndrop_upload_example.mp4" type="video/mp4">
+  <source src="video/dragndrop-upload.mp4" type="video/mp4">
+  <source src="video/dragndrop-upload_safari.mp4" type="video/mp4">
 </video>
 
 ## Разбор решения

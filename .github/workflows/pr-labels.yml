@@ -9,11 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
       - name: Устанавливает необходимые ярлыки
-        continue-on-error: true
-        run: |
-          npm install @octokit/core front-matter
-          node .github/scripts/labeler.js --github-key ${{ secrets.GITHUB_TOKEN }} --pull-number ${{ github.event.pull_request.number }}
+        uses: doka-guide/doka-labeler@v1
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          config: ".github/labeler.yml"
