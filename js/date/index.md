@@ -4,7 +4,9 @@ description: "Объект для манипуляции с датой и вре
 authors:
   - kseniaSs
 related:
-  - ""
+  - js/math
+  - js/oop
+  - js/how-to-test-and-why
 tags:
   - doka
 ---
