@@ -4,6 +4,7 @@
 
 ## Август 2022
 
+- 24 августа, [Атрибут `for`](https://doka.guide/html/for/), Алексей Никитченко
 - 19 августа, [Событие `submit`](https://doka.guide/js/event-submit/), Алексей Никитченко
 - 17 августа, [`counter()`, `counters()`](https://doka.guide/css/counter-counters/), Алексей Степанов
 - 17 августа, [Счётчики в CSS](https://doka.guide/css/css-counters/), Алексей Степанов
