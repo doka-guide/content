@@ -9,6 +9,8 @@ keywords:
   - ARIA-атрибут
 related:
   - a11y/aria-intro
+  - a11y/aria-roles
+  - a11y/chto-takoe-a11y
 tags:
   - article
 ---
