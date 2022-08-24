@@ -10,8 +10,8 @@
 
 ```js
 function makeCouple(recipe) {
-  const green = 🍏
-  const red = 🍎
+  const green = '🍏'
+  const red = '🍎'
   return recipe(green, red)
 }
 
@@ -24,6 +24,6 @@ console.log(result)
 
 <aside>
 
-📃 О функции как типе данных можно прочесть в отдельной [статье](/js/function-as-datatype/).
+📃 Это не самая простая концепция, она подробно разбирается в статье [«Функция как тип данных»](/js/function-as-datatype/).
 
 </aside>
