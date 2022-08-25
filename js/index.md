@@ -23,6 +23,7 @@ groups:
       - for-in
       - shallow-or-deep-clone
       - iterator
+      - date
   - name: "Примитивные типы данных"
     items:
       - number
