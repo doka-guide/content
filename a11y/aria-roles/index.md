@@ -9,6 +9,8 @@ keywords:
   - ARIA-роль
 related:
   - a11y/aria-intro
+  - a11y/aria-attrs
+  - a11y/chto-takoe-a11y
 tags:
   - article
 ---
