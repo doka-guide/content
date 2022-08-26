@@ -3,6 +3,8 @@ title: "JSON"
 description: "Самый популярный формат обмена данными между приложениями."
 authors:
   - stegur
+contributors:
+  - skorobaeus
 tags:
   - doka
 related:
@@ -60,7 +62,7 @@ JSON используется для того, чтобы получить да�
 
 Пример:
 
-<iframe title="Название — JSON — Дока" src="demos/Stegur-XWddLpK/" height="210"></iframe>
+<iframe title="Демонстрация работы — JSON — Дока" src="demos/step-by-step/" height="750"></iframe>
 
 ### Преобразование в JSON
 
@@ -108,7 +110,7 @@ console.log(JSON.stringify(hero))
 
 ### Пример преобразования объекта JavaScript в формат JSON
 
-<iframe title="Преобразование в JSON — JSON — Дока" src="demos/transform-json/" height="350" loading="lazy"></iframe>
+<iframe title="Преобразование в JSON — JSON — Дока" src="demos/transform-json/" height="410" loading="lazy"></iframe>
 
 ### Преобразование из JSON
 
