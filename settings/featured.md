@@ -52,53 +52,53 @@ ready:
   - recipes/snow
 active:
   - html/screenreaders
-  - tools/cli
-  - js/how-to-test-and-why
-  - js/deal-with-forms
-  - css/display
-  - js/infinite-scroll
-  - html/div
-  - js/boolean
-  - js/async-in-js
   - tools/static-types
-  - tools/ci-cd
-  - tools/markdown
+  - tools/cli
   - css/media
-  - tools/network
+  - js/how-to-test-and-why
   - js/how-the-browser-creates-pages
-  - html/video
-  - js/clean-architecture
-  - tools/docker
-  - html/input
-  - tools/gitlab-ci-cd
-  - js/closures
-  - css/box-model
-  - js/var-let
-  - html/flow
   - js/function
-  - css/specificity
-  - html/article
+  - tools/markdown
+  - css/custom-properties
+  - tools/docker
+  - js/function-context
+  - css/box-model
+  - js/closures
+  - tools/webpack
+  - tools/ci-cd
+  - js/async-in-js
+  - html/img
+  - css/position
+  - js/boolean
   - tools/agile
-  - html/form
-  - css/attr
+  - css/keyframes
+  - css/grid-guide
+  - tools/gitlab-ci-cd
+  - tools/network
+  - html/section
   - recipes/snow
   - js/execution-order
   - tools/bundlers
-  - html/nav
-  - html/doctype
-  - js/function-context
-  - html/img
-  - css/pseudoelements
-  - html/head
-  - js/oop
-  - css/grid-guide
-  - tools/webpack
-  - css/custom-properties
   - css/flexbox-guide
-  - html/section
+  - html/article
+  - html/video
+  - js/deal-with-forms
+  - html/head
+  - html/doctype
+  - js/infinite-scroll
+  - html/div
+  - html/flow
+  - js/oop
+  - css/pseudoelements
   - css/transform-function
-  - css/position
-  - css/keyframes
+  - js/var-let
+  - css/attr
   - css/box-shadow
+  - js/clean-architecture
+  - css/specificity
+  - html/nav
+  - html/form
+  - html/input
+  - css/display
 ---
 
