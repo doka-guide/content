@@ -73,6 +73,7 @@ groups:
       - label
       - fieldset
       - legend
+      - for
       - inputmode
       - placeholder
       - disabled

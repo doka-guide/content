@@ -335,9 +335,11 @@ groups:
       - caption-side
   - name: 'Счётчики'
     items:
+      - css-counters
       - counter-set
       - counter-reset
       - counter-increment
+      - counter-counters
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html/), SVG и других языков разметки.
