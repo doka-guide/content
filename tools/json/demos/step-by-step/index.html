@@ -100,6 +100,10 @@
       outline: none;
     }
 
+    .button:disabled {
+      cursor: not-allowed;
+    }
+
     .button-green {
       background-color: #41E847;
     }
@@ -214,6 +218,10 @@
       button.addEventListener("click", (event) => {
         event.preventDefault()
 
+        buttons.forEach((button) => {
+          button.disabled = true
+        })
+
         list.innerHTML = ""
         name.innerText = ""
 
@@ -238,6 +246,10 @@
 
           if (count > 3) {
             clearInterval(timer)
+
+            buttons.forEach((button) => {
+              button.disabled = false
+            })
           }
         }, 1000)
 
