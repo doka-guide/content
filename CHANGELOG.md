@@ -5,6 +5,7 @@
 ## Август 2022
 
 - 30 августа, [`<map>`](https://doka.guide/html/map/), Алексей Никитченко
+- 30 августа, [`::marker`](https://doka.guide/css/marker), Алексей Степанов
 - 25 августа, [Класс `Date`](https://doka.guide/js/date/), Ксения Субботина
 - 24 августа, [Атрибут `for`](https://doka.guide/html/for/), Алексей Никитченко
 - 19 августа, [Событие `submit`](https://doka.guide/js/event-submit/), Алексей Никитченко
