@@ -4,12 +4,12 @@
 
 ```css
 li {
-   color: #2e9aff;
+  color: #2e9aff;
 }
 
 li::marker {
-   color: #f498ad;
-   font-weight: bold;
+  color: #f498ad;
+  font-weight: bold;
 }
 ```
 
@@ -17,11 +17,11 @@ li::marker {
 
 ```css
 li::marker {
-   color: aquamarine;
+  color: aquamarine;
 }
 
 li:last-of-type::marker {
-   color: tomato;
+  color: tomato;
 }
 ```
 
