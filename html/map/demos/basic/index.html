@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — <map> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <map name="doka-label">
+    <area shape="poly" coords="251,54,202,81,178,150,208,218,260,243,656,242,709,204,727,136,703,84,648,53" href="/js/" target="_blank" alt="JS">
+  </map>
+  <img usemap="#doka-label" src="../../images/doka-map.png" alt="Кликабельная картинка с мордочкой доки">
+</body>
+</html>
