@@ -1,6 +1,6 @@
 ---
 title: "`border-block`"
-description: "Шорткат для бордера, но только с двух сторон."
+description: "Когда рамка элемента нужна лишь с двух сторон."
 authors:
   - inventoris
 related:
