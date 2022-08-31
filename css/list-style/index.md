@@ -6,7 +6,6 @@ contributors:
   - blueingreen68
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
@@ -22,7 +21,7 @@ tags:
 Код ниже задаёт всем элементам списка стиль маркера `upper-alpha` и делает маркер частью содержимого элемента списка.
 
 ```css
-ul {
+li {
     list-style: upper-alpha inside;
 }
 ```
@@ -44,24 +43,35 @@ ul {
 
 Браузер сам найдёт подходящие значения для нужных свойств.
 
-<aside>
+## Использование значения `none`
 
-⚠️ Использовать значение `none` в сокращении стоит аккуратно, потому что это значение можно указать как для свойства `list-style-image` так и для свойства `list-style-type`.
+Использовать значение `none` в сокращении стоит аккуратно, потому что это значение можно указать как для свойства `list-style-image` так и для свойства `list-style-type`.
+
+Например, код ниже установит значение `none` для свойства `list-style-image`, а для свойства `list-style-type` значение `disc`:
 
 ```css
 ul {
-  /* Устанавливает значение none для свойства list-style-image, а для свойства list-style-type значение disc */
   list-style: none disc;
-  /* Устанавливает значение url(doka.png) для свойства list-style-image, а для свойства list-style-type значение none */
+}
+```
+А здесь установит значение `url(doka.png)` для свойства `list-style-image`, а для свойства `list-style-type` значение `none`:
+
+```css
+ul {
   list-style: none url(doka.png);
-  /* Устанавливает значение none для обоих свойств */
+}
+```
+
+Если установить просто значение `none` свойству `list-style`, то значение `none` примениться только к свойствам `list-style-image`, `list-style-type`, но не к свойству `list-style-position`, потому что у него нет значения `none`.
+
+```css
+ul {
+  /* Устанавливает значение none для свойств list-style-image, list-style-type */
   list-style: none;
   /* Не сработает. У свойства list-style-position нет значения none. */
   list-style: none disc url(doka.png);
 }
 ```
-
-</aside>
 
 ## Подсказки
 
