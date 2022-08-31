@@ -4,7 +4,6 @@ description: "Уютный контейнер для `<area>`."
 authors:
   - inventoris
 related:
-  - html/area
   - html/img
   - html/a
 tags:
