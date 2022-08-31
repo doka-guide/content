@@ -1,5 +1,5 @@
 ---
 name: 'Александр Дахно'
-url:
+url: https://twitter.com/latte_lix
 photo: photo.png
 ---
