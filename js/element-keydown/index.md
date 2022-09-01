@@ -1,0 +1,46 @@
+---
+title: "`keydown`"
+description: "Событие, когда клавишу нажали."
+authors:
+  - stegur
+contributors:
+  - nlopin
+  - skorobaeus
+  - vitalybaev
+  - inventoris
+keywords:
+  - события
+  - клавиатура
+related:
+  - js/dom
+  - js/event
+  - js/events
+tags:
+  - doka
+---
+
+## Кратко
+
+Событие `keydown` фиксирует момент нажатия клавиши ещё до того, как эта клавиша будет отпущена, что, по сути, является первой фазой нажатия. Продолжением является событие `keyup` — момент, когда клавиша будет отпущена.
+
+<aside>
+
+Эта статья связана с обработкой событий в JavaScript. Зачем нужны события и как с ними работать читайте в статье [События](/js/events/).
+
+</aside>
+
+## Как пишется
+
+```js
+const input = document.querySelector('input')
+
+input.addEventListener('keydown', function (event) {
+  alert('Нажата клавиша ' + event.key)
+})
+```
+
+## Как понять
+
+Нажмите в поле ввода любую клавишу, и событие `keydown` сработает. Чтобы ещё лучше понять пример, попробуйте эту клавишу не отпускать.
+
+<iframe title="Пример события keydown" src="demos/keydown/" height="300"></iframe>
