@@ -5,7 +5,7 @@ authors:
   - lattelix
 keywords:
   - набор фоновых изображений
-related: 
+related:
   - css/background-image
   - html/picture
   - css/vendor-prefixes
