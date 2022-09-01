@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2022
+
+- 1 сентября, [`<area>`](https://doka.guide/html/area/), Алексей Никитченко
+- 1 сентября, [`list-style`](https://doka.guide/css/list-style/), Алексей Степанов
+
 ## Август 2022
 
 - 30 августа, [`<map>`](https://doka.guide/html/map/), Алексей Никитченко
