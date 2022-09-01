@@ -1,8 +1,6 @@
 ---
 title: "`list-style`"
 authors:
-  - doka-dog
-contributors:
   - blueingreen68
 tags:
   - doka
