@@ -1,5 +1,5 @@
 ---
-title: "`Math.floor()`, `Math.round()` и `Math.ceil()`"
+title: "`Math.floor()`, `Math.round()`, `Math.ceil()` и `Math.trunc()`"
 description: "Округляем разными способами."
 authors:
   - nlopin
@@ -17,7 +17,8 @@ tags:
 
 - `round()` — округление по обычным правилам;
 - `floor()` — округление вниз;
-- `ceil()` — округление вверх.
+- `ceil()` — округление вверх;
+- `trunc()` — отбрасывание дробной части, не обращая внимания на знак аргумента.
 
 ## Как пишется
 
@@ -49,6 +50,21 @@ console.log(Math.floor(15.52))
 
 console.log(Math.floor(15.3))
 // 15
+```
+
+Отбрасывание дробной части - `Math.trunc()`
+```js
+console.log(Math.trunc(15.52))
+// 15
+
+console.log(Math.trunc(-15.3))
+// -15
+
+console.log(Math.trunc(0.123))
+// 0
+
+console.log(Math.trunc(-0.123))
+// -0
 ```
 
 <iframe title="Название — Math.floor() — Дока" src="demos/Lopinopulos-RzNGZQ/" height="150"></iframe>
