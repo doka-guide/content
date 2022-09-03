@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Двусторонняя рамка при вертикальном написании — border-block — Дока</title>
+  <title>Рамка сверху и снизу блока — border-block — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,6 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
     }
@@ -29,15 +28,12 @@
     div {
       display: flex;
       align-items: center;
+      justify-content: center;
       background-color: #2E9AFF;
       width: 600px;
-      height: 200px;
-      border-block: 5px solid white;
-      writing-mode: vertical-rl;
-    }
-
-    p {
-      text-align: center;
+      height: 100px;
+      border-top: 7px dashed white;
+      border-bottom: 7px dashed white;
     }
 
     @media (max-width: 768px) {
@@ -49,7 +45,7 @@
 </head>
 <body>
   <div>
-    <p>Привет, меня перевернули.</p>
+    <p>Я просто русский текст.</p>
   </div>
 </body>
 </html>
