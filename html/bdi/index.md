@@ -8,9 +8,9 @@ editors:
 keywords:
   - двунаправленный текст
 related:
-  - /html/bdo/
-  - /css/flex-guide/
-  - /css/position/
+  - html/bdo
+  - css/flex-guide
+  - css/position
 tags:
   - doka
 ---
