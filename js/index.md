@@ -197,6 +197,7 @@ groups:
       - event-unload
       - event-beforeunload
       - element-keydown
+      - element-keyup
       - element-mouseout
       - element-mouseover
       - element-scroll-wheel
