@@ -1,5 +1,6 @@
 ---
 title: "`<button>`"
+description: "Кнопка на сайте."
 authors:
   - doka-dog
 contributors:
@@ -7,10 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - button
-  - тэг
-  - тег
   - кнопка
+related:
+  - html/form
+  - css/disabled-enabled
+  - js/deal-with-forms
 tags:
   - doka
 ---
