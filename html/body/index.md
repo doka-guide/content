@@ -1,5 +1,6 @@
 ---
 title: "`<body>`"
+description: "Содержание сайта."
 authors:
   - doka-dog
 contributors:
@@ -7,10 +8,13 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - body
   - тэг
   - тег
   - боди
+related:
+  - html/head
+  - js/dom
+  - html/html
 tags:
   - doka
 ---
@@ -37,4 +41,4 @@ tags:
 
 ## Как пишется
 
-Элемент `<body>` ставят сразу после закрывающего `</head>`.
+Элемент `<body>` ставят сразу после закрывающего [`</head>`](/html/head/).
