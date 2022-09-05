@@ -24,6 +24,7 @@
     let roundBtn = document.getElementById('round');
     let floorBtn = document.getElementById('floor');
     let ceilBtn = document.getElementById('ceil');
+    let truncBtn = document.getElementById('trunc');
     let resultEl = document.getElementById('result');
 
     roundBtn.addEventListener('click', function() {
@@ -36,6 +37,10 @@
 
     ceilBtn.addEventListener('click', function() {
       resultEl.textContent = Math.ceil(input.value);
+    });
+
+    truncBtn.addEventListener('click', function() {
+      resultEl.textContent = Math.trunc(input.value);
     });
   </script>
 </body>
