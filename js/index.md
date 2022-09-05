@@ -196,7 +196,7 @@ groups:
       - event-load-and-domcontentloaded
       - event-unload
       - event-beforeunload
-      - element-keydown-keyup
+      - element-keyup
       - element-mouseout
       - element-mouseover
       - element-scroll-wheel
