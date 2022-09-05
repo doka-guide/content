@@ -1,5 +1,6 @@
 ---
 title: "`<blockquote>`"
+description: "Оформляет блочную цитату."
 authors:
   - solarrust
 contributors:
@@ -7,11 +8,12 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - blockquote
-  - cite
   - тэг
-  - тег
   - цитата
+related:
+  - css/before
+  - html/cite
+  - html/figure-figcaption
 tags:
   - doka
 ---
