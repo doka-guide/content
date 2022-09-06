@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Событие wheel — Element.wheel — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .description p {
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .indicators p {
+      width: 170px;
+      padding: 12px;
+      margin-left: 25px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    p.active {
+      background-color: #FFD829;
+    }
+
+    .wheellables {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .wheellables div {
+      height: 250px;
+      width: 250px;
+      border: thin solid black;
+      background-color: #282A2E;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <div class="description">
+        <p>Полистайте внутри блока</p>
+      </div>
+      <div class="indicators">
+        <p id="wheel-indicator">Событие wheel</p>
+      </div>
+    </div>
+    <div class="wheellables">
+      <div id="empty-block"></div>
+    </div>
+  </div>
+  <script>
+    const emptyBlock = document.getElementById('empty-block')
+    const wheelIndicator = document.getElementById('wheel-indicator')
+    let contentWheelTimer = undefined
+
+    // слушаем прокрутку колеса мыши на пустом блоке
+    emptyBlock.addEventListener('wheel', function() {
+      if (!contentWheelTimer) {
+        wheelIndicator.classList.add('active')
+        contentWheelTimer = setTimeout(function(){
+          wheelIndicator.classList.remove('active')
+          contentWheelTimer = undefined
+        }, 150)
+      }
+    })
+  </script>
+</body>
+</html>

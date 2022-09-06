@@ -199,7 +199,7 @@ groups:
       - element-keydown-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-wheel
+      - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
     items:
