@@ -1,5 +1,6 @@
 ---
 title: "`<details>`, `<summary>`"
+description: "Раскрывающийся блок с контентом."
 authors:
   - lenaryan
 keywords:
@@ -7,6 +8,10 @@ keywords:
   - summary
   - аккордеон
   - спойлер
+related:
+  - css/animation
+  - js/element-classlist
+  - css/display
 tags:
   - doka
 ---
