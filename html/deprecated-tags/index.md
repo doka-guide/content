@@ -1,5 +1,6 @@
 ---
 title: "Устаревшие теги"
+description: "Теги, которые нужно удалить из кода."
 authors:
   - realetive
 contributors:
@@ -47,6 +48,10 @@ keywords:
   - text-align
   - marquee
   - <marquee>
+related:
+  - css/font
+  - html/div
+  - css/animation
 tags:
   - article
 ---
