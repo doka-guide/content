@@ -1,9 +1,14 @@
 ---
 title: "`<ins>`"
+description: "Обозначаем только что добавленный контент."
 authors:
   - xpleesid
 keywords:
   - добавить
+related:
+  - css/text-decoration
+  - tools/git-cli
+  - html/screenreaders
 tags:
   - doka
 ---
