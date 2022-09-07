@@ -1,5 +1,6 @@
 ---
 title: "`<header>`"
+description: "Надень на сайт шапку, а то он голову простудит."
 authors:
   - doka-dog
 contributors:
@@ -11,8 +12,11 @@ keywords:
   - тэг
   - тег
   - хэдер
-  - header
   - шапка
+related:
+  - html/main
+  - css/tag-selector
+  - html/head
 tags:
   - doka
 ---
