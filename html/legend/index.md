@@ -1,14 +1,18 @@
 ---
 title: "`<legend>`"
+description: "Добавляет заголовок полям ввода, сгруппированым с помощью `<fieldset>`."
 authors:
   - realetive
 contributors:
   - skorobaeus
 keywords:
-  - legend
   - тэг
   - тег
   - форма
+related:
+  - html/label
+  - css/pixel-perfect
+  - html/form
 tags:
   - doka
 ---
