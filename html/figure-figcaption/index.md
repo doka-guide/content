@@ -1,5 +1,6 @@
 ---
 title: "`<figure>`, `<figcaption>`"
+description: "Оформляет изображения с подписью."
 authors:
   - ezhkov
 contributors:
@@ -7,6 +8,10 @@ contributors:
 keywords:
   - figure
   - figcaption
+related:
+  - html/source
+  - css/font
+  - html/global-attrs
 tags:
   - doka
 ---
