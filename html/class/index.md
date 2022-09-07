@@ -1,6 +1,6 @@
 ---
 title: "Атрибут `class`"
-description: "Задаёт класс элементу. Часто используется для установки CSS-стилей."
+description: "Самый частый атрибут, который вы будете использовать. Задаёт класс элементу."
 cover:
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
