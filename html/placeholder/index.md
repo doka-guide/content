@@ -6,7 +6,10 @@ authors:
 keywords:
   - атрибут
   - плейсхолдер
-  - placeholder
+related:
+  - html/input
+  - css/placeholder
+  - html/label
 tags:
   - doka
 ---
@@ -38,7 +41,7 @@ tags:
 <input type="email" id="email" placeholder="your_email@gmail.com">
 ```
 
-Внешний вид можно стилизовать при помощи псевдоэлемента [`::placeholder`](/css/placeholder).
+Внешний вид можно стилизовать при помощи псевдоэлемента [`::placeholder`](/css/placeholder/).
 
 Для браузеров старых версий нужны [вендорные префиксы](/css/vendor-prefixes/):
 
