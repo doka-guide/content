@@ -14,10 +14,12 @@ editors:
   - tachisis
 keywords:
   - хэд
-  - head
-  - "<head>"
   - тэг
   - тег
+related:
+  - tools/site-readers
+  - html/script
+  - js/dom
 tags:
   - doka
 ---
