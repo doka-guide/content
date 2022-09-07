@@ -1,6 +1,6 @@
 ---
 title: "`<abbr>`"
-description: "Расшифровываем аббревиатуры."
+description: "Правильный способ расшифровать аббревиатуры."
 authors:
   - xpleesid
 keywords:
