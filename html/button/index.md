@@ -1,6 +1,6 @@
 ---
 title: "`<button>`"
-description: "Кнопка на сайте."
+description: "Тег чтобы добавить на страницу кнопку."
 authors:
   - doka-dog
 contributors:
