@@ -1,6 +1,6 @@
 ---
 title: "`<blockquote>`"
-description: "Оформляет блочную цитату."
+description: "Любой текст сильнее с цитатой! Как её правильно вставить в HTML?"
 authors:
   - solarrust
 contributors:
