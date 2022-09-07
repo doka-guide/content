@@ -7,6 +7,10 @@ keywords:
   - клавиатура
   - клавиши
   - шорткат
+related:
+  - js/events
+  - css/font
+  - html/code
 tags:
   - doka
 ---
