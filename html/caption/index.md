@@ -1,6 +1,6 @@
 ---
 title: "`<caption>`"
-description: "Добавляет подпись таблице"
+description: "Добавляет подпись таблице."
 authors:
   - solarrust
 related:
