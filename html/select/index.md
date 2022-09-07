@@ -1,5 +1,6 @@
 ---
 title: "`<select>`"
+description: "Поле выбора значения из раскрывающегося списка."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -14,8 +15,11 @@ keywords:
   - тег
   - выпадашка
   - селект
-  - "<select>"
   - выбор
+related:
+  - html/form
+  - html/optgroup
+  - html/multiple
 tags:
   - doka
 ---
