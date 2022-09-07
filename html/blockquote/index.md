@@ -8,7 +8,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
   - цитата
 related:
   - css/before
