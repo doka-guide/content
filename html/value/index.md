@@ -1,8 +1,12 @@
 ---
 title: "Атрибут `value`"
-description: "Разносторонний атрибут, применимый к разным тегам"
+description: "Разносторонний атрибут, применимый к разным тегам."
 authors:
   - solarrust
+related:
+  - html/input
+  - html/option
+  - js/deal-with-forms
 tags:
   - doka
 ---
