@@ -1,5 +1,6 @@
 ---
 title: "`<iframe>`"
+description: "Встраивает другую HTML-страницу в текущую."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,6 +12,10 @@ editors:
   - tachisis
 keywords:
   - айфрейм
+related:
+  - html/html
+  - html/canvas
+  - html/embed
 tags:
   - doka
 ---
