@@ -1,6 +1,6 @@
 ---
 title: "`<details>`, `<summary>`"
-description: "Раскрывающийся блок с контентом."
+description: "Нативный раскрывающийся блок с контентом без магии и JavaScript."
 authors:
   - lenaryan
 keywords:
