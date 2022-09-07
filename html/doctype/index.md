@@ -13,7 +13,10 @@ keywords:
   - тэг
   - тег
   - <!doctype>
-  - доктайп
+related:
+  - tools/xml
+  - css/adding-styles
+  - html/flow
 tags:
   - doka
 ---
