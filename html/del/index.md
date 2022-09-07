@@ -1,10 +1,15 @@
 ---
 title: "`<del>`"
+description: "Отображаем удалённый контент."
 authors:
   - xpleesid
 keywords:
   - зачеркнуть
   - удалить
+related:
+  - html/s
+  - css/text-decoration
+  - html/code
 tags:
   - doka
 ---
