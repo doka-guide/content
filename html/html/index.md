@@ -1,5 +1,6 @@
 ---
 title: "`<html>`"
+description: "Содержит всю страницу внутри — и метаданные, и контент."
 authors:
   - doka-dog
 contributors:
@@ -8,8 +9,10 @@ keywords:
   - тэг
   - тег
   - хтмл
-  - html
-  - "<html>"
+related:
+  - html/body
+  - js/dom
+  - css/universal-selector
 tags:
   - doka
 ---
