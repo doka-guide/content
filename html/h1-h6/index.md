@@ -1,5 +1,6 @@
 ---
 title: "`<h1>`...`<h6>`"
+description: "Заголовки на странице для оформления структуры."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -21,6 +22,10 @@ keywords:
   - h4
   - h5
   - h6
+related:
+  - html/screenreaders
+  - css/tag-selector
+  - html/main
 tags:
   - doka
 ---
