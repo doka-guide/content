@@ -1,5 +1,6 @@
 ---
 title: "`<option>`"
+description: "Один пункт в раскрывающемся списке `<select>`."
 authors:
   - ezhkov
 contributors:
@@ -8,8 +9,11 @@ keywords:
   - тэг
   - тег
   - пункт
-  - "<option>"
   - выбор
+related:
+  - html/form
+  - js/form-data
+  - css/required
 tags:
   - doka
 ---
