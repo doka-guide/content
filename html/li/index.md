@@ -1,14 +1,18 @@
 ---
 title: "`<li>`"
+description: "Элемент нумерованного или ненумерованного списка."
 authors:
   - nionka
 editors:
   - tachisis
 keywords:
-  - li
   - тег
   - тэг
   - список
+related:
+  - css/marker
+  - html/ol
+  - css/list-style
 tags:
   - doka
 ---
