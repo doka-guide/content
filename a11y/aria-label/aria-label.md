@@ -31,7 +31,7 @@ tags:
 </button>
 ```
 
-<iframe title="Кнопка паузы с иконкой и aria-label" src="demos/button-with-icon/index.html" height="150"></iframe>
+<iframe title="Кнопка паузы с иконкой и aria-label" src="demos/button-with-icon/" height="150"></iframe>
 
 ## Как пишется
 
