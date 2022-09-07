@@ -4,8 +4,6 @@ description: "Нативный раскрывающийся блок с конт
 authors:
   - lenaryan
 keywords:
-  - details
-  - summary
   - аккордеон
   - спойлер
 related:
