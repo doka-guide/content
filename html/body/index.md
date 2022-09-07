@@ -1,6 +1,6 @@
 ---
 title: "`<body>`"
-description: "Содержание сайта."
+description: "Один из тегов основной структуры любой HTML-страницы. Содержим в себе видимую часть сайта."
 authors:
   - doka-dog
 contributors:
@@ -8,8 +8,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - боди
 related:
   - html/head
