@@ -1,5 +1,6 @@
 ---
 title: "`<meta>`"
+description: "Кусочек метаданных страницы. Описывает содержание страницы для браузера, поисковиков и соцсетей."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -15,8 +16,11 @@ editors:
 keywords:
   - тэг
   - тег
-  - meta
   - мета
+related:
+  - tools/site-readers
+  - html/html
+  - js/dom
 tags:
   - doka
 ---
