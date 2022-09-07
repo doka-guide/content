@@ -1,9 +1,12 @@
 ---
 title: "`<meter>`"
+description: "График без строчки кода. Отображает значение в доступном диапазоне."
 authors:
   - doka-dog
-keywords:
-  - сброс стилей
+related:
+  - html/progress
+  - css/animation
+  - html/canvas
 tags:
   - doka
   - placeholder
