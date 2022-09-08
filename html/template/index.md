@@ -3,9 +3,6 @@ title: "`<template>`"
 description: "Скрытая разметка для использования в качестве шаблона."
 authors:
   - nionka
-keywords:
-  - тег
-  - тэг
 related:
   - js/dom
   - js/query-selector
