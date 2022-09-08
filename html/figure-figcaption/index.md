@@ -6,8 +6,8 @@ authors:
 contributors:
   - furtivite
 keywords:
-  - figure
-  - figcaption
+  - фигура
+  - фигкапшен
 related:
   - html/source
   - css/font
