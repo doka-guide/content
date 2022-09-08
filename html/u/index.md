@@ -1,11 +1,16 @@
 ---
 title: "`<u>`"
+description: "Выделяет стилистически отличающийся текст."
 authors:
   - xpleesid
 editors:
   - tachisis
 keywords:
   - подчёркивание
+related:
+  - html/strong
+  - html/em
+  - html/i
 tags:
   - doka
 ---

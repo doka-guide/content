@@ -1,10 +1,15 @@
 ---
 title: "`<dfn>`"
+description: "Расшифровываем термины и сокращения."
 authors:
   - xpleesid
 keywords:
   - определение
   - термин
+related:
+  - html/abbr
+  - css/text-decoration
+  - html/dl-dd-dt
 tags:
   - doka
 ---

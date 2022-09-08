@@ -1,9 +1,14 @@
 ---
 title: "`<object>`"
+description: "Встраиваем мультимедиа на страницу."
 authors:
   - doka-dog
 keywords:
   - встраиваемый объект
+related:
+  - html/iframe
+  - html/video
+  - html/embed
 tags:
   - doka
   - placeholder

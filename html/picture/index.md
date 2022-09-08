@@ -1,5 +1,6 @@
 ---
 title: "`<picture>`"
+description: "Адаптирует картинки под разные устройства и поддерживаемые форматы."
 authors:
   - ezhkov
 contributors:
@@ -11,6 +12,10 @@ keywords:
   - ретина
   - retina
   - srcset
+related:
+  - html/img
+  - css/media
+  - css/background-image
 tags:
   - doka
 ---

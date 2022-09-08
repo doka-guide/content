@@ -3,6 +3,10 @@ title: "`<samp>`"
 description: "Программа запущена - что она ответит? Элемент для показа пользователю выходных данных программы."
 authors:
   - webdb81
+related:
+  - html/output
+  - js/element-innertext
+  - html/progress
 tags:
   - doka
 ---

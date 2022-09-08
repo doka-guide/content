@@ -1,9 +1,14 @@
 ---
 title: "`<datalist>`"
+description: "Автодополнение полей ввода без JavaScript."
 authors:
   - doka-dog
 keywords:
   - список значений
+related:
+  - html/select
+  - css/display
+  - js/deal-with-forms
 tags:
   - doka
   - placeholder
