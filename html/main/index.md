@@ -1,15 +1,17 @@
 ---
 title: "`<main>`"
+description: "Блок с главным контентом страницы."
 authors:
   - solarrust
   - pepelsbey
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - мейн
-  - main
+related:
+  - html/body
+  - html/article
+  - html/flow
 tags:
   - doka
 ---
@@ -44,7 +46,7 @@ tags:
 
 На странице может быть только один `<main>`. Однако [спецификация уточняет](https://html.spec.whatwg.org/multipage/grouping-content.html#the-main-element):
 
-> В документе не должно быть больше одного `<main>`, у которого нет атрибута `hidden`
+> В документе не должно быть больше одного `<main>`, у которого нет [атрибута `hidden`](/html/hidden/)
 
 Получается, что можно иметь и другие `<main hidden>`, но это равносильно тому, что их не будет на странице. Это исключение сделано специально для навигации в одностраничных приложениях (SPA).
 
