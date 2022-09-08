@@ -193,7 +193,7 @@ groups:
       - event-prevent-default
       - element-click
       - event-submit
-      - event-load-and-domcontentloaded
+      - event-domcontentloaded
       - event-unload
       - event-beforeunload
       - element-keydown-keyup
