@@ -16,7 +16,10 @@ editors:
   - tachisis
 keywords:
   - картинка
-  - img
+related:
+  - html/picture
+  - css/display
+  - tools/web-server
 tags:
   - doka
 ---
