@@ -1,6 +1,6 @@
 ---
 title: "`<iframe>`"
-description: "Встраивает другую HTML-страницу в текущую."
+description: "Мы встроили одну страницу в другую страницу, чтобы ты смотрел страницу пока смотришь страницу."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
