@@ -11,8 +11,6 @@ authors:
 contributors:
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - выпадашка
   - селект
   - выбор
