@@ -7,8 +7,6 @@ contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - стайл
   - стили в HTML
 related:
