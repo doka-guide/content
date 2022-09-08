@@ -1,13 +1,11 @@
 ---
 title: "`<p>`"
-description: "Один из часто используемых тегов. Размечает абзац текста."
+description: "Размечает абзац текста. Один из часто используемых тегов."
 authors:
   - doka-dog
 contributors:
   - solarrust
 keywords:
-  - тэг
-  - тег
   - абзац
   - параграф
 related:
