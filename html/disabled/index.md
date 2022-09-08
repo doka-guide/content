@@ -1,8 +1,12 @@
 ---
 title: "Атрибут `disabled`"
-description: "Если у элемента формы есть этот атрибут, то с ним нельзя взаимодействовать"
+description: "Если у элемента формы есть этот атрибут, то с ним нельзя взаимодействовать."
 authors:
   - solarrust
+related:
+  - html/global-attrs
+  - css/disabled-enabled
+  - js/element-getattribute
 tags:
   - doka
 ---
@@ -34,13 +38,13 @@ tags:
 
 Может применяться к следующим элементам формы:
 
-- [`<button>`](/html/button/),
-- [`<fieldset>`](/html/fieldset/),
-- [`<optgroup>`](/html/optgroup/),
-- [`<option>`](/html/option/),
-- [`<select>`](/html/select/),
-- [`<textarea>`](/html/textarea/),
-- [`<input>`](/html/input/),
+- [`<button>`](/html/button/);
+- [`<fieldset>`](/html/fieldset/);
+- [`<optgroup>`](/html/optgroup/);
+- [`<option>`](/html/option/);
+- [`<select>`](/html/select/);
+- [`<textarea>`](/html/textarea/);
+- [`<input>`](/html/input/).
 
 <iframe title="Примеры использования" src="demos/base/" height="510"></iframe>
 
@@ -50,7 +54,7 @@ tags:
 
 Атрибут срабатывает не только на самом элементе, но и на всех его потомках.
 
-Наличие атрибута `disabled` отключает влияние атрибутов `required` и `pattern`. Потому что значение неактивного поля не может быть изменено браузер экономит время на их проверке.
+Наличие атрибута `disabled` отключает влияние атрибутов [`required`](/html/required/) и [`pattern`](/html/pattern/). Потому что значение неактивного поля не может быть изменено браузер экономит время на их проверке.
 
 ## Подсказки
 
