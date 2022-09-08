@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример события load. Страница события — Событие load — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    div {
+      padding: 20px 35px;
+      background: rgb(91,113,32);
+      background: -moz-linear-gradient(150deg, rgba(91,113,32,1) 5%, rgba(255,216,41,1) 78%);
+      background: -webkit-linear-gradient(150deg, rgba(91,113,32,1) 5%, rgba(255,216,41,1) 78%);
+      background: linear-gradient(150deg, rgba(91,113,32,1) 5%, rgba(255,216,41,1) 78%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5b7120",endColorstr="#ffd829",GradientType=1);
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>Стильный блок.</div>
+  <script>
+    window.addEventListener('load', function () {
+      alert('Хоп! Страничка полностью загрузилась, поэтому стили радуют глаз!')
+    })
+  </script>
+</body>
+</html>
