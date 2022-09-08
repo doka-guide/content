@@ -6,8 +6,6 @@ authors:
 contributors:
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - пункт
   - выбор
 related:
