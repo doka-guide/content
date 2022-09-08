@@ -1,14 +1,12 @@
 ---
 title: "`<script>`"
-description: "Выполняет JavaScript на странице или подключает внешние JavaScript файлы."
+description: "Вставляет код JavaScript на страницу или подключает внешние файлы скриптов."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - скрипт
 related:
   - html/link
