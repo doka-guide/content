@@ -202,6 +202,7 @@ groups:
       - element-mouseout
       - element-mouseover
       - element-scroll
+      - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
     items:
