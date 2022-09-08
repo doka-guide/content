@@ -1,6 +1,6 @@
 ---
 title: "`<head>`"
-description: "Какие настройки страницы скрываются в невидимой шапке? Говорим о заголовке страницы, фавиконке, способах подключения стилей и скриптов."
+description: "Какие настройки страницы скрываются в невидимой голове? Говорим о заголовке страницы, фавиконке, способах подключения стилей и скриптов."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -14,8 +14,6 @@ editors:
   - tachisis
 keywords:
   - хэд
-  - тэг
-  - тег
 related:
   - tools/site-readers
   - html/script
