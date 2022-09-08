@@ -11,8 +11,6 @@ authors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - футер
 related:
   - css/position
