@@ -1,6 +1,6 @@
 ---
 title: "`<legend>`"
-description: "Добавляет заголовок полям ввода, сгруппированым при помощи `<fieldset>`."
+description: "Добавляет заголовок полям ввода, сгруппированным при помощи `<fieldset>`."
 authors:
   - realetive
 contributors:
