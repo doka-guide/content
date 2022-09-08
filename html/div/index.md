@@ -14,8 +14,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - див
 related:
   - html/flow
