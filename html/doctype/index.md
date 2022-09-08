@@ -1,6 +1,6 @@
 ---
 title: "`<!DOCTYPE>`"
-description: "Что за загадочный доктайп и зачем он вообще нужен? Почему не стоит забывать о нём? Рассмотрим современный доктайп и его исторические версии."
+description: "Что за загадочный доктайп и зачем он нужен? Почему не стоит забывать о нём? Рассмотрим современный доктайп и его исторические версии."
 authors:
   - doka-dog
 contributors:
@@ -10,10 +10,10 @@ editors:
   - tachisis
 keywords:
   - doctype
-  - тэг
-  - тег
-  - <!doctype>
-  - доктайп
+related:
+  - tools/xml
+  - css/adding-styles
+  - html/flow
 tags:
   - doka
 ---
