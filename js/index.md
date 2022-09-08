@@ -193,6 +193,7 @@ groups:
       - event-prevent-default
       - element-click
       - event-submit
+      - event-domcontentloaded
       - event-load
       - event-unload
       - event-beforeunload
