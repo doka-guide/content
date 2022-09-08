@@ -1,6 +1,6 @@
 ---
 title: "Атрибут `value`"
-description: "Разносторонний атрибут, применимый к разным тегам."
+description: "Атрибут для хранения значения."
 authors:
   - solarrust
 related:
