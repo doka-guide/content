@@ -4,9 +4,7 @@ description: "Если нужно ввести только цифры заче�
 authors:
   - webdb81
 keywords:
-  - inputmode
-  - атрибут
-  - HTML-атрибут
+  - тип клавиатуры
 related:
   - html/input
   - js/deal-with-forms
