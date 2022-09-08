@@ -1,5 +1,6 @@
 ---
 title: "`<svg>`"
+description: "Тег-обёртка для отображения векторной графики на странице."
 authors:
   - solarrust
 contributors:
@@ -8,6 +9,10 @@ contributors:
 keywords:
   - свг
   - векторная графика
+related:
+  - css/animation
+  - html/canvas
+  - js/element-positioning-js
 tags:
   - doka
 ---
