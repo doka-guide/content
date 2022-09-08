@@ -7,8 +7,6 @@ contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
   - спан
 related:
   - html/class
