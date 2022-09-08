@@ -1,11 +1,16 @@
 ---
 title: "`<embed>`"
+description: "Блок для видео, аудио и прочего контента."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
   - вставка контента
+related:
+  - html/object
+  - html/iframe
+  - html/video
 tags:
   - doka
 ---
