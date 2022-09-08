@@ -1,10 +1,15 @@
 ---
 title: "`<strong>`"
+description: "Семантически выделяет важный текст."
 authors:
   - gingerraccoon
 keywords:
   - семантическое выделение
   - важность
+related:
+  - html/b
+  - html/i
+  - html/p
 tags:
   - doka
 ---

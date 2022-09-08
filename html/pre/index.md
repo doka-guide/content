@@ -1,11 +1,12 @@
 ---
 title: "`<pre>`"
+description: "Отображает текст без обработки — сохраняя пробелы и переносы."
 authors:
   - nionka
-keywords:
-  - pre
-  - тег
-  - тэг
+related:
+  - css/white-space
+  - css/overflow
+  - html/global-attrs
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "`<hr>`"
+description: "Подвести черту."
 authors:
   - lenaryan
 contributors:
@@ -7,6 +8,10 @@ contributors:
 keywords:
   - разделитель
   - горизонтальная черта
+related:
+  - css/border
+  - html/article
+  - css/after
 tags:
   - doka
 ---
