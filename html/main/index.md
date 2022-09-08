@@ -1,14 +1,12 @@
 ---
 title: "`<main>`"
-description: "Блок с главным содержанием страницы."
+description: "Блок с главным контентом страницы."
 authors:
   - solarrust
   - pepelsbey
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - мейн
 related:
   - html/body
