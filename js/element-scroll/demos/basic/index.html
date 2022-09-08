@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Событие scroll — Element.scroll — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .description p {
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .indicators p {
+      width: 170px;
+      padding: 12px;
+      margin-left: 25px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    p.active {
+      background-color: #FFD829;
+    }
+
+    .scrollables {
+      display: flex;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .scrollables div {
+      height: 250px;
+      width: 250px;
+      border: thin solid black;
+      padding: 20px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 1.4;
+      overflow: scroll;
+    }
+
+    .scrollables p {
+      display: inline-block;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <div class="description">
+        <p>Полистайте текст</p>
+      </div>
+      <div class="indicators">
+        <p id="scroll-indicator">Событие scroll</p>
+      </div>
+    </div>
+    <div class="scrollables">
+      <div id="content">
+        <p>
+        Где ты, когда ты не онлайн, когда я жду тебя в сети?<br>
+        В какие ссылки перейти, чтоб просто оказаться там?<br>
+        О чём ты думаешь сейчас? Давай среди берёз густых<br>
+        Читать любимый твой рассказ — страничку я, страничку ты<br>
+        Или в гости и просто чаю, и сердцами WhatsApp закидан»<br>
+        Но я снова не отвечаю. Я инкогнито — инкогнида<br><!-- yaspeller ignore -->
+        Но если б мне платили, милый, каждый раз, когда взгляд твой дымный<br>
+        Мне мерещится где-то мимо, каждый раз, когда снишься ты мне
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const contentEl = document.getElementById('content')
+    const scrollIndicator = document.getElementById('scroll-indicator')
+    let contentScrollTimer = undefined
+
+    // слушаем скролл на элементе с контентом
+    contentEl.addEventListener('scroll', function() {
+      if (!contentScrollTimer) {
+        scrollIndicator.classList.add('active')
+        contentScrollTimer = setTimeout(function(){
+          scrollIndicator.classList.remove('active')
+          contentScrollTimer = undefined
+        }, 150)
+      }
+    })
+  </script>
+</body>
+</html>

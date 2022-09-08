@@ -193,12 +193,15 @@ groups:
       - event-prevent-default
       - element-click
       - event-submit
-      - event-load-and-domcontentloaded
+      - event-domcontentloaded
+      - event-load
       - event-unload
       - event-beforeunload
-      - element-keydown-keyup
+      - element-keydown
+      - element-keyup
       - element-mouseout
       - element-mouseover
+      - element-scroll
       - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
