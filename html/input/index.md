@@ -17,6 +17,10 @@ editors:
 keywords:
   - поле ввода
   - элементы формы
+related:
+  - html/form
+  - js/deal-with-forms
+  - css/box-model
 tags:
   - doka
 ---
