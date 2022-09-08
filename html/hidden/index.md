@@ -4,8 +4,8 @@ description: "Скрывает элемент безо всякого CSS."
 authors:
   - solarrust
 keywords:
-  - атрибут
   - скрыть
+  - спрятать
 related:
   - css/display
   - js/element-style
