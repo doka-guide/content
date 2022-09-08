@@ -9,7 +9,7 @@ keywords:
   - двунаправленный текст
 related:
   - html/bdo
-  - css/flex-guide
+  - css/flexbox-guide
   - css/position
 tags:
   - doka
