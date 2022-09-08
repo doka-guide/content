@@ -7,7 +7,6 @@ contributors:
   - furtivite
 keywords:
   - фигура
-  - фигкапшен
 related:
   - html/source
   - css/font
