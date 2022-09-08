@@ -1,6 +1,6 @@
 ---
 title: "Атрибут `required`"
-description: "Этим атрибутом помечают обязательные поля формы"
+description: "Этим атрибутом помечают обязательные поля формы."
 authors:
   - solarrust
 related:
