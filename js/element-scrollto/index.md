@@ -1,14 +1,15 @@
 ---
 title: "`.scrollTo()`"
-description: "Управляем прокруткой страницы."
+description: "Прокрутить до точки координат."
 authors:
   - doka-dog
 contributors:
   - skorobaeus
+  - inventoris
 related:
   - js/dom
-  - css/overflow
   - html/a
+  - js/element-scrollintoview
 tags:
   - doka
 ---
@@ -18,8 +19,6 @@ tags:
 Метод `scrollTo()` позволяет программно прокрутить элемент на определённое количество пикселей. Колесо мышки или два пальца на тачпаде вызывают скролл с параметрами, определёнными в системе. Главное понять, как управлять скроллом и обрабатывать событие «прокручивания».
 
 ## Как пишется
-
-Для скролла всего окна:
 
 ```js
 scrollTo(x, y)
@@ -31,6 +30,7 @@ scrollTo(x, y)
 
 ```js
 const elem = document.querySelector('div')
+
 elem.scrollTo(0, 100)
 ```
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Демонстрация работы — scrollTo — Дока</title>
+  <title>Прокрутка по координатам — Element.scrollTo() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -144,6 +145,17 @@
       <p>Где его взять? Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацев или «невозможных» слов.</p>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const text = document.querySelector('.scrollable')
+
+    function scrollPx(){
+      text.scrollTo(0, 200)
+    }
+
+    function scrollPercent(){
+      const half = text.scrollHeight / 2
+      text.scrollTo(0, Math.ceil(half))
+    }
+  </script>
 </body>
 </html>

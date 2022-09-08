@@ -177,7 +177,7 @@ groups:
       - element-focus
       - element-blur
       - element-scroll-scrollintoview
-      - element-scroll-scrollto
+      - element-scrollto
       - element-classlist
       - element-dataset
       - element-style
