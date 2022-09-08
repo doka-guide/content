@@ -6,7 +6,7 @@ authors:
 editors:
   - tachisis
 keywords:
-  - элемент списока
+  - элемент списка
 related:
   - css/marker
   - html/ol
