@@ -6,8 +6,6 @@ authors:
 contributors:
   - solarrust
 keywords:
-  - тэг
-  - тег
   - хтмл
 related:
   - html/body
@@ -37,7 +35,7 @@ tags:
 
 ## Как пишется
 
-Тег `<html>` ставят сразу после `<!DOCTYPE>`.
+Тег `<html>` ставят сразу после [`<!DOCTYPE>`](/html/doctype/).
 
 ### Атрибуты
 
