@@ -1,6 +1,6 @@
 ---
 title: "`<header>`"
-description: "Надень на сайт шапку, а то он голову простудит."
+description: "Надень на страницу шапку, а то она голову простудит."
 authors:
   - doka-dog
 contributors:
@@ -9,8 +9,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - хэдер
   - шапка
 related:
