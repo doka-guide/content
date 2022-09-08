@@ -14,8 +14,6 @@ contributors:
   - furtivite
 keywords:
   - заголовок
-  - тэг
-  - тег
   - h1
   - h2
   - h3
