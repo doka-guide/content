@@ -1,12 +1,16 @@
 ---
 title: "`clip`"
+description: "CSS-ножницы для превращения банальных прямоугольников в разные причудливые фигуры."
 authors:
   - lordoys
 keywords:
-  - clip
   - обрезка
   - кадрирование
   - видимая область
+related:
+  - css/numeric-types
+  - css/position
+  - css/object-fit
 tags:
   - doka
 ---

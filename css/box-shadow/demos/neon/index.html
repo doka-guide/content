@@ -5,17 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
+      align-items: center;
       justify-content: center;
       background-color: #18191c;
+      color: #FFFFFF;
     }
 
     .box {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       box-shadow: inset 0 0 6px 0 #c000ff, 0 0 0 3px #c000ff, 0 0 6px 3px #c000ff,
       0 0 0 7px #18191c, 0 0 0 10px #6e4aff, 0 0 6px 10px #6e4aff,
       0 0 0 14px #18191c, 0 0 0 17px #c000ff, 0 0 6px 17px #c000ff;
@@ -27,6 +35,18 @@
 
     .circle {
       border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        padding: 30px;
+      }
+
+      .box + .box {
+        margin-top: 100px;
+        margin-left: 0;
+      }
     }
   </style>
 </head>

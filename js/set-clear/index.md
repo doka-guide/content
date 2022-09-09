@@ -1,15 +1,19 @@
 ---
-title: "`set.clear`"
-description: "Удаляет все значения из коллекции Set"
+title: "`.clear()`"
+description: "Удаляет все значения из коллекции `Set`."
 authors:
   - nlopin
+related:
+  - js/arrays
+  - js/map
+  - js/local-storage
 tags:
   - doka
 ---
 
 ## Кратко
 
-Вызов метода `clear` удаляет все значения из коллекции [`Set`](/js/set/).
+Вызов метода `clear()` удаляет все значения из коллекции [`Set`](/js/set/).
 
 ## Пример
 
@@ -27,4 +31,4 @@ console.log(numbers.size)
 
 ## Как пишется
 
-Метод вызывается без аргументов. Возвращает `undefined`.
+Метод вызывается без аргументов. Возвращает [`undefined`](/js/undefined/).

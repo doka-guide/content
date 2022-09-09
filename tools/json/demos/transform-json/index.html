@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Преобразование в JSON — JSON — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: #FFFFFF;
+    }
+
+    form {
+      display: grid;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      column-gap: 25px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "input output"
+        "submit submit";
+    }
+
+    .title {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .inputBlock {
+      grid-area: input;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+    }
+
+    textarea {
+      width: 400px;
+      height: 190px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      resize: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      background-color: transparent;
+      color: #FFFFFF;
+    }
+
+    textarea:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    .button {
+      grid-area: submit;
+      display: block;
+      min-width: 300px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-top: 25px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .outputBlock {
+      grid-area: output;
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+    }
+
+    .output {
+      width: 400px;
+      height: 190px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      resize: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      white-space: pre-wrap;
+      background-color: transparent;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 825px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "input"
+          "output"
+          "submit";
+      }
+
+      textarea, .output {
+        width: 100%;
+      }
+
+      .outputBlock {
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<form id="converter">
+  <div class="inputBlock">
+    <label for="code">
+      <h2 class="title">Что преобразуем</h2>
+    </label>
+    <textarea id="code"></textarea>
+  </div>
+  <button class="button button-green" type="submit">
+    Перевести в формат JSON
+  </button>
+  <div class="outputBlock">
+    <h2 class="title">Результат</h2>
+    <span class="output" id="output"></span>
+  </div>
+</form>
+
+<script>
+  const code = document.getElementById('code')
+  const form = document.getElementById('converter')
+  const output = document.getElementById('output')
+
+  code.value = `{
+  name: "Иван",
+  age: 33,
+  tags: ["sport", "programming"],
+  salary: undefined,
+  printInfo() {alert(this.name+',', this.age)}
+}`
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    try {
+      const obj = eval('(' + code.value + ')')
+      output.textContent = JSON.stringify(obj, null, 2)
+    } catch (error) {
+      output.textContent = 'Ошибка ввода. Кстати, вы знали, что строки нужно вводить в \'кавычках\' ?'
+    }
+  })
+</script>
+</body>
+
+</html>

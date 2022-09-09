@@ -1,16 +1,18 @@
 ---
 title: "`<style>`"
+description: "Задаёт стили прямо в HTML-коде страницы."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
-  - style
   - стайл
   - стили в HTML
+related:
+  - html/link
+  - js/element-style
+  - html/head
 tags:
   - doka
 ---

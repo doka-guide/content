@@ -1,55 +1,62 @@
 ---
-title: "`Element.style`"
+title: "`.style`"
+description: "Меняем CSS-стили из кода."
 authors:
   - bespoyasov
+related:
+  - css/specificity
+  - js/dom
+  - js/code-style
 tags:
   - doka
 ---
 
 ## Кратко
 
-[`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через атрибут `style`.
+Свойство [`style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) получает и устанавливает инлайновые стили элемента, то есть те, что записываются через [HTML-атрибут `style`](/html/style/).
 
-С помощью него можно управлять стилем элемента. [Специфичность](https://developer.mozilla.org/ru/docs/Web/css/specificity/) этого свойства такая же, как у атрибута `style`.
+С помощью него можно управлять стилем элемента. [Специфичность](/css/specificity/) этого свойства такая же, как у атрибута `style`.
 
 ## Как пишется
 
 Чтобы получить значения инлайновых стилей с помощью свойства `style`, мы можем записать:
 
 ```js
-const element = document.getElementById("someElement")
+const element = document.getElementById('someElement')
 const inlineStyles = element.style
 ```
 
-В этом случае в значение `inlineStyles` запишется объект [`CSSStyleDeclaration`](https://developer.mozilla.org/ru/docs/Web/API/CSSStyleDeclaration), который будет в себе содержать все инлайновые стили, которые содержит элемент `element`.
+В этом случае в значение `inlineStyles` запишется объект [`CSSStyleDeclaration`](https://developer.mozilla.org/ru/docs/Web/API/CSSStyleDeclaration), который будет содержать в себе все инлайновые стили элемента `element`.
 
 Чтобы задать стили для элемента, мы можем использовать несколько способов. Либо через `cssText`, чтобы указать несколько свойств разом. (Тем же эффектом обладает установка стиля через `setAttribute()`.) Либо через отдельные свойства в `style.[propertyName]`.
 
-```js
-// Следующие две записи работают одинаково
-// и устанавливают несколько стилей в одном выражении:
-element.style.cssText = "color: blue; border: 1px solid black"
-element.setAttribute("style", "color:red; border: 1px solid blue;")
+Следующие две записи работают одинаково и устанавливают несколько стилей в одном выражении:
 
-// Следующая — устанавливает значение определенного свойства,
-// оставляя другие значения стиля нетронутыми:
-element.style.color = "blue"
+```js
+element.style.cssText = 'color: blue; border: 1px solid black'
+element.setAttribute('style', 'color:red; border: 1px solid blue;')
+```
+
+Следующая — устанавливает значение определённого свойства, оставляя другие значения стиля нетронутыми:
+
+```js
+element.style.color = 'blue'
 ```
 
 ## Как понять
 
-[`HTMLElement.style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) — это механизм для работы со стилями на элементе. С его помощью можно управлять отображением элементов в «рантайме», то есть во время выполнения скрипта.
+Свойство [`style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) — это механизм для работы со стилями на элементе. С его помощью можно управлять отображением элементов в «рантайме», то есть во время выполнения скрипта.
 
-Этот механизм позволяет «перетирать» стили, описанные в CSS-таблицах, так как специфичность стилей в атрибуте `style` выше (за исключением стилей с `!important`).
+Этот механизм позволяет «перетирать» стили, описанные в CSS-таблицах, так как специфичность стилей в атрибуте `style` выше (за исключением стилей с [`!important`](/css/important/)).
 
 Чтобы указать значение конкретного CSS-свойства, мы можем использовать одноимённое отображение в `style`:
 
 ```js
 // Если мы хотим указать color:
-element.style.color = "red" // или 'rgb(255,0,0)', или '#f00'
+element.style.color = 'red' // или 'rgb(255,0,0)', или '#f00'
 
 // Если хотим указать font-family:
-element.style.fontFamily = "Arial"
+element.style.fontFamily = 'Arial'
 ```
 
 Обратите внимание, что имена свойств в `style.[propertyName]` записываются в camelCase, в отличие от CSS-свойств, которые записываются через дефис.
@@ -70,24 +77,24 @@ element.style.fontFamily = "Arial"
 | [background-position](/css/background-position/) | backgroundPosition |
 | [background-repeat](/css/background-repeat/) | backgroundRepeat |
 | [border](/css/border/) | border |
-| [border-bottom](/css/border/#kak-eto-ponyat) | borderBottom |
-| [border-bottom-color](/css/border/#kak-eto-ponyat) | borderBottomColor |
-| [border-bottom-style](/css/border/#kak-eto-ponyat) | borderBottomStyle |
-| [border-bottom-width](/css/border/#kak-eto-ponyat) | borderBottomWidth |
+| [border-bottom](/css/border/) | borderBottom |
+| [border-bottom-color](/css/border/) | borderBottomColor |
+| [border-bottom-style](/css/border/) | borderBottomStyle |
+| [border-bottom-width](/css/border/) | borderBottomWidth |
 | [border-color](/css/border-color/) | borderColor |
-| [border-left](/css/border/#kak-eto-ponyat) | borderLeft |
-| [border-left-color](/css/border/#kak-eto-ponyat) | borderLeftColor |
-| [border-left-style](/css/border/#kak-eto-ponyat) | borderLeftStyle |
-| [border-left-width](/css/border/#kak-eto-ponyat) | borderLeftWidth |
-| [border-right](/css/border/#kak-eto-ponyat) | borderRight |
-| [border-right-color](/css/border/#kak-eto-ponyat) | borderRightColor |
-| [border-right-style](/css/border/#kak-eto-ponyat) | borderRightStyle |
-| [border-right-width](/css/border/#kak-eto-ponyat) | borderRightWidth |
+| [border-left](/css/border/) | borderLeft |
+| [border-left-color](/css/border/) | borderLeftColor |
+| [border-left-style](/css/border/) | borderLeftStyle |
+| [border-left-width](/css/border/) | borderLeftWidth |
+| [border-right](/css/border/) | borderRight |
+| [border-right-color](/css/border/) | borderRightColor |
+| [border-right-style](/css/border/) | borderRightStyle |
+| [border-right-width](/css/border/) | borderRightWidth |
 | [border-style](/css/border-style/) | borderStyle |
-| [border-top](/css/border/#kak-eto-ponyat) | borderTop |
-| [border-top-color](/css/border/#kak-eto-ponyat) | borderTopColor |
-| [border-top-style](/css/border/#kak-eto-ponyat) | borderTopStyle |
-| [border-top-width](/css/border/#kak-eto-ponyat) | borderTopWidth |
+| [border-top](/css/border/) | borderTop |
+| [border-top-color](/css/border/) | borderTopColor |
+| [border-top-style](/css/border/) | borderTopStyle |
+| [border-top-width](/css/border/) | borderTopWidth |
 | [border-width](/css/border-width/) | borderWidth |
 | [clear]() | clear |
 | [clip]() | clip |

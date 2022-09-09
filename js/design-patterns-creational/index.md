@@ -1,14 +1,16 @@
 ---
 title: "Порождающие паттерны проектирования"
+description: "Почему не надо вызывать «скорую», когда разработчик начинает говорить про фабрики, строителей и одиночек."
 authors:
   - bespoyasov
 keywords:
-  - pattern
-  - design
-  - factory
   - abstract
   - builder
   - singleton
+related:
+  - js/oop
+  - tools/static-types
+  - js/architecture-and-design-patterns
 tags:
   - article
 ---
@@ -32,7 +34,7 @@ tags:
 
 ## Фабрика
 
-Фабрика (англ. factory) создаёт объект, избавляя нас от необходимости знать детали создания.
+Фабрика (англ. _factory_) создаёт объект, избавляя нас от необходимости знать детали создания.
 
 Например, если нам нужна гитара, мы можем выпилить деку, самостоятельно сделать струны из никеля, склеить корпус, сделать гриф, расставить лады и натянуть струны... А можем сходить в магазин и взять гитару, созданную на фабрике — в этом случае нам уже не требуется знать, что именно надо сделать, чтобы гитару создать.
 
@@ -45,19 +47,19 @@ function createGuitar(stringsCount = 6) {
   return {
     strings: stringsCount,
     frets: 24,
-    fretBoardMaterial: "cedar",
-    boardMaterial: "maple",
-  };
+    fretBoardMaterial: 'кедр',
+    boardMaterial: 'клён',
+  }
 }
 ```
 
-В примере мы возвращаем объект гитары из функции-фабрики `createGuitar`. Функция принимает количество струн как аргумент и подставляет его в качестве значения для поля `strings`. Все остальные поля она заполняет самостоятельно.
+В примере мы возвращаем объект гитары из функции-фабрики `createGuitar()`. Функция принимает количество струн как аргумент и подставляет его в качестве значения для поля `strings`. Все остальные поля она заполняет самостоятельно.
 
 Нам в этом примере не требуется знать, как именно должно называться поле, описывающее количество струн, мы лишь передаём его в качестве аргумента. Получать объект гитары в этом случае мы будем так:
 
 ```js
-const sixStringsGuitar = createGuitar(6);
-const sevenStringsGuitar = createGuitar(7);
+const sixStringsGuitar = createGuitar(6)
+const sevenStringsGuitar = createGuitar(7)
 ```
 
 Преимущество фабрики в том, что знание о том, как создать объект, находится в одном месте — внутри фабрики. Если схема ([интерфейс](/js/oop/#polimorfizm)) объекта поменяется, то изменить код нам нужно будет только в одном месте — в фабрике.
@@ -74,8 +76,8 @@ function createGuitar(stringsCount = 7) {
   return {
     stringsCount,
     fretsCount: 24,
-    fretBoardMaterial: "fir",
-    boardMaterial: "maple",
+    fretBoardMaterial: 'пихта',
+    boardMaterial: 'клён',
   };
 }
 ```
@@ -83,8 +85,8 @@ function createGuitar(stringsCount = 7) {
 Места, где мы на самом деле создаём объекты, то есть вызываем фабрику, остаются без изменений:
 
 ```js
-const sixStringsGuitar = createGuitar(6);
-const sevenStringsGuitar = createGuitar(7);
+const sixStringsGuitar = createGuitar(6)
+const sevenStringsGuitar = createGuitar(7)
 ```
 
 Также мы защищены от ситуации, когда вместо простого объекта нам становится нужно возвращать экземпляры класса:
@@ -94,9 +96,9 @@ function createGuitar(stringsCount = 6) {
   return new Guitar({
     strings: stringsCount,
     frets: 24,
-    fretBoardMaterial: "fir",
-    boardMaterial: "maple",
-  });
+    fretBoardMaterial: 'пихта',
+    boardMaterial: 'клён',
+  })
 }
 ```
 
@@ -110,14 +112,14 @@ function createGuitar(stringsCount = 6) {
 
 ```js
 function createGuitar(strings = 6, maxWeight = 5) {
-  const fretBoardMaterial = maxWeight <= 5 ? "fir" : "cedar";
+  const fretBoardMaterial = maxWeight <= 5 ? 'пихта' : 'кедр'
 
   return {
     strings,
     frets: 24,
     fretBoardMaterial,
-    boardMaterial: "maple",
-  };
+    boardMaterial: 'клён',
+  }
 }
 ```
 
@@ -125,7 +127,7 @@ function createGuitar(strings = 6, maxWeight = 5) {
 
 ## Абстрактная фабрика
 
-Абстрактная фабрика (англ. abstract factory) — это фабрика фабрик 😃
+Абстрактная фабрика (англ. _abstract factory_) — это фабрика фабрик 😃
 
 Этот шаблон группирует связанные или похожие фабрики объектов вместе, позволяя выбирать нужную в зависимости от ситуации.
 
@@ -133,7 +135,7 @@ function createGuitar(strings = 6, maxWeight = 5) {
 
 ### Пример
 
-Проще всего объяснить смысл абстрактной фабрики, используя TypeScript и понятие [интерфейса](/js/oop/#polimorfizm). Представим, что у нас есть приложение, которое управляет музыкальным инвентарём для концертного оркестра.
+Проще всего объяснить смысл абстрактной фабрики, используя [TypeScript](/tools/static-types/) и понятие [интерфейса](/js/oop/#polimorfizm). Представим, что у нас есть приложение, которое управляет музыкальным инвентарём для концертного оркестра.
 
 Инструменты разные, но все их мы можем описать интерфейсом `Instrument`:
 
@@ -148,13 +150,13 @@ interface Instrument {
 ```ts
 class Violin implements Instrument {
   playNote(note) {
-    console.log(`Playing ${note} on violin!`);
+    console.log(`Играю ${note} на скрипке!`);
   }
 }
 
 class Cello implements Instrument {
   playNote(note) {
-    console.log(`Playing ${note} on cello!`);
+    console.log(`Играю ${note} на виолончели!`);
   }
 }
 ```
@@ -171,20 +173,20 @@ interface Musician {
 
 ```ts
 class Violinist implements Musician {
-  private instrument: Instrument = new Violin();
+  private instrument: Instrument = new Violin()
 
-  play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
-  // Playing A# on violin!
-  // Playing C on violin!
+  play = (piece) => piece.forEach((note) => this.instrument.playNote(note))
+  // Играю A# на скрипке!
+  // Играю C на скрипке!
   // ...
 }
 
 class Cellist implements Musician {
-  private instrument: Instrument = new ViolinCello();
+  private instrument: Instrument = new Cello()
 
-  play = (piece) => piece.forEach((note) => this.instrument.playNote(note));
-  // Playing A# on cello!
-  // Playing C on cello!
+  play = (piece) => piece.forEach((note) => this.instrument.playNote(note))
+  // Играю A# на виолончели!
+  // Играю C на виолончели!
   // ...
 }
 ```
@@ -193,17 +195,17 @@ class Cellist implements Musician {
 
 ```ts
 class ViolinReservation {
-  reserveViolin = () => new Violin();
-  notifyPlayer = () => new Violinist();
+  reserveViolin = () => new Violin()
+  notifyPlayer = () => new Violinist()
 }
 
 class CelloReservation {
-  reserveCello = () => new Cello();
-  notifyPlayer = () => new Cellist();
+  reserveCello = () => new Cello()
+  notifyPlayer = () => new Cellist()
 }
 ```
 
-Пусть места резервируются функцией `reserve`. Проблема появляется, когда мы хотим использовать одинаковую функцию с разными классами для резервирования мест. Непонятно, какой тип должен быть у аргумента, также неясно, какой метод вызывать для резервации инструмента:
+Пусть места резервируются функцией `reserve()`. Проблема появляется, когда мы хотим использовать одинаковую функцию с разными классами для резервирования мест. Непонятно, какой тип должен быть у аргумента, также неясно, какой метод вызывать для резервации инструмента:
 
 ```ts
 // В аргументе можно использовать объединение типов,
@@ -211,14 +213,14 @@ class CelloReservation {
 // придётся обновлять и это объединение тоже :–(
 function reserve(reservation: ViolinReservation | CelloReservation): void {
   // Уведомить музыканта, допустим, мы можем:
-  reservation.notifyPlayer();
+  reservation.notifyPlayer()
 
   // А вот для вызова метода резервирования инструмента,
   // потребуется знать, какой перед нами класс :–(
   if (reservation instanceof ViolinReservation) {
-    reservation.reserveViolin();
+    reservation.reserveViolin()
   } else if (reservation instanceof CelloReservation) {
-    reservation.reserveCello();
+    reservation.reserveCello()
   }
 }
 ```
@@ -236,22 +238,22 @@ interface ReservationFactory {
 
 // Реализации под разные инструменты:
 class ViolinReservation implements ReservationFactory {
-  reserveInstrument = () => new Violin();
-  notifyPlayer = () => new Violinist();
+  reserveInstrument = () => new Violin()
+  notifyPlayer = () => new Violinist()
 }
 
 class CelloReservation implements ReservationFactory {
-  reserveInstrument = () => new Cello();
-  notifyPlayer = () => new Cellist();
+  reserveInstrument = () => new Cello()
+  notifyPlayer = () => new Cellist()
 }
 ```
 
-Тогда функция `reserve` станет прямолинейнее и менее хрупкой:
+Тогда функция `reserve()` станет прямолинейнее и менее хрупкой:
 
 ```ts
 function reserve(reservation: ReservationFactory): void {
-  reservation.notifyPlayer();
-  reservation.reserveInstrument();
+  reservation.notifyPlayer()
+  reservation.reserveInstrument()
 }
 ```
 
@@ -269,7 +271,7 @@ function reserve(reservation: ReservationFactory): void {
 
 ## Билдер, или Строитель
 
-Билдер, или строитель, (англ. builder) позволяет создавать объекты, добавляя им свойства по заданным правилам. Он полезен, когда при создании объекта нужно выполнить много шагов, часть из которых могут быть необязательными.
+Билдер, или строитель, (англ. _builder_) позволяет создавать объекты, добавляя им свойства по заданным правилам. Он полезен, когда при создании объекта нужно выполнить много шагов, часть из которых могут быть необязательными.
 
 ### Пример
 
@@ -278,12 +280,12 @@ function reserve(reservation: ReservationFactory): void {
 ```js
 class Drink {
   constructor(settings) {
-    const { base, milk, sugar, cream } = settings;
+    const { base, milk, sugar, cream } = settings
 
-    this.base = base;
-    this.milk = milk;
-    this.sugar = sugar;
-    this.cream = cream;
+    this.base = base
+    this.milk = milk
+    this.sugar = sugar
+    this.cream = cream
   }
 }
 ```
@@ -295,38 +297,38 @@ class Drink {
 ```js
 class DrinkBuilder {
   settings = {
-    base: "espresso",
-  };
+    base: 'espresso',
+  }
 
   addMilk = () => {
-    this.settings.milk = true;
-    return this;
-  };
+    this.settings.milk = true
+    return this
+  }
 
   addSugar = () => {
-    this.settings.sugar = true;
-    return this;
-  };
+    this.settings.sugar = true
+    return this
+  }
 
   addCream = () => {
-    this.settings.cream = true;
-    return this;
-  };
+    this.settings.cream = true
+    return this
+  }
 
   addSyrup = () => {
-    this.settings.syrup = true;
-    return this;
-  };
+    this.settings.syrup = true
+    return this
+  }
 
-  build = () => new Drink(this.settings);
+  build = () => new Drink(this.settings)
 }
 ```
 
 По умолчанию в настройки мы добавляем только эспрессо, но при вызове методов `add...()` добавляем в настройки новый ингредиент. При вызове `build()` возвращаем собранный напиток:
 
 ```js
-const latte = new DrinkBuilder().addMilk().build();
-const withSugarAndCream = new DrinkBuilder().addSugar().addCream().build();
+const latte = new DrinkBuilder().addMilk().build()
+const withSugarAndCream = new DrinkBuilder().addSugar().addCream().build()
 ```
 
 Обратите внимание, что мы можем собирать методы `add...()` в цепочку, завершая вызовом `build()`. Это возможно потому, что каждый из `add...()` методов возвращает текущий экземпляр билдера.
@@ -335,10 +337,10 @@ const withSugarAndCream = new DrinkBuilder().addSugar().addCream().build();
 // ...
 
 addMilk = () => {
-  this.settings.milk = true;
+  this.settings.milk = true
 
   // Возвращаем текущий билдер:
-  return this;
+  return this
 };
 ```
 
@@ -350,7 +352,7 @@ addMilk = () => {
 
 ## Синглтон, или Одиночка
 
-Синглтон, или одиночка, (англ. singleton) — это шаблон, который позволяет создать лишь один объект, а при попытке создать новый возвращает уже созданный.
+Синглтон, или одиночка, (англ. _singleton_) — это шаблон, который позволяет создать лишь один объект, а при попытке создать новый возвращает уже созданный.
 
 <aside>
 
@@ -367,18 +369,18 @@ addMilk = () => {
 ```js
 class Sun {
   // Держим ссылку на созданный объект:
-  static instance = null;
+  static instance = null
 
   // Делаем конструктор приватным:
   #constructor() {}
 
   static get instance() {
     // Если объект был создан ранее, возвращаем его:
-    if (this.instance) return this.instance;
+    if (this.instance) return this.instance
 
     // Иначе создаём новый экземпляр:
-    this.instance = new this();
-    return this.instance;
+    this.instance = new this()
+    return this.instance
   }
 }
 ```
@@ -387,12 +389,17 @@ class Sun {
 
 ```js
 // При первом вызове создастся новый объект:
-const sun = Sun.instance;
+const sun = Sun.instance
 
 // В дальнейшем instance будет возвращать
 // ранее созданный объект:
-const sun1 = Sun.instance;
-const sun2 = Sun.instance;
+const sun1 = Sun.instance
+const sun2 = Sun.instance
+
+console.log(sun === sun1)
+// true
+console.log(sun === sun2)
+// true
 ```
 
 Важно, что нам приходится прятать конструктор от внешнего мира, чтобы нельзя было создать новый экземпляр класса извне. И в целом код синглтона выглядит не очень опрятным.

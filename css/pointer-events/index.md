@@ -1,8 +1,12 @@
 ---
 title: "`pointer-events`"
-description: "Свойство pointer-events определяет, как HTML-элемент реагирует на различные события мыши, прикосновений или события из JavaScript."
+description: "Свойство `pointer-events` определяет, как HTML-элемент реагирует на различные события мыши, прикосновений или события из JavaScript."
 authors:
   - solarrust
+related:
+  - js/events
+  - css/user-select
+  - css/touch-action
 tags:
   - doka
 ---

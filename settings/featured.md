@@ -1,54 +1,104 @@
 ---
 pinned:
-  - css/box-model
-  - tools/docker
-  - html/doctype
-  - html/div
-  - css/display
-  - tools/webpack
-  - js/clean-architecture
-  - html/head
-  - js/closures
-  - tools/ci-cd
-  - js/execution-order
-  - css/grid-guide
+  - html/screenreaders
 ready:
+  - html/img
+  - html/article
+  - html/form
+  - html/nav
+  - html/section
   - html/flow
   - html/input
   - html/video
-  - css/box-shadow
-  - css/custom-properties
-  - css/flexbox-guide
-  - js/async-in-js
-  - js/deal-with-forms
-  - js/how-the-browser-creates-pages
-  - js/how-to-test-and-why
-  - tools/cli
-  - tools/static-types
-active:
-  - css/box-model
-  - tools/docker
   - html/doctype
   - html/div
-  - css/display
-  - tools/webpack
-  - js/clean-architecture
   - html/head
-  - js/closures
-  - tools/ci-cd
-  - js/execution-order
+  - css/transform-function
+  - css/keyframes
+  - css/position
+  - css/attr
+  - css/media
+  - css/pseudoelements
+  - css/specificity
+  - css/box-shadow
+  - css/custom-properties
+  - css/flexbox-guide
+  - css/box-model
+  - css/display
   - css/grid-guide
+  - js/var-let
+  - js/boolean
+  - js/function
+  - js/function-context
+  - js/infinite-scroll
+  - js/oop
+  - js/async-in-js
+  - js/deal-with-forms
+  - js/how-the-browser-creates-pages
+  - js/how-to-test-and-why
+  - js/execution-order
+  - js/closures
+  - js/clean-architecture
+  - tools/agile
+  - tools/markdown
+  - tools/network
+  - tools/bundlers
+  - tools/gitlab-ci-cd
   - tools/cli
   - tools/static-types
+  - tools/docker
+  - tools/webpack
+  - tools/ci-cd
+  - recipes/snow
+active:
+  - html/screenreaders
   - html/flow
-  - css/box-shadow
   - js/async-in-js
-  - html/input
-  - css/flexbox-guide
+  - js/function
+  - css/box-model
+  - html/nav
+  - html/head
+  - css/specificity
   - js/deal-with-forms
-  - css/custom-properties
-  - html/video
+  - js/closures
+  - tools/docker
+  - tools/gitlab-ci-cd
+  - html/doctype
   - js/how-to-test-and-why
+  - tools/static-types
+  - html/form
+  - css/transform-function
+  - css/display
+  - css/box-shadow
+  - tools/bundlers
+  - js/infinite-scroll
+  - tools/cli
+  - css/position
+  - css/custom-properties
+  - js/execution-order
+  - css/media
+  - tools/agile
+  - html/input
+  - css/attr
+  - js/oop
+  - js/function-context
+  - css/keyframes
+  - js/var-let
   - js/how-the-browser-creates-pages
+  - tools/markdown
+  - css/grid-guide
+  - css/pseudoelements
+  - css/flexbox-guide
+  - html/section
+  - tools/network
+  - js/boolean
+  - js/clean-architecture
+  - html/article
+  - html/img
+  - html/video
+  - tools/webpack
+  - tools/ci-cd
+  - html/div
+  - recipes/snow
 ---
 

@@ -1,19 +1,23 @@
 ---
-title: "`Element.hidden`"
-description: "Свойство .hidden у DOM-элементов позволяет узнать или изменить значение HTML-атрибута hidden"
+title: "`.hidden`"
+description: "Свойство `hidden` у DOM-элементов позволяет узнать или изменить значение HTML-атрибута `hidden`."
 authors:
   - windrushfarer
+related:
+  - html/hidden
+  - js/dom
+  - css/display
 tags:
   - doka
 ---
 
 ## Кратко
 
-Свойство `Element.hidden` позволяет узнать значение HTML-атрибута `hidden` или изменить его. Когда `Element.hidden` равен `true`, элемент скрыт на странице и недоступен для скринридеров.
+Свойство `hidden` позволяет узнать значение [HTML-атрибута `hidden`](/html/hidden/) или изменить его. Когда `hidden` равен `true`, элемент скрыт на странице и недоступен для [скринридеров](/html/screenreaders/).
 
 ## Как пишется
 
-Обращение к свойству `Element.hidden` вернёт текущее значение HTML-атрибута `hidden`. Если атрибута нет на элементе, результат будет `false`.
+Обращение к свойству `hidden` вернёт текущее значение HTML-атрибута `hidden`. Если атрибута нет на элементе, результат будет `false`:
 
 ```html
 <input type="text" placeholder="Введите почту">
@@ -24,13 +28,13 @@ tags:
 const input = document.querySelector('input')
 const div = document.querySelector('div')
 
-// false
 console.log(input.hidden)
-// true
+// false
 console.log(div.hidden)
+// true
 ```
 
-Присвоение значения в `Element.hidden` изменит значение атрибута `hidden`. В зависимости от него элемент скроется или появится. Скроем поле ввода из примера выше:
+Присвоение значения в `hidden` изменит значение атрибута. В зависимости от значения элемент скроется или появится. Скроем поле ввода из примера выше:
 
 ```js
 input.hidden = true
@@ -39,10 +43,10 @@ input.hidden = true
 В результате у поля ввода появится атрибут `hidden` и элемент скроется:
 
 ```html
-<input type="email" placeholder="email@example.com"> hidden>
+<input type="email" placeholder="email@example.com" hidden>
 ```
 
-Если присвоить `false` то атрибут будет удалён с элемента, а сам элемент снова появится:
+Если присвоить `false` то атрибут будет удалён с элемента, а сам элемент снова станет видимым:
 
 ```js
 input.hidden = false
@@ -50,9 +54,9 @@ input.hidden = false
 
 ## Как понять
 
-HTML-атрибут `hidden` существует очень давно и работает так же как `display: none`. Когда атрибут активен, элемент будет не только визуально скрыт, но и не будет занимать место на странице. То есть скрытый элемент будет вести себя так, будто его совсем нет.
+HTML-атрибут `hidden` существует давно и работает так же как [`display: none`](/css/display/). Когда атрибут активен, элемент будет не только визуально скрыт, но и не будет занимать место на странице. То есть скрытый элемент будет вести себя так, будто его совсем нет.
 
-Скрывать элементы через `display` можно в CSS или с помощью атрибута [`style`](/js/element-style/), но атрибутом `hidden` удобно управлять из JavaScript.
+Скрывать элементы через `display` можно в CSS или с помощью свойства [`style`](/js/element-style/), но атрибутом `hidden` удобно управлять из JavaScript.
 
 <aside>
 

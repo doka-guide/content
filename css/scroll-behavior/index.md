@@ -10,12 +10,6 @@ tags:
 
 Управляет поведением прокрутки внутри блока. Значение `smooth` делает её плавной.
 
-<aside>
-
-⚠️ Safari пока не поддерживает `scroll-behavior` в стабильных версиях, но поддержка уже есть в [Safari Technology Preview](https://developer.apple.com/safari/download/).
-
-</aside>
-
 ## Пример
 
 ```css

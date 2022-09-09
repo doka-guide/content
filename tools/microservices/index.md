@@ -1,13 +1,14 @@
 ---
 title: "Микросервисы"
-description: "Подход к проектированию большого приложения через разбиение его на маленькие"
+description: "Зачем компании перестают писать одно большое приложение и пишут много маленьких?"
 authors:
   - igsekor
 keywords:
   - microservice
-  - монолит
-  - ci
-  - cd
+related:
+  - tools/ci-cd
+  - tools/docker
+  - js/web-app-works
 tags:
   - article
 ---

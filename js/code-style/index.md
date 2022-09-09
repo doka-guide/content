@@ -1,7 +1,13 @@
 ---
 title: "Стиль написания кода в команде"
+description: "Превратить хороший код проекта в нечитаемую кашу можно очень легко, если не договориться о форматировании."
 authors:
   - bespoyasov
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Книга с названием: How to style — карандаш, лист бумаги и кружка с улыбающимся смайлом'
 keywords:
   - code-style
   - код-стайл
@@ -10,6 +16,10 @@ keywords:
   - editorconfig
   - eslint
   - линтер
+related:
+  - tools/code-review
+  - js/technical-debt
+  - tools/static-analysis
 tags:
   - article
 ---
@@ -62,7 +72,7 @@ class someclass{constructor(a,b,anotherArgument){this.a=a; this.b=   b;
 this.c =anotherArgument}
 }  function another_style_name(butArguments,ForSomeReason,
 are_written_alternatively){
-// no indentation here...
+// отступов нет
 let a = butArguments
   - are_written_alternatively;
 }
@@ -93,7 +103,7 @@ function anotherStyleName(
 Это позволяет читать код быстрее; мы как будто прочитываем сразу всё слово в разборчивом тексте. Также это добавляет больше информации о контексте:
 
 ```js
-const justVariable = "Просто переменная, функция или локальная константа"
+const justVariable = 'Просто переменная, функция или локальная константа'
 const justFunction = () => {}
 
 class SomeClass {
@@ -107,7 +117,7 @@ function ConstructorFunction() {
   // мы определяем её тоже по прописной букве в начале.
 }
 
-const SOME_CONFIGURATION_CONSTANT = "Глобальная константа"
+const SOME_CONFIGURATION_CONSTANT = 'Глобальная константа'
 ```
 
 ### Уменьшается количество ошибок по неосторожности
@@ -133,7 +143,7 @@ console.log(2)[1, 2].map(num => num * 2)
 Uncaught TypeError: Cannot read property '2' of undefined.
 ```
 
-Также при отсутствии точки с запятой мы можем случайно вернуть `undefined` вместо нужного результата из функции:
+Также при отсутствии точки с запятой мы можем случайно вернуть [`undefined`](/js/undefined/) вместо нужного результата из функции:
 
 ```js
 function theMeaningOfLife() {
@@ -144,7 +154,7 @@ function theMeaningOfLife() {
 theMeaningOfLife() // undefined
 ```
 
-Функция `theMeaningOfLife` возвращает не `42`, а `undefined`, потому что перенос после `return` рассматривается, как конец строки. Заданный и единый стиль кода позволяет избежать подобных ошибок.
+Функция `theMeaningOfLife()` возвращает не `42`, а `undefined`, потому что перенос после `return` рассматривается, как конец строки. Заданный и единый стиль кода позволяет избежать подобных ошибок.
 
 ### Ревью проходит быстрее
 

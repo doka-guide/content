@@ -41,6 +41,7 @@ groups:
       - empty
       - has
       - is
+      - where
       - in-range-out-of-range
       - required
       - invalid-valid
@@ -61,9 +62,13 @@ groups:
     items:
       - attr
       - calc
+      - min
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - var
       - filter-functions
@@ -81,6 +86,7 @@ groups:
   - name: 'Цвета в вебе'
     items:
       - web-colors
+      - currentcolor
   - name: 'Единицы измерения'
     items:
       - numeric-types
@@ -125,8 +131,11 @@ groups:
       - background-origin
       - background-blend-mode
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
@@ -194,6 +203,7 @@ groups:
       - padding
       - margin
       - box-sizing
+      - min
   - name: 'Позиционирование'
     items:
       - position
@@ -253,6 +263,8 @@ groups:
       - required
       - appearance
       - resize
+      - caret-color
+      - accent-color
   - name: '!important'
     items:
       - important
@@ -296,6 +308,7 @@ groups:
       - pointer-events
       - resize
       - scroll-behavior
+      - scroll-padding
   - name: 'SVG'
     items:
       - fill
@@ -308,7 +321,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - widows
-  - name: 'Колонки'
+  - name: 'Колонки и таблицы'
     items:
       - columns
       - column-count
@@ -319,6 +332,14 @@ groups:
       - column-rule-color
       - column-rule-style
       - column-rule-width
+      - caption-side
+  - name: 'Счётчики'
+    items:
+      - css-counters
+      - counter-set
+      - counter-reset
+      - counter-increment
+      - counter-counters
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html/), SVG и других языков разметки.

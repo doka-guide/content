@@ -1,10 +1,15 @@
 ---
 title: "`<mark>`"
+description: "Выделяет фрагмент текста «маркером»."
 authors:
   - xpleesid
 keywords:
   - выделение
   - подсветка
+related:
+  - css/background-color
+  - html/em
+  - html/strong
 tags:
   - doka
 ---

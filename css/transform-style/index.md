@@ -2,6 +2,8 @@
 title: "`transform-style`"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 keywords:
   - трансформация
   - preserve-3d
@@ -37,7 +39,7 @@ tags:
 
 Получается, что при `transform-style: preserve-3d` каждый дочерний элемент получает независимую от родителя плоскость, к которой можно применять 3D-трансформации. При `transform-style: flat` существует ровно одна плоскость — плоскость родителя, и никакие трансформации не могут заставить дочерний элемент выйти из этой плоскости.
 
-<iframe title="Вращение 3D-объекта" src="demos/3d-rotate/" height="200"></iframe>
+<iframe title="Вращение 3D-объекта" src="demos/3d-rotate/" height="600"></iframe>
 
 ## Как пишется
 

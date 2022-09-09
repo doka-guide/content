@@ -6,6 +6,7 @@ groups:
       - package-managers
       - bundlers
       - webpack
+      - gulp
       - static-analysis
       - static-types
       - nodejs
@@ -57,6 +58,9 @@ groups:
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+  - name: Базы данных
+    items:
+      - elasticsearch
 ---
 
 Вспомогательные технологии, процессы и инструменты для разработки и публикации приложений.

@@ -213,7 +213,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ![Пример реализации свойств grid-auto-columns, grid-auto-rows.](images/7.png)
 
-В этом примере создаются две явные колонки размером 50 и 150 пикселей соответственно. Элементы, начиная с третьего, в эти два ряда не помещаются, и для них создаются автоматические ряды. При помощи свойства `grid-auto-rows` мы указываем, что автоматические ряды должны иметь размер 15 пикселей.
+В этом примере создаются два явных ряда размером 50 и 150 пикселей соответственно. Элементы, начиная с третьего, в эти два ряда не помещаются, и для них создаются автоматические ряды. При помощи свойства `grid-auto-rows` мы указываем, что автоматические ряды должны иметь размер 15 пикселей.
 
 Можно задавать больше одного значения для автоматических колонок или рядов. Тогда паттерн размера будет повторяться до тех пор, пока не кончатся грид-элементы.
 
@@ -619,7 +619,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 `none` — значение по умолчанию. Это ключевое слово сбрасывает значения для всех свойств, входящих в этот шорткат.
 
 ```css
-.item {
+.container {
   display: grid;
   grid: none;
 }
@@ -628,7 +628,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 Можно указать допустимые значения для шортката [`grid-template`](/css/grid-template/):
 
 ```css
-.item {
+.container {
   display: grid;
   grid: repeat(4, 150px) / 1fr 200px 1fr;
 }
@@ -637,7 +637,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 В том числе можно указать имена линий:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:
     [row1-start] 25px [row1-end row2-start] 25px [row2-end] /
@@ -648,7 +648,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 Можно задать размеры колонок и рядов. Создадим два ряда и две колонки:
 
 ```css
-.item {
+.container {
   display: grid;
   grid: 200px 100px / 30% 30%;
 }
@@ -659,7 +659,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 Если `auto-flow` стоит справа от слэша, то будут создаваться автоматические колонки:
 
 ```css
-.item {
+.container {
   display: grid;
   grid: 200px 100px / auto-flow 30%;
 }
@@ -668,7 +668,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 Если `auto-flow` стоит слева от слэша, то будут создаваться автоматические ряды:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:  auto-flow 30% / 200px 100px;
 }
@@ -679,7 +679,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 Важно ставить это слово сразу после `auto-flow`:
 
 ```css
-.item {
+.container {
   display: grid;
   grid:  auto-flow dense 30% / 200px 100px;
 }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Декоративные линии и семантика hr — <hr> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      padding: 40px;
+      background-color: #FF8630;
+    }
+
+    .tag, .title {
+      position: relative;
+    }
+
+    .tag::after, .title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      background-color: #000000;
+    }
+
+    .tag {
+      display: block;
+      font-size: 14px;
+      text-transform: lowercase;
+    }
+
+    .tag::after {
+      height: 1px;
+    }
+
+    .title {
+      margin-top: 90px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 62px;
+    }
+
+    .title::after {
+      height: 2px;
+    }
+
+    .paragraph {
+      line-height: 1.4;
+    }
+
+    .term {
+      font-style: italic;
+    }
+
+    hr {
+      border: none;
+      margin: 19px auto 10px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    hr::before {
+      content: "***";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 30px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="tag">Типографика</span>
+    <h1 class="title">Астеризм</h1>
+    <p class="paragraph"><span class="term">Астеризм</span> это типографский символ, который состоит из трёх звёздочек, расположенных в ряд или треугольником. Чаще всего встречается в книгах — разделяет эпизоды внутри одной главы.</p>
+    <hr>
+    <p class="paragraph">Одиночная звёздочка называется <span class="term">астериском</span>. Её придумал использовать для обозначения неясностей философ Аристофан Византийский ещё во II веке до нашей эры. Это значение сохранилось, поскольку мы по-прежнему обозначаем звёздочками сноски и примечания.</p>
+  </div>
+</body>
+</html>

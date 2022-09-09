@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример каталога — <area> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <map name="catalog">
+    <area shape="rect" coords="393,193,2,0" href="https://ru.wikipedia.org/wiki/ВАЗ-2107" target="_blank" alt="Машина">
+    <area shape="poly" coords="427,47,427,124,474,208,659,149,659,59,601,0" href="https://ru.wikipedia.org/wiki/Мыло" target="_blank" alt="Мыло">
+    <area shape="circle" coords="751,109,58" href="https://ru.wikipedia.org/wiki/Пять_рублей" target="_blank" alt="Монета">
+  </map>
+  <img usemap="#catalog" src="../../images/doka_demo_catalog.png" alt="Кликабельная картинка с машиной, мылом и монетой">
+</body>
+</html>

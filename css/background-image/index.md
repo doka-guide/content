@@ -1,5 +1,6 @@
 ---
 title: "`background-image`"
+description: "Полезное свойство, если нужно поставить на фон картинку или задать декоративное изображение. Можно даже градиент!"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -12,10 +13,13 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - background-image
   - фоновое изображение
   - фоновая картинка
   - декоративное изображение
+related:
+  - tools/file
+  - css/stacking-context
+  - css/background
 tags:
   - doka
 ---
@@ -73,8 +77,7 @@ body {
 
 <iframe title="Несколько фоновых картинок" src="demos/several-imgs/" height="150"></iframe>
 
-Если у первой картинки фон не прозрачный, то следующая по счёту картинка будет видна только в
-случае, если первая не загрузилась.
+Если у первой картинки фон не прозрачный, то следующая по счёту картинка будет видна только в случае, если первая не загрузилась.
 
 ### Градиент на фоне
 

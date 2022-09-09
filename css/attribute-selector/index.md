@@ -1,14 +1,21 @@
 ---
 title: "Селектор по атрибуту"
+description: "Находим элемент на странице по конкретному атрибуту."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Сачок, в который поймана белая рыба. Чёрные рыбы плавают в реке'
 authors:
   - ezhkov
 editors:
   - tachisis
 contributors:
   - skorobaeus
-keywords:
-  - селектор
-  - атрибут
+related:
+  - css/selector-list
+  - html/global-attrs
+  - css/class-selector
 tags:
   - doka
 ---

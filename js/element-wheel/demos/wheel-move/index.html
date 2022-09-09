@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Перемещение элемента при прокрутке — Element.wheel — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    code {
+      font-family: "Roboto Mono";
+      font-size: 17px;
+    }
+
+    #snail {
+      position: absolute;
+      top: calc(50% - 100px);
+      left: calc(50% - 125px);
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      background-image: url('images/snail.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 1;
+    }
+
+    p {
+      position: absolute;
+      top: calc(50%);
+      left: calc(50% - 125px);
+      width: 250px;
+      color: #E6E6E6;
+      font-size: 18px;
+      font-weight: 500;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="snail"></div>
+  <p>Крути колесо мыши, чтобы перемещать улиточку вверх или вниз.<br>Зажми <code>Alt</code> (или <code>Option</code> на Mac), чтобы двигать в стороны.</p>
+
+  <script>
+    const snail = document.getElementById('snail')
+
+    window.addEventListener('wheel', function(event) {
+      const leftPosition = getPosition('left')
+      const topPosition = getPosition('top')
+      const step = 10
+
+      if (event.deltaY < 0 && event.altKey === false) {
+        const newPosition = topPosition - step
+        snail.style.top = newPosition + 'px'
+      } else if (event.deltaY > 0 && event.altKey === false) {
+        const newPosition = topPosition + step
+        snail.style.top = newPosition + 'px'
+      } else if (event.deltaY < 0 && event.altKey === true || event.deltaX < 0) {
+        const newPosition = leftPosition + step
+        snail.style.left = newPosition + 'px'
+      } else if (event.deltaY > 0 && event.altKey === true || event.deltaX > 0) {
+        const newPosition = leftPosition - step
+        snail.style.left = newPosition + 'px'
+      }
+    })
+
+    function getPosition(type) {
+      const styles = window.getComputedStyle(snail, null)
+      const value = styles[type]
+      if (value) {
+        return parseInt(value.substring(0, value.length - 2))
+      }
+      return 0
+    }
+  </script>
+</body>
+</html>

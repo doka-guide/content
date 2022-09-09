@@ -1,5 +1,6 @@
 ---
 title: "`<a>`"
+description: "Ссылки — это то, что делает интернет настоящей паутиной."
 authors:
   - doka-dog
 contributors:
@@ -9,9 +10,10 @@ editors:
   - tachisis
 keywords:
   - ссылка
-  - a
-  - тэг
-  - тег
+related:
+  - html/img
+  - css/lang
+  - html/global-attrs
 tags:
   - doka
 ---

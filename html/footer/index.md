@@ -1,14 +1,21 @@
 ---
 title: "`<footer>`"
+description: "Создаёт подвал страницы."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Кроксы с логотипом Доки и биркой: For free sience 2019'
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
-  - footer
   - футер
+related:
+  - css/position
+  - html/screenreaders
+  - css/flexbox-guide
 tags:
   - doka
 ---
@@ -54,6 +61,6 @@ tags:
 
 💡 У `<footer>` блочные стили по умолчанию 🤓
 
-💡 Нельзя вкладывать в `<address>`, `<header>` или другой `<footer>`.
+💡 Нельзя вкладывать в [`<address>`](/html/address/), [`<header>`](/html/header/) или другой `<footer>`.
 
 💡 Контакты и информацию об авторе стоит поместить в контейнер `<address>`, а его добавить в `<footer>`.

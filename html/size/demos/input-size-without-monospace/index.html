@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Использование атрибута size в input без моноширинного шрифта — Атрибут size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 100px 50px;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 20px;
+      margin-right: 20px;
+    }
+
+    .input {
+      border: 1px solid;
+      border-radius: 3px;
+      padding: 3px 15px;
+      font-family: inherit;
+      font-size: inherit;
+      cursor: pointer;
+    }
+
+    .input:focus {
+      outline: none;
+      border: 1px solid #ff8630;
+    }
+  </style>
+</head>
+<body>
+  <label class="input-label" for="input-field">Поле ввода:</label>
+  <input class="input" id="input-field" size="3" placeholder="123456789">
+</body>
+</html>

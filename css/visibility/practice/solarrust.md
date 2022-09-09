@@ -3,7 +3,7 @@
 ```css
 .parent {
   padding: 15px;
-  border: 1px dashed red;
+  border: 1px solid currentColor;
 }
 
 .block {

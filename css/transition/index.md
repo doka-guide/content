@@ -1,5 +1,10 @@
 ---
 title: "`transition`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девочка на пляже под зонтиком, а рядом стрелка, которая становится прозрачнее, чем выше к солнцу'
 authors:
   - ezhkov
 contributors:
@@ -16,7 +21,7 @@ tags:
 
 ## Пример
 
-<iframe title="Плавное изменение цвет" src="demos/color-transition/" height="350"></iframe>
+<iframe title="Плавное изменение цвет" src="demos/color-transition/" height="250"></iframe>
 
 ## Подробно
 
@@ -90,8 +95,7 @@ tags:
 
 ```css
 .button {
-  padding: 10px 15px;
-  background-color: #18191c;
+  background-color: blue;
 }
 ```
 
@@ -99,7 +103,7 @@ tags:
 
 ```css
 .button:hover {
-  background-color: transparent;
+  background-color: white;
 }
 ```
 
@@ -109,9 +113,8 @@ tags:
 
 ```css
 .button {
-  padding: 10px 15px;
-  background-color: #18191c;
-  transition: background-color 0.4s;
+  background-color: blue;
+  transition: background-color 0.6s;
 }
 ```
 
@@ -119,11 +122,11 @@ tags:
 
 ```css
 .button:hover {
-  background-color: transparent;
+  background-color: white;
 }
 ```
 
-<iframe title="Transition одного или двух свойств" src="demos/transition-of-properties/" height="370"></iframe>
+<iframe title="Transition одного или двух свойств" src="demos/transition-of-properties/" height="275"></iframe>
 
 Если мы хотим плавно изменить два и более свойств, нужно просто перечислить их через запятую.
 
@@ -131,9 +134,8 @@ tags:
 
 ```css
 .button {
-  padding: 10px 15px;
-  background-color: #18191c;
-  transition: background-color 0.4s, padding 0.5s;
+  background-color: pink;
+  transition: background-color 0.6s, transform 0.5s;
 }
 ```
 
@@ -141,8 +143,8 @@ tags:
 
 ```css
 .button:hover {
-  padding: 10px 30px;
-  background-color: transparent;
+  background-color: white;
+  transform: scale(110%);
 }
 ```
 
@@ -166,8 +168,8 @@ tags:
 
 ```css
 .button {
-  background-color: #18191c;
-  transition: background-color .3s;
+  background-color: pink;
+  transition: background-color 0.3s, transform 0.2s;
 }
 ```
 
@@ -175,12 +177,13 @@ tags:
 
 ```css
 .button:hover {
-  background-color: transparent;
-  transition: background-color 3s;
+  background-color: white;
+  transform: scale(110%);
+  transition: background-color 3s, transform 2.5s;
 }
 ```
 
-<iframe title="Разная скорость transition" src="demos/transition-speed/" height="370"></iframe>
+<iframe title="Разная скорость transition" src="demos/transition-speed/" height="275"></iframe>
 
 Обратите внимание, в этом случае свойство `transition` задаётся для обоих состояний.
 
@@ -197,7 +200,7 @@ tags:
   <h2>Fade in</h2>
   <div class="tooltip-cnt">
     <span class="tooltip-target">Наведи на меня</span>
-    <div class="tooltip">Ты — супер!</div>
+    <div class="tooltip">Эта подсказка проявилась</div>
   </div>
 </div>
 
@@ -205,7 +208,7 @@ tags:
   <h2>Slide up</h2>
   <div class="tooltip-cnt">
     <span class="tooltip-target">Наведи на меня</span>
-    <div class="tooltip">Неожиданно, да? :)</div>
+    <div class="tooltip">Это подсказка, которая всплыла</div>
   </div>
 </div>
 ```
@@ -240,7 +243,7 @@ tags:
 }
 ```
 
-<iframe title="Анимация подсказки при помощи transition" src="demos/tooltip-transition/" height="350"></iframe>
+<iframe title="Анимация подсказки при помощи transition" src="demos/tooltip-transition/" height="250"></iframe>
 
 **Обратите внимание**, что мы прописали `visibility` как одно из свойств, которое нужно плавно изменить. Это работает в связке с `opacity` и обеспечивает возможность плавного появления и скрытия элемента:
 

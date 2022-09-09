@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример нумерации с использованием атрибутов: value, start, reversed — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    ol {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      padding-top: 0.625rem;
+    }
+
+    .first-list>li::before {
+      content: counters(list-item, '.');
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 7px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+
+    .first-list>li:nth-child(2)::before,
+    .first-list>li:last-child::before {
+      width: 26px;
+      padding: 4px 2px;
+    }
+
+    @-moz-document url-prefix() {
+
+      .first-list>li:nth-child(2)::before,
+      .first-list>li:last-child::before {
+        content: counters(list-item, '.');
+        position: absolute;
+        right: 100%;
+        width: 22px;
+        height: 20px;
+        padding: 4px 7px;
+        font-size: 16px;
+        line-height: 1;
+        color: #000000;
+        background-color: #2E9AFF;
+      }
+    }
+
+    .second-list>li,
+    .third-list>li {
+      left: 10px;
+    }
+
+    .second-list>li::before {
+      content: counters(list-item, '.');
+      position: absolute;
+      right: 100%;
+      width: 40px;
+      height: 20px;
+      padding: 4px 2px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+
+    @-moz-document url-prefix() {
+
+      .second-list>li::before {
+        content: counters(list-item, '.');
+        position: absolute;
+        right: 100%;
+        width: 26px;
+        height: 20px;
+        padding: 3px 1px;
+        font-size: 16px;
+        line-height: 1;
+        color: #000000;
+        background-color: #2E9AFF;
+      }
+    }
+
+    .third-list>li::before {
+      content: counters(list-item, '.');
+      position: absolute;
+      right: 100%;
+      width: 52px;
+      height: 20px;
+      padding: 3px 1px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+
+
+    @-moz-document url-prefix() {
+
+      .third-list>li::before {
+        content: counters(list-item, '.');
+        position: absolute;
+        right: 100%;
+        width: 38px;
+        height: 20px;
+        padding: 3px 1px;
+        font-size: 16px;
+        line-height: 1;
+        color: #000000;
+        background-color: #2E9AFF;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ol class="first-list">
+    <li>Первый элемент первого списка.</li>
+    <li value="5">Второй элемент первого списка, value = 5.
+      <ol class="second-list" start="3">
+        <li>Первый элемент второго списка. Список нумеруется с 3.</li>
+        <li>Второй элемент второго списка.
+          <ol class="third-list" reversed>
+            <li>Первый элемент третьего списка. Список отображается в обратном порядке.</li>
+            <li>Второй элемент третьего списка.</li>
+            <li>Третий элемент третьего списка.</li>
+            <li>Четвёртый элемент третьего списка.</li>
+          </ol>
+        </li>
+        <li>Третий элемент второго списка.</li>
+      </ol>
+    </li>
+    <li>Третий элемент первого списка.</li>
+  </ol>
+</body>
+</html>

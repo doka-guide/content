@@ -1,33 +1,38 @@
 ---
-title: "Событие `mouseout`"
+title: "`mouseout`"
+description: "Реагируем, когда курсор пользователя покидает элемент."
 authors:
   - nlopin
 contributors:
   - skorobaeus
 keywords:
   - мышь
+related:
+  - js/event
+  - recipes/dragndrop-upload
+  - js/dom
 tags:
   - doka
 ---
 
 ## Кратко
 
-[Событие](/js/events/) на HTML-элементе. Происходит, когда пользователь передвигает курсор, который находится на элементе, за пределы элемента.
+[Событие](/js/events/) на [HTML-элементе](/js/element/). Происходит, когда пользователь передвигает курсор, который находится на элементе, за пределы элемента.
 
 Событие является противоположным событию [`mouseover`](/js/element-mouseover/). Эти события часто используются в паре.
 
 ## Как пишется
 
 ```js
-let divEl = document.getElementsByTagName("div")[0]
-divEl.addEventListener("mouseout", function () {
-  alert("курсор вышел за границы элемента!")
+const divEl = document.getElementsByTagName('div')[0]
+divEl.addEventListener('mouseout', function () {
+  console.log('курсор вышел за границы элемента!')
 })
 ```
 
 ## Как понять
 
-Подробнее о механизме событий читай в статье [«События»](/js/events/).
+Подробнее о механизме событий читайте в статье «[События](/js/events/)».
 
 Событие проще всего понять на демо. При событии `mouseout` мы меняем цвет фигуры на случайный. Чтобы событие произошло, нужно навести курсор на фигуру, а затем убрать его:
 

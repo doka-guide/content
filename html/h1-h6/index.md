@@ -1,5 +1,11 @@
 ---
 title: "`<h1>`...`<h6>`"
+description: "Заголовки на странице для оформления структуры."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Стена с картинами разных размеров, наверху самая большая, дальше меньше и ещё меньше'
 authors:
   - doka-dog
 contributors:
@@ -8,14 +14,16 @@ contributors:
   - furtivite
 keywords:
   - заголовок
-  - тэг
-  - тег
   - h1
   - h2
   - h3
   - h4
   - h5
   - h6
+related:
+  - html/screenreaders
+  - css/tag-selector
+  - html/main
 tags:
   - doka
 ---

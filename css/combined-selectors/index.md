@@ -1,5 +1,6 @@
 ---
 title: "Комбинированные селекторы"
+description: "Селекторы бывают сложнее чем просто по классу, тегу или идентификатору. Перечисляем все доступные комбинированные селекторы."
 authors:
   - realetive
 contributors:
@@ -7,10 +8,12 @@ contributors:
 editors:
   - tachisis
 keywords:
-- комбинированный
-- селектор
-- combined
-- selector
+  - combined
+  - selector
+related:
+  - css/column-rule
+  - css/selector-list
+  - html/class
 tags:
   - article
 ---

@@ -1,5 +1,11 @@
 ---
 title: "Глобальные атрибуты"
+description: "Атрибуты, которые подходят к каждому тегу."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Принц в руках держит лягушку в короне'
 authors:
   - solarrust
 editors:
@@ -7,6 +13,10 @@ editors:
 keywords:
   - атрибут
   - HTML-атрибут
+related:
+  - js/element-classlist
+  - css/attribute-selector
+  - html/div
 tags:
   - doka
 ---

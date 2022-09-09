@@ -4,7 +4,7 @@
 function someReducer(state, action) {
   switch (action.type) {
     case 'add': {
-      const users = [...state.users, action.user];
+      const users = [...state.users, action.user]
       return {...state, users}
     }
     case 'remove': {
@@ -21,8 +21,7 @@ function someReducer(state, action) {
 
 ```js
 ;(async () => {
-  // So top-level, such await, wuf:
-  const result = await someAsyncFunction();
+  const result = await someAsyncFunction()
 })()
 ```
 

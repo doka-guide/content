@@ -1,5 +1,6 @@
 ---
 title: "`<section>`"
+description: "Логические блоки сайта принято оборачивать в этот тег."
 authors:
   - doka-dog
 contributors:
@@ -7,10 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
-  - section
   - секция
+related:
+  - html/body
+  - html/h1-h6
+  - html/header
 tags:
   - doka
 ---
