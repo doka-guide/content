@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кнопка с иконкой и скрытым именем — aria-label — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-aqua" aria-label="Пауза">
+    <svg viewBox="0 0 35 42" width="35" height="42" xmlns="http://www.w3.org/2000/svg">
+      <path d="M29.75 0.0107422H26.25C23.3505 0.0107422 21 2.35511 21 5.14892V36.5671C21 39.4591 23.3505 41.8035 26.25 41.8035L29.75 41.9998C32.6495 41.9998 35 39.6555 35 36.7635V5.34529C35 2.45329 32.6484 0.0107422 29.75 0.0107422ZM8.75 0.0107422H5.25C2.35047 0.0107422 0 2.35511 0 5.24711V36.6653C0 39.6544 2.35047 41.9998 5.25 41.9998H8.75C11.6495 41.9998 14 39.6555 14 36.7635V5.34529C14 2.45329 11.6484 0.0107422 8.75 0.0107422Z"/>
+    </svg>
+  </button>
+</body>
+</html>
