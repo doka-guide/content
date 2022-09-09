@@ -5,7 +5,6 @@ authors:
   - nlopin
 contributors:
   - furtivite
-  - RomanBarannickov
 keywords:
   - переменная
 related:
