@@ -13,7 +13,6 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body {
@@ -134,8 +133,8 @@
   <div class="container">
     <div class="buttons">
       <p class="description">Прокрутить <code>&lt;textarea&gt;</code></p>
-      <button class="button button-yellow" onclick="scrollPx()">на 200px</button>
-      <button class="button button-green" onclick="scrollPercent()">на 50%</button>
+      <button class="button button-yellow" onclick="scrollPx()">плавно на 200px</button>
+      <button class="button button-green" onclick="scrollPercent()">обычно на 50%</button>
     </div>
     <div class="scrollable">
       <p>Lorem Ipsum — это текст-«рыба», часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
@@ -149,7 +148,11 @@
     const text = document.querySelector('.scrollable')
 
     function scrollPx(){
-      text.scrollTo(0, 200)
+      text.scrollTo({
+        top: 200,
+        left: 0,
+        behavior: 'smooth'
+      })
     }
 
     function scrollPercent(){
