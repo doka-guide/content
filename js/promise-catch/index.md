@@ -1,6 +1,6 @@
 ---
 title: "`.catch()`"
-description: "Обрабатываем ситуации, когда обещали, но не выполнили."
+description: "Выполняем код, если промис в ошибке."
 authors:
   - nlopin
 keywords:
