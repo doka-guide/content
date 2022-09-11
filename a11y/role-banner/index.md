@@ -8,6 +8,9 @@ keywords:
   - ARIA
   - ARIA-роль
   - ориентир
+  - хэдер
+  - шапка
+  - header
 related:
   - a11y/aria-intro
   - a11y/aria-roles
