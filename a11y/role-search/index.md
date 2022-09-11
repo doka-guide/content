@@ -35,7 +35,7 @@ tags:
 
 ## Как пишется
 
-Добавьте к тегу `role="search"`. Это может быть [`<form>`](/html/form/), в который вложен [`<input type="search">`](/html/input/#type).
+Добавьте к тегу `role="search"`. Это может быть [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<form>`](/html/form/), в который вложен [`<input type="search">`](/html/input/#type).
 
 Для элемента с ролью `search` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy).
 
