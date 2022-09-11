@@ -10,6 +10,7 @@ keywords:
   - media-query
   - режим принудительных цветов
   - режим высокой контрастности
+  - контраст
 related:
   - css/media
   - a11y/chto-takoe-a11y
