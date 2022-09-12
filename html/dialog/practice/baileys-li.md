@@ -2,7 +2,7 @@
 
 Несмотря на то, что модального окно перекрывает весь остальной контент на странице с помощью псевдоэлемента `::backdrop`, вся остальная страница всё равно доступна для прокрутки. Это может смущать пользователя, если на заднем плане будет что-то мельтешить.
 
-Решить эту проблему можно, ставя `overflow: hidden;` на `body`. В демке ниже это реализовано добавлением класса `scroll-lock`.
+Решить эту проблему можно, ставя `overflow: hidden` на `<body>`. В демке ниже это реализовано добавлением класса `scroll-lock`.
 
 Так же с помощью `scrollbar-gutter` можно «зарезервировать» место под скролл, чтобы контент не прыгал при его исчезновении скроллбара.
 
@@ -29,7 +29,7 @@ function returnScroll() {
 }
 ```
 
-<iframe title="Блокируем сколл при открытии модальных окон — Дока" src="../demos/scroll-lock/" height="320"></iframe>
+<iframe title="Блокируем срколл при открытии модальных окон" src="../demos/scroll-lock/" height="320"></iframe>
 
 #### ❌ Закрываем по клику на `::backdrop`
 
@@ -72,7 +72,7 @@ function closeOnBackDropClick({ currentTarget, target }) {
 }
 ```
 
-<iframe title="Закрытие <dialog> по клику на ::backdrop — Дока" src="demos/backdrop-close/" height="350"></iframe>
+<iframe title="Закрытие dialog по клику на ::backdrop" src="../demos/backdrop-close/" height="350"></iframe>
 
 ⚠️ Помните, что клик по подложке это вспомогательный способ закрытия. Если ваш дизайнер не нарисовал явный элемент для закрытия, то убедите его это сделать. Ну или убедите себя, если вы сам дизайнер.
 
@@ -95,7 +95,7 @@ function closeDialogOnOutsideClick({ target }) {
 }
 ```
 
-<iframe title="Закрытие <dialog> кликом по свободной области — Дока" src="demos/close-dialog-outside/" height="295"></iframe>
+<iframe title="Закрытие dialog кликом по свободной области" src="../demos/close-dialog-outside/" height="295"></iframe>
 
 #### ➕ Расширяем браузерную поддержку
 
@@ -128,9 +128,9 @@ if (isBrowserNotSupportDialog) {
 }
 ```
 
-Помимо скрипта нужно написать и стили. Вы можете, как просто [взять](https://github.com/GoogleChrome/dialog-polyfill/blob/master/dialog-polyfill.css) из того же репозитория с полифилом, либо сразу адаптировать под себя.
+Помимо скрипта нужно написать и стили. Вы можете, как просто взять из того же [репозитория с полифилом](https://github.com/GoogleChrome/dialog-polyfill/blob/master/dialog-polyfill.css), либо сразу адаптировать под себя.
 
-Обратите внимание, что скрипт полифила не может создать псевдоэлемент `::backdrop`, поэтому стили для него вам нужно дублировать и для `div` с классом `.backdrop`.
+Обратите внимание, что скрипт полифила не может создать псевдоэлемент `::backdrop`, поэтому стили для него вам нужно дублировать и для `<div>` с классом `.backdrop`.
 
 ```css
 dialog::backdrop {
@@ -141,4 +141,4 @@ dialog + .backdrop {
 }
 ```
 
-<iframe title="<dialog> с полифилом" src="demos/close-dialog-ouside/" height="385"></iframe>
+<iframe title="dialog с полифилом" src="../demos/close-dialog-ouside/" height="385"></iframe>
