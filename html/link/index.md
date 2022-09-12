@@ -1,5 +1,6 @@
 ---
 title: "`<link>`"
+description: "Подключает внешние ресурсы — стили, фавиконки, шрифты и прочее."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -13,7 +14,10 @@ editors:
   - tachisis
 keywords:
   - подключение стилей
-  - link
+related:
+  - css/adding-styles
+  - html/meta
+  - css/font-face
 tags:
   - doka
 ---

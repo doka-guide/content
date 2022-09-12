@@ -1,9 +1,14 @@
 ---
 title: "`<optgroup>`"
+description: "Группирует опции внутри раскрывающегося списка."
 authors:
   - granondo
 keywords:
   - группировка опций
+related:
+  - html/select
+  - html/form
+  - js/events
 tags:
   - doka
 ---

@@ -2,22 +2,65 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Демонстрация работы - promise — Дока</title>
+  <title>Пример состояний промиса - Promise — Дока</title>
   <style>
-    button {
-      font-size: 2rem;
-      padding: 1rem 0.5rem;
-      background-color: #00DD00;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
     }
 
     #promise-demo {
-      font-size: 2rem;
-      text-align: center;
       display: grid;
-      grid-template-columns: repeat(3, 33%);
-      grid-template-rows: repeat(2, 100px);
-      justify-items: stretch;
-      align-items: stretch;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 35px);
+      text-align: center;
+      font-size: 24px;
     }
 
     #pending {
@@ -25,33 +68,56 @@
       grid-row: 1;
     }
 
-    #rejected {
+    .slash {
+      align-self: center;
+      justify-self: end;
       grid-column: 1;
       grid-row: 2;
     }
 
     #fulfilled {
+      align-self: end;
+      grid-column: 3;
+      grid-row: 3;
+    }
+
+    .backslash {
+      align-self: center;
+      justify-self: start;
       grid-column: 3;
       grid-row: 2;
     }
 
+    #rejected {
+      align-self: end;
+      grid-column: 1;
+      grid-row: 3;
+    }
+
     .active {
-      color: green;
+      color: #41E847;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-<button>
-  💰 Buy stonks
-</button>
-
-<div id="promise-demo">
-  <div id="pending">Pending</div>
-  <div id="fulfilled">Fulfilled</div>
-  <div id="rejected">Rejected</div>
-</div>
+  <div>
+    <button class="button button-yellow">Купить 💸</button>
+  </div>
+  <div id="promise-demo">
+    <div id="pending">Pending</div>
+    <div class="slash">/</div>
+    <div id="fulfilled">Fulfilled</div>
+    <div class="backslash">\</div>
+    <div id="rejected">Rejected</div>
+  </div>
   <script>
-    const button = document.getElementsByTagName("button")[0]
+    const button = document.querySelector("button")
     const pendingBlock = document.getElementById("pending")
     const fulfilledBlock = document.getElementById("fulfilled")
     const rejectedBlock = document.getElementById("rejected")
@@ -65,13 +131,13 @@
 
     button.addEventListener("click", () => {
       (new Promise((fulfill, reject) => {
-        button.textContent = "Buying stonks"
+        button.textContent = "🔄"
         button.disabled = true;
         resetBlocks()
         activateBlock(pendingBlock);
 
         setTimeout(() => {
-          button.textContent = "Buy stonks"
+          button.textContent = "Купить ещё 💸"
           button.disabled = false;
 
           resetBlocks()

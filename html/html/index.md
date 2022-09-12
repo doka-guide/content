@@ -1,15 +1,16 @@
 ---
 title: "`<html>`"
+description: "Содержит всю страницу внутри — и метаданные, и контент."
 authors:
   - doka-dog
 contributors:
   - solarrust
 keywords:
-  - тэг
-  - тег
   - хтмл
-  - html
-  - "<html>"
+related:
+  - html/body
+  - js/dom
+  - css/universal-selector
 tags:
   - doka
 ---
@@ -34,7 +35,7 @@ tags:
 
 ## Как пишется
 
-Тег `<html>` ставят сразу после `<!DOCTYPE>`.
+Тег `<html>` ставят сразу после [`<!DOCTYPE>`](/html/doctype/).
 
 ### Атрибуты
 
