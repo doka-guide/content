@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Демонстрация работы — scrollTo — Дока</title>
+  <title>Прокрутка по координатам — Element.scrollTo() — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -133,8 +133,8 @@
   <div class="container">
     <div class="buttons">
       <p class="description">Прокрутить <code>&lt;textarea&gt;</code></p>
-      <button class="button button-yellow" onclick="scrollPx()">на 200px</button>
-      <button class="button button-green" onclick="scrollPercent()">на 50%</button>
+      <button class="button button-yellow" onclick="scrollPx()">плавно на 200px</button>
+      <button class="button button-green" onclick="scrollPercent()">обычно на 50%</button>
     </div>
     <div class="scrollable">
       <p>Lorem Ipsum — это текст-«рыба», часто используемый в печати и веб-дизайне. Lorem Ipsum является стандартной «рыбой» для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
@@ -144,6 +144,21 @@
       <p>Где его взять? Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацев или «невозможных» слов.</p>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const text = document.querySelector('.scrollable')
+
+    function scrollPx(){
+      text.scrollTo({
+        top: 200,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+
+    function scrollPercent(){
+      const half = text.scrollHeight / 2
+      text.scrollTo(0, Math.ceil(half))
+    }
+  </script>
 </body>
 </html>
