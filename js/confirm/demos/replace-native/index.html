@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Замена confirm() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: clamp(30px, 4.07vw, 50px);
+      display: grid;
+      place-items: center;
+      place-content: center;
+      gap: 12px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .content {
+      font-style: italic;
+      margin: 0;
+      text-align: center;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #ffd829;
+    }
+
+    .dialog {
+      padding: 20px clamp(20px, 5vw, 80px);
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      width: calc(100% - 40px);
+      max-width: 650px;
+    }
+
+    .dialog::backdrop {
+      background-color: rgba(255, 216, 41, 0.1);
+    }
+
+    .dialog h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .dialog-content {
+      margin: 17px 0 27px;
+    }
+
+    .dialog .button {
+      width: 100%;
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    .dialog .button:focus-visible {
+      border-color: #ffd829;
+    }
+
+    .dialog .button:focus {
+      border-color: #ffd829;
+    }
+
+    .options {
+      display: grid;
+      justify-content: center;
+      gap: 20px 25px;
+    }
+
+    @media (min-width: 550px) {
+      .options {
+        grid-template-columns: auto auto;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <dialog class="dialog" id="riddle" onclose="processAnswerOnClose(event)">
+    <h1>Загадка сфинкса</h1>
+    <p class="dialog-content">
+      Без отдыха, без сна, беззвучным шагом с холма на холм кто движется не спеша, кто холод прогнать пришёл?
+    </p>
+    <form class="options" method="dialog">
+      <button class="button" value="right">Солнце</button>
+      <button class="button" value="wrong">Коза</button>
+    </form>
+  </dialog>
+
+  <p class="content">Вы видите перед собой сфинкса. Она с любопытством смотрит на вас.</p>
+  <button class="button button-yellow" id="opener" aria-controls="riddle" onclick="window.riddle.showModal()">
+    Отгадать загадку
+  </button>
+  <output></output>
+
+  <script>
+    function processAnswerOnClose({
+      target: dialog
+    }) {
+      const output = document.querySelector("output");
+      output.innerText =
+        dialog.returnValue === "right" ? "Вы отгадали загадку." : "О, нет! Бегите!";
+    }
+
+  </script>
+</body>
+
+</html>
