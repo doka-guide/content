@@ -39,7 +39,7 @@ tags:
 
 Но иногда мы хотим использовать свойства, которые пока не обрели полную браузерную поддержку (или никогда не обретут).
 
-Например, мы верстаем блок с `display: grid;` и используем свойство `grid-gap`, которое не поддерживается в IE11 ([Can I Use](https://caniuse.com/?search=grid-gap)).В этом случае вёрстка в IE11 потеряет межблоковые промежутки и будет выглядеть немного странно. Именно здесь может пригодиться `@supports`:
+Например, мы верстаем блок с `display: grid;` и используем свойство `grid-gap`, которое не поддерживается в IE11 ([Can I Use](https://caniuse.com/?search=grid-gap)).В этом случае вёрстка в IE11 потеряет межблочные промежутки и будет выглядеть немного странно. Именно здесь может пригодиться `@supports`:
 
 ```css
 .block {
@@ -287,7 +287,7 @@ div {
 
 ## Полезные материалы
 
-Браузерные расширения, которые помогут посмотреть на `@supports` в действии, поиграть с условиями и потестировать фолбэки:
+Браузерные расширения, которые помогут посмотреть на `@supports` в действии и поиграть с условиями:
 
-- [Feature Queries Manager](https://github.com/ireade/feature-queries-manager) от Iren Aderinokun: плагин, добавляющий в консоль браузера вкладку, где можно посмотреть все имеющиеся на странице feature queries и повзаимодействовать с ними (для Chrome и FireFox).
-- [CSS Feature Toggle Extension](https://github.com/keithclark/css-feature-toggle-devtools-extension) от Keith Clark: плагин, позволяющий «отключать» поддержку свойств, чтобы посмотреть, как страница будет выглядеть в браузерах без поддержки этих свойств (для Chrome, Opera и Edge (Chromium)).
+- [Feature Queries Manager](https://github.com/ireade/feature-queries-manager) от Ире Адеринокyн: плагин, добавляющий в консоль браузера вкладку, где можно посмотреть все имеющиеся на странице feature queries и поиграть с ними (для Chrome и FireFox).
+- [CSS Feature Toggle Extension](https://github.com/keithclark/css-feature-toggle-devtools-extension) от Кейт Кларк: плагин, позволяющий «отключать» поддержку свойств, чтобы посмотреть, как страница будет выглядеть в браузерах без поддержки этих свойств (для Chrome, Opera и Edge (Chromium)).
