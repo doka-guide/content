@@ -4,6 +4,7 @@
 
 ## Сентябрь 2022
 
+- 12 сентября, [`<dialog>`](https://doka.guide/html/dialog/), Артур Бэйлис Ли
 - 1 сентября, [`<area>`](https://doka.guide/html/area/), Алексей Никитченко
 - 1 сентября, [`list-style`](https://doka.guide/css/list-style/), Алексей Степанов
 
