@@ -288,6 +288,6 @@ div {
 ## Полезные материалы
 
 Браузерные расширения, которые помогут посмотреть на `@supports` в действии, поиграть с условиями и потестировать фолбэки:
-  
+
 - [Feature Queries Manager](https://github.com/ireade/feature-queries-manager) от Iren Aderinokun: плагин, добавляющий в консоль браузера вкладку, где можно посмотреть все имеющиеся на странице feature queries и повзаимодействовать с ними (для Chrome и FireFox).
 - [CSS Feature Toggle Extension](https://github.com/keithclark/css-feature-toggle-devtools-extension) от Keith Clark: плагин, позволяющий «отключать» поддержку свойств, чтобы посмотреть, как страница будет выглядеть в браузерах без поддержки этих свойств (для Chrome, Opera и Edge (Chromium)).
