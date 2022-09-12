@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Демонстрация работы — <dialog> — Дока</title>
   <meta charset="utf-8">
@@ -81,7 +80,7 @@
     }
 
     .button--dark:hover {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
     }
 
     .button--dark:focus {
@@ -103,7 +102,7 @@
     }
 
     .dialog::backdrop {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
@@ -128,7 +127,6 @@
     }
   </style>
 </head>
-
 <body>
   <button class="button button--secondary" type="button" onclick="window['some-dialog-id'].show();"
     aria-controls="some-dialog-id">Открыть диалоговое окно</button>
@@ -138,7 +136,7 @@
     <h1 class="dialog__title">Я модальное окно</h1>
     <p>Весь остальной контент на странице недоступен, когда я открыто.</p>
     <form method="dialog">
-      <button class="button button--dark">Понял(а)-принял(а) 👍</button>
+      <button class="button button--dark">Ясно-понятно 👍</button>
     </form>
   </dialog>
   <dialog class="dialog" id="some-dialog-id" open="open">
@@ -147,5 +145,4 @@
     <button class="button button--dark" type="button" onclick="window['some-dialog-id'].close();">Окей 👌</button>
   </dialog>
 </body>
-
 </html>

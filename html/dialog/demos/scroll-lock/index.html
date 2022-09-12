@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Блокируем скролл при открытии модальных окон — <dialog> — Дока</title>
   <meta charset="utf-8">
@@ -82,7 +81,7 @@
     }
 
     .button--dark:hover {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
     }
 
     .button--dark:focus {
@@ -104,7 +103,7 @@
     }
 
     .dialog::backdrop {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgb(0 0 0 / 0.5);
     }
 
     .dialog__title {
@@ -138,10 +137,8 @@
         place-items: center;
       }
     }
-
   </style>
 </head>
-
 <body>
   <main class="mock">Я блок, у которого высота больше чем вьюпорта. Просто представьте что тут оооочень много контента.
     <button class="button opener" type="button" aria-controls="modal-example" onclick="openModalAndLockScroll(event)">
@@ -169,8 +166,6 @@
     function returnScroll() {
       document.body.classList.remove("scroll-lock");
     }
-
   </script>
 </body>
-
 </html>

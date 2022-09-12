@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Демонстрация работы — <dialog> — Дока</title>
   <meta charset="utf-8">
@@ -10,8 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    @charset "UTF-8";
-
     *,
     *::before,
     *::after {
@@ -83,7 +80,7 @@
     }
 
     .button--dark:hover {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
     }
 
     .button--dark:focus {
@@ -106,19 +103,19 @@
     }
 
     .dialog::-webkit-backdrop {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
 
     .dialog::backdrop {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
 
     .dialog+.backdrop {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgb(0 0 0 / 0.6);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
     }
@@ -141,10 +138,8 @@
         bottom: 0;
       }
     }
-
   </style>
 </head>
-
 <body>
   <button class="button button--secondary" type="button" onclick="window['some-dialog-id'].show();"
     aria-controls="some-dialog-id">Открыть диалоговое окно</button>
@@ -177,5 +172,4 @@
     }
   </script>
 </body>
-
 </html>
