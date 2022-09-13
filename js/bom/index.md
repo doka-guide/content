@@ -1,6 +1,11 @@
 ---
 title: "Браузерное окружение, BOM"
 description: "Один JavaScript в поле не воин — у JavaScript есть окружение, которое делает его таким мощным и популярным."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Окно браузера окружено значком местоположения, книжкой с закладкой, рукой, которая кидает мяч, котиком...'
 authors:
   - bespoyasov
 editors:
