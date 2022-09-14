@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример со скип-линкой — Skip link — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: Roboto, sans-serif;
+      font-size: 24px;
+      background-color: #18191c;
+      color: white;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    li {
+      height: 40px;
+      line-height: 40px;
+      margin: 0 20px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      color: red;
+    }
+
+    section {
+      padding: 20px 60px;
+    }
+
+    a,
+    a:visited,
+    a:hover{
+      text-decoration: none;
+      color: white;
+    }
+
+    a:focus,
+    a:hover {
+      color: red;
+    }
+
+    .skip-link {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 15px;
+      background: #F498AD;
+      /*
+        Прячем ссылку по умолчанию
+        Просто сделать display: none; нельзя, тогда скринридеры её проигнорируют
+      */
+      transform: translateY(-100%);
+    }
+
+    .skip-link:focus {
+      /* Показываем ссылку при фокусе */
+      transform: translateY(0);
+      color: #18191c;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">
+    Перейти к контенту
+  </a>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Главная</a>
+      </li>
+      <li>
+        <a href="#">Товары</a>
+      </li>
+      <li>
+        <a href="#">Услуги</a>
+      </li>
+      <li>
+        <a href="#">О нас</a>
+      </li>
+      <li>
+        <a href="#"> Контакты</a>
+      </li>
+    </ul>
+  </nav>
+  <section id="main">
+    Какой-то контент
+    <br />
+    <br />
+    <label for="input">
+      Какое-то поля ввода
+    </label>
+    <br />
+    <input id="input"></input>
+    <br />
+    <button>Какая-то кнопка</button>
+  </section>
+</body>
+</html>
