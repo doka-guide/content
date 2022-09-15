@@ -1,5 +1,5 @@
 ---
-title: "Intersection Observer"
+title: "`Intersection Observer`"
 description: "Определяет пересечение элемента с его родителем или окном браузера"
 keywords:
   - бесконечная лента
