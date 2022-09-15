@@ -274,7 +274,7 @@ function double(x) {
 let x = 1
 
 function double() {
-  x * 2
+  x *= 2
 }
 
 // ...Потому что она меняет переменную x,
