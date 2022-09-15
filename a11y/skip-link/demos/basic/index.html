@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Базовый пример — Skip link — Дока</title>
+  <title>Базовый пример без skip link — Skip link — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    html {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
       font-family: Roboto, sans-serif;
       font-size: 24px;
       background-color: #18191c;
-      color: white;
+      color: #FFFFFF;
     }
 
     ul {
@@ -30,61 +35,66 @@
       height: 40px;
       line-height: 40px;
       margin: 0 20px;
-      cursor: pointer;
-    }
-
-    li:hover {
-      color: red;
     }
 
     section {
       padding: 20px 60px;
     }
 
-    a,
-    a:visited,
-    a:hover{
-      text-decoration: none;
-      color: white;
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
     }
 
-    a:focus,
-    a:hover {
-      color: red;
+    a:hover, a:focus {
+      color: black;
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li>
-        <a href="#">Главная</a>
-      </li>
-      <li>
-        <a href="#">Товары</a>
-      </li>
-      <li>
-        <a href="#">Услуги</a>
-      </li>
-      <li>
-        <a href="#">О нас</a>
-      </li>
-      <li>
-        <a href="#"> Контакты</a>
-      </li>
-    </ul>
-  </nav>
-  <section id="main">
-    Какой-то контент
-    <br />
-    <br />
-    <label for="input">
-      Какое-то поля ввода
-    </label>
-    <br />
-    <input id="input"></input>
-    <br />
-    <button>Какая-то кнопка</button>
-  </section>
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Главная</a>
+        </li>
+        <li>
+          <a href="#">Товары</a>
+        </li>
+        <li>
+          <a href="#">Услуги</a>
+        </li>
+        <li>
+          <a href="#">О нас</a>
+        </li>
+        <li>
+          <a href="#"> Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    <section id="main">
+      Какой-то контент
+      <br />
+      <br />
+      <label for="input">
+        Какое-то поля ввода
+      </label>
+      <br />
+      <input id="input"></input>
+      <br />
+      <button>Какая-то кнопка</button>
+    </section>
+  </div>
 </body>
 </html>
