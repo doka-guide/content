@@ -37,8 +37,12 @@
       margin: 0 20px;
     }
 
-    section {
-      padding: 20px 60px;
+    li:first-child {
+      margin-left: 0;
+    }
+
+    main {
+      margin-top: 20px;
     }
 
     a {
@@ -57,8 +61,65 @@
       outline-width: 0;
     }
 
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
     .button-aqua {
       background-color: #10F3AF;
+    }
+
+    fieldset {
+      margin: 20px 0;
+      border: none;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .lemming-info {
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -70,31 +131,39 @@
           <a href="#">Главная</a>
         </li>
         <li>
-          <a href="#">Товары</a>
+          <a href="#">О леммингах</a>
         </li>
         <li>
-          <a href="#">Услуги</a>
+          <a href="#">Фотографии</a>
         </li>
         <li>
           <a href="#">О нас</a>
         </li>
         <li>
-          <a href="#"> Контакты</a>
+          <a href="#">Контакты</a>
         </li>
       </ul>
     </nav>
-    <section id="main">
-      Какой-то контент
-      <br />
-      <br />
-      <label for="input">
-        Какое-то поля ввода
-      </label>
-      <br />
-      <input id="input"></input>
-      <br />
-      <button>Какая-то кнопка</button>
-    </section>
+    <main id="main">
+      <h1>Лемминги</h1>
+      <p class="lemming-info">
+        Лeмминги — группа из нескольких близкородственных родов подсемейства полёвковых (Arvicolinae) семейства хомяков (Cricetidae) отряда грызунов.
+        К леммингам близки пеструшки.
+        Лемминг питается семенами, листьями и корнями.
+        В спячку он не впадает и поэтому летом припрятывает еду в расщелинах земли, а зимой роет в снегу ходы и отыскивает свои запасы.
+        Лемминги весьма плодовиты, у самки бывает от 3 до 4 помётов в год, в каждом по 5-6 детёнышей.
+      </p>
+      <p>
+        Интересуетесь леммингами? Оставьте свою почту, и мы будем каждый день присылать вам интересные факты про леммингов.
+      </p>
+      <fieldset>
+        <label for="input">
+          Email
+        </label>
+        <input type="email" id="input"></input>
+      </fieldset>
+      <button class="button button-aqua">Подписаться на рассылку</button>
+    </main>
   </div>
 </body>
 </html>

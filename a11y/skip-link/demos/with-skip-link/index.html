@@ -8,16 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    html {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
       font-family: Roboto, sans-serif;
       font-size: 24px;
       background-color: #18191c;
-      color: white;
+      color: #FFFFFF;
     }
 
     ul {
@@ -30,27 +35,91 @@
       height: 40px;
       line-height: 40px;
       margin: 0 20px;
+    }
+
+    li:first-child {
+      margin-left: 0;
+    }
+
+    main {
+      margin-top: 20px;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      color: black;
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    li:hover {
-      color: red;
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
     }
 
-    section {
-      padding: 20px 60px;
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
     }
 
-    a,
-    a:visited,
-    a:hover{
-      text-decoration: none;
-      color: white;
+    .button-aqua {
+      background-color: #10F3AF;
     }
 
-    a:focus,
-    a:hover {
-      color: red;
+    fieldset {
+      margin: 20px 0;
+      border: none;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .lemming-info {
+      margin-bottom: 20px;
     }
 
     .skip-link {
@@ -59,16 +128,11 @@
       top: 0;
       left: 0;
       padding: 10px 15px;
-      background: #F498AD;
-      /*
-        Прячем ссылку по умолчанию
-        Просто сделать display: none; нельзя, тогда скринридеры её проигнорируют
-      */
+      background: #10F3AF;
       transform: translateY(-100%);
     }
 
     .skip-link:focus {
-      /* Показываем ссылку при фокусе */
       transform: translateY(0);
       color: #18191c;
     }
@@ -78,36 +142,46 @@
   <a class="skip-link" href="#main">
     Перейти к контенту
   </a>
-  <nav>
-    <ul>
-      <li>
-        <a href="#">Главная</a>
-      </li>
-      <li>
-        <a href="#">Товары</a>
-      </li>
-      <li>
-        <a href="#">Услуги</a>
-      </li>
-      <li>
-        <a href="#">О нас</a>
-      </li>
-      <li>
-        <a href="#"> Контакты</a>
-      </li>
-    </ul>
-  </nav>
-  <section id="main">
-    Какой-то контент
-    <br />
-    <br />
-    <label for="input">
-      Какое-то поля ввода
-    </label>
-    <br />
-    <input id="input"></input>
-    <br />
-    <button>Какая-то кнопка</button>
-  </section>
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Главная</a>
+        </li>
+        <li>
+          <a href="#">О леммингах</a>
+        </li>
+        <li>
+          <a href="#">Фотографии</a>
+        </li>
+        <li>
+          <a href="#">О нас</a>
+        </li>
+        <li>
+          <a href="#">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main">
+      <h1>Лемминги</h1>
+      <p class="lemming-info">
+        Лeмминги — группа из нескольких близкородственных родов подсемейства полёвковых (Arvicolinae) семейства хомяков (Cricetidae) отряда грызунов.
+        К леммингам близки пеструшки.
+        Лемминг питается семенами, листьями и корнями.
+        В спячку он не впадает и поэтому летом припрятывает еду в расщелинах земли, а зимой роет в снегу ходы и отыскивает свои запасы.
+        Лемминги весьма плодовиты, у самки бывает от 3 до 4 помётов в год, в каждом по 5-6 детёнышей.
+      </p>
+      <p>
+        Интересуетесь леммингами? Оставьте свою почту, и мы будем каждый день присылать вам интересные факты про леммингов.
+      </p>
+      <fieldset>
+        <label for="input">
+          Email
+        </label>
+        <input type="email" id="input"></input>
+      </fieldset>
+      <button class="button button-aqua">Подписаться на рассылку</button>
+    </main>
+  </div>
 </body>
 </html>
