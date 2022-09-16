@@ -128,6 +128,8 @@ groups:
       - window-history
       - window-location
       - window-navigator
+      - window-print
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
@@ -141,7 +143,6 @@ groups:
       - cleartimeout
       - setinterval
       - clearinterval
-      - window-print
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
