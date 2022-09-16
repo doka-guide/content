@@ -74,8 +74,10 @@
   </style>
 </head>
 <body>
-  <button class="button button-aqua">Очистить форму</button>
-  <div class="alert-message"></div>
+  <div aria-live="polite">
+    <button class="button button-aqua">Очистить форму</button>
+    <div class="alert-message"></div>
+  </div>
 
   <script>
     document.body.addEventListener('click', function() {
