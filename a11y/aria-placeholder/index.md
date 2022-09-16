@@ -1,6 +1,6 @@
 ---
 title: "`aria-placeholder`"
-description: "ARIA-атрибут, который добавляет плейсхолдер к полю."
+description: "ARIA-атрибут, который добавляет плейсхолдер к полю ввода."
 authors:
   - doka-dog
 keywords:
