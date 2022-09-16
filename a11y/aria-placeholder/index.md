@@ -20,7 +20,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое устанавливает плейсхолдер для поля.
+[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое устанавливает плейсхолдер для поля ввода.
 
 Аналог `aria-placeholder` в HTML — атрибут [`placeholder`](/html/placeholder/).
 
