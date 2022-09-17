@@ -26,21 +26,6 @@
       box-sizing: border-box;
     }
 
-    a {
-      border-radius: 3px;
-      color: inherit;
-      -webkit-text-decoration-color: black;
-      text-decoration-color: black;
-      text-decoration-thickness: 2px;
-      transition: background-color 0.2s linear;
-    }
-
-    a:hover, a:focus {
-      background-color: black;
-      transition: background-color 0.2s linear;
-      outline-width: 0;
-    }
-
     .container {
       /* Задаём фолбэк-стили через display: flex, который поддерживается везде */
       display: flex;
@@ -117,12 +102,10 @@
 <div class="container">
   <div class="container__block container__block_wide">
     <p class="text-block text-block_no-support">
-      К сожалению, ваш браузер не поддерживает
-      <a href="/css/grid-guide/">grid layout</a>
+      К сожалению, ваш браузер не поддерживает grid layout
     </p>
     <p class="text-block text-block_support">
-      Ура, ваш браузер поддерживает
-      <a href="/css/grid-guide/">grid layout</a>!
+      Ура, ваш браузер поддерживает grid layout!
     </p>
   </div>
   <div class="container__block">🙈</div>
