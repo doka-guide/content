@@ -42,37 +42,34 @@ Skip link (далее скип-линк) — специальный элемен
 Давайте добавим скип-линк, чтобы упросить навигацию. Для этого в самое начало [`<body>`](/html/body/) перед блоком навигации добавим ссылку, которая видна только при фокусе.
 
 ```html
-  <body>
-  <a class="skip-link" href="#main">
-    Перейти к контенту
-  </a>
-  <!-- Навигация -->
-  <main id="main">
-    <!-- Остальной контент страницы -->
-  </main>
-  </body>
-```
+<body>
+<a class="skip-link" href="#main">
+  Перейти к контенту
+</a>
+<!-- Навигация -->
+<main id="main">
+  <!-- Остальной контент страницы -->
+</main>
+</body>
 
 Заметьте, что мы скрываем ссылку при помощи [`transform: translateY(-100%)`](/css/transform/). Просто сделать [`display: none`](/css/display/#kak-pishetsya) нельзя, тогда скринридеры её проигнорируют.
 ```css
-  .skip-link {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 15px;
-    background: #F498AD;
-    transform: translateY(-100%);
-  }
-```
+.skip-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 15px;
+  background: #F498AD;
+  transform: translateY(-100%);
+}
 
-Когда ссылка в фокусе, покажем её, вернув дефолтное значение `transform`:
+Когда ссылка в фокусе, покажем её, вернув значение по умолчанию `transform`:
 
 ```css
-  .skip-link:focus {
-    transform: translateY(0);
-  }
-```
+.skip-link:focus {
+  transform: translateY(0);
+}
 
 <iframe title="Пример со скип-линкой" src="demos/with-skip-link/" height="610"></iframe>
 
