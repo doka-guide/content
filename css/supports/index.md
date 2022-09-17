@@ -29,7 +29,7 @@ tags:
 }
 ```
 
-<iframe title="Проверка поддержки display: grid" src="demos/grid-support/"></iframe>
+<iframe title="Проверка поддержки display: grid" src="demos/grid-support/" height="260"></iframe>
 
 
 ## Как это понять
