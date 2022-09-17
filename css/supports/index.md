@@ -29,6 +29,8 @@ tags:
 }
 ```
 
+<iframe title="Проверка поддержки display: grid" src="demos/grid-support/"></iframe>
+
 
 ## Как это понять
 
