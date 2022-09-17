@@ -30,12 +30,22 @@ groups:
       - aria-level
       - aria-placeholder
       - aria-required
+      - aria-checked
+      - aria-selected
+      - aria-multiselectable
+      - aria-current
+      - aria-pressed
+      - aria-expanded
+      - aria-live
   - name: 'CSS и доступность'
     items:
       - prefers-reduced-motion
       - prefers-contrast
       - forced-colors
       - inverted-colors
+   - name: 'Доступные элементы'
+     items:
+      - skip-link
 ---
 
 Доступность (accessibility) нужна для того, чтобы вашим сайтом или приложением могли пользоваться люди с инвалидностью, а вместе с ними и все другие пользователи. Часто длинное английское название сокращают до ёмкого a11y.
