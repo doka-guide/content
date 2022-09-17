@@ -3,6 +3,7 @@ title: "Skip link"
 description: "Удобный пропуск ссылок при навигации с помощью клавиатуры."
 authors:
   - xpleesid
+  - tatianafokina
 keywords:
   - ссылка
   - доступность
