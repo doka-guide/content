@@ -49,7 +49,7 @@ tags:
 - [`<a>`](/html/a/) или `link`.
 - [`<button>`](/html/button/) или `button`.
 - [`<input type="checkbox">`](/html/input/#type) или `checkbox`.
-- [`<select>`](/html/select/) или `combobox` и `listbox`.
+- [`<select>`](/html/select/) или `combobox`, `listbox`.
 - [`<tr>`](/html/tables/#tr) или `row`.
 - [`<th>`](/html/tables/#th) или `rowheader`.
 - `application`.
@@ -58,7 +58,7 @@ tags:
 - `treeitem`.
 - `gridcell`.
 
-Используйте `aria-expanded` вместе с `aria-controls` или `aria-owns`, если контейнер с разворачивающимися элементами не вложен в главный элемент.
+Используйте `aria-expanded` вместе с `aria-controls` или `aria-owns`, когда контейнер с разворачивающимся содержимым не вложен в главный элемент.
 
 ## Как понять
 
