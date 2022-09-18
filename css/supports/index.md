@@ -19,12 +19,12 @@ tags:
 
 ## Пример
 
-Проверяем, поддерживает ли браузер свойство `transform` со значением `perspective(150px)`:
+Проверяем, поддерживает ли браузер свойство `display` со значением `grid`:
 
 ```css
-@supports (transform: perspective(150px)) {
+@supports (display: grid) {
   div {
-    transform: perspective(150px);
+    display: grid;
   }
 }
 ```
