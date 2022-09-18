@@ -150,7 +150,7 @@ ARIA-атрибуты поддерживают [роли](/a11y/aria-roles/) и 
 - [`aria-placeholder`](/a11y/aria-placeholder/) (свойство) — подсказка по заполнению поля. Эквивалент в HTML — [`placeholder`](/html/placeholder/).
 - `aria-posinset` (свойство) — позиция или номер элемента среди элементов списка или древовидного списка.
 - [`aria-pressed`](/a11y/aria-pressed) (состояние) — нажат или нет переключатель.
-- `aria-readonly` (свойство) — элемент недоступен, но можно прочесть его содержимое. Эквиваленты в HTML — [`readonly`](/html/textarea/#readonly) и [`contenteditable`](/html/global-attrs/#contenteditable).
+- `aria-readonly` (свойство) — элемент недоступен, но можно прочесть его содержимое. Эквивалент в HTML — [`readonly`](/html/textarea/#readonly).
 - `aria-required` (свойство) — обязательное ли поле или нет. Эквивалент в HTML — [`required`](/html/required/).
 - [`aria-selected`](/a11y/aria-selected/) — выбран или нет интерактивный элемент.
 - `aria-setsize` (свойство) — количество элементов из текущего списка или древовидного списка, когда их нет в DOM.
