@@ -3,6 +3,7 @@ title: "Skip link"
 description: "Удобный пропуск ссылок при навигации с помощью клавиатуры."
 authors:
   - xpleesid
+contributors:
   - tatianafokina
 keywords:
   - ссылка
@@ -13,7 +14,7 @@ related:
   - a11y/chto-takoe-a11y
   - html/main
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
