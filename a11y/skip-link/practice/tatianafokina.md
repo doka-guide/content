@@ -25,7 +25,7 @@
 ```js
 (_ => {
   const skip_lnk = document.querySelector('.skip_lnk');
-  
+
   if (!skip_lnk) return false;
   skip_lnk.addEventListener('click', e => {
     e.preventDefault();
@@ -46,7 +46,7 @@
 ```js
 (_ => {
   const skip_lnk = document.querySelector('.skip_lnk');
-  
+
   if (!skip_lnk) return false;
   skip_lnk.addEventListener('click', e => {
     e.preventDefault();
