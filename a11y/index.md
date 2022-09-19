@@ -35,7 +35,12 @@ groups:
       - aria-multiselectable
       - aria-current
       - aria-pressed
+      - aria-disabled
+      - aria-readonly
       - aria-expanded
+      - aria-haspopup
+      - aria-controls
+      - aria-owns
       - aria-live
   - name: 'CSS и доступность'
     items:
