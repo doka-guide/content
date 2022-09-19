@@ -1,6 +1,6 @@
 ---
 title: "`place-content`"
-description: "Одной строчкой выровниваем и flex, и grid 😎"
+description: "Одной строчкой выравниваем и flex, и grid 😎"
 authors:
   - inventoris
 related:
