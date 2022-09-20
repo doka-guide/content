@@ -12,7 +12,7 @@
 ### Статья
 
 - [ ] Структура совпадает с [шаблоном](https://github.com/doka-guide/content/blob/main/docs/examples/article.md)
-- [ ] Демки написаны по [рекомендациям](https://github.com/doka-guide/content/blob/main/docs/demos.md)
+- [ ] Демки написаны по [рекомендациям](https://github.com/doka-guide/content/blob/main/docs/demos/index.md)
 - [ ] У картинок есть описание в `alt`, у фреймов демок название в `title`
 - [ ] Статья добавлена в содержание раздела
 - [ ] Для статьи указаны материалы Доки, интересные для дальнейшего чтения
