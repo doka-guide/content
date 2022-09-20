@@ -42,9 +42,9 @@ console.log(arr)
 
 ```js
 const uniqueNumbers = new Set()
-uniqueThings.add(1)
-uniqueThings.add(2)
-uniqueThings.add(3)
+uniqueNumbers.add(1)
+uniqueNumbers.add(2)
+uniqueNumbers.add(3)
 
 const arr = Array.from(uniqueNumbers)
 // [1, 2, 3]
