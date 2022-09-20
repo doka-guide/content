@@ -81,7 +81,7 @@ function saveToStorage(key, data) {
     window.localStorage.setItem(key, JSON.stringify(data))
   }
   catch {
-    conole.error('Failed to save data to local storage.')
+    console.error('Failed to save data to local storage.')
   }
 }
 
