@@ -8,28 +8,107 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+        *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
     blockquote {
-      display: inline-block;
-      padding: 0.5rem;
-      background-color: rgba(255, 216, 41, 0.4);
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      text-align: center;
+    }
+
+    blockquote {
+      position: relative;
+    }
+
+    blockquote::before {
+      content: "“";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      font-family: sans-serif;
+      font-size: 150px;
+    }
+
+    footer {
+      margin-top: 30px;
     }
 
     @media print {
       button {
         display: none;
       }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
 
       blockquote {
-        background-color: inherit;
+        width: 100%;
+        padding: 55px 30px;
       }
     }
   </style>
 </head>
 <body>
-  <button id="print-button">Напечатать страницу</button>
   <blockquote>
-    Любовь — лучший учитель, чем долг. (Альберт Эйнштейн)
+    <p>Любовь — лучший учитель, чем долг.</p>
+    <footer>Альберт Эйнштейн</footer>
   </blockquote>
+  <button id="print-button" class="button button-yellow">Распечатать</button>
   <script>
     const printButton = document.getElementById('print-button')
 
