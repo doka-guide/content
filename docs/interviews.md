@@ -19,7 +19,7 @@
 ```markdown
 ---
 excluded:
-	- html/bdo
+  - html/bdo
 ---
 
 ## Подзаголовок в ответе на поставленный вопрос
@@ -49,7 +49,7 @@ excluded:
 ```markdown
 ---
 related:
-	- html/bdo
+  - html/bdo
   - css/flexbox-guide
   - css/position
 ---
@@ -66,10 +66,10 @@ related:
 ```markdown
 interviews
 └── some-question
-	   ├── answers
-		 │  	└── doka-dog
-		 │        └── index.md
-		 └── index.md
+    ├── answers
+    │   └── doka-dog
+    │       └── index.md
+    └── index.md
 ```
 
 ### Структура ответа
