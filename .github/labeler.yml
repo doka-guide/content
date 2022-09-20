@@ -2,27 +2,36 @@ labeler-strategy: append
 
 css:
   - files:
-    - css/**/*.md
+    - css/**
 html:
   - files:
-    - html/**/*.md
+    - html/**
 js:
   - files:
-    - js/**/*.md
+    - js/**
 tools:
   - files:
-    - tools/**/*.md
+    - tools/**
 a11y:
   - files:
-    - a11y/**/*.md
+    - a11y/**
 'рецепт':
   - files:
-    - recipes/**/*.md
+    - recipes/**
 'кухня':
   - files:
-    - .github/*.yml
-    - .github/scripts/*.js
-    - .github/workflows/*.yml
+    - .github/**
+    - docs/**
+    - pages/**
+    - settings/**
+    - specials/**
+    - CHANGELOG.md
+    - CODEOWNERS
+    - LICENSE-ND.md
+    - LICENSE-SA.md
+    - README.md
+    - new.sh
+    - start.sh
 'улучшение':
   - files:
     - modified:
@@ -32,15 +41,7 @@ a11y:
       - tools/**/*.md
       - a11y/**/*.md
       - recipes/**/*.md
-      - docs/*.md
-      - docs/**/*.md
-      - docs/images/*.png
-      - docs/license/*/*.svg
-      - pages/**/index.md
-      - people/**/index.md"
-      - README.md
-      - LICENSE-ND.md
-      - LICENSE-SA.md
+      - people/**/index.md
     - removed:
       - css/**/*.md
       - html/**/*.md
@@ -48,15 +49,7 @@ a11y:
       - tools/**/*.md
       - a11y/**/*.md
       - recipes/**/*.md
-      - docs/*.md
-      - docs/**/*.md
-      - docs/images/*.png
-      - docs/license/*/*.svg
-      - pages/**/index.md
-      - people/**/index.md"
-      - README.md
-      - LICENSE-ND.md
-      - LICENSE-SA.md
+      - people/**/index.md
     - renamed:
       - css/**/*.md
       - html/**/*.md
@@ -64,25 +57,30 @@ a11y:
       - tools/**/*.md
       - a11y/**/*.md
       - recipes/**/*.md
-      - docs/*.md
-      - docs/**/*.md
-      - docs/images/*.png
-      - docs/license/*/*.svg
-      - pages/**/index.md
-      - people/**/index.md"
-      - README.md
-      - LICENSE-ND.md
-      - LICENSE-SA.md
+      - people/**/index.md
 'демо':
-  - modified:
-    - css/**/demos/**/*.html
-    - html/**/demos/**/*.html
-    - js/**/demos/**/*.html
-    - tools/**/demos/**/*.html
-    - a11y/**/demos/**/*.html
-    - recipes/**/demos/**/*.html
-  - assignee:
-    - skorobaeus
+  - files:
+    - modified:
+      - css/**/demos/**/*.html
+      - html/**/demos/**/*.html
+      - js/**/demos/**/*.html
+      - tools/**/demos/**/*.html
+      - a11y/**/demos/**/*.html
+      - recipes/**/demos/**/*.html
+    - removed:
+      - css/**/demos/**/*.html
+      - html/**/demos/**/*.html
+      - js/**/demos/**/*.html
+      - tools/**/demos/**/*.html
+      - a11y/**/demos/**/*.html
+      - recipes/**/demos/**/*.html
+    - renamed:
+      - css/**/demos/**/*.html
+      - html/**/demos/**/*.html
+      - js/**/demos/**/*.html
+      - tools/**/demos/**/*.html
+      - a11y/**/demos/**/*.html
+      - recipes/**/demos/**/*.html
 'дока':
   - files:
     - added:
