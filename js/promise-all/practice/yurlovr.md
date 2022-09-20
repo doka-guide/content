@@ -4,7 +4,7 @@
 
 ```js
 const peopleIds = [1, 13, 3]
-arrayFetchUsers = peopleIds.map(user => fetch(`https://swapi.dev/api/people/${user}`).then((response) => response.json()))
+const arrayFetchUsers = peopleIds.map(user => fetch(`https://swapi.dev/api/people/${user}`).then((response) => response.json()))
 
 Promise.all(arrayFetchUsers)
   .then((responses) => {
