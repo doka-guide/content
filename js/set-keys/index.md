@@ -46,7 +46,7 @@ for (const key of keys) {
 Итератор можно превратить в массив с помощью [спред-синтаксиса](/js/spread/):
 
 ```js
-const movies = [...pairs]
+const movies = [...keys]
 console.log(movies)
 // ['Сияние', 'Интерстеллар', 'Казино']
 ```
