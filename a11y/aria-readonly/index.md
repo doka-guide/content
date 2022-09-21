@@ -44,6 +44,7 @@ tags:
 - [`<input type="number">`](/html/input/#type) или `spinbutton`.
 - [`<select>`](/html/select/) или `combobox`, `listbox`.
 - [`<input type="range">`](/html/input/#type) или `slider`.
+- [`<div>`](/html/div/), [`<span>`](/html/span/) или `generic`.
 - `radiogroup`.
 - `grid`.
 - `gridcel`.
