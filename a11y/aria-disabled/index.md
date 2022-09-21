@@ -42,6 +42,7 @@ tags:
 - [`<a>`](/html/a/) или `link`.
 - [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или `group`.
 - [`<hr>`](/html/hr/) или `separator`.
+- [`<div>`](/html/div/), [`<span>`](/html/span/) и `generic`.
 - `tab`.
 - `scrollbar`.
 - `application`.
