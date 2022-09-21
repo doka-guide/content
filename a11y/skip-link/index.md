@@ -3,6 +3,8 @@ title: "Skip link"
 description: "Удобный пропуск ссылок при навигации с помощью клавиатуры."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - ссылка
   - доступность
@@ -12,7 +14,7 @@ related:
   - a11y/chto-takoe-a11y
   - html/main
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
@@ -43,16 +45,18 @@ Skip link (далее скип-линк) — специальный элемен
 
 ```html
 <body>
-<a class="skip-link" href="#main">
-  Перейти к контенту
-</a>
-<!-- Навигация -->
-<main id="main">
-  <!-- Остальной контент страницы -->
-</main>
+  <a class="skip-link" href="#main">
+    Перейти к контенту
+  </a>
+  <!-- Навигация -->
+  <main id="main">
+    <!-- Остальной контент страницы -->
+  </main>
 </body>
+```
 
 Заметьте, что мы скрываем ссылку при помощи [`transform: translateY(-100%)`](/css/transform/). Просто сделать [`display: none`](/css/display/#kak-pishetsya) нельзя, тогда скринридеры её проигнорируют.
+
 ```css
 .skip-link {
   display: block;
@@ -63,6 +67,7 @@ Skip link (далее скип-линк) — специальный элемен
   background: #F498AD;
   transform: translateY(-100%);
 }
+```
 
 Когда ссылка в фокусе, покажем её, вернув значение по умолчанию `transform`:
 
@@ -70,6 +75,7 @@ Skip link (далее скип-линк) — специальный элемен
 .skip-link:focus {
   transform: translateY(0);
 }
+```
 
 <iframe title="Пример со скип-линкой" src="demos/with-skip-link/" height="610"></iframe>
 
