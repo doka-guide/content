@@ -20,6 +20,11 @@ groups:
       - role-img-image
       - role-button
       - role-link
+      - role-alert
+      - role-status
+      - role-log
+      - role-marquee
+      - role-timer
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
