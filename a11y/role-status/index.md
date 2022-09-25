@@ -26,9 +26,10 @@ tags:
 ## Пример
 
 ```html
-<div role="status">
+<button aria-controls="message">Сохранить</button>
+<p role="status" id="message">
   Данные успешно сохранены!
-</div>
+</p>
 ```
 
 ## Как пишется
