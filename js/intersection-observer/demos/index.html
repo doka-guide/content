@@ -272,55 +272,55 @@
   <script>
 
     const syncScroll = ({ target }) => {
-      const sideContent = document.querySelector('.content--side');
+      const sideContent = document.querySelector('.content--side')
 
-      sideContent.scrollTop = target.scrollTop;
-    };
+      sideContent.scrollTop = target.scrollTop
+    }
 
-    const content = document.querySelector('.content');
+    const content = document.querySelector('.content')
 
-    content.addEventListener('scroll', syncScroll);
+    content.addEventListener('scroll', syncScroll)
 
     const callback = (entries, observer) => {
       entries.forEach((entry) => {
-        const sideTarget = document.querySelector(`.content--side .content__lazy-image[data-order="${entry.target.dataset.order}"]`);
+        const sideTarget = document.querySelector(`.content--side .content__lazy-image[data-order="${entry.target.dataset.order}"]`)
 
         if (entry.isIntersecting) {
 
-          entry.target.src = entry.target.dataset.src;
-          sideTarget.src = sideTarget.dataset.src;
+          entry.target.src = entry.target.dataset.src
+          sideTarget.src = sideTarget.dataset.src
 
           if (!entry.target.classList.contains('js-transformable')) {
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target)
 
-            return;
+            return
           }
         }
 
         if (entry.intersectionRatio === 1) {
-          entry.target.classList.add('content__lazy-image--scaled');
-          sideTarget.classList.add('content__lazy-image--scaled');
+          entry.target.classList.add('content__lazy-image--scaled')
+          sideTarget.classList.add('content__lazy-image--scaled')
         }
 
         if (!entry.isIntersecting || (entry.isIntersecting && entry.intersectionRatio !== 1)) {
-          entry.target.classList.remove('content__lazy-image--scaled');
-          sideTarget.classList.remove('content__lazy-image--scaled');
+          entry.target.classList.remove('content__lazy-image--scaled')
+          sideTarget.classList.remove('content__lazy-image--scaled')
         }
 
-      });
-    };
+      })
+    }
 
     const options = {
       root: document.querySelector('.content'),
-      rootMargin: `0px 0px 75px 0px`,
+      rootMargin: '0px 0px 75px 0px',
       threshold: [0, 1],
-    };
+    }
 
-    const observer = new IntersectionObserver(callback, options);
+    const observer = new IntersectionObserver(callback, options)
 
-    const lazyImages = document.querySelectorAll('.content__lazy-image');
+    const lazyImages = document.querySelectorAll('.content__lazy-image')
 
-    lazyImages.forEach((image) => observer.observe(image));
+    lazyImages.forEach((image) => observer.observe(image))
   </script>
 </body>
 
