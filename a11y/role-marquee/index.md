@@ -8,8 +8,8 @@ keywords:
   - ARIA
   - ARIA-атрибут
   - live region
-  - живые области
-  - интерактивные области
+  - живая область
+  - интерактивная область
 related:
   - a11y/aria-intro
   - a11y/aria-roles
