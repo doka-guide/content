@@ -74,15 +74,13 @@
   </style>
 </head>
 <body>
-  <div aria-live="polite">
-    <button class="button button-aqua">Очистить форму</button>
-    <div class="alert-message"></div>
-  </div>
+  <button class="button button-aqua" aria-controls="message">Очистить форму</button>
+  <div class="status-message" role="status" id="message"></div>
 
   <script>
     document.body.addEventListener('click', function() {
       const button = document.querySelector('.button');
-      const alert = document.querySelector('.alert-message');
+      const alert = document.querySelector('.status-message');
 
       alert.innerHTML = 'Форма очищена!';
       alert.style.display = 'block';
