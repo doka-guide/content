@@ -7,7 +7,7 @@ keywords:
   - доступность
 related:
   - a11y/aria-intro
-  - a11y/aria-role
+  - a11y/aria-roles
   - a11y/aria-attrs
 tags:
   - article
