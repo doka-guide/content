@@ -17,7 +17,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое задаёт доступное имя элементу.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое задаёт доступное имя элементу.
 
 Имя из атрибута `aria-label` видно только вспомогательным технологиям и скрыто от других пользователей.
 
