@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое определяет место одного элемента в иерархии других.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое определяет место одного элемента в иерархии других.
 
 ## Пример
 

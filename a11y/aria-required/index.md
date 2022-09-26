@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое определяет обязательность ввода данных в элемент формы перед их отправкой.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которое определяет обязательность ввода данных в элемент формы перед их отправкой.
 
 Аналог `aria-required` в HTML — атрибут [`required`](/html/required/).
 

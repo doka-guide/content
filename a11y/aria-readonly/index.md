@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент нельзя изменять, но с ним всё равно можно взаимодействовать.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент нельзя изменять, но с ним всё равно можно взаимодействовать.
 
 Так же работает HTML-атрибут [`readonly`](/html/input/#prochie-atributy).
 
