@@ -47,6 +47,27 @@ groups:
       - aria-controls
       - aria-owns
       - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+  - name: 'Live region'
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+      - role-alert
+      - role-log
+      - role-marquee
+      - role-status
+      - role-timer
+  - name: 'Ориентиры'
+      - role-banner
+      - role-navigation
+      - role-main
+      - role-complementary
+      - role-region
+      - role-form
+      - role-search
   - name: 'CSS и доступность'
     items:
       - prefers-reduced-motion
