@@ -7,52 +7,133 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
   <style>
-  body {
-    font-family: Roboto, sans-serif;
-  }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  p {
-    text-align: justify;
-  }
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
 
-  .option-title {
-    font-size: 18px;
-  }
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
 
-  .none {
-    text-justify: none;
-  }
+    h1 {
+      font-weight: 500;
+      font-size: 30px;
+    }
 
-  .auto {
-    text-justify: auto;
-  }
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
 
-  .word {
-    text-justify: inter-word;
-  }
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
+    }
 
-  .char {
-    text-justify: inter-character;
-  }
+    h1, .option-title {
+      width: 260px;
+      text-align: right;
+    }
+
+    .option {
+      width: 50%;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    .none {
+      text-justify: none;
+    }
+
+    .auto {
+      text-justify: auto;
+    }
+
+    .word {
+      text-justify: inter-word;
+    }
+
+    .char {
+      text-justify: inter-character;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+
+      h1, .option-title {
+        width: 100%;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option {
+        width: calc(100vw - 60px);
+      }
+    }
   </style>
 </head>
 <body>
-  <span class="option-title">none</span>
-  <p class="none">
-    Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
-  </p>
-  <span class="option-title">auto</span>
-  <p class="auto">
-    Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
-  </p>
-  <span class="option-title">inter-word</span>
-  <p class="word">
-    Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
-  </p>
-  <span class="option-title">inter-character</span>
-  <p class="char">
-    Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
-  </p>
+  <div class="container">
+    <h1><code>text-justify</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>none</code></span>
+      <p class="option none">
+        Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>auto</code></span>
+      <p class="option auto">
+        Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>inter-word</code></span>
+      <p class="option word">
+        Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>inter-character</code></span>
+      <p class="option char">
+        Да живи ты хоть три тысячи лет, хоть тридцать тысяч, только помни, что человек никакой другой жизни не теряет, кроме той, которой жив; и живёт лишь той, которую теряет. Вот и выходит одно на одно длиннейшее и кратчайшее. Ведь настоящее у всех равно, хотя и не равно то, что утрачивается; так оказывается каким-то мгновением то, что мы теряем, а прошлое и будущее терять нельзя, потому что нельзя ни у кого отнять то, чего у него нет.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
