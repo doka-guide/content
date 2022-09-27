@@ -36,21 +36,21 @@ const truthyValue = true // «Истина»
 const falsyValue = false // «Ложь»
 ```
 
-Второй способ — использовать конструктор `Boolean`:
+Второй способ — использовать метод `Boolean`:
 
 ```js
 const truthyValue = Boolean(1) // «Истина»
 const falsyValue = Boolean('') // «Ложь»
 ```
 
-Как видите, даже значения других типов, например, числовые или строковые, конструктор приводит к булеву типу.
+Как видите, даже значения других типов, например, числовые или строковые, приводятся к булеву типу.
 
 Третий способ — использовать выражения, значениями которых будут «истина» или «ложь». (Мы поговорим о таких выражениях подробнее ниже)
 
 Следующие два выражения истинны, потому что 4 действительно меньше 5.
 
 ```js
-const truthyValue = new Boolean(4 < 5)
+const truthyValue = Boolean(4 < 5)
 const anotherTruthy = 4 < 5
 
 console.log(truthyValue)
@@ -62,7 +62,7 @@ console.log(anotherTruthy)
 Следующие два — ложны, потому что 2 * 2 === 4:
 
 ```js
-const falsyValue = new Boolean(2 * 2 === 5)
+const falsyValue = Boolean(2 * 2 === 5)
 const anotherFalsy = 2 * 2 === 5
 
 console.log(falsyValue)
