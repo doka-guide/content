@@ -5,6 +5,7 @@ authors:
   - doka-dog
 contributors:
   - kalpovskii
+  - starhamster
 keywords:
   - тип выравнивания текста
 related:
