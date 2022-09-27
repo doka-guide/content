@@ -3,6 +3,8 @@ title: "`list-style`"
 description: "Шорткат, которым удобно стилизовать маркеры списка."
 authors:
   - blueingreen68
+contributors:
+  - solarrust
 related:
   - html/li
   - css/list-style-position
