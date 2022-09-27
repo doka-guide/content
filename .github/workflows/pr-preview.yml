@@ -73,7 +73,7 @@ jobs:
         id: links
         run: |
           file_list=""
-          for f in ${{ steps.files.outputs.all }}; do
+          for f in ${{ needs.prepare.outputs.files }}; do
             if [[ $changed_file =~ ".html" ]]; then
               file_list=$(echo -e "${file_list}<li><a href="${{ env.DEPLOY_DOMAIN }}/${f}">${f}</a></li>")
             fi
