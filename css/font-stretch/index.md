@@ -1,12 +1,9 @@
 ---
 title: "`font-stretch`"
 authors:
-  - doka-dog
+  - kalpovskii
 tags:
   - doka
-  - placeholder
-contributors:
-  - kalpovskii
 ---
 
 ## Кратко
