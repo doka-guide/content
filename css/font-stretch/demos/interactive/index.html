@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования — font-stretch — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <style>
+    @font-face {
+      font-family: 'Inconsolata';
+      font-style: normal;
+      font-weight: 200 900;
+      font-stretch: 50% 200%;
+      src: url(https://fonts.gstatic.com/s/inconsolata/v31/QldKNThLqRwH-OJ1UHjlKGlZ5qg.woff2) format('woff2');
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      accent-color: #F498AD;
+      font-size: 18px;
+    }
+
+    div {
+      margin: 0;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    label {
+      display: flex;
+      gap: 1%;
+      width: 300px;
+      align-items: center;
+      margin-inline: auto;
+      margin-bottom: 40px;
+    }
+
+    input {
+      margin-right: 40px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #F498AD;
+      outline: none;
+    }
+
+    .variable-text {
+      font-family: Inconsolata;
+      font-size: 36px;
+    }
+
+    .variable-text {
+      font-stretch: 50%
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label>
+      font-stretch:
+      <input type="number" id="fontWeight" value="50" min="50" max="200" step="10">
+    </label>
+
+    <p id="variableTest" class="inconsolata variable-text">The quick brown fox jumps over the lazy dog</p>
+  </div>
+  <script>
+    let fontWeight = document.querySelector('#fontWeight')
+    let variableTest = document.querySelector('#variableTest')
+    fontWeight.addEventListener('change', (e) => {
+      variableTest.style.fontStretch = e.currentTarget.value + '%'
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ключевые слова — font-stretch — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @font-face {
+      font-family: 'Inconsolata';
+      font-style: normal;
+      font-weight: 200 900;
+      font-stretch: 50% 200%;
+      src: url(https://fonts.gstatic.com/s/inconsolata/v31/QldKNThLqRwH-OJ1UHjlKGlZ5qg.woff2) format('woff2');
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    .variable-text {
+      font-family: Inconsolata;
+      transition: 0.3s;
+    }
+
+    .ultra-condensed {
+      font-stretch: ultra-condensed;
+    }
+    .condensed {
+      font-stretch: condensed;
+    }
+    .normal {
+      font-stretch: normal;
+    }
+    .expanded {
+      font-stretch: expanded;
+    }
+    .ultra-expanded {
+      font-stretch: ultra-expanded;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="variable-text ultra-condensed"><span>ultra-condensed:</span> The quick brown fox jumps over the lazy dog</li>
+    <li class="variable-text condensed"><span>condensed:</span> The quick brown fox jumps over the lazy dog</li>
+    <li class="variable-text normal"><span>normal:</span> The quick brown fox jumps over the lazy dog</li>
+    <li class="variable-text expanded"><span>expanded:</span> The quick brown fox jumps over the lazy dog</li>
+    <li class="variable-text ultra-expanded"><span>ultra-expanded:</span> The quick brown fox jumps over the lazy dog</li>
+  </ul>
+</body>
+</html>
