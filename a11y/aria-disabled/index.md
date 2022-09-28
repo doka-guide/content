@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-[Состояние виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент нельзя изменять и взаимодействовать с ним как-то ещё.
+[Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент нельзя изменять и взаимодействовать с ним как-то ещё.
 
 Так же работает HTML-атрибут [`disabled`](/html/disabled/).
 

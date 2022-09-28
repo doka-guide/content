@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-[Состояние виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Даёт вспомогательным технологиям понять, что элемент что-то разворачивает или сворачивает.
+[Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Даёт вспомогательным технологиям понять, что элемент что-то разворачивает или сворачивает.
 
 ## Пример
 

@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-[Состояние виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что пользователь сейчас находится на определённом элементе из группы других.
+[Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что пользователь сейчас находится на определённом элементе из группы других.
 
 ## Пример
 

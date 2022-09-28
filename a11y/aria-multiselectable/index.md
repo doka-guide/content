@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что пользователь может выбрать несколько элементов.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что пользователь может выбрать несколько элементов.
 
 В HTML точно так же работает атрибут [`multiple`](/html/multiple/).
 

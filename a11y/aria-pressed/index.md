@@ -20,7 +20,7 @@ tags:
 
 ## Кратко
 
-[Состояние виджета](/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает состояние, в котором сейчас находится переключатель — тогл.
+[Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает состояние, в котором сейчас находится переключатель — тогл.
 
 ## Пример
 
