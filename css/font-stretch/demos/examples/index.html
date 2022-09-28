@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>examples — font-stretch — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <style>
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 200 900;
+  font-stretch: 50% 200%;
+  src: url(https://fonts.gstatic.com/s/inconsolata/v31/QldKNThLqRwH-OJ1UHjlKGlZ5qg.woff2) format('woff2');
+}
+
+body {
+  font-size: 36px
+}
+
+p {
+  font-family: Inconsolata;
+  transition: 0.3s
+}
+  </style>
+
+</head>
+
+<body>
+<p style="font-family:sans-serif; font-size:22px"> font-stretch: <input type="range" id="fontWeight" value="50" min="50" max="200" step="5" style="margin-right: 40px"> двигай! (ᵔᴥᵔoU)</p>
+  <p id="variableTest" style="font-stretch:50%" class="inconsolata variableTest">
+  Tyger Tyger, burning bright,<br> 
+  In the forests of the night;<br>
+  What immortal hand or eye,<br> 
+  Could frame thy fearful symmetry?<br>
+  </p>
+<p>
+  <span style="font-stretch: ultra-condensed">Ultra-Condensed</span> <br>
+  <span style="font-stretch: condensed">Condensed</span> <br>
+  <span style="font-stretch: normal">Normal</span> <br>
+  <span style="font-stretch: expanded">Expanded</span> <br>
+  <span style="font-stretch: ultra-expanded">Ultra-Expanded</span>
+</p>
+<script>
+  fontWeight.addEventListener('change', (e) => {
+    variableTest.style.fontStretch = e.currentTarget.value + '%';
+  })
+</script>
+</body>
+</html>
