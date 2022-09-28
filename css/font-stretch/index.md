@@ -31,7 +31,7 @@ tags:
 
 Интерактивный пример использования процентов в качестве значения:
 
-<iframe title="examples" src="demos/interactive/" height="400"></iframe>
+<iframe title="Интерактивный пример с процентами" src="demos/interactive/" height="400"></iframe>
 
 **Сопоставление ключевых слов с числовыми значениями:**
 
@@ -47,7 +47,7 @@ tags:
 
 Пример использования ключевых слов в качестве значения:
 
-<iframe title="examples" src="demos/keywords/" height="450"></iframe>
+<iframe title="Ключевые слова" src="demos/keywords/" height="450"></iframe>
 
 ## Подсказки
 
