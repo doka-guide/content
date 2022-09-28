@@ -3,6 +3,8 @@ title: "`::marker`"
 description: "Псевдоэлемент для работы с маркерами элементов списка."
 authors:
   - blueingreen68
+contributors:
+  - solarrust
 related:
   - css/pseudoelements
   - html/ul

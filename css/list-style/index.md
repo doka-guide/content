@@ -3,6 +3,8 @@ title: "`list-style`"
 description: "Шорткат, которым удобно стилизовать маркеры списка."
 authors:
   - blueingreen68
+contributors:
+  - solarrust
 related:
   - html/li
   - css/list-style-position
@@ -82,7 +84,7 @@ ul {
 
 Если установить просто значение `none` свойству `list-style`, то значение `none` примениться только к `list-style-image` и `list-style-type`, но не к свойству `list-style-position`, потому что у него нет значения `none`.
 
-Код ниже устанавливает значение none для свойств `list-style-image` и `list-style-type`:
+Код ниже устанавливает значение `none` для свойств `list-style-image` и `list-style-type`:
 
 ```css
 ul {
