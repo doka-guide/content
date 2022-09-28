@@ -2,8 +2,6 @@
 title: "`text-justify`"
 description: "Как будем текст выравнивать? Добавим пробелы между словами или между символами?"
 authors:
-  - doka-dog
-contributors:
   - kalpovskii
   - starhamster
 keywords:
@@ -14,7 +12,6 @@ related:
   - css/word-spacing
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
