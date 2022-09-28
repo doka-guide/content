@@ -1,7 +1,12 @@
 ---
 title: "`font-stretch`"
+description: "Свойство для управления шириной букв для вариативных шрифтов."
 authors:
   - kalpovskii
+related:
+  - css/font-face
+  - css/font-weight
+  - css/font-optical-sizing
 tags:
   - doka
 ---
@@ -12,7 +17,7 @@ tags:
 
 ## Как пишется
 
-Некоторые шрифты имеют дополнительные начертания, в которых символы могут быть у́же (`condensed`) или шире (`expanded`) нормальной ширины. Если используемый вами шрифт не предполагает таких начертаний, то свойство `font-stretch` действовать не будет
+Некоторые шрифты имеют дополнительные начертания, в которых символы могут быть у́же (`condensed`) или шире (`expanded`) нормальной ширины. Если используемый вами шрифт не предполагает таких начертаний, то свойство `font-stretch` действовать не будет.
 
 **Возможные значения:**
 
@@ -30,15 +35,15 @@ tags:
 
 **Сопоставление ключевых слов с числовыми значениями:**
 
-- `ultra-condensed` — 50%
-- `extra-condensed` — 62.5%
-- `condensed` — 75%
-- `semi-condensed` — 87.5%
-- `normal` — 100%
-- `semi-expanded` — 112.5%
-- `expanded` — 125%
-- `extra-expanded` — 150%
-- `ultra-expanded` — 200%
+- `ultra-condensed` — 50%;
+- `extra-condensed` — 62.5%;
+- `condensed` — 75%;
+- `semi-condensed` — 87.5%;
+- `normal` — 100%;
+- `semi-expanded` — 112.5%;
+- `expanded` — 125%;
+- `extra-expanded` — 150%;
+- `ultra-expanded` — 200%.
 
 Пример использования ключевых слов в качестве значения:
 
