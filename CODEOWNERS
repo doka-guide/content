@@ -1,6 +1,6 @@
 css @solarrust
 html @solarrust
-js @nlopin
-tools @nlopin @igsekor
-recipes @nlopin @solarrust
+js @nlopin @hellsquirrel
+tools @nlopin @igsekor @hellsquirrel
+recipes @nlopin @solarrust @hellsquirrel
 .github @igsekor
