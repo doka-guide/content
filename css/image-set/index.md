@@ -47,7 +47,7 @@ div {
 
 ## Поддержка
 
-Firefox поддерживает свойство полностью. Поддержку в остальных браузерах можно уточнять на [Can I use](https://caniuse.com/?search=image-set).
+Firefox поддерживает свойство полностью. Поддержку в остальных браузерах можно уточнить на [Can I use](https://caniuse.com/?search=image-set).
 
 Особенности поддержки в Chrome и Safari в данный момент:
 
@@ -80,4 +80,5 @@ div {
 }
 ```
 
-Проверить поддержку на данный момент вы можете в [демке](https://pepelsbey.github.io/playground/63/).
+Проверить поддержку на данный момент вы можете в демке.
+<iframe title="Поддержка свойства в браузерах" src="demos/checking-support/" height="340"></iframe>

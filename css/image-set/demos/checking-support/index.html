@@ -29,7 +29,7 @@
       color: #ffffff;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
       body {
         padding: 30px;
       }
@@ -38,13 +38,14 @@
     h2 {
       margin-top: 40px;
       margin-bottom: 17px;
+      margin-left: 15px;
       font-weight: 500;
       font-size: 1.375rem;
     }
 
     .container {
       display: flex;
-      gap: 20px;
+      gap: 30px;
       max-width: 100%;
     }
 
@@ -52,12 +53,6 @@
       .container {
         flex-direction: column;
       }
-    }
-
-    .block {
-      display: flex;
-      flex-direction: column;
-      column-gap: 8px;
     }
 
     .title-picture {
@@ -111,7 +106,7 @@
 </head>
 <body>
 <div class="container">
-  <div class="block">
+  <div>
     <h2 class="title-picture">&lt;picture&gt;</h2>
     <picture>
       <source srcset="images/content@1x.avif 1x, images/content@2x.avif 2x" type="image/avif">
@@ -123,7 +118,7 @@
            width="300">
     </picture>
   </div>
-  <div class="block">
+  <div>
     <h2 class="title-preview">image-set(…)</h2>
     <div class="preview"></div>
   </div>
