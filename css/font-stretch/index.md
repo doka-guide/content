@@ -47,7 +47,7 @@ tags:
 
 Пример использования ключевых слов в качестве значения:
 
-<iframe title="Ключевые слова" src="demos/keywords/" height="450"></iframe>
+<iframe title="Ключевые слова" src="demos/keywords/" height="865"></iframe>
 
 ## Подсказки
 
