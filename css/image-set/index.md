@@ -81,4 +81,4 @@ div {
 ```
 
 Проверить поддержку на данный момент вы можете в демке.
-<iframe title="Поддержка свойства в браузерах" src="demos/checking-support/" height="340"></iframe>
+<iframe title="Поддержка свойства в браузерах" src="demos/checking-support/" height="400"></iframe>
