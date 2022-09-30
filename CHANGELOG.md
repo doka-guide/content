@@ -4,6 +4,7 @@
 
 ## Сентябрь 2022
 
+- 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
 - 28 сентября, [`place-content`](https://doka.guide/css/place-content/), Алексей Никитченко
 - 19 сентября, [`@supports`](https://doka.guide/css/supports/), Инна Абдрахманова
 - 12 сентября, [`<dialog>`](https://doka.guide/html/dialog/), Артур Бэйлис Ли
