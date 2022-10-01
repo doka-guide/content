@@ -41,7 +41,7 @@ tags:
 
 `aria-describedby` можно использовать для всех интерактивных и некоторых неинтерактивных элементов — групп элементов, областей страниц с заголовками, определений и похожего содержимого.
 
-Также `aria-describedby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/) и [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya).
+Также `aria-describedby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/), [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya).
 
 Описание из `aria-describedby` должно быть строкой текста и располагаться на одной странице с элементом, с которым оно связано.
 
