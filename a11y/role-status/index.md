@@ -36,7 +36,7 @@ tags:
 
 Добавьте к тегу атрибут `role="status"`. Роль можно использовать для всех тегов.
 
-У `status` по умолчанию есть свойства [`aria-live="polite"`](/a11y/aria-live/) и `aria-atomic="true"`.
+У `status` по умолчанию есть свойства [`aria-live="polite"`](/a11y/aria-live/) и [`aria-atomic="true"`](/a11y/aria-atomic/).
 
 [Скринридер](/a11y/screenreaders/) объявит сообщение с ролью `status` после другой, более важной информации.
 
