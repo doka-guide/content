@@ -36,7 +36,7 @@ tags:
 
 Лучше использовать `<button>`, `<summary>` или `<input>` с типами `button`, `image`, `reset`, `submit` вместо роли `button`. Теги ведут себя как ссылки по умолчанию. Если используете роль `button`, то не обойтись без JavaScript.
 
-Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — `aria-disabled`, `aria-haspopup`, `aria-expanded` и `aria-pressed`.
+Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-haspopup`](/a11y/aria-haspopup/), [`aria-expanded`](/a11y/aria-expanded/) и [`aria-pressed`](/a11y/aria-pressed/).
 
 ## Как понять
 
