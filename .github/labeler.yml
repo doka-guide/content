@@ -74,13 +74,8 @@ a11y:
       - tools/**/demos/**/*.html
       - a11y/**/demos/**/*.html
       - recipes/**/demos/**/*.html
-    - renamed:
-      - css/**/demos/**/*.html
-      - html/**/demos/**/*.html
-      - js/**/demos/**/*.html
-      - tools/**/demos/**/*.html
-      - a11y/**/demos/**/*.html
-      - recipes/**/demos/**/*.html
+  - assignee:
+    - skorobaeus
 'дока':
   - files:
     - added:
