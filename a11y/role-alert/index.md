@@ -35,7 +35,7 @@ tags:
 
 Добавьте к тегу атрибут `role="alert"`. Роль можно использовать для всех тегов.
 
-У `alert` по умолчанию есть свойства [`aria-live="assertive"`](/a11y/aria-live/) и `aria-atomic="true"`.
+У `alert` по умолчанию есть свойства [`aria-live="assertive"`](/a11y/aria-live/) и [`aria-atomic="true"`](/a11y/aria-atomic/).
 
 [Скринридер](/a11y/screenreaders/) объявит сообщение с ролью `alert` сразу же, как только оно появится.
 
