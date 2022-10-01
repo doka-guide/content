@@ -13,7 +13,7 @@ keywords:
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/aria-relevant
 tags:
   - doka
   - placeholder
@@ -21,7 +21,7 @@ tags:
 
 ## Кратко
 
-[Свойство изменяющихся областей](/a11y/aria-attrs/#atributy-izmenyayushchihsya-oblastey) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). `aria-atomic` нужно для указания объёма изменений, о котором сообщит вспомогательная технология на основе значения `aria-relevant`. Это вся «живая» область или её часть.
+[Свойство изменяющихся областей](/a11y/aria-attrs/#atributy-izmenyayushchihsya-oblastey) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). `aria-atomic` нужно для указания объёма изменений, о котором сообщит вспомогательная технология на основе значения [`aria-relevant`](/a11y/aria-relevant/). Это вся «живая» область или её часть.
 
 ## Пример
 
