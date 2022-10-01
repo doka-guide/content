@@ -10,7 +10,7 @@ keywords:
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/aria-controls
 tags:
   - doka
   - placeholder
@@ -46,8 +46,8 @@ tags:
 
 Атрибут можно использовать только для некоторых тегов и [ARIA-ролей](/a11y/aria-roles/):
 
-- [`<a>`](/html/a/) или `link`.
-- [`<button>`](/html/button/) или `button`.
+- [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
+- [`<button>`](/html/button/) или [`button`](/a11y/role-button/).
 - [`<input type="checkbox">`](/html/input/#type) или `checkbox`.
 - [`<select>`](/html/select/) или `combobox`, `listbox`.
 - [`<tr>`](/html/tables/#tr) или `row`.
@@ -58,7 +58,7 @@ tags:
 - `treeitem`.
 - `gridcell`.
 
-Используйте `aria-expanded` вместе с `aria-controls` или `aria-owns`, когда контейнер с разворачивающимся содержимым не вложен в главный элемент.
+Используйте `aria-expanded` вместе с [`aria-controls`](/a11y/aria-controls/) или [`aria-owns`](/a11y/aria-owns/), когда контейнер с разворачивающимся содержимым не вложен в главный элемент.
 
 ## Как понять
 
