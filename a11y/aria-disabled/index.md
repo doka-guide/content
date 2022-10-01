@@ -38,11 +38,11 @@ tags:
 
 `aria-disabled` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли `button`.
-- [`<a>`](/html/a/) или `link`.
+- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/).
+- [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
 - [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или `group`.
 - [`<hr>`](/html/hr/) или `separator`.
-- [`<div>`](/html/div/), [`<span>`](/html/span/) и `generic`.
+- [`<div>`](/html/div/), [`<span>`](/html/span/) или `generic`.
 - `tab`.
 - `scrollbar`.
 - `application`.
