@@ -10,7 +10,7 @@ keywords:
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/aria-multiselectable
 tags:
   - doka
   - placeholder
@@ -56,7 +56,7 @@ tags:
 - `row`.
 - `gridcell`.
 
-Атрибут указывает на выбор одного или нескольких элементов. Когда можно выбрать несколько элементов, используйте для их контейнера атрибут `aria-multiselectable`.
+Атрибут указывает на выбор одного или нескольких элементов. Когда можно выбрать несколько элементов, используйте для их контейнера атрибут [`aria-multiselectable`](/a11y/aria-multiselectable/).
 
 ## Как понять
 
