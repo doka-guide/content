@@ -36,7 +36,7 @@ tags:
 
 В большинстве случаев лучше использовать `<a>` вместо роли `link`. Тег ведёт себя как ссылка по умолчанию. Если используете роль `link`, то не обойтись без JavaScript.
 
-Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — `aria-disabled`, `aria-haspopup` и `aria-expanded`.
+Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-haspopup`](/a11y/aria-haspopup/) и [`aria-expanded`](/a11y/aria-expanded/).
 
 ## Как понять
 
