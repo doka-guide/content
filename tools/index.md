@@ -52,6 +52,7 @@ groups:
       - dockerfile
   - name: Как устроена сеть
     items:
+      - url
       - network
       - network-models
       - encoding
