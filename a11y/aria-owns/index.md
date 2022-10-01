@@ -21,7 +21,9 @@ tags:
 [Свойство связи](/a11y/aria-attrs/#atributy-svyazi) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что один элемент или несколько связаны с другими как родители или дети визуально, функционально или контекстно, но это не отражено в [DOM](/js/dom/).
 
 <aside>
+
 ⚠️ Пока [`aria-owns` не поддерживается](https://a11ysupport.io/tech/aria/aria-owns_attribute) VoiceOver в десктопном и мобильном Safari.
+
 </aside>
 
 ## Пример
