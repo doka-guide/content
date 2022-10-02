@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Готовый счётчик — Счётчик символов — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .riddle {
+      width: 55%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    .riddle p {
+      color: #000000;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    label {
+      margin-right: 15px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      width: 150px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #C56FFF;
+      outline: none;
+    }
+
+    output {
+      display: inline-block;
+      width: 30px;
+      border-radius: 5px;
+      background-color: #2E9AFF;
+      text-align: center;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .riddle {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="riddle">
+    <p>Вокруг снег, да лес не белый.</p>
+    <p>А какой?</p>
+  </div>
+  <div>
+    <label for="answer">Угадайте цвет:</label>
+    <input id="answer" placeholder="Семь букв" autocomplete="off">
+    <output>0</output>
+  </div>
+  <script>
+    const input = document.querySelector('input')
+    const output = document.querySelector('output')
+
+    input.addEventListener('input', function () {
+      output.textContent = 0 + this.value.length
+
+      if (this.value.length > '7') {
+        output.style.backgroundColor = '#a52a2a'
+      } else {
+        output.style.backgroundColor = '#2E9AFF'
+      }
+
+      if (this.value.toLowerCase() === 'зеленый' || this.value.toLowerCase() == 'зелёный') {
+        output.style.backgroundColor = '#41E847'
+      }
+    })
+  </script>
+</body>
+</html>
