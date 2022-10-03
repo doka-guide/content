@@ -8,50 +8,118 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      padding: 7%;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      font-family: "Roboto", sans-serif;
-      text-align: center;
-    }
-
-    label {
-      display: inline-block;
-      margin-right: 10px;
       color: #FFFFFF;
-      font-size: 24px;
-      font-weight: 500;
-      text-align: left;
+      font-family: "Roboto", sans-serif;
     }
 
     input {
-      height: 40px;
-      width: 400px;
-      border: 2px solid white;
-      border-radius: 7px;
-      padding: 3px 10px;
-      font-family: "Roboto", sans-serif;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
       font-size: 18px;
       font-weight: 300;
-    }
-
-    input::placeholder {
-      color: grey;
-      font-size: 18px;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     input:focus {
+      border-color: #FF8630;
       outline: none;
-      border-color: #F498AD;
+    }
+
+    textarea {
+      min-width: 350px;
+      max-width: 350px;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      display: inline-block;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-    <label for="name">Имя</label>
-    <input type="text" id="name" placeholder="Введите ваше имя">
+    <form>
+      <div class="form-row">
+        <label class="row-label" for="name">Ваше имя:</label>
+        <input class="input" type="text" id="name" placeholder="Евгений Онегин">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="about">О вас:</label>
+        <textarea id="about" placeholder="Томясь в бездействии досуга&#10;Без службы, без жены, без дел,&#10;Ничем заняться не умел"></textarea>
+      </div>
+    </form>
 </body>
