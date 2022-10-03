@@ -2,6 +2,15 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2022
+
+- 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
+- 28 сентября, [`place-content`](https://doka.guide/css/place-content/), Алексей Никитченко
+- 19 сентября, [`@supports`](https://doka.guide/css/supports/), Инна Абдрахманова
+- 12 сентября, [`<dialog>`](https://doka.guide/html/dialog/), Артур Бэйлис Ли
+- 1 сентября, [`<area>`](https://doka.guide/html/area/), Алексей Никитченко
+- 1 сентября, [`list-style`](https://doka.guide/css/list-style/), Алексей Степанов
+
 ## Август 2022
 
 - 30 августа, [`<map>`](https://doka.guide/html/map/), Алексей Никитченко
