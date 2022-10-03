@@ -22,9 +22,24 @@
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
+      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
-    
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #2E9AFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
 
     @media (max-width: 768px) {
       body {
