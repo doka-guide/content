@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Октябрь 2022
+
+- 3 октября, [`<object>`](https://doka.guide/html/object/), Андрей Калповский
+
 ## Сентябрь 2022
 
 - 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
