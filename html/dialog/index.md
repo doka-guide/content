@@ -82,7 +82,7 @@ tags:
 </dialog>
 ```
 
-<iframe title="Варианты закрытия" src="demos/close-variants/" height="290"></iframe>
+<iframe title="Варианты закрытия" src="demos/close-dialog-outside/" height="290"></iframe>
 
 ### Возвращаемое значение
 
