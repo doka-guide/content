@@ -3,6 +3,7 @@ title: "`font-stretch`"
 description: "Свойство для управления шириной букв для вариативных шрифтов."
 authors:
   - kalpovskii
+  - starhamster
 related:
   - css/font-face
   - css/font-weight
@@ -24,7 +25,7 @@ tags:
 - `normal` — нормальная или «текстовая» ширина шрифта (значение по умолчанию).
 - `semi-condensed`, `condensed`, `extra-condensed`, `ultra-condensed` — сжатое начертание разной степени.
 - `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded` — расширенное начертание разной степени.
-- проценты — точное указание процентов в диапазоне от 50 до 200, не включая границы. Отрицательные значения недопустимы.
+- проценты — точное указание процентов. Отрицательные значения недопустимы. Границы диапазона зависят от того, какие значения поддерживает шрифт.
 
 ![Примеры шрифтов](./images/example.png)
 Пример двух разных шрифтов с значениями, указанными в процентах
@@ -45,9 +46,24 @@ tags:
 - `extra-expanded` — 150%;
 - `ultra-expanded` — 200%.
 
+<aside>
+
+⚠️ Некоторые шрифты поддерживают не все значения. Так, Roboto Flex поддерживает значения в диапазоне от 25 до 151% и в примере ниже `font-stretch` будет иметь значение 151%, а не 200%, как ожидалось.
+
+```css
+p {
+  font-family: "Roboto Flex", sans-serif;
+  font-stretch: ultra-expanded;
+}
+```
+
+Посмотреть, какие начертания поддерживает шрифт можно на [Google Fonts](https://fonts.google.com/variablefonts?vfaxis=wdth).
+
+</aside>
+
 Пример использования ключевых слов в качестве значения:
 
-<iframe title="Ключевые слова" src="demos/keywords/" height="450"></iframe>
+<iframe title="Ключевые слова" src="demos/keywords/" height="865"></iframe>
 
 ## Подсказки
 
