@@ -4,15 +4,11 @@
   <title>Ключевые слова — font-stretch — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth@50..200&display=swap">
   <style>
-    @font-face {
-      font-family: 'Inconsolata';
-      font-style: normal;
-      font-weight: 200 900;
-      font-stretch: 50% 200%;
-      src: url(https://fonts.gstatic.com/s/inconsolata/v31/QldKNThLqRwH-OJ1UHjlKGlZ5qg.woff2) format('woff2');
-    }
-
     *, *::before, *::after {
       margin: 0;
       padding: 0;
@@ -26,21 +22,46 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      font-size: 24px;
-      line-height: 1.4;
+      font-size: 16px;
+      color: #FFFFFF;
     }
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      width: 85%;
-      padding: 55px 40px;
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
+
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
+      width: 210px;
+      text-align: right;
+    }
+
+    .option {
+      width: 450px;
+      padding: 35px 20px;
       background-color: #2E9AFF;
+      color: #000000;
     }
 
-    .variable-text {
+    p {
+      margin: 7px 0;
+      font-size: 1em;
+      line-height: 1.4;
+      text-align: justify;
       font-family: Inconsolata;
-      transition: 0.3s;
     }
 
     .ultra-condensed {
@@ -63,16 +84,49 @@
       body {
         padding: 30px;
       }
+
+      .option-container {
+        flex-direction: column;
+      }
+
+      .option-title {
+        width: 100%;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option {
+        width: calc(100vw - 60px);
+      }
     }
   </style>
 </head>
 <body>
-  <ul>
-    <li class="variable-text ultra-condensed"><span>ultra-condensed:</span> The quick brown fox jumps over the lazy dog</li>
-    <li class="variable-text condensed"><span>condensed:</span> The quick brown fox jumps over the lazy dog</li>
-    <li class="variable-text normal"><span>normal:</span> The quick brown fox jumps over the lazy dog</li>
-    <li class="variable-text expanded"><span>expanded:</span> The quick brown fox jumps over the lazy dog</li>
-    <li class="variable-text ultra-expanded"><span>ultra-expanded:</span> The quick brown fox jumps over the lazy dog</li>
-  </ul>
+  <div class="container">
+    <h1><code>font-stretch</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>ultra-condensed</code></span>
+      <p class="option ultra-condensed">The quick brown fox jumps over the lazy dog</p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>condensed</code></span>
+      <p class="option condensed">The quick brown fox jumps over the lazy dog</p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>normal</code></span>
+      <p class="option normal">The quick brown fox jumps over the lazy dog</p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>expanded</code></span>
+      <p class="option expanded">The quick brown fox jumps over the lazy dog</p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>ultra-expanded</code></span>
+      <p class="option ultra-expanded">The quick brown fox jumps over the lazy dog</p>
+    </div>
+  </div>
 </body>
 </html>
