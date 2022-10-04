@@ -176,6 +176,7 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
+      - element-scrollby
       - element-scrollintoview
       - element-scrollto
       - element-classlist
