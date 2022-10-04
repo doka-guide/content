@@ -164,7 +164,7 @@ if (this.value.length > 7) {
   output.style.backgroundColor = '#2E9AFF'
 }
 
-if (this.value.toLowerCase() === 'зеленый' || this.value.toLowerCase() == 'зелёный') {
+if (/^зел[её]ный$/i.test(this.value)) {
   output.style.backgroundColor = '#41E847'
 }
 ```
@@ -263,7 +263,7 @@ input.addEventListener('input', function () {
     output.style.backgroundColor = '#2E9AFF'
   }
 
-  if (this.value.toLowerCase() == 'зеленый' || this.value.toLowerCase() == 'зелёный') {
+  if (/^зел[её]ный$/i.test(this.value)) {
     output.style.backgroundColor = '#41E847'
   }
 })
