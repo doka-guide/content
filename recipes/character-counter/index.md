@@ -158,7 +158,7 @@ input.addEventListener('input', function () {
 Для красоты можно добавить изменение стилей на случай правильного ответа или превышения числа символов:
 
 ```js
-if (this.value.length > '7') {
+if (this.value.length > 7) {
   output.style.backgroundColor = '#a52a2a'
 } else {
   output.style.backgroundColor = '#2E9AFF'
