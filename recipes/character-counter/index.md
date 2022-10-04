@@ -257,7 +257,7 @@ const output = document.querySelector('output')
 input.addEventListener('input', function () {
   output.textContent = 0 + this.value.length
 
-  if (this.value.length > '7') {
+  if (this.value.length > 7) {
     output.style.backgroundColor = '#a52a2a'
   } else {
     output.style.backgroundColor = '#2E9AFF'
