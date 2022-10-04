@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Варианты использования — aspect-ratio — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5% 0;
+        background-color: #18191c;
+      }
+
+      .block {
+        position: relative;
+        margin: auto;
+        width: clamp(290px, 50%, 420px);
+      }
+
+      .block img {
+        width: 100%;
+      }
+
+      .block mark {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      .aspect-1-to-1 img {
+        aspect-ratio: 1 / 1;
+      }
+
+      .aspect-auto img {
+        aspect-ratio: auto 1 / 1;
+      }
+
+      .style-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: clamp(290px, 50%, 420px);
+        margin: auto;
+        margin-top: 10px;
+        padding: 10px 0;
+        list-style-type: none;
+        user-select: none;
+      }
+
+      .style-list__item {
+        position: relative;
+        background-color: #d6e4ff;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .style-list__item:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      label {
+        position: relative;
+        display: block;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: all 200ms ease-in-out;
+      }
+
+      input:checked + label {
+        background: #85a5ff;
+      }
+
+      input[type="radio"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="style-list">
+      <li class="style-list__item">
+        <input id="aspect-1-to-1" data-value="1 / 1" type="radio" name="style" checked />
+        <label for="aspect-1-to-1">
+          1 / 1
+        </label>
+      </li>
+      <li class="style-list__item">
+        <input id="aspect-auto" data-value="auto 1 / 1" type="radio" name="style" />
+        <label for="aspect-auto">
+          auto 1 / 1
+        </label>
+      </li>
+    </ul>
+    <div class="block aspect-1-to-1">
+      <mark>1 / 1</mark>
+      <img src="../../images/sphere.jpg" alt="Sphere">
+    </div>
+    <script>
+      const block = document.querySelector(".block");
+      const regx = new RegExp("aspect-.+", "gm");
+
+      document.querySelector(".style-list").addEventListener("click", (e) => {
+        const id = e.target.id;
+        if (id) {
+          block.className = block.className.replace(regx, id);
+          block.querySelector("mark").textContent = e.target.getAttribute('data-value');
+        }
+      });
+    </script>
+  </body>
+</html>
