@@ -43,14 +43,16 @@ tags:
 
 ### Разметка
 
-Два блока, один с текстом загадки, другой с интерактивными элементами. В качестве инструмента ввода у нас будет [`<input>`](/html/input/), а счётчик символов положим в [`<output>`](/html/output/), где нуль стартовое число:
+Два блока, один с текстом загадки, другой с интерактивными элементами.
+
+В качестве инструмента ввода у нас будет [`<input>`](/html/input/), а счётчик символов положим в [`<output>`](/html/output/). Последний удобно использовать для вывода результатов вычислений, а ещё он хорошо дружит со скринридерами:
 
 ```html
 <div class="riddle">
   <p>Вокруг снег, да лес не белый.</p>
   <p>А какой?</p>
 </div>
-<div>
+<div class="solution">
   <label for="answer">Угадайте цвет:</label>
   <input id="answer" placeholder="Семь букв" autocomplete="off">
   <output>0</output>
@@ -59,7 +61,7 @@ tags:
 
 ### Стили
 
-Два блока разместим друг под другом с помощью [`flex-direction: column;`](/css/flex-direction/):
+Два блока разместим друг под другом с помощью [`flex-direction: column`](/css/flex-direction/):
 
 ```css
 body {
@@ -84,6 +86,18 @@ body {
   color: #000000;
   font-size: 24px;
   text-align: center;
+}
+```
+
+А блок с решением подготовим к выводу эмодзи. Они понадобятся для наглядности результатов:
+
+```css
+.solution {
+  width: 410px;
+}
+
+.solution::after {
+  content: var(--solution-emoji);
 }
 ```
 
@@ -132,9 +146,10 @@ output {
 
 ### JavaScript
 
-Сначала получим поля ввода и вывода:
+Сначала получим блок с результатами для добавления эмодзи, а потом поля ввода и вывода:
 
 ```js
+const solution = document.querySelector('.solution')
 const input = document.querySelector('input')
 const output = document.querySelector('output')
 ```
@@ -160,16 +175,21 @@ input.addEventListener('input', function () {
 ```js
 if (this.value.length > 7) {
   output.style.backgroundColor = '#a52a2a'
+  solution.style.setProperty('--solution-emoji', '"❌"')
 } else {
   output.style.backgroundColor = '#2E9AFF'
+  solution.style.setProperty('--solution-emoji', '"🔄"')
 }
 
 if (/^зел[её]ный$/i.test(this.value)) {
   output.style.backgroundColor = '#41E847'
+  solution.style.setProperty('--solution-emoji', '"✅"')
 }
 ```
 
-Когда символов будет больше семи, мы окрасим счётчик в красный, а если меньше, то вернём голубой цвет. В случае правильного ответа окрасим счётчик в зелёный 👽
+Когда символов будет больше семи, мы окрасим счётчик в красный и добавим крестик, а если меньше, то вернём голубой цвет и оставим значок загрузки. В случае правильного ответа окрасим счётчик в зелёный 👽 и добавим галочку.
+
+А ещё, чтобы слово «зелёный» проходило проверку в любой форме, используем регулярное выражение и метод `test`, который возвращает `true` при совпадении либо `false`.
 
 Посчитать символы можно и в [`<textarea>`](/html/textarea/), метод работы тот же:
 
@@ -186,7 +206,7 @@ textarea.addEventListener('input', function () {
   <p>Вокруг снег, да лес не белый.</p>
   <p>А какой?</p>
 </div>
-<div>
+<div class="solution">
   <label for="answer">Угадайте цвет:</label>
   <input id="answer" placeholder="Семь букв" autocomplete="off">
   <output>0</output>
@@ -212,6 +232,14 @@ body {
   color: #000000;
   font-size: 24px;
   text-align: center;
+}
+
+.solution {
+  width: 410px;
+}
+
+.solution::after {
+  content: var(--solution-emoji);
 }
 
 label {
@@ -251,6 +279,7 @@ output {
 ```
 
 ```js
+const solution = document.querySelector('.solution')
 const input = document.querySelector('input')
 const output = document.querySelector('output')
 
@@ -259,12 +288,15 @@ input.addEventListener('input', function () {
 
   if (this.value.length > 7) {
     output.style.backgroundColor = '#a52a2a'
+    solution.style.setProperty('--solution-emoji', '"❌"')
   } else {
     output.style.backgroundColor = '#2E9AFF'
+    solution.style.setProperty('--solution-emoji', '"🔄"')
   }
 
   if (/^зел[её]ный$/i.test(this.value)) {
     output.style.backgroundColor = '#41E847'
+    solution.style.setProperty('--solution-emoji', '"✅"')
   }
 })
 ```

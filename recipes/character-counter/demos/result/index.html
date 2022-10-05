@@ -39,6 +39,14 @@
       text-align: center;
     }
 
+    .solution {
+      width: 410px;
+    }
+
+    .solution::after {
+      content: var(--solution-emoji);
+    }
+
     label {
       margin-right: 15px;
       font-size: 24px;
@@ -91,12 +99,13 @@
     <p>Вокруг снег, да лес не белый.</p>
     <p>А какой?</p>
   </div>
-  <div>
+  <div class="solution">
     <label for="answer">Угадайте цвет:</label>
     <input id="answer" placeholder="Семь букв" autocomplete="off">
     <output>0</output>
   </div>
   <script>
+    const solution = document.querySelector('.solution')
     const input = document.querySelector('input')
     const output = document.querySelector('output')
 
@@ -105,12 +114,15 @@
 
       if (this.value.length > 7) {
         output.style.backgroundColor = '#a52a2a'
+        solution.style.setProperty('--solution-emoji', '"❌"')
       } else {
         output.style.backgroundColor = '#2E9AFF'
+        solution.style.setProperty('--solution-emoji', '"🔄"')
       }
 
       if (/^зел[её]ный$/i.test(this.value)) {
         output.style.backgroundColor = '#41E847'
+        solution.style.setProperty('--solution-emoji', '"✅"')
       }
     })
   </script>
