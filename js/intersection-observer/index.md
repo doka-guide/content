@@ -104,7 +104,7 @@ const observer = new IntersectionObserver(callback, options)
 
 </aside>
 
-![Визуализация работы rootMargin](images/rootMargin.jpg)
+![Визуализация работы rootMargin](images/rootMargin.png)
 
 - _threshold_ — порог пересечения, при котором будет срабатывать колбэк. Может быть либо одним числом от `0` до `1`, либо массивом значений, например `[0, 0.5, 1]`. По умолчанию — `0`.
 
