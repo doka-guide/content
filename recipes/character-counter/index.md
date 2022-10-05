@@ -59,7 +59,7 @@ tags:
 
 ### Стили
 
-Два блока разместим друг под другом с помощью [`flex-direction: column;`](/css/flex-direction/):
+Два блока разместим друг под другом с помощью [`flex-direction: column`](/css/flex-direction/):
 
 ```css
 body {
