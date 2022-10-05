@@ -142,6 +142,7 @@ groups:
       - setinterval
       - clearinterval
       - window-print
+      - intersection-observer
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
