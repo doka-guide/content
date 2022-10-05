@@ -4,6 +4,7 @@
 
 ## Октябрь 2022
 
+- 5 октября, [Intersection Observer](https://doka.guide/js/intersection-observer/), Олег Полянский
 - 3 октября, [`<object>`](https://doka.guide/html/object/), Андрей Калповский
 
 ## Сентябрь 2022
