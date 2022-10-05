@@ -58,7 +58,7 @@ groups:
       - index-of
       - includes
       - string-length
-  - name: "Булевый тип"
+  - name: "Булев тип"
     items:
       - boolean
       - logic-operators
