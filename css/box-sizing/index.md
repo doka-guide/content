@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 related:
   - css/universal-selector
   - css/width
