@@ -3,6 +3,14 @@ title: "Счётчик символов в поле ввода"
 description: "Считаем символы при вводе пользователем и не перегружаем браузер."
 authors:
   - inventoris
+keywords:
+  - счётчик
+  - подсчёт знаков
+  - количество символов
+related:
+  - html/output
+  - js/function-context
+  - js/element-addeventlistener
 tags:
   - article
 ---
@@ -35,7 +43,7 @@ tags:
 
 Попробуйте код в демо ниже:
 
-<iframe title="Готовый счётчик" src="demos/result/" height="350"></iframe>
+<iframe title="Готовый счётчик" src="demos/result/" height="370"></iframe>
 
 ## Разбор решения
 
@@ -45,7 +53,7 @@ tags:
 
 Два блока, один с текстом загадки, другой с интерактивными элементами.
 
-В качестве инструмента ввода у нас будет [`<input>`](/html/input/), а счётчик символов положим в [`<output>`](/html/output/). Последний удобно использовать для вывода результатов вычислений, а ещё он хорошо дружит со скринридерами:
+В качестве инструмента ввода у нас будет [`<input>`](/html/input/), а счётчик символов положим в [`<output>`](/html/output/). Последний удобно использовать для вывода результатов вычислений, а ещё он хорошо дружит со [скринридерами](/html/screenreaders/):
 
 ```html
 <div class="riddle">
@@ -79,7 +87,7 @@ body {
 .riddle {
   width: 55%;
   padding: 55px 40px;
-  background-color: #2E9AFF;
+  background-color: #C56FFF;
 }
 
 .riddle p {
@@ -138,7 +146,7 @@ output {
   display: inline-block;
   width: 30px;
   border-radius: 5px;
-  background-color: #2E9AFF;
+  background-color: #C56FFF;
   text-align: center;
   margin-left: 10px;
 }
@@ -146,12 +154,13 @@ output {
 
 ### JavaScript
 
-Сначала получим блок с результатами для добавления эмодзи, а потом поля ввода и вывода:
+Сначала получим блок с результатами для добавления эмодзи. Затем поля ввода и вывода, а также объявим переменную с длиной правильного ответа:
 
 ```js
 const solution = document.querySelector('.solution')
 const input = document.querySelector('input')
 const output = document.querySelector('output')
+const ANSWER_LENGTH = 7
 ```
 
 На поле ввода повесим [обработчик событий](/js/element-addeventlistener/) и подпишемся на событие `input`. Оно случится, когда пользователь введёт какие-то данные:
@@ -173,11 +182,11 @@ input.addEventListener('input', function () {
 Для красоты можно добавить изменение стилей на случай правильного ответа или превышения числа символов:
 
 ```js
-if (this.value.length > 7) {
+if (this.value.length > ANSWER_LENGTH) {
   output.style.backgroundColor = '#a52a2a'
   solution.style.setProperty('--solution-emoji', '"❌"')
 } else {
-  output.style.backgroundColor = '#2E9AFF'
+  output.style.backgroundColor = '#C56FFF'
   solution.style.setProperty('--solution-emoji', '"🔄"')
 }
 
@@ -225,7 +234,7 @@ body {
 .riddle {
   width: 55%;
   padding: 55px 40px;
-  background-color: #2E9AFF;
+  background-color: #C56FFF;
 }
 
 .riddle p {
@@ -272,7 +281,7 @@ output {
   display: inline-block;
   width: 30px;
   border-radius: 5px;
-  background-color: #2E9AFF;
+  background-color: #C56FFF;
   text-align: center;
   margin-left: 10px;
 }
@@ -282,15 +291,16 @@ output {
 const solution = document.querySelector('.solution')
 const input = document.querySelector('input')
 const output = document.querySelector('output')
+const ANSWER_LENGTH = 7
 
 input.addEventListener('input', function () {
   output.textContent = 0 + this.value.length
 
-  if (this.value.length > 7) {
+  if (this.value.length > ANSWER_LENGTH) {
     output.style.backgroundColor = '#a52a2a'
     solution.style.setProperty('--solution-emoji', '"❌"')
   } else {
-    output.style.backgroundColor = '#2E9AFF'
+    output.style.backgroundColor = '#C56FFF'
     solution.style.setProperty('--solution-emoji', '"🔄"')
   }
 
