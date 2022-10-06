@@ -4,7 +4,7 @@ authors:
   - doka-dog
 contributors:
   - solarrust
-  - futivite
+  - furtivite
 keywords:
   - margin
 tags:

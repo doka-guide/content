@@ -2,7 +2,7 @@
 title: "`.dataset`"
 description: "Простейший способ хранить данные в HTML и читать их из JavaScript."
 authors:
-  - Windrushfarer
+  - windrushfarer
 keywords:
   - дата-атрибуты
 related:

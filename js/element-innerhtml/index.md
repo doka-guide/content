@@ -2,7 +2,7 @@
 title: "`.innerHTML`"
 description: "Читаем и изменяем содержание HTML-элемента."
 authors:
-  - Windrushfarer
+  - windrushfarer
 related:
   - js/web-security
   - js/dom

@@ -2,7 +2,7 @@
 title: "`.innerText`"
 description: "Читаем весь текст во вложенных элементах или записываем свой."
 authors:
-  - Windrushfarer
+  - windrushfarer
 related:
   - js/dom
   - js/web-security
