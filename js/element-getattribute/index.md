@@ -2,7 +2,7 @@
 title: "`.getAttribute()`"
 description: "Получить значение любого HTML-атрибута."
 authors:
-  - Windrushfarer
+  - windrushfarer
 keywords:
   - атрибуты
 related:
