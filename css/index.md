@@ -283,6 +283,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - aspect-ratio
       - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
