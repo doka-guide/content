@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Варианты использования с блоком — aspect-ratio — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5% 0;
+        background-color: #18191c;
+      }
+
+      .block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: clamp(290px, 50%, 420px);
+        margin: auto;
+        color: #FFFFFF;
+        border-radius: 5px;
+        transition: all 300ms ease-in-out;
+        font-size: 1.5em;
+        background: #B5f5EC;
+        background: linear-gradient(
+          225deg,
+          #B5F5EC 0%,
+          #2E9AFF 100%
+        );
+      }
+      .block mark {
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      .aspect-1-to-1 {
+        aspect-ratio: 1 / 1;
+      }
+
+      .aspect-2-to-1 {
+        aspect-ratio: 2 / 1;
+      }
+
+      .aspect-3-to-1 {
+        aspect-ratio: 3 / 1;
+      }
+
+      .aspect-4-to-3 {
+        aspect-ratio: 4 / 3;
+      }
+
+      .aspect-16-to-9 {
+        aspect-ratio: 16 / 9;
+      }
+
+      .aspect-8-to-5 {
+        aspect-ratio: 8 / 5;
+      }
+
+      .style-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: clamp(290px, 50%, 420px);
+        margin: auto;
+        margin-top: 10px;
+        padding: 10px 0;
+        list-style-type: none;
+        user-select: none;
+      }
+
+      .radio-label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .radio-title {
+        color: #FFFFFF;
+      }
+
+      .radio-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: calc(50% - 12px);
+        width: 25px;
+        height: 25px;
+        border: 1px solid #FFFFFF;
+        border-radius: 50%;
+      }
+
+      .radio {
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+        margin-right: 10px;
+      }
+
+      .radio:checked + .radio-title::before {
+        background-color: #FFFFFF;
+        background: radial-gradient(
+          circle,
+          #FFFFFF 0%,
+          #FFFFFF 40%,
+          transparent 50%,
+          transparent 100%
+        );
+      }
+
+      .style-list__item {
+        margin-bottom: 10px;
+      }
+
+      .style-list__item:not(:last-child) {
+        margin-right: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="style-list">
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-1-to-1" data-value="1 / 1" class="radio" name="style" type="radio" checked>
+          <span class="radio-title">1 / 1</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-2-to-1" data-value="2 / 1" class="radio" name="style" type="radio">
+          <span class="radio-title">2 / 1</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-3-to-1" data-value="3 / 1" class="radio" name="style" type="radio">
+          <span class="radio-title">3 / 1</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-8-to-5" data-value="8 / 5" class="radio" name="style" type="radio">
+          <span class="radio-title">8 / 5</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-4-to-3" data-value="4 / 3" class="radio" name="style" type="radio">
+          <span class="radio-title">4 / 3</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-16-to-9" data-value="16 / 9" class="radio" name="style" type="radio">
+          <span class="radio-title">16 / 9</span>
+        </label>
+      </li>
+    </ul>
+
+    <div class="block aspect-1-to-1">
+      <mark>
+        aspect-ratio: 1 / 1;
+      </mark>
+    </div>
+    <script>
+      const block = document.querySelector(".block");
+      const regx = new RegExp("aspect-\\d+-to-\\d+", "gm");
+
+      document.querySelector(".style-list").addEventListener("click", (e) => {
+        const id = e.target.id;
+        if (id) {
+          block.className = block.className.replace(regx, id);
+          const [width, height] = id.match(/\d+/gm);
+          block.querySelector("mark").textContent = `aspect-ratio: ${e.target.getAttribute('data-value')};`;
+        }
+      });
+    </script>
+  </body>
+</html>
