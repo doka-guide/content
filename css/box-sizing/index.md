@@ -47,16 +47,16 @@ tags:
 ```css
 .first {
   box-sizing: content-box;
-  background-color: #ed6742;
+  background-color: #2E9AFF;
 }
 
 .second {
   box-sizing: border-box;
-  background-color: #f498ad;
+  background-color: #F498AD;
 }
 ```
 
-<iframe title="Демонстрация работы свойства" src="demos/box-sizing/" height="320"></iframe>
+<iframe title="Демонстрация работы свойства" src="demos/box-sizing/" height="270"></iframe>
 
 В итоге элементы получились разного размера! Как так? Мы ведь указали одинаковые ширину, высоту и внутренние отступы, а так же рамку 🤔
 
