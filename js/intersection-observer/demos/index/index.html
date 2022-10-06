@@ -5,12 +5,15 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <title>Ленивая загрузка с Intersection Observer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
 </head>
 <style>
   :root {
-    --yellow: hsl(64, 86%, 55%);
-    --blue: hsl(190, 55%, 37%);
-    --red: hsl(0, 60%, 60%);
+    --yellow: hsl(49, 100%, 58%);
+    --dark-green: hsl(124, 46%, 29%);
+    --green: hsl(122, 78%, 58%);
     --dark: hsl(225, 8%, 10%);
   }
 
@@ -20,7 +23,7 @@
 
   body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
     letter-spacing: 1px;
     color: var(--yellow);
     background-color: var(--dark);
@@ -42,7 +45,7 @@
 
   .content--main {
     border: 4px solid var(--yellow);
-    background-color: var(--blue);
+    background-color: var(--dark-green);
   }
 
   .content--main::after {
@@ -58,7 +61,7 @@
     position: absolute;
     top: calc(50% + 45px);
     left: 16px;
-    color: var(--red);
+    color: var(--green);
   }
 
   .wrapper::after {
@@ -67,7 +70,7 @@
     top: calc(50% + 75px);
     width: 100vw;
     height: 1px;
-    border-bottom: 4px dashed var(--red);
+    border-bottom: 4px dashed var(--green);
   }
 
   .content__title {
@@ -79,6 +82,7 @@
     min-height: 100%;
     margin: 0 0 128px;
     padding: 20px;
+    font-weight: 500;
     line-height: 1.5;
     text-align: center;
   }
@@ -107,7 +111,7 @@
     object-fit: contain;
     width: 100%;
     height: 100%;
-    border: 1px solid;
+    background-color: var(--dark-green);
     transition: transform 0.3s;
   }
 
@@ -159,8 +163,8 @@
             alt="аватар Рика"
             class="content__lazy-image"
             data-order="1"
-            data-src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/1.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -168,8 +172,8 @@
             alt="аватар Морти"
             class="content__lazy-image js-transformable"
             data-order="2"
-            data-src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/2.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -177,8 +181,8 @@
             alt="аватар Саммер"
             class="content__lazy-image"
             data-order="3"
-            data-src="https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/3.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -186,8 +190,8 @@
             alt="аватар Бэт"
             class="content__lazy-image"
             data-order="4"
-            data-src="https://rickandmortyapi.com/api/character/avatar/4.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/4.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -195,8 +199,8 @@
             alt="аватар Джерри"
             class="content__lazy-image"
             data-order="5"
-            data-src="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/5.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
       </ul>
@@ -225,8 +229,8 @@
             alt="аватар Рика"
             class="content__lazy-image"
             data-order="1"
-            data-src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/1.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -234,8 +238,8 @@
             alt="аватар Морти"
             class="content__lazy-image js-transformable"
             data-order="2"
-            data-src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/2.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -243,8 +247,8 @@
             alt="аватар Саммер"
             class="content__lazy-image"
             data-order="3"
-            data-src="https://rickandmortyapi.com/api/character/avatar/3.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/3.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -252,8 +256,8 @@
             alt="аватар Бэт"
             class="content__lazy-image"
             data-order="4"
-            data-src="https://rickandmortyapi.com/api/character/avatar/4.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/4.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
         <li class="content__item">
@@ -261,8 +265,8 @@
             alt="аватар Джерри"
             class="content__lazy-image"
             data-order="5"
-            data-src="https://rickandmortyapi.com/api/character/avatar/5.jpeg"
-            src="https://upload.wikimedia.org/wikipedia/ru/c/c8/Rick_and_Morty_logo.png"
+            data-src="images/5.jpeg"
+            src="images/Rick_and_Morty_logo.png"
           >
         </li>
       </ul>
