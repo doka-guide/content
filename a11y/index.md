@@ -68,6 +68,10 @@ groups:
       - role-region
       - role-form
       - role-search
+  - name: 'Доступные имена и описания'
+      - aria-label
+      - aria-labelledby
+      - aria-describedby
   - name: 'CSS и доступность'
     items:
       - prefers-reduced-motion
