@@ -18,7 +18,7 @@ tags:
 
 Свойство задаёт соотношение сторон для элемента.
 
-<iframe title="Как это работает с блоком" src="demos/variants/" height="600"></iframe>
+<iframe title="Как это работает с блоком" src="demos/variants/" height="630"></iframe>
 
 ## Пример
 

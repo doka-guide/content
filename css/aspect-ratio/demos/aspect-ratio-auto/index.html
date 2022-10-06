@@ -61,50 +61,67 @@
         user-select: none;
       }
 
-      .style-list__item {
+      .radio-label {
         position: relative;
-        background-color: #d6e4ff;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        overflow: hidden;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
       }
 
-      .style-list__item:not(:last-child) {
+      .radio-title {
+        color: #FFFFFF;
+      }
+
+      .radio-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: calc(50% - 12px);
+        width: 25px;
+        height: 25px;
+        border: 1px solid #FFFFFF;
+        border-radius: 50%;
+      }
+
+      .radio {
+        width: 25px;
+        height: 25px;
+        opacity: 0;
         margin-right: 10px;
       }
 
-      label {
-        position: relative;
-        display: block;
-        cursor: pointer;
-        padding: 5px 10px;
-        transition: all 200ms ease-in-out;
+      .radio:checked + .radio-title::before {
+        background-color: #FFFFFF;
+        background: radial-gradient(
+          circle,
+          #FFFFFF 0%,
+          #FFFFFF 40%,
+          transparent 50%,
+          transparent 100%
+        );
       }
 
-      input:checked + label {
-        background: #85a5ff;
+      .style-list__item {
+        margin-bottom: 10px;
       }
 
-      input[type="radio"] {
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
+      .style-list__item:not(:last-child) {
+        margin-right: 25px;
       }
     </style>
   </head>
   <body>
     <ul class="style-list">
       <li class="style-list__item">
-        <input id="aspect-1-to-1" data-value="1 / 1" type="radio" name="style" checked />
-        <label for="aspect-1-to-1">
-          1 / 1
+        <label class="radio-label">
+          <input id="aspect-1-to-1" data-value="1 / 1" class="radio" name="style" type="radio" checked>
+          <span class="radio-title">1 / 1</span>
         </label>
       </li>
       <li class="style-list__item">
-        <input id="aspect-auto" data-value="auto 1 / 1" type="radio" name="style" />
-        <label for="aspect-auto">
-          auto 1 / 1
+        <label class="radio-label">
+          <input id="aspect-auto" data-value="auto 1 / 1" class="radio" name="style" type="radio">
+          <span class="radio-title">auto 1 / 1</span>
         </label>
       </li>
     </ul>
