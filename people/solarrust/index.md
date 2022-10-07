@@ -2,6 +2,8 @@
 name: 'Алёна Батицкая'
 url: https://twitter.com/ABatickaya
 photo: photo.png
+badges:
+  - first-contribution-small
 ---
 
 Привет! 🖖

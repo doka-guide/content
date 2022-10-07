@@ -2,6 +2,8 @@
 name: 'Инна Абдрахманова'
 url: https://github.com/IPogorelova/
 photo: photo.jpg
+badges:
+  - first-contribution-small
 ---
 
 Привет 🙃

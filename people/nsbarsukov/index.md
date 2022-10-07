@@ -2,6 +2,8 @@
 name: 'Никита Барсуков'
 url: https://github.com/nsbarsukov
 photo: photo.jpg
+badges:
+  - first-contribution-small
 ---
 
 Фронтендер, который очень любит Angular.
