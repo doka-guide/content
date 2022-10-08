@@ -56,7 +56,6 @@
       margin: auto;
       background-color: #FFFFFF;
       color: #123E66;
-
     }
 
     .section + .section {
@@ -90,6 +89,23 @@
 
     :target .source {
       border-color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .menu,
+      .section {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 40px 30px;
+      }
     }
   </style>
 </head>
