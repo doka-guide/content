@@ -67,7 +67,7 @@ tags:
 
 Подпись из `aria-labelledby` должна быть краткой и чётко описывать цель элемента. При этом лучше не изменять её динамически, это запутает пользователей.
 
-`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из [`aria-label`](/a11y/aria-label/) или `<label>`. Ещё используйте этот атрибут с осторожностью с [некоторыми ролями и тегами](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_with_child_content). Из-за него контент дочерних элементов скроется от вспомогательных технологий.
+`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из [`aria-label`](/a11y/aria-label/) или `<label>`. Так что, используйте атрибут с осторожностью с [некоторыми ролями и тегами](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_with_child_content).
 
 Когда у [`<table>`](/html/tables/) есть одновременно `<caption>` и `aria-labelledby`, таблица получит имя из атрибута, а содержимое `<caption>` станет её описанием.
 
