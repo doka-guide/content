@@ -69,7 +69,7 @@ Symbol(Symbol.toStringTag): "Geolocation"
 GeolocationPosition {coords: GeolocationCoordinates, timestamp: 1665141114856}
 ```
 
-Он включает объект `GeolocationCoordinates` с данными геолокации пользователя и `timestamp` со временем поступления запроса:
+Он включает объект `GeolocationCoordinates` с данными геолокации пользователя и параметр `timestamp` со временем получения координат:
 
 ```js
 GeolocationCoordinates {
