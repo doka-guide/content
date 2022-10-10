@@ -86,7 +86,7 @@ GeolocationCoordinates {
 - altitude — отвечает за высоту в метрах над эллипсоидом ([что за эллипсоид под нами?](https://support.virtual-surveyor.com/en/support/solutions/articles/1000261351-what-is-wgs84-));
 - accuracy — точность широты и долготы в метрах (например, 40 метров);
 - altitudeAccuracy — уровень точности высоты над эллипсоидом в метрах;
-- heading — направление движения в рамках от 0° до 360° градусов. Отсчитывается по часовой стрелке относительно [истинного севера](https://en.wikipedia.org/wiki/True_north#:~:text=True%20north%20(also%20called%20geodetic,lines%20of%20a%20map%20projection));
+- heading — направление движения. Угол в градусах, который отсчитывается по часовой стрелке относительно [истинного севера](https://en.wikipedia.org/wiki/True_north#:~:text=True%20north%20(also%20called%20geodetic,lines%20of%20a%20map%20projection));
 - speed — скорость движения в метрах в секунду.
 
 ## Как узнать геолокацию единожды
