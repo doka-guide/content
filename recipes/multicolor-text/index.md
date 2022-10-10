@@ -41,7 +41,7 @@ h1 {
 
 Затем нам нужно спрятать фон под текст. Для этого воспользуемся свойством [`background-clip`](/css/background-clip/) со значением `text`.
 
-Свойство не поддерживается Internet Explorer и старыми браузерами, а в Google Chrome может требовать префикс. Учтём это:
+Свойство не поддерживается Internet Explorer и старыми браузерами, а Google Chrome может требовать префикс. Учтём это:
 
 ```css
 ...
@@ -68,10 +68,10 @@ h1 {
 }
 ```
 
-<iframe title="Радуга" src="demos/rainbow/" height="450"></iframe>
+<iframe title="Радужный текст" src="demos/rainbow/" height="450"></iframe>
 
 ## А если не градиент?
 
 Таким же образом вы можете поставить фоном для текста на сайте и любое изображение:
 
-<iframe title="Снег" src="demos/sunshine/" height="450"></iframe>
+<iframe title="Текст с фоном-картинкой" src="demos/sunshine/" height="450"></iframe>
