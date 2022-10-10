@@ -16,7 +16,6 @@
 
     body {
       min-height: 100vh;
-      min-width: min-content;
       padding: 50px;
       display: flex;
       align-items: center;
@@ -25,6 +24,10 @@
       color: #FFFFFF;
       font-size: 16px;
       font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      overflow: auto;
     }
 
     table {
@@ -80,35 +83,37 @@
   </style>
 </head>
 <body>
-<table>
-  <caption>Чемпионат по поеданию хот-догов</caption>
-  <thead>
-  <tr>
-    <th></th>
-    <th>Матчи</th>
-    <th>Выигрыши</th>
-    <th>Ничьи</th>
-    <th>Проигрыши</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th>Танос</th>
-    <td>5</td><td>2</td><td>4</td><td>1</td>
-  </tr>
-  <tr>
-    <th>Звёздный Лорд</th>
-    <td>4</td><td>1</td><td>1</td><td>2</td>
-  </tr>
-  <tr>
-    <th>Гамора</th>
-    <td>5</td><td>3</td><td>2</td><td>0</td>
-  </tr>
-  <tr>
-    <th>Ронан Обвинитель</th>
-    <td>3</td><td>2</td><td>0</td><td>1</td>
-  </tr>
-  </tbody>
-</table>
+<div class="container">
+  <table>
+    <caption>Чемпионат по поеданию хот-догов</caption>
+    <thead>
+    <tr>
+      <th></th>
+      <th>Матчи</th>
+      <th>Выигрыши</th>
+      <th>Ничьи</th>
+      <th>Проигрыши</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th>Танос</th>
+      <td>5</td><td>2</td><td>4</td><td>1</td>
+    </tr>
+    <tr>
+      <th>Звёздный Лорд</th>
+      <td>4</td><td>1</td><td>1</td><td>2</td>
+    </tr>
+    <tr>
+      <th>Гамора</th>
+      <td>5</td><td>3</td><td>2</td><td>0</td>
+    </tr>
+    <tr>
+      <th>Ронан Обвинитель</th>
+      <td>3</td><td>2</td><td>0</td><td>1</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>
