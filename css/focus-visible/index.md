@@ -3,6 +3,14 @@ title: "`:focus-visible`"
 description: "Выделяем элементы в фокусе только тогда, когда это действительно необходимо."
 authors:
   - starhamster
+keywords:
+  - focus-visible
+  - фокус
+  - псевдокласс
+related:
+  - css/pseudoclasses
+  - css/hover
+  - css/active
 tags:
   - doka
 ---
