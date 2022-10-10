@@ -81,7 +81,7 @@ GeolocationCoordinates {
   …}
 ```
 
-Чаще всего используют значения широты `latitude` и долготы `longitude`. Помимо них в объекте содержатся:
+Чаще всего используются широта `latitude` и долгота `longitude`. Помимо них в объекте содержатся:
 
 - altitude — отвечает за высоту в метрах над эллипсоидом ([что за эллипсоид под нами?](https://support.virtual-surveyor.com/en/support/solutions/articles/1000261351-what-is-wgs84-));
 - accuracy — уровень точности широты и долготы в метрах (например, 40 метров);
