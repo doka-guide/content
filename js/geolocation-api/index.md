@@ -63,7 +63,7 @@ Symbol(Symbol.toStringTag): "Geolocation"
 
 ![Диалоговое окно с запросом местоположения в браузере Яндекс](images/yandex-example-dw-c.png)
 
-Когда человек согласен и только этого и ждал, он одобрит запрос, а мы получим возможность работать с очередным интерфейсом — `GeolocationPosition`:
+Если человек одобрит запрос, мы получим возможность работать с интерфейсом `GeolocationPosition`:
 
 ```js
 GeolocationPosition {coords: GeolocationCoordinates, timestamp: 1665141114856}
