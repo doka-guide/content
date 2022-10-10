@@ -48,7 +48,7 @@ button:focus ~ button {
 
 Но сейчас при наведении курсора будут выделяться все элементы _после_ (то есть справа).
 
-<iframe title="Звёздный рейтинг" src="../demos/stars-rating-bug/" height="250"></iframe>
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating-bug/" height="200"></iframe>
 
 Чтобы это исправить, мы изменим порядок следования элементов с помощью CSS-свойства `direction: rtl`.
 
@@ -73,4 +73,4 @@ button:focus ~ button {
 }
 ```
 
-<iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="250"></iframe>
+<iframe title="Звёздный рейтинг" src="../demos/stars-rating/" height="200"></iframe>
