@@ -261,12 +261,12 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 :root {
   --c1: red;
   --c2: blue;
-  --grad: linear-gradient(var(--c1),var(--c2));
+  --grad: linear-gradient(var(--c1), var(--c2));
 }
 
 .element {
   --c1: green;
-  background:var(--grad);
+  background: var(--grad);
 }
 ```
 
