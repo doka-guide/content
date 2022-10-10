@@ -218,7 +218,12 @@
 
       .group-title {
         margin-right: 0;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .radio,
+      .checkbox {
+        margin-right: 10px;
       }
 
       .inputs-container, .progress-bar, .button {
@@ -226,18 +231,10 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .input-label {
-        font-size: 17px;
-      }
-
-      .disclaimer {
-        font-size: 17px;
-      }
-
-      .radio,
-      .checkbox {
-        margin-right: 10px;
+    @media (max-width: 400px) {
+      .inputs-container {
+        flex-direction: row;
+        gap: 5px;
       }
     }
   </style>
