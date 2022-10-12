@@ -4,6 +4,7 @@
 
 ## Октябрь 2022
 
+- 12 октября, [`:focus-visible`](https://doka.guide/css/focus-visible/), Антон Капустинский
 - 6 октября, [`scrollBy()`](https://doka.guide/js/element-scrollby/), Антон Капустинский
 - 6 октября, [`aspect-ratio`](https://doka.guide/css/aspect-ratio/), Денис Путнов
 - 5 октября, [Intersection Observer](https://doka.guide/js/intersection-observer/), Олег Полянский
