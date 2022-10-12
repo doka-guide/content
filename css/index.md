@@ -35,6 +35,7 @@ groups:
       - child
       - nth-of-type
       - focus
+      - focus-visible
       - not
       - checked
       - disabled-enabled
