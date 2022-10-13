@@ -46,6 +46,7 @@ tags:
 
 <video controls muted width="800">
   <source src="video/demo.mp4" type="video/mp4">
+  <source src="video/demo_safari.mp4" type="video/mp4">
 </video>
 
 Мы не будем обращать внимания, что у нас уже есть полоса прокрутки справа, а примем задачу как данность.

@@ -24,6 +24,7 @@ tags:
 
 <video controls muted width="700">
   <source src="video/mouse-active.mp4" type="video/mp4">
+  <source src="video/mouse-active_safari.mp4" type="video/mp4">
 </video>
 
 ## Пример
