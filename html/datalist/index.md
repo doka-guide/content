@@ -274,7 +274,7 @@ tags:
 </form>
 ```
 
-<iframe title="Пример работы <datalist> с интерактивным элементом range" src="demos/datalist-range" height="320"></iframe>
+<iframe title="Пример работы <datalist> с интерактивным элементом range" src="demos/datalist-range/" height="320"></iframe>
 
 За отображение числового значения под ползунком в демке выше отвечает элемент [`<output>`](/html/output/).
 
