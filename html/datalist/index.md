@@ -216,7 +216,7 @@ tags:
 </form>
 ```
 
-<iframe title="Пример работы <datalist> с интерактивными элементами date, month, week, time" src="demos/datalist-date-month-week-time" height="620"></iframe>
+<iframe title="Пример работы <datalist> с интерактивными элементами date, month, week, time" src="demos/datalist-date-month-week-time/" height="620"></iframe>
 
 <aside>
 
