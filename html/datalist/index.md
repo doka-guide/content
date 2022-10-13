@@ -23,16 +23,16 @@ tags:
 
 ```html
 <form>
-<label for="my-browser">Выберите браузер из списка:</label>
-<input type="text" list="browsers" id="my-browser" name="my-browser">
-<datalist id="browsers">
-  <option value="Chrome">
-  <option value="Firefox">
-  <option value="Yandex Browser">
-  <option value="Opera">
-  <option value="Safari">
-  <option value="Microsoft Edge">
-</datalist>
+  <label for="my-browser">Выберите браузер из списка:</label>
+  <input type="text" list="browsers" id="my-browser" name="my-browser">
+  <datalist id="browsers">
+    <option value="Chrome">
+    <option value="Firefox">
+    <option value="Yandex Browser">
+    <option value="Opera">
+    <option value="Safari">
+    <option value="Microsoft Edge">
+  </datalist>
 <form>
 ```
 
@@ -55,15 +55,15 @@ tags:
 
 ```html
 <form>
-<label for="fruits">Выберите фрукт из неработающего списка:</label>
-<input list="fruitsList" id="fruits" name="fruits">
-<div id="fruitsList">
-<datalist id="fruitsList">
-  <option value="Банан">
-  <option value="Арбуз">
-  <option value="Киви">
-</datalist>
-</div>
+  <label for="fruits">Выберите фрукт из неработающего списка:</label>
+  <input list="fruitsList" id="fruits" name="fruits">
+  <div id="fruitsList">
+    <datalist id="fruitsList">
+      <option value="Банан">
+      <option value="Арбуз">
+      <option value="Киви">
+    </datalist>
+  </div>
 </form>
 ```
 
@@ -103,13 +103,13 @@ tags:
 
 ```html
 <form>
-<label for="my-browser">Текстовое поле:</label>
-<input type="text" list="browsers" id="my-browser" name="my-browser">
-<datalist id="browsers">
-  <option value="Chrome" label="Google">
-  <option value="Firefox" label="Mozilla">
-  <option value="Opera" label="Opera">
-</datalist>
+  <label for="my-browser">Текстовое поле:</label>
+  <input type="text" list="browsers" id="my-browser" name="my-browser">
+  <datalist id="browsers">
+    <option value="Chrome" label="Google">
+    <option value="Firefox" label="Mozilla">
+    <option value="Opera" label="Opera">
+  </datalist>
 </form>
 ```
 
@@ -248,6 +248,7 @@ tags:
   </datalist>
 </form>
 ```
+
 <iframe title="Пример работы <datalist> с интерактивным элементом datatime-local" src="demos/datalist-datetime-local/" height="320"></iframe>
 
 ### `number`
@@ -299,6 +300,7 @@ tags:
   </datalist>
 </form>
 ```
+
 <iframe title="Пример работы <datalist> с интерактивным элементом color" src="demos/datalist-color/" height="320"></iframe>
 
 <aside>
@@ -322,61 +324,52 @@ tags:
 Есть два способа:
 
 Первый способ. Если предопределённые элементы выбора не важны в устаревших браузерах, достаточно использовать элемент `<datalist>` с дочерними элементами `<option>`.
-  
-  Выглядит это так:
 
-  ```html
-  <p>
-    <label>
-      Введите породу вашей собаки:
+Выглядит это так:
+
+```html
+<p>
+  <label>
+    Введите породу вашей собаки:
     <input type="text" name="breed" list="breeds">
-    </label>
-    <datalist id="breeds">
-      <option value="Австралийская овчарка">
-      <option value="Акита-ину">
-      <option value="Алабай">
-      <!-- Гав-гав! -->
-    </datalist>
-  </p>
-  ```
+  </label>
+  <datalist id="breeds">
+    <option value="Австралийская овчарка">
+    <option value="Акита-ину">
+    <option value="Алабай">
+    <!-- Гав-гав! -->
+  </datalist>
+</p>
+```
 
 Устаревшие браузеры не поддерживают элемент `<datalist>` и атрибут `value` у элемента `<option>`. Чтобы функция автодополнения подсказывала предопределённые варианты выбора в современных браузерах, значения элементов `<option>` указываются в атрибутах `value`. Если сделать значения содержимым `<option>`, тогда они будут отображаться в устаревших браузерах.
 
 В итоге в устаревших браузерах будет отображаться только элемент `<input>`, в который пользователь введёт нужное значение. В современных браузерах будет элемент `<input>` с выпадающим списком и автодополнением.
 
 Второй способ. Если предопределённые значения нужно показать в устаревших браузерах, то вложите элементы `<option>` в элемент `<select>` и сделайте значения элементов содержимым `<option>`, а не указывайте их в атрибуте `value`. Если указать значения в `value`, они не будут отображаться в выпадающем списке `<select>`. Наконец, вложите `<select>` с дочерними элементами `<option>` в `<datalist>`.
-  
+
 Выглядит это так:
 
-  ```html
-  <p>
+```html
+<p>
+  <label>
+    Введите породу вашей собаки:
+    <input type="text" name="breed" list="breeds">
+  </label>
+  <datalist id="breeds">
     <label>
-      Введите породу вашей собаки:
-      <input type="text" name="breed" list="breeds">
+    или выберите одну из списка:
+      <select name="breed">
+        <option>Австралийская овчарка
+        <option>Акита-ину
+        <option>Алабай
+        <!-- Гав-гав! -->
+      </select>
     </label>
-    <datalist id="breeds">
-      <label>
-      или выберите одну из списка:
-        <select name="breed">
-          <option>Австралийская овчарка
-          <option>Акита-ину
-          <option>Алабай
-          <!-- Гав-гав! -->
-        </select>
-      </label>
-    </datalist>
-  </p>
-  ```
+  </datalist>
+</p>
+```
 
 Современный браузер не отобразит элементы `<select>` и `<label>`, которые вложены в `<datalist>`. Однако браузер не будет игнорировать элементы с `<option>` в `<select>`, они станут элементами `<datalist>`.
-  
+
 В итоге в современных браузерах отобразиться элемент `<input>` с выпадающим списком и автодополнением. Устаревший браузер будет игнорировать элемент `<datalist>` и предложит ввести своё значение при помощи элемента `<input>` или выбрать значение из выпадающего списка `<select>`.
-
-
-
-
-
-
-
-
-
