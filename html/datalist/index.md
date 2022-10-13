@@ -65,7 +65,7 @@ tags:
 </form>
 ```
 
-<iframe title="Неработающий элемент <datalist>" src="demos/datalist-not-work" height="320"></iframe>
+<iframe title="Неработающий элемент <datalist>" src="demos/datalist-not-work/" height="320"></iframe>
 
 ## Как понять
 
