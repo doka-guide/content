@@ -135,7 +135,7 @@ tags:
 
 Если у элемента `<input>` указан атрибут `multiple`, появляется одна особенность. Поле для ввода позволяет указать несколько электронных почт через запятую. После знака запятой автодополнение будет всё так же работать.
 
-<iframe title="Пример работы <datalist> с интерактивным элементом email" src="demos/datalist-email" height="320"></iframe>
+<iframe title="Пример работы <datalist> с интерактивным элементом email" src="demos/datalist-email/" height="320"></iframe>
 
 ### date, month, week, time
 
