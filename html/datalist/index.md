@@ -3,6 +3,8 @@ title: "`<datalist>`"
 description: "Автодополнение полей ввода без JavaScript."
 authors:
   - blueingreen68
+contributors:
+  - tatianafokina
 keywords:
   - список значений
 related:
