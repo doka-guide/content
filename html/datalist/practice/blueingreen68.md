@@ -4,7 +4,7 @@
 
 Вот как можно изменить вид стрелки.
 
-Псевдоэлемент `::-webkit-calendar-picker-indicator` скрывается через свойство `display: none`:
+Скроем псевдоэлемент `::-webkit-calendar-picker-indicator` через свойство `display: none`:
 
 ```css
 [list]::-webkit-calendar-picker-indicator {
