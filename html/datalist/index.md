@@ -10,7 +10,7 @@ related:
   - css/display
   - js/deal-with-forms
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
