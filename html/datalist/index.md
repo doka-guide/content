@@ -113,7 +113,7 @@ tags:
 
 Здесь у каждого элемента `<option>` есть атрибут `label`. У последнего элемента значения атрибутов `value` и `label` совпадают, поэтому в выпадающем списке метка не будет отображаться.
 
-<iframe title="Пример работы <datalist> с интерактивными элементами text, search" src="demos/datalist-text-search" height="320"></iframe>
+<iframe title="Пример работы <datalist> с интерактивными элементами text, search" src="demos/datalist-text-search/" height="320"></iframe>
 
 <aside>
 
