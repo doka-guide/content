@@ -18,14 +18,14 @@ tags:
 
 Сайтом можно пользоваться не только с использованием мышки, но и при помощи клавиатуры. При переключении клавишей <kbd>Tab</kbd> элементу добавляется псевдокласс `:focus`, и мы можем задать для него красивые стили.
 
-<video controls width="700">
+<video controls muted width="700">
   <source src="video/tab-focus.mp4" type="video/mp4">
   <source src="video/tab-focus_safari.mp4" type="video/mp4">
 </video>
 
 Элементы формы могут получить фокус и при клике мышкой на него. Например, если кликнуть по кнопке или в поле ввода текста, то им будет добавлен псевдокласс `:focus`.
 
-<video controls width="700">
+<video controls muted width="700">
   <source src="video/mouse-focus.mp4" type="video/mp4">
   <source src="video/mouse-focus_safari.mp4" type="video/mp4">
 </video>
