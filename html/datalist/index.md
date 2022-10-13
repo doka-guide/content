@@ -297,7 +297,7 @@ tags:
   </datalist>
 </form>
 ```
-<iframe title="Пример работы <datalist> с интерактивным элементом color" src="demos/datalist-color" height="320"></iframe>
+<iframe title="Пример работы <datalist> с интерактивным элементом color" src="demos/datalist-color/" height="320"></iframe>
 
 <aside>
 
