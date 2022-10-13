@@ -128,6 +128,7 @@ groups:
       - window-history
       - window-location
       - window-navigator
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
