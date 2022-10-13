@@ -137,7 +137,7 @@ tags:
 
 <iframe title="Пример работы <datalist> с интерактивным элементом email" src="demos/datalist-email/" height="320"></iframe>
 
-### date, month, week, time
+### `date`, `month`, `week`, `time`
 
 Элемент `<input>` со значением: `date`, `month`, `week`, `time` атрибута `type` - это интерактивный элементы для установки определённой даты, месяца, недели или времени.
 
