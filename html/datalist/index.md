@@ -248,7 +248,7 @@ tags:
 ```
 <iframe title="Пример работы <datalist> с интерактивным элементом datatime-local" src="demos/datalist-datetime-local/" height="320"></iframe>
 
-### number
+### `number`
 
 Элемент `<input>` со значением `number` атрибута `type` - это интерактивный элемент для установки числа. *Предложения* элемента `<datalist>` отображаются с этим типом также, как и с типом `text`. 
 
