@@ -34,7 +34,7 @@ tags:
 <form>
 ```
 
-<iframe title="Пример работы элемента <datalist>" src="demos/default" height="320"></iframe>
+<iframe title="Пример работы элемента <datalist>" src="demos/default/" height="320"></iframe>
 
 ## Как пишется
 
