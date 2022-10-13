@@ -8,7 +8,7 @@
 
 ```css
 [list]::-webkit-calendar-picker-indicator {
-   display: none !important;
+  display: none !important;
 }
 ```
 
@@ -28,6 +28,6 @@
 
 ```css
 [list]::-webkit-calendar-picker-indicator {
-   filter: invert(1);
+  filter: invert(1);
 }
 ```
