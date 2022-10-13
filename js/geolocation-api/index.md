@@ -59,9 +59,9 @@ Symbol(Symbol.toStringTag): "Geolocation"
 [[Prototype]]: Object
 ```
 
-Для `Geolocation` есть различные методы: `getCurrentPosition`, `watchPosition` и `clearWatch`. Если их вызвать, то пользователь получит уведомление. Например, в Яндексе появится следующее диалоговое окно:
+Для `Geolocation` есть различные методы: `getCurrentPosition`, `watchPosition` и `clearWatch`. Если их вызвать, то пользователь получит уведомление. Например, в Chrome появится следующее диалоговое окно:
 
-![Диалоговое окно с запросом местоположения в браузере Яндекс](images/yandex-example-dw-c.png)
+![Диалоговое окно с запросом местоположения в браузере Chrome](images/chrome-example-permission.png)
 
 Если человек одобрит запрос, мы получим возможность работать с интерфейсом `GeolocationPosition`:
 
