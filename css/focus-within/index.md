@@ -23,7 +23,7 @@ form:focus-within {
 }
 ```
 
-<iframe title="Форма со стилизованным состоянием фокуса" src="demos/form/" height="310"></iframe>
+<iframe title="Форма со стилизованным состоянием фокуса" src="demos/form/" height="340"></iframe>
 
 ## Как пишется
 
