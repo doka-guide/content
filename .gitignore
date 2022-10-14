@@ -1,0 +1,7 @@
+# Директории IDE от JetBrains
+.idea
+# Директории Visual Studio Code
+.vscode 
+
+# Служебные директории macOS
+**/.DS_Store
