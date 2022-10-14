@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример работы элемента <datalist> с типами date, month, week, time — <datalist> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+      }
+
+      form {
+        display: flex;
+        align-items: center;
+        margin: 25px;
+      }
+
+      form:nth-of-type(even) {
+        margin-right: 44px;
+      }
+
+      form:nth-of-type(3) {
+        margin-right: 61px;
+      }
+
+      label {
+        display: block;
+        margin-right: 35px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 300px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 300;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input:focus {
+        border-color: #FF8630;
+        outline: none;
+      }
+
+      [list]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+
+      @media (max-width: 768px) {
+        body {
+            padding: 30px;
+        }
+
+        form {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        form:nth-of-type(n+2) {
+            margin-right: 24px;
+        }
+
+        label {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+        }
+      }
+  </style>
+</head>
+
+<body>
+
+  <!-- Date -->
+  <form>
+      <label for="dateInput">Укажите дату:</label>
+      <input type="date" list="dateList" id="dateInput" name="dateInput">
+      <div class="select-wrapper">
+        <datalist id="dateList">
+            <option value="2022-10-10" label="Сегодня">
+            <option value="2022-10-03" label="Неделю назад">
+            <option value="2022-10-17" label="Неделю спустя">
+        </datalist>
+      </div>
+  </form>
+
+  <!-- Month -->
+  <form>
+      <label for="monthInput">Укажите месяц:</label>
+      <input type="month" list="monthList" id="monthInput" name="monthInput">
+      <div class="select-wrapper">
+        <datalist id="monthList">
+            <option value="2022-10" label="Осень">
+            <option value="2022-03" label="Весна">
+            <option value="2022-12" label="Зима">
+        </datalist>
+      </div>
+  </form>
+
+  <!-- Week -->
+  <form>
+      <label for="weekInput">Укажите неделю:</label>
+      <input type="week" list="weekList" id="weekInput" name="weekInput">
+      <div class="select-wrapper">
+        <datalist id="weekList">
+            <option value="2022-W01" label="Первая неделя">
+            <option value="2022-W12" label="Двенадцатая неделя">
+            <option value="2022-W52" label="Последняя неделя">
+        </datalist>
+      </div>
+  </form>
+
+  <!-- Time -->
+  <form>
+      <label for="timeInput">Укажите время:</label>
+      <input type="time" list="timeList" id="timeInput" name="timeInput" step="any">
+      <div class="select-wrapper">
+        <datalist id="timeList">
+            <option value="08:00:20" label="Утром">
+            <option value="12:00" label="Днём">
+            <option value="18:00" label="Вечером">
+        </datalist>
+      </div>
+  </form>
+</body>
+
+</html>
