@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&amp;display=swap">
   <style>
     body {
+      box-sizing: border-box;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0;
       padding: 50px;
       background-color: #18191c;
@@ -36,6 +41,21 @@
       font-weight: bold;
       line-height: 1;
       font-family: "Roboto Slab", serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      blockquote {
+        padding: 7rem 2rem;
+      }
+
+      blockquote::before {
+        left: 2rem;
+        top: 3.5rem;
+      }
     }
   </style>
 </head>
