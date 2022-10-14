@@ -7,6 +7,7 @@ contributors:
   - tatianafokina
 keywords:
   - список значений
+  - комбинированный список
 related:
   - html/select
   - css/display
