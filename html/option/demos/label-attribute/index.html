@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Стандартный выпадающий список — <option> — Дока</title>
+  <title>Атрибут label — <option> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -36,6 +37,11 @@
       margin-right: 35px;
       font-size: 24px;
       font-weight: 500;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
     select {
@@ -111,16 +117,13 @@
 </head>
 <body>
 <form>
-  <label for="city-select">Ваш город</label>
+  <label for="city-select">Атрибут <code>label</code></label>
   <div class="select-wrapper">
-    <select name="city" id="city-select">
-      <option value="">-- Выберите город --</option>
-      <option value="petersburg">Санкт-Петербург</option>
-      <option value="moscow">Москва</option>
-      <option value="kazan">Казань</option>
-      <option value="samara">Самара</option>
-      <option value="perm">Пермь</option>
-      <option value="novosibirsk">Новосибирск</option>
+    <select name="city2" id="city-select2">
+      <option value="petersburg" selected label="Ленинград">Санкт-Петербург</option>
+      <option value="samara" label="Куйбышев">Самара</option>
+      <option value="volgograd" label="Сталинград">Волгоград</option>
+      <option value="ekaterinburg" label="Свердловск">Екатеринбург</option>
     </select>
   </div>
 </form>
