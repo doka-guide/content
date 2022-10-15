@@ -1,6 +1,6 @@
 ---
 title: "`max()`"
-description: "Функция, выбирающая наибольшее значение. "
+description: "Функция, выбирающая наибольшее значение."
 authors:
   - denisputnov
 keywords:
