@@ -60,18 +60,19 @@
   </style>
 </head>
 <body>
-  <div class="text-block">
-    <span class="property">font-size: max(4.5vw, 18px);</span>
-    <span class="current"></span>
-  </div>
-  <div class="rectangle">
-    <p>Функция max() — это круто!</p>
-  </div>
+  <form oninput="handleFontSizeChange(parseInt(fontSize.value))">
+    <div class="text-block">
+      <span class="property">font-size: max(4.5vw, 18px);</span>
+      <output for="fontSize" name="current" class="current">20.70px</output>
+    </div>
+    <div class="rectangle">
+      <p>Функция max() — это круто!</p>
+    </div>
 
-  <input type="range" min="320" max="600" value="460">
+    <input name="fontSize" type="range" min="320" max="600" value="460">
+  </form>
 
   <script>
-    const range = document.querySelector('input')
     const rectangle = document.querySelector('.rectangle')
     const current = document.querySelector('.current')
 
@@ -80,11 +81,6 @@
       rectangle.style.fontSize = `max(${fontSize}px, 18px)`
       current.textContent = `${Math.max(fontSize, 18).toFixed(2)}px`
     }
-
-    range.addEventListener('input', () => {
-      rectangle.style.width = range.value + 'px'
-      handleFontSizeChange(range.value)
-    })
 
     handleFontSizeChange(460)
   </script>
