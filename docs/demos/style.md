@@ -589,6 +589,10 @@ textarea:focus {
   margin-right: 15px;
 }
 
+.radio:focus + .radio-title::before {
+  border-color: #2E9AFF;
+}
+
 .radio:checked + .radio-title::before {
   background-color: #FFFFFF;
   background: radial-gradient(
@@ -636,6 +640,10 @@ textarea:focus {
   height: 24px;
   border: 1px solid #FFFFFF;
   border-radius: 6px;
+}
+
+.checkbox:focus + .checkbox-title::before {
+  border-color: #2E9AFF;
 }
 
 .checkbox:checked + .checkbox-title::after {
