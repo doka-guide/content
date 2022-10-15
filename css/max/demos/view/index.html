@@ -78,6 +78,7 @@
 
     const handleFontSizeChange = (width) => {
       const fontSize = 0.045 * width
+      rectangle.style.width = width + 'px'
       rectangle.style.fontSize = `max(${fontSize}px, 18px)`
       current.textContent = `${Math.max(fontSize, 18).toFixed(2)}px`
     }
