@@ -31,7 +31,7 @@ location: "/licenses/"
 
 Авторские права на шрифт Graphik во всех начертаниях принадлежат ООО <!-- yaspeller ignore:start -->«Тайп Тудэй»<!-- yaspeller ignore:end -->. Шрифт предоставлен Доке [по лицензии для веб-шрифтов](https://type.today/ru/license/today/web).
 
-Авторские права на шрифт Spot Mono принадлежат Schick Toikka GbR. Шрифт предоставлен Доке [по лицензии для веб-шрифтов](https://www.schick-toikka.com/licenses/).
+Авторские права на шрифт Spot Mono принадлежат Schick Toikka GbR. Шрифт предоставлен Доке [по лицензии для веб-шрифтов](https://www.schick-toikka.com/licenses).
 
 ## Особые правила
 
