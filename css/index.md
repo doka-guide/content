@@ -48,6 +48,7 @@ groups:
       - required
       - invalid-valid
       - placeholder-shown
+      - default
       - lang
       - root
   - name: 'Псевдоэлементы'
