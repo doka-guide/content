@@ -5,61 +5,39 @@ groups:
     items:
       - chto-takoe-a11y
       - aria-intro
-  - name: 'ARIA-роли'
-    items:
       - aria-roles
-      - role-presentation-none
-      - role-banner
-      - role-navigation
-      - role-main
-      - role-complementary
-      - role-region
-      - role-form
-      - role-search
-      - role-heading
-      - role-img-image
-      - role-button
-      - role-link
-      - role-alert
-      - role-status
-      - role-log
-      - role-marquee
-      - role-timer
-  - name: 'ARIA-атрибуты'
-    items:
       - aria-attrs
+  - name: 'Глобальные атрибуты'
+      - aria-hidden
       - aria-label
       - aria-labelledby
       - aria-describedby
-      - aria-hidden
-      - aria-level
-      - aria-placeholder
-      - aria-required
-      - aria-checked
-      - aria-selected
-      - aria-multiselectable
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+      - aria-owns
       - aria-current
-      - aria-pressed
-      - aria-disabled
-      - aria-readonly
-      - aria-expanded
-      - aria-haspopup
+      - aria-controls
+  - name: 'Атрибуты связи'
+      - aria-labelledby
+      - aria-describedby
       - aria-controls
       - aria-owns
-      - aria-live
-      - aria-atomic
-      - aria-relevant
-      - aria-busy
+  - name: 'Структура документа'
+      - role-presentation-none
+      - role-heading
+      - role-img-image
   - name: 'Live region'
-      - aria-live
-      - aria-atomic
-      - aria-relevant
-      - aria-busy
       - role-alert
       - role-log
       - role-marquee
       - role-status
       - role-timer
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
   - name: 'Ориентиры'
       - role-banner
       - role-navigation
@@ -68,6 +46,24 @@ groups:
       - role-region
       - role-form
       - role-search
+      - role-contentinfo
+  - name: 'Виджеты'
+      - role-button
+      - role-link
+      - aria-hidden
+      - aria-level
+      - aria-placeholder
+      - aria-required
+      - aria-checked
+      - aria-selected
+      - aria-multiselectable
+      - aria-pressed
+      - aria-disabled
+      - aria-readonly
+      - aria-expanded
+      - aria-haspopup
+      - aria-controls
+      - aria-owns
   - name: 'Доступные имена и описания'
       - aria-label
       - aria-labelledby
@@ -78,8 +74,8 @@ groups:
       - prefers-contrast
       - forced-colors
       - inverted-colors
-   - name: 'Доступные элементы'
-     items:
+  - name: 'Доступные элементы'
+    items:
       - skip-link
 ---
 
