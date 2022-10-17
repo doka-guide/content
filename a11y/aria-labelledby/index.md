@@ -10,7 +10,7 @@ keywords:
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/aria-label
 tags:
   - doka
 ---
@@ -56,11 +56,20 @@ tags:
 
 Для [`<input>`](/html/input/) в первую очередь используйте `<label>`. У этого HTML-тега есть важная особенность — при клике по тегу фокус перемещается на поле по умолчанию.
 
-Ещё `aria-labelledby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/) и [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya).
+Ещё `aria-labelledby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/), [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya).
 
-Подпись из `aria-labelledby` должен быть кратким и чётко описывать цель элемента. При этом лучше не изменять её динамически. Это запутает пользователей.
+В примере у переключателя скрыт лейбл «Ночной режим», но он всё равно доступен для вспомогательных технологий.
 
-`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из `aria-label` или `<label>`.
+```html
+<span id="label" hidden>Ночной режим</span>
+<input type="checkbox" role="switch" aria-labelledby="label">
+```
+
+Подпись из `aria-labelledby` должна быть краткой и чётко описывать цель элемента. При этом лучше не изменять её динамически, это запутает пользователей.
+
+`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из [`aria-label`](/a11y/aria-label/) или `<label>`. Так что, используйте атрибут с осторожностью с [некоторыми ролями и тегами](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_with_child_content).
+
+Когда у [`<table>`](/html/tables/) есть одновременно `<caption>` и `aria-labelledby`, таблица получит имя из атрибута, а содержимое `<caption>` станет её описанием.
 
 Порядок ID в `aria-labelledby` имеет значение. Скринридер читает лейблы в том порядке, в каком они перечислены в атрибуте. Ещё он не повторяет лейблы, если ID дублируются.
 
