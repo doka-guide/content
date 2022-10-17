@@ -79,7 +79,7 @@ tags:
 
 Несмотря на то, что задано текстовое содержимое тега `<option>`, в выпадающем списке отображаются значения из атрибутов `label`:
 
-<iframe title="Атрибут disabled" src="demos/label-attribute/" height="150"></iframe>
+<iframe title="Атрибут label" src="demos/label-attribute/" height="150"></iframe>
 
 ### `selected`
 
