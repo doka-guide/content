@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа функции max() — max() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto", sans-serif;
+    }
+
+    input {
+      margin: auto;
+      display: block;
+      width: 300px;
+      cursor: grab;
+    }
+
+    .rectangle {
+      height: 200px;
+      width: 460px;
+      color: #ffffff;
+      background-color: #2E9AFF;
+      display: grid;
+      font-size: max(4.5vw, 18px);
+      place-content: center;
+      margin: 16px 0;
+    }
+
+    .text-block {
+      display: flex;
+      justify-content: space-between;
+      font-size: calc(1em - 1px);
+      font-family: "Roboto Mono", monospace;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form oninput="handleFontSizeChange(parseInt(fontSize.value))">
+    <div class="text-block">
+      <span class="property">font-size: max(4.5vw, 18px);</span>
+      <output for="fontSize" name="current" class="current">20.70px</output>
+    </div>
+    <div class="rectangle">
+      <p>Функция max() — это круто!</p>
+    </div>
+
+    <input name="fontSize" type="range" min="320" max="600" value="460">
+  </form>
+
+  <script>
+    const rectangle = document.querySelector('.rectangle')
+    const current = document.querySelector('.current')
+
+    const handleFontSizeChange = (width) => {
+      const fontSize = 0.045 * width
+      rectangle.style.width = width + 'px'
+      rectangle.style.fontSize = `max(${fontSize}px, 18px)`
+      current.textContent = `${Math.max(fontSize, 18).toFixed(2)}px`
+    }
+
+    handleFontSizeChange(460)
+  </script>
+</body>
+</html>
