@@ -157,7 +157,7 @@ _Самостоятельные роли_ — это роли элементов
 
 - [`banner`](/a11y/role-banner/) — область хедера страницы. Эквивалент в HTML — [`<header>`](/html/header/).
 - [`complementary`](/a11y/role-complementary/) — область с дополнительным содержимым, которая не теряет смысл отдельно от страницы. Эквивалент в HTML — [`<aside>`](/html/aside/).
-- `contentinfo` — область футера страницы. Эквивалент в HTML — [`<footer>`](/html/footer/).
+- [`contentinfo`](/a11y/role-contentinfo/) — область футера страницы. Эквивалент в HTML — [`<footer>`](/html/footer/).
 - [`form`](/a11y/role-form/) — область с формой. Эквивалент в HTML — [`<form>`](/html/form/).
 - [`main`](/a11y/role-main/) — область с основным содержимым страницы. Эквивалент в HTML — [`<main>`](/html/main/).
 - [`navigation`](/a11y/role-navigation/) — область с навигацией. Эквивалент в HTML — [`<nav>`](/html/nav/).
