@@ -65,6 +65,7 @@ groups:
       - attr
       - calc
       - min
+      - max
       - linear-gradient
       - repeating-linear-gradient
       - radial-gradient
@@ -206,6 +207,7 @@ groups:
       - margin
       - box-sizing
       - min
+      - max
   - name: 'Позиционирование'
     items:
       - position
