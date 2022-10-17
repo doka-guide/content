@@ -28,7 +28,7 @@ groups:
       - role-presentation-none
       - role-heading
       - role-img-image
-  - name: 'Live region'
+  - name: '«Живые» области'
       - role-alert
       - role-log
       - role-marquee
