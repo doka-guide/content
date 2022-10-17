@@ -4,6 +4,7 @@
 
 ## Октябрь 2022
 
+- 17 октября, [`max()`](https://doka.guide/css/max/), Денис Путнов
 - 14 октября, [`:focus-within`](https://doka.guide/css/focus-within/), Антон Капустинский
 - 14 октября, [`<datalist>`](https://doka.guide/html/datalist/), Алексей Степанов
 - 12 октября, [`:focus-visible`](https://doka.guide/css/focus-visible/), Антон Капустинский
