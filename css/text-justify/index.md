@@ -2,9 +2,8 @@
 title: "`text-justify`"
 description: "Как будем текст выравнивать? Добавим пробелы между словами или между символами?"
 authors:
-  - doka-dog
-contributors:
   - kalpovskii
+  - starhamster
 keywords:
   - тип выравнивания текста
 related:
@@ -13,12 +12,20 @@ related:
   - css/word-spacing
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
 Свойство `text-justify` указывает, какой тип выравнивания должен применяться к тексту, если ему уже задано свойство [`text-align: justify`](/css/text-align/).
+
+## Пример
+
+```css
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+```
 
 ## Как пишется
 
@@ -29,6 +36,10 @@ tags:
 - `inter-word` — выравнивание достигается увеличением пробелов между словами.
 - `inter-character` — выравнивание достигается увеличением пробелов между символами.
 
-## Примеры:
+<aside>
 
-<iframe title="auto" src="demos/auto/" height="250"></iframe>
+⚠️ Поддержка этого свойства по умолчанию выключена в Chrome, поэтому демка будет работать только в Edge или Firefox.
+
+</aside>
+
+<iframe title="auto" src="demos/auto/" height="1050"></iframe>
