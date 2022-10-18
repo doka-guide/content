@@ -43,12 +43,12 @@
       line-height: 1;
     }
 
-    .select, .container, .button {
+    select, button, .container {
       width: 350px;
       flex-shrink: 0;
     }
 
-    .select {
+    select {
       border: 1px solid #ffffff;
       border-radius: 6px;
       padding: 10px 15px;
@@ -62,7 +62,7 @@
       cursor: pointer;
     }
 
-    .select:focus {
+    select:focus {
       border: 1px solid #2E9AFF;
       outline: none;
     }
@@ -88,18 +88,13 @@
       background-color: #F498AD;
     }
 
-    .option:checked {
+    option:checked {
       background-color: #2E9AFF;
       color: #000000;
     }
 
     .select-multiple {
-      padding: 10px 0;
       border-radius: 6px 0 0 6px;
-    }
-
-    .select-multiple option {
-      padding: 0 15px;
     }
 
     .container {
@@ -195,7 +190,7 @@
       background-color: #2E9AFF;
     }
 
-    .button {
+    button {
       display: block;
       min-width: 210px;
       border: 2px solid transparent;
@@ -209,23 +204,23 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:hover {
+    button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
       transition: background-color 0.2s linear;
     }
 
-    .button:focus-visible {
+    button:focus-visible {
       border: 2px solid #FFFFFF;
       outline: none;
     }
 
-    .button:focus {
+    button:focus {
       border: 2px solid #FFFFFF;
       outline: none;
     }
 
-    .button:default {
+    button:default {
       background-color: #F498AD;
     }
 
@@ -248,7 +243,7 @@
         margin-bottom: 15px;
       }
 
-      .select, .container, .button {
+      select, button, .container {
         width: 100%;
       }
 
@@ -257,7 +252,7 @@
         margin-right: 10px;
       }
 
-      .inputs-container, .progress-bar, .button {
+      .inputs-container, .progress-bar, button {
         width: 100%;
       }
     }
@@ -268,23 +263,23 @@
     <div class="form-row">
       <label class="row-label" for="address-select">Адрес пиццерии:</label>
       <div class="select-wrapper">
-        <select class="select" name="address" id="address-select">
-          <option class="option" value="centralnaia" selected>Центральная, 5</option>
-          <option class="option" value="molodejnaia">Молодёжная, 66</option>
-          <option class="option" value="shkolnaia">Школьная, 98</option>
-          <option class="option" value="sovetskaia">Советская, 148</option>
-          <option class="option" value="sadovaia">Садовая, 25</option>
+        <select name="address" id="address-select">
+          <option value="centralnaia" selected>Центральная, 5</option>
+          <option value="molodejnaia">Молодёжная, 66</option>
+          <option value="shkolnaia">Школьная, 98</option>
+          <option value="sovetskaia">Советская, 148</option>
+          <option value="sadovaia">Садовая, 25</option>
         </select>
       </div>
     </div>
     <div class="form-row">
       <label class="row-label" for="pizza-select">Выберите пиццу:</label>
-      <select class="select select-multiple" name="pizza" id="pizza-select" multiple size="5">
-        <option class="option" value="pepperoni">Пепперони</option>
-        <option class="option" value="barbekiu">Барбекю</option>
-        <option class="option" value="margarita" selected>Маргарита</option>
-        <option class="option" value="miasnaia" selected>Мясная</option>
-        <option class="option" value="gavaiskaia">Гавайская</option>
+      <select class="select-multiple" name="pizza" id="pizza-select" multiple size="5">
+        <option value="pepperoni">Пепперони</option>
+        <option value="barbekiu">Барбекю</option>
+        <option value="margarita" selected>Маргарита</option>
+        <option value="miasnaia" selected>Мясная</option>
+        <option value="gavaiskaia">Гавайская</option>
       </select>
     </div>
     <div class="form-row">
@@ -321,7 +316,7 @@
         </label>
       </div>
     </div>
-    <button class="button">Заказать</button>
+    <button>Заказать</button>
   </form>
 </body>
 </html>
