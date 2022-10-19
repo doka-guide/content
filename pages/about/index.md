@@ -26,7 +26,7 @@ location: "/about/"
 - **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
-Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/).
+Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka).
 
 ## Откуда мы взялись
 
