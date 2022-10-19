@@ -33,7 +33,7 @@ tags:
 
 </aside>
 
-<video controls width="580" poster="images/poster.png">
+<video controls muted width="580" poster="images/poster.png">
   <source src="video/1.mp4" type="video/mp4">
   <source src="video/1_safari.mp4" type="video/mp4">
 </video>
@@ -44,7 +44,10 @@ tags:
 
 Этот элемент в начале страницы должен показывать 0%, а при прокрутке менять значение. Вот так:
 
-![демо прокрутки с горизонтальной полосой прогресса](images/demo.gif)
+<video controls muted width="800">
+  <source src="video/demo.mp4" type="video/mp4">
+  <source src="video/demo_safari.mp4" type="video/mp4">
+</video>
 
 Мы не будем обращать внимания, что у нас уже есть полоса прокрутки справа, а примем задачу как данность.
 

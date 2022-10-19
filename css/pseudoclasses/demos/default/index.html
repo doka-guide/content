@@ -15,10 +15,13 @@
     }
 
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
@@ -88,6 +91,20 @@
 
     :default + span {
       color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
+
+      .checkbox-label {
+        font-size: 20px;
+      }
     }
   </style>
 </head>

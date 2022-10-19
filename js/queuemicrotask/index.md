@@ -9,6 +9,10 @@ keywords:
   - macrotasks
   - microtasks
   - sync-to-async
+related:
+  - js/async-in-js
+  - js/how-the-browser-creates-pages
+  - js/react-and-alternatives
 tags:
   - doka
 ---

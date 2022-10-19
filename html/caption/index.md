@@ -1,8 +1,12 @@
 ---
 title: "`<caption>`"
-description: "Добавляет подпись таблице"
+description: "Добавляет подпись таблице."
 authors:
   - solarrust
+related:
+  - css/flexbox-guide
+  - html/figure-figcaption
+  - css/grid-guide
 tags:
   - doka
 ---

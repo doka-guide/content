@@ -16,7 +16,11 @@
     }
 
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -29,12 +33,11 @@
 
     .container {
       width: 550px;
-      margin: auto;
     }
 
     .title {
       font-size: 30px;
-      margin-bottom: 17px;
+      margin-bottom: 10px;
       font-weight: 500;
     }
 
@@ -81,15 +84,21 @@
       cursor: not-allowed;
     }
 
+    /* иначе прозрачности накладываются друг на друга */
     .fieldset:disabled > .input:disabled {
       opacity: 1;
     }
-    /* иначе прозрачности накладываются друг на друга */
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1 class="title">Пиццерия «Нам видней»</h1>
+  <h1 class="title">Пиццерия «Нам&nbsp;видней»</h1>
   <p class="description">Выбрать можно только сыр.</p>
   <form class="form">
     <fieldset class="fieldset" disabled>

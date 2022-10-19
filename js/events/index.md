@@ -87,7 +87,7 @@ const squareDiv = document.getElementById('square')
 // чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем
 // функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
 buttonElement.addEventListener('click', function() {
-  squareDiv.style= `background-color: ${getColor()};`
+  squareDiv.style = `background-color: ${getColor()};`
 })
 ```
 

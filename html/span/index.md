@@ -1,15 +1,17 @@
 ---
 title: "`<span>`"
+description: "Помогает выделить стилем часть текста в блоке."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
-  - span
   - спан
+related:
+  - html/class
+  - css/class-selector
+  - js/query-selector-all
 tags:
   - doka
 ---

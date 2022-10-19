@@ -1,5 +1,6 @@
 ---
 title: "`<button>`"
+description: "Тег чтобы добавить на страницу кнопку."
 authors:
   - doka-dog
 contributors:
@@ -7,10 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - button
-  - тэг
-  - тег
   - кнопка
+related:
+  - html/form
+  - css/disabled-enabled
+  - js/deal-with-forms
 tags:
   - doka
 ---

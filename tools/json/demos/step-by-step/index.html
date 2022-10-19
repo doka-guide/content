@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы — JSON — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      width: 65%;
+      min-width: 650px;
+      max-width: 1100px;
+    }
+
+    h1 {
+      min-height: 1em;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+      line-height: 1;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .front, .back {
+      width: calc((100% - 25px) / 2);
+    }
+
+    .front {
+      text-align: center;
+    }
+
+    .front img {
+      width: 100%;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style-type: none;
+    }
+
+    ul li {
+      flex-grow: 1;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .back {
+      margin-left: 25px;
+      padding: 55px 40px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    ol {
+      padding-left: 25px;
+      word-break: break-word;
+    }
+
+    ol li + li {
+      margin-top: 10px;
+    }
+
+    ol li:last-child div {
+      height: 200px;
+      overflow: scroll;
+      word-break: normal;
+      border: 1px solid #FFFFFF;
+      padding: 10px;
+      margin-top: 17px;
+    }
+
+    a {
+      border-radius: 3px;
+      color: #ffffff;
+      -webkit-text-decoration-color: #41E847;
+      text-decoration-color: #41E847;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #41E847;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        display: block;
+        width: 100%;
+        min-width: auto;
+        max-width: none;
+      }
+
+      .front, .back {
+        width: 100%;
+      }
+
+      .front img {
+        width: auto;
+        max-height: 50vh;
+        max-width: 100%;
+      }
+
+      .back {
+        margin-left: 0;
+        margin-top: 25px;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="front">
+      <div id="character">
+        <h1 id="name"></h1>
+        <img src="images/question.png" id="img" alt="" srcset="">
+      </div>
+      <div class="select">
+        <h2>Выбери своего покемона:</h2>
+        <ul>
+          <li><button class="button button-green" data-name="charmeleon">charmeleon</button></li>
+          <li><button class="button button-green" data-name="pikachu">pikachu</button></li>
+          <li><button class="button button-green" data-name="bulbasaur">bulbasaur</button></li>
+          <li><button class="button button-green" data-name="squirtle">squirtle</button></li>
+          <li><button class="button button-green" data-name="caterpie">caterpie</button></li>
+          <li><button class="button button-green" data-name="slowpoke">slowpoke</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="back">
+      <h2>Что происходит:</h2>
+      <ol id="list">
+
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll("li button")
+    const baseUrl = "https://pokeapi.co/api/v2/pokemon/"
+
+    const list = document.getElementById("list")
+
+    const name = document.getElementById("name")
+    const img = document.getElementById("img")
+
+    buttons.forEach((button) =>
+      button.addEventListener("click", (event) => {
+        event.preventDefault()
+
+        buttons.forEach((button) => {
+          button.disabled = true
+        })
+
+        list.innerHTML = ""
+        name.innerText = ""
+
+        const url = baseUrl + event.target.dataset.name
+
+        let count = 0
+        let timer = setInterval(() => {
+          count++
+          switch (count) {
+            case 1:
+              list.innerHTML += `<li>Отправляем запрос на сервер — <a href="${url}">${url}</a></li>`
+              break
+            case 2:
+              list.innerHTML += `<li>Ждем ответ</li>`
+              break
+            case 3:
+              list.innerHTML += `<li>Получаем ответ от сервера в виде JSON-строки и обрабатываем данные:
+                                  <div id="json"></div>
+                                </li>`
+              break
+          }
+
+          if (count > 3) {
+            clearInterval(timer)
+
+            buttons.forEach((button) => {
+              button.disabled = false
+            })
+          }
+        }, 1000)
+
+        setTimeout(() => {
+          fetch(url)
+            .then((response) => {
+              return response.json()
+            })
+            .then((data) => {
+              const json = document.getElementById("json")
+              json.innerText = JSON.stringify(data)
+
+              name.innerText = data.name.toUpperCase()
+              img.src = data.sprites.other["official-artwork"].front_default
+            })
+            .catch((error) => console.error(error))
+        }, 3000)
+      })
+    )
+  </script>
+</body>
+</html>

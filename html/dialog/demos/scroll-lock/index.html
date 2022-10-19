@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блокируем скролл при открытии модальных окон — <dialog> — Дока</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      scrollbar-color: #ffd829 #18191c;
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
+    }
+
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 20px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 18px;
+      gap: 20px 25px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      font-family: Roboto, sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #18191c;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ffd829;
+    }
+
+    .button {
+      --back: #ffd829;
+      width: 100%;
+      padding: 10px 15px 12px;
+      text-align: center;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      color: #000000;
+      font-family: inherit;
+      font-weight: 300;
+      font-size: 1rem;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+      background-color: var(--back);
+      outline: none;
+      position: relative;
+    }
+
+    .button:hover {
+      background-color: #ffffff;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus {
+      border-color: #ffffff;
+    }
+
+    .button--dark {
+      --back: #000000;
+      color: #ffffff;
+    }
+
+    .button--dark:hover {
+      background-color: rgb(0 0 0 / 0.6);
+    }
+
+    .button--dark:focus {
+      border-color: #ffd829;
+    }
+
+    .button:focus-visible {
+      outline: 2px solid var(--back);
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+
+    .dialog {
+      width: calc(100% - 40px);
+      max-width: 400px;
+      border: none;
+      inset: 0;
+      position: fixed;
+    }
+
+    .dialog::backdrop {
+      background-color: rgb(0 0 0 / 0.5);
+    }
+
+    .dialog__title {
+      font-size: 26px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .dialog p {
+      margin: 0.2em 0 1.5em;
+      font-size: 16px;
+    }
+
+    .mock {
+      border: 2px dashed #ffd829;
+      border-radius: 4px;
+      padding: 20px;
+      height: 130vh;
+      display: grid;
+      gap: 20px;
+      place-content: start center;
+    }
+
+    .scroll-lock {
+      overflow: hidden;
+    }
+
+    @media (min-width: 600px) {
+      .mock {
+        grid-template-columns: auto 250px;
+        place-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="mock">Я блок, у которого высота больше чем вьюпорта. Просто представьте что тут оооочень много контента.
+    <button class="button opener" type="button" aria-controls="modal-example" onclick="openModalAndLockScroll(event)">
+      Открыть модальное окно
+    </button>
+  </main>
+  <dialog class="dialog" id="modal-example" onclose="returnScroll()">
+    <h1 class="dialog__title">Я модальное окно</h1>
+    <p>Но теперь я не только перекрываю остальной контент, но блокирую скролл</p>
+    <form method="dialog">
+      <button class="button button--dark">Агась 🫡</button>
+    </form>
+  </dialog>
+
+  <script>
+    function openModalAndLockScroll({
+      target: buttonOpener
+    }) {
+      const dialogID = buttonOpener.getAttribute('aria-controls');
+      const dialogElement = document.querySelector(`#${dialogID}`);
+      dialogElement.showModal();
+      document.body.classList.add("scroll-lock");
+    }
+
+    function returnScroll() {
+      document.body.classList.remove("scroll-lock");
+    }
+  </script>
+</body>
+</html>

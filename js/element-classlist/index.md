@@ -94,7 +94,7 @@ const button = document.querySelector('button.submit')
 
 // Убираем класс
 button.classList.remove('submit')
-console.log(сbutton.classList[0]);
+console.log(button.classList[0]);
 // undefined
 ```
 

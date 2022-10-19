@@ -35,6 +35,8 @@ groups:
       - child
       - nth-of-type
       - focus
+      - focus-visible
+      - focus-within
       - not
       - checked
       - disabled-enabled
@@ -46,6 +48,7 @@ groups:
       - required
       - invalid-valid
       - placeholder-shown
+      - default
       - lang
       - root
   - name: 'Псевдоэлементы'
@@ -63,7 +66,9 @@ groups:
       - attr
       - calc
       - min
+      - max
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
       - repeating-radial-gradient
       - conic-gradient
@@ -130,7 +135,9 @@ groups:
       - background-origin
       - background-blend-mode
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
       - repeating-conic-gradient
       - image-set
@@ -201,6 +208,7 @@ groups:
       - margin
       - box-sizing
       - min
+      - max
   - name: 'Позиционирование'
     items:
       - position
@@ -280,6 +288,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - aspect-ratio
       - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
@@ -332,9 +341,11 @@ groups:
       - caption-side
   - name: 'Счётчики'
     items:
+      - css-counters
       - counter-set
       - counter-reset
       - counter-increment
+      - counter-counters
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html/), SVG и других языков разметки.

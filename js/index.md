@@ -23,6 +23,7 @@ groups:
       - for-in
       - shallow-or-deep-clone
       - iterator
+      - date
   - name: "Примитивные типы данных"
     items:
       - number
@@ -57,7 +58,7 @@ groups:
       - index-of
       - includes
       - string-length
-  - name: "Булевый тип"
+  - name: "Булев тип"
     items:
       - boolean
       - logic-operators
@@ -127,6 +128,7 @@ groups:
       - window-history
       - window-location
       - window-navigator
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
@@ -141,6 +143,7 @@ groups:
       - setinterval
       - clearinterval
       - window-print
+      - intersection-observer
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -175,8 +178,9 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
-      - element-scroll-scrollintoview
-      - element-scroll-scrollto
+      - element-scrollby
+      - element-scrollintoview
+      - element-scrollto
       - element-classlist
       - element-dataset
       - element-style
@@ -189,14 +193,19 @@ groups:
     items:
       - events
       - event
+      - event-prevent-default
       - element-click
-      - event-load-and-domcontentloaded
+      - event-submit
+      - event-domcontentloaded
+      - event-load
       - event-unload
       - event-beforeunload
-      - element-keydown-keyup
+      - element-keydown
+      - element-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-wheel
+      - element-scroll
+      - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
     items:

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Варианты использования с картинкой — aspect-ratio — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 5% 0;
+        background-color: #18191c;
+      }
+
+      .block {
+        position: relative;
+        margin: auto;
+        width: clamp(290px, 50%, 420px);
+      }
+
+      .block img {
+        width: 100%;
+      }
+
+      .block mark {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      .aspect-1-to-1 img {
+        aspect-ratio: 1 / 1;
+      }
+
+      .aspect-auto img {
+        aspect-ratio: auto 1 / 1;
+      }
+
+      .style-list {
+        display: flex;
+        flex-wrap: wrap;
+        width: clamp(290px, 50%, 420px);
+        margin: auto;
+        margin-top: 10px;
+        padding: 10px 0;
+        list-style-type: none;
+        user-select: none;
+      }
+
+      .radio-label {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .radio-title {
+        color: #FFFFFF;
+      }
+
+      .radio-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: calc(50% - 12px);
+        width: 25px;
+        height: 25px;
+        border: 1px solid #FFFFFF;
+        border-radius: 50%;
+      }
+
+      .radio {
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+        margin-right: 10px;
+      }
+
+      .radio:checked + .radio-title::before {
+        background-color: #FFFFFF;
+        background: radial-gradient(
+          circle,
+          #FFFFFF 0%,
+          #FFFFFF 40%,
+          transparent 50%,
+          transparent 100%
+        );
+      }
+
+      .style-list__item {
+        margin-bottom: 10px;
+      }
+
+      .style-list__item:not(:last-child) {
+        margin-right: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="style-list">
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-1-to-1" data-value="1 / 1" class="radio" name="style" type="radio" checked>
+          <span class="radio-title">1 / 1</span>
+        </label>
+      </li>
+      <li class="style-list__item">
+        <label class="radio-label">
+          <input id="aspect-auto" data-value="auto 1 / 1" class="radio" name="style" type="radio">
+          <span class="radio-title">auto 1 / 1</span>
+        </label>
+      </li>
+    </ul>
+    <div class="block aspect-1-to-1">
+      <mark>1 / 1</mark>
+      <img src="../../images/sphere.jpg" alt="Стеклянный шар лежит на стволе дерева. Через шар видны перевёрнутые поляна и деревья.">
+    </div>
+    <script>
+      const block = document.querySelector(".block");
+      const regx = new RegExp("aspect-.+", "gm");
+
+      document.querySelector(".style-list").addEventListener("click", (e) => {
+        const id = e.target.id;
+        if (id) {
+          block.className = block.className.replace(regx, id);
+          block.querySelector("mark").textContent = e.target.getAttribute('data-value');
+        }
+      });
+    </script>
+  </body>
+</html>

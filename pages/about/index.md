@@ -22,7 +22,7 @@ location: "/about/"
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
 
 - **<!-- yaspeller ignore:start -->[Кира Кустова](/people/kirakusto/)<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
-- **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — дизайнер и разработчик демок, берёт обычные демки и превращает их в красивые и интерактивные.
+- **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — продуктовый дизайнер, делает сайт Доки прекраснее.
 - **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
@@ -30,7 +30,7 @@ location: "/about/"
 
 ## Откуда мы взялись
 
-Идея Доки родилась в Практикуме, где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
+Идея Доки родилась в [Практикуме](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka), где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
 
 ## Чего мы хотим
 
@@ -49,4 +49,4 @@ location: "/about/"
 - <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
 - [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
-- **<!-- yaspeller ignore:start -->[Саша Беспоясов](/people/bespoyasov/)<!-- yaspeller ignore:end -->** — за статьи и ревью.
+- [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример работы счётчиков со свойством display, content, если их значение none — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      counter-reset: new 0;
+    }
+
+    .container__elem {
+      position: relative;
+      padding-left: 10px;
+      padding-top: 0.625rem;
+      counter-reset: paragraph 1;
+    }
+
+    .container__elem:nth-of-type(3),
+    .container__elem:nth-of-type(4) {
+      counter-increment: new 1;
+    }
+
+    .container__elem:first-child {
+      display: none;
+    }
+
+    .container__elem:first-child+p::before {
+      counter-increment: new 2;
+      content: none;
+    }
+
+    .container__elem::after {
+      content: ".";
+    }
+
+    .container__elem::before {
+      content: counter(new);
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 7px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="container__elem">Абзац с display: none</p>
+    <p class="container__elem">Абзац с content: none</p>
+    <p class="container__elem">Нормальный абзац</p>
+    <p class="container__elem">Последний нормальный абзац</p>
+  </div>
+</body>
+</html>

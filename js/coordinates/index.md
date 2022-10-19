@@ -10,7 +10,7 @@ keywords:
 related:
   - js/element-positioning-js
   - css/position
-  - js/element-scroll-scrollto
+  - js/element-scrollto
 tags:
   - doka
 ---

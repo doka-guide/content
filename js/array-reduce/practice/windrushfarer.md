@@ -36,7 +36,7 @@ console.log(result)
 
 ```js
 const result = numbers.reduce(function (res, num) {
-  if (filterEvens(num)) {
+  if (filterEven(num)) {
     const squared = square(num)
 
     if (filterGreaterThanFifty(squared)) {

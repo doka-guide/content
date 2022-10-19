@@ -1,9 +1,14 @@
 ---
 title: "`<code>`"
+description: "Тег для оформления программного кода."
 authors:
   - xpleesid
 keywords:
   - код
+related:
+  - css/font-family
+  - html/comments
+  - css/tag-selector
 tags:
   - doka
 ---
