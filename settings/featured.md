@@ -52,53 +52,53 @@ ready:
   - recipes/snow
 active:
   - html/screenreaders
-  - tools/static-types
-  - tools/cli
-  - css/media
-  - js/how-to-test-and-why
-  - js/how-the-browser-creates-pages
-  - js/function
-  - tools/markdown
-  - css/custom-properties
-  - tools/docker
-  - js/function-context
-  - css/box-model
-  - js/closures
-  - tools/webpack
-  - tools/ci-cd
-  - js/async-in-js
-  - html/img
-  - css/position
-  - js/boolean
-  - tools/agile
   - css/keyframes
-  - css/grid-guide
-  - tools/gitlab-ci-cd
-  - tools/network
+  - css/specificity
+  - html/img
+  - tools/ci-cd
+  - css/attr
+  - js/function-context
+  - css/box-shadow
   - html/section
-  - recipes/snow
-  - js/execution-order
-  - tools/bundlers
-  - css/flexbox-guide
-  - html/article
   - html/video
-  - js/deal-with-forms
-  - html/head
   - html/doctype
+  - js/how-to-test-and-why
+  - html/article
+  - tools/static-types
+  - css/box-model
+  - css/grid-guide
+  - css/custom-properties
+  - css/pseudoelements
+  - html/input
+  - css/transform-function
+  - tools/docker
+  - js/boolean
+  - html/form
+  - html/flow
+  - tools/agile
+  - tools/webpack
+  - tools/markdown
+  - js/function
+  - tools/gitlab-ci-cd
+  - js/deal-with-forms
+  - js/oop
   - js/infinite-scroll
   - html/div
-  - html/flow
-  - js/oop
-  - css/pseudoelements
-  - css/transform-function
-  - js/var-let
-  - css/attr
-  - css/box-shadow
-  - js/clean-architecture
-  - css/specificity
-  - html/nav
-  - html/form
-  - html/input
+  - css/position
   - css/display
+  - html/head
+  - js/how-the-browser-creates-pages
+  - tools/bundlers
+  - tools/network
+  - css/media
+  - recipes/snow
+  - html/nav
+  - js/clean-architecture
+  - js/var-let
+  - css/flexbox-guide
+  - js/execution-order
+  - js/async-in-js
+  - js/closures
+  - tools/cli
 ---
 

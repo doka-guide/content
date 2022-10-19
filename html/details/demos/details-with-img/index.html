@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title><details> c иконкой в <img> — <details> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191Cff;
+      color: #FFFFFF;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 1.4;
+    }
+
+    details {
+      width: 450px;
+      cursor: pointer;
+    }
+
+    summary, summary::-webkit-details-marker {
+      list-style: none;
+    }
+
+    img {
+      display: inline;
+      margin-right: 10px;
+      width: 20px;
+      height: 12px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      details {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <details id="details" open>
+    <summary>
+      <img id="image" src="images/arrow-down.svg" alt="">
+      Сроки доставки
+    </summary>
+    <p>Если закажите экспресс-доставку голубями, она займёт от 6 до 8 дней. Обычная доставка улиткой занимает примерно 20 дней.</p>
+  </details>
+
+  <script>
+    const changeSrc = function() {
+      const image = document.getElementById('image');
+
+      document.getElementById('details').addEventListener('click', function() {
+        if(this.hasAttribute('open')) {
+          image.src="images/arrow-down.svg";
+        } else {
+          image.src="images/arrow-up.svg";
+        }
+      })
+    };
+
+    changeSrc();
+  </script>
+</body>
+</html>

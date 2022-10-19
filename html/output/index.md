@@ -1,11 +1,15 @@
 ---
 title: "`<output>`"
-description: "Элемент для вывода результатов вычислений или действий пользователя"
+description: "Элемент для вывода результатов вычислений или действий пользователя."
 authors:
   - webdb81
 keywords:
   - вывод результата
   - поле вывода
+related:
+  - js/query-selector
+  - html/form
+  - js/element-innertext
 tags:
   - doka
 ---

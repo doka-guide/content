@@ -4,7 +4,7 @@
 const element = document.querySelector('div')
 
 // Через специальный метод
-const classes = Array.fom(element.classList)
+const classes = Array.from(element.classList)
 
 // Либо через сред-оператор
 const classes = [...element.classList]

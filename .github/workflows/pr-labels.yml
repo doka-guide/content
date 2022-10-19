@@ -13,4 +13,5 @@ jobs:
         uses: doka-guide/doka-labeler@v1
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
+          strategy: append
           config: ".github/labeler.yml"

@@ -8,8 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - section
   - секция
+related:
+  - html/body
+  - html/h1-h6
+  - html/header
 tags:
   - doka
 ---

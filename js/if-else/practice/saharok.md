@@ -28,7 +28,7 @@ const value = externalValue ?? 42
 const value = (externalValue !== null && externalValue !== undefined) ? externalValue : 42
 ```
 
-Оператор `??` возвращает первый операнд (`externalValue`), если он не `null` и не `undefined`, иначе - второй (`42`). Теперь через `externalValue` можно передать `''`, `NaN`, `0` , `-0`, `0n`, `false`, в отличии от кейса с `||`.
+Оператор `??` возвращает первый операнд (`externalValue`), если он не `null` и не `undefined`, иначе — второй (`42`). Теперь через `externalValue` можно передать `''`, `NaN`, `0` , `-0`, `0n`, `false`, в отличие от кейса с `||`.
 
 Сравните результат операций с `||` и `??`:
 

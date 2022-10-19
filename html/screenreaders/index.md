@@ -9,6 +9,10 @@ keywords:
   - доступность
   - скринридер
   - семантика
+related:
+  - tools/site-readers
+  - html/h1-h6
+  - html/main
 tags:
   - article
 ---

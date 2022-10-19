@@ -3,6 +3,10 @@ title: "Атрибут `pattern`"
 description: "Говорим браузеру, каким должно быть значение полей формы."
 authors:
   - solarrust
+related:
+  - html/autocomplete
+  - html/inputmode
+  - html/input
 tags:
   - doka
 ---

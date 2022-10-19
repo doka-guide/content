@@ -3,6 +3,10 @@ title: "`<data>`"
 description: "Тег для перевода данных с человеческого языка на компьютерный."
 authors:
   - furtivite
+related:
+  - js/element-dataset
+  - js/dom
+  - js/query-selector-all
 tags:
   - doka
 ---

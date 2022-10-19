@@ -13,8 +13,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - video
-  - видео
   - autoplay
   - muted
   - controls
@@ -23,6 +21,10 @@ keywords:
   - loop
   - preload
   - poster
+related:
+  - html/source
+  - css/object-position
+  - css/object-fit
 tags:
   - doka
 ---

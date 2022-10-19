@@ -1,5 +1,6 @@
 ---
 title: "`<label>`"
+description: "Подписывает поля ввода и другие элементы формы."
 authors:
   - ezhkov
 contributors:
@@ -7,6 +8,10 @@ contributors:
 keywords:
   - лейбл
   - подпись поля ввода
+related:
+  - html/input
+  - html/select
+  - html/textarea
 tags:
   - doka
 ---

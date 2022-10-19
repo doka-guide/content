@@ -28,6 +28,11 @@
       font-size: 18px;
     }
 
+    .poem {
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
+
     .container {
       display: flex;
       gap: .625rem;
@@ -63,9 +68,49 @@
       color: black;
     }
 
+    .reference__title {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      text-align: end;
+      font-size: 0.8em;
+      line-height: 1.25
+    }
+
+    .reference__link {
+      color: white;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(255, 255, 255, 0.3);
+      text-underline-offset: 0.125em;
+      transition: text-decoration-color 0.2s;
+    }
+
+    @-moz-document url-prefix() {
+      .reference__link {
+        text-decoration-thickness: 2px;
+      }
+    }
+
+    .reference__link:hover {
+      text-decoration-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .container__author {
+      padding-top: 1.5em;
+      font-size: 1rem;
+      line-height: 1.4;
+      text-align: right;
+      color: white;
+      grid-row: col 2;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      .poem {
+        gap: 1em;
       }
 
       .container__elem {
@@ -80,49 +125,57 @@
         position: absolute;
         font-weight: bold;
         top: 2%;
-        left: 85%;
+        left: 80%;
         z-index: -1;
         color: rgba(255, 255, 255, 0.3);
       }
     }
   </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">В России расстаются навсегда. В России друг от друга города столь далеки,</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">что вздрагиваю я, шепнув «прощай». Рукой своей касаюсь невзначай её руки.</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">Длиною в жизнь любая из дорог. Скажите, что такое русский Бог? «Конечно, я приеду».</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">Не приеду никогда. В России расстаются навсегда. «Душа моя, приеду».
+  <figure class="poem">
+    <blockquote cite="https://www.culture.ru/poems/14162/v-rossii-rasstayutsya-navsegda" class="container">
+      <div class="container__elem">
+        <p class="container__paragraph">В России расстаются навсегда. В России друг от друга города столь далеки,</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">что вздрагиваю я, шепнув «прощай». Рукой своей касаюсь невзначай её руки.</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">Длиною в жизнь любая из дорог. Скажите, что такое русский Бог? «Конечно, я
+          приеду».</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">Не приеду никогда. В России расстаются навсегда. «Душа моя, приеду».
+        </p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">Через сотни лет вернусь.
+          Какая малость, милость, что за грусть —
+          мы насовсем прощаемся.</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">«Дай капельку сотру».
+          Да, не приеду. Видимо, умру
+          скорее, чем.</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">В России расстаются навсегда.
+          Ещё один подкинь кусочек льда
+          в холодный стих.</p>
+      </div>
+      <div class="container__elem">
+        <p class="container__paragraph">…И поезда уходят под откос,
+          …И самолёты, долетев до звёзд,
+          сгорают в них.</p>
+      </div>
+    </blockquote>
+    <div class="reference">
+      <p class="reference__title">
+        Референс: <a href="https://youtu.be/umDBDdKyy0A" target="_blank" class="reference__link">EasyWeb</a>
       </p>
     </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">Через сотни лет вернусь.
-      Какая малость, милость, что за грусть —
-      мы насовсем прощаемся.</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">«Дай капельку сотру».
-      Да, не приеду. Видимо, умру
-      скорее, чем.</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">В России расстаются навсегда.
-      Ещё один подкинь кусочек льда
-      в холодный стих.</p>
-    </div>
-    <div class="container__elem container__elem_counter">
-      <p class="container__paragraph">…И поезда уходят под откос,
-      …И самолёты, долетев до звёзд,
-      сгорают в них.</p>
-    </div>
-  </div>
+    <figcaption class="container__author"><cite>В России расстаются навсегда</cite>. Борис Рыжий, 1996 г.</figcaption>
+  </figure>
 </body>
 </html>

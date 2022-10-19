@@ -3,6 +3,8 @@ title: "`:active`"
 description: "Один из псевдоклассов, показывающих, что интерфейс откликается на действия пользователя"
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -20,7 +22,10 @@ tags:
 
 Псевдокласс `:active` позволяет задать стили для элемента, с которым происходит взаимодействие прямо сейчас. Например, можно задать кнопке стиль, который будет виден в тот краткий миг, когда на кнопке зажата клавиша мыши.
 
-![Пример псевдокласса active при нажатии на кнопку](images/active.gif)
+<video controls muted width="700">
+  <source src="video/mouse-active.mp4" type="video/mp4">
+  <source src="video/mouse-active_safari.mp4" type="video/mp4">
+</video>
 
 ## Пример
 

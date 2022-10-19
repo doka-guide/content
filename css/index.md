@@ -35,6 +35,8 @@ groups:
       - child
       - nth-of-type
       - focus
+      - focus-visible
+      - focus-within
       - not
       - checked
       - disabled-enabled
@@ -46,6 +48,7 @@ groups:
       - required
       - invalid-valid
       - placeholder-shown
+      - default
       - lang
       - root
   - name: 'Псевдоэлементы'
@@ -63,6 +66,7 @@ groups:
       - attr
       - calc
       - min
+      - max
       - linear-gradient
       - repeating-linear-gradient
       - radial-gradient
@@ -204,6 +208,7 @@ groups:
       - margin
       - box-sizing
       - min
+      - max
   - name: 'Позиционирование'
     items:
       - position
@@ -283,6 +288,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - aspect-ratio
       - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'

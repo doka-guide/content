@@ -1,16 +1,17 @@
 ---
 title: "`<p>`"
+description: "Размечает абзац текста. Один из часто используемых тегов."
 authors:
   - doka-dog
 contributors:
   - solarrust
 keywords:
-  - тэг
-  - тег
-  - <p>
-  - p
   - абзац
   - параграф
+related:
+  - css/box-model
+  - html/main
+  - css/margin
 tags:
   - doka
 ---

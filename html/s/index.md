@@ -1,9 +1,14 @@
 ---
 title: "`<s>`"
+description: "Размечает уже неактуальный контент."
 authors:
   - xpleesid
 keywords:
   - зачёркивание
+related:
+  - html/del
+  - html/ins
+  - css/text-decoration
 tags:
   - doka
 ---

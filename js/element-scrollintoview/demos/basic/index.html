@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Прокрутка к элементу с помощью логических аргументов — Element.scrollIntoView() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 2250px;
+      padding: 50px;
+      display: grid;
+      grid-template-rows: repeat(3fr);
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .first-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .second-block {
+      background-color: #FFD829;
+      border-block: 10px dashed #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="first-block">
+    <button class="button button-green">Прокрутка с arg = true</button>
+    <button class="button button-orange">Прокрутка с arg = false</button>
+  </div>
+  <div class="second-block"></div>
+  <div class="third-block"></div>
+  <script>
+    const buttonGreen = document.querySelector('.button.button-green')
+    const buttonOrange = document.querySelector('.button.button-orange')
+    const secondBlock = document.querySelector('.second-block')
+
+    buttonGreen.addEventListener('click', function() {
+      secondBlock.scrollIntoView(true)
+    })
+
+    buttonOrange.addEventListener('click', function() {
+      secondBlock.scrollIntoView(false)
+    })
+  </script>
+</body>
+</html>

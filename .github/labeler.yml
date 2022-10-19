@@ -1,5 +1,3 @@
-labeler-strategy: append
-
 css:
   - files:
     - css/**/*.md

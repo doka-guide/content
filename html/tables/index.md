@@ -1,5 +1,6 @@
 ---
 title: "Таблицы"
+description: "Как устроены таблицы в HTML и как их правильно верстать."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -22,6 +23,10 @@ keywords:
   - caption
   - colspan
   - rowspan
+related:
+  - css/child
+  - css/position
+  - html/flow
 tags:
   - doka
 ---

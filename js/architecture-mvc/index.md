@@ -243,7 +243,7 @@ const flashLightController = {
 ```js
 const flashLightController = {
   updateColor(color) {
-    flashLightModel.color = preferredColor
+    flashLightModel.color = color
   },
 }
 ```

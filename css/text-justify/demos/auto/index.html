@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример значений — text-justify — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
+
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
+      width: 210px;
+      text-align: right;
+    }
+
+    .option {
+      width: 450px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      text-align: justify;
+    }
+
+    .none {
+      text-justify: none;
+    }
+
+    .auto {
+      text-justify: auto;
+    }
+
+    .word {
+      text-justify: inter-word;
+    }
+
+    .char {
+      text-justify: inter-character;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+
+      .option-title {
+        width: 100%;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option {
+        width: calc(100vw - 60px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>text-justify</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>none</code></span>
+      <p class="option none">
+        Лежанье у Ильи Ильича не было ни необходимостью, как у больного или как у человека, который хочет спать, ни случайностью, как у того, кто устал, ни наслаждением, как у лентяя: это было его нормальным состоянием.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>auto</code></span>
+      <p class="option auto">
+        Лежанье у Ильи Ильича не было ни необходимостью, как у больного или как у человека, который хочет спать, ни случайностью, как у того, кто устал, ни наслаждением, как у лентяя: это было его нормальным состоянием.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>inter-word</code></span>
+      <p class="option word">
+        Лежанье у Ильи Ильича не было ни необходимостью, как у больного или как у человека, который хочет спать, ни случайностью, как у того, кто устал, ни наслаждением, как у лентяя: это было его нормальным состоянием.
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>inter-character</code></span>
+      <p class="option char">
+        Лежанье у Ильи Ильича не было ни необходимостью, как у больного или как у человека, который хочет спать, ни случайностью, как у того, кто устал, ни наслаждением, как у лентяя: это было его нормальным состоянием.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

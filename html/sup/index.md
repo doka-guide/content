@@ -1,10 +1,15 @@
 ---
 title: "`<sup>`"
+description: "Выводит надстрочный текст."
 authors:
   - xpleesid
 keywords:
   - надстрочный
   - индекс
+related:
+  - html/var
+  - css/tag-selector
+  - css/font-size
 tags:
   - doka
 ---
@@ -30,7 +35,7 @@ tags:
 
 ## Как пишется
 
-Помимо описанного выше примера, можно использовать тег `<sup>` внутри тега `<var>`.
+Помимо описанного выше примера, можно использовать тег `<sup>` внутри тега [`<var>`](/html/var/).
 
 ```html
 <p>

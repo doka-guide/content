@@ -1,6 +1,11 @@
 ---
 title: "Рекурсия"
 description: "Зачем функции вызывать саму себя — одна из любимых тем на собеседовании."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: ''
 authors:
   - bespoyasov
 keywords:

@@ -5,11 +5,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
     }
 
     .element {
@@ -18,6 +25,7 @@
       height: 100px;
       padding: 25px;
       border: 10px solid #ffffff;
+      flex-shrink: 0;
     }
 
     .element + .element {
@@ -26,12 +34,12 @@
 
     .first {
       box-sizing: content-box;
-      background-color: #ed6742;
+      background-color: #2E9AFF;
     }
 
     .second {
       box-sizing: border-box;
-      background-color: #f498ad;
+      background-color: #F498AD;
     }
   </style>
 </head>

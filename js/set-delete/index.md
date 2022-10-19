@@ -19,7 +19,7 @@ tags:
 
 ```js
 const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-console.log(watchlist.length)
+console.log(watchlist.size)
 // 3
 
 const firstTry = watchlist.delete('Казино')
