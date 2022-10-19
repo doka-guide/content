@@ -30,3 +30,9 @@ option::before {
 ```
 
 <iframe title="Стилизация option" src="../demos/option-styles/" height="220"></iframe>
+
+<aside>
+
+⚠️ В Safari стилизация для `<option>` доступна не полностью, даже если тег имеет атрибут `multiple`.
+
+</aside>
