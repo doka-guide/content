@@ -5,10 +5,40 @@ groups:
     items:
       - chto-takoe-a11y
       - aria-intro
-  - name: 'ARIA-роли'
-    items:
       - aria-roles
+      - aria-attrs
+  - name: 'Глобальные атрибуты'
+      - aria-hidden
+      - aria-label
+      - aria-labelledby
+      - aria-describedby
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+      - aria-owns
+      - aria-current
+      - aria-controls
+  - name: 'Атрибуты связи'
+      - aria-labelledby
+      - aria-describedby
+      - aria-controls
+      - aria-owns
+  - name: 'Структура документа'
       - role-presentation-none
+      - role-heading
+      - role-img-image
+  - name: '«Живые» области'
+      - role-alert
+      - role-log
+      - role-marquee
+      - role-status
+      - role-timer
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+  - name: 'Ориентиры'
       - role-banner
       - role-navigation
       - role-main
@@ -16,26 +46,37 @@ groups:
       - role-region
       - role-form
       - role-search
-      - role-heading
-      - role-img-image
+      - role-contentinfo
+  - name: 'Виджеты'
       - role-button
       - role-link
-  - name: 'ARIA-атрибуты'
-    items:
-      - aria-attrs
-      - aria-label
-      - aria-labelledby
-      - aria-describedby
       - aria-hidden
       - aria-level
       - aria-placeholder
       - aria-required
+      - aria-checked
+      - aria-selected
+      - aria-multiselectable
+      - aria-pressed
+      - aria-disabled
+      - aria-readonly
+      - aria-expanded
+      - aria-haspopup
+      - aria-controls
+      - aria-owns
+  - name: 'Доступные имена и описания'
+      - aria-label
+      - aria-labelledby
+      - aria-describedby
   - name: 'CSS и доступность'
     items:
       - prefers-reduced-motion
       - prefers-contrast
       - forced-colors
       - inverted-colors
+  - name: 'Доступные элементы'
+    items:
+      - skip-link
 ---
 
 Доступность (accessibility) нужна для того, чтобы вашим сайтом или приложением могли пользоваться люди с инвалидностью, а вместе с ними и все другие пользователи. Часто длинное английское название сокращают до ёмкого a11y.
