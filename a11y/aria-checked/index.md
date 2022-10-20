@@ -52,7 +52,7 @@ tags:
 - `menuitemcheckbox`.
 - `switch`.
 
-Если используте [`<input type="radio">`](/html/input/#type), [`<input type="checkbox">`](/html/input/#type) и [`<option>`](/html/option/), им не нужен атрибут `aria-checked`.
+Если используете [`<input type="radio">`](/html/input/#type), [`<input type="checkbox">`](/html/input/#type) и [`<option>`](/html/option/), им не нужен атрибут `aria-checked`.
 
 ## Как понять
 
