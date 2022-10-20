@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Стилизация option — <option> — Дока</title>
+  <title>Атрибут label — <option> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -26,23 +27,28 @@
     }
 
     form {
-      margin: auto;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      margin: auto;
     }
 
     label {
+      display: block;
       margin-right: 35px;
       font-size: 24px;
       font-weight: 500;
-      line-height: 1;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
     select {
       position: relative;
       width: 400px;
       border: 1px solid #ffffff;
-      border-radius: 6px 0 0 6px;
+      border-radius: 6px;
       padding: 10px 15px;
       background-color: #18191c;
       color: #ffffff;
@@ -59,23 +65,27 @@
       outline: none;
     }
 
-    select {
-      counter-reset: cnt;
+    .select-wrapper {
+      position: relative;
     }
 
-    option:nth-child(2n) {
-      background-color: #282a2e;
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      top: calc(50% - 4px);
+      height: 9px;
+      right: 15px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
     }
 
     option {
       font-weight: inherit;
       font-family: inherit;
       font-size: inherit;
-      counter-increment: cnt;
-    }
-
-    option::before {
-      content: counter(cnt) ". ";
     }
 
     @media (max-width: 768px) {
@@ -102,15 +112,13 @@
 </head>
 <body>
 <form>
-  <label for="city-select">Стилизация &lt;option&gt;</label>
+  <label for="city-select">Атрибут <code>label</code></label>
   <div class="select-wrapper">
-    <select name="city" id="city-select" multiple>
-      <option value="petersburg">Санкт-Петербург</option>
-      <option value="moscow">Москва</option>
-      <option value="kazan">Казань</option>
-      <option value="samara">Самара</option>
-      <option value="perm">Пермь</option>
-      <option value="novosibirsk">Новосибирск</option>
+    <select name="city2" id="city-select2">
+      <option value="petersburg" selected label="Ленинград">Санкт-Петербург</option>
+      <option value="samara" label="Куйбышев">Самара</option>
+      <option value="volgograd" label="Сталинград">Волгоград</option>
+      <option value="ekaterinburg" label="Свердловск">Екатеринбург</option>
     </select>
   </div>
 </form>
