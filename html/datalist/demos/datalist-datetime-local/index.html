@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример работы элемента <datalist> с типом datetime-local — <datalist> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+      }
+
+      form {
+        display: flex;
+        align-items: center;
+        margin: auto;
+      }
+
+      label {
+        display: block;
+        margin-right: 35px;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 300px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 300;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input:focus {
+        border-color: #FF8630;
+        outline: none;
+      }
+
+      [list]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+
+      @media (max-width: 768px) {
+        body {
+            padding: 30px;
+        }
+
+        form {
+            flex-direction: column;
+            align-items: stretch;
+            width: 100%;
+        }
+
+        label {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  <form>
+      <label for="datetimelocalInput">Укажите дату и время:</label>
+      <input type="datetime-local" list="dateList" id="datetimelocalInput" name="dateInput" step="any">
+      <div class="select-wrapper">
+        <datalist id="dateList">
+            <option value="2022-10-10 12:00" label="Сегодня днём">
+            <option value="2022-10-03T08:00" label="Неделю назад утром">
+            <option value="2022-10-17 17:00" label="Через неделю вечером">
+        </datalist>
+      </div>
+  </form>
+</body>
+
+</html>
