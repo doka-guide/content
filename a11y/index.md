@@ -8,6 +8,7 @@ groups:
       - aria-roles
       - aria-attrs
   - name: 'Глобальные атрибуты'
+    items:
       - aria-hidden
       - aria-label
       - aria-labelledby
@@ -20,15 +21,18 @@ groups:
       - aria-current
       - aria-controls
   - name: 'Атрибуты связи'
+    items:
       - aria-labelledby
       - aria-describedby
       - aria-controls
       - aria-owns
   - name: 'Структура документа'
+    items:
       - role-presentation-none
       - role-heading
       - role-img-image
   - name: '«Живые» области'
+    items:
       - role-alert
       - role-log
       - role-marquee
@@ -39,6 +43,7 @@ groups:
       - aria-relevant
       - aria-busy
   - name: 'Ориентиры'
+    items:
       - role-banner
       - role-navigation
       - role-main
@@ -48,6 +53,7 @@ groups:
       - role-search
       - role-contentinfo
   - name: 'Виджеты'
+    items:
       - role-button
       - role-link
       - aria-hidden
@@ -65,6 +71,7 @@ groups:
       - aria-controls
       - aria-owns
   - name: 'Доступные имена и описания'
+    items:
       - aria-label
       - aria-labelledby
       - aria-describedby
