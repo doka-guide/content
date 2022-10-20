@@ -4,8 +4,6 @@ url: https://twitter.com/ABatickaya
 photo: photo.png
 badges:
   - first-contribution-small
-  - doka-dog-help-100
-  - most-viewed-year-zigzag
 ---
 
 Привет! 🖖
