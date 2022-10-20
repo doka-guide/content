@@ -51,7 +51,7 @@ tags:
 
 <iframe title="Див с фоном" src="demos/div/" height="280"></iframe>
 
-## Как это понять
+## Как понять
 
 _Div_ — от английского _division_ — раздел, секция.
 
