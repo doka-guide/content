@@ -19,7 +19,7 @@ jobs:
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [ $changed_file == $config ]
             then
               echo "Проверка для всех файлов"

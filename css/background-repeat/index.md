@@ -1,5 +1,6 @@
 ---
 title: "`background-repeat`"
+description: "При помощи этого свойства и небольшой картинки можно создавать красивые паттерны на фоне."
 authors:
   - solarrust
 editors:
@@ -8,6 +9,10 @@ contributors:
   - skorobaeus
 keywords:
   - повторение фона
+related:
+  - tools/file
+  - css/background
+  - css/background-origin
 tags:
   - doka
 ---

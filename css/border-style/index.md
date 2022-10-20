@@ -1,8 +1,12 @@
 ---
 title: "`border-style`"
-description: "Свойство border-style управляет стилем рамки элемента"
+description: "Рамку можно сделать двойной, пунктирной и даже объёмной в точку! И всё это одним свойством."
 authors:
   - solarrust
+related:
+  - css/border
+  - css/outline
+  - css/border-color
 tags:
   - doka
 ---

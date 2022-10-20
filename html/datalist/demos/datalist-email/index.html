@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример работы элемента <datalist> с типом email — <datalist> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      margin: 25px;
+    }
+
+    label {
+      display: block;
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .second-form {
+      margin-right: 125px;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    [list]::-webkit-calendar-picker-indicator {
+      display: none !important;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      top: calc(50% - 4px);
+      height: 8px;
+      right: 15px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      .select-wrapper::after {
+        top: calc(50% - 24px);
+      }
+
+      .second-form {
+        margin-right: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Без multiple -->
+  <form>
+    <label for="emails">Выберите почту:</label>
+    <input type="email" list="emails-list" id="emails" name="emails" placeholder="Hello@doka.ru">
+    <div class="select-wrapper">
+      <datalist id="emails-list">
+        <option value="peafowls@doka.ru" label="Моя первая почта">
+        <option value="work68@doka.ru" label="Рабочая почта">
+        <option value="adversting68@doka.ru" label="Почта для рекламных предложений">
+      </datalist>
+    </div>
+  </form>
+
+  <!-- С multiple -->
+  <form class="second-form">
+    <label for="emails">Укажите несколько почт:</label>
+    <input type="email" list="emails-list" id="emails" name="emails" placeholder="World@doka.ru" multiple>
+    <div class="select-wrapper">
+      <datalist id="emails-list">
+        <option value="peafowls@doka.ru" label="Моя первая почта">
+        <option value="work68@doka.ru" label="Рабочая почта">
+        <option value="adversting68@doka.ru" label="Почта для рекламных предложений">
+      </datalist>
+    </div>
+  </form>
+</body>
+
+</html>

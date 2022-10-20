@@ -1,10 +1,15 @@
 ---
 title: "`<cite>`"
+description: "Указывает на источник цитаты или названия произведений."
 authors:
   - xpleesid
 keywords:
   - ссылка
   - цитата
+related:
+  - html/blockquote
+  - css/font-style
+  - html/q
 tags:
   - doka
 ---

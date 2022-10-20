@@ -1,17 +1,22 @@
 ---
 title: "`.removeEventListener()`"
+description: "Перестаём слушать события браузера."
 authors:
   - akellbl4
 contributors:
   - nlopin
   - skorobaeus
+related:
+  - js/events
+  - js/dom
+  - js/typecasting
 tags:
   - doka
 ---
 
 ## Кратко
 
-Удаляет обработчик события с элемента, установленный с помощью [`.addEventListener()`](/js/element-addeventlistener/).
+Удаляет обработчик события с элемента, установленный с помощью [`addEventListener()`](/js/element-addeventlistener/).
 
 ## Как пишется
 
@@ -33,10 +38,10 @@ window.removeEventListener('click', handleMouseClick)
 
 <iframe title="Удаление обработчика событий — Element.removeEventListener() — Дока" src="demos/index/" height="350"></iframe>
 
-`.removeEventListener()` принимает три аргумента. Первые два обязательные:
+Метод `removeEventListener()` принимает три аргумента. Первые два обязательные:
 
-- название события в виде строки
-- функция-обработчик, которую нужно убрать с указанного события
+- название события строкой;
+- функция-обработчик, которую нужно убрать с указанного события.
 
 Третий аргумент необязательный — это объект с настройками в котором могут содержаться свойства `capture` и `passive` с булевыми значениями `true` либо `false`. Точно такие же опции, можно передать и в `.addEventListener()`.
 
@@ -112,4 +117,4 @@ window.addEventListener('click', handleMouseClick, true)
 window.removeEventListener('click', handleMouseClick)
 ```
 
-Так происходит потому что третий аргумент неявно устанавливается в `undefined`, а `undefined` превращается в `false` при конвертации в булевый тип. Когда браузер ищет обработчик на удаление, он сравнивает опции и видит, что `true !== false`, значит обработчик не будет удалён.
+Так происходит потому что третий аргумент неявно устанавливается в [`undefined`](/js/undefined/), а `undefined` превращается в `false` при [конвертации в булевый тип](/js/typecasting/). Когда браузер ищет обработчик на удаление, он сравнивает опции и видит, что `true !== false`, значит обработчик не будет удалён.

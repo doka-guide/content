@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа функции min() — min() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    html {
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    iframe {
+      margin-bottom: 1em;
+      width: 600px;
+      height: 250px;
+      border: none;
+      border-radius: 1em;
+    }
+
+    input {
+      margin: auto;
+      display: block;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <p>width: min(50vw, 350px);</p>
+  <iframe src="code.html"></iframe>
+  <input type="range" min="500" max="800" value="650">
+
+  <script>
+    const range = document.querySelector('input')
+    const frame = document.querySelector('iframe')
+
+    range.addEventListener('input', () => {
+      frame.style.width = range.value + 'px'
+    })
+  </script>
+</body>
+</html>

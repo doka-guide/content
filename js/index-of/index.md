@@ -1,7 +1,12 @@
 ---
 title: "`.indexOf()`"
+description: "Ищет вхождение элемента в массив или подстроки в строку и возвращает индекс."
 authors:
   - nlopin
+related:
+  - js/array-find-index
+  - js/typecasting
+  - js/language-versions
 tags:
   - doka
 ---
@@ -14,12 +19,13 @@ tags:
 
 ## Как пишется
 
-Искомый элемент передаётся первым аргументом — `array1.indexOf("иголка")`
+Искомый элемент передаётся первым аргументом — `array1.indexOf('иголка')`
 
 ```js
-let example = ["чебурашка", "гена", "шапокляк", "лариска"]
+const example = ['чебурашка', 'гена', 'шапокляк', 'лариска']
 
-console.log(example.indexOf("гена")) // напечатает 1
+console.log(example.indexOf('гена'))
+// 1
 ```
 
 ## Как это понять
@@ -27,19 +33,25 @@ console.log(example.indexOf("гена")) // напечатает 1
 _Для массивов_: ищет переданный элемент в массиве. Если элемент один, то возвращает индекс этого элемента. Если элементов много — возвращает индекс первого подходящего элемента. Элемента в массиве нет — вернёт `-1`
 
 ```js
-let haystack = ["Петя", "Настя", "Артур", "Лена", "Настя"]
+const haystack = ['Петя', 'Настя', 'Артур', 'Лена', 'Настя']
 
-console.log(haystack.indexOf("Лена")) // напечатает 3
-console.log(haystack.indexOf("Настя")) // напечатает 1
-console.log(haystack.indexOf("Эдуард Аркадьевич")) // напечатает -1
+console.log(haystack.indexOf('Лена'))
+// 3
+console.log(haystack.indexOf('Настя'))
+// 1
+console.log(haystack.indexOf('Эдуард Аркадьевич'))
+// -1
 ```
 
 _Для строк_: работает так же, как с массивами, но можно искать не только буквы в строке, но и подстроки. Например:
 
 ```js
-let haystack = "Мама мыла раму"
+const haystack = 'Мама мыла раму'
 
-console.log(haystack.indexOf("а")) // напечатает 1
-console.log(haystack.indexOf("мыла")) // напечатает 5
-console.log(haystack.indexOf("ё")) // напечатает -1
+console.log(haystack.indexOf('а'))
+// 1
+console.log(haystack.indexOf('мыла'))
+// 5
+console.log(haystack.indexOf('ё'))
+// -1
 ```

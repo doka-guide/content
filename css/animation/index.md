@@ -1,5 +1,6 @@
 ---
 title: "CSS-анимации"
+description: "Большой набор свойств для создания настоящих живых анимаций."
 authors:
   - solarrust
 contributors:
@@ -7,16 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
-  - animation-name
-  - animation-duration
-  - animation-iteration-count
-  - animation-direction
-  - animation-timing-function
-  - animation-delay
-  - animation-play-state
-  - animation-fill-mode
-  - animation
+  - анимации
+related:
+  - css/keyframes
+  - js/element-positioning-js
+  - css/box-model
 tags:
   - article
 ---
@@ -41,7 +37,7 @@ CSS-анимации могут проигрываться без дополни
 - [`animation-delay`](/css/animation-delay/);
 - [`animation-play-state`](/css/animation-play-state/);
 - [`animation-fill-mode`](/css/animation-fill-mode/);
-- [`animation`](/css/animation/);
+- [`animation`](/css/animation/).
 
 Для создания _ключевых кадров_ используется директива [`@keyframes`](/css/keyframes/).
 

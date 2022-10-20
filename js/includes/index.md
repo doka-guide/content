@@ -1,7 +1,12 @@
 ---
-title: "`.includes()`"
+title: '`.includes()`'
+description: 'Проверяет, есть ли элемент в массиве или подстрока в строке.'
 authors:
   - nlopin
+related:
+  - js/array-find-index
+  - js/set
+  - js/deal-with-forms
 tags:
   - doka
 ---
@@ -23,24 +28,29 @@ tags:
 Массив:
 
 ```js
-const dead = ["Joffrey", "Ned Stark", "Night king"]
-const isJonDead = dead.includes("Jon Snow")
-console.log(isJonDead) // напечатает false
+const dead = ['Джофри', 'Нед Старк', 'Король ночи']
+const isJonDead = dead.includes('Джон Сноу')
+console.log(isJonDead)
+// false
 
-const isJoffreyDead = dead.includes("Joffrey")
-console.log(isJoffreyDead) // напечатает true
+const isJoffreyDead = dead.includes('Джофри')
+console.log(isJoffreyDead)
+// true
 ```
 
 Строка:
 
 ```js
 const text =
-  "Посмотри, ведь это рядом наша панда. Мы бежим с тобой как-будто от гепарда."
+  'Посмотри, ведь это рядом наша панда. Мы бежим с тобой как-будто от гепарда.'
 
-console.log(text.includes("панда")) // true
+console.log(text.includes('панда'))
+// true
 
-console.log(text.includes("Обезьяна")) // false
+console.log(text.includes('Обезьяна'))
+// false
 
 // поиск идет с учетом регистра
-console.log(text.includes("Панда")) // false
+console.log(text.includes('Панда'))
+// false
 ```

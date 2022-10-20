@@ -1,5 +1,6 @@
 ---
 title: "`::before`"
+description: "Удобный способ создать элемент без дополнительной HTML-разметки."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,9 +12,10 @@ contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - :before
-  - псевдоэлемент
+related:
+  - css/after
+  - css/box-model
+  - css/pseudoelements
 tags:
   - doka
 ---

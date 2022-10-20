@@ -29,6 +29,7 @@ tags:
 
 <video controls width="700">
   <source src="video/mouse-hover.mp4" type="video/mp4">
+  <source src="video/mouse-hover_safari.mp4" type="video/mp4">
 </video>
 
 ## Пример

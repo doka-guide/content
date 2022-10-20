@@ -4,6 +4,8 @@ groups:
   - name: 'Интерфейс'
     items:
       - progress
+      - dragndrop-upload
+      - character-counter
   - name: 'Фишки из прошлого'
     items:
       - snow

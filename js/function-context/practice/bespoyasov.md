@@ -6,7 +6,7 @@
 
 🛠 Всегда используйте `'use strict'`.
 
-Это относится даже скорее не конкретно к контексту, а в целом рекомендация для написания 🙂
+Это относится скорее не конкретно к контексту, а в целом рекомендация для написания кода 🙂
 
 Однако и с контекстом строгий режим позволит раньше обнаружить закравшуюся ошибку. Например:
 
@@ -14,7 +14,7 @@
 
 ```js
 function User() {
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 const user = User()
@@ -26,8 +26,8 @@ const user = User()
 
 ```js
 function User() {
-  "use strict"
-  this.name = "Alex"
+  'use strict'
+  this.name = 'Alex'
 }
 
 const user = User()
@@ -43,10 +43,10 @@ const user = User()
 ```js
 function User() {
   if (!(this instanceof User)) {
-    throw Error("Error: Incorrect invocation!")
+    throw Error('Error: Incorrect invocation!')
   }
 
-  this.name = "Alex"
+  this.name = 'Alex'
 }
 
 const secondUser = User() // Error: Incorrect invocation!
@@ -60,7 +60,7 @@ const secondUser = User() // Error: Incorrect invocation!
 
 ```js
 class User {
-  name: "Alex"
+  name: 'Alex'
   greet() {
     console.log(`Hello ${this.name}`)
   }

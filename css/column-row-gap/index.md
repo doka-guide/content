@@ -1,9 +1,14 @@
 ---
 title: "`column-gap`, `row-gap`"
+description: "Отдельные свойства для отступов между колонками и рядами в грид-раскладке."
 authors:
   - solarrust
 keywords:
   - отступы между грид-ячейками
+related:
+  - css/grid-guide
+  - css/gap
+  - css/flexbox-guide
 tags:
   - doka
 ---

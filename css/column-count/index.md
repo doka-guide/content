@@ -1,7 +1,14 @@
 ---
 title: "`column-count`"
+description: "На сколько колонок разбить контент: на две, три или десять?"
 authors:
   - xpleesid
+keywords:
+  - сколько колонок
+related:
+  - css/column-width
+  - css/global-keywords
+  - css/column-row-gap
 tags:
   - doka
 ---

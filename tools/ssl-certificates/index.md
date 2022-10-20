@@ -9,6 +9,10 @@ keywords:
   - protocols
   - шифрование
   - протоколы
+related:
+  - recipes/lets-encrypt-nginx
+  - tools/ssh
+  - tools/web-server
 tags:
   - article
 ---

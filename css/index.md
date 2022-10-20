@@ -35,6 +35,8 @@ groups:
       - child
       - nth-of-type
       - focus
+      - focus-visible
+      - focus-within
       - not
       - checked
       - disabled-enabled
@@ -46,6 +48,7 @@ groups:
       - required
       - invalid-valid
       - placeholder-shown
+      - default
       - lang
       - root
   - name: 'Псевдоэлементы'
@@ -62,9 +65,14 @@ groups:
     items:
       - attr
       - calc
+      - min
+      - max
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - var
       - filter-functions
@@ -127,8 +135,11 @@ groups:
       - background-origin
       - background-blend-mode
       - linear-gradient
+      - repeating-linear-gradient
       - radial-gradient
+      - repeating-radial-gradient
       - conic-gradient
+      - repeating-conic-gradient
       - image-set
       - backdrop-filter
       - filter-functions
@@ -196,6 +207,8 @@ groups:
       - padding
       - margin
       - box-sizing
+      - min
+      - max
   - name: 'Позиционирование'
     items:
       - position
@@ -275,6 +288,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - aspect-ratio
       - filter
       - filter-functions
   - name: 'Рамки, обводки и тени'
@@ -313,7 +327,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - widows
-  - name: 'Колонки'
+  - name: 'Колонки и таблицы'
     items:
       - columns
       - column-count
@@ -324,11 +338,14 @@ groups:
       - column-rule-color
       - column-rule-style
       - column-rule-width
+      - caption-side
   - name: 'Счётчики'
     items:
+      - css-counters
       - counter-set
       - counter-reset
       - counter-increment
+      - counter-counters
 ---
 
 CSS — язык каскадных стилей, который задаёт визуальное оформления для [HTML](/html/), SVG и других языков разметки.

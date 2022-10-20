@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Проверка поддержки гридов — @supports — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      /* Задаём фолбэк-стили через display: flex, который поддерживается везде */
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .container__block {
+      flex-basis: calc(100% / 3 - 2rem);
+      margin: 1rem;
+
+      /* Для красоты */
+      padding: 20px 0;
+      background-color: #F498AD;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .container__block_wide {
+      flex-basis: 100%;
+    }
+
+    .text-block_support {
+      display: none;
+    }
+
+    /* Проверяем поддержку display: grid */
+    @supports (display: grid) {
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+      }
+
+      .container__block {
+        /* Для красоты */
+        margin: 0;
+        background-color: #2E9AFF;
+      }
+
+      .container__block_wide {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+      .text-block_support {
+        display: block;
+      }
+
+      .text-block_no-support {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container__block {
+        flex-basis: calc(100% / 3 - 0.4rem);
+        margin: 0.2rem;
+      }
+
+      .container__block_wide {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="container__block container__block_wide">
+    <p class="text-block text-block_no-support">
+      К сожалению, ваш браузер не поддерживает grid layout
+    </p>
+    <p class="text-block text-block_support">
+      Ура, ваш браузер поддерживает grid layout!
+    </p>
+  </div>
+  <div class="container__block">🙈</div>
+  <div class="container__block">🙉</div>
+  <div class="container__block">🙊</div>
+</div>
+</body>
+</html>

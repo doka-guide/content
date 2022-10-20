@@ -1,13 +1,16 @@
 ---
 title: "`border`"
+description: "Одним свойством задаём все стили рамки элемента."
 authors:
   - solarrust
 contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - border
+related:
+  - css/border-radius
+  - css/web-colors
+  - css/background-clip
 tags:
   - doka
 ---
@@ -18,9 +21,9 @@ tags:
 
 Само свойство `border` является _шорткатом_ (короткой записью) и объединяет в себе значение для нескольких полных свойств:
 
-- [`border-width`](/css/border-width/)
-- [`border-style`](/css/border-style/)
-- [`border-color`](/css/border-color/)
+- [`border-width`](/css/border-width/);
+- [`border-style`](/css/border-style/);
+- [`border-color`](/css/border-color/).
 
 ## Пример
 

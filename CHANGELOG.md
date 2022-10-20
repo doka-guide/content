@@ -2,6 +2,53 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2022
+
+- 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
+- 28 сентября, [`place-content`](https://doka.guide/css/place-content/), Алексей Никитченко
+- 19 сентября, [`@supports`](https://doka.guide/css/supports/), Инна Абдрахманова
+- 12 сентября, [`<dialog>`](https://doka.guide/html/dialog/), Артур Бэйлис Ли
+- 1 сентября, [`<area>`](https://doka.guide/html/area/), Алексей Никитченко
+- 1 сентября, [`list-style`](https://doka.guide/css/list-style/), Алексей Степанов
+
+## Август 2022
+
+- 30 августа, [`<map>`](https://doka.guide/html/map/), Алексей Никитченко
+- 30 августа, [`::marker`](https://doka.guide/css/marker), Алексей Степанов
+- 25 августа, [Класс `Date`](https://doka.guide/js/date/), Ксения Субботина
+- 24 августа, [Атрибут `for`](https://doka.guide/html/for/), Алексей Никитченко
+- 19 августа, [Событие `submit`](https://doka.guide/js/event-submit/), Алексей Никитченко
+- 17 августа, [`counter()`, `counters()`](https://doka.guide/css/counter-counters/), Алексей Степанов
+- 17 августа, [Счётчики в CSS](https://doka.guide/css/css-counters/), Алексей Степанов
+- 15 августа, [Атрибут `size`](https://doka.guide/html/size/), Алексей Никитченко
+- 15 августа, [Атрибут `multiple`](https://doka.guide/html/multiple/), Алексей Никитченко
+- 15 августа, [`text-decoration-color`](https://doka.guide/css/text-decoration-color/), Алексей Никитченко
+- 15 августа, [`<abbr>`](https://doka.guide/html/abbr/), Иван Ельцов
+- 14 августа, [Метод `preventDefault()`](https://doka.guide/js/event-prevent-default/), Георгий Милевский
+- 11 августа, [`text-decoration-style`](https://doka.guide/css/text-decoration-style/), Алексей Никитченко
+- 11 августа, [`<em>`](https://doka.guide/html/em/), Иван Ельцов
+- 4 августа, [`repeating-linear-gradient()`](https://doka.guide/css/repeating-linear-gradient/), Алексей Никитченко
+- 1 августа, [`<canvas>`](https://doka.guide/html/canvas/), Евгений Подивилов
+
+## Июль 2022
+
+- 29 июля [`repeating-radial-gradient()`](https://doka.guide/css/repeating-radial-gradient/), Алексей Никитченко
+
+## Июнь 2022
+
+- 28 июня [Основы работы с ElasticSearch](https://doka.guide/js/elasticsearch/), Даниил Хлебовский
+- 16 июня [`<output>`](https://doka.guide/html/output), Борис Демченко
+- 16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
+- 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков
+- 12 июня [Дескрипторы](https://doka.guide/js/descriptors/), Антон Горелов
+
+## Май 2022
+
+- 26 мая [`queueMicrotask()`](https://doka.guide/js/queuemicrotask/), Артём Гусев
+- 15 мая [`FormData`](https://doka.guide/js/form-data/), Виталий Баев
+- 4 мая [Метод `flatMap()`](https://doka.guide/js/array-map/), Антон Горелов
+- 4 мая [`outline-width`](https://doka.guide/css/outline-width/), Владимир
+
 ## Апрель 2022
 
 - 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко

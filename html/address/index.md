@@ -1,5 +1,6 @@
 ---
 title: "`<address>`"
+description: "Выделите контактные данные на странице. Так поисковым роботам будет удобнее."
 authors:
   - ezhkov
 contributors:
@@ -7,8 +8,10 @@ contributors:
   - furtivite
 editors:
   - tachisis
-keywords:
-  - address
+related:
+  - html/a
+  - html/nav
+  - html/footer
 tags:
   - doka
 ---

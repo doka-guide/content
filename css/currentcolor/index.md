@@ -1,12 +1,14 @@
 ---
 title: "`currentColor`"
+description: "Удобный способ _унаследовать_ цвет текста родительского элемента."
 authors:
   - lordoys
 keywords:
-  - currentColor
-  - цвет
   - цвет элемента
-  - ключевое слово
+related:
+  - css/background-color
+  - css/color
+  - css/custom-properties
 tags:
   - doka
 ---

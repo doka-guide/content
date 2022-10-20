@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Проверка кроссбраузерности — image-set() — Дока</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    .title-picture {
+      color: #F498AD;
+    }
+
+    .title-preview {
+      color: #2E9AFF;
+    }
+
+    .picture {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .preview {
+      width: 300px;
+      height: 240px;
+
+      background-image: url('images/bg@1x.png');
+
+      /* Для Chrome и Safari */
+      background-image: -webkit-image-set(
+        url('images/bg@2x.webp') 2x,
+        url('images/bg@1x.webp') 1x,
+        url('images/bg@2x.jpg') 2x,
+        url('images/bg@1x.jpg') 1x,
+        url('images/bg@2x.png') 2x,
+        url('images/bg@1x.png') 1x
+      );
+
+      /* Для Firefox */
+      background-image: image-set(
+        url('images/bg@2x.avif') type('image/avif') 2x,
+        url('images/bg@1x.avif') type('image/avif') 1x,
+        url('images/bg@2x.webp') type('image/webp') 2x,
+        url('images/bg@1x.webp') type('image/webp') 1x,
+        url('images/bg@2x.jpg') type('image/jpeg') 2x,
+        url('images/bg@1x.jpg') type('image/jpeg') 1x,
+        url('images/bg@2x.png') type('image/png') 2x,
+        url('images/bg@1x.png') type('image/png') 1x
+      );
+
+      background-size: contain;
+      background-repeat: no-repeat;
+      max-width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div>
+    <h2 class="title-picture">&lt;picture&gt;</h2>
+    <picture>
+      <source srcset="images/content@1x.avif 1x, images/content@2x.avif 2x" type="image/avif">
+      <source srcset="images/content@1x.webp 1x, images/content@2x.webp 2x" type="image/webp">
+      <source srcset="images/content@1x.png 1x, images/content@2x.png 2x" type="image/png">
+      <img alt="Doka dog in css style." class="picture" height="240" src="images/content@1x.jpg" srcset="images/content@2x.jpg 2x" width="300">
+    </picture>
+  </div>
+  <div>
+    <h2 class="title-preview">image-set(…)</h2>
+    <div class="preview"></div>
+  </div>
+</div>
+</body>
+</html>

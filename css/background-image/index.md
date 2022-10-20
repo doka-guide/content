@@ -1,5 +1,6 @@
 ---
 title: "`background-image`"
+description: "Полезное свойство, если нужно поставить на фон картинку или задать декоративное изображение. Можно даже градиент!"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -12,10 +13,13 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - background-image
   - фоновое изображение
   - фоновая картинка
   - декоративное изображение
+related:
+  - tools/file
+  - css/stacking-context
+  - css/background
 tags:
   - doka
 ---

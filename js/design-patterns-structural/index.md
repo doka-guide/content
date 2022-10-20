@@ -1,5 +1,6 @@
 ---
 title: "Структурные паттерны проектирования"
+description: "Что программисты подразумевают под адаптерами, фасадами и декораторами."
 authors:
   - bespoyasov
 keywords:
@@ -9,6 +10,10 @@ keywords:
   - facade
   - proxy
   - decorator
+related:
+  - js/clean-architecture
+  - js/function-as-datatype
+  - js/oop
 tags:
   - article
 ---
@@ -32,7 +37,7 @@ tags:
 
 ## Адаптер
 
-Адаптер (англ. adapter) помогает сделать не совместимое с нашим модулем API совместимым и использовать его.
+Адаптер (англ. _adapter_) помогает сделать не совместимое с нашим модулем API совместимым и использовать его.
 
 <aside>
 
@@ -53,17 +58,17 @@ function fakeAPI() {
   return {
     entries: [
       {
-        user_name: "Alex",
-        email_address: "some@site.com",
-        ID: "some-unique-id",
+        user_name: 'Александр',
+        email_address: 'some@site.com',
+        ID: 'уникальный id',
       },
       {
-        user_name: "Alice",
-        email_address: "some@other-site.com",
-        ID: "another-unique-id",
+        user_name: 'Мария',
+        email_address: 'some@other-site.com',
+        ID: 'другой уникальный id',
       },
     ],
-  };
+  }
 }
 ```
 
@@ -71,14 +76,14 @@ function fakeAPI() {
 
 ```js
 const wantedResponse = [{
-  userName: "Alex",
-  email: "some@site.com",
-  id: 'some-unique-id'
+  userName: 'Александр',
+  email: 'some@site.com',
+  id: 'уникальный id'
 }, {
-  userName: "Alice",
-  email: "some@other-site.com",
-  id: "another-unique-id"
-}],
+  userName: 'Мария',
+  email: 'some@other-site.com',
+  id: 'другой уникальный id'
+}]
 ```
 
 Тогда мы напишем адаптер, который будет заниматься преобразованиями данных после получения ответа от API:
@@ -89,16 +94,15 @@ function responseToWantedAdapter(response) {
     userName: entry.user_name,
     email: entry.email_address,
     id: entry.ID,
-  }));
+  }))
 }
 ```
 
 И будем использовать его при получении данных:
 
 ```js
-const response = fakeAPI();
-const compatibleResponse = responseToWantedAdapter(response);
-// ...
+const response = fakeAPI()
+const compatibleResponse = responseToWantedAdapter(response)
 ```
 
 ### Когда использовать
@@ -138,23 +142,23 @@ class CoffeeMachine {
 Тогда для нагрева воды мы можем написать фасад:
 
 ```js
-const machine = new CoffeeMachine();
+const machine = new CoffeeMachine()
 
 function heatWater() {
-  machine.turnOn();
+  machine.turnOn()
 
   while (machine.getWaterLevel() <= 1000) {
-    machine.getWater();
+    machine.getWater()
   }
 
-  machine.turnOnHeater();
+  machine.turnOnHeater()
 
   if (machine.getTemperature() >= 90) {
-    machine.turnOffHeater();
+    machine.turnOffHeater()
   }
 }
 
-heatWater();
+heatWater()
 ```
 
 ### Когда использовать
@@ -163,7 +167,7 @@ heatWater();
 
 ## Декоратор
 
-Декоратор (англ. decorator) позволяет динамически менять поведение объекта в рантайме.
+Декоратор (англ. _decorator_) позволяет динамически менять поведение объекта в рантайме.
 
 ### Пример
 
@@ -171,13 +175,13 @@ heatWater();
 
 ```js
 const user = {
-  name: "Alex",
-  email: "example@site.com",
-};
+  name: 'Александр',
+  email: 'example@site.com',
+}
 
 function update(name, email) {
-  user.name = name;
-  user.email = email;
+  user.name = name
+  user.email = email
 }
 ```
 
@@ -185,9 +189,9 @@ function update(name, email) {
 
 ```js
 function update(name, email) {
-  console.log(`Logging... ${name}, ${email}`);
-  user.name = name;
-  user.email = email;
+  console.log(`Логирую... ${name}, ${email}`)
+  user.name = name
+  user.email = email
 }
 ```
 
@@ -196,15 +200,15 @@ function update(name, email) {
 ```js
 function loggingDecorator(fn) {
   return function wrapped(...args) {
-    console.log(`Logging... ${args.join(",")}`);
-    return fn(...args);
-  };
+    console.log(`Логирую... ${args.join(',')}`)
+    return fn(...args)
+  }
 }
 ```
 
 Мы создаём функцию высшего порядка — то есть функцию, которая принимает другую функцию как аргумент и возвращает функцию как результат.
 
-Аргумент `fn` — это функция, которую мы хотим «обогатить» дополнительной функциональностью. Сама эта дополнительная функциональность находится внутри возвращаемой функции `wrapped`.
+Аргумент `fn` — это функция, которую мы хотим «обогатить» дополнительной функциональностью. Сама эта дополнительная функциональность находится внутри возвращаемой функции `wrapped()`.
 
 Во `wrapped` мы сперва логируем переданные аргументы, потом вызываем оригинальную функцию `fn` и возвращаем её результат.
 
@@ -217,18 +221,18 @@ function loggingDecorator(fn) {
 Использовать теперь мы это можем так:
 
 ```js
-const updateWithLogging = loggingDecorator(update);
-updateWithLogging("Alice", "test@test.com");
+const updateWithLogging = loggingDecorator(update)
+updateWithLogging('Мария', 'test@test.com')
 
-// Logging... Alice, test@test.com
+// Логирую... Мария, test@test.com
 
-console.log(user);
-// {name: 'Alice', email: 'test@test.com'}
+console.log(user)
+// {name: 'Мария', email: 'test@test.com'}
 ```
 
 <aside>
 
-🤩 Примерами декорирования функций из жизни могут послужить [`throttle`](/js/throttle/) и [`debounce`](/js/debounce/).
+🤩 Примерами декорирования функций из жизни могут послужить [`throttle()`](/js/throttle/) и [`debounce()`](/js/debounce/).
 
 </aside>
 
@@ -238,7 +242,7 @@ console.log(user);
 
 ## Прокси
 
-Прокси (англ. proxy) — это промежуточный модуль, предоставляет интерфейс к какому-либо другому модулю.
+Прокси (англ. _proxy_) — это промежуточный модуль, предоставляет интерфейс к какому-либо другому модулю.
 
 Он похож на декоратор, но в отличие от него не меняет поведение оригинального объекта в рантайме. Вместо этого он «вмешивается» в общение с оригинальным объектом.
 
@@ -248,30 +252,30 @@ console.log(user);
 
 ```js
 const original = {
-  name: "Alice",
-  email: "hi@site.com",
-};
+  name: 'Мария',
+  email: 'hi@site.com',
+}
 
 const proxied = new Proxy(original, {
   get: function (target, prop, receiver) {
-    if (prop === "name") return "ALICE";
-    return "YOU HAVE BEEN PWND!";
+    if (prop === 'name') return 'МАРИЯ'
+    return 'YOU HAVE BEEN PWND!'
   },
-});
+})
 ```
 
 Теперь при обращении к проксированному объекту будет запускаться функция-геттер, которая проверит, к какому свойству мы обратились, и решит что именно вернуть:
 
 ```js
-console.log(proxied.name); // ALICE
-console.log(proxied.email); // YOU HAVE BEEN PWND!
+console.log(proxied.name) // МАРИЯ
+console.log(proxied.email) // YOU HAVE BEEN PWND!
 ```
 
 Оригинальный объект остаётся при этом нетронутым:
 
 ```js
-console.log(original.name); // Alice
-console.log(original.email); // hi@site.com
+console.log(original.name) // Мария
+console.log(original.email) // hi@site.com
 ```
 
 ### Когда использовать

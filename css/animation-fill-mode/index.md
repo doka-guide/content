@@ -1,12 +1,16 @@
 ---
 title: "`animation-fill-mode`"
+description: "Свойство, решающее, что будет после окончания анимации."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
-  - ключевые кадры
+  - поведение ключевых кадров
+related:
+  - css/animation
+  - css/animation-play-state
+  - css/animation-direction
 tags:
   - doka
 ---

@@ -1,13 +1,16 @@
 ---
 title: "Атрибут `autocomplete`"
+description: "Как не тратить время на заполнения форм? Доверить всё компьютеру!"
 authors:
   - lenaryan
 editors:
   - tachisis
 keywords:
-  - атрибут
-  - autocomplete
   - автозаполнение
+related:
+  - js/deal-with-forms
+  - html/input
+  - html/textarea
 tags:
   - doka
 ---

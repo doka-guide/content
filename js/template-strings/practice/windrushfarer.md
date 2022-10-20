@@ -8,9 +8,9 @@ const inner = `
   <input type="text" />
   <button>Submit</button>
 </form>
-`;
+`
 
-const errorText = `Внимание! Ваш аккаунт <b>${accountName}</b> заблокирован.`;
+const errorText = `Внимание! Ваш аккаунт <b>${accountName}</b> заблокирован.`
 ```
 
 <aside>

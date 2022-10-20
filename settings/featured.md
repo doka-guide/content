@@ -1,9 +1,9 @@
 ---
 pinned:
-  - html/article
-  - js/var-let
-  - html/img
+  - html/screenreaders
 ready:
+  - html/img
+  - html/article
   - html/form
   - html/nav
   - html/section
@@ -13,6 +13,8 @@ ready:
   - html/doctype
   - html/div
   - html/head
+  - css/transform-function
+  - css/keyframes
   - css/position
   - css/attr
   - css/media
@@ -24,6 +26,8 @@ ready:
   - css/box-model
   - css/display
   - css/grid-guide
+  - js/var-let
+  - js/boolean
   - js/function
   - js/function-context
   - js/infinite-scroll
@@ -47,50 +51,54 @@ ready:
   - tools/ci-cd
   - recipes/snow
 active:
-  - html/article
-  - js/var-let
-  - html/img
-  - css/attr
-  - tools/bundlers
-  - tools/gitlab-ci-cd
-  - css/box-model
-  - html/form
-  - css/display
-  - js/function-context
-  - html/video
-  - css/box-shadow
-  - tools/docker
-  - tools/markdown
-  - js/execution-order
+  - html/screenreaders
+  - css/keyframes
   - css/specificity
-  - css/grid-guide
-  - html/section
-  - js/function
-  - js/oop
+  - html/img
   - tools/ci-cd
-  - html/head
-  - css/position
-  - js/how-to-test-and-why
-  - tools/cli
-  - tools/static-types
+  - css/attr
+  - js/function-context
+  - css/box-shadow
+  - html/section
+  - html/video
   - html/doctype
-  - html/div
-  - tools/agile
-  - css/flexbox-guide
-  - js/closures
-  - html/nav
-  - js/async-in-js
-  - tools/webpack
-  - js/clean-architecture
-  - js/how-the-browser-creates-pages
-  - css/pseudoelements
+  - js/how-to-test-and-why
+  - html/article
+  - tools/static-types
+  - css/box-model
+  - css/grid-guide
   - css/custom-properties
-  - html/flow
-  - recipes/snow
-  - css/media
+  - css/pseudoelements
   - html/input
-  - js/infinite-scroll
-  - tools/network
+  - css/transform-function
+  - tools/docker
+  - js/boolean
+  - html/form
+  - html/flow
+  - tools/agile
+  - tools/webpack
+  - tools/markdown
+  - js/function
+  - tools/gitlab-ci-cd
   - js/deal-with-forms
+  - js/oop
+  - js/infinite-scroll
+  - html/div
+  - css/position
+  - css/display
+  - html/head
+  - js/how-the-browser-creates-pages
+  - tools/bundlers
+  - tools/network
+  - css/media
+  - recipes/snow
+  - html/nav
+  - js/clean-architecture
+  - js/var-let
+  - css/flexbox-guide
+  - js/execution-order
+  - js/async-in-js
+  - js/closures
+  - tools/cli
 ---
 

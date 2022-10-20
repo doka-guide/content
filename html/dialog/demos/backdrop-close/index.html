@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Демонстрация работы — <dialog> — Дока</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 18px;
+      gap: 20px 25px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      font-family: Roboto, sans-serif;
+      display: grid;
+      place-items: center;
+      place-content: center;
+      grid-auto-columns: min(100%, 250px);
+    }
+
+    .button {
+      --back: #ffd829;
+      width: 100%;
+      padding: 10px 15px 12px;
+      text-align: center;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      color: #000000;
+      font-family: inherit;
+      font-weight: 300;
+      font-size: 1rem;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+      background-color: var(--back);
+      outline: none;
+      position: relative;
+    }
+
+    .button:hover {
+      background-color: #ffffff;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus {
+      border-color: #ffffff;
+    }
+
+    .button--dark {
+      --back: #000000;
+      color: #ffffff;
+    }
+
+    .button--dark:hover {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .button--dark:focus {
+      border-color: #ffd829;
+    }
+
+    .button:focus-visible {
+      outline: 2px solid var(--back);
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+
+    .dialog {
+      width: calc(100% - 40px);
+      max-width: 400px;
+      border: none;
+      inset: 0;
+      transition: transform 0.3s ease-in-out;
+      position: fixed;
+      padding: 0;
+    }
+
+    .dialog::-webkit-backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+
+    .dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+
+    .dialog__wrapper {
+      padding: 1em;
+    }
+
+    .dialog__title {
+      font-size: 26px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .dialog p {
+      margin: 0.2em 0 1.5em;
+      font-size: 16px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <button class="button opener" type="button" aria-controls="modal-example"
+    onclick="window['modal-example'].showModal()">
+    Открыть модальное окно
+  </button>
+  <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)">
+    <form class="dialog__wrapper" method="dialog">
+      <h1 class="dialog__title">Я модальное окно</h1>
+      <p>Но меня можно закрыть как по кнопке снизу, так и по нажатию по подложке.</p>
+      <button class="button button--dark">Ясно ☀️</button>
+    </form>
+  </dialog>
+
+  <script>
+    function closeOnBackDropClick({
+      currentTarget,
+      target
+    }) {
+      const dialogElement = currentTarget;
+      const isClickedOnBackDrop = target === dialogElement;
+      if (isClickedOnBackDrop) {
+        dialogElement.close();
+      }
+    }
+
+  </script>
+</body>
+
+</html>

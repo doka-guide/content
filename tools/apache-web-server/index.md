@@ -1,5 +1,6 @@
 ---
 title: "Веб-сервер Apache"
+description: "Веб-сервер почти такой же старый, как сам Интернет."
 authors:
   - igsekor
 contributors:
@@ -8,6 +9,10 @@ editors:
   - tachisis
 keywords:
   - httpd
+related:
+  - tools/process-management
+  - js/web-app-types
+  - tools/http-protocol
 tags:
   - article
 ---

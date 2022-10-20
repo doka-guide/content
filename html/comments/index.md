@@ -1,11 +1,14 @@
 ---
 title: "Комментарии в HTML"
+description: "Как оставить послание читателю вашего кода."
 authors:
   - solarrust
 editors:
   - tachisis
-keywords:
-  - комментарии
+related:
+  - css/comments
+  - js/technical-debt
+  - tools/json
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "`localStorage`"
+description: "Храним данные в браузере пользователя бесконечно долго (почти)."
 authors:
   - akellbl4
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - localstorage
   - webstorage
   - storage
+related:
+  - js/web-app-works
+  - js/fp
+  - tools/json
 tags:
   - doka
 ---
@@ -31,22 +36,25 @@ tags:
 Записываем данные:
 
 ```js
-window.localStorage.setItem("name", "Doka Dog")
+window.localStorage.setItem('name', 'Дока Дог')
 ```
 
-При чтении ранее записанных данных по ключу `name` мы получим `Doka Dog`:
+При чтении ранее записанных данных по ключу `name` мы получим `Дока Дог`:
 
 ```js
-const name = window.localStorage.getItem("name")
+const name = window.localStorage.getItem('name')
 console.log(name)
+// 'Дока Дог'
 ```
 
 Повторная запись по тому же ключу приведёт к замене данных:
 
 ```js
-window.localStorage.setItem("name", "Dog Doka")
-const name = window.localStorage.getItem("name")
+window.localStorage.setItem('name', 'Собака Дока')
+
+const name = window.localStorage.getItem('name')
 console.log(name)
+// 'Собака Дока'
 ```
 
 ## Как это понять
@@ -57,28 +65,28 @@ console.log(name)
 
 ### Запись
 
-Для записи используйте метод `setItem("ключ", "значение")`, который принимает два строковых параметра: ключ, по которому будет сохранено значение, и само значение.
+Для записи используйте метод `setItem('ключ', 'значение')`. Он принимает два строковых параметра: ключ, по которому будет сохранено значение, и само значение.
 
 ```js
-window.localStorage.setItem("name", "Doka Dog")
+window.localStorage.setItem('name', 'Дока Дог')
 ```
 
 ### Чтение
 
-За чтение отвечает `getItem("ключ")` c одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт `null`.
+За чтение отвечает `getItem('ключ')` c одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт [`null`](/js/null-primitive/).
 
 ```js
-window.localStorage.getItem("name") // вернет "Doka Dog"
-window.localStorage.getItem("user") // вернет `null`
+window.localStorage.getItem('name') // вернет 'Дока Дог'
+window.localStorage.getItem('user') // вернет `null`
 ```
 
 ### Удаление
 
-Удаляет запись из хранилища `removeItem("ключ")`. Он успешно выполнится даже если указанного ключа не существует в хранилище.
+Удаляет запись из хранилища `removeItem('ключ')`. Он успешно выполнится даже если указанного ключа не существует в хранилище.
 
 ```js
-window.localStorage.removeItem("name")
-window.localStorage.removeItem("user")
+window.localStorage.removeItem('name')
+window.localStorage.removeItem('user')
 ```
 
 ### Очистка хранилища
@@ -94,7 +102,8 @@ window.localStorage.clear()
 Используя свойство `length`, можно узнать, сколько всего полей было записано в хранилище.
 
 ```js
-window.localStorage.length
+console.log(window.localStorage.length);
+// 0
 ```
 
 ### Получение ключа по индексу
@@ -102,8 +111,9 @@ window.localStorage.length
 Метод `key()` получает ключ по индексу. Значения в хранилище хранятся в порядке их добавления, поэтому значение, добавленное первым, будет храниться в позиции `0` и так далее.
 
 ```js
-window.localStorage.setItem("name", "Doka Dog")
-window.localStorage.key(0) // вернет "name"
+window.localStorage.setItem('name', 'Дока Дог')
+console.log(window.localStorage.key(0));
+// 'name'
 ```
 
 Таким образом, используя количество полей в хранилище и получение ключа по индексу, можно организовать перебор всех значений в хранилище.
@@ -111,7 +121,9 @@ window.localStorage.key(0) // вернет "name"
 ```js
 const localStorageSize = window.localStorage.length
 for (let i = 0; i < localStorageSize; i++) {
-  console.log(window.localStorage.getItem(localStorage.key(i)))
+  console.log(
+      window.localStorage.getItem(localStorage.key(i))
+  )
 }
 ```
 
@@ -129,7 +141,7 @@ for (let i = 0; i < localStorageSize; i++) {
 - `url` - адрес страницы, на которой вызвано изменение.
 
 ```js
-window.addEventListener("storage", function (evt) {
+window.addEventListener('storage', function (evt) {
   console.log(evt)
 })
 ```

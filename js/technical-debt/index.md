@@ -1,5 +1,11 @@
 ---
 title: "Что такое технический долг"
+description: "За ним не придут коллекторы, но проекту точно будет плохо."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Сломанное окно браузера, склеенное пластырем. На заднем фоне бомба с фитилём'
 authors:
   - bespoyasov
 keywords:
@@ -10,6 +16,10 @@ keywords:
   - quadrant
   - издержки
   - выгода
+related:
+  - tools/code-review
+  - js/clean-architecture
+  - tools/static-analysis
 tags:
   - article
 ---

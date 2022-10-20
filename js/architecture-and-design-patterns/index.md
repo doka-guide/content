@@ -1,16 +1,20 @@
 ---
 title: "Архитектура и паттерны проектирования"
+description: "Дом можно построить без архитектора, а многоэтажку уже нет. С программами так же — чем больше кода, тем важнее его организовывать."
 authors:
   - bespoyasov
 editors:
   - tachisis
 keywords:
   - ddd
-  - mvc
   - mvvm
   - pattern
   - data
   - flow
+related:
+  - js/clean-architecture
+  - js/technical-debt
+  - tools/gateway-bff
 tags:
   - article
 ---
@@ -95,7 +99,7 @@ tags:
 
 ```js
 {
-  some_data: ["Name", "Lastname"];
+  some_data: ["Name", "Lastname"]
 }
 ```
 
@@ -103,7 +107,7 @@ tags:
 
 ```js
 {
-  someData: "Name Lastname";
+  someData: "Name Lastname"
 }
 ```
 
@@ -113,7 +117,7 @@ tags:
 function serverToClientAdapter(data) {
   return {
     someData: data.some_data.join(" "),
-  };
+  }
 }
 ```
 

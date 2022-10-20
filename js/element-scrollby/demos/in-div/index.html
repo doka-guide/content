@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Скролл в <div> — .scrollBy() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      width: 65%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-right: 50px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button + .button {
+      margin-top: 20px;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .scrollable {
+      height: 350px;
+      overflow-y: scroll;
+      padding: 55px 40px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    @media (max-width: 1024px) {
+      .container {
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        display: block;
+        width: 100%;
+      }
+
+      .buttons {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      .button {
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .scrollable {
+        height: 240px;
+        padding: 40px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="buttons">
+      <button class="button button-yellow" onclick="scrollUp()">Вверх</button>
+      <button class="button button-green" onclick="scrollDown()">Вниз</button>
+    </div>
+    <div class="scrollable">
+      <p>На вокзале Николаевской железной дороги встретились два приятеля: один толстый, другой тонкий. Толстый только что пообедал на вокзале, и губы его, подёрнутые маслом, лоснились, как спелые вишни. Пахло от него хересом и флёрдоранжем. Тонкий же только что вышел из вагона и был навьючен чемоданами, узлами и картонками. Пахло от него ветчиной и кофейной гущей. Из-за его спины выглядывала худенькая женщина с длинным подбородком — его жена, и высокий гимназист с прищуренным глазом — его сын.</p>
+      <p>— Порфирий! — воскликнул толстый, увидев тонкого.— Ты ли это? Голубчик мой! Сколько зим, сколько лет!</p>
+      <p>— Батюшки! — изумился тонкий.— Миша! Друг детства! Откуда ты взялся?</p>
+      <p>Приятели троекратно облобызались и устремили друг на друга глаза, полные слез. Оба были приятно ошеломлены.</p>
+      <p>— Милый мой! — начал тонкий после лобызания.— Вот не ожидал! Вот сюрприз! Ну, да погляди же на меня хорошенько! Такой же красавец, как и был! Такой же душонок и щёголь! Ах ты, господи! Ну, что же ты? Богат? Женат? Я уже женат, как видишь... Это вот моя жена, Луиза, урождённая <!-- yaspeller ignore:start -->Ванценбах<!-- yaspeller ignore:end -->... лютеранка... А это сын мой, Нафанаил, ученик III класса. Это, Нафаня, друг моего детства! В гимназии вместе учились!</p>
+      <p>Нафанаил немного подумал и снял шапку.</p>
+      <p>— В гимназии вместе учились! — продолжал тонкий.— Помнишь, как тебя дразнили? Тебя дразнили Геростратом за то, что ты казённую книжку папироской прожёг, а меня <!-- yaspeller ignore:start -->Эфиальтом<!-- yaspeller ignore:end --> за то, что я ябедничать любил. Хо-хо... Детьми были! Не бойся, Нафаня! Подойди к нему поближе... А это моя жена, урождённая <!-- yaspeller ignore:start -->Ванценбах<!-- yaspeller ignore:end -->... лютеранка.</p>
+      <p>Нафанаил немного подумал и спрятался за спину отца.</p>
+      <p>— Ну, как живёшь, друг? — спросил толстый, восторженно глядя на друга.— Служишь где? Дослужился?</p>
+      <p> Служу, милый мой! Коллежским асессором уже второй год и Станислава имею. Жалованье плохое... ну, да бог с ним! Жена уроки музыки даёт, я портсигары приватно из дерева делаю. Отличные портсигары! По рублю за штуку продаю. Если кто берет десять штук и более, тому, понимаешь, уступка. Пробавляемся кое-как. Служил, знаешь, в департаменте, а теперь сюда переведён столоначальником по тому же ведомству... Здесь буду служить. Ну, а ты как? Небось, уже статский? А?</p>
+      <p>— Нет, милый мой, поднимай повыше,— сказал толстый.— Я уже до тайного дослужился... Две звезды имею.</p>
+      <p>Тонкий вдруг побледнел, окаменел, но скоро лицо его искривилось во все стороны широчайшей улыбкой; казалось, что от лица и глаз его посыпались искры. Сам он съёжился, сгорбился, сузился... Его чемоданы, узлы и картонки съёжились, поморщились... Длинный подбородок жены стал ещё длиннее; Нафанаил вытянулся во фрунт и застегнул все пуговки своего мундира...</p>
+      <p>— Я, ваше превосходительство... Очень приятно-с! Друг, можно сказать, детства и вдруг вышли в такие вельможи-с! Хи-хи-с.</p>
+      <p>— Ну, полно! — поморщился толстый.— Для чего этот тон? Мы с тобой друзья детства — и к чему тут это чинопочитание!</p>
+      <p>— Помилуйте... Что вы-с...— захихикал тонкий, ещё более съёживаясь.— Милостивое внимание вашего превосходительства... вроде как бы живительной влаги... Это вот, ваше превосходительство, сын мой Нафанаил... жена Луиза, лютеранка, некоторым образом...</p>
+      <p>Толстый хотел было возразить что-то, но на лице у тонкого было написано столько благоговения, сладости и почтительной кислоты, что тайного советника стошнило. Он отвернулся от тонкого и подал ему на прощанье руку.</p>
+      <p>Тонкий пожал три пальца, поклонился всем туловищем и захихикал, как китаец: «хи-хи-хи». Жена улыбнулась. Нафанаил шаркнул ногой и уронил фуражку. Все трое были приятно ошеломлены.</p>
+    </div>
+  </div>
+  <script>
+    const text = document.querySelector('.scrollable');
+
+    function scrollUp(){
+      text.scrollBy(0, -100)
+    }
+
+    function scrollDown(){
+      text.scrollBy(0, 100)
+    }
+  </script>
+</body>
+</html>

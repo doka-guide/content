@@ -1,12 +1,16 @@
 ---
 title: "`animation-play-state`"
+description: "Раз, два, три, CSS-анимация замри! Ставим на паузу и запускаем снова анимации."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - пауза анимации
+related:
+  - css/hover
+  - css/animation
+  - css/keyframes
 tags:
   - doka
 ---

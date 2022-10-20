@@ -1,5 +1,6 @@
 ---
 title: "Что такое код-ревью"
+description: "Зачем программисты смотрят и обсуждают код друг друга."
 authors:
   - igorkamyshev
 contributors:
@@ -11,6 +12,10 @@ keywords:
   - code review
   - pull request
   - пул реквест
+related:
+  - js/technical-debt
+  - tools/static-analysis
+  - js/code-style
 tags:
   - article
 ---

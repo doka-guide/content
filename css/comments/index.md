@@ -1,9 +1,12 @@
 ---
 title: "Комментарии в CSS"
+description: "Нужно что-то скрыть, но не удалять? Хотите оставить пояснение или подсказку? Вам нужен комментарий."
 authors:
   - solarrust
-keywords:
-  - комментарии
+related:
+  - css/important
+  - html/comments
+  - js/how-the-browser-creates-pages
 tags:
   - doka
 ---

@@ -3,10 +3,14 @@ title: "Атрибут `placeholder`"
 description: "Удобный атрибут для подсказки в поле ввода. Но есть нюансы!"
 authors:
   - minich
+contributors:
+  - starhamster
 keywords:
-  - атрибут
   - плейсхолдер
-  - placeholder
+related:
+  - html/input
+  - css/placeholder
+  - html/label
 tags:
   - doka
 ---
@@ -18,10 +22,20 @@ tags:
 ## Пример
 
 ```html
-<input type="text" id="name" placeholder="Введите ваше имя">
+<div>
+  <label for="name">Ваше имя:</label>
+  <input type="text" id="name" placeholder="Евгений Онегин">
+</div>
+<div>
+  <label for="about">О вас:</label>
+  <textarea
+    id="about"
+    placeholder="Томясь в бездействии досуга&#10;Без службы, без жены, без дел,&#10;Ничем заняться не умел">
+  </textarea>
+</div>
 ```
 
-<iframe title="Подсказка в поле ввода" src="demos/example/" height="180"></iframe>
+<iframe title="Подсказка в поле ввода" src="demos/example/" height="300"></iframe>
 
 ## Как пишется
 
@@ -38,7 +52,7 @@ tags:
 <input type="email" id="email" placeholder="your_email@gmail.com">
 ```
 
-Внешний вид можно стилизовать при помощи псевдоэлемента [`::placeholder`](/css/placeholder).
+Внешний вид можно стилизовать при помощи псевдоэлемента [`::placeholder`](/css/placeholder/).
 
 Для браузеров старых версий нужны [вендорные префиксы](/css/vendor-prefixes/):
 

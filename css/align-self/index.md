@@ -1,14 +1,16 @@
 ---
 title: "`align-self`"
+description: "Если элемент не хочет жить по правилам родителя, то его можно выровнять отдельно."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - выравнивание флекс-элемента
-  - выравнивание грид-элемента
-  - grid
-  - flexbox
+  - выравнивание элемента
+related:
+  - css/justify-content
+  - css/flexbox-guide
+  - css/grid-guide
 tags:
   - doka
 ---

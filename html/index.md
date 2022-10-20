@@ -42,6 +42,7 @@ groups:
       - aside
       - nav
       - time
+      - data
       - sub
       - sup
       - del
@@ -55,6 +56,7 @@ groups:
       - var
       - dfn
       - samp
+      - abbr
       - screenreaders
   - name: 'Формы'
     items:
@@ -71,11 +73,15 @@ groups:
       - label
       - fieldset
       - legend
+      - for
       - inputmode
       - placeholder
       - disabled
       - required
       - value
+      - pattern
+      - multiple
+      - size
   - name: 'Картинки'
     items:
       - img
@@ -105,9 +111,11 @@ groups:
       - meter
       - object
       - progress
+      - canvas
   - name: 'Таблицы'
     items:
       - tables
+      - caption
   - name: 'Мета'
     items:
       - head

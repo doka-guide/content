@@ -1,11 +1,16 @@
 ---
 title: "`<bdi>`"
+description: "Вставляем текст с другим направлением письма."
 authors:
   - xpleesid
 editors:
   - tachisis
 keywords:
   - двунаправленный текст
+related:
+  - html/bdo
+  - css/flexbox-guide
+  - css/position
 tags:
   - doka
 ---

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Canvas API - Canvas - Дока</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    function raf(callback, fps = 60) {
+      const delay = 1000 / fps;
+      let time = null;
+      let frame = -1;
+      let rafId = null;
+
+      /** @param {number} timestamp */
+      function loop(timestamp) {
+        if (time === null) {
+          time = timestamp;
+        }
+
+        const seg = Math.floor((timestamp - time) / delay);
+
+        if (seg > frame) {
+          frame = seg;
+          callback(timestamp);
+        }
+
+        rafId = requestAnimationFrame(loop);
+      }
+      loop(0)
+    }
+  </script>
+  <script>
+    const width = window.innerWidth * window.devicePixelRatio
+    const height = window.innerHeight * window.devicePixelRatio
+
+
+    /** @type {HTMLCanvasElement} */
+    const canvas = document.getElementById('canvas');
+
+    canvas.width = width;
+    canvas.height = height;
+
+    const context = canvas.getContext('2d');
+
+    context.font = '48px serif';
+
+    const position = {
+      x: 10,
+      y: 40,
+    };
+
+    const direction = {
+      x: 1,
+      y: 1,
+    };
+
+    raf(() => {
+      context.clearRect(0, 0, width, height);
+
+      position.x += direction.x * 4;
+      position.y += direction.y * 4;
+
+      if (position.x < 0) {
+        direction.x = 1;
+      }
+
+      if (position.x > width - 120) {
+        direction.x = -1;
+      }
+
+      if (position.y < 35) {
+        direction.y = 1;
+      }
+
+      if (position.y > height - 10) {
+        direction.y = -1;
+      }
+
+      context.fillText('U·ᴥ·U', position.x, position.y);
+    })
+  </script>
+</body>
+
+</html>

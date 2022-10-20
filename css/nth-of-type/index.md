@@ -1,5 +1,6 @@
 ---
 title: "Псевдоклассы группы type"
+description: "Эти псевдоклассы позволяют выбирать среди элементов одного типа по порядковому номеру."
 authors:
   - realetive
 contributors:
@@ -47,7 +48,7 @@ tags:
 
 ```css
 li:nth-of-type(3) {
-  color: #49A16C;
+  color: #41E847;
 }
 ```
 
@@ -55,7 +56,7 @@ li:nth-of-type(3) {
 
 ```css
 .list__item:nth-of-type(2n) {
-  color: #1A5AD7;
+  color: #2E9AFF;
 }
 ```
 
@@ -75,15 +76,15 @@ li:nth-of-type(5),
 ```css
 li:nth-last-of-type(1),
 .list__item:last-of-type {
-  color: #18191C;
+  color: #FFFFFF;
 }
 ```
 
-<iframe title="Псевдоклассы группы type" src="demos/every/" height="450"></iframe>
+<iframe title="Псевдоклассы группы type" src="demos/every/" height="370"></iframe>
 
 Если нам нужно выбрать единственный элемент своего родителя, используется псевдокласс `:only-of-type` (что эквивалентно комбинации `:first-of-type:last-of-type`):
 
-<iframe title="Выбор единственного элемента родителя" src="demos/only/" height="484"></iframe>
+<iframe title="Выбор единственного элемента родителя" src="demos/only/" height="420"></iframe>
 
 ## Как пишется
 

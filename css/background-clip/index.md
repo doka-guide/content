@@ -1,9 +1,14 @@
 ---
 title: "`background-clip`"
+description: "Решаем, должен ли фон заполнять площадь всего элемента или не выходить за рамки контентной области."
 authors:
   - doka-dog
 keywords:
   - образка фона
+related:
+  - css/background-color
+  - css/box-model
+  - css/border
 tags:
   - doka
   - placeholder

@@ -1,5 +1,6 @@
 ---
 title: "`<source>`"
+description: "Указывает на разные форматы медиа, из которых браузер выбирает оптимальный."
 authors:
   - ezhkov
 editors:
@@ -9,6 +10,10 @@ keywords:
   - picture
   - srcset
   - media
+related:
+  - html/video
+  - html/audio
+  - html/img
 tags:
   - doka
 ---

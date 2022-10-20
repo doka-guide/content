@@ -19,11 +19,12 @@ if (doesntExist) {
 ```js
 const ticketPrice = {
   amount: 20,
-  currency: "USD",
+  currency: 'USD',
   valueOf: () => 20,
-  toString: () => "$20",
+  toString: () => '$20',
 }
 
 1 + ticketPrice // 1 + 20 -> 21
-console.log(ticketPrice) // $20
+console.log(ticketPrice)
+// $20
 ```

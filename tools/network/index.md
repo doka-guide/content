@@ -12,8 +12,10 @@ keywords:
   - iptables
   - packages
   - protocols
-  - пакеты
-  - протоколы
+related:
+  - tools/tcp-udp-protocols
+  - js/api
+  - tools/ssh
 tags:
   - article
 ---

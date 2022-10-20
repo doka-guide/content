@@ -1,11 +1,16 @@
 ---
 title: "Модули, `import`/`export`"
+description: "Используем функции и переменные из других файлов."
 authors:
   - bespoyasov
 keywords:
   - module
   - импорт
   - экспорт
+related:
+  - js/language-versions
+  - tools/bundlers
+  - js/programming-paradigms
 tags:
   - article
 ---
@@ -66,10 +71,10 @@ _AMD (asynchronous module definition)_ — асинхронное определ
 // Например, определение модуля-объекта с данными:
 define(function() {
   return {
-    color: "black",
-    size: "unisize"
+    color: 'black',
+    size: 'unisize'
   }
-});
+})
 
 // Также можно было экспортировать и функции:
 define(function() {
@@ -78,7 +83,7 @@ define(function() {
       return a + b
     },
   }
-});
+})
 
 // А чтобы получить доступ к другим модулям,
 // от которых зависит текущий,
@@ -90,7 +95,7 @@ function(module1, module2) {
       return module1.doStuff(module2.doMoreStuff(arg));
     }
   }
-});
+})
 ```
 
 Но даже несмотря на такую многословность, сейчас в вебе достаточно много легаси, который использует AMD. Уж очень была заманчива идея наконец структурировать код.
@@ -116,7 +121,7 @@ module.exports = useFullConstant
 
 // Для импорта функциональности
 // используется require:
-const { importedFunction } = require("./other-module.js")
+const { importedFunction } = require('./other-module.js')
 ```
 
 Именованные экспорты и экспорты по умолчанию встречаются и сейчас. Разницу между ними мы подробнее рассмотрим чуть дальше.
@@ -146,17 +151,17 @@ export function sum(a, b) {
 // но и константы:
 export const SOME_SETTINGS_FLAG = false
 export const user = {}
-export const books = ["Война и мир", "Мастер и Маргарита"]
+export const books = ['Война и мир', 'Мастер и Маргарита']
 
 // module2.js
 
 // Таким образом мы можем получить
 // доступ к этой функциональности
 // в другом модуле через импорт:
-import { sum } from "./module1.js"
+import { sum } from './module1.js'
 
 // Точно так же, мы можем импортировать и константы:
-import { user, books } from "./module1.js"
+import { user, books } from './module1.js'
 
 // Обратите внимание, что перечисляя названия
 // при импорте через запятую, можно в одном
@@ -166,10 +171,10 @@ import { user, books } from "./module1.js"
 // Если вдруг мы хотим изменить имя той функции
 // или переменной, которую импортируем,
 // мы можем использовать ключевое слово as:
-import { user as admin } from "./module1.js"
+import { user as admin } from './module1.js'
 
 // Это также работает и со множественным импортом:
-import { books as library, SOME_SETTINGS_FLAG as turnedOn } from "./module1.js"
+import { books as library, SOME_SETTINGS_FLAG as turnedOn } from './module1.js'
 
 // Экспортировать функциональность можно также
 // и уже после того, как она определена:
@@ -206,10 +211,10 @@ export default function (a, b) {
 
 // При импорте такой функциональности в другом модуле
 // нам уже не требуется использовать {}.
-import sum from "./sum.js"
+import sum from './sum.js'
 
 // Более того, мы сразу можем использовать другое имя при импорте:
-import superCoolSummator from "./sum.js"
+import superCoolSummator from './sum.js'
 ```
 
 Сейчас сообщество считает экспорты по умолчанию менее удачной практикой. В первую очередь потому, что с именованными экспортами проще работать: их проще переименовывать, с ними проще работать автоматизированными средствами рефакторинга.
@@ -220,13 +225,13 @@ import superCoolSummator from "./sum.js"
 
 #### Модули — это всегда `use strict`
 
-Внутри модулей всегда используется строгий режим. Из-за этого, например, `this` — это не `window`, а `undefined`.
+Внутри модулей всегда используется [строгий режим](/js/use-strict/). Из-за этого, например, `this` — это не `window`, а [`undefined`](/js/undefined/).
 
-Подробнее о строгом режиме — в статье [Контекст выполнения функций, this](/js/function-context/)
+Подробнее о строгом режиме — в статье [Контекст выполнения функций, this](/js/function-context/).
 
 #### Переменные изолированы внутри
 
-Модули не видят «внутренностей» других модулей. Чтобы делиться какой-то функциональностью мы можем использовать либо импорты и экспорты, либо глобальные объекты типа `window`, `global` и т. д.
+Модули не видят «внутренностей» других модулей. Чтобы делиться какой-то функциональностью, мы можем использовать либо импорты и экспорты, либо глобальные объекты типа `window`, `global` и т. д.
 
 Использование глобальных объектов не рекомендуется. Это засоряет глобальную область видимости и может приводить к неожиданным результатам.
 
@@ -240,29 +245,31 @@ import superCoolSummator from "./sum.js"
 
 ```javascript
 // module1.js
-export const user = { name: "Alex" }
+export const user = { name: 'Alex' }
 console.log(user.name)
 
 // module2.js
-import { user } from "./module1.js" // Выведет 'Alex'.
-import { user } from "./module1.js" // Не выведет ничего.
+import { user } from './module1.js'
+// Выведет 'Alex'.
+import { user } from './module1.js'
+// Не выведет ничего.
 ```
 
 Из-за этого же может получиться, что объект из одного модуля может меняться другими.
 
 ```javascript
 // module1.js
-export const user = { name: "Alex" }
+export const user = { name: 'Alex' }
 
 // module2.js
-import { user } from "./module1.js"
+import { user } from './module1.js'
 console.log(user.name) // 'Alex'
 
 // Если в этом модуле мы удалим поле...
 delete user.name
 
 // module3.js
-import { user } from "./module1.js"
+import { user } from './module1.js'
 
 // ...А в следующем попытаемся вывести его,
 // оно будет не определено.
@@ -274,7 +281,7 @@ console.log(user.name) // undefined'
 
 // module1.js
 export function createUser() {
-  return { name: "Alex" }
+  return { name: 'Alex' }
 }
 
 // createUser — это функция,
@@ -287,7 +294,7 @@ export function createUser() {
 // изменения объекта.
 
 // module2.js
-import { createUser } from "./module1.js"
+import { createUser } from './module1.js'
 
 // В этот раз мы создаём новый объект:
 const user = createUser()
@@ -295,11 +302,12 @@ const user = createUser()
 delete user.name
 
 // module3.js
-import { createUser } from "./module1.js"
+import { createUser } from './module1.js'
 
 // ...из-за чего ошибки в третьем модуле уже не будет.
 const user = createUser()
-console.log(user.name) // 'Alex'
+console.log(user.name)
+// 'Alex'
 ```
 
 #### Особенности в браузере
@@ -339,13 +347,13 @@ console.log(user.name) // 'Alex'
 То есть:
 
 ```javascript
-import user from "user" // Неправильно...
+import user from 'user' // Неправильно...
 
 // Должен быть либо абсолютный путь:
-import user from "https://some-site.com/js/user.js"
+import user from 'https://some-site.com/js/user.js'
 
 // ...Либо относительный:
-import user from "./user.js"
+import user from './user.js'
 ```
 
 ### Модули и сборка

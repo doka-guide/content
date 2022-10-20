@@ -1,11 +1,15 @@
 ---
 title: "`performance`"
-description: "Изучаем, какие инструменты предоставляет браузер для измерения времени работы программ и функций"
+description: "Изучаем, какие инструменты предоставляет браузер для измерения времени работы программ и функций."
 keywords:
 authors:
   - mighty-peach
 contributors:
   - nlopin
+related:
+  - js/how-the-browser-creates-pages
+  - tools/multitasking-and-processes
+  - js/web-app-types
 tags:
   - doka
 ---
@@ -41,7 +45,7 @@ const finish = performance.mark('конец')
 
 performance.measure('итого', 'начало', 'конец')
 console.log(performance.getEntriesByName('итого')[0].duration)
-// количество миллисекунд между метками "начало" и "конец"
+// количество миллисекунд между метками 'начало' и 'конец'
 ```
 
 ### Работа с записанными данными
@@ -92,7 +96,7 @@ console.log(entries)
 
 Измерение (measure) - разница во времени между двумя метками. Измерение принимает несколько аргументов:
 
-1. Имя измерения
+1. Имя измерения;
 1. Имя первой метки - необязательный параметр, если не указать, то первой меткой будет время со старта навигации на страницу;
 1. Имя второй метки - необязательный параметр, если не указать, то второй меткой будет вызов `performance.now()` в момент создания измерения.
 
@@ -101,8 +105,8 @@ console.log(entries)
 ```js
 const markOne = 'метка_1'
 const markTwo = 'метка_2'
-performance.mark(markOne);
-performance.mark(markTwo);
+performance.mark(markOne)
+performance.mark(markTwo)
 
 performance.measure('время со старта навигации на странице')
 performance.measure('от первой метки до сейчас', markOne)

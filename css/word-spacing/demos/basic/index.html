@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений — word-spacing — Дока</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    html {
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      width: 600px;
+      font-size: 2rem;
+      font-family: "Roboto", Arial, sans-serif;
+      color: white;
+      background-color: #18191c;
+    }
+
+    fieldset {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      padding: 25px;
+      font-size: 1.5rem;
+      gap: 10px;
+    }
+
+    .label {
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      gap: 10px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    input {
+      border: 1px solid white;
+      padding: 3px;
+      font-size: inherit;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      outline: none;
+      background-color: inherit;
+    }
+
+    input[type=number]::-webkit-inner-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+
+    input[disabled] {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    select {
+      border: none;
+      padding: 3px;
+      font-size: inherit;
+      font-weight: bold;
+      color: white;
+      outline: none;
+      background-color: inherit;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      margin: -1px;
+      border: 0;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+    }
+
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<fieldset>
+  <label class="label" for="number">
+    <code>word-spacing:</code>
+    <input disabled id="number" max="150" min="-50" name="number" type="number" value="0">
+  </label>
+  <label class="visually-hidden" for="numeric-type">Ключевое слово или единица измерения:</label>
+  <select id="numeric-type" name="word-spacing">
+    <option selected value="normal">normal</option>
+    <option value="px">px</option>
+    <option value="%">%</option>
+    <option value="rem">rem</option>
+  </select>
+</fieldset>
+<p>
+  Петька на заднем дворе играл сам с собою в «классики» и надувал щеки, потому что так прыгать было значительно легче.
+</p>
+
+<script>
+  const numInput = document.querySelector('#number');
+  const typeInput = document.querySelector('#numeric-type');
+  const text = document.querySelector('p');
+  numInput.addEventListener('input', function (e) {
+    text.style.wordSpacing = this.value.toString() + typeInput.options[typeInput.selectedIndex].value;
+  });
+  typeInput.addEventListener('change', function (e) {
+    if (this.options[this.selectedIndex].value !== 'normal') {
+      numInput.disabled = false;
+      text.style.wordSpacing = numInput.value.toString() + this.options[this.selectedIndex].value;
+    } else {
+      numInput.disabled = true;
+      numInput.value = 0;
+      text.style.wordSpacing = 'normal';
+    }
+  });
+</script>
+</body>
+</html>

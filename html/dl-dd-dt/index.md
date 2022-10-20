@@ -1,15 +1,16 @@
 ---
 title: "`<dl>`, `<dd>`, `<dt>`"
+description: "Три тега для оформления списка терминов."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - dl
-  - dd
-  - dt
+related:
+  - html/abbr
+  - css/after
+  - html/ul
 tags:
   - doka
 ---

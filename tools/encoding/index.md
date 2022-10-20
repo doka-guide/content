@@ -1,5 +1,6 @@
 ---
 title: Шифрование
+description: "Концепт, на котором держится безопасность в Интернете."
 authors:
   - igsekor
 contributors:
@@ -9,6 +10,10 @@ keywords:
   - decoding
   - cryptography
   - криптография
+related:
+  - tools/web-server
+  - js/web-security
+  - tools/ssh
 tags:
   - article
 ---

@@ -2,4 +2,4 @@
 
 Ещё один пример, когда будет полезно знание свойства `overflow` — обрезание текста с многоточием (в сочетании со свойством `text-overflow: ellipsis` или недокументированного `-webkit-line-clamp`):
 
-<iframe title="Многоточие" src="../demos/ellipsis/" height="50"></iframe>
+<iframe title="Многоточие" src="../demos/ellipsis/" height="100"></iframe>

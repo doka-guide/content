@@ -1,17 +1,14 @@
 ---
 title: "Поведенческие паттерны проектирования"
+description: "Разговариваем с разработчиками на их языке — цепочка ответственности, стратегия, команда, наблюдатель."
 authors:
   - bespoyasov
 keywords:
-  - pattern
-  - design
   - behavioral
-  - strategy
-  - chain
-  - responsibility
-  - command
-  - observer
-  - observable
+related:
+  - js/architecture-and-design-patterns
+  - tools/static-types
+  - js/oop
 tags:
   - article
 ---
@@ -35,7 +32,7 @@ tags:
 
 ## Стратегия
 
-Стратегия (англ. strategy) позволяет выбирать и даже менять алгоритм работы в зависимости от ситуации.
+Стратегия (англ. _strategy_) позволяет выбирать и даже менять алгоритм работы в зависимости от ситуации.
 
 ### Пример
 
@@ -59,30 +56,30 @@ const pedestrianRoute: RouteStrategy = {
     // ...Логика построения маршрута для пешехода.
     return [
       /*...*/
-    ];
+    ]
   },
-};
+}
 
 const cyclistRoute: RouteStrategy = {
   findRoute(from, to) {
     // ...Логика построения маршрута для велосипедиста.
     return [
       /*...*/
-    ];
+    ]
   },
-};
+}
 
 const automobileRoute: RouteStrategy = {
   findRoute(from, to) {
     // ...Логика построения маршрута для автомобилиста.
     return [
       /*...*/
-    ];
+    ]
   },
-};
+}
 ```
 
-Чтобы использовать какой-либо из алгоритмов нам нужен контекст, для которого мы укажем одну из стратегий:
+Чтобы использовать какой-либо из алгоритмов, нам нужен контекст, для которого мы укажем одну из стратегий:
 
 ```ts
 class Context {
@@ -92,17 +89,17 @@ class Context {
   // Иногда полезно менять стратегию во время работы,
   // сделаем метод для этого
   public use(routeFinder: Strategy) {
-    this.routeFinder = routeFinder;
+    this.routeFinder = routeFinder
   }
 
   public routeFromHomeToWork(): Instruction[] {
     const home: Point = {
       /*...*/
-    };
+    }
     const work: Point = {
       /*...*/
-    };
-    return this.routeFinder.findRoute(home, work);
+    }
+    return this.routeFinder.findRoute(home, work)
   }
 }
 ```
@@ -110,15 +107,15 @@ class Context {
 Теперь, чтобы построить маршрут от дома до работы на велосипеде, мы укажем:
 
 ```ts
-const strategyContext = new Context(cyclistRoute);
-strategyContext.routeFromHomeToWork();
+const strategyContext = new Context(cyclistRoute)
+strategyContext.routeFromHomeToWork()
 ```
 
 Также мы можем поменять стратегию уже во время выполнения программы (в рантайме), если пользователь, например, слез с велосипеда и пошёл пешком. Метод для построения маршрута останется тем же:
 
 ```ts
-strategyContext.use(pedestrianRoute);
-strategyContext.routeFromHomeToWork();
+strategyContext.use(pedestrianRoute)
+strategyContext.routeFromHomeToWork()
 ```
 
 ### Когда использовать
@@ -127,7 +124,7 @@ strategyContext.routeFromHomeToWork();
 
 ## Цепочка ответственности
 
-Цепочка ответственности (англ. chain of responsibility) подразумевает перебор объектов до тех пор, пока не найдётся нужный для решения задачи.
+Цепочка ответственности (англ. _chain of responsibility_) подразумевает перебор объектов до тех пор, пока не найдётся нужный для решения задачи.
 
 В цепочке сигнал, который нужно обработать, переходит от одного объекта к другому по очереди. Когда находится подходящий обработчик, он обрабатывает сигнал, а цепочка в этом месте обрывается.
 
@@ -150,27 +147,27 @@ interface Handler {
 
 ```ts
 abstract class AbstractHandler implements Handler {
-  private nextHandler: Handler;
+  private nextHandler: Handler
 
   public setNext(handler: Handler): Handler {
-    this.nextHandler = handler;
+    this.nextHandler = handler
 
     // Возвращаем переданный обработчик,
     // чтобы их можно было соединять в «паровозик»:
     // handler1.setNext(handler2).setNext(handler3)
-    return handler;
+    return handler
   }
 
   // Если обработчик не знает, как обработать запрос,
   // он вызовет метод абстрактного класса:
   public handle(request: string, amount: number): void {
     if (this.nextHandler) {
-      return this.nextHandler.handle(request);
+      return this.nextHandler.handle(request)
     }
 
     // Если ни один из обработчиков не знает,
     // как обработать запрос, то сработает эта строка:
-    console.log("No handler found!");
+    console.log('No handler found!')
   }
 }
 ```
@@ -180,34 +177,34 @@ abstract class AbstractHandler implements Handler {
 ```ts
 class UsdHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
-    if (request === "USD") {
-      console.log(`You've been charged with ${number}$!`);
-      return;
+    if (request === 'USD') {
+      console.log(`You've been charged with ${number}$!`)
+      return
     }
 
-    super.handle(request);
+    super.handle(request)
   }
 }
 
 class EurHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
-    if (request === "EUR") {
-      console.log(`You've been charged with ${number} euros!`);
-      return;
+    if (request === 'EUR') {
+      console.log(`You've been charged with ${number} euros!`)
+      return
     }
 
-    super.handle(request);
+    super.handle(request)
   }
 }
 
 class RubHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
-    if (request === "RUB") {
-      console.log(`У вас списали ${number}₽!`);
-      return;
+    if (request === 'RUB') {
+      console.log(`У вас списали ${number}₽!`)
+      return
     }
 
-    super.handle(request);
+    super.handle(request)
   }
 }
 ```
@@ -215,11 +212,11 @@ class RubHandler extends AbstractHandler {
 Теперь мы можем выстроить цепочку из обработчиков, которые будут реагировать на запросы:
 
 ```ts
-const usdHandler = new UsdHandler();
-const rubHandler = new RubHandler();
-const eurHandler = new EurHandler();
+const usdHandler = new UsdHandler()
+const rubHandler = new RubHandler()
+const eurHandler = new EurHandler()
 
-rubHandler.setNext(usdHandler).setNext(eurHandler);
+rubHandler.setNext(usdHandler).setNext(eurHandler)
 ```
 
 А чтобы отправить запрос в цепочку мы напишем:
@@ -230,23 +227,23 @@ function handlePurchase(
   currency: string,
   amount: number
 ): void {
-  handler.handle(currency, amount);
+  handler.handle(currency, amount)
 }
 
-handlePurchase(rubHandler, "USD", 20);
+handlePurchase(rubHandler, 'USD', 20)
 // You've been charged with 20$!
 
-handlePurchase(rubHandler, "RUB", 20);
+handlePurchase(rubHandler, 'RUB', 20)
 // У вас списали 20₽!
 ```
 
 Мы можем передать любой обработчик, не обязательно первый в цепочке, так как они связаны через `setNext()`:
 
 ```ts
-handlePurchase(usdHandler, "EUR", 20);
+handlePurchase(usdHandler, 'EUR', 20)
 // You've been charged with 20 euros!
 
-handlePurchase(usdHandler, "USD", 20);
+handlePurchase(usdHandler, 'USD', 20)
 // You've been charged with 20$!
 ```
 
@@ -256,19 +253,24 @@ handlePurchase(usdHandler, "USD", 20);
 
 ```ts
 function handlePurchase(currency: string, amount: number): void {
-  switch (currency):
-    case "USD": return usdHandler(currency: string, amount: number);
-    case "RUB": return rubHandler(currency: string, amount: number);
-    case "EUR": return uerHandler(currency: string, amount: number);
-    default: console.log('No handler found!')
+  switch (currency) {
+      case 'USD':
+          return usdHandler(currency, amount);
+      case 'RUB':
+          return rubHandler(currency, amount);
+      case 'EUR':
+          return uerHandler(currency, amount);
+      default:
+          console.log('No handler found!')
+  }
 }
 ```
 
-Но у них есть важное отличие — при использовании цепочки ответственности функции `handlePurchase` не требуется знать все возможные варианты, а также не требуется знать и ссылаться на каждый обработчик.
+Но у них есть важное отличие — при использовании цепочки ответственности функции `handlePurchase()` не требуется знать все возможные варианты, а также не требуется знать и ссылаться на каждый обработчик.
 
 Перебор сложно адаптировать к ситуации, когда заранее нам не известны все обработчики, их порядок или все возможные варианты значений переменной, по которой мы хотим перебирать варианты.
 
-В простых случаях перебор — вполне рабочий вариант. Тот же [Redux](/js/architecture-data-flow/) использует `switch`, чтобы определить, как обработать экшен. Но это увеличивает зацепление кода, потому что управляющему коду `handlePurchase` теперь надо знать больше об устройстве других модулей.
+В простых случаях перебор — вполне рабочий вариант. Тот же [Redux](/js/architecture-data-flow/) использует [`switch`](/js/switch/), чтобы определить, как обработать экшен. Но это увеличивает зацепление кода, потому что управляющему коду `handlePurchase()` теперь надо знать больше об устройстве других модулей.
 
 ### Null-object
 
@@ -284,13 +286,13 @@ Null-object (или нуль-объект, пустой объект) — это
 
 ### С чем нельзя путать
 
-Мидлвар (англ. middleware) концептуально похож на цепочку ответственности, но всё же отличается от неё.
+Мидлвар (англ. _middleware_) концептуально похож на цепочку ответственности, но всё же отличается от неё.
 
 В мидлварах запрос переходит от одного контроллера к другому, и запрос может обработать _каждый из них_. В цепочке, как правило, запрос обрабатывает лишь один контроллер.
 
 ## Команда
 
-Команда (англ. command) инкапсулирует действия и нужные данные для обработки этих действий в объекты.
+Команда (англ. _command_) инкапсулирует действия и нужные данные для обработки этих действий в объекты.
 
 ### Пример
 
@@ -298,12 +300,12 @@ Null-object (или нуль-объект, пустой объект) — это
 
 ```js
 const updateUserAction = {
-  type: "UPDATE_USER",
+  type: 'UPDATE_USER',
   payload: {
-    name: "Alex",
-    email: "hi@site.com",
+    name: 'Alex',
+    email: 'hi@site.com',
   },
-};
+}
 ```
 
 Обработчик в этом случае проверит, какое действие было вызвано и обработает его:
@@ -311,8 +313,8 @@ const updateUserAction = {
 ```js
 function userReducer(state, action) {
   switch (action.type) {
-    case "UPDATE_USER":
-      return { ...state /*...*/ };
+    case 'UPDATE_USER':
+      return { ...state /*...*/ }
   }
 }
 ```
@@ -326,10 +328,10 @@ interface Command<TPayload> {
 
 const updateUser: Command = {
   execute(payload) {
-    const { name, email } = payload;
+    const { name, email } = payload
     // ...Логика обработки команды.
   },
-};
+}
 ```
 
 В [ООП](/js/oop/) команды используют для расцепления кода и общения между разными модулями. При сочетании с [трёхслойной архитектурой](/js/clean-architecture/) команды могут использоваться в прикладном слое для описания пользовательских сценариев.
@@ -355,22 +357,22 @@ const userCommandHandler: CommandHandler = {
     try {
       // ...Пробуем выполнить команду,
       // возвращаем результат, если всё хорошо:
-      return new Result("ok");
+      return new Result('ok')
     } catch (e) {
       // Или возвращаем ошибку:
-      return new Result("error", e);
+      return new Result('error', e)
     }
   },
-};
+}
 
 const updateUserCommand = {
-  type: "UPDATE_USER",
+  type: 'UPDATE_USER',
   payload: {
     /*...*/
   },
-};
+}
 
-userCommandHandler.execute(updateUserCommand);
+userCommandHandler.execute(updateUserCommand)
 ```
 
 ### Когда использовать
@@ -383,7 +385,7 @@ userCommandHandler.execute(updateUserCommand);
 
 ## Наблюдатель
 
-Наблюдатель (англ. observer) — шаблон, который создаёт механизм подписки, когда некоторые сущности могут реагировать на поведение других.
+Наблюдатель (англ. _observer_) — шаблон, который создаёт механизм подписки, когда некоторые сущности могут реагировать на поведение других.
 
 ![Раскадровка подписки наблюдателей на событие и рассылки событий при их появлении](./images/observer.jpg)
 
@@ -403,27 +405,27 @@ interface PositionObserver {
 
 ```ts
 class SoftwareEngineerApplicant implements PositionObserver {
-  name: string;
-  position: string;
+  name: string
+  position: string
 
   constructor(name: string, position: string) {
-    this.name = name;
-    this.position = position;
+    this.name = name
+    this.position = position
   }
 
   update(position: string) {
     if (position !== this.position) {
-      return;
+      return
     }
 
     console.log(
-      `Hello! My name is ${this.name}. I would like to apply to a ${position} position.`
-    );
+      `Привет! Меня зовут ${this.name}. Вот моё резюме на позицию ${position}.`
+    )
   }
 }
 ```
 
-Наблюдаемый (англ. observable) объект позволяет подписываться на свои изменения:
+Наблюдаемый (англ. _observable_) объект позволяет подписываться на свои изменения:
 
 ```ts
 interface Observable {
@@ -437,22 +439,22 @@ interface Observable {
 
 ```ts
 class HrAgency implements Observable {
-  private listeners: PositionObserver[] = [];
+  private listeners: PositionObserver[] = []
 
   subscribe(applicant: PositionObserver): void {
-    this.listeners.push(applicant);
+    this.listeners.push(applicant)
   }
 
   unsubscribe(applicant: PositionObserver): void {
     this.listeners = this.listeners.filter(
       (listener) => listener.name !== applicant.name
-    );
+    )
   }
 
   notify(position: string): void {
     this.listeners.forEach((listener) => {
-      listener.update(position);
-    });
+      listener.update(position)
+    })
   }
 }
 ```
@@ -460,21 +462,21 @@ class HrAgency implements Observable {
 Теперь управлять уведомлениями мы сможем в одном месте кода:
 
 ```ts
-const agency = new HrAgency();
+const agency = new HrAgency()
 
-const mark = new SoftwareEngineerApplicant("Mark", "architect");
-const alice = new SoftwareEngineerApplicant("Alice", "teamlead");
+const mark = new SoftwareEngineerApplicant('Марк', 'архитектор')
+const alice = new SoftwareEngineerApplicant('Алиса', 'тимлид')
 
-agency.subscribe(mark);
-agency.subscribe(alice);
+agency.subscribe(mark)
+agency.subscribe(alice)
 
-agency.notify("architect");
-// Hello! My name is Mark. I would like to apply to a architect position.
+agency.notify('архитектор')
+// Привет! Меня зовут Марк. Вот моё резюме на позицию архитектор.
 
-agency.notify("teamlead");
-// Hello! My name is Alice. I would like to apply to a teamlead position.
+agency.notify('тимлид')
+// Привет! Меня зовут Алиса. Вот моё резюме на позицию тимлид.
 
-agency.notify("cto");
+agency.notify('cto')
 // На эту вакансию никто не подписывался.
 ```
 

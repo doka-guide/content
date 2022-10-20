@@ -1,12 +1,15 @@
 ---
 title: "`<details>`, `<summary>`"
+description: "Нативный раскрывающийся блок с контентом без магии и JavaScript."
 authors:
   - lenaryan
 keywords:
-  - details
-  - summary
   - аккордеон
   - спойлер
+related:
+  - css/animation
+  - js/element-classlist
+  - css/display
 tags:
   - doka
 ---

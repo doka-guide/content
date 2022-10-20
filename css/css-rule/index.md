@@ -1,9 +1,14 @@
 ---
 title: "CSS-правило"
+description: "То, из чего состоят таблицы стилей."
 authors:
   - solarrust
 keywords:
   - правило стилей
+related:
+  - css/class-selector
+  - css/combined-selectors
+  - html/class
 tags:
   - doka
 ---

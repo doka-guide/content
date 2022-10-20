@@ -40,7 +40,7 @@
   margin: 0;
   padding: 40px 10px;
   list-style: none;
-  background: #FFFFFF;
+  background-color: #FFFFFF;
   font-size: 20px;
 }
 

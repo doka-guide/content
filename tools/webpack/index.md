@@ -8,10 +8,13 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - webpack
   - вебпак
   - бандлер
   - bundler
+related:
+  - js/web-app-types
+  - tools/nodejs
+  - js/language-versions
 tags:
   - article
 ---
@@ -26,11 +29,11 @@ Webpack — это самый популярный [сборщик](/tools/bundl
 
 ```js
 function sayHello() {
-  console.log("Hello!")
+  console.log('Hello!')
 }
 
 function sayBye() {
-  console.log("Bye!")
+  console.log('Bye!')
 }
 
 // Экспортируем эти функции,
@@ -41,7 +44,7 @@ export { sayHello, sayBye }
 Теперь создадим файл _index.js_, который будет использоваться как входная точка, и вызовем в нем функции приложения:
 
 ```js
-import { sayHello, sayBye } from "./application"
+import { sayHello, sayBye } from './application'
 
 sayHello()
 sayBye()
@@ -69,17 +72,17 @@ npm install --dev webpack webpack-cli
 
 ```js
 // path — встроенный в Node.js модуль
-const path = require("path")
+const path = require('path')
 
 module.exports = {
   // Указываем путь до входной точки:
-  entry: "./src/index.js",
+  entry: './src/index.js',
   // Описываем, куда следует поместить результат работы:
   output: {
     // Путь до директории (важно использовать path.resolve):
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
     // Имя файла со сборкой:
-    filename: "bundle.js"
+    filename: 'bundle.js'
   }
 }
 ```
@@ -87,8 +90,10 @@ module.exports = {
 Почти готово, осталось только добавить скрипт для сборки в _package.json_ и вызвать его:
 
 ```json
-"scripts": {
-  "build": "webpack"
+{
+  "scripts": {
+    "build": "webpack"
+  }
 }
 ```
 
@@ -126,9 +131,11 @@ npm run build
 Добавим новую команду в _package.json_:
 
 ```json
-"scripts": {
-  "build": "webpack",
-  "watch": "webpack --watch"
+{
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  }
 }
 ```
 
@@ -171,9 +178,9 @@ module.exports = {
         test: /\.css$/,
         // Список лоадеров, которые применятся к файлу:
         use: [
-          { loader: "style-loader" },
+          { loader: 'style-loader' },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             // Лоадеру можно передать параметры:
             options: { modules: true }
           }
@@ -190,7 +197,7 @@ module.exports = {
 
 Для Webpack написано огромное количество плагинов — для работы со стилями, повышения удобства разработки и упрощения жизни инженеров, для автоматизации рутинных операций и много других. Вот несколько, которые можно встретить почти в любом проекте:
 
-- `MiniCssExtractPlugin` — по умолчанию все стили, которые обработал Webpack, попадают в JS-файл и потом вставляются в тег `<style>`. Этот плагин извлекает все стили в отдельный CSS-файл, который можно подключить к странице через тег `<link>`.
+- `MiniCssExtractPlugin` — по умолчанию все стили, которые обработал Webpack, попадают в JS-файл и потом вставляются в тег [`<style>`](/html/style/). Этот плагин извлекает все стили в отдельный CSS-файл, который можно подключить к странице через тег [`<link>`](/html/link/).
 - `HotModuleReplacementPlugin` — позволяет делать изменения в коде и видеть изменения в браузере без полной перезагрузки страницы, это делает разработку более комфортной.
 - `CompressionWebpackPlugin` — сжимает все ресурсы, сгенерированные Webpack, чтобы передавать пользователям по сети меньший объём данных.
 
@@ -198,7 +205,7 @@ module.exports = {
 
 ```js
 // Webpack предоставляет несколько плагинов в основном пакете:
-const { ProgressPlugin } = require("webpack")
+const { ProgressPlugin } = require('webpack')
 
 module.exports = {
   plugins: [

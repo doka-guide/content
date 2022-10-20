@@ -1,10 +1,14 @@
 ---
 title: "Gulp и его использование"
-description: "Инструмент, которому можно поручить  мелкие и скучные задачи."
+description: "Инструмент, которому можно поручить мелкие и скучные задачи."
 authors:
   - webdb81
 keywords:
   - менеджер задач
+related:
+  - tools/bundlers
+  - tools/ci-cd
+  - js/language-versions
 tags:
   - article
 ---
@@ -17,7 +21,7 @@ Gulp может выполнять разные задачи: формирова
 
 ## Как понять
 
-Gulp —  это менеджер задач. Он выполняет объявленные инструкции в указанной последовательности. Gulp не предоставляет разработчику готовые механизмы для сборки проекта, но позволяет настроить такую сборку с помощью необходимых модулей.
+Gulp — это менеджер задач. Он выполняет объявленные инструкции в указанной последовательности. Gulp не предоставляет разработчику готовые механизмы для сборки проекта, но позволяет настроить такую сборку с помощью необходимых модулей.
 
 Часто в своих проектах разработчики используют Webpack, но это — сборщик модулей для приложений, написанных на JavaScript. Он «из коробки» предлагает решения для сборки проектов с использованием уже подготовленных механизмов и настроек. Подробнее об этом инструменте читайте в [нашей статье про Webpack](/tools/webpack/).
 
@@ -136,7 +140,7 @@ exports.default = parallel(
   scripts,
   pages,
   watch_dev
-);
+)
 ```
 
 Поскольку задача `default` для Gulp является задачей по умолчанию, запустить её можно командой `gulp`.
@@ -151,7 +155,7 @@ exports.build = series(
   styles,
   scripts,
   pages
-);
+)
 ```
 
 После этого сборка итоговой версии проекта осуществляется вводом в терминале команды `gulp build`.
@@ -364,7 +368,7 @@ async function clean() {
 
 ```javascript
 function watch_dev() {
-  watch(['./src/js/script.js', './src/components/**/*.js', ], scripts)
+  watch(['./src/js/script.js', './src/components/**/*.js'], scripts)
   watch(['./src/styles/style.scss', './src/components/**/*.scss'], styles).on(
     'change',
     browserSync.reload
@@ -410,6 +414,6 @@ exports.build = series(
 Если вы работаете над web-проектом, который:
 
 - не основан на современных [JS-фреймворках](/js/react-and-alternatives/);
-- не является [SPA](/js/web-app-types/#single-page-applications-spa) или [PWA](/js/web-app-types/#progressive-web-applications-pwa);
+- не является [SPA](/js/web-app-types/#single-page-applications-spa) или [PWA](/js/web-app-types/#progressive-web-applications-pwa).
 
-то Gulp — ваш бро, не сомневайтесь.
+Gulp — ваш бро, не сомневайтесь.
