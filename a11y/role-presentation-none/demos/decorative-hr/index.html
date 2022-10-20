@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Декоративный разделитель в тексте — ARIA-роли presentation, none — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    hr {
+      margin: 0 auto 28px;
+      border: 2px solid #000000;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #10F3AF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Говорящий мангуст Джеф</h1>
+    <hr role="presentation">
+    <p>Загадочное существо, обитавшее на ферме Дорлиш Кэшен неподалёку от селения Дэлби на острове Мэн. История о говорящем зверьке в середине 1930-х годов активно обсуждалась на страницах британской прессы.</p>
+  </div>
+</body>
+</html>

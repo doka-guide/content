@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Поле с подсказкой из aria-describedby — aria-describedby — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    input {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 100%;
+    }
+
+    .container {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        display: inline-block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label class="row-label" for="name">Имя:</label>
+      <div class="container">
+        <input class="input" id="name" type="text" aria-describedby="format">
+        <p id="format">Ваше имя без фамилии и отчества.</p>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
