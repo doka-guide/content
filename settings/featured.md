@@ -1,7 +1,9 @@
 ---
 pinned:
-  - html/screenreaders
+  - a11y/chto-takoe-a11y
 ready:
+  - a11y/skip-link
+  - a11y/aria-labelledby
   - html/img
   - html/article
   - html/form
