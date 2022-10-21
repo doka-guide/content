@@ -52,7 +52,7 @@ tags:
 
 <iframe title="Название — getElementsByTagName() — Дока" src="demos/Lopinopulos-LoZaJp/" height="300"></iframe>
 
-## Как это понять
+## Как понять
 
 Метод работает с DOM, который связан с HTML-разметкой. Каждый HTML-элемент имеет родительские и дочерние элементы:
 
