@@ -35,7 +35,7 @@ tags:
 
 <iframe title="Название — getElementById() — Дока" src="demos/Lopinopulos-XwKRaZ/" height="150"></iframe>
 
-## Как это понять
+## Как понять
 
 Метод работает с DOM, который связан с HTML-разметкой. Если в HTML есть тег с атрибутом `id`, то его можно получить из JavaScript с помощью метода `getElementById()`.
 

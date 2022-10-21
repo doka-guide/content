@@ -2,6 +2,8 @@
 name: 'Егор Левченко'
 url: https://twitter.com/furtivite
 photo: 'photo.jpeg'
+roles:
+  - doka-core-team
 badges:
   - first-contribution-small
 ---

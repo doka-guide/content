@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <title>Ленивая загрузка с Intersection Observer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+</head>
+<style>
+  :root {
+    --yellow: hsl(49, 100%, 58%);
+    --dark-green: hsl(124, 46%, 29%);
+    --green: hsl(122, 78%, 58%);
+    --dark: hsl(225, 8%, 10%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 1px;
+    color: var(--yellow);
+    background-color: var(--dark);
+  }
+
+  .wrapper {
+    display: flex;
+    height: 100vh;
+  }
+
+  .content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    width: 100%;
+    height: 50%;
+  }
+
+  .content--main {
+    border: 4px solid var(--yellow);
+    background-color: var(--dark-green);
+  }
+
+  .content--main::after {
+    content: "Наблюдаемая область (root)";
+    position: fixed;
+    top: 45%;
+    left: 50px;
+    color: #fff;
+  }
+
+  .wrapper::before {
+    content: "rootMargin: '0px 0px 75px 0px'";
+    position: absolute;
+    top: calc(50% + 45px);
+    left: 16px;
+    color: var(--green);
+  }
+
+  .wrapper::after {
+    content: "";
+    position: absolute;
+    top: calc(50% + 75px);
+    width: 100vw;
+    height: 1px;
+    border-bottom: 4px dashed var(--green);
+  }
+
+  .content__title {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    margin: 0 0 128px;
+    padding: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .content__title svg {
+    width: 40px;
+  }
+
+  .content__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .content__item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 128px;
+  }
+
+  .content__lazy-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-green);
+    transition: transform 0.3s;
+  }
+
+  .content__lazy-image--scaled {
+    transform: scale(1.2);
+  }
+
+  .content--side {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    opacity: 0.2;
+  }
+
+  .content--side .content__title {
+    min-height: 50%;
+    opacity: 0;
+  }
+
+  .content--side .content__item:last-child {
+    margin-bottom: calc(50vh + 128px);
+  }
+
+</style>
+
+<body>
+  <div class="wrapper">
+    <main class="content content--main">
+      <h2 class="content__title">
+        <span>Крути вниз, чтобы увидеть знакомых персонажей</span>
+        <svg
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          image-rendering="optimizeQuality"
+          shape-rendering="geometricPrecision"
+          text-rendering="geometricPrecision"
+          viewBox="0 0 267 512.46"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M133.5 0c36.67 0 70.05 15.03 94.25 39.21l.06.07C251.99 63.47 267 96.84 267 133.5v151.22c0 36.67-15.03 70.04-39.21 94.24l-.06.06c-24.2 24.18-57.57 39.19-94.23 39.19-36.67 0-70.05-15.02-94.25-39.21l-.06-.06C15.01 354.74 0 321.37 0 284.72V133.5c0-36.67 15.03-70.04 39.21-94.25l.06-.06C63.47 15.02 96.84 0 133.5 0zM98.79 447.32l34.7 34.72 34.77-34.72 15.16 15.24-49.98 49.9-49.89-49.9 15.24-15.24zm34.71-130.89c12.5 0 22.74-10.23 22.74-22.73v-30.34c0-12.51-10.24-22.74-22.74-22.74-12.5 0-22.73 10.23-22.73 22.74v30.34c0 12.5 10.23 22.73 22.73 22.73zm0-294.87c-30.81 0-58.8 12.59-79.05 32.85-20.31 20.3-32.89 48.29-32.89 79.09v151.22c0 30.8 12.58 58.79 32.85 79.05 20.29 20.3 48.28 32.88 79.09 32.88 30.81 0 58.8-12.58 79.05-32.85 20.3-20.29 32.89-48.28 32.89-79.08V133.5c0-30.8-12.59-58.79-32.85-79.05-20.29-20.3-48.28-32.89-79.09-32.89z"
+            fill="var(--yellow)"
+            fill-rule="nonzero"
+          />
+        </svg>
+      </h2>
+      <ul class="content__list">
+        <li class="content__item">
+          <img
+            alt="аватар Рика"
+            class="content__lazy-image"
+            data-order="1"
+            data-src="images/1.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Морти"
+            class="content__lazy-image js-transformable"
+            data-order="2"
+            data-src="images/2.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Саммер"
+            class="content__lazy-image"
+            data-order="3"
+            data-src="images/3.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Бэт"
+            class="content__lazy-image"
+            data-order="4"
+            data-src="images/4.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Джерри"
+            class="content__lazy-image"
+            data-order="5"
+            data-src="images/5.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+      </ul>
+    </main>
+    <aside class="content content--side">
+      <h2 class="content__title">
+        <span>Крути вниз, чтобы увидеть знакомых персонажей</span>
+        <svg
+          clip-rule="evenodd"
+          fill-rule="evenodd"
+          image-rendering="optimizeQuality"
+          shape-rendering="geometricPrecision"
+          text-rendering="geometricPrecision"
+          viewBox="0 0 267 512.46"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M133.5 0c36.67 0 70.05 15.03 94.25 39.21l.06.07C251.99 63.47 267 96.84 267 133.5v151.22c0 36.67-15.03 70.04-39.21 94.24l-.06.06c-24.2 24.18-57.57 39.19-94.23 39.19-36.67 0-70.05-15.02-94.25-39.21l-.06-.06C15.01 354.74 0 321.37 0 284.72V133.5c0-36.67 15.03-70.04 39.21-94.25l.06-.06C63.47 15.02 96.84 0 133.5 0zM98.79 447.32l34.7 34.72 34.77-34.72 15.16 15.24-49.98 49.9-49.89-49.9 15.24-15.24zm34.71-130.89c12.5 0 22.74-10.23 22.74-22.73v-30.34c0-12.51-10.24-22.74-22.74-22.74-12.5 0-22.73 10.23-22.73 22.74v30.34c0 12.5 10.23 22.73 22.73 22.73zm0-294.87c-30.81 0-58.8 12.59-79.05 32.85-20.31 20.3-32.89 48.29-32.89 79.09v151.22c0 30.8 12.58 58.79 32.85 79.05 20.29 20.3 48.28 32.88 79.09 32.88 30.81 0 58.8-12.58 79.05-32.85 20.3-20.29 32.89-48.28 32.89-79.08V133.5c0-30.8-12.59-58.79-32.85-79.05-20.29-20.3-48.28-32.89-79.09-32.89z"
+            fill="var(--yellow)"
+            fill-rule="nonzero"
+          />
+        </svg>
+      </h2>
+      <ul class="content__list">
+        <li class="content__item">
+          <img
+            alt="аватар Рика"
+            class="content__lazy-image"
+            data-order="1"
+            data-src="images/1.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Морти"
+            class="content__lazy-image js-transformable"
+            data-order="2"
+            data-src="images/2.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Саммер"
+            class="content__lazy-image"
+            data-order="3"
+            data-src="images/3.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Бэт"
+            class="content__lazy-image"
+            data-order="4"
+            data-src="images/4.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+        <li class="content__item">
+          <img
+            alt="аватар Джерри"
+            class="content__lazy-image"
+            data-order="5"
+            data-src="images/5.jpeg"
+            src="images/Rick_and_Morty_logo.png"
+          >
+        </li>
+      </ul>
+    </aside>
+  </div>
+
+  <script>
+
+    const syncScroll = ({ target }) => {
+      const sideContent = document.querySelector('.content--side')
+
+      sideContent.scrollTop = target.scrollTop
+    }
+
+    const content = document.querySelector('.content')
+
+    content.addEventListener('scroll', syncScroll)
+
+    const callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        const sideTarget = document.querySelector(`.content--side .content__lazy-image[data-order="${entry.target.dataset.order}"]`)
+
+        if (entry.isIntersecting) {
+
+          entry.target.src = entry.target.dataset.src
+          sideTarget.src = sideTarget.dataset.src
+
+          if (!entry.target.classList.contains('js-transformable')) {
+            observer.unobserve(entry.target)
+
+            return
+          }
+        }
+
+        if (entry.intersectionRatio === 1) {
+          entry.target.classList.add('content__lazy-image--scaled')
+          sideTarget.classList.add('content__lazy-image--scaled')
+        }
+
+        if (!entry.isIntersecting || (entry.isIntersecting && entry.intersectionRatio !== 1)) {
+          entry.target.classList.remove('content__lazy-image--scaled')
+          sideTarget.classList.remove('content__lazy-image--scaled')
+        }
+
+      })
+    }
+
+    const options = {
+      root: document.querySelector('.content'),
+      rootMargin: '0px 0px 75px 0px',
+      threshold: [0, 1],
+    }
+
+    const observer = new IntersectionObserver(callback, options)
+
+    const lazyImages = document.querySelectorAll('.content__lazy-image')
+
+    lazyImages.forEach((image) => observer.observe(image))
+  </script>
+</body>
+
+</html>

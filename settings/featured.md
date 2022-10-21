@@ -1,7 +1,9 @@
 ---
 pinned:
-  - html/screenreaders
+  - a11y/chto-takoe-a11y
 ready:
+  - a11y/skip-link
+  - a11y/aria-labelledby
   - html/img
   - html/article
   - html/form
@@ -52,53 +54,53 @@ ready:
   - recipes/snow
 active:
   - html/screenreaders
-  - recipes/snow
-  - html/doctype
-  - tools/ci-cd
-  - js/function
-  - css/display
-  - css/flexbox-guide
-  - js/clean-architecture
-  - tools/network
-  - html/div
-  - js/how-to-test-and-why
-  - js/infinite-scroll
-  - css/pseudoelements
-  - css/box-model
-  - css/transform-function
-  - tools/gitlab-ci-cd
-  - css/grid-guide
-  - html/img
-  - js/deal-with-forms
-  - html/form
-  - js/how-the-browser-creates-pages
-  - css/specificity
-  - tools/markdown
-  - js/async-in-js
-  - tools/agile
-  - tools/bundlers
-  - tools/static-types
-  - html/input
-  - js/var-let
-  - html/section
-  - css/custom-properties
-  - html/article
-  - html/flow
   - css/keyframes
-  - js/function-context
-  - js/closures
-  - js/execution-order
+  - css/specificity
+  - html/img
+  - tools/ci-cd
   - css/attr
-  - tools/cli
-  - tools/webpack
-  - html/head
-  - html/video
-  - js/oop
-  - css/media
-  - js/boolean
-  - css/position
-  - html/nav
-  - tools/docker
+  - js/function-context
   - css/box-shadow
+  - html/section
+  - html/video
+  - html/doctype
+  - js/how-to-test-and-why
+  - html/article
+  - tools/static-types
+  - css/box-model
+  - css/grid-guide
+  - css/custom-properties
+  - css/pseudoelements
+  - html/input
+  - css/transform-function
+  - tools/docker
+  - js/boolean
+  - html/form
+  - html/flow
+  - tools/agile
+  - tools/webpack
+  - tools/markdown
+  - js/function
+  - tools/gitlab-ci-cd
+  - js/deal-with-forms
+  - js/oop
+  - js/infinite-scroll
+  - html/div
+  - css/position
+  - css/display
+  - html/head
+  - js/how-the-browser-creates-pages
+  - tools/bundlers
+  - tools/network
+  - css/media
+  - recipes/snow
+  - html/nav
+  - js/clean-architecture
+  - js/var-let
+  - css/flexbox-guide
+  - js/execution-order
+  - js/async-in-js
+  - js/closures
+  - tools/cli
 ---
 

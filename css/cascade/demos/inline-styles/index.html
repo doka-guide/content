@@ -8,13 +8,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li + li {
+      margin-top: 0.4rem;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #2E9AFF;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -22,7 +69,7 @@
   <ul>
     <li>Этот пункт имеет CSS-свойства по умолчанию</li>
     <li>И этот тоже</li>
-    <li style="color: red">Текст в этом (и только в этом) теге будет красным</li>
+    <li style="color: #2E9AFF">Текст в этом (и только в этом) теге будет синим</li>
     <li>Снова обычное оформление</li>
   </ul>
 </body>

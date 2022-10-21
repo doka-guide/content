@@ -58,7 +58,7 @@ groups:
       - index-of
       - includes
       - string-length
-  - name: "Булевый тип"
+  - name: "Булев тип"
     items:
       - boolean
       - logic-operators
@@ -128,6 +128,7 @@ groups:
       - window-history
       - window-location
       - window-navigator
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
@@ -142,6 +143,7 @@ groups:
       - setinterval
       - clearinterval
       - window-print
+      - intersection-observer
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -176,6 +178,7 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
+      - element-scrollby
       - element-scrollintoview
       - element-scrollto
       - element-classlist

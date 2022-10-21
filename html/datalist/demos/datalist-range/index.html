@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример работы элемента <datalist> с типом range — <datalist> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        display: block;
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      input {
+        width: 300px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 300;
+        cursor: pointer;
+      }
+
+      @media (max-width: 768px) {
+        body {
+            padding: 30px;
+        }
+
+        form {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        label {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+        }
+      }
+  </style>
+</head>
+
+<body>
+  <form>
+      <label for="rangeInput">Выберите уровень громкости:</label>
+      <input type="range" value="50" min="0" max="100" step="25" list="rangeList" id="rangeInput" name="rangeInput"
+        oninput="this.nextElementSibling.value = this.value">
+      <output for="rangeInput"></output>
+      <datalist id="rangeList">
+        <option value="0" label="0">
+        <option value="25" label="25">
+        <option value="50" label="50">
+        <option value="75" label="75">
+        <option value="100" label="100">
+      </datalist>
+  </form>
+  <script>
+      `use strict`;
+
+      const range = document.querySelector('input[type=range]');
+      const output = document.querySelector('output');
+      output.value = range.value;
+  </script>
+</body>
+
+</html>
