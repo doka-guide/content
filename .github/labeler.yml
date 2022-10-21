@@ -1,21 +1,21 @@
 css:
   files:
-    - css/**/*.md
+    - css/**/*
 html:
   files:
-    - html/**/*.md
+    - html/**/*
 js:
   files:
-    - js/**/*.md
+    - js/**/*
 tools:
   files:
-    - tools/**/*.md
+    - tools/**/*
 a11y:
   files:
-    - a11y/**/*.md
+    - a11y/**/*
 'рецепт':
   files:
-    - recipes/**/*.md
+    - recipes/**/*
 'кухня':
   files:
     - .github/*.yml
