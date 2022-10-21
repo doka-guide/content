@@ -2,6 +2,33 @@
 
 <!-- yaspeller ignore:start -->
 
+## Октябрь 2022
+
+- 21 октября, [URL](https://doka.guide/tools/url/), Алексей Никитченко
+- 20 октября, [Skip link](https://doka.guide/a11y/skip-link/), Иван Ельцов
+- 20 октября, [Что такое доступность](https://doka.guide/a11y/chto-takoe-a11y/), Татьяна Фокина
+- 20 октября, [Введение в ARIA](https://doka.guide/a11y/aria-intro/), Татьяна Фокина
+- 20 октября, [ARIA-роли](https://doka.guide/a11y/aria-roles/), Татьяна Фокина
+- 20 октября, [ARIA-атрибуты](https://doka.guide/a11y/aria-attrs/), Татьяна Фокина
+- 20 октября, [`aria-label`](https://doka.guide/a11y/aria-label/), Татьяна Фокина
+- 20 октября, [`aria-hidden`](https://doka.guide/a11y/aria-hidden/), Татьяна Фокина
+- 20 октября, [`aria-labelledby`](https://doka.guide/a11y/aria-labelledby/), Татьяна Фокина
+- 20 октября, [`aria-describedby`](https://doka.guide/a11y/aria-describedby/), Татьяна Фокина
+- 20 октября, [`role-presentation`](https://doka.guide/a11y/role-presentation/), Татьяна Фокина
+- 20 октября, [ARIA-роль `contentinfo`](https://doka.guide/a11y/role-contentinfo/), Татьяна Фокина
+- 19 октября, [`:default`](https://doka.guide/css/default/), Антон Капустинский
+- 17 октября, [`max()`](https://doka.guide/css/max/), Денис Путнов
+- 14 октября, [Счётчик символов в поле ввода](https://doka.guide/recipes/character-counter/), Алексей Никитченко
+- 14 октября, [`:focus-within`](https://doka.guide/css/focus-within/), Антон Капустинский
+- 14 октября, [`<datalist>`](https://doka.guide/html/datalist/), Алексей Степанов
+- 13 октября, [Geolocation API](https://doka.guide/js/geolocation-api/), Алексей Никитченко
+- 12 октября, [`:focus-visible`](https://doka.guide/css/focus-visible/), Антон Капустинский
+- 6 октября, [`scrollBy()`](https://doka.guide/js/element-scrollby/), Антон Капустинский
+- 6 октября, [`aspect-ratio`](https://doka.guide/css/aspect-ratio/), Денис Путнов
+- 5 октября, [`.scrollBy()`](https://doka.guide/js/element-scrollby/), Антон Капустинский
+- 5 октября, [Intersection Observer](https://doka.guide/js/intersection-observer/), Олег Полянский
+- 3 октября, [`<object>`](https://doka.guide/html/object/), Андрей Калповский
+
 ## Сентябрь 2022
 
 - 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
