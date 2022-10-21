@@ -1,29 +1,29 @@
 css:
-  - files:
-    - css/**/*.md
+  files:
+    - css/**/*
 html:
-  - files:
-    - html/**/*.md
+  files:
+    - html/**/*
 js:
-  - files:
-    - js/**/*.md
+  files:
+    - js/**/*
 tools:
-  - files:
-    - tools/**/*.md
+  files:
+    - tools/**/*
 a11y:
-  - files:
-    - a11y/**/*.md
+  files:
+    - a11y/**/*
 'рецепт':
-  - files:
-    - recipes/**/*.md
+  files:
+    - recipes/**/*
 'кухня':
-  - files:
+  files:
     - .github/*.yml
     - .github/scripts/*.js
     - .github/workflows/*.yml
 'улучшение':
-  - files:
-    - modified:
+  files:
+    modified:
       - css/**/*.md
       - html/**/*.md
       - js/**/*.md
@@ -39,7 +39,7 @@ a11y:
       - README.md
       - LICENSE-ND.md
       - LICENSE-SA.md
-    - removed:
+    removed:
       - css/**/*.md
       - html/**/*.md
       - js/**/*.md
@@ -55,7 +55,7 @@ a11y:
       - README.md
       - LICENSE-ND.md
       - LICENSE-SA.md
-    - renamed:
+    renamed:
       - css/**/*.md
       - html/**/*.md
       - js/**/*.md
@@ -72,48 +72,49 @@ a11y:
       - LICENSE-ND.md
       - LICENSE-SA.md
 'демо':
-  - modified:
-    - css/**/demos/**/*.html
-    - html/**/demos/**/*.html
-    - js/**/demos/**/*.html
-    - tools/**/demos/**/*.html
-    - a11y/**/demos/**/*.html
-    - recipes/**/demos/**/*.html
-  - assignee:
+  files:
+    modified:
+      - css/**/demos/**/*.html
+      - html/**/demos/**/*.html
+      - js/**/demos/**/*.html
+      - tools/**/demos/**/*.html
+      - a11y/**/demos/**/*.html
+      - recipes/**/demos/**/*.html
+  assignee:
     - skorobaeus
 'дока':
-  - files:
-    - added:
+  files:
+    added:
       - css/**/index.md
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
       - a11y/**/index.md
       - recipes/**/index.md
-  - meta:
-    - tags:
+  meta:
+    tags:
       - doka
 'статья':
-  - files:
-    - added:
+  files:
+    added:
       - css/**/index.md
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
       - a11y/**/index.md
       - recipes/**/index.md
-  - meta:
-    - tags:
+  meta:
+    tags:
       - article
 placeholder:
-  - files:
-    - added:
+  files:
+    added:
       - css/**/index.md
       - html/**/index.md
       - js/**/index.md
       - tools/**/index.md
       - a11y/**/index.md
       - recipes/**/index.md
-  - meta:
-    - tags:
+  meta:
+    tags:
       - placeholder
