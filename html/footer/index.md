@@ -14,7 +14,7 @@ keywords:
   - футер
 related:
   - css/position
-  - html/screenreaders
+  - a11y/screenreaders
   - css/flexbox-guide
 tags:
   - doka
