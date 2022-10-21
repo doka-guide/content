@@ -7,10 +7,9 @@ related:
 ---
 
 <aside class="callout">
-  <div class="callout__icon">❓</div>
   <div class="callout__content">
-    <p>
+    <h3>
       Опишите жизненный цикл контейнера Docker
-    </p>
+    </h3>
   </div>
 </aside>
