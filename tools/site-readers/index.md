@@ -75,9 +75,9 @@ tags:
 Формат мета-тегов выглядит так:
 
 ```html
-<meta property="og:title" content="Заголовок">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.example.com/">
+<meta property="og:title" content="Заголовок" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.example.com/" />
 ```
 
 Первый тег отвечает за заголовок карточки, в виде которой отображается ссылка, второй — задаёт тип карточки, третий — определяет абсолютную ссылку. Доступны и другие возможности. Можно установить описание с помощью `og:description`, задать ссылку на картинку с помощью `og:image`, определить ссылку на соответствующее странице видео и прочие. Во время разработки можно использовать валидаторы, наиболее известные из которых:
