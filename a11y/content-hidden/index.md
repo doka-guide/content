@@ -1,10 +1,15 @@
 ---
-title: "Как скрыть контент на странице"
+title: "Как скрыть содержимое от скринридеров"
+description: "Как скрыть содержимое страницы от скринридеров и других вспомогательных технологий."
 authors:
   - MariannaSpb
 keywords:
   - доступность
   - ARIA
+related:
+  - a11y/aria-hidden
+  - a11y/role-presentation-none
+  - html/hidden
 tags:
   - article
 ---
