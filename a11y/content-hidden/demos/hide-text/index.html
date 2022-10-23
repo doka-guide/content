@@ -21,22 +21,16 @@
     }
 
     .button {
-      display: block;
-      min-width: 210px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
       transition: background-color 0.2s linear;
-    }
-
-    .button:hover {
-      background-color: #FFFFFF;
       cursor: pointer;
-      transition: background-color 0.2s linear;
+      background-color: transparent;
     }
 
     .button:focus-visible {
-      border: 2px solid #FFFFFF;
+      border: 2px solid pink;
       outline: none;
     }
 
@@ -60,6 +54,16 @@
       border: 0;
     }
 
+    .control {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-field {
+      height: 37px;
+    }
+
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
@@ -68,11 +72,14 @@
   </style>
 </head>
 <body>
-  <button class="button button-aqua">
-    <span class='sr-only'>Искать на странице</span>
-    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
-      <path fill="#fff" d="M16.958 15.527L11.75 10.32A6.455 6.455 0 0 0 13 6.5 6.5 6.5 0 1 0 6.5 13a6.465 6.465 0 0 0 3.839-1.263l5.205 5.204 1.414-1.414zM6.5 11C4.019 11 2 8.981 2 6.5S4.019 2 6.5 2 11 4.019 11 6.5 8.981 11 6.5 11z"></path>
-    </svg>
-  </button>
+  <div class="control">
+    <input class="search-field" type="text">
+    <button class="button">
+      <span class='sr-only'>Искать на странице</span>
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 17 17">
+        <path fill="#fff" d="M16.958 15.527L11.75 10.32A6.455 6.455 0 0 0 13 6.5 6.5 6.5 0 1 0 6.5 13a6.465 6.465 0 0 0 3.839-1.263l5.205 5.204 1.414-1.414zM6.5 11C4.019 11 2 8.981 2 6.5S4.019 2 6.5 2 11 4.019 11 6.5 8.981 11 6.5 11z"></path>
+      </svg>
+    </button>
+  </div>
 </body>
 </html>

@@ -69,12 +69,15 @@ tags:
 ## Пример
 
 ```html
-<button class="button button-aqua">
-  <span class='sr-only'>Искать на странице</span>
-  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
-    <!-- Описание фигуры -->
-  </svg>
-</button>
+<div class="control">
+  <input class="search-field" type="text">
+  <button class="button">
+    <span class='sr-only'>Искать на странице</span>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 17 17">
+      <!-- Описание фигуры -->
+    </svg>
+  </button>
+</div>
 ```
 
 <iframe title="Кнопка поиска с иконкой и классом .sr-only" src="demos/hide-text/" height="150"></iframe>
