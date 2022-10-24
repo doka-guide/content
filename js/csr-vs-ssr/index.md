@@ -9,6 +9,11 @@ related:
   - js/web-app-types
 tags:
   - article
+keywords:
+  - фреймворк
+  - дерево приложения
+  - перфоманс
+  - web vitals
 ---
 
 ## Кратко
@@ -159,13 +164,13 @@ export const render = (component, node) => {
 
 Самое первое - мы берем объект нашего приложения и достаем все внутренние ключи, которые потом станут DOM элементами или тегами.
 
-```ts 
+```ts
 const tags = Object.keys(component); // ['header', 'main']
 ```
 
 Далее, пробегаемся по всем тегам и, собственно, создаем эти элементы. При этом мы также получаем все атрибуты/пропсы для нашего элемента, по которым мы также пробежимся и добавим к элементу.
 
-```ts 
+```ts
 const { children, ...props } = component[tag];
 const element = document.createElement(tag);
 
