@@ -1,5 +1,5 @@
 #!/bin/bash
-options=("CSS" "HTML" "JavaScript" "Инструменты" "Рецепты")
+options=("CSS" "HTML" "JavaScript" "Инструменты" "Рецепты" "Доступность")
 tags=("Дока" "Статья")
 
 CATEGORY=""
@@ -51,6 +51,10 @@ do
       ;;
     "Рецепты")
       CATEGORY=recipes
+      break
+      ;;
+    "Доступнось")
+      CATEGORY=a11y
       break
       ;;
     *) echo "Такого раздела ещё нет... Введите корректный номер";;
