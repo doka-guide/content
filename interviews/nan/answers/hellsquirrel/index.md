@@ -9,7 +9,7 @@
   <div class="callout__icon">❓</div>
   <div class="callout__content">
     <p>
-      Представим себе что функции `Number.isNan()` не существует. Как в таком случае проверить что значение переменной `possiblyWrongNumber` не является `NaN`? Условие `typeof possiblyWrongNumber === 'number'` по-прежнему выполняется.
+      Представим себе, что функции `Number.isNan()` не существует. Как в таком случае проверить, что значение переменной `possiblyWrongNumber` не является `NaN`? Условие `typeof possiblyWrongNumber === 'number'` по-прежнему выполняется.
     </p>
   </div>
 
