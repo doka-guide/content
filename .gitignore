@@ -1,5 +1,6 @@
 # Служебные директории macOS
-**/.DS_Store
+.DS_Store
+Thumbs.db
 
 # Для NodeJS
 logs
@@ -72,54 +73,19 @@ dist
 .ionide
 
 # Для редакторов от JetBrains
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-.idea/**/aws.xml
-.idea/**/contentModel.xml
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-.idea/**/gradle.xml
-.idea/**/libraries
-.idea/artifacts
-.idea/compiler.xml
-.idea/jarRepositories.xml
-.idea/modules.xml
-.idea/*.iml
-.idea/modules
+.idea/**/*
 *.iml
 *.ipr
 cmake-build-*/
-.idea/**/mongoSettings.xml
 *.iws
 out/
 .idea_modules/
 atlassian-ide-plugin.xml
-.idea/replstate.xml
-.idea/sonarlint/
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-.idea/httpRequests
-.idea/caches/build_file_checksums.ser
 modules.xml
-.idea/misc.xml
-.idea/**/sonarlint/
-.idea/**/sonarIssues.xml
-.idea/**/markdown-navigator.xml
-.idea/**/markdown-navigator-enh.xml
-.idea/**/markdown-navigator/
-.idea/$CACHE_FILE$
-.idea/codestream.xml
-.idea/**/azureSettings.xml
 
 ### Для редактора SublimeText ###
 *.tmlanguage.cache
@@ -129,21 +95,14 @@ modules.xml
 *.sublime-project
 sftp-config.json
 sftp-config-alt*.json
-Package Control.last-run
-Package Control.ca-list
-Package Control.ca-bundle
-Package Control.system-ca-bundle
-Package Control.cache/
-Package Control.ca-certs/
-Package Control.merged-ca-bundle
-Package Control.user-ca-bundle
+Package Control.*
+Package Control.*/*
 oscrypto-ca-bundle.crt
 bh_unicode_properties.cache
 GitHub.sublime-settings
 
 ### Для редактора Vim ###
 [._]*.s[a-v][a-z]
-!*.svg  # comment out if you don't need vector files
 [._]*.sw[a-p]
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
@@ -155,14 +114,11 @@ tags
 [._]*.un~
 
 # Для редактора Emacs
-*~
-\#*\#
 /.emacs.desktop
 /.emacs.desktop.lock
 *.elc
 auto-save-list
 tramp
-.\#*
 .org-id-locations
 *_archive
 *_flymake.*
@@ -170,7 +126,6 @@ tramp
 /eshell/lastdir
 /elpa/
 *.rel
-/auto/
 .cask/
 flycheck_*.el
 /server/
