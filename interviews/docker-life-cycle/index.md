@@ -6,10 +6,4 @@ related:
   - tools/dockerfile
 ---
 
-<aside class="callout">
-  <div class="callout__content">
-    <h3>
-      Опишите жизненный цикл контейнера Docker
-    </h3>
-  </div>
-</aside>
+<h3>Опишите жизненный цикл контейнера Docker</h3>
