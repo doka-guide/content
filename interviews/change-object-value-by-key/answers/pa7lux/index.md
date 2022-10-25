@@ -23,7 +23,6 @@ cat.isHunter = false;
 mouse.isHunter = undefined;
 
 console.log(mouse.isHunter);
-
 ```
 
 Вам стоит проговорить логику выполнения этого скрипта последовательно.
