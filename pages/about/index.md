@@ -51,4 +51,4 @@ location: "/about/"
 - [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
 - [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.
-- [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за работу над разделами [JavaScript](/js/) и [Инструменты](/tools/).
+- [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Инструменты.
