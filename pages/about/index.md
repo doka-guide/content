@@ -17,6 +17,7 @@ location: "/about/"
 
 - **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/), тимлид Доки.
 - **<!-- yaspeller ignore:start -->[Полина Гуртовая](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Инструменты](/tools/).
+- **<!-- yaspeller ignore:start -->[Татьяна Фокина](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор раздела [Доступность](/a11y/).
 - **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер и стратег Доки.
 
 Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
