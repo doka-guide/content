@@ -53,7 +53,7 @@ do
       CATEGORY=recipes
       break
       ;;
-    "Доступнось")
+    "Доступность")
       CATEGORY=a11y
       break
       ;;
