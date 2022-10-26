@@ -38,19 +38,11 @@ console.log(mouse.isHunter);
 
 `let cat = { name: 'Tom', isHunter: true}`
 
-```
-cat --> {} -name-> 'Tom'
-           -isHunter-> true
-
-```
+![Схема. Объект cat имеет свойство name со значением Tom и свойство isHunter со значением true](images/schema.png)
 
 `mouse = cat`
 
-```
-mouse --> cat --> {} -name-> 'Tom'
-                     -isHunter-> true
-
-```
+![Схема. В объект mouse присваивается объект cat со всеми свойствами и значениями](images/schema-2.png)
 
 Такие же рассуждения подходят и для более сложных случаев:
 
