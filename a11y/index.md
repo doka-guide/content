@@ -7,6 +7,9 @@ groups:
       - aria-intro
       - aria-roles
       - aria-attrs
+  - name: 'Вспомогательные технологии'
+    items:
+      - screenreaders
   - name: 'Глобальные атрибуты'
     items:
       - aria-hidden
