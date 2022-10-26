@@ -24,8 +24,8 @@ compose(f) = f
 
 ```js
 compose(f,g) = x => {
-    const prevResult = g(x) // выполнили g
-    return f(prevResult) // выполнили f
+  const prevResult = g(x) // выполнили g
+  return f(prevResult) // выполнили f
 }
 ```
 
