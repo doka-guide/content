@@ -4,11 +4,8 @@ related:
   - js/ref-type-vs-value-type
 ---
 
-<aside class="callout">
-  <div class="callout__icon">❓</div>
-  <div class="callout__content">
-    <p>
-      Каким станет значение в объекте по ключу?
-    </p>
-  </div>
+<aside>
+
+❓ Каким станет значение в объекте по ключу?
+
 </aside>
