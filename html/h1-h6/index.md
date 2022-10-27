@@ -21,7 +21,7 @@ keywords:
   - h5
   - h6
 related:
-  - html/screenreaders
+  - a11y/screenreaders
   - css/tag-selector
   - html/main
 tags:

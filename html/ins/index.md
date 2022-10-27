@@ -8,7 +8,7 @@ keywords:
 related:
   - css/text-decoration
   - tools/git-cli
-  - html/screenreaders
+  - a11y/screenreaders
 tags:
   - doka
 ---

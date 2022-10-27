@@ -57,7 +57,6 @@ groups:
       - dfn
       - samp
       - abbr
-      - screenreaders
   - name: 'Формы'
     items:
       - form
