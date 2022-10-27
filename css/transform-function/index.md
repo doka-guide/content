@@ -178,4 +178,4 @@ tags:
 
 <iframe title="Правильный порядок функций" src="demos/funcs-right-order/" height="380"></iframe>
 
-Второй пример нужно смотреть либо в Firefox, либо в Chrome Canary.
+_Второй пример корректно работает во всех современных браузерах, для более старых версий проверяйте поддержку на [Can I use](https://caniuse.com/)._
