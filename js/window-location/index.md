@@ -43,7 +43,7 @@ window.location.reload()
 window.location.replace('https://doka.guide/')
 ```
 
-## Как это понять
+## Как понять
 
 Для навигации по сайту мы используем адреса и параметры страницы. `window.location` содержит набор свойств и методов, чтобы удобно получать адрес и управлять им.
 
@@ -88,6 +88,7 @@ console.log(window.location.hash)
 `pathname` – репрезентация текущего пути на сайте. Если текущий урл не содержит путь, то значением будет корневой путь `"/"`.
 
 Например, значения `window.location.pathname` в зависимости от адреса:
+
 * `https://doka.guide/js/window-location/` → `/js/window-location/`.
 * `https://doka.guide` → `/`.
 

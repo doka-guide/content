@@ -6,7 +6,7 @@ const element = document.querySelector('div')
 // Через специальный метод
 const classes = Array.from(element.classList)
 
-// Либо через сред-оператор
+// Либо через спред-оператор
 const classes = [...element.classList]
 
 // Теперь нам доступны любые операции обычного массива

@@ -56,7 +56,7 @@ for (let count = 5; count > 0; count--) {
 
 <iframe title="Название — for() — Дока" src="demos/vindi-r-bJejME/" height="300"></iframe>
 
-## Как это понять
+## Как понять
 
 Рассмотрим пример:
 

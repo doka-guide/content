@@ -30,7 +30,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Короткий способ одновременно указать сразу несколько значений, сэкономив пару строк кода.
 
@@ -40,9 +40,10 @@ tags:
 
 Значение по умолчанию: `0 1 auto`, что расшифровывается как `flex-grow: 0`, `flex-shrink: 1`, `flex-basis: auto`.
 
-### Возможные значения:
+### Возможные значения
 
 Равно значению `0 0 auto`:
+
 ```css
 .element {
   flex: none;
@@ -50,6 +51,7 @@ tags:
 ```
 
 Одно значение, число без единиц — `flex-grow`:
+
 ```css
 .element {
   flex: 2;
@@ -57,6 +59,7 @@ tags:
 ```
 
 Одно значение, ширина или высота — `flex-basis`:
+
 ```css
 .element {
   flex: 10em;
@@ -67,6 +70,7 @@ tags:
 ```
 
 Два значения — `flex-grow` и `flex-basis`:
+
 ```css
 .element {
   flex: 1 30px;
@@ -74,6 +78,7 @@ tags:
 ```
 
 Два значения — `flex-grow` и `flex-shrink`:
+
 ```css
 .element {
   flex: 2 2;
@@ -81,6 +86,7 @@ tags:
 ```
 
 Три значения — `flex-grow`, `flex-shrink` и `flex-basis`:
+
 ```css
 .element {
   flex: 2 2 10%;
@@ -88,6 +94,7 @@ tags:
 ```
 
 Глобальные значения:
+
 ```css
 .element {
   flex: inherit;
