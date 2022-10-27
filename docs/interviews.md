@@ -6,7 +6,7 @@
 
 Проверьте, нет ли такого вопроса на Доке. Загляните в [задачи](https://github.com/doka-guide/content/issues?q=is%3Aopen+is%3Aissue+label%3Aсобеседование), чтобы ознакомиться со списком вопросов, на которые ещё нет ответов на Доке.
 
-Если ваш вопрос ещё не был задан, [cоздайте задачу](https://github.com/doka-guide/content/issues/new?assignees=&labels=&template=3_empty.md&title=).
+Если ваш вопрос ещё не был задан, [создайте задачу](https://github.com/doka-guide/content/issues/new?assignees=&labels=&template=3_empty.md&title=).
 
 ## Как написать ответ
 
