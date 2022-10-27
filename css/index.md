@@ -294,6 +294,7 @@ groups:
   - name: 'Рамки, обводки и тени'
     items:
       - border
+      - border-collapse
       - border-image
       - border-style
       - border-radius
