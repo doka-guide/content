@@ -126,7 +126,7 @@ server {
     access_log /web/sites/dev.success.net/logs/access.log;
 
     location / {
-       return 301 https://$http_host$request_uri;
+      return 301 https://$http_host$request_uri;
     }
 }
 
