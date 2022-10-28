@@ -53,54 +53,52 @@ ready:
 active:
   - a11y/chto-takoe-a11y
   - tools/network
-  - tools/bundlers
   - recipes/snow
-  - html/nav
-  - css/position
-  - html/doctype
-  - css/specificity
-  - css/box-model
-  - css/display
-  - js/function-context
   - css/media
-  - css/grid-guide
-  - css/flexbox-guide
-  - css/keyframes
-  - html/input
-  - js/var-let
-  - js/oop
-  - html/form
-  - js/closures
-  - css/attr
-  - css/transform-function
-  - tools/webpack
-  - js/clean-architecture
-  - html/section
-  - html/img
-  - tools/ci-cd
   - html/flow
-  - a11y/aria-labelledby
-  - tools/agile
-  - js/how-the-browser-creates-pages
+  - css/attr
+  - html/doctype
+  - html/form
+  - js/async-in-js
+  - html/img
+  - css/grid-guide
+  - js/var-let
+  - html/nav
+  - css/flexbox-guide
+  - js/oop
+  - tools/ci-cd
   - js/infinite-scroll
   - html/article
-  - css/pseudoelements
-  - html/video
   - js/deal-with-forms
-  - html/div
-  - js/how-to-test-and-why
-  - js/execution-order
-  - js/async-in-js
-  - tools/gitlab-ci-cd
-  - css/custom-properties
-  - tools/markdown
-  - a11y/skip-link
   - js/function
-  - js/boolean
-  - tools/static-types
-  - html/head
-  - tools/docker
-  - css/box-shadow
+  - js/how-to-test-and-why
+  - css/custom-properties
   - tools/cli
+  - css/box-model
+  - js/clean-architecture
+  - html/div
+  - tools/gitlab-ci-cd
+  - css/specificity
+  - css/position
+  - html/head
+  - tools/agile
+  - tools/static-types
+  - tools/bundlers
+  - html/section
+  - css/box-shadow
+  - tools/markdown
+  - js/function-context
+  - tools/docker
+  - js/boolean
+  - tools/webpack
+  - css/display
+  - html/video
+  - js/closures
+  - html/input
+  - css/transform-function
+  - css/pseudoelements
+  - js/execution-order
+  - js/how-the-browser-creates-pages
+  - css/keyframes
 ---
 
