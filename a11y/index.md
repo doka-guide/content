@@ -16,6 +16,7 @@ groups:
       - aria-label
       - aria-labelledby
       - aria-describedby
+      - aria-description
       - aria-live
       - aria-atomic
       - aria-relevant
@@ -78,6 +79,7 @@ groups:
       - aria-label
       - aria-labelledby
       - aria-describedby
+      - aria-description
   - name: 'CSS и доступность'
     items:
       - prefers-reduced-motion
