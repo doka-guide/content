@@ -1,0 +1,1 @@
+import{C as l,D as c}from"./demo.9fbae728.js";const e=document.querySelector("[data-demo-wrap]"),o=document.querySelector('[data-select="flex-direction"]');e.style.flexDirection=o.value;new l(o,t=>{e.style.flexDirection=t});new c;
