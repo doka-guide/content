@@ -297,6 +297,7 @@ groups:
       - border-image
       - border-style
       - border-radius
+      - border-spacing
       - border-color
       - border-width
       - outline
