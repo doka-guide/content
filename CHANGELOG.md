@@ -4,6 +4,7 @@
 
 ## Октябрь 2022
 
+- 28 октября, [Собственный конвертор шрифтов](https://doka.guide/recipes/font-script/), Игорь Коровченко
 - 21 октября, [URL](https://doka.guide/tools/url/), Алексей Никитченко
 - 20 октября, [Skip link](https://doka.guide/a11y/skip-link/), Иван Ельцов
 - 20 октября, [Что такое доступность](https://doka.guide/a11y/chto-takoe-a11y/), Татьяна Фокина
