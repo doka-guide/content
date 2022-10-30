@@ -10,4 +10,4 @@ Closes #<!-- проставьте номер ишью, которое решае
 
 - [ ] Текст оформлен [согласно руководству по стилю](https://github.com/doka-guide/content/blob/main/docs/styleguide.md)
 - [ ] Ссылки на внутренние материалы абсолютные, заканчиваются слэшем либо якорем на заголовок (`/css/color/`, `/tools/json/`, `/tools/gulp/#kak-ponyat`)
-- [ ] Ссылки на картинки, видео и демки относительные (`images/box-model.png`, `demos/cracking/`)
+- [ ] Ссылки на картинки, видео и демки относительные (`images/box-model.png`, `demos/cracking/`, `../demos/example/`)
