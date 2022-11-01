@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Списки с маркерами и без них — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: Roboto, sans-serif;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .list-wrapper {
+      min-width: 600px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 48px;
+    }
+
+    .list li {
+      margin-top: 8px;
+    }
+
+    .list_bulletless {
+      list-style: none;
+    }
+
+    .list_emoji li {
+      position: relative;
+      padding-left: 2px;
+    }
+
+    .list_emoji li::before {
+      content: '📌';
+      display: block;
+      position: absolute;
+      top: -3px;
+      left: -22px;
+    }
+
+    .list_markered li {
+      padding-left: 4px;
+    }
+
+    .list_markered li::marker {
+      content: '✅';
+      margin-right: 2px;
+    }
+
+    .button {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin-top: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 12px;
+      background-color: #10F3AF;
+      color: #18191C;
+      border: none;
+      border-radius: 16px;
+      font-weight: bold;
+
+      /* В статье отдельно обратим внимание на это свойство */
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 class="title">Список покупок</h1>
+    <div class="list-wrapper">
+      <ol class="list">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ol>
+      <ol class="list list_bulletless">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ol>
+    </div>
+    <div class="list-wrapper">
+      <ol class="list list_bulletless list_emoji">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ol>
+      <ol class="list list_bulletless list_markered">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ol>
+    </div>
+    <button type="button" class="button">Добавить пункт</button>
+  </div>
+</body>
+</html>
