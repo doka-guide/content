@@ -340,6 +340,7 @@ groups:
       - column-rule-style
       - column-rule-width
       - caption-side
+      - border-spacing
   - name: 'Счётчики'
     items:
       - css-counters
