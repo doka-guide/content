@@ -1,6 +1,6 @@
 ---
 title: "`border-spacing`"
-description: "Свойство для управления расстоянием между рамками ячейками таблицы."
+description: "Свойство для управления расстоянием между рамками ячеек таблицы."
 authors:
   - starhamster
 keywords:
