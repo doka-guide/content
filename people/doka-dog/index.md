@@ -1,7 +1,7 @@
 ---
 name: 'Дока Дог'
 url: https://github.com/doka-dog
-photo: photo.jpg
+photo: photo.svg
 badges:
   - first-contribution-small
 ---
