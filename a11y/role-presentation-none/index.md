@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роли `presentation`, `none`"
+title: "`presentation`, `none`"
 description: "Роли для удаления семантики элементов."
 authors:
   - tatianafokina

@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `marquee`"
+title: "`marquee`"
 description: "Роль для области с быстро изменяющейся информацией."
 authors:
   - doka-dog

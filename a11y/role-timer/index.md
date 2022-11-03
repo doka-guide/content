@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `timer`"
+title: "`timer`"
 description: "Роль для области со счётчиком."
 authors:
   - doka-dog

@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `heading`"
+title: "`heading`"
 description: "Как сделать заголовок с помощью WAI-ARIA."
 authors:
   - doka-dog

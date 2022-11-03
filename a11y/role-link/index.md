@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `link`"
+title: "`link`"
 description: "Как превратить элемент в ссылку с помощью WAI-ARIA."
 authors:
   - doka-dog

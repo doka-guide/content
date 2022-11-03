@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `alert`"
+title: "`alert`"
 description: "Роль для важной информации, о которой скринридер расскажет пользователю сразу же."
 authors:
   - doka-dog
