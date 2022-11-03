@@ -1,6 +1,6 @@
 ---
 title: "`border-collapse`"
-description: "Задаёт поведение границ ячеек таблицы и самой таблицы."
+description: "Задаёт поведение границ таблицы и её ячеек."
 authors:
   - starhamster
 keywords:
