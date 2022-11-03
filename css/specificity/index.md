@@ -1,6 +1,11 @@
 ---
 title: "Специфичность"
 description: "Как браузер решает, какие стили применять к элементу? Разбираемся, почему у селектора есть вес"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Весы, в левой и более лёгкой части котороых один селектор, а в другой — набор селекторов'
 authors:
   - solarrust
 contributors:
