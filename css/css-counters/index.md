@@ -134,7 +134,7 @@ ul {
 
 ```css
 li {
-  /* Значение счётчика example будет равнятся 15 на этом элементе */
+  /* Значение счётчика example будет равняться 15 на этом элементе */
   counter-increment: example 1 example 9 example 5;
 }
 ```
