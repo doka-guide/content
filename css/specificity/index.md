@@ -5,7 +5,7 @@ cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Весы, в левой и более лёгкой части котороых один селектор, а в другой — набор селекторов'
+  alt: 'Весы, в левой и более лёгкой части которых один селектор, а в другой — набор селекторов'
 authors:
   - solarrust
 contributors:
