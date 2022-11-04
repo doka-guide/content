@@ -118,7 +118,7 @@ ul {
 }
 
 .third {
-  counter-increment: example 6;
+  counter-increment: example 5;
 }
 ```
 
@@ -134,8 +134,8 @@ ul {
 
 ```css
 li {
-  /* Значение счётчика example будет равнятся 15 на этом элементе */
-  counter-increment: example 1 example 6 example 9;
+  /* Значение счётчика example будет равняться 15 на этом элементе */
+  counter-increment: example 1 example 9 example 5;
 }
 ```
 
@@ -161,15 +161,20 @@ ul {
 }
 ```
 
-Укажем увеличения значения счётчика `example` на элементе `<li>`, а для элемента с классом `second` добавим свойство `counter-set`:
+Укажем разное значение увеличения счётчика для каждого элемента `<li>`, а для элемента с классом `second` добавим ещё свойство `counter-set`:
 
 ```css
-li {
+.first {
   counter-increment: example 1;
 }
 
 .second {
+  counter-increment: example 1;
   counter-set: example 9;
+}
+
+.third {
+  counter-increment: example 6;
 }
 ```
 
@@ -236,7 +241,7 @@ ul {
 }
 
 .third {
-  counter-increment: example 6;
+  counter-increment: example 5;
 }
 ```
 
@@ -438,6 +443,14 @@ p {
 
 Последний элемент `<p>` с классом `third` сделает абсолютно тоже самое.
 
+Увеличим элементу с классом `second` значение счётчика `paragraph`:
+
+```css
+.second {
+  counter-increment: paragraph 1;
+}
+```
+
 Подставим значение счётчика `paragraph` в псевдоэлемент `::before` элементов с классом `first`, `second`, `third` чтобы пронумеровать их:
 
 ```css
@@ -448,7 +461,7 @@ p::before {
 
 <iframe title="Демонстрация свойства" src="demos/reset-example" height="475"></iframe>
 
-Так как счётчик `paragraph` не увеличивался, при помощи свойства `counter-increment`, значение счётчика на всех элементах `<p>` будет 1.
+Так как счётчик `paragraph` увеличивался, при помощи свойства `counter-increment`, только на элементе с классом `second` значение счётчика на остальных элементах `<p>` будет 1.
 
 ### Вложенные счётчики и область применения
 
