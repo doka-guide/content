@@ -294,6 +294,7 @@ groups:
   - name: 'Рамки, обводки и тени'
     items:
       - border
+      - border-collapse
       - border-image
       - border-style
       - border-radius
@@ -340,6 +341,7 @@ groups:
       - column-rule-style
       - column-rule-width
       - caption-side
+      - border-collapse
       - border-spacing
   - name: 'Счётчики'
     items:
