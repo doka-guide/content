@@ -2,7 +2,7 @@
 title: "`.flatMap()`"
 description: "Преобразовать массив и сделать его плоским можно в два шага. Но зачем, когда можно сделать это одним."
 authors:
-  - AntonGorelov
+  - antongorelov
 related:
   - js/array-map
   - js/arrays

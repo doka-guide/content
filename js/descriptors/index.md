@@ -2,7 +2,7 @@
 title: "Дескрипторы"
 description: "Не все свойства объектов работают одинаково! Задаём особые режимы работы свойств с помощью дескрипторов."
 authors:
-  - AntonGorelov
+  - antongorelov
 related:
   - js/object
   - js/fp

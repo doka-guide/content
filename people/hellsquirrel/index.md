@@ -2,6 +2,8 @@
 name: 'Полина Гуртовая'
 url: https://twitter.com/pgurtovaya
 photo: photo.jpeg
+badges:
+  - first-contribution-small
 roles:
   - doka-core-team
 ---

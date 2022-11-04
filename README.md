@@ -4,6 +4,7 @@
 [![Статус спеллера](https://github.com/doka-guide/content/workflows/YaSpeller%20All/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AYaSpeller%20All)
 [![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
 [![Статус деплоя](https://github.com/doka-guide/content/workflows/Product%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AProduct%20Deploy)
+[![Дискорд](https://img.shields.io/discord/1006904139969724436)](https://discord.gg/Ncpvbun2mr)
 
 [⚠️ Если сайт Доки медленно загружается или не работает совсем](docs/load-fix.md)
 
@@ -21,6 +22,8 @@
 
 Почитайте, [чем можно помочь Доке](docs/contributing.md).
 
+Присоединяйтесь к [нашему сообществу в Дискорде](https://discord.gg/Ncpvbun2mr), чтобы быть в курсе последних новостей.
+
 ## Станьте автором
 
 Хотите писать для Доки? Вам поможет [руководство по стилю](docs/styleguide.md).
@@ -37,4 +40,5 @@
 1. Закончили? Создайте пул-реквест. Вот и всё! После небольшой проверки ваш материал появится на сайте Доки!
 
 ---
+
 Распространяется под лицензиями [CC BY-NC-SA 4.0](LICENSE-SA.md) и [CC BY-NC-ND 4.0](LICENSE-ND.md), подробнее читайте [в документации](docs/license.md).

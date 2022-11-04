@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `contentinfo`"
+title: "`contentinfo`"
 description: "Как добавить ориентир футера на страницу."
 authors:
   - tatianafokina

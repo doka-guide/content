@@ -4,6 +4,8 @@ url: https://twitter.com/ABatickaya
 photo: photo.png
 roles:
   - doka-core-team
+badges:
+  - first-contribution-small
 ---
 
 Привет! 🖖

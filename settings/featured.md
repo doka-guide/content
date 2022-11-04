@@ -1,9 +1,12 @@
 ---
 pinned:
   - a11y/chto-takoe-a11y
+  - recipes/progress
+  - js/how-the-browser-creates-pages
 ready:
-  - a11y/skip-link
-  - a11y/aria-labelledby
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - a11y/aria-hidden
   - html/img
   - html/article
   - html/form
@@ -52,57 +55,57 @@ ready:
   - tools/webpack
   - tools/ci-cd
   - recipes/snow
+  - recipes/lets-encrypt-nginx
+  - recipes/progress
 active:
   - a11y/chto-takoe-a11y
-  - tools/network
-  - tools/bundlers
-  - recipes/snow
-  - html/nav
-  - css/position
-  - html/doctype
-  - css/specificity
   - css/box-model
-  - css/display
-  - js/function-context
-  - css/media
-  - css/grid-guide
   - css/flexbox-guide
-  - css/keyframes
-  - html/input
   - js/var-let
-  - js/oop
-  - html/form
-  - js/closures
-  - css/attr
-  - css/transform-function
-  - tools/webpack
-  - js/clean-architecture
-  - html/section
-  - html/img
-  - tools/ci-cd
-  - html/flow
-  - a11y/aria-labelledby
-  - tools/agile
-  - js/how-the-browser-creates-pages
-  - js/infinite-scroll
-  - html/article
-  - css/pseudoelements
-  - html/video
-  - js/deal-with-forms
-  - html/div
-  - js/how-to-test-and-why
-  - js/execution-order
-  - js/async-in-js
-  - tools/gitlab-ci-cd
-  - css/custom-properties
-  - tools/markdown
-  - a11y/skip-link
-  - js/function
-  - js/boolean
-  - tools/static-types
-  - html/head
   - tools/docker
+  - js/clean-architecture
+  - tools/webpack
+  - html/flow
   - css/box-shadow
+  - js/oop
+  - html/doctype
+  - js/deal-with-forms
+  - html/head
+  - html/article
+  - tools/network
+  - tools/agile
+  - js/execution-order
+  - css/specificity
+  - js/async-in-js
+  - js/how-to-test-and-why
+  - html/div
+  - css/keyframes
+  - tools/ci-cd
+  - js/infinite-scroll
+  - js/function-context
+  - tools/markdown
+  - js/closures
+  - html/section
   - tools/cli
+  - html/form
+  - html/nav
+  - css/transform-function
+  - css/position
+  - js/function
+  - css/media
+  - recipes/snow
+  - css/custom-properties
+  - css/display
+  - html/video
+  - css/pseudoelements
+  - css/grid-guide
+  - html/input
+  - css/attr
+  - js/how-the-browser-creates-pages
+  - html/img
+  - js/boolean
+  - tools/bundlers
+  - tools/gitlab-ci-cd
+  - tools/static-types
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `region`"
+title: "`region`"
 description: "Как добавить ориентир для независимого блока с контентом с помощью WAI-ARIA."
 authors:
   - doka-dog
