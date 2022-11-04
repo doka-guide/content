@@ -1,7 +1,12 @@
 ---
 pinned:
   - a11y/chto-takoe-a11y
+  - recipes/progress
+  - js/how-the-browser-creates-pages
 ready:
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - a11y/aria-hidden
   - html/img
   - html/article
   - html/form
@@ -50,6 +55,8 @@ ready:
   - tools/webpack
   - tools/ci-cd
   - recipes/snow
+  - recipes/lets-encrypt-nginx
+  - recipes/progress
 active:
   - a11y/chto-takoe-a11y
   - css/box-model
