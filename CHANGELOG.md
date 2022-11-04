@@ -2,6 +2,12 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2022
+
+- 4 ноября, [`border-collapse`](https://doka.guide/css/border-collapse/), Антон Капустинский
+- 4 ноября, [`border-spacing`](https://doka.guide/css/border-spacing/), Антон Капустинский
+- 4 ноября, [`aria-roledescription`](https://doka.guide/a11y/aria-roledescription/), Татьяна Фокина
+
 ## Октябрь 2022
 
 - 31 октября, [`aria-description`](https://doka.guide/a11y/aria-description/), Татьяна Фокина
