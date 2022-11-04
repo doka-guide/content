@@ -297,6 +297,7 @@ groups:
       - border-image
       - border-style
       - border-radius
+      - border-spacing
       - border-color
       - border-width
       - outline
@@ -339,6 +340,7 @@ groups:
       - column-rule-style
       - column-rule-width
       - caption-side
+      - border-spacing
   - name: 'Счётчики'
     items:
       - css-counters
