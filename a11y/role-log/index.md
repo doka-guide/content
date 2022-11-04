@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `log`"
+title: "`log`"
 description: "Роль для области с логами."
 authors:
   - doka-dog

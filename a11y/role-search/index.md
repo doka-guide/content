@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `search`"
+title: "`search`"
 description: "Как добавить ориентир для поиска по сайту с помощью WAI-ARIA."
 authors:
   - doka-dog

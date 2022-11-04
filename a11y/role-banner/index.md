@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `banner`"
+title: "`banner`"
 description: "Как добавить ориентир для хедера страницы."
 authors:
   - doka-dog

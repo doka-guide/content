@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `form`"
+title: "`form`"
 description: "Как добавить ориентир формы на страницу с помощью WAI-ARIA."
 authors:
   - doka-dog

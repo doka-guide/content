@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `complementary`"
+title: "`complementary`"
 description: "Как добавить ориентир для дополнительного содержимого с помощью WAI-ARIA."
 authors:
   - doka-dog
