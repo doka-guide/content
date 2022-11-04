@@ -19,6 +19,7 @@ groups:
       - aria-labelledby
       - aria-describedby
       - aria-description
+      - aria-roledescription
       - aria-live
       - aria-atomic
       - aria-relevant
