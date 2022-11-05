@@ -91,4 +91,4 @@ background-image: url('image.png');
 background-image: url(image.png);
 ```
 
-Но все же рекомендуем их ставить для единообразия [`код-стайла`](/js/code-style/index.md).
+Но все же рекомендуем их ставить для единообразия [`код-стайла`](/js/code-style/).
