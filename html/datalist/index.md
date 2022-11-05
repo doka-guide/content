@@ -293,7 +293,7 @@ tags:
   <label for="colorInput">Укажите цвет:</label>
   <input type="color" list="colorList" id="colorInput">
   <datalist id="colorList">
-    <option label="#FF6347" label="Tomato">
+    <option value="#FF6347" label="Tomato">
     <option value="#F5DEB3" label="Wheat">
     <option value="#DDA0DD" label="Plum">
   </datalist>
