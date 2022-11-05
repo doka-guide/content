@@ -2,7 +2,7 @@
 title: "window.open()"
 description: "Открывает ссылку в новом окне, в новой вкладке или в iframe."
 authors:
-  - TanuGladkih
+  - tanugladkih
 related:
   - html/a
   - tools/url
