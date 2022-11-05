@@ -4,9 +4,9 @@ description: "Удаляем CSS-свойство у элемента"
 authors:
   - bellabzhu
 related:
-  - js/element-style/
-  - css/specificity/
-  - js/code-style/
+  - js/element-style
+  - css/specificity
+  - js/code-style
 tags:
   - doka
 ---
@@ -16,7 +16,7 @@ tags:
 
 ## Пример
 
-<iframe title="Демонстрация работы — removeProperty() — Дока" src="demos/index.html" height="180"></iframe>
+<iframe title="Демонстрация работы — removeProperty() — Дока" src="demos/index.html" height="270"></iframe>
 
 Представим, что у нас есть круг, которому надо превратиться в квадрат.
 
@@ -30,7 +30,7 @@ function turnToSquare () {
 
 ## Как пишется
 
-`removeProperty()` принимает один аргумент – строку с именем свойства. Пишем названия также, как в CSS: 'background-color', а не 'backgroundColor'.
+`removeProperty()` принимает один аргумент – строку с именем свойства. Пишем названия также, как в CSS: _'background-color'_, а не 'backgroundColor'.
 
 ```js
 vampire.style.removeProperty('box-shadow');
@@ -43,7 +43,7 @@ vampire.style.removeProperty('box-shadow');
 
 Если с помощью метода не выходит удалить свойство и вы получаете ошибку "NoModificationAllowedError" - значит элемент или его свойство находится в режиме read-only.
 
-Есть альтернатива - можно использовать [style](js/element-style/) и указать свойству значение "null". Названия в этом случае пишем через camelCase:
+Есть альтернатива - можно использовать [`style`](js/element-style/) и указать свойству значение "null". Названия в этом случае пишем через _camelCase_:
 
 ```js
 vampire.style.boxShadow = null;
