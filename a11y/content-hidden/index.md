@@ -74,7 +74,7 @@ tags:
 <input id="search" type="text">
 <button class="button">
   <span class='sr-only'>Искать на странице</span>
-  <svg 
+  <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
