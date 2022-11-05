@@ -4,6 +4,7 @@
 
 ## Ноябрь 2022
 
+- 5 ноября, [Как скрыть содержимое от скринридеров](https://doka.guide/a11y/content-hidden/), Марианна Минич
 - 4 ноября, [`border-collapse`](https://doka.guide/css/border-collapse/), Антон Капустинский
 - 4 ноября, [`border-spacing`](https://doka.guide/css/border-spacing/), Антон Капустинский
 - 4 ноября, [`aria-roledescription`](https://doka.guide/a11y/aria-roledescription/), Татьяна Фокина
