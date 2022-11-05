@@ -28,15 +28,15 @@ tags:
 
 ```css
 .small-text:hover {
-	zoom: 50%;
+  zoom: 50%;
 }
 
 .normal-text:hover {
-	zoom: normal;
+  zoom: normal;
 }
 
 .big-text:hover {
-	zoom: 2;
+  zoom: 2;
 }
 ```
 
