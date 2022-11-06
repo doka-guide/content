@@ -1,5 +1,5 @@
 ---
-name: IVKrylova
+name: Irina Krylova
 url: https://github.com/IVKrylova
 roles:
   - practicum-contributor
