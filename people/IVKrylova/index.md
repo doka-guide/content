@@ -1,6 +1,7 @@
 ---
 name: Irina Krylova
 url: https://github.com/IVKrylova
+photo: krylova.jpg
 roles:
   - practicum-contributor
 badges:
