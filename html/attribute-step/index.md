@@ -1,7 +1,7 @@
 ---
 title: "Атрибут `step`"
 authors:
-  - IVKrylova
+  - ivkrylova
 tags:
   - doka
   - placeholder
