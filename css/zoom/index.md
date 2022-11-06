@@ -1,7 +1,7 @@
 ---
 title: "`zoom`"
 authors:
-  - IVKrylova
+  - ivkrylova
 tags:
   - doka
   - placeholder
