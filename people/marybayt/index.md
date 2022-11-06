@@ -1,5 +1,5 @@
 ---
-name: 'Мария Байтенова (Mariia Baitenova)'
+name: 'Мария Байтенова'
 url: https://github.com/MaryBayt
 photo: marybayt.jpg
 roles:
