@@ -2,16 +2,16 @@
 title: "`url()`"
 description: "Функция `url()` для вставки файлов в документ по ссылке в CSS."
 authors:
-- bellabzhu
+ - bellabzhu
 keywords:
-- аттач
+ - аттач
 related:
-- css/import
-- html/a
-- html/link
+ - css/import
+ - html/a
+ - html/link
 tags:
-- doka
-- placeholder
+ - doka
+ - placeholder
 ---
 
 ## Кратко
