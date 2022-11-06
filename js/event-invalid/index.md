@@ -9,6 +9,7 @@ related:
   - js/deal-with-forms
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
