@@ -8,6 +8,7 @@ related:
   - css/specificity
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
