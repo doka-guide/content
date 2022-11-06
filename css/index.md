@@ -46,6 +46,7 @@ groups:
       - where
       - in-range-out-of-range
       - required
+      - optional
       - invalid-valid
       - placeholder-shown
       - default
