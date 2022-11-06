@@ -16,7 +16,7 @@ tags:
 
 ## Кратко
 
-Псевдокласс `:read-write` показывает что элемент, например [input](/html/input/) или [textarea](/html/textarea/), изменяется.
+Псевдокласс `:read-write` показывает что элемент, например [`<input>`](/html/input/) или [`<textarea>`](/html/textarea/), изменяется.
 
 ## Пример
 
