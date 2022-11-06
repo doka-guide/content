@@ -1,5 +1,5 @@
 ---
-title: "html attribute step"
+title: "Атрибут `step`"
 description: ""
 authors:
   - IVKrylova
