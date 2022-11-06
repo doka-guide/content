@@ -1,35 +1,28 @@
 ---
-title: ":indeterminate"
-
+title: "`:indeterminate`"
 description: "Псевдокласс, который отражает неопределённое состояние чекбокса, радиокнопки или прогресс-бара."
-
 authors:
   - marybayt
-
 keywords:
   - selector
   - attribute
   - инпут
   - form
   - форма
-  - css
   - загрузка
   - downloading
-
 related:
   - html/input
   - html/progress
   - js/deal-with-forms
-
 tags:
   - doka
   - placeholder
 ---
 
-
 ## Кратко
 
-[Псевдокласс](/css/pseudoclasses/), который используется для стилизации трёх элементов: [чекбоксов](/html/input/#type), [радиокнопок](/html/input/#type) и [прогресс баров](/html/progress/).
+[Псевдокласс](/css/pseudoclasses/), который используется для стилизации трёх элементов: [чекбоксов](/html/input/#type), [радиокнопок](/html/input/#type) и [прогресс-баров](/html/progress/).
 
 Пригодится в двух случаях. Во-первых,  для стилизации элементов в их исходном состоянии — при открытии формы или начале загрузки. Во-вторых, для показа пользователю незавершённости процесса выбора или загрузки.
 
@@ -66,4 +59,3 @@ for (let i = 0; i < inputs.length; i++) {
   inputs[i].indeterminate = true;
 }
 ```
-
