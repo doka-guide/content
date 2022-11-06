@@ -1,6 +1,6 @@
 ---
 name: IVKrylova
-url: [URL](https://github.com/IVKrylova)
+url: https://github.com/IVKrylova
 roles:
   - practicum-contributor
 badges:
