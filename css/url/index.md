@@ -2,21 +2,21 @@
 title: "`url()`"
 description: "Функция `url()` для вставки файлов в документ по ссылке в CSS."
 authors:
-  - bellabzhu
+- bellabzhu
 keywords:
-  - аттач
+- аттач
 related:
-  - css/import
-  - html/a
-  - html/link
+- css/import
+- html/a
+- html/link
 tags:
-  - doka
-  - placeholder
+- doka
+- placeholder
 ---
 
 ## Кратко
 
-CSS-функция `url()` вставляет файл с указанной ссылки. 
+CSS-функция `url()` вставляет файл с указанной ссылки.
 
 ## Пример
 
@@ -24,7 +24,7 @@ CSS-функция `url()` вставляет файл с указанной с�
 
 ```css
 div {
-  background-image: url("carpet.png");
+background-image: url("carpet.png");
 }
 ```
 
@@ -32,8 +32,8 @@ div {
 
 ```css
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+font-family: "Roboto Mono";
+src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 }
 ```
 
@@ -47,59 +47,58 @@ div {
 
 ```css
 div {
-  mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
+mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
 }
 ```
-
 
 <details>
   <summary>Список свойств, где используется `url()`</summary>
 
-- `background`;
-- `background-image`;
-- `border`;
-- `border-image`;
-- `border-image-source`;
-- `content`;
-- `cursor`;
-- `filter`;
-- `list-style`;
-- `list-style-image`;
-- `mask`;
-- `mask-image`;
-- `offset-path`;
-- `src` как часть `@font-face`;
-- `@counter-style`;
+  - `background`;
+  - `background-image`;
+  - `border`;
+  - `border-image`;
+  - `border-image-source`;
+  - `content`;
+  - `cursor`;
+  - `filter`;
+  - `list-style`;
+  - `list-style-image`;
+  - `mask`;
+  - `mask-image`;
+  - `offset-path`;
+  - `src` как часть `@font-face`;
+  - `@counter-style`;
 
 </details>
 
 ## Как понять
 
-У функции крайне широкое применение, практически все файлы в CSS вставляются через неё. 
+У функции крайне широкое применение, практически все файлы в CSS вставляются через неё.
 
 ## Как пишется
 
-На вход функция принимает строку — ссылку на файл. Она может быть абсолютной, относительной или являться data URI. 
+На вход функция принимает строку — ссылку на файл. Она может быть абсолютной, относительной или являться data URI.
 
-Если в тексте самой ссылки нет кавычек, скобок и пробелов, то можно не заключать ссылку в кавычки. 
+Если в тексте самой ссылки нет кавычек, скобок и пробелов, то можно не заключать ссылку в кавычки.
 
 Например, все эти записи корректны:
 
 ```css
 div {
-  background-image: url("image.png");
+background-image: url("image.png");
 }
 ```
 
 ```css
 div {
-  background-image: url('image.png');
+background-image: url('image.png');
 }
 ```
 
 ```css
 div {
-  background-image: url(image.png);
+background-image: url(image.png);
 }
 ```
 
