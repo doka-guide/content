@@ -5,6 +5,6 @@ badges:
     - first-contribution-small
     - hackathon-practicum
 
-roles: 
+roles:
     - practicum-contributor
 ---
