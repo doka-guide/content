@@ -2,7 +2,7 @@
 title: "`<noscript>`"
 description: "Покажет контент пользователю, когда отключена поддержка JavaScript."
 authors:
-  - Daria Kamenskaya
+  - kamenskaya
 keywords:
   - отсутствует JavaScript
 related:
