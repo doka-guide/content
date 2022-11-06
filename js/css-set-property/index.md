@@ -22,15 +22,15 @@ tags:
 -->
 
 ## Кратко
-Метод **setProperty()** позволяет задать CSS стили при помощи JavaScript. Может быть применён как к [DOM](https://doka.guide/js/dom/) элементу, так и конкретному CSS правилу ([CSS rule](https://doka.guide/css/css-rule/)) из таблицы стилей ([Style Sheet](https://doka.guide/css/cascade/)).
-При этом, в первом случае [специфичность](https://doka.guide/css/specificity/) будет как и у атрибута [style](https://doka.guide/js/element-style/), т.к. стили будут записаны инлайн. Во втором случае специфичность не изменится.
+Метод **setProperty()** позволяет задать CSS стили при помощи JavaScript. Может быть применён как к [DOM](/js/dom/) элементу, так и конкретному CSS правилу ([CSS rule](/css/css-rule/)) из таблицы стилей ([Style Sheet](/css/cascade/)).
+При этом, в первом случае [специфичность](/css/specificity/) будет как и у атрибута [style](/js/element-style/), т.к. стили будут записаны инлайн. Во втором случае специфичность не изменится.
 
 ## Как пишется
 У метода есть три параметра. Один из которых обязательный.
 
 - **propertyName**. Название CSS свойства. Является обязательным и записывается в виде строки. Соответствует названиям CSS свойств, т.е. можно писать _“width-max”_ используя дефис не прибегая к записи [camelCase](https://ru.wikipedia.org/wiki/CamelCase).
 - **value**. Строка с новым значение свойства. Если параметр не указан, то будет передана пустая строка.
-- **priority**. Используется для указания CSS флага [!important](https://doka.guide/css/important/). Предусмотрено три вида записи: _“important”_, _undefined_, _“”_. По умолчанию передаётся пустая строка.
+- **priority**. Используется для указания CSS флага [!important](css/important/). Предусмотрено три вида записи: _“important”_, _undefined_, _“”_. По умолчанию передаётся пустая строка.
 ```JavaScript
 setProperty(propertyName, value, priority);
 ```
