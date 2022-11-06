@@ -81,6 +81,7 @@ groups:
       - pattern
       - multiple
       - size
+      - capture
   - name: 'Картинки'
     items:
       - img
