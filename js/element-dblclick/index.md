@@ -9,6 +9,7 @@ related:
   - js/dom
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
