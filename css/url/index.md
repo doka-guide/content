@@ -2,16 +2,16 @@
 title: "`url()`"
 description: "Функция `url()` для вставки файлов в документ по ссылке в CSS."
 authors:
- - bellabzhu
+  - bellabzhu
 keywords:
- - аттач
+  - аттач
 related:
- - css/import
- - html/a
- - html/link
+  - css/import
+  - html/a
+  - html/link
 tags:
- - doka
- - placeholder
+  - doka
+  - placeholder
 ---
 
 ## Кратко
@@ -24,7 +24,7 @@ CSS-функция `url()` вставляет файл с указанной с�
 
 ```css
 div {
-background-image: url("carpet.png");
+  background-image: url("carpet.png");
 }
 ```
 
@@ -32,8 +32,8 @@ background-image: url("carpet.png");
 
 ```css
 @font-face {
-font-family: "Roboto Mono";
-src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+  font-family: "Roboto Mono";
+  src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 }
 ```
 
@@ -47,7 +47,7 @@ src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 ```css
 div {
-mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
+  mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
 }
 ```
 
@@ -86,19 +86,19 @@ mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), tran
 
 ```css
 div {
-background-image: url("image.png");
+  background-image: url("image.png");
 }
 ```
 
 ```css
 div {
-background-image: url('image.png');
+  background-image: url('image.png');
 }
 ```
 
 ```css
 div {
-background-image: url(image.png);
+  background-image: url(image.png);
 }
 ```
 
