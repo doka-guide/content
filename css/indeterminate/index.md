@@ -4,7 +4,7 @@ title: ":indeterminate"
 description: "Псевдокласс, который отражает неопределённое состояние чекбокса, радиокнопки или прогресс бара."
 
 authors:
-  - MaryBayt
+  - marybayt
 
 keywords:
   - псевдокласс
