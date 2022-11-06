@@ -11,6 +11,7 @@ related:
   - css/pseudoclasses
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
