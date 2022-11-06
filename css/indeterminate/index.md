@@ -46,6 +46,7 @@ related:
 
 tags:
   - doka
+  - placeholder
 ---
 
 <!--
