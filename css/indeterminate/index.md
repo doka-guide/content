@@ -7,41 +7,18 @@ authors:
   - marybayt
 
 keywords:
-  - псевдокласс
-  - pseudo-class
-  - селектор
   - selector
-  - атрибут
   - attribute
-  - value
-  - input
   - инпут
   - form
   - форма
-  - html
   - css
-  - :indeterminate
-  - неопределённо
-  - радиокнопка
-  - radio button
-  - чекбокс
-  - checkbox
-  - прогресс бар
-  - progress bar
   - загрузка
   - downloading
-  - opacity
-  - прозрачность
 
 related:
-  - html/form
-  - html/value
   - html/input
   - html/progress
-  - css/pseudoclasses
-  - css/checked
-  - css/opacity
-  - js/forms
   - js/deal-with-forms
 
 tags:
@@ -49,16 +26,6 @@ tags:
   - placeholder
 ---
 
-<!--
-1. В description есть описание для соцсетей и поисковиков, не больше 200 символов
-2. В authors есть ники авторов основного текста
-3. В contributors перечислены ники всех соавторов и тех, кто работал над текстом (дописали «На практике»? Переписали блок? Вам сюда)
-4. В keywords записаны ключевые слова для SEO: пишем сюда слова или фразы, которых нет в тексте статьи, но по ним могут искать этот материал
-5. Удалены все пустые теги в шапке
-6. Подпапка автора есть в папке _people/_
-7. Демки лежат в подпапке _demos/_
-8. В related добавлено три ссылки на материалы Доки, которые будут предлагаться в конце. Не добавляем следующий или предыдущий материал в разделе
--->
 
 ## Кратко
 
