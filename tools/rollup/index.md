@@ -1,6 +1,6 @@
 ---
-title: "Rollup"
-description: ""
+title: "`Rollup`"
+description: "`Rollup` это сборщик JS"
 authors:
   - bellabzhu
 related:
@@ -32,7 +32,7 @@ npm install --global rollup
 Посмотреть список команд:
 
 ```bash
-rollup --help 
+rollup --help
 ```
 
 Запустить сборщик и собрать бандл:
