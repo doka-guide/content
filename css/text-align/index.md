@@ -29,8 +29,6 @@ p {
   text-align: center;
   text-align: justify;
   text-align: justify-all;
-  text-align: start;
-  text-align: end;
   text-align: match-parent;
 }
 ```
