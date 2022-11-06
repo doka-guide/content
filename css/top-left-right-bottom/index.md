@@ -2,7 +2,7 @@
 title: "`top`, `left`, `right`, `bottom`"
 description: "Указываем положение позиционированного элемента."
 authors:
-  - Spheno
+  - spheno
 related:
   - css/position
   - css/z-index
