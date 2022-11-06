@@ -1,12 +1,10 @@
 ---
 title: "Атрибут `step`"
-description: ""
 authors:
   - IVKrylova
-related:
-  - ""
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
