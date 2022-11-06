@@ -64,7 +64,7 @@ input:-moz-read-write {
 }
 ```
 
-Псевдокласс `:read-write` поддерживается в Chrome, Safari и Opera. Firefox поддерживает псевдокласс со специальным префиксом `-moz-`. Internet Explorer не поддерживает.
+Псевдокласс `:read-write` поддерживается в Chrome, Safari и Opera. Firefox поддерживает псевдокласс со специальным префиксом `-moz-`.
 
 ## Как понять
 
