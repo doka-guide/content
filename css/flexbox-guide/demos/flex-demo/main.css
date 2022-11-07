@@ -268,7 +268,7 @@ body._dark {
 	height: 30px;
 	padding: 0;
 	margin: 0;
-	background-color: hsla(0, 0%, 100%, 0.2);
+	background-color: hsla(0, 0%, 100%, 0.4);
 	border: none;
 	border-radius: 30px;
 	cursor: pointer;
@@ -278,7 +278,7 @@ body._dark {
 }
 
 .item__btn:hover {
-	background-color: hsla(0, 0%, 100%, 0.4);
+	background-color: hsla(0, 0%, 100%, 0.8);
 }
 
 .item__btn_add {
