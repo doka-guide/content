@@ -18,7 +18,9 @@ tags:
 
 ## Кратко
 
-[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для интерактивного элемента чекбокс, с которым могут взаимодействовать пользователи. Это аналог `<input type="checkbox">` в HTML.
+[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для чекбокса. 
+
+Эта роль есть у [`<input type="checkbox">`](/html/input/) по умолчанию.
 
 ## Пример
 
