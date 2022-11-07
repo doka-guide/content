@@ -30,8 +30,7 @@ tags:
 
 ## Как пишется
 
-Атрибут `readonly` булевый, его можно добавить со значением: `readonly="readonly"`, или без него: 
-`<input type="text" value="Котики рулят" readonly id="text" />`.
+Атрибут `readonly` булевый, его можно добавить со значением: `readonly="readonly"`, или без него — `<input type="text" readonly>`.
 
 Атрибут `readonly` можно использовать для [`<textarea>`](/html/textarea/) и [`<input>`](/html/input/) со следующими типами:
 
