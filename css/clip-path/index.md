@@ -6,7 +6,7 @@ authors:
 related:
   - css/box-sizing
   - css/opacity
-  - box-model
+  - css/box-model
 tags:
   - doka
   - placeholder
