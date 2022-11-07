@@ -209,6 +209,7 @@ body._dark {
 
 .item__name {
 	position: relative;
+	font-family: 'Roboto', sans-serif;
 }
 
 .item__order {
