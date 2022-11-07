@@ -12,9 +12,9 @@
 ### Пример
 
 <section role="list">
-  <div role="listitem">List item 1</div>
-  <div role="listitem">List item 2</div>
-  <div role="listitem">List item 3</div>
+  <div role="listitem">Элемент списка 1</div>
+  <div role="listitem">Элемент списка 2</div>
+  <div role="listitem">Элемент списка 3</div>
 </section>
 
 ### Как пишется
