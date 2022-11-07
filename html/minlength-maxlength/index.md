@@ -1,6 +1,6 @@
 ---
 title: "Атрибуты `minlength` и `maxlength`"
-description: "Атрибуты `minlength` и `maxlength` устанавливают полям ввода минимальное и максимальное количество символов"
+description: "Атрибуты `minlength` и `maxlength` устанавливают полям ввода минимальное и максимальное количество символов."
 authors:
   - zeddybig
 keywords: 
