@@ -22,7 +22,7 @@ tags:
 
 Если указать значение `fill-box`, то [`transform-origin`](/css/transform-origin/) будет отсчитывать значение от центра векторного объекта, а не от центра всего SVG-холста. Наглядно это можно увидеть в анимации вращения.
 
-<iframe title="Демонстрация свойства transform-box" src="demos/" height="500"></iframe>
+<iframe title="Демонстрация свойства" src="demos/base/" height="500"></iframe>
 
 ## Как пишется
 

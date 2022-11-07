@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <title>Демонстрация свойства transform-box — transform-box — Дока</title>
+  <title>Демонстрация свойства — transform-box — Дока</title>
   <style>
     body {
       height: 100vh;
@@ -16,40 +16,51 @@
       justify-content: center;
       align-items: center;
       font-family: "Roboto", sans-serif;
+      background-color: #18191C;
+      color: #FFFFFF;
     }
+
     .container {
       padding: 0 30px 0 10px;
       display: flex;
       flex-direction: column;
       align-self: center;
     }
+
     .container-svg {
       margin: 0;
     }
-    .line-red {
-      margin: 0;
-      padding: 0;
+
+    .line-blue::before {
+      content: "";
+      display: block;
+      margin-block-end: 5px;
       width: 100%;
       height: 6px;
       border-radius: 3px;
-      background-color: red;
+      background-color: #2E9AFF;
     }
-    .line-green {
-      margin: 0;
-      padding: 0;
+
+    .line-pink::before {
+      content: "";
+      display: block;
+      margin-block-end: 5px;
       width: 100%;
       height: 6px;
       border-radius: 3px;
-      background-color: green;
+      background-color: #F498AD;
     }
+
     .code {
       margin: 15px 0 80px 0;
       padding: 0;
       font-family: "Roboto Mono", monospace;
     }
+
     .code:last-of-type {
       margin-bottom: 0;
     }
+
     svg {
       width: 80vh;
       border: 1px solid #d9d9d9;
@@ -60,23 +71,31 @@
       bottom: 0;
       left: 0;
     }
-    #box-green {
+
+    #box-blue {
       transform-origin: 50% 50%;
       transform-box: fill-box;
-      animation: rotation 2s linear infinite;
+      animation: rotation 5s linear infinite;
     }
-    #box-red {
+
+    #box-pink {
       transform-origin: 50% 50%;
-      animation: rotation 2s linear infinite;
+      animation: rotation 5s linear infinite;
     }
+
     @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
       to {
         transform: rotate(360deg);
       }
     }
+
     @media screen and (max-width: 942px) {
       body {
         height: 100%;
+        padding: 30px;
         flex-direction: column;
       }
       .container {
@@ -90,22 +109,20 @@
 </head>
 <body>
   <div class="container">
-    <div class="line-green"></div>
-    <pre class="code">transform-origin: 50% 50%;
-animation: rotation 2s linear infinite;
+    <pre class="code line-blue">transform-origin: 50% 50%;
+animation: rotation 5s linear infinite;
     </pre>
-    <div class="line-red"></div>
-    <pre class="code">transform-origin: 50% 50%;
+    <pre class="code line-pink">transform-origin: 50% 50%;
 transform-box: fill-box;
-animation: rotation 2s linear infinite;
+animation: rotation 5s linear infinite;
     </pre>
   </div>
   <div class="container-svg">
     <svg id="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
       <g>
-        <circle id="center" fill="#d9d9d9" r=".4" transform="translate(25 25)" />
-        <rect id="box-green" x="10" y="10" width="10" height="10" rx="1" ry="1" stroke="green" stroke-width=".2" fill="none" />
-        <rect id="box-red" x="10" y="10" width="10" height="10" rx="1" ry="1" stroke="red" stroke-width=".2" fill="none" />
+        <circle id="center" fill="#d9d9d9" r="0.4" transform="translate(25 25)" />
+        <rect id="box-blue" x="10" y="10" width="10" height="10" rx="1" ry="1" stroke="#2E9AFF" stroke-width="0.2" fill="none" />
+        <rect id="box-pink" x="10" y="10" width="10" height="10" rx="1" ry="1" stroke="#F498AD" stroke-width="0.2" fill="none" />
       </g>
     </svg>
   </div>
