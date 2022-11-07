@@ -6,6 +6,7 @@ authors:
 related:
   - js/boolean
   - html/form
+  - css/pseudoclasses
 tags:
   - doka
   - placeholder
