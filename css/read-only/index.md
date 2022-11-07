@@ -1,6 +1,6 @@
 ---
 title: "`:read-only`"
-description: "Задает поля ввода только для чтения"
+description: "Задает стили полям ввода, которые доступны только для чтения."
 authors:
   - kamenskaya
 related:
