@@ -1,7 +1,6 @@
 ---
 title: "ARIA-роль `mark`"
-description: "ARIA-роль mark определяет 
-выделенный или подсвеченный важный фрагмент текста"
+description: "ARIA-роль mark определяет выделенный или подсвеченный важный фрагмент текста"
 authors:
   - bellabzhu
 related:
@@ -14,8 +13,7 @@ tags:
 
 ## Кратко
 
-[ARIA-роль](/a11y/aria-roles/#ustarevshie-i-nestandartnye-roli), которая определяет 
-выделенный или подсвеченный важный фрагмент текста. Эквивалент в HTML — [`<mark>`](/html/mark/).
+[ARIA-роль](/a11y/aria-roles/#ustarevshie-i-nestandartnye-roli), которая определяет выделенный или подсвеченный важный фрагмент текста. Эквивалент в HTML — [`<mark>`](/html/mark/).
 
 ## Пример
 
