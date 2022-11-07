@@ -14,7 +14,9 @@ tags:
 
 ## Кратко
 
-[Свойство изменяющихся областей](https://doka.guide/a11y/aria-attrs/#atributy-izmenyayushchihsya-oblastey) из [WAI-ARIA](https://doka.guide/a11y/aria-intro/#specifikaciya). Добавляет любому тегу семантическую роль списка. Служит для улучшения доступности при чтении скринридерами.
+[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Добавляет любому тегу семантическую роль списка. Делает содержимое более доступным для скринридеров, если нет возможности использовать возможности HTML.
+
+Роль есть у тегов [`<ul>`](/html/ul/) и [`<ol>`](/html/ol/) по умолчанию.
 
 ## Пример
 
