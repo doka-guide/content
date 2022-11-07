@@ -22,10 +22,10 @@ tags:
 
 ```html
 <form>
- <div class="group">
-  <input type="date" value="1995-04-04" readonly="readonly" id="date">
-  <label for="date">Дата рождения</label>
- </div>
+  <div class="group">
+    <input type="date" value="1995-04-04" readonly="readonly" id="date">
+    <label for="date">Дата рождения</label>
+  </div>
 </form>
 ```
 
@@ -48,7 +48,7 @@ tags:
 - `datetime-local`,
 - `number`.
 
-Не используется: 
+Не используется:
 
 - с тегом [`<select>`](/html/select/);
 - c любым типом кнопок (даже если это изображение);
