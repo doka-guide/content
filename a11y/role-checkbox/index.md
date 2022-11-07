@@ -26,12 +26,12 @@ tags:
 
 ```html
 <div
-   role="checkbox"
-   tabindex="0"
-   aria-checked="false"
-   aria-labelledby="choose-checkbox">
+  role="checkbox"
+  tabindex="0"
+  aria-checked="false"
+  aria-labelledby="checkbox-name">
 </div>
-<label id="choose-checkbox">Выбери меня</label>
+<label id="checkbox-name">Выбери меня</label>
 ```
 
 ## Как пишется
