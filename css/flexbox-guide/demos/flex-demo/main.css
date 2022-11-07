@@ -173,38 +173,38 @@ body._dark {
 .item.item_7,
 .item.item_12,
 .item.item_17 {
-	background: hsl(174, 100%, 29%);
+	background: hsl(276, 100%, 72%);
 }
 
 .item.item_3,
 .item.item_8,
 .item.item_13,
 .item.item_18 {
-	background: hsl(259, 51%, 43%);
+	background: hsl(346, 81%, 78%);
 }
 
 .item.item_4,
 .item.item_9,
 .item.item_14,
 .item.item_19 {
-	background: hsl(339, 81%, 42%);
+	background: hsl(162, 90%, 51%);
 }
 
 .item.item_5,
 .item.item_10,
 .item.item_15,
 .item.item_20 {
-	background: hsl(36, 92%, 43%);
+	background: hsl(49, 100%, 58%);
 }
 
 .item_start {
 	min-width: auto;
-	background: hsl(14, 91%, 54%);
+	background: hsl(25, 100%, 59%);
 }
 
 .item_end {
 	min-width: auto;
-	background: hsl(123, 41%, 45%);
+	background: hsl(122, 78%, 58%);
 }
 
 .item__name {
