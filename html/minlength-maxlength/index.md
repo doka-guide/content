@@ -42,7 +42,6 @@ tags:
 >
 ```
 
-### Результат
 
 <iframe title="Поле ввода пароля с ограничениями по количеству символов" src="demos/input-example" height="150"></iframe>
 
