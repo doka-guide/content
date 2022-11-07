@@ -1,5 +1,5 @@
 ---
-title: "checkbox"
+title: "`checkbox`"
 description: "Делаем чекбокс доступным"
 authors:
   - delioncourts
