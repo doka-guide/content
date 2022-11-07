@@ -1,6 +1,6 @@
 ---
 title: "`checkbox`"
-description: "Делаем чекбокс доступным"
+description: "Роль, которая превращает элемент в чекбокс."
 authors:
   - delioncourts
 keywords:
