@@ -29,11 +29,11 @@ tags:
 `mark` не изменяет внешний вид элемента, так что нужно не забывать самим добавлять стили с помощью CSS.
 
 ```css
- .mark {
+.mark {
   color: #000000;
   background-color: #10F3AF;
- }
- ```
+}
+```
 
 <iframe title="Элементы с ролью mark и кастомными стилями" src="demos/text-with-role-mark/" height="260px"></iframe>
 
