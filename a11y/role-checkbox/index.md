@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для чекбокса. 
+[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для чекбокса.
 
 Эта роль есть у [`<input type="checkbox">`](/html/input/) по умолчанию.
 
@@ -43,6 +43,7 @@ tags:
 У элементов с `role="checkbox"` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/).
 
 `aria-checked` указывает на текущее состояние чекбокса:
+
 - `false` — чекбокс не выбран.
 - `true` — чекбокс выбран.
 - `mixed` — несколько чекбоксов выбрано, а какие-то не выбраны.
