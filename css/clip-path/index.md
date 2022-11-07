@@ -1,6 +1,6 @@
 ---
 title: "`clip-path`"
-description: "Свойство CSS clip-path, как красиво и быстро задать картинке любую форму"
+description: "Как красиво и быстро задать изображению любую форму при помощи всего одного свойства CSS"
 authors:
   - spheno
 related:
