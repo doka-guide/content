@@ -22,7 +22,7 @@ tags:
 ```html
 <form>
  <div class="group">
-  <input type="date" value="1995-04-04" readonly="readonly" id="date" />
+  <input type="date" value="1995-04-04" readonly="readonly" id="date">
   <label for="date">Дата рождения</label>
  </div>
 </form>
