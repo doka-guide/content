@@ -48,6 +48,4 @@ tags:
 - `border-box`;
 - `fill-box`;
 - `stroke-box`;
-- `view-box`;
-
-`view-box` - значение по-умолчанию.
+- `view-box` — значение по умолчанию;
