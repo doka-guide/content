@@ -6,8 +6,6 @@ authors:
 keywords:
   - доступность
   - ARIA
-  - ARIA-роль
-  - чекбокс
   - checkbox
 related:
   - a11y/aria-roles
