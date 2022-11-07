@@ -40,5 +40,5 @@ textarea:read-only {
 
 ## Как понять
 
-Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) и [`<textarea>`](/html/textarea/)), для которых задан атрибут readonly. Также может быть применен к элементам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/). Не поддерживается в Internet Explorer, Firefox поддерживает альтернативный псевдокласс `:-moz-read-only`.
+Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) и [`<textarea>`](/html/textarea/)), для которых задан атрибут `readonly`. Также может быть применен к элементам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/). Не поддерживается в Internet Explorer, Firefox поддерживает альтернативный псевдокласс `:-moz-read-only`.
 
