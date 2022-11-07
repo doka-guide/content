@@ -8,6 +8,7 @@ related:
   - html/form
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
