@@ -8,8 +8,6 @@ related:
   - css/hover
   - css/focus
 keywords:
-  - :read-only
-  - псевдокласс
   - стили для чтения
 tags:
   - doka
