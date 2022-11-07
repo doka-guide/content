@@ -140,7 +140,7 @@ body._dark {
 	padding: 12px 16px;
 	font-size: 18px;
 	text-align: center;
-	color: hsl(0, 0%, 100%);
+	color: hsl(0, 0%, 0%);
 	background: hsl(209, 100%, 59%);
 	border: 1px solid var(--color-background);
 }
