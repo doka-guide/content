@@ -1,6 +1,6 @@
 ---
 title: "`list`"
-description: "ARIA-aтрибут, который добавляет тегу роль списка."
+description: "ARIA-атрибут, который добавляет тегу роль списка."
 authors:
   - OMaykova
 related:
