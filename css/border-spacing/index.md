@@ -6,6 +6,10 @@ authors:
 keywords:
   - схлопывание границ
   - рамки таблицы
+related:
+  - css/border-collapse
+  - html/tables
+  - css/numeric-types
 tags:
   - doka
 ---
