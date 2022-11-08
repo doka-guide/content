@@ -2,7 +2,7 @@
 title: "`list`"
 description: "ARIA-атрибут, который добавляет тегу роль списка."
 authors:
-  - OMaykova
+  - o-maykova
 related:
   - a11y/aria-roles
   - html/ul
