@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - content-hidden
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
@@ -38,6 +39,8 @@ groups:
       - role-presentation-none
       - role-heading
       - role-img-image
+      - role-list
+      - role-mark
   - name: '«Живые» области'
     items:
       - role-alert
@@ -63,6 +66,7 @@ groups:
     items:
       - role-button
       - role-link
+      - role-checkbox
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -111,8 +115,11 @@ groups:
       - role-presentation-none
       - role-heading
       - role-img-image
+      - role-list
+      - role-mark
       - role-button
       - role-link
+      - role-checkbox
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
@@ -121,6 +128,7 @@ groups:
       - aria-labelledby
       - aria-describedby
       - aria-description
+      - aria-roledescription
       - aria-live
       - aria-atomic
       - aria-relevant
