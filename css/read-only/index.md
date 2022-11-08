@@ -1,6 +1,6 @@
 ---
 title: "`:read-only`"
-description: "Задает стили полям ввода, которые доступны только для чтения."
+description: "Задаёт стили полям ввода, которые доступны только для чтения."
 authors:
   - kamenskaya
 related:
@@ -22,8 +22,6 @@ tags:
 
 ## Как пишется
 
-Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) с атрибутом `readonly`. Также может быть применен к html-тегам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/).
+Псевдокласс `:read-only` применяется к тегам для ввода текста ([`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) с атрибутом `readonly`. Также может быть применён к html-тегам, для которых установлен атрибут [`contenteditable`](/html/global-attrs/).
 После селектора для поля ввода текста ([`<input>`](/html/input/) и [`<textarea>`](/html/textarea/)) или селектора с атрибутом [`contenteditable`](/html/global-attrs/) ставим двоеточие и пишем ключевое слово `read-only`.
 В браузере Firefox `:read-only` поддерживается с префиксом -moz: `:-moz-read-only`.
-
-
