@@ -3,7 +3,7 @@ title: "Атрибуты `minlength` и `maxlength`"
 description: "Атрибуты `minlength` и `maxlength` устанавливают полям ввода минимальное и максимальное количество символов."
 authors:
   - zeddybig
-keywords: 
+keywords:
   - валидация
 related:
   - html/input
