@@ -1,7 +1,7 @@
 ---
 name: 'Дарья Каменская'
 url: https://github.com/DariaKamenskaya
-photo: 'dasha.jpg'
+photo: dasha.jpg
 roles:
   - practicum-contributor
 badges:
