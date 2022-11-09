@@ -33,8 +33,8 @@ tags:
 
 ```css
 .second {
-  margin-top: -25px;
-  margin-left: 25px;
+  margin-top: -50px;
+  margin-left: 50px;
 }
 ```
 
