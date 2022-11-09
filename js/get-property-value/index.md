@@ -4,9 +4,9 @@ description: "Получаем строку с CSS-свойством элеме
 authors:
   - madey-kv
 related:
-  - ""
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
