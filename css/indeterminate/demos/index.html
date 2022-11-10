@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Промежуточные состояния элементов форм — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .container {
+      margin: auto;
+      width: 670px;
+    }
+
+    .disclaimer {
+      font-size: 18px;
+      line-height: 140%;
+    }
+
+    input:indeterminate + span,
+    input:indeterminate + span::before {
+      opacity: 0.45;
+    }
+
+    .form {
+      margin-top: 50px;
+    }
+
+    .form-section {
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    .inputs-container, .progress-bar, .button {
+      width: 440px;
+    }
+
+    .group-title {
+      margin-right: 25px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .inputs-container {
+      display: flex;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .input-label {
+      position: relative;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-label, .checkbox, .radio {
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      left: 0;
+      top: calc(50% - 12px);
+      border-radius: 6px;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: #2E9AFF;
+      border-radius: 3px;
+      left: 5px;
+      top: calc(50% - 7px);
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:checked + .radio-title::before {
+      background: rgb(40 42 46);
+      background: radial-gradient(
+        circle,
+        #2E9AFF 0%,
+        #2E9AFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .progress-bar {
+      height: 25px;
+    }
+
+    .progress-bar::-moz-progress-bar {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      background-color: #2E9AFF;
+    }
+
+    .progress-bar:not([value])::-moz-progress-bar {
+      background-color: #FFFFFF;
+    }
+
+    .progress-bar::-webkit-progress-bar {
+      border-radius: 6px;
+      background-color: #FFFFFF;
+    }
+
+    .progress-bar::-webkit-progress-value {
+      background-color: #2E9AFF;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-left: auto;
+      padding: 10px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        margin-top: 30px;
+      }
+
+      .form-section {
+        display: block;
+      }
+
+      .group-title {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      .radio,
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      .inputs-container, .progress-bar, .button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .inputs-container {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="disclaimer">Элементы формы будут полупрозрачными, пока находятся в неопределённом (<code>:indeterminate</code>) состоянии.</p>
+    <form class="form">
+      <fieldset class="form-section">
+        <p class="group-title">Возьми всё:</p>
+        <div class="inputs-container">
+          <label class="input-label">
+            <input class="checkbox" name="must-have" type="checkbox">
+            <span class="checkbox-title">Турка</span>
+          </label>
+          <label class="input-label">
+            <input class="checkbox" name="must-have" type="checkbox">
+            <span class="checkbox-title">Вода</span>
+          </label>
+          <label class="input-label">
+            <input class="checkbox" name="must-have" type="checkbox">
+            <span class="checkbox-title">Кофе</span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form-section">
+        <p class="group-title">Выбери одно:</p>
+        <div class="inputs-container">
+          <label class="input-label">
+            <input class="radio" name="additional" type="radio">
+            <span class="radio-title">Корица</span>
+          </label>
+          <label class="input-label">
+            <input class="radio" name="additional" type="radio">
+            <span class="radio-title">Ваниль</span>
+          </label>
+          <label class="input-label">
+            <input class="radio" name="additional" type="radio">
+            <span class="radio-title">Лаванда</input>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form-section">
+        <p class="group-title">Настроение:</p>
+        <progress class="progress-bar" id="progress"></progress>
+      </fieldset>
+      <button class="button button-blue" type="button" id="button">Выпить кофе</button>
+    </form>
+  </div>
+
+  <script>
+
+    const inputs = document.getElementsByTagName('input');
+
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].indeterminate = true;
+    }
+
+  </script>
+</body>
+</html>

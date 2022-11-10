@@ -12,6 +12,7 @@ groups:
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
+      - self-hosted-preview
       - short-links
 ---
 
