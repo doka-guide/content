@@ -149,7 +149,7 @@ li {
 <ul>
   <li class="first">Значение счётчика example равно 1</li>
   <li class="second">Значение счётчика example равно 9</li>
-  <li class="third">Значение счётчика example равно 10</li>
+  <li class="third">Значение счётчика example равно 15</li>
 </ul>
 ```
 
