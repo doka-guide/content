@@ -23,14 +23,23 @@ const getDelta = async () => {
 }
 
 const runSpeller = async (files) => {
+
     console.log('✍️  Запускаем проверку орфографии...');
     const filesToCheck = files.filter(f => f.endsWith('.md') || f.endsWith('.html'));
+    if (!filesToCheck?.length) {
+        console.log('🤷‍♂️  Нет изменений для проверки');
+        return;
+    }
     const args = ['yaspeller', '--only-errors', '--file-extensions', '".md,.html"', ...filesToCheck];
     const result = spawn('npx', args, { stdio: 'inherit' });
     return new Promise(r => result.on('close', r));
 }
 
 const runChecker = async (files) => {
+    if (!files?.length) {
+        console.log('🤷‍♂️  Нет изменений для проверки');
+        return;
+    }
     console.log('✍️  Запускаем проверку форматирования...');
     const result = spawn('editorconfig-checker', ['-config=.editorconfig', ...files], { stdio: 'inherit' });
     return new Promise(r => result.on('close', r));
