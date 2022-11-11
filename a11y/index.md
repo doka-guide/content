@@ -21,6 +21,7 @@ groups:
       - aria-describedby
       - aria-description
       - aria-roledescription
+      - aria-keyshortcuts
       - aria-live
       - aria-atomic
       - aria-relevant
@@ -129,6 +130,7 @@ groups:
       - aria-describedby
       - aria-description
       - aria-roledescription
+      - aria-keyshortcuts
       - aria-live
       - aria-atomic
       - aria-relevant
