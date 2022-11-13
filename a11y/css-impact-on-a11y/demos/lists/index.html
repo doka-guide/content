@@ -25,15 +25,36 @@
       font-family: Roboto, sans-serif;
     }
 
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    code {
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+      background-color: rgba(16, 243, 175, 0.2)
+    }
+
     .title {
       text-align: center;
     }
 
     .list-wrapper {
-      min-width: 600px;
+      min-width: 700px;
       display: flex;
       justify-content: space-evenly;
-      margin-top: 48px;
+      margin-top: 12px;
     }
 
     @media (max-width: 768px) {
@@ -105,33 +126,46 @@
 <body>
   <div>
     <h1 class="title">Список покупок</h1>
+
     <div class="list-wrapper">
-      <ol class="list">
-        <li>Апельсины</li>
-        <li>Хлеб</li>
-        <li>Молоко</li>
-        <li>Воздушный змей</li>
-      </ol>
-      <ol class="list list_bulletless">
-        <li>Апельсины</li>
-        <li>Хлеб</li>
-        <li>Молоко</li>
-        <li>Воздушный змей</li>
-      </ol>
+      <div>
+        <h2><code>&lt;ol&gt;</code></h2>
+        <ol class="list">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ol>
+      </div>
+      <div>
+        <h2><code>list-style: none</code></h2>
+        <ol class="list list_bulletless">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ol>
+      </div>
     </div>
     <div class="list-wrapper">
-      <ol class="list list_bulletless list_emoji">
-        <li>Апельсины</li>
-        <li>Хлеб</li>
-        <li>Молоко</li>
-        <li>Воздушный змей</li>
-      </ol>
-      <ol class="list list_bulletless list_markered">
-        <li>Апельсины</li>
-        <li>Хлеб</li>
-        <li>Молоко</li>
-        <li>Воздушный змей</li>
-      </ol>
+      <div>
+        <h2><code>::before</code></h2>
+        <ol class="list list_bulletless list_emoji">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ol>
+      </div>
+      <div>
+        <h2><code>::marker</code></h2>
+        <ol class="list list_bulletless list_markered">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ol>
+      </div>
     </div>
     <button type="button" class="button">Добавить пункт</button>
   </div>
