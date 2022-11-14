@@ -1,12 +1,11 @@
 ---
-title: "reset event"
-description: ""
+title: "reset"
+description: "Событие reset"
 authors:
   - IVKrylova
-related:
-  - ""
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
@@ -37,7 +36,7 @@ tags:
 
 ## Как понять
 
-Когда пользователь нажимает на кнопку "Сбросить значение", браузер создаёт объект [события](https://doka.guide/js/events/). Чтобы получить доступ к объекту события, на `reset` нужно [подписаться](https://doka.guide/js/element-addeventlistener/) и передать объект события в функцию-обработчик :
+Когда пользователь нажимает на кнопку «Сбросить значение», браузер создаёт [событие](https://doka.guide/js/events/). Чтобы получить доступ к объекту события, на `reset` нужно [подписаться](https://doka.guide/js/element-addeventlistener/) и передать объект события в функцию-обработчик:
 
 ```js
   const form = document.querySelector('.form')
