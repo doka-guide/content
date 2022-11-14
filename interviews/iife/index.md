@@ -1,6 +1,7 @@
 ---
 related:
   - js/closures
+  - js/function
 author: kalpovskii
 ---
 
