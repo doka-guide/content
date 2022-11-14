@@ -1,6 +1,6 @@
 ---
 related:
-  - js
+  - js/closures
 author: kalpovskii
 ---
 
