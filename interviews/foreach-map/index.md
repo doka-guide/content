@@ -4,4 +4,4 @@ related:
   - js/array-map
 ---
 
-Объясните разницу между `Array.forEach()` и `Array.map()`.
+Объясните разницу между методами `forEach()` и `map()`.
