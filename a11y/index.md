@@ -28,6 +28,7 @@ groups:
       - aria-owns
       - aria-current
       - aria-controls
+      - aria-flowto
   - name: 'Атрибуты связи'
     items:
       - aria-labelledby
@@ -136,6 +137,7 @@ groups:
       - aria-owns
       - aria-current
       - aria-controls
+      - aria-flowto
       - aria-level
       - aria-placeholder
       - aria-required
