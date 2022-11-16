@@ -137,7 +137,7 @@ let startX = 0
 let startY = 0
 
 // При событии mousedown (когда на элемент нажимают мышью)
-// мы отмечаем dragging как true — значит, элемента начали тащить.
+// мы отмечаем dragging как true — значит, элемент начали тащить.
 element.addEventListener('mousedown', (e) => {
   dragging = true
 
@@ -233,6 +233,10 @@ element.addEventListener('mousedown', (e) => {
   startX = e.pageX - translateX
   startY = e.pageY - translateY
 })
+// добавляем возможность отпустить элемент при отжатии клавиши
+document.body.addEventListener("mouseup", () => {
+  dragging = false;
+});
 ```
 
 А также немного обновим изменение положения:
