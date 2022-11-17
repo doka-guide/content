@@ -39,14 +39,18 @@
       position: relative;
       padding-left: 10px;
       padding-top: 0.625rem;
-      counter-increment: example 1
     }
 
     .list__item::after {
       content: ".";
     }
 
+    .list__item:first-child {
+      counter-increment: example 1;
+    }
+
     .list__item:first-child+li {
+      counter-increment: example 3;
       counter-set: example 9;
     }
     
