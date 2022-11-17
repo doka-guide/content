@@ -169,7 +169,7 @@ ul {
 }
 
 .second {
-  counter-increment: example 1;
+  counter-increment: example 3;
   counter-set: example 9;
 }
 
@@ -180,9 +180,9 @@ ul {
 
 <iframe title="Демонстрация свойства" src="demos/set-example" height="475"></iframe>
 
-Может показаться, что второй элемент с классом `second` должен иметь значение 10, а не 9, потому что на него применяются сразу два свойства `counter-increment` и `counter-set`, однако при вычислении значения используется определённый [порядок](/css/css-counters/#poryadok-vychisleniya-znacheniya).
+Может показаться, что второй элемент с классом `second` должен иметь значение 12, а не 9, потому что на него применяются сразу два свойства `counter-increment` и `counter-set`, однако при вычислении значения используется определённый [порядок](/css/css-counters/#poryadok-vychisleniya-znacheniya).
 
-Сначала выполняется свойство `counter-increment` и значение счётчика увеличивается на 1, но затем сразу же переписывается свойством `counter-set` устанавливая точное значение 9.
+Сначала выполняется свойство `counter-increment` и значение счётчика увеличивается на 3, но затем сразу же переписывается свойством `counter-set` устанавливая точное значение 9.
 
 <aside>
 
