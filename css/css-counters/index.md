@@ -48,7 +48,7 @@ ul {
 
 ```css
 h1 {
-  counter-reset: counter1 -1;
+  counter-reset: counter1 1;
 }
 
 h1 {
