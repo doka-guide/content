@@ -76,11 +76,15 @@ groups:
       - inputmode
       - placeholder
       - disabled
+      - readonly
       - required
       - value
+      - accept
       - pattern
       - multiple
       - size
+      - minlength-maxlength
+      - step
       - capture
   - name: 'Картинки'
     items:
@@ -89,11 +93,15 @@ groups:
       - picture
       - source
       - svg
+      - map
+      - area
   - name: 'Ссылки'
     items:
       - a
       - link
       - nav
+      - map
+      - area
   - name: 'Списки'
     items:
       - ol
@@ -112,6 +120,7 @@ groups:
       - object
       - progress
       - canvas
+      - dialog
   - name: 'Таблицы'
     items:
       - tables
@@ -125,6 +134,7 @@ groups:
     items:
       - style
       - script
+      - noscript
       - defer-async
       - template
       - output
