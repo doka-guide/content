@@ -78,7 +78,7 @@ tags:
 <a href="#main" aria-keyshortcuts="Alt+5">К основному содержимому</a>
 ```
 
-Когда нужен знак с клавиши без цифры, лучше использовать [символ-мнемонику (HTML entity)](https://www.freeformatter.com/html-entities.html). Например, место апострофа указать `&#39;`.
+Когда нужен знак с клавиши без цифры, лучше использовать [символ-мнемонику (HTML entity)](https://www.freeformatter.com/html-entities.html). Например, вместо апострофа указать `&#39;`.
 
 ```html
 <a href="#main" aria-keyshortcuts="Alt+&#39;">К основному содержимому</a>
