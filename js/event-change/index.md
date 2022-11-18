@@ -4,9 +4,9 @@ description: "Работаем со значением, когда пользо�
 authors:
   - kejjero
 related:
+  - js/events
   - html/form
   - js/deal-with-forms
-  - js/events
 tags:
   - doka
   - placeholder
