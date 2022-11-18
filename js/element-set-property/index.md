@@ -1,5 +1,5 @@
 ---
-title: "Метод setProperty() для установки CSS стилей из JS"
+title: ".setProperty()"
 description: "Как задать CSS свойство используя setProperty()"
 authors:
   - artem-chumak
