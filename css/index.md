@@ -32,6 +32,7 @@ groups:
       - visited
       - hover
       - active
+      - target
       - child
       - nth-of-type
       - focus
@@ -52,6 +53,7 @@ groups:
       - default
       - lang
       - root
+      - indeterminate
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -62,6 +64,7 @@ groups:
       - first-letter
       - first-line
       - selection
+      - marker
   - name: 'Функции'
     items:
       - attr
@@ -78,6 +81,7 @@ groups:
       - var
       - filter-functions
       - transform-function
+      - url
   - name: 'Директивы'
     items:
       - font-face
@@ -114,15 +118,18 @@ groups:
       - transition-duration
       - transition-property
       - transition-timing-function
+      - will-change
   - name: 'Трансформации'
     items:
       - transform
       - transform-function
       - transform-origin
       - transform-style
+      - transform-box
       - perspective
       - perspective-origin
       - backface-visibility
+      - will-change
   - name: 'Фон'
     items:
       - background
@@ -213,6 +220,7 @@ groups:
   - name: 'Позиционирование'
     items:
       - position
+      - top-left-right-bottom
       - position-sticky
       - stacking-context
       - z-index
@@ -223,6 +231,7 @@ groups:
       - list-style-image
       - list-style-position
       - list-style-type
+      - marker
   - name: 'Флексбоксы'
     items:
       - flexbox-guide
@@ -255,6 +264,7 @@ groups:
       - align-content
       - align-items
       - align-self
+      - place-content
       - place-items
       - place-self
       - gap
@@ -271,6 +281,9 @@ groups:
       - resize
       - caret-color
       - accent-color
+      - indeterminate
+      - read-only
+      - read-write
   - name: '!important'
     items:
       - important
@@ -279,6 +292,8 @@ groups:
       - opacity
       - visibility
       - clip
+      - clip-path
+      - will-change
   - name: 'Переполнение'
     items:
       - overflow
@@ -319,6 +334,7 @@ groups:
       - resize
       - scroll-behavior
       - scroll-padding
+      - zoom
   - name: 'SVG'
     items:
       - fill
