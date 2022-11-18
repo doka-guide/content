@@ -5,6 +5,7 @@ authors:
   - blueingreen68
 contributors:
   - solarrust
+  - heboq
 related:
   - css/cascade
   - html/h1-h6
