@@ -83,6 +83,37 @@
       display: grid;
       margin-top: 16px;
     }
+
+    .table-layout {
+      display: table;
+    }
+
+    .table-layout__row {
+      display: flex;
+    }
+
+    .table-layout__col {
+      padding: 6px;
+      border-bottom: 1px solid #ffffff;
+      border-right: 1px solid #ffffff;
+    }
+
+    .table-layout__row:nth-child(4) .table-layout__col {
+      border-bottom: none;
+    }
+
+    .table-layout__col:nth-child(3n + 1) {
+      min-width: 360px;
+    }
+
+    .table-layout__col:nth-child(3n + 2) {
+      min-width: 110px;
+    }
+
+    .table-layout__col:nth-child(3n) {
+      min-width: 110px;
+      border-right: none;
+    }
   </style>
 </head>
 <body>
@@ -90,7 +121,33 @@
   <h1 class="title">Чек</h1>
 
   <div class="element-wrapper">
-    <h2>Таблица + <code>display: grid</code> 💀</h2>
+    <h2>Контейнеры + <code>display: table</code></h2>
+    <div class="table-layout">
+      <div class="table-layout__row">
+        <p class="table-layout__col">Продукт</p>
+        <p class="table-layout__col">Количество</p>
+        <p class="table-layout__col">Цена</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col">Апельсины</p>
+        <p class="table-layout__col">1 килограмм</p>
+        <p class="table-layout__col">💰💰</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col">Молоко</p>
+        <p class="table-layout__col">1 литр</p>
+        <p class="table-layout__col">💰</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col">Воздушный змей</p>
+        <p class="table-layout__col">1 штука</p>
+        <p class="table-layout__col">💰💰💰</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="element-wrapper">
+    <h2>Таблица + <code>display: grid</code> 💀?</h2>
     <table class="table table_grid">
       <tr>
         <th style="width: 360px">Продукт</th>
