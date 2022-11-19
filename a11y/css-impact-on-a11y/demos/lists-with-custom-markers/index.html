@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Списки с кастомными маркерами — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: Roboto, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    code {
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+      background-color: rgba(16, 243, 175, 0.2);
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .list-wrapper {
+      min-width: 700px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+
+      .list-wrapper {
+        max-width: 100%;
+        min-width: unset;
+        flex-direction: column;
+        margin-top: 0;
+      }
+
+      .list {
+        margin-top: 32px;
+      }
+    }
+
+    .list li {
+      margin-top: 8px;
+    }
+
+    .list_bulletless {
+      list-style: none;
+    }
+
+    .list_emoji li {
+      position: relative;
+      padding-left: 2px;
+    }
+
+    .list_emoji li::before {
+      content: '📌';
+      display: block;
+      position: absolute;
+      top: -3px;
+      left: -22px;
+    }
+
+    .list_markered li {
+      padding-left: 4px;
+    }
+
+    .list_markered li::marker {
+      content: '✅';
+      margin-right: 2px;
+    }
+
+    .button {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin-top: 48px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 12px;
+      background-color: #10F3AF;
+      color: #18191C;
+      border: none;
+      border-radius: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 class="title">Список покупок</h1>
+
+    <div class="list-wrapper">
+      <div>
+        <h2><code>::before</code></h2>
+        <ul class="list list_bulletless list_emoji">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ul>
+      </div>
+      <div>
+        <h2><code>::marker</code></h2>
+        <ul class="list list_bulletless list_markered">
+          <li>Апельсины</li>
+          <li>Хлеб</li>
+          <li>Молоко</li>
+          <li>Воздушный змей</li>
+        </ul>
+      </div>
+    </div>
+
+    <button type="button" class="button">Добавить пункт</button>
+  </div>
+</body>
+</html>

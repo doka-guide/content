@@ -79,28 +79,6 @@
       list-style: none;
     }
 
-    .list_emoji li {
-      position: relative;
-      padding-left: 2px;
-    }
-
-    .list_emoji li::before {
-      content: '📌';
-      display: block;
-      position: absolute;
-      top: -3px;
-      left: -22px;
-    }
-
-    .list_markered li {
-      padding-left: 4px;
-    }
-
-    .list_markered li::marker {
-      content: '✅';
-      margin-right: 2px;
-    }
-
     .button {
       width: 100%;
       max-width: 400px;
@@ -129,44 +107,25 @@
 
     <div class="list-wrapper">
       <div>
-        <h2><code>&lt;ol&gt;</code></h2>
-        <ol class="list">
+        <h2><code>&lt;ul&gt;</code></h2>
+        <ul class="list">
           <li>Апельсины</li>
           <li>Хлеб</li>
           <li>Молоко</li>
           <li>Воздушный змей</li>
-        </ol>
+        </ul>
       </div>
       <div>
         <h2><code>list-style: none</code></h2>
-        <ol class="list list_bulletless">
+        <ul class="list list_bulletless">
           <li>Апельсины</li>
           <li>Хлеб</li>
           <li>Молоко</li>
           <li>Воздушный змей</li>
-        </ol>
+        </ul>
       </div>
     </div>
-    <div class="list-wrapper">
-      <div>
-        <h2><code>::before</code></h2>
-        <ol class="list list_bulletless list_emoji">
-          <li>Апельсины</li>
-          <li>Хлеб</li>
-          <li>Молоко</li>
-          <li>Воздушный змей</li>
-        </ol>
-      </div>
-      <div>
-        <h2><code>::marker</code></h2>
-        <ol class="list list_bulletless list_markered">
-          <li>Апельсины</li>
-          <li>Хлеб</li>
-          <li>Молоко</li>
-          <li>Воздушный змей</li>
-        </ol>
-      </div>
-    </div>
+
     <button type="button" class="button">Добавить пункт</button>
   </div>
 </body>
