@@ -1,10 +1,6 @@
 ---
 title: "Влияние CSS на доступность"
 description: "Разбираемся, какие CSS-свойства влияют на доступность сайтов для пользователей скринридеров."
-cover:
-desktop: 'images/a11y_yes.png'
-mobile: 'images/a11y_yes.png'
-alt: 'CSS-код, где для всех элементов на странице задано свойство "accessibility" со значением "yes"'
 authors:
 - IPogorelova
   keywords:
