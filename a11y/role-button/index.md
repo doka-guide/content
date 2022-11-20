@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `button`"
+title: "`button`"
 description: "Как превратить элемент в кнопку с помощью WAI-ARIA."
 authors:
   - doka-dog

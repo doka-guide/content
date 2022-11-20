@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `status`"
+title: "`status`"
 description: "Роль для справочной информации, о которой скринридер расскажет пользователям не сразу."
 authors:
   - doka-dog

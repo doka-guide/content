@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роли `img`, `image`"
+title: "`img`, `image`"
 description: "Как превратить элемент в картинку с помощью WAI-ARIA."
 authors:
   - doka-dog

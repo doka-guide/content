@@ -143,6 +143,7 @@ groups:
       - setinterval
       - clearinterval
       - window-print
+      - window-open
       - intersection-observer
   - name: "О браузере"
     items:
@@ -171,6 +172,7 @@ groups:
       - element
       - element-addeventlistener
       - element-removeeventlistener
+      - element-remove-property
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
@@ -178,6 +180,8 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
+      - element-get-property-value
+      - element-set-property
       - element-scrollby
       - element-scrollintoview
       - element-scrollto
@@ -193,8 +197,10 @@ groups:
     items:
       - events
       - event
-      - event-prevent-default
+      - event-change
+      - event-dblclick
       - element-click
+      - event-invalid
       - event-submit
       - event-domcontentloaded
       - event-load
@@ -204,6 +210,7 @@ groups:
       - element-keyup
       - element-mouseout
       - element-mouseover
+      - event-prevent-default
       - element-scroll
       - element-wheel
       - element-touch

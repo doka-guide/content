@@ -39,6 +39,10 @@
       counter-reset: paragraph 1;
     }
 
+    .second {
+      counter-increment: paragraph 1;
+    }
+
     .container__elem::after {
       content: ".";
     }
@@ -60,7 +64,7 @@
 <body>
   <div class="container">
     <p class="container__elem">Первый абзац</p>
-    <p class="container__elem">Второй абзац</p>
+    <p class="container__elem second">Второй абзац</p>
     <p class="container__elem">Третий абзац</p>
   </div>
 </body>

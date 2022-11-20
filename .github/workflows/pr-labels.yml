@@ -12,7 +12,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Устанавливает необходимые ярлыки
-        uses: doka-guide/doka-labeler@release/1.0.1
+        uses: doka-guide/doka-labeler@v1.0.1
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           strategy: append

@@ -157,6 +157,7 @@ server.search('Peppe').then(() => {
 Получим ссылки на все элементы, с которыми будем работать:
 
 ```javascript
+const searchForm = document.getElementById('search-form');
 const searchInput = searchForm.querySelector('[type="search"]');
 const searchResults = document.querySelector('.search-results');
 ```

@@ -1,5 +1,5 @@
 ---
-title: "ARIA-роль `main`"
+title: "`main`"
 description: "Как добавить ориентир для главного содержимого страницы с помощью WAI-ARIA."
 authors:
   - doka-dog

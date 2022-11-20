@@ -39,7 +39,7 @@ html {
 - `scroll-padding-block-start`;
 - `scroll-padding-inline-start`;
 - `scroll-padding-block-end`;
-- `scroll-padding-inline-start`.
+- `scroll-padding-inline-end`.
 
 <aside>
 

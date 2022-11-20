@@ -22,15 +22,13 @@ tags:
 
 ```css
 p {
-  text-align: left;
   text-align: start;
-  text-align: right;
   text-align: end;
+  text-align: left;
+  text-align: right;
   text-align: center;
   text-align: justify;
   text-align: justify-all;
-  text-align: start;
-  text-align: end;
   text-align: match-parent;
 }
 ```

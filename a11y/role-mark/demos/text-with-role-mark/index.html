@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация работы ARIA-роли mark — mark — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"/>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+    .container {
+      width: 50%;
+    }
+    p {
+      margin: 7px 0;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .mark {
+      color: #000000;
+      background: #10F3AF;
+    }
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+      .container {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      Одной из нерешённых проблем строения галактик является <span role="mark" class="mark">тёмная материя</span>, проявляющая себя только в гравитационном взаимодействии. Она может составлять до 90% от общей массы галактики, а может и <span role="mark" class="mark">полностью отсутствовать</span>, как в некоторых карликовых галактиках.
+    </p>
+  </div>
+</body>
+</html>

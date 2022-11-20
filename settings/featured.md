@@ -1,9 +1,12 @@
 ---
 pinned:
   - a11y/chto-takoe-a11y
+  - recipes/progress
+  - js/how-the-browser-creates-pages
 ready:
-  - a11y/skip-link
-  - a11y/aria-labelledby
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - a11y/aria-hidden
   - html/img
   - html/article
   - html/form
@@ -52,55 +55,62 @@ ready:
   - tools/webpack
   - tools/ci-cd
   - recipes/snow
+  - recipes/lets-encrypt-nginx
+  - recipes/progress
 active:
-  - html/screenreaders
-  - css/keyframes
-  - css/specificity
-  - html/img
-  - tools/ci-cd
-  - css/attr
-  - js/function-context
-  - css/box-shadow
-  - html/section
-  - html/video
-  - html/doctype
-  - js/how-to-test-and-why
-  - html/article
-  - tools/static-types
-  - css/box-model
-  - css/grid-guide
-  - css/custom-properties
-  - css/pseudoelements
-  - html/input
-  - css/transform-function
-  - tools/docker
-  - js/boolean
-  - html/form
-  - html/flow
-  - tools/agile
-  - tools/webpack
-  - tools/markdown
-  - js/function
-  - tools/gitlab-ci-cd
-  - js/deal-with-forms
-  - js/oop
-  - js/infinite-scroll
-  - html/div
-  - css/position
-  - css/display
-  - html/head
+  - a11y/chto-takoe-a11y
+  - recipes/progress
   - js/how-the-browser-creates-pages
+  - tools/docker
+  - html/head
   - tools/bundlers
-  - tools/network
-  - css/media
-  - recipes/snow
-  - html/nav
-  - js/clean-architecture
-  - js/var-let
-  - css/flexbox-guide
+  - tools/static-types
+  - tools/ci-cd
   - js/execution-order
+  - js/boolean
+  - css/specificity
+  - html/input
+  - recipes/snow
+  - html/img
+  - css/keyframes
   - js/async-in-js
+  - html/doctype
+  - js/var-let
+  - css/grid-guide
+  - tools/agile
+  - tools/gitlab-ci-cd
+  - css/box-model
   - js/closures
+  - tools/markdown
+  - css/flexbox-guide
+  - js/function-context
+  - css/custom-properties
+  - css/media
+  - html/article
+  - html/flow
+  - css/display
+  - tools/webpack
+  - css/position
   - tools/cli
+  - css/transform-function
+  - js/deal-with-forms
+  - a11y/aria-intro
+  - js/how-to-test-and-why
+  - html/nav
+  - html/video
+  - js/infinite-scroll
+  - html/form
+  - a11y/aria-hidden
+  - css/box-shadow
+  - a11y/screenreaders
+  - css/attr
+  - js/oop
+  - js/function
+  - js/clean-architecture
+  - html/section
+  - tools/network
+  - recipes/lets-encrypt-nginx
+  - css/pseudoelements
+  - html/div
 ---
 

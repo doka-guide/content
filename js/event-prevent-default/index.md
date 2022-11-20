@@ -2,7 +2,7 @@
 title: "`.preventDefault()`"
 description: "Отменяет действие по умолчанию для события."
 authors:
-  - G-Milevski
+  - g-milevski
 related:
   - js/events
   - css/pseudoclasses
