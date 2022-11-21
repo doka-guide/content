@@ -1,6 +1,6 @@
 ---
 related:
-  - js/null
+  - js/null-primitive
   - js/undefined
 ---
 
