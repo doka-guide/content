@@ -2,6 +2,6 @@
 
 Или у вас есть интересное дизайнерское решение вроде изображённого в начале статьи?
 
-Также вы можете посмотреть две переведённых статьи на тему счётчиков:
+Также вы можете посмотреть две переведённые статьи на тему счётчиков:
 1. [Игры на чистом CSS со свойством counter-increment](https://css-live.ru/articles/igry-na-chistom-css-so-svojstvom-counter-increment.html).
 2. [Развлечения с CSS-счётчиками](https://css-live.ru/articles/razvlecheniya-s-css-schyotchikami.html).
