@@ -2,7 +2,6 @@
 title: "`navigation`"
 description: "Как добавить ориентир для навигации с помощью WAI-ARIA."
 authors:
-  - doka-dog
   - katokdoescode
 keywords:
   - доступность
