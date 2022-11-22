@@ -4,6 +4,9 @@
 
 ## Ноябрь 2022
 
+- 22 ноября, [`navigation`](https://doka.guide/a11y/role-navigation/), Данила
+- 22 ноября, [`aria-keyshortcuts`](https://doka.guide/a11y/aria-keyshortcuts/), Татьяна Фокина
+- 18 ноября, [`aria-flowto`](https://doka.guide/a11y/aria-flowto/), Татьяна Фокина
 - 11 ноября, [Как сделать превью проекта на собственном сервере](https://doka.guide/recipes/self-hosted-preview), Игорь Коровченко
 - 5 ноября, [Как скрыть содержимое от скринридеров](https://doka.guide/a11y/content-hidden/), Марианна Минич
 - 4 ноября, [`border-collapse`](https://doka.guide/css/border-collapse/), Антон Капустинский
