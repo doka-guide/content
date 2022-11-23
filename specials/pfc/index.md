@@ -7,7 +7,7 @@ location: "/pfc/"
 
 ## Что можно получить?
 
-С 28 ноября по 2 декабря напишете материал в [рубрику «На собеседовании»](https://doka.guide/js/fp/#na-sobesedovanii) и получите скидку 500 рублей на [сезон конференции Podlodka Frontend Crew, посвященный браузерным API.](https://podlodka.io/fecrew?utm_campaign=early_bird_frontend_crew_5&utm_source=сайт&utm_medium=social&utm_content=doka).
+С 28 ноября по 2 декабря напишете материал в [рубрику «На собеседовании»](https://doka.guide/js/fp/#na-sobesedovanii) и получите скидку 500 рублей на [сезон конференции Podlodka Frontend Crew, посвящённый браузерным API.](https://podlodka.io/fecrew?utm_campaign=early_bird_frontend_crew_5&utm_source=сайт&utm_medium=social&utm_content=doka).
 
 Двоим из участников конкурса мы подарим **бесплатный** билет.
 
