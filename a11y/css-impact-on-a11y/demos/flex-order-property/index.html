@@ -50,14 +50,6 @@
       margin: 24px 8px 0;
     }
 
-    @media (max-width: 768px) {
-
-      .flex-list__item {
-        width: calc(100%/2 - 16px);
-        margin: 24px 8px 0;
-      }
-    }
-
     .flex-list__item:nth-child(1) {
       order: 1;
     }
@@ -100,6 +92,14 @@
     .item__icon {
       font-size: 2em;
       margin-bottom: 12px;
+    }
+
+    @media (max-width: 768px) {
+
+      .flex-list__item {
+        width: calc(100%/2 - 16px);
+        margin: 24px 8px 0;
+      }
     }
   </style>
 </head>

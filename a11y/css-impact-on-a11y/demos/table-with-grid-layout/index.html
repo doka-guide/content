@@ -29,6 +29,7 @@
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.625rem;
+      text-align: center;
     }
 
     h2 {
@@ -44,10 +45,6 @@
       font-family: "Roboto Mono", monospace;
       font-size: calc(1em - 1px);
       background-color: rgba(16, 243, 175, 0.2);
-    }
-
-    .title {
-      text-align: center;
     }
 
     .element-wrapper {
@@ -114,14 +111,20 @@
       min-width: 110px;
       border-right: none;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
 <div>
-  <h1 class="title">Чек</h1>
+  <h1>Чек</h1>
 
   <div class="element-wrapper">
-    <h2>Контейнеры + <code>display: table</code></h2>
+    <h2>Контейнеры и <code>display: table</code></h2>
     <div class="table-layout">
       <div class="table-layout__row">
         <p class="table-layout__col">Продукт</p>
@@ -146,9 +149,8 @@
     </div>
   </div>
 
-  <div class="element-wrapper">
-    <h2>Таблица + <code>display: grid</code> 💀?</h2>
-    <table class="table table_grid">
+  <h2 id="heading">Таблица и <code>display: grid</code> 💀?</h2>
+    <table class="table table_grid" aria-labelledby="heading">
       <tr>
         <th style="width: 360px">Продукт</th>
         <th>Количество</th>
@@ -171,6 +173,5 @@
       </tr>
     </table>
   </div>
-</div>
 </body>
 </html>

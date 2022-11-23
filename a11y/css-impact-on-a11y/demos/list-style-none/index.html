@@ -13,7 +13,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       min-height: 100vh;
       padding: 50px;
@@ -24,20 +23,18 @@
       color: #FFFFFF;
       font-family: Roboto, sans-serif;
     }
-
     h1 {
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.625rem;
+      text-align: center;
     }
-
     h2 {
       margin-top: 40px;
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.25rem;
     }
-
     code {
       padding: 4px 6px;
       border-radius: 4px;
@@ -45,88 +42,87 @@
       font-size: calc(1em - 1px);
       background-color: rgba(16, 243, 175, 0.2);
     }
-
-    .title {
-      text-align: center;
-    }
-
     .list-wrapper {
       min-width: 700px;
       display: flex;
       justify-content: space-evenly;
-      margin-top: 12px;
     }
-
+    .list li {
+      position: relative;
+      text-transform: lowercase;
+      line-height: 1.5;
+    }
+    .list_default {
+      margin-left: 20px;
+    }
+    .list_bulletless {
+      list-style: none;
+    }
+    .button {
+      display: block;
+      min-width: 210px;
+      margin: 16px auto 0;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
     @media (max-width: 768px) {
-
+      body {
+        padding: 30px;
+      }
       .list-wrapper {
         max-width: 100%;
         min-width: unset;
         flex-direction: column;
-        margin-top: 0;
       }
-
-      .list {
-        margin-top: 32px;
-      }
-    }
-
-    .list li {
-      margin-top: 8px;
-    }
-
-    .list_bulletless {
-      list-style: none;
-    }
-
-    .button {
-      width: 100%;
-      max-width: 400px;
-      display: block;
-      margin-top: 48px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 12px;
-      background-color: #10F3AF;
-      color: #18191C;
-      border: none;
-      border-radius: 16px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    .button:hover {
-      cursor: pointer;
-      opacity: 0.7;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1 class="title">Список покупок</h1>
-
-    <div class="list-wrapper">
-      <div>
-        <h2><code>&lt;ul&gt;</code></h2>
-        <ul class="list">
-          <li>Апельсины</li>
-          <li>Хлеб</li>
-          <li>Молоко</li>
-          <li>Воздушный змей</li>
-        </ul>
-      </div>
-      <div>
-        <h2><code>list-style: none</code></h2>
-        <ul class="list list_bulletless">
-          <li>Апельсины</li>
-          <li>Хлеб</li>
-          <li>Молоко</li>
-          <li>Воздушный змей</li>
-        </ul>
-      </div>
+<div>
+  <h1>Список покупок</h1>
+  <div class="list-wrapper">
+    <div>
+      <h2><code>&lt;ul&gt;</code></h2>
+      <ul class="list list_default">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ul>
     </div>
-
-    <button type="button" class="button">Добавить пункт</button>
+    <div>
+      <h2><code>list-style: none</code></h2>
+      <ul class="list list_bulletless">
+        <li>Апельсины</li>
+        <li>Хлеб</li>
+        <li>Молоко</li>
+        <li>Воздушный змей</li>
+      </ul>
+    </div>
   </div>
+  <button type="button" class="button button-aqua">Добавить пункт</button>
+</div>
 </body>
 </html>

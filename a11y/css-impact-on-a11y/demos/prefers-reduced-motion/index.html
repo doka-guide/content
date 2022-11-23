@@ -29,16 +29,6 @@
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.625rem;
-    }
-
-    h2 {
-      margin-top: 40px;
-      margin-bottom: 17px;
-      font-weight: 500;
-      font-size: 1.25rem;
-    }
-
-    .title {
       text-align: center;
     }
 
@@ -55,7 +45,6 @@
     }
 
     @media (prefers-reduced-motion) {
-
       .animated-emoji {
         transform: none;
         animation: none;
@@ -75,11 +64,17 @@
         transform: rotate(-100deg);
       }
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
 <div>
-  <h1 class="title">Ура, вы всё купили!</h1>
+  <h1>Ура, вы всё купили!</h1>
   <div class="animated-emoji">🎉</div>
 </div>
 </body>
