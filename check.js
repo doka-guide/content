@@ -41,7 +41,7 @@ const runChecker = async (files) => {
         return;
     }
     console.log('✍️  Запускаем проверку форматирования...');
-    const result = spawn('editorconfig-checker', ['-config=.editorconfig', ...files], { stdio: 'inherit' });
+    const result = spawn('npx', ['editorconfig-checker', '-config=.editorconfig', ...files], { stdio: 'inherit' });
     return new Promise(r => result.on('close', r));
 }
 
