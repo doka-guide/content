@@ -60,10 +60,6 @@
         margin: 0 auto 20px;
       }
 
-      .close-button {
-        margin: 10px auto 0;
-      }
-
       .button:hover {
         background-color: #ffffff;
         cursor: pointer;
@@ -80,12 +76,17 @@
         outline: none;
       }
 
-      .button-pink {
-        background-color: #f498ad;
+      .close-button,
+      .close-button:hover,
+      .close-button:focus {
+        margin: 10px auto 0;
+        background: #000000;
+        border: 2px solid #000000;
+        color: #ffffff;
       }
 
-      .button-green {
-        background-color: #41e847;
+      .button-blue {
+        background-color: #2e9aff;
       }
 
       .dialog {
@@ -101,12 +102,12 @@
   </head>
   <body>
     <div class="container">
-      <button class="button button-pink open-button">
+      <button class="button button-blue open-button">
         Открыть модальное окно
       </button>
       <dialog class="dialog">
         Тут какая-то дополнительная информация про ленивцев
-        <button class="button button-green close-button">Закрыть диалог</button>
+        <button class="button close-button">Закрыть диалог</button>
       </dialog>
       <p>
         Ленивцы все делают медленно - даже моргают. Как получилось, что эти
