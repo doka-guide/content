@@ -33,7 +33,7 @@ tags:
 
 Сделаем код, выделяющий первую букву в цитате:
 
-```
+```css
 blockquote::first-letter {
   font-size: 1.86rem;
   font-weight: 700;
