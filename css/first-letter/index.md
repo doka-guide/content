@@ -25,3 +25,18 @@ tags:
 - рамки, начинающиеся на `border-`;
 - цвет текста `color`;
 - текстовые свойства [`text-decoration`](/css/text-decoration/), [`text-shadow`](/css/text-shadow/), [`text-transform`](/css/text-transform/), [`letter-spacing`](/css/letter-spacing/), [`word-spacing`](/css/word-spacing/), [`line-height`](/css/line-height/), [`text-decoration-color`](/css/text-decoration-color/), [`text-decoration-line`](/css/text-decoration-line/), [`text-decoration-style`](/css/text-decoration-style/), [`box-shadow`](/css/box-shadow/), [`float`](/css/float/), [`vertical-align`](/css/vertical-align/).
+
+## Пример
+
+Сделаем код, выделяющий первую букву в цитате:
+
+```
+blockquote::first-letter {
+  font-size: 1.86rem;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.12rem;
+}
+```
+
+<iframe title="Псевдоэлемент ::first-letter" src="demos/quote/" height="300"></iframe>
