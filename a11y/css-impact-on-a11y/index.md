@@ -9,7 +9,7 @@ keywords:
 related:
   - a11y/screenreaders
   - a11y/content-hidden
-  - css/list-style/
+  - css/list-style
 tags:
   - article
 ---
