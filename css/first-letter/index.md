@@ -17,18 +17,6 @@ tags:
 
 Псевдоэлемент `::first-letter` позволяет задать стили для первой буквы первой строки блочного элемента, если перед текстом нет другого содержимого.
 
-## Как пишется
-
-Для псевдоэлемента сработает лишь небольшой набор CSS-свойств:
-
-- шрифтовые свойства, начинающиеся на [`font-`](/css/font/), а также [`line-height`](/css/line-height/);
-- свойства фона, начинающиеся на [`background-`](/css/backgroutnd/);
-- внешние отступы, начинающиеся на [`margin-`](/css/margin/);
-- внутренние отступы, начинающиеся на [`padding-`](/css/padding/);
-- рамки, начинающиеся на [`border-`](/css/border/);
-- цвет текста [`color`](/css/color);
-- текстовые свойства [`text-decoration`](/css/text-decoration/), [`text-shadow`](/css/text-shadow/), [`text-transform`](/css/text-transform/), [`letter-spacing`](/css/letter-spacing/), [`word-spacing`](/css/word-spacing/), [`line-height`](/css/line-height/), [`text-decoration-color`](/css/text-decoration-color/), [`text-decoration-line`](/css/text-decoration-line/), [`text-decoration-style`](/css/text-decoration-style/), [`box-shadow`](/css/box-shadow/), [`float`](/css/float/), [`vertical-align`](/css/vertical-align/).
-
 ## Пример
 
 Сделаем код, выделяющий первую букву в цитате:
@@ -41,6 +29,18 @@ blockquote::first-letter {
   letter-spacing: 0.12rem;
 }
 ```
+
+## Как пишется
+
+Для псевдоэлемента сработает лишь небольшой набор CSS-свойств:
+
+- шрифтовые свойства, начинающиеся на [`font-`](/css/font/), а также [`line-height`](/css/line-height/);
+- свойства фона, начинающиеся на [`background-`](/css/backgroutnd/);
+- внешние отступы, начинающиеся на [`margin-`](/css/margin/);
+- внутренние отступы, начинающиеся на [`padding-`](/css/padding/);
+- рамки, начинающиеся на [`border-`](/css/border/);
+- цвет текста [`color`](/css/color);
+- текстовые свойства [`text-decoration`](/css/text-decoration/), [`text-shadow`](/css/text-shadow/), [`text-transform`](/css/text-transform/), [`letter-spacing`](/css/letter-spacing/), [`word-spacing`](/css/word-spacing/), [`line-height`](/css/line-height/), [`text-decoration-color`](/css/text-decoration-color/), [`text-decoration-line`](/css/text-decoration-line/), [`text-decoration-style`](/css/text-decoration-style/), [`box-shadow`](/css/box-shadow/), [`float`](/css/float/), [`vertical-align`](/css/vertical-align/).
 
 <iframe title="Псевдоэлемент ::first-letter" src="demos/quote/" height="300"></iframe>
 
