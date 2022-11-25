@@ -2,15 +2,12 @@
 title: "`::first-letter`"
 description: "Стилизация первой буквы с помощью ::first-letter"
 authors:
-  - doka-dog
-contributors:
   - punkmachine
 keywords:
   - первая буква
   - псевдоэлемент
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
