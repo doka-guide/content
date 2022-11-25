@@ -1,5 +1,6 @@
 ---
 title: "`scrollbar-gutter`"
+description: "Добавляем отступ под скроллбар, чтобы его появление или скрытие не вызывало сдвиги контента"
 authors:
   - xpleesid
 keywords:
@@ -8,6 +9,10 @@ keywords:
   - отступы
 tags:
   - doka
+related:
+  - css/overflow
+  - css/scroll-padding
+  - html/dialog
 ---
 
 ## Кратко
