@@ -81,7 +81,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-// запускаем приложние
+// запускаем приложение
 app.listen(port, () => {
   console.log(`Приложение запущено на http://localhost:${port}`)
 })
