@@ -35,9 +35,9 @@ html {
 }
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
+<iframe title="Пример с несколькими разными скроллбарами" src="demos/basic/" height="400"></iframe>
 
-![Скроллбар с кастомными цветами](images/basic.png)
+![Пример с несколькими разными скроллбарами](images/basic.png)
 Пример того, как это выглядит в Firefox
 
 ## Как пишется
