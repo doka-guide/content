@@ -1,6 +1,6 @@
 ---
 title: "`::first-letter`"
-description: "Стилизация первой буквы с помощью ::first-letter"
+description: "Стилизуем первую букву в тексте."
 authors:
   - punkmachine
 keywords:
