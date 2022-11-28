@@ -96,7 +96,7 @@
       }
 
       .dialog::backdrop {
-        background: rgba(0, 0, 0, 0.5);
+        background-color: rgb(0 0 0 / 0.5);
       }
     </style>
   </head>
@@ -180,19 +180,19 @@
       </p>
     </div>
     <script>
-      const dialog = document.querySelector(".dialog");
-      const openButton = document.querySelector(".open-button");
-      const closeButton = document.querySelector(".close-button");
+      const dialog = document.querySelector('.dialog')
+      const openButton = document.querySelector('.open-button')
+      const closeButton = document.querySelector('.close-button')
 
-      openButton.addEventListener("click", () => {
-        dialog.showModal();
-        document.body.style.overflowY = "hidden";
-      });
+      openButton.addEventListener('click', () => {
+        dialog.showModal()
+        document.body.style.overflowY = 'hidden'
+      })
 
-      closeButton.addEventListener("click", () => {
-        dialog.close();
-        document.body.style.overflowY = "auto";
-      });
+      closeButton.addEventListener('click', () => {
+        dialog.close()
+        document.body.style.overflowY = 'auto'
+      })
     </script>
   </body>
 </html>
