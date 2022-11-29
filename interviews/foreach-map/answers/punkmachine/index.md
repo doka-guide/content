@@ -21,7 +21,7 @@ const myArray = [4, 2, 8, 7, 3, 1, 0];
 let myArray2 = [];
 
 myArray.forEach(item => {
-  myArray2.push(item*2);
+  myArray2.push(item * 2);
 });
 
 myArray2 = myArray2.sort((a, b) => a - b);
