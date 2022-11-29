@@ -6,7 +6,7 @@
 
 ```js
 const myArray = [4, 2, 8, 7, 3, 1, 0];
-const myArray2 = myArray.map(item => item*2).sort((a, b) => a - b);
+const myArray2 = myArray.map(item => item * 2).sort((a, b) => a - b);
 
 console.log(myArray); // [4, 2, 8, 7, 3, 1, 0]
 console.log(myArray2); // [0, 2, 4, 6, 8, 14, 16]
