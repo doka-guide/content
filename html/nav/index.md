@@ -1,6 +1,11 @@
 ---
 title: "`<nav>`"
 description: "Удобный тег, объединяющий элементы навигации по сайту."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Машинка ездит по запутанным дорожкам в виде стрелочек'
 authors:
   - doka-dog
 contributors:
