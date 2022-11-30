@@ -36,7 +36,7 @@ class MySplit {
 Для нашей задачи разобьём строку при помощи регулярного выражения:
 
 ```js
-[Symbol.split](string) { 
+[Symbol.split](string) {
   // Заменяем все вхождения this.value на /${this.value}/
   let index = string.replace(new RegExp(this.value, "g"), `/${this.value}/`);
   
