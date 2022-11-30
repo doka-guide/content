@@ -39,12 +39,12 @@ class MySplit {
 [Symbol.split](string) {
   // Заменяем все вхождения this.value на /${this.value}/
   let index = string.replace(new RegExp(this.value, "g"), `/${this.value}/`);
-  
+
   // убираем первый слэш, /url/Path ->  url/Path
   if (index[0] === "/") index = index.substr(1)
   // Строка должна начинаться с url/, даже если его не было в начале
   if (!index.startsWith(this.value)) index = `${this.value}/` + index;
-  
+
   return index;
 }
 ```
