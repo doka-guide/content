@@ -1,6 +1,11 @@
 ---
 title: "`@keyframes`"
 description: "Как настоящие художники-постановщики, создаём раскадровку для анимации."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Домик в поле, а над ним несколько лун на небе в разных фазах'
 authors:
   - solarrust
 editors:
