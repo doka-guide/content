@@ -23,7 +23,7 @@ String.prototype.indexOf(searchString [, position]): number
 // pos    - стартовая позиция
 function myIndexOf(string, substr, pos = 0) {
   if (pos + substr.length > string.length) return -1 // Если мы начинаем с позции большей чем длина строки, то поиск смысла не имеет
-  
+
   for (let i = pos; i < string.length - substr.length + 1; i++) {
     // если наша подстрока === содержимому окна, то заканчиваем работу и возвращаем index
     if (substr === string.substr(i, substr.length)) {
@@ -43,7 +43,7 @@ function myIndexOf(string, substr, pos = 0) {
 function myIndexOf(string, substr, pos = 0) {
   if (pos + substr.length > string.length) return -1
   const hashPattern = hash(substr) // hash - абстрактная функция взятия хэша, тут я не буду приводить пример её реализации
-  
+
   for (let i = pos; i < string.length - substr.length + 1; i++) {
     // Чтобы 2жды не брать подстроку сохраняем её
     const windowContent = string.substr(i, substr.length);
