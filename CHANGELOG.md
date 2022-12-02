@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2022
+
+- 2 декабря, [Влияние CSS на доступность](https://doka.guide/a11y/css-impact-on-a11y/), Инна Абдрахманова
+
 ## Ноябрь 2022
 
 - 22 ноября, [`navigation`](https://doka.guide/a11y/role-navigation/), Данила
