@@ -12,7 +12,7 @@ String.prototype.indexOf(searchString [, position]): number
 
 #### Реализация
 
-Чтобы реализовать такой поиск воспользуемся [**скользящим окном**](https://wiki.loginom.ru/articles/windowing-method.html), а точнее его частной реализацией, алгоритмом [**Рабина-Карпа**](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%A0%D0%B0%D0%B1%D0%B8%D0%BD%D0%B0_%E2%80%94_%D0%9A%D0%B0%D1%80%D0%BF%D0%B0). 
+Чтобы реализовать такой поиск воспользуемся [**скользящим окном**](https://wiki.loginom.ru/articles/windowing-method.html), а точнее его частной реализацией, алгоритмом [**Рабина-Карпа**](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%A0%D0%B0%D0%B1%D0%B8%D0%BD%D0%B0_%E2%80%94_%D0%9A%D0%B0%D1%80%D0%BF%D0%B0).
 
 [**Скользящее окно**](https://wiki.loginom.ru/articles/windowing-method.html) — это алгоритм, который использует область фиксированной длины внутри массива. Двигая эту область, можно получать данные о группе рядом стоящих элементов массива. В нашем случае длина окна будет равна длине подстроки, по которой производится поиск.
 
@@ -22,7 +22,7 @@ String.prototype.indexOf(searchString [, position]): number
 // substr - подстрока, которую ищем
 // pos    - стартовая позиция
 function myIndexOf(string, substr, pos = 0) {
-  // запускаем цикл, от pos до (конца_строки - длина_окна) 
+  // запускаем цикл, от pos до (конца_строки - длина_окна)
   for (let i = pos; i < string.length - substr.length + 1; i++) {
     // если наша подстрока === содержимому окна, то заканчиваем работу и возвращаем index
     if (substr === string.substr(i, substr.length)) {
