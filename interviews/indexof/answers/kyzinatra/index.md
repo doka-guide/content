@@ -7,7 +7,7 @@ String.prototype.indexOf(searchString [, position]): number
 ```
 
 Где:
-- `searchString` — строка по которой производится поиск.
+- `searchString` — строка в которой нужно искать.
 - `position` — индекс элемента строки, с которого начинается поиск.
 
 #### Реализация
