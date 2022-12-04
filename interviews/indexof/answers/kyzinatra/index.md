@@ -30,7 +30,7 @@ function myIndexOf(string, substr, pos = 0) {
       return i;
     }
   }
-  // Если ничего не найдено, то -1
+  // Если ничего не найдено, то возвращаем -1
   return -1;
 }
 ```
