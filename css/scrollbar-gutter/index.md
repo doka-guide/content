@@ -7,12 +7,12 @@ keywords:
   - скроллбар
   - кроссбраузерная вёрстка
   - отступы
-tags:
-  - doka
 related:
   - css/overflow
   - css/scroll-padding
   - html/dialog
+tags:
+  - doka
 ---
 
 ## Кратко
@@ -55,4 +55,4 @@ body {
 
 ## Поддержка
 
-`scrollbar-gutter` поддерживается всеми современными браузерами, кроме Safari. Подробнее можно посмотреть на [Can I Use](https://caniuse.com/?search=scrollbar-gutter).
+`scrollbar-gutter` поддерживается всеми современными браузерами, кроме Safari. Подробнее можно посмотреть на [Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-gutter).
