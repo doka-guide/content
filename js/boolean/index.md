@@ -1,6 +1,11 @@
 ---
 title: "Булев тип"
 description: "На некоторые вопросы нужно отвечать только «да» или «нет». Булев тип как раз про это."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Тут парень, потеет и вытирает лоб, потому что перед ним выбор из двух кнопок: true и false — и он не знает, что нажать'
 authors:
   - bespoyasov
 editors:

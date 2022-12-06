@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Пример с прыгающим контентом — scrollbar-gutter — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+
+      p {
+        margin-bottom: 40px;
+        font-size: 30px;
+      }
+
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.2s linear;
+      }
+
+      .open-button {
+        margin: 0 auto 20px;
+      }
+
+      .button:hover {
+        background-color: #ffffff;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:focus-visible {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .button:focus {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .close-button,
+      .close-button:hover,
+      .close-button:focus {
+        margin: 10px auto 0;
+        background: #000000;
+        border: 2px solid #000000;
+        color: #ffffff;
+      }
+
+      .button-blue {
+        background-color: #2e9aff;
+      }
+
+      .dialog {
+        position: fixed;
+        padding: 40px;
+        margin: auto;
+      }
+
+      .dialog::backdrop {
+        background-color: rgb(0 0 0 / 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="button button-blue open-button">
+        Открыть модальное окно
+      </button>
+      <dialog class="dialog">
+        Тут какая-то дополнительная информация про ленивцев
+        <button class="button close-button">Закрыть диалог</button>
+      </dialog>
+      <p>
+        Ленивцы все делают медленно - даже моргают. Как получилось, что эти
+        животные ведут такую, мягко говоря, размеренную жизнь? Им что, никогда
+        не хочется побегать?
+      </p>
+      <p>
+        Ленивцам, как следует из их имени, некуда спешить. Большую часть времени
+        они проводят на деревьях в лесах Центральной и Южной Америки, почти не
+        двигаясь, и спускаются на землю (примерно раз в неделю) только для того,
+        чтобы испражниться.
+      </p>
+      <p>
+        Жизнь, которую они ведут, проходит как в замедленной съёмке. Каким
+        образом эволюция привела их к этому?
+      </p>
+      <p>
+        Современные ленивцы (трёхпалые и двупалые) гораздо меньше тех, что жили
+        на Земле в доисторический период. Те были поистине гигантскими - весом в
+        несколько тонн. Они населяли нашу планету в последнюю ледниковую эпоху и
+        исчезли примерно 11 тыс. лет назад.
+      </p>
+      <p>
+        Ходили они по земле, а чтобы достать листья, которыми они питались,
+        становились на задние лапы.
+      </p>
+      <p>
+        "Изменения, которые произошли с ленивцами, — это результат того, что они
+        начали жить на деревьях и в питании перешли почти исключительно на
+        листья", — говорит Камила Маццони.
+      </p>
+      <p>
+        "Лиственная диета весьма скудна на питательные вещества, калорий в
+        листве очень мало. Из-за этого у ленивцев очень медленно идущий обмен
+        веществ".
+      </p>
+      <p>
+        Частично это объясняется тем, где они живут. Все шесть видов ленивцев
+        обитают в тропических лесах. Там жарко и влажно, так что нужда в
+        движении, согревающем мышцы и сердечно-сосудистую систему, отпадает. Вот
+        ленивцы и не напрягаются.
+      </p>
+      <p>
+        В том, чтобы быть млекопитающим, есть свои преимущества. Способность
+        регулировать внутреннюю температуру тела позволяет жить в куда более
+        холодном климате, чем могут рептилии или другие холоднокровные животные.
+      </p>
+      <p>
+        Но теплокровная природа имеет и некоторые неудобства. Чтобы поддерживать
+        в рабочем состоянии эту жадную на энергию систему, млекопитающим
+        приходится много есть и поддерживать мышцы в разогретом состоянии, чтобы
+        без проблем передвигаться.
+      </p>
+      <p>
+        Эта эндотермическая адаптация позволяет млекопитающим существовать почти
+        в любых условиях обитания на Земле, в том числе на обоих полюсах.
+      </p>
+      <p>
+        Но кое-где некоторые млекопитающие отказались от преимуществ, подаренных
+        им природой. Они выбрали энергосберегающий стиль жизни, больше
+        напоминающий образ жизни холоднокровных животных.
+      </p>
+      <p>
+        "Система терморегуляции, которой обладает большинство млекопитающих,
+        требует много энергии, - говорит Маццони. - Поскольку у ленивцев такой
+        системы нет, им энергии нужно куда меньше. Однако это означает, что они
+        могут жить только в тропиках, причём не высоко в горах, где температура
+        может падать. Впрочем, двупалые ленивцы иногда забираются повыше в горы
+        в Коста-Рике".
+      </p>
+    </div>
+    <script>
+      const dialog = document.querySelector('.dialog')
+      const openButton = document.querySelector('.open-button')
+      const closeButton = document.querySelector('.close-button')
+
+      openButton.addEventListener('click', () => {
+        dialog.showModal()
+        document.body.style.overflowY = 'hidden'
+      })
+
+      closeButton.addEventListener('click', () => {
+        dialog.close()
+        document.body.style.overflowY = 'auto'
+      })
+    </script>
+  </body>
+</html>

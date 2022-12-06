@@ -91,6 +91,7 @@ groups:
       - aria-description
   - name: 'CSS и доступность'
     items:
+      - css-impact-on-a11y
       - prefers-reduced-motion
       - prefers-contrast
       - forced-colors
