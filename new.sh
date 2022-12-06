@@ -1,13 +1,10 @@
 #!/bin/bash
-options=("CSS" "HTML" "JavaScript" "Инструменты" "Рецепты" "Доступность")
+options=("CSS" "HTML" "JavaScript" "Инструменты" "Рецепты" "Доступность" "Вопрос на собеседовании" "Ответ на собеседовании")
 tags=("Дока" "Статья")
 
 CATEGORY=""
 TYPE=""
 AUTHOR=""
-
-read -r -p "$(echo "Введите название статьи: ")" TITLE
-read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
 
 function jsonValue() {
   KEY=$1
@@ -57,43 +54,139 @@ do
       CATEGORY=a11y
       break
       ;;
+    "Вопрос на собеседовании")
+      CATEGORY=interviews
+      break
+      ;;
+    "Ответ на собеседовании")
+      CATEGORY=answers
+      break
+      ;;
     *) echo "Такого раздела ещё нет... Введите корректный номер";;
   esac
 done
 
-echo -e "\nДоступные типы публикации в Доке:\nСтатья — расширенный материал, посвящённый определённому вопросу, с авторским мнением, примерами и рассуждениями\nДока — справочный материал, кратко и формально описывающий какое-то понятие"
+if [ "$CATEGORY" = "interviews" ]; then
 
-PS3='Выберите тип материала: '
+  read -r -p "$(echo "Введите вопрос: ")" TITLE
+  read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
 
-select tag in "${tags[@]}"
-do
-  case $tag in
-    "Статья")
-      TYPE=article
-      break
-      ;;
-    "Дока")
-      TYPE=doka
-      break
-      ;;
-    *) echo "Такого типа ещё нет... Введите корректный номер";;
-  esac
-done
+elif [ "$CATEGORY" = "answers" ]; then
+
+  read -r -p "$(echo "Введите ответ: ")" TITLE
+  read -r -p "$(echo "Введите название папки из папки interviews c вопросом, на который вы хотите ответить: ")" FOLDER
+
+else
+
+  echo -e "\nДоступные типы публикации в Доке:\nСтатья — расширенный материал, посвящённый определённому вопросу, с авторским мнением, примерами и рассуждениями\nДока — справочный материал, кратко и формально описывающий какое-то понятие"
+
+  PS3='Выберите тип материала: '
+
+  select tag in "${tags[@]}"
+  do
+    case $tag in
+      "Статья")
+        TYPE=article
+        break
+        ;;
+      "Дока")
+        TYPE=doka
+        break
+        ;;
+      *) echo "Такого типа ещё нет... Введите корректный номер";;
+    esac
+  done
+
+  read -r -p "$(echo "Введите название статьи: ")" TITLE
+  read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
+
+fi
 
 git checkout main
 git pull
 
-while [ -d $(echo "$CATEGORY/$FOLDER") -a ! -h $(echo "$CATEGORY/$FOLDER") ]; do
-  echo "К сожалению, $FOLDER уже существует..."
-  read -r -p "$(echo "Введите другое название папки: ")" FOLDER
-done
+if [ "$CATEGORY" = "answers" ]; then
 
-git branch $(echo "article/$FOLDER")
-git checkout $(echo "article/$FOLDER")
+  while [ -d $(echo "interviews/$FOLDER") -a -h $(echo "interviews/$FOLDER") ]; do
+    echo "К сожалению, $FOLDER не существует..."
+    read -r -p "$(echo "Введите другое название папки: ")" FOLDER
+  done
 
+else
+
+  while [ -d $(echo "$CATEGORY/$FOLDER") -a ! -h $(echo "$CATEGORY/$FOLDER") ]; do
+    echo "К сожалению, $FOLDER уже существует..."
+    read -r -p "$(echo "Введите другое название папки: ")" FOLDER
+  done
+
+fi
+
+if [ "$CATEGORY" = "interviews" ]; then
+
+git branch $(echo "question/$FOLDER")
+git checkout $(echo "question/$FOLDER")
+
+mkdir -p $(echo "$CATEGORY/$FOLDER")
+touch $(echo "$CATEGORY/$FOLDER/index.md")
+
+elif [ "$CATEGORY" = "answers" ]; then
+
+git branch $(echo "answer/$AUTHOR@$FOLDER")
+git checkout $(echo "answer/$AUTHOR@$FOLDER")
+
+mkdir -p $(echo "interviews/$FOLDER/answers/$AUTHOR")
+touch $(echo "interviews/$FOLDER/answers/$AUTHOR/index.md")
+
+else
+
+git branch $(echo "$TYPE/$FOLDER")
+git checkout $(echo "$TYPE/$FOLDER")
 
 mkdir $(echo "$CATEGORY/$FOLDER")
 touch $(echo "$CATEGORY/$FOLDER/index.md")
+
+fi
+
+if [ "$CATEGORY" = "interviews" ]; then
+
+cat <<EOF > $(echo "$CATEGORY/$FOLDER/index.md")
+---
+related:
+  -
+---
+
+<!--
+В related указываются ссылки на материалы Доки, в которых будет появляться вопрос в рубрике «На собеседовании»
+-->
+
+"$TITLE"
+
+EOF
+
+elif [ "$CATEGORY" = "answers" ]; then
+
+cat <<EOF > $(echo "interviews/$FOLDER/answers/$AUTHOR/index.md")
+---
+included:
+  -
+excluded:
+  -
+---
+
+<!--
+1. Можно вообще удалить мету, тогда ответ будет на соответствующий вопрос во всех материалах, где вопрос появляется
+2. В included можно указать пути только к тем материалам из поля related вопроса, в которых нужно показывать ответ
+3. В excluded можно указать пути только к тем материалам из поля related вопроса, в которых не нужно показывать ответ
+-->
+
+**Что проверяют:**
+
+**Ответ:**
+
+EOF
+
+else
+
 cat <<EOF > $(echo "$CATEGORY/$FOLDER/index.md")
 ---
 title: "$TITLE"
@@ -126,5 +219,7 @@ tags:
 ## Как понять
 
 EOF
+
+fi
 
 echo "Новый материал создан и находится в папке: $CATEGORY/$FOLDER"

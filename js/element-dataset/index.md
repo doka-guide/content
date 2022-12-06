@@ -114,7 +114,7 @@ item.dataset.candidateRole = 'junior'
 
 ```html
 <ul>
-  <li data-candidate-role="junior" data-years-of-experience="1">Иван Иванов</li>
+  <li data-candidate-role="junior" data-years-of-experience="2">Иван Иванов</li>
 </ul>
 ```
 

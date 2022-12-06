@@ -1,6 +1,11 @@
 ---
 title: "`<picture>`"
 description: "Адаптирует картинки под разные устройства и поддерживаемые форматы."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Планшет, телефон, монитор, кружка, на которых изображены матрёшки'
 authors:
   - ezhkov
 contributors:
