@@ -4,6 +4,11 @@
 
 ## Декабрь 2022
 
+- 7 декабря, [`scrollbar-width`](https://doka.guide/css/scrollbar-width/), Иван Ельцов
+- 7 декабря, [`scrollbar-color`](https://doka.guide/css/scrollbar-color/), Иван Ельцов
+- 7 декабря, [`all`](https://doka.guide/css/all/), Иван Ельцов
+- 6 декабря, [`:first-letter`](https://doka.guide/css/first-letter/), Александр Рассудихин
+- 5 декабря, [`scrollbar-gutter`](https://doka.guide/css/scrollbar-gutter/), Иван Ельцов
 - 2 декабря, [Влияние CSS на доступность](https://doka.guide/a11y/css-impact-on-a11y/), Инна Абдрахманова
 
 ## Ноябрь 2022
