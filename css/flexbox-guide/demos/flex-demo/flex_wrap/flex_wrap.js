@@ -2,7 +2,9 @@ import CodeSelect from "../js/codeSelect.js";
 import Demo from "../js/demo.js";
 
 const demoEl = document.querySelector("[data-demo-wrap]"),
-  selectorFlexDirection = document.querySelector('[data-select="flex-direction"]'),
+  selectorFlexDirection = document.querySelector(
+    '[data-select="flex-direction"]'
+  ),
   selectorFlexWrap = document.querySelector('[data-select="flex-wrap"]');
 
 demoEl.style.flexDirection = selectorFlexDirection.value;
@@ -16,4 +18,4 @@ new CodeSelect(selectorFlexWrap, (value) => {
   demoEl.style.flexWrap = value;
 });
 
-new Demo();
+new Demo(12);

@@ -28,7 +28,7 @@ export default class CodeSelect {
       }
 
       for (const el of removeElList) {
-        this.optionsWidth[el.innerText] = el.offsetWidth + 24;
+        this.optionsWidth[el.innerText] = el.offsetWidth + 28;
         el.remove();
       }
 
@@ -37,6 +37,7 @@ export default class CodeSelect {
   }
 
   _setWidth() {
-    this.selectEl.style.width = this.optionsWidth[this.selectEl.selectedOptions[0].value] + "px";
+    this.selectEl.style.width =
+      this.optionsWidth[this.selectEl.selectedOptions[0].value] + "px";
   }
 }

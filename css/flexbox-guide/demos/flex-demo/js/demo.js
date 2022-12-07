@@ -1,10 +1,12 @@
 export default class Demo {
-  constructor() {
+  constructor(numberItems = 3) {
     this.SIZE_CLASS = "_size";
 
     this.demoWrapEl = document.querySelector("[data-demo-wrap]");
     this.itemEl = this.demoWrapEl.querySelector("[data-demo-item]");
     this.endEl = this.demoWrapEl.querySelector("[data-demo-end]");
+
+    this.numberItems = numberItems;
 
     this.itemListEl = [];
 
@@ -14,7 +16,7 @@ export default class Demo {
   _created() {
     this.itemEl.remove();
 
-    for (let index = 0; index < 3; index++) {
+    for (let index = 0; index < this.numberItems; index++) {
       this._itemConstructor(index);
     }
   }

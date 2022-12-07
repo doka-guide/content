@@ -109,7 +109,7 @@ tags:
 
 ![Пример свойства flex-direction](images/5.png)
 
-<iframe title="Пример свойства flex-direction" src="demos/flex-demo/flex_direction/" height="640"></iframe>
+<iframe title="Пример свойства flex-direction" src="demos/flex-demo/flex_direction/" height="654"></iframe>
 
 Важный момент: на сайтах с направлением текста справа налево, например, на сайте на арабском языке, для значений `row` и `row-reverse` основная ось будет идти в обратном направлении. Для значений `column` и `column-reverse` своё направление поменяет поперечная ось.
 
@@ -130,7 +130,7 @@ tags:
 
 ![Пример свойства flex-wrap](images/6.png)
 
-<iframe title="Пример свойства flex-wrap" src="demos/flex-demo/flex_wrap/" height="667"></iframe>
+<iframe title="Пример свойства flex-wrap" src="demos/flex-demo/flex_wrap/" height="682"></iframe>
 
 ### `flex-flow`
 
@@ -152,7 +152,7 @@ tags:
 }
 ```
 
-<iframe title="Пример свойства flex-flow" src="demos/flex-demo/flex_flow/" height="640"></iframe>
+<iframe title="Пример свойства flex-flow" src="demos/flex-demo/flex_flow/" height="654"></iframe>
 
 Как и со всеми шорткатами, с этим стоит быть осторожным. Хоть он и позволяет сэкономить пару строк кода, в случае переопределения одного из значений придётся переписывать свойство целиком, повторяя второе значение, которое не меняется. В таком случае проще было бы иметь два отдельных свойства и менять значения отдельно.
 
@@ -180,7 +180,7 @@ tags:
 - `space-around` — свободное пространство делится поровну между элементами и по половине от этой доли размещается по бокам от каждого элемента. Таким образом, между соседними элементами будет равное расстояние, а снаружи крайних элементов — по половине этого расстояния.
 - `space-evenly` — свободное место будет распределено так, чтобы расстояние между любыми двумя элементами было одинаковым и расстояние от крайних элементов до края было таким же.
 
-<iframe title="Пример свойства justify-content" src="demos/flex-demo/justify_content/" height="692"></iframe>
+<iframe title="Пример свойства justify-content" src="demos/flex-demo/justify_content/" height="710"></iframe>
 
 Хотя большинство значений поддерживаются основными браузерами, с некоторыми из них могут быть трудности. Поэтому лучше на всякий случай проверяйте поддержку на [Can I use](https://caniuse.com/#search=justify-content%20flex).
 
@@ -203,7 +203,7 @@ tags:
 - `center` — элементы выстраиваются по центру поперечной оси.
 - `baseline` — элементы выравниваются по базовой линии текста. «Базовая линия» — baseline — воображаемая линия, проходящая по нижнему краю знаков шрифта (без учёта выносных элементов).
 
-<iframe title="Пример свойства align-items" src="demos/flex-demo/align_items/" height="718"></iframe>
+<iframe title="Пример свойства align-items" src="demos/flex-demo/align_items/" height="738"></iframe>
 
 Это может быть сложно понять сразу, поэтому мы сделали демку. Обратите внимание, что вне зависимости от размера шрифта все блоки выравниваются по базовой линии первой строки.
 
@@ -272,7 +272,7 @@ tags:
 
 ![Пример свойства флекс-элементов order](images/7.png)
 
-<iframe title="Пример свойства флекс-элементов order" src="demos/flex-demo/order/" height="718"></iframe>
+<iframe title="Пример свойства флекс-элементов order" src="demos/flex-demo/order/" height="738"></iframe>
 
 ### `flex-grow`
 
