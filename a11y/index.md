@@ -73,6 +73,7 @@ groups:
       - aria-level
       - aria-placeholder
       - aria-required
+      - aria-invalid
       - aria-checked
       - aria-selected
       - aria-multiselectable
@@ -144,6 +145,7 @@ groups:
       - aria-level
       - aria-placeholder
       - aria-required
+      - aria-invalid
       - aria-checked
       - aria-selected
       - aria-multiselectable
