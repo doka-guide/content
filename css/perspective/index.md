@@ -40,3 +40,75 @@ tags:
 ```
 
 <iframe title="Cтатичный пример свойства perspective" src="demos/static-example/" height="200"></iframe>
+
+## Интерактивный пример
+
+```css
+  .container {
+    margin: 0 auto;
+  }
+
+  .scene {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    perspective: 500px;
+  }
+
+  .scene-wrapper {
+    width: 250px;
+    height: 250px;
+    transform-style: preserve-3d;
+  }
+
+  .element {
+    width: 250px;
+    height: 250px;
+  }
+
+  .element--front {
+    background-color: #2429c7ac;
+    transform: rotateY(0) translateZ(100px);
+  }
+
+  .element--back {
+    background-color: #44c724ac;
+    transform: rotateY(180deg) translateZ(100px);
+  }
+```
+
+```js
+  const myRange = document.getElementById("myRange");
+  const output = document.getElementById("demo");
+  const scene = document.querySelector(".scene");
+  const elementBack = document.querySelector(".element--back");
+  output.textContent = myRange.value;
+
+  myRange.onchange = myRange.oninput = function() {
+    let value = myRange.value;
+    elementBack.style.transform="rotateY(180deg) translateZ(100px)";
+    
+    if (value === '1000') {
+      value = 'none';
+      elementBack.style.transform="rotateY(180deg) translateZ(0)";
+    }
+
+    scene.style.perspective = `${ +value}px`;
+    output.textContent = value;
+  };
+```
+
+```html
+  <div class="container">
+    <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
+    <p>Perspective: <span id="demo"></span></p>
+    <div class="scene">
+      <div class="scene-wrapper">
+        <div class="element element--back">BACK</div>
+      </div>
+    </div>
+    <div class="element element--front">FRONT</div>
+  </div>
+```
+
+<iframe title="Интерактивный пример свойства perspective" src="demos/interactive-example/" height="500"></iframe>
