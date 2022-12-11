@@ -22,6 +22,8 @@ groups:
       - spread
       - for-in
       - shallow-or-deep-clone
+      - iterator
+      - date
   - name: "Примитивные типы данных"
     items:
       - number
@@ -35,30 +37,28 @@ groups:
   - name: "Коллекции"
     items:
       - object
-      - function-as-datatype
       - arrays
+      - function-as-datatype
       - set
       - map
-      - objects-objects-everywhere
   - name: "Числа"
     items:
-      - number-wrapper
-      - number-is-nan
-      - number-isfinite
-      - number-tostring
+      - number
       - parseint
       - parsefloat
-      - math
-      - math-floor
-      - math-random
+      - number-wrapper
+      - number-tostring
+      - number-is-nan
+      - number-isfinite
   - name: "Строки"
     items:
+      - string
       - string-wrapper
       - template-strings
       - index-of
       - includes
       - string-length
-  - name: "Булевый тип"
+  - name: "Булев тип"
     items:
       - boolean
       - logic-operators
@@ -81,6 +81,7 @@ groups:
       - array-find
       - array-find-index
       - array-flat
+      - array-flatmap
       - array-every
       - array-some
       - array-reverse
@@ -89,11 +90,16 @@ groups:
       - array-length
       - array-from
       - array-isarray
-  - name : "Множество Set"
+  - name: "Объекты"
+    items:
+      - object
+      - object-tostring
+      - descriptors
+      - objects-objects-everywhere
+  - name : "Множества (`Set`)"
     items:
       - set
       - set-constructor
-      - set-size
       - set-add
       - set-delete
       - set-has
@@ -102,19 +108,27 @@ groups:
       - set-values
       - set-keys
       - set-entries
+      - set-size
   - name: "Обработка исключений"
     items:
       - try-catch
       - errors
+  - name: "`Math`"
+    items:
+      - math
+      - math-floor
+      - math-random
   - name: "Браузерное окружение и API"
     items:
       - bom
       - dom
       - fetch
+      - form-data
       - console-log
       - window-history
       - window-location
       - window-navigator
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
@@ -123,12 +137,14 @@ groups:
       - alert
       - prompt
       - confirm
+      - queuemicrotask
       - settimeout
       - cleartimeout
       - setinterval
       - clearinterval
-      - parseint
       - window-print
+      - window-open
+      - intersection-observer
   - name: "О браузере"
     items:
       - how-the-browser-creates-pages
@@ -140,10 +156,8 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
-  - name: "Объект страницы `document`"
+  - name: "Объект страницы (`document`)"
     items:
-      - cookie
-      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
@@ -151,11 +165,14 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
-  - name: "Элемент на странице `Element`"
+      - forms
+      - cookie
+  - name: "Элемент на странице (`Element`)"
     items:
       - element
       - element-addeventlistener
       - element-removeeventlistener
+      - element-remove-property
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
@@ -163,8 +180,11 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
-      - element-scroll-scrollintoview
-      - element-scroll-scrollto
+      - element-get-property-value
+      - element-set-property
+      - element-scrollby
+      - element-scrollintoview
+      - element-scrollto
       - element-classlist
       - element-dataset
       - element-style
@@ -173,17 +193,26 @@ groups:
       - element-innertext
       - element-textcontent
       - element-hidden
-  - name: "События `Event`"
+  - name: "События"
     items:
       - events
+      - event
+      - event-change
+      - event-dblclick
       - element-click
-      - event-load-and-domcontentloaded
+      - event-invalid
+      - event-submit
+      - event-domcontentloaded
+      - event-load
       - event-unload
       - event-beforeunload
-      - element-keydown-keyup
+      - element-keydown
+      - element-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-wheel
+      - event-prevent-default
+      - element-scroll
+      - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
     items:
@@ -200,6 +229,7 @@ groups:
       - promise-finally
       - promise-all
       - promise-allsettled
+      - promise-any
       - promise-race
       - async-await
   - name: "Обмен данными с API"

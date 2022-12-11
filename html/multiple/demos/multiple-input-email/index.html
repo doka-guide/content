@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Использование атрибута multiple для множественного выбора имейлов — Атрибут multiple — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 100px 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto Mono", monospace;
+      font-size: 18px;
+    }
+
+    .input-label {
+      display: block;
+      font-size: 24px;
+      font-weight: 500;
+      margin-right: 35px;
+    }
+
+    .input {
+      position: relative;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 5px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      outline: none;
+      border: 1px solid #ff8630;
+    }
+  </style>
+</head>
+<body>
+  <label class="input-label" for="emails">Выберите имейлы</label>
+  <input class="input" type="email" id="emails" list="list-of-emails" size="60" multiple>
+  <datalist id="list-of-emails">
+    <option value="nekto@doka.guide">Неизвестный</option>
+    <option value="prikolist333@doka.guide">Друг шутник</option>
+    <option value="anderyBoss@doka.guide">Босс Андрей</option>
+    <option value="grish111a@doka.guide">Просто Гриша</option>
+    <option value="brigadir@doka.guide">Бригадир</option>
+    <option value="s0123tr1012dgs@doka.guide">Не знаю кто</option>
+    <option value="printerDanila01@doka.guide">Почта для принтера</option>
+  </datalist>
+</body>
+</html>

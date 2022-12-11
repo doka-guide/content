@@ -12,6 +12,10 @@
     "contributors",
     "editors",
     "keywords",
+    "related",
     "tags"
-  ]
+  ],
+  "specialCheck": {
+    "related": "./related.mjs"
+  }
 }

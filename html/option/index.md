@@ -1,15 +1,18 @@
 ---
 title: "`<option>`"
+description: "Один пункт в раскрывающемся списке `<select>`."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
+  - starhamster
 keywords:
-  - тэг
-  - тег
   - пункт
-  - "<option>"
   - выбор
+related:
+  - html/form
+  - js/form-data
+  - css/required
 tags:
   - doka
 ---
@@ -35,7 +38,7 @@ tags:
 </form>
 ```
 
-<iframe title="Стандартный выпадающий список" src="demos/default/" height="320"></iframe>
+<iframe title="Стандартный выпадающий список" src="demos/default/" height="150"></iframe>
 
 ## Подробно
 
@@ -59,6 +62,8 @@ tags:
 </select>
 ```
 
+<iframe title="Атрибут disabled" src="demos/disabled-attribute/" height="150"></iframe>
+
 ### `label`
 
 Значение этого атрибута задаёт текст пункта в списке. Если атрибут не задан, то в качестве значения берётся текстовое содержимое тега `<option>`.
@@ -72,7 +77,9 @@ tags:
 </select>
 ```
 
-В примере выше, несмотря на то, что задано текстовое содержимое тега `<option>`, в выпадающем списке отображаются значения из атрибутов `label`.
+Несмотря на то, что задано текстовое содержимое тега `<option>`, в выпадающем списке отображаются значения из атрибутов `label`:
+
+<iframe title="Атрибут label" src="demos/label-attribute/" height="150"></iframe>
 
 ### `selected`
 
@@ -101,10 +108,8 @@ tags:
 </select>
 ```
 
-<iframe title="Разные атрибуты" src="demos/option-attrs/" height="520"></iframe>
+<iframe title="Атрибут selected" src="demos/selected-attribute/" height="380"></iframe>
 
 ### `value`
 
 Если выбран какой-то пункт списка, то при отправке формы на сервер будет передано значение атрибута `value` этого пункта. Если атрибут не задан, то при отправке будет использоваться текстовое содержимое тега `<option>`.
-
-

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Визуально скрытый текст кнопки — Скринридеры — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 50px;
+      background-color: #eee;
+      font-family: "Roboto", sans-serif;
+    }
+
+    button {
+      border: 0;
+      background: transparent;
+      color: #424242;
+    }
+
+    .button__icon {
+      fill: currentColor;
+    }
+
+    .button__icon:hover {
+      fill: #10f3af;
+    }
+
+    button:focus {
+      outline: 3px solid #024b35;
+      outline-offset: 4px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <button>
+    <svg width="70" height="70" viewBox="0 0 70 70" class="button__icon" xmlns="http://www.w3.org/2000/svg">
+      <path d="M67.9145 58.6839L44.2306 35L67.9145 11.3161C70.4715 8.75908 70.4715 4.6425 67.9145 2.0855C65.3575 -0.471493 61.2409 -0.471493 58.6839 2.0855L35 25.7694L11.3161 2.0855C8.75906 -0.471493 4.64248 -0.471493 2.08549 2.0855C-0.471509 4.6425 -0.471509 8.75908 2.08549 11.3161L25.7694 35L2.08549 58.6839C-0.471509 61.2409 -0.471509 65.3575 2.08549 67.9145C4.64248 70.4715 8.75906 70.4715 11.3161 67.9145L35 44.2306L58.6839 67.9145C61.2409 70.4715 65.3575 70.4715 67.9145 67.9145C70.4534 65.3575 70.4534 61.2228 67.9145 58.6839Z"/>
+    </svg>
+    <span class="visually-hidden">Закрыть</span>
+  </button>
+</body>
+</html>

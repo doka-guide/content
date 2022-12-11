@@ -16,8 +16,10 @@ jobs:
       - name: Формирует список меты файлов
         run: |
           npm install @octokit/core
-          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md a11y/**/index.md
       - name: Обновление списков материалов-кандидатов на редактирование
         run: node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
       - name: Обновление списков материалов-кандидатов на доработку демок
         run: node .github/scripts/demos-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
+      - name: Обновление списков материалов с дескрипшенами и без
+        run: node .github/scripts/description-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,6 @@
 ---
 title: "Методологии разработки и Agile"
+description: "Что такое гибкие методологии и почему про них так много говорят? Зачем вообще нужны методологии разработки?"
 authors:
   - igorkamyshev
 contributors:
@@ -7,9 +8,10 @@ contributors:
   - matiesha
 editors:
   - tachisis
-keywords:
-  - agile
-  - scrum
+related:
+  - js/code-style
+  - tools/version-control
+  - js/technical-debt
 tags:
   - article
 ---

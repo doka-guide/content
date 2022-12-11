@@ -1,5 +1,6 @@
 ---
 title: "`<img>`"
+description: "Все любят картинки! Тег для вставки изображений на страницу."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -15,7 +16,10 @@ editors:
   - tachisis
 keywords:
   - картинка
-  - img
+related:
+  - html/picture
+  - css/display
+  - tools/web-server
 tags:
   - doka
 ---

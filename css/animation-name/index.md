@@ -1,12 +1,17 @@
 ---
 title: "`animation-name`"
+description: "Чтобы анимацию к чему-то применить её нужно сначала назвать."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - имя анимации
+  - название анимации
+related:
+  - css/keyframes
+  - css/animation
+  - css/hover
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "`<h1>`...`<h6>`"
+description: "Заголовки на странице для оформления структуры."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -13,14 +14,16 @@ contributors:
   - furtivite
 keywords:
   - заголовок
-  - тэг
-  - тег
   - h1
   - h2
   - h3
   - h4
   - h5
   - h6
+related:
+  - a11y/screenreaders
+  - css/tag-selector
+  - html/main
 tags:
   - doka
 ---
@@ -42,7 +45,7 @@ tags:
 
 <iframe title="Заголовки 6 уровней" src="demos/headers/" height="480"></iframe>
 
-## Как это понять
+## Как понять
 
 Цифра в теге означает уровень заголовка в иерархии: от самого общего или главного `<h1>` до самого второстепенного `<h6>`. По умолчанию `<h1>` — самый крупный заголовок на странице, а `<h6>` — самый мелкий.
 

@@ -2,8 +2,107 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2022
+
+- 22 ноября, [`navigation`](https://doka.guide/a11y/role-navigation/), Данила
+- 22 ноября, [`aria-keyshortcuts`](https://doka.guide/a11y/aria-keyshortcuts/), Татьяна Фокина
+- 18 ноября, [`aria-flowto`](https://doka.guide/a11y/aria-flowto/), Татьяна Фокина
+- 11 ноября, [Как сделать превью проекта на собственном сервере](https://doka.guide/recipes/self-hosted-preview), Игорь Коровченко
+- 5 ноября, [Как скрыть содержимое от скринридеров](https://doka.guide/a11y/content-hidden/), Марианна Минич
+- 4 ноября, [`border-collapse`](https://doka.guide/css/border-collapse/), Антон Капустинский
+- 4 ноября, [`border-spacing`](https://doka.guide/css/border-spacing/), Антон Капустинский
+- 4 ноября, [`aria-roledescription`](https://doka.guide/a11y/aria-roledescription/), Татьяна Фокина
+
+## Октябрь 2022
+
+- 31 октября, [`aria-description`](https://doka.guide/a11y/aria-description/), Татьяна Фокина
+- 28 октября, [Собственный конвертор шрифтов](https://doka.guide/recipes/font-script/), Игорь Коровченко
+- 21 октября, [URL](https://doka.guide/tools/url/), Алексей Никитченко
+- 20 октября, [Skip link](https://doka.guide/a11y/skip-link/), Иван Ельцов
+- 20 октября, [Что такое доступность](https://doka.guide/a11y/chto-takoe-a11y/), Татьяна Фокина
+- 20 октября, [Введение в ARIA](https://doka.guide/a11y/aria-intro/), Татьяна Фокина
+- 20 октября, [ARIA-роли](https://doka.guide/a11y/aria-roles/), Татьяна Фокина
+- 20 октября, [ARIA-атрибуты](https://doka.guide/a11y/aria-attrs/), Татьяна Фокина
+- 20 октября, [`aria-label`](https://doka.guide/a11y/aria-label/), Татьяна Фокина
+- 20 октября, [`aria-hidden`](https://doka.guide/a11y/aria-hidden/), Татьяна Фокина
+- 20 октября, [`aria-labelledby`](https://doka.guide/a11y/aria-labelledby/), Татьяна Фокина
+- 20 октября, [`aria-describedby`](https://doka.guide/a11y/aria-describedby/), Татьяна Фокина
+- 20 октября, [`role-presentation`](https://doka.guide/a11y/role-presentation/), Татьяна Фокина
+- 20 октября, [ARIA-роль `contentinfo`](https://doka.guide/a11y/role-contentinfo/), Татьяна Фокина
+- 19 октября, [`:default`](https://doka.guide/css/default/), Антон Капустинский
+- 17 октября, [`max()`](https://doka.guide/css/max/), Денис Путнов
+- 14 октября, [Счётчик символов в поле ввода](https://doka.guide/recipes/character-counter/), Алексей Никитченко
+- 14 октября, [`:focus-within`](https://doka.guide/css/focus-within/), Антон Капустинский
+- 14 октября, [`<datalist>`](https://doka.guide/html/datalist/), Алексей Степанов
+- 13 октября, [Geolocation API](https://doka.guide/js/geolocation-api/), Алексей Никитченко
+- 12 октября, [`:focus-visible`](https://doka.guide/css/focus-visible/), Антон Капустинский
+- 6 октября, [`aspect-ratio`](https://doka.guide/css/aspect-ratio/), Денис Путнов
+- 5 октября, [`.scrollBy()`](https://doka.guide/js/element-scrollby/), Антон Капустинский
+- 5 октября, [Intersection Observer](https://doka.guide/js/intersection-observer/), Олег Полянский
+- 3 октября, [`<object>`](https://doka.guide/html/object/), Андрей Калповский
+
+## Сентябрь 2022
+
+- 29 сентября, [`image-set()`](https://doka.guide/css/image-set/), Александр Дахно
+- 28 сентября, [`place-content`](https://doka.guide/css/place-content/), Алексей Никитченко
+- 19 сентября, [`@supports`](https://doka.guide/css/supports/), Инна Абдрахманова
+- 12 сентября, [`<dialog>`](https://doka.guide/html/dialog/), Артур Бэйлис Ли
+- 1 сентября, [`<area>`](https://doka.guide/html/area/), Алексей Никитченко
+- 1 сентября, [`list-style`](https://doka.guide/css/list-style/), Алексей Степанов
+
+## Август 2022
+
+- 30 августа, [`<map>`](https://doka.guide/html/map/), Алексей Никитченко
+- 30 августа, [`::marker`](https://doka.guide/css/marker), Алексей Степанов
+- 25 августа, [Класс `Date`](https://doka.guide/js/date/), Ксения Субботина
+- 24 августа, [Атрибут `for`](https://doka.guide/html/for/), Алексей Никитченко
+- 19 августа, [Событие `submit`](https://doka.guide/js/event-submit/), Алексей Никитченко
+- 17 августа, [`counter()`, `counters()`](https://doka.guide/css/counter-counters/), Алексей Степанов
+- 17 августа, [Счётчики в CSS](https://doka.guide/css/css-counters/), Алексей Степанов
+- 15 августа, [Атрибут `size`](https://doka.guide/html/size/), Алексей Никитченко
+- 15 августа, [Атрибут `multiple`](https://doka.guide/html/multiple/), Алексей Никитченко
+- 15 августа, [`text-decoration-color`](https://doka.guide/css/text-decoration-color/), Алексей Никитченко
+- 15 августа, [`<abbr>`](https://doka.guide/html/abbr/), Иван Ельцов
+- 14 августа, [Метод `preventDefault()`](https://doka.guide/js/event-prevent-default/), Георгий Милевский
+- 11 августа, [`text-decoration-style`](https://doka.guide/css/text-decoration-style/), Алексей Никитченко
+- 11 августа, [`<em>`](https://doka.guide/html/em/), Иван Ельцов
+- 4 августа, [`repeating-linear-gradient()`](https://doka.guide/css/repeating-linear-gradient/), Алексей Никитченко
+- 1 августа, [`<canvas>`](https://doka.guide/html/canvas/), Евгений Подивилов
+
+## Июль 2022
+
+- 29 июля [`repeating-radial-gradient()`](https://doka.guide/css/repeating-radial-gradient/), Алексей Никитченко
+
+## Июнь 2022
+
+- 28 июня [Основы работы с ElasticSearch](https://doka.guide/js/elasticsearch/), Даниил Хлебовский
+- 16 июня [`<output>`](https://doka.guide/html/output), Борис Демченко
+- 16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
+- 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков
+- 12 июня [Дескрипторы](https://doka.guide/js/descriptors/), Антон Горелов
+
+## Май 2022
+
+- 26 мая [`queueMicrotask()`](https://doka.guide/js/queuemicrotask/), Артём Гусев
+- 15 мая [`FormData`](https://doka.guide/js/form-data/), Виталий Баев
+- 4 мая [Метод `flatMap()`](https://doka.guide/js/array-map/), Антон Горелов
+- 4 мая [`outline-width`](https://doka.guide/css/outline-width/), Владимир
+
+## Апрель 2022
+
+- 28 апреля [Gulp и его использование](https://doka.guide/tools/gulp/), Борис Демченко
+- 5 апреля [Атрибут `disabled`](https://doka.guide/html/disabled/), Алёна Батицкая
+- 5 апреля [`accent-color`](https://doka.guide/css/accent-color/), Алёна Батицкая
+- 5 апреля [Атрибут `required`](https://doka.guide/html/required/), Алёна Батицкая
+- 5 апреля [Атрибут `value`](https://doka.guide/html/value/), Алёна Батицкая
+- 5 апреля [Атрибуты `defer` и `async`](https://doka.guide/html/defer-async/), Матвей Романов
+
 ## Март 2022
 
+- 31 марта [Загрузка файла с прогресс-баром](https://doka.guide/recipes/progress/), Борис Демченко
+- 31 марта [Короткие ссылки на NJS](https://doka.guide/recipes/short-links/), Игорь Коровченко
+- 31 марта [Установка сертификатов Let’s Encrypt](https://doka.guide/recipes/lets-encrypt-nginx/), Игорь Коровченко
+- 31 марта [Снежинки](https://doka.guide/recipes/snow/), Алёна Батицкая
 - 20 марта [Событие `beforeunload`](https://doka.guide/js/event-beforeunload/), Антон Субботин
 - 20 марта [Событие `unload`](https://doka.guide/js/event-unload/), Антон Субботин
 - 17 марта [`<samp>`](https://doka.guide/html/samp/), Борис Демченко

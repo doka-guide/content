@@ -4,7 +4,7 @@ authors:
   - doka-dog
 contributors:
   - solarrust
-  - futivite
+  - furtivite
 keywords:
   - margin
 tags:
@@ -51,7 +51,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Значение `margin` может выражаться в пикселях (px), процентах (%) или словом `auto`, а также в любых других доступных в вебе [единицах измерения](/css/numeric-types/).
 

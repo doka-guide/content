@@ -1,5 +1,6 @@
 ---
 title: "`<header>`"
+description: "Надень на страницу шапку, а то она голову простудит."
 authors:
   - doka-dog
 contributors:
@@ -8,11 +9,12 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - хэдер
-  - header
   - шапка
+related:
+  - html/main
+  - css/tag-selector
+  - html/head
 tags:
   - doka
 ---
@@ -49,7 +51,7 @@ tags:
 
 <iframe title="Шапка сайта" src="demos/header/" height="450"></iframe>
 
-## Как это понять
+## Как понять
 
 Контейнер `<header>` чаще всего используется для создания шапки сайта. Шапка сайта — это блок с вводной информацией, там обычно находятся логотип, строка поиска, меню, кнопки соцсетей или другие ключевые элементы.
 

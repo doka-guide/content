@@ -1,5 +1,11 @@
 ---
 title: "`<picture>`"
+description: "Адаптирует картинки под разные устройства и поддерживаемые форматы."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Планшет, телефон, монитор, кружка, на которых изображены матрёшки'
 authors:
   - ezhkov
 contributors:
@@ -11,6 +17,10 @@ keywords:
   - ретина
   - retina
   - srcset
+related:
+  - html/img
+  - css/media
+  - css/background-image
 tags:
   - doka
 ---
@@ -28,7 +38,7 @@ tags:
 </picture>
 ```
 
-## Как это понять
+## Как понять
 
 Одна и та же страница может быть открыта на разных устройствах и в браузерных окнах разной ширины. У телефона небольшой экран, и было бы круто не загружать полноразмерные картинки с большим разрешением. В CSS мы можем изменять фон элемента ([`background-image`](/css/background-image/)) в зависимости от ширины экрана, используя медиавыражения. Но если изображение контентное, вставлено в HTML при помощи тега [`<img>`](/html/img/), то CSS нам уже не поможет. Мы должны использовать теги `<picture>` и [`<source>`](/html/source/).
 

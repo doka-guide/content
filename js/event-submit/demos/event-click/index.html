@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример подписки на событие click вместо submit — Событие submit — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div {
+      margin-top: 30px;
+    }
+
+    label {
+      padding-right: 10px;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      input {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<form onsubmit="return false">
+  <div>
+    <label for="input-field">Нажмите Enter в поле:</label>
+    <input id="input-field" type="text">
+  </div>
+  <div>
+    <button id="submit-button" class="button button-blue">Кнопка</button>
+  </div>
+</form>
+<script>
+  const button = document.getElementById('submit-button');
+
+  button.addEventListener('click', function (event) {
+    alert(`Событие поймано на ${event.currentTarget}`)
+  })
+</script>
+</body>
+</html>

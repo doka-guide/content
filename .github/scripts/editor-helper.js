@@ -12,14 +12,16 @@ const issueNumberToChapter = {
   css: 1826,
   html: 1825,
   js: 1824,
-  tools: 1823
+  tools: 1823,
+  a11y: 3956,
 }
 
 const issueLists = {
   css: [],
   html: [],
   js: [],
-  tools: []
+  tools: [],
+  a11y: [],
 }
 
 const printItem = (fileName, title, isChecked, isPlaceholder) => {

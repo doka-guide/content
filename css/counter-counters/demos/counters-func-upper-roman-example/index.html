@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования counters() — counter() и counters() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .table-of-contents>*+* {
+      padding-top: 0.25rem;
+    }
+
+    .subtabel-of-contents__list>*+*,
+    .subtable-of-contents__paragraph:first-child {
+      padding-top: 0.25rem;
+    }
+
+    .table-of-contents__paragraph:first-child {
+      padding-top: 0.75rem;
+    }
+
+    .table-of-contents__paragraph:last-child {
+      padding-bottom: 0.75rem;
+    }
+
+    .table-of-contents_counter-paragraph {
+      counter-reset: paragraph 0;
+      margin-left: 22px;
+    }
+
+    .table-of-contents__paragraph,
+    .subtable-of-contents__paragraph {
+      counter-increment: paragraph 1;
+      padding-left: 0.25rem;
+    }
+
+    .table-of-contents__paragraph::marker,
+    .subtable-of-contents__paragraph::marker {
+      content: counters(paragraph, '.', upper-roman);
+    }
+
+    .table-of-contents__link,
+    .subtable-of-contents__link {
+      color: #FFF;
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(255, 255, 255, 0.3);
+      text-underline-position: auto;
+      text-underline-offset: 0.125em;
+      transition: text-decoration-color 0.5s;
+    }
+
+    .table-of-contents__link:hover,
+    .subtable-of-contents__link:hover {
+      text-decoration-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <ul class="table-of-contents table-of-contents_counter-paragraph">
+    <li class="table-of-contents__paragraph"><a href="" class="table-of-contents__link">Кратко</a></li>
+    <li class="table-of-contents__paragraph subtable-of-contents">
+      <a href="" class="table-of-contents__link">Пример</a>
+      <ul class="subtabel-of-contents__list table-of-contents_counter-paragraph">
+        <li class="subtable-of-contents__paragraph"><a href="" class="subtable-of-contents__link">counter()</a>
+        </li>
+        <li class="subtable-of-contents__paragraph"><a href="" class="subtable-of-contents__link">counters()</a>
+        </li>
+      </ul>
+    </li>
+    <li class="table-of-contents__paragraph"><a href="" class="table-of-contents__link">Как понять</a></li>
+    <li class="table-of-contents__paragraph"><a href="" class="table-of-contents__link">Как пишется</a></li>
+    <li class="table-of-contents__paragraph"><a href="" class="table-of-contents__link">Аргументы</a></li>
+  </ul>
+</body>
+</html>

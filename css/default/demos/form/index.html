@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма со стилизованными по умолчанию элементами — :default — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    select, button, .container {
+      width: 350px;
+      flex-shrink: 0;
+    }
+
+    select {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border: 1px solid #2E9AFF;
+      outline: none;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      top: calc(50% - 4px);
+      height: 9px;
+      right: 15px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    option:default {
+      background-color: #F498AD;
+    }
+
+    option:checked {
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .select-multiple {
+      border-radius: 6px 0 0 6px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:default + .radio-title::before {
+      border-color: #F498AD;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #2E9AFF 0%,
+        #2E9AFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:default + .checkbox-title::before {
+      border-color: #F498AD;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+    }
+
+    button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      margin: 25px 0 0 auto;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:default {
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: initial;
+      }
+
+      .row-label {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      select, button, .container {
+        width: 100%;
+      }
+
+      .radio,
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      .inputs-container, .progress-bar, button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label class="row-label" for="address-select">Адрес пиццерии:</label>
+      <div class="select-wrapper">
+        <select name="address" id="address-select">
+          <option value="centralnaia" selected>Центральная, 5</option>
+          <option value="molodejnaia">Молодёжная, 66</option>
+          <option value="shkolnaia">Школьная, 98</option>
+          <option value="sovetskaia">Советская, 148</option>
+          <option value="sadovaia">Садовая, 25</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="row-label" for="pizza-select">Выберите пиццу:</label>
+      <select class="select-multiple" name="pizza" id="pizza-select" multiple size="5">
+        <option value="pepperoni">Пепперони</option>
+        <option value="barbekiu">Барбекю</option>
+        <option value="margarita" selected>Маргарита</option>
+        <option value="miasnaia" selected>Мясная</option>
+        <option value="gavaiskaia">Гавайская</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <span class="row-label">Размер пиццы:</span>
+      <div class="container">
+        <label class="radio-label">
+          <input class="radio" type="radio" name="size" id="25">
+          <span class="radio-title">25 см</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="size" id="30">
+          <span class="radio-title">30 см</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="size" id="35" checked>
+          <span class="radio-title">35 см</span>
+        </label>
+      </div>
+    </div>
+    <div class="form-row">
+      <span class="row-label">Добавки:</span>
+      <div class="container">
+        <label class="checkbox-label">
+          <input class="checkbox" type="checkbox" name="addition" id="cheese">
+          <span class="checkbox-title">Сыр</span>
+        </label>
+        <label class="checkbox-label">
+          <input class="checkbox" type="checkbox" name="addition" id="onion" checked>
+          <span class="checkbox-title">Лук</span>
+        </label>
+        <label class="checkbox-label">
+          <input class="checkbox" type="checkbox" name="addition" id="ham">
+          <span class="checkbox-title">Ветчина</span>
+        </label>
+      </div>
+    </div>
+    <button>Заказать</button>
+  </form>
+</body>
+</html>

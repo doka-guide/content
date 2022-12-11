@@ -1,5 +1,6 @@
 ---
 title: "`<audio>`"
+description: "Включите музыку, подкаст или аудио-подсказку."
 authors:
   - doka-dog
 contributors:
@@ -7,7 +8,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - audio
   - аудио
   - controls
   - source
@@ -15,9 +15,10 @@ keywords:
   - muted
   - preload
   - autoplay
-  - тэг
-  - тег
-  - аудио
+related:
+  - html/figure-figcaption
+  - html/source
+  - html/global-attrs
 tags:
   - doka
 ---
@@ -40,7 +41,7 @@ tags:
 </figure>
 ```
 
-## Как это понять
+## Как понять
 
 Тег `<audio>` добавляет на страницу аудиоплеер, который может воспроизвести звуковой файл. Можно добавить несколько форматов одного файла, чтобы браузер воспроизвёл тот формат, который он поддерживает — для этого нужно добавить вложенные теги [`<source>`](/html/source/).
 

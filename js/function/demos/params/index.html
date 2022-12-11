@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Параметры функции — Функция — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    pre {
+      border-bottom: 1px solid #979797;
+      padding: 15px 0;
+      white-space: pre-wrap;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    .call {
+      display: flex;
+      align-items: center;
+    }
+
+    .call + .call {
+      margin-top: 25px;
+    }
+
+    .button {
+      display: block;
+      min-width: 300px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-right: 35px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .result {
+      width: 240px;
+      min-height: 45px;
+      border-bottom: 1px solid #979797;
+      padding: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .call {
+        display: block;
+      }
+
+      .button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .result {
+        display: block;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Наши функции</h2>
+    <pre><code>function decorate(text, symb) {
+  return symb + text + symb
+}
+
+function decorateSmart(text, symb) {
+  if (typeof symb === 'undefined') symb = '$'
+  return symb + text + symb
+}</code></pre>
+    <h2>Вызовы функций</h2>
+    <div class="calls">
+      <div class="call">
+        <button class="button button-yellow" onclick="runDecorate('decorateValid', 'hello', '*')"><code>decorate('hello', '*')</code></button>
+        <span class="result" id="decorateValid"><code></code></span>
+      </div>
+      <div class="call">
+        <button class="button button-yellow" onclick="runDecorate('decorateInvalid', 'hello')"><code>decorate('hello')</code></button>
+        <span class="result" id="decorateInvalid"><code></code></span>
+      </div>
+      <div class="call">
+        <button class="button button-green" onclick="runDecorateSmart('smartValid', 'hey', '*')"><code>decorateSmart('hey', '*')</code></button>
+        <span class="result" id="smartValid"><code></code></span>
+      </div>
+      <div class="call">
+        <button class="button button-green" onclick="runDecorateSmart('smartInvalid', 'hey')"><code>decorateSmart('hey')</code></button>
+        <span class="result" id="smartInvalid"><code></code></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function decorate(text, symb) {
+      return symb + text + symb
+    }
+
+    function decorateSmart(text, symb) {
+      if (typeof symb === 'undefined') symb = '$';
+      return symb + text + symb
+    }
+
+    function runDecorate(id, text, symb) {
+      const code = document.querySelector(`#${id} code`)
+      code.innerText = decorate(text, symb)
+    }
+
+    function runDecorateSmart(id, text, symb) {
+      const code = document.querySelector(`#${id} code`)
+      code.innerText = decorateSmart(text, symb)
+    }
+  </script>
+</body>
+</html>

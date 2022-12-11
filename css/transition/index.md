@@ -1,5 +1,10 @@
 ---
 title: "`transition`"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Девочка на пляже под зонтиком, а рядом стрелка, которая становится прозрачнее, чем выше к солнцу'
 authors:
   - ezhkov
 contributors:
@@ -71,7 +76,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Предположим, у нас есть кнопка, у которой мы хотим изменить фон при наведении мышкой.
 

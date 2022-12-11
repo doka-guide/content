@@ -19,36 +19,41 @@ class Calculator {
   // Храним (инкапсулируем) значение
   // внутри модуля в поле value.
   constructor(initial = 0) {
-    this.value = initial;
+    this.value = initial
   }
 
   // При добавлении увеличиваем value
   // на указанное количество.
-  add: (x) => {
-    this.value += x;
+  add(x) {
+    this.value += x
   }
 
   // При вычитании уменьшаем value
   // на указанное количество.
-  subtract: (x) => {
-    this.value -= x;
+  subtract(x) {
+    this.value -= x
   }
 
-  valueOf: () => this.value
+  valueOf () {
+      return this.value
+  }
 }
 
 // Создаём экземпляр класса
 // с начальным состоянием, равным 0.
-const calculator = new Calculator();
+const calculator = new Calculator()
 
-calculator.add(3);
-calculator.valueOf();   // 3
+calculator.add(3)
+console.log(calculator.valueOf())
+// 3
 
-calculator.add(4);
-calculator.valueOf();   // 7
+calculator.add(4)
+console.log(calculator.valueOf())
+// 7
 
-calculator.subtract(1);
-calculator.valueOf();   // 6
+calculator.subtract(1)
+console.log(calculator.valueOf())
+// 6
 ```
 
 ### В стиле ФП
@@ -68,10 +73,15 @@ function subtract(a, b) {
 }
 
 // Вызывали бы наши функции мы так:
-add(0, 3) // 3
-add(3, 4) // 7
-subtract(7, 1) // 6
+console.log(add(0, 3))
+// 3
+console.log(add(3, 4))
+// 7
+console.log(subtract(7, 1)) // 6
 
 // Или одной строкой:
-subtract(add(add(0, 3), 4), 1) // 6
+console.log(
+  subtract(add(add(0, 3), 4), 1)
+)
+// 6
 ```

@@ -6,7 +6,7 @@
 const controller = new AbortController()
 
 function fetchData() {
-  return fetch("http://jsonplaceholder.typicode.com/posts", {
+  return fetch('http://jsonplaceholder.typicode.com/posts', {
     signal: controller.signal,
   })
     .then((response) => response.json())
@@ -28,7 +28,7 @@ controller.abort()
 
 ### Загрузка файла на сервер
 
-С помощью `fetch` можно загружать файлы на сервер, например когда пользователь хочет загрузить свой аватар в профиль. Отправку файлов можно осуществлять с помощью специального объекта `FormData`. Покажем на примере обработчика отправки формы.
+С помощью `fetch()` можно загружать файлы на сервер, например когда пользователь хочет загрузить свой аватар в профиль. Отправку файлов можно осуществлять с помощью специального объекта [`FormData`](/js/form-data/). Покажем на примере обработчика отправки формы:
 
 ```html
 <form id="form">
@@ -39,8 +39,8 @@ controller.abort()
 
 ```js
 // Находим элемент с файлом
-const fileInput = document.getElementById("avatar")
-const form = document.getElementById("form")
+const fileInput = document.getElementById('avatar')
+const form = document.getElementById('form')
 
 function handleSubmit(event) {
   event.preventDefault()
@@ -50,34 +50,34 @@ function handleSubmit(event) {
   // Добавляем файлы из инпута к данным
   for (let i = 0; i < fileInput.files.length; i++) {
     const file = fileInput.files[i]
-    formData.append("avatar", file, file.name)
+    formData.append('avatar', file, file.name)
   }
 
   // Отправляем файлы на сервер
-  fetch("https://backend.com/api/upload", {
+  fetch('https://backend.com/api/upload', {
     method: "POST",
     body: formData,
   })
 }
 
-form.addEventListener("submit", handleSubmit)
+form.addEventListener('submit', handleSubmit)
 ```
 
 ### Скачивание данных с результатом прогресса
 
-Чтобы получать текущий прогресс скачивания файла или любых других данных нам понадобится использовать свойство `body` объекта `Response`, который возвращается в `Promise` после вызова `fetch`. Поле `body` является «потоком для чтения» (`Readable Stream`) — это специальный объект, который даёт возможность получать информацию по частям, по мере её поступления на клиент.
+Чтобы получать текущий прогресс скачивания файла или любых других данных нам понадобится использовать свойство `body` объекта `Response`, который возвращается в `Promise` после вызова `fetch()`. Поле `body` является «потоком для чтения» (`Readable Stream`) — это специальный объект, который даёт возможность получать информацию по частям, по мере её поступления на клиент.
 
 Попробуем таким образом загрузить милое видео как белый котик дружит с огромным псом.
 
 ```js
-fetch("https://i.imgur.com/C5QXZ7u.mp4").then(async (response) => {
+fetch('https://i.imgur.com/C5QXZ7u.mp4').then(async (response) => {
   let received = 0
 
   // Получаем поток в переменную
   const reader = response.body.getReader()
 
   // Считываем общую длину данных
-  const contentLength = parseInt(response.headers.get("Content-Length"), 10)
+  const contentLength = parseInt(response.headers.get('Content-Length'), 10)
 
   while (true) {
     // После вызова read() возвращается объект, в котором
@@ -86,7 +86,7 @@ fetch("https://i.imgur.com/C5QXZ7u.mp4").then(async (response) => {
     const { done, value } = await reader.read()
 
     if (done) {
-      console.log(`Получено 100%`)
+      console.log('Получено 100%')
       break
     }
 

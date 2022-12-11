@@ -13,11 +13,26 @@
     }
 
     body {
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
       color: #fff;
       font-family: Roboto, sans-serif;
+    }
+
+    h1,
+    h2 {
+      margin-top: 17px;
+      margin-bottom: 17px;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 22px;
     }
 
     :first-child {
@@ -26,6 +41,12 @@
 
     :last-child {
       margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

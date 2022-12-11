@@ -1,5 +1,6 @@
 ---
 title: "`<b>`"
+description: "Тег для привлечения внимания, но без лишней важности"
 authors:
   - gkhabada
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - жирный
   - полужирный
   - болд
+related:
+  - html/strong
+  - html/span
+  - css/font-weight
 tags:
   - doka
 ---

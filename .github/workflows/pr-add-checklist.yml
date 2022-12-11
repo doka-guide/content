@@ -1,0 +1,39 @@
+on:
+  pull_request_target:
+    types:
+      - labeled
+jobs:
+  thank-user:
+    if: contains(fromJSON('["дока", "статья"]'), github.event.label.name)
+    runs-on: ubuntu-latest
+    name: Чеклисты
+    steps:
+      - name: Выбор файла чек-листа
+        uses: kanga333/variable-mapper@master
+        id: check-list
+        with:
+          key: ${{ github.event.label.name }}
+          map: |
+            {
+              "дока": {
+                "CHECK_LIST": "checklist_new_doka.md"
+              },
+              "статья": {
+                "CHECK_LIST": "checklist_new_article.md"
+              }
+            }
+          export_to: output
+          mode: first_match
+      - name: Формирование чек-листа
+        id: markdown
+        uses: boyeborg/fetch-url-action@v1.1
+        with:
+          url: https://raw.githubusercontent.com/doka-guide/content/main/.github/${{ steps.check-list.outputs.CHECK_LIST }}
+      - name: Добавление чек-листа в PR
+        uses: hasura/comment-progress@v2.1.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          number: ${{ github.event.number }}
+          id: ${{ steps.check-list.outputs.CHECK_LIST }}-comment
+          message: ${{ steps.markdown.outputs.result }}

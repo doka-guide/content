@@ -5,8 +5,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    * {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
 
     .block {
@@ -15,11 +33,11 @@
       width: 150px;
       height: 150px;
       padding: 15px;
-      border: 5px solid black;
+      border: 5px solid;
     }
 
     .parent {
-      background-color: #1A5AD7;
+      background-color: #2E9AFF;
     }
 
     .child {
@@ -46,16 +64,18 @@
     .no-parent {
       margin-top: -50px;
       margin-left: 50px;
-      background-color: #c000ff;
+      background-color: #F498AD;
     }
   </style>
 </head>
 <body>
-  <div class="block parent">
-    <div class="child brown"></div>
-    <div class="child red"></div>
-    <div class="child yellow"></div>
+  <div>
+    <div class="block parent">
+      <div class="child brown"></div>
+      <div class="child red"></div>
+      <div class="child yellow"></div>
+    </div>
+    <div class="block no-parent"></div>
   </div>
-  <div class="block no-parent"></div>
 </body>
 </html>

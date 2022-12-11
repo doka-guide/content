@@ -1,54 +1,116 @@
 ---
 pinned:
-  - js/clean-architecture
-  - tools/ci-cd
-  - js/closures
+  - a11y/chto-takoe-a11y
+  - recipes/progress
+  - js/how-the-browser-creates-pages
 ready:
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - a11y/aria-hidden
+  - html/img
+  - html/article
+  - html/form
+  - html/nav
+  - html/section
   - html/flow
   - html/input
   - html/video
   - html/doctype
   - html/div
   - html/head
+  - css/transform-function
+  - css/keyframes
+  - css/position
+  - css/attr
+  - css/media
+  - css/pseudoelements
+  - css/specificity
   - css/box-shadow
   - css/custom-properties
   - css/flexbox-guide
   - css/box-model
   - css/display
   - css/grid-guide
+  - js/var-let
+  - js/boolean
+  - js/function
+  - js/function-context
+  - js/infinite-scroll
+  - js/oop
   - js/async-in-js
   - js/deal-with-forms
   - js/how-the-browser-creates-pages
   - js/how-to-test-and-why
   - js/execution-order
-  - tools/cli
-  - tools/static-types
-  - tools/docker
-  - tools/webpack
-active:
-  - js/clean-architecture
-  - tools/ci-cd
   - js/closures
-  - html/flow
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - html/input
-  - css/grid-guide
-  - js/execution-order
-  - tools/static-types
-  - html/div
-  - css/box-model
-  - html/head
-  - tools/webpack
+  - js/clean-architecture
+  - tools/agile
+  - tools/markdown
+  - tools/network
+  - tools/bundlers
+  - tools/gitlab-ci-cd
   - tools/cli
-  - html/doctype
-  - js/async-in-js
-  - css/custom-properties
+  - tools/static-types
   - tools/docker
+  - tools/webpack
+  - tools/ci-cd
+  - recipes/snow
+  - recipes/lets-encrypt-nginx
+  - recipes/progress
+active:
+  - a11y/chto-takoe-a11y
+  - recipes/progress
   - js/how-the-browser-creates-pages
-  - html/video
-  - js/how-to-test-and-why
+  - js/clean-architecture
+  - css/transform-function
+  - tools/static-types
+  - css/flexbox-guide
+  - tools/webpack
+  - html/form
+  - a11y/aria-hidden
+  - js/oop
+  - html/doctype
+  - html/flow
+  - tools/gitlab-ci-cd
+  - css/pseudoelements
+  - js/infinite-scroll
+  - tools/cli
+  - js/async-in-js
+  - html/div
+  - tools/docker
+  - tools/network
+  - a11y/aria-intro
   - css/display
+  - js/closures
+  - tools/ci-cd
+  - js/how-to-test-and-why
+  - html/section
+  - a11y/screenreaders
+  - html/article
+  - css/grid-guide
+  - css/media
+  - css/attr
+  - tools/bundlers
+  - html/video
+  - js/execution-order
+  - html/nav
+  - recipes/snow
+  - html/img
+  - css/custom-properties
+  - js/deal-with-forms
+  - js/function
+  - html/head
+  - css/keyframes
   - css/box-shadow
+  - js/var-let
+  - css/position
+  - js/boolean
+  - css/box-model
+  - js/function-context
+  - recipes/lets-encrypt-nginx
+  - tools/markdown
+  - css/specificity
+  - tools/agile
+  - html/input
 ---
 

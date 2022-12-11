@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Example — Метод setProperty() для установки CSS стилей из JS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 10px;
+      font-family: Roboto, sans-serif;
+    }
+
+    .one {
+      background: lightblue;
+      width: 100px;
+      height: 100px;
+      transition: background .2s ease-in;
+      cursor: pointer;
+    }
+
+    .two {
+      background: grey;
+    }
+
+  </style>
+</head>
+
+<body>
+  <p>Наведите сюда >>></p>
+  <div class="one two" />
+  <script>
+    const sq = document.querySelector('div');
+
+    const stylesheet = document.styleSheets[1];
+
+    const newRule = [...stylesheet.cssRules].find((r) => r.selectorText === ".two");
+
+    sq.addEventListener('mouseover', () => {
+      newRule.style.setProperty('background', 'tomato');
+    })
+
+    sq.addEventListener('mouseout', () => {
+      newRule.style.setProperty('background', 'grey');
+    })
+  </script>
+</body>
+
+</html>

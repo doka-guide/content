@@ -42,6 +42,7 @@ groups:
       - aside
       - nav
       - time
+      - data
       - sub
       - sup
       - del
@@ -54,7 +55,8 @@ groups:
       - cite
       - var
       - dfn
-      - screenreaders
+      - samp
+      - abbr
   - name: 'Формы'
     items:
       - form
@@ -70,8 +72,20 @@ groups:
       - label
       - fieldset
       - legend
+      - for
       - inputmode
       - placeholder
+      - disabled
+      - readonly
+      - required
+      - value
+      - accept
+      - pattern
+      - multiple
+      - size
+      - minlength-maxlength
+      - step
+      - capture
   - name: 'Картинки'
     items:
       - img
@@ -79,11 +93,15 @@ groups:
       - picture
       - source
       - svg
+      - map
+      - area
   - name: 'Ссылки'
     items:
       - a
       - link
       - nav
+      - map
+      - area
   - name: 'Списки'
     items:
       - ol
@@ -101,9 +119,12 @@ groups:
       - meter
       - object
       - progress
+      - canvas
+      - dialog
   - name: 'Таблицы'
     items:
       - tables
+      - caption
   - name: 'Мета'
     items:
       - head
@@ -113,6 +134,8 @@ groups:
     items:
       - style
       - script
+      - noscript
+      - defer-async
       - template
       - output
   - name: 'Глобальные атрибуты'

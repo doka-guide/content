@@ -5,6 +5,10 @@ authors:
   - doka-dog
 contributors:
   - furtivite
+related:
+  - js/objects-objects-everywhere
+  - js/ref-type-vs-value-type
+  - js/function
 tags:
   - doka
 ---
@@ -13,7 +17,7 @@ tags:
 
 Кроме примитивных типов в JavaScript существуют и сложные — например, объект.
 
-Объект (object) — это набор свойств. Каждое свойство состоит из названия и значения. Название может быть [строкой](/js/string/) или [символом](/js/symbol/), а значение может быть любым.
+Объект (_object_) — это набор свойств. Каждое свойство состоит из названия и значения. Название может быть [строкой](/js/string/) или [символом](/js/symbol/), а значение может быть любым.
 
 [Объекты в JavaScript используются повсюду](/js/objects-objects-everywhere/), особенно для хранения данных. Для уверенной работы с объектами необходимо знать, как создавать объект, как его изменять и как читать значения свойств.
 
@@ -73,6 +77,15 @@ cat.gender = 'male'
 cat.color = 'brown'
 cat.age = 2
 cat.adorable = true
+
+console.log(cat)
+// {
+//   name: 'Simon',
+//   gender: 'male',
+//   color: 'brown',
+//   age: 2,
+//   adorable: true
+// }
 ```
 
 <aside>
@@ -87,7 +100,7 @@ cat.adorable = true
 const book = new Object({ title: 'Война и мир', author: 'Лев Толстой' })
 ```
 
-Объекты, созданные через фигурные скобки и через `new Object` совершенно идентичны.
+Объекты, созданные через фигурные скобки и через `new Object()` совершенно идентичны.
 
 ## Чтение свойств
 
@@ -113,7 +126,7 @@ const pagesPerDay = book['pages'] / 365
 console.log(`Чтобы прочитать её за год, читайте ${pagesPerDay.toFixed(1)} страницы в день`)
 ```
 
-Если прочитать свойство, которого нет у объекта, то вернётся `undefined`:
+Если прочитать свойство, которого нет у объекта, то вернётся [`undefined`](/js/undefined/):
 
 ```js
 const signature = book.signature
@@ -204,7 +217,7 @@ book['isFinished'] = undefined
 
 ## Имена свойств
 
-Имена свойств (иногда их называют _ключи_) могут быть либо [строками](/js/string/), либо [символами](/js/symbol/). Если использовать в качестве ключа другой тип данных, то он будет приведён к строке с помощью вызова метода [`toString`](/js/object-tostring/):
+Имена свойств (иногда их называют _ключи_, или _поля_) могут быть либо [строками](/js/string/), либо [символами](/js/symbol/). Если использовать в качестве ключа другой тип данных, то он будет приведён к строке с помощью вызова метода [`toString()`](/js/object-tostring/):
 
 ```js
 const obj = {}
@@ -212,7 +225,7 @@ const key = {}
 obj[key] = 'value for the object key'
 
 console.log(obj)
-// { "[object Object]": "value for the object key" }
+// { '[object Object]': 'value for the object key' }
 ```
 
 Если ключ содержит пробел, то обращаться к нему возможно только через синтаксис квадратных скобок:

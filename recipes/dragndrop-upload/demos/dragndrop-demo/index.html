@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Загрузка файла перетаскиванием — Рецепты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191c;
+    }
+
+    .demo-wrapper {
+      width: 640px;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .upload-zone {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 250px;
+      padding: 55px 40px;
+      overflow: hidden;
+      background-color: #C56FFF;
+      color: #000000;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .upload-zone_gragover {
+      background-color: #593273;
+    }
+
+    .upload-hint, .upload-status {
+      width: 75%;
+    }
+
+    .upload-hint {
+      display: none;
+    }
+
+    .upload-hint_visible {
+      display: block;
+      pointer-events: none;
+    }
+
+    .upload-loader {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-loader_visible {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #593273;
+    }
+
+    .upload-loader__image {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .demo-wrapper {
+        width: 100%;
+      }
+
+      .upload-zone {
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo-wrapper">
+    <div id="dropFile_Zone" class="upload-zone">
+      <div id="uploadFile_Loader" class="upload-loader">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
+          <path fill="#fff" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"/>
+          </path>
+        </svg>
+      </div>
+      <p id="uploadFile_Hint" class="upload-hint upload-hint_visible">Для загрузки изображения перетащите его в эту область</p>
+      <p id="uploadFile_Status" class="upload-status"></p>
+    </div>
+  </div>
+
+  <script>
+    const BYTES_IN_MB = 1048576
+
+    const dropFileZone = document.getElementById('dropFile_Zone')
+    const hintText = document.getElementById('uploadFile_Hint')
+    const outputText = document.getElementById('uploadFile_Status')
+    const loaderImage = document.getElementById('uploadFile_Loader')
+    let fileInstance
+
+    ['dragover', 'drop'].forEach(function(event) {
+      document.addEventListener(event, function(evt) {
+        evt.preventDefault()
+        return false
+      })
+    })
+
+    dropFileZone.addEventListener('dragenter', function(event) {
+      dropFileZone.classList.add('upload-zone_gragover')
+    })
+
+    dropFileZone.addEventListener('dragleave', function(event) {
+      dropFileZone.classList.remove('upload-zone_gragover')
+    })
+
+    dropFileZone.addEventListener('drop', function(event) {
+      dropFileZone.classList.remove('upload-zone_gragover')
+      fileInstance = event.dataTransfer.files[0]
+      if (fileInstance.size > 5 * BYTES_IN_MB) {
+        alert('Принимается файл до 5 МБ')
+        return false
+      }
+      if (fileInstance.type.startsWith('image/')) {
+        processingUploadFile(fileInstance)
+      } else {
+        alert('Можно загружать только изображения')
+        return false
+      }
+    })
+
+    function processingUploadFile(fileInstanceUpload) {
+      if(fileInstanceUpload != undefined) {
+        const dropZoneData = new FormData()
+        const xhr = new XMLHttpRequest()
+
+        dropZoneData.append('file', fileInstanceUpload)
+
+        xhr.upload.addEventListener('progress', function() {
+          hintText.classList.remove('upload-hint_visible')
+          loaderImage.classList.add('upload-loader_visible')
+        })
+
+        xhr.open('POST', 'upload_processing.php', true)
+
+        xhr.send(dropZoneData)
+
+        xhr.onload = function (event){
+          if (xhr.status == 200) {
+            loaderImage.classList.remove('upload-loader_visible')
+            outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
+          } else {
+            loaderImage.classList.remove('upload-loader_visible')
+            outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла`
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

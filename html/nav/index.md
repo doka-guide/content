@@ -1,5 +1,11 @@
 ---
 title: "`<nav>`"
+description: "Удобный тег, объединяющий элементы навигации по сайту."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Машинка ездит по запутанным дорожкам в виде стрелочек'
 authors:
   - doka-dog
 contributors:
@@ -9,8 +15,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - тэг
-  - тег
   - nav
   - навигация
 tags:
@@ -35,7 +39,7 @@ tags:
 </nav>
 ```
 
-## Как это понять
+## Как понять
 
 В контейнер `<nav>` помещаются основные ссылки, по которым пользователь сможет быстро перейти на нужный раздел сайта.
 

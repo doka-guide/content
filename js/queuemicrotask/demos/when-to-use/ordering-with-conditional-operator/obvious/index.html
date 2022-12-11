@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Очевидный порядок выполнения кода — queueMicrotask() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    :root {
+      --color-light: hsl(0 0% 100%);
+      --color-dark: hsl(0 0% 0%);
+      --color-yellow: hsl(49 100% 58%);
+      --color-pink: hsl(346 81% 78%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%
+    }
+
+    body {
+      display: flex;
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
+    }
+
+    .logging-form {
+      margin: auto;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .logging-form__output {
+      width: 100%;
+      height: 200px;
+      overflow: auto;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      display: block;
+      min-width: 285px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: var(--color-dark);
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: var(--color-light);
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid var(--color-light);
+      outline: none;
+    }
+
+    .logging-form__submit-button {
+      background-color: var(--color-yellow);
+    }
+
+    .logging-form__reset-button {
+      background-color: var(--color-pink);
+    }
+  </style>
+</head>
+<body>
+<form class="logging-form" name="logging-form">
+  <h2>Логи по процессам:</h2>
+  <p
+    id="logging-output"
+    class="logging-form__output"
+  ></p>
+  <button type="submit" class="button logging-form__submit-button">Получить данные о пользователе</button>
+  <button type="reset" class="button logging-form__reset-button">Очистить содержимое поля с логами</button>
+</form>
+<script>
+  // DOM elements
+  const form = document.querySelector('.logging-form')
+  const output = document.querySelector('.logging-form__output')
+  const resetButton = document.querySelector('.logging-form__reset-button')
+  let data = []
+  const cache = {}
+
+  function getData(url) {
+    if (url in cache) {
+      queueMicrotask(() => {
+        data = cache[url]
+        output.dispatchEvent(new Event('data-loaded'))
+      })
+    } else {
+      fetch(url)
+        .then((response) => response.json())
+        .then(({ data }) => {
+          cache[url] = data
+          data = data
+          output.dispatchEvent(new Event('data-loaded'))
+        })
+    }
+  }
+
+  // Handlers
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+
+    output.innerText += 'Начинаю загрузку данных...\n'
+    getData('https://reqres.in/api/users/2')
+    output.innerText += 'Загрузка выполняется...\n'
+  };
+
+  const handleOutputDataLoaded = () => {
+    output.innerText += 'Данные загружены\n'
+  };
+
+  const handleResetClick = () => {
+    output.innerText = ''
+  }
+
+  // Listeners
+  form.addEventListener('submit', handleFormSubmit)
+  output.addEventListener('data-loaded', handleOutputDataLoaded)
+  resetButton.addEventListener('click', handleResetClick)
+</script>
+</body>
+</html>

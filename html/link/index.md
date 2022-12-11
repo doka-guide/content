@@ -1,5 +1,6 @@
 ---
 title: "`<link>`"
+description: "Подключает внешние ресурсы — стили, фавиконки, шрифты и прочее."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -13,7 +14,10 @@ editors:
   - tachisis
 keywords:
   - подключение стилей
-  - link
+related:
+  - css/adding-styles
+  - html/meta
+  - css/font-face
 tags:
   - doka
 ---
@@ -30,7 +34,7 @@ tags:
 </head>
 ```
 
-## Как это понять
+## Как понять
 
 Матёрые программисты советуют описывать CSS-стили в отдельных файлах: так их легче редактировать, сортировать и подключать к разным страницам сайта. Чтобы применить стили из внешнего файла на странице, используйте тег `<link>`.
 
@@ -56,6 +60,7 @@ tags:
 <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
 <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)">
 ```
+
 - `as` — позволяет указать тип загружаемого контента. Благодаря ему мы помогаем браузеру правильно расставлять приоритеты и планировать загрузку. `as` стоит применять, если указан атрибут `rel="preload"` или `rel="prefetch"`.
 - `crossorigin` — указывает должен ли ресурс загружаться с помощью запроса CORS. Данный атрибут имеет два доступных значения:
   - `anonymous` —  Cross-origin запрос выполняется без отправки учётных данных;

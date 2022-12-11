@@ -15,7 +15,7 @@
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
     }
@@ -25,11 +25,17 @@
       height: 100%;
       object-fit: scale-down;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
   <img
-    src="images/dog.png"
+    src="images/dog.svg"
     alt="Одна собака"
     title="Cобака смотрит влево"
   >

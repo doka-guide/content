@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример place-content — place-content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      background-color: #18191C;
+    }
+
+    .container {
+      place-content: center;
+      border: 1px solid #FF8630;
+      width: 250px;
+      height: 250px;
+      gap: 20px;
+    }
+
+    .container div {
+      width: 50px;
+      height: 50px;
+    }
+
+    .flex-layout {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-layout div {
+      background-color: #2E9AFF;
+    }
+
+    .grid-layout {
+      display: grid;
+    }
+
+    .grid-layout div {
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container flex-layout">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="container grid-layout">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</body>
+</html>

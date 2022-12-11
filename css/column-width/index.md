@@ -1,9 +1,14 @@
 ---
 title: "`column-width`"
+description: "Какой ширины должны быть колонки, на которые вы разобьёте текст?"
 authors:
   - xpleesid
 editors:
   - tachisis
+related:
+  - css/numeric-types
+  - css/column-count
+  - css/columns
 tags:
   - doka
 ---

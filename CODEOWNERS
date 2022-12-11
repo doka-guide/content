@@ -1,8 +1,7 @@
-css @solarrust @pepelsbey
-html @solarrust @pepelsbey
-js @nlopin @bespoyasov
-tools @nlopin @bespoyasov @igsekor
-docs @tachisis
-README.md @tachisis
-.yaspeller.json @tachisis
-.github @igsekor @pepelsbey
+css @solarrust
+html @solarrust
+js @hellsquirrel
+tools @igsekor @hellsquirrel
+recipes @solarrust @hellsquirrel @TatianaFokina
+a11y @TatianaFokina
+.github @igsekor

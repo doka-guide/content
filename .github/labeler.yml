@@ -1,0 +1,120 @@
+css:
+  files:
+    - css/**/*
+html:
+  files:
+    - html/**/*
+js:
+  files:
+    - js/**/*
+tools:
+  files:
+    - tools/**/*
+a11y:
+  files:
+    - a11y/**/*
+'рецепт':
+  files:
+    - recipes/**/*
+'кухня':
+  files:
+    - .github/*.yml
+    - .github/scripts/*.js
+    - .github/workflows/*.yml
+'улучшение':
+  files:
+    modified:
+      - css/**/*.md
+      - html/**/*.md
+      - js/**/*.md
+      - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
+      - docs/*.md
+      - docs/**/*.md
+      - docs/images/*.png
+      - docs/license/*/*.svg
+      - pages/**/index.md
+      - people/**/index.md"
+      - README.md
+      - LICENSE-ND.md
+      - LICENSE-SA.md
+    removed:
+      - css/**/*.md
+      - html/**/*.md
+      - js/**/*.md
+      - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
+      - docs/*.md
+      - docs/**/*.md
+      - docs/images/*.png
+      - docs/license/*/*.svg
+      - pages/**/index.md
+      - people/**/index.md"
+      - README.md
+      - LICENSE-ND.md
+      - LICENSE-SA.md
+    renamed:
+      - css/**/*.md
+      - html/**/*.md
+      - js/**/*.md
+      - tools/**/*.md
+      - a11y/**/*.md
+      - recipes/**/*.md
+      - docs/*.md
+      - docs/**/*.md
+      - docs/images/*.png
+      - docs/license/*/*.svg
+      - pages/**/index.md
+      - people/**/index.md"
+      - README.md
+      - LICENSE-ND.md
+      - LICENSE-SA.md
+'демо':
+  files:
+    modified:
+      - css/**/demos/**/*.html
+      - html/**/demos/**/*.html
+      - js/**/demos/**/*.html
+      - tools/**/demos/**/*.html
+      - a11y/**/demos/**/*.html
+      - recipes/**/demos/**/*.html
+  assignee:
+    - skorobaeus
+'дока':
+  files:
+    added:
+      - css/**/index.md
+      - html/**/index.md
+      - js/**/index.md
+      - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
+  meta:
+    tags:
+      - doka
+'статья':
+  files:
+    added:
+      - css/**/index.md
+      - html/**/index.md
+      - js/**/index.md
+      - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
+  meta:
+    tags:
+      - article
+placeholder:
+  files:
+    added:
+      - css/**/index.md
+      - html/**/index.md
+      - js/**/index.md
+      - tools/**/index.md
+      - a11y/**/index.md
+      - recipes/**/index.md
+  meta:
+    tags:
+      - placeholder

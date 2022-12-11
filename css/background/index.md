@@ -1,12 +1,16 @@
 ---
 title: "`background`"
+description: "Короткое свойство, чтобы определить всё, что нужно для фона."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - фон
-  - шорткат
+  - фоновое изображение
+related:
+  - css/background-image
+  - css/backdrop-filter
+  - css/z-index
 tags:
   - doka
 ---
@@ -15,13 +19,13 @@ tags:
 
 Шорткат, позволяющий задать все свойства фона разом. Объединяет в себе:
 
-- [`background-attachment`](/css/background-attachment/)
-- [`background-clip`](/css/background-clip/)
-- [`background-color`](/css/background-color/)
-- [`background-image`](/css/background-image/)
-- [`background-position`](/css/background-position/)
-- [`background-repeat`](/css/background-repeat/)
-- [`background-size`](/css/background-size/)
+- [`background-attachment`](/css/background-attachment/);
+- [`background-clip`](/css/background-clip/);
+- [`background-color`](/css/background-color/);
+- [`background-image`](/css/background-image/);
+- [`background-position`](/css/background-position/);
+- [`background-repeat`](/css/background-repeat/);
+- [`background-size`](/css/background-size/).
 
 ## Пример
 
@@ -37,7 +41,24 @@ div {
 
 Можно указать одно или несколько значений для разных свойств, разделяя их пробелами. Значения можно писать в любом порядке, браузер сам определит, какое значение к какому свойству относится.
 
-Единственный момент, который стоит учесть — значение для свойства `background-size` нужно указывать следом за `background-position`, отделив его при помощи слэша `/`. Это связано с тем, что значения свойства `background-size` и свойства `background-position` схожи, и браузеру надо дать понять, что дальше пойдёт значение для размера фона.
+<aside>
+
+⚠️ В произвольном порядке записи свойств есть исключение: в паре `position / size` порядок записи только такой, через слэш. А ещё, если опустить `size`, то `position` сработает, но если опустить `position`, то `size` не сработает.
+
+```css
+div {
+  /* Сработает */
+  background: url("bkg.png") center / cover;
+  /* Сработает */
+  background: url("bkg.png") center;
+  /* Не сработает */
+  background: url("bkg.png") cover;
+}
+```
+
+Лучше не полагаться слишком на это поведение и использовать полные записи: [`background-position`](/css/background-position/) и [`background-size`](/css/background-size/).
+
+</aside>
 
 Ни одно из значений не является обязательным, поэтому ненужные можно смело опустить.
 

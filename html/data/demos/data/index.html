@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования в вёрстке чата — <data> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .dialogue {
+      display: grid;
+      gap: 1em;
+      max-width: 90%;
+      margin: 1em auto;
+    }
+
+    .dialogue__item {
+      max-width: 90%;
+      padding: 10px;
+      border-radius: 15px;
+    }
+
+    .dialogue__item--left {
+      justify-self: start;
+      background-color: #2e9aff;
+      border-bottom-left-radius: 0;
+    }
+
+    .dialogue__item--right {
+      justify-self: end;
+      background-color: #f498ad;
+      border-bottom-right-radius: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="dialogue">
+    <p class="dialogue__item dialogue__item--left">
+      Привет, давно не виделись
+    </p>
+    <p class="dialogue__item dialogue__item--right">
+      Хай. Новая куртка? Тёплая?
+    </p>
+    <p class="dialogue__item dialogue__item--left">
+      Да! С <data value="goose">гусиным</data> пухом
+    </p>
+  </div>
+</body>
+</html>

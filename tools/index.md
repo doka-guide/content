@@ -6,6 +6,7 @@ groups:
       - package-managers
       - bundlers
       - webpack
+      - gulp
       - static-analysis
       - static-types
       - nodejs
@@ -51,12 +52,16 @@ groups:
       - dockerfile
   - name: Как устроена сеть
     items:
+      - url
       - network
       - network-models
       - encoding
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+  - name: Базы данных
+    items:
+      - elasticsearch
 ---
 
 Вспомогательные технологии, процессы и инструменты для разработки и публикации приложений.
