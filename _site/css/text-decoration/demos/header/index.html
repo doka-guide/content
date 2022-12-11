@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Рамка вместо подчёркивания — text-decoration — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .header {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+      padding-top: 65px;
+      box-sizing: border-box;
+    }
+
+    .header__container_top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #2E9AFF;
+    }
+
+    .header__navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      min-width: 700px;
+      margin: 0 auto;
+    }
+
+    .header__logo {
+      font-size: 20px;
+      cursor: default;
+      user-select: none;
+    }
+
+    .list {
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0;
+    }
+
+    .list__item + .list__item {
+      margin-left: 40px;
+    }
+
+    .list__link,
+    .list__link:visited {
+      display: inline-block; /* делаем элементы строчно-блочными */
+      padding-top: 24px;
+      padding-bottom: 24px;
+      text-decoration: none; /* убираем подчеркивание */
+      color: #18191c;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    .list__link:hover {
+      padding-bottom: 20px; /* нивелируем размеры рамки */
+      border-bottom: 4px solid #FFFFFF; /* добавляем рамку снизу */
+      color: #FFFFFF;
+    }
+
+    .header__container_title {
+      text-align: center;
+    }
+
+    .header__title {
+      display: inline-block;
+      margin: 0 auto;
+      color: #2E9AFF;
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 30px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .header__accent {
+      display: block;
+      background-color: #FF8630;
+      color: #000000;
+      font-size: 55px;
+      line-height: 58px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__container_top">
+      <nav class="header__navigation">
+        <span class="header__logo">((▼w▼))</span>
+        <ul class="list">
+          <li class="list__item">
+            <a href="#" class="list__link">О магазине</a>
+          </li>
+          <li class="list__item">
+            <a href="#" class="list__link">О тыквах</a>
+          </li>
+          <li class="list__item">
+            <a href="#" class="list__link">О нас</a>
+          </li>
+          <li class="list__item">
+            <a href="#" class="list__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__container_title">
+      <h1 class="header__title">Магазин <span class="header__accent">«Резная тыква»</span></h1>
+    </div>
+  </header>
+</body>
+</html>

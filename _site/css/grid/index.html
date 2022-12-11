@@ -1,0 +1,79 @@
+<h2>Кратко</h2>
+<p>Мегашорткат, позволяющий задать значения всему и сразу. А конкретно с его помощью можно указать значения для следующих свойств:</p>
+<ul>
+<li><a href="/css/grid-template-rows/"><code>grid-template-rows</code></a></li>
+<li><a href="/css/grid-template-columns/"><code>grid-template-columns</code></a></li>
+<li><a href="/css/grid-template-areas/"><code>grid-template-areas</code></a></li>
+<li><a href="/css/grid-auto-columns-rows/"><code>grid-auto-rows</code></a></li>
+<li><a href="/css/grid-auto-columns-rows/"><code>grid-auto-columns</code></a></li>
+<li><a href="/css/grid-auto-flow/"><code>grid-auto-flow</code></a></li>
+</ul>
+<h2>Пример</h2>
+<p>Такой блок кода:</p>
+<pre><code class="language-css">.container {
+  grid: 50px 150px / 2fr 1fr;
+}
+</code></pre>
+<p>...будет аналогичен этому коду:</p>
+<pre><code class="language-css">.container {
+  grid-template-rows: 50px 150px;
+  grid-template-columns: 2fr 1fr;
+}
+</code></pre>
+<h2>Как пишется</h2>
+<h3><code>none</code></h3>
+<p>Значение по умолчанию. Это ключевое слово сбрасывает значения для всех свойств, входящих в этот шорткат.</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid: none;
+}
+</code></pre>
+<h3>Значение для <code>grid-template</code></h3>
+<p>Можно указать допустимые значения для шортката <a href="/css/grid-template/"><code>grid-template</code></a>:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid: repeat(4, 150px) / 1fr 200px 1fr;
+}
+</code></pre>
+<p>В том числе можно указать имена для линий:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid:
+    [row1-start] 25px [row1-end row2-start] 25px [row2-end] /
+    auto 50px auto;
+}
+</code></pre>
+<h3>Размеры колонок и рядов</h3>
+<p>Создадим два ряда и две колонки:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid: 200px 100px / 30% 30%;
+}
+</code></pre>
+<h3><code>auto-flow</code></h3>
+<p>Ключевое слово <code>auto-flow</code> даёт браузеру понять, что создавать при необходимости: колонки или ряды.</p>
+<p>Если <code>auto-flow</code> стоит справа от слэша, то будут создаваться автоматические колонки:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid: 200px 100px / auto-flow 30%;
+}
+</code></pre>
+<p>Если <code>auto-flow</code> стоит слева от слэша, то будут создаваться автоматические ряды:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid:  auto-flow 30% / 200px 100px;
+}
+</code></pre>
+<h3><code>dense</code></h3>
+<p>К ключевому слову <code>auto-flow</code> можно добавить <code>dense</code>. Оно укажет браузеру, что элементы должны стараться заполнить свободные ячейки. Подробнее про работу этого ключевого слова можно почитать в статье про <a href="/css/grid-auto-flow/"><code>grid-auto-flow</code></a>.</p>
+<p>Важно ставить это слово сразу после <code>auto-flow</code>:</p>
+<pre><code class="language-css">.container {
+  display: grid;
+  grid:  auto-flow dense 30% / 200px 100px;
+}
+</code></pre>
+<h2>Подсказки</h2>
+<p>💡 Перед тем как соблазниться возможностью расписать всё в одном свойстве, дважды (а то и трижды) подумайте о читабельности кода. Учтите и то, что гриды относительно новая и не такая уж простая технология. Не каждый коллега сможет прочесть этот шорткат.</p>
+<aside>
+<p>📝 Полный список свойств гридов можно посмотреть в <a href="/css/grid-guide/">гайде по grid</a>.</p>
+</aside>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - prompt()  — Дока</title>
+  <style>
+    #dialog-overlay {
+        display: none;
+        opacity: 0.25;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background: #000;
+        width: 100%;
+        z-index: 100;
+    }
+    #dialog-box {
+        display: none;
+        position: fixed;
+        background: #FFF;
+        width: 550px;
+        z-index: 101;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -webkit-box-shadow: 4px 4px 3px 3px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 4px 4px 3px 3px rgba(0, 0, 0, 0.35);
+        box-shadow: 4px 4px 3px 3px rgba(0, 0, 0, 0.35);
+    }
+    #dialog-box > div {
+        background:#FFF;
+        margin:8px;
+    }
+    #dialog-box > div > #dialog-box-head {
+        background: #FFF;
+        font-size: 19px;
+        padding: 10px;
+        color: #000;
+    }
+    #dialog-box > div > #dialog-box-body {
+        background: #FFF;
+        padding: 20px;
+        color: #000;
+    }
+    #dialog-box > div > #dialog-box-foot {
+        background: #FFF;
+        padding: 10px;
+        text-align: right;
+    }
+  </style>
+</head>
+<body>
+<div id="dialog-overlay"></div>
+<div id="dialog-box">
+    <div>
+        <div id="dialog-box-head"></div>
+        <div id="dialog-box-body"></div>
+        <div id="dialog-box-foot"></div>
+    </div>
+</div>
+
+<p>
+  Запрос пароля стандартным prompt() <button onclick="askPassword()">Нажми меня</button>
+</p>
+<p>
+  Другой вариант запроса пароля <button onclick="Prompt.show('Какой пароль?','askPassword2')">Нажми меня</button>
+</p>
+<Div id="result"></Div>
+  <script>
+    function CustomPrompt() {
+        this.show = function (dialog, func) {
+            var winW = window.innerWidth;
+            var winH = window.innerHeight;
+            var dialogOverlay = document.getElementById('dialog-overlay');
+            var dialogBox = document.getElementById('dialog-box');
+
+            dialogOverlay.style.display = "block";
+            dialogOverlay.style.height = winH + "px";
+            dialogBox.style.left = ((winW / 2) - (550 / 2)) + "px";
+            dialogBox.style.top = "100px";
+            dialogBox.style.display = "block";
+
+            document.getElementById('dialog-box-head').innerHTML = "A value is required";
+            document.getElementById('dialog-box-body').innerHTML = dialog;
+            document.getElementById('dialog-box-body').innerHTML += '<br><input id="prompt_value1">';
+            document.getElementById('dialog-box-foot').innerHTML = '<button onclick="Prompt.ok(\'' + func + '\')">OK</button> <button onclick="Prompt.cancel(' + "'" + func + "'" + ')">Cancel</button>';
+        }
+        this.cancel = function (func) {
+          window[func](null);
+            this.hide();
+        }
+        this.ok = function (func) {
+            var prompt_value1 = document.getElementById('prompt_value1').value;
+            window[func](prompt_value1);
+            this.hide();
+        }
+        this.hide = function () {
+            document.getElementById('dialog-box').style.display = "none";
+            document.getElementById('dialog-overlay').style.display = "none";
+        }
+    }
+    var Prompt = new CustomPrompt();
+
+    function askPassword() {
+      var answer = prompt('Введите пароль: бублик', 'Я не знаю пароль');
+      var result = 'Пароль неверный'
+      if (answer === 'бублик') {
+        result = 'Пароль принят'
+      }
+      document.querySelector('#result').textContent = result;
+    }
+    function askPassword2(answer) {
+      var result = 'Пароль неверный'
+      if (answer === 'бублик') {
+        result = 'Пароль принят'
+      }
+      document.querySelector('#result').textContent = result;
+    }
+  </script>
+</body>
+</html>

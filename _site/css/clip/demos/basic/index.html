@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Картинки — clip — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 300px;
+      height: 230px;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 150px;
+      transform: translateX(-50%);
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .clip img {
+      clip: rect(auto, 220px, 150px, auto);
+    }
+
+    .clip span {
+      left: 110px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <span>Начальный вид</span>
+    <img src="../../images/house.jpg" alt="Домик в деревне">
+  </div>
+  <div class="clip">
+    <span>С применением clip</span>
+    <img src="../../images/house.jpg" alt="Домик в деревне">
+  </div>
+</body>
+</html>

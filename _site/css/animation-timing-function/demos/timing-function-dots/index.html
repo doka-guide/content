@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Наглядная иллюстрация разных функций — animation-timing-function — Дока</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      text-align: center;
+      font: 12px/1 monospace;
+      background: #F0EFEE;
+      color: #777;
+    }
+
+    div {
+      display: inline-block;
+      position: relative;
+      margin: 20px 16px 20px 20px;
+      width: 150px;
+      height: 150px;
+      background:white;
+      box-shadow: 0 0 0 5px rgba(0,0,0,.1);
+      transition:.2s;
+    }
+
+    div::after {
+      content: attr(class);
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      padding: 0 6px;
+    }
+
+    i {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      left: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: #F6AC31;
+      -webkit-animation: move 2s infinite;
+              animation: move 2s infinite;
+    }
+
+    @-webkit-keyframes move {
+      from {
+        left: 0;
+        bottom: 0;
+      }
+      to {
+        left: 145px;
+        bottom: 145px;
+      }
+    }
+
+    @keyframes move {
+      from {
+        left: 0;
+        bottom: 0;
+      }
+      to {
+        left: 145px;
+        bottom: 145px;
+      }
+    }
+
+    .linear i {
+      -webkit-animation-timing-function: linear;
+              animation-timing-function: linear;
+    }
+
+    .ease i {
+      -webkit-animation-timing-function: ease;
+              animation-timing-function: ease;
+    }
+
+    .ease-in i {
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+
+    .ease-in-out i {
+      -webkit-animation-timing-function: ease-in-out;
+              animation-timing-function: ease-in-out;
+    }
+
+    .ease-out i {
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+
+    .cubic-bezier-1 i {
+      -webkit-animation-timing-function: cubic-bezier(.8,1.5,.2,-1);
+              animation-timing-function: cubic-bezier(.8,1.5,.2,-1);
+    }
+
+    .cubic-bezier-1::after {content:"cubic-bezier (.8,1.5,.2,-1)"}
+    .cubic-bezier-2::after {content:"cubic-bezier (.47,-.44,.49,1.46)"}
+    .cubic-bezier-3::after {content:"cubic-bezier (1,0,0,.5)"}
+    .cubic-bezier-4::after{
+      content: "cubic-bezier (.1,.7,1,1)";
+    }
+
+    .cubic-bezier-2 i {
+      -webkit-animation-timing-function: cubic-bezier(.47,-.44,.49,1.46);
+              animation-timing-function: cubic-bezier(.47,-.44,.49,1.46);
+    }
+
+    .cubic-bezier-3 i {
+      -webkit-animation-timing-function: cubic-bezier(1,0,0,.5);
+              animation-timing-function: cubic-bezier(1,0,0,.5);
+    }
+
+    .cubic-bezier-4 i {
+      -webkit-animation-timing-function: cubic-bezier( .1, .7, 1, .1);
+              animation-timing-function: cubic-bezier( .1, .7, 1, .1);
+    }
+
+    .steps i {
+      -webkit-animation-timing-function: steps(10,end);
+              animation-timing-function: steps(10,end);
+    }
+
+    .steps::after {
+      content: "steps(10,end)";
+    }
+
+    i:nth-child(2) {-webkit-animation-delay:.1s;animation-delay:.1s;}
+    i:nth-child(3) {-webkit-animation-delay:.2s;animation-delay:.2s;}
+    i:nth-child(4) {-webkit-animation-delay:.3s;animation-delay:.3s;}
+    i:nth-child(5) {-webkit-animation-delay:.4s;animation-delay:.4s;}
+    i:nth-child(6) {-webkit-animation-delay:.5s;animation-delay:.5s;}
+    i:nth-child(7) {-webkit-animation-delay:.6s;animation-delay:.6s;}
+    i:nth-child(8) {-webkit-animation-delay:.7s;animation-delay:.7s;}
+    i:nth-child(9) {-webkit-animation-delay:.8s;animation-delay:.8s;}
+    i:nth-child(10){-webkit-animation-delay:.9s;animation-delay:.9s;}
+  </style>
+</head>
+<body>
+<div class="linear"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="ease"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="ease-in-out"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="ease-in"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="ease-out"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="cubic-bezier-1"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="cubic-bezier-2"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="cubic-bezier-3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="cubic-bezier-4"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+<div class="steps"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</body>
+</html>

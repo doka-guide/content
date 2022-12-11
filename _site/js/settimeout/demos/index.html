@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Неточный запуск setTimeout — setTimeout — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background: white;
+    }
+  </style>
+</head>
+<body>
+    <h1>Запусти отложенную на полсекунды функцию</h1>
+    <button id="regular">Обычный запуск</button>
+    <button id="highload">Сделать много работы перед запуском</button>
+    <p id="result">
+      <code>
+      setTimeout(function() { ... }, 500)
+      </code>
+    </p>
+  <script>
+    const regularLaunchButton = document.getElementById('regular')
+    const highloadLaunchButton = document.getElementById('highload')
+    const resultElement = document.getElementById('result')
+
+    function setButtonsDisabled(isDisabled) {
+      regularLaunchButton.disabled = isDisabled
+      highloadLaunchButton.disabled = isDisabled
+    }
+
+    function timeout(workFn) {
+      console.log('exec')
+      setButtonsDisabled(true)
+      resultElement.innerText = 'ждём...'
+      setTimeout(() => {
+        const asyncStartTime = Date.now()
+        resultElement.innerText = `Таймаут установлен на 500 мс. Я запустилась через ${asyncStartTime - startTime} мс.`
+        setButtonsDisabled(false)
+      }, 500)
+      const startTime = Date.now()
+
+      if (typeof workFn === 'function') {
+        workFn()
+      }
+    }
+
+    regularLaunchButton.addEventListener('click', () => {
+      timeout()
+    })
+
+    highloadLaunchButton.addEventListener('click', () => {
+      timeout(() => {
+        for(let i=0; i<1000000000; i++) {}
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивный пример с картинкой — clip — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      display: flex;
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .controls {
+      width: 50%;
+    }
+
+    .view {
+      position: relative;
+      margin: auto;
+      width: 300px;
+      height: 200px;
+    }
+
+    .view__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .view__line {
+      position: absolute;
+    }
+
+    .view__line::after {
+      font-size: 14px;
+      position: absolute;
+    }
+
+    .view__line--top {
+      left: 0;
+      top: 0;
+      width: calc(100% + 10px);
+      height: 1px;
+      border-bottom: 1px dashed cornflowerblue;
+      transform: translateY(-1px);
+    }
+
+    .view__line--top::after {
+      content: 'top';
+      top: 50%;
+      right: 0;
+      padding-left: 10px;
+      transform: translate(100%, -50%);
+    }
+
+    .view__line--right {
+      left: 300px;
+      top: 0;
+      height: calc(100% + 10px);
+      width: 1px;
+      border-left: 1px dashed #7264ed;
+    }
+
+    .view__line--right::after {
+      content: 'right';
+      right: 50%;
+      bottom: 0;
+      padding-top: 5px;
+      transform: translate(50%, 100%);
+    }
+
+    .view__line--bottom {
+      right: 0;
+      top: 200px;
+      width: calc(100% + 10px);
+      height: 1px;
+      border-bottom: 1px dashed #ed64db;
+    }
+
+    .view__line--bottom::after {
+      content: 'bottom';
+      top: 50%;
+      left: 0;
+      padding-right: 10px;
+      transform: translate(-100%, -50%);
+    }
+
+    .view__line--left {
+      left: 0;
+      bottom: 0;
+      height: calc(100% + 10px);
+      width: 1px;
+      border-left: 1px dashed #edb264;
+      transform: translateX(-1px);
+    }
+
+    .view__line--left::after {
+      content: 'left';
+      right: 50%;
+      top: 0;
+      padding-bottom: 5px;
+      transform: translate(50%, -100%);
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: calc(100% - 550px) 0 0;
+    }
+
+    .controls__item {
+      width: 90%;
+      max-width: 400px;
+      display: flex;
+      align-items: center;
+      margin: 0 auto 30px;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .controls__title {
+      margin-right: 10px;
+      min-width: 70px;
+    }
+
+    .controls__range {
+      width: 100%;
+    }
+
+    .controls__example {
+      width: 90%;
+      max-width: 400px;
+      font-family: "Roboto Mono", monospace;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <div class="controls__item">
+      <p class="controls__title">top:</p>
+      <input class="controls__range js-range-top" type="range" min="0" max="200" value="0">
+    </div>
+    <div class="controls__item">
+      <p class="controls__title">right:</p>
+      <input class="controls__range js-range-right" type="range" min="0" max="300" value="300">
+    </div>
+    <div class="controls__item">
+      <p class="controls__title">bottom:</p>
+      <input class="controls__range js-range-bottom" type="range" min="0" max="200" value="200">
+    </div>
+    <div class="controls__item">
+      <p class="controls__title">left:</p>
+      <input class="controls__range js-range-left" type="range" min="0" max="300" value="0">
+    </div>
+    <span class="controls__example js-example">clip: rect(6px, 300px, 200px, 0px);</span>
+  </div>
+  <div class="view">
+    <img class="view__image js-image" src="../../images/house.jpg" alt="Домик в деревне">
+    <span class="view__line view__line--top js-line-top"></span>
+    <span class="view__line view__line--right js-line-right"></span>
+    <span class="view__line view__line--bottom js-line-bottom"></span>
+    <span class="view__line view__line--left js-line-left"></span>
+  </div>
+  <script>
+    let positionTop = 0
+    let positionRight = 300
+    let positionBottom = 200
+    let positionLeft = 0
+
+    const SELECTORS = {
+      topRange: '.js-range-top',
+      rightRange: '.js-range-right',
+      bottomRange: '.js-range-bottom',
+      leftRange: '.js-range-left',
+
+      topLine: '.js-line-top',
+      rightLine: '.js-line-right',
+      bottomLine: '.js-line-bottom',
+      leftLine: '.js-line-left',
+
+      image: '.js-image',
+      example: '.js-example',
+    }
+
+    const topRange = document.querySelector(SELECTORS.topRange)
+    const rightRange = document.querySelector(SELECTORS.rightRange)
+    const bottomRange = document.querySelector(SELECTORS.bottomRange)
+    const leftRange = document.querySelector(SELECTORS.leftRange)
+
+    const topLine = document.querySelector(SELECTORS.topLine)
+    const rightLine = document.querySelector(SELECTORS.rightLine)
+    const bottomLine = document.querySelector(SELECTORS.bottomLine)
+    const leftLine = document.querySelector(SELECTORS.leftLine)
+
+    const image = document.querySelector(SELECTORS.image)
+    const example = document.querySelector(SELECTORS.example)
+
+    topRange.addEventListener('input', () => {
+      positionTop = topRange.value
+      changeLinePosition()
+      topLine.style.top = `${positionTop}px`
+    })
+
+    rightRange.addEventListener('input', () => {
+      positionRight = rightRange.value
+      changeLinePosition()
+      rightLine.style.left = `${positionRight}px`
+    })
+
+    bottomRange.addEventListener('input', () => {
+      positionBottom = bottomRange.value
+      changeLinePosition()
+      bottomLine.style.top = `${positionBottom}px`
+    })
+
+    leftRange.addEventListener('input', () => {
+      positionLeft = leftRange.value
+      changeLinePosition()
+      leftLine.style.left = `${positionLeft}px`
+    })
+
+    const changeLinePosition = function() {
+      const rect = `rect(${positionTop}px, ${positionRight}px, ${positionBottom}px, ${positionLeft}px)`
+      image.style.clip = rect
+      example.textContent = `clip: ${rect};`
+    }
+  </script>
+</body>
+</html>

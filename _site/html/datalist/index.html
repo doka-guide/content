@@ -1,0 +1,15 @@
+<h2>Кратко</h2>
+<p>В тег <code>&lt;datalist&gt;</code> можно обернуть несколько тегов <a href="/html/option/"><code>&lt;option&gt;</code></a> и связать этот список с полем ввода <a href="/html/input/"><code>&lt;input&gt;</code></a> при помощи атрибута <code>list</code>. Тогда при вводе данных в поле будет показан список вариантов.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;label for=&quot;my-browser&quot;&gt;Выберите браузер из списка:&lt;/label&gt;
+&lt;input list=&quot;browsers&quot; id=&quot;my-browser&quot; name=&quot;my-browser&quot;&gt;
+&lt;datalist id=&quot;browsers&quot;&gt;
+  &lt;option value=&quot;Chrome&quot;&gt;
+  &lt;option value=&quot;Firefox&quot;&gt;
+  &lt;option value=&quot;Yandex Browser&quot;&gt;
+  &lt;option value=&quot;Opera&quot;&gt;
+  &lt;option value=&quot;Safari&quot;&gt;
+  &lt;option value=&quot;Microsoft Edge&quot;&gt;
+&lt;/datalist&gt;
+</code></pre>
+<iframe title="Выпадающий список со списком браузеров" src="demos/browsers/" height="100"></iframe>

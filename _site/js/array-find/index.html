@@ -1,0 +1,113 @@
+<h2>Кратко</h2>
+<p>Метод массива <code>find</code> вернёт первый найденный в массиве элемент, который подходит под условие в переданной колбэк-функции. Если в массиве не найдётся ни одного подходящего элемента, то вернётся значение <code>undefined</code>.</p>
+<h2>Пример</h2>
+<p>Опишем функцию, которая позволит определить, есть ли в списке дел моё любимое занятие. Поставим в константу просмотр сериальчиков и будем проверять: если занятие из ToDo-списка совпадает с моим хобби, то вернём его. В списке дел на завтра нет просмотра сериалов, а значит, вернётся <code>undefined</code>.</p>
+<pre><code class="language-js">function isMyFavoriteHobby(element, index, array) {
+  const myFavoriteHobby = &quot;смотреть сериальчики&quot;;
+
+  return element === myFavoriteHobby;
+}
+
+const currentToDoList = [
+  &quot;смотреть сериальчики&quot;,
+  &quot;читать книгу&quot;,
+  &quot;пить кофе&quot;,
+  &quot;гладить кота&quot;,
+  &quot;гулять&quot;,
+];
+const tomorrowToDoList = [
+  &quot;читать книгу&quot;,
+  &quot;пить кофе&quot;,
+  &quot;гладить кота&quot;,
+  &quot;гулять&quot;,
+];
+
+// Результат выполнения: смотреть сериальчики
+console.log(currentToDoList.find(isMyFavoriteHobby));
+
+// Результат выполнения: undefined, не найдено
+console.log(tomorrowToDoList.find(isMyFavoriteHobby));
+</code></pre>
+<h2>Интерактивный пример</h2>
+<iframe title="Работа метода массива filter — Array.find — Дока" src="demos/index/" height="695"></iframe>
+<h2>Как пишется</h2>
+<p>В метод <code>find</code> необходимо передать аргументом функцию. Функция должна возвращать булевое значение <code>true</code> или <code>false</code>. <code>find</code> вернёт первый элемент, на котором переданная функция-колбэк вернула <code>true</code>.</p>
+<p>Чтобы получить необходимый элемент, нужно определить условие поиска. В этом нам поможет функция-предикат. Предикат — это функция, которая возвращает булевое значение.</p>
+<p>От результата выполнения функции зависит, вернёт ли <code>find</code> подходящий элемент:</p>
+<ul>
+<li><code>true</code> — элемент проходит проверку.</li>
+<li><code>false</code> — элемент не проходит проверку.</li>
+</ul>
+<p>Опишем функцию-предикат <code>isOdd</code>, которая проверяет, является ли число нечётным: проверим остаток от деления на 2, и если остаток равен 1, то число нечётное. Протестируем функцию на двух наборах данных. Первый набор состоит только из чётных значений. Второй массив включает в себя нечётные значения: 17, 19, 21.</p>
+<p>Когда мы запустим метод <code>find</code> у первого массива, то нам вернётся <code>undefined</code>, так как ни одно значение не подходит под условие. В случае со вторым набором вернётся число 17 и только оно, потому что это число первое удовлетворило значению.</p>
+<pre><code class="language-js">// Если четное - вернёт false, если нечетное - true
+const isOdd = (element) =&gt; {
+  return element % 2 === 1;
+};
+
+const onlyEvenElements = [2, 4, 8, 16, 32];
+const withOddElements = [2, 4, 8, 16, 17, 19, 21];
+
+// Результат выполнения: undefined, не найдено
+console.log(onlyEvenElements.find(isOdd));
+
+// Результат выполнения: 17
+console.log(withOddElements.find(isOdd));
+</code></pre>
+<p>Функция, которую мы передаём в метод <code>find</code>, принимает три параметра:</p>
+<ul>
+<li><code>element</code> — элемент массива в текущей итерации;</li>
+<li><code>index</code> — индекс текущего элемента;</li>
+<li><code>arr</code> — сам массив, который перебираем.</li>
+</ul>
+<p>В коде <code>isOdd</code> мы не стали объявлять параметры <code>index</code> и <code>arr</code>, потому что не используем их.</p>
+<h2>Как это понять</h2>
+<p>Метод <code>find</code> возвращает элемент, который соответствует описанному в функции-предикате условию. Реализовать такую логику можно и через <code>for</code>, но метод <code>find</code> позволяет это сделать проще.</p>
+<p>Ниже показан пример того, как решить задачу без <code>find</code>. Если мы уберём число 2 из массива, то функция будет возвращать <code>undefined</code>. Обратите внимание: после того, как нужный элемент был найден, делается прерывание цикла <code>for</code>. Это написано для имитации поиска через <code>find</code>. <code>find</code> заканчивает работу, как только нашёл нужный элемент. Это называется оптимизация. Не стоит тратить ресурс на то, что уже сделано и не пригодится в дальнейшем.</p>
+<pre><code class="language-js">const numbersWithTwo = [1, 2, 3, 4, 5, 6];
+const numbersWithoutTwo = [1, 3, 4, 5, 6];
+
+const findTwo = (array) =&gt; {
+  for (let i = 0; i &lt; array.length; i++) {
+    if (array[i] === 2) {
+      return array[i];
+      break;
+    }
+  }
+
+  return undefined;
+};
+
+// Результат выполнения: 2
+console.log(findTwo(numbersWithTwo));
+
+// Результат выполнения: undefined
+console.log(findTwo(numbersWithoutTwo));
+</code></pre>
+<p><code>find</code> позволит писать меньше кода и сделать его более понятным:</p>
+<pre><code class="language-js">const numbers = [1, 2, 3, 4, 5, 6];
+
+const result = numbers.find(function isElementEquals2(element) {
+  return element === 2;
+});
+
+// Результат выполнения: 2
+console.log(result);
+</code></pre>
+<p>Функции <a href="/js/array-filter/"><code>filter</code></a> и <code>find</code> похожи. Главное отличие <code>find</code> от <code>filter</code> в том, что <code>find</code> возвращает первый подходящий элемент, а <code>filter</code> вернёт массив со всеми подходящими элементами.</p>
+<p>Вариант реализации через <code>filter</code>:</p>
+<pre><code class="language-js">const isElementEquals2Or4 = (element) =&gt; {
+  return (element === 2) || (element === 4);
+})
+
+const numbers = [1, 2, 3, 4, 5, 2, 6];
+
+const resultWithFilter = numbers.filter(isElementEquals2Or4(element));
+const resultWithFind = numbers.find(isElementEquals2Or4(element));
+
+// Результат выполнения: [2, 4, 2]
+console.log(resultWithFilter);
+
+// Результат выполнения: 2
+console.log(resultWithFind);
+</code></pre>

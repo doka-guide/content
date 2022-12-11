@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация разных значений jump — transition-timing-function — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .parent {
+      position: relative;
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+      outline: 1px solid #FFFFFF;
+    }
+
+    .parent span {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: monospace;
+    }
+
+    .elem {
+      width: 0;
+      height: 50px;
+      background: red;
+      color: white;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .elem::before {
+      content: "";
+      position: absolute;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding-left: 30px;
+      left: 0;
+      width: 600px;
+      height: 100%;
+      top: 0;
+      background: rgb(255, 0, 0);
+    }
+
+    .elem.active {
+      width: 600px;
+      transition-property: width;
+      transition-duration: 3s;
+    }
+
+    .supports {
+      display: none;
+    }
+
+    .jump-start {
+      transition-timing-function: steps(5, start);
+    }
+
+    @supports (transition-timing-function: steps(5, jump-start)) {
+      .jump-start {
+        transition-timing-function: steps(5, jump-start);
+      }
+      .supports {
+        display: block;
+      }
+      .not-supports {
+        display: none;
+      }
+    }
+
+    .jump-end {
+      transition-timing-function: steps(5, end);
+    }
+
+    @supports (transition-timing-function: steps(5, jump-end)) {
+      .jump-end {
+        transition-timing-function: steps(5, jump-end);
+      }
+      .supports {
+        display: block;
+      }
+      .not-supports {
+        display: none;
+      }
+    }
+
+    .jump-none {
+      transition-timing-function: steps(5, jump-none);
+    }
+
+    .jump-both {
+      transition-timing-function: steps(5, jump-both);
+    }
+
+    .ticker {
+      width: 1px;
+      height: 20px;
+      background: #FFFFFF;
+      left: -1px;
+      position: absolute;
+    }
+
+    .ticker.active {
+      left: 600px;
+      transition-property: left;
+      transition-duration: 3s;
+      transition-timing-function: linear;
+    }
+
+    h3 {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h3>Нажми на прямоугольник</h3>
+  <div class="parent">
+    <span class="supports">jump-start</span>
+    <span class="not-supports">start</span>
+    <div class="elem jump-start"></div>
+    <div class="ticker"></div>
+  </div>
+
+  <div class="parent">
+    <span class="supports">jump-end</span>
+    <span class="not-supports">end</span>
+    <div class="elem jump-end"></div>
+    <div class="ticker"></div>
+  </div>
+
+  <div class="parent supports">
+    <span>jump-none</span>
+    <div class="elem jump-none"></div>
+    <div class="ticker"></div>
+  </div>
+
+  <div class="parent supports">
+    <span>jump-both</span>
+    <div class="elem jump-both"></div>
+    <div class="ticker"></div>
+  </div>
+
+  <script>
+    const parents = document.querySelectorAll('.parent')
+
+    parents.forEach((parent) => {
+      parent.addEventListener('click', () => {
+        const elem = parent.querySelector('.elem')
+        const ticker = parent.querySelector('.ticker')
+        elem.classList.toggle('active')
+        ticker.classList.toggle('active')
+      })
+    })
+  </script>
+</body>
+</html>

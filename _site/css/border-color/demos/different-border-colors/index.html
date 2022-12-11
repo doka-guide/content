@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блок текста с разными цветами рамок — border-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      padding: 20px 0;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #e6e6e6;
+      box-sizing: border-box;
+    }
+
+    .text {
+      font-size: 18px;
+      padding: 5px 20px;
+      margin: auto;
+      border-style: solid;
+    }
+
+    .text--one-value {
+      border-color: tomato;
+    }
+
+    .text--two-values {
+      border-color: tomato skyblue;
+    }
+
+    .text--three-values {
+      border-color: tomato skyblue olive;
+    }
+
+    .text--four-values {
+      border-color: tomato skyblue olive silver;
+    }
+  </style>
+</head>
+<body>
+  <p class="text text--one-value">Указано одно значение</p>
+  <p class="text text--two-values">Указано два значения</p>
+  <p class="text text--three-values">Указано три значения</p>
+  <p class="text text--four-values">Указано четыре значения</p>
+</body>
+</html>

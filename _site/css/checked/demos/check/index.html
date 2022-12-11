@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Чекбоксы — :checked — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+    }
+
+    .row + .row {
+      margin-top: 25px;
+    }
+
+    .row-title {
+      width: 220px;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .radio-label, .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .radio-label + .radio-label {
+      margin-left: 35px;
+    }
+
+    .radio-title, .checkbox-title {
+      margin-left: 15px;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: 24px;
+      height: 24px;
+    }
+
+    input[type="checkbox"],
+    input[type="checkbox"] ~ span,
+    input[type="radio"],
+    input[type="radio"] ~ span
+    {
+      opacity: 0.5;
+    }
+
+    input[type="checkbox"]:checked {
+      opacity: 1;
+    }
+
+    input[type="checkbox"]:checked ~ span {
+      opacity: 1;
+      color: #2E9AFF;
+    }
+
+    input[type="radio"]:checked {
+      opacity: 1;
+    }
+
+    input[type="radio"]:checked ~ span {
+      opacity: 1;
+      color: #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    select {
+      position: relative;
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    option:checked {
+      background-color: #FFFFFF;
+      color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .row-title, select {
+        width: 100%;
+        min-width: 280px;
+      }
+
+      .row-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .select-wrapper {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <span class="row-title">Обратный билет</span>
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox" name="return">
+        <span class="checkbox-title">Нужен</span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span class="row-title">Везёте багаж?</span>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="luggage" value="true">
+        <span class="radio-title">Да</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="luggage" value="false">
+        <span class="radio-title">Нет</span>
+      </label>
+    </div>
+
+    <div class="row">
+      <span class="row-title">Место назначения</span>
+        <div class="select-wrapper">
+          <select name="city">
+            <option value="Лондон">Лондон</option>
+            <option value="Париж">Париж</option>
+            <option value="Рига">Рига</option>
+            <option value="Москва">Москва</option>
+          </select>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

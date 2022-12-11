@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Смена цвета при событии mouseout — Element.mouseout — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      height: 300px;
+      background-color: #18191C;
+      color: #FFD829;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    .figure {
+      width: 50%;
+      height: 300px;
+      background-color: #FFD829;
+      border-radius: 0 150px 150px 0;
+    }
+
+    .text {
+      width: 50%;
+      text-align: center;
+    }
+
+    h2 {
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="figure"></div>
+  <div class="text">
+    <h2>Наведи курсор<br>на фигуру слева,<br>а затем убери</h2>
+  </div>
+  <script>
+    const figure = document.querySelector('.figure')
+    const text = document.querySelector('.text')
+
+    figure.addEventListener('mouseout', function() {
+      let currentColor = getColor()
+      figure.style.backgroundColor = currentColor
+      text.style.color = currentColor
+    })
+
+    function getColor() {
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#665610']
+      return colors[Math.floor(Math.random() * colors.length)]
+    }
+  </script>
+</body>
+</html>

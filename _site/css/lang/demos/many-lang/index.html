@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Несколько языков — :lang — Дока</title>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+    }
+
+    blockquote p::before {
+      content: open-quote;
+    }
+
+    blockquote p::after {
+      content: close-quote;
+    }
+
+    blockquote:lang(de) {
+      quotes: "„" "“";
+    }
+
+    blockquote:lang(fr) {
+      quotes: "«" "»";
+    }
+
+    blockquote:lang(en) {
+      quotes: "“" "”";
+    }
+  </style>
+</head>
+<body>
+  <blockquote lang="de">
+    <p>Der Mensch, versuche die Gotter nicht.</p>
+  </blockquote>
+
+  <blockquote lang="fr">
+    <p>Ce que femme veut, Dieu le veut.</p>
+  </blockquote>
+
+  <blockquote lang="en">
+    <p>То be or not to be.</p>
+  </blockquote>
+</body>
+</html>

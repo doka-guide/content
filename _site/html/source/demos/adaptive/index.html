@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивные изображения — <source> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+    <picture>
+      <source
+        srcset="images/640x480.png 640w, images/1024x768.png 1024w"
+        sizes="(max-width: 1200px) 50vw, 1024px">
+      <img src="images/1024x768.png" alt="Тестовое изображение">
+    </picture>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вертикальное выравнивание по умолчанию — vertical-align — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      min-width: 350px;
+      margin: 0;
+      padding: 75px 0;
+      background: url("../../images/background.png") #1a5ad7
+      top center;
+      text-align: center;
+    }
+
+    .parent {
+      display: inline-block;
+      padding: 50px;
+      background-color: #1a5ad7;
+      font-size: 0;
+      text-align: center;
+    }
+
+    .element {
+      display: inline-block;
+      width: 50px;
+      background-color: #ffffff;
+    }
+
+    .element + .element {
+      margin-left: 50px;
+    }
+
+    .small {
+      height: 50px;
+    }
+
+    .medium {
+      height: 100px;
+    }
+
+    .big {
+      height: 150px;
+    }
+
+    @media (max-width: 350px) {
+      body {
+        background-image: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="element small"></div>
+    <div class="element medium"></div>
+    <div class="element big"></div>
+  </div>
+</body>
+</html>

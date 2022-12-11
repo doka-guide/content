@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Math.random — Дока</title>
+</head>
+<body>
+<button onclick="simpleRandom()">Math.random</button>
+<br>
+<br>
+<div id="result">
+  Нажми на кнопку — получишь результат
+</div>
+  <script>
+    function writeResult(text) {
+      let div = document.querySelector('#result');
+      div.innerText = text;
+    }
+    function simpleRandom(){
+      writeResult(Math.random());
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Все рамки — border — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5% 0;
+      background-color: #18191c;
+    }
+
+    .element {
+      width: 50%;
+      margin: auto;
+      padding: 50px;
+      border: 5px solid #ed6742;
+      color: #f498ad;
+    }
+
+    .style-list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 50%;
+      margin: auto;
+      margin-top: 25px;
+      padding: 25px 0;
+      list-style-type: none;
+      user-select: none;
+      color: #ffffff;
+    }
+
+    .style-list__item {
+      margin-bottom: 25px;
+      text-transform: capitalize;
+    }
+
+    .style-list__item:not(:last-child) {
+      margin-right: 25px;
+    }
+
+    label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    input:checked + label::before {
+      background: #ed6742;
+      background: radial-gradient(
+        circle,
+        #ed6742 0%,
+        #ed6742 40%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    input[type="radio"] {
+      width: 19px;
+      margin-right: 2px;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul class="style-list">
+    <li class="style-list__item">
+      <input id="dotted" type="radio" name="style">
+      <label for="dotted">
+        dotted
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="dashed" type="radio" name="style">
+      <label for="dashed">
+        dashed
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="solid" type="radio" name="style" checked>
+      <label for="solid">
+        solid
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="double" type="radio" name="style">
+      <label for="double">
+        double
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="groove" type="radio" name="style">
+      <label for="groove">
+        groove
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="ridge" type="radio" name="style">
+      <label for="ridge">
+        ridge
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="inset" type="radio" name="style">
+      <label for="inset">
+        inset
+      </label>
+    </li>
+    <li class="style-list__item">
+      <input id="outset" type="radio" name="style">
+      <label for="outset">
+        outset
+      </label>
+    </li>
+  </ul>
+
+  <div class="element">
+    <p>Повседневная практика показывает, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет оценить значение дальнейших направлений развития.</p>
+  </div>
+  <script>
+    const element = document.querySelector('.element')
+    const itemsArr = Array.from(document.querySelector('.style-list').children)
+
+    itemsArr.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        element.style.borderStyle =
+          e.target.tagName !== 'label'
+            ? e.target.parentNode.textContent.trim()
+            : e.target.textContent.trim()
+      })
+    })
+  </script>
+</body>
+</html>

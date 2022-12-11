@@ -1,0 +1,22 @@
+<h2>Кратко</h2>
+<p>Тип большого целого <code>BigInt</code> — примитивный тип, который представляет целые числа больше 2<sup>53</sup>-1. Эти числа уже не помещаются в стандартный <a href="/js/number/">примитив «число»</a>.</p>
+<p>Этот тип может использоваться для работы с произвольно большими целыми числами.</p>
+<h2>Как пишется</h2>
+<p>Создать <code>BigInt</code> можно двумя способами.</p>
+<p>1️⃣ Добавить суффикс <code>n</code> в конец записи числа:</p>
+<pre><code class="language-js">const biggy = 9997000254740991n
+</code></pre>
+<p>2️⃣ Вызвать конструктор <code>BigInt</code>:</p>
+<pre><code class="language-js">const alsoBig = BigInt(9997000254999999)
+</code></pre>
+<p>Для <code>BigInt</code> определены операции сложения <code>+</code>, вычитания <code>-</code>, умножения <code>*</code>, взятия остатка от деления <code>%</code>, возведение в степень <code>**</code>.</p>
+<p>Операция деления <code>/</code> также работает, но дробная часть будет отброшена:</p>
+<pre><code class="language-js">const seven = 7n
+const five = 5n
+
+console.log(seven / five)
+// 1
+</code></pre>
+<aside>
+<p>☝️ <code>BigInt</code> не сериализуется в <a href="/tools/json/">JSON</a>. Это усложняет использование этого типа данных в задачах взаимодействия с сервером.</p>
+</aside>

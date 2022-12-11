@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Псевдоклассы группы child — nth-child — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 100;
+    }
+
+    .list {
+      padding-left: 1em;
+      list-style-image: url("../../images/marker.png");
+    }
+
+    .list-item {
+      padding: 10px;
+      color: #000000;
+      line-height: 1;
+    }
+
+    .list-item + .list-item {
+      margin-top: 5px;
+    }
+
+    /* У всех пунктов списка будет жёлтый фон */
+    .list-item {
+      background-color: #ffd829;
+    }
+
+    /* У первого пункта списка (первого дочернего элемента) будет тёмно-зелёный фон */
+    .list-item:first-child {
+      background-color: #064236;
+    }
+
+    /* У последнего пункта списка (последнего дочернего элемента) будет оранжевый фон */
+    .list-item:last-child {
+      background-color: #ed6742;
+    }
+
+    /* У второго пункта списка будет зелёный фон */
+    .list-item:nth-child(2) {
+      background-color: #49a16c;
+    }
+
+    /* У предпоследнего пункта списка будет розовый фон */
+    .list-item:nth-last-child(2) {
+      background-color: #f498ad;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list">
+    <li class="list-item">Тёмный синевато-зелёный</li>
+    <li class="list-item">Блестящий зелёный</li>
+    <li class="list-item">Блестящий зеленовато-жёлтый</li>
+    <li class="list-item">Блестящий зеленовато-жёлтый</li>
+    <li class="list-item">Блестящий зеленовато-жёлтый</li>
+    <li class="list-item">Розовый щербет</li>
+    <li class="list-item">Умеренный оранжевый</li>
+  </ul>
+</body>
+</html>

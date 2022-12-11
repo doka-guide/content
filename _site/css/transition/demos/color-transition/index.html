@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Плавное изменение цвета — transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .col {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .col + .col {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 150px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .link {
+      border-radius: 3px;
+      color: #ffffff;
+      font-size: 24px;
+      text-align: center;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    .link:hover {
+      background-color: #2E9AFF;
+    }
+
+    .transitioned .link {
+      transition: background-color 0.6s;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .col + .col {
+        margin-top: 50px;
+      }
+
+      .option-title {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="col">
+      <span class="option-title">Без transition</span>
+      <a href="#" class="link">Наведи на меня</a>
+    </div>
+    <div class="col transitioned">
+      <span class="option-title">C transition</span>
+      <a href="#" class="link">Наведи на меня</a>
+    </div>
+  </div>
+</body>
+</html>

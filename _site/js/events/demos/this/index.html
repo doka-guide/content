@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>This в функции-обработчике — events — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      text-align: center;
+    }
+
+    .button {
+      width: 125px;
+      height: 125px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 10px;
+      vertical-align: middle;
+      background-color: #FFFFFF;
+      font-size: 75px;
+    }
+
+    .button:hover {
+      cursor: pointer;
+    }
+
+    .button:active, .button:focus {
+      outline: none;
+    }
+
+    .button + .button {
+      margin-left: 25px;
+    }
+  </style>
+</head>
+<body>
+  <button class="button">🍺</button>
+  <button class="button">🍷</button>
+  <button class="button">🍹</button>
+
+  <script>
+    function changeColor() {
+      // меняем цвет кнопки, на которой произошло событие. кнопка доступна с помощью ключевого слова this
+      this.style.backgroundColor = getColor()
+    }
+
+    function getColor() {
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
+      const randomColorIndex = Math.floor(Math.random() * colors.length)
+      return colors[randomColorIndex]
+    }
+
+    const buttons = document.getElementsByTagName('button')
+    for(let i = 0; i < buttons.length; ++i) {
+      const button = buttons[i]
+      // к каждой кнопке привязываем обработчик
+      // обратите внимание, что мы не вызываем функцию функцию changeColor, а только пишем ее имя
+      button.addEventListener('click', changeColor)
+    }
+  </script>
+</body>
+</html>

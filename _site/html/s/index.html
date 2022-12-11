@@ -1,0 +1,29 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;s&gt;</code> обозначает содержимое, которое уже не корректно или потеряло актуальность.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;p&gt;
+  Для тех кто хочет меня нанять — я
+  &lt;s&gt;работаю минимум за 1000 ₽/час&lt;/s&gt;
+  готов работать за еду.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="80"></iframe>
+<h2>Как понять</h2>
+<p>Тег <code>&lt;s&gt;</code> стоит использовать только для незначительных правок, таких как обновление цены. Для обозначения значимых правок в тексте, которые важно зафиксировать, используются теги <a href="/html/del/"><code>&lt;del&gt;</code></a> и <a href="/html/ins/"><code>&lt;ins&gt;</code></a>.</p>
+<p>По умолчанию браузеры применяют к <code>&lt;s&gt;</code> перечёркивание с помощью <code>text-decoration: line-through</code>.</p>
+<h2>Пример</h2>
+<p>Чаще всего «‎потеря актуальности»‎ отображается в меню или прейскурантах при смене цены.</p>
+<pre><code class="language-html">&lt;div class=&quot;menu&quot;&gt;
+  &lt;h3&gt;Новогодняя акция!&lt;/h3&gt;
+  &lt;p&gt;
+    Булочка с корицей всего за &lt;s&gt;120 ₽&lt;/s&gt; 119,95 ₽.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Слойка с вишней за смешные &lt;s&gt;110 ₽&lt;/s&gt; 109,95 ₽.
+  &lt;/p&gt;
+  &lt;p&gt;
+    Пирог с курицей по невероятной цене — &lt;s&gt;200 ₽&lt;/s&gt; 199,95 ₽.
+  &lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<iframe title="Пример с ценами" src="demos/prices/" height="300"></iframe>

@@ -1,0 +1,32 @@
+<h2>Кратко</h2>
+<p>Свойство <code>inset</code> заменяет собой сразу четыре свойства: <code>top</code>, <code>right</code>, <code>bottom</code> и <code>left</code>. Позволяет указать смещение <a href="/css/position/">позиционированного элемента</a> сразу со всех четырёх сторон. Это логическое свойство, а значит позиционирование будет опираться не на стороны окна браузера, а на <a href="/css/writing-mode/">направление письма</a> и будет меняться вместе с ним.</p>
+<p><code>inset</code> является шорткатом для свойств:</p>
+<ul>
+<li><code>inset-block-start</code></li>
+<li><code>inset-block-end</code></li>
+<li><code>inset-inline-start</code></li>
+<li><code>inset-inline-end</code></li>
+</ul>
+<h2>Пример</h2>
+<pre><code class="language-css">div {
+  position: absolute;
+  inset: 10px 15px 20px;
+}
+</code></pre>
+<h2>Как пишется</h2>
+<p>Можно указать от одного до четырёх значений через пробел. Значения применяются к четырём сторонам соответственно, по часовой стрелке, начиная с верхнего края.</p>
+<p>Очень часто встречается ситуация, когда нужно задать позиционированному элементу 0 в качестве значения для свойств <code>top</code>, <code>right</code>, <code>bottom</code> и <code>left</code>. Можно написать на старый лад:</p>
+<pre><code class="language-css">div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</code></pre>
+<p>Свойство <code>inset</code> позволяет сэкономить три строчки кода:</p>
+<pre><code class="language-css">div {
+  position: absolute;
+  inset: 0;
+}
+</code></pre>

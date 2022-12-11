@@ -1,0 +1,42 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;ins&gt;</code> используется для отображения добавленного контента. Например, нового пункта в списке дел или новой части кода.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;h4&gt;Список дел&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Помыть посуду&lt;/li&gt;
+  &lt;li&gt;Полить цветы&lt;/li&gt;
+  &lt;li&gt;&lt;ins&gt;Погулять с собакой&lt;/ins&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;ins&gt;Пропылесосить комнату&lt;/ins&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<h2>Как понять</h2>
+<p>По умолчанию браузеры применяют к <code>&lt;ins&gt;</code> подчёркивание с помощью <code>text-decoration: underline</code>. Такого же эффекта можно добиться, используя тег <a href="/html/u/"><code>&lt;u&gt;</code></a> или просто применив к тексту <code>text-decoration: underline</code>. Однако <code>&lt;ins&gt;</code> стоит использовать в том случае, когда нужно подчеркнуть, что какой-то контент был добавлен и это важно. Хоть визуально отличий не будет, но это поможет, например, пользователям <a href="/tools/site-readers/#skrinridery">скринридеров</a>.</p>
+<h2>Атрибуты</h2>
+<p>Помимо <a href="/html/global-attrs/">глобальных атрибутов</a> у <code>&lt;ins&gt;</code> есть специфические:</p>
+<ul>
+<li><code>cite</code> позволяет сослаться на информацию о правке;</li>
+<li><code>datetime</code> позволяет указать время правки.</li>
+</ul>
+<p>Оба атрибута необязательные и помогают уточнить правку.</p>
+<pre><code class="language-html">&lt;h4&gt;Сдача проекта&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;del&gt;
+      Созвониться с подрядчиком по поводу актов
+    &lt;/del&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ins cite=&quot;https://our-cool-customers.com/reports/upload&quot;&gt;
+      Выгрузить отчёт в сервис заказчика
+    &lt;/ins&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ins datetime=&quot;2021-12-21T15:00Z&quot;&gt;
+      Ещё раз позвонить подрядчику и напомнить про акты
+    &lt;/ins&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>По умолчанию значения атрибутов невидимы для пользователя, но можно автоматически выводить их при помощи скриптов. Например, мы можем добавлять для всех новых пунктов дату и время добавления, это будет выглядеть примерно так:</p>
+<iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>

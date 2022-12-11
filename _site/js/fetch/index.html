@@ -1,0 +1,74 @@
+<h2>Кратко</h2>
+<p>С помощью функции <code>fetch</code> можно отправлять сетевые запросы на сервер — как получать, так и отправлять данные. Метод возвращает <a href="/js/promise/">promise</a> с объектом ответа, где находится дополнительная информация (статус ответа, заголовки) и ответ на запрос.</p>
+<h2>Как понять</h2>
+<p>Браузер предоставляет глобальный API для работы с запросами и ответами HTTP. Раньше для подобной работы использовался XMLHttpRequest, однако <code>fetch</code> более гибкая и мощная альтернатива, он понятнее и проще в использовании из-за того, что использует <code>Promise</code>.</p>
+<h2>Как пишется</h2>
+<p>Функция <code>fetch</code> принимает два параметра:</p>
+<ul>
+<li><code>url</code> — адрес, по которому нужно сделать запрос</li>
+<li><code>options</code> (необязательный) — объект конфигурации, в котором можно настроить метод запроса, тело запроса, заголовки и многое другое</li>
+</ul>
+<p>По умолчанию вызов <code>fetch</code> делает GET-запрос по указанному адресу. Базовый вызов для получения данных можно записать таким образом:</p>
+<pre><code class="language-js">fetch(&quot;http://jsonplaceholder.typicode.com/posts&quot;)
+</code></pre>
+<p>Результатом вызова <code>fetch</code> будет <code>Promise</code>, в котором будет содержаться специальный объект ответа <code>Response</code>. У этого объекта есть два важных для нас поля:</p>
+<ul>
+<li><code>ok</code> — принимает состояние <code>true</code> или <code>false</code> и сообщает об успешности запроса</li>
+<li><code>json</code> — метод, вызов которого, возвращает результат запроса в виде json</li>
+</ul>
+<pre><code class="language-js">fetch(&quot;http://jsonplaceholder.typicode.com/posts&quot;)
+  .then((response) =&gt; response.json())
+  .then((data) =&gt; data) // Получим ответ [{...}, {...}, {...}, ...]
+</code></pre>
+<p>С помощью второго аргумента <code>options</code> можно передать настройки запроса. Например, можно изменить метод и добавить тело запроса, если мы хотим не получать, а отправлять данные. Так же в запрос можно добавить заголовки в виде объекта или специального класса <code>Headers</code>.</p>
+<pre><code class="language-js">const newPost = {
+  title: &quot;foo&quot;,
+  body: &quot;bar&quot;,
+  userId: 1,
+}
+
+fetch(&quot;https://jsonplaceholder.typicode.com/posts&quot;, {
+  method: &quot;POST&quot;, // Здесь так же могут быть GET, PUT, DELETE
+  body: JSON.stringify(newPost), // Тело запроса в JSON-формате
+  headers: {
+    // Добавляем необходимые заголовки
+    &quot;Content-type&quot;: &quot;application/json; charset=UTF-8&quot;,
+  },
+})
+  .then((response) =&gt; response.json())
+  .then((data) =&gt; {
+    console.log(data) // {title: &quot;foo&quot;, body: &quot;bar&quot;, userId: 1, id: 101}
+  })
+</code></pre>
+<h3>Cookies</h3>
+<p>По умолчанию <code>fetch</code> запросы не включают в себя cookies и потому авторизованные запросы на сервере могут не пройти. Для этого необходимо добавить в настройку поле <code>credentials</code>:</p>
+<pre><code class="language-js">fetch(&quot;https://somesite.com/admin&quot;, {
+  method: &quot;GET&quot;,
+  // или 'same-origin' если можно делать такие запросы только в пределах этого домена
+  credentials: &quot;include&quot;,
+})
+</code></pre>
+<h3>Обработка ошибок</h3>
+<p>Если ответом на запрос <code>fetch</code> была ошибка (например HTTP-код 400, 404 или 500), то <code>Promise</code> не попадёт в состояние <em>rejected</em>. Promise выполнится с ошибкой только если запрос не случился из-за сбоя сети или что-то помешало выполнению <code>fetch</code>.</p>
+<pre><code class="language-js">// Запрос вернет ошибку 404 Not Found
+fetch(&quot;https://jsonplaceholder.typicode.com/there-is-no-such-route&quot;).catch(
+  () =&gt; {
+    console.log(&quot;Error occurred!&quot;)
+  }
+) // Никогда не выполнится
+</code></pre>
+<p>Чтобы обработать ошибку запроса необходимо обращать внимание на поле <code>ok</code> в объекте ответа <code>Response</code>. В случае ошибки запроса оно будет равно <code>false</code>.</p>
+<pre><code class="language-js">fetch(&quot;https://jsonplaceholder.typicode.com/there-is-no-such-route&quot;)
+  .then((response) =&gt; {
+    // Проверяем успешность запроса и выкидываем ошибку
+    if (!response.ok) {
+      throw new Error(&quot;Error occurred!&quot;)
+    }
+
+    return response.json()
+  })
+  // Теперь попадём сюда, т.к выбросили ошибку
+  .catch((err) =&gt; {
+    console.log(err)
+  }) // Error: Error occurred!
+</code></pre>

@@ -1,0 +1,58 @@
+<h2>Кратко</h2>
+<p>Свойство <code>Element.outerHTML</code> позволяет получить HTML-элемент, включая его содержимое, в виде HTML-строки или заменить элемент на новый HTML.</p>
+<p>Новое значение HTML передаётся в виде строки и оно полностью заменит весь элемент. В <code>Element.outerHTML</code> нельзя передать DOM-элемент, только строку.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;h1&gt;Введение&lt;/h1&gt;
+  &lt;p&gt;Параграф с текстом&lt;/p&gt;
+  &lt;p&gt;Второй параграф с текстом&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-js">const section = document.querySelector('section')
+
+console.log(section.outerHTML)
+</code></pre>
+<p>В таком случае выведется весь HTML, включая сам элемент:</p>
+<pre><code class="language-html">&lt;section&gt;&lt;h1&gt;Введение&lt;/h1&gt;&lt;p&gt;Параграф с текстом&lt;/p&gt;&lt;p&gt;Второй параграф с текстом&lt;/p&gt;&lt;/section&gt;
+</code></pre>
+<p>Если теперь заменить содержимое новым HTML</p>
+<pre><code class="language-html">section.outerHTML = '&lt;h2&gt;Второй заголовок&lt;/h2&gt;'
+</code></pre>
+<p>HTML после изменения будет:</p>
+<pre><code class="language-html">&lt;h2&gt;Второй заголовок&lt;/h2&gt;
+</code></pre>
+<iframe title="Element.outerHTML — Element.outerHTML — Дока" src="demos/index/" height="650"></iframe>
+<h2>Как понять</h2>
+<p><code>Element.outerHTML</code> проще понять в сравнении с другим похожим свойством – <a href="/js/element-innerhtml/">Element.innerHTML</a>.</p>
+<p><code>Element.innerHTML</code> позволяет получить только <strong>содержимое</strong> элемента как HTML-строку. В то время как <code>Element.outerHTML</code> делает тоже самое, но при этом возвращает и HTML самого элемента. Можно сказать, что вывод будет идентичен <code>Element.innerHTML</code>, только в строке будет содержаться открывающий и закрывающий тег самого элемента, у которого было вызвано свойство.</p>
+<p>Так же как и <code>Element.innerHTML</code>, если в <code>Element.outerHTML</code> присвоить новое значение, то это приводит к <a href="/js/how-the-browser-creates-pages/">перерисовке страницы</a>.</p>
+<h2>Как пишется</h2>
+<p>Обращение к свойству <code>Element.outerHTML</code> вернёт элемент и его содержимое виде HTML-строки. Просмотреть можно любой элемент, но изменить можно любой, кроме <code>&lt;html&gt;</code>.</p>
+<p>Присвоение нового значения к свойству полностью удалит элемент и заменит его новым HTML.</p>
+<pre><code class="language-html">&lt;header&gt;Название сайта&lt;/header&gt;
+</code></pre>
+<pre><code class="language-js">const header = document.querySelector('header')
+
+header.outerHTML = '&lt;span class=&quot;logo&quot;&gt;&lt;/span&gt;'
+</code></pre>
+<p>HTML после изменения будет:</p>
+<pre><code class="language-html">&lt;span class=&quot;logo&quot;&gt;&lt;/span&gt;
+</code></pre>
+<p>Новый элемент полностью заменит <code>&lt;header&gt;</code>.</p>
+<aside>
+<p>☝️ Браузер позволит присвоить новое значение <code>Element.outerHTML</code> в <code>&lt;body&gt;</code>, но не удалит сам элемент. Вместо этого новое значение будет вставлено внутрь <code>&lt;body&gt;</code>, аналогично вызову <code>Element.innerHTML</code>.</p>
+</aside>
+<pre><code class="language-js">document.body.outerHTML = '&lt;h1&gt;Я новое содержимое страницы&lt;h1&gt;'
+</code></pre>
+<p>В результате в документ будет такой HTML:</p>
+<pre><code class="language-html">&lt;body&gt;
+  &lt;h1&gt;Я новое содержимое страницы&lt;h1&gt;
+&lt;/body&gt;
+</code></pre>
+<p><code>&lt;body&gt;</code> остался на странице, а новое значение стало содержимым элемента.</p>
+<p>Если попробовать изменить <code>Element.outerHTML</code> у <code>&lt;html&gt;</code>, то браузер выбросит ошибку.</p>
+<pre><code class="language-js">const html = document.querySelector('html')
+
+html.outerHTML = '&lt;div&gt;Я новый HTML&lt;/div&gt;'
+// Uncaught DOMException: Failed to set the 'outerHTML' property on 'Element'
+</code></pre>

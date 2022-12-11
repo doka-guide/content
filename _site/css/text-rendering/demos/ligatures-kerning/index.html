@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры лигатуры и кернинговых пар — text-rendering — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      line-height: 1;
+      font-weight: 500;
+      font-size: 30px;
+    }
+
+    h1, .description {
+      text-transform: lowercase;
+      text-align: right;
+      width: 150px;
+    }
+
+    .description {
+      line-height: 1.2;
+      margin-right: 50px;
+    }
+
+    .font-options {
+      margin-top: 30px;
+    }
+
+    .font-options + .font-options {
+      margin-top: 60px;
+    }
+
+    .font-option {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .font-option + .font-option {
+      margin-top: 30px;
+    }
+
+    .symbols {
+      line-height: 0.85;
+    }
+
+    .ligatures, .kerning {
+      color: #F498AD;
+    }
+
+    .no-ligatures, .no-kerning {
+      color: #2E9AFF;
+    }
+
+    .ligatures {
+      font-family: "Playfair Display", serif;
+      font-size: 60px;
+      line-height: 1;
+    }
+
+    .no-ligatures {
+      font-family: "Times New Roman", serif;
+      font-size: 67px;
+    }
+
+    .kerning, .no-kerning {
+      font-size: 65px;
+    }
+
+    .no-kerning {
+      font-family: 'Roboto Mono', monospace;
+      line-height: 0.95;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .description {
+        width: 100%;
+      }
+
+      .description {
+        margin-right: auto;
+        margin-bottom: 10px;
+      }
+
+      .font-options, .font-options + .font-options {
+        margin-top: 50px;
+      }
+
+      .font-option {
+        flex-direction: column;
+
+      }
+      .font-option + .font-option {
+        margin-top: 50px;
+      }
+
+      .kerning, .no-kerning {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Шрифты</h1>
+    <div class="font-options">
+      <div class="font-option">
+        <p class="description">с лигатурами</p>
+        <p class="symbols ligatures">fi fl ffi fh</p>
+      </div>
+      <div class="font-option">
+        <p class="description">без лигатур</p>
+        <p class="symbols no-ligatures">fi fl ffi fh</p>
+      </div>
+    </div>
+    <div class="font-options">
+      <div class="font-option">
+        <p class="description">с поддержкой кернинговых пар</p>
+        <p class="symbols kerning">VA LYoWAT</p>
+      </div>
+      <div class="font-option">
+        <p class="description">без поддержки кернинговых пар</p>
+        <p class="symbols no-kerning">VA LYoWAT</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

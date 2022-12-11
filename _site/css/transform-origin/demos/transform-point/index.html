@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Точка трансформации — transform-origin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+    }
+
+    .parent {
+      width: 150px;
+      height: 150px;
+      border: 2px dashed #F498AD;
+      position: relative;
+    }
+
+    .parent + .parent {
+      margin-left: 100px;
+    }
+
+    .parent::after {
+      content: "";
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url("images/point.svg");
+    }
+
+    .rotate-lt::after {
+      left: 0;
+      top: 0;
+    }
+
+    .element {
+      width: 150px;
+      height: 150px;
+      border: 2px solid #2E9AFF;
+      box-sizing: border-box;
+      background: rgb(46 154 255 / 30%);
+      transform: rotate(-30deg);
+      animation: rot 2s linear infinite ;
+    }
+
+    .rotate-lt .element {
+      transform-origin: 0 0;
+    }
+
+    @keyframes rot {
+      0% {
+        transform: rotate(0);
+      }
+      50% {
+        transform: rotate(-30deg);
+      }
+      100% {
+        transform: rotate(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        padding: 30px;
+      }
+
+      .parent + .parent {
+        margin-left: 0;
+        margin-top: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="element"></div>
+  </div>
+  <div class="parent rotate-lt">
+    <div class="element"></div>
+  </div>
+</body>
+</html>

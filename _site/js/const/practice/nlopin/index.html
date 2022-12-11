@@ -1,0 +1,13 @@
+<p>Константы в современном JS используют чаще, чем переменные. В большинстве случаев, значение переменной устанавливается только один раз. Хорошей практикой считается объявлять такие переменные через <code>const</code> и писать название переменной в camelCase, чтобы подчеркнуть этот факт:</p>
+<pre><code class="language-js">for (let i = 0; i &lt; users.length; ++i) {
+  const user = users[i]
+  printUserInfo(user)
+}
+</code></pre>
+<p>Используй <code>CAPS_WITH_UNDER</code> формат именования, если нужно объявить константу, которая хранит важное значение для программы: количество элементов на странице по умолчанию, формат даты, максимальное количество заказов и т.д.</p>
+<pre><code class="language-js">const ITEMS_PER_PAGE = 25
+
+for (let i = 0; i &lt; products.length &amp;&amp; i &lt; ITEMS_PER_PAGE; i++) {
+  printItem(products[i])
+}
+</code></pre>

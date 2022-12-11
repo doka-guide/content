@@ -1,0 +1,20 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;optgroup&gt;</code> позволяет группировать опции внутри элемента <a href="/html/select/"><code>&lt;select&gt;</code></a>. Внутри тега <code>&lt;optgroup&gt;</code> стандартно используется один или несколько тегов <a href="/html/option/"><code>&lt;option&gt;</code></a>.</p>
+<h2>Как пишется</h2>
+<p>Нельзя вкладывать один <code>&lt;optgroup&gt;</code> в другой.</p>
+<p>Возможные атрибуты:</p>
+<ul>
+<li><code>disabled</code> — находящиеся внутри группы опции станут недоступны для выбора.</li>
+</ul>
+<pre><code class="language-html">&lt;select&gt;
+  &lt;optgroup label=&quot;Необычные цветы&quot; disabled&gt;
+    &lt;option&gt;Ангулоя одноцветковая&lt;/option&gt;
+    &lt;option&gt;Обезьяний дракула&lt;/option&gt;
+    &lt;option&gt;Пассифлора инкарнатная&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+<ul>
+<li><code>label</code> — обязательный атрибут. Имя группы будет отображено в выпадающем списке. Теоретически мы можем оставить атрибут пустым или не использовать его вообще, но в таком случае над списком будет пустое пространство.</li>
+</ul>
+<p>Кроме того, можно применить любые <a href="/html/global-attrs/">глобальные атрибуты</a>.</p>

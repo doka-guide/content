@@ -1,0 +1,47 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;sup&gt;</code> позволяет выводить надстрочный текст, например, в математических уравнениях: c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup>.</p>
+<h2>Пример</h2>
+<p>Чаще всего <code>&lt;sup&gt;</code> используется для вывода степеней в математических формулах.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Теорема Пифагора — одна из
+  основополагающих теорем евклидовой
+  геометрии c&lt;sup&gt;2&lt;/sup&gt; =
+  a&lt;sup&gt;2&lt;/sup&gt; + b&lt;sup&gt;2&lt;/sup&gt;.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Теорема пифагора" src="demos/basic/" height="100"></iframe>
+<h2>Как пишется</h2>
+<p>Помимо описанного выше примера, можно использовать тег <code>&lt;sup&gt;</code> внутри тега <code>&lt;var&gt;</code>.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Квадрат суммы может быть вычислен как сумма
+  квадратов слагаемых и их удвоенное произведение:
+  &lt;var&gt;(a + b)&lt;sup&gt;2&lt;/sup&gt; = a&lt;sup&gt;2&lt;/sup&gt; + 2*a*b + b&lt;sup&gt;2&lt;/sup&gt;&lt;/var&gt;
+&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css">var {
+  font-style: normal;
+}
+</code></pre>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="150"></iframe>
+<p>Теги <code>&lt;sup&gt;</code> можно вкладывать друг в друга, тогда на каждом шаге текст будет подниматься вверх, а его размер будет уменьшаться.</p>
+<pre><code class="language-html">&lt;p&gt;
+  Первый уровень
+  &lt;sup&gt;второй уровень
+    &lt;sup&gt;третий уровень
+      &lt;sup&gt;четвёртый уровень&lt;/sup&gt;
+    &lt;/sup&gt;
+  &lt;/sup&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="180"></iframe>
+<p>Также <code>&lt;sup&gt;</code> можно комбинировать с тегом <a href="/html/sub/"><code>&lt;sub&gt;</code></a> для построения сложных формул.</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;var&gt;
+    X
+    &lt;sup&gt;
+      2 × log&lt;sub&gt;3&lt;/sub&gt;(Z&lt;sup&gt;2&lt;/sup&gt;)
+    &lt;/sup&gt;
+  &lt;/var&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример с тегом sub" src="demos/sub/" height="120"></iframe>

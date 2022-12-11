@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомные свойства при разработке дизайн-системы — Кастомные свойства — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    :root {
+      --padding: 8px 15px;
+      font-size: 62.5%;
+    }
+
+    .container {
+      display: flex;
+      gap: 25px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      --font: 1.8rem;
+      padding: var(--padding);
+      font-size: var(--font);
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button--small {
+      --padding: 5px 10px;
+      --font: 1.3rem;
+    }
+
+    .button--large {
+      --padding: 12px 30px;
+      --font: 2.2rem;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button-pink {
+      background-color: #F498AD;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button--small button-blue">
+      Small
+    </button>
+    <button class="button button-pink">
+      Normal
+    </button>
+    <button class="button button--large button-blue">
+      Large
+    </button>
+  </div>
+</body>
+</html>

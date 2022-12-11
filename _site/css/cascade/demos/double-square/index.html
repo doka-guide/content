@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Квадрат в квадрате — Каскад — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .wrapper {
+      width: 300px;
+      height: 150px;
+      background-color: #112393;
+      /* описываем свойство */
+      border: 1em solid;
+    }
+
+    .inner {
+      background-color: #fff;
+      width: 120px;
+      height: 80px;
+      margin: auto;
+      /* наследуем свойство у «родителя» */
+      border: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="inner"></div>
+  </div>
+</body>
+</html>

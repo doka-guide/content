@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Замена confirm() — confirm() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .content {
+      font-style: italic;
+    }
+
+    .button {
+      flex-grow: 1;
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .container .button {
+      margin: 17px auto;
+    }
+
+    .dialog-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background-color: rgb(255 216 41 / 10%);
+      z-index: 1;
+    }
+
+    .dialog-box {
+      position: fixed;
+      display: none;
+      max-width: 650px;
+      padding: 20px 80px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: left;
+      z-index: 10;
+    }
+
+    .dialog-box h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .dialog-box .dialog-content {
+      font-size: 16px;
+      margin: 17px 0 27px;
+    }
+
+    .dialog-footer {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .dialog-box .button + .button {
+      margin-left: 25px;
+    }
+
+    .dialog-box .button {
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    .dialog-box .button:focus-visible {
+      border-color: #FFD829;
+    }
+
+    .dialog-box .button:focus {
+      border-color: #FFD829;
+    }
+
+    .result {
+      min-height: 25.2px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .dialog-box {
+        width: calc(100% - 60px);
+        padding: 30px;
+      }
+
+      .dialog-footer {
+        display: block;
+      }
+
+      .dialog-box .button {
+        margin: auto;
+      }
+
+      .dialog-box .button + .button {
+        margin-left: auto;
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dialog-overlay js-overlay"></div>
+  <div class="dialog-box js-box">
+    <h1 class="js-header"></h1>
+    <p class="dialog-content js-body"></p>
+    <div class="dialog-footer js-footer"></div>
+  </div>
+
+  <div class="container">
+    <p class="content">Вы видите перед собой сфинкса. Она с любопытством смотрит на вас.</p>
+    <button class="button button-yellow" onclick="askConfirm()">Отгадать загадку</button>
+    <div class="result js-result"></div>
+  </div>
+
+  <script>
+    class CustomConfirm {
+      constructor() {}
+
+      show(dialog, func) {
+        const dialogOverlay = document.querySelector('.js-overlay')
+        const dialogBox = document.querySelector('.js-box')
+
+        dialogOverlay.style.display = 'block'
+        dialogBox.style.display = 'block'
+
+        document.querySelector('.js-header').innerHTML = 'Загадка сфинкса'
+        document.querySelector('.js-body').innerHTML = dialog
+        document.querySelector('.js-footer').innerHTML = '<button class="button" onclick="confirm.ok(\'' + func + '\')">Солнце</button> <button class="button" onclick="confirm.cancel(' + "'" + func + "'" + ')">Коза</button>'
+      }
+
+      cancel(func) {
+        window[func](false)
+        this.hide()
+      }
+
+      ok(func) {
+        window[func](true)
+        this.hide()
+      }
+
+      hide() {
+        document.querySelector('.js-overlay').style.display = 'none'
+        document.querySelector('.js-box').style.display = 'none'
+      }
+    }
+
+    const confirm = new CustomConfirm()
+
+    function askConfirm() {
+      confirm.show('Без отдыха, без сна, беззвучным шагом с холма на холм кто движется не спеша, кто холод прогнать пришел?','customConfirmHandler')
+    }
+
+    function customConfirmHandler(answer) {
+      document.querySelector('.js-result').textContent = answer ? 'Вы отгадали загадку.' : 'О, нет! Бегите!'
+    }
+  </script>
+</body>
+</html>

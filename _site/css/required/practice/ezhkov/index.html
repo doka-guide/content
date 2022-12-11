@@ -1,0 +1,28 @@
+<p>🛠 Как правило, в реальных формах обязательные к заполнению поля выделяют не так явно, как в примере выше. Обычно после текстового описания обязательного поля ставят звёздочку. В примере ниже, кроме того, показано, как можно стилизовать подсказку к полю.</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;div class=&quot;form-row&quot;&gt;
+    &lt;label class=&quot;label-required&quot; for=&quot;first_name&quot;&gt;Имя&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;first_name&quot; required&gt;
+    &lt;span class=&quot;hint&quot;&gt;Обязательно к заполнению&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-row&quot;&gt;
+    &lt;label for=&quot;last_name&quot;&gt;Фамилия&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;last_name&quot;&gt;
+    &lt;span class=&quot;hint&quot;&gt;Необязательно&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-css">.label-required::after {
+  content: &quot;*&quot;;
+  font-size: 0.7em;
+}
+
+.hint {
+  color: #FFFFFF;
+}
+
+input:required + .hint {
+  color: #2E9AFF;
+}
+</code></pre>
+<iframe title="Стилизация подсказки для поля ввода" src="../demos/input-hint/" height="300"></iframe>

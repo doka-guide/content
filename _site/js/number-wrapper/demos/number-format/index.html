@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Number - метод toLocaleString</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      height: 150px;
+      background-color: #18191C;
+      color: #FFD829;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    form {
+      padding: 1rem .5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Форматирование числа</h1>
+  <form>
+    <input type="number" name="value" id="value" value="123456">
+    <select id="locale">
+      <option value="">Пользовательская</option>
+      <option value="ru">Русская</option>
+      <option value="en-US">США</option>
+      <option value="ar">Арабская</option>
+      <option value="zh-Hans-CN-u-nu-hanidec">Китайская</option>
+    </select>
+    <button type="submit" id="styleValue">Форматировать число</button>
+  </form>
+  <p id='result'></p>
+  <script>
+    let input = document.getElementById('value')
+    let select = document.getElementsByTagName('select')[0]
+    let button = document.getElementsByTagName('button')[0]
+    let output = document.getElementById('result')
+
+    button.addEventListener('click', function(e) {
+      e.preventDefault()
+      const value = Number(input.value)
+      const locale = select.value
+
+      const formatted = locale ? value.toLocaleString(locale) : value.toLocaleString()
+      output.textContent = `Форматированное число: ${formatted}`
+    });
+  </script>
+</body>
+</html>

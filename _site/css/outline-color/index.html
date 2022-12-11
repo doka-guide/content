@@ -1,0 +1,25 @@
+<h2>Кратко</h2>
+<p>Свойство <code>outline-color</code> задаёт цвет обводки элемента. Аналог свойства <a href="/css/border-color/"><code>border-color</code></a> для цвета рамки.</p>
+<p>Не наследуется. Часто используется в шорткате <a href="/css/outline/"><code>outline</code></a>, где цвет обводки указывается наряду с толщиной и стилем.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;div&gt;Пример блока с обводкой&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">div {
+  outline: 1px solid;
+  outline-color: tomato;
+}
+</code></pre>
+<iframe title="Пример блока с обводкой" src="demos/basic/" height="200"></iframe>
+<h2>Как пишется</h2>
+<p>Цвет обводки можно задать в любом <a href="/css/web-colors/">доступном формате</a>, включая <code>transparent</code>.</p>
+<p>Также применимы любые <a href="/css/global-keywords/">глобальные ключевые слова</a>.</p>
+<p>По умолчанию цвет обводки равен <a href="/css/currentcolor/"><code>currentColor</code></a> — совпадает с цветом текста элемента.</p>
+<p>В отличие от <code>border-color</code>, нельзя прописать сразу несколько значений. Цвет обводки у элемента единый по всем четырём сторонам.</p>
+<iframe title="Различные значения цвета обводки" src="demos/values/" height="200"></iframe>
+<h2>Взаимодействие с <code>:focus-visible</code></h2>
+<p>Обводка используется для визуального выделения элемента, когда мы переводим на него фокус, используя клавиатуру.</p>
+<p>Мы можем задать своё значение <code>outline-color</code> для интерактивных элементов на странице. Например, когда стандартный цвет обводки выбивается из общей стилистики сайта.</p>
+<iframe title="Стили для псевдокласса :focus-visible" src="demos/focus-visible/" height="240"></iframe>
+<h2>Анимация</h2>
+<p>Для плавного изменения цвета можно использовать как <a href="/css/transition/"><code>transition</code></a>, так и <a href="/css/animation/"><code>animation</code></a>.</p>
+<iframe title="Анимация цвета обводки" src="demos/animation/" height="200"></iframe>

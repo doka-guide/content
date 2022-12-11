@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стандартное поле поиска и поле с appearance — appearance — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    input[type="search"] {
+      border: 2px solid red;
+    }
+
+    .no-appearance {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+  </style>
+</head>
+<body>
+  <p>Поле поиска по умолчанию</p>
+  <input type="search">
+  <p>Поле поиска со сброшенным appearance</p>
+  <input type="search" class="no-appearance">
+</body>
+</html>

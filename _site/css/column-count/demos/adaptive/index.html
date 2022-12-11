@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный column-count — column-count — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    iframe {
+      width: 100%;
+      height: 250px;
+      margin-bottom: 1em;
+      border: none;
+      border-radius: 1em;
+    }
+
+    input {
+      display: block;
+      width: 300px;
+      margin: auto;
+      margin-bottom: 12px;
+    }
+
+    .text-wrapper {
+      column-count: 4;
+      column-width: 200px;
+      margin: 0 auto;
+      border: 1px dashed white;
+    }
+  </style>
+</head>
+<body>
+  <input type="range" min="20" max="100" value="100">
+  <div class="text-wrapper">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
+  </div>
+  <script>
+    const range = document.querySelector('input')
+    const wrapper = document.querySelector('.text-wrapper')
+
+    range.addEventListener('input', () => {
+      wrapper.style.width = range.value + '%'
+    })
+  </script>
+</body>
+</html>

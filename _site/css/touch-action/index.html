@@ -1,0 +1,15 @@
+<h2>Кратко</h2>
+<p>Свойство <code>touch-action</code> позволяет контролировать то, как с элементом можно взаимодействовать на сенсорных экранах.</p>
+<h2>Как пишется</h2>
+<ul>
+<li><code>none</code> — запрещает все типы взаимодействий. Можно обрабатывать события при помощи JavaScript.</li>
+<li><code>auto</code> — разрешает все типы взаимодействия (значение по умолчанию).</li>
+<li><code>manipulation</code> — элемент можно сдвигать и зумить. Это сокращение для комбинации <code>pan-x pan-y pinch-zoom</code>. Остальные нестандартные жесты, вроде двойного тапа, запрещены.</li>
+<li><code>pan-x</code> — элемент можно сдвигать по оси <em>x</em> с помощью одного пальца. Это сокращение для значений <code>pan-left</code> и <code>pan-right</code>. Может использоваться в сочетании с <code>pan-y</code>, <code>pan-up</code>, <code>pan-down</code> и <code>pinch-zoom</code>.</li>
+<li><code>pan-y</code> — элемент можно смещать по оси <em>y</em> с помощью одного пальца. Это сокращение для значений <code>pan-up</code> и <code>pan-down</code>. Может использоваться в сочетании с <code>pan-x</code>, <code>pan-left</code>, <code>pan-right</code> и <code>pinch-zoom</code>.</li>
+<li><code>pan-left</code> — элемент можно смещать только если начать движение от левого края (эксперимент).</li>
+<li><code>pan-right</code> — элемент можно смещать только если начать движение от правого края (эксперимент).</li>
+<li><code>pan-down</code> — элемент можно смещать только если начать движение снизу вверх (эксперимент).</li>
+<li><code>pan-up</code> — элемент можно смещать только если начать движение сверху вниз (эксперимент).</li>
+<li><code>pinch-zoom</code> — элемент можно зазумить щипком. Можно совместить с <code>pan-x</code>, <code>pan-left</code>, <code>pan-right</code>, <code>pan-y</code>, <code>pan-up</code>, <code>pan-down</code>.</li>
+</ul>

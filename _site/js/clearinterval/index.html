@@ -1,0 +1,18 @@
+<h2>Кратко</h2>
+<p>Отменяет регулярное выполнение функции, установленное вызовом <a href="/js/setinterval/"><code>setInterval</code></a>.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const intervalId = setInterval(function() {
+  console.log(&quot;Я выполняюсь каждую секунду&quot;)
+}, 1000)
+
+clearInterval(intervalId)
+</code></pre>
+<h2>Как пишется</h2>
+<p>Функция вызывается с одним аргументом — идентификатором, который возвращает функция <a href="/js/setinterval/"><code>setInterval</code></a>.</p>
+<h2>Как понять</h2>
+<p>Когда мы вызываем функцию <a href="/js/setinterval/"><code>setInterval</code></a>, браузер создаёт идентификатор для регулярного запуска функции и записывает его в свой <a href="https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#list-of-active-timers">список активных таймеров</a>. При вызове <code>clearInterval</code> браузер найдёт таймер по идентификатору и уберёт из списка.</p>
+<p>Всегда подчищайте таймеры, если они больше не нужны. Если не удалять таймеры, то на сайте могут происходить утечки памяти и баги из-за неожиданных срабатываний функции.</p>
+<aside>
+<p>☝️ Список активных таймеров общий и для одноразовых таймеров, установленных с помощью <a href="/js/settimeout/"><code>setTimeout</code></a> и для регулярных таймеров, установленных с помощью <a href="/js/setinterval/"><code>setInterval</code></a>. Потому в <code>clearInterval</code> можно использовать идентификаторы обоих типов таймеров.</p>
+<p>Однако для одноразовых таймеров лучше использовать отдельную функцию <a href="/js/clearinterval/"><code>clearTimeout</code></a> для лучшей читаемости.</p>
+</aside>

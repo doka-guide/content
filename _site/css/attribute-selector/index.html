@@ -1,0 +1,114 @@
+<h2>Кратко</h2>
+<p>Селектор по атрибуту находит элемент на странице по значению либо по наличию атрибута.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;blockquote cite=&quot;А. С. Пушкин&quot;&gt;
+  Октябрь уж наступил — уж роща отряхает&lt;br&gt;
+  Последние листы с нагих своих ветвей;
+&lt;/blockquote&gt;
+</code></pre>
+<p>Селектор ниже <em>найдёт</em> все цитаты (<a href="/html/blockquote/"><code>&lt;blockquote&gt;</code></a>) с атрибутом <code>cite</code>:</p>
+<pre><code class="language-css">blockquote[cite] {
+  background-color: #2E9AFF;
+  color: #000000;
+}
+</code></pre>
+<iframe title="Фон для цитаты с атрибутом cite" src="demos/cite-bkg/" height="520"></iframe>
+<h2>Как пишется</h2>
+<p>Этот тип селектора помогает нам стилизовать элементы, опираясь либо на наличие самого атрибута, либо на его значение.</p>
+<p>После элемента в квадратных скобках указывается атрибут. При выборке по значению дополнительно указывается, что атрибут должен быть равен значению в кавычках.</p>
+<h3><code>[attr]</code></h3>
+<p>Селектор выберет все элементы, у которых присутствует атрибут <code>attr</code>.</p>
+<pre><code class="language-html">&lt;button disabled&gt;OK&lt;/button&gt;
+</code></pre>
+<pre><code class="language-css">[disabled] {
+  opacity: 0.5;
+}
+</code></pre>
+<h3><code>[attr=value]</code> или <code>[attr=&quot;value&quot;]</code></h3>
+<p>Селектор выберет все элементы, атрибут <code>attr</code> которых в точности равен <code>value</code>.</p>
+<aside>
+<p>ℹ️ Если в значении атрибута есть пробелы или знаки, отличные от цифр и букв, то значение нужно указывать в кавычках. В остальных случаях кавычки не обязательны.</p>
+</aside>
+<pre><code class="language-html">&lt;a href=&quot;#&quot;&gt;Пустая ссылка&lt;/a&gt; &lt;a href=&quot;#one&quot;&gt;Эта ссылка не стилизуется&lt;/a&gt;
+</code></pre>
+<pre><code class="language-css">[href=&quot;#&quot;] {
+  color: red;
+}
+</code></pre>
+<h3><code>[attr~=value]</code></h3>
+<p>Селектор выбирает все элементы, значение атрибута <code>attr</code> это перечень слов, разделённых пробелом, и среди этих слов есть такое, чьё значение равно <code>value</code>.</p>
+<pre><code class="language-html">&lt;blockquote cite=&quot;Александр Сергеевич Пушкин&quot;&gt;...&lt;/blockquote&gt;
+&lt;blockquote cite=&quot;Лев Николаевич Толстой &quot;&gt;...&lt;/blockquote&gt;
+</code></pre>
+<pre><code class="language-css">[cite~=&quot;Пушкин&quot;] {
+  border: 1px solid green;
+}
+</code></pre>
+<h3><code>[attr|=value]</code></h3>
+<p>Селектор выберет все элементы, значение атрибута <code>attr</code> которых либо в точности равно <code>value</code>, либо начинается с <code>value</code>, за которым следует символ дефиса <code>-</code> (U+002D). Подобный вариант селектора чаще всего используется для выбора по коду языка (например <code>en-US</code> или <code>en-GB</code>).</p>
+<pre><code class="language-html">&lt;div lang=&quot;en-us en-gb en-au en-nz&quot;&gt;Hello World!&lt;/div&gt;
+&lt;div lang=&quot;zh-CN&quot;&gt;世界您好！&lt;/div&gt;
+&lt;div lang=&quot;zh-TW&quot;&gt;世界您好！&lt;/div&gt;
+</code></pre>
+<p>Выберет первый <code>&lt;div&gt;</code>:</p>
+<pre><code class="language-css">[lang|=&quot;en&quot;] {
+  color: blue;
+}
+</code></pre>
+<p>Выберет два других <code>&lt;div&gt;</code>:</p>
+<pre><code class="language-css">[lang|=&quot;zh&quot;] {
+  color: red;
+}
+</code></pre>
+<h3><code>[attr^=value]</code></h3>
+<p>Селектор выберет все элементы, значение атрибута <code>attr</code> которых начинается с <code>value</code>.</p>
+<pre><code class="language-html">&lt;a href=&quot;https://secure.com/&quot;&gt;Ссылка по протоколу HTTPS&lt;/a&gt;
+&lt;a href=&quot;http://secure.com/&quot;&gt;Ссылка по протоколу HTTP&lt;/a&gt;
+</code></pre>
+<p>У ссылок по протоколу HTTPS справа отображается замок:</p>
+<pre><code class="language-css">[href^=&quot;https&quot;]::after {
+  content: &quot;🔐&quot;;
+  margin-left: 3px;
+}
+</code></pre>
+<h3><code>[attr$=value]</code></h3>
+<p>Селектор выберет все элементы, значение атрибута <code>attr</code> которых оканчивается на <code>value</code>.</p>
+<pre><code class="language-html">&lt;a href=&quot;https://apple.com/&quot;&gt;Apple US&lt;/a&gt;
+&lt;a href=&quot;https://apple.com/ru&quot;&gt;Apple Russia&lt;/a&gt;
+&lt;a href=&quot;https://apple.com/it&quot;&gt;Apple Italy&lt;/a&gt;
+</code></pre>
+<pre><code class="language-css">a::after {
+  content: &quot;🇺🇸&quot;;
+}
+a[href$=&quot;/ru&quot;]::after {
+  content: &quot;🇷🇺&quot;;
+}
+a[href$=&quot;/it&quot;]::after {
+  content: &quot;🇮🇹&quot;;
+}
+</code></pre>
+<h3><code>[attr*=value]</code></h3>
+<p>Селектор выберет все элементы, атрибут <code>attr</code> которых содержит в себе значение <code>value</code>.</p>
+<pre><code class="language-html">&lt;img src=&quot;/img/myadvertisingbanner.png&quot;&gt;
+&lt;img src=&quot;/img/other-advert-banner.png&quot;&gt;
+&lt;img src=&quot;/img/Advert-image.png&quot;&gt;
+</code></pre>
+<p>Спрячет две первых рекламных картинки. Оба изображения в атрибуте <code>src</code> содержат подстроку <em>advert</em>.</p>
+<pre><code class="language-css">img[src*=&quot;advert&quot;] {
+  display: none;
+}
+</code></pre>
+<aside>
+<p>❗️ Третья картинка не спрячется, потому что не совпал регистр символов. <code>Advert</code> и <code>advert</code> — это разные значения с точки зрения браузера.</p>
+</aside>
+<h3><code>[attr operator value i]</code></h3>
+<p>Если добавить в скобки после значения атрибута <code>i</code> или <code>I</code>, то браузер будет игнорировать регистр символов.</p>
+<pre><code class="language-html">&lt;img src=&quot;/img/myadvertisingbanner.png&quot;&gt;
+&lt;img src=&quot;/img/other-advert-banner.png&quot;&gt;
+&lt;img src=&quot;/img/Advert-image.png&quot;&gt;
+</code></pre>
+<p>Теперь будут спрятаны все три картинки</p>
+<pre><code class="language-css">img[src*=&quot;advert&quot; i] {
+  display: none;
+}
+</code></pre>

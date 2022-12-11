@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шахматные клетки — conic-gradient — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      display: grid;
+      place-items: center;
+      height: 100%;
+    }
+
+    body {
+      background-color: #18191c;
+    }
+
+    .chess-board {
+      width: 310px;
+      height: 310px;
+      background-image: conic-gradient(peru 25%, cornsilk 25% 50%, peru 50% 75%, cornsilk 75%);
+      background-size: 25% 25%;
+      box-shadow: 0 0 0 2px #18191c, 0 0 0 8px cornsilk;
+    }
+  </style>
+</head>
+<body>
+  <div class="chess-board"></div>
+</body>
+</html>

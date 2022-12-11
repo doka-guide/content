@@ -1,0 +1,54 @@
+<h2>Кратко</h2>
+<p>Свойство <code>Element.textContent</code> позволяет считывать или задавать текстовое содержимое элемента. Обращение к свойству вернёт строку, которая будет состоять из текстового содержимого всех вложенных элементов, даже если они скрыты с помощью CSS и не видны на экране.</p>
+<p>Аналогичной функциональностью, но с некоторыми ограничениями обладает свойство <a href="/js/element-innertext/">Element.innerText</a>. Оно работает так же, но не включает в себя скрытые элементы.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;section&gt;
+  &lt;h1&gt;Заголовок&lt;/h1&gt;
+
+  &lt;p&gt;И параграф полезного текста&lt;/p&gt;
+&lt;/section&gt;
+</code></pre>
+<pre><code class="language-js">const section = document.querySelector('section')
+const heading = document.querySelector('h1')
+
+console.log(section.textContent) // Выведет весь текст внутри элемента: &quot;ЗаголовокИ параграф полезного текста&quot;
+
+heading.textContent = 'Новый заголовок' // В результате будет: &lt;h1&gt;Новый заголовок&lt;/h1&gt;
+</code></pre>
+<iframe title="Element.textContent — Element.textContent — Дока" src="demos/index/" height="850"></iframe>
+<h2>Как понять</h2>
+<p>Для считывания и изменения текстового содержимого браузер предоставляет свойства <a href="/js/element-innertext/">Element.innerText</a> и <code>Element.textContent</code>. Запись значения работает идентично для обоих. Значение, которое возвращается при чтении свойств отличается. <code>textContent</code> возвращает строку с содержимым <strong>всех</strong> вложенных потомков, вне зависимости от того, скрыты они или нет. <code>innerText</code> же возвращает содержимое только видимых элементов.</p>
+<p>Свойство может изменить только текстовое содержимое элемента, потому если присвоить строку, содержащую HTML, то она вставится как простой текст и не превратиться в реальные DOM-элементы. Для того чтобы вставлять HTML c помощью строку подойдёт свойство <a href="/js/element-innerhtml/">Element.innerHTML</a>.</p>
+<h2>Как пишется</h2>
+<p>Обращение к свойству <code>Element.textContent</code> вернёт текстовое содержимое элемента. Если внутри элемента находятся дочерние узлы, то результат будет являться конкатенацией вызовов <code>Element.textContent</code> для всех этих узлов.</p>
+<pre><code class="language-html">&lt;div&gt;
+  &lt;h1&gt;Заголовок&lt;/h1&gt;
+  &lt;p&gt;Параграф&lt;/p&gt;
+  &lt;p&gt;Второй параграф&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const element = document.querySelector('div')
+
+console.log(element.textContent)
+// Выведет &quot;ЗаголовокПараграфВторой параграф&quot;
+// Так как слова не содержат пробелов, то и в итоговой строке между словами их тоже не будет
+</code></pre>
+<p>Чтобы изменить текст в элементе нужно присвоить новое значение в свойство <code>Element.textContent</code>.</p>
+<aside>
+<p>❗️ Установка нового текста с помощью <code>Element.textContent</code> полностью удалит все старое содержимое и запишет новое текстовое значение. Если внутри элемента были другие вложенные потомки, то все они удалятся.</p>
+</aside>
+<pre><code class="language-html">&lt;div&gt;
+  &lt;h1&gt;Заголовок&lt;/h1&gt;
+  &lt;p&gt;Параграф&lt;/p&gt;
+  &lt;p&gt;Второй параграф&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-js">const element = document.querySelector('div')
+
+element.textContent = 'Я буду единственным текстом здесь'
+</code></pre>
+<pre><code class="language-html">&lt;!-- Больше никакой иконки внутри, только новый текст --&gt;
+&lt;div&gt;
+  Я буду единственным текстом здесь
+&lt;/div&gt;
+</code></pre>

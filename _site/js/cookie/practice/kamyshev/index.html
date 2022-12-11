@@ -1,0 +1,12 @@
+<p>Формат строки <code>document.cookie</code> не очень удобен для работы, поэтому обычно в проекте создают функции, которые упрощают чтение и запись кук. Чтобы не писать эти функции самостоятельно, можно взять библиотеку <a href="https://github.com/js-cookie/js-cookie">js-cookie</a> — это совсем небольшая обёртка над стандартным браузерным API, которая здорово упрощает жизнь.</p>
+<p>С этой библиотекой установка значения для куки выполняется так:</p>
+<pre><code class="language-js">import Cookies from &quot;js-cookie&quot;;
+
+Cookies.set(&quot;foo&quot;, &quot;bar&quot;);
+</code></pre>
+<p>А чтение так:</p>
+<pre><code class="language-js">import Cookies from &quot;js-cookie&quot;;
+
+const nameFromCookie = Cookies.get(&quot;name&quot;);
+</code></pre>
+<p>Конечно, под капотом эта библиотека тоже работает с <code>document.cookie</code>, но снаружи она предоставляет простой и удобный интерфейс.</p>

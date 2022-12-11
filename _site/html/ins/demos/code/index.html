@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с кодом — <ins> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: white;
+      color: #18191C;
+      font-size: 24px;
+    }
+
+    del, ins {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+    }
+
+    del {
+      background: rgb(240, 200, 193);
+    }
+
+    ins {
+      background: rgb(187, 230, 167);
+    }
+
+    del::before, ins::before {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    del::before {
+      content: "-";
+      color: rgb(230, 167, 157);
+    }
+
+    ins::before {
+      content: "+";
+      color: rgb(161, 241, 124);
+    }
+
+    code, pre {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    code {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+<pre>
+<code>
+  body {
+    font-size: 16px;
+    <del>color: black;</del>
+    <ins>color: white;</ins>
+  }
+</code>
+</pre>
+</body>
+</html>

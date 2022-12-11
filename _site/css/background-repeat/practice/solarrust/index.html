@@ -1,0 +1,15 @@
+<p><code>background-repeat</code> — свойство простое. Написано повторять — повторяем фон. Написано не повторять — не повторяем.</p>
+<p>🛠 С помощью повторения фона и линейного градиента (<a href="/css/linear-gradient/"><code>linear-gradient</code></a>) можно создавать полосатые фоны.</p>
+<pre><code class="language-html">&lt;div class=&quot;element&quot;&gt;&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.element {
+  height: 100vh;
+  background-image: linear-gradient(
+    #49a16c 50px,
+    #064236 0
+  );
+  background-size: 100% 100px;
+  background-repeat: repeat-y;
+}
+</code></pre>
+<iframe title="Паттерн при помощи градиента" src="../demos/gradient/" height="250"></iframe>

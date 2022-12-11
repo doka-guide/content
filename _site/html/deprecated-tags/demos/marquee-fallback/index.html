@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Имитация marquee — Устаревшие теги — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 50px 0;
+      background-color: #FF8630;
+      color: #000000;
+      font-family: "Roboto Slab", serif;
+    }
+
+    .marquee {
+      position: relative;
+      overflow: hidden;
+      --offset: 20vw;
+      --move-initial: calc(-25% + var(--offset));
+      --move-final: calc(-50% + var(--offset));
+    }
+
+    .marquee__inner {
+      width: fit-content;
+      display: flex;
+      position: relative;
+      transform: translate3d(var(--move-initial), 0, 0);
+      animation: marquee 5s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .marquee__content {
+      font-size: 130px;
+    }
+
+    .marquee__content + .marquee__content {
+      margin-left: 50px;
+    }
+
+    .marquee:hover .marquee__inner {
+      animation-play-state: running;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+      }
+
+      100% {
+        transform: translate3d(var(--move-final), 0, 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee">
+    <div class="marquee__inner" aria-hidden="true">
+      <span class="marquee__content">Showreel</span>
+      <span class="marquee__content">Showreel</span>
+      <span class="marquee__content">Showreel</span>
+      <span class="marquee__content">Showreel</span>
+    </div>
+  </div>
+</body>
+</html>

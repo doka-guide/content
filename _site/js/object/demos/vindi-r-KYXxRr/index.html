@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Объект — Дока</title>
+</head>
+<body>
+Откройте консоль разработчика (для Chrome это F12) и посмотрите вывод в консоли.
+<br>
+Консоль содержит:
+<br>Вывод свойства объекта (cat.name)
+<br>Вызов метода объекта (cat.play)
+<br>Вызов метода объекта (cat.say) с аргументом (mew-mew)
+  <script>
+    let cat = {
+      name: 'Tom',
+      play() {
+        console.log('I am playing cat!');
+      },
+      say(word) {
+        console.log('I say: '+word);
+      }
+    }
+
+    console.log('cat name: '+ cat.name);
+    cat.play();
+    cat.say('mew-mew');
+  </script>
+</body>
+</html>

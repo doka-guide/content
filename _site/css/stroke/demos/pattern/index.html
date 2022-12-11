@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Заливка паттерном — stroke — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #18191c;
+    }
+
+    .module {
+      min-height: 150px;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      fill: #18191c;
+    }
+
+    .stroke-1 {
+      stroke: #1a5ad7;
+      stroke-width: 1;
+      stroke-linecap: butt;
+      stroke-dasharray: 0;
+    }
+
+    .stroke-2 {
+      stroke: #e2595e;
+    }
+
+    .stroke-3 {
+      stroke: #49a16c;
+    }
+
+    .stroke-4 {
+      stroke: url(#pattern);
+      stroke-width: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="module">
+    <svg>
+      <circle class="stroke-1" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg>
+      <circle class="stroke-2" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg>
+      <circle class="stroke-3" cx="50%" cy="50%" r="50"/>
+    </svg>
+    <svg>
+      <defs>
+        <!-- За паттерн спасибо Irene Ros https://iros.github.io/patternfills/ -->
+        <pattern id="pattern" patternUnits="userSpaceOnUse" width="10" height="10">
+          <rect width="10" height="10" fill="white"/>
+          <rect x="0" y="0" width="9" height="9" fill="black"/>
+        </pattern>
+      </defs>
+      <circle class="stroke-4" cx="50%" cy="50%" r="50"/>
+    </svg>
+  </div>
+</body>
+</html>

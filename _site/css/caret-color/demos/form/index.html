@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Наследование и переопределение значения — caret-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      display: grid;
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-content: center;
+      background-color: #18191c;
+    }
+
+    form {
+      display: grid;
+      place-content: center;
+      grid-row-gap: 10px;
+      caret-color: #ff8630;
+    }
+
+    form label {
+      color: #ffffff;
+    }
+
+    form input {
+      display: block;
+      background-color: #ebebeb;
+      font-family: "Roboto", sans-serif;
+      padding: 5px;
+    }
+
+    form textarea {
+      display: block;
+      background-color: #ebebeb;
+      font-family: "Roboto", sans-serif;
+      caret-color: #0d47a1;
+    }
+
+    p {
+      color: #ffffff;
+      caret-color: #00dd00;
+    }
+  </style>
+</head>
+
+<body>
+  <form name="example">
+    <label>
+      Оранжевая каретка
+      <input type="text">
+    </label>
+
+    <label>
+      Синяя каретка
+      <textarea cols="30" rows="5"></textarea>
+    </label>
+  </form>
+
+  <p contenteditable>Зелёная каретка</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<h2>Кратко</h2>
+<p>Псевдокласс <code>:required</code>, дополняющий основной селектор, поможет выбрать элементы <a href="/html/input/"><code>&lt;input&gt;</code></a>, <a href="/html/textarea/"><code>&lt;textarea&gt;</code></a> или <a href="/html/select/"><code>&lt;select&gt;</code></a>, у которых задан атрибут <code>required</code>.</p>
+<h2>Пример</h2>
+<p>Обязательное для заполнения поле ввода будет иметь оранжевую обводку и фоновый цвет:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;div class=&quot;form-row&quot;&gt;
+    &lt;label for=&quot;first_name&quot;&gt;Имя&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;first_name&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-row&quot;&gt;
+    &lt;label for=&quot;last_name&quot;&gt;Фамилия&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;last_name&quot;&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-css">input:required {
+  border-width: 2px;
+  border-color: #FF8630;
+  background-color: rgba(255, 134, 48, 0.1);
+}
+</code></pre>
+<iframe title="Подсветка обязательного поля" src="demos/required-input/" height="300"></iframe>
+<h2>Как это понять</h2>
+<p>Если нужно как-то выделить обязательные для заполнения элементы форм, можно использовать в селекторе псевдокласс <code>:required</code>.</p>
+<aside>
+<p>☝️ Обратите внимание, что использование этого псевдокласса эквивалентно <a href="/css/attribute-selector/">селектору по атрибуту</a> <code>[required]</code>.</p>
+<p>Использование псевдокласса <code>:required</code> допускается исключительно с селекторами полей формы. Использовать с другими селекторами его бесполезно.</p>
+</aside>

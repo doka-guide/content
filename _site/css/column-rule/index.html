@@ -1,0 +1,26 @@
+<h2>Кратко</h2>
+<p>Свойство <code>column-rule</code> отвечает за внешний вид линии между колонками в многоколоночной вёрстке.</p>
+<h2>Как понять</h2>
+<p>Свойство <code>column-rule</code> является шорткатом для свойств:</p>
+<ul>
+<li><a href="/css/column-rule-width/"><code>column-rule-width</code></a></li>
+<li><a href="/css/column-rule-style/"><code>column-rule-style</code></a></li>
+<li><a href="/css/column-rule-color/"><code>column-rule-color</code></a></li>
+</ul>
+<p>Можно писать значения в любом порядке, разделяя пробелами, браузер сам поймёт, что мы от него хотим. Но общепринятым форматом является вид «ширина → стиль → цвет»‎: <code>column-rule-width</code> → <code>column-rule-style</code> → <code>column-rule-color</code>. Можно не указывать ширину и цвет, но стиль линии указывается обязательно – у <code>column-rule-style</code> нет значения по умолчанию и браузер не поймёт, какую линию нужно нарисовать.</p>
+<h2>Как пишется</h2>
+<p>Для того, чтобы задать между колонками красную пунктирную линию шириной 2 px, мы напишем:</p>
+<pre><code class="language-css">p {
+  column-rule: 2px dashed red;
+}
+</code></pre>
+<p>Прослеживается сходство со свойством <a href="/css/border/"><code>border</code></a>. Действительно, межколоночная линия описывается так же, как и рамка.</p>
+<h2>Пример</h2>
+<p>В примере ниже вы можете поменять внешний вид у линии между колонками. По умолчанию заданы такие стили:</p>
+<pre><code class="language-css">.text-wrapper {
+  column-count: 3;
+  column-rule: 3px solid red;
+  column-gap: 25px;
+}
+</code></pre>
+<iframe title="Варианты значений column-rule" src="demos/multiple-values/" height="520"></iframe>

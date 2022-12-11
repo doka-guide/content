@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Перенос текста — width — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .card {
+      width: 600px;
+      margin: 0 auto;
+      padding: 55px 40px;
+      color: #000000;
+      text-align: center;
+      background: #2E9AFF;
+    }
+
+    .card__icon {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url("images/doka-eyes.svg") no-repeat center / cover;
+    }
+
+    .card__title {
+      max-width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 27px;
+      margin-bottom: 17px;
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .card__title::first-line {
+      color: #000000;
+    }
+
+    .card__text {
+      max-width: 50%;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.05;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <i class="card__icon"></i>
+    <h2 class="card__title">Want to Become an Agent?</h2>
+    <p class="card__text">Get the official status of an agent in the projectname and earn with us.</p>
+  </div>
+</body>
+</html>

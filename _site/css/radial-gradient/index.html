@@ -1,0 +1,50 @@
+<h2>Кратко</h2>
+<p>Функция <code>radial-gradient</code> используется для задания фона в виде радиального (кругового, эллиптического) градиента.</p>
+<h2>Пример</h2>
+<pre><code class="language-css">.element {
+  background-image: radial-gradient(#6e4aff, #49A16C);
+}
+</code></pre>
+<h2>Как это понять</h2>
+<p>Градиент — это плавный переход между цветами. Радиальный градиент — это переход, который начинается в точке и расходится от неё подобно кругам на воде. Радиальный градиент не обязательно должен быть круговым. Форма по умолчанию — это эллипс, который заполняет всю площадь элемента.</p>
+<img src="images/ellipse.png" width="920" height="394" alt="Эллипс и радиальный градиент">
+<iframe title="Радиальный градиент" src="demos/gradient/" height="500"></iframe>
+<h2>Как пишется</h2>
+<p>Самый простой градиент задаётся двумя цветами.</p>
+<pre><code class="language-css">.element {
+  background-image: radial-gradient(#09ff00, red);
+}
+</code></pre>
+<p>В этом случае начальная точка помещается в центр элемента, а градиент рисуется таким образом, чтобы в углах элемента был последний указанный в скобках цвет.</p>
+<p>Цветов мы можем перечислить сколько угодно. Браузер сам распределит градиент таким образом, чтобы последний цвет всегда заходил в угол элемента:</p>
+<pre><code class="language-css">.element {
+  background-image: radial-gradient(yellow, coral, blue, green, white, black);
+}
+</code></pre>
+<iframe title="Простой радиальный градиент" src="demos/simple-gradient/" height="500"></iframe>
+<h3>Форма градиента</h3>
+<p>Задаётся ключевым словом <code>circle</code> или <code>ellipse</code> (по умолчанию):</p>
+<pre><code class="language-css">.element {
+  background-image: radial-gradient(circle, #09ff00, red);
+}
+</code></pre>
+<h3>Положение центра</h3>
+<p>Мы можем задавать положение центральной точки, используя те же ключевые слова, что и для <a href="/css/background-position/"><code>background-position</code></a>, но с приставкой <code>at</code>: <code>at left</code>, <code>at top</code>, <code>at right</code>, <code>at bottom</code>, <code>at center</code> (по умолчанию). Значения можно сочетать, чтобы поместить центр градиента в нужный угол элемента: <code>at top left</code> — центр градиента в верхнем левом углу.</p>
+<iframe title="Смещение центральной точки к краям" src="demos/position-sides/" height="500"></iframe>
+<p>Вместо ключевых слов мы можем использовать точные значения: <code>at 20% 50%</code> или <code>at 130px 500px</code>.</p>
+<iframe title="Смещение центральной точки" src="demos/position-length/" height="500"></iframe>
+<h3>Размер градиента</h3>
+<p>Используя следующие ключевые слова, можно задать размер конечной формы градиента:</p>
+<ul>
+<li><code>closest-side</code> — градиент имеет такую форму, что заканчивается у ближайшей к центру границы элемента;</li>
+<li><code>farthest-side</code> — градиент заканчивается у дальней от центра границы элемента;</li>
+<li><code>closest-corner</code> — форма градиента подбирается таким образом, чтобы его край проходил через ближайший к центру угол;</li>
+<li><code>farthest-corner</code> — край градиента будет проходить через дальний от центра угол.</li>
+</ul>
+<iframe title="Форма радиального градиента" src="demos/shape/" height="500"></iframe>
+<h3>Повторяющийся градиент</h3>
+<p>Если градиент должен многократно повторяться от центра к краям, можно использовать функцию <code>repeating-radial-gradient()</code>.</p>
+<iframe title="Повторяющийся радиальный градиент" src="demos/repeat/" height="500"></iframe>
+<h3>Множественные градиенты</h3>
+<p>Множественный фон элемента может применяться и к градиентам.</p>
+<iframe title="Множественный радиальный градиент" src="demos/multiple/" height="500"></iframe>

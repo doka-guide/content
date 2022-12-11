@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования counter-set — counter-set — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto Mono', sans-serif;
+      background-color: #18191c;
+    }
+
+    .table-of-contents {
+      counter-reset: chapter;
+      color: white;
+    }
+
+    .table-of-contents__title {
+      font-size: 2em;
+    }
+
+    .table-of-contents__chapter {
+      counter-increment: chapter;
+    }
+
+    .table-of-contents__chapter_counter {
+      counter-set: chapter 9;
+    }
+
+    .table-of-contents__chapter::before {
+      content: "Глава "counter(chapter) ": ";
+      color: tomato;
+    }
+  </style>
+</head>
+<body>
+  <section class="table-of-contents">
+    <h1 class="table-of-contents__title">Оглавление</h1>
+    <h2 class="table-of-contents__chapter">HTML и CSS</h2>
+    <h2 class="table-of-contents__chapter">Создание стилей и таблиц стилей</h2>
+    <h2 class="table-of-contents__chapter">Селекторы: выбор форматируемых элементов</h2>
+    <h2 class="table-of-contents__chapter table-of-contents__chapter_counter">Механизм наследования стилей</h2>
+    <h2 class="table-of-contents__chapter">Управление сложной структурой стилей: каскад</h2>
+    <h2 class="table-of-contents__chapter">Поля, отступы, границы</h2>
+  </section>
+</body>
+</html>

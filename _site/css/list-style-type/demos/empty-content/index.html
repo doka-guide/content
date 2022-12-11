@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример со свойством content — list-style-type — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ul {
+      /* убираем стандартные точки */
+      list-style-type: none;
+      font-size: 24px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 50px;
+    }
+
+    li + li {
+      margin-top: 15px;
+    }
+
+    li::before {
+      /* не забываем о свойстве content */
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 15px;
+      height: 15px;
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>Милый маленький грибочек</li>
+    <li>Сколопендровый листочек</li>
+    <li>Жёлтой пыльки чуть</li>
+  </ul>
+</body>
+</html>

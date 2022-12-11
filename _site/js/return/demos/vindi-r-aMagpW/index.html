@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - return(), остановка при return — Дока</title>
+  <style>
+    textarea{
+      width: 800px;
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+Функция checkNumber проверяет введённое число.<br>
+Если проверка успешна - выводится alert.<br>
+Каждая попытка должна записываться в textarea.<br>
+Но этого не происходит.<br>
+<button onclick="checkNumberShow()">Нажми меня</button>
+<input placeholder="Введите число">
+<br>
+Результат: <span></span>
+<br>
+<textarea></textarea>
+  <script>
+    function checkNumber(){
+      var result = document.querySelector('input').value;
+      if (result < 100) {
+        return false;
+      }
+      // Если result < 100 то код далее не будет выполнен!
+      var logElement = document.querySelector('textarea');
+      logElement.value += "\nВремя проверки: " + new Date();
+      return true;
+    }
+    function checkNumberShow(){
+      result = checkNumber();
+      document.querySelector('span').textContent = result;
+    }
+  </script>
+</body>
+</html>

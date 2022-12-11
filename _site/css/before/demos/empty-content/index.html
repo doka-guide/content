@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пустое свойство content — ::before — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    ul {
+      display: inline-block;
+      /* убираем стандартные точки */
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      font-size: 20px;
+      font-weight: 300;
+      text-transform: lowercase;
+      text-align: left;
+    }
+
+    li + li {
+      margin-top: 15px;
+    }
+
+    li::before {
+      /* не забываем о свойстве content */
+      content: "";
+      width: 14px;
+      height: 14px;
+      background-color: #2E9AFF;
+      position: absolute;
+      left: 0;
+      top: 5px;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>Милый маленький грибочек</li>
+    <li>Сколопендровый листочек</li>
+    <li>Жёлтой пыльки чуть</li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<p>🛠 Удобно делать всякие трюки, используя <code>currentColor</code>. Мы не меняем явно цвет рамки по наведению курсора, но он меняется вслед за <code>color</code>.</p>
+<pre><code class="language-html">&lt;button class=&quot;magick-btn&quot;&gt;Волшебная кнопка&lt;/button&gt;
+</code></pre>
+<pre><code class="language-css">.magick-btn {
+  border: 2px solid;
+  border-color: currentColor;
+  border-radius: 6px;
+  padding: 9px 15px;
+  color: blue;
+  background-color: transparent;
+}
+
+.magick-btn:hover {
+  color: pink;
+}
+</code></pre>
+<iframe title="currentColor" src="../demos/current-color/" height="240"></iframe>

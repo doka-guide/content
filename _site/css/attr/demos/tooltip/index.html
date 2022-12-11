@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подсказка — attr() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #000000;
+      padding: 20px;
+    }
+
+    div::before {
+      content: "Элемент с классом " attr(class);
+      display: block;
+    }
+
+    div::after {
+      content: "Подсказка: " attr(title);
+      display: block;
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="element" title="На самом деле внутри нет никакого текста"></div>
+</body>
+</html>

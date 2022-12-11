@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница значений clip и ellipsis — text-overflow — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      max-width: 80%;
+      padding: 5px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      outline: 1px solid #1a5ad7;
+    }
+
+    .clip {
+      text-overflow: clip;
+    }
+
+    .ellipsis {
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <p class="clip">И снова, но уже в другом измерении, я оказался в компании современных художников и философов. В конце марта в галерее «Триумф» прошла презентация новой выставки проекта «Я понимаю тебя».</p>
+  <p class="ellipsis">И снова, но уже в другом измерении, я оказался в компании современных художников и философов. В конце марта в галерее «Триумф» прошла презентация новой выставки проекта «Я понимаю тебя».</p>
+</body>
+</html>

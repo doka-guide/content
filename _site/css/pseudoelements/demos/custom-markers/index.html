@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомные маркеры — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5% 5% 1px;
+      background-color: #282a2e;
+      font-family: serif;
+      font-size: 20px;
+      overflow: hidden;
+    }
+
+    .chapter {
+      width: 100%;
+      max-width: 800px;
+      min-width: 500px;
+      margin: auto;
+      padding: 80px 60px;
+      background-color: #ffffff;
+    }
+
+    .chapter__title {
+      border-bottom: 1px solid #979797;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .list {
+      list-style-type: none;
+      counter-reset: new-counter;
+    }
+
+    .list__item {
+      counter-increment: new-counter;
+    }
+
+    .list__item::before {
+      content: counter(new-counter) ") ";
+      counter-increment: my-counter;
+    }
+  </style>
+</head>
+<body>
+  <section class="chapter">
+    <h2 class="chapter__title">Содержание</h2>
+    <ol class="list">
+      <li class="list__item">Определение.</li>
+      <li class="list__item">Свойства.</li>
+      <li class="list__item">Списки в языках программирования.</li>
+      <li class="list__item">См. также.</li>
+      <li class="list__item">Примечания.</li>
+    </ol>
+  </section>
+</body>
+</html>

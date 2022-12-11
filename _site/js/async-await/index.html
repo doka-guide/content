@@ -1,0 +1,82 @@
+<p>Эта документация связана с понятием асинхронности в JavaScript. Зачем нужен асинхронный код и как он работает в деталях описано в обзорной статье <a href="/js/async-in-js/">Асинхронность в JS</a> .</p>
+<h2>Кратко</h2>
+<p>Добавленное перед определением функции ключевое слово <code>async</code> делает функцию асинхронной. Возвращаемое значение такой функции автоматически оборачивается в Promise:</p>
+<pre><code class="language-js">async function getStarWarsMovies() {
+  return 1
+}
+
+console.log(getStarWarsMovies()) // Promise { &lt;state&gt;: &quot;fulfilled&quot;, &lt;value&gt;: 1 }
+</code></pre>
+<p>Асинхронные функции нужны для выполнения асинхронных операций: работой с API, базами данных, чтения файлов и т.д.</p>
+<p>Асинхронные операции выполняются не сразу: код отправил запрос к API и ждёт, пока сервер пришлёт ответ. Ключевое слово <code>await</code> используется, чтобы дождаться выполнения асинхронной операции:</p>
+<pre><code class="language-js">async function getStarWarsMovie(id) {
+  const response = await fetch(`https://swapi.dev/api/films/${id}/`)
+  console.log(&quot;ответ получен&quot;, response) // *1
+  return response.json()
+}
+
+const movies = getStarWarsMovie(1).then((movie) =&gt; {
+  console.log(movie.title)
+}) // *2
+console.log(&quot;результат вызова функции&quot;, movies) // *3
+</code></pre>
+<p>Движок JavaScript при этом не блокируется и может выполнять другой код. Как только ответ получен, выполнение кода продолжается.</p>
+<p>Вывод на экран будет следующий:</p>
+<pre><code class="language-js">&quot;результат вызова функции&quot; Promise // вызвали функцию, она начала выполнять асинхронную операцию и вернула Promise (*3)
+&quot;ответ получен&quot; Response // получили ответ API, продолжаем выполнение функции (*1)
+&quot;A New Hope&quot; // сработал callback (*2)
+</code></pre>
+<h2>Как понять</h2>
+<p>Ключевые слова <code>async/await</code> не привносят в JavaScript что-то новое. Они только упрощают работу с Promise.</p>
+<p>Вместо кода с цепочкой вызовов:</p>
+<pre><code class="language-js">function getMainActorProfileFromMovie(id) {
+  return fetch(`https://swapi.dev/api/films/${id}/`)
+    .then((movieResponse) =&gt; {
+      return movieResponse.json()
+    })
+    .then((movie) =&gt; {
+      const characterUrl = movie.characters[0].split(&quot;//&quot;)[1]
+      return fetch(`https://${characterUrl}`)
+    })
+    .then((characterResponse) =&gt; {
+      return characterResponse.json()
+    })
+    .catch((err) =&gt; {
+      console.error(&quot;Произошла ошибка!&quot;, err)
+    })
+}
+
+getMainActorProfileFromMovie(1).then((profile) =&gt; {
+  console.log(profile)
+})
+</code></pre>
+<p>Можно записать с <code>async/await</code>:</p>
+<pre><code class="language-js">async function getMainActorProfileFromMovie(id) {
+  try {
+    const movieResponse = await fetch(`https://swapi.dev/api/films/${id}/`);
+    const movie = await movieResponse.json();
+
+    const characterUrl = movie.characters[0].split('//')[1];
+    const characterResponse = await fetch(`https://${characterUrl}`);
+    return characterResponse.json();
+  } catch (err) {
+    console.error('Произошла ошибка!', err);
+  }
+}
+
+getMainActorProfileFromMovie(1).then((profile) =&gt; {console.log(profile)});
+</code></pre>
+<p>Такой код проще понимать:</p>
+<ul>
+<li>он плоский</li>
+<li>выглядит, как синхронный</li>
+<li>использует стандартный try...catch блок для обработки ошибок</li>
+</ul>
+<p>☝️ Ключевое слово <code>await</code> работает только внутри асинхронных функций. Вызов его вне функции будет синтаксической ошибкой:</p>
+<pre><code class="language-js">function getMainActorProfileFromMovie(id) {
+  // код примера выше
+}
+
+await getMainActorProfileFromMovie(1)
+</code></pre>
+<p>Код упадёт с ошибкой <code>SyntaxError: await is only valid in async functions and async generators</code>.</p>

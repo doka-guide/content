@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стилизация <optgroup> — <optgroup> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    select {
+      width: 300px;
+      margin-top: 10px;
+      padding: 10px 15px;
+    }
+
+    optgroup {
+      color: #0a0a59;
+      font-size: 20px;
+      background-color: #f4f4c9;
+    }
+  </style>
+</head>
+<body>
+  <label for="colors">Выберите оттенок синего цвета:</label>
+  <select id="colors">
+    <optgroup label="Синие цвета">
+      <option>Васильковый цвет</option>
+      <option>Кобальтовый цвет</option>
+      <option>Ультрамариновый цвет</option>
+    </optgroup>
+  </select>
+</body>
+</html>

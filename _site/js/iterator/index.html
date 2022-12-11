@@ -1,0 +1,115 @@
+<h2>Кратко</h2>
+<p>Итератор — это объект, который умеет обращаться к элементам коллекции по одному за раз, при этом отслеживая своё текущее положение внутри этой последовательности.</p>
+<p>Иными словами итератор — это такой механизм, который позволяет перемещаться (итерироваться) по элементам коллекции в определённом порядке и делает их доступными.</p>
+<h2>Как это понять</h2>
+<p>В JavaScript итератор — это объект, который возвращает следующий элемент последовательности, через метод <code>next()</code>. Этот метод возвращает объект с двумя свойствами:</p>
+<ul>
+<li><code>value</code> — значение текущего элемента коллекции.</li>
+<li><code>done</code> — индикатор, указывающий, есть ли ещё в коллекции значения, доступные для перебора.</li>
+</ul>
+<pre><code class="language-js">function makeIterator(array) {
+  let nextIndex = 0
+
+  return {
+    next: function () {
+      if (nextIndex &lt; array.length) {
+        const result = { value: array[nextIndex], done: false }
+        nextIndex++
+        return result
+      } else {
+        return { done: true }
+      }
+    }
+  }
+}
+</code></pre>
+<p>После создания, объект-итератор может быть явно использован, с помощью вызовов метода <code>next()</code>:</p>
+<pre><code class="language-js">let iterator = makeIterator(['Hello', 'world'])
+console.log(iterator.next().value)
+// 'Hello'
+console.log(iterator.next().value)
+// 'world'
+console.log(iterator.next().done)
+// true
+</code></pre>
+<p>Как только метод <code>next()</code> завершает перебор, то возвращается <code>{ done: true }</code>. Это является сигналом, что итерирование завершено.</p>
+<h2>Зачем это нужно</h2>
+<p>Практически везде, где нужен перебор, он осуществляется через итераторы. Это включает в себя не только <a href="/js/string/">строки</a>, <a href="/js/arrays/">массивы</a>, но и другие структуры данных. В современный JavaScript добавлена новая концепция «итерируемых» (iterable) объектов, например <code>Map</code>, представленный <a href="https://262.ecma-international.org/6.0">в ES6</a>.</p>
+<p>Это позволяет перебрать итерируемый объект в цикле <code>for..of</code>:</p>
+<pre><code class="language-js">for (let value of ['a', 'b', 'c']) {
+  console.log(value)
+  // a, b, c
+}
+</code></pre>
+<aside>
+<p>⚠️ Чтобы быть итерируемым, объект должен реализовать метод <a href="https://tc39.es/ecma262/#sec-iteration"><code>@@iterator</code></a>. Это означает, что он (или один из объектов в цепочке прототипов) должен иметь свойство <code>Symbol.iterator</code>.</p>
+</aside>
+<p>Предположим, у нас есть объект <code>person</code>, который представляет набор данных:</p>
+<pre><code class="language-js">let person = {
+  name: &quot;Mark&quot;,
+  age: 30,
+  gender: &quot;male&quot;,
+  interests: [&quot;music&quot;, &quot;fishing&quot;],
+}
+</code></pre>
+<p>Чтобы сделать такой объект итерируемым (и позволить <code>for..of</code> работать с ним), в нём нужно определить <code>Symbol.iterator</code>:</p>
+<pre><code class="language-js">person[Symbol.iterator] = function () {
+  const properties = Object.keys(this)
+  let count = 0
+
+  return {
+    next() {
+      if (count &lt; properties.length) {
+        const key = properties[count]
+        let result = { done: false, value: person[key] }
+        count++
+        return result
+      } else {
+        return { done: true }
+      }
+    },
+  }
+}
+</code></pre>
+<p>Убедимся, что объект <code>person</code> действительно итерируется:</p>
+<pre><code class="language-js">for (let x of person) {
+  console.log(x)
+  // Mark, 30, male, ['music', 'fishing']
+}
+</code></pre>
+<h2>Встроенные итераторы</h2>
+<p>В некоторых случаях интерфейс итератора вызывается по умолчанию. Такие объекты как <code>String</code>, <code>Array</code>, <code>Map</code> и <code>Set</code> являются итерируемыми, потому что их прототипы содержат <code>Symbol.iterator</code>.</p>
+<h2>Где ещё встречается итератор</h2>
+<h3>Деструктуризация</h3>
+<p>При деструктуризации итератор используется для доступа к элементам коллекции:</p>
+<pre><code class="language-js">const [a, b] = new Set(['a', 'b', 'c'])
+// a
+// b
+</code></pre>
+<h3><code>Array.from()</code></h3>
+<p><a href="/js/array-from/"><code>Array.from()</code></a> позволяет конвертировать итерируемый объект в <code>Array</code>:</p>
+<pre><code class="language-js">const arr = Array.from(new Set(['a', 'b', 'c']))
+// ['a', 'b', 'c']
+</code></pre>
+<h3>Оператор spread</h3>
+<p>Оператор распространения также вызывает интерфейс итератора по умолчанию:</p>
+<pre><code class="language-js">const arr = [...new Set(['a', 'b', 'c'])]
+// ['a', 'b', 'c']
+</code></pre>
+<h3><code>Map</code>, <code>Set</code></h3>
+<p>Конструкторы <code>Map</code> и <code>Set</code> преобразуют итерируемые значения в соответственно <code>Map</code> и <code>Set</code>:</p>
+<pre><code class="language-js">const map = new Map([
+  ['uno', 'one'],
+  ['dos', 'two'],
+])
+map.get('uno')
+// one
+map.get('dos')
+// two
+
+const set = new Set(['red', 'green', 'blue'])
+set.has('red')
+// true
+set.has('yellow')
+// false
+</code></pre>

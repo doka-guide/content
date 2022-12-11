@@ -1,0 +1,23 @@
+<h2>Кратко</h2>
+<p>Свойство <code>font-variant-alternates</code> управляет использованием альтернативных глифов. Имена альтернативных глифов могут быть определены в директиве <a href="https://developer.mozilla.org/ru/docs/Web/CSS/@font-feature-values"><code>@font-feature-values</code></a>.</p>
+<h2>Как пишется</h2>
+<ul>
+<li><code>normal</code> — отключает альтернативные глифы (значение по умолчанию).</li>
+<li><code>historical-forms</code> — используются исторические формы — глифы, которые были распространены в прошлом.</li>
+<li><code>stylistic()</code> — изменяет стили для отдельных символов.</li>
+<li><code>styleset()</code> — используются стилистические альтернативы для набора символов.</li>
+<li><code>character-variant()</code> — определённые стилистические варианты для символов. Похож на <code>styleset()</code>, но не устанавливает точного соответствия между символами.</li>
+<li><code>swash()</code> — включает глифы с хвостиками.</li>
+<li><code>ornaments()</code> — включает декоративные шрифтовые символы.</li>
+<li><code>annotation()</code> — включает символы аннотации (обведённые цифры или инвертированный символ).</li>
+</ul>
+<p>В функции в качестве параметра передаётся имя конкретного шрифта, сопоставленное с числом.</p>
+<pre><code class="language-css">@font-feature-values &quot;Leitura Display Swashes&quot; {
+  @swash { fancy: 1 }
+}
+
+body {
+  font-family: Leitura Display Swashes, serif;
+  font-variant-alternates: swash(fancy);
+}
+</code></pre>

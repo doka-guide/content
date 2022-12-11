@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Поле ввода с placeholder-shown — :in-range и :out-of-range — Дока</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .with-range {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid black;
+    }
+
+    .with-range:in-range {
+      border-color: green;
+      background-color: rgb(0 255 0 / 20%);
+    }
+
+    .with-range:out-of-range {
+      border-color: red;
+      background-color: rgb(255 0 0 / 20%);
+    }
+
+    .with-range:placeholder-shown {
+      background-color: #fff;
+      border-color: black;
+    }
+  </style>
+</head>
+<body>
+<form>
+  <div class="form-row">
+    <input type="number" name="count" class="with-range" min="10" max="20" step="1" placeholder="Число от 10 до 20">
+  </div>
+</form>
+</body>
+</html>

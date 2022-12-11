@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Текст без padding — padding — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .parent {
+      width: 65%;
+      margin: 0 auto;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <p>Предполагается, что поля в книгах нужны для защиты информации. Когда книги начали писать на пергаменте, возникла угроза — мыши. Поскольку пергамент изготавливался из натуральной кожи, грызуны вполне могли съесть всю книгу целиком. Но начинали они всегда с краёв, а значит, был шанс успеть спасти информацию.</p>
+  </div>
+</body>
+</html>

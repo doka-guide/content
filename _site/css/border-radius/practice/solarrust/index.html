@@ -1,0 +1,20 @@
+<p>🛠 Самый крутой лайфхак — это круглые элементы при помощи <code>border-radius</code>. Они часто нужны для всяких лейблов на странице.</p>
+<pre><code class="language-html">&lt;button class=&quot;icon&quot; data-notifications=&quot;3&quot;&gt;&lt;/button&gt;
+</code></pre>
+<pre><code class="language-css">.icon {
+  background-image: url(eyes.png);
+}
+
+.icon::after {
+  content: attr(data-notifications);
+  /* равные ширина */
+  width: 25px;
+  /* и высота */
+  height: 25px;
+  /* закругляем углы на 50% */
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #ed4242;
+}
+</code></pre>
+<iframe title="Счётчик уведомлений" src="../demos/notification/" height="200"></iframe>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный tab-size — tab-size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    html {
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+    }
+
+    iframe {
+      margin-bottom: 1em;
+      width: 300px;
+      height: 350px;
+      border: none;
+      border-radius: 1em;
+    }
+
+    input {
+      margin: auto;
+      display: block;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="code.html"></iframe>
+  <input type="range" min="300" max="470" value="300">
+
+  <script>
+    const range = document.querySelector('input')
+    const frame = document.querySelector('iframe')
+
+    range.addEventListener('input', () => {
+      frame.style.width = range.value + 'px'
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Паттерн из линейного градиента — linear-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat&display=swap">
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding: 50px;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Caveat", serif;
+      }
+
+      .element {
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid #ffffff;
+        border-left-width: 40px;
+        border-right-width: 40px;
+        border-top-width: 55px;
+        border-bottom-width: 55px;
+        background-color: #FFFFFF;
+        background-image: linear-gradient(
+          to top,
+          #2E9AFF 1px,
+          transparent 1px
+        );
+        background-position: 0 -0.7rem;
+        background-size: 100% 3rem;
+        color: #123E66;
+        font-size: 30px;
+        line-height: 3rem;
+      }
+
+      p {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="element">
+      <p>
+        Мой дядя самых честных правил<br>
+        Когда не в шутку занемог,<br>
+        Он уважать себя заставил<br>
+        И лучше выдумать не мог.
+      </p>
+    </div>
+  </body>
+</html>

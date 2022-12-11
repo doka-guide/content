@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Родительский контекст наложения — Контекст наложения — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .block {
+      position: relative;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      padding: 15px;
+      border: 5px solid black;
+    }
+
+    .parent {
+      background-color: #1A5AD7;
+    }
+
+    .child {
+      width: 50px;
+      height: 50px;
+      border: 1px dashed;
+      background-color: #663613;
+    }
+
+    .red {
+      margin-top: -25px;
+      margin-left: 25px;
+      background-color: #cd445d;
+    }
+
+    .yellow {
+      position: relative;
+      z-index: 9999999;
+      margin-top: -25px;
+      margin-left: 50px;
+      background-color: #ffd829;
+    }
+
+    .no-parent {
+      margin-top: -50px;
+      margin-left: 50px;
+      background-color: #c000ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="block parent">
+    <div class="child brown"></div>
+    <div class="child red"></div>
+    <div class="child yellow"></div>
+  </div>
+  <div class="block no-parent"></div>
+</body>
+</html>

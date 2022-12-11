@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - for, кратко — Дока</title>
+  <style>
+    #result{
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+    .square{
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+<button onclick="makeForExample()">Обновить цвета</button>
+<br>
+<div id="result">
+
+</div>
+  <script>
+    function createSquare(target) {
+      // simple random color
+      var color = '#'+Math.random().toString(16).substr(-6);
+      // Create div and add to DOM
+      var div = document.createElement('div');
+      div.className = "square";
+      div.style.background = color;
+      target.appendChild(div);
+    }
+
+    function makeForExample() {
+      const container = document.querySelector('#result');
+      container.innerHTML = '';
+      for(i=0;i<10;i++){
+        createSquare(container);
+      }
+    }
+    makeForExample();
+  </script>
+</body>
+</html>

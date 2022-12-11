@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стили для плейсхолдера — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    label {
+      display: inline-block;
+    }
+
+    span {
+      display: block;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 500;
+      text-align: left;
+    }
+
+    input {
+      display: block;
+      width: 500px;
+      border: 1px solid #FFFFFF;
+      padding: 15px;
+      margin-top: 10px;
+      background-color: #18191C;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    input::placeholder {
+      color: #1A5AD7;
+      font-size: 18px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #1A5AD7;
+    }
+  </style>
+</head>
+<body>
+  <label>
+    <span>Мы всё сделаем, только укажи почту:</span>
+    <input type="email" placeholder="mail@example.com">
+  </label>
+</body>
+</html>

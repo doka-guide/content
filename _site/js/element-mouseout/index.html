@@ -1,0 +1,27 @@
+<h2>Кратко</h2>
+<p><a href="/js/events/">Событие</a> на HTML-элементе. Происходит, когда пользователь передвигает курсор, который находится на элементе, за пределы элемента.</p>
+<p>Событие является противоположным событию <a href="/js/element-mouseover/"><code>mouseover</code></a>. Эти события часто используются в паре.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-js">let divEl = document.getElementsByTagName(&quot;div&quot;)[0]
+divEl.addEventListener(&quot;mouseout&quot;, function () {
+  alert(&quot;курсор вышел за границы элемента!&quot;)
+})
+</code></pre>
+<h2>Как понять</h2>
+<p>Подробнее о механизме событий читай в статье <a href="/js/events/">«События»</a>.</p>
+<p>Событие проще всего понять на демо. При событии <code>mouseout</code> мы меняем цвет фигуры на случайный. Чтобы событие произошло, нужно навести курсор на фигуру, а затем убрать его:</p>
+<pre><code class="language-js">const figure = document.querySelector('.figure')
+const text = document.querySelector('.text')
+
+figure.addEventListener('mouseout', function() {
+  let currentColor = getColor()
+  figure.style.backgroundColor = currentColor
+  text.style.color = currentColor
+})
+
+function getColor() {
+  const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
+  return colors[Math.floor(Math.random() * colors.length)]
+}
+</code></pre>
+<iframe title="Смена цвета при событии mouseout — Element.mouseout — Дока" src="demos/index/" height="300"></iframe>

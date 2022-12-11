@@ -1,0 +1,21 @@
+<p>Markdown не предполагает специального синтаксиса для встраивания видео, но и использование HTML-тегов тоже не запрещает. Есть два основных пути добавить видео в Markdown:</p>
+<ol>
+<li>Использовать обложку видео со ссылкой на внешнюю платформу. 100% рабочий и допустимый на сторонних площадках вроде GitHub способ.</li>
+</ol>
+<pre><code class="language-markdown">[![Обложка к видео «Дока — как добавить пул-реквест со статьёй»](https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg)](https://www.youtube.com/watch?v=y-_nXfKkI3w)
+</code></pre>
+<p><a href="https://www.youtube.com/watch?v=y-_nXfKkI3w"><img src="https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg" alt="Обложка к видео «Дока — как добавить пул-реквест со статьёй»"></a></p>
+<ol start="2">
+<li>Использовать HTML-разметку и вставить <a href="/html/iframe/"><code>&lt;iframe&gt;</code></a>, например тот, что генерирует YouTube в диалоге «поделиться».</li>
+</ol>
+<pre><code class="language-markdown">&lt;iframe width=&quot;560&quot; height=&quot;315&quot;
+  src=&quot;https://www.youtube.com/embed/y-_nXfKkI3w&quot;
+  title=&quot;YouTube video player&quot; frameborder=&quot;0&quot;
+  allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot;
+  allowfullscreen&gt;&lt;/iframe&gt;
+</code></pre>
+<iframe width="560" height="315"
+  src="https://www.youtube.com/embed/y-_nXfKkI3w"
+  title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>

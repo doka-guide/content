@@ -1,0 +1,16 @@
+<p>В TypeScript существует «строгий режим» — он вынуждает указывать типы в тех случаях, когда язык не может определить их сам.</p>
+<p>Если проект только стартует, и TypeScript был изначально выбран как основной язык, лучше включить строгий режим сразу.</p>
+<pre><code class="language-js">{
+  &quot;compilerOptions&quot;: {
+    // Запрещает класть в переменную null без явного объявления
+    &quot;strictNullChecks&quot;: true,
+    // Делает вызовы методов bind, call, apply строго типизированными
+    &quot;strictBindCallApply&quot;: true,
+    // Делает более строгими типы функций
+    &quot;strictFunctionTypes&quot;: true,
+    // Запрещает объявление непустого поля класса без инициализации
+    &quot;strictPropertyInitialization&quot;: true,
+  },
+}
+</code></pre>
+<p>Если проект был написан на JavaScript, и TypeScript внедряется туда постепенно, строгий режим может сильно замедлить этот процесс.</p>

@@ -1,0 +1,48 @@
+<p>Иногда мы пользуемся какими-то API даже того не замечая, а иногда не можем разобраться, чего от нас хотят. Вот два разных примера:</p>
+<h3>Браузерное API</h3>
+<p>Одни из самых знакомых фронтенд-разработчикам API — браузерные :–) Всё, что по умолчанию есть в <code>window</code> — это браузерное API.</p>
+<p>Мы описали самые важные из них в статье <a href="/js/bom/">«Браузерное окружение, BOM»</a></p>
+<p><img src="../images/screenshot.png" alt="скриншот доступных браузерных API"></p>
+<p>Когда мы пользуемся консолью для отладки, мы тоже используем это API:</p>
+<pre><code class="language-js">console.log(&quot;Is the error here?&quot;)
+</code></pre>
+<p>Или когда обращаемся к <code>localStorage</code>:</p>
+<pre><code class="language-js">localStorage.setItem(&quot;key&quot;, &quot;value&quot;)
+</code></pre>
+<h3><a href="https://developer.twitter.com/en/docs/twitter-api">Twitter API</a></h3>
+<p>У Твитера, в принципе, не самое плохое API, которое можно встретить, хотя и дико запутанная документация.</p>
+<p>Например, чтобы <a href="https://developer.twitter.com/en/docs/twitter-api/tweets/lookup/api-reference/get-tweets">получить список твитов</a>:</p>
+<ol>
+<li>Надо использовать метод GET.</li>
+<li>URL для запроса — <code>https://api.twitter.com/2/tweets</code>.</li>
+<li>Обязательный аргумент — <code>ids</code>, чтобы указать, какие именно твиты надо получить. Технически вот этот адрес: <code>https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330</code> запрошенный через GET должен сработать, но нужно использовать HTTP-заголовки для аутентификации</li>
+<li><code>Authorization: Bearer $BEARER_TOKEN</code></li>
+</ol>
+<p>И только при выполнении всех эти условий, можно получить ответ на запрос:</p>
+<pre><code class="language-js">const response = await fetch(
+  &quot;https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330&quot;,
+  {
+    // можно не указывать, так как он по умолчанию
+    method: &quot;GET&quot;,
+    headers: {
+      Authorization: `Bearer ${BEARER_TOKEN}`,
+    },
+  }
+)
+
+await response.json()
+</code></pre>
+<p>Ответ:</p>
+<pre><code class="language-json">{
+  &quot;data&quot;: [
+    {
+      &quot;id&quot;: &quot;1261326399320715264&quot;,
+      &quot;text&quot;: &quot;Tune in to the @MongoDB @Twitch stream featuring our very own @suhemparack to learn about Twitter Developer Labs - starting now! https://t.co/fAWpYi3o5O&quot;
+    },
+    {
+      &quot;id&quot;: &quot;1278347468690915330&quot;,
+      &quot;text&quot;: &quot;Good news and bad news: \n\n2020 is half over&quot;
+    }
+  ]
+}
+</code></pre>

@@ -1,0 +1,49 @@
+<p>🛠 Тег <code>&lt;span&gt;</code> удобен, если нужно оформить другими стилями отдельное слово или словосочетание в тексте. Этот приём очень любят дизайнеры, чтобы акцентировать внимание на какой-то информации.</p>
+<p>Например, выделим цветом важное для нас сообщение внутри заголовка на первом экране:</p>
+<pre><code class="language-html">&lt;header class=&quot;header&quot;&gt;
+  &lt;h1 class=&quot;header__title&quot;&gt;
+    We are
+    &lt;span class=&quot;header__title-accent header__title-accent_color&quot;&gt;
+      the best
+    &lt;/span&gt;
+    &lt;span class=&quot;header__title-accent&quot;&gt; company &lt;/span&gt;
+  &lt;/h1&gt;
+&lt;/header&gt;
+</code></pre>
+<pre><code class="language-css">.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 480px;
+  background: #18191c url(&quot;../images/background.svg&quot;) no-repeat center / cover;
+  z-index: 0;
+  color: #ffffff;
+}
+
+.header__title {
+  max-width: 500px;
+  color: #fff;
+  font-family: &quot;Roboto&quot;, sans-serif;
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+/* задаём стили для текста, который нужно выделить */
+.header__title-accent {
+  display: block; /* перенос на новую строку */
+  font-size: 55px;
+  line-height: 58px;
+  font-weight: bold;
+}
+
+/* цветовой акцент */
+.header__title-accent_color {
+  color: #000000;
+  background-color: #FF8630;
+}
+</code></pre>
+<iframe title="Цветовой акцент" src="../demos/company/" height="480"></iframe>

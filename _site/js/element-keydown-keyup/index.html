@@ -1,0 +1,39 @@
+<p>Эта статья связана с обработкой событий в JavaScript. Зачем нужны события и как с ними работать читайте в статье <a href="/js/events/">События</a>.</p>
+<h2>Кратко</h2>
+<p><a href="/js/events/">События</a> на HTML-элементе. Когда пользователь нажимает на клавишу клавиатуры, происходит событие <code>keydown</code>, как только пользователь отпустил клавишу — произойдёт событие <code>keyup</code>.</p>
+<video controls width="580" poster="images/poster.png">
+  <source src="video/1.mp4" type="video/mp4">
+</video>
+<p>Событие <code>keydown</code> фиксирует момент нажатия клавиши, до того как эта клавиша будет отпущена, что, по сути, является первой фазой нажатия. Продолжением является событие <code>keyup</code> — момент, когда клавиша будет отпущена.</p>
+<h2>Как пишется</h2>
+<h3>keydown</h3>
+<pre><code class="language-js">const spy = document.getElementById(&quot;keyboardSpy&quot;)
+
+spy.addEventListener(&quot;keydown&quot;, function (event) {
+  alert(&quot;Нажата клавиша &quot; + event.key + &quot;. Её код - &quot; + event.keyCode)
+})
+</code></pre>
+<h3>keyup</h3>
+<pre><code class="language-js">const spy = document.getElementById(&quot;keyboardSpy&quot;)
+
+spy.addEventListener(&quot;keyup&quot;, function (event) {
+  alert(&quot;Клавиша &quot; + event.key + &quot; отпущена. Её код - &quot; + event.keyCode)
+})
+</code></pre>
+<h2>Как понять</h2>
+<p>В функцию-обработчик также передаётся объект события, в котором есть информация о нажатой кнопке:</p>
+<ul>
+<li><code>code</code> — название клавиши. <code>KeyS</code>, <code>KeyZ</code>, <code>KeyU</code> и т.д.</li>
+<li><code>key</code> — символьное значение. <em><code>s</code>, <code>Я</code> , <code>U</code></em> и т.д.</li>
+<li><code>keyCode</code> — код нажатой клавиши. <code>83</code><em>,</em> <code>90</code><em>,</em> <code>85</code> и т.д.</li>
+<li><code>altKey</code> — <code>true</code> или <code>false</code>, была ли одновременно нажата/отпущена клавиша <kbd>Alt</kbd></li>
+<li><code>ctrlKey</code> — <code>true</code> или <code>false</code>, была ли одновременно нажата/отпущена клавиша <kbd>Ctrl</kbd></li>
+<li><code>shiftKey</code> — <code>true</code> или <code>false</code>, была ли одновременно нажата/отпущена клавиша <kbd>Shift</kbd></li>
+</ul>
+<h3>Пример Keydown</h3>
+<p>При нажатии на любую клавишу в демо ниже, будет срабатывать событие <code>keydown</code>, которое будет выводить подсказку о нажатых клавишах:</p>
+<iframe title="Подсказки о нажатой клавише при событии keydown — Element.Keydown/Keyup — Дока" src="demos/keydown/" height="440"></iframe>
+<h3>Пример Keyup</h3>
+<p>Следующее демо будет сохранять цвет до тех пор пока не будет зафиксировано событие <code>keyup</code> на клавише <kbd>Shift</kbd>.</p>
+<iframe title="Событие keyup — Element.Keydown/Keyup — Дока" src="demos/keyup/" height="160"></iframe>
+<p>Событие <code>keydown</code> выполняется бесконечное множество раз, до тех пор, пока клавиша будет зажата. Событие <code>keyup</code> будет выполнено только один раз — в момент, когда пользователь отпустит клавишу</p>

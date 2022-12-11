@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Наследование кастомных свойств — Кастомные свойства — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .cards {
+      --main-color: #E6E6E6;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      margin-left: 20px;
+      margin-right: 20px;
+      padding: 55px 40px;
+      background-color: #282A2E;
+      flex-basis: calc(100% / 3);
+    }
+
+    .card-header {
+      margin-bottom: 17px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .card-header, .benefits-item {
+      color: var(--main-color);
+    }
+
+    .card--primary {
+      --main-color: black;
+      background-color: #2E9AFF;
+    }
+
+    .benefits {
+      list-style-type: none;
+    }
+
+    .benefits-item {
+      position: relative;
+      padding-left: 25px;
+      line-height: 1;
+    }
+
+    .benefits-item::before {
+      content: '';
+      position: absolute;
+      background-color: var(--main-color);
+      width: 10px;
+      height: 10px;
+      left: 0;
+      top: calc(50% - 5px);
+    }
+
+    .benefits-item + .benefits-item {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cards">
+    <div class="card">
+      <h2 class="card-header">Тариф «Бесплатный»</h2>
+      <ul class="benefits">
+        <li class="benefits-item">1 пользователь</li>
+        <li class="benefits-item">2 ГБ трафика</li>
+      </ul>
+    </div>
+    <div class="card card--primary">
+      <h2 class="card-header">Тариф «Популярный»</h2>
+      <ul class="benefits">
+        <li class="benefits-item">До 5 пользователей</li>
+        <li class="benefits-item">20 ГБ трафика</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2 class="card-header">Тариф «Дорогой»</h2>
+      <ul class="benefits">
+        <li class="benefits-item">Неограниченное число пользователей</li>
+        <li class="benefits-item">Безлимитный трафик</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Счётчик уведомлений — border-radius — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #e6e6e6;
+      text-align: center;
+    }
+
+    .icon {
+      position: relative;
+      width: 55px;
+      height: 55px;
+      border: none;
+      border-radius: 10px;
+      background-size: 55px;
+      background-repeat: no-repeat;
+      background-color: #000000;
+      background-image: url(../../images/eyes.png);
+      cursor: pointer;
+    }
+
+    .icon::after {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      content: attr(data-notifications);
+      width: 25px; /* равные ширина */
+      height: 25px; /* и высота */
+      border-radius: 50%; /* закругляем углы на 50% */
+      color: #ffffff;
+      background-color: #ed4242;
+      font-size: 14px;
+      line-height: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button class="icon" data-notifications="3"></button>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<h2>Кратко</h2>
+<p>Кроме примитивных типов в JavaScript существуют и сложные — например, объект.</p>
+<p>Объект (object) — это набор свойств. Каждое свойство состоит из названия и значения. Название может быть <a href="/js/string/">строкой</a> или <a href="/js/symbol/">символом</a>, а значение может быть любым.</p>
+<p><a href="/js/objects-objects-everywhere/">Объекты в JavaScript используются повсюду</a>, особенно для хранения данных. Для уверенной работы с объектами необходимо знать, как создавать объект, как его изменять и как читать значения свойств.</p>
+<h2>Создание объектов</h2>
+<p>Чаще всего объекты создают с помощью <em>литеральной записи</em>.</p>
+<p>Пустой объект без свойств можно создать парой фигурных скобок:</p>
+<pre><code class="language-js">const cat = {}
+</code></pre>
+<p>Когда нужно создать объект со свойствами, то их описывают внутри фигурных скобок. Свойства указываются в формате <code>имяСвойства : значение</code>, между свойствами ставится запятая:</p>
+<pre><code class="language-js">const book = {
+  title: 'Война и мир',
+  author: 'Лев Толстой',
+  pages: 1274,
+  isFinished: true
+}
+</code></pre>
+<p>Значением может быть другой объект или массив:</p>
+<pre><code class="language-js">const cat = {
+  kittens: ['Беляш', 'Михаил', 'Чарли'],
+  favoriteToy: {
+    name: 'мячик',
+    size: 'маленький',
+  },
+}
+</code></pre>
+<p>Или даже <a href="/js/function/">функция</a>:</p>
+<pre><code class="language-js">const cat = {
+  name: 'Том',
+  meow: function () {
+    console.log('мяу мяу')
+  },
+}
+
+cat.meow()
+// мяу мяу
+</code></pre>
+<p>Свойства можно добавлять и после создания объекта:</p>
+<pre><code class="language-js">const cat = {}
+cat.name = 'Simon'
+cat.gender = 'male'
+cat.color = 'brown'
+cat.age = 2
+cat.adorable = true
+</code></pre>
+<aside>
+<p>☝️ Несмотря на то, что переменная <code>cat</code> объявлена <a href="/js/const/">неизменяемой</a>, свойства хранимого объекта можно менять. Дело в том, что <a href="/js/ref-type-vs-value-type/">объект хранится по ссылке</a>. Изменение внутреннего состояния не изменяет ссылку.</p>
+</aside>
+<p>Создать объект также можно с помощью конструктора <code>Object</code>. Это  <a href="/js/oop/">объектно-ориентированный стиль программирования</a>:</p>
+<pre><code class="language-js">const book = new Object({ title: 'Война и мир', author: 'Лев Толстой' })
+</code></pre>
+<p>Объекты, созданные через фигурные скобки и через <code>new Object</code> совершенно идентичны.</p>
+<h2>Чтение свойств</h2>
+<p>Существует два вида синтаксиса для обращения к значению свойства объекта, в обоих случаях используется имя свойства.</p>
+<p>Самый распространённый способ — с помощью точки:</p>
+<pre><code class="language-js">console.log(`На полке стоит «${book.title}»`)
+// На полке стоит «Война и мир»
+
+const pagesPerDay = book.pages / 365
+console.log(`Чтобы прочитать её за год, читайте ${pagesPerDay.toFixed(1)} страницы в день`)
+// Чтобы прочитать её за год, читайте 3.5 страницы в день
+</code></pre>
+<p>Альтернативно для чтения можно использовать квадратные скобки:</p>
+<pre><code class="language-js">console.log(`На полке стоит «${book['title']}»`)
+
+const pagesPerDay = book['pages'] / 365
+console.log(`Чтобы прочитать её за год, читайте ${pagesPerDay.toFixed(1)} страницы в день`)
+</code></pre>
+<p>Если прочитать свойство, которого нет у объекта, то вернётся <code>undefined</code>:</p>
+<pre><code class="language-js">const signature = book.signature
+
+console.log(signature)
+// undefined
+</code></pre>
+<h2>Добавление и изменение свойств</h2>
+<p>Созданный объект можно изменять — добавлять, изменять и удалять свойства.</p>
+<p>Для добавления и изменения свойств используется одинаковый синтаксис. Нужно обратиться к свойству и присвоить в него значение с помощью стандартного оператора присваивания <code>=</code>. Если свойство не существует, оно будет создано:</p>
+<pre><code class="language-js">const book = {
+  title: 'Капитанская дочка'
+}
+
+// добавляем новое свойство
+book.author = 'А.С.Пушкин'
+
+// изменяем существующее
+book.title = 'Сказка о царе Салтане'
+
+console.log(book)
+// { title: 'Сказка о царе Салтане', author: 'А.С.Пушкин'}
+</code></pre>
+<p>Синтаксис с квадратными скобками работает и здесь:</p>
+<pre><code class="language-js">const book = {
+  title: 'Капитанская дочка'
+}
+
+// добавляем новое свойство
+book['author'] = 'А.С.Пушкин'
+
+// изменяем существующее
+book['title'] = 'Сказка о царе Салтане'
+
+console.log(book)
+// { title: 'Сказка о царе Салтане', author: 'А.С.Пушкин'}
+</code></pre>
+<h2>Удаление свойств</h2>
+<p>Для удаления свойств используют оператор <code>delete</code>:</p>
+<pre><code class="language-js">const book = {
+  title: 'Война и мир',
+  author: 'Лев Толстой',
+  pages: 1274,
+  isFinished: true,
+  usersReading: [1946, 1293, 7743]
+}
+
+delete book.usersReading
+delete book['isFinished']
+
+console.log(book)
+// { title: 'Война и мир', author: 'Лев Толстой', pages: 1274 }
+</code></pre>
+<p>Чаще всего свойства не удаляют, а сбрасывают значение, устанавливая <code>undefined</code> или подходящее по смыслу:</p>
+<pre><code class="language-js">const book = {
+  title: 'Война и мир',
+  author: 'Лев Толстой',
+  pages: 1274,
+  isFinished: true,
+  usersReading: [1946, 1293, 7743]
+}
+
+book.usersReading = undefined
+book['isFinished'] = undefined
+// {
+//    title: 'Война и мир',
+//    author: 'Лев Толстой',
+//    pages: 1274
+//    isFinished: undefined,
+//    usersReading: undefined
+// }
+</code></pre>
+<h2>Имена свойств</h2>
+<p>Имена свойств (иногда их называют <em>ключи</em>) могут быть либо <a href="/js/string/">строками</a>, либо <a href="/js/symbol/">символами</a>. Если использовать в качестве ключа другой тип данных, то он будет приведён к строке с помощью вызова метода <a href="/js/object-tostring/"><code>toString</code></a>:</p>
+<pre><code class="language-js">const obj = {}
+const key = {}
+obj[key] = 'value for the object key'
+
+console.log(obj)
+// { &quot;[object Object]&quot;: &quot;value for the object key&quot; }
+</code></pre>
+<p>Если ключ содержит пробел, то обращаться к нему возможно только через синтаксис квадратных скобок:</p>
+<pre><code class="language-js">const obj = {
+  'the answer': 42
+}
+
+console.log(obj['the answer'])
+// 42
+</code></pre>
+<h2>Сравнение объектов</h2>
+<p>Объекты — ссылочный тип данных. Сравнению по ссылке посвящена <a href="/js/ref-type-vs-value-type/">отдельная статья</a>.</p>
+<p>При сравнении двух объектов JavaScript сравнивает не значения свойств этих объектов, а адреса в памяти, по которым эти объекты хранятся. Поэтому любое сравнение двух объектов будет возвращать <code>false</code>, даже если они <em>выглядят одинаково</em>:</p>
+<pre><code class="language-js">// создаётся один объект
+const book = { title: 'Дюна' }
+// создаётся другой объект
+const anotherBook = { title: 'Дюна' }
+
+console.log(book === anotherBook)
+// false
+</code></pre>
+<p>Сравнение будет возвращать <code>true</code>, только если мы сравниваем переменные, указывающие на один и тот же объект:</p>
+<pre><code class="language-js">// создаётся один объект
+const book = { title: 'Дюна' }
+// в anotherBook записывается ссылка на объект
+const anotherBook = book
+
+console.log(book === anotherBook)
+// true
+</code></pre>

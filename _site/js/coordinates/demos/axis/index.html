@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Оси координат в браузере — Координаты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #18191C;
+      padding: 150px 0 110px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .window {
+      position: relative;
+      width: 60%;
+      margin: auto;
+    }
+
+    .window::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 0;
+      right: 0;
+      height: 40px;
+      background-color: #E1E5EC;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      border: 2px solid #CED4E2;
+      border-bottom-width: 0;
+    }
+
+    .window::after {
+      content: '';
+      position: absolute;
+      top: -27px;
+      left: 15px;
+      width: 62px;
+      height: 17px;
+      background-image: url("images/nav.svg");
+    }
+
+    .scrollable {
+      height: 350px;
+      background-color: #F6F7F9;
+      overflow: scroll;
+    }
+
+    .content {
+      position: relative;
+      width: 1000%;
+      height: 500%;
+    }
+
+    .doggo {
+      width: 126px;
+      font-size: 0;
+    }
+
+    .doggo-portrait {
+      width: 100%;
+    }
+
+    .doggo-caption {
+      padding: 10px;
+      background-color: rgb(255 255 255 / 85%);
+      font-size: 16px;
+      line-height: 14px;
+    }
+
+    .doggo-yellow {
+      background-color: #FFD829;
+    }
+
+    .doggo-blue {
+      background-color: #2E9AFF;
+    }
+
+    .screen-relative {
+      position: fixed;
+      top: 230px;
+      left: calc((100% - 60%) / 2 + 60% / 2 - 140px);
+    }
+
+    .doc-relative {
+      position: absolute;
+      top: 80px;
+      left: calc(5% + 24px);
+    }
+
+    .axises-screen {
+      color: #FFD829;
+      text-align: right;
+      font-size: 14px;
+      line-height: 13px;
+    }
+
+    .x-axis-screen {
+      position: fixed;
+      left: 0;
+      width: calc(100% - 40px);
+      border-bottom: 4px solid #FFD829;
+      margin-top: -4px;
+    }
+
+    .x-axis-screen-title {
+      position: absolute;
+      top: -10px;
+      left: calc(20% - 40px);
+      transform: translateY(-100%) translateX(-100%);
+    }
+
+    .x-axis-screen::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      bottom: -14px;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-left: 24px solid #FFD829;
+      border-bottom: 12px solid transparent;
+    }
+
+    .y-axis-screen {
+      position: fixed;
+      left: 20%;
+      top: 0;
+      height: calc(100% - 40px);
+      border-left: 4px solid #FFD829;
+      margin-left: -2px;
+      font-size: 14px;
+      line-height: 13px;
+      text-align: right;
+    }
+
+    .y-axis-screen-title {
+      position: absolute;
+      left: -20px;
+      top: 90px;
+      transform: rotate(270deg);
+      transform-origin: left;
+    }
+
+    .y-axis-screen::after {
+      content: '';
+      position: absolute;
+      right: -10px;
+      bottom: -14px;
+      width: 0;
+      height: 0;
+      border-right: 12px solid transparent;
+      border-left: 12px solid transparent;
+      border-top: 24px solid #FFD829;
+    }
+
+    .axises-doc {
+      color: #2E9AFF;
+      font-size: 14px;
+      line-height: 13px;
+      text-align: right;
+    }
+
+    .x-axis-doc {
+      position: absolute;
+      left: 2px;
+      top: 0;
+      width: calc(10% - 20px);
+      border-bottom: 4px solid #2E9AFF;
+    }
+
+    .x-axis-doc-title {
+      position: absolute;
+      left: 40px;
+      top: 10px;
+    }
+
+    .x-axis-doc::after {
+      content: '';
+      position: absolute;
+      right: -12px;
+      bottom: -9px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-left: 14px solid #2E9AFF;
+      border-bottom: 7px solid transparent;
+    }
+
+    .y-axis-doc {
+      position: absolute;
+      left: 2px;
+      top: 0;
+      height: calc(20% - 20px);
+      border-left: 4px solid #2E9AFF;
+      font-size: 14px;
+      line-height: 13px;
+      text-align: right;
+    }
+
+    .y-axis-doc-title {
+      position: absolute;
+      transform: rotate(270deg) translateX(-100%);
+      transform-origin: left;
+      left: 16px;
+      top: 40px;
+    }
+
+    .y-axis-doc::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      bottom: -9px;
+      width: 0;
+      height: 0;
+      border-right: 7px solid transparent;
+      border-left: 7px solid transparent;
+      border-top: 14px solid #2E9AFF;
+    }
+
+    @media (max-width: 875px) {
+      .x-axis-screen-title {
+        width: 40px;
+        font-size: 0;
+      }
+
+      .x-axis-screen-title::before {
+        content: 'Ось X\0aотн.\0aокна';
+        font-size: 14px;
+        line-height: 13px;
+        white-space: pre-line;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -10px;
+        bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 130px;
+        padding-left: 60px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        height: 100vh;
+      }
+
+      .window {
+        width: 100%;
+        height: 100%;
+      }
+
+      .x-axis-screen {
+        width: calc(100% - 15px);
+      }
+
+      .x-axis-screen-title {
+        left: 50px;
+      }
+
+      .y-axis-screen {
+        height: calc(100% - 15px);
+        left: 60px;
+      }
+
+      .y-axis-screen-title {
+        left: -17px;
+        top: 60px;
+      }
+
+      .x-axis-doc {
+        width: calc(10% - 25px);
+      }
+
+      .scrollable {
+        height: 100%;
+      }
+
+      .doc-relative {
+        top: 50px;
+        left: calc(5% - 52px);
+      }
+
+      .screen-relative {
+        top: 370px;
+        left: calc(50% - 32px);
+      }
+
+      .doggo {
+        width: 104px;
+      }
+
+      .doggo-caption {
+        font-size: 14px;
+        padding: 10px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div class="axises-screen">
+      <div class="x-axis-screen"><span class="x-axis-screen-title">Ось X<br>относительно окна</span></div>
+      <div class="y-axis-screen"><span class="y-axis-screen-title">Ось&nbsp;Y</span></div>
+    </div>
+      <div class="scrollable">
+        <div class="content">
+          <div class="axises-doc">
+            <div class="x-axis-doc"><span class="x-axis-doc-title">Ось X относительно документа</span></div>
+            <div class="y-axis-doc"><span class="y-axis-doc-title">Ось&nbsp;Y</span></div>
+          </div>
+          <figure class="screen-relative doggo doggo-yellow">
+            <img class="doggo-portrait" src="images/doggo-down.svg">
+            <figcaption class="doggo-caption">Расположен относительно окна</figcaption>
+          </figure>
+          <figure class="doc-relative doggo doggo-blue">
+            <img class="doggo-portrait" src="images/doggo-up.svg">
+            <figcaption class="doggo-caption">Расположен относительно документа</figcaption>
+          </figure>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

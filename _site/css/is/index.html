@@ -1,0 +1,18 @@
+<h2>Кратко</h2>
+<p>Функция-псевдокласс <code>:is()</code> принимает один или несколько селекторов в качестве аргумента. Браузер при чтении применяет стили к любому из селекторов-аргументов.</p>
+<p>Полностью поддерживается во всех стабильных браузерах с января 2021 года. Чуть более широкую поддержку можно получить, если использовать устаревшие версии с префиксами <code>:-webkit-any()</code>, <code>:-moz-any()</code> и <code>:matches()</code>. Подробнее смотрите на <a href="https://caniuse.com/css-matches-pseudo">Can I use</a>.</p>
+<h2>Как пишется</h2>
+<p>Применяем стили по наведению курсора на абзацы, вложенные в <a href="/html/header/"><code>&lt;header&gt;</code></a>, <a href="/html/main/"><code>&lt;main&gt;</code></a> или <a href="/html/footer/"><code>&lt;footer&gt;</code></a>:</p>
+<pre><code class="language-css">:is(header, main, footer) p:hover {
+  color: red;
+  cursor: pointer;
+}
+</code></pre>
+<p>Иначе этот селектор пришлось бы записать гораздо более многословно:</p>
+<pre><code class="language-css">header p:hover,
+main p:hover,
+footer p:hover {
+  color: red;
+  cursor: pointer;
+}
+</code></pre>

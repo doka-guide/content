@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Бесконечный цикл — Дока</title>
+</head>
+<body>
+<button type="button" id="alert-button">Нажми на меня</button>
+
+<button type="button" id="endless-loop">стартовать бесконечный цикл</button>
+  <script>
+    const alertButton = document.getElementById('alert-button')
+
+    alertButton.addEventListener('click', function() {
+      alert('Привет, я работаю!')
+    })
+
+    const endlessLoopButton = document.getElementById('endless-loop')
+    endlessLoopButton.addEventListener('click', function() {
+      while(true) {}
+    })
+  </script>
+</body>
+</html>

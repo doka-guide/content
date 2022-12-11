@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блок с рваным краем, но без пробела — background-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+    }
+
+    .parent {
+      padding: 25px;
+      background-color: #ffffff;
+      font-size: 18px;
+    }
+
+    .bkg {
+      line-height: 1.5;
+      background-color: #ffd829;
+      box-shadow: 0 6px 0 #ffd829;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    Чем отличается маркер от текстовыделителя? <span class="bkg">Текстовыделительные маркеры заправляются флуоресцентными полупрозрачными чернилами. Они не покрывают поверхность бумаги плотным слоем, не пропускающим свет, как это делают обычные маркеры на водной или спиртовой основе.</span>
+  </div>
+</body>
+</html>

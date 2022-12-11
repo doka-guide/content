@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные значения — overflow-wrap — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      width: min-content;
+      max-width: 10em;
+      padding: 5px;
+      outline: 1px solid #1a5ad7;
+    }
+
+    .normal {
+      overflow-wrap: normal;
+    }
+
+    .break-word {
+      overflow-wrap: break-word;
+    }
+
+    .anywhere {
+      overflow-wrap: anywhere;
+    }
+  </style>
+</head>
+<body>
+  <p class="normal">Работал у нас на заводе как-то отменный профессионал — <!-- yaspeller ignore:start -->автомотовелофототелерадиомонтёр.<!-- yaspeller ignore:end --></p>
+  <p class="break-word">Работал у нас на заводе как-то отменный профессионал — <!-- yaspeller ignore:start -->автомотовелофототелерадиомонтёр.<!-- yaspeller ignore:end --></p>
+  <p class="anywhere">Работал у нас на заводе как-то отменный профессионал — <!-- yaspeller ignore:start -->автомотовелофототелерадиомонтёр.<!-- yaspeller ignore:end --></p>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Связь между <label> и <input> — <label> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form {
+      width: 510px;
+      margin: auto;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .input-title {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      margin-right: 35px;
+    }
+
+    .input {
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .input, .checkbox-label {
+      width: 310px;
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      left: 0;
+      top: calc(50% - 12px);
+      border-radius: 6px;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: #FF8630;
+      border-radius: 3px;
+      left: 5px;
+      top: calc(50% - 7px);
+    }
+
+  </style>
+</head>
+<body>
+  <form class="form" action="">
+    <div class="form-row">
+      <label class="input-label" for="phone"><span class="input-title">Ваш телефон:</span></label>
+      <input class="input" type="tel" name="phone" id="phone">
+    </div>
+    <div class="form-row">
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox" name="agree">
+        <span class="checkbox-title">Согласен на обработку данных</span>
+      </label>
+    </div>
+  </form>
+</body>
+</html>

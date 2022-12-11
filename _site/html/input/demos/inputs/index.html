@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные поля ввода — <input> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      width: 800px;
+      margin: auto;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .button + .button {
+      margin-left: 50px;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+    background-color: #FF8630;
+    }
+
+    .button-blue {
+    background-color: #2E9AFF;
+    }
+
+    .input-label, .radio-set {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .input-title, .radio-legend {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      margin-right: 35px;
+    }
+
+    .input {
+      flex-shrink: 0;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .input-textarea {
+      min-width: 470px;
+      max-width: 470px;
+      min-height: 100px;
+      max-height: 250px;
+    }
+
+    .input, .radio-container {
+      width: 470px;
+    }
+
+    .radio-set {
+      border: none;
+    }
+
+    .radio-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-label:nth-last-child(n + 2) {
+      margin-right: 50px;
+      margin-bottom: 10px;
+    }
+
+    .radio-title {
+      font-size: inherit;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FF8630 0%,
+        #FF8630 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .input-label, .radio-set, .radio-legend {
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <form name="test" method="post" action="input1.php">
+    <label class="input-label">
+      <span class="input-title">Текстовое поле в одну строчку:</span>
+      <input class="input" type="text" size="40">
+    </label>
+
+    <fieldset class="radio-set">
+      <span class="radio-legend">Радио-кнопки:</span>
+      <div class="radio-container">
+        <label class="radio-label">
+          <input class="radio" type="radio" name="browser" value="ie" id="ie">
+          <span class="radio-title">Вариант 1</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="browser" value="opera" id="opera">
+          <span class="radio-title">Вариант 2</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
+          <span class="radio-title">Вариант 3</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <label class="input-label">
+      <span class="input-title">Большое текстовое поле:</span>
+      <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
+    </label>
+
+    <div class="buttons">
+      <input type="reset" value="Очистить" class="button button-blue">
+      <input type="submit" value="Отправить" class="button button-orange">
+    </div>
+  </form>
+</body>
+</html>

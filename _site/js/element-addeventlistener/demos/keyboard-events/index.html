@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Обработка событий клавиатуры — Element.addEventListener() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+    }
+
+    .event {
+      position: relative;
+      min-height: 100px;
+    }
+
+    .event span {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-style: italic;
+    }
+
+    .event code {
+      font-size: 100px;
+      line-height: 1;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      margin-top: 35px;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 18px;
+    }
+
+    input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .result-container {
+      position: relative;
+      margin-top: 35px;
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 100px;
+      padding-top: 10px;
+      overflow: hidden;
+    }
+
+    .result-container::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 10px;
+      background: linear-gradient(to bottom, #18191c 0%, transparent 100%);
+    }
+
+    .message {
+      border-radius: 15px;
+      padding: 5px 10px;
+      background-color: #FFD829;
+      color: #000000;
+      font-size: 0.8em;
+      line-height: 1;
+      text-align: left;
+    }
+
+    .message + .message {
+      margin-top: 5px;
+    }
+
+    .inline-code {
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="event"><span>Ожидание ввода...</span></div>
+    <input id="field" type="text" placeholder="Введите сообщение">
+    <label for="field">Начинайте вводить сообщение, после чего нажмите <code class="inline-code">Enter</code></label>
+    <div class="result-container">
+      <div class="result"></div>
+    </div>
+  </div>
+  <script>
+    const element = document.querySelector('input')
+
+    element.addEventListener('keydown', function (event) {
+      const message = '<code>' + event.key + '</code>'
+      const value = event.target.value
+
+      if (event.key === 'Enter' && value.length > 0) {
+        const messageElement = document.createElement('div')
+
+        messageElement.classList.add('message')
+        messageElement.innerText = value
+        document.querySelector('.result').appendChild(messageElement)
+        event.target.value = ''
+      }
+
+      document.querySelector('.event').innerHTML = message
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<p>🛠 Иногда вам может потребоваться управлять расстоянием между текстом и линией ниже. Обычно это делается, через свойство <a href="/css/line-height/"><code>line-height</code></a>. Чем больше высота строки, тем ниже будет полоса подчёркивания.</p>
+<p>К сожалению, этот способ подходит не всегда. Например, когда дизайнер задумал элемент несколько иначе. На примере ниже отказываемся от <code>text-decoration</code> и используем <a href="/css/border/"><code>border-bottom</code></a>.</p>
+<pre><code class="language-html">&lt;header&gt;
+  &lt;div class=&quot;container top&quot;&gt;
+    &lt;nav&gt;
+      &lt;ul class=&quot;navigation&quot;&gt;
+        &lt;li class=&quot;navigation__item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;navigation__link&quot;&gt;О магазине&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;navigation__item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;navigation__link&quot;&gt;О тыквах&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;navigation__item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;navigation__link&quot;&gt;О нас&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;navigation__item&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;navigation__link&quot;&gt;Контакты&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;Магазин «Резная тыква»&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+</code></pre>
+<pre><code class="language-css">.navigation__link, .navigation__link:visited {
+  /* делаем элементы строчно-блочными */
+  display: inline-block;
+  /* убираем подчёркивание */
+  text-decoration: none;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.navigation__link:hover {
+  /* нивелируем размеры рамки */
+  padding-bottom: 20px;
+  /* добавляем рамку снизу */
+  border-bottom: 4px solid #18191C;
+}
+</code></pre>
+<iframe title="Рамка вместо подчёркивания — text-decoration — Дока" src="../demos/header/" height="460"></iframe>

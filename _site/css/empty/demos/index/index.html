@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Скрывание пустого элемента при помощи псевдокласса — :empty — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    h6 {
+      font-size: 18px;
+      font-weight: 500;
+      color: #2E9AFF;
+    }
+
+    p {
+      margin: 15px 0;
+      line-height: 1.4;
+      font-size: 18px;
+    }
+
+    .messages {
+      width: 65%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .message-container {
+      display: flex;
+    }
+
+    .message-container + .message-container {
+      margin-top: 70px;
+    }
+
+    .message {
+      position: relative;
+      margin-left: 30px;
+      padding-bottom: 33px;
+      font-size: 0;
+    }
+
+    .buttons {
+      flex-shrink: 0;
+      width: 62px;
+      margin-top: 42px;
+      font-size: 0;
+    }
+
+    .button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      border: none;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    .button + .button {
+      margin-left: 2px;
+    }
+
+    .button::before, .button::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .button:hover {
+      cursor: pointer;
+    }
+
+    .plus::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background-color: currentColor;
+    }
+
+    .plus::after {
+      content: "";
+      width: 2px;
+      height: 18px;
+      background-color: currentColor;
+    }
+
+    .minus::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background-color: currentColor;
+    }
+
+    .reactions {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      height: 33px;
+      border: 1px solid #2E9AFF;
+      border-radius: 16px;
+      padding: 5px;
+      background-color: #123E66;
+      font-size: 16px;
+      line-height: 33px;
+    }
+
+    .reactions span + span {
+      margin-left: 3px;
+    }
+
+    .with-empty:empty {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .messages {
+        width: 85%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .messages {
+        width: 100%;
+      }
+
+      .message-container {
+        position: relative;
+        padding-bottom: 45px;
+      }
+
+      .message {
+        margin-left: 0;
+      }
+
+      .reactions {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .buttons {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: auto;
+        margin: 0;
+        z-index: 1;
+      }
+
+      .button {
+        width: 50px;
+        height: 30px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="messages">
+    <div class="message-container js-message">
+      <div class="buttons">
+        <button class="button minus js-remove"></button>
+        <button class="button plus js-add"></button>
+      </div>
+      <div class="message">
+        <h6>С <code>:empty</code></h6>
+        <p>Если заменить точку с запятой «;» на греческий знак вопроса «&#894;» в коде друга-джаваскриптера, можно увидеть как он в течение двух часов рвёт на голове волосы от странной синтаксической ошибки.</p>
+        <footer class="reactions js-reactions with-empty"><span>😁</span></footer>
+      </div>
+    </div>
+    <div class="message-container js-message">
+      <div class="buttons">
+        <button class="button minus js-remove"></button>
+        <button class="button plus js-add"></button>
+      </div>
+      <div class="message">
+        <h6>Без <code>:empty</code></h6>
+        <p>Если человеку нашего поколения отрубить голову, он ещё тридцать минут будет саморазвиваться.</p>
+        <footer class="reactions js-reactions"><span>🤔</span></footer>
+      </div>
+    </div>
+  </div>
+  <script>
+    const messages = document.querySelectorAll('.js-message')
+
+    messages.forEach(message => message.addEventListener('click', () => {
+      handleClick(message)
+    }));
+
+    function handleClick(message) {
+      const add = message.querySelector('.js-add')
+      const remove = message.querySelector('.js-remove')
+      const reactions = message.querySelector('.js-reactions')
+
+      if (event.target === add) {
+        if (reactions.querySelectorAll('span').length >= 10) return;
+        const emojiSpan = document.createElement('span');
+        emojiSpan.innerText = getEmoji()
+        reactions.appendChild(emojiSpan)
+      }
+
+      if (event.target === remove && reactions.lastChild) {
+        reactions.removeChild(reactions.lastChild)
+      }
+    }
+
+    function getEmoji() {
+      const emojis = ['😂', '🤣', '🙄', '🥴']
+      return emojis[Math.floor(Math.random() * emojis.length)]
+    }
+  </script>
+</body>
+</html>

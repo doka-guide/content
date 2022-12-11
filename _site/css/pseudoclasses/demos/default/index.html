@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стили для чекбокса по умолчанию — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .form {
+      margin-top: 40px;
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .checkbox-label + .checkbox-label {
+      margin-top: 25px;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+    }
+
+    .checkbox-title {
+      margin-right: 60px;
+    }
+
+    .checkbox, .checkbox-title {
+      cursor: pointer;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 11px);
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 6px);
+      right: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+    }
+
+    :default + span {
+      color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Выберите комплектацию</h1>
+    <form class="form">
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox" checked="">
+        <span class="checkbox-title">Стеклоподъёмники</span>
+      </label>
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox">
+        <span class="checkbox-title">Кондиционер</span>
+      </label>
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox">
+        <span class="checkbox-title">Подогрев сидений</span>
+      </label>
+    </form>
+  </div>
+</body>
+</html>

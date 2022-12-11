@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вращение 3D-объекта — transform-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --parentRotateY: 0deg;
+      --childRotateY: -30deg;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .container {
+      position: relative;
+      width: 670px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    h1, .section p {
+      width: 270px;
+      text-align: right;
+    }
+
+    .section {
+      position: relative;
+      height: 140px;
+      display: flex;
+      align-items: end;
+    }
+
+    .section:first-of-type {
+      margin-top: 30px;
+    }
+
+    .section, .controls {
+      margin-top: 50px;
+    }
+
+    .parent {
+      position: absolute;
+      top: 40px;
+      left: 320px;
+      width: 350px;
+      height: 100px;
+      background-color: #2E9AFF;
+      transform: perspective(500px) rotateY(var(--parentRotateY));
+    }
+
+    .child {
+      height: 80px;
+      width: 225px;
+      background-color: #F498AD;
+      transform: rotateY(var(--childRotateY)) translateY(-40px);
+    }
+
+    .preserved {
+      transform-style: preserve-3d;
+    }
+
+    .controls {
+      width: 350px;
+      margin-left: auto;
+      text-align: center;
+    }
+
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .controls-row + .controls-row {
+      margin-top: 10px;
+    }
+
+    .control-rotate {
+      width: 200px;
+      cursor: grab;
+    }
+
+    .accent-blue {
+      color: #2E9AFF;
+    }
+
+    .accent-pink {
+      color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container, h1, .section p, .controls {
+        width: 100%;
+      }
+
+      .section {
+        display: block;
+        height: 170px;
+      }
+
+      .parent {
+        top: 70px;
+        left: 0;
+        width: 280px;
+      }
+
+      .controls-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>transform-style</code></h1>
+    <div class="section">
+      <p><code>flat</code></p>
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+    </div>
+    <div class="section">
+      <p><code>preserve-3d</code></p>
+      <div class="parent preserved">
+        <div class="child"></div>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="controls-row">
+        <input class="control-rotate" type="range" id="rotate-parent"
+          min="-45" max="45">
+        <label for="rotate-parent">вращать <span class="accent-blue">parent</span></label>
+      </div>
+      <div class="controls-row">
+        <input class="control-rotate" type="range" id="rotate-child"
+          min="-45" max="45" value="-30">
+        <label for="rotate-child">вращать <span class="accent-pink">child</span></label>
+      </div>
+    </div>
+  </div>
+  <script>
+    let root = document.documentElement;
+
+    const parentSlider = document.querySelector('#rotate-parent');
+
+    const childSlider = document.querySelector('#rotate-child')
+
+    const changeVar = (varName) => (e) => {
+      root.style.setProperty(varName, `${e.target.value}deg`);
+    }
+
+    parentSlider.addEventListener('input', changeVar('--parentRotateY'));
+
+    childSlider.addEventListener('input', changeVar('--childRotateY'));
+  </script>
+</body>
+</html>

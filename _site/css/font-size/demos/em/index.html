@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Размер шрифта в em — font-size — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+    .parent {
+      font-size: 1.5em;
+    }
+
+    .child {
+      font-size: 1.5em;
+      background-color: #49a16c;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    Размер этого текста в 1.5 раза больше, чем стандартный размер вашего браузера,
+    <span class="child">
+      а этот текст в 1.5 раза больше, чем в родительском контейнере.
+    </span>
+  </div>
+</body>
+</html>

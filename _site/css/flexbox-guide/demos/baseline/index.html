@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выравнивание по базовой линии — Гайд по flexbox — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline; /* элементы выравниваются по базовой линии — нижней линии текста */
+    }
+
+    .small {
+      font-size: 0.7rem;
+    }
+
+    .big {
+      font-size: 1.7rem;
+    }
+
+    /* Оформление */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      position: relative;
+      border: 2px solid #2E9AFF;
+      padding: 25px;
+    }
+
+    .block {
+      width: calc((100% - 100px) / 5);
+      padding: 10px;
+      background-color: #2E9AFF;
+    }
+
+    .block:first-of-type:before { /* рисует базовую линию */
+      content: "0";
+      position: absolute;
+      left: -30px;
+      right: -30px;
+      border-bottom: 2px solid #FF8630;
+      color: transparent;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block big">
+      Lorem ipsum
+    </div>
+    <div class="block">
+      Lorem ipsum — классический текст-«рыба» (бессмысленный текст-заполнитель, вставляемый в макет страницы).
+    </div>
+    <div class="block small">
+      Lorem
+    </div>
+    <div class="block">Lorem ipsum — классический текст-«рыба».</div>
+    <div class="block">
+      Lorem ipsum — классический текст-«рыба» (бессмысленный текст-заполнитель, вставляемый в макет страницы). Это искажённый отрывок из философского трактата Марка Туллия Цицерона «О пределах добра и зла».
+    </div>
+  </div>
+</body>
+</html>

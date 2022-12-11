@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Блокирование всей формы при помощи disabled — <fieldset> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400&display=swap">
+  <style>
+    * {
+      margin: 0;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      display: flex;
+    }
+
+    header, form {
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form {
+      margin-top: 45px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 10px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .fieldset-label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .fieldset-label::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 1px;
+      width: 16px;
+      height: 16px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .fieldset-radio-input {
+      width: 16px;
+      margin-right: 5px;
+      opacity: 0;
+    }
+
+    .fieldset-radio-input:checked + .fieldset-label::before {
+      background: radial-gradient(
+        circle,
+        #FF8630 0%,
+        #FF8630 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    fieldset[disabled] {
+      opacity: 0.5;
+    }
+
+    fieldset[disabled], fieldset[disabled] * {
+      cursor: not-allowed;
+    }
+
+    .fieldset-radio {
+      display: block;
+    }
+
+    .fieldset-radio + .fieldset-radio {
+      margin-top: 10px;
+    }
+
+    code {
+      border-bottom: 1px solid #5e6064;
+      margin-left: 25px;
+      padding: 15px 0;
+      flex-grow: 1;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .fieldset {
+      padding: 20px;
+    }
+
+    .fieldset-legend {
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="button button-orange js-toggle">Disable</button>
+    <code class="code js-code">&lt;fieldset&gt;</code>
+  </header>
+  <form>
+    <fieldset class="fieldset js-fieldset">
+      <legend class="fieldset-legend">Прозвище Дракса из «Стражей Галактики»?</legend>
+      <span class="fieldset-radio"><input id="Exterminator" class="fieldset-radio-input" type="radio" name="answer" value="Exterminator">
+        <label for="Exterminator" class="fieldset-label">Уничтожитель</label></span>
+      <span class="fieldset-radio"><input id="Destroyer" class="fieldset-radio-input" type="radio" name="answer" value="Destroyer">
+        <label for="Destroyer" class="fieldset-label">Разрушитель</label></span>
+      <span class="fieldset-radio"><input id="Prosecutor" class="fieldset-radio-input" type="radio" name="answer" value="Prosecutor">
+        <label for="Prosecutor" class="fieldset-label">Обвинитель</label></span>
+      <span class="fieldset-radio"><input id="Sweet-tooth" class="fieldset-radio-input" type="radio" name="answer" value="Sweet-tooth">
+        <label for="Sweet-tooth" class="fieldset-label">Сладкоежка</label></span>
+    </fieldset>
+  </form>
+
+  <script>
+    const SELECTORS = {
+      fieldset: '.js-fieldset',
+      toggle: '.js-toggle',
+      code: '.js-code'
+    }
+
+    const fieldset = document.querySelector(SELECTORS.fieldset)
+    const toggle = document.querySelector(SELECTORS.toggle)
+    const code = document.querySelector(SELECTORS.code)
+
+    toggle.addEventListener('click', (event) => {
+      if (fieldset.disabled) {
+        fieldset.disabled = false
+        toggle.innerText = 'Disable'
+        code.innerText = '<fieldset>'
+      } else {
+        fieldset.disabled = true
+        toggle.innerText = 'Enable'
+        code.innerText = '<fieldset disabled>'
+      }
+    })
+  </script>
+</body>
+</html>

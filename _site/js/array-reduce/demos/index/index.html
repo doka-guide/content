@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Группировка элементов массива при помощи reduce — Array.reduce — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    pre {
+      font-family: "Roboto Mono", monospace;
+      white-space: pre-wrap;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
+    }
+
+    .subtitle:first-child {
+      margin-top: 0;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .header-container {
+      margin-bottom: 40px;
+    }
+
+    .header-container pre,
+    .does-container pre {
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+
+    .does-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .does-container pre {
+      margin-left: 25px;
+      flex-grow: 1;
+      line-height: 1;
+    }
+
+    .items {
+      display: flex;
+    }
+
+    .item {
+      width: 120px;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .item + .item {
+      margin-left: 10px;
+    }
+
+    .active {
+      background-color: #41E847;
+    }
+
+    .execute {
+      min-height: 150px;
+      padding: 10px;
+      border: 1px solid #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-container">
+      <h2 class="subtitle">Наш код</h2>
+
+<pre>const users = [
+  { id: '123', name: 'John' },
+  { id: '345', name: 'Anna' },
+  { id: '567', name: 'Kate' },
+  { id: '789', name: 'Jane' }
+]
+
+function groupNameById(result, user) {
+  return {
+    ...result,
+    [user.id]: user.name
+  }
+}</pre>
+
+    </div>
+    <div class="does-container">
+      <button id="start" class="button button-yellow">Юзеры, группируйтесь!</button>
+      <pre>users.reduce(groupNameById)</pre>
+    </div>
+    <h2 class="subtitle">С каким элементом работаем</h2>
+    <div class="items" id="container"></div>
+    <h2 class="subtitle">Значение аккумулятора</h2>
+    <pre class="execute" id="result"></pre>
+  </div>
+  <script>
+    const SECOND = 1000;
+    const users = [
+      { id: '123', name: 'John' },
+      { id: '345', name: 'Anna' },
+      { id: '567', name: 'Kate' },
+      { id: '789', name: 'Jane' },
+    ]
+
+    function groupNameById(result, user) {
+      return {
+        ...result,
+        [user.id]: user.name
+      }
+    }
+
+    const container = document.getElementById('container')
+    const result = document.getElementById('result')
+    const startButton = document.getElementById('start')
+
+    let isActive = false
+
+    function createItem(item) {
+      const itemElement = document.createElement('div')
+      const inner = document.createElement('pre')
+
+      inner.textContent = `id: ${item.id}, name: ${item.name}`
+
+      itemElement.classList.add('item')
+      itemElement.appendChild(inner)
+
+      return itemElement
+    }
+
+    users.forEach((user, index) => {
+      const element = createItem(user)
+      element.id = index + 1
+
+      container.appendChild(element)
+    })
+
+    function clearActive() {
+      const activeItem = document.querySelector('.active')
+
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
+
+    function createIteration(acc, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          result.textContent = JSON.stringify(acc, undefined, 2)
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function getPromises() {
+      const iterations = []
+
+      const group = users.reduce((acc, item, index) => {
+        iterations.push(createIteration(acc, index + 1))
+
+        return groupNameById(acc, item)
+      }, {})
+
+      return [iterations, group]
+    }
+
+    startButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+
+        const [promises, res] = getPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+
+            result.textContent = JSON.stringify(res, undefined, 2)
+          }, SECOND)
+        })
+      }
+    })
+  </script>
+</body>
+</html>

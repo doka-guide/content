@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты значений — column-rule-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      color: white;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .text-wrapper {
+      column-count: 3;
+      column-rule: 5px solid #ffd829;
+      column-gap: 25px;
+    }
+
+    h2 {
+      padding-left: 8px;
+      font-size:  16px;
+      font-weight: normal;
+    }
+
+    ul {
+      display: flex;
+      width: 100%;
+      margin-top: 8px;
+      margin-bottom: 15px;
+      padding: 0;
+      list-style-type: none;
+      user-select: none;
+      color: #ffffff;
+    }
+
+    li {
+      margin-right: 12px;
+    }
+
+    label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+    }
+
+    input:checked + label::before {
+      background: #ed6742;
+      background: radial-gradient(
+        circle,
+        #ed6742 0%,
+        #ed6742 40%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    input[type="radio"] {
+      width: 19px;
+      margin-right: 2px;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Выберите стиль линии</h2>
+  <ul class="styles">
+    <li>
+      <input id="solid" type="radio" name="style" value="solid" checked>
+      <label for="solid">
+        Solid
+      </label>
+    </li>
+    <li>
+      <input id="dotted" type="radio" name="style" value="dotted">
+      <label for="dotted">
+        Dotted
+      </label>
+    </li>
+    <li>
+      <input id="dashed" type="radio" name="style" value="dashed">
+      <label for="dashed">
+        Dashed
+      </label>
+    </li>
+    <li>
+      <input id="double" type="radio" name="style" value="double">
+      <label for="double">
+        Double
+      </label>
+    </li>
+    <li>
+      <input id="groove" type="radio" name="style" value="groove">
+      <label for="groove">
+        Groove
+      </label>
+    </li>
+  </ul>
+
+  <div class="text-wrapper">
+    Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю, словно созданном для таких, как я. Я так счастлив, мой друг, так упоён ощущением покоя, что искусство моё страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей тёмного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок, что снуёт между стебельками, наблюдаю эти неисчислимые, непостижимые разновидности червяков и мошек и чувствую близость всемогущего, создавшего нас по своему подобию, веяние вселюбящего, судившего нам парить в вечном блаженстве, когда взор мой туманится и все вокруг меня и небо надо мной запечатлены в моей душе, точно образ возлюбленной, — тогда, дорогой друг, меня часто томит мысль: «Ах! Как бы выразить, как бы вдохнуть в рисунок то, что так полно, так трепетно живёт во мне, запечатлеть отражение моей души, как душа моя — отражение предвечного бога!»
+  </div>
+
+  <script>
+    const wrapper = document.querySelector('.text-wrapper')
+
+    Array.from(document.querySelectorAll('.styles input')).forEach(input => {
+      input.addEventListener('change', () => {
+        wrapper.style.columnRuleStyle = input.value
+      })
+    })
+  </script>
+</body>
+</html>

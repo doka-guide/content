@@ -1,0 +1,38 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;del&gt;</code> используется для отображения удалённого контента. Например, выполненного пункта в списке дел или удалённой части кода.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;h4&gt;Список дел&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;del&gt;Помыть посуду&lt;/del&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;Полить цветы&lt;/del&gt;&lt;/li&gt;
+  &lt;li&gt;Погулять с собакой&lt;/li&gt;
+  &lt;li&gt;Пропылесосить комнату&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<h2>Как понять</h2>
+<p>По умолчанию браузеры применяют к <code>&lt;del&gt;</code> перечёркивание с помощью <code>text-decoration: line-through</code>. Такого же эффекта можно добиться, используя тег <a href="/html/s/"><code>&lt;s&gt;</code></a> или просто применив к тексту <code>text-decoration: line-through</code>. Однако <code>&lt;del&gt;</code> стоит использовать в том случае, когда нужно подчеркнуть, что какой-то контент был удалён и это важно. Хоть визуально отличий не будет, но это поможет, например, пользователям <a href="/tools/site-readers/#skrinridery">скринридеров</a>.</p>
+<h2>Атрибуты</h2>
+<p>Помимо <a href="/html/global-attrs/">глобальных атрибутов</a> у <code>&lt;del&gt;</code> есть специфические:</p>
+<ul>
+<li><code>cite</code> позволяет сослаться на информацию о правке;</li>
+<li><code>datetime</code> позволяет указать время правки.</li>
+</ul>
+<p>Оба атрибута необязательные и помогают уточнить правку.</p>
+<pre><code class="language-html">&lt;h4&gt;Сдача проекта&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;del cite=&quot;https://our-cool-customers.com/reports/123&quot;&gt;
+      Выгрузить отчёт в сервис заказчика
+    &lt;/del&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;del datetime=&quot;2021-12-21T15:00Z&quot;&gt;
+      Созвониться с подрядчиком по поводу актов
+    &lt;/del&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Согласовать новую форму оплаты с юристами&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>По умолчанию значения атрибутов невидимы для пользователя, но можно автоматически выводить их при помощи скриптов. Например, мы можем добавлять для всех удалённых пунктов дату и время удаления, это будет выглядеть примерно так:</p>
+<iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>

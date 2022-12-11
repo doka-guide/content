@@ -1,0 +1,70 @@
+<h2>Кратко</h2>
+<p><a href="/tools/nodejs/">Node.js</a> — это платформа, которая позволяет запускать JavaScript вне браузера. Области её применения можно разделить на две категории — создание серверных веб-приложений и создание инструментов для разработки.</p>
+<p>Вся современная разработка на JavaScript строиться вокруг огромного числа инструментов — тулинга. Большинство этих инструментов используют Node.js.</p>
+<p>Тулинг (калька английского слова <em>tooling</em>) — набор инструментов для разработки.</p>
+<p>Практически для каждого этапа работы на JS-проектом потребуется инструмент, который использует Node.js. Вот пара примеров:</p>
+<ul>
+<li>Разработка требует установки зависимостей через <a href="/tools/package-managers/">менеджер зависимостей</a>. Все популярные пакетные менеджеры <em>написаны на JavaScript или его диалектах и используют Node.js</em>.</li>
+<li>Типичный проект требует <a href="/tools/bundlers/">этапа сборки</a> кода перед отправкой его в браузер. Все популярные сборщики <em>написаны на JavaScript или его диалектах и используют Node.js</em>.</li>
+<li>Абсолютное большинство проектов используют <a href="/tools/static-analysis/">статический анализ</a> для контроля качества кода. Все популярные статические анализаторы <em>написаны на JavaScript или его диалектах и используют Node.js</em>.</li>
+</ul>
+<p>Это означает, что даже разработчикам интерфейсов важно понимать как работает Node.js и уметь минимально с ней взаимодействовать.</p>
+<h2>Как понять</h2>
+<p>Обычно мы не запускаем инструменты напрямую с помощью Node.js, а используем для этого пакетный менеджер. Команды, которые используются в проекте нужно определить в разделе <code>scripts</code> файла <code>package.json</code>:</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;lint&quot;: &quot;eslint \&quot;./src/**/*.js\&quot;&quot;
+}
+</code></pre>
+<p>Запускается такой скрипт очень просто:</p>
+<pre><code class="language-bash">npm run lint
+</code></pre>
+<p>Но это просто удобная форма запуска команды:</p>
+<pre><code class="language-bash">node ./node_modules/.bin/eslint &quot;./src/**/*.js&quot;
+</code></pre>
+<p>В этой строке происходит сразу несколько вещей: с помощью Node.js мы запускаем файл <code>eslint</code>, который лежит в папке <code>node_modules/.bin</code>, и передаём ему как аргумент строку, по которой ESLint найдёт файлы для анализа.</p>
+<p>Файл <code>eslint</code> — это программа, написанная на JavaScript. В ней не происходит никакой магии.</p>
+<p>В таком скрипте много кода, но для понимания принципа работы Node.js-инструментов можно его упростить и посмотреть на принципиальную схему. Это не настоящий ESLint, а просто пример того, как может быть устроен скрипт на Node.js:</p>
+<pre><code class="language-js">const cliOptions = parseCommandLineArguments(process.args)
+const configOptions = parseConfigFile(&quot;.eslintrs&quot;)
+const options = mergeConfigs([cliOptions, configOptions])
+const files = findFiles(options)
+const errors = analyzeFiles(files, options)
+
+for (const error of errors) {
+  console.warn(error)
+}
+
+if (errors.length &gt; 0) {
+  process.exit(1)
+} else {
+  process.exit(0)
+}
+</code></pre>
+<p>А теперь разберём его построчно. Получаем аргументы командной строки, чтобы найти файлы которые следует анализировать:</p>
+<pre><code class="language-js">const cliOptions = parseCommandLineArguments(process.args)
+</code></pre>
+<p>Читаем файл конфигурации, чтобы решить какие правила анализа нужно применить:</p>
+<pre><code class="language-js">const configOptions = parseConfigFile(&quot;.eslintrs&quot;)
+</code></pre>
+<p>Собираем финальную конфигурацию:</p>
+<pre><code class="language-js">const options = mergeConfigs([cliOptions, configOptions])
+</code></pre>
+<p>Находим все файлы, удовлетворяющие условию:</p>
+<pre><code class="language-js">const files = findFiles(options)
+</code></pre>
+<p>Ищем нарушения правил в каждом файле и пишем о них в консоль:</p>
+<pre><code class="language-js">const errors = analyzeFiles(files, options)
+
+for (const error of errors) {
+  console.warn(error)
+}
+</code></pre>
+<p>Если была найдена хоть одна ошибка, завершаем выполнение с кодом 1. Если ошибок не было, завершаем выполнение с кодом 0:</p>
+<pre><code class="language-js">if (errors.length &gt; 0) {
+  process.exit(1)
+} else {
+  process.exit(0)
+}
+</code></pre>
+<p>Любая консольная программа при завершении может сообщить операционной системе код результата. Принято возвращать <code>0</code> при успешном завершении и <code>1</code> при ошибке.</p>
+<p>Концептуально, все Node.js инструменты работают похожим образом — читают конфигурацию из файла в проекте, разбирают аргументы командной строки, делают какую-то полезную работу и сообщают код результата операционной системе.</p>

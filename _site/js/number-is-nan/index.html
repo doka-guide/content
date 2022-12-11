@@ -1,0 +1,80 @@
+<h2>Кратко</h2>
+<p>Статический метод <code>Number.isNaN()</code> проверяет переданное аргументом значение и возвращает <code>true</code>, если это значение <code>NaN</code>.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-js">// В этом случае вернет true
+Number.isNaN(NaN)
+
+// В остальных случаях всегда false
+Number.isNaN()
+Number.isNaN(42)
+Number.isNaN('42')
+Number.isNaN(null)
+Number.isNaN(undefined)
+Number.isNaN(false)
+</code></pre>
+<h2>Как это понять</h2>
+<p>Существуют <a href="/js/number/#specialnye-znacheniya">ситуации</a>, когда результат математической обработки не может быть получен. Например, <code>Math.sqrt(-9)</code> или <code>parseInt('text')</code>. Результатом выполнения в таком случае будет <code>NaN</code>. <code>NaN</code> расшифровывается как <em>Not a Number</em>, то есть «не число». Однако, он относится к числовому типу данных.</p>
+<pre><code class="language-js">typeof NaN
+// number
+</code></pre>
+<p>Сравнение <code>NaN</code> с чем угодно, даже с самим собой, вернёт <code>false</code>. Поэтому проверка результатов математических операций стандартным способом не принесёт успеха. В примере ниже валидация введённых пользователем данных не будет работать.</p>
+<pre><code class="language-js">function getUserAge() {
+  while (true) {
+    const value = prompt('Пожалуйста, укажите ваш возраст')
+
+    if (!value) {
+        alert('Вы ничего не ввели!')
+        continue
+    }
+
+    return Number(value)
+  }
+}
+
+const age = getUserAge()
+
+if (age === NaN) {
+  alert('Вы ввели неверные данные')
+  // Не сработает
+}
+</code></pre>
+<p>Мы бы могли использовать уникальные свойства <code>NaN</code> и написать собственную утилиту для проверки результата, сравнивая его с самим собой.</p>
+<pre><code class="language-js">function isNaN(number) {
+  return number !== number
+}
+
+const age = getUserAge()
+
+if (isNaN(age)) {
+  alert('Вы ввели неверные данные')
+  // Теперь будет работать
+}
+</code></pre>
+<p>Однако, мы не рекомендуем использовать такой подход в разработке. Для проверки лучше применять статический метод <code>Number.isNaN()</code> у <a href="/js/number-wrapper/">обёртки <code>Number</code></a>.</p>
+<p>Есть так же глобальная функция <code>isNaN()</code>, но она работает не всегда так, как ожидается и возвращает <code>true</code> и при значениях, отличных от <code>NaN</code>. Например:</p>
+<pre><code class="language-js">isNaN(undefined)
+//  true
+
+Number.isNaN(undefined)
+// false
+</code></pre>
+<h3>Сравнение <code>isNaN()</code> и <code>Number.isNaN()</code></h3>
+<p>Отличие заключается в том, что глобальная функция <code>isNaN()</code> приводит к числовому типу всё, что было в неё передано, если оно не является числом. Если в результате приведения был получен <code>NaN</code>, она возвращает <code>true</code>:</p>
+<pre><code class="language-js">Number(undefined)
+// NaN
+isNaN(undefined)
+// true
+
+Number('0')
+// 0
+isNaN('0')
+// false
+</code></pre>
+<p>Однако, если неявная передача <code>undefined</code> (вызов функции без параметров) в <code>Number</code> возвращает число <code>0</code>, то <code>isNaN()</code> вернёт <code>true</code>, приняв пустое значение за <code>NaN</code>.</p>
+<pre><code class="language-js">Number()
+// 0
+
+isNaN()
+// true
+</code></pre>
+<p><code>Number.isNaN()</code> же никаких приведений не производит. Она вернёт <code>true</code> только если переданное в неё значение является <code>NaN</code>.</p>

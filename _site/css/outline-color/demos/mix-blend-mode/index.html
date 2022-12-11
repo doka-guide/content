@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Имитация значения invert — outline-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      padding: 20px;
+      margin: 0;
+      min-height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    @media screen and (max-width: 1000px) {
+      body {
+        flex-direction: column;
+      }
+    }
+
+    .background {
+      margin: 10px;
+      padding: 20px;
+    }
+
+    .box {
+      outline: 3px solid white;
+      width: 160px;
+      height: 80px;
+    }
+
+    .invert {
+      mix-blend-mode: difference;
+    }
+
+    .bg-1 {
+      background-color: #f00;
+    }
+
+    .bg-2 {
+      background-color: #000;
+    }
+
+    .bg-3 {
+      background-color: #fff;
+    }
+
+    .bg-4 {
+      background: linear-gradient(to bottom, rgba(255, 0, 0, 1) 0%, rgba(255, 255, 0, 1) 15%, rgba(0, 255, 0, 1) 30%, rgba(0, 255, 255, 1) 50%, rgba(0, 0, 255, 1) 65%, rgba(255, 0, 255, 1) 80%, rgba(255, 0, 0, 1) 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="background bg-1">
+    <div class="box invert"></div>
+  </div>
+  <div class="background bg-2">
+    <div class="box invert"></div>
+  </div>
+  <div class="background bg-3">
+    <div class="box invert"></div>
+  </div>
+  <div class="background bg-4">
+    <div class="box invert"></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между событиями load и DOMContentloaded — Событие load и DOMContentLoaded — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px 100px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    pre {
+      white-space: pre-wrap;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button-like {
+      display: block;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      line-height: normal;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-like:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-like:focus, .button-like:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .description {
+      width: 280px;
+      flex-shrink: 0;
+    }
+
+    .timings-line + .timings-line {
+      margin-top: 25px;
+    }
+
+    .timings span {
+      display: block;
+      color: #979797;
+      line-height: normal;
+    }
+
+    #domloaded-time,
+    #load-time,
+    #difference {
+      color: #FFFFFF;
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+
+    #difference::after {
+      content: " мс";
+      font-size: 16px;
+    }
+
+    .tip {
+      margin-top: 40px;
+    }
+
+    .tip p {
+      color: #979797;
+      line-height: 1.4;
+    }
+
+    .scrollable {
+      width: 100%;
+      height: 425px;
+      margin-left: 70px;
+      background-color: #282a2e;
+      color: #979797;
+      font-family: "Roboto Mono", monospace;
+      line-height: 1.2;
+      overflow: scroll;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="description">
+      <div class="timings">
+        <p class="timings-line">
+          <span id="domloaded-time"></span>
+          <span>Событие <code>DOMContentLoaded</code></span>
+        </p>
+        <p class="timings-line">
+          <span id="load-time"></span>
+          <span>Событие <code>load</code></span>
+        </p>
+        <p class="timings-line">
+          <span id="difference"></span>
+          <span>Разница между событиями</span>
+        </p>
+      </div>
+      <div class="tip">
+        <a class="button-like button-yellow" href="../overloaded/">Попробовать с картинкой</a>
+        <p>Здесь гигантской картинки нет, поэтому разница между событиями совсем небольшая.</p>
+      </div>
+    </div>
+    <div class="scrollable"></div>
+  </div>
+
+  <script>
+    let diff
+    const diffSpan = document.getElementById('difference')
+
+    window.addEventListener('load', function() {
+      const loadSpan = document.getElementById('load-time')
+      const currentTime = getCurrentTime()
+      loadSpan.textContent = currentTime.string
+      diffSpan.textContent = countDiff(currentTime.ms)
+    })
+
+    window.addEventListener('DOMContentLoaded', function() {
+      const DOMLoadedSpan = document.getElementById('domloaded-time')
+      const currentTime = getCurrentTime()
+      DOMLoadedSpan.textContent = currentTime.string
+      diffSpan.textContent = countDiff(currentTime.ms)
+    })
+
+    function getCurrentTime() {
+      const time = new Date()
+      return {ms: time.getTime(), string: time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds() + '.' + time.getMilliseconds()}
+    }
+
+    function countDiff(currentTime) {
+      if (!diff) {
+        diff = currentTime
+      } else {
+        diff -= currentTime
+        return Math.abs(diff)
+      }
+    }
+  </script>
+</body>
+</html>

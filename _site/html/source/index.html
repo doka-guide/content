@@ -1,0 +1,83 @@
+<h2>Кратко</h2>
+<p>При помощи тега <code>&lt;source&gt;</code> можно указать несколько источников для видео (<a href="/html/video/"><code>&lt;video&gt;</code></a>), аудио (<a href="/html/audio/"><code>&lt;audio&gt;</code></a>) или изображения (<a href="/html/picture/"><code>&lt;picture&gt;</code></a>). Очень пригождается, когда нужно подключить контент в нескольких форматах для лучшей поддержки в разных браузерах.</p>
+<h2>Пример</h2>
+<p>Пример указания пути до видеофайла в форматах WebM и MP4:</p>
+<pre><code class="language-html">&lt;video controls width=&quot;250&quot; height=&quot;200&quot; muted&gt;
+  &lt;source src=&quot;birthday.webm&quot; type=&quot;video/webm&quot;&gt;
+  &lt;source src=&quot;birthday.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</code></pre>
+<p>Пример указания пути до аудиофайла в форматах MP3 и OGG:</p>
+<pre><code class="language-html">&lt;audio controls&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+&lt;/audio&gt;
+</code></pre>
+<p>Пример использования тега <code>&lt;source&gt;</code> для адаптивных изображений. При ширине экрана от 0 до 599 пикселей будет загружено изображение <em>small.jpg</em>, на ширине экрана от 600 пикселей будет загружено изображение <em>big.jpg</em>:</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source srcset=&quot;big.jpg&quot; media=&quot;(min-width: 600px)&quot;&gt;
+  &lt;img src=&quot;small.jpg&quot; alt=&quot;Абстрактное изображение&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p>Когда мы хотим вставить на страницу аудио- или видеофайл, то используем теги <a href="/html/audio/"><code>&lt;audio&gt;</code></a> и <a href="/html/video/"><code>&lt;video&gt;</code></a>. Если у нас есть несколько одинаковых файлов разного формата (например, один и тот же видеоролик в форматах .mp4 и .webm), то можно использовать тег <code>&lt;source&gt;</code>. Он поможет определить, какие форматы поддерживает браузер, и загрузить медиафайл в нужном формате.</p>
+<p>С адаптивными изображениями чуть сложнее. Тег <code>&lt;source&gt;</code> используется совместно с тегами <a href="/html/picture/"><code>&lt;picture&gt;</code></a> и <a href="/html/img/"><code>&lt;img&gt;</code></a>, чтобы определить, какое изображение должен загрузить браузер при разных условиях.</p>
+<h2>Как пишется</h2>
+<p>В теге <code>&lt;source&gt;</code> могут использоваться атрибуты:</p>
+<h3><code>src</code></h3>
+<p>Требуется только для использования внутри тегов <code>&lt;audio&gt;</code> и <code>&lt;video&gt;</code>. В атрибуте указывается путь до медиафайла. Если тег <code>&lt;source&gt;</code> находится внутри <a href="/html/picture/"><code>&lt;picture&gt;</code></a>, то атрибут <code>src</code> игнорируется.</p>
+<pre><code class="language-html">&lt;audio controls&gt;
+  &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
+  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot;&gt;
+&lt;/audio&gt;
+</code></pre>
+<h3><code>type</code></h3>
+<p>Содержит указание на MIME-тип медиафайла. Если у нас есть несколько одинаковых видеофайлов разного формата, то атрибут <code>type</code> помогает выбрать первый поддерживаемый браузером:</p>
+<pre><code class="language-html">&lt;video controls width=&quot;250&quot; height=&quot;200&quot; muted&gt;
+  &lt;source src=&quot;birthday.webm&quot; type=&quot;video/webm&quot;&gt;
+  &lt;source src=&quot;birthday.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;/video&gt;
+</code></pre>
+<p>Если браузер поддерживает формат WebM, то будет загружен файл из первого тега <code>&lt;source&gt;</code>. Если нет, то из второго. Обычно перечисляют несколько форматов видео или аудио, начиная с самого эффективного по соотношению «размер-качество».</p>
+<h3><code>media</code></h3>
+<p>Может использоваться в <code>&lt;source&gt;</code> только внутри элемента <a href="/html/picture/"><code>&lt;picture&gt;</code></a>. Атрибут содержит медиавыражение для выбора нужного изображения.</p>
+<pre><code class="language-html">&lt;picture&gt;
+  &lt;source srcset=&quot;big.jpg&quot; media=&quot;(min-width: 600px)&quot;&gt;
+  &lt;img src=&quot;small.jpg&quot; alt=&quot;Абстрактное изображение&quot;&gt;
+&lt;/picture&gt;
+</code></pre>
+<p>При ширине экрана от 600 пикселей будет загружено изображение из тега <code>&lt;source&gt;</code>. В других случаях — из тега <code>&lt;img&gt;</code>.</p>
+<h3><code>srcset</code></h3>
+<p>В атрибуте <code>srcset</code> через запятую перечисляются строки, которые дают браузеру информацию об изображениях. Каждая строка состоит из следующих частей:</p>
+<ul>
+<li>URL изображения (например,<code>1024x768.png</code>);</li>
+<li>целое число, за которым идёт буква <em>w</em> (например, <code>1024w</code>). Число указывает на ширину изображения в пикселях;</li>
+<li>число, за которым идёт буква <em>x</em> (например, <code>1.5x</code>). Число указывает на плотность пикселей, для которой будет использоваться изображение.</li>
+</ul>
+<p>Например, атрибут может выглядеть так:</p>
+<pre><code class="language-html">&lt;source srcset=&quot;640x480.png 1x, 1280x960.png 2x&quot;&gt;
+</code></pre>
+<p>Эта запись означает, что для экранов с обычной плотностью пикселей будет использовано изображение <em>640x480.png</em>, а для экранов с удвоенной плотностью пикселей (например, для retina-экранов) — <em>1280x960.png</em>.</p>
+<p>Другой вариант записи атрибута:</p>
+<pre><code class="language-html">&lt;source srcset=&quot;1024x768.png 1024w, 640x480.png 640w&quot;&gt;
+</code></pre>
+<p>Здесь мы говорим браузеру, что изображение <em>1024x768.png</em> имеет ширину 1024 px, а изображение 640x480.png — 640 px. Эта информация помогает браузеру определить, какое изображение выбрать при разборе соседнего атрибута <code>sizes</code>.</p>
+<h3><code>sizes</code></h3>
+<p>Атрибут <code>sizes</code> говорит браузеру, какой ширины нам понадобится изображение из текущего элемента <code>&lt;source&gt;</code> при отрисовке страницы. Можно сказать, что браузер определяет <strong>ширину слота</strong> для изображения. Так мы заранее сообщаем браузеру, сколько места на странице «забронировать» под изображение. Значением атрибута может быть либо абсолютное значение (например, <code>150px</code> или <code>30em</code>), либо относительное от вьюпорта (например, <code>20vw</code>). Значения в процентах не разрешены.</p>
+<p>Атрибуты <code>srcset</code> и <code>sizes</code> эффективно работают в паре. Рассмотрим пример:</p>
+<pre><code class="language-html">&lt;source
+  srcset=&quot;640x480.png 640w, 1024x768.png 1024w&quot;
+  sizes=&quot;(max-width: 1200px) 50vw, 1024px&quot;&gt;
+</code></pre>
+<p>Когда браузер разбирает тег <code>&lt;source&gt;</code>, он выполняет следующие действия:</p>
+<ul>
+<li>смотрит на текущую ширину окна браузера;</li>
+<li>ищет подходящий вариант из атрибута <code>sizes</code>, с учётом плотности пикселей;</li>
+<li>выбирает из атрибута <code>srcset</code> подходящую картинку для слота: больше или равную ему.</li>
+</ul>
+<p>Как сработает наш пример при разных ширинах:</p>
+<ul>
+<li><strong>1000 пикселей:</strong> срабатывает условие <code>(max-width: 1200px)</code> (1200 пикселей или меньше), и браузер устанавливает ширину слота <code>50vw</code> (500 пикселей в нашем случае). Из списка <code>srcset</code> браузер выбирает подходящую картинку: на 1x-экране покажется <em>640x480.png</em>, на 2x-экране покажется <em>1024x768.png</em> — ближайшие к ширине слота 500 пикселей.</li>
+<li><strong>1201 пиксель:</strong> не срабатывает условие <code>(max-width: 1200px)</code>, и ширина слота выбирается из списка <code>sizes</code> — это <code>1024px</code>. У браузера в <code>srcset</code> самая большая картинка равна ширине слота <code>1024x768.png 1024w</code>, а значит и на 1x-, и на 2x-экране будет картинка <em>1024x768.png</em>.</li>
+</ul>
+<iframe title="Адаптивные изображения" src="demos/adaptive/" height="520"></iframe>

@@ -1,0 +1,35 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;dfn&gt;</code> используется для вывода терминов или расшифровки сокращений.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;dfn&gt;&lt;abbr&gt;ЧАВО&lt;/abbr&gt;&lt;/dfn&gt; — сокращённая форма
+  фразы «Часто задаваемые вопросы».
+  Используется на русскоязычных сайтах в качестве аналога
+  английской аббревиатуры &lt;abbr&gt;FAQ&lt;/abbr&gt;
+&lt;/p&gt;
+</code></pre>
+<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<h2>Как понять</h2>
+<p>В тег <code>&lt;dfn&gt;</code> оборачиваются сами термины, а их определения должны содержаться в ближайшем родительском теге <a href="/html/p/"><code>&lt;p&gt;</code></a>, <a href="/html/dl-dd-dt/"><code>&lt;dl&gt;</code></a> или <a href="/html/section/"><code>&lt;section&gt;</code></a>.</p>
+<p>По умолчанию браузеры применяют к тексту внутри <code>&lt;dfn&gt;</code> курсивное начертание с помощью <code>font-style: italic;</code>.</p>
+<h2>Атрибуты</h2>
+<p>Помимо <a href="/html/global-attrs/">глобальных атрибутов</a> у <code>&lt;dfn&gt;</code> есть атрибут <code>title</code>. Браузер обрабатывает этот атрибут по следующему алгоритму:</p>
+<ul>
+<li>Если у элемента <code>&lt;dfn&gt;</code> есть атрибут <code>title</code>, то значение атрибута — это и есть термин, который будет раскрываться;</li>
+<li>Если атрибута <code>title</code> нет, но у <code>&lt;dfn&gt;</code> есть ровно один вложенный элемент — элемент <code>&lt;abbr&gt;</code> с атрибутом <code>title</code> — то термином будет значение <code>title</code> тега <code>&lt;abbr&gt;</code>;</li>
+<li>В любом другом случае термином считается текст внутри тега <code>&lt;dfn&gt;</code>;</li>
+</ul>
+<h2>Пример</h2>
+<p><code>&lt;dfn&gt;</code> часто комбинируется с тегом <code>&lt;abbr&gt;</code> для раскрытия смысла аббревиатуры. В примере ниже мы оборачиваем «ЧАВО» в <code>&lt;abbr&gt;</code>, а при первом появлении нового термина добавляем <code>&lt;dfn&gt;</code>, указывая более точное определение. Для ссылок на это определение можно использовать тег <a href="/html/a/"><code>&lt;a&gt;</code></a>.</p>
+<pre><code class="language-html">&lt;p&gt;
+  &lt;dfn id=&quot;chavo&quot;&gt;
+    &lt;abbr title=&quot;Часто задаваемые вопросы&quot;&gt;ЧАВО&lt;/abbr&gt;
+  &lt;/dfn&gt; — сокращённая форма фразы «Часто задаваемые вопросы».
+&lt;/p&gt;
+&lt;p&gt;
+  Перед обращением в техподдержку убедитесь, что вы прочитали раздел
+  &lt;a href=&quot;#chavo&quot;&gt;&lt;abbr title=&quot;Часто задаваемые вопросы&quot;&gt;ЧАВО&lt;/abbr&gt;&lt;/a&gt;
+  и там нет решения Вашей проблемы.
+&lt;/p&gt;
+</code></pre>
+<iframe title="Пример со ссылкой" src="demos/link/" height="250"></iframe>

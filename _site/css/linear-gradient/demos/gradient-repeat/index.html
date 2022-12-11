@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Повторяющийся линейный градиент — linear-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 50px;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .element {
+        width: 65%;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          #2E9AFF,
+          #2E9AFF 10px,
+          #F498AD 10px,
+          #F498AD 20px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="element"></div>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<p>🛠 Обычно, когда я хочу точно-точно спрятать элемент, чтобы он не получал фокус ни при каких обстоятельствах и не был виден даже скринридерам, но при этом хочу плавно показать его по какому-то триггеру, то указываю одновременно несколько <em>скрывающих</em> свойств и использую трюк с <code>transition</code>:</p>
+<pre><code class="language-css">.parent {
+  padding: 15px;
+  border: 1px dashed red;
+}
+
+.block {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms;
+}
+
+.parent:hover .block {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}
+</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;parent&quot;&gt;
+  &lt;div class=&quot;block&quot;&gt;Я простой текст. Наводишь курсор и я показываюсь&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<iframe title="Свойство visibility" src="../demos/trick/" height="200"></iframe>

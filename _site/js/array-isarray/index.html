@@ -1,0 +1,58 @@
+<h2>Кратко</h2>
+<p>Статический метод <code>Array.isArray()</code> проверяет, является ли переданный аргумент массивом. Возвращает <code>true</code>, если является, и <code>false</code> — если нет.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-js">const arr = [1, 2, 3]
+const emptyArr = []
+const bool = true
+const num = 5
+
+console.log(Array.isArray(arr))
+// true
+console.log(Array.isArray(emptyArr))
+// true
+console.log(Array.isArray(bool))
+// false
+console.log(Array.isArray(num))
+// false
+</code></pre>
+<h2>Как понять</h2>
+<p>Время от времени необходимо проверить, хранится в переменной массив или что-то другое. Так как массивы не являются в JavaScript отдельным типом, то проверка с помощью <code>typeof</code> не подойдёт:</p>
+<pre><code class="language-js">const a = []
+console.log(typeof a)
+// 'object'
+</code></pre>
+<p>Чтобы проверить, является ли значение массивом, существует метод <code>Array.isArray()</code>.</p>
+<p>Метод принимает один аргумент – значение, которое мы хотим проверить: <code>Array.isArray(значение)</code>.</p>
+<p>Если был передан массив, то вернётся <code>true</code>, иначе — <code>false</code>.</p>
+<p>Метод возвращает <code>true</code> при любом переданном массиве, неважно, как он был создан и какие данные в нём находятся:</p>
+<pre><code class="language-js">console.log(Array.isArray([]))
+// true
+console.log(Array.isArray(new Array(1, 2, 3)))
+// true
+console.log(Array.isArray([undefined]))
+// true
+console.log(Array.isArray(Array()))
+// true
+console.log(Array.isArray(Array.prototype))
+// true
+</code></pre>
+<p>Во всех остальных случаях возвращается <code>false</code>:</p>
+<pre><code class="language-js">console.log(Array.isArray({}))
+// false
+console.log(Array.isArray(1))
+// false
+console.log(Array.isArray('array'))
+// false
+</code></pre>
+<h3>Массивоподобные объекты</h3>
+<p>Метод возвращает <code>false</code> при переданных массивоподобных элементах. Например, на <a href="/js/htmlcollection-and-nodelist/"><code>NodeList</code></a>, <a href="/js/htmlcollection-and-nodelist/"><code>HTMLCollection</code></a>, <a href="/js/function-arguments-object/"><code>arguments</code></a>.</p>
+<pre><code class="language-js">const nodes = document.querySelectorAll('div')
+console.log(Array.isArray(nodes))
+// false
+</code></pre>
+<h3>Типизированные массивы</h3>
+<p>Метод возвращает <code>false</code> при любых переданных типизированных массивах: Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array, BigInt64Array, BigUint64Array.</p>
+<pre><code class="language-js">const typedArray = new Uint8Array()
+console.log(Array.isArray(typedArray))
+// false
+</code></pre>

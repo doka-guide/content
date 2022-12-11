@@ -1,0 +1,76 @@
+<p>🛠 При помощи <code>localStorage</code> можно сохранять данные, относящиеся к пользователю, не храня их на сервере. В следующем примере мы будем запоминать размер шрифта на сайте и восстанавливать размер из хранилища, если он был изменён до этого.</p>
+<iframe title="Сохранение пользовательских настроек — localStorage — Дока" src="../demos/user-settings/" height="530"></iframe>
+<p>🛠 Можно использовать для синхронизации нескольких открытых в браузере вкладок. При изменении размера шрифта в одной вкладке мы узнаем об этом во всех остальных и тоже изменим размер.</p>
+<pre><code class="language-js">function changePageFontSize(size) {
+  document.style.fontSize = `${size}px`
+}
+
+window.addEventListener(&quot;storage&quot;, function (evt) {
+  if (evt.key === &quot;pageFontSize&quot;) {
+    changePageFontSize(evt.newValue)
+  }
+})
+</code></pre>
+<p>🛠 Иногда нам нужно сохранить не просто текст, а целую структуру данных, и в этом нам поможет <code>JSON.stringify</code>.</p>
+<pre><code class="language-js">const user = {
+  name: &quot;Doka Dog&quot;,
+  avatarUrl: &quot;mascot-doka.svg&quot;
+}
+
+localStorage.setItem(&quot;user&quot;, JSON.stringify(user))
+</code></pre>
+<p>И после чтения парсим:</p>
+<pre><code class="language-js">function readUser() {
+  const userJSON = localStorage.getItem(&quot;user&quot;)
+
+  if (userJSON === null) {
+    return undefined
+  }
+
+  // Если вдруг в хранилище оказался невалидный JSON предохраняемся от этого
+  try {
+    return JSON.parse(userJSON)
+  } catch (e) {
+    localStorage.removeItem(&quot;user&quot;)
+    return undefined
+  }
+}
+</code></pre>
+<p>🛠 Если ваш сайт использует скрипты аналитики или другие внешние библиотеки, то они также имеют доступ к хранилищу. Поэтому лучше именовать ключи для записи в хранилище с префиксом в едином стиле. Например, при записи чего-либо на таком сайте я бы выбрал префикс <code>YD_{название ключа}</code>, тогда можно сгруппировать только нужные значения или отфильтровать их в инструментах разработчика.</p>
+<p>🛠 Используйте функции-обёртки для предотвращения ошибок, связанных с неудачными попытками записи, отсутствием <code>localStorage</code> в браузере и дублированием кода.</p>
+<pre><code class="language-js">function getItem(key, value) {
+  try {
+    return window.localStorage.getItem(key)
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+function setItem(key, value) {
+  try {
+    return window.localStorage.setItem(key, value)
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+function setJSON(key, value) {
+  try {
+    const json = JSON.stringify(value)
+
+    setItem(key, json)
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+function getJSON(key) {
+  try {
+    const json = getItem(key)
+
+    return JSON.parse(json)
+  } catch (e) {
+    console.error(e)
+  }
+}
+</code></pre>

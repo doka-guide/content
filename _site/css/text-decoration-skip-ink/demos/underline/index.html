@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Верхнее подчёркивание текста — text-decoration-skip-ink — Дока</title>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #e6e6e6;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      font-size: 20px;
+      position: relative;
+      padding: 30px;
+      margin: 0;
+      border: 1px solid #3b3e44;
+    }
+
+    p:not(:first-of-type) {
+      margin-top: 2rem;
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+    }
+
+    code {
+      padding: 10px;
+      display: block;
+      font-size: 14px;
+      background: #333;
+      border-radius: 10px;
+    }
+
+    .none {
+      text-decoration-skip-ink: none;
+    }
+
+    .auto {
+      text-decoration-skip-ink: auto;
+    }
+
+    .all {
+      text-decoration-skip-ink: all;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <code>text-decoration-skip-ink: none</code><br>
+    <a class="none" href>Утка с щукой гуляли по парку</a>
+  </p>
+  <p>
+    <code>text-decoration-skip-ink: auto</code><br>
+    <a class="auto" href>Утка с щукой гуляли по парку</a>
+  </p>
+  <p>
+    <code>text-decoration-skip-ink: all</code><br>
+    <a class="all" href>Утка с щукой гуляли по парку</a>
+  </p>
+</body>
+</html>

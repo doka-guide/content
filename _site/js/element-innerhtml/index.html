@@ -1,0 +1,54 @@
+<h2>Кратко</h2>
+<p>Свойство <code>Element.innerHTML</code> позволяет считать содержимое элемента в виде HTML-строки или установить новый HTML. Новое значение HTML необходимо передавать в виде строки и оно заменит текущее содержимое элемента. При передаче невалидной HTML-строки будет выброшена ошибка. HTML-строкой является строка, которая содержит валидную HTML-разметку, в <code>Element.innerHTML</code> нельзя передать DOM-элемент.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;label&gt;Логин&lt;/label&gt;
+  &lt;input type=&quot;text&quot; id=&quot;login&quot; /&gt;
+  &lt;div class=&quot;error&quot;&gt;Введите логин&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<pre><code class="language-js">const form = document.querySelector('form')
+
+console.log(form.innerHTML)
+// Выведет &quot;&lt;label&gt;Логин&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;login&quot; /&gt;&lt;div class=&quot;error&quot;&gt;Введите логин&lt;/div&gt;&quot;
+
+form.innerHTML = '&lt;div class=&quot;success&quot;&gt;Вход выполнен&lt;/div&gt;' // Меняем содержимое новым html
+</code></pre>
+<p>HTML после изменения:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;div class=&quot;success&quot;&gt;Вход выполнен&lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+<iframe title="Element.innerHTML — Element.innerHTML — Дока" src="demos/index/" height="650"></iframe>
+<h2>Как понять</h2>
+<p>Браузер предоставляет разработчику возможность управлять содержимым на странице и менять его как угодно. <code>Element.innerHTML</code> – самый простой способ считать или изменить HTML-содержимое элемента. Это свойство использует строки, что даёт возможность легко менять и очищать содержимое элементов.</p>
+<p>Когда в <code>Element.innerHTML</code> присваивается новое значение, все предыдущее содержимое удаляется и создаётся новое, что приводит к <a href="/js/how-the-browser-creates-pages/">перерисовке страницы</a>.</p>
+<h2>Как пишется</h2>
+<p>Обращение к свойству <code>Element.innerHTML</code> вернёт содержимое элемента в виде HTML-строки. Просмотреть или изменить содержимое можно у всех элементов, включая <code>&lt;html&gt;</code> и <code>&lt;body&gt;</code>. Присвоение нового значения к свойству очистит всё текущее содержимое и заменит его новым HTML.</p>
+<pre><code class="language-js">document.body.innerHTML = '&lt;h1&gt;Hello Inner HTML!&lt;h1&gt;'
+</code></pre>
+<p>В результате в документ будет вставлен HTML:</p>
+<pre><code class="language-html">&lt;h1&gt;Hello Inner HTML!&lt;h1&gt;
+</code></pre>
+<aside>
+<p>☝️ Стоит помнить, что строка с HTML-разметкой это не DOM-элемент. <code>Element.innerHTML</code> работает только со строками, самостоятельно разбирает её содержимое и создаёт элементы.</p>
+</aside>
+<pre><code class="language-js">const div = document.createElement('div'); // &lt;-- Здесь создается полноценный DOM-элемент
+
+document.body.innerHTML = div // В body не вставится элемент
+</code></pre>
+<p>Так как в <code>div</code> находится объект DOM-элемента, то при присвоении в <code>Element.innerHTML</code> он приведётся к строке, в результате в элемент вставится строка <code>&quot;[object HTMLDivElement]&quot;</code>.</p>
+<pre><code class="language-html">&lt;body&gt;[object HTMLDivElement]&lt;body&gt;
+</code></pre>
+<p>Если передать в <code>Element.innerHTML</code> строку с невалидным HTML, то будет выброшена ошибка. Однако большинство современных браузеров помогают разработчику, умеют самостоятельно дополнять разметку (например если забыли закрыть тег) и даже дают возможность для кастомных тегов. Потому встретить ошибку при передаче в <code>Element.innerHTML</code> невалидного HTML очень сложно.</p>
+<aside>
+<p>☝️ Несмотря на то, что с помощью <code>Element.innerHTML</code> вставить любой HTML, есть некоторые ограничения, связанные с <a href="/js/web-security/">безопасностью веб-приложений</a>.</p>
+<p>Если передать в <code>Element.innerHTML</code> строку с тегом <a href="/html/script/"><code>&lt;script&gt;</code></a>, то элемент успешно вставится в страницу, но скрипт, который содержится внутри не исполнится. Но исполнить вредоносный код возможно и без тега <code>&lt;script&gt;</code>. Потому <strong>не рекомендуется</strong> вставлять с помощью <code>Element.innerHTML</code> любой HTML из ненадёжных источников. Например, если вы получаете разметку с неизвестного сервера.</p>
+<p>Так же не рекомендуется использовать <code>Element.innerHTML</code>, если нужно просто изменить текст в элементе. Для этой задачи есть свойство <a href="/js/element-innertext/">Element.innerText</a> или <a href="/js/element-textcontent/">Element.textContent</a>.</p>
+</aside>
+<pre><code class="language-js">// Скрипт станет частью body, но не выполнится
+document.body.innerHTML = '&lt;script&gt;alert(&quot;Мы не смогли вас взломать :(&quot;)&lt;/script&gt;'
+
+// После вставки в html картинка не загрузится и тогда сработает код из onerror
+document.body.innerHTML = '&lt;img src=&quot;broken-link&quot; onerror=&quot;alert(&quot;Теперь вы точно взломаны!&quot;)&quot;&gt;'
+</code></pre>

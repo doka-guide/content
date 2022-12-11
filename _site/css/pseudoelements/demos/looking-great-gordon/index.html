@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Дополнительный текст через ::before и ::after — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .username {
+      display: inline-block;
+      padding: 30px 70px;
+      border-radius: 62px;
+      background-color: #1a5ad7;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .username:before {
+      content: "Привет, ";
+    }
+
+    .username:after {
+      content: ", ты отлично выглядишь!";
+    }
+  </style>
+</head>
+<body>
+  <span class="username">Гордон</span>
+</body>
+</html>

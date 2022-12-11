@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Декор текста — text-decoration-thickness — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #fff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .nav-list__link {
+      display: inline-block;
+      color: inherit;
+      font-size: 36px;
+      line-height: 48px;
+      padding: 6px 10px;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: 4px;
+      text-underline-offset: -40px;
+      transition: 150ms ease-in-out;
+    }
+
+    .nav-list__link:hover,
+    .nav-list__link:focus {
+      text-decoration-thickness: 2px;
+      text-underline-offset: 10px;
+      text-decoration-color: currentColor;
+    }
+
+    .orange {
+      text-decoration-color: #ff852e;
+    }
+
+    .blue {
+      text-decoration-color: #2e9aff;
+    }
+
+    .yellow {
+      text-decoration-color: #ffd829;
+    }
+
+    .green {
+      text-decoration-color: #40e746;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li class="nav-list__item">
+        <a class="nav-list__link orange" href="#">HTML</a>
+      </li>
+      <li class="nav-list__item">
+        <a class="nav-list__link blue" href="#">CSS</a>
+      </li>
+      <li class="nav-list__item">
+        <a class="nav-list__link yellow" href="#">JavaScript</a>
+      </li>
+      <li class="nav-list__item">
+        <a class="nav-list__link green" href="#">Инструменты</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>

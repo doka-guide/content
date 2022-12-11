@@ -1,0 +1,43 @@
+<p>При выборе между <a href="/js/if-else/"><code>if...else</code></a> и тернарным оператором в приоритет нужно ставить читабельность. Код читается чаще, чем пишется, поэтому чем лучше код читается, тем легче его понимать и изменять.</p>
+<p>Разберём выбор между тернарным оператором и <code>if...else</code> на примерах.</p>
+<p>Допустим, нужно по-разному поприветствовать нового и уже зарегистрированного пользователя. Здесь удобно использовать тернарный оператор, так как проверка короткая:</p>
+<pre><code class="language-js">const greetings = function(isRegistered, userName) {
+  return isRegistered ? `Привет, ${userName}!` : 'Привет, незнакомец'
+}
+</code></pre>
+<p>Когда появляются вложенные тернарные операторы, лучше переходить на <code>if...else</code>. Сравните код с тернарным оператором:</p>
+<pre><code class="language-js">const greetings = function(isRegistered, userName, bePolite) {
+  return isRegistered ? `Привет, ${userName}!` : bePolite ? 'Здравствуйте!' : 'Привет, незнакомец'
+}
+</code></pre>
+<p>И код с <code>if...else</code>:</p>
+<pre><code class="language-js">const greetings = function(isRegistered, userName, bePolite) {
+  if (isRegistered) {
+    return `Привет, ${userName}!`
+  } else if (bePolite) {
+    return 'Здравствуйте!'
+  } else {
+    return 'Привет, незнакомец'
+  }
+}
+</code></pre>
+<p>Если же приветствие зависит от роли, то цепочки вложенных тернарных операторов становятся нечитаемыми:</p>
+<pre><code class="language-js">const greetings = function(role) {
+  return result = role === 'admin' ? 'Приветствую, босс' : role === 'moder' ? 'Приветствую, смотритель порядка' : role === 'user' : 'Здравствуй, пользователь' ? role === 'guest' ? 'Здравствуй, гость' : 'Привет, некто'
+}
+</code></pre>
+<p>Такой код можно улучшить форматированием, но лучше использовать <code>switch</code>:</p>
+<pre><code class="language-js">const greetings = function(role) {
+  switch (role) {
+    case 'admin':
+      return 'Приветствую, босс'
+    case 'moder':
+      return 'Приветствую, смотритель порядка'
+    case 'user':
+      return 'Здравствуй, пользователь'
+    case 'guest':
+      return 'Здравствуй, гость'
+    default:
+      return 'Привет, некто'
+}
+</code></pre>

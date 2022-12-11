@@ -1,0 +1,50 @@
+<h2>Кратко</h2>
+<p>Добавляет заголовок в <a href="/html/fieldset/"><code>&lt;fieldset&gt;</code></a>, который по умолчанию оформляется браузером как текст, органично вписанный в рамку.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Заголовок для группы контролов&lt;/legend&gt;
+  …
+&lt;/fieldset&gt;
+</code></pre>
+<h2>Как это понять</h2>
+<p><code>&lt;legend&gt;</code> позволяет описать содержимое <code>&lt;fieldset&gt;</code>, но семантически он не является «представителем» h1-h6-заголовков, хотя выполняет схожую функцию. Он не задаёт иерархию, а лишь характеризует контент внутри «своей» группы — как <code>&lt;label&gt;</code> для соответствующего контрола.</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;fieldset&gt;
+  &lt;legend&gt;Заголовок для группы&lt;/legend&gt;
+  …
+&lt;/fieldset&gt;
+</code></pre>
+<aside>
+<p>⚠️ Важно, чтобы <code>&lt;legend&gt;</code> был первым дочерним элементом внутри <code>&lt;fieldset&gt;</code>. Если внутри <code>&lt;fieldset&gt;</code> будет больше одного <code>&lt;legend&gt;</code>, отобразится только первый, все остальные отобразятся как обычные блочные элементы:</p>
+</aside>
+<iframe title="Меняющаяся легенда" src="demos/legend-rotate/" height="200"></iframe>
+<h2>Атрибуты</h2>
+<p>У <code>&lt;legend&gt;</code> нет никаких своих атрибутов, ему доступны все <a href="/html/global-attrs/">глобальные атрибуты</a>.</p>
+<h2>Подсказки</h2>
+<p>Внешний вид оформления рамки по умолчанию у <code>&lt;legend&gt;</code> немного отличается в зависимости от браузера и операционной системы:</p>
+<section class="section section_column_2">
+  <figure class="section__item">
+    <img src="images/win-10-chrome-71.png" alt="Windows 10, Google Chrome 71.0">
+    <figcaption>Windows 10, Google Chrome 71.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/mac-chrome-71.png" alt="macOS Big Sur, Google Chrome 71.0">
+    <figcaption>macOS Big Sur, Google Chrome 71.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/win-10-edge-18.png" alt="Windows 10, Edge 18.0">
+    <figcaption>Windows 10, Edge 18.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/mac-safari-14.jpg" alt="macOS Big Sur, Safari 14.0">
+    <figcaption>macOS Big Sur, Safari 14.0</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/samsung-galaxy.png" alt="Samsung Galaxy S7">
+    <figcaption>Samsung Galaxy S7</figcaption>
+  </figure>
+  <figure class="section__item">
+    <img src="images/google-nexus.png" alt="Google Nexus 6">
+    <figcaption>Google Nexus 6</figcaption>
+  </figure>
+</section>

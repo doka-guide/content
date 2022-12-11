@@ -1,0 +1,39 @@
+<h2>Кратко</h2>
+<p>Свойство <code>text-decoration-skip-ink</code> управляет внешним видом верхнего и нижнего подчёркиваний. Если текст нужно перечеркнуть, то свойство <code>text-decoration-skip-ink</code> будет проигнорировано.</p>
+<h2>Как пишется</h2>
+<p>Возможные значения:</p>
+<ul>
+<li><code>none</code> — линия рисуется под текстом сквозь глифы;</li>
+<li><code>auto</code> — линия <em>может</em> рисоваться так, что не касается глифов (значение по умолчанию);</li>
+<li><code>all</code> — линия будет рисоваться, не касаясь глифов.</li>
+</ul>
+<aside>
+<p>💡 Safari пока не поддерживает это свойство. Проверяйте поддержку на <a href="https://caniuse.com/?search=text-decoration-skip-ink">Can I use</a></p>
+</aside>
+<h3>Пример</h3>
+<p>Создадим несколько абзацев текста. Применим свойство <code>text-decoration-skip-ink</code> для них вместе со свойством <a href="/css/text-decoration/"><code>text-decoration</code></a> с разными значениями.</p>
+<pre><code class="language-css">a {
+  text-decoration: underline;
+}
+</code></pre>
+<iframe title="Примеры свойства text-decoration-skip-ink с нижним подчёркиванием" src="demos/underline/" height="400"></iframe>
+<pre><code class="language-css">a {
+  text-decoration: overline;
+}
+</code></pre>
+<iframe title="Примеры свойства text-decoration-skip-ink с верхним подчёркиванием" src="demos/overline/" height="400"></iframe>
+<h2>Подсказки</h2>
+<p>💡 <code>text-decoration-skip-ink</code> работает только вместе с <a href="/css/text-decoration/"><code>text-decoration</code></a>.</p>
+<p>Если написать</p>
+<pre><code class="language-css">p {
+  text-decoration-skip-ink: auto;
+}
+</code></pre>
+<p><code>text-decoration-skip-ink</code> применится, но не сработает корректно.</p>
+<p>Чтобы этого избежать, нужно немного исправить код выше:</p>
+<pre><code class="language-diff">  p {
++   text-decoration: underline;
+    text-decoration-skip-ink: auto;
+  }
+</code></pre>
+<p>💡 <code>text-decoration-skip-ink</code> при наличии <a href="/css/text-decoration/"><code>text-decoration: overline</code></a> корректно не сработает, так как линия появится поверх самого высокого глифа текста.</p>

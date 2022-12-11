@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Форма — background-color — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
+    }
+
+    .form {
+      text-align: center;
+      padding: 5%;
+      background-color: #ffd829;
+    }
+
+    .input {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 10px 12px;
+      font-size: 16px;
+      border: 1px solid black;
+      background-color: transparent;
+    }
+
+    .input:focus {
+      outline: none;
+      background-color: hsl(49 100% 48% / 1);
+    }
+
+    .submit {
+      margin-left: 10px;
+      padding: 10px 12px;
+      font-size: 16px;
+      font-weight: 100;
+      border: 1px solid transparent;
+      color: #fff;
+      background-color: black;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .submit:hover {
+      color: black;
+      border: 1px solid black;
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <form class="form">
+    <label>
+      Email:
+      <input class="input" type="text" placeholder="Введите ваш email">
+    </label>
+    <button class="submit">Подписаться</button>
+  </form>
+</body>
+</html>

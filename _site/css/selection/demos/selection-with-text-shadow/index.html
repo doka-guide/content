@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>::selection с сочетании с text-shadow — ::selection — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 15px;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191c;
+      text-align: center;
+    }
+
+    p {
+      margin: 50px 0 0 0;
+      color: #ffffff;
+      font-size: 2rem;
+    }
+
+    p::selection {
+      color: #ffffff;
+      background-color: #2e9aff;
+      --color-shadow: #000;
+      text-shadow:
+        1px 0 1px var(--color-shadow),
+        0 1px 1px var(--color-shadow),
+        2px 1px 1px var(--color-shadow),
+        1px 2px 1px var(--color-shadow),
+        3px 2px 1px var(--color-shadow),
+        2px 3px 1px var(--color-shadow);
+    }
+
+    .prompt {
+      display: inline-block;
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #c5c5c5;
+    }
+  </style>
+</head>
+<body>
+  <p>Некий параграф</p>
+  <span class="prompt">*выделите текст выше</span>
+</body>
+</html>

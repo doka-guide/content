@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сохранение данных формы — sessionStorage — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    form {
+      width: 650px;
+      margin: auto;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .input-container + .input-container {
+      margin-top: 25px;
+    }
+
+    .input-label {
+      width: 200px;
+      margin-right: 35px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .input {
+      flex-grow: 1;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    .input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 18px;
+    }
+
+    .button {
+      flex-grow: 1;
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .buttons {
+      display: flex;
+      margin-top: 50px;
+    }
+
+    .button + .button {
+      margin-left: 25px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .input-container, .buttons {
+        display: block;
+      }
+
+      .input-label, .input {
+        display: block;
+        width: 100%;
+      }
+
+      .input-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .buttons {
+        margin-top: 25px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .button + .button {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<form>
+  <form class="form">
+    <div class="input-container">
+      <label class="input-label" for="email">Почта</label>
+      <input class="input" type="email" id="email" name="email" placeholder="john@appleseed.com" required/>
+    </div>
+    <div class="input-container">
+      <label class="input-label" for="firstName">Имя пассажира</label>
+      <input class="input" type="text" id="firstName" name="firstName" placeholder="Джон" required/>
+    </div>
+    <div class="input-container">
+      <label class="input-label" for="lastName">Кличка питомца</label>
+      <input class="input" type="text" id="lastName" name="lastName" placeholder="Яблочко" required/>
+    </div>
+    <div class="input-container">
+      <label class="input-label" for="birthday">Дата полёта</label>
+      <input class="input" type="text" id="birthday" name="birthday" pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}"placeholder="20-02-1991" required/>
+    </div>
+    <div class="buttons">
+      <button class="button button-yellow" type="reset">Назад</button>
+      <button class="button button-green" type="submit">На взлёт</button>
+    </div>
+  </form>
+  <script>
+    const inputs = document.getElementsByTagName('input')
+    const form = document.getElementsByTagName('form')[0]
+    const sessionStorageLength = window.sessionStorage.length
+
+    for (let i = 0; i < sessionStorageLength; i++) {
+      const key = window.sessionStorage.key(i)
+      const input = document.querySelector(`[name=${key}]`)
+
+      if (!input) {
+        continue
+      }
+
+      input.value = window.sessionStorage.getItem(key)
+    }
+
+    function handleChange(evt) {
+      window.sessionStorage.setItem(evt.target.name, evt.target.value)
+    }
+
+    Array.from(inputs).forEach(function (i) {
+      i.addEventListener('change', handleChange)
+    })
+
+    form.addEventListener('reset', function (evt) {
+      window.sessionStorage.clear()
+    })
+
+    form.addEventListener('submit', function (evt) {
+      evt.preventDefault()
+      window.sessionStorage.clear()
+      form.reset()
+    })
+  </script>
+</body>
+</html>

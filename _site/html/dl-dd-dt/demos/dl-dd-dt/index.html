@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пары «ключ-значение» — <dl>, <dd>, <dt> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    dl {
+      display: inline-block;
+      text-align: left;
+    }
+
+    dt, dd {
+      display: inline;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    dd {
+      font-weight: 300;
+    }
+
+    dt {
+      background-color: #FF8630;
+      color: #000000;
+      border-radius: 3px;
+    }
+
+    dt::after {
+      content: ':';
+    }
+  </style>
+</head>
+<body>
+  <dl>
+    <div>
+      <dt>Имя</dt>
+      <dd>Гарри Джеймс Поттер</dd>
+    </div>
+    <div>
+      <dt>День рождения</dt>
+      <dd>31 июля 1980 года</dd>
+    </div>
+    <div>
+      <dt>Телосложение</dt>
+      <dd>худощавый, невысокого роста</dd>
+    </div>
+    <div>
+      <dt>Особые приметы</dt>
+      <dd>носит круглые очки; шрам в виде молнии на лбу</dd>
+    </div>
+  </dl>
+</body>
+</html>

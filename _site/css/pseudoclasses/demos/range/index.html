@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стили для диапазона — Псевдоэлементы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      margin: auto;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    .input-label {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .input-label + .input-label {
+      margin-top: 25px;
+    }
+
+    .input-title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1;
+      margin-right: 35px;
+      min-width: 250px;
+    }
+
+    .input {
+      width: 100px;
+      border-radius: 6px;
+      border: 1px solid #ffffff;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: currentColor;
+      outline: none;
+    }
+
+    .input:in-range {
+      color: #41E847;
+      border-color: currentColor;
+    }
+
+    .input:out-of-range {
+      color: #FF8630;
+      border-color: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Бериллий</h1>
+    <label class="input-label">
+      <input class="input" type="number" min="4" max="4" value="4">
+      <span class="input-title">Порядковый номер</span>
+    </label>
+    <label class="input-label">
+      <input class="input" type="number" min="5" max="5" value="6">
+      <span class="input-title">Молярный объём</span>
+    </label>
+    </div>
+</body>
+</html>

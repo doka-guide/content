@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - promise — Дока</title>
+  <style>
+    button {
+      font-size: 2rem;
+      padding: 1rem 0.5rem;
+      background-color: #00DD00;
+    }
+
+    #promise-demo {
+      font-size: 2rem;
+      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(3, 33%);
+      grid-template-rows: repeat(2, 100px);
+      justify-items: stretch;
+      align-items: stretch;
+    }
+
+    #pending {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    #rejected {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    #fulfilled {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    .active {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+<button>
+  💰 Buy stonks
+</button>
+
+<div id="promise-demo">
+  <div id="pending">Pending</div>
+  <div id="fulfilled">Fulfilled</div>
+  <div id="rejected">Rejected</div>
+</div>
+  <script>
+    const button = document.getElementsByTagName("button")[0]
+    const pendingBlock = document.getElementById("pending")
+    const fulfilledBlock = document.getElementById("fulfilled")
+    const rejectedBlock = document.getElementById("rejected")
+    const resetBlocks = (blocks = [pendingBlock, fulfilledBlock, rejectedBlock]) => {
+      blocks.forEach(block => block.className = '')
+    }
+
+    const activateBlock = (block) => {
+      block.classList.add("active");
+    }
+
+    button.addEventListener("click", () => {
+      (new Promise((fulfill, reject) => {
+        button.textContent = "Buying stonks"
+        button.disabled = true;
+        resetBlocks()
+        activateBlock(pendingBlock);
+
+        setTimeout(() => {
+          button.textContent = "Buy stonks"
+          button.disabled = false;
+
+          resetBlocks()
+          if (Math.random() > 0.5) {
+            fulfill("все ок!")
+          } else {
+            reject(new Error("ошибка"))
+          }
+        }, 1000)
+      }).then(resp => {
+            activateBlock(fulfilledBlock)
+          // вывести текст
+        }).catch(err => {
+          activateBlock(rejectedBlock);
+        // ошибка
+        })
+      )
+    })
+  </script>
+</body>
+</html>

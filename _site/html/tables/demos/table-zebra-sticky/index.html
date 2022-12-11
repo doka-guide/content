@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Таблица с прилипающей шапкой — Таблицы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-top: 7px solid #FF8630;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    thead th, tfoot td {
+      font-weight: 700;
+    }
+
+    th:first-child, td:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td, th {
+      border: 1px solid #FF8630;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    caption {
+      padding: 14px 14px 14px 0;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    tbody tr:nth-child(odd) td {
+      background-color: #663613;
+    }
+
+    table {
+      position: relative;
+    }
+
+    thead th {
+      position: -webkit-sticky;
+      position: sticky;
+      top: -4px;
+      z-index: 1;
+      background-color: #18191C;
+    }
+
+    /* Возвращает нижнюю границу, исчезающую при прилипании шапки */
+    thead th::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Цены на флагманские модели</caption>
+    <thead>
+      <tr>
+        <th>Производитель</th>
+        <th>Модель</th>
+        <th>Цена</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>iPhone</td>
+        <td>12 Pro</td>
+        <td>$999</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>12</td>
+        <td>$799</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Xiaomi</td>
+        <td>Mi 10</td>
+        <td>$768</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Black Shark 3 128 Gb</td>
+        <td>$529</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Samsung</td>
+        <td>Galaxy Z Fold2</td>
+        <td>$2200</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>Galaxy S21</td>
+        <td>$899</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <td>Huawei</td>
+        <td>P40 Pro Black</td>
+        <td>$899</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Средняя цена:</td>
+        <td>$1013</td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение разных значений — white-space — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
+
+    .option-title {
+      margin-right: 50px;
+      text-align: right;
+    }
+
+    h1, .option-title {
+      width: 180px;
+    }
+
+    .option {
+      width: 340px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
+    }
+
+    .normal {
+      white-space: normal;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    .pre {
+      white-space: pre;
+    }
+
+    .pre-wrap {
+      white-space: pre-wrap;
+    }
+
+    .pre-line {
+      white-space: pre-line;
+    }
+
+    .break-spaces {
+      white-space: break-spaces;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+        overflow: scroll;
+      }
+
+      h1, .option-title {
+        width: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option {
+        width: calc(100vw - 60px);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="parent">
+  <h1><code>white-space</code></h1>
+  <div class="option-container">
+    <span class="option-title"><code>normal</code></span>
+    <p class="option normal"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>nowrap</code></span>
+    <p class="option nowrap"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre</code></span>
+    <p class="option pre"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre-wrap</code></span>
+    <p class="option pre-wrap"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre-line</code></span>
+    <p class="option pre-line"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>break-spaces</code></span>
+    <p class="option break-spaces"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+</div>
+</body>
+</html>

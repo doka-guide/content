@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шапка — <header> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding-bottom: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .portfolio-container, .portfolio, .portfolio-footer {
+      width: 75%;
+      min-width: 650px;
+      margin: auto;
+    }
+
+    .portfolio-header {
+      background-color: #FFFFFF;
+      color: #000000;
+      padding: 45px 0 20px;
+    }
+
+    .portfolio-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .logo {
+      width: 90px;
+    }
+
+    .links .link {
+      color: #000000;
+      font-style: italic;
+      text-decoration: none;
+      transition: all 0.2s linear;
+    }
+
+    .links .link:hover {
+      color: #ffffff;
+      background-color: #000000;
+      border-radius: 3px;
+      transition: all 0.2s linear;
+    }
+
+    .links .link + .link {
+      margin-left: 20px;
+    }
+
+    .portfolio {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .portfolio-title {
+      font-size: 26px;
+      font-weight: 500;
+      margin-bottom: 17px;
+    }
+
+    .text {
+      line-height: 140%;
+    }
+
+    .text + .text {
+      line-height: 140%;
+      margin-top: 7px;
+    }
+
+    .portfolio-footer {
+      border-top: 2px solid #FF8630;
+      padding-top: 10px;
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .portfolio-footer .text + .text {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="portfolio-header">
+    <div class="portfolio-container">
+      <img class="logo" src="images/logo.svg" width="100" alt="Лого">
+      <nav class="links">
+        <a class="link" href="#">Мои работы</a>
+        <a class="link" href="#">Мои навыки</a>
+        <a class="link" href="#">Контакты</a>
+      </nav>
+    </div>
+  </header>
+  <!-- / Шапка -->
+  <main class="portfolio">
+    <h1 class="portfolio-title">Портфолио Ольги Сасквоч</h1>
+    <p class="text">Добро пожаловать!</p>
+    <p class="text">Рада приветствовать вас на своём сайте. Здесь вы можете посмотреть уже готовые работы и узнать, что ещё я могу сделать для вас.</p>
+  </main>
+  <footer class="portfolio-footer">
+    <p class="text">Ольга Сасквоч</p>
+    <p class="text">2021</p>
+  </footer>
+</body>
+</html>

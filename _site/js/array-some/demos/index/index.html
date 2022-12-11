@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа Array.some — Array.some — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    pre {
+      font-family: "Roboto Mono";
+      white-space: pre-wrap;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 40px;
+      margin-bottom: 17px;
+    }
+
+    .subtitle:first-child {
+      margin-top: 0;
+    }
+
+    .header-container {
+      margin-bottom: 40px;
+    }
+
+    .header-container pre,
+    .does-container pre {
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+
+    .does-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .does-container + .does-container {
+      margin-top: 25px;
+    }
+
+    .does-container pre {
+      margin-left: 25px;
+      flex-grow: 1;
+      line-height: 1;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    .items {
+      display: flex;
+      min-height: 32px;
+    }
+
+    .item {
+      width: 50px;
+      height: 30px;
+      background-color: #ffffff;
+      color: #000000;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .item + .item {
+      margin-left: 10px;
+    }
+
+    .active {
+      background-color: #41E847;
+    }
+
+    .execute, .result {
+      min-height: 52px;
+      padding: 15px 0;
+      border-bottom: 1px solid #5e6064;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="header-container">
+        <h2 class="subtitle">Наш код</h2>
+        <pre>
+  const food = ['🍗' , '🍖', '🥓', '🍔', '🌯', '🧆']<br>
+  function isPizza(item) {
+    return item === '🍕'
+  }<br>
+  function isBurger(item) {
+    return item === '🍔'
+  }
+  </pre>
+      </div>
+      <div class="does-container">
+        <button id="get-burger" class="button button-yellow start">Проверить бургер</button>
+        <pre>food.some(isBurger)</pre>
+      </div>
+      <div class="does-container">
+        <button id="get-pizza" class="button button-green start">Проверить пиццу</button>
+        <pre>food.some(isPizza)</pre>
+      </div>
+      <h2 class="subtitle">С каким элементом работаем</h2>
+      <div class="items" id="container"></div>
+      <h2 class="subtitle">Что выполняется</h2>
+      <pre class="execute" id="execute"></pre>
+      <h2 class="subtitle">Результат</h2>
+      <pre class="result" id="result"></pre>
+    </div>
+
+  <script>
+    const SECOND = 1000
+    const food = ['🍗' , '🍖', '🥓', '🍔', '🌯', '🧆']
+
+    function isPizza(item) {
+      return item === '🍕'
+    }
+
+    function isBurger(item) {
+      return item === '🍔'
+    }
+
+    const container = document.getElementById('container')
+    const execute = document.getElementById('execute')
+    const result = document.getElementById('result')
+    const burgerButton = document.getElementById('get-burger')
+    const pizzaButton = document.getElementById('get-pizza')
+    let isActive = false
+
+    function createItem(content) {
+      const itemElement = document.createElement('div')
+      itemElement.classList.add('item')
+      itemElement.textContent = content
+
+      return itemElement
+    }
+
+    food.forEach((product, index) => {
+      const element = createItem(product)
+      element.id = index + 1
+
+      container.appendChild(element)
+    })
+
+    function clearActive() {
+      execute.textContent = ''
+      const activeItem = document.querySelector('.active')
+
+      if (activeItem) {
+        activeItem.classList.remove('active')
+      }
+    }
+
+    function createBurgerCheckIteration(foodItem, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isBurgerResult = isBurger(foodItem)
+
+          execute.textContent = `isBurger(${foodItem}) -> ${isBurgerResult}`
+
+          result.innerText = isBurgerResult
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function createPizzaIteration(foodItem, order) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          clearActive()
+
+          const item = document.getElementById(order)
+          item.classList.add('active')
+
+          const isPizzaResult = isPizza(foodItem)
+
+          execute.textContent = `isPizza(${foodItem}) -> ${isPizzaResult}`
+
+          result.innerText = isPizzaResult
+
+          resolve()
+        }, SECOND * order)
+      })
+    }
+
+    function getBurgerPromises() {
+      const iterations = []
+
+      for (const [index, item] of food.entries()) {
+        iterations.push(createBurgerCheckIteration(item, index + 1))
+
+        if (isBurger(item)) {
+          break;
+        }
+      }
+
+      return iterations
+    }
+
+    function getPizzaPromises() {
+      const iterations = []
+
+      for (const [index, item] of food.entries()) {
+        iterations.push(createPizzaIteration(item, index + 1))
+
+        if (isPizza(item)) {
+          break;
+        }
+      }
+
+      return iterations
+    }
+
+    burgerButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const promises = getBurgerPromises()
+
+        Promise.all(promises).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+
+    pizzaButton.addEventListener('click', () => {
+      if (!isActive) {
+        isActive = true
+        result.innerText = ''
+        const iterations = getPizzaPromises()
+
+        Promise.all(iterations).then(() => {
+          setTimeout(() => {
+            clearActive()
+            isActive = false
+          }, SECOND)
+        })
+      }
+    })
+  </script>
+</body>
+</html>

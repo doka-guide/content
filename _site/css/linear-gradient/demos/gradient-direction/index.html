@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Линейный градиент c направлением — linear-gradient — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        margin: 0;
+        padding: 50px;
+        overflow: hidden;
+        background-color: #18191c;
+        color: #ffffff;
+      }
+
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .element-1 {
+        width: 200px;
+        height: 200px;
+        margin-right: 50px;
+        background-image: linear-gradient(to left, #2E9AFF, #F498AD);
+      }
+
+      .element-2 {
+        width: calc(65% - 250px);
+        height: 200px;
+        background-image: linear-gradient(to right bottom, #2E9AFF, #FFD829);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="element-1"></div>
+      <div class="element-2"></div>
+    </div>
+  </body>
+</html>

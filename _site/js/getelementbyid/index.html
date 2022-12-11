@@ -1,0 +1,19 @@
+<h2>Кратко</h2>
+<p>Метод объекта <code>document</code>, который позволяет найти элемент на веб-странице по его идентификатору (<code>id</code>). Возвращает <a href="/js/element/"><code>Element</code></a> или <code>null</code>, если ничего не нашлось.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1 id=&quot;title&quot;&gt;Привет, незнакомец!&lt;/h1&gt;
+    &lt;script&gt;
+      let title = document.getElementById(&quot;title&quot;)
+      console.log(title.textContent) // напечатает &quot;Привет, незнакомец!&quot;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Живой пример:</p>
+<iframe title="Название — getElementById() — Дока" src="demos/Lopinopulos-XwKRaZ/" height="150"></iframe>
+<h2>Как это понять</h2>
+<p>Метод работает с DOM, который связан с HTML-разметкой. Если в HTML есть тег с атрибутом <code>id</code>, то его можно получить из JavaScript с помощью метода <code>getElementById</code>.</p>
+<p>Спецификация HTML требует, чтобы в рамках одной страницы значения атрибутов <code>id</code> были уникальными. За счёт этого и работает метод <code>getElementById</code> — элемент с искомым идентификатором или один, или его нет. Такой поиск работает очень быстро.</p>

@@ -1,0 +1,86 @@
+<h2>Кратко</h2>
+<p>Внутри тега <code>&lt;style&gt;</code> можно задать параметры для CSS-стилей, которые применяются на странице. В общем, тут ты описываешь, как будут выглядеть заголовки, ссылки, обычный текст и другие элементы страницы.</p>
+<h2>Пример</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+      p {
+        color: red;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;This is my paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Как пишется</h2>
+<p>Тег <code>&lt;style&gt;</code> помещается в элемент <code>&lt;head&gt;</code>, где находится информация, которую не видит пользователь.</p>
+<pre><code class="language-html">&lt;head&gt;
+  &lt;style&gt;
+    /* Стили */
+  &lt;/style&gt;
+&lt;/head&gt;
+</code></pre>
+<h2>Атрибуты</h2>
+<ul>
+<li><code>media</code> — укажите этот атрибут, чтобы один и тот же элемент на странице отображался по-разному на разных устройствах: например, телефоне или проекторе. К примеру, хочется, чтобы основной текст выглядел крупнее на проекторе, чем при просмотре на экране компьютера. Для этого добавь атрибут <code>media</code> со значением <code>&quot;projection&quot;</code> и пропиши размер шрифта, например, <code>font-size: 120%;</code>. Вот какие есть варианты устройств, можно указать несколько через запятую:
+<ul>
+<li><code>all</code> — все устройства;</li>
+<li><code>braille</code> — устройства, основанные на системе Брайля, которая создана для слепых людей;</li>
+<li><code>handheld</code> — смартфоны и другие устройства с узким экраном;</li>
+<li><code>print</code> — принтер;</li>
+<li><code>screen</code> — стандартный экран компьютера — это значение по умолчанию;</li>
+<li><code>speech</code> — речевые синтезаторы, а также программы для воспроизведения текста вслух и речевые браузеры;</li>
+<li><code>projection</code> — проектор;</li>
+<li><code>tty</code> — телетайпы, терминалы, портативные устройства с ограниченными возможностями экрана;</li>
+<li><code>tv</code> — телевизор.</li>
+</ul>
+</li>
+</ul>
+<h2>Ещё примеры</h2>
+<p>Попробуем сделать основной заголовок на странице ещё крупнее, зададим шрифты без засечек и чёрный цвет:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Кулинаный блог Марфы&lt;/title&gt;
+    &lt;style&gt;
+      h1 {
+        font-size: 30px;
+        font-family: &quot;Roboto&quot;, sans-serif;
+        color: #000000;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Как испечь настоящие круассаны?&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<iframe title="Стилизация заголовка" src="demos/header/" height="260"></iframe>
+<p>А в этом примере цвет и фон текста в абзаце будет меняться в зависимости от ширины экрана:</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;style&gt;
+      p {
+        background-color: white;
+        color: #663613;
+      }
+    &lt;/style&gt;
+    &lt;!-- Будет работать на экранах шириной до 500px --&gt;
+    &lt;style media=&quot;all and (max-width: 500px)&quot;&gt;
+      p {
+        background-color: #FF8630;
+        color: black;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Чтобы испечь настоящие круассаны...&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<iframe title="Стилизация параграфа" src="demos/p/" height="260"></iframe>

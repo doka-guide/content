@@ -1,0 +1,30 @@
+<h2>Кратко</h2>
+<p><a href="/css/pseudoelements/">Псевдоэлемент</a> <code>::selection</code> позволяет применить стили к пользовательскому выделению (например, к выделенному с помощью мыши тексту) и изменить его вид. Это полезно, если вы хотите оформить выделение текста в соответствии с вашим дизайном.</p>
+<aside>
+⚠️ Этот псевдоэлемент не поддерживается в Safari на iOS.
+</aside>
+<h2>Пример</h2>
+<p>Чтобы увидеть <code>::selection</code> в действии, выделите текст в демке при помощи курсора мыши или клавиш <kbd>Ctrl A</kbd>.</p>
+<iframe title="Пример базовой работы ::selection" src="demos/variants/" height="400"></iframe>
+<h2>Как пишется</h2>
+<pre><code class="language-css">::selection {
+  /* Стили */
+}
+</code></pre>
+<p>Обратите внимание, что этому псевдоэлементу необходимо двойное двоеточие.</p>
+<p>Для Mozilla Firefox версии 61 и ниже нужно использовать <a href="/css/vendor-prefixes/">вендорный префикс</a>:</p>
+<pre><code class="language-css">::-moz-selection {
+  /* Стили */
+}
+</code></pre>
+<p>Можно оформлять отдельные элементы на странице, задав им псевдоэлемент, или можно оформить всю страницу целиком — оставив <code>::selection</code> без селектора слева, как показано в примере выше.</p>
+<p>Список свойств, которые можно изменять с помощью <code>::selection</code>, ограничен:</p>
+<ul>
+<li><a href="/css/color/"><code>color</code></a>;</li>
+<li><a href="/css/background-color/"><code>background-color</code></a>;</li>
+<li>шорткат <a href="/css/text-decoration/"><code>text-decoration</code></a> и отдельные свойства оформления текста;</li>
+<li><code>text-emphasis-color</code>;</li>
+<li><a href="/css/text-shadow/"><code>text-shadow</code></a>;</li>
+<li><code>stroke-color</code>, <code>fill-color</code> и <code>stroke-width</code> для SVG.</li>
+</ul>
+<p>Все прочие CSS-свойства, написанные внутри правила, будут проигнорированы.</p>

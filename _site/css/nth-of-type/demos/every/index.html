@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Псевдоклассы группы type — nth-of-type — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    ol {
+      padding-left: 2em;
+    }
+
+    li + li {
+      margin-top: 15px;
+    }
+
+    /* следующий пункт не имеет класса, всё, что мы о нём «знаем» — что он
+    третий <li> по порядку */
+    li:nth-of-type(3) {
+      color: #49a16c;
+    }
+
+    /* 2, 4, 6 пункт с классом .list__item имеет синий цвет, т. е. каждый чётный */
+    .list__item:nth-of-type(2n) {
+      color: #1a5ad7;
+    }
+
+    /* 5-й <li> (или 3 .list__item) — жёлтый */
+    li:nth-of-type(5),
+    .list__item:nth-of-type(3) {
+      color: #ffd829;
+    }
+
+    /* последний пункт должен быть белым (укажем это и для тега, и для класса) */
+    li:nth-last-of-type(1),
+    .list__item:last-of-type {
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <ol class="list">
+    <li>Default означает «по умолчанию», цвет этого пункта без изменений.</li>
+    <li class="list__item">Амбары красят в красный цвет, потому что красная краска дешевле всех остальных.</li>
+    <li>Говорят, в СССР красили подъезды в зелёный цвет, потому что осталось много зелёной краски, когда-то предназначенной для военной техники.</li>
+    <li class="list__item">В Катаре красят асфальт в синий цвет, чтобы он не перегревался.</li>
+    <li class="list__item">Газовые трубы красят в жёлтый цвет по ГОСТ 14202-69.</li>
+    <li class="list__item">Розы красят в синий цвет при помощи пищевых красителей.</li>
+    <li class="list__item">Чёрный на чёрном не виден.</li>
+  </ol>
+</body>
+</html>

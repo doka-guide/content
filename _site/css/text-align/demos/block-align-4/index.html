@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выравнивание по ширине инлайн-блочных элементов в контейнере — text-align — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .parent {
+      box-sizing: border-box;
+      width: 80%;
+      margin: 0 auto;
+      padding: 25px;
+      text-align: justify;
+    }
+
+    .parent:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+    }
+
+    .child {
+      box-sizing: border-box;
+      display: inline-block;
+      width: 125px;
+      height: 125px;
+      padding: 25px;
+      text-align: center;
+      font-size: 75px;
+      line-height: 75px;
+      font-weight: bold;
+    }
+
+    .child:first-child {
+      background-color: #49a16c;
+    }
+
+    .child:nth-child(2) {
+      background-color: #f498ad;
+    }
+
+    .child:last-child {
+      background-color: #ffd829;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<h2>Кратко</h2>
+<p>Директива <code>@supports</code> позволяет проверить, поддерживает ли браузер свойство, правило, селектор CSS. Если условие срабатывает, то будет выполнен CSS-код, написанный внутри фигурных скобок.</p>
+<h2>Пример</h2>
+<p>Если нужно проверить свойство или значение, нужная конструкция записывается сразу в круглых скобках:</p>
+<pre><code class="language-css">@supports (transform: perspective(150px)) {
+  div {
+    transform: perspective(150px);
+  }
+}
+</code></pre>
+<h2>Как пишется</h2>
+<h3>Проверка правила</h3>
+<p>В круглых скобках после <code>@supports</code> пишется свойство и его значение, которые нужно проверить:</p>
+<pre><code class="language-css">@supports (--foo: bar) {
+  .block {
+    color: var(--color);
+  }
+}
+</code></pre>
+<h3>Проверка селектора</h3>
+<p>Если нужно проверить селектор, используется функция <code>selector()</code>:</p>
+<pre><code class="language-css">:is(ul, ol) &gt; li {
+  color: red;
+}
+
+@supports not selector(:is(a, b)) {
+  ul &gt; li,
+  ol &gt; li {
+    color: red;
+  }
+}
+</code></pre>
+<h3>Оператор <code>not</code></h3>
+<p>После директивы пишется ключевое слово <code>not</code> и в скобках условие проверки. Код внутри фигурных скобок будет выполнен, если указанное в скобках условие не поддерживается браузером:</p>
+<pre><code class="language-css">@supports not (transform: perspective(150px)) {
+  div {
+    color: red;
+  }
+}
+</code></pre>
+<h3>Оператор <code>and</code></h3>
+<p>Ключевое слово <code>and</code> позволяет проверить несколько условий друг за другом. Код внутри фигурных скобок будет выполнен, если все условия верны:</p>
+<pre><code class="language-css">@supports (transform: perspective(150px)) and (display: grid) {
+  div {
+    display: grid;
+    transform: perspective(150px);
+  }
+}
+</code></pre>
+<h3>Оператор <code>or</code></h3>
+<p>Ключевое слово <code>or</code> позволяет проверить несколько условий друг за другом. Код внутри фигурных скобок будет выполнен, если хотя бы одно из условий верно:</p>
+<pre><code class="language-css">@supports (transform: perspective(150px)) or (display: grid) {
+  div {
+    color: #00DD00;
+  }
+}
+</code></pre>

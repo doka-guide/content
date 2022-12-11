@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Селектор потомка — Вложенный селектор — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      width: 65%;
+    }
+
+    .text {
+      color: #ffffff;
+      line-height: 1.4;
+    }
+
+    .news-card {
+      margin-top: 20px;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    .news-card__title {
+      margin-bottom: 17px;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    .news-card .text {
+      color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: 100%;
+      }
+
+      .news-card {
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <p class="text">Если вам скажут, что коты не любят своих хозяев, не верьте! Многим кошкам не нравится, что их хозяева перестали выходить из дома: они недовольно пищат, мяукают и всячески намекают, что пора бы и за порог. Но не все коты такие!</p>
+
+    <div class="news-card">
+      <h2 class="news-card__title">Все новости должны быть такими</h2>
+      <p class="text news-card__text">У пингвинов, живущих в Московском зоопарке, появилось пять ужасно смешных пингвинят. Малыши ловко маскируются под камни, благодаря серому пуху, которым покрыты их тела.</p>
+    </div>
+  </div>
+</body>
+</html>

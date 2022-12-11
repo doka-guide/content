@@ -1,0 +1,36 @@
+<h2>Кратко</h2>
+<p>Свойство <code>background-blend-mode</code> даёт возможность смешивать разные фоны между собой.</p>
+<h2>Как пишется</h2>
+<ul>
+<li><code>normal</code> — значение по умолчанию, фоны не смешиваются, верхний слой остаётся непрозрачным.</li>
+</ul>
+<h2>Режим контраста</h2>
+<ul>
+<li><code>overlay</code> — <code>background-color</code> смешивается с <code>background-image</code>, чтобы отразить светлые или тёмные участки фона.</li>
+<li><code>soft-light</code> — конечный результат похож на <code>hard-light</code>, но более мягкий, как будто на изображение попал рассеянный прожектор.</li>
+<li><code>hard-light</code> — если <code>background-image</code> светлее <code>background-color</code>, то результатом будет <code>muliply</code>, а если светлее, то результатом будет <code>screen</code>.</li>
+</ul>
+<h2>Режим затемнения</h2>
+<ul>
+<li><code>darken</code> — если <code>background-image</code> темнее <code>background-color</code>, то изображение заменяется, в противном случае оно остаётся прежним.</li>
+<li><code>multiply</code> — <code>background-image</code> и <code>background-color</code> перемножаются, и обычно это приводит к получению более тёмного изображения, чем исходное.</li>
+<li><code>color-burn</code> — <code>background-color</code> инвертируется, делится на <code>background-image</code> и снова инвертируется. Похоже на <code>multiply</code>.</li>
+</ul>
+<h2>Режим осветления</h2>
+<ul>
+<li><code>lighten</code> — если <code>background-image</code> светлее <code>background-color</code>, то изображение заменяется, в противном случае оно остаётся прежним.</li>
+<li><code>screen</code> — и изображение, и цвет инвертируются, умножаются и затем снова инвертируются.</li>
+<li><code>color-dodge</code> — <code>background-color</code> делится на обратную величину <code>background-image</code>. Это очень похоже на <code>screen</code>.</li>
+</ul>
+<h2>Режим сравнения</h2>
+<ul>
+<li><code>difference</code> — результат вычитания тёмного цвета <code>backgroound-image</code> и <code>background-color</code> из самого светлого. Часто изображение будет иметь очень высокий контраст.</li>
+<li><code>exclusion</code> — результат очень похож на <code>difference</code>, но с меньшим контрастом.</li>
+</ul>
+<h2>Компонентный режим</h2>
+<ul>
+<li><code>saturation</code> — сохраняет насыщенность <code>background-image</code>, смешивая при этом оттенок и светимость <code>background-color</code>.</li>
+<li><code>color</code> — сохраняет оттенок и насыщенность <code>background-image</code> и светимость <code>background-color</code>.</li>
+<li><code>luminosity</code> — светимость верхнего цвета сохраняется, при этом используются насыщенность и оттенок <code>background-color</code>.</li>
+<li><code>hue</code> — результатом будет оттенок <code>background-image</code> в сочетании со светлотой и насыщенностью <code>background-color</code>.</li>
+</ul>

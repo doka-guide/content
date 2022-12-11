@@ -1,0 +1,160 @@
+<h2>Кратко</h2>
+<p>Спред-синтаксис (spread) <code>...</code> позволяет передавать итерируемые коллекции (например, массивы или строки) как список аргументов функции или добавлять содержащиеся в них элементы в новый массив.</p>
+<p>Спред применятся и для объектов, чтобы копировать пары ключ-значение из одного объекта в другой.</p>
+<h2>Пример</h2>
+<p>При вызове функции использовать значения из массива как аргументы:</p>
+<pre><code class="language-js">function multiplyThreeNumbers(a, b, c) {
+  return a * b * c
+}
+
+const nums = [1, 2, 3]
+
+console.log(multiplyThreeNumbers(...nums))
+// 6
+</code></pre>
+<p>В массиве скопировать элементы из другого массива в новый:</p>
+<pre><code class="language-js">const donor = ['это', 'старые', 'значения']
+const newArray = [...donor, 1, true, 'мама']
+
+console.log(newArray)
+// ['это', 'старые', 'значения', 1, true, 'мама']
+</code></pre>
+<p>У объекта скопировать свойства из другого объекта в новый:</p>
+<pre><code class="language-js">const persona = { name: 'Иван', lastName: 'Объектов'}
+const userData = { ...persona, username: 'killer3000' }
+
+console.log(userData)
+// {
+//    name: &quot;Иван&quot;,
+//    lastName: &quot;Объектов&quot;,
+//    username: &quot;killer3000&quot;
+// }
+</code></pre>
+<h2>Как понять</h2>
+<p>Спред-синтаксис легче всего изучать на примерах. Есть три контекста, в которых он применяется.</p>
+<h3>При вызове функции</h3>
+<p>Часто встречается ситуация, когда мы хотим использовать данные из итерируемой коллекции в качестве аргументов функции. Чаще всего такая коллекция — массив. Если функция не умеет принимать массив аргументом, то придётся доставать элементы вручную:</p>
+<pre><code class="language-js">function multiplyThreeNumbers(a, b, c) {
+  return a * b * c
+}
+
+const nums = [1, 2, 3]
+
+console.log(multiplyThreeNumbers(nums[0], nums[1], nums[2]))
+// 6
+</code></pre>
+<p>Если элементов становится больше, доставать значения вручную становится неудобно. Чтобы решить эту проблему, в старых версиях языка использовали метод <code>apply</code>. Этот метод принимает первым аргументом значение <code>this</code>, а вторым — список аргументов для вызова функции:</p>
+<pre><code class="language-js">function multiplyThreeNumbers(a, b, c) {
+  return a * b * c
+}
+
+const nums = [1, 2, 3]
+
+console.log(multiplyThreeNumbers.apply(null, nums))
+// 6
+</code></pre>
+<p>Такой синтаксис сложно читается, его нельзя использовать при создании объектов с помощью конструктора <code>new</code>. Его упростили до спред-синтаксиса. В этом случае элементы как бы выкладываются из списка в нужном порядке:</p>
+<pre><code class="language-js">function multiplyThreeNumbers(a, b, c) {
+  return a * b * c
+}
+
+const nums = [1, 2, 3]
+
+console.log(multiplyThreeNumbers(...nums))
+// 6
+</code></pre>
+<p>Если в массиве будет больше элементов, чем параметров функции, то будут использованы только те элементы, которые идут первыми по порядку:</p>
+<pre><code class="language-js">function multiplyThreeNumbers(a, b, c) {
+  return a * b * c
+}
+
+const nums = [1, 2, 3, 5, 6]
+
+console.log(multiplyThreeNumbers(...nums))
+// 6
+</code></pre>
+<h3>При создании массивов с помощью литерала <code>[]</code></h3>
+<p>Спред-синтаксис решает задачу создания нового массива с использованием данных из другого массива. Без него неудобно создавать массив, который содержит элементы другого. Приходится использовать методы массива, например, <code>concat</code>:</p>
+<pre><code class="language-js">const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
+const watchedVideos = ['Rick&amp;Morty', 'lofi hip hop radio'].concat(watchedMovies)
+
+console.log(watchedVideos)
+// ['Rick&amp;Morty', 'lofi hip hop radio', 'Rocky', 'Terminator 2', 'The Matrix']
+</code></pre>
+<p>Спред решает эту проблему лучше:</p>
+<pre><code class="language-js">const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
+const watchedVideos = ['Rick&amp;Morty', 'lofi hip hop radio', ...watchedMovies]
+
+console.log(watchedVideos)
+// ['Rick&amp;Morty', 'lofi hip hop radio', 'Rocky', 'Terminator 2', 'The Matrix']
+
+</code></pre>
+<p>Таким образом можно создать копию существующего массива:</p>
+<pre><code class="language-js">const watchedMovies = ['Rocky', 'Terminator 2', 'The Matrix']
+const myWatchedMovies = [...watchedMovies]
+</code></pre>
+<p>Или склеить несколько массивов в один:</p>
+<pre><code class="language-js">const movies = ['Rocky', 'Terminator 2', 'The Matrix']
+const series = ['Prison Break', 'Rick&amp;Morty', 'Lost']
+
+const watched = [...movies, ...series]
+// [
+//  &quot;Rocky&quot;,
+//  &quot;Terminator 2&quot;,
+//  &quot;The Matrix&quot;,
+//  &quot;Prison Break&quot;,
+//  &quot;Rick&amp;Morty&quot;,
+//  &quot;Lost&quot;
+// ]
+</code></pre>
+<aside>
+<p>☝️ При использовании спред-синтаксиса элементы массива копируются только на один уровень вложенности. Если массив содержит объекты, то это будут те же самые объекты, что и в исходном массиве. Для глубокого копирования пользуйтесь библиотеками, например, <a href="https://lodash.com/docs/4.17.15#cloneDeep">lodash</a></p>
+</aside>
+<p>Пример поведения с уровнем вложенности больше одного:</p>
+<pre><code class="language-js">const users = [{ name: 'Иван', lastName: 'Объектов' }]
+const copyUsers = [...users]
+
+copyUsers[0].name = 'Николай'
+console.log(users[0])
+// { name: 'Николай', lastName: 'Объектов' }
+</code></pre>
+<h3>При создании объекта с помощью литерала <code>{}</code></h3>
+<p>По аналогии с массивами, спред-синтаксис решает проблему копирования свойств в новый объект. В версии языка без спреда для копирования использовался метод <code>Object.assign</code>, который принимал два объекта — куда копировать свойства и откуда:</p>
+<pre><code class="language-js">const person = { name: 'Иван', lastName: 'Объектов' }
+const userData = Object.assign({ username: 'killer3000' }, person)
+
+console.log(userData)
+// {
+//    name: &quot;Иван&quot;,
+//    lastName: &quot;Объектов&quot;,
+//    username: &quot;killer3000&quot;
+// }
+</code></pre>
+<p>Спред упрощает код и делает его читабельнее:</p>
+<pre><code class="language-js">const person = { name: 'Иван', lastName: 'Объектов' }
+const userData = { username: 'killer3000', ...person }
+
+console.log(userData)
+// {
+//    name: &quot;Иван&quot;,
+//    lastName: &quot;Объектов&quot;,
+//    username: &quot;killer3000&quot;
+// }
+</code></pre>
+<p>Если свойства в новом и старом объекте совпадают, то будет использоваться то значение свойства, которое шло последним:</p>
+<pre><code class="language-js">const person = { name: 'Иван', lastName: 'Объектов' }
+const userData = { name: 'Николай', ...person }
+
+console.log(userData)
+// { name: &quot;Иван&quot;, lastName: &quot;Объектов&quot; }
+</code></pre>
+<p>Если поставить спред в начало, то будет использоваться новое имя:</p>
+<pre><code class="language-js">const person = { name: 'Иван', lastName: 'Объектов' }
+const userData = { ...person, name: 'Николай' }
+
+console.log(userData)
+// { name: &quot;Николай&quot;, lastName: &quot;Объектов&quot; }
+</code></pre>
+<aside>
+<p>☝️ При использовании спред-синтаксиса свойства объекта копируются только на один уровень вложенности. Это называется <a href="/js/shallow-or-deep-clone/">поверхностным копированием</a>. Для глубокого копирования пользуйтесь библиотеками, например, <a href="https://lodash.com/docs/4.17.15#cloneDeep">lodash</a></p>
+</aside>

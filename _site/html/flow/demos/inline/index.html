@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Строчные элементы в нормальном потоке — Поток документа — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      line-height: 1.4;
+      font-family: "Roboto", sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 65%;
+      min-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .normal-flow-block {
+      padding: 35px 20px;
+      background-color: #FFFFFF;
+      color: #663613;
+    }
+
+    .normal-flow-inline {
+      border-radius: 3px;
+      color: #000000;
+      font-weight: 400;
+    }
+
+    strong {
+      background-color: #FF8630;
+    }
+
+    span {
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="normal-flow-block">
+      <strong class="normal-flow-inline">Начало координат</strong> расточительно притягивает комплексный критерий сходимости Коши. Метеорит, <span class="normal-flow-inline">как бы это ни казалось парадоксальным</span>, вызывает близкий зенит. <strong class="normal-flow-inline">Зенит, на первый взгляд</strong>, неравномерен.
+    </p>
+  </div>
+</body>
+</html>

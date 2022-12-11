@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Работа Element.outerHTML — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .does-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .button {
+      min-width: 200px;
+      border: 1px solid;
+      padding: 10px;
+      vertical-align: middle;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button:hover {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      background-color: #18191c;
+      cursor: pointer;
+    }
+
+    .button:focus {
+      outline: 1px solid #ffffff;
+    }
+
+    .green {
+      background-color: #49a16c;
+      border-color: #49a16c;
+    }
+
+    .green:hover {
+      border-color: #49a16c;
+    }
+
+    .blue {
+      background-color: #1a5ad7;
+      border-color: #1a5ad7;
+    }
+
+    .blue:hover {
+      border-color: #0882ff;
+    }
+
+    .button + .button {
+      margin-left: 16px;
+    }
+
+    #target {
+      padding: 15px;
+      border: 1px solid #5e6064;
+      border-radius: 4px;
+    }
+
+    pre {
+      padding: 15px;
+      border-top: 1px solid #5e6064;
+      border-bottom: 1px solid #5e6064;
+    }
+
+    .change,
+    .show {
+      margin-top: 12px;
+    }
+
+    #newText {
+      width: 100%;
+      height: 100px;
+      resize: none;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Замени меня</h2>
+    <div id="anchor">
+      <div id="target">
+        <p>Я параграф</p>
+        <button>Я кнопка</button>
+      </div>
+    </div>
+
+    <h2>Итоговый HTML</h2>
+    <pre id="result"></pre>
+
+    <h2>Изменить HTML</h2>
+    <textarea id="newText"><h3>Я вставленный заголовок третьего уровня</h3></textarea>
+    <button id="change" class="button green change">Изменить</button>
+  </div>
+
+  <script>
+    function toLines(markup) {
+      let opened = ''
+
+      const nonemptyLines = markup.trim()
+      .split('\n')
+      .reduce((nonempty, line) => {
+        const trimmedLine = line.trim()
+        return trimmedLine.length ? [...nonempty, trimmedLine] : nonempty
+      }, [])
+
+      return nonemptyLines.reduce((formatted, line, i, prevArr) => {
+        if (line.startsWith('<')) {
+          if (i === prevArr.length - 1) {
+            return [...formatted, opened, line]
+          }
+
+          const closedLine = opened
+          opened = line
+
+          if (closedLine.length) {
+            return [...formatted, closedLine]
+          }
+
+          return formatted
+        }
+
+        opened += line === '>' ? line : ` ${line}`
+
+        return formatted
+      }, [])
+    }
+
+    function addIndentation(htmlString) {
+      let level = 0
+      const opened = []
+
+      return htmlString.reverse().reduce((indented, elTag) => {
+        if (opened.length
+          && level
+          && opened[level]
+          && opened[level] === elTag.substring(1, opened[level].length + 1)
+        ) {
+          opened.splice(level, 1)
+          level--
+        }
+
+        const indentation = ' '.repeat(level ? level * 2 : 0)
+
+        const newIndented = [
+          `${indentation}${elTag}`,
+          ...indented,
+        ]
+
+        if (elTag.substring(0, 2) === '</') {
+          level++
+          opened[level] = elTag.substring(2, elTag.length - 1)
+        }
+
+        return newIndented
+      }, []).join('\n')
+    }
+
+    function formatHtmlString(str) {
+      return addIndentation(toLines(str))
+    }
+
+    const changeButton = document.getElementById('change')
+    const resultElement = document.getElementById('result')
+    const newTextElement = document.getElementById('newText')
+    const targetElement = document.getElementById('anchor')
+
+    resultElement.innerText = formatHtmlString(targetElement.innerHTML)
+
+    changeButton.addEventListener('click', () => {
+      try {
+        if (newTextElement.value) {
+          targetElement.innerHTML = newTextElement.value
+          resultElement.innerText = formatHtmlString(newTextElement.value) || newTextElement.value
+          newTextElement.value = ''
+        }
+      } catch (e) {
+        alert(e)
+      }
+    })
+  </script>
+</body>
+</html>

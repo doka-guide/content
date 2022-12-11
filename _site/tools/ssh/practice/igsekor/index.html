@@ -1,0 +1,20 @@
+<h2>Работа с GitHub по SSH</h2>
+<p>Для работы по протоколу SSH вам понадобится настроить свой аккаунт на GitHub.</p>
+<p>Лучше сгенерировать отдельный ключ, который будет удовлетворять требованиям безопасности GitHub. Для этого вам понадобится электронная почта вашего аккаунта:</p>
+<pre><code class="language-bash">ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;
+</code></pre>
+<p>После этого скопируйте ключ командой:</p>
+<pre><code class="language-bash"># на macOS
+pbcopy &lt; ~/.ssh/id_ed25519.pub
+
+# на Windows
+clip &lt; ~/.ssh/id_ed25519.pub
+
+# на Linux
+xclip -selection clipboard &lt; ~/.ssh/id_ed25519.pub
+</code></pre>
+<p>В случае использования операционной системы на базе Linux необходимо будет поставить утилиту <em>xclip</em>, если она у вас ещё не установлена:</p>
+<pre><code class="language-bash">sudo apt-get update
+sudo apt-get install xclip
+</code></pre>
+<p>Затем в интерфейсе GitHub нужно будет щёлкнуть на иконку аккаунта, выбрать пункт «Settings», перейти на вкладку «SSH and GPG keys», слева нажать кнопку «New SSH key» или «Add SSH key». Введите название ключа в поле «Title» и вставьте из буфера обмена содержимое публичного ключа в поле «Key». Нажмите на кнопку «Add SSH key» и введите пароль для подтверждения. После этого вы будете иметь доступ к GitHub по протоколу <em>SSH</em>, а не только через <em>HTTPS</em>.</p>

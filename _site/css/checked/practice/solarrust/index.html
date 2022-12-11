@@ -1,0 +1,54 @@
+<p>🛠 Очень часто этот класс пригождается, когда вы делаете какой-то нестандартный элемент управления на основе чекбокса или радиокнопок. В этом случае стандартные элементы скрываются, но их поведение, в частности псевдокласс <code>:checked</code>, позволяет что-то переключать вообще без JavaScript.</p>
+<p>Например, вот это выпадающее меню реализовано на чистом HTML с использованием трюка в чекбоксом:</p>
+<pre><code class="language-html">&lt;div class=&quot;dropdown&quot;&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;menu&quot;&gt;
+  &lt;label for=&quot;menu&quot;&gt;Выбери черепашку&lt;/label&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Леонардо&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Рафаэль&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Донателло&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Микеланджело&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Боттичелли&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Караваджо&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="language-css">.dropdown {
+  position: relative;
+}
+
+.dropdown input,
+.dropdown ul {
+  display: none;
+}
+
+.dropdown label {
+  cursor: pointer;
+  border-bottom: 3px dashed #2E9AFF;
+}
+
+.dropdown ul {
+  position: absolute;
+  left: calc(100% + 25px);
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 40px 10px;
+  list-style: none;
+  background: #FFFFFF;
+  font-size: 20px;
+}
+
+.dropdown a {
+  color: #000000;
+}
+
+.dropdown :checked ~ label {
+  color: #2E9AFF;
+}
+
+.dropdown :checked ~ ul {
+  display: inline-block;
+}
+</code></pre>
+<iframe title="Выпадающее меню" src="../demos/choose/" height="330"></iframe>

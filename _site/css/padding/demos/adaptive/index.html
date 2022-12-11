@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивность через padding — padding — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 60%;
+      margin: 0 auto;
+      padding-right: 80px;
+    }
+
+    .image-box {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      margin: 0 auto;
+      background: url("images/eyes.svg") #2E9AFF no-repeat center / contain;
+    }
+
+    .image-box + .image-box {
+      margin-top: 30px;
+    }
+
+    .responsive {
+      height: 0;
+      padding-bottom: 56.25%;
+    }
+
+    .dimensions {
+      position: absolute;
+      left: calc(100% + 10px);
+      bottom: 0;
+      color: #FFFFFF;
+      width: 80px;
+    }
+
+    .dimensions span {
+      display: block;
+    }
+
+    .dimensions-width, .dimensions-height, .dimensions-ratio {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .dimensions-width::after, .dimensions-height::after {
+      content: 'px';
+    }
+
+    .dimensions-text, .dimensions-width::after, .dimensions-height::after {
+      color: #979797;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .dimensions-text:nth-last-of-type(n + 2) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .dimensions-width, .dimensions-height, .dimensions-ratio {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="responsive image-box">
+      <span class="dimensions">
+        <span class="dimensions-width"></span>
+        <span class="dimensions-text">Ширина</span>
+        <span class="dimensions-height"></span>
+        <span class="dimensions-text">Высота</span>
+        <span class="dimensions-ratio"></span>
+        <span class="dimensions-text">Пропорция</span>
+      </span>
+    </div>
+    <div class="image-box">
+      <span class="dimensions">
+        <span class="dimensions-width"></span>
+        <span class="dimensions-text">Ширина</span>
+        <span class="dimensions-height"></span>
+        <span class="dimensions-text">Высота</span>
+        <span class="dimensions-ratio"></span>
+        <span class="dimensions-text">Пропорция</span>
+      </span>
+    </div>
+  </div>
+
+<script>
+  const boxes = document.querySelectorAll('.image-box')
+
+  function printDimensions(box) {
+    box.querySelector('.dimensions-width').innerText = box.offsetWidth
+    box.querySelector('.dimensions-height').innerText = box.offsetHeight
+    box.querySelector('.dimensions-ratio').innerText = `16:${Math.round(box.offsetHeight / (box.offsetWidth / 16))}`
+  }
+
+  boxes.forEach(box => printDimensions(box))
+
+  window.addEventListener("resize", () => {
+    boxes.forEach(box => printDimensions(box))
+  })
+</script>
+</body>
+</html>

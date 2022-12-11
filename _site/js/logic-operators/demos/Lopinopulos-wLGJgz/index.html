@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - Логическое И — Дока</title>
+</head>
+<body>
+<div>
+  <label for="isRegistered">Пользователь:</label>
+  <select id="isRegistered" name="isRegistered">
+    <option value="0">Гость</option>
+    <option value="1">Зарегистрированный</option>
+  </select>
+  <br>
+  <label for="orders">Кол-во заказов:</label>
+  <input type="number" id="orders" value="3">
+</div>
+<p>
+  <span id="condition-reg">Пользователь зарегистрирован</span>
+  <span class="connector" style="top: 5px;"> И</span>
+  <span id="condition-orders">заказов больше 1</span>
+  <span class="connector" style="top: 4px;"> → </span>
+  <span id="result"></span>
+</p>
+  <script>
+    let isRegisteredSelect = document.getElementById('isRegistered');
+    let ordersInput = document.getElementById('orders');
+    let conditionRegSpan = document.getElementById('condition-reg');
+    let conditionOrdersSpan = document.getElementById('condition-orders');
+    let resultSpan = document.getElementById('result');
+
+    function checkCondition() {
+      let isRegistered = isRegisteredSelect.value === '1';
+      let orders = Number(ordersInput.value);
+
+      updateClasses(conditionRegSpan, isRegistered);
+      updateClasses(conditionOrdersSpan, orders > 1);
+
+      if (isRegistered && orders > 1) {
+        resultSpan.textContent = 'Показать цены!';
+        updateClasses(resultSpan, true);
+      } else {
+        resultSpan.textContent = 'Скрыть цены!'
+        updateClasses(resultSpan, false);
+      }
+
+    }
+
+    function updateClasses(el, isValid) {
+      el.className = isValid ? 'valid' : 'invalid';
+    }
+
+    checkCondition();
+
+    isRegisteredSelect.addEventListener('change', checkCondition);
+    ordersInput.addEventListener('keyup', checkCondition);
+    ordersInput.addEventListener('change', checkCondition);
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Установка фокуса на элементы — Element.focus() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+<body>
+  <label>Куда переместить фокус?
+    <select id="focus-selector">
+      <option value="" disabled selected>Никуда</option>
+      <option value="name">Имя</option>
+      <option value="email">Почта</option>
+      <option value="age">Возраст</option>
+      <option value="specialization">Профессия</option>
+      <option value="nasa">Опыт в NASA</option>
+      <option value="photo">Фото</option>
+      <option value="submit">Кнопка отправки</option>
+    </select>
+  </label>
+  <h1>Регистрация в экспедицию на Марс</h1>
+  <form action="/apply" method="POST">
+    <label>
+      Имя:
+      <input type="text" name="name" id="name">
+    </label>
+
+    <label>
+      Почта:
+      <input type="email" name="email" id="email">
+    </label>
+
+    <label>
+      Возраст:
+      <input type="number" name="age" id="age" required>
+    </label>
+
+    <label>
+      Профессия:
+      <select name="specialization" id="specialization" required>
+        <option value="engineer" selected>Инженер</option>
+        <option value="scientist">Учёный</option>
+        <option value="psychologist">Психолог</option>
+        <option value="other">Другое</option>
+      </select>
+    </label>
+
+    <label>
+      Я работал в NASA
+      <input type="checkbox" name="nasaExperience" id="nasa" value="1">
+    </label>
+
+    <label>
+      Фото:
+      <input type="file" accept="image/jpeg" name="photo" id="photo" required>
+    </label>
+
+    <button type="submit" id="submit">Подать заявку</button>
+  </form>
+  <script>
+    const focusSelector = document.getElementById("focus-selector")
+    focusSelector.value = ""
+    focusSelector.addEventListener("change", (e) => {
+      const chosenId = e.target.value
+      if (chosenId) {
+        const choice = document.getElementById(chosenId)
+        choice.focus()
+      }
+    })
+  </script>
+</body>
+</html>

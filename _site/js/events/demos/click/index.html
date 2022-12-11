@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Метод addEventListener — events — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 50px;
+    }
+
+    .button + .button {
+      margin-top: 25px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 8px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus, .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    #square {
+      width: 200px;
+      height: 200px;
+      background-color: #FFFFFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="square"></div>
+    <div class="buttons">
+      <button id="change" class="button button-yellow">Поменять цвет квадрата</button>
+      <button class="button button-green">Кнопка без обработчика</button>
+    </div>
+  </div>
+
+  <script>
+    const buttonElement = document.getElementById('change')
+    const squareDiv = document.getElementById('square')
+
+    // чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
+    buttonElement.addEventListener('click', function() {
+      squareDiv.style.backgroundColor = getColor()
+    })
+
+    function getColor() {
+      const colors = ['#41E847', '#286C2D', '#2E9AFF', '#123E66', '#F498AD', '#623D45', '#FF8630', '#663613', '#FFD829', '#665610']
+      const randomColorIndex = Math.floor(Math.random() * colors.length)
+      return colors[randomColorIndex]
+    }
+  </script>
+</body>
+</html>

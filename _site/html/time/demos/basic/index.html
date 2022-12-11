@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Точное время — <time> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      background-color: #1F2937;
+    }
+
+    .person {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      background-color: rgba(75, 85, 99, 0.7);
+      border: 1px solid #6B7280;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
+
+    .profile-photo-section {
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 9999px;
+    }
+
+    .profile-info {
+      margin-left: 12px;
+    }
+
+    .profile-name {
+      font-size: 22px;
+      font-weight: 500;
+      color: #D1D5DB;
+    }
+
+    .last-visit {
+      display: flex;
+      align-items: baseline;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .last-visit-datetime {
+      color: #F4F4F5;
+      text-decoration: underline;
+    }
+
+    .last-visit-label {
+      margin-left: 5px;
+      color: #E5E7EB;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <article class="person">
+    <div class="profile-photo-section">
+      <img class="profile-photo" src="images/profile-photo.jpg" alt="Билл Джобс">
+    </div>
+    <div class="profile-info">
+      <header class="profile-name">
+        Билл Джобс
+      </header>
+      <div class="last-visit">
+        <time class="last-visit-datetime" datetime="2020-03-16T14:25">
+          16 марта 2020
+        </time>
+        <span class="last-visit-label">последний визит</span>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

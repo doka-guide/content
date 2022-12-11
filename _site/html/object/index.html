@@ -1,0 +1,17 @@
+<h2>Кратко</h2>
+<p>Тег <code>&lt;object&gt;</code> используется для встраивания на страницу других страниц или мультимедийных элементов (PDF, Flash, видео- или аудио-плееров).</p>
+<h2>Как пишется</h2>
+<pre><code class="language-html">&lt;object type=&quot;application/pdf&quot; data=&quot;manual.pdf&quot; width=&quot;768&quot; height=&quot;1024&quot;&gt;
+  &lt;a href=&quot;file.pdf&quot;&gt;Инструкция (PDF, 2,5 МБ)&lt;/a&gt;
+&lt;/object&gt;
+</code></pre>
+<p>Если браузер не поддерживает тип встроенного файла, то он покажет вложенное содержимое в качестве фолбэка. В нашем примере, если встраивание PDF-инструкции не поддерживается, то мы увидим ссылку на её скачивание.</p>
+<p>Доступные атрибуты:</p>
+<ul>
+<li><code>data</code> — ссылка на встраиваемый ресурс;</li>
+<li><code>type</code> — MIME-тип подгружаемого объекта;</li>
+<li><code>name</code> — имя объекта;</li>
+<li><code>usemap</code> — атрибут для связи объекта с тегом <code>&lt;map&gt;</code>;</li>
+<li><code>width</code> — ширина объекта;</li>
+<li><code>form</code> — связь с одной или несколькими формами.</li>
+</ul>

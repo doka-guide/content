@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ховер-эффект при помощи события mouseover — Element.mouseover — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+
+*, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+      text-align: center;
+    }
+
+    ul {
+      position: relative;
+      display: inline-block;
+      text-align: left;
+    }
+
+    ul::before {
+      content: 'меню';
+      position: absolute;
+      left: -75px;
+      top: 7px;
+      padding: 2px 7px;
+      background-color: #FFD829;
+      color: #000000;
+      font-size: 14px;
+    }
+
+    li {
+      list-style-type: none;
+    }
+
+    li + li {
+      margin-top: 10px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: #FFD829;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.3s;
+      text-transform: lowercase;
+    }
+
+    .mouseover a {
+      background-color: #FFD829;
+      border-radius: 3px;
+      transition: background-color 0.3s;
+    }
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="#">Каталог</a></li>
+    <li><a href="#">О людях</a></li>
+    <li><a href="#">О компании</a></li>
+    <li><a href="#">Контакты</a></li>
+  </ul>
+  <script>
+    let current = undefined
+
+    function onMouseover() {
+      if (current) {
+        current.classList.remove('mouseover')
+      }
+      this.classList.add('mouseover')
+      // записываем текущий пункт, чтобы удалить с него класс при переходе курсора на новый элемент
+      current = this
+    }
+
+    const items = document.getElementsByTagName('li')
+    for (let i = 0; i < items.length; ++i) {
+      items[i].addEventListener('mouseover', onMouseover)
+    }
+  </script>
+</body>
+</html>

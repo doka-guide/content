@@ -1,0 +1,70 @@
+<p>🛠 Тег <code>&lt;ol&gt;</code> чаще всего используется для разметки нумерованных списков в тексте. Другой вариант использования часто можно увидеть на медиасервисах: упорядоченными списками свёрстаны плейлисты в музыкальной библиотеке.</p>
+<pre><code class="language-html">&lt;ol class=&quot;playlist&quot;&gt;
+  &lt;li class=&quot;playlist-item&quot;&gt;
+    &lt;span class=&quot;song-artist&quot;&gt;Nina Simone&lt;/span&gt;
+    &lt;span class=&quot;song-title&quot;&gt;Sinnerman&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;playlist-item&quot;&gt;
+    &lt;span class=&quot;song-artist&quot;&gt;The Stranglers&lt;/span&gt;
+    &lt;span class=&quot;song-title&quot;&gt;Golden Brown&lt;/span&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;playlist-item&quot;&gt;
+    &lt;span class=&quot;song-artist&quot;&gt;The Weekend&lt;/span&gt;
+    &lt;span class=&quot;song-title&quot;&gt;Blinding Lights&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<p>🛠 Мы можем изменить стиль нумерации несколькими способами:</p>
+<h3>Используя CSS-свойство <a href="/css/list-style-type/"><code>list-style-type</code></a></h3>
+<pre><code class="language-html">&lt;h2&gt;Творчество А. С. Пушкина&lt;/h2&gt;
+&lt;ol class=&quot;poems&quot;&gt;
+  &lt;li&gt;Руслан и Людмила (1817—1820)&lt;/li&gt;
+  &lt;li&gt;Кавказский пленник (1820—1821)&lt;/li&gt;
+  &lt;li&gt;Гавриилиада (1821)&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<pre><code class="language-css">.poems {
+  list-style-type: square;
+}
+</code></pre>
+<h3>При помощи псевдоэлемента <a href="/css/before/"><code>::before</code></a> и свойства <a href="/css/content/"><code>content</code></a></h3>
+<pre><code class="language-html">&lt;h2&gt;Как мы работаем:&lt;/h2&gt;
+&lt;ol class=&quot;benefits&quot;&gt;
+  &lt;li class=&quot;benefits-item&quot;&gt;Низкие цены&lt;/li&gt;
+  &lt;li class=&quot;benefits-item&quot;&gt;Большая база поставщиков&lt;/li&gt;
+  &lt;li class=&quot;benefits-item&quot;&gt;Быстрая доставка&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<pre><code class="language-css">.benefits {
+  counter-reset: benefits;
+}
+
+.benefits-item {
+  counter-increment: benefits;
+}
+
+.benefits-item::before {
+  content: counter(benefits);
+  position: absolute;
+  font-size: 190px;
+  font-weight: bold;
+  left: 0;
+  top: -0.35em;
+  opacity: 0.5;
+  color: #1A5AD7;
+}
+</code></pre>
+<iframe title="Наследование цвета" src="../demos/ordered-list/" height="400"></iframe>
+<h3>Стилизуя псевдоэлемент <code>::marker</code></h3>
+<pre><code class="language-html">&lt;h2&gt;Творчество А. С. Пушкина&lt;/h2&gt;
+&lt;ol class=&quot;poems&quot;&gt;
+  &lt;li class=&quot;poems-item&quot;&gt;Руслан и Людмила (1817—1820)&lt;/li&gt;
+  &lt;li class=&quot;poems-item&quot;&gt;Кавказский пленник (1820—1821)&lt;/li&gt;
+  &lt;li class=&quot;poems-item&quot;&gt;Гавриилиада (1821)&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+<pre><code class="language-css">.poems-item::marker {
+  color: #1A5AD7;
+  font-size: 1.4em;
+}
+</code></pre>

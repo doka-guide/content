@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация работы alert() для объекта — alert() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-size: calc(1em - 1px);
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .button-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .button-container + .button-container {
+      margin-top: 25px;
+    }
+
+    .button-title {
+      flex-grow: 1;
+      border-bottom: 1px solid #5e6064;
+      margin-left: 25px;
+      padding: 15px 0;
+      white-space: pre-wrap;
+    }
+
+    .button {
+      display: block;
+      min-width: 255px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button-green {
+      background-color: #41E847;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .button-container {
+        flex-direction: column-reverse;
+        align-items: initial;
+      }
+
+      .button-container + .button-container {
+        margin-top: 50px;
+      }
+
+      .button-title {
+        margin-left: 0;
+      }
+
+      .button {
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="button-container">
+      <button class="button button-yellow" onclick="showObj()">Показать модальное окно</button>
+      <pre class="button-title"><code>alert({id: 5, text: 'Пример'})</code></pre>
+    </div>
+    <div class="button-container">
+      <button class="button button-green" onclick="showToString()">Показать модальное окно</button>
+      <pre class="button-title"><code>alert({id: 5, text: 'Пример', toString: function() {
+  return `${this.id}: ${this.text}`
+}})</code></pre>
+    </div>
+  </div>
+
+  <script>
+    function showObj(){
+      alert({id: 5, text: 'Пример'})
+    }
+
+    function showToString(){
+      alert({id: 5, text: 'Пример', toString: function() {
+        return `${this.id}: ${this.text}`
+      }})
+    }
+  </script>
+</body>
+</html>

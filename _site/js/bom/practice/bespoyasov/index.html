@@ -1,0 +1,72 @@
+<h3><code>navigator</code></h3>
+<p>Чтобы проверить, есть ли в <code>navigator</code> необходимая вам фича, используйте <code>in</code>:</p>
+<pre><code class="language-js">if (`bluetooth` in navigator) {
+  // Есть доступ к Bluetooth API.
+}
+
+if (`serviceWorker` in navigator) {
+  // Есть доступ к Service Worker API.
+}
+
+//  ...
+</code></pre>
+<h3><code>screen</code></h3>
+<p>Чтобы узнать, сколько пикселей занимает по ширине экран без полосы прокрутки (актуально для Windows, где полоса прокрутки отнимает какое-то пространство), используйте <code>availWidth</code>:</p>
+<pre><code class="language-js">// Без учёта полосы:
+const screenWidth = screen.width
+
+// С учётом полосы прокрутки:
+const withoutScrollBar = screen.availWidth
+</code></pre>
+<h3><code>location</code></h3>
+<p>Чтобы программно перейти на другую страницу, используйте <code>location.href</code>:</p>
+<pre><code class="language-js">location.href = &quot;/another-page&quot;
+// Так браузер перейдёт на страницу
+// по адресу another-page на текущем сайте.
+
+location.href = &quot;https://google.com&quot;
+// так браузер перейдёт на другой сайт.
+</code></pre>
+<p>Чтобы узнать полный путь от корня сайта, используйте <code>location.pathname</code>:</p>
+<pre><code class="language-js">// https://out-great-service.io/full/path/to/current/page
+
+const path = location.pathname
+// path === &quot;/full/path/to/current/page&quot;
+</code></pre>
+<h3><code>history</code></h3>
+<p>Чтобы изменить адрес без перезагрузки страницы, используйте <code>history.pushState</code>:</p>
+<pre><code class="language-js">history.pushState(null, null, &quot;/new/page/url&quot;)
+</code></pre>
+<p>Для передачи данных, ассоциированных с переходом, используйте первый аргумент в <code>history.pushState</code>, а для указания нового заголовка страницы — второй:</p>
+<pre><code class="language-js">const transitionData = { userName: &quot;Alex&quot; }
+const newPageTitle = &quot;Hello world!&quot;
+history.pushState(transitionData, newPageTitle, &quot;/new/page/url&quot;)
+</code></pre>
+<p>Если заголовок не изменился (из-за плохой поддержки браузерами) - используйте <code>document.title</code>.</p>
+<pre><code class="language-js">document.title = 'Hello world!';
+</code></pre>
+<h3><code>localStorage</code></h3>
+<p>Используйте функции-обёртки, чтобы получать доступ к хранилищу безопасно и не забывать превращать данные в JSON-строку при записи и в объект при чтении:</p>
+<pre><code class="language-js">function saveToStorage(key, data) {
+  try {
+    // Если браузер не поддерживает localStorage,
+    // блок try обезопасит код от неожиданной ошибки.
+    window.localStorage.setItem(key', JSON.stringify(data));
+  }
+  catch {
+    alert('Failed to save data to local storage.');
+  }
+}
+
+function loadFromStorage(key) {
+  try {
+    return JSON.parse(window.localStorage.getItem(key));
+  }
+  catch {
+    alert('Failed to load data from local storage.');
+  }
+}
+
+saveToStorage('user', {name: 'Alex', age: 26});
+loadFromStorage('user');
+</code></pre>

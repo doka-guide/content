@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выбор единственного элемента родителя — nth-of-type — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 22px;
+    }
+
+    h2:not(:first-of-type) {
+      margin-top: 40px;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 2em;
+    }
+
+    li + li {
+      margin-top: 5px;
+    }
+
+    span {
+      font-style: italic;
+    }
+
+    li:only-of-type span {
+      background-color: #ed6742;
+    }
+  </style>
+</head>
+<body>
+  <h2>Дни недели в немецком языке</h2>
+  <ul>
+    <li><span>der Montag</span> — понедельник</li>
+    <li><span>der Dienstag</span> — вторник</li>
+    <li><span>der Mittwoch</span> — среда</li>
+    <li><span>der Donnerstag</span> — четверг</li>
+    <li><span>der Freitag</span> — пятница</li>
+    <li><span>der Sonnabend</span> — суббота</li>
+    <li><span>der Sonntag</span> — воскресенье</li>
+  </ul>
+
+  <h2>Единственный день, в названии которого нет слова «день»</h2>
+  <ul>
+    <li><span>der Mittwoch</span> — среда</li>
+  </ul>
+</body>
+</html>

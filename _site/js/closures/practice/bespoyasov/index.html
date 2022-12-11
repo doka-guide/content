@@ -1,0 +1,53 @@
+<p>Используйте скобки в <code>switch</code>, если в <code>case</code> нужно создать блок вычислений больше одной строки. Например, это может пригодиться для улучшения читабельности в редьюсерах при работе с Redux:</p>
+<pre><code class="language-js">function someReducer(state, action) {
+  switch (action.type) {
+    case 'add': {
+      const users = [...state.users, action.user];
+      return {...state, users}
+    }
+    case 'remove': {
+      const users = state.users.filter(user =&gt; user.id !== action.user.id)
+      return {...state, users}
+    }
+  }
+}
+</code></pre>
+<aside>Так как это отдельная область видимости, мы можем не беспокоиться об одинаковых названиях переменных.</aside>
+<p>Используйте IIFE для изолированных модулей или для эмуляции top-level await там, где его ещё нет:</p>
+<pre><code class="language-js">;(async () =&gt; {
+  // So top-level, such await, wuf:
+  const result = await someAsyncFunction();
+})()
+</code></pre>
+<p>Используйте замыкания, чтобы предоставлять контролируемый доступ к внутренним значениям модуля или чтобы разграничивать области видимости и имён:</p>
+<pre><code class="language-js">function counter() {
+  let state = 0
+
+  function increase() {
+    state++
+  }
+
+  function decrease() {
+    state--
+  }
+
+  function valueOf() {
+    console.log(state)
+  }
+
+  return {
+    increase,
+    decrease,
+    valueOf,
+  }
+}
+
+const ticktock = counter()
+
+ticktock.increase()
+ticktock.valueOf() // 1
+
+ticktock.decrease()
+ticktock.valueOf() // 0
+</code></pre>
+<p>Используйте <code>let</code> и <code>const</code> вместо <code>var</code>, чтобы не сойти с ума.</p>

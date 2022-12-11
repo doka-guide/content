@@ -1,0 +1,84 @@
+<h2>Кратко</h2>
+<p>Свойство <code>caret-color</code> задаёт цвет текстового курсора в полях ввода, например, <a href="/html/input/"><code>&lt;input&gt;</code></a> или <a href="/html/textarea/"><code>&lt;textarea&gt;</code></a>.</p>
+<h2>Пример</h2>
+<p>Курсор в поле ввода будет красного цвета:</p>
+<pre><code class="language-html">&lt;label&gt;
+  Красная каретка
+  &lt;input class=&quot;red&quot; type=&quot;text&quot; placeholder=&quot;Красная каретка&quot;&gt;
+&lt;/label&gt;
+</code></pre>
+<pre><code class="language-css">input {
+  display: block;
+  background-color: #ebebeb;
+  font-family: &quot;Roboto&quot;, sans-serif;
+  padding: 5px;
+}
+
+.red {
+  caret-color: #cc0000;
+}
+</code></pre>
+<p>В примере ниже ещё несколько полей ввода с каретками разного цвета:</p>
+<iframe title="Как красить каретку" src="demos/paint-the-caret/" height="330"></iframe>
+<h2>Как пишется</h2>
+<p>Значением для <code>caret-color</code> может быть любое поддерживаемое в CSS <a href="/css/web-colors/">обозначение цвета</a>. Кроме того доступны ключевые слова:</p>
+<ul>
+<li><code>auto</code> — значение по умолчанию, пользовательский агент выбирает подходящий цвет для каретки. Обычно это <a href="/css/currentcolor/"><code>currentColor</code></a>, но пользовательский агент может выбрать другой цвет, чтобы обеспечить хорошую видимость и контраст с окружающим содержимым, принимая во внимание значение <code>currentColor</code>, фон, тени и другие факторы.</li>
+<li><code>transparent</code> — можно использовать везде, где допустимо значение цвета. Это позволяет вам сделать элементы прозрачными, чтобы любой фоновый элемент был виден.</li>
+<li><code>currentColor</code> — соответствует значению свойства <a href="/css/color/"><code>color</code></a> для текущего элемента. Это позволяет использовать значение цвета для свойств, которые не наследуют его по умолчанию.</li>
+</ul>
+<h2>Как понять</h2>
+<p>Простое CSS-свойство, служащее единственной цели — кастомизации цвета для текстового курсора в полях ввода. Текстовый курсор — это видимый маркера, в который будет вставлен следующий введённый символ. Свойство является наследуемым, поэтому его можно указать глобально или для формы, и не указывать каждому полю ввода отдельно.</p>
+<h2>Ещё пример</h2>
+<p>В данном примере мы создадим форму с несколькими полями ввода, для формы зададим оранжевый цвет каретки, <a href="/html/input/"><code>&lt;input&gt;</code></a> будет наследовать свойство от формы, для <a href="/html/textarea/"><code>&lt;textarea&gt;</code></a> переопределим его на синий, а для параграфа с атрибутом <a href="/html/global-attrs/"><code>contenteditable</code></a> зададим зелёный цвет каретки:</p>
+<pre><code class="language-html">&lt;form&gt;
+  &lt;input type=&quot;text&quot;&gt;
+  &lt;textarea cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;p contenteditable&gt;Зелёная каретка&lt;/p&gt;
+</code></pre>
+<pre><code class="language-css">form {
+  caret-color: #ff8630;
+}
+
+form textarea {
+  caret-color: #0d47a1;
+}
+
+form p {
+  caret-color: #00dd00;
+}
+</code></pre>
+<iframe title="Наследование и переопределение значения" src="demos/form/" height="330"></iframe>
+<h2>И ещё пример</h2>
+<p>Добавим немного радуги в наш <a href="/html/input/"><code>&lt;input&gt;</code></a>:</p>
+<pre><code class="language-html">&lt;input type=&quot;text&quot;&gt;
+</code></pre>
+<pre><code class="language-css">@keyframes rainbow {
+  0% { caret-color: red; }
+  20% { caret-color: orange; }
+  40% { caret-color: yellow; }
+  60% { caret-color: green; }
+  80% { caret-color: blue; }
+  100% { caret-color: purple; }
+}
+
+input {
+  display: block;
+  width: 60vw;
+  height: 50px;
+  font-family: &quot;Roboto&quot;, sans-serif;
+  font-size: 50px;
+  caret-color: red;
+  background: rgb(255 255 255 / .1);
+  color: #eee;
+  border-radius: 1rem;
+  border: 2px dotted rgb(255 255 255 / .1);
+}
+
+input:focus {
+  animation: 3s infinite rainbow;
+}
+</code></pre>
+<iframe title="Анимированная радужная каретка" src="demos/rainbow-input/" height="330" sandbox></iframe>

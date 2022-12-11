@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Треугольники — border — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    .parent {
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 5%;
+    }
+
+    .top {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid #49a16c;
+    }
+
+    .left {
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-right: 100px solid #064236;
+      border-bottom: 50px solid transparent;
+    }
+
+    .right {
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-left: 100px solid #1a5ad7;
+      border-bottom: 50px solid transparent;
+    }
+
+    .bottom {
+      width: 0;
+      height: 0;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 100px solid #afc9da;
+    }
+
+    .top-left {
+      width: 0;
+      height: 0;
+      border-top: 100px solid #e6e6e6;
+      border-right: 100px solid transparent;
+    }
+
+    .top-right {
+      width: 0;
+      height: 0;
+      border-top: 100px solid #ed6742;
+      border-left: 100px solid transparent;
+    }
+
+    .bottom-left {
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid #f498ad;
+      border-right: 100px solid transparent;
+    }
+
+    .bottom-right {
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid #ffd829;
+      border-left: 100px solid transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="bottom"></div>
+  </div>
+
+  <div class="parent">
+    <div class="top-left"></div>
+    <div class="top-right"></div>
+    <div class="bottom-left"></div>
+    <div class="bottom-right"></div>
+  </div>
+</body>
+</html>

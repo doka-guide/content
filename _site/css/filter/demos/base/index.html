@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования filter — filter — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html {
+      height: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    body {
+      background-color: #18191c;
+      color: white;
+    }
+
+    img {
+      filter: grayscale(1);
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+
+    img:hover {
+      filter: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="../images/like.png" alt="Схематичное изображение собаки с сердечками вместо глаз.">
+</body>
+</html>

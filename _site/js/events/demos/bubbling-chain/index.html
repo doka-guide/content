@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Всплытие событий по цепочке вложенности — events — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      margin: auto;
+    }
+
+    .container > div {
+      margin-top: 50px;
+    }
+
+    div {
+      max-width: 100%;
+      padding: 20px;
+      border: solid thin #665610;
+      border-radius: 6px;
+      background-color: #18191c;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 140%;
+    }
+
+    .active {
+      background-color: #FFD829;
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <h1>Всплытие событий</h1>
+    <p>JavaScript слушает события click на всех &lt;div&gt;, изображённых ниже. Когда событие происходит, &#60;div&#62; закрашивается жёлтым цветом. Скорость срабатывания замедлена, в жизни все происходит за миллисекунды.</p>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let active
+    let counter = 0
+
+    // слушаем событие click на всех <div>
+    const divs = Array.from(document.querySelectorAll('div')).reverse()
+    for(let i= 0; i < divs.length; ++i) {
+      const isLast = (i + 1 === divs.length)
+      divs[i].addEventListener('click', clickHandlerGenerator(isLast))
+    }
+
+    function clickHandlerGenerator(isLast = false) {
+      return function() {
+        const me = this
+        setTimeout(function() {
+          if (active) {
+            active.classList.remove('active')
+          }
+          me.classList.add('active')
+
+          active = me
+
+          if (isLast) {
+            setTimeout(function() {
+              active.classList.remove('active')
+              active = undefined
+              counter = 0
+            }, 300)
+          }
+        }, counter * 300)
+        ++counter
+      }
+    }
+  </script>
+</body>
+</html>

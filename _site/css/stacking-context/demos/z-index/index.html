@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>z-index — Контекст наложения — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .block {
+      width: 150px;
+      height: 150px;
+      border: 5px solid black;
+      box-sizing: border-box;
+    }
+
+    .first {
+      position: relative;
+      z-index: 1;
+      background-color: #1A5AD7;
+    }
+
+    .second {
+      margin-top: -50px;
+      margin-left: 50px;
+      background-color: #c000ff;
+    }
+
+    .third {
+      margin-top: -50px;
+      background-color: #09ff00;
+    }
+  </style>
+</head>
+<body>
+  <div class="block first"></div>
+  <div class="block second"></div>
+  <div class="block third"></div>
+</body>
+</html>

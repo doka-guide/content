@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Font-size vs. Transform — transform — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-size: calc(1em - 1px);
+      font-family: "Roboto Mono", monospace;
+    }
+
+    h2 {
+      font-size: 1.375rem;
+    }
+
+    h3 {
+      margin-top: 50px;
+      margin-bottom: 17px;
+      font-size: 1.25rem;
+    }
+
+    h2, h3 {
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .nav-item + .nav-item {
+      margin-left: 20px;
+    }
+
+    .nav a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: font-size 0.3s;
+    }
+
+    .nav.font-size a:hover {
+      font-size: 22px;
+    }
+
+    .nav.transform a {
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .nav.transform a:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Увеличиваем размер шрифта при наведении</h2>
+    <h3>Через изменение <code>font-size</code></h3>
+    <ul class="nav font-size">
+      <li class="nav-item"><a href="#">Каталог</a></li>
+      <li class="nav-item"><a href="#">О нас</a></li>
+      <li class="nav-item"><a href="#">Доставка</a></li>
+      <li class="nav-item"><a href="#">Оплата</a></li>
+    </ul>
+
+    <h3>Через применение <code>transform</code></h3>
+    <ul class="nav transform">
+      <li class="nav-item"><a href="#">Каталог</a></li>
+      <li class="nav-item"><a href="#">О нас</a></li>
+      <li class="nav-item"><a href="#">Доставка</a></li>
+      <li class="nav-item"><a href="#">Оплата</a></li>
+    </ul>
+  </div>
+</body>
+</html>

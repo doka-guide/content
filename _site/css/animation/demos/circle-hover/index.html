@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Круг с анимацией по ховеру — CSS-анимации — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 50px;
+      background-color: #18191C;
+    }
+
+    .parent {
+      width: 100%;
+      height: calc(100vh - 100px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .child {
+      border-radius: 25px;
+      width: 50px;
+      height: 50px;
+      background-color: #F498AD;
+      animation:
+        circle-to-square 10s infinite alternate ease-out 1s,
+        color-change 5s alternate linear infinite;
+    }
+
+    @keyframes circle-to-square {
+      from {
+        width: 50px;
+        height: 50px;
+      }
+      50% {
+        width: 100%;
+        height: 50px;
+      }
+      to {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @keyframes color-change {
+      from {
+        background-color: #F498AD;
+      }
+      50% {
+        background-color: #7F6EDB;
+      }
+      to {
+        background-color: #2E9AFF;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child"></div>
+  </div>
+</body>
+</html>

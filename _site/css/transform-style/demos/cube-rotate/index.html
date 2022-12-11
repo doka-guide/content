@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вращающийся полупрозрачный куб — transform-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    #cube {
+      margin: 50px;
+      width: 100px;
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      transform-style: preserve-3d;
+      transform: rotate3d(1, 1, 1, -45deg);
+      animation: rot 10s linear infinite;
+    }
+
+    .face {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: inherit;
+      font-size: 60px;
+      color: #fff;
+    }
+
+    .front {
+        background: rgb(197 111 255 / 70%);
+        transform: translateZ(50px);
+    }
+
+    .back {
+        background: rgb(65 232 71 / 70%);
+        transform: rotateY(180deg) translateZ(50px);
+    }
+
+    .right {
+      background: rgb(244 152 173 / 70%);
+      transform: rotateY(90deg) translateZ(50px);
+    }
+
+    .left {
+      background: rgb(46 154 255 / 70%);
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+
+    .top {
+      background: rgb(255 216 41 / 70%);
+      transform: rotateX(90deg) translateZ(50px);
+    }
+
+    .bottom {
+      background: rgb(255 134 48 / 70%);
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    @keyframes rot {
+      from {
+        transform: rotateX(45deg) rotateY(30deg) rotateZ(0);
+      }
+      to {
+        transform: rotateX(-315deg) rotateY(-330deg) rotateZ(360deg);
+      }
+}
+  </style>
+</head>
+<body>
+<section id="cube">
+  <div class="face front">1</div>
+  <div class="face back">2</div>
+  <div class="face right">3</div>
+  <div class="face left">4</div>
+  <div class="face top">5</div>
+  <div class="face bottom">6</div>
+</section>
+</body>
+</html>

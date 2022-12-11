@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с кнопкой — currentColor — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background-color: #dfdfdf;
+      font-family: "Roboto", sans-serif;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      line-height: 27px;
+      padding: 0 10px;
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px grey;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    span {
+      font-size: 16px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+
+    svg {
+      width: 16px;
+      fill: currentColor;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      margin-bottom: 30px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+    }
+
+    input {
+      cursor: pointer;
+    }
+
+    label {
+      position: relative;
+      cursor: pointer;
+      padding-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>
+      <input class="js-radio" id="black" type="radio" name="color" value="black" checked>
+      <label for="black">black</label>
+    </li>
+    <li>
+      <input class="js-radio" id="brown" type="radio" name="color" value="brown">
+      <label for="brown">brown</label>
+    </li>
+    <li>
+      <input class="js-radio" id="cadetblue" type="radio" name="color" value="cadetblue">
+      <label for="cadetblue">cadetblue</label>
+    </li>
+    <li>
+      <input class="js-radio" id="coral" type="radio" name="color" value="coral">
+      <label for="coral">coral</label>
+    </li>
+  </ul>
+  <button class="js-button">
+    <span>Удалить</span>
+    <svg aria-hidden="true" viewBox="0 0 448 512">
+      <path d="M32 464a48 48 0 0048 48h288a48 48 0 0048-48V128H32zm272-256a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zm-96 0a16 16 0 0132 0v224a16 16 0 01-32 0zM432 32H312l-9-19a24 24 0 00-22-13H167a24 24 0 00-22 13l-9 19H16A16 16 0 000 48v32a16 16 0 0016 16h416a16 16 0 0016-16V48a16 16 0 00-16-16z"/>
+    </svg>
+  </button>
+  <script>
+    const SELECTORS = {
+      radios: '.js-radio',
+      button: '.js-button',
+    }
+
+    const radios = document.querySelectorAll(SELECTORS.radios)
+    const button = document.querySelector(SELECTORS.button)
+
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        button.style.color = event.target.value
+      })
+    })
+  </script>
+</body>
+</html>

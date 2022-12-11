@@ -1,0 +1,89 @@
+<p>Рассмотрим несколько примеров, когда Docker может пригодиться.</p>
+<p>Например, вы можете запустить свой сервер Minecraft одной командой:</p>
+<pre><code class="language-bash">docker run -e EULA=TRUE -d -p 25565:25565 --name mc itzg/minecraft-server
+</code></pre>
+<p>Подобных образов достаточно много на <a href="https://hub.docker.com">Docker Hub</a>. Для ежедневной работы полезнее будут образы с популярными инструментами или сервисами, например:</p>
+<ol>
+<li><a href="https://hub.docker.com/_/nginx">Веб-сервер Nginx</a>;</li>
+<li><a href="https://hub.docker.com/_/httpd">Веб-сервер Apache</a>;</li>
+<li><a href="https://hub.docker.com/_/mongo-express">Связка базы данных MongoDB и фреймворка Express</a>;</li>
+<li><a href="https://hub.docker.com/_/sentry">Сервис Sentry для мониторинга ошибок в браузерах</a>;</li>
+<li><a href="https://hub.docker.com/_/sonarqube">Линтер SonarQube с поддержкой большого количества языков</a>;</li>
+<li><a href="https://hub.docker.com/r/femtopixel/google-lighthouse">Инструмент для оценки качества страниц Google Lighthouse</a>.</li>
+</ol>
+<h3>Попробовать движок сайта без установки</h3>
+<p>Иногда нам нужно посмотреть, как работает та или иная CMS (Content Management System). CMS — это веб-приложение, которое позволяет управлять содержимым сайта и внешним видом через веб-интерфейс. Чтобы такое приложение заработало, нужно установить базу данных, веб-сервер и интерпретатор языка, на котором написана CMS. Но можно и ничего не устанавливать! Docker позволяет запустить CMS одной командой. После запуска вы сможете работать с CMS через веб-интерфейс в своём браузере или через терминал, если понадобится доступ к файлам и ресурсам приложения.</p>
+<p>Запускаем Wordpress одной командой:</p>
+<pre><code class="language-bash">docker run --name some-wordpress -p 8080:80 -d wordpress
+</code></pre>
+<p>Запускаем Drupal командой:</p>
+<pre><code class="language-bash">docker run --name some-drupal -p 8080:80 -d drupal
+</code></pre>
+<h3>Попробовать новый фреймворк</h3>
+<p>Фронтенд-разработчику Docker даёт возможность попробовать разные технологии без траты времени на установку и настройку. Например, упаковать приложение на платформе <a href="/tools/nodejs/">Node.js</a> в контейнер не составит большого труда. Добавьте в проект файл Dockerfile:</p>
+<pre><code class="language-dockerfile">FROM node:12
+
+# Создание директории приложения
+WORKDIR /app
+
+# Установка зависимостей, учитывая package.json и package-lock.json
+COPY package*.json ./
+
+RUN npm i
+
+# Сборка проекта, если есть необходимость
+RUN npm ci --only=production
+
+# Копирование исходного кода приложения
+COPY . .
+
+EXPOSE 8080
+CMD [ &quot;node&quot;, &quot;app.js&quot; ]
+</code></pre>
+<p>После этого выполните команду:</p>
+<pre><code class="language-bash">docker build .
+</code></pre>
+<p>Точка в конце означает, что образ собирается из текущей папки. По умолчанию для сборки используется файл с именем Dockerfile. После ключа <code>-t</code> можно задать имя образа:</p>
+<pre><code class="language-bash">docker build -t app .
+</code></pre>
+<p>После сборки вы сможете запустить контейнер с приложением внутри него.</p>
+<p>Вы можете начать проект на Angular, React или Vue, полностью переместив разработку внутрь контейнера. Популярные редакторы так или иначе поддерживают эту возможность. Такой подход позволит учитывать все особенности и тонкости настройки проекта не только вам, как автору, но и тем, кто будет работать с проектом в будущем.</p>
+<p>Не бойтесь, что каждый образ, каждая настройка будут занимать много места. Переиспользование — благо, от которого не уходят и разработчики Docker. Все слои образа, которые уже есть на вашем компьютере, будут переиспользованы. Тем не менее, за образами и контейнерами нужно следить, чтобы хранилище не разрасталось, а оперативная память не заканчивалась. Все это можно настроить с помощью <a href="https://docs.docker.com/config/containers/resource_constraints/">установки ограничений</a>.</p>
+<h3>Готовить картинки и другие ресурсы</h3>
+<p>Интересным примером использования Docker является подготовка ресурсов веб-приложения.</p>
+<p>С помощью утилиты <a href="https://imagemagick.org/">ImageMagick</a> можно работать с картинками в консоли. Вы можете установить её на свой компьютер или использовать готовый образ. Например, чтобы изменить размеры картинки, выполните команду:</p>
+<pre><code class="language-bash">docker run -v /your/images:/imgs dpokidov/imagemagick /imgs/sample.png -resize 100x100 /imgs/resized-sample.png
+</code></pre>
+<p>Необходимо поработать со шрифтами? Например, популярный инструмент <a href="https://github.com/filamentgroup/glyphhanger">glyphhanger</a> требует нетривиальной установки. Но есть готовый Docker-образ, и с его помощью можно запустить эту утилиту командой:</p>
+<pre><code class="language-bash">docker container run --rm -v $(pwd):/hwd wopolow/glyphhanger glyphhanger
+</code></pre>
+<p>Можно также заменить эту длинную команду алиасом в файле настроек терминала:</p>
+<pre><code class="language-bash">alias glyphy='~/.docker-glyphhanger/docker-glyphhanger.sh'
+</code></pre>
+<p>Предварительно надо написать соответствующий скрипт в файле <code>~/.docker-glyphhanger/docker-glyphhanger.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# Проверка работающей службы Docker
+if ! (command -v docker &gt;&gt; /dev/null)
+then
+    echo &quot;docker command not found!&quot;;
+    exit 1;
+fi
+
+# Проверка нужного образа в локальном хранилище
+if !(docker image ls | grep wopolow/glyphhanger &gt;&gt; /dev/null)
+then
+    docker pull wopolow/glyphhanger
+fi
+
+# Запуск утилиты glyphhanger
+if ! [ -z &quot;$1&quot; ] &amp;&amp; [ $1 != &quot;install&quot; ]
+then
+    docker container run --rm -v $(pwd):/hwd wopolow/glyphhanger glyphhanger $@
+else
+    echo &quot;docker-glyphhanger: internal installation complete&quot;;
+fi
+</code></pre>
+<p>После этого вы сможете производить всякие манипуляции со шрифтами простой командой, используя параметры утилиты <code>glyphhanger</code>:</p>
+<pre><code class="language-bash">glyphy &lt;параметры&gt;
+</code></pre>

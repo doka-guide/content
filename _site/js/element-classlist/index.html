@@ -1,0 +1,110 @@
+<h2>Кратко</h2>
+<p><code>Element.classList</code> даёт возможность просматривать и манипулировать <a href="/html/class/">классами</a> элемента.</p>
+<h2>Пример</h2>
+<pre><code class="language-js">const button = document.querySelector(&quot;button&quot;)
+
+button.classList.add(&quot;active&quot;) // добавили класс
+button.classList.remove(&quot;active&quot;) // удалили класс
+button.classList.contains(&quot;active&quot;) // вернет false, т.к. класса у элемента нет
+</code></pre>
+<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="150"></iframe>
+<h2>Как понять</h2>
+<p>Управлять классами элемента — одна из распространённых задач, потому браузеры предоставляют встроенные средства для решения такой задачи. <code>Element.classList</code> — это специальный объект, который хранит информацию о текущих классах элемента и содержит методы для работы с ними.</p>
+<pre><code class="language-js">const button = document.querySelector(&quot;button&quot;)
+
+button.classList.add(&quot;active&quot;)
+button.classList[0] // 'active'
+</code></pre>
+<h2>Как пишется</h2>
+<p>У <code>Element.classList</code> есть множество методов, но мы рассмотрим только часто используемые.</p>
+<h3><code>Element.classList.add</code></h3>
+<p>Этот метод используется для добавления класса к элементу. В качестве аргументов нужно передавать строку с именем класса.</p>
+<pre><code class="language-js">const element = document.querySelector(&quot;div&quot;)
+
+// Добавится класс animate
+element.classList.add(&quot;animate&quot;)
+</code></pre>
+<p>Можно так же передать несколько строк-аргументов, тогда добавится несколько классов:</p>
+<pre><code class="language-js">const element = document.querySelector(&quot;div&quot;)
+
+// Добавятся классы black, fade и animate
+element.classList.add(&quot;black&quot;, &quot;fade&quot;, &quot;animate&quot;)
+</code></pre>
+<aside>
+<p>💡 Можно не бояться, что один тот же класс добавится два раза. Если вызвать метод <code>.add</code> и передать уже существующий класс, то он не добавится второй раз.</p>
+</aside>
+<pre><code class="language-js">// Находим блок, у которого уже есть класс header
+const element = document.querySelector(&quot;div.header&quot;)
+
+// Добавится только animate, т.к. header уже есть на элементе
+element.classList.add(&quot;header&quot;, &quot;animate&quot;)
+</code></pre>
+<h3><code>Element.classList.remove</code></h3>
+<p>Метод используется для удаления класса у элемента. В качестве аргумента нужно передавать строку с именем класса.</p>
+<pre><code class="language-js">// На кнопке есть класс submit, предположим что он единственный
+const button = document.querySelector(&quot;button.submit&quot;)
+
+// Убираем класс
+button.classList.remove(&quot;submit&quot;)
+button.classList[0] // undefined т.к. класса больше нет
+</code></pre>
+<p>В <code>.remove()</code> можно передать несколько аргументов и удалится несколько классов</p>
+<pre><code class="language-js">// Предположим следующий элемент
+// &lt;div class=&quot;banner hidden animated&quot;&gt;...&lt;/div&gt;
+const elem = document.querySelector(&quot;div.banner&quot;)
+
+// Убираем классы hidden и animated
+button.classList.remove(&quot;hidden&quot;, &quot;animated&quot;)
+</code></pre>
+<h3><code>Element.classList.replace</code></h3>
+<p>Метод позволяет заменить одно значение класса другим. Метод принимает 2 параметра:</p>
+<ul>
+<li>название класса, который нужно заменить</li>
+<li>название класса, на что нужно заменить</li>
+</ul>
+<p>После выполнения <code>.replace()</code> возвращает boolean-значение, которые сообщает нам об успешности или неуспешности операции:</p>
+<ul>
+<li><code>true</code> если класс был заменён</li>
+<li><code>false</code> если ничего не изменилось</li>
+</ul>
+<pre><code class="language-js">// На кнопке есть класс hidden
+const button = document.querySelector(&quot;button.hidden&quot;)
+
+// Заменяем класс hidden на visible
+const result = button.classList.replace(&quot;hidden&quot;, &quot;visible&quot;)
+console.log(result) // Будет true и класс успешно заменился на visible
+
+// Попробуем заменить еще раз
+const resultAgain = button.classList.replace(&quot;hidden&quot;, &quot;visible&quot;)
+console.log(result) // Теперь будет false, потому что ничего не изменилось
+</code></pre>
+<h3><code>Element.classList.toggle</code></h3>
+<p>Метод можно использовать чтобы включать или выключать класс. Если при вызове <code>.toggle()</code> переданный класс уже есть на элементе, то он будет убран. Если класса не было — то добавлен.</p>
+<pre><code class="language-js">// На кнопке есть класс hidden
+const button = document.querySelector(&quot;button.hidden&quot;)
+
+// так как класс есть, то он будет убран
+button.classList.toggle(&quot;hidden&quot;)
+// А при повторном вызове будет снова добавлен
+button.classList.toggle(&quot;hidden&quot;)
+</code></pre>
+<p>Метод <code>.toggle()</code> принимает только один класс для переключения. Опционально вторым аргументом можно передать boolean-значение: метод будет работать как <code>.add()</code>, если передать <code>true</code>, и как <code>.remove()</code>, если передать <code>false</code>.</p>
+<pre><code class="language-js">// На кнопке есть класс submit, предположим что он единственный
+const button = document.querySelector(&quot;button.submit&quot;)
+
+// Передаём вторым аргументом false и будет работать как .remove()
+button.classList.toggle(&quot;submit&quot;, false)
+button.classList[0] // undefined, потому что класса больше нет
+
+// Передаём true и теперь класс добавится
+button.classList.toggle(&quot;submit&quot;, true)
+</code></pre>
+<h3>Имена классов</h3>
+<aside>
+<p>☝️ Классом не может быть строка содержащая пробелы. При попытке передать в аргументах такую строку, будет выброшена ошибка. Это правило касается любого метода в <code>classList</code>.</p>
+</aside>
+<pre><code class="language-js">const element = document.querySelector(&quot;div&quot;)
+
+// Метод не сработает и будет выброшена ошибка: Uncaught DOMException: String contains an invalid character
+element.classList.add(&quot;my awesome class&quot;)
+</code></pre>

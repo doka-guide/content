@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты — list-style-image — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      margin: 0;
+      padding: 5%;
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 20px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .parent {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    ul {
+      list-style-image: none;
+    }
+
+    li {
+      font-weight: 300;
+    }
+
+    .url {
+      list-style-image: url(../../images/moon.png);
+    }
+
+    .url2 {
+      list-style-image: url(../../images/halfmoon-big.png);
+    }
+
+    .code {
+      font-family: monospace;
+      font-size: 0.8em;
+    }
+
+    li + li {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <p>Планеты внутренней группы:</p>
+  <div class="parent">
+    <div>
+      <p class="code">list-style-image:<br>none</p>
+      <ul class="none">
+        <li>Меркурий</li>
+        <li>Венера</li>
+        <li>Земля</li>
+        <li>Марс</li>
+      </ul>
+    </div>
+    <div>
+      <p class="code">list-style-image:<br>url(...)</p>
+      <ul class="url">
+        <li>Меркурий</li>
+        <li>Венера</li>
+        <li>Земля</li>
+        <li>Марс</li>
+      </ul>
+    </div>
+    <div>
+      <p class="code">list-style-image:<br>url(...)</p>
+      <ul class="url2">
+        <li>Меркурий</li>
+        <li>Венера</li>
+        <li>Земля</li>
+        <li>Марс</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
