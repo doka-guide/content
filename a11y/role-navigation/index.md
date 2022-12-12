@@ -27,7 +27,7 @@ tags:
 
 ```html
 <header>
-  <span role="nav">
+  <span role="navigation">
     <ul>
       <li>
         <a href="/tapirs-life/">Где обитают тапиры</a>
