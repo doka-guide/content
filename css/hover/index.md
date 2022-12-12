@@ -14,7 +14,7 @@ editors:
   - tachisis
 keywords:
   - :hover
-  - LVHA
+  - LVFHA
   - псевдокласс
   - ховер
 tags:
