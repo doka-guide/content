@@ -51,7 +51,7 @@ tags:
 
 В демо показываем ошибку, когда поле почты не заполнено и при этом нажата кнопка «Отправить».
 
-<iframe title="aria-errormessage для пустого поля field" src="demos/field-with-aria-errormessage/" height="400"></iframe>
+<iframe title="aria-errormessage для пустого поля input" src="demos/field-with-aria-errormessage/" height="400"></iframe>
 
 [Скринридер](/a11y/screenreaders/) прочтёт ошибку примерно так: «Ваша почта обязательно, редактировать, обязательно, неверно. Поле с почтой обязательно для заполнения».
 
