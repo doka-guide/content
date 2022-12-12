@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>aria-errormessage для пустого поля <figure> — aria-errormessage — Дока</title>
+  <title>aria-errormessage для пустого поля <input> — aria-errormessage — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +109,7 @@
     }
 
     .input-container {
+      min-height: 105px;
       margin-bottom: 25px;
     }
 
@@ -143,21 +144,21 @@
     </div>
   </div>
   <script>
-    const input = document.getElementById("email");
-    const button = document.getElementById("button");
-    const error = document.getElementById("error");
+    const input = document.getElementById('email')
+    const button = document.getElementById('button')
+    const error = document.getElementById('error')
 
-    button.addEventListener("click", e => {
-      const value = input.value;
+    button.addEventListener('click', event => {
+      const value = input.value
 
       if (!value) {
-        input.setAttribute("aria-invalid", "true");
-        error.style.display = "block";
+        input.setAttribute('aria-invalid', 'true')
+        error.style.display = 'block'
       } else {
-        input.setAttribute("aria-invalid", "false");
-        error.style.display = "none";
+        input.setAttribute('aria-invalid', 'false')
+        error.style.display = 'none'
       }
-    });
+    })
   </script>
 </body>
 </html>
