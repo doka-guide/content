@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Использование aria-invalid для пустого поля<figure> — aria-invalid — Дока</title>
+  <title>aria-invalid для пустого поля <figure> — aria-invalid — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,22 +139,22 @@
     </div>
   </div>
   <script>
-    const input = document.getElementById("drink");
-    const button = document.getElementById("button");
-    const error = document.getElementById("error");
-    const errorText = document.createTextNode("Введите один любимый напиток. Например, чай, кофе или вода.");
+    const input = document.getElementById('drink')
+    const button = document.getElementById('button')
+    const error = document.getElementById('error')
+    const errorText = document.createTextNode('Введите один любимый напиток. Например, чай, кофе или вода.')
 
-    button.addEventListener("click", e => {
-      const value = input.value;
+    button.addEventListener('click', event => {
+      const value = input.value
 
       if (!value) {
-        input.setAttribute("aria-invalid", "true");
-        error.appendChild(errorText);
+        input.setAttribute('aria-invalid', 'true')
+        error.appendChild(errorText)
       } else {
-        input.setAttribute("aria-invalid", "false");
-        error.innerHTML = "";
+        input.setAttribute('aria-invalid', 'false')
+        error.innerHTML = ''
       }
-    });
+    })
   </script>
 </body>
 </html>
