@@ -311,6 +311,7 @@ groups:
     items:
       - border
       - border-block
+      - border-inline
       - border-collapse
       - border-image
       - border-style
