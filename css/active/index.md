@@ -8,7 +8,7 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - LVHA
+  - LVFHA
   - активное состояние
 related:
   - css/hover

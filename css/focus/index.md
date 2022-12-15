@@ -8,7 +8,7 @@ editors:
   - tachisis
 keywords:
   - :focus
-  - LVHA
+  - LVFHA
   - псевдокласс
 tags:
   - doka
