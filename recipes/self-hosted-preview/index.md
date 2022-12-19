@@ -56,7 +56,7 @@ jobs:
         run: |
           check_suite_url=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }} | jq -r '.check_suite_url')
           check_run_id=$(curl -s -H "Accept: application/vnd.github.v3+json" $check_suite_url/check-runs | jq '.check_runs[] | .id')
-          echo "::set-output name=check_id::$check_run_id"
+          echo "check_id=$check_run_id" >> $GITHUB_OUTPUT
       - name: Установка модулей
         run: npm ci
       - name: Сообщение о начале публикации превью
