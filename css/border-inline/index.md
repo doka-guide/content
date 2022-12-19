@@ -3,8 +3,6 @@ title: "`border-inline`"
 description: "Создаёт рамки элементу по строчной оси."
 authors:
   - starhamster
-keywords:
-  - Альтернативные теги для работы поиска
 related:
   - css/border-width
   - css/border-style
