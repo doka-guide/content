@@ -198,6 +198,8 @@ groups:
       - events
       - event
       - event-change
+      - event-reset
+      - event-input
       - event-dblclick
       - element-click
       - event-invalid
