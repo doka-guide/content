@@ -4,6 +4,8 @@
 
 ## Декабрь 2022
 
+- 19 декабря, [`aria-invalid`](https://doka.guide/a11y/aria-invalid/), Татьяна Фокина
+- 19 декабря, [`aria-errormessage`](https://doka.guide/a11y/aria-errormessage/), Татьяна Фокина
 - 7 декабря, [`scrollbar-width`](https://doka.guide/css/scrollbar-width/), Иван Ельцов
 - 7 декабря, [`scrollbar-color`](https://doka.guide/css/scrollbar-color/), Иван Ельцов
 - 7 декабря, [`all`](https://doka.guide/css/all/), Иван Ельцов
