@@ -18,7 +18,7 @@ jobs:
           list=$(echo $pr_files | grep -o '"filename": "[^"]*' | cut -d'"' -f4)
           mdReplaced=${list//md/html}
           returnReplaced=${list//$"\n"/ }
-          echo "all=$returnReplaced" >> $GITHUB_OUTPUT
+          echo "all='$returnReplaced'" >> $GITHUB_OUTPUT
           echo $returnReplaced
   pr-preview:
     runs-on: ubuntu-latest
