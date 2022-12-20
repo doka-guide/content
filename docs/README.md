@@ -11,6 +11,7 @@
 - [Шаблон статьи](examples/article.md)
 - [Про демки](demos/index.md)
 - [Про стиль демок](demos/style.md)
+- [Про схемы](schemes.md)
 - [Про раздел «На практике»](practice.md)
 - [Про рубрику «На собеседовании»](interviews.md)
 - [Инструкция по проверке орфографии](speller.md)
