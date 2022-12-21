@@ -335,6 +335,9 @@ groups:
       - resize
       - scroll-behavior
       - scroll-padding
+      - scrollbar-color
+      - scrollbar-gutter
+      - scrollbar-width
       - zoom
   - name: 'SVG'
     items:
