@@ -12,6 +12,7 @@ contributors:
   - furtivite
   - skorobaeus
   - devergence
+  - uxdimon
 editors:
   - tachisis
 keywords:
