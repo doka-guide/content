@@ -81,7 +81,7 @@ jobs:
           if ! [[ $file_list == "" ]]; then
             file_list=$(echo -e "<br><p>Список изменённых материалов:<ul>${file_list}</ul><p>")
           fi
-          echo list=$(echo -e "${file_list}") >> $GITHUB_OUTPUT
+          echo list='$(echo -e "${file_list}")' >> $GITHUB_OUTPUT
       - name: Установка ключа для пользователя
         run: |
           set -eu
