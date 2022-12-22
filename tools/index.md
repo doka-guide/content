@@ -1,7 +1,14 @@
 ---
-name: 'Инструменты'
+name: 'Полезное'
+
 groups:
-  - name: Внутри проекта на JavaScript
+  - name: Внутри браузера
+    items:
+      - how-the-browser-creates-pages
+      - coordinates
+      - browsers-storages
+
+  - name: Сборка проекта
     items:
       - package-managers
       - bundlers
@@ -11,14 +18,48 @@ groups:
       - static-types
       - nodejs
       - nodejs-tooling
-      - markdown
+
+  - name: Фреймворки
+    items:
+      - react-and-alternatives
+  - name: Развертывание проекта
+    items:
+      - docker
+      - docker-compose
+      - docker-data-management
+      - dockerfile
+      - gitlab-ci-cd
       - ci-cd
       - github-actions
-      - gitlab-ci-cd
-  - name: На стороне сервера
+
+  - name: Aрхитектура и хорошие практики
     items:
+      - architecture-and-design-patterns
       - microservices
       - gateway-bff
+      - clean-architecture
+      - architecture-data-flow
+      - architecture-mvc
+      - architecture-and-design-patterns
+      - design-patterns-creational
+      - design-patterns-structural
+      - design-patterns-behaviorial
+
+  - name: Как устроен веб
+    items:
+      - api
+      - web-app-types
+      - web-app-works
+      - web-security
+
+  - name: "Стили программирования"
+    items:
+      - programming-paradigms
+      - oop
+      - fp
+      - reactivity
+      - tdd
+
   - name: Операционная система
     items:
       - file
@@ -26,31 +67,29 @@ groups:
       - multitasking-and-processes
       - process-management
       - ssh
-  - name: Система контроля версий
-    items:
-      - version-control
-      - git-cli
-  - name: Форматы обмена данными
+
+  - name: Форматы данных
     items:
       - json
       - yaml
       - xml
-  - name: Работа в команде
+      - markdown
+  - name: Инженерная культура
     items:
       - agile
       - code-review
-  - name: 'Веб-серверы'
+      - technical-debt
+      - code-style
+      - version-control
+      - git-cli
+
+  - name: 'Бэкенд'
     items:
       - web-server
       - apache-web-server
       - nginx-web-server
-  - name: 'Docker'
-    items:
-      - docker
-      - docker-compose
-      - docker-data-management
-      - dockerfile
-  - name: Как устроена сеть
+
+  - name: Сеть
     items:
       - url
       - network
@@ -59,9 +98,18 @@ groups:
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+
   - name: Базы данных
     items:
       - elasticsearch
+
+  - name: "Тестирование"
+    items:
+      - how-to-test-and-why
+      - tdd
+      - how-to-simplify-tests
+      - testing-and-fake-objects
+      - integration-and-system-testing
 ---
 
-Вспомогательные технологии, процессы и инструменты для разработки и публикации приложений.
+Здесь собраны технологии, теория и хорошие практики которые пригодятся при разработке веб-приложений.
