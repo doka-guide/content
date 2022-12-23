@@ -34,6 +34,7 @@ groups:
     items:
       - aria-labelledby
       - aria-describedby
+      - aria-errormessage
       - aria-controls
       - aria-owns
   - name: 'Структура документа'
@@ -72,7 +73,9 @@ groups:
       - aria-hidden
       - aria-level
       - aria-placeholder
+      - aria-errormessage
       - aria-required
+      - aria-invalid
       - aria-checked
       - aria-selected
       - aria-multiselectable
@@ -130,6 +133,7 @@ groups:
       - aria-label
       - aria-labelledby
       - aria-describedby
+      - aria-errormessage
       - aria-description
       - aria-roledescription
       - aria-keyshortcuts
@@ -144,6 +148,7 @@ groups:
       - aria-level
       - aria-placeholder
       - aria-required
+      - aria-invalid
       - aria-checked
       - aria-selected
       - aria-multiselectable
