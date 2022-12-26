@@ -4,7 +4,7 @@
 
 ## Декабрь 2022
 
-- 26 декабря, [`border-inline`](border-inline), Антон Капустинский
+- 26 декабря, [`border-inline`](https://doka.guide/css/border-inline/), Антон Капустинский
 - 19 декабря, [`aria-invalid`](https://doka.guide/a11y/aria-invalid/), Татьяна Фокина
 - 19 декабря, [`aria-errormessage`](https://doka.guide/a11y/aria-errormessage/), Татьяна Фокина
 - 7 декабря, [`scrollbar-width`](https://doka.guide/css/scrollbar-width/), Иван Ельцов
