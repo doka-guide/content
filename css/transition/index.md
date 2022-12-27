@@ -40,7 +40,7 @@ tags:
 
 ```css
 .selector {
-  transition: margin-left 4s;
+  transition: transform 4s;
 }
 ```
 
@@ -48,7 +48,7 @@ tags:
 
 ```css
 .selector {
-  transition: margin-left 4s 1s;
+  transition: transform 4s 1s;
 }
 ```
 
@@ -56,7 +56,7 @@ tags:
 
 ```css
 .selector {
-  transition: margin-left 4s ease-in-out 1s;
+  transition: transform 4s ease-in-out 1s;
 }
 ```
 
@@ -64,7 +64,7 @@ tags:
 
 ```css
 .selector {
-  transition: margin-left 4s, color 1s;
+  transition: transform 4s, color 1s;
 }
 ```
 
