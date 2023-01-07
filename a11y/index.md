@@ -70,6 +70,7 @@ groups:
       - role-button
       - role-link
       - role-checkbox
+      - role-switch
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -126,6 +127,7 @@ groups:
       - role-button
       - role-link
       - role-checkbox
+      - role-switch
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
