@@ -10,17 +10,17 @@ const multipleTwo = (n) => n * 2;
 Функция может быть передаваемым аргументом другой функции:
 ```js
 async function loadData(func) {
-	loading = true;
-	// другой код относящийся к инициализации статусов загрузки
+  loading = true;
+  // другой код относящийся к инициализации статусов загрузки
 
-	await func();
+  await func();
 
-	loading = false;
-	// другой код относящийся к закрытию загрузчиков
+  loading = false;
+  // другой код относящийся к закрытию загрузчиков
 }
 
 function getData() {
-	// код получения данных с сервера
+  // код получения данных с сервера
 }
 
 loadData(getData);
@@ -29,8 +29,8 @@ loadData(getData);
 Функции могут быть возвращаемым значением другой функции:
 ```js
 function makeAdder(x) {
-	return function(y) {
-		return x + y;
-	};
+  return function(y) {
+    return x + y;
+  };
 };
 ```
