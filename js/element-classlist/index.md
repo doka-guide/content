@@ -169,25 +169,22 @@ button.classList.toggle('submit', true)
 
 Метод позволяет проверить наличие класса у элемента. Метод принимает 1 параметр:
 
-- название класса, наличие которого нужно проверить.
+- название класса, наличие которого нужно проверить [string-значение](/js/string/).
 
 Метод `contains()` вернет `true` если класс есть и `false` если класса нет.
 
-- `true` если класс найден;
-- `false` если класс отсутствует.
-
 ```js
-// На кнопке есть класс hidden
+// На кнопке есть класс hidden, найдем эту кнопку.
 const button = document.querySelector('button.hidden')
 
 // Проверим, есть ли класс visible на кнопке
-const result = button.classList.contains('visible')
+const isVisible = button.classList.contains('visible')
 console.log(isVisible)
 // false, класс 'visible' у кнопки отсутствует
 
 // Проверим, есть ли класс hidden на кнопке
-const result = button.classList.contains('hidden')
-console.log(result)
+const isHidden = button.classList.contains('hidden')
+console.log(isHidden)
 // true, класс 'hidden' у кнопки присутствует
 ```
 
