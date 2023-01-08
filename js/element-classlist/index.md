@@ -182,7 +182,7 @@ const button = document.querySelector('button.hidden')
 
 // Проверим, есть ли класс visible на кнопке
 const result = button.classList.contains('visible')
-console.log(result)
+console.log(isVisible)
 // false, класс 'visible' у кнопки отсутствует
 
 // Проверим, есть ли класс hidden на кнопке
