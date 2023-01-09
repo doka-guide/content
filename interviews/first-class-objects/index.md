@@ -5,4 +5,4 @@ related:
   - js/fp
 ---
 
-Почему функции в JS называют объектами первого класса (First-class Objects)?
+Почему JavaScript функции являются объектами первого класса (First-class Objects)?
