@@ -1,6 +1,6 @@
 ---
 title: "`word-wrap`"
-description: "Как настроить переносы по символам в css"
+description: "Как настроить переносы по символам в CSS."
 authors:
   - doka-dog
 keywords:
