@@ -16,7 +16,7 @@ async function loadData(func) {
   await func();
 
   loading = false;
-  // другой код относящийся к закрытию загрузчиков
+  // другой код относящийся к обработке статуса загрузки
 }
 
 function getData() {
