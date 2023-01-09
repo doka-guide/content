@@ -17,6 +17,7 @@ tags:
 ## Пример
 
 Напишем код, который видоизменит первую строку текста:
+
 ```css
 p::first-line {
   text-transform: uppercase;
