@@ -6,9 +6,9 @@ authors:
 keywords:
   - перенос слов
 related:
-  - hyphens
-  - word-break
-  - overflow-wrap
+  - css/hyphens
+  - css/word-break
+  - css/overflow-wrap
 tags:
   - doka
   - placeholder
