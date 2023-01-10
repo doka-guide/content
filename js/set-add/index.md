@@ -4,7 +4,7 @@ description: "Добавляет значение в коллекцию `Set`."
 authors:
   - nlopin
 related:
-  - js/oop
+  - tools/oop
   - js/language-versions
   - js/map
 tags:

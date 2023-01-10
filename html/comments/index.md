@@ -7,7 +7,7 @@ editors:
   - tachisis
 related:
   - css/comments
-  - js/technical-debt
+  - tools/technical-debt
   - tools/json
 tags:
   - doka

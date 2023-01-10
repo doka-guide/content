@@ -4,7 +4,7 @@ description: "Встроенный модуль с математическим�
 authors:
   - doka-dog
 related:
-  - js/coordinates
+  - tools/coordinates
   - css/calc
   - js/element-positioning-js
 tags:

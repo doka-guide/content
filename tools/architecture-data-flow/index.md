@@ -15,9 +15,9 @@ keywords:
   - react
   - reactivity
 related:
-  - js/web-app-works
-  - js/architecture-and-design-patterns
-  - js/react-and-alternatives
+  - tools/web-app-works
+  - tools/architecture-and-design-patterns
+  - tools/react-and-alternatives
 tags:
   - article
 ---
@@ -59,7 +59,7 @@ tags:
 - диспетчер, dispatcher;
 - представление или вью, view.
 
-Задача стора похожа на задачу модели из [MVC](/js/architecture-mvc/) — он хранит в себе данные. Изменение данных в сторе влечёт за собой изменение представления, то есть перерисовку пользовательского интерфейса.
+Задача стора похожа на задачу модели из [MVC](/tools/architecture-mvc/) — он хранит в себе данные. Изменение данных в сторе влечёт за собой изменение представления, то есть перерисовку пользовательского интерфейса.
 
 <aside>
 
@@ -81,7 +81,7 @@ tags:
 
 ![Диаграмма потока данных во Flux](images/data-flow-flux.png)
 
-Такой поток данных похож на [классический MVC](/js/architecture-mvc/#vzaimodeystvie-komponentov).
+Такой поток данных похож на [классический MVC](/tools/architecture-mvc/#vzaimodeystvie-komponentov).
 
 ## Двунаправленный поток
 

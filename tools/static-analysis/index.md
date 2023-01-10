@@ -6,9 +6,9 @@ authors:
 contributors:
   - furtivite
 related:
-  - js/code-style
+  - tools/code-style
   - tools/code-review
-  - js/technical-debt
+  - tools/technical-debt
 tags:
   - article
 ---

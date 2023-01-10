@@ -12,7 +12,7 @@ keywords:
 related:
   - js/deal-with-forms
   - html/form
-  - js/api
+  - tools/api
 tags:
   - doka
 ---

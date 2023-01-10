@@ -9,9 +9,9 @@ keywords:
   - tdd
   - driven
 related:
-  - js/clean-architecture
-  - js/web-app-works
-  - js/architecture-and-design-patterns
+  - tools/clean-architecture
+  - tools/web-app-works
+  - tools/architecture-and-design-patterns
 tags:
   - article
 ---
@@ -61,7 +61,7 @@ divide(10, 0)
 
 <aside>
 
-💡 Подробнее о видах тестирования и написании юнит-тестов мы писали в статье [«Как и зачем писать тесты»](/js/how-to-test-and-why/).
+💡 Подробнее о видах тестирования и написании юнит-тестов мы писали в статье [«Как и зачем писать тесты»](/tools/how-to-test-and-why/).
 
 </aside>
 

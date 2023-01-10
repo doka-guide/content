@@ -25,8 +25,8 @@ keywords:
   - cypress
 related:
   - tools/package-managers
-  - js/clean-architecture
-  - js/code-style
+  - tools/clean-architecture
+  - tools/code-style
 tags:
   - article
 ---
@@ -235,7 +235,7 @@ if (a = 20) {}
 
 <aside>
 
-💡 Такие заглушки называются моками. Мы подробно рассказываем о моках в [соответствующей статье](/js/testing-and-fake-objects/).
+💡 Такие заглушки называются моками. Мы подробно рассказываем о моках в [соответствующей статье](/tools/testing-and-fake-objects/).
 
 </aside>
 

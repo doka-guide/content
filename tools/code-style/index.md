@@ -18,7 +18,7 @@ keywords:
   - линтер
 related:
   - tools/code-review
-  - js/technical-debt
+  - tools/technical-debt
   - tools/static-analysis
 tags:
   - article

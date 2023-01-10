@@ -7,9 +7,9 @@ keywords:
   - xml
   - разметка
 related:
-  - js/web-app-works
+  - tools/web-app-works
   - tools/web-server
-  - js/api
+  - tools/api
 tags:
   - doka
 ---

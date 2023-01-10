@@ -18,7 +18,7 @@ keywords:
   - выгода
 related:
   - tools/code-review
-  - js/clean-architecture
+  - tools/clean-architecture
   - tools/static-analysis
 tags:
   - article

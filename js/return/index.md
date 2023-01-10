@@ -6,7 +6,7 @@ authors:
 contributors:
   - furtivite
 related:
-  - js/fp
+  - tools/fp
   - js/function-as-datatype
   - js/expressions-vs-statements
 tags:

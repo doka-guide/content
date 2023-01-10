@@ -12,7 +12,7 @@ keywords:
 related:
   - js/function-as-datatype
   - js/objects-objects-everywhere
-  - js/fp
+  - tools/fp
 tags:
   - doka
 ---

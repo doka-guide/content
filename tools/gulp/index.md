@@ -413,7 +413,7 @@ exports.build = series(
 
 Если вы работаете над web-проектом, который:
 
-- не основан на современных [JS-фреймворках](/js/react-and-alternatives/);
-- не является [SPA](/js/web-app-types/#single-page-applications-spa) или [PWA](/js/web-app-types/#progressive-web-applications-pwa).
+- не основан на современных [JS-фреймворках](/tools/react-and-alternatives/);
+- не является [SPA](/tools/web-app-types/#single-page-applications-spa) или [PWA](/tools/web-app-types/#progressive-web-applications-pwa).
 
 Gulp — ваш бро, не сомневайтесь.

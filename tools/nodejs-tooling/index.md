@@ -10,7 +10,7 @@ keywords:
   - tooling
   - версии
 related:
-  - js/code-style
+  - tools/code-style
   - tools/static-analysis
   - js/language-versions
 tags:

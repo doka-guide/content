@@ -8,7 +8,7 @@ contributors:
   - corocoto
 related:
   - js/alert
-  - js/how-to-test-and-why
+  - tools/how-to-test-and-why
   - tools/json
 tags:
   - doka

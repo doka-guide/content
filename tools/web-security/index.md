@@ -15,7 +15,7 @@ keywords:
   - SQL-инъекции
 related:
   - tools/web-server
-  - js/how-to-test-and-why
+  - tools/how-to-test-and-why
   - tools/ssh
 tags:
   - article
@@ -291,7 +291,7 @@ Set-Cookie: key=value; HttpOnly
 </form>
 ```
 
-Для [AJAX-запросов](/js/api/) следует указывать CSP и CORS-политику.
+Для [AJAX-запросов](/tools/api/) следует указывать CSP и CORS-политику.
 
 _Cross-Origin Resource Sharing, CORS_ — определяет, доступ к каким ресурсам есть у запросов с другого домена _(origin)_.
 

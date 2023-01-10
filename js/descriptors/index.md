@@ -5,7 +5,7 @@ authors:
   - antongorelov
 related:
   - js/object
-  - js/fp
+  - tools/fp
   - js/ref-type-vs-value-type
 tags:
   - doka

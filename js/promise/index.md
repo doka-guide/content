@@ -11,7 +11,7 @@ authors:
 contributors:
   - inventoris
 related:
-  - js/api
+  - tools/api
   - js/infinite-scroll
   - js/async-await
 tags:
