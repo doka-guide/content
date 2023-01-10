@@ -18,11 +18,13 @@ groups:
       - static-types
       - nodejs
       - nodejs-tooling
+      - rollup
 
   - name: Фреймворки
     items:
       - react-and-alternatives
-  - name: Развертывание проекта
+
+  - name: Развёртывание проекта
     items:
       - docker
       - docker-compose
@@ -52,7 +54,7 @@ groups:
       - web-app-works
       - web-security
 
-  - name: "Стили программирования"
+  - name: Стили программирования
     items:
       - programming-paradigms
       - oop
@@ -74,6 +76,7 @@ groups:
       - yaml
       - xml
       - markdown
+
   - name: Инженерная культура
     items:
       - agile
@@ -83,7 +86,7 @@ groups:
       - version-control
       - git-cli
 
-  - name: 'Бэкенд'
+  - name: Бэкенд
     items:
       - web-server
       - apache-web-server
@@ -103,7 +106,7 @@ groups:
     items:
       - elasticsearch
 
-  - name: "Тестирование"
+  - name: Тестирование
     items:
       - how-to-test-and-why
       - tdd
