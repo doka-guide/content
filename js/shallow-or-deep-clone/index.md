@@ -90,15 +90,36 @@ console.log(itemsInCart[1] === deep[1])
 
 ![Результат глубокого копирования массива](images/deep.png)
 
-У этого метода есть ограничение — копируемые данные должны быть сериализуемыми. Если объект содержит методы или массив содержит функции, то копирование с помощью JSON-преобразования не сработает:
+У этого метода есть ограничение — копируемые данные должны быть сериализуемыми.
+
+Примеры не сериализуемых данных:
+- undefined, функция или symbol (в объекте будут опущены, в массиве - превращены в null);
+- symbol как ключ будет проигнорирован, даже при использовании функции replacer.
 
 ```js
-const fns = [
+const arr = [
+  undefined,
   function() { console.log('aaa') },
-  function() { console.log('bbb') },
+  Symbol("foo"),
 ]
-const copyFns = JSON.parse(JSON.stringify(fns))
+const copyArr = JSON.parse(JSON.stringify(arr))
 
-console.log(copyFns)
-// [null, null]
+console.log(copyArr)
+// [null, null, null]
+
+const obj = {
+  a: undefined,
+  method: () => {},
+  [Symbol("foo")]: "foo",
+}
+const copyObj = JSON.parse(JSON.stringify(obj), function(k, v) {
+  if (typeof k === 'symbol') {
+    return 'символ';
+  }
+
+  return v;
+})
+
+console.log(copyObj)
+// {}
 ```
