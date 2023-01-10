@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2023
+
+- 10 января, [`word-wrap`](https://doka.guide/css/word-wrap/), Александр Рассудихин
+- 10 января, [`::first-line`](https://doka.guide/css/first-line/) Александр Рассудихин
+
 ## Декабрь 2022
 
 - 26 декабря, [`border-inline`](https://doka.guide/css/border-inline/), Антон Капустинский
