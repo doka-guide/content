@@ -5,9 +5,12 @@ authors:
 keywords:
   - псевдоэлемент
   - первая строка
+related:
+  - css/first-letter
+  - css/text-decoration
+  - css/text-shadow
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
