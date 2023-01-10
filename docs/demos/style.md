@@ -45,7 +45,7 @@
     html {
       color-scheme: dark;
     }
-    
+
     body {
       min-height: 100vh;
       padding: 50px;
