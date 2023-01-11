@@ -586,7 +586,7 @@ function findName(alias) {
 findName('missing-alias').toUpperCase()
 ```
 
-С контейнером же мы не беспокоиться о случае с `undefined`:
+С контейнером же мы можем не беспокоиться о случае с `undefined`:
 
 ```js
 function fromNullable(x) {

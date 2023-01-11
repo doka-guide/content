@@ -61,56 +61,56 @@ active:
   - a11y/chto-takoe-a11y
   - recipes/progress
   - js/how-the-browser-creates-pages
-  - html/div
-  - css/transform-function
-  - html/input
-  - html/video
-  - css/display
-  - css/specificity
-  - css/grid-guide
-  - tools/webpack
-  - tools/network
-  - js/function-context
-  - js/how-to-test-and-why
-  - html/form
-  - tools/static-types
-  - css/box-model
-  - tools/markdown
-  - css/pseudoelements
-  - html/section
-  - js/var-let
-  - js/closures
-  - html/flow
-  - tools/bundlers
-  - js/boolean
-  - js/deal-with-forms
-  - html/doctype
-  - html/article
-  - css/custom-properties
-  - tools/ci-cd
-  - html/nav
-  - html/img
-  - a11y/aria-intro
-  - js/infinite-scroll
-  - js/clean-architecture
-  - css/box-shadow
-  - tools/docker
-  - css/position
   - recipes/lets-encrypt-nginx
   - recipes/snow
-  - js/function
-  - css/media
-  - tools/gitlab-ci-cd
-  - js/oop
-  - tools/agile
+  - js/how-to-test-and-why
+  - js/var-let
+  - html/article
   - a11y/aria-hidden
+  - html/video
+  - tools/bundlers
+  - tools/static-types
+  - js/deal-with-forms
+  - tools/docker
+  - html/form
+  - html/section
   - tools/cli
-  - css/flexbox-guide
-  - a11y/screenreaders
-  - js/execution-order
-  - css/keyframes
-  - html/head
+  - js/function-context
+  - css/display
+  - css/transform-function
+  - tools/gitlab-ci-cd
+  - tools/agile
   - css/attr
+  - tools/webpack
+  - js/closures
+  - js/execution-order
+  - css/specificity
+  - tools/network
+  - js/infinite-scroll
+  - css/box-shadow
+  - html/div
+  - js/clean-architecture
+  - css/custom-properties
+  - html/nav
+  - html/head
+  - css/grid-guide
+  - html/img
+  - css/media
+  - css/keyframes
+  - js/oop
+  - html/flow
+  - html/input
+  - css/flexbox-guide
+  - css/box-model
+  - js/function
+  - tools/ci-cd
+  - css/position
   - js/async-in-js
+  - js/boolean
+  - css/pseudoelements
+  - html/doctype
+  - a11y/aria-intro
+  - a11y/screenreaders
+  - tools/markdown
 ---
 

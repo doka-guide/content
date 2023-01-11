@@ -2,6 +2,18 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2022
+
+- 26 декабря, [`border-inline`](https://doka.guide/css/border-inline/), Антон Капустинский
+- 19 декабря, [`aria-invalid`](https://doka.guide/a11y/aria-invalid/), Татьяна Фокина
+- 19 декабря, [`aria-errormessage`](https://doka.guide/a11y/aria-errormessage/), Татьяна Фокина
+- 7 декабря, [`scrollbar-width`](https://doka.guide/css/scrollbar-width/), Иван Ельцов
+- 7 декабря, [`scrollbar-color`](https://doka.guide/css/scrollbar-color/), Иван Ельцов
+- 7 декабря, [`all`](https://doka.guide/css/all/), Иван Ельцов
+- 6 декабря, [`:first-letter`](https://doka.guide/css/first-letter/), Александр Рассудихин
+- 5 декабря, [`scrollbar-gutter`](https://doka.guide/css/scrollbar-gutter/), Иван Ельцов
+- 2 декабря, [Влияние CSS на доступность](https://doka.guide/a11y/css-impact-on-a11y/), Инна Абдрахманова
+
 ## Ноябрь 2022
 
 - 22 ноября, [`navigation`](https://doka.guide/a11y/role-navigation/), Данила
