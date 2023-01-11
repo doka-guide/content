@@ -27,12 +27,12 @@ tags:
 
 ```html
 <button aria-describedby="tooltip">❤️</button>
-<span role="tooltip" id="tooltip">Нравится</span>
+<span role="tooltip" id="tooltip">Поставить отметку «Нравится»</span>
 ```
 
 <iframe title="Кнопка с эмодзи с сердцем и тултипом к ней" src="demos/button-with-tooltip/" height="250"></iframe>
 
-Скринридеры прочтут код примерно так: «Алое сердце, кнопка, нравится».
+Скринридеры прочтут код примерно так: «Алое сердце, кнопка, поставить отметку "Нравится"».
 
 ## Как пишется
 
