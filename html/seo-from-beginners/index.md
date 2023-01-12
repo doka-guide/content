@@ -10,7 +10,7 @@ keywords:
 related:
   - tools/site-readers
   - a11y/chto-takoe-a11y
-  - todo
+  - html/meta
 tags:
   - article
 ---
