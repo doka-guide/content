@@ -45,7 +45,7 @@
       color: #18191C;
     }
 
-    @media (width > 1000px) {
+    @media (min-width: 1000px) {
       .small {
         background-color: inherit;
         color: inherit;
@@ -66,12 +66,12 @@
 </head>
 <body>
   <picture>
-    <source srcset="images/750x100.png" media="(width > 1000px)">
+    <source srcset="images/750x100.png" media="(min-width: 1000px)">
     <img class="img" src="images/650x100.png" alt="Картинка с размерами">
   </picture>
   <div class="code">
     <span class="code-line">&lt;picture&gt;</span>
-      <span class="code-line big">&nbsp;&nbsp;&lt;source srcset="750x100.png" media="(width > 1000px)"&gt;</span>
+      <span class="code-line big">&nbsp;&nbsp;&lt;source srcset="750x100.png" media="(min-width: 1000px)"&gt;</span>
       <span class="code-line small">&nbsp;&nbsp;&lt;img src="650x100.png" alt="Картинка с размерами"&gt;</span>
     <span class="code-line">&lt;/picture&gt;</span>
   </div>

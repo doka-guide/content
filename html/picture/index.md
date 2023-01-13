@@ -33,7 +33,7 @@ tags:
 
 ```html
 <picture>
-  <source srcset="320.jpg" media="(width < 800px)">
+  <source srcset="320.jpg" media="(max-width: 800px)">
   <img src="640.jpg" alt="Абстрактное изображение">
 </picture>
 ```
@@ -48,7 +48,7 @@ tags:
 
 ```html
 <picture>
-  <source srcset="750x100.png" media="(width > 1000px)">
+  <source srcset="750x100.png" media="(min-width: 1000px)">
   <img src="650x100.png" alt="Картинка с размерами">
 </picture>
 ```
