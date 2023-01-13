@@ -56,7 +56,7 @@ tags:
 
 Для [`<input>`](/html/input/) в первую очередь используйте `<label>`. У этого HTML-тега есть важная особенность — при клике по тегу фокус перемещается на поле по умолчанию.
 
-Ещё `aria-labelledby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/), [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya).
+Ещё `aria-labelledby` можно связывать не только с видимыми элементами, но и со скрытыми с помощью [`hidden`](/html/hidden/), [`display: none`](/css/display/#kak-pishetsya) или [`visibility: hidden`](/css/visibility/#kak-pishetsya). Учитывайте, что скринридер всё равно в этом случае прочитает связанную с элементом подпись к нему.
 
 В примере у переключателя скрыт лейбл «Ночной режим», но он всё равно доступен для вспомогательных технологий.
 
