@@ -90,15 +90,39 @@ console.log(itemsInCart[1] === deep[1])
 
 ![Результат глубокого копирования массива](images/deep.png)
 
-У этого метода есть ограничение — копируемые данные должны быть сериализуемыми. Если объект содержит методы или массив содержит функции, то копирование с помощью JSON-преобразования не сработает:
+У этого метода есть ограничение — копируемые данные должны быть сериализуемы.
+
+Вот примеры несериализуемых данных: примитив undefined, функция, [symbol](/js/symbol/) - при вызове JSON.stringify получаем undefined
+
+Массивы и объекты - сериализуемы. Что будет если у них в качестве ключа или значения будут несериализуемые данные?
+
+- для массивов: такие значения будут превращены в null;
+- для объектов: такие значения будут опущены, а если symbol является ключом объекта, то он будет проигнорирован, даже при использовании функции replacer.
 
 ```js
-const fns = [
+const arr = [
+  undefined,
   function() { console.log('aaa') },
-  function() { console.log('bbb') },
+  Symbol("foo"),
 ]
-const copyFns = JSON.parse(JSON.stringify(fns))
+const copyArr = JSON.parse(JSON.stringify(arr))
 
-console.log(copyFns)
-// [null, null]
+console.log(copyArr)
+// [null, null, null]
+
+const obj = {
+  a: undefined,
+  method: () => {},
+  [Symbol("foo")]: "foo",
+}
+const copyObj = JSON.parse(JSON.stringify(obj), function(k, v) {
+  if (typeof k === 'symbol') {
+    return 'символ';
+  }
+
+  return v;
+})
+
+console.log(copyObj)
+// {}
 ```
