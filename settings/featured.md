@@ -61,56 +61,56 @@ active:
   - a11y/chto-takoe-a11y
   - recipes/progress
   - js/how-the-browser-creates-pages
-  - recipes/lets-encrypt-nginx
-  - recipes/snow
-  - js/how-to-test-and-why
-  - js/var-let
-  - html/article
-  - a11y/aria-hidden
-  - html/video
-  - tools/bundlers
-  - tools/static-types
-  - js/deal-with-forms
-  - tools/docker
-  - html/form
-  - html/section
-  - tools/cli
-  - js/function-context
-  - css/display
-  - css/transform-function
-  - tools/gitlab-ci-cd
-  - tools/agile
-  - css/attr
-  - tools/webpack
-  - js/closures
-  - js/execution-order
-  - css/specificity
-  - tools/network
-  - js/infinite-scroll
-  - css/box-shadow
-  - html/div
-  - js/clean-architecture
-  - css/custom-properties
-  - html/nav
-  - html/head
-  - css/grid-guide
-  - html/img
   - css/media
-  - css/keyframes
-  - js/oop
-  - html/flow
+  - tools/webpack
+  - js/function-context
+  - js/execution-order
+  - tools/cli
+  - js/var-let
+  - tools/static-types
+  - js/clean-architecture
+  - js/how-to-test-and-why
+  - css/box-shadow
+  - js/boolean
+  - html/doctype
+  - css/attr
+  - css/transform-function
   - html/input
-  - css/flexbox-guide
-  - css/box-model
+  - tools/markdown
+  - html/flow
+  - a11y/aria-intro
+  - tools/agile
+  - css/position
+  - html/head
+  - html/img
+  - css/grid-guide
+  - css/display
+  - tools/docker
+  - tools/bundlers
+  - js/async-in-js
+  - css/pseudoelements
+  - html/nav
+  - recipes/snow
+  - a11y/screenreaders
+  - tools/gitlab-ci-cd
+  - html/article
+  - js/closures
+  - html/section
+  - css/custom-properties
+  - tools/network
+  - a11y/aria-hidden
+  - js/infinite-scroll
+  - js/oop
+  - html/div
   - js/function
   - tools/ci-cd
-  - css/position
-  - js/async-in-js
-  - js/boolean
-  - css/pseudoelements
-  - html/doctype
-  - a11y/aria-intro
-  - a11y/screenreaders
-  - tools/markdown
+  - js/deal-with-forms
+  - html/form
+  - html/video
+  - recipes/lets-encrypt-nginx
+  - css/box-model
+  - css/flexbox-guide
+  - css/specificity
+  - css/keyframes
 ---
 
