@@ -55,5 +55,33 @@ const requestTaxesByCountyMock = (countryCode) => {
 }
 
 const taxValue = requestTaxesByCountyMock('AB')
-  .then((res) => {})
-  .catch(err => {})
+  .then((res) => {
+    console.log("res: ", res); // eslint-disable-line
+  })
+  .catch(err => {
+    console.log("err: ", err); // eslint-disable-line
+  })
+
+const getRaxValueReal = (countryCode) => fetch('./countries-taxes.json').then(response => response.json())
+  .then((res) => {
+    console.log("res: ", res[countryCode]); // eslint-disable-line
+  })
+  .catch(err => {
+    console.log("err: ", err); // eslint-disable-line
+  })
+
+const getNetSalary = async (salaryGross) => {
+  const taxValueReal = await getRaxValueReal('AB')
+
+  const netSalaryCalculator = configureNetSalaryCalculator(taxValueReal)
+  const netSalary = netSalaryCalculator(salaryGross)
+
+  return netSalary
+}
+
+
+(async function () {
+  const netSalaryAsync = await getNetSalary(4500)
+
+  console.log("netSalaryAsync: ", netSalaryAsync); // eslint-disable-line
+} ())
