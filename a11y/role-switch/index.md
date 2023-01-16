@@ -54,12 +54,12 @@ tags:
 
 ```html
 <!-- Так видите код вы -->
-<div role="switch" tabindex="0">
+<div role="switch" tabindex="0" aria-checked="false">
   <h2>Оповещения включены</h2>
 </div>
 
 <!-- Так видит код скринридер -->
-<div role="switch" tabindex="0">Оповещения включены</div>
+<div role="switch" tabindex="0" aria-checked="false">Оповещения включены</div>
 ```
 
 Если не уверены, что браузер и скринридер хорошо поддерживают `switch`, используйте `<input type="checkbox">`. В этом случае не нужно использовать `aria-checked`. Достаточно добавить HTML-атрибут `checked`.
