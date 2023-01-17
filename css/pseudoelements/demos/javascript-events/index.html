@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>JavaScript-события для псевдоэлементов</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: serif;
+      font-size: 18px;
+    }
+    .quantity-change {
+        width: 160px;
+        height: 40px;
+        display: flex;
+        color: #333;
+        background-color: #fff;
+        cursor: text;
+        margin: 0;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+        outline: 0;
+        padding: 0;
+        border: 1px solid #dadada;
+        border-radius: 5px;
+        outline: none;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+      }
+
+      .quantity-change::before, .quantity-change::after {
+        content: '-';
+        display: flex;
+        height: 40px;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px;
+      }
+      .quantity-change::after {
+        content: '+';
+      }
+  </style>
+  <script>
+    const quantity = document.querySelector('.quantity-change')
+    let cnt = Number(quantity.textContent)
+
+    quantity.addEventListener("click", (evt) => {
+      if(evt.offsetX <= 40 && cnt > 0) {
+        cnt--
+      } else if(evt.offsetX >= 120) {
+        cnt++
+      }
+      quantity.textContent = cnt
+    })
+  </script>
+</head>
+<body>
+  <section>
+    <span class="quantity-change">0</span>
+  </section>
+</body>
+</html>
