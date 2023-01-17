@@ -356,7 +356,7 @@ h1 {
 </marquee>
 ```
 
-<iframe title="Тег marquee" src="demos/marquee/" height="360"></iframe>
+<iframe title="Тег marquee" src="demos/marquee/" height="240"></iframe>
 
 #### Чем заменить
 
