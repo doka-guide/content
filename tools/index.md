@@ -2,37 +2,12 @@
 name: 'Полезное'
 
 groups:
-  - name: Внутри браузера
+  - name: Как устроен веб
     items:
-      - how-the-browser-creates-pages
-      - coordinates
-      - browsers-storages
-
-  - name: Сборка проекта
-    items:
-      - package-managers
-      - bundlers
-      - webpack
-      - gulp
-      - static-analysis
-      - static-types
-      - nodejs
-      - nodejs-tooling
-      - rollup
-
-  - name: Фреймворки
-    items:
-      - react-and-alternatives
-
-  - name: Развёртывание проекта
-    items:
-      - docker
-      - docker-compose
-      - docker-data-management
-      - dockerfile
-      - gitlab-ci-cd
-      - ci-cd
-      - github-actions
+      - api
+      - web-app-types
+      - web-app-works
+      - web-security
 
   - name: Aрхитектура и хорошие практики
     items:
@@ -47,13 +22,6 @@ groups:
       - design-patterns-structural
       - design-patterns-behaviorial
 
-  - name: Как устроен веб
-    items:
-      - api
-      - web-app-types
-      - web-app-works
-      - web-security
-
   - name: Стили программирования
     items:
       - programming-paradigms
@@ -61,6 +29,49 @@ groups:
       - fp
       - reactivity
       - tdd
+
+  - name: Фреймворки
+    items:
+      - react-and-alternatives
+  - name: TypeScript
+    items:
+      - static-types
+
+
+  - name: Как устроен браузер
+    items:
+      - how-the-browser-creates-pages
+      - coordinates
+      - browsers-storages
+
+  - name: Инженерная культура
+    items:
+      - agile
+      - code-review
+      - technical-debt
+      - code-style
+      - version-control
+
+  - name: Сборка проекта
+    items:
+      - package-managers
+      - bundlers
+      - webpack
+      - gulp
+      - static-analysis
+      - nodejs
+      - nodejs-tooling
+      - rollup
+
+  - name: Развёртывание проекта
+    items:
+      - docker
+      - docker-compose
+      - docker-data-management
+      - dockerfile
+      - gitlab-ci-cd
+      - ci-cd
+      - github-actions
 
   - name: Операционная система
     items:
@@ -70,6 +81,21 @@ groups:
       - process-management
       - ssh
 
+  - name: Сеть
+    items:
+      - network
+      - url
+      - network-models
+      - encoding
+      - ssl-certificates
+      - http-protocol
+      - tcp-udp-protocols
+  - name: Безопасность
+    items:
+      - web-security
+      - ssl-certificates
+
+
   - name: Форматы данных
     items:
       - json
@@ -77,30 +103,11 @@ groups:
       - xml
       - markdown
 
-  - name: Инженерная культура
-    items:
-      - agile
-      - code-review
-      - technical-debt
-      - code-style
-      - version-control
-      - git-cli
-
   - name: Бэкенд
     items:
       - web-server
       - apache-web-server
       - nginx-web-server
-
-  - name: Сеть
-    items:
-      - url
-      - network
-      - network-models
-      - encoding
-      - ssl-certificates
-      - http-protocol
-      - tcp-udp-protocols
 
   - name: Базы данных
     items:
@@ -113,6 +120,11 @@ groups:
       - how-to-simplify-tests
       - testing-and-fake-objects
       - integration-and-system-testing
+  - name: Инструменты
+    items:
+      - git-cli
+      - how-to-enter-to-vim
+
 ---
 
 Здесь собраны технологии, теория и хорошие практики, которые пригодятся при разработке веб-приложений.
