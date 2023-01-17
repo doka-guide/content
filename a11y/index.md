@@ -86,6 +86,7 @@ groups:
       - aria-haspopup
       - aria-controls
       - aria-owns
+      - aria-modal
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -142,6 +143,7 @@ groups:
       - aria-relevant
       - aria-busy
       - aria-owns
+      - aria-modal
       - aria-current
       - aria-controls
       - aria-flowto
