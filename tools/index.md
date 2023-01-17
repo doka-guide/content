@@ -17,7 +17,6 @@ groups:
       - gateway-bff
       - clean-architecture
       - architecture-mvc
-      - architecture-and-design-patterns
       - design-patterns-creational
       - design-patterns-structural
       - design-patterns-behaviorial
