@@ -22,7 +22,7 @@ tags:
 
 <aside>
 
-🗣 У `aria-modal` сейчас [неплохая поддержка](https://a11ysupport.io/tech/aria/aria-modal_attribute). Его пока не поддерживают только Narrator и TalkBack.
+🙂 У `aria-modal` сейчас [неплохая поддержка](https://a11ysupport.io/tech/aria/aria-modal_attribute). Его пока не поддерживают только Narrator и TalkBack.
 
 </aside>
 
