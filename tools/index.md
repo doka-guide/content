@@ -12,15 +12,16 @@ groups:
   - name: Aрхитектура и хорошие практики
     items:
       - architecture-and-design-patterns
+      - architecture-data-flow
       - microservices
       - gateway-bff
       - clean-architecture
-      - architecture-data-flow
       - architecture-mvc
       - architecture-and-design-patterns
       - design-patterns-creational
       - design-patterns-structural
       - design-patterns-behaviorial
+
 
   - name: Стили программирования
     items:
@@ -33,7 +34,8 @@ groups:
   - name: Фреймворки
     items:
       - react-and-alternatives
-  - name: TypeScript
+
+  - name: TypeScript и другие языки
     items:
       - static-types
 
@@ -46,22 +48,22 @@ groups:
 
   - name: Инженерная культура
     items:
-      - agile
       - code-review
       - technical-debt
       - code-style
       - version-control
+      - agile
 
   - name: Сборка проекта
     items:
       - package-managers
       - bundlers
       - webpack
-      - gulp
       - static-analysis
       - nodejs
       - nodejs-tooling
       - rollup
+      - gulp
 
   - name: Развёртывание проекта
     items:
@@ -90,18 +92,18 @@ groups:
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+
   - name: Безопасность
     items:
       - web-security
       - ssl-certificates
 
-
   - name: Форматы данных
     items:
       - json
+      - markdown
       - yaml
       - xml
-      - markdown
 
   - name: Бэкенд
     items:
@@ -124,6 +126,9 @@ groups:
     items:
       - git-cli
       - how-to-enter-to-vim
+      - ssh
+      - gulp
+      - version-control
 
 ---
 
