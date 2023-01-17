@@ -412,6 +412,8 @@ h1 {
 }
 ```
 
+Анимация воспроизводится при наведении курсора или при тапе:
+
 <iframe title="Имитация marquee" src="demos/marquee-fallback/" height="280"></iframe>
 
 ## Вывод
