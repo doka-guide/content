@@ -10,6 +10,7 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
+  - catbutfat
 editors:
   - tachisis
 keywords:
