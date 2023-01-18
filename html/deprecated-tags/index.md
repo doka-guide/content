@@ -5,6 +5,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
+  - catbutfat
 keywords:
   - теги
   - разметка текста
