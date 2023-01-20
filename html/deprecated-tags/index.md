@@ -5,6 +5,7 @@ authors:
   - realetive
 contributors:
   - skorobaeus
+  - catbutfat
 keywords:
   - теги
   - разметка текста
@@ -356,7 +357,7 @@ h1 {
 </marquee>
 ```
 
-<iframe title="Тег marquee" src="demos/marquee/" height="360"></iframe>
+<iframe title="Тег marquee" src="demos/marquee/" height="240"></iframe>
 
 #### Чем заменить
 
@@ -411,6 +412,8 @@ h1 {
   }
 }
 ```
+
+Анимация воспроизводится при наведении курсора или при тапе:
 
 <iframe title="Имитация marquee" src="demos/marquee-fallback/" height="280"></iframe>
 
