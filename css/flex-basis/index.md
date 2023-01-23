@@ -1,5 +1,6 @@
 ---
 title: "`flex-basis`"
+description: "Задаём базовый размер флекс-элемента."
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - размер флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-grow
+  - css/flex-shrink
 tags:
   - doka
 ---
