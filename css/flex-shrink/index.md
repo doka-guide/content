@@ -1,5 +1,6 @@
 ---
 title: "`flex-shrink`"
+description: "Как будет сжиматься флекс-элемент если места мало."
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - сжатие флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-grow
+  - css/flex-basis
 tags:
   - doka
 ---
