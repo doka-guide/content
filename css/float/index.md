@@ -1,14 +1,18 @@
 ---
 title: "`float`"
+description: "Текст обтекает картинку? Не забудьте про клеарфикс."
 authors:
   - lenaryan
 editors:
   - tachisis
 keywords:
-  - float
   - обтекание
   - clearfix
   - flow-root
+related:
+  - css/position
+  - css/after
+  - html/img
 tags:
   - doka
 ---
