@@ -1,5 +1,6 @@
 ---
 title: "`font-size`"
+description: "Свойство для размера текста."
 authors:
   - doka-dog
 contributors:
@@ -8,6 +9,10 @@ contributors:
 keywords:
   - размер шрифта
   - размер текста
+related:
+  - css/numeric-types
+  - css/rem-em
+  - css/color
 tags:
   - doka
 ---
@@ -75,7 +80,7 @@ p {
 </div>
 ```
 
-Теперь 1em будет равен 10px (62.5% от 16), а размер шрифта `<span>` будет 10 * 1.6 = 16px:
+Теперь 1 em будет равен 10 px (62.5% от 16), а размер шрифта `<span>` будет 10 * 1.6 = 16px:
 
 ```css
 html {
