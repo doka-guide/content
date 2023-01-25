@@ -1,6 +1,6 @@
 ---
 title: "`float`"
-description: "Текст обтекает картинку? Не забудьте про клеарфикс."
+description: "Текст обтекает картинку? Не забудьте про клиарфикс."
 authors:
   - lenaryan
 editors:

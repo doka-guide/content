@@ -1,6 +1,6 @@
 ---
 title: "`font-kerning`"
-description: "Управляем кренингом. Если вы понимаете о чём я."
+description: "Управляем кернингом. Если вы понимаете о чём я."
 authors:
   - doka-dog
 related:
