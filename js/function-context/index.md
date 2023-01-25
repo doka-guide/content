@@ -16,7 +16,7 @@ keywords:
   - arrow function
   - new
 related:
-  - js/programming-paradigms
+  - tools/programming-paradigms
   - tools/bundlers
   - js/language-versions
 tags:
@@ -237,7 +237,7 @@ function User() {
 }
 ```
 
-То же происходит и в ES6-классах, узнать о них больше можно в [статье про объектно-ориентированное программирование](/js/oop/).
+То же происходит и в ES6-классах, узнать о них больше можно в [статье про объектно-ориентированное программирование](/tools/oop/).
 
 ```js
 class User {

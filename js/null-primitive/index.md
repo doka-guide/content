@@ -8,7 +8,7 @@ keywords:
 related:
   - js/objects-objects-everywhere
   - js/typecasting
-  - js/code-style
+  - tools/code-style
 tags:
   - doka
 ---

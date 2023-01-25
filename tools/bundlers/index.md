@@ -16,7 +16,7 @@ keywords:
 related:
   - js/language-versions
   - tools/static-analysis
-  - js/web-app-types
+  - tools/web-app-types
 tags:
   - article
 ---

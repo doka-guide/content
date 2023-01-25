@@ -6,7 +6,7 @@ authors:
 related:
   - css/important
   - html/comments
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
 tags:
   - doka
 ---

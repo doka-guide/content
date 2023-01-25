@@ -6,7 +6,7 @@ authors:
 related:
   - js/console-log
   - js/expressions-vs-statements
-  - js/web-app-works
+  - tools/web-app-works
 tags:
   - doka
 ---

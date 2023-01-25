@@ -10,7 +10,7 @@ keywords:
 related:
   - js/template-strings
   - js/typecasting
-  - js/code-style
+  - tools/code-style
 tags:
   - doka
 ---

@@ -118,7 +118,7 @@ const observer = new IntersectionObserver(callback, options)
 
 ## Как понять
 
-Intersection Observer называется так, потому что он реализует паттерн программирования [«Наблюдатель»](/js/design-patterns-behaviorial/#nablyudatel). Наблюдатель следит за положением наблюдаемых элементов и выполняет действия при их пересечении с контейнером. Это работает аналогично подпискам на события через метод [`addEventListener()`](/js/element-addeventlistener/).
+Intersection Observer называется так, потому что он реализует паттерн программирования [«Наблюдатель»](/tools/design-patterns-behaviorial/#nablyudatel). Наблюдатель следит за положением наблюдаемых элементов и выполняет действия при их пересечении с контейнером. Это работает аналогично подпискам на события через метод [`addEventListener()`](/js/element-addeventlistener/).
 
 Intersection Observer работает асинхронно и не блокирует основной поток. Это позволяет приложениям оставаться плавными и при этом творить магию, например, как на сайте Apple.
 

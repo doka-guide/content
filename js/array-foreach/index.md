@@ -11,7 +11,7 @@ editors:
 related:
   - js/loop
   - js/function-as-datatype
-  - js/programming-paradigms
+  - tools/programming-paradigms
 tags:
   - doka
 ---

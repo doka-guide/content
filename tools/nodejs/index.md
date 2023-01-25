@@ -11,7 +11,7 @@ keywords:
   - nodejs
   - package.json
 related:
-  - js/web-app-types
+  - tools/web-app-types
   - tools/gateway-bff
   - tools/webpack
 tags:

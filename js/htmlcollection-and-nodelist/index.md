@@ -6,7 +6,7 @@ authors:
 tags:
   - doka
 related:
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
   - js/query-selector-all
   - js/getelementsbyclassname
 contributors:

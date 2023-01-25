@@ -14,7 +14,7 @@ keywords:
   - анимации animation
   - transform
 related:
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
   - css/transition
   - recipes/dragndrop-upload
 tags:
@@ -178,7 +178,7 @@ document.body.addEventListener('mouseup', () => {
 
 Это работает, но не очень эффективно, потому что изменения в этих свойствах заставляют браузер делать много лишней работы.
 
-[Как браузер рисует страницы](/js/how-the-browser-creates-pages/)
+[Как браузер рисует страницы](/tools/how-the-browser-creates-pages/)
 
 Мы можем сделать лучше.
 

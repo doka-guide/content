@@ -4,7 +4,7 @@ description: "Обработка закрытия страницы."
 authors:
   - kotosha-real
 related:
-  - js/api
+  - tools/api
   - js/element-addeventlistener
   - js/event
 tags:

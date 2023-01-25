@@ -7,7 +7,7 @@ keywords:
   - промис
   - кэтч катч кеч
 related:
-  - js/api
+  - tools/api
   - js/async-in-js
   - js/try-catch
 tags:

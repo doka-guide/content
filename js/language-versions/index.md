@@ -17,7 +17,7 @@ keywords:
   - es
 related:
   - tools/webpack
-  - js/clean-architecture
+  - tools/clean-architecture
   - tools/static-analysis
 tags:
   - article

@@ -10,7 +10,7 @@ keywords:
 related:
   - js/language-versions
   - tools/bundlers
-  - js/programming-paradigms
+  - tools/programming-paradigms
 tags:
   - article
 ---

@@ -7,7 +7,7 @@ keywords:
   - промис
   - файнали
 related:
-  - js/api
+  - tools/api
   - js/async-in-js
   - js/async-await
 tags:

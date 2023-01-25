@@ -11,7 +11,7 @@ keywords:
   - httpd
 related:
   - tools/process-management
-  - js/web-app-types
+  - tools/web-app-types
   - tools/http-protocol
 tags:
   - article

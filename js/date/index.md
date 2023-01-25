@@ -5,8 +5,8 @@ authors:
   - kseniaSs
 related:
   - js/math
-  - js/oop
-  - js/how-to-test-and-why
+  - tools/oop
+  - tools/how-to-test-and-why
 tags:
   - doka
 ---

@@ -5,7 +5,7 @@ authors:
   - nlopin
 related:
   - js/map
-  - js/oop
+  - tools/oop
   - js/object
 tags:
   - doka

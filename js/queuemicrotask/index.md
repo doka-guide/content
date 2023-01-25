@@ -11,8 +11,8 @@ keywords:
   - sync-to-async
 related:
   - js/async-in-js
-  - js/how-the-browser-creates-pages
-  - js/react-and-alternatives
+  - tools/how-the-browser-creates-pages
+  - tools/react-and-alternatives
 tags:
   - doka
 ---

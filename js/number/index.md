@@ -6,7 +6,7 @@ authors:
 related:
   - js/typecasting
   - js/expressions-vs-statements
-  - js/coordinates
+  - tools/coordinates
 tags:
   - doka
 ---

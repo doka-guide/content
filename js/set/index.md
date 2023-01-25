@@ -6,7 +6,7 @@ authors:
 related:
   - js/arrays
   - js/object
-  - js/oop
+  - tools/oop
 tags:
   - doka
 ---

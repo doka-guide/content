@@ -10,7 +10,7 @@ contributors:
 related:
   - js/dom
   - js/element-addeventlistener
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
 tags:
   - doka
 ---

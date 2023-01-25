@@ -8,7 +8,7 @@ contributors:
 tags:
   - doka
 related:
-  - js/api
+  - tools/api
   - recipes/progress
   - tools/nodejs
 ---

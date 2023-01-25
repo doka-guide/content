@@ -4,9 +4,9 @@ description: "Кто кроме пользователей может читат
 authors:
   - igsekor
 related:
-  - js/web-app-types
+  - tools/web-app-types
   - js/deal-with-forms
-  - js/web-security
+  - tools/web-security
 tags:
   - article
 ---

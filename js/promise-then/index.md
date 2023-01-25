@@ -6,7 +6,7 @@ authors:
 keywords:
   - промис
 related:
-  - js/api
+  - tools/api
   - js/async-in-js
   - tools/nodejs
 tags:
