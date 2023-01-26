@@ -1,5 +1,6 @@
 ---
 title: "`flex-direction`"
+description: "Вам флекс-элементы в ряд или в колонку?"
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - выравнивание по основной оси
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-wrap
+  - css/justify-content
 tags:
   - doka
 ---

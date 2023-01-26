@@ -1,5 +1,6 @@
 ---
 title: "`::first-line`"
+description: "Стилизуем первую строку текста."
 authors:
   - punkmachine
 keywords:

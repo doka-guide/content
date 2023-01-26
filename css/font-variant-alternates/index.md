@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-alternates`"
+description: "В вариативном шрифте бывает несколько видов одного символа."
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-synthesis
+  - css/font-size-adjust
 tags:
   - doka
   - placeholder

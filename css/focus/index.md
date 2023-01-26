@@ -1,5 +1,6 @@
 ---
 title: "`:focus`"
+description: "Меняем внешний вид элемента в фокусе."
 authors:
   - solarrust
 contributors:
@@ -7,9 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - :focus
   - LVFHA
-  - псевдокласс
+related:
+  - css/focus-visible
+  - css/focus-within
+  - css/hover
 tags:
   - doka
 ---

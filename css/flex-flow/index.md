@@ -1,12 +1,16 @@
 ---
 title: "`flex-flow`"
+description: "Короткая запись для свойств переноса и направления."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - шорткат
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-direction
+  - css/flex-wrap
 tags:
   - doka
 ---
