@@ -16,4 +16,4 @@
 }
 ```
 
-<iframe title="Пример placeholder-shown" src="../demos/example/" height="182"></iframe>
+<iframe title="Пример placeholder-shown" src="../demos/example/" height="350"></iframe>
