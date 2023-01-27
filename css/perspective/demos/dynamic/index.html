@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Интерактивный пример свойства perspective</title>
+    <title>Как трансформируется элемент с изменением перспективы - perspective - Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <style>
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: #18191C;
+            color: #FFFFFF;
+        }
+
         .container {
+            width: 250px;
             margin: 0 auto;
         }
 
@@ -28,12 +38,12 @@
         }
 
         .element--front {
-            background-color: #2429c7ac;
+            background-color: #2e9aff80;
             transform: rotateY(0) translateZ(100px);
         }
 
         .element--back {
-            background-color: #44c724ac;
+            background-color: #F498AD;
             transform: rotateY(180deg) translateZ(100px);
         }
     </style>
@@ -41,13 +51,13 @@
 <body>
     <div class="container">
         <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
-        <p>Perspective: <span id="demo"></span></p>
+        <p>Значение перспективы: <span id="demo"></span></p>
         <div class="scene">
             <div class="scene-wrapper">
-                <div class="element element--back">BACK</div>
+                <div class="element element--back">Задняя стенка экрана</div>
             </div>
         </div>
-        <div class="element element--front">FRONT</div>
+        <div class="element element--front">Пользователь</div>
     </div>
 
     <script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Как отображается элемент с применением свойства perspective - perspective - Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+            background-color: #18191C;
+            color: #FFFFFF;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .parent {
+            width: 250px;
+            margin-bottom: 24px;
+        }
+        
+        .perspective-50 {
+            perspective: 50px;
+        }
+
+        .perspective-100 {
+            perspective: 100px;
+        }
+
+        .child {
+            background-color: #F498AD;
+        }
+
+        .transform-rotate-x {
+            transform: rotateX(15deg);
+        }
+
+        .transform-rotate-y {
+            transform: rotateY(15deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="parent perspective-50">
+            <div class="child transform-rotate-x">Значение перспективы: 50</div>
+        </div>
+    
+        <div class="parent perspective-100">
+            <div class="child transform-rotate-y">Значение перспективы: 100</div>
+        </div>
+    </div>
+</body>
+</html>
