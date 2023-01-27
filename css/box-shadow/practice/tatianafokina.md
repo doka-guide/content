@@ -14,3 +14,12 @@ a:focus {
   }
 }
 ```
+
+Второй способ решения проблемы с видимостью `box-shadow` в режиме высокой контрастности — прозрачный `outline`.
+
+```css
+a:focus {
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 0.2em white, 0 0 0 0.4em tomato;
+}
+```
