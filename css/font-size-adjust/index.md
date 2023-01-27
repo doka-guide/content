@@ -6,7 +6,7 @@ authors:
 related:
   - css/font-size
   - css/font-variant
-  - css/font-opacity-sizing
+  - css/font-optical-sizing
 tags:
   - doka
   - placeholder
