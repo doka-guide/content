@@ -9,7 +9,7 @@ groups:
       - web-app-works
       - web-security
 
-  - name: Aрхитектура и хорошие практики
+  - name: Архитектура и хорошие практики
     items:
       - architecture-and-design-patterns
       - architecture-data-flow
