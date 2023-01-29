@@ -18,13 +18,13 @@ tags:
 ```css
 .container {
   display: grid;
-  place-items: stretch / end;
+  place-items: stretch end;
 }
 ```
 
 ## Как пишется
 
-Пишутся два доступных значения для свойств [`align-items`](/css/align-items/) и [`justify-items`](/css/justify-items/), разделённые слэшем.
+Пишутся два доступных значения для свойств [`align-items`](/css/align-items/) и [`justify-items`](/css/justify-items/), разделённые пробелом.
 
 ## Подсказки
 
