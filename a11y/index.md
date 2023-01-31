@@ -44,6 +44,7 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-tooltip
   - name: '«Живые» области'
     items:
       - role-alert
@@ -123,6 +124,7 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-tooltip
       - role-button
       - role-link
       - role-checkbox
