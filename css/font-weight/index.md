@@ -1,5 +1,6 @@
 ---
 title: "`font-weight`"
+description: "Как изменить толщину букв в тексте?"
 authors:
   - doka-dog
 contributors:
@@ -8,6 +9,10 @@ contributors:
 keywords:
   - вес шрифта
   - жирность шрифта
+related:
+  - html/strong
+  - css/font-style
+  - css/font-size
 tags:
   - doka
 ---

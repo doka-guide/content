@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-position`"
+description: "Включаем красивые надстрочные и подстрочные буквы."
 authors:
   - doka-dog
+related:
+  - html/sub
+  - html/sup
+  - css/vertical-align
 tags:
   - doka
   - placeholder
