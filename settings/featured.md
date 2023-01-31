@@ -1,12 +1,16 @@
 ---
 pinned:
-  - a11y/chto-takoe-a11y
-  - recipes/progress
-  - tools/how-the-browser-creates-pages
+  - css/scrollbar-gutter
+  - a11y/css-impact-on-a11y
+  - recipes/character-counter
+  - js/geolocation-api
+  - a11y/content-hidden
 ready:
   - a11y/screenreaders
   - a11y/aria-intro
   - a11y/aria-hidden
+  - a11y/css-impact-on-a11y
+  - a11y/content-hidden
   - html/img
   - html/article
   - html/form
@@ -31,18 +35,18 @@ ready:
   - css/box-model
   - css/display
   - css/grid-guide
+  - css/scrollbar-gutter
   - js/var-let
   - js/boolean
   - js/function
   - js/function-context
   - js/infinite-scroll
-  - tools/oop
   - js/async-in-js
   - js/deal-with-forms
-  - tools/how-the-browser-creates-pages
-  - tools/how-to-test-and-why
   - js/execution-order
   - js/closures
+  - js/geolocation-api
+  - tools/oop
   - tools/clean-architecture
   - tools/agile
   - tools/markdown
@@ -54,9 +58,12 @@ ready:
   - tools/docker
   - tools/webpack
   - tools/ci-cd
+  - tools/how-the-browser-creates-pages
+  - tools/how-to-test-and-why
   - recipes/snow
   - recipes/lets-encrypt-nginx
   - recipes/progress
+  - recipes/character-counter
 active:
   - a11y/chto-takoe-a11y
   - recipes/progress
