@@ -2,7 +2,6 @@ const fs = require('fs')
 const markdownIt = require('markdown-it')
 const { parseHTML } = require('linkedom')
 const { escape } = require('html-escaper')
-const natural = require('natural')
 
 const md = markdownIt({
   html: true,
