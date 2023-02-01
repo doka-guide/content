@@ -1,6 +1,6 @@
 ---
 title: "`grid-auto-columns`, `grid-auto-rows`"
-description: "Как расположить грид-элементы, если им не хватидл колонок и строк?"
+description: "Как расположить грид-элементы, если им не хватило колонок и строк?"
 authors:
   - solarrust
 editors:
