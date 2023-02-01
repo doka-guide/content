@@ -2,6 +2,14 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2023
+
+- 31 января, [`aria-modal`](https://doka.guide/a11y/aria-modal/), Татьяна Фокина
+- 31 января, [`switch`](https://doka.guide/a11y/role-switch/), Татьяна Фокина
+- 31 января, [`tooltip`](https://doka.guide/a11y/role-tooltip/), Татьяна Фокина
+- 10 января, [`word-wrap`](https://doka.guide/css/word-wrap/), Александр Рассудихин
+- 10 января, [`::first-line`](https://doka.guide/css/first-line/) Александр Рассудихин
+
 ## Декабрь 2022
 
 - 26 декабря, [`border-inline`](https://doka.guide/css/border-inline/), Антон Капустинский
