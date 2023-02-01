@@ -1,5 +1,6 @@
 ---
 title: "`grid-column`, `grid-row`"
+description: "Где начнётся и где закончится грид-элемент?"
 authors:
   - solarrust
 editors:
@@ -7,6 +8,8 @@ editors:
 keywords:
   - грид-колонка
   - грид-полоса
+related:
+  -
 tags:
   - doka
 ---
