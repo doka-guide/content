@@ -1,5 +1,6 @@
 ---
 title: "`grid-auto-columns`, `grid-auto-rows`"
+description: "Как расположить грид-элементы, если им не хватидл колонок и строк?"
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - автоматические колонки
   - автоматические ряды
+related:
+  - css/grid-guide
+  - css/auto-flow
+  - css/grid-template
 tags:
   - doka
 ---
@@ -28,11 +33,11 @@ tags:
 }
 
 .item {
-  background: lightblue;
+  background-color: lightblue;
 }
 
 .item:nth-child(n + 3) {
-  background: pink;
+  background-color: pink;
 }
 ```
 
