@@ -314,7 +314,7 @@ H — hue (оттенок), W — whiteness (количество белого),
 }
 ```
 
-<iframe src="demos/hwb" title="Песочница для подбора HWB-цвета" height="550"></iframe>
+<iframe src="demos/hwb" title="Песочница для подбора HWB-цвета" height="720"></iframe>
 
 ## Ключевые слова
 
