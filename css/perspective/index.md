@@ -73,8 +73,8 @@ tags:
 </div>
 ```
 
-<iframe title="Как отображается элемент с применением свойства perspective" src="demos/static/" height="200"></iframe>
+<iframe title="Пример использования" src="demos/static/" height="200"></iframe>
 
 ## Интерактивная песочница
 
-<iframe title="Как трансформируется элемент с изменением перспективы" src="demos/dynamic/" height="450"></iframe>
+<iframe title="Интерактивная песочница" src="demos/dynamic/" height="450"></iframe>
