@@ -1,6 +1,6 @@
 ---
 title: "`perspective`"
-description: "Перспектива есть всегда, даже в двумерном вебe."
+description: "Перспектива есть всегда, даже в двумерном вебе."
 authors:
   - sqlzzy
 related:
