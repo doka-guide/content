@@ -33,18 +33,20 @@
       font-family: "Roboto", sans-serif;
       font-size: 20px;
       background-color: hwb(257 20% 20%);
+      accent-color: hwb(257 20% 20%);
     }
 
     .container {
       position: relative;
       padding: 2rem;
       border-radius: 10px;
-      color: #000000;
+      color: #fff;
       filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.2));
       background-color: #fff;
     }
 
     .result {
+      min-width: 415px;
       margin-bottom: 25px;
       font-family: "Roboto Mono", monospace;
       font-size: calc(2em - 1px);
@@ -63,11 +65,13 @@
 
     .circle {
       position: absolute;
-      inset: -30% -15%;
-      width: 130%;
-      height: 160%;
+      inset: 50% 50%;
+      width: 100%;
       border-radius: 50%;
       z-index: -1;
+      padding: 65%;
+      color: hwb(257 0% 0%);
+      transform: translate(-50%, -50%);
     }
 
     .circle::before {
@@ -75,18 +79,18 @@
       position: absolute;
       inset: 10px;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: #18191C;
     }
 
     .circle::after {
       content: "";
       position: absolute;
-      top: -10px;
-      right: calc(50% - 10px);
-      width: 20px;
-      height: 20px;
-      background-color: rgb(255 255 255 / 0.2);
-      border: 1px solid rgb(0 0 0 / 0.5);
+      top: -6px;
+      right: calc(50% - 11px);
+      width: 22px;
+      height: 22px;
+      background-color: currentColor;
+      border: 3px solid rgb(255 255 255);
     }
 
     @media (max-width: 768px) {
@@ -119,6 +123,7 @@
   <script>
     const controls = document.querySelector('.controls')
     const result = document.querySelector('.result')
+    const circle = document.querySelector('.circle')
 
     const hue = document.querySelector('#hue')
     const whiteness = document.querySelector('#whiteness')
@@ -131,11 +136,13 @@
 
       const hwbValue = `hwb(${hue.value} ${whiteness.value}% ${blackness.value}%)`
 
-      document.documentElement.style.setProperty('--angle', `-${hue.value}deg`);
+      document.documentElement.style.setProperty('--angle', `-${hue.value}deg`)
 
       result.lastChild.innerText = hwbValue
       document.body.style.backgroundColor = hwbValue
       document.body.style.accentColor = hwbValue
+
+      circle.style.color = `hwb(${hue.value} 0% 0%)`
     });
   </script>
 </body>
