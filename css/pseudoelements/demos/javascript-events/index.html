@@ -30,48 +30,41 @@
     }
 
     .quantity-change {
-      width: 160px;
-      height: 40px;
       display: flex;
-      color: #333333;
-      background-color: #FFFFFF;
-      cursor: text;
-      margin: 0;
-      box-shadow: 0 3px 5px 0 rgb(0 0 0 / 0.1);
-      outline: 0;
-      padding: 0;
-      border: 1px solid #DADADA;
-      border-radius: 5px;
-      outline: none;
-      box-sizing: border-box;
       align-items: center;
       justify-content: space-between;
+      width: 160px;
+      height: 44px;
+      border-radius: 6px;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-size: 24px;
+      cursor: text;
       user-select: none;
-      }
+    }
 
-      .quantity-change::before, .quantity-change::after {
-        display: flex;
-        height: 40px;
-        width: 40px;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 24px;
-      }
+    .quantity-change::before, .quantity-change::after {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      font-size: 34px;
+      cursor: pointer;
+    }
 
-      .quantity-change::before {
-        content: '-';
-      }
+    .quantity-change::before {
+      content: '–';
+    }
 
-      .quantity-change::after {
-        content: '+';
-      }
+    .quantity-change::after {
+      content: '+';
+    }
 
-      @media (max-width: 768px) {
-        body {
-          padding: 30px;
-        }
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
       }
+    }
   </style>
 </head>
 <body>
