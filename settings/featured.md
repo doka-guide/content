@@ -65,59 +65,63 @@ ready:
   - recipes/progress
   - recipes/character-counter
 active:
-  - a11y/chto-takoe-a11y
+  - css/scrollbar-gutter
+  - a11y/css-impact-on-a11y
+  - recipes/character-counter
+  - js/geolocation-api
+  - a11y/content-hidden
+  - html/article
+  - js/async-in-js
+  - tools/webpack
+  - js/function
+  - tools/oop
+  - html/doctype
   - recipes/progress
+  - tools/network
   - tools/how-the-browser-creates-pages
   - css/custom-properties
-  - a11y/aria-hidden
-  - tools/network
-  - css/specificity
-  - js/deal-with-forms
-  - css/pseudoelements
-  - tools/webpack
-  - tools/static-types
-  - tools/how-to-test-and-why
-  - css/media
-  - css/display
-  - tools/bundlers
-  - html/head
-  - js/boolean
-  - css/box-shadow
-  - html/div
-  - tools/markdown
-  - tools/agile
-  - tools/cli
-  - html/form
-  - tools/oop
-  - a11y/screenreaders
-  - recipes/lets-encrypt-nginx
   - html/img
-  - js/var-let
-  - tools/clean-architecture
-  - html/input
-  - recipes/snow
-  - js/function-context
-  - css/flexbox-guide
-  - html/section
-  - css/keyframes
-  - css/attr
-  - tools/ci-cd
+  - css/specificity
   - html/video
-  - tools/docker
-  - js/async-in-js
-  - js/execution-order
-  - css/position
-  - js/infinite-scroll
-  - html/article
-  - js/closures
-  - css/box-model
-  - css/grid-guide
   - a11y/aria-intro
-  - html/nav
+  - css/position
+  - css/box-model
+  - css/media
+  - tools/markdown
+  - css/display
+  - tools/docker
+  - css/flexbox-guide
+  - js/deal-with-forms
+  - js/var-let
+  - css/keyframes
   - tools/gitlab-ci-cd
-  - js/function
+  - js/execution-order
+  - js/closures
+  - css/pseudoelements
+  - tools/clean-architecture
+  - tools/cli
+  - tools/how-to-test-and-why
+  - js/function-context
   - html/flow
+  - css/grid-guide
+  - css/attr
+  - recipes/snow
+  - html/nav
+  - js/boolean
+  - a11y/screenreaders
+  - tools/static-types
+  - tools/ci-cd
+  - html/form
+  - html/head
+  - recipes/lets-encrypt-nginx
+  - tools/bundlers
+  - js/infinite-scroll
+  - html/section
+  - tools/agile
+  - html/input
+  - html/div
   - css/transform-function
-  - html/doctype
+  - css/box-shadow
+  - a11y/aria-hidden
 ---
 
