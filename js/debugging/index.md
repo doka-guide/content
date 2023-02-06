@@ -113,7 +113,7 @@ Chrome позволяет подключаться к [NodeJS рантайму](
 
 Например, можно запустить отладку кода примера этой статьи:
 ```shell
-node --inspect-brk js/debugging/demos/days-calc/index.js
+node --inspect-brk js/debugging/demos/tax-calc/index.js
 ```
 ![Инструменты разработчика Chrome для NodeJS, консоль и код](images/nodejs-dev-tools-console-and-sources-john_chrome_en.png)
 
