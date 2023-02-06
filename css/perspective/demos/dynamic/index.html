@@ -32,9 +32,25 @@
       font-size: 18px;
     }
 
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
     .container {
       width: 500px;
       margin: 0 auto;
+    }
+
+    .controls {
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: lowercase;
+    }
+
+    .value {
+      font-size: 40px;
+      font-weight: 500;
     }
 
     .slider {
@@ -59,9 +75,9 @@
     .element {
       display: flex;
       justify-content: center;
-      padding: 15px;
       width: 500px;
       height: 250px;
+      padding: 15px;
     }
 
     .element--front {
@@ -76,22 +92,6 @@
       transform: rotateY(180deg) translateZ(100px);
     }
 
-    code {
-      font-family: "Roboto Mono", monospace;
-      font-size: calc(1em - 1px);
-    }
-
-    .controls {
-      margin-bottom: 25px;
-      text-align: center;
-      text-transform: lowercase;
-    }
-
-    .value {
-      font-size: 40px;
-      font-weight: 500;
-    }
-
     @media (max-width: 768px) {
       body {
         padding: 30px;
@@ -100,7 +100,6 @@
       .container, .scene, .scene-wrapper, .element {
         width: 300px;
       }
-
     }
   </style>
 </head>
@@ -122,10 +121,10 @@
   </div>
 
   <script>
-    const myRange = document.getElementById("myRange")
-    const output = document.getElementById("demo")
-    const scene = document.querySelector(".scene")
-    const elementBack = document.querySelector(".element--back")
+    const myRange = document.getElementById('myRange')
+    const output = document.getElementById('demo')
+    const scene = document.querySelector('.scene')
+    const elementBack = document.querySelector('.element--back')
     output.textContent = myRange.value + 'px'
 
     myRange.onchange = myRange.oninput = function() {
