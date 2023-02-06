@@ -597,7 +597,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 ```css
 .container {
   display: grid;
-  place-items: stretch / end;
+  place-items: stretch end;
 }
 ```
 
