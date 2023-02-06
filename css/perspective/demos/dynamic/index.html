@@ -17,6 +17,7 @@
 
     html {
       color-scheme: dark;
+      accent-color: #2E9AFF;
     }
 
     body {
@@ -31,31 +32,26 @@
       font-size: 18px;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     .container {
-      width: 400px;
+      width: 500px;
       margin: 0 auto;
     }
 
     .slider {
       display: block;
       width: 100%;
+      margin: 5px 0;
     }
 
     .scene {
       position: absolute;
-      width: 250px;
+      width: 500px;
       height: 250px;
       perspective: 500px;
     }
 
     .scene-wrapper {
-      width: 250px;
+      width: 500px;
       height: 250px;
       transform-style: preserve-3d;
     }
@@ -64,7 +60,7 @@
       display: flex;
       justify-content: center;
       padding: 15px;
-      width: 250px;
+      width: 500px;
       height: 250px;
     }
 
@@ -84,15 +80,39 @@
       font-family: "Roboto Mono", monospace;
       font-size: calc(1em - 1px);
     }
+
+    .controls {
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: lowercase;
+    }
+
+    .value {
+      font-size: 40px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container, .scene, .scene-wrapper, .element {
+        width: 300px;
+      }
+
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <label>
-      Меняем значение свойства <code>perspective</code>
-      <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
-    </label>
-    <p>Значение перспективы: <span id="demo"></span></p>
+    <div class="controls">
+      <label>
+        <code class="value"><span id="demo"></span></code>
+        <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
+      </label>
+      <p>Значение свойства <code>perspective</code></p>
+    </div>
     <div class="scene">
       <div class="scene-wrapper">
         <div class="element element--back">Задняя стенка экрана</div>
@@ -102,24 +122,24 @@
   </div>
 
   <script>
-    const myRange = document.getElementById("myRange");
-    const output = document.getElementById("demo");
-    const scene = document.querySelector(".scene");
-    const elementBack = document.querySelector(".element--back");
-    output.textContent = myRange.value;
+    const myRange = document.getElementById("myRange")
+    const output = document.getElementById("demo")
+    const scene = document.querySelector(".scene")
+    const elementBack = document.querySelector(".element--back")
+    output.textContent = myRange.value + 'px'
 
     myRange.onchange = myRange.oninput = function() {
-      let value = myRange.value;
-      elementBack.style.transform="rotateY(180deg) translateZ(100px)";
+      let value = myRange.value
+      elementBack.style.transform='rotateY(180deg) translateZ(100px)'
 
       if (value === '1000') {
-        value = 'none';
-        elementBack.style.transform="rotateY(180deg) translateZ(0)";
+        value = 'none'
+        elementBack.style.transform='rotateY(180deg) translateZ(0)'
       }
 
-      scene.style.perspective = value === 'none' ? 'none' : `${ +value}px`;
-      output.textContent = value;
-    };
+      scene.style.perspective = value === 'none' ? 'none' : `${ +value}px`
+      output.textContent = value === 'none' ? 'none' : `${ +value}px`
+    }
   </script>
 </body>
 </html>

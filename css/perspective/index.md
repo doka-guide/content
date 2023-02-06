@@ -77,4 +77,4 @@ tags:
 
 ## Интерактивная песочница
 
-<iframe title="Интерактивная песочница" src="demos/dynamic/" height="450"></iframe>
+<iframe title="Интерактивная песочница" src="demos/dynamic/" height="500"></iframe>
