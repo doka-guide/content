@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Февраль 2023
+
+- 7 февраля, [`perspective`](https://doka.guide/css/perspective/), Сергей Осипов
+
 ## Январь 2023
 
 - 31 января, [`aria-modal`](https://doka.guide/a11y/aria-modal/), Татьяна Фокина
