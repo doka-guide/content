@@ -9,7 +9,9 @@ keywords:
   - грид-колонка
   - грид-полоса
 related:
-  -
+  - css/grid-guide
+  - css/grid-template
+  - css/grid-area
 tags:
   - doka
 ---

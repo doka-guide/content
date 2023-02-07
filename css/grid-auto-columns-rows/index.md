@@ -10,7 +10,7 @@ keywords:
   - автоматические ряды
 related:
   - css/grid-guide
-  - css/auto-flow
+  - css/grid-auto-flow
   - css/grid-template
 tags:
   - doka
