@@ -1,5 +1,6 @@
 ---
 title: "Гайд по grid"
+description: "Полный список свойств для создания раскладки на гридах и управления ею."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -12,44 +13,12 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - grid
-  - display: grid
   - Grid Layout
-  - грид-контейнер
-  - грид-элемент
-  - грид-линия
-  - грид-ячейка
-  - грид-полоса
-  - грид-область
-  - grid-template-columns
-  - grid-template-rows
-  - repeat()
-  - fr
-  - grid-auto-columns
-  - grid-auto-rows
-  - grid-auto-flow
-  - dense
-  - grid-template-areas
-  - grid-template
-  - column-gap
-  - row-gap
-  - gap
-  - justify-items
-  - align-items
-  - place-items
-  - grid-column-start
-  - grid-column-end
-  - grid-row-start
-  - grid-row-end
-  - grid-column
-  - grid-row
-  - grid-area
-  - justify-self
-  - align-self
-  - place-self
-  - minmax()
-  - min-content
-  - max-content
+  - грид
+related:
+  - css/flexbox-guide
+  - css/has
+  - css/media
 tags:
   - article
 ---
@@ -203,11 +172,11 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 }
 
 .item {
-  background: lightblue;
+  background-color: lightblue;
 }
 
 .item:nth-child(n + 3) {
-  background: pink;
+  background-color: pink;
 }
 ```
 
@@ -228,11 +197,11 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 .item {
   min-height: 50px;
-  background: lightblue;
+  background-color: lightblue;
 }
 
 .item:nth-child(n + 3) {
-  background: pink;
+  background-color: pink;
 }
 ```
 
@@ -268,7 +237,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
   /* Для красоты */
   padding: 10px;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 .item {
@@ -277,14 +246,14 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   padding: 20px 0;
   font-size: 30px;
   line-height: 1;
-  background: lightblue;
+  background-color: lightblue;
 }
 
 .item3 {
   /* Занимает один ряд и
   растягивается на две колонки */
   grid-column: span 2;
-  background: pink;
+  background-color: pink;
 }
 ```
 
@@ -348,7 +317,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 - `.` — означает пустую ячейку.
 - название — название области, может быть абсолютно любым словом или даже эмодзи! 🤯
 
-Обратите внимание, что нужно называть каждую из ячеек. Например, если шапка или подвал нашего сайта будут занимать все три существующие колонки, то нужно будет трижды написать названия этих областей. Удобнее всего будет подписывать области в виде некой таблицы. Подобный способ записи чем-то похож на [таблицы в Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables):
+Обратите внимание, что нужно называть каждую из ячеек. Например, если шапка или подвал нашего сайта будут занимать все три существующие колонки, то нужно будет трижды написать названия этих областей. Удобнее всего будет подписывать области в виде некой таблицы. Подобный способ записи чем-то похож на [таблицы в Markdown](/tools/markdown/#tablicy):
 
 ```css
 .container {
@@ -605,12 +574,12 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Мегашорткат, позволяющий задать значения всему и сразу. А конкретно с его помощью можно указать значения для следующих свойств:
 
-- `grid-template-rows`
-- `grid-template-columns`
-- `grid-template-areas`
-- `grid-auto-rows`
-- `grid-auto-columns`
-- `grid-auto-flow`
+- `grid-template-rows`;
+- `grid-template-columns`;
+- `grid-template-areas`;
+- `grid-auto-rows`;
+- `grid-auto-columns`;
+- `grid-auto-flow`.
 
 Перед тем как соблазниться возможностью расписать всё в одном свойстве, дважды (а то и трижды) подумайте о читабельности кода. Учтите и то, что гриды относительно новая и не такая уж простая технология. Не каждый коллега сможет прочесть этот шорткат.
 

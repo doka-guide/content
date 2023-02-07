@@ -1,9 +1,14 @@
 ---
 title: "`grid-area`"
+description: "Указываем грид-элементу где ему встать."
 authors:
   - solarrust
 editors:
   - tachisis
+related:
+  - css/grid-start-end
+  - css/grid-guide
+  - css/gap
 tags:
   - doka
 ---
