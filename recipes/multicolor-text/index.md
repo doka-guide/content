@@ -19,7 +19,12 @@ tags:
 
 ```css
 h1 {
-  background-image: linear-gradient(250deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%);
+  background-image: 
+    linear-gradient(250deg, 
+      #833AB4 0%, 
+      #FD1D1D 50%, 
+      #FCB045 100%
+    );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -77,9 +82,11 @@ h1 {
 ```css
 h1 {
   background-image:
-    linear-gradient(250deg, rgba(131,58,180,1) 0%,
-      rgba(253,29,29,1) 50%,
-      rgba(252,176,69,1) 100%);
+    linear-gradient(250deg,
+      #833AB4 0%,
+      #FD1D1D 50%,
+      #FCB045 100%
+    );
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
