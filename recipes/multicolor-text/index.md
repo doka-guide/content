@@ -56,7 +56,7 @@ h1 {
 
 Теперь текст написан поверх разноцветного фона:
 
-<iframe title="Белый текст на градиентном фоне" src="demos/step-1/" height="450"></iframe>
+<iframe title="Белый текст на разноцветном фоне" src="demos/step-1/" height="450"></iframe>
 
 Затем нужно спрятать фон под текст. Для этого понадобиться свойство [`background-clip`](/css/background-clip/) со значением `text`.
 
