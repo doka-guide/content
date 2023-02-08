@@ -20,9 +20,9 @@ tags:
 ```css
 h1 {
   background-image: 
-    linear-gradient(250deg, 
-      #833AB4 0%, 
-      #FD1D1D 50%, 
+    linear-gradient(250deg,
+      #833AB4 0%,
+      #FD1D1D 50%,
       #FCB045 100%
     );
   background-clip: text;
