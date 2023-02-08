@@ -1,5 +1,6 @@
 ---
 title: "`inset`"
+description: "Указываем место позиционированному элементу."
 authors:
   - doka-dog
 contributors:
