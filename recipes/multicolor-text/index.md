@@ -19,7 +19,7 @@ tags:
 
 ```css
 h1 {
-  background-image: 
+  background-image:
     linear-gradient(250deg,
       #833AB4 0%,
       #FD1D1D 50%,
