@@ -1,6 +1,6 @@
 ---
 title: "Что такое WCAG"
-description: "."
+description: "Разбираемся, что такое эти ваши WCAG, кому нужны и как устроены."
 authors:
   - tatianafokina
 related:
