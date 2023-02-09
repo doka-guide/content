@@ -1,5 +1,6 @@
 ---
 title: "!important"
+description: "Опасный приём для повышения важности стилей. Ломает специфичность и каскад."
 authors:
   - solarrust
 contributors:
@@ -9,6 +10,10 @@ editors:
 keywords:
   - модификатор
   - переопределение специфичности
+related:
+  - css/specificity
+  - css/cascade
+  - css/inheritance
 tags:
   - doka
 ---

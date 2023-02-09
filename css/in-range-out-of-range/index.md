@@ -1,5 +1,6 @@
 ---
 title: "`:in-range`, `:out-of-range`"
+description: "Правильно ли заполнено поле ввода с цифрами? Проверяем прямо в браузере."
 authors:
   - ezhkov
 editors:
@@ -8,6 +9,10 @@ keywords:
   - валидация
   - число
   - диапазон
+related:
+  - html/input
+  - css/placeholder-shown
+  - html/form
 tags:
   - doka
 ---

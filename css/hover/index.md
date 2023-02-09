@@ -1,5 +1,6 @@
 ---
 title: "`:hover`"
+description: "Оживляем элементы, реагируем на наведение курсора."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -13,10 +14,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - :hover
-  - LVFHA
-  - псевдокласс
   - ховер
+related:
+  - css/transition
+  - css/visited
+  - css/active
 tags:
   - doka
 ---
