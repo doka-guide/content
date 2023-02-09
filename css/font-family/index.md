@@ -25,7 +25,7 @@ tags:
 
 ```css
 body {
-  font-family: "PT Sans", "Arial", serif;
+  font-family: "PT Sans", "Arial", sans-serif;
 }
 ```
 
