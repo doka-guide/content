@@ -13,7 +13,7 @@
       <a class="nav-list__link yellow" href="#">JavaScript</a>
     </li>
     <li class="nav-list__item">
-      <a class="nav-list__link green" href="#">Инструменты</a>
+      <a class="nav-list__link green" href="#">Веб-платформа</a>
     </li>
   </ul>
 </nav>

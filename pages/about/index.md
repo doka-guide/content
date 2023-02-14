@@ -16,7 +16,7 @@ location: "/about/"
 В редакцию входят:
 
 - **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/), тимлид Доки.
-- **<!-- yaspeller ignore:start -->[Полина Гуртовая](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Инструменты](/tools/).
+- **<!-- yaspeller ignore:start -->[Полина Гуртовая](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Веб-платформа](/tools/).
 - **<!-- yaspeller ignore:start -->[Татьяна Фокина](/people/tatianafokina/)<!-- yaspeller ignore:end -->** — редактор раздела [Доступность](/a11y/).
 - **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер и стратег Доки.
 
@@ -51,4 +51,4 @@ location: "/about/"
 - [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
 - [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.
-- [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Инструменты.
+- [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Веб-платформа.
