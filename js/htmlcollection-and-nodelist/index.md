@@ -31,7 +31,7 @@ contributors:
 
 Например, единожды получив коллекцию мы можем не заботиться о её поддержке:
 
-<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350"></iframe>
+<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/htmlcollection-example/" height="450"></iframe>
 
 `NodeList` работает почти так же, как и `HTMLCollection`.
 
