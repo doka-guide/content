@@ -51,6 +51,22 @@ tags:
 
 Если нативный HTML тег не подходит для выполнения задачи интерфейса, то при разработке кастомного элемента важно следовать стандартам и практикам, описанным в [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/patterns/) или использовать уже готовые компоненты такие как [доступный диалог](https://github.com/KittyGiraudel/a11y-dialog). 
 
+## Осторожно! Не все семантические теги доступны
+
+Не все нативные теги доступны по умолчанию. Например, [теги `<details/>` и `<summary/>`](/html/details/) ведут себя по разному, в зависимости от комбинации браузера и скринридера. `<summary/>`—это интерактивный элемент, который при его нажатии должен раскрывать контент в деталях, но в сочетании скринридера [TalkBack с Firefox или VoiceOver в iPhone с Safari](https://www.scottohara.me//blog/2022/09/12/details-summary.html#:~:text=Bugged%20behavior%20or%20no%20role%20announced%20with%20TalkBack%20with%20Firefox%20or%20iOS%20VO%20with%20Safari%2C%20respectively.) роль и поведение `<summary/>` анонсируется неправильно. Преимущество этих тегов в том, что они позволяют искать контент, спрятанный внутри `<details/>` и при поиске открывают блок с информацией автоматически. К сожалению, полный поддержки доступности этих тегов на данный момент нет. 
+
+Даже такие основные элементы как `<label/>` и `<input/>` могут быть неполностью доступны скринридеру. Существует [проблема с вложенным в <label> контентом в Safari](https://russmaxdesign.github.io/accessible-forms/input-help-text-wrapped-label.html). В случае, если контент подписи вложен в `<label/>` как на следующем примере:
+
+```html
+<label for="name">
+  <span>Имя</span>
+  <span>Введи своё полное имя</span>
+  <input type="text" id="name">
+</label>
+```
+VoiceOver в Safari не прочитает "Введи свое полное имя". 
+
+Существует множество [HTML тест-кейсов по доступности](https://russmaxdesign.github.io/accessible-forms/), где при разных комбинациях HTML элементов, интерфейс становится недоступным.
 
 ## Роли, состояния и свойства
 
@@ -107,3 +123,5 @@ ARIA атрибуты позволяют указывать роли, состо
 Существуют разные инструменты для отладки и тестирования доступности. Например, в браузерных инструментах для веб разработки обязательно найдётся инспектор доступности. Например, [панель доступности в Chrome](https://developer.chrome.com/docs/devtools/accessibility/reference/#explore-tree) и [инспектор доступности в Firefox](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/#accessing-the-accessibility-inspector). Он преобразует дерево HTML в дерево доступности (англ. Accessibility tree), показывая роли, свойства и состояния элементов. 
 
 Тестировать доступность можно с помощью [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/scoring/) или [расширения axe](https://chrome.google.com/webstore/detail/axe/lhdoppojpmngadmnindnejefpokejbdd). Эти инструменты помогают выявить большинство, но не все ошибки, связанные с доступностью. К примеру, клавишную навигацию нужно тестировать вручную.
+
+
