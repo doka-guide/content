@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/display
-  - tools/agile
-  - css/custom-properties
   - tools/docker
-  - js/var-let
-  - html/section
-  - recipes/progress
-  - tools/bundlers
-  - css/position
-  - tools/gitlab-ci-cd
-  - css/attr
-  - css/keyframes
-  - tools/how-the-browser-creates-pages
-  - js/closures
-  - a11y/screenreaders
-  - css/transform-function
-  - html/img
-  - recipes/snow
-  - tools/clean-architecture
-  - html/input
-  - a11y/aria-hidden
-  - css/flexbox-guide
-  - html/video
-  - html/div
-  - js/deal-with-forms
-  - css/box-model
-  - js/function-context
-  - tools/ci-cd
-  - js/async-in-js
-  - css/specificity
-  - html/flow
-  - tools/network
+  - css/display
   - css/grid-guide
-  - js/execution-order
-  - html/head
-  - a11y/aria-intro
-  - tools/cli
-  - js/infinite-scroll
-  - tools/how-to-test-and-why
-  - recipes/lets-encrypt-nginx
-  - css/media
-  - html/form
-  - tools/markdown
-  - html/article
-  - html/doctype
-  - css/pseudoelements
-  - tools/static-types
+  - js/deal-with-forms
   - css/box-shadow
-  - js/boolean
-  - tools/webpack
-  - html/nav
-  - js/function
+  - recipes/progress
+  - css/keyframes
   - tools/oop
+  - css/attr
+  - tools/markdown
+  - css/custom-properties
+  - css/specificity
+  - html/nav
+  - tools/bundlers
+  - html/flow
+  - tools/cli
+  - a11y/screenreaders
+  - html/section
+  - html/input
+  - recipes/lets-encrypt-nginx
+  - html/img
+  - js/closures
+  - css/box-model
+  - css/media
+  - tools/network
+  - js/function
+  - css/transform-function
+  - js/async-in-js
+  - html/doctype
+  - tools/ci-cd
+  - tools/how-to-test-and-why
+  - html/head
+  - tools/static-types
+  - js/boolean
+  - tools/how-the-browser-creates-pages
+  - css/flexbox-guide
+  - tools/agile
+  - css/pseudoelements
+  - tools/clean-architecture
+  - js/infinite-scroll
+  - tools/gitlab-ci-cd
+  - html/form
+  - tools/webpack
+  - recipes/snow
+  - a11y/aria-intro
+  - js/execution-order
+  - html/article
+  - html/video
+  - js/function-context
+  - js/var-let
+  - css/position
+  - a11y/aria-hidden
+  - html/div
 ---
 
