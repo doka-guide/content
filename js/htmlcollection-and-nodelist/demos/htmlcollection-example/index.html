@@ -32,17 +32,8 @@
       font-size: 16px;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 800px;
+      max-width: 700px;
     }
 
     h1 {
@@ -55,7 +46,6 @@
       margin: 7px 0;
       font-size: 1rem;
       line-height: 1.4;
-      text-align: center;
     }
 
     code {
@@ -63,12 +53,12 @@
       font-size: calc(1em - 1px);
     }
 
-    span {
-      font-size: 1.4rem;
+    #article {
+      margin: 25px 0;
     }
 
-    div {
-      padding: 15px 0;
+    span {
+      font-size: 1.4rem;
     }
 
     a {
@@ -87,6 +77,12 @@
       background-color: #FFD829;
       transition: background-color 0.2s linear;
       outline-width: 0;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
     }
 
     .button {
@@ -121,8 +117,18 @@
       background-color: #FFD829;
     }
 
-    .button:first-of-type {
-      margin: 15px 15px 15px 0;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        max-width: 350px;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -135,7 +141,7 @@
       <a href="#">Это ссылка #1</a>
       <a href="#">Это ссылка #2</a>
     </div>
-    <div>
+    <div class="buttons">
       <button id="add" class="button button-yellow">Добавить ссылку</button>
       <button id="remove" class="button button-yellow">Удалить ссылку</button>
     </div>
