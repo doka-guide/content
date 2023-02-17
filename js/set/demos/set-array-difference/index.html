@@ -31,22 +31,17 @@
       font-size: 16px;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     p {
       margin: 7px 0;
       font-size: 1rem;
       line-height: 1.4;
+    }
+
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 25px;
     }
 
     .button {
@@ -86,7 +81,6 @@
       border: 1px solid #FFFFFF;
       border-radius: 6px;
       padding: 10px 15px;
-      margin: 15px 15px 15px 0;
       background-color: transparent;
       color: #FFFFFF;
       font-size: 18px;
@@ -100,6 +94,21 @@
       border-color: #FFD829;
       outline: none;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        flex-direction: column;
+
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -110,7 +119,7 @@
     <p id="set">
       []
     </p>
-    <form id="add-element">
+    <form class="form" id="add-element">
       <input type="text" placeholder="Введите значение, которое нужно добавить" id="new-element">
       <button class="button button-yellow" type="submit">Добавить</button>
     </form>
