@@ -143,7 +143,7 @@ const callback = (entries, observer) => {
 ```js
 const options = {
   root: document.querySelector('.container'),
-  marginRoot: '0px',
+  rootMargin: '0px',
   threshold: [0, 0.5, 1],
 }
 ```
