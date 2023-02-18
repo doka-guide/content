@@ -25,7 +25,7 @@ console.log(series.length)
 // 4
 
 const empty = []
-console.log(series.length)
+console.log(empty.length)
 // 0
 ```
 
