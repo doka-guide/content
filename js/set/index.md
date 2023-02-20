@@ -9,6 +9,8 @@ related:
   - tools/oop
 tags:
   - doka
+contributors:
+  - rakleed
 ---
 
 ## Кратко

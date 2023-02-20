@@ -11,6 +11,7 @@ related:
   - js/getelementsbyclassname
 contributors:
   - northrain-cmd
+  - rakleed
 ---
 
 ## Кратко
