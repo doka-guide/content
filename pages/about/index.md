@@ -25,7 +25,7 @@ location: "/about/"
 - **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — продуктовый дизайнер, делает сайт Доки прекраснее.
 - **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
 - **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер социальных медиа.
-- **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — продюсер партнёрского сервиса
+- **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — продюсер партнёрского сервиса.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
 Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership).
