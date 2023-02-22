@@ -11,7 +11,6 @@ related:
   - css/cursor
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
