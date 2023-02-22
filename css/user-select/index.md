@@ -8,7 +8,7 @@ keywords:
 related:
   - css/pointer-events
   - css/selection
-  -
+  - css/cursor
 tags:
   - doka
   - placeholder
