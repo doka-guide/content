@@ -13,6 +13,9 @@ groups:
       - aria-intro
       - aria-roles
       - aria-attrs
+  - name: 'Другие стандарты и руководства'
+    items:
+      - wcag
   - name: 'Глобальные атрибуты'
     items:
       - aria-hidden
