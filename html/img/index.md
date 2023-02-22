@@ -12,6 +12,7 @@ authors:
 contributors:
   - skorobaeus
   - mefody
+  - punkmachine
 editors:
   - tachisis
 keywords:
