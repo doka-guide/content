@@ -1,6 +1,6 @@
 ---
 title: "`user-select`"
-description: "Свойство CSS, которое позволяет настраивать выделение текста"
+description: "Свойство CSS, которое разрешает или запрещает возможность выбора текста."
 authors:
   - punkmachine
 keywords:
