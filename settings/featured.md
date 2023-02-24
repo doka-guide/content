@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/docker
-  - css/display
-  - css/grid-guide
-  - js/deal-with-forms
-  - css/box-shadow
-  - recipes/progress
-  - css/keyframes
-  - tools/oop
-  - css/attr
-  - tools/markdown
-  - css/custom-properties
-  - css/specificity
-  - html/nav
-  - tools/bundlers
-  - html/flow
-  - tools/cli
-  - a11y/screenreaders
-  - html/section
-  - html/input
-  - recipes/lets-encrypt-nginx
-  - html/img
-  - js/closures
-  - css/box-model
   - css/media
-  - tools/network
-  - js/function
-  - css/transform-function
+  - css/keyframes
   - js/async-in-js
-  - html/doctype
   - tools/ci-cd
-  - tools/how-to-test-and-why
-  - html/head
-  - tools/static-types
-  - js/boolean
-  - tools/how-the-browser-creates-pages
-  - css/flexbox-guide
-  - tools/agile
-  - css/pseudoelements
-  - tools/clean-architecture
-  - js/infinite-scroll
-  - tools/gitlab-ci-cd
-  - html/form
-  - tools/webpack
-  - recipes/snow
-  - a11y/aria-intro
-  - js/execution-order
-  - html/article
-  - html/video
+  - css/transform-function
+  - html/flow
+  - css/grid-guide
+  - recipes/lets-encrypt-nginx
   - js/function-context
-  - js/var-let
-  - css/position
+  - tools/agile
+  - html/nav
+  - tools/cli
+  - js/infinite-scroll
+  - recipes/snow
   - a11y/aria-hidden
+  - html/article
+  - a11y/aria-intro
+  - tools/gitlab-ci-cd
+  - js/closures
+  - css/pseudoelements
+  - html/section
+  - tools/how-to-test-and-why
+  - css/specificity
+  - html/video
+  - tools/webpack
+  - html/doctype
+  - css/display
+  - js/execution-order
+  - css/box-model
+  - css/position
+  - tools/markdown
+  - css/box-shadow
+  - html/img
+  - tools/oop
+  - html/form
+  - recipes/progress
+  - html/head
+  - a11y/screenreaders
+  - tools/docker
   - html/div
+  - css/attr
+  - css/custom-properties
+  - tools/network
+  - js/deal-with-forms
+  - css/flexbox-guide
+  - html/input
+  - tools/static-types
+  - js/var-let
+  - tools/how-the-browser-creates-pages
+  - js/function
+  - tools/bundlers
+  - tools/clean-architecture
+  - js/boolean
 ---
 
