@@ -121,6 +121,7 @@ groups:
       - how-to-simplify-tests
       - testing-and-fake-objects
       - integration-and-system-testing
+      - testing-with-jest-1
   - name: Инструменты
     items:
       - git-cli
