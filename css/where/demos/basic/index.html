@@ -150,12 +150,16 @@
     const button = document.querySelector('button')
     const style = document.querySelector('style')
 
-    const codeBlockFooter = document.querySelector('#code-block-footer')
+    const cssFooterRule = `
+      ul .cat {
+        background-color: orange
+      }
+    `
 
     button.addEventListener('click', (event) => {
-      style.appendChild(document.createTextNode(codeBlockFooter.textContent))
+      style.appendChild(document.createTextNode(cssFooterRule))
 
-      codeBlockFooter.classList.remove('code-block_hidden')
+      document.querySelector('#code-block-footer').classList.remove('code-block_hidden')
 
       event.target.textContent = 'Котики покрашены'
       event.target.setAttribute('disabled', true)
