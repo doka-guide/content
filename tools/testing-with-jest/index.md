@@ -127,21 +127,21 @@ function titleFormatter(separator = ' — ', segments) {
 Давайте посмотрим, что она делает:
 
 ```js
- search(query, filters = []) {
-    let url = new URL(this.url)
-    let params = new URLSearchParams(url.search)
-    params.append('search', query.replaceAll('+', '%2B').replaceAll('-', '%2D'))
-    filters.forEach((f) => {
-      params.append(f.key, f.val)
-    })
-    return fetch(url.toString() + '?' + params.toString(), {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        Origin: 'https://doka.guide',
-      },
-    }).then((response) => response.json())
-  }
+search(query, filters = []) {
+  let url = new URL(this.url)
+  let params = new URLSearchParams(url.search)
+  params.append('search', query.replaceAll('+', '%2B').replaceAll('-', '%2D'))
+  filters.forEach((f) => {
+    params.append(f.key, f.val)
+  })
+  return fetch(url.toString() + '?' + params.toString(), {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      Origin: 'https://doka.guide',
+    },
+  }).then((response) => response.json())
+}
 ```
 
 Метод `search()` использует асинхронную функцию `fetch()` и нам нужно учесть это в тесте. Мы уже знаем как начать: создаём папку `__tests__`, закидываем в неё `search-api-client.js`. Так как поиск асинхронный, тест у нас тоже будет асинхронный.
