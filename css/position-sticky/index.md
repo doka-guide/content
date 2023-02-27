@@ -2,6 +2,8 @@
 title: "`position: sticky`"
 authors:
   - lenaryan
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -20,7 +22,19 @@ tags:
 
 Сделаем «липкий» заголовок, а также «липкий» блок в правом нижнем углу для каждого из `<section>`:
 
-<iframe title="Липкое позиционирование" src="demos/sticky/" height="400"></iframe>
+```css
+h1 {
+  position: sticky;
+  top: 15px;
+}
+
+.squares__item:last-of-type {
+  position: sticky;
+  bottom: 15px;
+}
+```
+
+<iframe title="Липкое позиционирование" src="demos/sticky/" height="490"></iframe>
 
 ## Как понять
 
