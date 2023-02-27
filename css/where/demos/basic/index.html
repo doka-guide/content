@@ -138,7 +138,7 @@
       <pre><code class="code-block">:where(h1, ul) .cat {
   background-color: deepskyblue
 }</code>
-<code class="code-block code-block_hidden" id="code-block-footer">ul .cat {
+<code class="code-block code-block_hidden" id="code-block-color-override">ul .cat {
   background-color: orange
 }</code></pre>
     </div>
@@ -150,16 +150,16 @@
     const button = document.querySelector('button')
     const style = document.querySelector('style')
 
-    const cssFooterRule = `
+    const cssColorOverrideRule = `
       ul .cat {
         background-color: orange
       }
     `
 
     button.addEventListener('click', (event) => {
-      style.appendChild(document.createTextNode(cssFooterRule))
+      style.appendChild(document.createTextNode(cssColorOverrideRule))
 
-      document.querySelector('#code-block-footer').classList.remove('code-block_hidden')
+      document.querySelector('#code-block-color-override').classList.remove('code-block_hidden')
 
       event.target.textContent = 'Котики покрашены'
       event.target.setAttribute('disabled', true)
