@@ -27,11 +27,6 @@
       font-family: "Roboto", sans-serif;
     }
 
-    .section__title {
-      font-size: 26px;
-      font-weight: 500;
-    }
-
     .section {
       display: flex;
       width: 650px;
@@ -50,12 +45,11 @@
     }
 
     .section__title {
-      text-transform: uppercase;
       text-align: center;
-      font-size: 23px;
-      margin: 0;
       position: sticky;
       top: 15px;
+      font-size: 26px;
+      font-weight: 500;
     }
 
     .squares {
@@ -76,6 +70,20 @@
       background-color: #F498AD;
       position: sticky;
       bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .section {
+        width: 100%;
+      }
+
+      .squares__item {
+        width: 50px;
+      }
     }
   </style>
 </head>
