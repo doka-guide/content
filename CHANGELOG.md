@@ -4,6 +4,7 @@
 
 ## Февраль 2023
 
+- 27 февраля, [`user-select`](https://doka.guide/css/user-select/), Александр Рассудихин
 - 7 февраля, [`perspective`](https://doka.guide/css/perspective/), Сергей Осипов
 
 ## Январь 2023
