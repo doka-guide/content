@@ -23,7 +23,7 @@ related:
 
 Если вы не любите читать, но любите смотреть, предлагаем вам три коротких видео: [раз](https://www.loom.com/share/ed81362e0cb24a4da396419e75ceba0f), [два](https://www.loom.com/share/8a01f3821bb44ad4bea7682c99ced7a9), [три](https://www.loom.com/share/48698cd6abf947089c42b3427649a5ff). В них показано все, что мы будем делать в этом рецепте.
 
-Сейчас мы напишем несколько тестов, для разных кусочков [платформы доки](https://github.com/doka-guide/platform).
+Сейчас мы напишем несколько тестов для разных кусочков [платформы Доки](https://github.com/doka-guide/platform).
 
 Для тестов будем использовать [Jest](https://jestjs.io/).
 
