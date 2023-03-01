@@ -59,7 +59,7 @@ module.exports = {
 
 ## Запускаем тесты, которых пока нет
 
-Чтобы запустить тесты, создадим отдельную команду в файле [`package.json` нашей платформы](https://github.com/doka-guide/platform/blob/09ac9232e199f802e92c52143733edfb990180ec/package.json#L33):
+Чтобы запустить тесты, создадим отдельную команду в [файле `package.json` нашей платформы](https://github.com/doka-guide/platform/blob/09ac9232e199f802e92c52143733edfb990180ec/package.json#L33):
 
 ```json
 {
