@@ -73,7 +73,7 @@ module.exports = {
 
 ## Настало время написать наш первый тест
 
-Мы будем тестировать функцию [форматирования заголовков](https://github.com/doka-guide/platform/blob/main/src/libs/title-formatter/title-formatter.js). Код которой выглядит так:
+Мы будем тестировать [функцию форматирования заголовков](https://github.com/doka-guide/platform/blob/main/src/libs/title-formatter/title-formatter.js). Код функции выглядит так:
 
 ```js
 function titleFormatter(segments) {
