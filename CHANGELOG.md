@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Март 2023
+
+- 1 марта, [Что такое WCAG](https://doka.guide/a11y/wcag/), Татьяна Фокина
+
 ## Февраль 2023
 
 - 27 февраля, [`user-select`](https://doka.guide/css/user-select/), Александр Рассудихин
