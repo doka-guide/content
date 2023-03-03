@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/media
-  - css/keyframes
-  - js/async-in-js
-  - tools/ci-cd
-  - css/transform-function
-  - html/flow
-  - css/grid-guide
-  - recipes/lets-encrypt-nginx
-  - js/function-context
-  - tools/agile
-  - html/nav
-  - tools/cli
-  - js/infinite-scroll
-  - recipes/snow
   - a11y/aria-hidden
-  - html/article
-  - a11y/aria-intro
-  - tools/gitlab-ci-cd
-  - js/closures
-  - css/pseudoelements
-  - html/section
-  - tools/how-to-test-and-why
+  - html/img
+  - css/flexbox-guide
   - css/specificity
   - html/video
-  - tools/webpack
-  - html/doctype
-  - css/display
-  - js/execution-order
   - css/box-model
-  - css/position
   - tools/markdown
-  - css/box-shadow
-  - html/img
-  - tools/oop
-  - html/form
-  - recipes/progress
+  - css/position
+  - html/doctype
+  - tools/ci-cd
+  - js/infinite-scroll
+  - tools/gitlab-ci-cd
   - html/head
-  - a11y/screenreaders
-  - tools/docker
-  - html/div
-  - css/attr
-  - css/custom-properties
-  - tools/network
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - html/input
+  - css/keyframes
+  - js/function-context
+  - html/form
   - tools/static-types
-  - js/var-let
+  - tools/how-to-test-and-why
+  - html/input
+  - js/deal-with-forms
+  - tools/network
+  - css/custom-properties
+  - css/attr
+  - a11y/screenreaders
+  - recipes/snow
+  - html/article
+  - recipes/progress
+  - js/async-in-js
+  - html/section
+  - css/grid-guide
+  - tools/agile
+  - css/transform-function
+  - css/media
   - tools/how-the-browser-creates-pages
+  - html/nav
+  - tools/oop
+  - html/flow
+  - recipes/lets-encrypt-nginx
+  - css/display
+  - a11y/aria-intro
+  - js/execution-order
+  - tools/docker
+  - tools/webpack
   - js/function
-  - tools/bundlers
+  - css/box-shadow
+  - tools/cli
+  - html/div
   - tools/clean-architecture
+  - tools/bundlers
+  - js/closures
+  - js/var-let
   - js/boolean
+  - css/pseudoelements
 ---
 
