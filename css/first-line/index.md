@@ -38,7 +38,7 @@ p::first-line {
 Для псевдоэлемента сработает лишь небольшой набор CSS-свойств:
 
 - шорткат [`font`](/css/font/) и шрифтовые свойства, начинающиеся на `font-`;
-- шорткат [`background`](/css/backgroutnd/) и свойства фона, начинающиеся на `background-`;
+- шорткат [`background`](/css/background/) и свойства фона, начинающиеся на `background-`;
 - цвет текста [`color`](/css/color);
 - текстовые свойства [`text-decoration`](/css/text-decoration/), [`text-shadow`](/css/text-shadow/), [`text-transform`](/css/text-transform/), [`letter-spacing`](/css/letter-spacing/), [`word-spacing`](/css/word-spacing/), [`line-height`](/css/line-height/), [`text-decoration-color`](/css/text-decoration-color/), [`text-decoration-line`](/css/text-decoration-line/), [`text-decoration-style`](/css/text-decoration-style/), [`box-shadow`](/css/box-shadow/), [`float`](/css/float/), [`vertical-align`](/css/vertical-align/).
 
