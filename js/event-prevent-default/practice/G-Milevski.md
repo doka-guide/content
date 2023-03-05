@@ -19,3 +19,5 @@ form.addEventListener('submit', (event) => {
 ```
 
 Подробнее этот подход разбирается в статье «[Работа с формами](/js/deal-with-forms/)».
+
+
