@@ -1,6 +1,6 @@
 ---
 name: 'Дима Шелков'
-url: https://github.com/uxdimon
+url: https://github.com/uxDimon
 photo: photo.png
 badges:
   - first-contribution-small
