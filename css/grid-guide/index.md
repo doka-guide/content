@@ -559,6 +559,8 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ![Пример реализации свойства align-items со значением stretch.](images/22.png)
 
+Можно также управлять выравниванием отдельных грид-элементов при помощи свойства `align-self`.
+
 ### `place-items`
 
 Шорткат для указания значений сразу и для `align-items` и для `justify-items`. Указывать нужно именно в таком порядке.
@@ -639,7 +641,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 ```css
 .container {
   display: grid;
-  grid:  auto-flow 30% / 200px 100px;
+  grid: auto-flow 30% / 200px 100px;
 }
 ```
 

@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/docker
-  - css/display
-  - css/grid-guide
-  - js/deal-with-forms
-  - css/box-shadow
-  - recipes/progress
-  - css/keyframes
-  - tools/oop
-  - css/attr
-  - tools/markdown
-  - css/custom-properties
-  - css/specificity
-  - html/nav
-  - tools/bundlers
-  - html/flow
-  - tools/cli
-  - a11y/screenreaders
-  - html/section
-  - html/input
-  - recipes/lets-encrypt-nginx
+  - a11y/aria-hidden
   - html/img
-  - js/closures
+  - css/flexbox-guide
+  - css/specificity
+  - html/video
   - css/box-model
-  - css/media
-  - tools/network
-  - js/function
-  - css/transform-function
-  - js/async-in-js
+  - tools/markdown
+  - css/position
   - html/doctype
   - tools/ci-cd
-  - tools/how-to-test-and-why
-  - html/head
-  - tools/static-types
-  - js/boolean
-  - tools/how-the-browser-creates-pages
-  - css/flexbox-guide
-  - tools/agile
-  - css/pseudoelements
-  - tools/clean-architecture
   - js/infinite-scroll
   - tools/gitlab-ci-cd
+  - html/head
+  - css/keyframes
+  - js/function-context
   - html/form
-  - tools/webpack
+  - tools/static-types
+  - tools/how-to-test-and-why
+  - html/input
+  - js/deal-with-forms
+  - tools/network
+  - css/custom-properties
+  - css/attr
+  - a11y/screenreaders
   - recipes/snow
+  - html/article
+  - recipes/progress
+  - js/async-in-js
+  - html/section
+  - css/grid-guide
+  - tools/agile
+  - css/transform-function
+  - css/media
+  - tools/how-the-browser-creates-pages
+  - html/nav
+  - tools/oop
+  - html/flow
+  - recipes/lets-encrypt-nginx
+  - css/display
   - a11y/aria-intro
   - js/execution-order
-  - html/article
-  - html/video
-  - js/function-context
-  - js/var-let
-  - css/position
-  - a11y/aria-hidden
+  - tools/docker
+  - tools/webpack
+  - js/function
+  - css/box-shadow
+  - tools/cli
   - html/div
+  - tools/clean-architecture
+  - tools/bundlers
+  - js/closures
+  - js/var-let
+  - js/boolean
+  - css/pseudoelements
 ---
 

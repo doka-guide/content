@@ -19,13 +19,13 @@ location: "/about/"
 - **<!-- yaspeller ignore:start -->[Полина Гуртовая](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Веб-платформа](/tools/).
 - **<!-- yaspeller ignore:start -->[Татьяна Фокина](/people/tatianafokina/)<!-- yaspeller ignore:end -->** — редактор раздела [Доступность](/a11y/).
 
-Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
+Редакторы и ревьюеры работают с авторами, помогают делать пулреквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
 
 - **<!-- yaspeller ignore:start -->[Кира Кустова](/people/kirakusto/)<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
 - **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — продуктовый дизайнер, делает сайт Доки прекраснее.
 - **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
 - **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер социальных медиа.
-- **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — продюсер партнёрского сервиса.
+- **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — менеджер по развитию и коммуникациям.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
 Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership).

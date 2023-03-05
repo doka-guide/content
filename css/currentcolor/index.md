@@ -15,7 +15,7 @@ tags:
 
 ## Кратко
 
-Ключевое слова `currentColor` можно использовать в качестве значения для CSS-свойства, принимающего цвет. Например, [`background-color`](/css/background-color/). Браузер подставит вместо `currentColor` текущее значение свойства [`color`](/css/color/).
+Ключевое слово `currentColor` можно использовать в качестве значения для CSS-свойства, принимающего цвет. Например, [`background-color`](/css/background-color/). Браузер подставит вместо `currentColor` текущее значение свойства [`color`](/css/color/).
 
 ## Пример
 

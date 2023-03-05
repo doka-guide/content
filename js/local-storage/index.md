@@ -5,6 +5,7 @@ authors:
   - akellbl4
 contributors:
   - skorobaeus
+  - corocoto
 keywords:
   - localstorage
   - webstorage

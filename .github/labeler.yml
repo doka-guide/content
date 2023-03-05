@@ -7,7 +7,7 @@ html:
 js:
   files:
     - js/**/*
-tools:
+'веб-платформа':
   files:
     - tools/**/*
 a11y:

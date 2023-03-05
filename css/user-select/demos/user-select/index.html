@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>ex — Единицы измерения в CSS — Дока</title>
+  <title>Пример выключения выделения текста — user-select — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -30,35 +30,8 @@
     }
 
     p {
-      position: relative;
-      font-size: 36px;
-      text-align: center;
-    }
-
-    span {
-      position: relative;
-    }
-
-    p::before {
-      content: "";
-      position: absolute;
-      left: -40px;
-      right: -50px;
-      bottom: 9px;
-      height: 1ex;
-      background: rgb(46 154 255 / 50%);
-    }
-
-    sup {
-      position: relative;
-      bottom: 1ex;
-      vertical-align: baseline;
-    }
-
-    sub {
-      position: relative;
-      bottom: -1ex;
-      vertical-align: baseline;
+      font-size: 18px;
+      user-select: none;
     }
 
     @media (max-width: 768px) {
@@ -69,6 +42,16 @@
   </style>
 </head>
 <body>
-    <p><span>E<sub>p</sub> = kx</span><sup>2</sup><span>/2</span></p>
+  <div class="container">
+    <p>
+      Три - эльфийским владыкам в подзвёздный предел;
+      <br>
+      Семь - для гномов царящих в подгорном просторе;
+      <br>
+      Девять - смертным, чей выведен срок и удел;
+      <br>
+      И Одно - Властелину на чёрном престоле.
+    </p>
+  </div>
 </body>
 </html>
