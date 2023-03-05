@@ -297,4 +297,4 @@ window.requestAnimationFrame(animate)
 
 Она не гарантирует, что анимация будет запущена строго раз в 16 мс, но значение будет достаточно близким.
 
-![Анимация с requestAnimationFrame](images/reflow2.png)
+![Анимация с requestAnimationFrame](images/reflow-2.png)
