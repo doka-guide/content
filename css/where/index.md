@@ -3,6 +3,8 @@ title: "`:where()`"
 description: "Псевдокласс для упрощения перечисления нескольких селекторов."
 authors:
   - kotosha-real
+contributors:
+  - skorobaeus
 tags:
   - doka
 ---
