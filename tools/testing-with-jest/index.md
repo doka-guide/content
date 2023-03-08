@@ -320,7 +320,7 @@ describe('article-aside', () => {
  */
 ```
 
-Подробнее о разных тестовых окружениях можно почитать в [документации Jest про окружения `testEnvironment`](https://jestjs.io/docs/configuration#testenvironment-string).
+Подробнее о разных тестовых окружениях можно почитать в [документации Jest](https://jestjs.io/docs/configuration#testenvironment-string) про окружения `testEnvironment`.
 
 Окружение [_jsdom_](https://github.com/jsdom/jsdom) позволяет вам эмулировать браузерный контекст в Node.js. Вам становится доступна переменная `document`, вы можете использовать многие DOM API. Если элемент присутствует в HTML, переданном в _jsdom_, можете работать с ним точно так же как в браузере.
 
