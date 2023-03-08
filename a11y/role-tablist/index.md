@@ -40,7 +40,7 @@ tags:
 </div>
 ```
 
-<iframe title="<div> с ролью tablist" src="demos/tablist/" height="350"></iframe>
+<iframe title="<div> с ролью tablist." src="demos/tablist/" height="350"></iframe>
 
 При фокусе на группе вкладок [скринридер](/a11y/screenreaders/) прочтёт её примерно так: «Необычные животные, контрол вкладок. Тапиры, выбранная вкладка, одна из двух».
 
