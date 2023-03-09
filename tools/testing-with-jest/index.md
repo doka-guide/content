@@ -262,7 +262,7 @@ describe('searchClient', () => {
 
 ## И ещё один маленький тест
 
-Теперь потренируемся писать тесты для функций работы с [DOM](/js/dom/) (Document Object Model). Будем тестировать функцию `init()` в [файлике _article-aside.js_](https://github.com/doka-guide/platform/blob/main/src/scripts/modules/article-aside.js) репозитория платформы. Внутри эта функция использует объект `headerComponent`, который является чем-то вроде _EventEmitter_. Навешиваем на `headerComponent` два обработчика событий: `fixed` и `unfixed`. Меняем класс нашего компонента в момент когда одно из этих событий происходит.
+Теперь потренируемся писать тесты для функций работы с [DOM](/js/dom/) (Document Object Model). Будем тестировать функцию `init()` в [файлике _article-aside.js_](https://github.com/doka-guide/platform/blob/main/src/scripts/modules/article-aside.js) репозитория платформы. Внутри эта функция использует объект `headerComponent`, который является чем-то вроде [_EventEmitter_](https://nodejs.dev/en/learn/the-nodejs-event-emitter/). Навешиваем на `headerComponent` два обработчика событий: `fixed` и `unfixed`. Меняем класс нашего компонента в момент когда одно из этих событий происходит.
 
 Мы чуть-чуть изменили изначальный файл. Добавили в него ключевое слово `export` перед функцией `init()`, чтобы её можно было тестировать.
 
