@@ -129,7 +129,7 @@ function titleFormatter(separator = ' — ', segments) {
 
 Для второго упражнения попробуем потестировать функционал поиска. Он живёт в [файле _src/scripts/core/search-api-client.js_](https://github.com/doka-guide/platform/blob/main/src/scripts/core/search-api-client.js) платформы доки. Будет тестировать функцию `search()`.
 
-Давайте посмотрим, что делает функция.
+Посмотрим, что делает функция.
 
 ```js
 search(query, filters = []) {
