@@ -123,7 +123,7 @@ function titleFormatter(separator = ' — ', segments) {
 }
 ```
 
-Тесты сразу же начнут падать. Это заставит ваших коллег проверить везде ли используется правильная сигнатура этой функции. Семь строк кода защитят вас от ошибки `Uncaught TypeError: Cannot read properties of undefined (reading 'filter')` в боевом приложении.
+Тесты сразу же начнут падать. Это заставит ваших коллег проверить везде ли используется правильная сигнатура этой функции. Семь строк кода защитят от ошибки `Uncaught TypeError: Cannot read properties of undefined (reading 'filter')` в приложении.
 
 ## Попробуем что-то посложнее
 
