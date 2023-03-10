@@ -34,7 +34,7 @@ blockquote::first-letter {
 Для псевдоэлемента сработает лишь небольшой набор CSS-свойств:
 
 - Шорткат [`font`](/css/font/) и шрифтовые свойства, начинающиеся на `font-`;
-- Шорткат [`background`](/css/backgroutn/) и свойства фона, начинающиеся на `background-`;
+- Шорткат [`background`](/css/background/) и свойства фона, начинающиеся на `background-`;
 - Шорткат [`margin`](/css/margin/) и внешние отступы, начинающиеся на `margin-`;
 - Шорткат [`padding`](/css/padding/) и внутренние отступы, начинающиеся на `padding-`;
 - Шорткат [`border`](/css/border/) и свойства рамок, начинающиеся на `border-`;
