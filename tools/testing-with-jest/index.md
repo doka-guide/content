@@ -24,9 +24,9 @@ related:
 
 Если вы не любите читать, но любите смотреть, предлагаем три коротких видео:
 
-- [видео раз](https://youtu.be/-7G6WBYaTeU),
-- [видео два](https://youtu.be/OSX9Fbr6faE),
-- [видео три](https://youtu.be/-7G6WBYaTeU).
+- [Пишем первый тест в проект](https://youtu.be/-7G6WBYaTeU),
+- [Пишем тест для асинхронного кода](https://youtu.be/OSX9Fbr6faE),
+- [Пишем тест для работы с DOM](https://youtu.be/-7G6WBYaTeU).
 
 В них показано всё, что будем делать в этом рецепте.
 
