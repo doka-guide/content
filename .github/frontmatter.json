@@ -16,6 +16,9 @@
     "tags"
   ],
   "specialCheck": {
-    "related": "./related.mjs"
+    "related": "./related.mjs",
+    "authors": "./people.mjs",
+    "contributors": "./people.mjs",
+    "editors": "./people.mjs"
   }
 }
