@@ -54,8 +54,8 @@ tags:
 
 ```js
 const promise = new Promise(function (resolve, reject) {
-  // делаем асинхронную операцию
-  const data = resolve(data) // запрос в БД, API, etc. // переводим промис в состояние fulfilled и отдаём наружу результат операции
+  const data = getData() // делаем асинхронную операцию: запрос в БД, API, etc.
+  resolve(data) // переводим промис в состояние fulfilled и отдаём наружу результат операции
 })
 
 const errorPromise = new Promise(function (resolve, reject) {
