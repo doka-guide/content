@@ -1,29 +1,152 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <title>Событие Input — Дока</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <title>Событие Input в JS — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      body {
-        min-height: 100vh;
-        padding: 50px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #18191c;
-        color: #ffffff;
-        font-family: 'Roboto', sans-serif;
-      }
+        body {
+            align-items: flex-start;
+            background-color: #d9dade;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            padding: 50px;
+        }
+        body {
+            counter-reset: headerCounter;
+        }
+        h2 {
+            counter-increment: headerCounter;
+            margin-top: 3rem;
+        }
+        h2::before {
+            content: counter(headerCounter) ". ";
+        }
+        section {
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            display: block;
+            margin-top: 1rem;
+            min-width: 51%;
+        }
+        input {
+            display: inline-block;
+            min-width: 51%;
+        }
+        * {
+            vertical-align: top;
+        }
+        @media (prefers-color-scheme: dark) {
+            .adaptive {
+                background-color: #111;
+                color: #eee;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <input type="text" id="input" /> oninput: <span id="result"></span>
     <script>
-      input.oninput = function () {
-        result.innerHTML = input.value;
-      };
+        function getHandleEvent(resultTextNode) {
+            return function addTextToNode(evt) {
+                resultTextNode.value += evt.type + '; ';
+            }
+        }
     </script>
-  </body>
-</html>
+</head>
+
+<body class="adaptive">
+    <h1>Примеры использования события <code lang="EN">input</code> в <span lang="EN">JS</span></h1>
+
+    <section>
+        <h2>Событие <code lang="EN">input</code> у текстового поля</h2>
+        <label>Введите текст:
+            <input type="text" id="textField">
+        </label>
+        <label>Ввод или удаление каждого символа вызывает событие <code lang="EN">input</code>:
+            <textarea disabled id="textResultInput" cols="30" rows="5"></textarea>
+        </label>
+        <label>Событие <code lang="EN">change</code> возникнет, только фокус уйдет из поля ввода. После ввода кликните на пустое место на странице:
+            <textarea disabled id="textResultChange" cols="30" rows="5"></textarea>
+        </label>   
+        <script>
+            textField.oninput = function() {
+                textResultInput.value = textField.value;
+            };
+            textField.onchange = function() {
+                textResultChange.value = textField.value;
+            };
+        </script>
+    </section>
+
+    <section>
+        <h2>События <code lang="EN">input, change</code> у чекбокса</h2>
+        <label>Кликните меня:
+            <input type="checkbox" name="checkbox-input" value="Кликните">
+        </label>
+
+        <label>Вызываются события <code lang="EN">input, change</code>:
+            <textarea disabled name="checkbox-result" cols="30" rows="5"></textarea>
+        </label>
+
+        <script>
+            const checkbox = document.querySelector('[name=checkbox-input]');
+            const textArea = document.querySelector('[name=checkbox-result]');
+            checkbox.addEventListener('input', handleCheckboxChange);
+            checkbox.addEventListener('change', handleCheckboxChange);
+        </script>
+    </section>
+
+    <section>
+        <h2>Клик на кнопке <code lang="EN">input type="button"</code></h2>
+        <input type="button" name="input-button" value="Input type=button">
+        <label>Вызывается событие <code lang="EN">click</code>.
+            Не вызываются события <code lang="EN">input, change</code>:
+            <textarea disabled name="button-result" cols="30" rows="5"></textarea>
+        </label>
+
+        <script>
+            const inputButton = document.querySelector('[name=input-button]');
+            const textAreaButton = document.querySelector('[name=button-result]');
+            inputButton.addEventListener('input', getHandleEvent(textAreaButton));
+            inputButton.addEventListener('change', getHandleEvent(textAreaButton));
+            inputButton.addEventListener('click', getHandleEvent(textAreaButton));
+        </script>
+    </section>
+
+    <section>
+        <h2>Клик на кнопке <span lang="EN">submit</span> <code lang="EN">input type="submit"</code></h2>
+        <div>
+            <input type="button" name="input-submit" value="Input type=submit">
+            <label>Вызывается событие <code lang="EN">click</code>.
+                Не вызываются события <code lang="EN">input, change</code>:
+                <textarea disabled name="submit-result" cols="30" rows="5"></textarea>
+            </label>
+        </div>
+
+        <script>
+            const inputSubmit = document.querySelector('[name=input-submit]');
+            const inputSubmitResult = document.querySelector('[name=submit-result]');
+            inputSubmit.addEventListener('input', getHandleEvent(inputSubmitResult));
+            inputSubmit.addEventListener('change', getHandleEvent(inputSubmitResult));
+            inputSubmit.addEventListener('click', getHandleEvent(inputSubmitResult));
+        </script>
+    </section>
+
+    <section>
+        <h2>События у поля выбора файла <code lang="EN">input type="file"</code></h2>
+        <input type="file" name="input-file" value="Выберите файл с диска">
+        <label>Вызываются события <code lang="EN">input, change</code>:
+            <textarea disabled name="file-result" cols="30" rows="5"></textarea>
+        </label>
+        <script>
+            const inputFile = document.querySelector('[name=input-file]');
+            const fileResult = document.querySelector('[name=file-result]');
+            inputFile.addEventListener('input', getHandleEvent(fileResult));
+            inputFile.addEventListener('change', getHandleEvent(fileResult));
+        </script>
+    </section>
+</body>
