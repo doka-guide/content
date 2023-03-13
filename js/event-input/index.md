@@ -13,18 +13,33 @@ tags:
 
 ## Кратко
 
-Событие `input` возникает, когда пользователь печатает текст в поле для ввода. Оно срабатывает при добавлении или удалении каждого символа и при вставке скопированного текста.
+Событие `input` возникает, когда пользователь изменяет поле для ввода.
 
-## Пример
+Поле для ввода может быть:
+- текстовым `<input type=text>`, `<input type="email">`, `<textarea>` и так далее;
+- чекбоксом `<input type="checkbox">, `<input type="radio">`.
 
-```js
-<input type="text" id="input"> oninput: <span id="result"></span>
+Событие не вызовется, если поле изменить через JS. Для таких случаев нужно использовать дополнительные манипуляции, например `dispatchEvent()`.
+
+Каждое добавление и удаление символа вызывает событие; однако при вставке скопированного текста из буфера обмена событие возникает один раз.
+
+## Простой пример
+
+```html
+<label>Введите текст:
+    <input type="text" id="textField">
+</label>
+<label>Результат события <code>oninput</code>:
+    <textarea disabled id="textResult"></textarea>
+</label>
+
 <script>
-  input.oninput = function() {
-    result.innerHTML = input.value;
-  };
+    textField.oninput = function() {
+      textResult.value = textField.value;
+    };
 </script>
 ```
+
 <iframe title="Пример работы input" src="demos/index.html" height="40px"></iframe>
 
 ## Как пишется
@@ -46,28 +61,40 @@ textInput.addEventListener('input', callback);
 */
 ```
 
-## Как понять
+## Отличие от события `change`
 
-События `input` и `change` позволяют отслеживать изменения в полях форм и не только.
-Эти события очень похожи. Для всех полей ввода, кроме текстовых, они работают одинаково – происходят при любом изменении значения в поле:
-```js
-const checkbox = document.querySelector('input[type=checkbox]');
+События `input` и `change` очень похожи: они позволяют отслеживать изменения в полях ввода.
 
-function callback(evt) {
-  // в свойстве evt.type хранится тип события
-  console.log(`Произошло событие ${evt.type}`);
-}
+Различие есть для текстовых полей ввода:
+- `input` — срабатывает сразу при каждом изменении значения в поле;
+- `change` — после изменения значения нужно убрать фокус из поля: например, перейти в другое поле или кликнуть на другую часть страницы.
 
-checkbox.addEventListener('input', callback);
-// Произошло событие input
+Для прочих полей ввода они работают одинаково:
 
-checkbox.addEventListener('change', callback);
-// Произошло событие change
+```html
+  <label>Кликните:
+      <input type="checkbox" name="checkbox-input">
+  </label>
+
+  <label>Типы событий:
+      <textarea disabled name="checkbox-result"></textarea>
+  </label>
+
+  <script>
+      const checkbox = document.querySelector('[name=checkbox-input]');
+      const textArea = document.querySelector('[name=checkbox-result]');
+
+      function handleCheckboxChange(evt) {
+          textArea.value += evt.type + '; ';
+      }
+
+      checkbox.addEventListener('input', handleCheckboxChange);
+      checkbox.addEventListener('change', handleCheckboxChange);
+  </script>
 ```
 
-А для текстовых полей по-разному:
-`input` — срабатывает при вводе или удалении каждого символа,
-`change` — только когда значение изменилось и пользователь перешёл к другому элементу формы.
+## Примечания
 
-Событие `input` подойдёт если мы хотим обрабатывать все изменения в поле. A вот если значение в поле не изменилось, то событие `input` не произойдёт. Например, нажатия клавиш ⇦, ⇨ при фокусе на текстовом поле не вызовут это событие.
-
+Событие не произойдет если:
+- текст не меняется, например при нажатиях клавиш вправо-влево ⇦, ⇨;
+- если `<input>` имеет тип `button` или `submit`.
