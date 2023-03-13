@@ -4,7 +4,7 @@ description: "Функция, выбирающая меньшее значени
 authors:
   - gingerraccoon
 keywords:
-  - наименьшее из двух
+  - наименьшее из двух, наименьшее из нескольких
 related:
   - js/function
   - css/calc
