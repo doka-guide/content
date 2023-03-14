@@ -44,8 +44,8 @@ jobs:
         with:
           filter: |
             index.md
-            (css|html|js|tools|a11y)/index.md
-            !(pages|people)/*/index.md
+            (css|html|js|tools|a11y)/**/index.md
+            !(pages|people)/**/index.md
       - name: Работает линтер
         run: |
           files='${{ steps.files.outputs.added_modified }}'
