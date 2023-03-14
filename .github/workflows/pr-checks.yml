@@ -43,7 +43,6 @@ jobs:
         uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: |
-            index.md
             (css|html|js|tools|a11y)/**/index.md
             !(pages|people)/**/index.md
       - name: Работает линтер
