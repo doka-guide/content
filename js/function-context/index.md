@@ -391,7 +391,8 @@ function greetWaitAndAgain() {
 
 const user = { name: 'Alex' }
 
-greetWaitAndAgain.call(user)
+user.greetWaitAndAgain = greetWaitAndAgain;
+user.greetWaitAndAgain()
 
 // Hello, Alex!
 // Hello again, Alex!
