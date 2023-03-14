@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - a11y/aria-hidden
-  - html/img
-  - css/flexbox-guide
-  - css/specificity
-  - html/video
-  - css/box-model
   - tools/markdown
-  - css/position
-  - html/doctype
-  - tools/ci-cd
+  - tools/static-types
+  - html/form
+  - tools/how-the-browser-creates-pages
+  - js/closures
+  - js/async-in-js
+  - a11y/aria-hidden
+  - tools/docker
   - js/infinite-scroll
   - tools/gitlab-ci-cd
-  - html/head
-  - css/keyframes
-  - js/function-context
-  - html/form
-  - tools/static-types
-  - tools/how-to-test-and-why
-  - html/input
-  - js/deal-with-forms
-  - tools/network
-  - css/custom-properties
   - css/attr
-  - a11y/screenreaders
-  - recipes/snow
+  - html/flow
   - html/article
-  - recipes/progress
-  - js/async-in-js
+  - tools/oop
+  - tools/cli
+  - js/execution-order
+  - recipes/lets-encrypt-nginx
+  - js/boolean
+  - js/function
+  - html/nav
+  - recipes/snow
+  - css/media
+  - tools/bundlers
+  - js/deal-with-forms
+  - html/video
   - html/section
+  - css/flexbox-guide
+  - css/position
+  - tools/webpack
+  - a11y/screenreaders
+  - tools/network
+  - html/img
+  - css/transform-function
+  - tools/ci-cd
+  - js/var-let
+  - recipes/progress
+  - html/head
+  - css/pseudoelements
   - css/grid-guide
   - tools/agile
-  - css/transform-function
-  - css/media
-  - tools/how-the-browser-creates-pages
-  - html/nav
-  - tools/oop
-  - html/flow
-  - recipes/lets-encrypt-nginx
+  - css/keyframes
+  - css/box-model
   - css/display
-  - a11y/aria-intro
-  - js/execution-order
-  - tools/docker
-  - tools/webpack
-  - js/function
   - css/box-shadow
-  - tools/cli
-  - html/div
+  - js/function-context
+  - html/doctype
+  - html/input
   - tools/clean-architecture
-  - tools/bundlers
-  - js/closures
-  - js/var-let
-  - js/boolean
-  - css/pseudoelements
+  - tools/how-to-test-and-why
+  - css/specificity
+  - a11y/aria-intro
+  - html/div
+  - css/custom-properties
 ---
 

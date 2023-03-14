@@ -46,7 +46,7 @@ vampire.style.removeProperty('box-shadow');
 
 Если с помощью метода `removeProperty()` не выходит удалить свойство и вы получаете ошибку "NoModificationAllowedError" – значит элемент или его свойство находится в режиме `read-only`.
 
-Есть альтернатива – можно использовать [`style`](js/element-style/) и указать свойству значение "null". Названия в этом случае пишем через _camelCase_:
+Есть альтернатива – можно использовать [`style`](/js/element-style/) и указать свойству значение "null". Названия в этом случае пишем через _camelCase_:
 
 ```js
 vampire.style.boxShadow = null;

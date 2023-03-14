@@ -178,7 +178,7 @@ abstract class AbstractHandler implements Handler {
 class UsdHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
     if (request === 'USD') {
-      console.log(`You've been charged with ${number}$!`)
+      console.log(`You've been charged with ${amount}$!`)
       return
     }
 
@@ -189,7 +189,7 @@ class UsdHandler extends AbstractHandler {
 class EurHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
     if (request === 'EUR') {
-      console.log(`You've been charged with ${number} euros!`)
+      console.log(`You've been charged with ${amount} euros!`)
       return
     }
 
@@ -200,7 +200,7 @@ class EurHandler extends AbstractHandler {
 class RubHandler extends AbstractHandler {
   public handle(request: string, amount: number): void {
     if (request === 'RUB') {
-      console.log(`У вас списали ${number}₽!`)
+      console.log(`У вас списали ${amount}₽!`)
       return
     }
 
