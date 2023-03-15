@@ -1,5 +1,6 @@
 ---
 title: "`word-break`"
+description: "Что делать если слово слишком длинное и не помещается в блок целиком?"
 authors:
   - doka-dog
 keywords:
@@ -12,7 +13,6 @@ related:
   - css/white-space
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
