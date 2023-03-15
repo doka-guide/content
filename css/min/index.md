@@ -3,6 +3,8 @@ title: "`min()`"
 description: "Функция, выбирающая меньшее значение. Удобно для адаптивной вёрстки и не только!"
 authors:
   - gingerraccoon
+contributors:
+  - rrramble
 keywords:
   - наименьшее из двух, наименьшее из нескольких
 related:
