@@ -4,6 +4,7 @@
 
 ## Март 2023
 
+- 10 марта, [Пишем первые тесты](https://doka.guide/tools/testing-with-jest/), Полина Гуртовая
 - 1 марта, [Что такое WCAG](https://doka.guide/a11y/wcag/), Татьяна Фокина
 
 ## Февраль 2023
