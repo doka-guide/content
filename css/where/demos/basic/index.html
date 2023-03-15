@@ -56,6 +56,10 @@
       background-color: #2E9AFF;
     }
 
+    .button-pink {
+      background-color: #F498AD;
+    }
+
     .button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
@@ -85,6 +89,7 @@
     footer {
       display: flex;
       justify-content: center;
+      gap: 25px;
     }
 
     .code-section {
@@ -121,6 +126,10 @@
       color: #000000;
     }
 
+    .hidden {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       body, .code-section {
         padding: 30px;
@@ -149,26 +158,41 @@
       </div>
     </main>
     <footer>
-      <button class="button button-blue">Покрасить 25 голубых котов в рыжий</button>
+      <button id="play" class="button button-blue">Покрасить 25 голубых котов в рыжий</button>
+      <button id="reset" class="button button-pink hidden">Давайте ещё раз</button>
     </footer>
   </div>
   <script>
-    const button = document.querySelector('button')
+    const play = document.querySelector('#play')
+    const reset = document.querySelector('#reset')
     const style = document.querySelector('style')
 
     const cssColorOverrideRule = `
-      ul .cat {
-        background-color: #FF8630;
-      }
+    ul .cat {
+      background-color: #FF8630;
+    }
     `
 
-    button.addEventListener('click', (event) => {
+    play.addEventListener('click', (event) => {
       style.appendChild(document.createTextNode(cssColorOverrideRule))
 
       document.querySelector('#code-block-color-override').classList.remove('code-block_hidden')
 
       event.target.textContent = 'Котики покрашены'
       event.target.setAttribute('disabled', true)
+
+      reset.classList.toggle('hidden')
+    })
+
+    reset.addEventListener('click', (event) => {
+      style.innerText = style.innerText.substring(0, style.innerText.indexOf(cssColorOverrideRule))
+
+      document.querySelector('#code-block-color-override').classList.add('code-block_hidden')
+
+      play.textContent = 'Покрасить 25 голубых котов в рыжий'
+      play.removeAttribute('disabled')
+
+      reset.classList.toggle('hidden')
     })
   </script>
 </body>
