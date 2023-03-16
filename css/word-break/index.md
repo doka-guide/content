@@ -2,7 +2,7 @@
 title: "`word-break`"
 description: "Что делать если слово слишком длинное и не помещается в блок целиком?"
 authors:
-  - doka-dog
+  - goingtogogo
 keywords:
   - разрыв строки
   - перенос текста
