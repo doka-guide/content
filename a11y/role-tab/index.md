@@ -66,7 +66,8 @@ tags:
 <!-- Невыбранная, неактивная вкладка -->
 <button
   role="tab"
-  aria-selected="false">
+  aria-selected="false"
+  tabindex="-1">
   Ламантины
 </button>
 ```
