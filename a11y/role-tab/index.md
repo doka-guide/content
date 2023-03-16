@@ -71,7 +71,7 @@ tags:
 </button>
 ```
 
-Кроме обязательных атрибутов, элементам с ролью `tab` можно задавать все глобальные ARIA-атрибуты и некоторые другие атрибуты виджетов:
+Кроме обязательных атрибутов, элементам с ролью `tab` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov):
 
 - [`aria-disabled`](/a11y/aria-disabled/);
 - [`aria-expanded`](/a11y/aria-expanded/);
