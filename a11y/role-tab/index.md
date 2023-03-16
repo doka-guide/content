@@ -72,7 +72,7 @@ tags:
 </button>
 ```
 
-Когда можно одновременно выбрать несколько вкладок и у `tablist` есть `aria-multiselectable`, задайте `tab` атрибут `aria-expanded`, когда её содержимое видно. Если вкладка неактивна, у неё должно стоять противоположное значение `aria-expanded="false"`.
+Когда можно одновременно выбрать несколько вкладок и у `tablist` есть [`aria-multiselectable`](/a11y/aria-multiselectable/), задайте `tab` атрибут [`aria-expanded`](/a11y/aria-expanded/), когда её содержимое видно. Если вкладка неактивна, у неё должно стоять противоположное значение `aria-expanded="false"`.
 
 Кроме обязательных атрибутов, элементам с ролью `tab` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov):
 
@@ -80,7 +80,7 @@ tags:
 - [`aria-haspopup`](/a11y/aria-haspopup/);
 - `aria-posinset`;
 - `aria-setsize`;
-- [`aria-multiselectable`](/a11y/aria-multiselectable/).
+- `aria-multiselectable`.
 
 Внутри `tab` лучше всего размещать текст. Если в названии вкладки иконка, не забудьте её подписать с помощью [`aria-label`](/a11y/aria-label/) или добавить скрытую подпись с классом [`.visually-hidden`](/a11y/content-hidden/#klassy-.visually-hidden-.sr-only-.off-screen).
 
