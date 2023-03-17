@@ -1,6 +1,6 @@
 ---
 title: "Тег `<noindex>`"
-description: "Запрет индексирования содержимого."
+description: "Запрет индексирования содержимого сайтов поисковым системам."
 authors:
   - rrramble
 related:
@@ -13,22 +13,21 @@ tags:
 
 ## Кратко
 
-Тег [`<noindex></noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content) указывает поисковым системам не учитывать его содержимое.
-Тег поддерживается только [поисковой системой Яндекс](https://yandex.ru).
+Тег [`<noindex></noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content) запрещает поисковым системам индексировать содержимое.
+Этот тег поддерживает только [Яндекс](https://yandex.ru).
 
 
 ## Как понять
 
-Поисковые системы сканируют (индексируют) содержимое сайтов. Когда пользователь ищет информацию, поисковики выдают ответ на основе ранее отсканированного.
+Поисковые системы сканируют (индексируют) содержимое сайтов в интернете. Когда пользователь ищет информацию, поисковики выдают ответ на основе ранее отсканированного.
 
-Некоторый контент не имеет смысла показывать при поиске, например:
-- сторонная реклама других компаний;
-- служебная информация для работников компаний;
-- ссылки, указанные другими пользователями на форумах (user generated context, UGC).
+Но нет смысла индексировать для поиска некоторое содержимое:
 
-Такой контент можно исключить из индексирования.
+- сторонная реклама других компаний — если реклама не связана с сайтом;
+- ссылки, которые публикуют пользователи форумов – если сайт не хочет отвечать за некорректные ссылки;
+- служебная информация для своих работников.
 
-## Пример
+## Пример использования
 
 ```html
 <noindex>
@@ -43,9 +42,10 @@ tags:
 ## Ограничения
 
 Этого тега нет в спецификации HTML, поэтому [HTML-валидатор](https://validator.w3.org/) укажет на ошибку.
-Яндекс предлагает синтаксис `<!‐‐noindex‐‐><!‐‐/noindex‐‐>` для [обхода проблемы валидации `<noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content).
+Чтобы избежать проблем с валидацией, Яндекс предлагает такие варианты:
 
-Также можно использовать скрипт `<noscript></noscript>`.
+- использовать синтаксис [`<!‐‐noindex‐‐><!‐‐/noindex‐‐>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content);
+- использовать [тег `<noscript></noscript>`](/html/noscript).
 
 Примеры:
 
@@ -64,5 +64,5 @@ tags:
 ## Другие способы запрета индексирования
 
 - запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта [файл `robots.txt`](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru);
-- запретить индексирование страницы полностью: укажите тег тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/);
-- запретить переходить по ссылке тега `<a>`: укажите в нем [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
+- запретить индексирование всей страницы: укажите тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/);
+- запретить переходить по ссылке: у тега `<a>` укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
