@@ -3,9 +3,12 @@ title: "input"
 description: "`Input` - событие, срабатывающее каждый раз при изменении значения."
 authors:
   - tarahovmaksim
+contributors:
+  - rrramble
 related:
   - html/input
   - html/form
+  - js/event-change
 tags:
   - doka
   - placeholder
