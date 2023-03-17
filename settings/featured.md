@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/markdown
-  - tools/static-types
-  - html/form
-  - tools/how-the-browser-creates-pages
-  - js/closures
-  - js/async-in-js
-  - a11y/aria-hidden
-  - tools/docker
-  - js/infinite-scroll
-  - tools/gitlab-ci-cd
-  - css/attr
-  - html/flow
-  - html/article
-  - tools/oop
-  - tools/cli
-  - js/execution-order
-  - recipes/lets-encrypt-nginx
-  - js/boolean
-  - js/function
-  - html/nav
-  - recipes/snow
-  - css/media
-  - tools/bundlers
-  - js/deal-with-forms
-  - html/video
-  - html/section
-  - css/flexbox-guide
-  - css/position
-  - tools/webpack
-  - a11y/screenreaders
-  - tools/network
-  - html/img
-  - css/transform-function
-  - tools/ci-cd
-  - js/var-let
-  - recipes/progress
-  - html/head
-  - css/pseudoelements
-  - css/grid-guide
-  - tools/agile
-  - css/keyframes
-  - css/box-model
   - css/display
-  - css/box-shadow
-  - js/function-context
+  - css/attr
+  - html/nav
   - html/doctype
-  - html/input
-  - tools/clean-architecture
+  - css/flexbox-guide
+  - css/keyframes
+  - css/box-shadow
+  - js/execution-order
+  - recipes/progress
   - tools/how-to-test-and-why
-  - css/specificity
-  - a11y/aria-intro
+  - tools/gitlab-ci-cd
+  - js/deal-with-forms
+  - a11y/aria-hidden
+  - html/flow
+  - html/video
+  - css/box-model
+  - tools/clean-architecture
+  - html/img
+  - tools/ci-cd
+  - a11y/screenreaders
+  - css/media
+  - tools/webpack
+  - tools/network
+  - js/async-in-js
+  - html/form
+  - tools/cli
+  - js/function-context
+  - tools/agile
+  - html/section
+  - tools/how-the-browser-creates-pages
   - html/div
+  - tools/docker
+  - css/pseudoelements
+  - recipes/snow
+  - css/specificity
+  - tools/static-types
+  - a11y/aria-intro
   - css/custom-properties
+  - css/transform-function
+  - tools/markdown
+  - tools/oop
+  - css/grid-guide
+  - css/position
+  - html/article
+  - tools/bundlers
+  - js/infinite-scroll
+  - html/head
+  - js/var-let
+  - recipes/lets-encrypt-nginx
+  - js/function
+  - html/input
+  - js/boolean
+  - js/closures
 ---
 
