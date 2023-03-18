@@ -3,6 +3,7 @@ title: "input"
 description: "`Input` - событие, срабатывающее каждый раз при изменении значения."
 authors:
   - tarahovmaksim
+  - rrramble
 related:
   - html/form
   - html/input
@@ -11,7 +12,6 @@ related:
   - js/event-change
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
@@ -45,7 +45,7 @@ tags:
 </script>
 ```
 
-<iframe title="Пример работы input" src="demos/index.html" height="40px"></iframe>
+<iframe title="Пример работы input" src="demos/index.html" height="50vh"></iframe>
 
 ## Как пишется
 

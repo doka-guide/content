@@ -1,152 +1,357 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <title>Событие Input в JS — Дока</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --text: #121010;
+        --background: #f6f6f8;
+        --maxWidth: 400px;
+        --gapSmall: 12px;
+        --gapBig: 24px;
+        --button: #707076;
+        --outline:#0adb9c;
+
+      }
+
+      @media screen and (prefers-color-scheme: dark) {
+        :root {
+          --text: #f6f6f8;
+          --background: #363639;
+          --button: #d8d8e2;
+        }
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background);
+        color: var(--text);
+        line-height: 1.4;
+        font-family: "Roboto", sans-serif;
+        font-size: 24px;
+        accent-color: var(--outline);
+      }
+
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: var(--background);
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        background-color: var(--button);
+      }
+
+      .button:hover {
+        opacity: 0.7;;
+        cursor: pointer;
+        transition: opacity 0.2s linear;
+      }
+
+      .button:focus-visible {
+        border: 2px solid var(--text);
+        outline: none;
+      }
+
+      .button:focus {
+        border: 2px solid var(--text);
+        outline: none;
+      }
+
+      .input {
+        border: 1px solid var(--text);
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: var(--text);
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .textarea {
+        border: 1px solid var(--text);
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: var(--text);
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .examples {
+        max-width: calc(2 * var(--maxWidth) + var(--gapBig));
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: var(--gapBig);
+      }
+
+      .text-small {
+        font-size: 16px;
+        font-weight: 300;
+      }
+
+      .hint {
+        max-width: var(--maxWidth);
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        font-weight: 300;
+        margin-top: 24px;
+        gap: var(--gapSmall);
+      }
+
+      .input:focus {
+        border-color: var(--outline);
+        outline: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      section {
+        margin: var(--gapSmall) 0 50px;
+      }
+
+      h1 {
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: var(--gapBig);
+      }
+
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: var(--gapBig);
+      }
+
+      @media (max-width: 768px) {
         body {
-            align-items: flex-start;
-            background-color: #d9dade;
-            color: #000;
-            display: flex;
-            flex-direction: column;
-            font-family: 'Roboto', sans-serif;
-            min-height: 100vh;
-            padding: 50px;
+          padding: var(--gapBig);
         }
-        body {
-            counter-reset: headerCounter;
-        }
-        h2 {
-            counter-increment: headerCounter;
-            margin-top: 3rem;
-        }
-        h2::before {
-            content: counter(headerCounter) ". ";
-        }
-        section {
-            align-items: flex-start;
-            display: flex;
-            flex-direction: column;
-        }
-        label {
-            display: block;
-            margin-top: 1rem;
-            min-width: 51%;
-        }
-        input {
-            display: inline-block;
-            min-width: 51%;
-        }
-        * {
-            vertical-align: top;
-        }
-        @media (prefers-color-scheme: dark) {
-            .adaptive {
-                background-color: #111;
-                color: #eee;
-            }
-        }
+      }
     </style>
     <script>
-        function getHandleEvent(resultTextNode) {
-            return function addTextToNode(evt) {
-                resultTextNode.value += evt.type + '; ';
-            }
-        }
+      function getHandleEvent(resultTextNode) {
+        return function addTextToNode(evt) {
+          resultTextNode.value += evt.type + "; ";
+        };
+      }
     </script>
-</head>
+  </head>
 
-<body class="adaptive">
-    <h1>Примеры использования события <code lang="EN">input</code> в <span lang="EN">JS</span></h1>
+  <body class="adaptive">
+    <h1>Примеры использования события <code lang="EN">input</code></h1>
 
     <section>
-        <h2>Событие <code lang="EN">input</code> у текстового поля</h2>
-        <label>Введите текст:
-            <input type="text" id="textField">
+      <h2>Событие <code lang="EN">input</code> у текстового поля</h2>
+      <input
+        type="text"
+        id="textField"
+        class="input"
+        placeholder="Введите текст"
+      />
+      <div class="examples">
+        <label for="textResultInput" class="hint">
+          <span class="text-small"
+            >Ввод или удаление каждого символа вызывает событие
+            <code lang="EN">input</code></span
+          >
         </label>
-        <label>Ввод или удаление каждого символа вызывает событие <code lang="EN">input</code>:
-            <textarea disabled id="textResultInput" cols="30" rows="5"></textarea>
+        <label for="textResultChange" class="hint"
+          ><span class="text-small"
+            >Событие <code lang="EN">change</code>
+            возникнет, только фокус уйдет из поля ввода. После ввода кликните на
+            пустое место на странице
+          </span>
         </label>
-        <label>Событие <code lang="EN">change</code> возникнет, только фокус уйдет из поля ввода. После ввода кликните на пустое место на странице:
-            <textarea disabled id="textResultChange" cols="30" rows="5"></textarea>
-        </label>
-        <script>
-            textField.oninput = function() {
-                textResultInput.value = textField.value;
-            };
-            textField.onchange = function() {
-                textResultChange.value = textField.value;
-            };
-        </script>
+        <textarea
+          disabled
+          id="textResultInput"
+          cols="30"
+          rows="5"
+          class="textarea"
+        ></textarea>
+
+        <textarea
+          disabled
+          id="textResultChange"
+          cols="30"
+          rows="5"
+          class="textarea"
+        ></textarea>
+      </div>
+      <script>
+        textField.oninput = function () {
+          textResultInput.value = textField.value;
+        };
+        textField.onchange = function () {
+          textResultChange.value = textField.value;
+        };
+      </script>
     </section>
 
     <section>
-        <h2>События <code lang="EN">input, change</code> у чекбокса</h2>
-        <label>Кликните меня:
-            <input type="checkbox" name="checkbox-input" value="Кликните">
-        </label>
+      <h2>События <code lang="EN">input, change</code> у чекбокса</h2>
+      <label>
+        <span class="text-small">Кликните меня:</span>
+        <input type="checkbox" name="checkbox-input" value="Кликните" />
+      </label>
 
-        <label>Вызываются события <code lang="EN">input, change</code>:
-            <textarea disabled name="checkbox-result" cols="30" rows="5"></textarea>
-        </label>
+      <label class="hint" for="checkbox-example-output"
+        ><span class="text-small"
+          >Вызываются события <code lang="EN">input, change</code>:
+        </span>
+        <textarea
+          disabled
+          name="checkbox-result"
+          cols="30"
+          rows="5"
+          class="textarea"
+          id="checkbox-example-output"
+        ></textarea>
+      </label>
 
-        <script>
-            const checkbox = document.querySelector('[name=checkbox-input]');
-            const textArea = document.querySelector('[name=checkbox-result]');
-            checkbox.addEventListener('input', handleCheckboxChange);
-            checkbox.addEventListener('change', handleCheckboxChange);
-        </script>
+      <script>
+        const handleCheckboxChange = getHandleEvent(
+          document.querySelector("[name=checkbox-result]")
+        );
+        const checkbox = document.querySelector("[name=checkbox-input]");
+        const textArea = document.querySelector("[name=checkbox-result]");
+        checkbox.addEventListener("input", handleCheckboxChange);
+        checkbox.addEventListener("change", handleCheckboxChange);
+      </script>
     </section>
 
     <section>
-        <h2>Клик на кнопке <code lang="EN">input type="button"</code></h2>
-        <input type="button" name="input-button" value="Input type=button">
-        <label>Вызывается событие <code lang="EN">click</code>.
-            Не вызываются события <code lang="EN">input, change</code>:
-            <textarea disabled name="button-result" cols="30" rows="5"></textarea>
-        </label>
+      <h2>Клик на кнопке <code lang="EN">input type="button"</code></h2>
+      <input
+        type="button"
+        name="input-button"
+        value="Input type=button"
+        class="button"
+      />
+      <label class="hint"
+        ><span class="text-small"
+          >Вызывается событие <code lang="EN">click</code>. Не вызываются
+          события <code lang="EN">input, change</code>:
+        </span>
+        <textarea
+          disabled
+          name="button-result"
+          cols="30"
+          rows="5"
+          class="textarea"
+        ></textarea>
+      </label>
 
-        <script>
-            const inputButton = document.querySelector('[name=input-button]');
-            const textAreaButton = document.querySelector('[name=button-result]');
-            inputButton.addEventListener('input', getHandleEvent(textAreaButton));
-            inputButton.addEventListener('change', getHandleEvent(textAreaButton));
-            inputButton.addEventListener('click', getHandleEvent(textAreaButton));
-        </script>
+      <script>
+        const inputButton = document.querySelector("[name=input-button]");
+        const textAreaButton = document.querySelector("[name=button-result]");
+        inputButton.addEventListener("input", getHandleEvent(textAreaButton));
+        inputButton.addEventListener("change", getHandleEvent(textAreaButton));
+        inputButton.addEventListener("click", getHandleEvent(textAreaButton));
+      </script>
     </section>
 
     <section>
-        <h2>Клик на кнопке <span lang="EN">submit</span> <code lang="EN">input type="submit"</code></h2>
-        <div>
-            <input type="button" name="input-submit" value="Input type=submit">
-            <label>Вызывается событие <code lang="EN">click</code>.
-                Не вызываются события <code lang="EN">input, change</code>:
-                <textarea disabled name="submit-result" cols="30" rows="5"></textarea>
-            </label>
-        </div>
+      <h2>
+        Клик на кнопке <span lang="EN">submit</span>
+        <code lang="EN">input type="submit"</code>
+      </h2>
+      <div>
+        <input
+          type="button"
+          name="input-submit"
+          value="Input type=submit"
+          class="button"
+        />
+        <label class="hint"
+          ><span class="text-small"
+            >Вызывается событие <code lang="EN">click</code> Не вызываются
+            события <code lang="EN">input, change</code>:
+          </span>
 
-        <script>
-            const inputSubmit = document.querySelector('[name=input-submit]');
-            const inputSubmitResult = document.querySelector('[name=submit-result]');
-            inputSubmit.addEventListener('input', getHandleEvent(inputSubmitResult));
-            inputSubmit.addEventListener('change', getHandleEvent(inputSubmitResult));
-            inputSubmit.addEventListener('click', getHandleEvent(inputSubmitResult));
-        </script>
+          <textarea
+            disabled
+            name="submit-result"
+            cols="30"
+            rows="5"
+            class="textarea"
+          ></textarea>
+        </label>
+      </div>
+
+      <script>
+        const inputSubmit = document.querySelector("[name=input-submit]");
+        const inputSubmitResult = document.querySelector(
+          "[name=submit-result]"
+        );
+        inputSubmit.addEventListener(
+          "input",
+          getHandleEvent(inputSubmitResult)
+        );
+        inputSubmit.addEventListener(
+          "change",
+          getHandleEvent(inputSubmitResult)
+        );
+        inputSubmit.addEventListener(
+          "click",
+          getHandleEvent(inputSubmitResult)
+        );
+      </script>
     </section>
 
     <section>
-        <h2>События у поля выбора файла <code lang="EN">input type="file"</code></h2>
-        <input type="file" name="input-file" value="Выберите файл с диска">
-        <label>Вызываются события <code lang="EN">input, change</code>:
-            <textarea disabled name="file-result" cols="30" rows="5"></textarea>
-        </label>
-        <script>
-            const inputFile = document.querySelector('[name=input-file]');
-            const fileResult = document.querySelector('[name=file-result]');
-            inputFile.addEventListener('input', getHandleEvent(fileResult));
-            inputFile.addEventListener('change', getHandleEvent(fileResult));
-        </script>
+      <h2>
+        События у поля выбора файла <code lang="EN">input type="file"</code>
+      </h2>
+      <input
+        type="file"
+        name="input-file"
+        value="Выберите файл с диска"
+        class="input"
+      />
+      <label class="hint">
+        <span class="text-small"
+          >Вызываются события <code lang="EN">input, change</code>:
+        </span>
+        <textarea
+          disabled
+          name="file-result"
+          cols="30"
+          rows="5"
+          class="textarea"
+        ></textarea>
+      </label>
+      <script>
+        const inputFile = document.querySelector("[name=input-file]");
+        const fileResult = document.querySelector("[name=file-result]");
+        inputFile.addEventListener("input", getHandleEvent(fileResult));
+        inputFile.addEventListener("change", getHandleEvent(fileResult));
+      </script>
     </section>
-</body>
+  </body>
+</html>
