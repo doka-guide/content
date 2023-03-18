@@ -41,7 +41,7 @@ tags:
 
 ## Ограничения
 
-Этого тега нет в спецификации HTML, поэтому [HTML-валидатор](https://validator.w3.org/) укажет на ошибку.
+Этого тега нет в спецификации HTML, поэтому [HTML-валидатор](https://validator.w3.org) покажет ошибку.
 Чтобы избежать проблем с валидацией, Яндекс предлагает такие варианты:
 
 - использовать синтаксис [`<!‐‐noindex‐‐><!‐‐/noindex‐‐>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content);
