@@ -100,7 +100,7 @@ textInput.addEventListener('input', callback);
 
 ## Примечания
 
-Событие `input` не произойдет:
+Событие `input` не произойдëт:
 - если текст не меняется, например при нажатиях клавиш влево <kbd>⇦</kbd>, вправо <kbd>⇨</kbd>, <kbd>Control</kbd>, <kbd>Alt</kbd>, <kbd>Shift</kbd>;
 - если тег `<input>` имеет атрибут `type="button"` или `type="submit"`;
 - если поле изменит не пользователь, а код JS. Чтобы в этом случае получить событие `input` нужны дополнительные действия, например использовать [`dispatchEvent()`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent).
