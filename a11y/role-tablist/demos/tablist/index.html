@@ -36,16 +36,24 @@
       width: 600px;
     }
 
+    .tablist {
+      font-size: 0;
+    }
+
     .tab {
       padding: 9px 15px;
       border: 2px solid transparent;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       font-size: 18px;
-      font-weight: 300;
       font-family: inherit;
     }
+    
+    .tab + .tab {
+      margin-left: 2px;
+    }    
 
     .tab[aria-selected="true"] {
-      border-top: 4px solid #F498AD;
       background: #10F3AF;
     }
 
