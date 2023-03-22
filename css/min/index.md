@@ -6,7 +6,8 @@ authors:
 contributors:
   - rrramble
 keywords:
-  - наименьшее из двух, наименьшее из нескольких
+  - наименьшее из двух
+  - наименьшее из нескольких
 related:
   - js/function
   - css/calc
