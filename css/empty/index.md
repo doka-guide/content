@@ -93,7 +93,7 @@ tags:
   .has-content {
     content: 'Есть атрибут content';
   }
-  
+
   .has-pseudo:before {
     content: 'Есть псевдокласс :before';
   }
