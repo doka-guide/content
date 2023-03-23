@@ -12,6 +12,7 @@ keywords:
   - псевдокласс
   - пустой элемент
 related:
+  - css/after
   - css/before
   - css/pseudoclasses
 tags:
