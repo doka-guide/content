@@ -31,6 +31,7 @@ const productNames = ['Носки', 'Штаны', 'Кепка']
 const clonedNames = [...names]
 
 // 2. Поверхностное копирование сложной структуры
+// может иметь неожиданные результаты: см. последующие примеры
 const itemsInCard = [
   { product: 'Носки', quantity: 3 },
   { product: 'Штаны', quantity: 1 },
@@ -43,8 +44,10 @@ const clonedCart = [...itemsInCard]
 Если изменять элементы клонированной переменной `clonedCart` после копирования, то эти изменения будут также видны в исходной переменной `itemsInCard`:
 
 ```js
+// Меняем элемент с индексом 1 в скопированном объекте
 clonedCart[1].quantity = 999
 
+// Меняется скопированный объект
 console.log(clonedCart)
 // [
 //    { product: 'Носки', quantity: 3 },
@@ -52,6 +55,7 @@ console.log(clonedCart)
 //    { product: 'Кепка', quantity: 1 },
 // ]
 
+// И исходный объект тоже меняется!
 console.log(itemsInCard)
 // [
 //    { product: 'Носки', quantity: 3 },
