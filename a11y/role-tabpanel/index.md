@@ -13,7 +13,7 @@ tags:
 
 ## Кратко
 
-[Самостоятельная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая означает содержимое вкладки или панель вкладки.
+[Самостоятельная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая означает содержимое или панель вкладки.
 
 В HTML нет эквивалента для роли `tabpanel`.
 
