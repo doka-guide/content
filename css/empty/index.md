@@ -96,7 +96,7 @@ tags:
   }
 
   .has-pseudo::before {
-    content: 'Есть псевдокласс ::before';
+    content: 'Есть псевдоэлемент ::before';
   }
 </style>
 
