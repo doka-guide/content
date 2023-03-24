@@ -32,16 +32,16 @@ const clonedNames = [...names]
 
 // 2. Поверхностное копирование сложной структуры
 // может иметь неожиданные результаты: см. последующие примеры
-const itemsInCard = [
+const itemsInCart = [
   { product: 'Носки', quantity: 3 },
   { product: 'Штаны', quantity: 1 },
   { product: 'Кепка', quantity: 1 },
 ]
 
-const clonedCart = [...itemsInCard]
+const clonedCart = [...itemsInCart]
 ```
 
-Если изменять элементы клонированной переменной `clonedCart` после копирования, то эти изменения будут также видны в исходной переменной `itemsInCard`:
+Если изменять элементы клонированной переменной `clonedCart` после копирования, то эти изменения будут также видны в исходной переменной `itemsInCart`:
 
 ```js
 // Меняем элемент с индексом 1 в скопированном объекте
@@ -56,7 +56,7 @@ console.log(clonedCart)
 // ]
 
 // И исходный объект тоже меняется!
-console.log(itemsInCard)
+console.log(itemsInCart)
 // [
 //    { product: 'Носки', quantity: 3 },
 //    { product: 'Штаны', quantity: 999 },
@@ -69,7 +69,7 @@ console.log(itemsInCard)
 В итоге разные массивы ссылаются на одни и те же объекты в памяти:
 
 ```js
-console.log(itemsInCard[1] === clonedCart[1])
+console.log(itemsInCart[1] === clonedCart[1])
 // true
 ```
 
