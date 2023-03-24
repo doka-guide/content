@@ -2,6 +2,7 @@
 name: 'Дока Дог'
 url: https://github.com/doka-dog
 photo: photo.svg
+photoAlt: 'Это Дока — маскот доброй энциклопедии. Белая собачка с чёрными ушками и глазами, в белой рубашке'
 badges:
   - first-contribution-small
 ---
