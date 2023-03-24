@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/display
-  - css/attr
-  - html/nav
-  - html/doctype
   - css/flexbox-guide
-  - css/keyframes
-  - css/box-shadow
-  - js/execution-order
-  - recipes/progress
-  - tools/how-to-test-and-why
-  - tools/gitlab-ci-cd
-  - js/deal-with-forms
-  - a11y/aria-hidden
   - html/flow
-  - html/video
-  - css/box-model
-  - tools/clean-architecture
-  - html/img
-  - tools/ci-cd
-  - a11y/screenreaders
-  - css/media
-  - tools/webpack
-  - tools/network
-  - js/async-in-js
-  - html/form
-  - tools/cli
-  - js/function-context
-  - tools/agile
-  - html/section
-  - tools/how-the-browser-creates-pages
-  - html/div
-  - tools/docker
-  - css/pseudoelements
-  - recipes/snow
-  - css/specificity
-  - tools/static-types
-  - a11y/aria-intro
-  - css/custom-properties
   - css/transform-function
-  - tools/markdown
+  - css/pseudoelements
+  - css/box-model
+  - html/video
+  - js/function
+  - css/display
+  - css/specificity
   - tools/oop
+  - html/div
+  - js/function-context
+  - js/deal-with-forms
+  - css/box-shadow
+  - tools/webpack
+  - tools/cli
+  - a11y/aria-hidden
+  - js/async-in-js
+  - html/nav
+  - tools/how-to-test-and-why
+  - css/custom-properties
+  - recipes/progress
+  - tools/ci-cd
+  - js/var-let
+  - js/infinite-scroll
+  - tools/docker
+  - tools/clean-architecture
   - css/grid-guide
   - css/position
-  - html/article
+  - css/keyframes
   - tools/bundlers
-  - js/infinite-scroll
-  - html/head
-  - js/var-let
-  - recipes/lets-encrypt-nginx
-  - js/function
-  - html/input
+  - tools/gitlab-ci-cd
+  - js/execution-order
+  - a11y/screenreaders
   - js/boolean
+  - recipes/lets-encrypt-nginx
+  - tools/markdown
+  - css/attr
+  - recipes/snow
+  - html/form
+  - html/input
+  - tools/how-the-browser-creates-pages
   - js/closures
+  - html/article
+  - tools/static-types
+  - tools/agile
+  - html/doctype
+  - html/section
+  - css/media
+  - html/head
+  - a11y/aria-intro
+  - tools/network
+  - html/img
 ---
 
