@@ -16,6 +16,7 @@ groups:
   - name: 'Другие стандарты и руководства'
     items:
       - wcag
+      - wcag-conformance-levels
   - name: 'Глобальные атрибуты'
     items:
       - aria-hidden
