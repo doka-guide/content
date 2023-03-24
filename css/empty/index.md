@@ -95,8 +95,8 @@ tags:
     content: 'Есть атрибут content';
   }
 
-  .has-pseudo:before {
-    content: 'Есть псевдокласс :before';
+  .has-pseudo::before {
+    content: 'Есть псевдокласс ::before';
   }
 </style>
 
@@ -116,4 +116,4 @@ tags:
 
 В третьем случае — имеется только CSS-атрибут `content`.
 
-В четвёртом случае — имеется псевдоэлемент `:before`.
+В четвёртом случае — имеется псевдоэлемент `::before`.
