@@ -23,6 +23,7 @@ groups:
       - aria-labelledby
       - aria-describedby
       - aria-description
+      - aria-details
       - aria-roledescription
       - aria-keyshortcuts
       - aria-live
@@ -37,6 +38,7 @@ groups:
     items:
       - aria-labelledby
       - aria-describedby
+      - aria-details
       - aria-errormessage
       - aria-controls
       - aria-owns
@@ -98,6 +100,7 @@ groups:
       - aria-labelledby
       - aria-describedby
       - aria-description
+      - aria-details
   - name: 'CSS и доступность'
     items:
       - css-impact-on-a11y
@@ -143,6 +146,7 @@ groups:
       - aria-describedby
       - aria-errormessage
       - aria-description
+      - aria-details
       - aria-roledescription
       - aria-keyshortcuts
       - aria-live
