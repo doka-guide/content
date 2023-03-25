@@ -18,7 +18,7 @@ tags:
 
 > Если вы так боитесь каскада, что отказываетесь его изучать, вы не понимаете веба и лучше вам посмотреть в сторону чего-нибудь попроще в другой области кодинга. Спасибо, что прослушали мой доклад для фронтендеров.
 
-— Ерик Мейер, автор «[CSS: The Definitive Guide](https://www.oreilly.com/library/view/css-the-definitive/9781449325053/)», [источник](https://twitter.com/meyerweb/status/1038602174211784704)
+— Эрик Мейер, автор «[CSS: The Definitive Guide](https://www.oreilly.com/library/view/css-the-definitive/9781449325053/)», [источник](https://twitter.com/meyerweb/status/1038602174211784704)
 
 ![Большой Каскад в Петергофе](images/1.jpg)
 
