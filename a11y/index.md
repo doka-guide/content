@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-html
       - content-hidden
   - name: 'Вспомогательные технологии'
     items:
