@@ -69,7 +69,7 @@ const sevenStringsGuitar = createGuitar(7)
 - Поменять название поля `frets` на `fretsCount`.
 - Поменять название поля `strings` на `stringsCount`.
 - Сделать по умолчанию 7 струн.
-- Изменить материал грифа на ель.
+- Изменить материал грифа на пихту.
 
 ```js
 function createGuitar(stringsCount = 7) {
