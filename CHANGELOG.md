@@ -4,6 +4,7 @@
 
 ## Март 2023
 
+- 29 марта, [`word-break`](https://doka.guide/css/word-break/), Лейла Мамедова
 - 27 марта, [Основы доступного HTML](https://doka.guide/a11y/a11y-html/), Евгения Жигисова
 - 27 марта, [Поисковая оптимизация для начинающих](https://doka.guide/html/seo-for-beginners/), Александр Рассудихин
 - 10 марта, [Пишем первые тесты](https://doka.guide/tools/testing-with-jest/), Полина Гуртовая
