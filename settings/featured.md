@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/flexbox-guide
+  - css/position
   - html/flow
-  - css/transform-function
-  - css/pseudoelements
-  - css/box-model
-  - html/video
-  - js/function
-  - css/display
-  - css/specificity
-  - tools/oop
+  - a11y/aria-hidden
+  - html/img
+  - recipes/snow
+  - js/async-in-js
+  - tools/agile
+  - html/section
+  - js/var-let
+  - html/article
+  - css/box-shadow
   - html/div
+  - html/input
+  - tools/oop
+  - css/transform-function
+  - tools/clean-architecture
+  - css/box-model
+  - html/form
+  - js/infinite-scroll
+  - js/closures
+  - tools/gitlab-ci-cd
+  - tools/webpack
+  - html/head
+  - css/media
+  - tools/network
+  - tools/bundlers
+  - js/function
+  - recipes/lets-encrypt-nginx
+  - css/grid-guide
+  - css/specificity
+  - tools/cli
+  - tools/ci-cd
+  - css/pseudoelements
   - js/function-context
   - js/deal-with-forms
-  - css/box-shadow
-  - tools/webpack
-  - tools/cli
-  - a11y/aria-hidden
-  - js/async-in-js
-  - html/nav
-  - tools/how-to-test-and-why
-  - css/custom-properties
-  - recipes/progress
-  - tools/ci-cd
-  - js/var-let
-  - js/infinite-scroll
-  - tools/docker
-  - tools/clean-architecture
-  - css/grid-guide
-  - css/position
-  - css/keyframes
-  - tools/bundlers
-  - tools/gitlab-ci-cd
   - js/execution-order
   - a11y/screenreaders
+  - recipes/progress
   - js/boolean
-  - recipes/lets-encrypt-nginx
-  - tools/markdown
+  - css/custom-properties
+  - html/nav
+  - tools/how-to-test-and-why
+  - css/flexbox-guide
   - css/attr
-  - recipes/snow
-  - html/form
-  - html/input
-  - tools/how-the-browser-creates-pages
-  - js/closures
-  - html/article
-  - tools/static-types
-  - tools/agile
-  - html/doctype
-  - html/section
-  - css/media
-  - html/head
   - a11y/aria-intro
-  - tools/network
-  - html/img
+  - html/video
+  - css/keyframes
+  - css/display
+  - tools/markdown
+  - tools/docker
+  - tools/how-the-browser-creates-pages
+  - tools/static-types
+  - html/doctype
 ---
 
