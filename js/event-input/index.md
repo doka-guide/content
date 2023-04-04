@@ -1,6 +1,6 @@
 ---
 title: "input"
-description: "`Input` - событие, срабатывающее каждый раз при изменении значения."
+description: "`Input` — событие, срабатывающее каждый раз при изменении значения."
 authors:
   - tarahovmaksim
   - rrramble
@@ -28,6 +28,8 @@ tags:
 
 Событие `input` возникает когда [DOM-дерево](/js/dom/#iz-chego-sostoit-dom) обновляется или вот-вот обновится. Если пользователь вставит текст из буфера обмена, то событие `input` возникнет один раз. Если же пользователь печатает текст, то событие `input` возникает после добавления (и удаления) каждого символа.
 
+<iframe title="Примеры события input в JS" src="demos/input-in-form/" height="600"></iframe>
+
 ## Простой пример
 
 ```html
@@ -44,8 +46,6 @@ tags:
     };
 </script>
 ```
-
-<iframe title="Пример работы input" src="demos/index.html" height="50vh"></iframe>
 
 ## Как пишется
 
@@ -74,28 +74,30 @@ textInput.addEventListener('input', callback);
 - `input` — срабатывает при каждом изменении значения в поле;
 - `change` — срабатывает когда изменяемый элемент теряет фокус: например, при переходе к другому полю или клику на другую часть страницы.
 
+<iframe title="Разница между input и change" src="demos/input-change-difference/" height="500"></iframe>
+
 Для прочих полей ввода они работают одинаково:
 
 ```html
-  <label>Кликните:
-      <input type="checkbox" name="checkbox-input">
-  </label>
+<label>Кликните:
+    <input type="checkbox" name="checkbox-input">
+</label>
 
-  <label>Типы событий:
-      <textarea disabled name="checkbox-result"></textarea>
-  </label>
+<label>Типы событий:
+    <textarea disabled name="checkbox-result"></textarea>
+</label>
 
-  <script>
-      const checkbox = document.querySelector('[name=checkbox-input]');
-      const textArea = document.querySelector('[name=checkbox-result]');
+<script>
+    const checkbox = document.querySelector('[name=checkbox-input]');
+    const textArea = document.querySelector('[name=checkbox-result]');
 
-      function handleCheckboxChange(evt) {
-          textArea.value += evt.type + '; ';
-      }
+    function handleCheckboxChange(evt) {
+        textArea.value += evt.type + '; ';
+    }
 
-      checkbox.addEventListener('input', handleCheckboxChange);
-      checkbox.addEventListener('change', handleCheckboxChange);
-  </script>
+    checkbox.addEventListener('input', handleCheckboxChange);
+    checkbox.addEventListener('change', handleCheckboxChange);
+</script>
 ```
 
 ## Примечания
