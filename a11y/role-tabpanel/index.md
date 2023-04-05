@@ -30,7 +30,7 @@ tags:
 </div>
 ```
 
-<iframe title="<div> с ролью tabpanel" src="demos/tabpanels/" height="350"></iframe>
+<iframe title="div с ролью tabpanel" src="demos/tabpanels/" height="350"></iframe>
 
 При фокусе на содержимом вкладки [скринридер](/a11y/screenreaders/) прочтёт его примерно так: «Тапиры. Травоядные животные с коротким хоботом, которые живут в лесу».
 
