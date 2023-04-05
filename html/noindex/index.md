@@ -13,15 +13,13 @@ tags:
 
 ## Кратко
 
-Тег [`<noindex></noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content) запрещает поисковым системам индексировать содержимое.
-Этот тег поддерживает только [Яндекс](https://yandex.ru).
-
+Тег [`<noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content) запрещает поисковым системам индексировать содержимое. Этот тег поддерживает только [поисковик Яндекс](https://yandex.ru).
 
 ## Как понять
 
 Поисковые системы сканируют (индексируют) содержимое сайтов в интернете. Когда пользователь ищет информацию, поисковики выдают ответ на основе ранее отсканированного.
 
-Но нет смысла индексировать для поиска некоторое содержимое:
+Не все содержимое имеет смысл индексировать:
 
 - сторонняя реклама от партнёров сайта — если реклама не связана с сайтом;
 - ссылки, которые публикуют пользователи форумов – если сайт не хочет отвечать за некорректные ссылки;
@@ -31,38 +29,37 @@ tags:
 
 ```html
 <noindex>
-  <!-- рекламный текст другой компании -->
+  <!-- Рекламный текст другой компании -->
   <article>Реклама наших партнёров:...</article>
 
-  <!-- служебная ссылка -->
+  <!-- Служебная ссылка -->
   <a href="/login">Вход во внутренний портал для работников компании</a>
 </noindex>
 ```
 
 ## Ограничения
 
-Этого тега нет в спецификации HTML, поэтому [HTML-валидатор](https://validator.w3.org) покажет ошибку.
-Чтобы избежать проблем с валидацией, Яндекс предлагает такие варианты:
+Этого тега нет в спецификации HTML, поэтому [HTML-валидатор](https://validator.w3.org) покажет ошибку. Чтобы избежать проблем с валидацией, Яндекс предлагает такие варианты:
 
 - использовать синтаксис [`<!‐‐noindex‐‐><!‐‐/noindex‐‐>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content);
-- использовать [тег `<noscript></noscript>`](/html/noscript).
+- использовать [тег `<noscript>`](/html/noscript).
 
 Примеры:
 
 ```html
 <!‐‐noindex‐‐>
-  <!-- рекламный текст другой компании -->
+  <!-- Рекламный текст другой компании -->
   <article>Реклама наших партнёров:...</article>
 
-  <!-- служебная ссылка -->
+  <!-- Служебная ссылка -->
   <a href="/login">Вход во внутренний портал для работников компании</a>
 <!‐‐/noindex‐‐>
 
 <noscript>Текст, индексирование которого нужно запретить.</noscript>
 ```
 
-## Другие способы запрета индексирования
+## Другие способы запретить поисковикам индексирование
 
-- запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта [файл `robots.txt`](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru);
-- запретить индексирование всей страницы: укажите тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/);
-- запретить переходить по ссылке: у тега `<a>` укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
+- Запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта [файл `robots.txt`](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru).
+- Запретить индексирование всей страницы: укажите тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/).
+- Запретить переходить по ссылке: у тега `<a>` укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
