@@ -28,7 +28,7 @@ tags:
 </button>
 ```
 
-<iframe title="<button> с ролью tab" src="demos/tabs/" height="350"></iframe>
+<iframe title="button с ролью tab" src="demos/tabs/" height="350"></iframe>
 
 При фокусе на вкладке [скринридер](/a11y/screenreaders/) прочтёт её примерно так: «Тапиры, выбранная вкладка, одна из двух». Некоторые скринридеры не объявляют количество вкладок.
 
@@ -45,12 +45,14 @@ tags:
 ```html
 <button
   role="tab"
-  aria-controls="tabpanel-1">
+  aria-controls="tabpanel-1"
+>
   Тапиры
 </button>
 <div
   role="tabpanel"
-  id="tabpanel-1">
+  id="tabpanel-1"
+>
   <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
 </div>
 ```
@@ -61,7 +63,8 @@ tags:
 <!-- Выбранная вкладка -->
 <button
   role="tab"
-  aria-selected="true">
+  aria-selected="true"
+>
   Тапиры
 </button>
 
@@ -69,7 +72,8 @@ tags:
 <button
   role="tab"
   aria-selected="false"
-  tabindex="-1">
+  tabindex="-1"
+>
   Ламантины
 </button>
 ```
