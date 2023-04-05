@@ -27,20 +27,22 @@ tags:
     type="button"
     id="tab-1"
     aria-selected="true"
-    aria-controls="tabpanel-1">
+    aria-controls="tabpanel-1"
+>
     Тапиры
   </button>
   <div
     role="tabpanel"
     id="tabpanel-1"
     tabindex="0"
-    aria-labelledby="tab-1">
+    aria-labelledby="tab-1"
+>
     <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
   </div>
 </div>
 ```
 
-<iframe title="<div> с ролью tablist" src="demos/tablist/" height="350"></iframe>
+<iframe title="Элемент с ролью tablist" src="demos/tablist/" height="350"></iframe>
 
 При фокусе на группе вкладок [скринридер](/a11y/screenreaders/) прочтёт её примерно так: «Необычные животные, контрол вкладок. Тапиры, выбранная вкладка, одна из двух».
 
