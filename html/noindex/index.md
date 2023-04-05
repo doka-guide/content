@@ -1,5 +1,5 @@
 ---
-title: "Тег `<noindex>`"
+title: "`<noindex>`"
 description: "Запрещает поисковым системам индексировать содержимое сайтов."
 authors:
   - rrramble
