@@ -1,6 +1,6 @@
 ---
 title: "`tabpanel`"
-description: "Как сделать что-то содержимым вкладки, которое связано с ней."
+description: "Как сделать элемент содержимым вкладки."
 authors:
   - tatianafokina
 related:
