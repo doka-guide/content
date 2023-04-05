@@ -67,7 +67,7 @@ tags:
 </div>
 ```
 
-[У `aria-controls` пока плохая поддержка](https://a11ysupport.io/tech/aria/aria-controls_attribute), так что часто для надёжности этот атрибут совмещают с `aria-labelledby`.
+У `aria-controls` [пока плохая поддержка](https://a11ysupport.io/tech/aria/aria-controls_attribute), так что часто для надёжности этот атрибут совмещают с `aria-labelledby`.
 
 Элементам с ролью `tabpanel` можно также задавать все остальные [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov).
 
