@@ -24,7 +24,8 @@ tags:
   role="tabpanel"
   id="tabpanel-1"
   aria-labelledby="tab-1"
-  tabindex="0">
+  tabindex="0"
+>
   <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
 </div>
 ```
@@ -42,12 +43,14 @@ tags:
 ```html
 <button
   role="tab"
-  aria-controls="tabpanel-1">
+  aria-controls="tabpanel-1"
+>
   Тапиры
 </button>
 <div
   role="tabpanel"
-  id="tabpanel-1">
+  id="tabpanel-1"
+>
   <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
 </div>
 ```
@@ -57,12 +60,14 @@ tags:
 ```html
 <button
   role="tab"
-  id="tab-1">
+  id="tab-1"
+>
   Тапиры
 </button>
 <div
   role="tabpanel"
-  aria-labelledby="tab-1">
+  aria-labelledby="tab-1"
+>
   <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
 </div>
 ```
