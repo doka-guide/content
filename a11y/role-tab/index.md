@@ -1,6 +1,6 @@
 ---
 title: "`tab`"
-description: "Как сделать что-то вкладкой."
+description: "Как правильно и доступно наверстать вкладки?"
 authors:
   - tatianafokina
 related:
