@@ -13,7 +13,7 @@ tags:
 
 ## Кратко
 
-[Роль структуры документа](/a11y/aria-roles/) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что у элемента нет семантики и имени.
+[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что у элемента нет семантики и имени.
 
 В HTML роль `generic` есть у [`<div>`](/html/div/) и [`<span>`](/html/span/).
 
