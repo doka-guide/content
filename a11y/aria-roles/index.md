@@ -101,7 +101,7 @@ _Самостоятельные роли_ — это роли элементов
 - `scrollbar` — полоса прокрутки.
 - `searchbox` — поле поиска. Эквивалент в HTML — [`<input type="search">`](/html/input/#type).
 - `separator` — интерактивный разделитель, на котором можно сделать фокус.
-- `slider` — ползунок. Эквивалент в HTML — [`<input type="range">`](/html/input/#type).
+- `slider` — ползунок для выбора чисел из заданного диапазона. Эквивалент в HTML — [`<input type="range">`](/html/input/#type).
 - `spinbutton` — поле для ввода числа. Эквивалент в HTML — [`<input type="number">`](/html/input/#type).
 - [`switch`](/a11y/role-switch/) — переключатель или тип чекбокса, который что-то включает или выключает.
 - [`tab`](/a11y/role-tab/) — вкладка.
