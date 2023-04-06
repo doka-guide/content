@@ -6,7 +6,7 @@ authors:
 related:
   - html/a
   - html/meta
-  - rfc9309
+  - html/seo-for-beginners
 tags:
   - doka
 ---
