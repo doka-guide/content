@@ -44,6 +44,7 @@ groups:
   - name: 'Структура документа'
     items:
       - role-presentation-none
+      - role-generic
       - role-heading
       - role-img-image
       - role-list
@@ -126,6 +127,7 @@ groups:
       - role-status
       - role-timer
       - role-presentation-none
+      - role-generic
       - role-heading
       - role-img-image
       - role-list
