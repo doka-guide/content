@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Апрель 2023
+
+- 7 апреля, [Разноцветный текст](https://doka.guide/recipes/multicolor-text/), Егор Левченко
+
 ## Март 2023
 
 - 29 марта, [`word-break`](https://doka.guide/css/word-break/), Лейла Мамедова
