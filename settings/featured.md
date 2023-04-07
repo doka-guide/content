@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/position
-  - html/flow
-  - a11y/aria-hidden
-  - html/img
   - recipes/snow
-  - js/async-in-js
-  - tools/agile
-  - html/section
   - js/var-let
-  - html/article
-  - css/box-shadow
-  - html/div
-  - html/input
-  - tools/oop
-  - css/transform-function
-  - tools/clean-architecture
-  - css/box-model
-  - html/form
-  - js/infinite-scroll
-  - js/closures
-  - tools/gitlab-ci-cd
-  - tools/webpack
-  - html/head
-  - css/media
-  - tools/network
-  - tools/bundlers
-  - js/function
-  - recipes/lets-encrypt-nginx
-  - css/grid-guide
-  - css/specificity
-  - tools/cli
-  - tools/ci-cd
   - css/pseudoelements
-  - js/function-context
+  - tools/oop
+  - js/async-in-js
   - js/deal-with-forms
-  - js/execution-order
-  - a11y/screenreaders
-  - recipes/progress
-  - js/boolean
-  - css/custom-properties
-  - html/nav
-  - tools/how-to-test-and-why
-  - css/flexbox-guide
-  - css/attr
-  - a11y/aria-intro
-  - html/video
-  - css/keyframes
-  - css/display
   - tools/markdown
-  - tools/docker
-  - tools/how-the-browser-creates-pages
-  - tools/static-types
+  - html/section
+  - css/specificity
+  - js/closures
+  - css/display
+  - tools/cli
+  - html/flow
+  - html/img
   - html/doctype
+  - tools/clean-architecture
+  - css/transform-function
+  - tools/how-the-browser-creates-pages
+  - js/infinite-scroll
+  - html/form
+  - css/attr
+  - css/box-shadow
+  - css/box-model
+  - html/article
+  - tools/webpack
+  - css/flexbox-guide
+  - html/nav
+  - recipes/lets-encrypt-nginx
+  - tools/network
+  - js/function
+  - js/execution-order
+  - css/custom-properties
+  - tools/agile
+  - css/grid-guide
+  - recipes/progress
+  - html/video
+  - tools/ci-cd
+  - css/keyframes
+  - tools/bundlers
+  - html/div
+  - html/head
+  - html/input
+  - js/boolean
+  - tools/gitlab-ci-cd
+  - tools/docker
+  - a11y/aria-intro
+  - css/media
+  - a11y/screenreaders
+  - tools/static-types
+  - a11y/aria-hidden
+  - tools/how-to-test-and-why
+  - js/function-context
+  - css/position
 ---
 
