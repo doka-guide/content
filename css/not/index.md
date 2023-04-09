@@ -1,13 +1,16 @@
 ---
 title: "`:not`"
+description: "Отрицаем всё! Исключаем из выборки селектора эелементы с определённым признаком."
 authors:
   - solarrust
 contributors:
   - artur-demidov
 editors:
   - tachisis
-keywords:
-  - псевдокласс
+related:
+  - css/pseudoclasses
+  - css/pseudoelements
+  - css/class-selector
 tags:
   - doka
 ---
