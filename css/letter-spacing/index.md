@@ -1,12 +1,15 @@
 ---
 title: "`letter-spacing`"
+description: "Управляем расстоянием между буквами текста."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
-keywords:
-  - межбуквенное расстояние
+related:
+  - css/line-height
+  - css/font-face
+  - css/white-space
 tags:
   - doka
 ---
