@@ -36,13 +36,17 @@ tags:
 <label>Введите текст:
     <input type="text" id="textField">
 </label>
+
 <label>При каждом изменении возникает событие <code>input</code>:
     <textarea disabled id="textResult"></textarea>
 </label>
 
 <script>
-    textField.oninput = function() {
-      textResult.value = textField.value;
+    var inputTextField = document.getElementById('textField');
+    var outputTextField = document.getElementById('textResult');
+
+    inputTextField.oninput = function() {
+        outputTextField.value = inputTextField.value;
     };
 </script>
 ```
