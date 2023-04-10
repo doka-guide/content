@@ -9,6 +9,7 @@ related:
   - html/span
 tags:
   - doka
+  - placeholder
 ---
 
 ## Кратко
