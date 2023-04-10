@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Примеры события input в JS — Событие input — Дока</title>
   <meta charset="utf-8">
+  <title>Примеры события input и change в JS у кнопок и чекбокса — Событие input — Дока</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -202,11 +202,12 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="controls">
-      <span class="controls-description">
+  <main class="container">
+    <h1 class="visually-hidden">Пример событий <code lang="EN">input</code> и <code lang="EN">change</code> у кнопок и чекбокса</h1>
+    <section class="controls">
+      <p class="controls-description">
         Попробуйте кликнуть чекбокс и каждую кнопку:
-      </span>
+      </p>
 
       <label class="checkbox-label">
         <span class="checkbox-title">Чекбокс:</span>
@@ -233,17 +234,18 @@
         <input class="button button--input-file" name="input-file" type="file">
         <span class="hint">Вызываются события <code>input</code>, <code>change</code></span>
       </label>
-    </div>
+    </section>
 
-    <div class="event-log">
-      <span class="event-log-description">
+    <section class="event-log">
+      <label class="event-log-description" for="events-log">
         Посмотрите, какие события происходят:
-      </span>
+      </label>
       <textarea
         class="textarea" cols="30" disabled id="events-log" rows="10"
-      ></textarea>
-    </div>
-  </div>
+      >
+      </textarea>
+    </section>
+  </main>
 
   <script>
     function getHandleEvent(resultTextNode) {

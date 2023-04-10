@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Разница между input и change — Событие input — Дока</title>
   <meta charset="utf-8">
+  <title>Примеры события input и change в JS у текстовых полей — Событие input — Дока</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -131,7 +131,8 @@
 </head>
 
 <body>
-  <div class="container">
+  <main class="container">
+    <h1 class="visually-hidden">Пример событий <code lang="EN">input</code> и <code lang="EN">change</code> у полей ввода текста</h1>
     <label class="input-label">
       <span class="input-title">Введите текст или вставьте из буфера обмена</span>
       <input class="input" id="inputTextField"
@@ -139,29 +140,29 @@
       >
     </label>
 
-    <div class="event-logs">
+    <section class="event-logs">
       <div class="event-log">
-        <span class="description">
+        <label class="description" for="textResultOnInput">
           Результат события <code lang="EN">input</code>
-          <span class="hint">Отображается при вводе и удалении каждого символа</span>
-        </span>
+          <span class="hint">отображается при вводе и удалении каждого символа</span>
+        </label>
         <textarea class="textarea" cols="30" disabled
           id="textResultOnInput" rows="5"
         >
         </textarea>
       </div>
       <div class="event-log">
-        <span class="description">
+        <label class="description" for="textResultOnChange">
           Результат события <code lang="EN">change</code>
-          <span class="hint">Возникает, когда фокус покидает поле ввода (попробуйте кликнуть на пустое место страницы)</span>
-        </span>
+          <span class="hint">возникает, когда фокус покидает поле ввода (попробуйте кликнуть на пустое место страницы)</span>
+        </label>
         <textarea class="textarea" cols="30" disabled
           id="textResultOnChange" rows="5"
         >
         </textarea>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
   <script>
     const inputTextNode = document.getElementById('inputTextField');
     const resultOnInput = document.getElementById('textResultOnInput');
