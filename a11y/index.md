@@ -74,6 +74,7 @@ groups:
     items:
       - role-button
       - role-link
+      - role-tablist
       - role-checkbox
       - role-switch
       - aria-hidden
@@ -134,6 +135,7 @@ groups:
       - role-button
       - role-link
       - role-checkbox
+      - role-tablist
       - role-switch
   - name: 'ARIA-атрибуты'
     items:
