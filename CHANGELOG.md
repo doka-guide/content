@@ -4,6 +4,7 @@
 
 ## Апрель 2023
 
+- 10 апреля, [`tablist`](https://doka.guide/a11y/role-tablist/), Татьяна Фокина
 - 7 апреля, [Разноцветный текст](https://doka.guide/recipes/multicolor-text/), Егор Левченко
 
 ## Март 2023
