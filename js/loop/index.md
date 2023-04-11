@@ -13,7 +13,7 @@ keywords:
   - iteration
   - infinite loop
 related:
-  - js/architecture-data-flow
+  - tools/architecture-data-flow
   - js/for-in
   - js/array-foreach
 tags:

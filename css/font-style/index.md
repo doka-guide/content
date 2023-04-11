@@ -1,5 +1,6 @@
 ---
 title: "`font-style`"
+description: "Задаём стиль отдельным словам или фразам."
 authors:
   - doka-dog
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - стиль шрифта
   - курсив
   - наклонное начертание
+related:
+  - css/font-weight
+  - css/font-size
+  - css/font
 tags:
   - doka
 ---
@@ -54,6 +59,7 @@ p {
 - `normal` — обычное начертание текста (значение по умолчанию).
 - `italic` — курсивное начертание.
 - `oblique` — наклонное начертание, которое можно использовать, если у шрифта нет курсивного варианта начертания.
+- `oblique -20deg` — наклонное начертание с указанием угла наклона. Допустимо указать от -90deg до 90deg. При этом шрифт будет наклоняться вперёд или назад на указанное количество градусов. Почти нигде не поддерживается, уточняйте поддержку на [Can I use](https://caniuse.com/mdn-css_properties_font-style_oblique-angle) перед использованием.
 
 ```css
 .normal {
@@ -66,5 +72,9 @@ p {
 
 .oblique {
   font-style: oblique;
+}
+
+.oblique-deg {
+  font-style: oblique -20deg;
 }
 ```

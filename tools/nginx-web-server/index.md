@@ -8,7 +8,7 @@ contributors:
 related:
   - recipes/short-links
   - tools/http-protocol
-  - js/web-app-works
+  - tools/web-app-works
 tags:
   - article
 ---

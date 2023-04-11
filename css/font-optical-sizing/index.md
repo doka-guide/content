@@ -1,7 +1,12 @@
 ---
 title: "`font-optical-sizing`"
+description: "Подстраиваем вариативный шрифт, чтобы он лучше читался."
 authors:
   - doka-dog
+related:
+  - css/font-variation-settings
+  - css/font-variant
+  - css/font-size
 tags:
   - doka
   - placeholder

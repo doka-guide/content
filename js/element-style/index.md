@@ -6,7 +6,7 @@ authors:
 related:
   - css/specificity
   - js/dom
-  - js/code-style
+  - tools/code-style
 tags:
   - doka
 ---

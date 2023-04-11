@@ -8,7 +8,7 @@ contributors:
 related:
   - css/media
   - tools/site-readers
-  - js/web-app-types
+  - tools/web-app-types
 tags:
   - doka
 ---

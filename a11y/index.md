@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-html
       - content-hidden
   - name: 'Вспомогательные технологии'
     items:
@@ -13,6 +14,9 @@ groups:
       - aria-intro
       - aria-roles
       - aria-attrs
+  - name: 'Другие стандарты и руководства'
+    items:
+      - wcag
   - name: 'Глобальные атрибуты'
     items:
       - aria-hidden
@@ -44,6 +48,7 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-tooltip
   - name: '«Живые» области'
     items:
       - role-alert
@@ -70,6 +75,7 @@ groups:
       - role-button
       - role-link
       - role-checkbox
+      - role-switch
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -86,6 +92,7 @@ groups:
       - aria-haspopup
       - aria-controls
       - aria-owns
+      - aria-modal
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -123,9 +130,11 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-tooltip
       - role-button
       - role-link
       - role-checkbox
+      - role-switch
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
@@ -142,6 +151,7 @@ groups:
       - aria-relevant
       - aria-busy
       - aria-owns
+      - aria-modal
       - aria-current
       - aria-controls
       - aria-flowto

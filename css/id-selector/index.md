@@ -1,5 +1,6 @@
 ---
 title: "Селектор по идентификатору"
+description: "Выбираем для стилизации элемент с уникальным атрибутом `id`."
 authors:
   - solarrust
 keywords:
@@ -7,6 +8,10 @@ keywords:
   - inherit
   - unset
   - revert
+related:
+  - html/global-attrs
+  - css/specificity
+  - css/tag-selector
 tags:
   - doka
 ---

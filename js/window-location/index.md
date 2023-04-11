@@ -11,7 +11,7 @@ keywords:
   - редирект
 related:
   - tools/web-server
-  - js/web-app-types
+  - tools/web-app-types
   - js/bom
 tags:
   - doka

@@ -5,7 +5,7 @@ authors:
   - nlopin
 related:
   - js/dom
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
   - js/events
 tags:
   - doka

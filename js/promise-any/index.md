@@ -4,7 +4,7 @@ description: "Запускаем несколько промисов парал�
 authors:
   - yarkovaleksei
 related:
-  - js/api
+  - tools/api
   - js/fetch
   - js/async-in-js
 tags:

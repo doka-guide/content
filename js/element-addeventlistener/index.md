@@ -9,7 +9,7 @@ contributors:
 related:
   - js/dom
   - js/events
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
 tags:
   - doka
 ---
@@ -72,7 +72,7 @@ element.addEventListener(eventType, handler, options)
 ```
 
 - `element` — любой [HTMLElement](/js/element/) на странице.
-- `eventType` — строка, содержащая название события. Наиболее популярные события [`'click'`](/js/element-click/), `'change'`, `'submit'`, [`'keydown'`](/js/element-keydown-keyup/), `'mousemove'`, `'mouseenter'`, `'mouseleave'`.
+- `eventType` — строка, содержащая название события. Наиболее популярные события [`'click'`](/js/element-click/), `'change'`, `'submit'`, [`'keydown'`](/js/element-keydown/), [`'keyup'`](/js/element-keyup/), `'mousemove'`, `'mouseenter'`, `'mouseleave'`.
 - `handler` — функция, которая будет вызвана, когда событие произойдёт.
 - `options/capture` — необязательный параметр, который описывает дополнительные свойства для срабатывания события.
   - `capture` — включает или выключает захват события элементом, на который установлен обработчик. Это значит, что событие сначала сработает на элементе и только потом сработает на всех вложенных элементах. Принимает значение `true` или `false`

@@ -7,7 +7,7 @@ contributors:
   - furtivite
 related:
   - tools/static-analysis
-  - js/how-to-test-and-why
+  - tools/how-to-test-and-why
   - tools/webpack
 tags:
   - article

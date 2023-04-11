@@ -15,7 +15,7 @@ keywords:
 related:
   - js/dom
   - js/events
-  - js/browsers-storages
+  - tools/browsers-storages
 tags:
   - article
 ---

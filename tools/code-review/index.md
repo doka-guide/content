@@ -13,9 +13,9 @@ keywords:
   - pull request
   - пул реквест
 related:
-  - js/technical-debt
+  - tools/technical-debt
   - tools/static-analysis
-  - js/code-style
+  - tools/code-style
 tags:
   - article
 ---

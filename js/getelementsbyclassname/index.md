@@ -4,7 +4,7 @@ description: "Получаем список элементом с заданны
 authors:
   - nlopin
 related:
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
   - js/events
   - html/class
 tags:

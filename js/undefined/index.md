@@ -10,7 +10,7 @@ keywords:
 related:
   - js/typecasting
   - js/if-else
-  - js/code-style
+  - tools/code-style
 tags:
   - doka
 ---

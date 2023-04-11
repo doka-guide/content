@@ -2,7 +2,7 @@
 title: "reset"
 description: "Событие reset"
 authors:
-  - IVKrylova
+  - ivkrylova
 tags:
   - doka
   - placeholder

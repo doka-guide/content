@@ -8,7 +8,7 @@ contributors:
 related:
   - tools/network
   - tools/web-server
-  - js/web-app-works
+  - tools/web-app-works
 tags:
   - article
 ---

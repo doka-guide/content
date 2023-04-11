@@ -7,7 +7,7 @@ tags:
   - article
 related:
   - tools/cli
-  - js/react-and-alternatives
+  - tools/react-and-alternatives
   - tools/markdown
 keywords:
   - linux

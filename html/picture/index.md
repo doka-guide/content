@@ -10,6 +10,7 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
+  - catbutfat
 editors:
   - tachisis
 keywords:
@@ -48,8 +49,8 @@ tags:
 
 ```html
 <picture>
-  <source srcset="750x400.png" media="(min-width: 1000px)">
-  <img src="650x300.png" alt="Картинка с размерами">
+  <source srcset="750x100.png" media="(min-width: 1000px)">
+  <img src="650x100.png" alt="Картинка с размерами">
 </picture>
 ```
 
@@ -69,4 +70,4 @@ tags:
 
 <iframe title="Отдельная картинка для ретины" src="demos/retina-picture/" height="400"></iframe>
 
-В этом примере пользователи с обычными экранами увидят картинку с надписью _750x300_. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью _1500x600_.
+В этом примере пользователи с обычными экранами увидят картинку с надписью _750x100_. Пользователи, у которых ретиновые дисплеи, увидят картинку с надписью _1500x200_.

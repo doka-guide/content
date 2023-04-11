@@ -5,8 +5,8 @@ authors:
   - windrushfarer
 related:
   - js/dom
-  - js/web-security
-  - js/react-and-alternatives
+  - tools/web-security
+  - tools/react-and-alternatives
 tags:
   - doka
 ---

@@ -5,7 +5,6 @@ authors:
   - stegur
 contributors:
   - nlopin
-  - skorobaeus
   - vitalybaev
   - inventoris
 keywords:

@@ -9,14 +9,14 @@ keywords:
 related:
   - js/bom
   - js/window-navigator
-  - js/api
+  - tools/api
 tags:
   - article
 ---
 
 <aside>
 
-Эта статья связана с понятием `Application Programming Interface`. Подробнее о нём читайте в отдельном материале про [`API`](/js/api/).
+Эта статья связана с понятием `Application Programming Interface`. Подробнее о нём читайте в отдельном материале про [`API`](/tools/api/).
 
 </aside>
 

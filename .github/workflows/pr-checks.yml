@@ -14,7 +14,7 @@ jobs:
           node-version: 16
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
       - name: Работает линтер
         run: |
           npm install editorconfig-checker --global
@@ -40,18 +40,17 @@ jobs:
           node-version: 16
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: |
-            index.md
-            !(css|html|js|tools)/index.md
-            !(pages|people)/*/index.md
+            (css|html|js|tools|a11y)/**/index.md
+            !(pages|people)/**/index.md
       - name: Работает линтер
         run: |
           files='${{ steps.files.outputs.added_modified }}'
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools)/[a-z-]+/index.md')
+            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools|a11y)/[a-z-]+/index.md')
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"
@@ -66,7 +65,7 @@ jobs:
       - uses: actions/checkout@v2
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: '*.md'
           format: 'csv'
@@ -90,7 +89,7 @@ jobs:
           node-version: 16
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
       - name: Проверяет правописание
         run: |
           config=.yaspeller.json

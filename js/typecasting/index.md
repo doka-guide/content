@@ -13,7 +13,7 @@ tags:
 related:
   - js/if-else
   - js/number
-  - js/how-to-test-and-why
+  - tools/how-to-test-and-why
 keywords:
   - приведение типов
 ---

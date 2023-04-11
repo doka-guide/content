@@ -2,7 +2,7 @@
 related:
   - js/function
   - js/object
-  - js/fp
+  - tools/fp
 ---
 
 Почему JavaScript функции являются объектами первого класса (First-class Objects)?

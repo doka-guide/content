@@ -44,6 +44,9 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
           chmod 600 "$HOME/.ssh/doka_deploy"
+          echo "${{ secrets.DEPLOY_CONFIG }}" > "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
+          ssh -o StrictHostKeyChecking=no deploy@dev.doka.guide
       - name: Установка модулей
         run: npm ci
       - name: Сборка сайта
@@ -53,4 +56,6 @@ jobs:
       - name: Генерация карточек для социальных сетей
         run: npx gulp socialCards
       - name: Публикация сайта
-        run: npm run deploy
+        run: |
+          cd dist
+          rsync --exclude 'api.json' --exclude 'mail' --archive --progress --compress --delete . dev.doka.guide:/web/sites/doka.guide/www/

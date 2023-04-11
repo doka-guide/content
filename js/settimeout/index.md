@@ -8,7 +8,7 @@ keywords:
 related:
   - js/async-in-js
   - js/setinterval
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
 tags:
   - doka
 ---

@@ -4,7 +4,7 @@ description: "Запускаем несколько промисов парал�
 authors:
   - vadymstebakov
 related:
-  - js/api
+  - tools/api
   - js/deal-with-forms
   - js/fetch
 tags:

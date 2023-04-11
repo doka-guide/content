@@ -7,9 +7,9 @@ authors:
 contributors:
   - nlopin
 related:
-  - js/how-the-browser-creates-pages
+  - tools/how-the-browser-creates-pages
   - tools/multitasking-and-processes
-  - js/web-app-types
+  - tools/web-app-types
 tags:
   - doka
 ---

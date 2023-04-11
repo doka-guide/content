@@ -2,38 +2,91 @@
 <html lang="ru">
 <head>
   <title>Поле ввода с диапазоном — :in-range и :out-of-range — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     form {
-      width: 300px;
-      margin-left: auto;
-      margin-right: auto;
+      display: flex;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .label {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .with-range {
-      width: 100%;
-      padding: 5px;
-      border: 1px solid black;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .with-range:focus {
+      border-color: #2E9AFF;
+      outline: none;
     }
 
     .with-range:in-range {
-      border-color: green;
-      background-color: rgb(0 255 0 / 20%);
+      border-color: #41E847;
+      background-color: rgb(65 232 71 / 20%);
     }
 
     .with-range:out-of-range {
-      border-color: red;
-      background-color: rgb(255 0 0 / 20%);
+      border-color: #FF8630;
+      background-color: rgb(255 134 48 / 20%);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
-<form>
-    <input type="number" name="count" class="with-range" min="10" max="20" step="1" placeholder="Число от 10 до 20">
-</form>
+  <form>
+    <label class="label" for="hour">Который час?</label>
+    <input id="hour" type="number" name="count" class="with-range" min="0" max="23" step="1" placeholder="Число от 0 до 23">
+  </form>
 </body>
 </html>
