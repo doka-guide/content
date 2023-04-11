@@ -61,7 +61,7 @@ console.log(result)
 
 ```js
 const source = {
-    name: 'DOKA',
+    name: 'Doka',
     sections: ['HTML', 'CSS', 'JS', 'Tools', 'Recipes'],
     themes: ['light']
 }
@@ -70,7 +70,7 @@ const nameDescriptors = Object.getOwnPropertyDescriptor(source, 'name')
 
 console.log(nameDescriptors)
 //{
-//  'value':'DOKA',
+//  'value':'Doka',
 //  'writable':true,
 //  'enumerable':true,
 //  'configurable':true
@@ -90,7 +90,7 @@ console.log(allPropertyDescriptors)
 ```js
 {
   name: {
-    value: 'DOKA',
+    value: 'Doka',
     writable: true,
     enumerable: true,
     configurable: true,
