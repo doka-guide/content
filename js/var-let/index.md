@@ -77,7 +77,7 @@ console.log(fullName)
 Первый символ не должен быть цифрой:
 
 ```js
-let letters, &ampersand, _underscore
+let letters, $dollarsign, _underscore
 
 let 1number
 // SyntaxError: Invalid or unexpected token
