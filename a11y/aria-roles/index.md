@@ -3,10 +3,6 @@ title: "ARIA-роли"
 description: "Что такое ARIA-роли и какими они бывают."
 authors:
   - tatianafokina
-keywords:
-  - доступность
-  - ARIA
-  - ARIA-роль
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
