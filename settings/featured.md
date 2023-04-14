@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - recipes/snow
-  - js/var-let
-  - css/pseudoelements
-  - tools/oop
-  - js/async-in-js
-  - js/deal-with-forms
-  - tools/markdown
-  - html/section
-  - css/specificity
-  - js/closures
-  - css/display
+  - css/box-model
+  - html/head
+  - tools/how-the-browser-creates-pages
+  - css/media
+  - css/keyframes
+  - css/attr
   - tools/cli
   - html/flow
-  - html/img
-  - html/doctype
-  - tools/clean-architecture
-  - css/transform-function
-  - tools/how-the-browser-creates-pages
-  - js/infinite-scroll
-  - html/form
-  - css/attr
-  - css/box-shadow
-  - css/box-model
   - html/article
+  - css/position
+  - tools/oop
+  - tools/ci-cd
+  - a11y/screenreaders
+  - css/box-shadow
+  - js/execution-order
+  - recipes/snow
+  - recipes/lets-encrypt-nginx
+  - html/img
+  - a11y/aria-hidden
+  - css/display
+  - tools/gitlab-ci-cd
+  - js/closures
+  - tools/network
+  - tools/static-types
+  - css/custom-properties
   - tools/webpack
   - css/flexbox-guide
-  - html/nav
-  - recipes/lets-encrypt-nginx
-  - tools/network
-  - js/function
-  - js/execution-order
-  - css/custom-properties
-  - tools/agile
-  - css/grid-guide
-  - recipes/progress
-  - html/video
-  - tools/ci-cd
-  - css/keyframes
   - tools/bundlers
-  - html/div
-  - html/head
-  - html/input
-  - js/boolean
-  - tools/gitlab-ci-cd
-  - tools/docker
-  - a11y/aria-intro
-  - css/media
-  - a11y/screenreaders
-  - tools/static-types
-  - a11y/aria-hidden
+  - html/doctype
+  - js/deal-with-forms
+  - css/pseudoelements
+  - css/specificity
   - tools/how-to-test-and-why
+  - tools/clean-architecture
   - js/function-context
-  - css/position
+  - js/var-let
+  - html/video
+  - css/transform-function
+  - tools/markdown
+  - js/async-in-js
+  - js/function
+  - tools/agile
+  - html/nav
+  - js/boolean
+  - css/grid-guide
+  - tools/docker
+  - html/div
+  - html/form
+  - js/infinite-scroll
+  - a11y/aria-intro
+  - recipes/progress
+  - html/input
+  - html/section
 ---
 
