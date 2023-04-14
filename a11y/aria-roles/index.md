@@ -113,7 +113,7 @@ _Самостоятельные роли_ — это роли элементов
 - `article` — законченный и самодостаточный раздел документа. Эквивалент в HTML — [`<article>`](/html/article/).
 - `blockquote` — цитата. Эквивалент в HTML — [`<blockquote>`](/html/blockquote/).
 - `caption` — видимая подпись к таблице, сетке и похожим элементам. Эквивалент в HTML — [`<caption>`](/html/caption/).
-- `cell` — ячейка таблицы. Эквиваленты в HTML — [`<td>`](/html/tables/#td) и [`<th>`](/html/tables/#th).
+- `cell` — ячейка таблицы. Эквиваленты в HTML — [`<td>`](/html/tables/#td).
 - `code` — код. Эквивалент в HTML — [`<code>`](/html/code/).
 - `columnheader` — заголовок ячейки или строки таблицы. Эквивалент в HTML — [`<th>`](/html/tables/#th).
 - `definition` — определение термина. Эквивалент в HTML — [`<dd>`](/html/dl-dd-dt/).
@@ -136,7 +136,7 @@ _Самостоятельные роли_ — это роли элементов
 - [`presentation` и `none`](/a11y/role-presentation-none/) — сброс семантики элемента.
 - `row` — строка таблицы. Эквивалент в HTML — [`<tr>`](/html/tables/#tr).
 - `rowgroup` — строки таблицы с заголовком, её основным содержимым и итоговым результатом. Эквиваленты в HTML — [`<tbody>`](/html/tables/#tbody), [`<thead>`](/html/tables/#thead) и [`<tfoot>`](/html/tables/#tfoot).
-- `rowheader` — заголовок ячейки или строки таблицы. Эквивалент в HTML — [`<th>`](/html/tables/#th).
+- `rowheader` — заголовок ячейки или строки таблицы. Эквивалент в HTML — `<th>`.
 - `separator` — обычный разделитель. Эквивалент в HTML — [`<hr>`](/html/hr/).
 - `strong` — важное слово или фраза. Эквивалент в HTML — [`<strong>`](/html/strong/).
 - `subscript` — подстрочный текст. Эквивалент в HTML — [`<sub>`](/html/sub/).
