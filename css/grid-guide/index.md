@@ -498,6 +498,176 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Можно управлять выравниванием отдельных грид-элементов при помощи свойства `justify-self`.
 
+### `justify-content`
+
+Свойство, с помощью которого можно выровнять элементы вдоль оси строки.
+Данное свойство работает, только если общая ширина столбцов меньше ширины контейнера сетки.
+Другими словами, вам нужно свободное пространство вдоль оси строки контейнера, чтобы выровнять
+его столбцы слева или справа.
+
+Возможные значения:
+
+`start` — выравнивает сетку по левой стороне grid-контейнера.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: start;
+}
+```
+![Пример реализации свойства justify-content со значением start.](images/28.png)
+
+`end` — выравнивает сетку по правой стороне grid-контейнера.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: end;
+}
+```
+![Пример реализации свойства justify-content со значением end.](images/29.png)
+
+`center` — выравнивает сетку по центру grid-контейнера.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: center;
+}
+```
+![Пример реализации свойства justify-content со значением center.](images/30.png)
+
+`stretch` — масштабирует элементы, чтобы сетка могла заполнить всю ширину grid-контейнера.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: stretch;
+}
+```
+![Пример реализации свойства justify-content со значением stretch.](images/31.png)
+
+`space-around` — одинаковое пространство между элементами, и полуразмерные отступы по краям.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: space-around;
+}
+```
+![Пример реализации свойства justify-content со значением space-around.](images/32.png)
+
+`space-between` — одинаковое пространство между элементами, без отступов по краям.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: space-between;
+}
+```
+![Пример реализации свойства justify-content со значением space-between.](images/33.png)
+
+`space-evenly` — одинаковое пространство между элементами, и полноразмерные отступы по краям.
+
+```css
+.div {
+  border: 1px solid black;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  background-color: orange;
+  margin: 10px;
+  gap: 5px;
+
+  justify-content: space-evenly;
+}
+```
+![Пример реализации свойства justify-content со значением space-evenly.](images/34.png)
+
 ### `align-items`
 
 Свойство, с помощью которого можно выровнять элементы по вертикальной оси внутри грид-контейнера.
