@@ -263,7 +263,7 @@ console.log(name)
 
 ```js
 let a = 5
-console.log(5)
+console.log(a)
 // 5
 
 a = 10
