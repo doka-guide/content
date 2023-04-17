@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Примеры события input и change в JS у текстовых полей — Событие input — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --main-color: #FFD829;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      width: 670px;
+    }
+
+    .event-logs, .event-log + .event-log {
+      margin-top: 25px;
+    }
+
+    .hint {
+      display: block;
+      color: #979797;
+      font-size: 16px;
+    }
+
+    .input-label, .event-log {
+      display: flex;
+      gap: 35px;
+    }
+
+    .input-title, .description {
+      flex-shrink: 0;
+      width: 250px;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: var(--main-color);
+      outline: none;
+    }
+
+    .textarea {
+      display: block;
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .textarea[disabled] {
+      border: none;
+      border-radius: 0;
+      outline: none;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      resize: none;
+    }
+
+    .visually-hidden:not(:focus):not(:active) {
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .input-label, .event-log {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1 class="visually-hidden">Пример событий <code lang="EN">input</code> и <code lang="EN">change</code> у полей ввода текста</h1>
+    <label class="input-label">
+      <span class="input-title">Введите текст или вставьте из буфера обмена</span>
+      <input class="input" id="inputTextField"
+        placeholder="Жил-был в норе под землёй..." type="text"
+      >
+    </label>
+
+    <section class="event-logs">
+      <div class="event-log">
+        <label class="description" for="textResultOnInput">
+          Результат события <code lang="EN">input</code>
+          <span class="hint">отображается при вводе и удалении каждого символа</span>
+        </label>
+        <textarea class="textarea" cols="30" disabled
+          id="textResultOnInput" rows="5"
+        >
+        </textarea>
+      </div>
+      <div class="event-log">
+        <label class="description" for="textResultOnChange">
+          Результат события <code lang="EN">change</code>
+          <span class="hint">возникает, когда фокус покидает поле ввода (попробуйте кликнуть на пустое место страницы)</span>
+        </label>
+        <textarea class="textarea" cols="30" disabled
+          id="textResultOnChange" rows="5"
+        >
+        </textarea>
+      </div>
+    </section>
+  </main>
+  <script>
+    const inputTextNode = document.getElementById('inputTextField');
+    const resultOnInput = document.getElementById('textResultOnInput');
+    const resultOnChange = document.getElementById('textResultOnChange');
+    inputTextNode.oninput = function () {
+      resultOnInput.value = inputTextNode.value;
+    };
+    inputTextNode.onchange = function () {
+      resultOnChange.value = inputTextNode.value;
+    };
+  </script>
+</body>
+</html>
