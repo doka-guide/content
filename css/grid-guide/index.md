@@ -434,70 +434,6 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   gap: 50px 10px;
 }
 ```
-
-### `justify-items`
-
-Свойство, с помощью которого задаётся выравнивание грид-элементов по горизонтальной оси. Применяется ко всем элементам внутри грид-родителя.
-
-Возможные значения:
-
-`start` — выравнивает элемент по начальной (левой для LTR) линии.
-
-```css
-.item {
-  min-width: 150px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  grid-template-rows: repeat(3, 150px);
-  gap: 20px;
-
-  justify-items: start;
-}
-```
-
-![Пример реализации свойства justify-items со значением start.](images/15.png)
-
-`end` — выравнивает элемент по конечной (правой для LTR) линии.
-
-```css
-.container {
-  /* -//-//- */
-
-  justify-items: end;
-}
-```
-
-![Пример реализации свойства justify-items со значением end.](images/16.png)
-
-`center` — выравнивает элемент по центру грид-ячейки.
-
-```css
-.container {
-  /* -//-//- */
-
-  justify-items: center;
-}
-```
-
-![Пример реализации свойства justify-items со значением center.](images/17.png)
-
-`stretch` — растягивает элемент на всю ширину грид-ячейки.
-
-```css
-.container {
-  /* -//-//- */
-
-  justify-items: stretch;
-}
-```
-
-![Пример реализации свойства justify-items со значением stretch.](images/18.png)
-
-Можно управлять выравниванием отдельных грид-элементов при помощи свойства `justify-self`.
-
 ### `justify-content`
 
 Свойство, с помощью которого можно выровнять элементы вдоль оси строки.
@@ -625,6 +561,69 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 }
 ```
 ![Пример реализации свойства justify-content со значением space-evenly.](images/34.png)
+
+### `justify-items`
+
+Свойство, с помощью которого задаётся выравнивание грид-элементов по горизонтальной оси. Применяется ко всем элементам внутри грид-родителя.
+
+Возможные значения:
+
+`start` — выравнивает элемент по начальной (левой для LTR) линии.
+
+```css
+.item {
+  min-width: 150px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  grid-template-rows: repeat(3, 150px);
+  gap: 20px;
+
+  justify-items: start;
+}
+```
+
+![Пример реализации свойства justify-items со значением start.](images/15.png)
+
+`end` — выравнивает элемент по конечной (правой для LTR) линии.
+
+```css
+.container {
+  /* -//-//- */
+
+  justify-items: end;
+}
+```
+
+![Пример реализации свойства justify-items со значением end.](images/16.png)
+
+`center` — выравнивает элемент по центру грид-ячейки.
+
+```css
+.container {
+  /* -//-//- */
+
+  justify-items: center;
+}
+```
+
+![Пример реализации свойства justify-items со значением center.](images/17.png)
+
+`stretch` — растягивает элемент на всю ширину грид-ячейки.
+
+```css
+.container {
+  /* -//-//- */
+
+  justify-items: stretch;
+}
+```
+
+![Пример реализации свойства justify-items со значением stretch.](images/18.png)
+
+Можно управлять выравниванием отдельных грид-элементов при помощи свойства `justify-self`.
 
 ### `align-items`
 
