@@ -4,6 +4,11 @@
 
 ## Апрель 2023
 
+- 21 апреля, [`<noindex>`](https://doka.guide/html/noindex/), rrramble
+- 21 апреля, [`tab`](https://doka.guide/a11y/role-tab/), Татьяна Фокина
+- 21 апреля, [`tabpanel`](https://doka.guide/a11y/role-tabpanel/), Татьяна Фокина
+- 21 апреля, [Уровни доступности](https://doka.guide/a11y/wcag-conformance-levels/), Татьяна Фокина
+- 17 апреля, [`input`](https://doka.guide/js/event-input/), rrramble
 - 10 апреля, [`tablist`](https://doka.guide/a11y/role-tablist/), Татьяна Фокина
 - 7 апреля, [Разноцветный текст](https://doka.guide/recipes/multicolor-text/), Егор Левченко
 
