@@ -13,7 +13,7 @@ tags:
 
 ## Кратко
 
-Тег [`<noindex>`](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content) запрещает поисковым системам индексировать содержимое. Этот тег поддерживает только [поисковик Яндекс](https://yandex.ru).
+Тег `<noindex>` запрещает поисковым системам индексировать содержимое. Этот тег поддерживает только поисковик [Яндекс](https://yandex.ru/support/webmaster/adding-site/indexing-prohibition.html#indexing-prohibition__content).
 
 ## Пример
 
@@ -50,7 +50,7 @@ tags:
 
 ### Другие способы запретить поисковикам индексирование
 
-- Запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта [файл `robots.txt`](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru).
+- Запретить индексирование разделов сайта и страниц: поместите в корневую папку сайта файл [_robots.txt_](https://developers.google.com/search/docs/crawling-indexing/robots/create-robots-txt?hl=ru).
 - Запретить индексирование всей страницы: укажите тег `<meta name="robots" content="noindex">` в секции [`<head>`](/html/head/).
 - Запретить переходить по ссылке: у тега `<a>` укажите [атрибут `rel="nofollow"`](https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links?hl=ru).
 
@@ -58,7 +58,7 @@ tags:
 
 Поисковые системы сканируют (индексируют) содержимое сайтов в интернете. Когда пользователь ищет информацию, поисковики выдают ответ на основе ранее отсканированного.
 
-Не все содержимое имеет смысл индексировать:
+Не всё содержимое имеет смысл индексировать:
 
 - сторонняя реклама от партнёров сайта — если реклама не связана с сайтом;
 - ссылки, которые публикуют пользователи форумов – если сайт не хочет отвечать за некорректные ссылки;
