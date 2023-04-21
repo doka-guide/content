@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/box-model
-  - html/head
-  - tools/how-the-browser-creates-pages
-  - css/media
-  - css/keyframes
-  - css/attr
-  - tools/cli
-  - html/flow
-  - html/article
-  - css/position
-  - tools/oop
-  - tools/ci-cd
-  - a11y/screenreaders
-  - css/box-shadow
-  - js/execution-order
-  - recipes/snow
-  - recipes/lets-encrypt-nginx
-  - html/img
-  - a11y/aria-hidden
-  - css/display
-  - tools/gitlab-ci-cd
-  - js/closures
-  - tools/network
-  - tools/static-types
-  - css/custom-properties
-  - tools/webpack
-  - css/flexbox-guide
-  - tools/bundlers
-  - html/doctype
-  - js/deal-with-forms
-  - css/pseudoelements
-  - css/specificity
-  - tools/how-to-test-and-why
-  - tools/clean-architecture
-  - js/function-context
-  - js/var-let
-  - html/video
-  - css/transform-function
-  - tools/markdown
   - js/async-in-js
-  - js/function
-  - tools/agile
-  - html/nav
-  - js/boolean
-  - css/grid-guide
-  - tools/docker
-  - html/div
-  - html/form
-  - js/infinite-scroll
+  - js/deal-with-forms
+  - css/box-model
+  - tools/clean-architecture
+  - html/video
   - a11y/aria-intro
-  - recipes/progress
+  - a11y/screenreaders
+  - js/function-context
+  - html/form
+  - html/head
+  - html/div
+  - tools/static-types
+  - css/display
+  - recipes/snow
+  - css/keyframes
+  - tools/how-the-browser-creates-pages
+  - tools/bundlers
+  - css/grid-guide
+  - html/nav
   - html/input
+  - tools/ci-cd
+  - css/attr
+  - tools/oop
+  - css/specificity
+  - tools/cli
+  - css/pseudoelements
+  - tools/gitlab-ci-cd
+  - tools/webpack
   - html/section
+  - tools/docker
+  - a11y/aria-hidden
+  - js/function
+  - js/closures
+  - html/flow
+  - css/transform-function
+  - recipes/progress
+  - tools/network
+  - css/box-shadow
+  - tools/how-to-test-and-why
+  - html/img
+  - js/infinite-scroll
+  - js/boolean
+  - css/custom-properties
+  - css/position
+  - js/execution-order
+  - html/article
+  - js/var-let
+  - tools/markdown
+  - html/doctype
+  - css/media
+  - css/flexbox-guide
+  - tools/agile
+  - recipes/lets-encrypt-nginx
 ---
 
