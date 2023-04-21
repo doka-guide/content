@@ -40,7 +40,7 @@ tags:
 
 На самом деле современные браузеры делают исключение для кликабельных элементов вроде ссылок и полей и не отменяют их семантику, когда им заданы роли `presentation` или `none`. Но всё равно лучше не нарушать [правила использования ARIA](/a11y/aria-intro/#pravila-ispolzovaniya).
 
-Элементам с ролями `presentation` или `none` можно задавать почти все [ARIA-атрибуты](/a11y/aria-attrs/), кроме `aria-label` и `aria-labelledby`.
+Элементам с ролями `presentation` или `none` можно задавать почти все [ARIA-атрибуты](/a11y/aria-attrs/), кроме [`aria-label`](/a11y/aria-label/) и [`aria-labelledby`](/a11y/aria-labelledby/).
 
 Если зададите [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) для элемента с этими ролями, браузер использует его встроенную роль и проигнорирует явную `presentation` или `none`.
 

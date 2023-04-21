@@ -39,11 +39,11 @@ tags:
 
 Атрибут можно использовать только для некоторых тегов и [ARIA-ролей](/a11y/aria-roles/):
 
-- [`<input type="checkbox">`](/html/input/#type) или `checkbox`.
+- [`<input type="checkbox">`](/html/input/#type) или [`checkbox`](/a11y/role-checkbox/).
 - [`<select>`](/html/select/) или `combobox` и `listbox`.
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или роли `textbox`.
 - [`<input type="number">`](/html/input/#type) или `spinbutton`.
-- [`div`](/html/div/), [`span`](/html/span/) или `generic`.
+- [`div`](/html/div/), [`span`](/html/span/) или [`generic`](/a11y/role-generic/).
 - `radiogroup`.
 - `tree`.
 - `gridcell`.

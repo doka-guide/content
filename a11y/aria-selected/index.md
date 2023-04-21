@@ -52,7 +52,7 @@ tags:
 Атрибут можно использовать только для некоторых [ролей](/a11y/aria-roles/):
 
 - `option`.
-- `tab`.
+- [`tab`](/a11y/role-tab/).
 - `row`.
 - `gridcell`.
 

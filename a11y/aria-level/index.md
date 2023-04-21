@@ -30,7 +30,7 @@ tags:
 
 Добавьте к тегу `aria-level` со значением от `1` и выше. Атрибут можно использовать только для некоторых тегов и [ролей](/a11y/aria-roles/):
 
-- [`<h1>`–`<h6>`](/html/h1-h6/) или роль `heading`.
+- [`<h1>`–`<h6>`](/html/h1-h6/) или роль [`heading`](/a11y/role-heading/).
 - [`<li>`](/html/li/), [`<dt>`](/html/dl-dd-dt/) или роль `listitem`.
 - [`<tr>`](/html/tables/#tr) или роль `row`.
 - Роль `comment`.
