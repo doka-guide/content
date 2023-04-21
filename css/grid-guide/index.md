@@ -443,7 +443,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 Возможные значения:
 
-`start` — выравнивает сетку по левой стороне grid-контейнера.
+`start` — выравнивает сетку по левой стороне грид-контейнера.
 
 ```css
 .item {
@@ -458,9 +458,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: start;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением start.](images/28.png)
 
-`end` — выравнивает сетку по правой стороне grid-контейнера.
+`end` — выравнивает сетку по правой стороне грид-контейнера.
 
 ```css
 .item {
@@ -475,9 +476,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: end;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением end.](images/29.png)
 
-`center` — выравнивает сетку по центру grid-контейнера.
+`center` — выравнивает сетку по центру грид-контейнера.
 
 ```css
 .item {
@@ -492,9 +494,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: center;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением center.](images/30.png)
 
-`stretch` — масштабирует элементы, чтобы сетка могла заполнить всю ширину grid-контейнера.
+`stretch` — масштабирует элементы, чтобы сетка могла заполнить всю ширину грид-контейнера.
 
 ```css
 .item {
@@ -509,9 +512,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: stretch;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением stretch.](images/31.png)
 
-`space-around` — одинаковое пространство между элементами, и полуразмерные отступы по краям.
+`space-around` — одинаковое пространство между элементами и полуразмерные отступы по краям.
 
 ```css
 .item {
@@ -526,9 +530,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: space-around;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением space-around.](images/32.png)
 
-`space-between` — одинаковое пространство между элементами, без отступов по краям.
+`space-between` — одинаковое пространство между элементами без отступов по краям.
 
 ```css
 .item {
@@ -543,9 +548,10 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: space-between;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением space-between.](images/33.png)
 
-`space-evenly` — одинаковое пространство между элементами, и полноразмерные отступы по краям.
+`space-evenly` — одинаковое пространство между элементами и полноразмерные отступы по краям.
 
 ```css
 .item {
@@ -560,6 +566,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   justify-content: space-evenly;
 }
 ```
+
 ![Пример реализации свойства justify-content со значением space-evenly.](images/34.png)
 
 ### `justify-items`
