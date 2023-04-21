@@ -1,5 +1,6 @@
 ---
 title: "`list-style-image`"
+description: "Скучные маркеры списка можно заменить на картинку."
 authors:
   - ezhkov
 contributors:
@@ -7,6 +8,10 @@ contributors:
 keywords:
   - стили списка
   - список
+related:
+  - html/ul
+  - css/url
+  - css/list-style-type
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Селектор потомка"
+description: "Пишем CSS-селектор так, чтобы стилизовать вложенные элементы."
 authors:
   - solarrust
 contributors:
@@ -11,6 +12,10 @@ keywords:
   - селектор вложенности
   - селектор
   - селектор потомка
+related:
+  - css/specificity
+  - css/combined-selectors
+  - css/class-selector
 tags:
   - doka
 ---

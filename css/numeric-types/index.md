@@ -1,5 +1,6 @@
 ---
 title: "Единицы измерения"
+description: "Кроме пикселей и процентов в CSS есть более экзотичные единицы измерения. Например, сантиметры, градусы и секунды."
 authors:
   - ezhkov
 contributors:
@@ -17,6 +18,10 @@ keywords:
   - deg
   - rad
   - turn
+related:
+  - css/rem-em
+  - css/vw-vh
+  - css/transition
 tags:
   - article
 ---
