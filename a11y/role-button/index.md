@@ -21,8 +21,7 @@ tags:
 
 ## Кратко
 
-[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для кнопки.
-Роль `button` по умолчанию есть у [`<button>`](/html/button/), [`<summary>`](/html/details/) и [`<input>`](/html/input/) c типами `button`, `image`, `reset`, `submit`.
+[ARIA-роль виджета](/a11y/aria-roles/#roli-vidzhetov) для кнопки. Роль `button` по умолчанию есть у [`<button>`](/html/button/), [`<summary>`](/html/details/) и [`<input>`](/html/input/) c типами `button`, `image`, `reset`, `submit`.
 
 <aside>
 
@@ -61,8 +60,7 @@ tags:
 - [`aria-pressed`](/a11y/aria-pressed/) - если кнопка является тоггл-переключателем;
 <iframe title="Кнопка-переключатель" src="demos/button-toggle/" height="150"></iframe>
 
-- [`aria-expanded`](/a11y/aria-expanded) - если кнопка раскрывает какой-то блок текста/контента или вызывает попап/выпадающее меню, является частью дропдауна. Обычно используется в связке с
-`aria-haspopup`;
+- [`aria-expanded`](/a11y/aria-expanded) - если кнопка раскрывает какой-то блок текста/контента или вызывает попап/выпадающее меню, является частью дропдауна. Обычно используется в связке с `aria-haspopup`;
 
 - [`aria-haspopup`](/a11y/aria-haspopup) - если кнопка вызывает попап или выпадающее меню, является частью дропдауна.
 
