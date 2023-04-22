@@ -10,6 +10,7 @@ authors:
   - solarrust
 contributors:
   - corocoto
+  - FilimonovAlexey
 editors:
   - tachisis
 keywords:
