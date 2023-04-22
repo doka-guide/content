@@ -12,7 +12,7 @@ keywords:
   - бандлер
   - bundler
 related:
-  - js/web-app-types
+  - tools/web-app-types
   - tools/nodejs
   - js/language-versions
 tags:

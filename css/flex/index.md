@@ -1,12 +1,16 @@
 ---
 title: "`flex`"
+description: "Короткая запись для управления размерами флекс-элемента."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - шорткат
   - flexbox
+related:
+  - css/flex-grow
+  - css/flex-basis
+  - css/flex-shrink
 tags:
   - doka
 ---

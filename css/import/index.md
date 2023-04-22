@@ -1,5 +1,6 @@
 ---
 title: "`@import`"
+description: "Импортируем одни файлы стилей в другие."
 authors:
   - solarrust
 editors:
@@ -8,6 +9,10 @@ keywords:
   - import
   - директива
   - импорт
+related:
+  - css/media
+  - css/supports
+  - css/keyframes
 tags:
   - doka
 ---

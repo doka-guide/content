@@ -1,5 +1,6 @@
 ---
 title: "`linear-gradient()`"
+description: "Функция для создания фона в виде градиента или повторяющегося паттерна."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -11,6 +12,10 @@ keywords:
   - градиент
   - заливка
   - фон
+related:
+  - css/radial-gradient
+  - css/conic-gradient
+  - css/background-image
 tags:
   - doka
 ---

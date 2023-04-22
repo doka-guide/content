@@ -1,5 +1,6 @@
 ---
 title: "`flex-grow`"
+description: "Может ли флекс-элемент занимать свободное пространство?"
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - рост флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-shrink
+  - css/flex-basis
 tags:
   - doka
 ---

@@ -1,7 +1,12 @@
 ---
 title: "`font`"
+description: "Одно свойство для всех настроек шрифта."
 authors:
   - doka-dog
+related:
+  - css/font-family
+  - css/font-stretch
+  - css/line-height
 tags:
   - doka
   - placeholder
@@ -11,13 +16,13 @@ tags:
 
 Шорткат `font` позволяет одновременно указать значение для нескольких свойств, относящихся к стилизации шрифта:
 
-- [`font-family`](/css/font-family/)
-- [`font-size`](/css/font-size/)
-- [`font-stretch`](/css/font-stretch/)
-- [`font-style`](/css/font-style/)
-- [`font-variant`](/css/font-variant/)
-- [`font-weight`](/css/font-weight/)
-- [`line-height`](/css/line-height/)
+- [`font-family`](/css/font-family/);
+- [`font-size`](/css/font-size/);
+- [`font-stretch`](/css/font-stretch/);
+- [`font-style`](/css/font-style/);
+- [`font-variant`](/css/font-variant/);
+- [`font-weight`](/css/font-weight/);
+- [`line-height`](/css/line-height/).
 
 ## Как пишется
 

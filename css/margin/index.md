@@ -1,21 +1,26 @@
 ---
 title: "`margin`"
+description: "Свойство, которым можно отодвинуть элемент от соседей. Или придвинуть."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - furtivite
-keywords:
-  - margin
+related:
+  - css/padding
+  - css/box-model
+  - css/numeric-types
 tags:
   - doka
 ---
 
 ## Кратко
 
-Задаёт размер внешнего отступа вокруг элемента.
+Задаёт размер внешнего отступа вокруг элемента. Иногда внешние отступы называют полями.
 
 Чтобы сделать отступ только с одной стороны, используй `margin-top` (сверху), `margin-right` (справа), `margin-bottom` (снизу) или `margin-left` (слева).
+
+Или более современные `margin-inline-start`, `margin-inline-end`, `margin-block-start` и `margin-block-end`.
 
 ## Примеры
 
@@ -29,6 +34,7 @@ tags:
 ```
 
 Сверху и снизу | слева и справа:
+
 ```css
 .selector {
   margin: 5% auto;

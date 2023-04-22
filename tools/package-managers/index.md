@@ -12,7 +12,7 @@ keywords:
   - package.json
 related:
   - tools/nodejs
-  - js/react-and-alternatives
+  - tools/react-and-alternatives
   - tools/github-actions
 tags:
   - article

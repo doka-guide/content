@@ -7,7 +7,7 @@ keywords:
   - дата-атрибуты
 related:
   - js/dom
-  - js/browsers-storages
+  - tools/browsers-storages
   - js/events
 tags:
   - doka

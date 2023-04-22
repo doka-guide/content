@@ -1,7 +1,12 @@
 ---
 title: "`font-synthesis`"
+description: "Позволяем браузеру создать недостающие начертания шрифта."
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-variant-alternates
+  - css/font-variant-caps
 tags:
   - doka
   - placeholder

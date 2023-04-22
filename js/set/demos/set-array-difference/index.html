@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разница между массивом и Set — setTimeout — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FFD829;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="array">
+      []
+    </p>
+    <p id="set">
+      []
+    </p>
+    <form class="form" id="add-element">
+      <input type="text" placeholder="Введите значение, которое нужно добавить" id="new-element">
+      <button class="button button-yellow" type="submit">Добавить</button>
+    </form>
+  </div>
+  <script>
+    const animals = ['🐮', '🐯', '🐼', '🐨', '🐤', '🐷', '🐸']
+    const form = document.getElementById('add-element')
+    const valueEl = document.getElementById('new-element')
+    const arrayEl = document.getElementById('array')
+    const setEl = document.getElementById('set')
+    const array = []
+    const set = new Set()
+
+    function getRandomAnimal() {
+      return animals[Math.floor(Math.random() * animals.length)]
+    }
+
+    function printArray(arr) {
+      return `[ ${arr.join()} ]`
+    }
+
+    function printSet(set) {
+      return printArray(Array.from(set))
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const value = valueEl.value
+      array.push(value)
+      set.add(value)
+
+      arrayEl.textContent = printArray(array)
+      setEl.textContent = printSet(set)
+      valueEl.value = getRandomAnimal()
+    })
+
+    document.addEventListener('DOMContentLoaded', function() {
+      valueEl.value = getRandomAnimal()
+    })
+  </script>
+</body>
+</html>

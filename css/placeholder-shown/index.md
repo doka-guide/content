@@ -2,6 +2,8 @@
 title: "`:placeholder-shown`"
 authors:
   - ezhkov
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:

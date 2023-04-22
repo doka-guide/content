@@ -6,7 +6,7 @@ authors:
 editors:
   - tachisis
 related:
-  - js/api
+  - tools/api
   - tools/nodejs
   - js/fetch
 tags:

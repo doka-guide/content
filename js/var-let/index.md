@@ -77,7 +77,7 @@ console.log(fullName)
 Первый символ не должен быть цифрой:
 
 ```js
-let letters, &ampersand, _underscore
+let letters, $dollarsign, _underscore
 
 let 1number
 // SyntaxError: Invalid or unexpected token
@@ -263,7 +263,7 @@ console.log(name)
 
 ```js
 let a = 5
-console.log(5)
+console.log(a)
 // 5
 
 a = 10

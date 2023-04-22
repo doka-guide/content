@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-ligatures`"
+description: "Как написать æ? Нужно включить лигатуры!"
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-synthesis
+  - css/font-face
 tags:
   - doka
   - placeholder

@@ -1,5 +1,6 @@
 ---
 title: "`filter`"
+description: "Изменяем изображения при помощи CSS."
 authors:
   - lenaryan
 contributors:
@@ -7,8 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - filter
   - фильтр
+related:
+  - css/filter-functions
+  - css/transform
+  - css/aspect-ratio
 tags:
   - doka
 ---

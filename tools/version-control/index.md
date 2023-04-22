@@ -11,7 +11,7 @@ keywords:
 related:
   - tools/code-review
   - tools/ci-cd
-  - js/code-style
+  - tools/code-style
 tags:
   - article
 ---

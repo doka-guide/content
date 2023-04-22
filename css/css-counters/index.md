@@ -35,7 +35,7 @@ CSS-счётчики — это мощный инструмент для нум�
 
 ```css
 ul {
-  conter-reset: example 0;
+  counter-reset: example 0;
 }
 ```
 

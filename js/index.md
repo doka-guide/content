@@ -145,17 +145,14 @@ groups:
       - window-print
       - window-open
       - intersection-observer
-  - name: "О браузере"
-    items:
-      - how-the-browser-creates-pages
-      - coordinates
-      - browsers-storages
+
   - name: "Объектная модель документа DOM"
     items:
       - dom
       - element
       - events
       - htmlcollection-and-nodelist
+
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
@@ -216,13 +213,14 @@ groups:
       - element-scroll
       - element-wheel
       - element-touch
+
   - name: "Хранение данных в браузере"
     items:
-      - browsers-storages
       - cookie
       - local-storage
       - session-storage
-  - name: "Асинхронный код"
+
+  - name: "Асинхронность"
     items:
       - async-in-js
       - promise
@@ -234,44 +232,17 @@ groups:
       - promise-any
       - promise-race
       - async-await
+
   - name: "Обмен данными с API"
     items:
-      - api
       - fetch
       - async-await
-  - name: "Парадигмы программирования"
-    items:
-      - programming-paradigms
-      - oop
-      - fp
+
   - name: "Веб-приложение"
     items:
-      - web-app-types
-      - web-app-works
-      - web-security
       - language-versions
       - modules
-      - react-and-alternatives
-      - reactivity
-      - architecture-and-design-patterns
-      - technical-debt
-      - code-style
-  - name: "Архитектура приложения"
-    items:
-      - clean-architecture
-      - architecture-data-flow
-      - architecture-mvc
-      - architecture-and-design-patterns
-      - design-patterns-creational
-      - design-patterns-structural
-      - design-patterns-behaviorial
-  - name: "Тестирование"
-    items:
-      - how-to-test-and-why
-      - tdd
-      - how-to-simplify-tests
-      - testing-and-fake-objects
-      - integration-and-system-testing
+
   - name: "Типовые решения"
     items:
       - deal-with-forms

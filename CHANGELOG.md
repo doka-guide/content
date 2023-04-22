@@ -2,6 +2,27 @@
 
 <!-- yaspeller ignore:start -->
 
+## Март 2023
+
+- 29 марта, [`word-break`](https://doka.guide/css/word-break/), Лейла Мамедова
+- 27 марта, [Основы доступного HTML](https://doka.guide/a11y/a11y-html/), Евгения Жигисова
+- 27 марта, [Поисковая оптимизация для начинающих](https://doka.guide/html/seo-for-beginners/), Александр Рассудихин
+- 10 марта, [Пишем первые тесты](https://doka.guide/tools/testing-with-jest/), Полина Гуртовая
+- 1 марта, [Что такое WCAG](https://doka.guide/a11y/wcag/), Татьяна Фокина
+
+## Февраль 2023
+
+- 27 февраля, [`user-select`](https://doka.guide/css/user-select/), Александр Рассудихин
+- 7 февраля, [`perspective`](https://doka.guide/css/perspective/), Сергей Осипов
+
+## Январь 2023
+
+- 31 января, [`aria-modal`](https://doka.guide/a11y/aria-modal/), Татьяна Фокина
+- 31 января, [`switch`](https://doka.guide/a11y/role-switch/), Татьяна Фокина
+- 31 января, [`tooltip`](https://doka.guide/a11y/role-tooltip/), Татьяна Фокина
+- 10 января, [`word-wrap`](https://doka.guide/css/word-wrap/), Александр Рассудихин
+- 10 января, [`::first-line`](https://doka.guide/css/first-line/) Александр Рассудихин
+
 ## Декабрь 2022
 
 - 26 декабря, [`border-inline`](https://doka.guide/css/border-inline/), Антон Капустинский
@@ -87,7 +108,7 @@
 
 ## Июнь 2022
 
-- 28 июня [Основы работы с ElasticSearch](https://doka.guide/js/elasticsearch/), Даниил Хлебовский
+- 28 июня [Основы работы с ElasticSearch](https://doka.guide/tools/elasticsearch/), Даниил Хлебовский
 - 16 июня [`<output>`](https://doka.guide/html/output), Борис Демченко
 - 16 июня [`min()`](https://doka.guide/css/min/), Илья Космачев
 - 13 июня [`Promise.any`](https://doka.guide/js/promise-any/), Алексей Ярков

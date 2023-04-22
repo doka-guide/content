@@ -1,9 +1,14 @@
 ---
 title: "`:is()`"
+description: "Пишем условие для селектора, при котором стили применятся."
 authors:
   - doka-dog
 keywords:
   - псевдокласс
+related:
+  - css/has
+  - css/where
+  - css/vendor-prefixes
 tags:
   - doka
   - placeholder

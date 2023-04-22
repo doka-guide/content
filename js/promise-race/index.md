@@ -4,7 +4,7 @@ description: "Запускаем несколько промисов и дожи
 authors:
   - agarkov
 related:
-  - js/api
+  - tools/api
   - js/async-in-js
   - js/fetch
 tags:
