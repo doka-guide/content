@@ -73,8 +73,8 @@ tags:
 .container {
   display: grid;
   grid:
-    [row1-start] 25px [row1-end row2-start] 25px [row2-end] /
-    auto 50px auto;
+    [row1-start] 25px [row1-end row2-start] 25px [row2-end]
+    / auto 50px auto;
 }
 ```
 
