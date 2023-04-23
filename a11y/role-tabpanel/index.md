@@ -4,9 +4,9 @@ description: "Как сделать элемент содержимым вкла
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-tablist
+  - a11y/role-tab
 tags:
   - doka
 ---
