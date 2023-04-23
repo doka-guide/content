@@ -4,9 +4,9 @@ description: "Роль-обёртка для группы вкладок."
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-tab
+  - a11y/role-tabpanel
 tags:
   - doka
 ---
