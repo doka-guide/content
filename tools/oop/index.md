@@ -5,6 +5,9 @@ authors:
   - bespoyasov
 editors:
   - tachisis
+  - hellsquirrel
+contributors:
+  - corocoto
 keywords:
   - use strict
   - строгий режим
@@ -734,4 +737,22 @@ class Worm implements CardioVascularSystem, ImmuneSystem {
 
 В этой статье мы не говорили о прототипном наследовании, которое работает «под капотом» классов. Для этого (да-да, опять) понадобилась бы отдельная статья.
 
-В JS нет (пока) настоящих приватных полей у классов, из-за чего к чему угодно можно иметь доступ.
+В последних версиях стандарта JavaScript есть [нативная](https://tc39.es/ecma262/multipage/ecmascript-language-lexical-grammar.html#prod-PrivateIdentifier) поддержка приватных полей. Приватность поля обозначается символом `#` перед именем поля. Например:
+
+```js
+
+class Pet {
+  #name = 'Маруся';
+
+  get name() {
+    return this.#name;
+  }
+}
+
+const pet = new Pet();
+console.log(pet.name); // Маруся
+console.log(pet.#name); // SyntaxError: reference to undeclared private field or method #name
+
+```
+
+Кстати, выполнив этот код в консоли браузера на основе Chromium, вы не получите ошибки. Это сделано для облегчения отладки классов.

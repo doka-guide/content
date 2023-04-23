@@ -2,6 +2,7 @@
 name: 'Дока Дог'
 url: https://github.com/doka-dog
 photo: photo.svg
+photoAlt: 'Собачка-маскот Дока Дог. Центральная часть её мордочки белая, а уши и глаза чёрные. Она одета в белую рубашку.'
 badges:
   - first-contribution-small
 ---

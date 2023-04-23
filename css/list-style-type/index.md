@@ -1,5 +1,6 @@
 ---
 title: "`list-style-type`"
+description: "Чаще всего этим свойством сбрасывают маркеры списка. Но можно и выбрать какой-то интересный маркер взамен стандартных."
 authors:
   - realetive
 contributors:
@@ -7,6 +8,10 @@ contributors:
 keywords:
   - стили списка
   - список
+related:
+  - html/ul
+  - css/list-style
+  - css/list-style-image
 tags:
   - doka
 ---

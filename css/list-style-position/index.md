@@ -1,11 +1,16 @@
 ---
 title: "`list-style-position`"
+description: "Можно двигать маркеры списка внутрь или наружу строки."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
   - list-style-position
+related:
+  - css/list-style
+  - html/ul
+  - html/li
 tags:
   - doka
 ---

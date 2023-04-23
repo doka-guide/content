@@ -1,7 +1,12 @@
 ---
 title: "`:lang`"
+description: "Задавайте стили тексту в зависимости от языка, на котором он написан."
 authors:
   - almadef
+related:
+  - html/meta
+  - tools/http-protocol
+  - html/global-attrs
 tags:
   - doka
 ---

@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/display
-  - css/attr
-  - html/nav
-  - html/doctype
-  - css/flexbox-guide
-  - css/keyframes
-  - css/box-shadow
-  - js/execution-order
-  - recipes/progress
-  - tools/how-to-test-and-why
-  - tools/gitlab-ci-cd
+  - js/async-in-js
   - js/deal-with-forms
-  - a11y/aria-hidden
-  - html/flow
-  - html/video
   - css/box-model
   - tools/clean-architecture
-  - html/img
-  - tools/ci-cd
-  - a11y/screenreaders
-  - css/media
-  - tools/webpack
-  - tools/network
-  - js/async-in-js
-  - html/form
-  - tools/cli
-  - js/function-context
-  - tools/agile
-  - html/section
-  - tools/how-the-browser-creates-pages
-  - html/div
-  - tools/docker
-  - css/pseudoelements
-  - recipes/snow
-  - css/specificity
-  - tools/static-types
+  - html/video
   - a11y/aria-intro
-  - css/custom-properties
-  - css/transform-function
-  - tools/markdown
-  - tools/oop
-  - css/grid-guide
-  - css/position
-  - html/article
-  - tools/bundlers
-  - js/infinite-scroll
+  - a11y/screenreaders
+  - js/function-context
+  - html/form
   - html/head
-  - js/var-let
-  - recipes/lets-encrypt-nginx
-  - js/function
+  - html/div
+  - tools/static-types
+  - css/display
+  - recipes/snow
+  - css/keyframes
+  - tools/how-the-browser-creates-pages
+  - tools/bundlers
+  - css/grid-guide
+  - html/nav
   - html/input
-  - js/boolean
+  - tools/ci-cd
+  - css/attr
+  - tools/oop
+  - css/specificity
+  - tools/cli
+  - css/pseudoelements
+  - tools/gitlab-ci-cd
+  - tools/webpack
+  - html/section
+  - tools/docker
+  - a11y/aria-hidden
+  - js/function
   - js/closures
+  - html/flow
+  - css/transform-function
+  - recipes/progress
+  - tools/network
+  - css/box-shadow
+  - tools/how-to-test-and-why
+  - html/img
+  - js/infinite-scroll
+  - js/boolean
+  - css/custom-properties
+  - css/position
+  - js/execution-order
+  - html/article
+  - js/var-let
+  - tools/markdown
+  - html/doctype
+  - css/media
+  - css/flexbox-guide
+  - tools/agile
+  - recipes/lets-encrypt-nginx
 ---
 

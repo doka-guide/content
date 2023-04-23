@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-html
       - content-hidden
   - name: 'Вспомогательные технологии'
     items:
@@ -16,6 +17,7 @@ groups:
   - name: 'Другие стандарты и руководства'
     items:
       - wcag
+      - wcag-conformance-levels
   - name: 'Глобальные атрибуты'
     items:
       - aria-hidden
@@ -43,6 +45,7 @@ groups:
   - name: 'Структура документа'
     items:
       - role-presentation-none
+      - role-generic
       - role-heading
       - role-img-image
       - role-list
@@ -73,6 +76,7 @@ groups:
     items:
       - role-button
       - role-link
+      - role-tablist
       - role-checkbox
       - role-switch
       - aria-hidden
@@ -125,6 +129,7 @@ groups:
       - role-status
       - role-timer
       - role-presentation-none
+      - role-generic
       - role-heading
       - role-img-image
       - role-list
@@ -133,6 +138,7 @@ groups:
       - role-button
       - role-link
       - role-checkbox
+      - role-tablist
       - role-switch
   - name: 'ARIA-атрибуты'
     items:

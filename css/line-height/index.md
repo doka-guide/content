@@ -1,5 +1,6 @@
 ---
 title: "`line-height`"
+description: "Управляем расстоянием между строками текста."
 authors:
   - doka-dog
 contributors:
@@ -8,6 +9,10 @@ contributors:
 keywords:
   - высота строки
   - интерлиньяж
+related:
+  - css/white-space
+  - css/letter-spacing
+  - css/vertical-align
 tags:
   - doka
 ---
