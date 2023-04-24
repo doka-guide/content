@@ -10,6 +10,7 @@ authors:
   - solarrust
 contributors:
   - corocoto
+  - filimonovalexey
 editors:
   - tachisis
 keywords:
@@ -434,6 +435,140 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
   gap: 50px 10px;
 }
 ```
+### `justify-content`
+
+Свойство, с помощью которого можно выровнять элементы вдоль оси строки.
+Данное свойство работает, только если общая ширина столбцов меньше ширины контейнера сетки.
+
+Другими словами, вам нужно свободное пространство вдоль оси строки контейнера, чтобы выровнять его столбцы слева или справа.
+
+Возможные значения:
+
+`start` — выравнивает сетку по левой стороне грид-контейнера.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: start;
+}
+```
+
+![Пример реализации свойства justify-content со значением start.](images/28.png)
+
+`end` — выравнивает сетку по правой стороне грид-контейнера.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: end;
+}
+```
+
+![Пример реализации свойства justify-content со значением end.](images/29.png)
+
+`center` — выравнивает сетку по центру грид-контейнера.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: center;
+}
+```
+
+![Пример реализации свойства justify-content со значением center.](images/30.png)
+
+`stretch` — масштабирует элементы, чтобы сетка могла заполнить всю ширину грид-контейнера.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+
+  justify-content: stretch;
+}
+```
+
+![Пример реализации свойства justify-content со значением stretch.](images/31.png)
+
+`space-around` — одинаковое пространство между элементами и полуразмерные отступы по краям.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: space-around;
+}
+```
+
+![Пример реализации свойства justify-content со значением space-around.](images/32.png)
+
+`space-between` — одинаковое пространство между элементами без отступов по краям.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: space-between;
+}
+```
+
+![Пример реализации свойства justify-content со значением space-between.](images/33.png)
+
+`space-evenly` — одинаковое пространство между элементами и полноразмерные отступы по краям.
+
+```css
+.item {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 40px);
+  gap: 5px;
+
+  justify-content: space-evenly;
+}
+```
+
+![Пример реализации свойства justify-content со значением space-evenly.](images/34.png)
 
 ### `justify-items`
 
