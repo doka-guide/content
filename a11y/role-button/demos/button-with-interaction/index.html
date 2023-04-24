@@ -16,7 +16,6 @@
 
     html {
       color-scheme: dark;
-      font-size: 16px;
     }
 
     body {
@@ -41,9 +40,12 @@
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
-      transition: background-color 0.2s linear;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
       text-align: center;
-      font-size: 1rem;
+      transition: background-color 0.2s linear;
     }
 
     .button:hover {
@@ -83,8 +85,13 @@
   </div>
   <script>
     const button = document.getElementById('button')
+    button.addEventListener('keyup', (event) => {
+      if (event.key === ' ') {
+        activateButton()
+      }
+    })
     button.addEventListener('keydown', (event) => {
-      if (event.key === ' ' || event.key === 'Enter') {
+      if (event.key === 'Enter') {
         activateButton()
       }
     })
