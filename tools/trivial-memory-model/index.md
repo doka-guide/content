@@ -5,6 +5,8 @@ authors:
   - hellsquirrel
 related:
   - js/ref-type-vs-value-type
+  - js/function
+  - js/execution-order
 tags:
   - article
 ---
