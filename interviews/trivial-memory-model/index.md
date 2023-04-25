@@ -1,6 +1,6 @@
 ---
 related:
-  - tool/trivial-memory-model
+  - tools/trivial-memory-model
 ---
 
 Вспомните, как устроена память и попробуйте ответить на вопросы:
