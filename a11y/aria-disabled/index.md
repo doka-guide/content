@@ -42,8 +42,8 @@ tags:
 - [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
 - [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или `group`.
 - [`<hr>`](/html/hr/) или `separator`.
-- [`<div>`](/html/div/), [`<span>`](/html/span/) или `generic`.
-- `tab`.
+- [`<div>`](/html/div/), [`<span>`](/html/span/) или [`generic`](/a11y/role-generic/).
+- [`tab`](/a11y/role-tab/).
 - `scrollbar`.
 - `application`.
 - `gridcell`.

@@ -4,9 +4,9 @@ description: "Как сделать элемент содержимым вкла
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-tablist
+  - a11y/role-tab
 tags:
   - doka
 ---
@@ -38,7 +38,7 @@ tags:
 
 Роль `tabpanel` можно задать любому тегу, но лучше всего подходят нейтральные [`<div>`](/html/div/) и [`<span>`](/html/span/).
 
-Элемент с ролью `tabpanel` обязательно должен находится внутри другого с ролью `tablist` и быть связанным с нужным `tab`. Для этого используйте атрибут [`aria-controls`](/a11y/aria-controls/) для `tab` и добавьте `id` с таким же значением к `tabpanel`.
+Элемент с ролью `tabpanel` обязательно должен находится внутри другого с [ролью `tablist`](/a11y/role-tablist/) и быть связанным с нужным [`tab`](/a11y/role-tab/). Для этого используйте атрибут [`aria-controls`](/a11y/aria-controls/) для `tab` и добавьте `id` с таким же значением к `tabpanel`.
 
 ```html
 <button
