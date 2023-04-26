@@ -142,7 +142,7 @@ ARIA-атрибуты поддерживают [роли](/a11y/aria-roles/) и 
 - [`aria-modal`](/a11y/aria-modal/) (состояние) — модальность элемента, когда он не скрыт.
 - `aria-multiline` (свойство) — сколько строк можно ввести в текстовое поле.
 - [`aria-multiselectable`](/a11y/aria-multiselectable/) (свойство) — можно выбрать несколько элементов. Эквивалент в HTML — [`multiple`](/html/multiple/).
-- `aria-orientation` (свойство) — ориентация элемента на странице.
+- [`aria-orientation`](/a11y/aria-orientation/) (свойство) — ориентация элемента на странице.
 - [`aria-placeholder`](/a11y/aria-placeholder/) (свойство) — подсказка по заполнению поля. Эквивалент в HTML — [`placeholder`](/html/placeholder/).
 - `aria-posinset` (свойство) — позиция или номер элемента среди элементов обычного или древовидного списка.
 - [`aria-pressed`](/a11y/aria-pressed) (состояние) — нажат или нет переключатель.
