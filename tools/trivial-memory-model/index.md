@@ -172,4 +172,4 @@ function createDogArray() {
 
 Теперь вы представляете как устроена память и готовы ответить на вопросы из начала статьи.
 
-Если у вас получилось, приносите ответы в раздел [«На собеседовании»](https://github.com/doka-guide/content/blob/main/docs/interviews.md)
+Если у вас получилось, приносите ответы в раздел «[На собеседовании](https://github.com/doka-guide/content/blob/main/docs/interviews.md)».
