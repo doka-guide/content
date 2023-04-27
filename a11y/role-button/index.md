@@ -2,15 +2,7 @@
 title: "`button`"
 description: "Как превратить элемент в кнопку с помощью WAI-ARIA."
 authors:
-  - doka-dog
-contributors:
   - jkorichneva
-keywords:
-  - доступность
-  - ARIA
-  - ARIA-роль
-  - кнопка
-  - button
 related:
   - a11y/aria-intro
   - a11y/aria-roles
@@ -34,6 +26,7 @@ tags:
 ```html
 <div role="button" tabindex="0">Нажми меня</div>
 ```
+
 <iframe title="Кастомная кнопка с обработчиками клавиш" src="demos/button-with-interaction/" height="150"></iframe>
 
 ## Как пишется
@@ -41,6 +34,7 @@ tags:
 Добавьте к тегу `role="button"` и [`tabindex="0"`](/html/global-attrs/#tabindex), чтобы на кнопку можно было установить фокус. Лучше, чтобы это были семантически нейтральные [`<div>`](/html/div/) или [`<span>`](/html/span/). Одно из [правил использования ARIA](/a11y/aria-intro/#pravila-ispolzovaniya) — не перезаписывать роли без необходимости.
 
 Элемент с ролью кнопки должен иметь доступное имя. Это значит, что у кнопки обязательно должен быть текст внутри или атрибуты [`aria-label`](/a11y/aria-label/), [`aria-labelledby`](/a11y/aria-labelledby/) или [`aria-describedby`](/a11y/aria-describedby/) с текстом и таким же ID как у кнопки.
+
 ```html
 <div role="button" tabindex="0" aria-label="Лайкнуть">❤️</div>
 ```
@@ -48,21 +42,24 @@ tags:
 
 ![Скриншот Accessibility tree браузера для определения доступного имени кнопки](./images/computed-name.png)
 
-Если у кнопки есть текст внутри, не перезаписывайте его значение через [`aria-label`](/a11y/aria-label):
+Если у кнопки есть текст внутри, не перезаписывайте его значение через [`aria-label`](/a11y/aria-label/):
 
 ```html
 <!-- ⛔ Так лучше не делать -->
 <button aria-label="Принимаю условия соглашения">Согласен</button>
 ```
+
 Также необходимо прописать поведение кнопки на нажатие клавиш <kbd>Enter</kbd> и <kbd>Space</kbd> через JavaScript.
 Нативная кнопка нажимается столько, сколько зажимаете и не отпускаете <kbd>Enter</kbd>. Если нажали на <kbd>Space</kbd>, то кнопка срабатывает только после того, как отпустили клавишу. Чтобы воспроизвести нативное поведение кнопки, слушайте события `keydown` при нажатии на <kbd>Enter</kbd> и `keyup` для <kbd>Space</kbd>
 
 Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov):
+
 - [`aria-disabled`](/a11y/aria-disabled/), если у кнопки есть неактивное состояние `disabled` и оно меняется.
 - [`aria-expanded`](/a11y/aria-expanded/), если кнопка раскрывает какой-то блок текста или другого содержимого или вызывает попап, выпадающее меню или является его частью. Обычно используется в связке с `aria-haspopup`.
 - [`aria-haspopup`](/a11y/aria-haspopup/), когда кнопка открывает попап, выпадающее меню или является его частью.
 - [`aria-pressed`](/a11y/aria-pressed/), когда кнопка переключатель — тогл.
-  <iframe title="Кнопка-переключатель" src="demos/button-toggle/" height="150"></iframe>
+
+<iframe title="Кнопка-переключатель" src="demos/button-toggle/" height="150"></iframe>
 
 ## Как понять
 
