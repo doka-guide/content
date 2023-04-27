@@ -58,13 +58,11 @@ tags:
 Нативная кнопка нажимается столько, сколько зажимаете и не отпускаете <kbd>Enter</kbd>. Если нажали на <kbd>Space</kbd>, то кнопка срабатывает только после того, как отпустили клавишу. Чтобы воспроизвести нативное поведение кнопки, слушайте события `keydown` при нажатии на <kbd>Enter</kbd> и `keyup` для <kbd>Space</kbd>
 
 Для `button` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и пару [атрибутов виджетов](/a11y/aria-attrs/#atributy-vidzhetov):
-- [`aria-disabled`](/a11y/aria-disabled) - если у кнопки может быть состояние disabled и оно меняется;
-- [`aria-pressed`](/a11y/aria-pressed/) - если кнопка является toggle-переключателем;
-<iframe title="Кнопка-переключатель" src="demos/button-toggle/" height="150"></iframe>
-
-- [`aria-expanded`](/a11y/aria-expanded) - если кнопка раскрывает какой-то блок текста/контента или вызывает попап/выпадающее меню, является частью dropdown. Обычно используется в связке с `aria-haspopup`. [Пример доступного меню с dropdown](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/examples/menu-button-actions-active-descendant/);
-
-- [`aria-haspopup`](/a11y/aria-haspopup) - если кнопка вызывает попап или выпадающее меню, является частью dropdown.
+- [`aria-disabled`](/a11y/aria-disabled/), если у кнопки есть неактивное состояние `disabled` и оно меняется.
+- [`aria-expanded`](/a11y/aria-expanded/), если кнопка раскрывает какой-то блок текста или другого содержимого или вызывает попап, выпадающее меню или является его частью. Обычно используется в связке с `aria-haspopup`.
+- [`aria-haspopup`](/a11y/aria-haspopup/), когда кнопка открывает попап, выпадающее меню или является его частью.
+- [`aria-pressed`](/a11y/aria-pressed/), когда кнопка переключатель — тогл.
+  <iframe title="Кнопка-переключатель" src="demos/button-toggle/" height="150"></iframe>
 
 ## Как понять
 
