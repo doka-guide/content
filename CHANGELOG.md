@@ -4,6 +4,7 @@
 
 ## Апрель 2023
 
+- 28 апреля, [`button`](https://doka.guide/a11y/role-button/), Яна Коричнева
 - 21 апреля, [`<noindex>`](https://doka.guide/html/noindex/), rrramble
 - 21 апреля, [`tab`](https://doka.guide/a11y/role-tab/), Татьяна Фокина
 - 21 апреля, [`tabpanel`](https://doka.guide/a11y/role-tabpanel/), Татьяна Фокина
