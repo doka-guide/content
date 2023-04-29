@@ -81,6 +81,7 @@ groups:
       - multitasking-and-processes
       - process-management
       - ssh
+      - trivial-memory-model
 
   - name: Сеть
     items:

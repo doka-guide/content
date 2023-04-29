@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/async-in-js
-  - js/deal-with-forms
-  - css/box-model
-  - tools/clean-architecture
-  - html/video
-  - a11y/aria-intro
-  - a11y/screenreaders
-  - js/function-context
-  - html/form
-  - html/head
-  - html/div
-  - tools/static-types
-  - css/display
-  - recipes/snow
-  - css/keyframes
-  - tools/how-the-browser-creates-pages
-  - tools/bundlers
-  - css/grid-guide
-  - html/nav
-  - html/input
-  - tools/ci-cd
-  - css/attr
   - tools/oop
-  - css/specificity
-  - tools/cli
-  - css/pseudoelements
-  - tools/gitlab-ci-cd
-  - tools/webpack
-  - html/section
-  - tools/docker
-  - a11y/aria-hidden
-  - js/function
-  - js/closures
-  - html/flow
   - css/transform-function
-  - recipes/progress
-  - tools/network
-  - css/box-shadow
-  - tools/how-to-test-and-why
-  - html/img
-  - js/infinite-scroll
+  - html/form
   - js/boolean
-  - css/custom-properties
   - css/position
-  - js/execution-order
-  - html/article
+  - tools/gitlab-ci-cd
+  - tools/how-the-browser-creates-pages
+  - a11y/aria-hidden
+  - html/input
+  - recipes/snow
+  - tools/bundlers
+  - css/pseudoelements
   - js/var-let
-  - tools/markdown
-  - html/doctype
-  - css/media
-  - css/flexbox-guide
-  - tools/agile
+  - tools/ci-cd
+  - html/section
   - recipes/lets-encrypt-nginx
+  - tools/cli
+  - css/display
+  - html/head
+  - css/attr
+  - a11y/aria-intro
+  - tools/agile
+  - tools/webpack
+  - tools/clean-architecture
+  - html/img
+  - css/box-model
+  - html/video
+  - tools/docker
+  - recipes/progress
+  - js/execution-order
+  - tools/static-types
+  - css/box-shadow
+  - css/custom-properties
+  - tools/markdown
+  - css/grid-guide
+  - js/function
+  - js/infinite-scroll
+  - css/specificity
+  - css/media
+  - tools/how-to-test-and-why
+  - js/async-in-js
+  - js/closures
+  - js/deal-with-forms
+  - css/keyframes
+  - js/function-context
+  - tools/network
+  - html/doctype
+  - html/flow
+  - a11y/screenreaders
+  - css/flexbox-guide
+  - html/div
+  - html/nav
+  - html/article
 ---
 

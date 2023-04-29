@@ -57,7 +57,7 @@ tags:
 - [`<input type="range">`](/html/input/#type) или `slider`.
 - [`<textarea>`](/html/textarea/) или [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` и роли `textbox`.
 - [`<select>`](/html/select/) или `combobox`.
-- `tab`.
+- [`tab`](/a11y/role-tab/).
 - `application`.
 - `gridcell`.
 - `menuitem`.

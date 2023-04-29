@@ -4,16 +4,16 @@ description: "Роль-обёртка для группы вкладок."
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-tab
+  - a11y/role-tabpanel
 tags:
   - doka
 ---
 
 ## Кратко
 
-[Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая нужна для группы, списка вкладок. Внутри элемента с этой ролью должна быть минимум одна панель вкладок с ролью `tabpanel` и связанная с ней вкладка с `tab`.
+[Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая нужна для группы, списка вкладок. Внутри элемента с этой ролью должна быть минимум одна панель вкладок с [ролью `tabpanel`](/a11y/role-tabpanel/) и связанная с ней вкладка с [`tab`](/a11y/role-tab/).
 
 В HTML нет эквивалента для роли `tablist`.
 

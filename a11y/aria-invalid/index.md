@@ -57,7 +57,7 @@ tags:
 Этот атрибут раньше использовали для всех тегов и ролей, но сейчас его можно задавать только некоторым интерактивным элементам:
 
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или роль `textbox`.
-- [`<input type="checkbox">`](/html/input/#type) или роль `checkbox`.
+- [`<input type="checkbox">`](/html/input/#type) или роль [`checkbox`](/a11y/role-checkbox/).
 - [`<input type="range">`](/html/input/#type) или роль `slider`.
 - [`<input type="number">`](/html/input/#type) или роль `spinbutton`.
 - [`<select>`](/html/select/) или роли `combobox` и `listbox`.

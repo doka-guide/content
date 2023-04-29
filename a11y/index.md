@@ -77,6 +77,8 @@ groups:
       - role-button
       - role-link
       - role-tablist
+      - role-tab
+      - role-tabpanel
       - role-checkbox
       - role-switch
       - aria-hidden
@@ -139,6 +141,8 @@ groups:
       - role-link
       - role-checkbox
       - role-tablist
+      - role-tab
+      - role-tabpanel
       - role-switch
   - name: 'ARIA-атрибуты'
     items:

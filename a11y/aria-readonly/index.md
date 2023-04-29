@@ -40,7 +40,7 @@ tags:
 `aria-readonly` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или для роли `textbox`.
-- [`<input type="checkbox">`](/html/input/#type) или `checkbox`.
+- [`<input type="checkbox">`](/html/input/#type) или [`checkbox`](/a11y/role-checkbox/).
 - [`<input type="number">`](/html/input/#type) или `spinbutton`.
 - [`<select>`](/html/select/) или `combobox`, `listbox`.
 - [`<input type="range">`](/html/input/#type) или `slider`.

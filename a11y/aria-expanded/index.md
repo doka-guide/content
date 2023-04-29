@@ -48,12 +48,12 @@ tags:
 
 - [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
 - [`<button>`](/html/button/) или [`button`](/a11y/role-button/).
-- [`<input type="checkbox">`](/html/input/#type) или `checkbox`.
+- [`<input type="checkbox">`](/html/input/#type) или [`checkbox`](/a11y/role-checkbox/).
 - [`<select>`](/html/select/) или `combobox`, `listbox`.
 - [`<tr>`](/html/tables/#tr) или `row`.
 - [`<th>`](/html/tables/#th) или `rowheader`.
 - `application`.
-- `tab`.
+- [`tab`](/a11y/role-tab/).
 - `menuitem`.
 - `treeitem`.
 - `gridcell`.

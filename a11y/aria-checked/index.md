@@ -42,7 +42,7 @@ tags:
 - `mixed` — у элементов смешанное состояние.
 - `undefined` (по умолчанию) — элемент нельзя отметить или выбрать.
 
-Значение `mixed` поддерживают элементы с ролями `checkbox` и `menuitemcheckbox`.
+Значение `mixed` поддерживают элементы с ролями [`checkbox`](/a11y/role-checkbox/) и `menuitemcheckbox`.
 
 `aria-checked` можно использовать только для некоторых [ролей](/a11y/aria-roles/):
 
@@ -50,7 +50,7 @@ tags:
 - `radio`.
 - `checkbox`.
 - `menuitemcheckbox`.
-- `switch`.
+- [`switch`](/a11y/role-switch/).
 
 Если используете [`<input type="radio">`](/html/input/#type), [`<input type="checkbox">`](/html/input/#type) и [`<option>`](/html/option/), им не нужен атрибут `aria-checked`.
 
