@@ -55,11 +55,84 @@ tags:
 
 <iframe title="Пример не семантической вёрстки" src="demos/bad-markup/" height="600"></iframe>
 
+Я не буду уделять внимание стилям, выделю лишь html-код из демо:
+
+```html
+<div class="header">
+  <div class="nav">
+    <div class="nav__item">Главная</div>
+    <div class="nav__item">Блог</div>
+    <div class="nav__item">Контакты</div>
+  </div>
+</div>
+<div class="main">
+  <div class="heading">Курсы компании «Гарцующий пони»</div>
+  <div class="wrapper">
+    <div class="card">
+      <img src="./images/seo-course.png" alt="на жёлтом фоне изображён текст «SEO»" class="card__img" decoding="async">
+      <div class="card__heading">SEO для начинающих</div>
+      <div class="card__description">Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.
+    </div>
+    </div>
+    <div class="card">
+      <img src="./images/wordpress-course.png" alt="на жёлтом фоне изображён текст «WordPress»" class="card__img" decoding="async">
+      <div class="card__heading">Разработка на WordPress</div>
+      <div class="card__description">WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.</div>
+    </div>
+    <div class="card">
+      <img src="./images/javascript-course.png" alt="на жёлтом фоне изображён текст «JavaScript»" class="card__img" decoding="async">
+      <div class="card__heading">JavaScript для чайников</div>
+      <div class="card__description">Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.</div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="copyright">2023. Разработано компанией  <a href="#">«Гарцующий пони»</a></div>
+</div>
+```
+
 ### Корректная семантическая вёрстка
 
 В примере выше я не использовал семантических элементов, опираясь только на `<div>` и `<span>` в вёрстке. Теперь пример корректной семантической вёрстки:
 
 <iframe title="Пример семантической вёрстки" src="demos/good-markup/" height="600"></iframe>
+
+Посмотрим на исходный html-код корректной семантической вёрстки:
+
+```html
+<header class="header">
+  <nav class="nav">
+    <a href="#" class="nav__item">Главная</a>
+    <a href="#" class="nav__item">Блог</a>
+    <a href="#" class="nav__item">Контакты</a>
+  </nav>
+</header>
+<main class="main">
+  <h1 class="heading">Курсы компании «Гарцующий пони»</h1>
+  <section class="wrapper">
+    <article class="card">
+      <img src="./images/seo-course.png" alt="на жёлтом фоне изображён текст «SEO»" class="card__img" decoding="async">
+      <h3 class="card__heading">SEO для начинающих</h3>
+      <p class="card__description">Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.</p>
+    </article>
+    <article class="card">
+      <img src="./images/wordpress-course.png" alt="на жёлтом фоне изображён текст «WordPress»" class="card__img" decoding="async">
+      <h3 class="card__heading">Разработка на WordPress</h3>
+      <p class="card__description">WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.</p>
+    </article>
+    <article class="card">
+      <img src="./images/javascript-course.png" alt="на жёлтом фоне изображён текст «JavaScript»" class="card__img" decoding="async">
+      <h3 class="card__heading">JavaScript для чайников</h3>
+      <p class="card__description">Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.</p>
+    </article>
+  </section>
+</main>
+<footer class="footer">
+  <p class="copyright">2023. Разработано компанией  <a href="#">«Гарцующий пони»</a></p>
+</footer>
+```
+
+Как видим, вместо бессмысленных `<div>` теперь в вёрстке используются теги, которые подходят по смыслу. Шапка, подвал, ссылки, заголовки — всё это теперь размечено так, как должно.
 
 ## Почему семантика важна?
 seo, a11y, читабельность кода.
