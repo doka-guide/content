@@ -22,15 +22,15 @@ tags:
 ```html
 <div
   role="dialog"
-  aria-labelledby="dialogTitle"
-  aria-describedby="dialogDescription"
-    <h3 id="dialogTitle">Ваш заказ был отправлен!</h3>
-    <p id="dialogDescription">
-      Ваш заказ был отправлен и должен быть доставлен в течение следующих 3-5 рабочих дней.
+  aria-labelledby="label"
+  aria-describedby="description"
+>
+    <h3 id="label">Заказ был отправлен!</h3>
+    <p id="description">
+      Ваш заказ был отправлен и должен быть доставлен в течение следующих 3–5 рабочих дней.
     </p>
     <button>Закрыть</button>
 </div>
-```
 
 ## Как пишется
 
