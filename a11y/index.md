@@ -99,6 +99,7 @@ groups:
       - aria-controls
       - aria-owns
       - aria-modal
+      - aria-orientation
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -162,6 +163,7 @@ groups:
       - aria-busy
       - aria-owns
       - aria-modal
+      - aria-orientation
       - aria-current
       - aria-controls
       - aria-flowto
