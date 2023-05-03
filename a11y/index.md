@@ -93,6 +93,7 @@ groups:
       - aria-pressed
       - aria-disabled
       - aria-readonly
+      - aria-autocomplete
       - aria-expanded
       - aria-haspopup
       - aria-controls
@@ -174,6 +175,7 @@ groups:
       - aria-pressed
       - aria-disabled
       - aria-readonly
+      - aria-autocomplete
       - aria-expanded
       - aria-haspopup
 ---
