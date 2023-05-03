@@ -22,15 +22,15 @@ tags:
 ```css
 .container {
   display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  grid-template-rows: repeat(3, 150px);
+  grid-template-columns: 1fr 400px 1fr;
+  grid-template-rows: repeat(3, 170px);
   gap: 20px;
 
   justify-items: start;
 }
 
 .item {
-  min-width: 150px;
+  min-width: 300px;
 }
 ```
 

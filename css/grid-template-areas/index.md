@@ -46,8 +46,8 @@ tags:
 ```css
 .container {
   display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  grid-template-rows: repeat(4, 150px);
+  grid-template-columns: repeat(3, 500px);
+  grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
     "header header header"
     "content content 👾"
@@ -57,22 +57,18 @@ tags:
 
 .item1 {
   grid-area: header;
-  background-color: purple;
 }
 
 .item2 {
   grid-area: content;
-  background-color: gray;
 }
 
 .item3 {
   grid-area: 👾;
-  background-color: pink;
 }
 
 .item4 {
   grid-area: footer;
-  background-color: #bada55;
 }
 ```
 
