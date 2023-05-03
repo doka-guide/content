@@ -3,6 +3,8 @@ title: "React и альтернативы"
 description: "Обзор популярных фреймворков для создания веб-приложений. Чем они отличаются?"
 authors:
   - windrushfarer
+contributors:
+  - timur-gr
 keywords:
   - web application
   - frontend
