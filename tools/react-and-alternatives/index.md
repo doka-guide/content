@@ -162,7 +162,7 @@ data() {
   }
 }
 
-this.$data.rocketName = 'Starship'
+this.$data.spaceshipName = 'Starship'
  ```
 
 JavaScript позволяет добавлять свойства объекта, но компоненты Vue 2 не узнают, что свойство было добавлено.
@@ -170,7 +170,7 @@ JavaScript позволяет добавлять свойства объекта
 Эту проблему также можно решить с помощью `Vue.set`.
 
  ```js
-Vue.set(this.$data, 'rocketName', 'Starship')
+Vue.set(this.$data, 'spaceshipName', 'Starship')
  ```
 
 ## Vue 3
@@ -201,7 +201,7 @@ data.peopleOnMars = new Proxy(data.peopleOnMars, {
 При необходимости добавить новое свойство достаточно указать его ключ и присвоить ему значение, как это устроено в JavaScript. Использовать специальные функции, в отличие от Vue 2, не требуется.
 
 ```js
-data.rocketName = 'Starship'
+data.spaceshipName = 'Starship'
 ```
 
 Vue 3 не только отслеживает свойства объектов, но и оборачивает функции в *эффекты*. Эффект – это обёртка вокруг функции, которая формирует порядок вызова и следит, какую функцию нужно вызвать.
