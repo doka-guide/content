@@ -74,6 +74,7 @@ groups:
       - role-contentinfo
   - name: 'Виджеты'
     items:
+      - role-menu
       - role-button
       - role-link
       - role-tablist
@@ -139,6 +140,7 @@ groups:
       - role-list
       - role-mark
       - role-tooltip
+      - role-menu
       - role-button
       - role-link
       - role-checkbox
