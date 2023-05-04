@@ -4,7 +4,7 @@
 
 ## Май 2023
 
-- 5 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
+- 4 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
 
 ## Апрель 2023
 
