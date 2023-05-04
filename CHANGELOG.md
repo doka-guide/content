@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Май 2023
+
+- 5 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
+
 ## Апрель 2023
 
 - 28 апреля, [Как устроена память](https://doka.guide/tools/trivial-memory-model/), Полина Гуртовая
