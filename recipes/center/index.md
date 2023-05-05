@@ -259,10 +259,10 @@ dialog {
 ```css
 .child {
   position: absolute;
-  height: 200px;
+  height: 250px;
   margin-inline: auto;
   inset-inline: 0;
-  inset-block-start: calc(50% - 100px);
+  inset-block-start: calc(50% - 125px);
 }
 ```
 
