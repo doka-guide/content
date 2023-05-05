@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/oop
-  - css/transform-function
-  - html/form
-  - js/boolean
-  - css/position
-  - tools/gitlab-ci-cd
   - tools/how-the-browser-creates-pages
-  - a11y/aria-hidden
-  - html/input
-  - recipes/snow
-  - tools/bundlers
-  - css/pseudoelements
-  - js/var-let
-  - tools/ci-cd
-  - html/section
-  - recipes/lets-encrypt-nginx
-  - tools/cli
-  - css/display
-  - html/head
-  - css/attr
-  - a11y/aria-intro
-  - tools/agile
-  - tools/webpack
-  - tools/clean-architecture
-  - html/img
-  - css/box-model
-  - html/video
+  - html/div
   - tools/docker
-  - recipes/progress
-  - js/execution-order
-  - tools/static-types
-  - css/box-shadow
-  - css/custom-properties
-  - tools/markdown
-  - css/grid-guide
+  - tools/oop
   - js/function
-  - js/infinite-scroll
+  - js/closures
+  - tools/webpack
+  - css/attr
+  - html/doctype
+  - tools/how-to-test-and-why
+  - js/execution-order
+  - tools/network
+  - tools/cli
+  - js/deal-with-forms
+  - css/display
+  - recipes/snow
+  - js/function-context
+  - css/transform-function
+  - recipes/progress
+  - recipes/lets-encrypt-nginx
+  - html/input
+  - a11y/screenreaders
+  - js/var-let
+  - tools/static-types
+  - tools/agile
+  - tools/markdown
   - css/specificity
   - css/media
-  - tools/how-to-test-and-why
-  - js/async-in-js
-  - js/closures
-  - js/deal-with-forms
-  - css/keyframes
-  - js/function-context
-  - tools/network
-  - html/doctype
-  - html/flow
-  - a11y/screenreaders
-  - css/flexbox-guide
-  - html/div
+  - a11y/aria-intro
   - html/nav
+  - js/infinite-scroll
+  - html/img
+  - html/video
+  - tools/ci-cd
+  - js/async-in-js
+  - css/flexbox-guide
+  - css/box-model
+  - tools/gitlab-ci-cd
+  - html/form
   - html/article
+  - html/section
+  - css/grid-guide
+  - js/boolean
+  - a11y/aria-hidden
+  - css/keyframes
+  - tools/clean-architecture
+  - css/custom-properties
+  - html/head
+  - css/box-shadow
+  - css/pseudoelements
+  - css/position
+  - tools/bundlers
+  - html/flow
 ---
 
