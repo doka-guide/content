@@ -4,6 +4,7 @@
 
 ## Май 2023
 
+- 7 мая, [Выравниваем элемент по центру экрана](https://doka.guide/recipes/center/), Алёна Батицкая
 - 4 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
 
 ## Апрель 2023
