@@ -1,7 +1,12 @@
 ---
 title: "`outline-style`"
+description: "Задаём стиль обводки элемента. Сплошная, пунктирная или объёмная."
 authors:
   - doka-dog
+related:
+  - css/outline
+  - css/border-style
+  - css/web-colors
 tags:
   - doka
   - placeholder

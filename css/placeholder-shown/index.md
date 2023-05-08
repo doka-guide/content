@@ -1,5 +1,6 @@
 ---
 title: "`:placeholder-shown`"
+description: "Стилизуем поля, в которых ничего не введено, виден плейсхолдер."
 authors:
   - ezhkov
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - форма
   - плейсхолдер
   - валидация
+related:
+  - html/input
+  - css/placeholder
+  - css/empty
 tags:
   - doka
 ---

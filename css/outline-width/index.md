@@ -1,7 +1,12 @@
 ---
 title: "`outline-width`"
+description: "Задаём ширину для обводки элемента."
 authors:
   - granondo
+related:
+  - css/border-width
+  - css/outline
+  - css/numeric-types
 tags:
   - doka
 ---

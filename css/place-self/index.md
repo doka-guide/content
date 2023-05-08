@@ -1,17 +1,22 @@
 ---
 title: "`place-self`"
+description: "Шорткат для выравнивания отдельного элемента внутри грид-контейнера."
 authors:
   - solarrust
 keywords:
   - выравнивание грид-элемента
   - шорткат
+related:
+  - css/grid-guide
+  - css/justify-self
+  - css/align-self
 tags:
   - doka
 ---
 
 ## Кратко
 
-Шорткат для одновременного указания значений для свойств `justify-self` и `align-self`.
+Шорткат для одновременного указания значений для свойств [`justify-self`](/css/justify-self/) и [`align-self`](/css/align-self/).
 
 ## Пример
 

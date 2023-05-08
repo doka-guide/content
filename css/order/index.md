@@ -1,5 +1,6 @@
 ---
 title: "`order`"
+description: "Меняем визуальный порядок флекс-элементов, не меняя HTML."
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - порядок флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/display
+  - a11y/css-impact-on-a11y
 tags:
   - doka
 ---

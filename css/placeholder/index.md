@@ -1,5 +1,6 @@
 ---
 title: "`::placeholder`"
+description: "Стилизуем плейсхолдеры в полях ввода."
 authors:
   - ezhkov
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - плейсхолдер
   - placeholder
   - подсказка
+related:
+  - css/pseudoelements
+  - html/input
+  - css/text-shadow
 tags:
   - doka
 ---
