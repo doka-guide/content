@@ -1,6 +1,6 @@
 ---
 title: "`position: sticky`"
-description: "Уникальное позиционирование, которое создаёт _липкий_ элемент."
+description: "Уникальное позиционирование, которое создаёт липкий элемент."
 authors:
   - lenaryan
 contributors:
