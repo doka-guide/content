@@ -1,8 +1,12 @@
 ---
 title: "`outline-color`"
-description: "Отдельное свойство для управления цветом обводки элемента"
+description: "Отдельное свойство для управления цветом обводки элемента."
 authors:
   - timbilalov
+related:
+  - css/focus-visible
+  - css/border-color
+  - css/currentcolor
 tags:
   - doka
 ---
