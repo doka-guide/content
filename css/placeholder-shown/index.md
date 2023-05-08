@@ -1,6 +1,6 @@
 ---
 title: "`:placeholder-shown`"
-description: "Стилизуем поля, в которых нничего не введено, виден плейсхолдер."
+description: "Стилизуем поля, в которых ничего не введено, виден плейсхолдер."
 authors:
   - ezhkov
 contributors:
