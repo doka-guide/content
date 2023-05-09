@@ -6,7 +6,7 @@ authors:
 related:
   - css/background-image
   - css/conic-gradient
-  - css/repeat-linear-gradient
+  - css/repeating-linear-gradient
 tags:
   - doka
 ---

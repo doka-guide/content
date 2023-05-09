@@ -6,7 +6,7 @@ authors:
 contributors:
   - skorobaeus
 related:
-  - css/q
+  - html/q
   - css/content
   - css/before
 tags:

@@ -9,8 +9,8 @@ keywords:
   - прокрутка
 related:
   - css/overflow
-  - css/scrollbar-padding
-  - css/web-color
+  - css/scroll-padding
+  - css/web-colors
 tags:
   - doka
 ---

@@ -4,7 +4,7 @@ description: "Можно ли увеличить или уменьшить по�
 authors:
   - doka-dog
 related:
-  - css/textarea
+  - html/textarea
   - css/overflow
   - css/supports
 tags:
