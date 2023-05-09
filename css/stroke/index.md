@@ -1,9 +1,14 @@
 ---
 title: "`stroke`"
+description: "Управляем цветом и толщиной обводки у SVG."
 authors:
   - realetive
 keywords:
   - svg-обводка
+related:
+  - html/svg
+  - css/fill
+  - css/hover
 tags:
   - doka
 ---
@@ -16,7 +21,7 @@ tags:
 
 ```css
 .circle {
-    stroke: #123456;
+  stroke: #123456;
 }
 ```
 
@@ -28,7 +33,7 @@ tags:
 
 ```css
 .circle {
-    stroke: url(#pattern);
+  stroke: url(#pattern);
 }
 ```
 
@@ -40,10 +45,10 @@ tags:
 
 ```css
 .circle {
-    stroke: url(#pattern);
+  stroke: url(#pattern);
 }
 
 .circle:hover {
-    stroke: blue;
+  stroke: blue;
 }
 ```
