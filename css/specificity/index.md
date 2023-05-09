@@ -1,6 +1,6 @@
 ---
 title: "Специфичность"
-description: "Как браузер решает, какие стили применять к элементу? Разбираемся, почему у селектора есть вес"
+description: "Как браузер решает, какие стили применять к элементу? Разбираемся, почему у селектора есть вес ⚖️"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
@@ -16,6 +16,10 @@ keywords:
   - приоритет
   - специфичность селекторов
   - специфичность CSS
+related:
+  - css/cascade
+  - css/important
+  - css/has
 tags:
   - article
 ---

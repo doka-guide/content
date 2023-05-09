@@ -1,16 +1,18 @@
 ---
 title: "`scrollbar-color`"
-description: "Изменяем цвет полосы прокрутки"
+description: "Изменяем цвет полосы прокрутки."
 authors:
   - xpleesid
-tags:
-  - doka
 keywords:
   - скроллбар
   - цвета
   - прокрутка
 related:
   - css/overflow
+  - css/color
+  - css/scrollbar-width
+tags:
+  - doka
 ---
 
 ## Кратко
