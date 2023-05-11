@@ -1,14 +1,6 @@
 ---
 title: "`@font-face`"
 description: "Подключаем кастомные шрифты."
-baseline:
-  - group: fonts
-    features:
-      - css.at-rules.font-face
-      - css.at-rules.font-face.font-family
-      - css.at-rules.font-face.src
-      - css.at-rules.font-face.WOFF
-      - css.at-rules.font-face.WOFF2
 authors:
   - solarrust
 editors:
