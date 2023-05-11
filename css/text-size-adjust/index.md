@@ -1,9 +1,12 @@
 ---
 title: "`text-size-adjust`"
+description: ""
 authors:
   - doka-dog
 keywords:
   - размер шрифта от строчных букв
+related:
+  - 
 tags:
   - doka
   - placeholder

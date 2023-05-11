@@ -1,11 +1,16 @@
 ---
 title: "`text-shadow`"
+description: "Создайте эффект объёмного текста."
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
   - тень текста
+related:
+  - css/box-shadow
+  - css/text-decoration
+  - css/transition
 tags:
   - doka
 ---

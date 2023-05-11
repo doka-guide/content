@@ -1,10 +1,15 @@
 ---
 title: "`text-orientation`"
+description: "Если текст поставить боком, то повернётся вся строка или каждый символ отдельно?"
 authors:
   - doka-dog
 keywords:
   - отображение вертикального текста
   - вертикальный текст
+related:
+  - css/writing-mode
+  - css/hyphens
+  - css/lang
 tags:
   - doka
   - placeholder

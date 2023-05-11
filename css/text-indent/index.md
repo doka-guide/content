@@ -6,6 +6,10 @@ authors:
 keywords:
   - отступ первой строки
   - отступ текста
+related:
+  - css/tab-size
+  - css/hyphens
+  - css/white-space
 tags:
   - doka
 ---
