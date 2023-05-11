@@ -7,7 +7,7 @@
   "requireOrder": [
     "title",
     "description",
-    "support",
+    "baseline",
     "cover",
     "authors",
     "contributors",
