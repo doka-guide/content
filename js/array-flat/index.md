@@ -1,10 +1,6 @@
 ---
 title: "`.flat()`"
 description: "Массив в массиве, в массиве, в массиве. А можно попроще? Превращает многомерный массив в плоский, одномерный."
-baseline:
-  - group: array-flat
-    features:
-      - javascript.builtins.Array.flat
 authors:
   - agarkov
 related:
