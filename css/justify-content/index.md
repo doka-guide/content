@@ -1,7 +1,7 @@
 ---
 title: "`justify-content`"
 description: "Свойство для выравнивания элементов по основной оси в гридах и флексах."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.justify-content.flex_context

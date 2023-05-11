@@ -1,7 +1,7 @@
 ---
 title: "`order`"
 description: "Меняем визуальный порядок флекс-элементов, не меняя HTML."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.order

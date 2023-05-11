@@ -1,7 +1,7 @@
 ---
 title: "`async/await`"
 description: "Ждать выполнения асинхронного кода стало легче! Больше никаких колбэков и промисов, только новые ключевые слова."
-support:
+baseline:
   - group: async-await
     features:
       - javascript.builtins.AsyncFunction

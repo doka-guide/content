@@ -1,7 +1,7 @@
 ---
 title: "`grid-column-start`, `grid-column-end`, `grid-row-start`, `grid-row-end`"
 description: "Между какими грид-линиями расположится элемент."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-column-start

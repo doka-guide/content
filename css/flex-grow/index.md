@@ -1,7 +1,7 @@
 ---
 title: "`flex-grow`"
 description: "Может ли флекс-элемент занимать свободное пространство?"
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.flex-grow

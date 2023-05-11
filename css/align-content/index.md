@@ -1,7 +1,7 @@
 ---
 title: "`align-content`"
 description: "Как `justify-content`, но управляет целыми строками, а не отдельными флекс-элементами."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.align-content.flex_context

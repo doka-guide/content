@@ -1,7 +1,7 @@
 ---
 title: "`flex-flow`"
 description: "Короткая запись для свойств переноса и направления."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.flex-flow

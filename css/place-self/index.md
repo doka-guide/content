@@ -1,7 +1,7 @@
 ---
 title: "`place-self`"
 description: "Шорткат для выравнивания отдельного элемента внутри грид-контейнера."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.place-self.grid_context

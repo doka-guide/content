@@ -1,7 +1,7 @@
 ---
 title: "`grid-template-rows`"
 description: "Задаём количество и размер грид-рядов."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-template-rows

@@ -1,7 +1,7 @@
 ---
 title: "`grid`"
 description: "Короткий способ указать значения для большинства свойств гридов."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid

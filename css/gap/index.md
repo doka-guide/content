@@ -1,7 +1,7 @@
 ---
 title: "`gap`"
 description: "Удобный способ задать отступы между элементами внутри гридов и флексбоксов."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.gap.grid_context

@@ -1,7 +1,7 @@
 ---
 title: "`grid-template-columns`"
 description: "Задаём количество и размер грид-колонок."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-template-columns

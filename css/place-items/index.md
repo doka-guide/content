@@ -1,7 +1,7 @@
 ---
 title: "`place-items`"
 description: "Шорткат для выравнивания грид-элемента по обеим осям."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.place-items.grid_context

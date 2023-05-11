@@ -1,7 +1,7 @@
 ---
 title: "`@font-face`"
 description: "Подключаем кастомные шрифты."
-support:
+baseline:
   - group: fonts
     features:
       - css.at-rules.font-face

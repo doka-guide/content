@@ -1,7 +1,7 @@
 ---
 title: "`grid-auto-columns`, `grid-auto-rows`"
 description: "Как расположить грид-элементы, если им не хватило колонок и строк?"
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-auto-columns

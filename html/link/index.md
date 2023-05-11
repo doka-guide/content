@@ -1,7 +1,7 @@
 ---
 title: "`<link>`"
 description: "Подключает внешние ресурсы — стили, фавиконки, шрифты и прочее."
-support:
+baseline:
   - group: fetch-priority
     features:
       - html.elements.link.fetchpriority

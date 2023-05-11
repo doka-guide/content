@@ -1,7 +1,7 @@
 ---
 title: "`place-content`"
 description: "Одной строчкой выравниваем элементы в flex и grid 😎"
-support:
+baseline:
   - group: grid
     features:
       - css.properties.place-content.grid_context

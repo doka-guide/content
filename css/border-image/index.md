@@ -1,7 +1,7 @@
 ---
 title: "`border-image`"
 description: "Надоели скучные одноцветные рамки? Используйте картинку!"
-support:
+baseline:
   - group: border-image
     features:
       - css.properties.border-image

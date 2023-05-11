@@ -1,7 +1,7 @@
 ---
 title: "`align-self`"
 description: "Если элемент не хочет жить по правилам родителя, то его можно выровнять отдельно."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.align-self.flex_context

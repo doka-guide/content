@@ -1,7 +1,7 @@
 ---
 title: "`flex-basis`"
 description: "Задаём базовый размер флекс-элемента."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.flex-basis

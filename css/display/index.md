@@ -1,7 +1,7 @@
 ---
 title: "`display`"
 description: "Как поставить несколько элементов `<div>` в строку? Объясняем, как менять стандартный тип отображения на произвольный. Подробно говорим об основных типах отображения."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.display.flex

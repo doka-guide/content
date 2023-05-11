@@ -1,7 +1,7 @@
 ---
 title: "`<img>`"
 description: "Все любят картинки! Тег для вставки изображений на страницу."
-support:
+baseline:
   - group: fetch-priority
     features:
       - html.elements.img.fetchpriority

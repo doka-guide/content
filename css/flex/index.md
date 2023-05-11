@@ -1,7 +1,7 @@
 ---
 title: "`flex`"
 description: "Короткая запись для управления размерами флекс-элемента."
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.flex

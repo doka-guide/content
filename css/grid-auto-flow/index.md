@@ -1,7 +1,7 @@
 ---
 title: "`grid-auto-flow`"
 description: "Этим свойством можно поставить грид-элементы на пустое место."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-auto-flow

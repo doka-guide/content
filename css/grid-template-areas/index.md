@@ -1,7 +1,7 @@
 ---
 title: "`grid-template-areas`"
 description: "Прописываем где какие области грида будут находиться."
-support:
+baseline:
   - group: grid
     features:
       - css.properties.grid-template-areas

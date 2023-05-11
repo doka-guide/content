@@ -1,7 +1,7 @@
 ---
 title: "`align-items`"
 description: "Работает перпендикулярно `justify-content`, выравнивает флекс-элементы по дополнительной оси. "
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.align-items.flex_context

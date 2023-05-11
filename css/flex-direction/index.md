@@ -1,7 +1,7 @@
 ---
 title: "`flex-direction`"
 description: "Вам флекс-элементы в ряд или в колонку?"
-support:
+baseline:
   - group: flexbox
     features:
       - css.properties.flex-direction
