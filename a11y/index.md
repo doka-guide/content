@@ -50,6 +50,7 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-separator
       - role-tooltip
   - name: '«Живые» области'
     items:
@@ -81,6 +82,7 @@ groups:
       - role-tabpanel
       - role-checkbox
       - role-switch
+      - role-separator
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -138,6 +140,7 @@ groups:
       - role-img-image
       - role-list
       - role-mark
+      - role-separator
       - role-tooltip
       - role-button
       - role-link
