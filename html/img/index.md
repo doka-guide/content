@@ -1,6 +1,10 @@
 ---
 title: "`<img>`"
 description: "Все любят картинки! Тег для вставки изображений на страницу."
+support:
+  - group: fetch-priority
+    features:
+      - html.elements.img.fetchpriority
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

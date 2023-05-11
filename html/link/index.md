@@ -1,6 +1,10 @@
 ---
 title: "`<link>`"
 description: "Подключает внешние ресурсы — стили, фавиконки, шрифты и прочее."
+support:
+  - group: fetch-priority
+    features:
+      - html.elements.link.fetchpriority
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

@@ -1,6 +1,10 @@
 ---
 title: "`<script>`"
 description: "Вставляет код JavaScript на страницу или подключает внешние файлы скриптов."
+support:
+  - group: fetch-priority
+    features:
+      - html.elements.script.fetchpriority
 authors:
   - doka-dog
 contributors:
