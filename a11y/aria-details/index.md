@@ -36,7 +36,7 @@ tags:
 </p>
 ```
 
-<iframe title="Изображение с расширенным описанием" src="demos/image-with-details/" height="250"></iframe>
+<iframe title="Изображение с расширенным описанием" src="demos/image-with-details/" height="440"></iframe>
 
 ## Как пишется
 
