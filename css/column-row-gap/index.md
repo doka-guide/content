@@ -1,6 +1,11 @@
 ---
 title: "`row-gap`, `column-gap`"
 description: "Отдельные свойства для отступов между рядами и колонками в грид-раскладке."
+support:
+  - group: grid
+    features:
+      - css.properties.column-gap.grid_context
+      - css.properties.row-gap.grid_context
 authors:
   - solarrust
 keywords:

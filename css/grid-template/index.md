@@ -1,6 +1,10 @@
 ---
 title: "`grid-template`"
 description: "Короткий способ объявить все ряды и колонки внутри грид-контейнера одновременно."
+support:
+  - group: grid
+    features:
+      - css.properties.grid-template
 authors:
   - solarrust
 editors:

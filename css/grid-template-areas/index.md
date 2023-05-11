@@ -1,6 +1,10 @@
 ---
 title: "`grid-template-areas`"
 description: "Прописываем где какие области грида будут находиться."
+support:
+  - group: grid
+    features:
+      - css.properties.grid-template-areas
 authors:
   - solarrust
 editors:

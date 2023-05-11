@@ -1,6 +1,10 @@
 ---
 title: "`flex-wrap`"
 description: "Позволяем флекс-элементам переноситься на новые строки."
+support:
+  - group: flexbox
+    features:
+      - css.properties.flex-wrap
 authors:
   - solarrust
 editors:

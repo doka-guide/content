@@ -1,6 +1,10 @@
 ---
 title: "`flex`"
 description: "Короткая запись для управления размерами флекс-элемента."
+support:
+  - group: flexbox
+    features:
+      - css.properties.flex
 authors:
   - solarrust
 editors:

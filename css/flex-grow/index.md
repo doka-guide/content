@@ -1,6 +1,10 @@
 ---
 title: "`flex-grow`"
 description: "Может ли флекс-элемент занимать свободное пространство?"
+support:
+  - group: flexbox
+    features:
+      - css.properties.flex-grow
 authors:
   - solarrust
 editors:

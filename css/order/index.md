@@ -1,6 +1,10 @@
 ---
 title: "`order`"
 description: "Меняем визуальный порядок флекс-элементов, не меняя HTML."
+support:
+  - group: flexbox
+    features:
+      - css.properties.order
 authors:
   - solarrust
 editors:

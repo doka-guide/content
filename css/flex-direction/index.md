@@ -1,6 +1,10 @@
 ---
 title: "`flex-direction`"
 description: "Вам флекс-элементы в ряд или в колонку?"
+support:
+  - group: flexbox
+    features:
+      - css.properties.flex-direction
 authors:
   - solarrust
 editors:
