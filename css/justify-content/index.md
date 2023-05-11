@@ -1,6 +1,16 @@
 ---
 title: "`justify-content`"
 description: "Свойство для выравнивания элементов по основной оси в гридах и флексах."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.justify-content.flex_context
+      - css.properties.justify-content.flex_context.stretch
+  - group: flexbox
+    features:
+      - css.properties.justify-content.grid_context
+      - css.properties.justify-items.grid_context
+      - css.properties.justify-self.grid_context
 authors:
   - solarrust
 editors:

@@ -1,6 +1,10 @@
 ---
 title: "`place-items`"
 description: "Шорткат для выравнивания грид-элемента по обеим осям."
+baseline:
+  - group: grid
+    features:
+      - css.properties.place-items.grid_context
 authors:
   - solarrust
 keywords:

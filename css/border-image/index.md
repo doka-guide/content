@@ -1,6 +1,13 @@
 ---
 title: "`border-image`"
 description: "Надоели скучные одноцветные рамки? Используйте картинку!"
+baseline:
+  - group: border-image
+    features:
+      - css.properties.border-image
+      - css.properties.border-image.fill
+      - css.properties.border-image.gradient
+      - css.properties.border-image.optional_border_image_slice
 authors:
   - solarrust
 contributors:

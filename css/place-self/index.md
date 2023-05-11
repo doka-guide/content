@@ -1,6 +1,10 @@
 ---
 title: "`place-self`"
 description: "Шорткат для выравнивания отдельного элемента внутри грид-контейнера."
+baseline:
+  - group: grid
+    features:
+      - css.properties.place-self.grid_context
 authors:
   - solarrust
 keywords:

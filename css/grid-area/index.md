@@ -1,6 +1,10 @@
 ---
 title: "`grid-area`"
 description: "Указываем грид-элементу где ему встать."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-area
 authors:
   - solarrust
 editors:

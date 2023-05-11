@@ -1,6 +1,10 @@
 ---
 title: "`grid`"
 description: "Короткий способ указать значения для большинства свойств гридов."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid
 authors:
   - solarrust
 editors:

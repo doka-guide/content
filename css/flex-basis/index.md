@@ -1,6 +1,13 @@
 ---
 title: "`flex-basis`"
 description: "Задаём базовый размер флекс-элемента."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-basis
+      - css.properties.flex-basis.auto
+      - css.properties.flex-basis.max-content
+      - css.properties.flex-basis.min-content
 authors:
   - solarrust
 editors:

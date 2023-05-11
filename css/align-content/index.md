@@ -1,6 +1,14 @@
 ---
 title: "`align-content`"
 description: "Как `justify-content`, но управляет целыми строками, а не отдельными флекс-элементами."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.align-content.flex_context
+      - css.properties.align-content.flex_context.stretch
+  - group: grid
+    features:
+      - css.properties.align-content.grid_context
 authors:
   - solarrust
 editors:

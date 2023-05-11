@@ -1,6 +1,11 @@
 ---
 title: "`grid-column`, `grid-row`"
 description: "Где начнётся и где закончится грид-элемент?"
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-column
+      - css.properties.grid-row
 authors:
   - solarrust
 editors:

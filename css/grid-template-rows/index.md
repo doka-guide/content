@@ -1,6 +1,14 @@
 ---
 title: "`grid-template-rows`"
 description: "Задаём количество и размер грид-рядов."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-template-rows
+      - css.properties.grid-template-rows.fit-content
+      - css.properties.grid-template-rows.minmax
+      - css.properties.grid-template-rows.repeat
+      - css.properties.grid-template-rows.animation
 authors:
   - solarrust
 editors:
