@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/how-the-browser-creates-pages
-  - html/div
-  - tools/docker
-  - tools/oop
-  - js/function
-  - js/closures
-  - tools/webpack
-  - css/attr
-  - html/doctype
-  - tools/how-to-test-and-why
-  - js/execution-order
   - tools/network
-  - tools/cli
-  - js/deal-with-forms
-  - css/display
-  - recipes/snow
-  - js/function-context
-  - css/transform-function
-  - recipes/progress
-  - recipes/lets-encrypt-nginx
-  - html/input
-  - a11y/screenreaders
-  - js/var-let
-  - tools/static-types
-  - tools/agile
-  - tools/markdown
-  - css/specificity
-  - css/media
-  - a11y/aria-intro
+  - html/flow
+  - css/grid-guide
   - html/nav
-  - js/infinite-scroll
-  - html/img
-  - html/video
-  - tools/ci-cd
+  - tools/oop
+  - js/boolean
+  - js/var-let
+  - tools/cli
   - js/async-in-js
+  - tools/docker
+  - tools/webpack
+  - js/closures
+  - html/input
+  - html/div
+  - tools/markdown
+  - tools/clean-architecture
+  - css/specificity
+  - html/head
+  - html/section
+  - js/function
+  - tools/gitlab-ci-cd
+  - recipes/snow
+  - css/media
+  - tools/bundlers
+  - css/attr
+  - js/execution-order
+  - js/deal-with-forms
+  - recipes/lets-encrypt-nginx
+  - css/custom-properties
+  - html/video
+  - tools/how-the-browser-creates-pages
+  - html/doctype
+  - a11y/aria-intro
+  - tools/static-types
+  - css/position
+  - css/transform-function
+  - tools/how-to-test-and-why
+  - html/article
+  - css/pseudoelements
+  - js/infinite-scroll
+  - recipes/progress
+  - css/display
+  - js/function-context
+  - css/keyframes
+  - css/box-shadow
+  - html/img
+  - html/form
+  - tools/ci-cd
+  - a11y/aria-hidden
   - css/flexbox-guide
   - css/box-model
-  - tools/gitlab-ci-cd
-  - html/form
-  - html/article
-  - html/section
-  - css/grid-guide
-  - js/boolean
-  - a11y/aria-hidden
-  - css/keyframes
-  - tools/clean-architecture
-  - css/custom-properties
-  - html/head
-  - css/box-shadow
-  - css/pseudoelements
-  - css/position
-  - tools/bundlers
-  - html/flow
+  - a11y/screenreaders
+  - tools/agile
 ---
 
