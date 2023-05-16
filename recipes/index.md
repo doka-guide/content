@@ -3,17 +3,22 @@ name: 'Рецепты'
 groups:
   - name: 'Интерфейс'
     items:
+      - multicolor-text
       - progress
       - dragndrop-upload
       - character-counter
-  - name: 'Фишки из прошлого'
-    items:
-      - snow
+      - center
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
       - self-hosted-preview
       - short-links
+  - name: 'Рутина'
+    items:
+      - font-script
+  - name: 'Ради веселья'
+    items:
+      - snow
 ---
 
 Сборник решений часто встречающихся задач. В этом разделе собраны рецепты, совмещающие в себе несколько технологий.
