@@ -1,9 +1,14 @@
 ---
 title: "`text-decoration-thickness`"
+description: "Какой будет толщина декоративной линии под (или над) текстом?"
 authors:
   - nailheart
 keywords:
   - толщина декоративной линии
+related:
+  - css/text-decoration
+  - css/text-decoration-line
+  - recipes/multicolor-text
 tags:
   - doka
 ---

@@ -1,13 +1,16 @@
 ---
 title: "Селектор по тегу"
+description: "Выбираем определённые теги в HTML для их стилизации."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - селектор
+related:
+  - css/class-selector
+  - css/specificity
+  - css/cascade
 tags:
   - doka
 ---

@@ -1,7 +1,12 @@
 ---
 title: "`text-overflow`"
+description: "Красиво обрезаем текст, не влезающий в блок. Можем даже добавить в конце многоточие."
 authors:
   - solarrust
+related:
+  - css/white-space
+  - css/overflow
+  - css/overflow-wrap
 tags:
   - doka
 ---

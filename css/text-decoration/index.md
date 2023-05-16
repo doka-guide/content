@@ -1,5 +1,6 @@
 ---
 title: "`text-decoration`"
+description: "Добавляем любому тексту чёрточку. Или убираем, где она есть, но не нужна."
 authors:
   - solarrust
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - подчёркивание текста
   - перечёркнутый текст
   - надчёркнутый текст
+related:
+  - css/text-transform
+  - css/text-shadow
+  - recipes/multicolor-text
 tags:
   - doka
 ---
