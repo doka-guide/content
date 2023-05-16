@@ -1,6 +1,6 @@
 ---
 title: "`text-decoration-thickness`"
-description: "Какой будет толщина екоративной линии под (или над) текстом?"
+description: "Какой будет толщина декоративной линии под (или над) текстом?"
 authors:
   - nailheart
 keywords:
