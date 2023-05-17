@@ -6,7 +6,7 @@ authors:
 related:
   - a11y/aria-intro
   - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-menu
 tags:
   - doka
   - placeholder
