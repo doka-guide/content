@@ -42,6 +42,7 @@ groups:
       - aria-errormessage
       - aria-controls
       - aria-owns
+      - aria-activedescendant
   - name: 'Структура документа'
     items:
       - role-presentation-none
@@ -163,6 +164,7 @@ groups:
       - aria-relevant
       - aria-busy
       - aria-owns
+      - aria-activedescendant
       - aria-modal
       - aria-orientation
       - aria-current
