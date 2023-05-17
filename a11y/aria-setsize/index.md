@@ -28,9 +28,7 @@ tags:
 - [`<option>`](/html/option/) или `option`.
 - [`<input type="radio">`](/html/input/#type) или `radio`.
 - [`tab`](/a11y/role-tab/).
-- `menuitem`.
+- `menuitem`, `menuitemcheckbox`, `menuitemradio`.
+- `treeitem`.
 - `comment`.
-- `associationlistitemkey`.
-- `associationlistitemvalue`.
-
-Этот атрибут есть по умолчанию у `menuitemcheckbox`, `menuitemradio` и `treeitem`.
+- `associationlistitemkey`, `associationlistitemvalue`.
