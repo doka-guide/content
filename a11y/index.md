@@ -79,6 +79,7 @@ groups:
   - name: 'Виджеты'
     items:
       - role-menu
+      - role-menuitem
       - role-button
       - role-link
       - role-tablist
@@ -148,6 +149,7 @@ groups:
       - role-separator
       - role-tooltip
       - role-menu
+      - role-menuitem
       - role-button
       - role-link
       - role-checkbox
