@@ -81,6 +81,7 @@ groups:
       - role-menu
       - role-button
       - role-link
+      - role-menuitemradio
       - role-tablist
       - role-tab
       - role-tabpanel
@@ -151,6 +152,7 @@ groups:
       - role-menu
       - role-button
       - role-link
+      - role-menuitemradio
       - role-checkbox
       - role-tablist
       - role-tab
