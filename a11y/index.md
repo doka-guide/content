@@ -106,6 +106,7 @@ groups:
       - aria-owns
       - aria-modal
       - aria-orientation
+      - aria-sort
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -176,6 +177,7 @@ groups:
       - aria-activedescendant
       - aria-modal
       - aria-orientation
+      - aria-sort
       - aria-current
       - aria-controls
       - aria-flowto
