@@ -62,7 +62,7 @@ document.body.innerHTML = '<h1>Hello Inner HTML!<h1>'
 В результате в документ будет вставлен HTML:
 
 ```html
-<h1>Hello Inner HTML!<h1>
+<h1>Hello Inner HTML!</h1>
 ```
 
 <aside>
