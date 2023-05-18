@@ -26,6 +26,6 @@ tags:
 
 Не забудьте добавить `menuitemradio` в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex).
 
-У элемента с `menuitemradio` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/), как у любой другой кастомной радиокнопки. Только у одного элемента в группе может быть `aria-checked="true"`.
+У элемента с `menuitemradio` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/), как у любой другой радиокнопки. Только у одного элемента в группе может быть `aria-checked="true"`.
 
 С ролью `menuitemradio` можно сочетать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые другие [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-expanded`](/a11y/aria-expanded/), [`aria-haspopup`](/a11y/aria-haspopup/), `aria-posinset` и `aria-setsize`.
