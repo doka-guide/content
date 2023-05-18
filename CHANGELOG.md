@@ -4,6 +4,7 @@
 
 ## Май 2023
 
+- 18 мая, [`alertdialog`](https://doka.guide/a11y/role-alertdialog/), Рома Агарков
 - 17 мая, [`aria-details`](https://doka.guide/a11y/aria-details/), Татьяна Фокина
 - 7 мая, [Выравниваем элемент по центру экрана](https://doka.guide/recipes/center/), Алёна Батицкая
 - 4 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
