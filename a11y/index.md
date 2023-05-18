@@ -157,6 +157,7 @@ groups:
       - role-tabpanel
       - role-switch
       - role-dialog
+      - role-alertdialog
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
