@@ -26,6 +26,6 @@ tags:
 
 Не забудьте добавить `menuitemcheckbox` в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex).
 
-У элемента с `menuitemcheckbox` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/), как у любого другого кастомного чекбокса. 
+У элемента с `menuitemcheckbox` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/), как у любого другого чекбокса.
 
 С ролью `menuitemcheckbox` можно сочетать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые другие [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-expanded`](/a11y/aria-expanded/), [`aria-haspopup`](/a11y/aria-haspopup/), `aria-posinset` и `aria-setsize`.
