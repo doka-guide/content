@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/network
-  - html/flow
-  - css/grid-guide
-  - html/nav
-  - tools/oop
-  - js/boolean
-  - js/var-let
-  - tools/cli
-  - js/async-in-js
   - tools/docker
-  - tools/webpack
-  - js/closures
-  - html/input
-  - html/div
-  - tools/markdown
-  - tools/clean-architecture
-  - css/specificity
-  - html/head
-  - html/section
-  - js/function
-  - tools/gitlab-ci-cd
-  - recipes/snow
-  - css/media
-  - tools/bundlers
-  - css/attr
-  - js/execution-order
-  - js/deal-with-forms
   - recipes/lets-encrypt-nginx
-  - css/custom-properties
-  - html/video
-  - tools/how-the-browser-creates-pages
-  - html/doctype
-  - a11y/aria-intro
-  - tools/static-types
-  - css/position
-  - css/transform-function
-  - tools/how-to-test-and-why
-  - html/article
-  - css/pseudoelements
-  - js/infinite-scroll
-  - recipes/progress
-  - css/display
-  - js/function-context
-  - css/keyframes
-  - css/box-shadow
-  - html/img
-  - html/form
-  - tools/ci-cd
-  - a11y/aria-hidden
-  - css/flexbox-guide
-  - css/box-model
+  - tools/bundlers
   - a11y/screenreaders
+  - js/var-let
+  - css/box-shadow
+  - tools/gitlab-ci-cd
+  - css/keyframes
+  - tools/cli
+  - js/closures
+  - css/grid-guide
+  - html/flow
+  - css/media
+  - a11y/aria-hidden
+  - tools/static-types
+  - js/function-context
+  - js/execution-order
+  - a11y/aria-intro
+  - js/boolean
+  - html/div
+  - tools/ci-cd
+  - html/input
+  - css/transform-function
+  - css/position
+  - html/doctype
+  - js/deal-with-forms
+  - html/article
+  - tools/webpack
+  - tools/clean-architecture
+  - tools/oop
+  - css/box-model
+  - tools/how-to-test-and-why
+  - recipes/snow
+  - html/section
+  - tools/markdown
+  - css/specificity
+  - js/async-in-js
+  - html/img
+  - recipes/progress
+  - css/attr
+  - tools/network
+  - html/nav
+  - css/flexbox-guide
+  - css/pseudoelements
+  - html/video
+  - css/display
+  - html/head
+  - tools/how-the-browser-creates-pages
   - tools/agile
+  - js/function
+  - js/infinite-scroll
+  - html/form
+  - css/custom-properties
 ---
 
