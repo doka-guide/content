@@ -5,7 +5,6 @@ authors:
   - dimameh
 related:
   - css/box-model
-  - html/br
   - html/p
 keywords:
   - перенос
