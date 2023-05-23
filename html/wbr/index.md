@@ -26,7 +26,7 @@ tags:
 
 Попробуйте изменить размер родительского элемента чтобы увидеть как работает тег `<wbr>`.
 
-<iframe title="Переносы текста" src="demos/usage-example/" height="300"></iframe>
+<iframe title="Переносы текста" src="demos/usage-example/" height="350"></iframe>
 
 ## Как пишется
 
