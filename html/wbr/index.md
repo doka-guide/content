@@ -1,12 +1,12 @@
 ---
-title: "<wbr>"
+title: "`<wbr>`"
 description: "Вот тут можно сделать перенос (но только если очень нужно)"
 authors:
   - dimameh
 related:
   - css/box-model
   - html/br
-  - tools/p
+  - html/p
 keywords:
   - перенос
   - br
