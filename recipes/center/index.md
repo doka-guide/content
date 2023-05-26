@@ -194,7 +194,7 @@ dialog {
 }
 ```
 
-<iframe title="Флексбокс. Второй способ" src="demos/flex-one/" height="400"></iframe>
+<iframe title="Флексбокс. Второй способ" src="demos/flex-two/" height="400"></iframe>
 
 ### Отступ и трансформация
 
