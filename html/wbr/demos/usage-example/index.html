@@ -36,8 +36,15 @@
       resize: horizontal;
       overflow: auto;
       width: 300px;
-      height: 200px;
-      border: 3px solid #73AD21;
+      border: 3px solid #FF8630;
+      padding: 5px;
+    }
+
+    .comment {
+      background-color: #282A2E;
+      color: #E6E6E6;
+      padding: 5px;
+      width: fit-content;
     }
 
     @media (max-width: 768px) {
@@ -50,14 +57,12 @@
 
 <body>
   <div class="container">
-    <div>Потяните за правый нижний угол чтобы изменить размер родительского элемента</div>
+    <div class="comment">Потяните за правый нижний угол чтобы изменить размер родительского элемента</div>
     </br>
     <div class="wrapper">
       <p>Это строка обычного текста. В ней браузер выполнит перенос строки по пробелам.</p>
+      <br>
       <p>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин</p>
-      <p>
-        http://this<wbr>.is<wbr>.a<wbr>.really<wbr>.long<wbr>.example<wbr>.com/With<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages
-      </p>
     </div>
   </div>
 </body>
