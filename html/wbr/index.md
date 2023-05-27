@@ -5,9 +5,11 @@ authors:
   - dimameh
 related:
   - css/box-model
+  - css/white-space
   - html/p
 keywords:
-  - перенос
+  - перенос текста
+  - перенос строки
   - br
   - new line
   - \n
@@ -28,6 +30,8 @@ tags:
 <iframe title="Переносы текста" src="demos/usage-example/" height="350"></iframe>
 
 ## Как пишется
+
+Тег `<wbr>` не парный (у него нет закрывающего тега и он может писаться как <wbr> так и <wbr/>).
 
 ```html
 <p>
