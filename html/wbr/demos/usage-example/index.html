@@ -1,21 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Пример использования — <wbr> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *,
+    *::before,
+    *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
-    
+
     .wrapper {
       resize: horizontal;
       overflow: auto;
@@ -23,16 +39,26 @@
       height: 200px;
       border: 3px solid #73AD21;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div>потяните за правый нижний угол чтобы изменить размер родительского элемента</div>
-  </br>
-  <div class="wrapper">
-    <p>Это строка обычного текста. В ней браузер выполнит перенос строки по пробелам.</p>
-    <p>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин</p>
-    <p>http://this<wbr>.is<wbr>.a<wbr>.really<wbr>.long<wbr>.example<wbr>.com/With<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages</p>
+  <div class="container">
+    <div>Потяните за правый нижний угол чтобы изменить размер родительского элемента</div>
+    </br>
+    <div class="wrapper">
+      <p>Это строка обычного текста. В ней браузер выполнит перенос строки по пробелам.</p>
+      <p>метоксихлор<wbr>диэтиламино<wbr>метил<wbr>бутил<wbr>амино<wbr>акридин</p>
+      <p>
+        http://this<wbr>.is<wbr>.a<wbr>.really<wbr>.long<wbr>.example<wbr>.com/With<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages<wbr>/deeper<wbr>/level<wbr>/pages
+      </p>
+    </div>
   </div>
 </body>
 
