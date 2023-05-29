@@ -216,3 +216,47 @@ for (const part of parts) {
 	{type: 'dayPeriod', value: 'PM', source: 'endRange'}
 ]
 ```
+
+### Преобразование в ISO формат
+
+Объект [`Date`](/js/date) содержит метод [`toISOString()`](/js/date/#avtokorrekciya-daty), который возвращает строку в формате ISO (расширенный формат [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)), который можно описать следующим образом: `YYYY-MM-DDTHH:mm:ss.sssZ`. Часовой пояс всегда равен UTC, что обозначено суффиксом "Z".
+
+Объект `Intl.DateTimeFormat` не содержит подобного метода. При попытке указать формат `iso8601` возникает следующая ошибка:
+
+```js
+const date = new Date();
+const options = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+};
+const isoDate = new Intl.DateTimeFormat(['iso8601'], options).format(date);
+
+// Uncaught RangeError: Incorrect locale information provided at new DateTimeFormat...
+```
+
+Почему возникает такая ошибка, а объект не позволяет конвертировать в нужный формат?
+
+Идея, реализуемая Intl, в том, чтобы вернуть дату в формате, который соответствует условиям указанной локали. Intl не предоставляет способа указать определенные шаблоны форматирования. Другими словами, формат [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) не соответствует какой-либо конкретной локали.
+
+Следовательно, преобразовать можно вручную.
+
+```js
+const date = new Date();
+const dateOptions = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+};
+const formattedDate = new Intl.DateTimeFormat('en-ca', dateOptions).format(date);
+
+const timeOptions = {
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  hourCycle: 'h24',
+}
+const formattedTime = new Intl.DateTimeFormat('en-ca', timeOptions).format(date);
+const dateTime = `${formattedDate}T${formattedTime}Z`;
+// '2023-05-29T15:00:00Z'
+```
