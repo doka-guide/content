@@ -81,6 +81,7 @@ groups:
     items:
       - role-menu
       - role-button
+      - role-menubar
       - role-link
       - role-tablist
       - role-tab
@@ -152,6 +153,7 @@ groups:
       - role-tooltip
       - role-menu
       - role-button
+      - role-menubar
       - role-link
       - role-checkbox
       - role-tablist
