@@ -85,6 +85,7 @@ groups:
       - role-menubar
       - role-link
       - role-menuitemradio
+      - role-menuitem
       - role-tablist
       - role-tab
       - role-tabpanel
@@ -154,6 +155,7 @@ groups:
       - role-separator
       - role-tooltip
       - role-menu
+      - role-menuitem
       - role-menuitemcheckbox
       - role-button
       - role-menubar
