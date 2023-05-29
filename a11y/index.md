@@ -45,6 +45,7 @@ groups:
       - aria-controls
       - aria-owns
       - aria-activedescendant
+      - aria-setsize
   - name: 'Структура документа'
     items:
       - role-presentation-none
@@ -79,9 +80,12 @@ groups:
   - name: 'Виджеты'
     items:
       - role-menu
-      - role-menuitem
+      - role-menuitemcheckbox
       - role-button
+      - role-menubar
       - role-link
+      - role-menuitemradio
+      - role-menuitem
       - role-tablist
       - role-tab
       - role-tabpanel
@@ -107,6 +111,8 @@ groups:
       - aria-owns
       - aria-modal
       - aria-orientation
+      - aria-sort
+      - aria-setsize
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -150,14 +156,18 @@ groups:
       - role-tooltip
       - role-menu
       - role-menuitem
+      - role-menuitemcheckbox
       - role-button
+      - role-menubar
       - role-link
+      - role-menuitemradio
       - role-checkbox
       - role-tablist
       - role-tab
       - role-tabpanel
       - role-switch
       - role-dialog
+      - role-alertdialog
   - name: 'ARIA-атрибуты'
     items:
       - aria-attrs
@@ -176,8 +186,10 @@ groups:
       - aria-busy
       - aria-owns
       - aria-activedescendant
+      - aria-setsize
       - aria-modal
       - aria-orientation
+      - aria-sort
       - aria-current
       - aria-controls
       - aria-flowto
