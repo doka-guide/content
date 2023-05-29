@@ -45,6 +45,7 @@ groups:
       - aria-controls
       - aria-owns
       - aria-activedescendant
+      - aria-setsize
   - name: 'Структура документа'
     items:
       - role-presentation-none
@@ -107,6 +108,7 @@ groups:
       - aria-modal
       - aria-orientation
       - aria-sort
+      - aria-setsize
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -176,6 +178,7 @@ groups:
       - aria-busy
       - aria-owns
       - aria-activedescendant
+      - aria-setsize
       - aria-modal
       - aria-orientation
       - aria-sort
