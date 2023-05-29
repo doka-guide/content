@@ -35,8 +35,8 @@ const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));
 Стандартное форматирование, в зависимости от локали:
 
 ```js
-console.log(new Intl.DateTimeFormat('en-US').format(date)); 
-// "12/20/2020" 
+console.log(new Intl.DateTimeFormat('en-US').format(date));
+// "12/20/2020"
 ```
 
 ```js
@@ -63,25 +63,25 @@ console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'lo
 
 - `timeZone` - значение часового пояса: `UTC`, `America/New_York`, `Europe/Paris` и т.д.
 - `calendar` - значение выбранного календаря: `chinese`, `gregory`, `indian` и т.д.
-- `numberingSystem`	- используемая система счисления: `arab`, `beng`, `latin` и т.д.
+- `numberingSystem` - используемая система счисления: `arab`, `beng`, `latin` и т.д.
 - `localeMatcher` - алгоритм для согласования выбранной локали:
-	- `lookup` - поиск следует алгоритму поиска, определённому в [BCP 47](https://tools.ietf.org/html/rfc4647#section-3.4), 
-	- `best fit` - (наилучший подходящий) позволяет среде выполнения выбрать локаль.
-- `formatMatcher`	алгоритм для форматирования: basic, best fit.
-- `hour12`	если имеет значение true, используется 12-часовой формат.
-- `hourCycle`	часовой формат: h11, h12, h23, h24.
-- `dateStyle`	стиль форматирования даты: full, long, medium, short.
-- `weekday`	день недели: long, short, narrow.
-- `day`	день месяца: numeric, 2-digit.
-- `month`	месяц: numeric, 2-digit, long, short, narrow.
-- `year`	год: numeric, 2-digit.
-- `era`	эпоха: long, short, narrow.
-- `timeStyle`	стиль форматирования времени: full, long, medium, short.
-- `hour`	часы: numeric, 2-digit.
-- `minute`	минуты: numeric, 2-digit.
-- `second`	секунды: numeric, 2-digit.
-- `dayPeriod`	часть дня (утро, вечер и т.п.): narrow, short, long.
-- `timeZoneName`	название часового пояса (UTC, PTC): long, short.
+  - `lookup` - поиск следует алгоритму поиска, определённому в [BCP 47](https://tools.ietf.org/html/rfc4647#section-3.4),
+  - `best fit` - (наилучший подходящий) позволяет среде выполнения выбрать локаль.
+- `formatMatcher` алгоритм для форматирования: basic, best fit.
+- `hour12` если имеет значение true, используется 12-часовой формат.
+- `hourCycle` часовой формат: h11, h12, h23, h24.
+- `dateStyle` стиль форматирования даты: full, long, medium, short.
+- `weekday` день недели: long, short, narrow.
+- `day` день месяца: numeric, 2-digit.
+- `month` месяц: numeric, 2-digit, long, short, narrow.
+- `year` год: numeric, 2-digit.
+- `era` эпоха: long, short, narrow.
+- `timeStyle` стиль форматирования времени: full, long, medium, short.
+- `hour` часы: numeric, 2-digit.
+- `minute` минуты: numeric, 2-digit.
+- `second` секунды: numeric, 2-digit.
+- `dayPeriod` часть дня (утро, вечер и т.п.): narrow, short, long.
+- `timeZoneName` название часового пояса (UTC, PTC): long, short.
 
 ### Методы
 
