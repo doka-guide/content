@@ -45,7 +45,7 @@ tags:
 
 ### Особенности
 
-Добавление элементу `role="alert"` эквиваленту добавлению [`aria-live="assertive"`](/a11y/aria-live/) и [`aria-atomic="true"`](/a11y/aria-atomic/).
+Добавление элементу `role="alert"` эквивалентно [`aria-live="assertive"`](/a11y/aria-live/) и [`aria-atomic="true"`](/a11y/aria-atomic/).
 
 ### Рекомендации по использованию
 
