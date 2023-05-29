@@ -41,10 +41,10 @@ console.log(new Intl.DateTimeFormat('en-US').format(date));
 
 ```js
 console.log(new Intl.DateTimeFormat("ru", {
-  weekday: "short", 
-  year: "2-digit", 
-  month: "long", 
-  day: "numeric"}).format(date)) 
+  weekday: "short",
+  year: "2-digit",
+  month: "long",
+  day: "numeric"}).format(date))
 // сб, 5 апреля 14 г.
 ```
 
@@ -114,21 +114,21 @@ formatter.formatToParts(date);
 
 ```js
 [
-	{type: 'weekday', value: 'суббота'},
-	{type: 'literal', value: ', '},
-	{type: 'day', value: '27'},
-	{type: 'literal', value: '.'},
-	{type: 'month', value: '05'},
-	{type: 'literal', value: '.'},
-	{type: 'year', value: '2023'},
-	{type: 'literal', value: ' г., '},
-	{type: 'hour', value: '10'},
-	{type: 'literal', value: ':'},
-	{type: 'minute', value: '55'},
-	{type: 'literal', value: ':'},
-	{type: 'second', value: '18'},
-	{type: 'literal', value: ' '},
-	{type: 'dayPeriod', value: 'PM'}
+  {type: 'weekday', value: 'суббота'},
+  {type: 'literal', value: ', '},
+  {type: 'day', value: '27'},
+  {type: 'literal', value: '.'},
+  {type: 'month', value: '05'},
+  {type: 'literal', value: '.'},
+  {type: 'year', value: '2023'},
+  {type: 'literal', value: ' г., '},
+  {type: 'hour', value: '10'},
+  {type: 'literal', value: ':'},
+  {type: 'minute', value: '55'},
+  {type: 'literal', value: ':'},
+  {type: 'second', value: '18'},
+  {type: 'literal', value: ' '},
+  {type: 'dayPeriod', value: 'PM'}
 ]
 ```
 
@@ -136,19 +136,19 @@ formatter.formatToParts(date);
 
 ```js
 {
-	calendar: "gregory",
-	day: "2-digit",
-	hour: "numeric",
-	hour12: true,
-	hourCycle: "h11",
-	locale: "ru",
-	minute: "2-digit",
-	month: "2-digit",
-	numberingSystem: "latn",
-	second: "2-digit",
-	timeZone: "UTC",
-	weekday: "long",
-	year: "numeric"
+  calendar: "gregory",
+  day: "2-digit",
+  hour: "numeric",
+  hour12: true,
+  hourCycle: "h11",
+  locale: "ru",
+  minute: "2-digit",
+  month: "2-digit",
+  numberingSystem: "latn",
+  second: "2-digit",
+  timeZone: "UTC",
+  weekday: "long",
+  year: "numeric"
 }
 ```
 
@@ -191,29 +191,29 @@ for (const part of parts) {
 
 ```js
 [
-	{type: 'month', value: '1', source: 'startRange'},
-	{type: 'literal', value: '/', source: 'startRange'},
-	{type: 'day', value: '10', source: 'startRange'},
-	{type: 'literal', value: '/', source: 'startRange'},
-	{type: 'year', value: '2018', source: 'startRange'},
-	{type: 'literal', value: ', ', source: 'startRange'},
-	{type: 'hour', value: '1', source: 'startRange'},
-	{type: 'literal', value: ':', source: 'startRange'},
-	{type: 'minute', value: '00', source: 'startRange'},
-	{type: 'literal', value: ' ', source: 'startRange'},
-	{type: 'dayPeriod', value: 'PM', source: 'startRange'},
-	{type: 'literal', value: ' – ', source: 'shared'},
-	{type: 'month', value: '5', source: 'endRange'},
-	{type: 'literal', value: '/', source: 'endRange'},
-	{type: 'day', value: '29', source: 'endRange'},
-	{type: 'literal', value: '/', source: 'endRange'},
-	{type: 'year', value: '2023', source: 'endRange'},
-	{type: 'literal', value: ', ', source: 'endRange'},
-	{type: 'hour', value: '12', source: 'endRange'},
-	{type: 'literal', value: ':', source: 'endRange'},
-	{type: 'minute', value: '41', source: 'endRange'},
-	{type: 'literal', value: ' ', source: 'endRange'},
-	{type: 'dayPeriod', value: 'PM', source: 'endRange'}
+  {type: 'month', value: '1', source: 'startRange'},
+  {type: 'literal', value: '/', source: 'startRange'},
+  {type: 'day', value: '10', source: 'startRange'},
+  {type: 'literal', value: '/', source: 'startRange'},
+  {type: 'year', value: '2018', source: 'startRange'},
+  {type: 'literal', value: ', ', source: 'startRange'},
+  {type: 'hour', value: '1', source: 'startRange'},
+  {type: 'literal', value: ':', source: 'startRange'},
+  {type: 'minute', value: '00', source: 'startRange'},
+  {type: 'literal', value: ' ', source: 'startRange'},
+  {type: 'dayPeriod', value: 'PM', source: 'startRange'},
+  {type: 'literal', value: ' – ', source: 'shared'},
+  {type: 'month', value: '5', source: 'endRange'},
+  {type: 'literal', value: '/', source: 'endRange'},
+  {type: 'day', value: '29', source: 'endRange'},
+  {type: 'literal', value: '/', source: 'endRange'},
+  {type: 'year', value: '2023', source: 'endRange'},
+  {type: 'literal', value: ', ', source: 'endRange'},
+  {type: 'hour', value: '12', source: 'endRange'},
+  {type: 'literal', value: ':', source: 'endRange'},
+  {type: 'minute', value: '41', source: 'endRange'},
+  {type: 'literal', value: ' ', source: 'endRange'},
+  {type: 'dayPeriod', value: 'PM', source: 'endRange'}
 ]
 ```
 
