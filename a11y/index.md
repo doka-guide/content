@@ -79,7 +79,7 @@ groups:
       - role-contentinfo
   - name: 'Виджеты'
     items:
-      - role-button 
+      - role-button
       - role-link
       - role-checkbox
       - role-tablist
