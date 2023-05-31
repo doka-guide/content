@@ -79,19 +79,19 @@ groups:
       - role-contentinfo
   - name: 'Виджеты'
     items:
-      - role-menu
-      - role-menuitemcheckbox
-      - role-button
-      - role-menubar
+      - role-button 
       - role-link
-      - role-menuitemradio
-      - role-menuitem
+      - role-checkbox
       - role-tablist
       - role-tab
       - role-tabpanel
-      - role-checkbox
-      - role-switch
       - role-separator
+      - role-menu
+      - role-menubar
+      - role-menuitem
+      - role-menuitemradio
+      - role-menuitemcheckbox
+      - role-switch
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -113,6 +113,11 @@ groups:
       - aria-orientation
       - aria-sort
       - aria-setsize
+  - name: 'Окна'
+    items:
+      - role-dialog
+      - role-alertdialog
+      - aria-modal
   - name: 'Доступные имена и описания'
     items:
       - aria-label
@@ -155,12 +160,12 @@ groups:
       - role-separator
       - role-tooltip
       - role-menu
+      - role-menubar
       - role-menuitem
       - role-menuitemcheckbox
-      - role-button
-      - role-menubar
-      - role-link
       - role-menuitemradio
+      - role-button
+      - role-link
       - role-checkbox
       - role-tablist
       - role-tab
