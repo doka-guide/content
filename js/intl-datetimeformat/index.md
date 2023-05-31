@@ -228,7 +228,7 @@ for (const part of parts) {
 
 У объекта [`Date`](/js/date) есть метод [`toISOString()`](/js/date/#avtokorrekciya-daty), который возвращает строку в [расширенном ISO формате](https://www.iso.org/iso-8601-date-and-time-format.html) - `YYYY-MM-DDTHH:mm:ss.sssZ`. Часовой пояс всегда равен UTC, что обозначено суффиксом "Z".
 
-Но `Intl.DateTimeFormat` почему-то не позволяет выбрать в качестве формата `iso8601`. Код, приведенный ниже, упадет с ошибкой:
+Но `Intl.DateTimeFormat` почему-то не позволяет выбрать в качестве формата `iso8601`. Код, приведённый ниже, упадёт с ошибкой:
 
 ```js
 const date = new Date();
