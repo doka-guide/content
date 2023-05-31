@@ -14,23 +14,29 @@
     }
 
     body {
-      background-color: #ffd829;
-      color: #000000;
+      background-color: #18191c;
       font-family: "Roboto", sans-serif;
     }
 
-    .element {
+    header {
+      background-color: #2e9aff;
+    }
+
+    .container {
       width: 85%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 40px 0;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 25px;
     }
 
     .menu-list {
       display: flex;
+      flex-wrap: wrap;
       text-transform: uppercase;
       list-style: none;
     }
@@ -40,7 +46,7 @@
     }
 
     .menu-list__item:hover {
-      color: #d04d4d;
+      color: #ffffff;
     }
 
     .menu-list__link {
@@ -48,29 +54,41 @@
       text-decoration: none;
       transition: color 0.15s;
     }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 0;
+      }
+
+      .menu-list {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="element">
-    <a href="#" class="logo">
-      <img src="images/logo.png" alt="Company logo">
-    </a>
-    <nav class="menu">
-      <ul class="menu-list">
-        <li class="menu-list__item">
-          <a href="#" class="menu-list__link">Главная</a>
-        </li>
-        <li class="menu-list__item">
-          <a href="#" class="menu-list__link">О компании</a>
-        </li>
-        <li class="menu-list__item">
-          <a href="#" class="menu-list__link">Проекты</a>
-        </li>
-        <li class="menu-list__item">
-          <a href="#" class="menu-list__link">Контакты</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <header>
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="images/logo.png" alt="Company logo">
+      </a>
+      <nav class="menu">
+        <ul class="menu-list">
+          <li class="menu-list__item">
+            <a href="#" class="menu-list__link">Главная</a>
+          </li>
+          <li class="menu-list__item">
+            <a href="#" class="menu-list__link">О компании</a>
+          </li>
+          <li class="menu-list__item">
+            <a href="#" class="menu-list__link">Проекты</a>
+          </li>
+          <li class="menu-list__item">
+            <a href="#" class="menu-list__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 </body>
 </html>
