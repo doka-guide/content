@@ -1,8 +1,8 @@
 ---
 title: "Intl.DateTimeFormat"
-description: "объект для форматирования даты и времени с учётом локали"
+description: "Объект для форматирования даты и времени с учётом локали"
 authors:
-  - AntonGorelov
+  - antongorelov
 related:
   - "js/date"
 tags:
@@ -11,7 +11,7 @@ tags:
 
 ## Кратко
 
-`Intl.DateTimeFormat` - объект, содержащий функции форматирования даты и времени с учётом локали.
+`Intl.DateTimeFormat` — объект, содержащий функции форматирования даты и времени с учётом локали.
 
 Включает следующие параметры:
 
@@ -20,13 +20,13 @@ tags:
 
 ## Как понять
 
-Форматирование объекта [`Date`](/js/date) — настоящая головная боль. Если есть такая задача, этот встроенный объект позволяет отображать дату в нужном формате, не подключая дополнительные библиотеки.
+Форматирование объекта [`Date`](/js/date) — настоящая головная боль. Чтобы красиво отображать дату и время не обязательно подключать тяжеловесные сторонние библиотеки. Можно воспользоваться встроенным объектом `Intl.DateTimeFormat`.
 
-Также этот способ поддерживается всеми современными браузерами.
+Этот способ форматирования поддерживается всеми современными браузерами.
 
 ## Пример
 
-Создадим экземпляр даты и на его основе рассмотрим несколько способов форматирования.
+Отобразим дату несколькими способами:
 
 ```js
 const date = new Date(Date.UTC(2020, 11, 20, 3, 23, 16, 738));
@@ -45,7 +45,7 @@ console.log(new Intl.DateTimeFormat("ru", {
   year: "2-digit",
   month: "long",
   day: "numeric"}).format(date))
-// сб, 5 апреля 14 г.
+// вс, 20 декабря 20 г.
 ```
 
 Укажем формат даты и времени, используя параметр style (full, long, medium, short):
@@ -57,16 +57,19 @@ console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'lo
 
 ## Как пишется
 
-`new Intl.DateTimeFormat([locales[, options]])`
+```js
+// создание экземпляра
+const formattedDate = new Intl.DateTimeFormat('ru').format(date);
+```
 
 ### Опции
 
-- `timeZone` - значение часового пояса: `UTC`, `America/New_York`, `Europe/Paris` и т.д.
-- `calendar` - значение выбранного календаря: `chinese`, `gregory`, `indian` и т.д.
-- `numberingSystem` - используемая система счисления: `arab`, `beng`, `latin` и т.д.
-- `localeMatcher` - алгоритм для согласования выбранной локали:
-  - `lookup` - поиск следует алгоритму поиска, определённому в [BCP 47](https://tools.ietf.org/html/rfc4647#section-3.4),
-  - `best fit` - (наилучший подходящий) позволяет среде выполнения выбрать локаль.
+- `timeZone` — значение часового пояса: `UTC`, `America/New_York`, `Europe/Paris` и т.д.
+- `calendar` — значение выбранного календаря: `chinese`, `gregory`, `indian` и т.д.
+- `numberingSystem` — используемая система счисления: `arab`, `beng`, `latin` и т.д.
+- `localeMatcher` — алгоритм для согласования выбранной локали:
+  - `lookup` — поиск следует алгоритму поиска, определённому в [BCP 47](https://tools.ietf.org/html/rfc4647#section-3.4),
+  - `best fit` — (наилучший подходящий) позволяет среде выполнения выбрать локаль.
 - `formatMatcher` алгоритм для форматирования: basic, best fit.
 - `hour12` если имеет значение true, используется 12-часовой формат.
 - `hourCycle` часовой формат: h11, h12, h23, h24.
@@ -85,7 +88,7 @@ console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'lo
 
 ### Методы
 
-`Intl.DateTimeFormat.prototype.format()` - геттер, который форматирует дату, в соответствии с языковым стандартом и параметрами форматирования этого объекта DateTimeFormat. Возвращает текущую дату в кратком виде (`dateStyle: short`).
+`Intl.DateTimeFormat.format()` — геттер, который форматирует дату, в соответствии с языковым стандартом и параметрами форматирования этого объекта DateTimeFormat. Возвращает текущую дату в кратком виде (`dateStyle: short`) в виде строки.
 
 ```js
 const date = Date.now();
@@ -106,11 +109,13 @@ formatter.format(date);
 // суббота, 27.05.2023 г., 10:55:18 PM
 ```
 
-`Intl.DateTimeFormat.prototype.formatToParts()` - форматирует передаваемую строку по частям с учётом `DateTimeFormat`. Возвращает массив объектов, представляющих строку даты в частях, которые можно использовать для настраиваемого форматирования с учётом локали.
+`Intl.DateTimeFormat.formatToParts()` — форматирует передаваемую строку по частям с учётом `DateTimeFormat`. Возвращает массив объектов, представляющих строку даты в частях, которые можно использовать для настраиваемого форматирования с учётом локали.
 
 ```js
 formatter.formatToParts(date);
 ```
+
+В консоли мы получим следующее:
 
 ```js
 [
@@ -132,7 +137,7 @@ formatter.formatToParts(date);
 ]
 ```
 
-`Intl.DateTimeFormat.prototype.resolvedOptions()` - возвращает новый объект со свойствами, отражающими локаль и параметры форматирования, которые вычислены при инициализации объекта.
+`Intl.DateTimeFormat.prototype.resolvedOptions()` — возвращает новый объект со свойствами, отражающими локаль и параметры форматирования, которые вычислены при инициализации объекта.
 
 ```js
 {
@@ -152,7 +157,7 @@ formatter.formatToParts(date);
 }
 ```
 
-`Intl.DateTimeFormat.prototype.formatRange()` -
+`Intl.DateTimeFormat.prototype.formatRange()` —
 получает две даты и форматирует диапазон дат наиболее кратким образом на основе языкового стандарта и параметров, предоставленных при создании экземпляра `DateTimeFormat`.
 
 ```js
@@ -171,7 +176,7 @@ console.log(fmt1.formatRange(date1, currentDate));
 // 1/10/18, 1:00 PM – 5/28/23, 2:08 AM
 ```
 
-`Intl.DateTimeFormat.prototype.formatRangeToParts()` -
+`Intl.DateTimeFormat.prototype.formatRangeToParts()` —
 получает две даты и возвращает массив объектов, содержащих токены, зависящие от языкового стандарта, представляющие каждую часть отформатированного диапазона дат. Возвращает формат, аналогичный `formatToParts(date)`.
 
 ```js
@@ -188,6 +193,8 @@ for (const part of parts) {
   console.log(part);
 }
 ```
+
+В консоли мы получим следующее:
 
 ```js
 [
@@ -219,9 +226,9 @@ for (const part of parts) {
 
 ### Преобразование в ISO формат
 
-Объект [`Date`](/js/date) содержит метод [`toISOString()`](/js/date/#avtokorrekciya-daty), который возвращает строку в формате ISO (расширенный формат [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)), который можно описать следующим образом: `YYYY-MM-DDTHH:mm:ss.sssZ`. Часовой пояс всегда равен UTC, что обозначено суффиксом "Z".
+У объекта [`Date`](/js/date) есть метод [`toISOString()`](/js/date/#avtokorrekciya-daty), который возвращает строку в [расширенном ISO формате](https://www.iso.org/iso-8601-date-and-time-format.html) - `YYYY-MM-DDTHH:mm:ss.sssZ`. Часовой пояс всегда равен UTC, что обозначено суффиксом "Z".
 
-Объект `Intl.DateTimeFormat` не содержит подобного метода. При попытке указать формат `iso8601` возникает следующая ошибка:
+Но `Intl.DateTimeFormat` почему-то не позволяет выбрать в качестве формата `iso8601`. Код, приведенный ниже, упадет с ошибкой:
 
 ```js
 const date = new Date();
@@ -237,9 +244,9 @@ const isoDate = new Intl.DateTimeFormat(['iso8601'], options).format(date);
 
 Почему возникает такая ошибка, а объект не позволяет конвертировать в нужный формат?
 
-Идея, реализуемая Intl, в том, чтобы вернуть дату в формате, который соответствует условиям указанной локали. Intl не предоставляет способа указать определённые шаблоны форматирования. Другими словами, формат [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) не соответствует какой-либо конкретной локали.
+Дело в том, что Intl работает только с локалью. Так как в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) нет никакой локали, то и отформатировать его не получится.
 
-Следовательно, преобразовать можно вручную.
+Но, можно преобразовать вручную:
 
 ```js
 const date = new Date();
