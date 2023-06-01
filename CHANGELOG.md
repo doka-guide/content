@@ -2,6 +2,14 @@
 
 <!-- yaspeller ignore:start -->
 
+## Май 2023
+
+- 29 мая, [`alert`](https://doka.guide/a11y/role-alert/), Александр Ламков
+- 18 мая, [`alertdialog`](https://doka.guide/a11y/role-alertdialog/), Роман Агарков
+- 17 мая, [`aria-details`](https://doka.guide/a11y/aria-details/), Татьяна Фокина
+- 7 мая, [Выравниваем элемент по центру экрана](https://doka.guide/recipes/center/), Алёна Батицкая
+- 4 мая, [`dialog`](https://doka.guide/a11y/role-dialog/), Роман Агарков
+
 ## Апрель 2023
 
 - 28 апреля, [Как устроена память](https://doka.guide/tools/trivial-memory-model/), Полина Гуртовая
