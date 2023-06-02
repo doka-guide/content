@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/keyframes
-  - css/attr
-  - tools/agile
-  - css/flexbox-guide
+  - a11y/screenreaders
   - tools/oop
-  - tools/clean-architecture
-  - css/specificity
-  - tools/network
-  - tools/static-types
-  - a11y/aria-hidden
-  - html/flow
+  - a11y/aria-intro
   - css/box-shadow
-  - tools/how-to-test-and-why
-  - css/custom-properties
-  - tools/docker
-  - html/div
-  - css/position
+  - tools/clean-architecture
+  - js/deal-with-forms
+  - css/keyframes
+  - js/var-let
   - tools/webpack
-  - html/head
-  - css/pseudoelements
-  - js/infinite-scroll
-  - css/display
+  - css/grid-guide
+  - js/function-context
+  - tools/how-to-test-and-why
+  - css/box-model
   - js/async-in-js
-  - css/transform-function
+  - tools/markdown
   - tools/cli
-  - html/img
-  - html/doctype
-  - tools/how-the-browser-creates-pages
+  - tools/network
+  - recipes/snow
   - js/function
-  - tools/gitlab-ci-cd
+  - tools/static-types
   - tools/bundlers
   - js/boolean
-  - js/closures
-  - css/box-model
-  - html/form
-  - a11y/aria-intro
-  - js/function-context
-  - recipes/lets-encrypt-nginx
-  - a11y/screenreaders
-  - tools/ci-cd
-  - recipes/progress
-  - css/grid-guide
-  - js/var-let
-  - html/video
-  - js/execution-order
+  - css/position
+  - tools/agile
   - html/section
+  - html/form
+  - a11y/aria-hidden
+  - html/doctype
   - css/media
-  - html/input
+  - js/infinite-scroll
+  - recipes/progress
+  - tools/how-the-browser-creates-pages
+  - css/transform-function
+  - tools/gitlab-ci-cd
+  - html/head
+  - css/flexbox-guide
   - html/nav
-  - js/deal-with-forms
+  - recipes/lets-encrypt-nginx
+  - html/div
   - html/article
-  - recipes/snow
-  - tools/markdown
+  - html/img
+  - html/input
+  - js/closures
+  - css/pseudoelements
+  - html/flow
+  - css/display
+  - tools/docker
+  - css/specificity
+  - css/custom-properties
+  - js/execution-order
+  - html/video
+  - tools/ci-cd
+  - css/attr
 ---
 
