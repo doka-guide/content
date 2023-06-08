@@ -13,6 +13,9 @@ groups:
       - lets-encrypt-nginx
       - self-hosted-preview
       - short-links
+  - name: 'На клиентской стороне'
+    items:
+      - array-filling
   - name: 'Рутина'
     items:
       - font-script
