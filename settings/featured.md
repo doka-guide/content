@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - a11y/screenreaders
-  - tools/oop
-  - a11y/aria-intro
-  - css/box-shadow
-  - tools/clean-architecture
-  - js/deal-with-forms
-  - css/keyframes
-  - js/var-let
-  - tools/webpack
-  - css/grid-guide
-  - js/function-context
-  - tools/how-to-test-and-why
-  - css/box-model
-  - js/async-in-js
-  - tools/markdown
-  - tools/cli
-  - tools/network
-  - recipes/snow
   - js/function
-  - tools/static-types
+  - html/form
+  - css/media
+  - html/img
+  - tools/agile
+  - tools/how-to-test-and-why
+  - html/input
+  - tools/webpack
+  - recipes/progress
+  - tools/clean-architecture
+  - tools/docker
+  - js/function-context
   - tools/bundlers
   - js/boolean
-  - css/position
-  - tools/agile
-  - html/section
-  - html/form
-  - a11y/aria-hidden
-  - html/doctype
-  - css/media
-  - js/infinite-scroll
-  - recipes/progress
-  - tools/how-the-browser-creates-pages
-  - css/transform-function
-  - tools/gitlab-ci-cd
-  - html/head
-  - css/flexbox-guide
-  - html/nav
   - recipes/lets-encrypt-nginx
-  - html/div
-  - html/article
-  - html/img
-  - html/input
-  - js/closures
-  - css/pseudoelements
+  - html/nav
+  - js/infinite-scroll
+  - css/grid-guide
   - html/flow
   - css/display
-  - tools/docker
-  - css/specificity
-  - css/custom-properties
-  - js/execution-order
+  - css/position
+  - html/doctype
+  - css/transform-function
+  - a11y/aria-intro
   - html/video
+  - tools/cli
+  - css/flexbox-guide
+  - css/pseudoelements
+  - recipes/snow
+  - css/specificity
+  - html/div
+  - css/custom-properties
+  - tools/how-the-browser-creates-pages
+  - js/deal-with-forms
+  - html/article
+  - tools/network
+  - js/closures
+  - tools/oop
+  - tools/gitlab-ci-cd
+  - html/section
+  - css/box-shadow
+  - html/head
+  - css/box-model
+  - css/keyframes
   - tools/ci-cd
+  - a11y/aria-hidden
+  - js/var-let
+  - tools/static-types
   - css/attr
+  - tools/markdown
+  - js/async-in-js
+  - js/execution-order
+  - a11y/screenreaders
 ---
 
