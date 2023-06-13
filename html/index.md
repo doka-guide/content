@@ -20,6 +20,7 @@ groups:
       - blockquote
       - q
       - br
+      - wbr
       - hr
       - b
       - i
