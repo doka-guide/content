@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Пример c экранами — <wbr> — Дока</title>
+  <title>Пример c разными экранами — <wbr> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +22,7 @@
 
     body {
       min-height: 100vh;
+      min-height: 100dvh;
       padding: 50px;
       display: flex;
       align-items: center;
@@ -91,11 +91,9 @@
 
 <body>
   <div class="container">
-    <div class="comment">Вот тут переносы расставлены с помощью <b>&lt;wbr&gt;</b></div>
-    </br>
+    <p class="comment">Вот тут переносы расставлены с помощью <code><b>&lt;wbr&gt;</b></code></p>
 
     <div class="screens-container">
-
       <div class="frame" style="margin-right: 10px;">
         <div class="wrapper screen1">
           <p>
@@ -116,14 +114,9 @@
 
     </div>
 
-    <!--  -->
-    <br>
-    <br>
-    <div class="comment">Здесь через <b>&lt;br&gt;</b></div>
-    </br>
+    <p class="comment">Здесь через <code><b>&lt;br&gt;</b></code></p>
 
     <div class="screens-container">
-
       <div class="frame" style="margin-right: 10px;">
         <div class="wrapper screen1">
           <p>
@@ -143,11 +136,8 @@
       </div>
 
     </div>
-    <!--  -->
-    <br>
-    <br>
-    <div class="comment">А в этом вообще нет переносов</div>
-    </br>
+
+    <p class="comment">А в этом вообще нет переносов</p>
 
     <div class="screens-container">
 
