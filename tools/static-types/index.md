@@ -39,8 +39,6 @@ tags:
 
 TypeScript — это язык, очень похожий на JavaScript. Браузеры и Node.js не могут выполнять TypeScript, поэтому его необходимо преобразовать в JavaScript.
 
-Современные системы сборки умеют работать с TypeScript: [Parcel](https://parceljs.org/languages/typescript/) поддерживает его без дополнительных манипуляций, для [Webpack](https://webpack.js.org/guides/typescript/) и [Rollup](https://rollupjs.org/) есть плагины. Их объединяет одно — необходимо создать конфигурационный файл _tsconfig.json_, который опишет, как превратить TypeScript-код в JavaScript-код. [Правила создания файла _tsconfig_.json_](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) описаны на сайте TypeScriptLang.org.
-
 Современные системы сборки умеют работать с TypeScript: [Vite](https://vitejs.dev/guide/features.html#typescript) и [Parcel](https://parceljs.org/languages/typescript/) поддерживают его из коробки, в [Webpack](https://webpack.js.org/guides/typescript/) и [Rollup](https://rollupjs.org/) нужно будет добавить дополнительные плагины или лоадеры. Настройки TypeScript задаются в специальном файле - _tsconfig.json_. [Структура файла _tsconfig_.json_](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) описана на сайте TypeScriptLang.org.
 
 ```json
