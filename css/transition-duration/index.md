@@ -1,10 +1,8 @@
 ---
 title: "`transition-duration`"
+description: "За какое время элемент изменится?"
 authors:
   - ezhkov
-keywords:
-  - transition-duration
-  - transition
 tags:
   - doka
 ---

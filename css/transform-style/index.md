@@ -1,11 +1,11 @@
 ---
 title: "`transform-style`"
+description: "Будут ли дочерние элементы трансформаироваться вместе с родителем?"
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
-  - трансформация
   - preserve-3d
 tags:
   - doka

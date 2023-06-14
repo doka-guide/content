@@ -1,5 +1,6 @@
 ---
 title: "Цвета в вебе"
+description: "Разные способы указания цвета в CSS."
 authors:
   - solarrust
 keywords:

@@ -9,7 +9,6 @@ related:
   - html/svg
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко

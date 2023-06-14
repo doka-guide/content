@@ -1,5 +1,6 @@
 ---
 title: "`writing-mode`"
+description: "«Зеркалим» сайт: блоки и текст пишутся не слева направо, а справа налево."
 authors:
   - doka-dog
 keywords:

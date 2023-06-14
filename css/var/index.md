@@ -1,10 +1,9 @@
 ---
 title: "`var()`"
+description: "Функция для использования кастомных свойств в CSS."
 authors:
   - frontend-sensei
 keywords:
-  - var
-  - функция
   - кастомное свойство
 tags:
   - doka
@@ -46,7 +45,7 @@ CSS-функция `var()` позволяет подставлять [касто
 - Если да, подставит вместо `var()` и остановит поиск.
 - Если нет, переходит на родительский элемент и повторяет проверку.
 
-Браузер будет подниматься вверх по родительским элементам до тех пор пока не найдёт значение. Последней точкой будет проверка наличия значения в `:root`. Если его нет и там, то функция `var()` установит значение в `initial` или резервное значение если он передано.
+Браузер будет подниматься вверх по родительским элементам до тех пор пока не найдёт значение. Последней точкой будет проверка наличия значения в [`:root`](/css/root/). Если его нет и там, то функция `var()` установит значение в `initial` или резервное значение если он передано.
 
 </details>
 
@@ -66,7 +65,7 @@ CSS-функция `var()` позволяет подставлять [касто
 }
 ```
 
-Изменим кастомное свойство с помощью JavaScript:
+Изменим кастомное свойство с помощью [`.setProperty()`](/js/element-set-property/) в JavaScript:
 
 ```js
 document.documentElement.style.setProperty('--card-color', 'orange')
@@ -93,7 +92,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-Значение `padding` будет `10px`, если `--card-padding` не определено.
+Значение [`padding`](/css/padding/) будет `10px`, если `--card-padding` не определено.
 
 Можно указать несколько резервных значений. Для этого вторым аргументом нужно передать функцию `var()` с возможными значениями:
 
@@ -103,7 +102,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-Значение `font-size` будет `20px`, если `--font-size` и `--title-font-size` не определены.
+Значение [`font-size`](/css/font-size/) будет `20px`, если `--font-size` и `--title-font-size` не определены.
 
 ### Резервное значение
 
@@ -139,7 +138,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-В этом примере кастомное свойство `--text-color` имеет значение `16px`, что технически является валидным. Но, когда браузер подставляет значение `--text-color` вместо `var(--text-color)`, он пытается использовать значение `16px`, которое не является допустимым значением для свойства `color`.
+В этом примере кастомное свойство `--text-color` имеет значение `16px`, что технически является валидным. Но, когда браузер подставляет значение `--text-color` вместо `var(--text-color)`, он пытается использовать значение `16px`, которое не является допустимым значением для свойства [`color`](/css/color/).
 
 Браузер рассматривает его как недопустимое значение и проверяет, наследуется ли свойство `color` от родительского элемента. Если да, он его использует. В противном случае устанавливает значение `initial`.
 
@@ -156,7 +155,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-Функция `var()` также работает с сокращёнными свойствами: `margin`, `padding`, `border`, `background`, `transform`, `transition` и т. д.
+Функция `var()` также работает с сокращёнными свойствами: [`margin`](/css/margin/), `padding`, [`border`](/css/border/), [`background`](/css/background/), [`transform`](/css/transform/), [`transition`](/css/transition/) и т. д.
 
 Можно использовать для подставки как одного значения:
 
@@ -220,7 +219,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 
 Также работает с такими функциями:
 
-`calc()`
+[`calc()`](/css/calc/)
 
 ```css
 .element-1 {
@@ -255,7 +254,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-`linear-gradient()` и `radial-gradient()`
+[`linear-gradient()`](/css/linear-gradient/) и [`radial-gradient()`](/css/radial-gradient/)
 
 ```css
 :root {
@@ -270,7 +269,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 ```
 
-`url()`
+[`url()`](/css/url/)
 
 ```css
 :root {

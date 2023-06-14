@@ -1,5 +1,6 @@
 ---
 title: "`white-space`"
+description: "Решаем, будет ли текст переноситься по пробелам или нет."
 authors:
   - ezhkov
 contributors:

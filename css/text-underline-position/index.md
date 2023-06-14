@@ -1,5 +1,6 @@
 ---
 title: "`text-underline-position`"
+description: "Будет ли декоративная линия пересикать хвостик у буквы У?"
 authors:
   - doka-dog
 keywords:

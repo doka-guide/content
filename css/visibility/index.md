@@ -1,5 +1,6 @@
 ---
 title: "`visibility`"
+description: "Свойство чтобы спрятать элемент."
 authors:
   - solarrust
 contributors:

@@ -1,5 +1,6 @@
 ---
 title: "`transition-delay`"
+description: "Откладываем изменение элемента на некоторое время."
 authors:
   - ezhkov
 contributors:

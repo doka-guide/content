@@ -1,5 +1,6 @@
 ---
 title: "`text-underline-offset`"
+description: "Двигаем линию подчёркивания как нам угодно."
 authors:
   - doka-dog
 keywords:

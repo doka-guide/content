@@ -1,5 +1,6 @@
 ---
 title: "`widows`"
+description: "Сколько строчек переносим на новую страницу при печати?"
 authors:
   - doka-dog
 tags:

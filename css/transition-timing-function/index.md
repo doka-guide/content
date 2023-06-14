@@ -1,5 +1,6 @@
 ---
 title: "`transition-timing-function`"
+description: "Будет ли элемент меняться линейно или более причудливо?"
 authors:
   - ezhkov
 keywords:

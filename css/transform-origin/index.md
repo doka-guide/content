@@ -1,12 +1,12 @@
 ---
 title: "`transform-origin`"
+description: "«Точка опоры» для применения трансформаций к элементу."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
-  - трансформация
-  - точка
+  - точка трансформации
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "`transition`"
+description: "Меняем состояние элемента плавно, а не резко."
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

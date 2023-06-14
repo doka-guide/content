@@ -9,7 +9,6 @@ related:
   - css/position-sticky
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко

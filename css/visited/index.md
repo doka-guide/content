@@ -1,5 +1,6 @@
 ---
 title: "`:visited`"
+description: "Подсвечиваем ссылки, по которым пользователь уже ходил."
 authors:
   - solarrust
 contributors:
@@ -7,8 +8,6 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - :visited
-  - псевдокласс
   - LVFHA
 tags:
   - doka
@@ -97,12 +96,12 @@ li .link:visited {
 - [`color`](/css/color/),
 - [`background-color`](/css/background-color/),
 - [`border-color`](/css/border-color/),
-- `border-bottom-color`,
-- `border-left-color`,
-- `border-right-color`,
-- `border-top-color`,
+- `border-bottom-color` или `border-block-end-color`,
+- `border-left-color` или `border-inline-start-color`,
+- `border-right-color` или `border-inline-end-color`,
+- `border-top-color` или `border-block-start-color`,
 - [`outline-color`](/css/outline-color/),
-- `column-rule-color`,
+- [`column-rule-color`](/css/column-rule-color/),
 - [`fill`](/css/fill/),
 - [`stroke`](/css/stroke/).
 

@@ -1,11 +1,10 @@
 ---
 title: "`text-transform`"
+description: "Превращаем текст из маленьких букв в текст из БОЛЬШИХ букв."
 authors:
   - solarrust
 contributors:
   - skorobaeus
-keywords:
-  - text-transform
 tags:
   - doka
 ---

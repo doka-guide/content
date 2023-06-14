@@ -1,10 +1,8 @@
 ---
 title: "`transition-property`"
+description: "Указываем точно, какое свойство будет меняться плавно."
 authors:
   - ezhkov
-keywords:
-  - transition
-  - transition-property
 tags:
   - doka
 ---

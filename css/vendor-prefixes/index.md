@@ -1,5 +1,6 @@
 ---
 title: "Вендорные префиксы"
+description: "Специальная запись CSS-свойств на этапе эксперимента."
 authors:
   - solarrust
 editors:

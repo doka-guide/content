@@ -1,10 +1,10 @@
 ---
 title: "`will-change`"
+description: "Заранее сообщаем браузеру, какие свойства у элементов будут меняться."
 authors:
   - madey-kv
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
