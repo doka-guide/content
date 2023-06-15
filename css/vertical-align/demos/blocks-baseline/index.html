@@ -5,11 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
       min-width: 350px;
       margin: 0;
       padding: 75px 0;
-      background: url("../../images/background.png") #1a5ad7
+      background: url('../../images/background.png') #1a5ad7
       top center;
       text-align: center;
     }
@@ -24,12 +36,12 @@
 
     .element {
       display: inline-block;
-      width: 50px;
+      inline-size: 50px;
       background-color: #ffffff;
     }
 
     .element + .element {
-      margin-left: 50px;
+      margin-inline-start: 50px;
     }
 
     .small {

@@ -9,15 +9,27 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
   <style>
     :root {
-      --card-color: lightblue;
+      --card-color: purple;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     html {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f7f7f7;
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 5%;
+      color: #ffffff;
+      font-size: 24px;
+      background-color: #18191C;
     }
 
     body,
@@ -29,7 +41,7 @@
       background-color: var(--card-color);
       padding: 1rem;
       border-radius: 1rem;
-      margin-bottom: 1rem;
+      margin-block-end: 1rem;
       transition: background-color 0.2s ease-in-out;
     }
 
@@ -37,20 +49,41 @@
       cursor: pointer;
     }
 
+    label + label {
+      margin-inline-start: 2rem;
+    }
+
+    input {
+      margin: 0;
+      accent-color: var(--card-color);
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+      vertical-align: middle;
+    }
+
     @media (max-width: 350px) {
       .card {
         padding: 0.5rem;
         font-size: 14px;
       }
+
+      label {
+        display: block;
+      }
+
+      label + label {
+        margin-inline-start: 0;
+        margin-block-start: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-
+<div class="wrapper">
   <div class="card">
 
 <pre><code class="code">:root {
-  --color: lightblue;
+  --color: purple;
 }</code><code>
 
 .card {
@@ -58,20 +91,21 @@
 }</code></pre>
 
   </div>
-  <label for="color-lightblue">
-    <input type="radio" id="color-lightblue" name="card-color" value="lightblue" checked>
-    Синий
+  <label for="color-purple">
+    <input type="radio" id="color-purple" name="card-color" value="purple" checked>
+    Фиолетовый
   </label>
-  <label for="color-orange">
-    <input type="radio" id="color-orange" name="card-color" value="orange">
-    Оранжевый
+  <label for="color-midnightblue">
+    <input type="radio" id="color-midnightblue" name="card-color" value="midnightblue">
+    Тёмно-синий
   </label>
+</div>
 
   <script>
     const code = document.querySelector('.code')
 
-    document.getElementById('color-lightblue').addEventListener('change', setColor)
-    document.getElementById('color-orange').addEventListener('change', setColor)
+    document.getElementById('color-purple').addEventListener('change', setColor)
+    document.getElementById('color-midnightblue').addEventListener('change', setColor)
 
     function setColor(event) {
       const color = event.target.value

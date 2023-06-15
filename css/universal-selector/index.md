@@ -8,6 +8,10 @@ editors:
 keywords:
   - звёздочка
   - лоботомированная сова
+related:
+  - css/class-selector
+  - css/specificity
+  - css/selector-list
 tags:
   - doka
 ---

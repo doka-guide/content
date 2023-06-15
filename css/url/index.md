@@ -23,7 +23,7 @@ CSS-функция `url()` вставляет файл с указанной с�
 
 ```css
 div {
-  background-image: url("carpet.png");
+  background-image: url('carpet.png');
 }
 ```
 
@@ -31,8 +31,8 @@ div {
 
 ```css
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+  font-family: 'Roboto Mono';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 }
 ```
 
@@ -46,7 +46,7 @@ div {
 
 ```css
 div {
-  mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
+  mask-image: image(url('mask.png'), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
 }
 ```
 

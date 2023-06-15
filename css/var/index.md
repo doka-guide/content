@@ -5,6 +5,10 @@ authors:
   - frontend-sensei
 keywords:
   - кастомное свойство
+related:
+  - css/custom-properties
+  - css/root
+  - js/element-set-property
 tags:
   - doka
 ---
@@ -53,11 +57,11 @@ CSS-функция `var()` позволяет подставлять [касто
 
 ```css
 :root {
-  --card-color: lightblue;
+  --card-color: purple;
 }
 ```
 
-Зададим цвет фона карточке, используя функцию `var()`. Цвет будет _синий_:
+Зададим цвет фона карточке, используя функцию `var()`. Цвет будет _фиолетовый_:
 
 ```css
 .card {
@@ -68,12 +72,12 @@ CSS-функция `var()` позволяет подставлять [касто
 Изменим кастомное свойство с помощью [`.setProperty()`](/js/element-set-property/) в JavaScript:
 
 ```js
-document.documentElement.style.setProperty('--card-color', 'orange')
+document.documentElement.style.setProperty('--card-color', 'midnightblue')
 ```
 
-Теперь там, где установлен цвет фона, функция `var()` вернёт _оранжевый_ цвет.
+Теперь там, где установлен цвет фона, функция `var()` вернёт _тёмно-синий_ цвет.
 
-<iframe title="Подмена значения кастомного свойства" src="demos/substitution/" height="300"></iframe>
+<iframe title="Подмена значения кастомного свойства" src="demos/substitution/" height="500"></iframe>
 
 ## Как пишется
 
@@ -242,7 +246,7 @@ document.documentElement.style.setProperty('--card-color', 'orange')
 }
 
 .element-2 {
-  --rgb: 0, 0, 0;
+  --rgb: 0 0 0;
   color: rgb(var(--rgb));
 }
 

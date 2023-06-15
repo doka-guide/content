@@ -9,6 +9,10 @@ keywords:
   - css vendor prefixes
   - browser prefixes
   - браузерные префиксы
+related:
+  - tools/how-the-browser-creates-pages
+  - css/appearance
+  - css/cascade
 tags:
   - article
 ---
@@ -98,9 +102,9 @@ input::placeholder {
 
 ```css
 div {
-  background-image: url("image.png");
-  background-image: -webkit-image-set(url("image.png") 1x, url("image-2x.png") 2x);
-  background-image: image-set("image.png" 1x, "image-2x.png" 2x);
+  background-image: url('image.png');
+  background-image: -webkit-image-set(url('image.png') 1x, url('image-2x.png') 2x);
+  background-image: image-set('image.png' 1x, 'image-2x.png' 2x);
 }
 ```
 
