@@ -3,6 +3,8 @@ title: "`top`, `left`, `right`, `bottom`"
 description: "Указываем положение позиционированного элемента."
 authors:
   - spheno
+keywords:
+  - inset
 related:
   - css/position
   - css/z-index

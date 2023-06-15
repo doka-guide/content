@@ -6,6 +6,10 @@ authors:
 keywords:
   - положение подчёркивания
   - положение декоративной линии
+related:
+  - css/text-decoration
+  - html/a
+  - css/ text-decoration-skip-ink
 tags:
   - doka
   - placeholder

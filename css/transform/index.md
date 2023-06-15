@@ -5,6 +5,10 @@ authors:
   - ezhkov
 contributors:
   - skorobaeus
+related:
+  - css/will-change
+  - css/transition
+  - css/perspective
 tags:
   - doka
 ---
