@@ -102,7 +102,7 @@ tags:
 Как будет выглядеть двойное перечёркивание:
 
 ```css
-selector {
+p {
   text-decoration: line-through double;
 }
 ```
@@ -120,7 +120,7 @@ selector {
 Например, сделаем двойное подчёркивание красного цвета:
 
 ```css
-selector {
+p {
   text-decoration: underline double #ff0000;
 }
 ```

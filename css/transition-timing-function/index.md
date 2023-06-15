@@ -5,6 +5,10 @@ authors:
   - ezhkov
 keywords:
   - функция времени
+related:
+  - css/animation-timing-function
+  - css/transform-function
+  - css/transition-delay
 tags:
   - doka
 ---

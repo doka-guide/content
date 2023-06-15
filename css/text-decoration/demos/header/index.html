@@ -8,10 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
+    body {
+      block-size: 100%;
     }
 
     body {
@@ -24,16 +35,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 100vh;
+      min-height: 100%;
       padding-top: 65px;
-      box-sizing: border-box;
     }
 
     .header__container_top {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      inset: 0 0 auto 0;
       background-color: #2E9AFF;
     }
 
@@ -41,8 +49,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 50%;
-      min-width: 700px;
+      inline-size: 50%;
+      min-inline-size: 700px;
       margin: 0 auto;
     }
 
@@ -57,18 +65,17 @@
       justify-content: center;
       list-style-type: none;
       margin: 0;
-      padding-left: 0;
+      padding-inline-start: 0;
     }
 
     .list__item + .list__item {
-      margin-left: 40px;
+      margin-inline-start: 40px;
     }
 
     .list__link,
     .list__link:visited {
       display: inline-block; /* делаем элементы строчно-блочными */
-      padding-top: 24px;
-      padding-bottom: 24px;
+      padding-block: 24px;
       text-decoration: none; /* убираем подчеркивание */
       color: #18191c;
       font-weight: 500;
@@ -77,7 +84,7 @@
 
     .list__link:hover {
       padding-bottom: 20px; /* нивелируем размеры рамки */
-      border-bottom: 4px solid #FFFFFF; /* добавляем рамку снизу */
+      border-bottom: 4px solid currentColor; /* добавляем рамку снизу */
       color: #FFFFFF;
     }
 
@@ -91,7 +98,7 @@
       color: #2E9AFF;
       font-size: 25px;
       font-weight: 500;
-      line-height: 30px;
+      line-height: 1.2;
       text-transform: uppercase;
       text-align: center;
     }
@@ -101,7 +108,7 @@
       background-color: #FF8630;
       color: #000000;
       font-size: 55px;
-      line-height: 58px;
+      line-height: 1;
     }
   </style>
 </head>

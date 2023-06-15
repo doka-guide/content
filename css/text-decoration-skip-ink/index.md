@@ -38,7 +38,7 @@ a {
 }
 ```
 
-<iframe title="Примеры свойства text-decoration-skip-ink с нижним подчёркиванием" src="demos/underline/" height="400"></iframe>
+<iframe title="Примеры свойства text-decoration-skip-ink с нижним подчёркиванием" src="demos/underline/" height="550"></iframe>
 
 ```css
 a {
@@ -46,7 +46,7 @@ a {
 }
 ```
 
-<iframe title="Примеры свойства text-decoration-skip-ink с верхним подчёркиванием" src="demos/overline/" height="400"></iframe>
+<iframe title="Примеры свойства text-decoration-skip-ink с верхним подчёркиванием" src="demos/overline/" height="550"></iframe>
 
 ## Подсказки
 

@@ -7,8 +7,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      gap: 35px;
       margin: 0;
       padding: 5%;
       background-color: #18191c;
@@ -24,16 +42,11 @@
       font-size: 18px;
     }
 
-    p + p {
-      margin-top: 35px;
-    }
-
     p::after {
       content: "text-decoration-thickness: "attr(data-size);
       position: absolute;
-      left: 30px;
-      top: -13px;
-      display: block;
+      inset-inline-start: 30px;
+      inset-block-start: -13px;
       padding: 5px 10px;
       font-size: 0.8em;
       font-family: monospace;

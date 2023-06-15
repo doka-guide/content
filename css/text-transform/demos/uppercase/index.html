@@ -14,19 +14,26 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      min-height: 100lvh;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     .container {
-      width: 65%;
+      inline-size: 65%;
       padding: 55px 40px;
       background-color: #2e9aff;
       color: #000000;
@@ -39,7 +46,7 @@
     }
 
     .meaning {
-      margin-top: 10px;
+      margin-block-start: 10px;
     }
 
     @media (max-width: 768px) {
@@ -48,7 +55,7 @@
       }
 
       .container {
-        width: 100%;
+        inline-size: 100%;
         padding: 55px 30px;
       }
 

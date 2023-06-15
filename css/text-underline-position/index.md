@@ -9,7 +9,7 @@ keywords:
 related:
   - css/text-decoration
   - html/a
-  - css/ text-decoration-skip-ink
+  - css/text-decoration-skip-ink
 tags:
   - doka
   - placeholder

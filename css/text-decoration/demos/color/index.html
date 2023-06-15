@@ -9,19 +9,26 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
       padding: 50px;
       background-color: #18191c;
       color: #FFFFFF;
@@ -37,23 +44,22 @@
 
     p {
       position: relative;
-      max-width: 900px;
-      margin-top: 30px;
-      padding-left: 320px;
+      max-inline-size: 900px;
+      margin-block-start: 30px;
+      padding-inline-start: 320px;
+      transition: text-decoration-color 0.3s;
     }
 
     p::before {
       content: attr(class);
       position: absolute;
-      left: 0;
-      bottom: 0;
-      display: block;
+      inset: 0;
       font-size: 17px;
     }
 
     h1, p::before {
-      width: 320px;
-      padding-right: 50px;
+      inline-size: 320px;
+      padding-inline-end: 50px;
       font-family: "Roboto Mono", monospace;
       text-align: right;
     }
@@ -108,18 +114,18 @@
       }
 
       h1, p::before {
-        width: 230px;
+        inline-size: 230px;
       }
 
       p {
-        padding-left: 230px;
+        padding-inline-start: 230px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>text-decoration</h1>
+    <h1><code>text-decoration</code></h1>
     <p class="none">К диакритикам прибегают в случае, если букв алфавита не хватает для передачи звуков речи или же для смыслоразличения. </p>
     <p class="underline dotted blue">Дополнение подчёркивается пунктирной линией. Это второстепенный член предложения.</p>
     <p class="line-through double pink">Эпанортозис (рус. поправление) — фигура речи.</p>

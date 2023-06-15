@@ -7,6 +7,10 @@ contributors:
   - skorobaeus
 keywords:
   - точка трансформации
+related:
+  - css/perspective
+  - css/backface-visibility
+  - css/will-change
 tags:
   - doka
 ---

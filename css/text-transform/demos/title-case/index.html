@@ -12,11 +12,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100lvh;
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
       margin: 0;
       padding: 50px;
       font-family: "Roboto", sans-serif;
@@ -25,14 +32,14 @@
     }
 
     .parent {
-      width: 65%;
+      inline-size: 65%;
     }
 
     .news {
       background-color: #2e9aff;
       color: #000000;
       padding: 55px 40px;
-      margin-top: 25px;
+      margin-block-start: 25px;
     }
 
     .title {
@@ -66,7 +73,7 @@
       }
 
       .parent {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .news {

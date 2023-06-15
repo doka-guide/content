@@ -7,6 +7,10 @@ contributors:
   - skorobaeus
 keywords:
   - preserve-3d
+related:
+  - css/transform
+  - css/will-change
+  - css/translate
 tags:
   - doka
 ---

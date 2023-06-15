@@ -3,6 +3,10 @@ title: "`transition-property`"
 description: "Указываем точно, какое свойство будет меняться плавно."
 authors:
   - ezhkov
+related:
+  - css/transition
+  - css/animation
+  - css/transform
 tags:
   - doka
 ---

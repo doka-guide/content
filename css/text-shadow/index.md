@@ -24,11 +24,11 @@ tags:
 Добавим нашем заголовку весёлую розовую тень!
 
 ```html
-<h1 class="main-title">Улыбнись!</h1>
+<h1>Улыбнись!</h1>
 ```
 
 ```css
-.main-title {
+h1 {
   text-shadow: 5px 5px #ffe2e7;
 }
 ```

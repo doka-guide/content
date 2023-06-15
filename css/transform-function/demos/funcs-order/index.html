@@ -5,23 +5,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      min-height: 100vh;
+      block-size: 100%;
+    }
+
+    body {
       background-color: #18191c;
     }
 
     .elem {
       position: absolute;
-      left: calc(50% - 150px);
-      top: calc(50% - 150px);
-      width: 200px;
-      height: 200px;
+      inset-inline-start: calc(50% - 125px);
+      inset-block-start: calc(50% - 125px);
+      inline-size: 200px;
+      block-size: 200px;
     }
 
     .elem1 {

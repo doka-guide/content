@@ -14,18 +14,24 @@
       --childRotateY: -30deg;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -39,10 +45,8 @@
 
     .container {
       position: relative;
-      width: 670px;
-      margin-left: auto;
-      margin-right: auto;
-
+      inline-size: 670px;
+      margin-inline: auto;
     }
 
     p {
@@ -56,38 +60,38 @@
     }
 
     h1, .section p {
-      width: 270px;
+      inline-size: 270px;
       text-align: right;
     }
 
     .section {
       position: relative;
-      height: 140px;
+      block-size: 140px;
       display: flex;
       align-items: end;
     }
 
     .section:first-of-type {
-      margin-top: 30px;
+      margin-block-start: 30px;
     }
 
     .section, .controls {
-      margin-top: 50px;
+      margin-block-start: 50px;
     }
 
     .parent {
       position: absolute;
-      top: 40px;
-      left: 320px;
-      width: 350px;
-      height: 100px;
+      inset-block-start: 40px;
+      inset-inline-start: 320px;
+      inline-size: 350px;
+      block-size: 100px;
       background-color: #2E9AFF;
       transform: perspective(500px) rotateY(var(--parentRotateY));
     }
 
     .child {
-      height: 80px;
-      width: 225px;
+      block-size: 80px;
+      inline-size: 225px;
       background-color: #F498AD;
       transform: rotateY(var(--childRotateY)) translateY(-40px);
     }
@@ -97,8 +101,8 @@
     }
 
     .controls {
-      width: 350px;
-      margin-left: auto;
+      inline-size: 350px;
+      margin-inline-start: auto;
       text-align: center;
     }
 
@@ -106,14 +110,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      accent-color: #2E9AFF;
+    }
+
+    .controls-row:has(.accent-pink) {
+      accent-color: #F498AD;
     }
 
     .controls-row + .controls-row {
-      margin-top: 10px;
+      margin-block-start: 10px;
     }
 
     .control-rotate {
-      width: 200px;
+      inline-size: 200px;
       cursor: grab;
     }
 
@@ -131,18 +140,18 @@
       }
 
       .container, h1, .section p, .controls {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .section {
         display: block;
-        height: 170px;
+        block-size: 170px;
       }
 
       .parent {
-        top: 70px;
-        left: 0;
-        width: 280px;
+        inset-block-start: 70px;
+        inset-inline-start: 0;
+        inline-size: 280px;
       }
 
       .controls-row {
