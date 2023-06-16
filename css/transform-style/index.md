@@ -1,6 +1,6 @@
 ---
 title: "`transform-style`"
-description: "Будут ли дочерние элементы трансформаироваться вместе с родителем?"
+description: "Будут ли дочерние элементы трансформироваться вместе с родителем?"
 authors:
   - ezhkov
 contributors:
