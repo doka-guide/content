@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/function
-  - html/form
-  - css/media
-  - html/img
-  - tools/agile
-  - tools/how-to-test-and-why
-  - html/input
-  - tools/webpack
-  - recipes/progress
-  - tools/clean-architecture
-  - tools/docker
-  - js/function-context
-  - tools/bundlers
-  - js/boolean
-  - recipes/lets-encrypt-nginx
-  - html/nav
-  - js/infinite-scroll
-  - css/grid-guide
-  - html/flow
-  - css/display
-  - css/position
-  - html/doctype
-  - css/transform-function
-  - a11y/aria-intro
-  - html/video
-  - tools/cli
-  - css/flexbox-guide
-  - css/pseudoelements
-  - recipes/snow
-  - css/specificity
-  - html/div
-  - css/custom-properties
-  - tools/how-the-browser-creates-pages
-  - js/deal-with-forms
-  - html/article
-  - tools/network
-  - js/closures
-  - tools/oop
+  - js/execution-order
   - tools/gitlab-ci-cd
-  - html/section
-  - css/box-shadow
-  - html/head
-  - css/box-model
-  - css/keyframes
-  - tools/ci-cd
-  - a11y/aria-hidden
+  - js/function
   - js/var-let
+  - html/head
+  - tools/markdown
+  - recipes/lets-encrypt-nginx
+  - a11y/screenreaders
+  - tools/docker
+  - html/div
+  - css/position
+  - css/specificity
+  - html/input
+  - js/infinite-scroll
+  - a11y/aria-hidden
+  - tools/how-the-browser-creates-pages
+  - js/closures
+  - css/box-model
+  - tools/bundlers
+  - tools/network
+  - html/article
+  - css/custom-properties
+  - css/box-shadow
+  - html/flow
+  - recipes/progress
+  - js/deal-with-forms
+  - html/section
   - tools/static-types
   - css/attr
-  - tools/markdown
+  - html/video
+  - css/keyframes
+  - tools/oop
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - tools/how-to-test-and-why
+  - html/img
+  - recipes/snow
+  - js/boolean
+  - tools/cli
+  - css/pseudoelements
+  - tools/agile
+  - css/transform-function
+  - html/form
+  - css/flexbox-guide
+  - css/display
+  - html/doctype
+  - tools/ci-cd
+  - tools/webpack
+  - css/media
+  - html/nav
+  - js/function-context
   - js/async-in-js
-  - js/execution-order
-  - a11y/screenreaders
+  - css/grid-guide
 ---
 
