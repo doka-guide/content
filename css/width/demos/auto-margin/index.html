@@ -14,12 +14,23 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
       padding: 50px;
       background-color: #18191c;
       color: #000000;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
+    }
+
+    .wrapper {
+      inline-size: 100%;
     }
 
     .block {
@@ -31,8 +42,10 @@
   </style>
 </head>
 <body>
-  <div class="block">
-    Я — блочный элемент!
+  <div class="wrapper">
+    <div class="block">
+      Я — блочный элемент!
+    </div>
   </div>
 </body>
 </html>

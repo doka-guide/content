@@ -3,6 +3,10 @@ title: "`zoom`"
 description: "Меняем масштаб элемента."
 authors:
   - ivkrylova
+related:
+  - css/transform-function
+  - css/transform
+  - css/filter
 tags:
   - doka
 ---

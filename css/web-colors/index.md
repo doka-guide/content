@@ -8,6 +8,10 @@ keywords:
   - HEX
   - RGB
   - RGBA
+related:
+  - css/color
+  - css/linear-gradient
+  - css/text-decoration-color
 tags:
   - article
 ---

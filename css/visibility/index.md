@@ -5,8 +5,10 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
-keywords:
-  - visibility
+related:
+  - css/opacity
+  - a11y/content-hidden
+  - css/backface-visibility
 tags:
   - doka
 ---

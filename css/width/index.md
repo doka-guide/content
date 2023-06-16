@@ -1,6 +1,6 @@
 ---
 title: "`width`"
-description: ""
+description: "Управляем шириной элементов."
 authors:
   - solarrust
 contributors:
@@ -8,6 +8,11 @@ contributors:
 keywords:
   - ширина
   - размер
+  - inline-size
+related:
+  - css/height
+  - css/box-model
+  - css/box-sizing
 tags:
   - doka
 ---

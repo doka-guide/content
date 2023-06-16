@@ -3,6 +3,10 @@ title: "`widows`"
 description: "Сколько строчек переносим на новую страницу при печати?"
 authors:
   - doka-dog
+related:
+  - js/match-media
+  - css/media
+  - js/window-print
 tags:
   - doka
   - placeholder

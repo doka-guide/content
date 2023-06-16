@@ -5,6 +5,10 @@ authors:
   - ezhkov
 keywords:
   - относительные размеры
+related:
+  - css/numeric-types
+  - css/rem-em
+  - js/element-get-property-value
 tags:
   - doka
 ---

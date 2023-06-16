@@ -12,6 +12,10 @@ keywords:
   - наложение
   - поверх
   - порядок отображения
+related:
+  - html/flow
+  - css/position
+  - css/inset
 tags:
   - doka
 ---
@@ -39,16 +43,13 @@ tags:
 ```css
 header {
   position: relative;
-  background: url("images/landscape.jpg") no-repeat center / cover;
+  background: url("landscape.jpg") no-repeat center / cover;
 }
 
 header::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   /* Полупрозрачный фиолетовый */
   background-color: rgb(125 20 204 / 0.5);
 }

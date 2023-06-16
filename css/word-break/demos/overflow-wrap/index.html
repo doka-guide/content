@@ -17,12 +17,16 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -43,21 +47,21 @@
     .option-container {
       display: flex;
       align-items: flex-end;
-      margin-top: 30px;
+      margin-block-start: 30px;
     }
 
     .option-title {
-      margin-right: 50px;
+      margin-inline-end: 50px;
       text-align: right;
     }
 
     h1,
     .option-title {
-      width: 230px;
+      inline-size: 230px;
     }
 
     .option {
-      width: 200px;
+      inline-size: 200px;
       border: 1px solid #2E9AFF;
     }
 
@@ -85,13 +89,13 @@
 
       h1,
       .option-title {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .option-title {
         display: block;
-        margin-right: 0;
-        margin-bottom: 10px;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
       }
     }
   </style>

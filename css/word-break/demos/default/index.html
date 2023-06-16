@@ -8,7 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
       margin: 0;
       padding: 50px;
       background-color: #18191c;
@@ -18,7 +29,7 @@
     }
 
     p {
-      max-width: 180px;
+      max-inline-size: 180px;
       margin: 0;
       padding: 10px;
       outline: 1px solid #2E9AFF;

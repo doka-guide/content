@@ -11,10 +11,10 @@
     *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
       background-color: #18191c;
       color: #ffffff;
       font-size: 24px;
@@ -22,17 +22,16 @@
     }
 
     header {
-      background: purple;
-      display: flex;
-      padding-top: 15vmin;
-      padding-bottom: 15vmin;
-      justify-content: center;
-      align-items: center;
+      background-color: #2E9AFF;
+      display: grid;
+      padding: 15vmin;
+      place-content: center;
     }
+
     section {
       width: 60%;
-      margin-left: auto;
-      margin-right: auto;
+      margin-block-start: 25px;
+      margin-inline: auto;
       font-size: 20px;
     }
 
@@ -40,8 +39,7 @@
       section {
         width: 100%;
         box-sizing: border-box;
-        padding-left: 5vmin;
-        padding-right: 5vmin;
+        padding-inline: 5vmin;
       }
     }
   </style>

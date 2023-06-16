@@ -12,36 +12,63 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
       margin: 0;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     .container {
-      max-width: 800px;
+      max-inline-size: 800px;
     }
 
     h1 {
-      margin-top: 0;
+      margin-block: 0;
       font-size: 26px;
       font-weight: 500;
     }
 
+    ._styles {
+      position: relative;
+    }
+
+    ._styles::before {
+      margin-bottom: 0.5em;
+      position: absolute;
+      inset: 8px 8px auto auto;
+      width: max-content;
+      padding: 0.45em 0.9em 0.25em;
+      text-transform: uppercase;
+      font-size: 0.6em;
+      line-height: 1;
+      letter-spacing: 0.025em;
+      background-color: hsla(209, 100%, 59%, 0.5);
+      border-radius: 2em;
+      transition: opacity 0.2s;
+    }
+
+    ._styles::before {
+      content: "CSS";
+    }
+
     code {
-      font-family: 'Roboto Mono',  monospace;
+      font-family: "Roboto Mono",  monospace;
       white-space: pre-wrap;
     }
 
     .button {
       display: block;
-      min-width: 210px;
+      min-inline-size: 210px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
@@ -83,7 +110,7 @@
 
     header,
     main {
-      margin-bottom: 25px;
+      margin-block-end: 25px;
     }
 
     footer {
@@ -93,7 +120,7 @@
     }
 
     .code-section {
-      padding: 40px;
+      padding: 20px;
       background-color: #282A2E;
       color: #E6E6E6;
     }
@@ -148,12 +175,12 @@
       </ul>
     </header>
     <main>
-      <div class="code-section">
+      <div class="code-section _styles">
         <pre><code class="code-block">:where(h1, ul) .cat {
-  background-color: deepskyblue;
+  background-color: #2E9AFF;
 }</code>
   <code class="code-block code-block_hidden" id="code-block-color-override">ul .cat {
-  background-color: orange;
+  background-color: #FF8630;
 }</code></pre>
       </div>
     </main>
