@@ -41,6 +41,7 @@ groups:
       - function-as-datatype
       - set
       - map
+      - collection-weakmap
   - name: "Числа"
     items:
       - number
