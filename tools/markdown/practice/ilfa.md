@@ -3,10 +3,10 @@ Markdown не предполагает специального синтакси
 1. Использовать обложку видео со ссылкой на внешнюю платформу. 100% рабочий и допустимый на сторонних площадках вроде GitHub способ.
 
 ```markdown
-[![Обложка к видео «Дока — как добавить пул-реквест со статьёй»](https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg)](https://www.youtube.com/watch?v=y-_nXfKkI3w)
+[![Обложка к видео «Дока — как добавить пулреквест со статьёй»](https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg)](https://www.youtube.com/watch?v=y-_nXfKkI3w)
 ```
 
-[![Обложка к видео «Дока — как добавить пул-реквест со статьёй»](https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg)](https://www.youtube.com/watch?v=y-_nXfKkI3w)
+[![Обложка к видео «Дока — как добавить пулреквест со статьёй»](https://i3.ytimg.com/vi/y-_nXfKkI3w/hqdefault.jpg)](https://www.youtube.com/watch?v=y-_nXfKkI3w)
 
 2. Использовать HTML-разметку и вставить [`<iframe>`](/html/iframe/), например тот, что генерирует YouTube в диалоге «поделиться».
 
