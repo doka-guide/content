@@ -114,6 +114,7 @@ groups:
       - aria-orientation
       - aria-sort
       - aria-setsize
+      - aria-posinset
   - name: 'Окна'
     items:
       - role-dialog
