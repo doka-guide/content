@@ -46,6 +46,7 @@ groups:
       - aria-owns
       - aria-activedescendant
       - aria-setsize
+      - aria-posinset
   - name: 'Структура документа'
     items:
       - role-presentation-none
@@ -192,6 +193,7 @@ groups:
       - aria-owns
       - aria-activedescendant
       - aria-setsize
+      - aria-posinset
       - aria-modal
       - aria-orientation
       - aria-sort
