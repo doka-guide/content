@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>image rendering</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .card {
+      margin-bottom: 12px;
+    }
+
+    .card-description {
+      margin-bottom: 4px;
+      font-size: 16px;
+      color: #f1f1f1;
+    }
+
+    .img-wrap {
+      max-width: 600px;
+      resize: both;
+      overflow: scroll;
+      border: 1px solid #f1f1f1;
+    }
+
+    .img {
+      width: 100%;
+    }
+
+    .img--auto {
+      image-rendering: auto;
+    }
+
+    .img--crisp-edges {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -o-crisp-edges;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    .img--pixelated {
+      image-rendering: pixelated;
+    }
+
+    .img--smooth {
+      image-rendering: smooth;
+    }
+
+    .img--high-quality {
+      image-rendering: high-quality;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <div class="card">
+      <p class="card-description">
+        auto
+      </p>
+      <div class="img-wrap">
+        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--auto">
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-description">
+        crisp-edges
+      </p>
+      <div class="img-wrap">
+        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--crisp-edges">
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-description">
+        pixelated
+      </p>
+      <div class="img-wrap">
+        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--pixelated">
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-description">
+        smooth
+      </p>
+      <div class="img-wrap">
+        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--smooth">
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-description">
+        high-quality
+      </p>
+      <div class="img-wrap">
+        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--high-quality">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
