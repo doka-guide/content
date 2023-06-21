@@ -4,7 +4,7 @@ description: "Коллекция из пар ключ-значение, позв
 authors:
   - hellsquirrel
 related:
-  - js/array
+  - js/arrays
   - js/map
   - js/set
 tags:
