@@ -93,6 +93,7 @@ groups:
       - role-menuitemcheckbox
       - role-tree
       - role-switch
+      - role-treeitem
       - aria-hidden
       - aria-level
       - aria-placeholder
@@ -173,6 +174,7 @@ groups:
       - role-tab
       - role-tabpanel
       - role-switch
+      - role-treeitem
       - role-dialog
       - role-alertdialog
   - name: 'ARIA-атрибуты'
