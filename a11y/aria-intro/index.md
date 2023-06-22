@@ -264,8 +264,8 @@ WAI-ARIA (Web Accessibility Initiative – Accessible Rich Internet Applications
 У WAI-ARIA есть несколько версий.
 
 - [WAI-ARIA 1.0](https://www.w3.org/TR/wai-aria/), 20 марта 2014.
-- [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria-1.1/), 14 декабря 2017. Актуальные рекомендации.
-- [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/), 8 декабря 2021. Кандидат в рекомендации.
+- [WAI-ARIA 1.1](https://www.w3.org/TR/wai-aria-1.1/), 14 декабря 2017. Действующие рекомендации.
+- [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/), 6 июня 2023. Действующие рекомендации.
 - [WAI-ARIA 1.3](https://w3c.github.io/aria/), 22 июля 2022. Черновик.
 
 За обновлениями WAI-ARIA можно следить на [странице с новостями W3C](https://www.w3.org/WAI/news/).
