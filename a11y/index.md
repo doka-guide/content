@@ -91,6 +91,7 @@ groups:
       - role-menuitem
       - role-menuitemradio
       - role-menuitemcheckbox
+      - role-tree
       - role-switch
       - aria-hidden
       - aria-level
@@ -164,6 +165,7 @@ groups:
       - role-menuitem
       - role-menuitemcheckbox
       - role-menuitemradio
+      - role-tree
       - role-button
       - role-link
       - role-checkbox
