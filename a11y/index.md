@@ -86,6 +86,7 @@ groups:
       - role-tab
       - role-tabpanel
       - role-separator
+      - role-treegrid
       - role-menu
       - role-menubar
       - role-menuitem
@@ -161,6 +162,7 @@ groups:
       - role-mark
       - role-separator
       - role-tooltip
+      - role-treegrid
       - role-menu
       - role-menubar
       - role-menuitem
