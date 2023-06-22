@@ -4,6 +4,7 @@
 
 ## Июнь 2023
 
+- 22 июня, [Атрибут `capture`](https://doka.guide/html/capture/), eshevlyakova
 - 13 июня, [`<wbr>`](https://doka.guide/html/wbr/), Дмитрий Мех
 - 9 июня, [Создание массива из большого количества повторяющихся элементов](https://doka.guide/recipes/array-filling/), Александр Юрьев
 - 8 июня, [Что такое CMS](https://doka.guide/tools/cms/), Александр Рассудихин
