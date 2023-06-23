@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/execution-order
-  - tools/gitlab-ci-cd
-  - js/function
-  - js/var-let
-  - html/head
-  - tools/markdown
-  - recipes/lets-encrypt-nginx
-  - a11y/screenreaders
-  - tools/docker
-  - html/div
-  - css/position
-  - css/specificity
-  - html/input
-  - js/infinite-scroll
-  - a11y/aria-hidden
-  - tools/how-the-browser-creates-pages
-  - js/closures
-  - css/box-model
-  - tools/bundlers
-  - tools/network
-  - html/article
-  - css/custom-properties
-  - css/box-shadow
-  - html/flow
-  - recipes/progress
-  - js/deal-with-forms
-  - html/section
-  - tools/static-types
-  - css/attr
-  - html/video
-  - css/keyframes
-  - tools/oop
-  - tools/clean-architecture
-  - a11y/aria-intro
   - tools/how-to-test-and-why
-  - html/img
-  - recipes/snow
-  - js/boolean
-  - tools/cli
-  - css/pseudoelements
-  - tools/agile
-  - css/transform-function
-  - html/form
-  - css/flexbox-guide
-  - css/display
+  - tools/how-the-browser-creates-pages
   - html/doctype
-  - tools/ci-cd
-  - tools/webpack
+  - html/div
+  - html/article
+  - css/flexbox-guide
+  - css/transform-function
+  - a11y/aria-hidden
+  - tools/gitlab-ci-cd
+  - html/video
+  - tools/network
   - css/media
-  - html/nav
-  - js/function-context
+  - tools/clean-architecture
+  - html/head
+  - html/flow
+  - a11y/aria-intro
+  - html/img
   - js/async-in-js
+  - js/function
+  - html/nav
+  - css/box-model
+  - html/section
+  - css/keyframes
+  - js/execution-order
+  - js/var-let
+  - tools/cli
+  - recipes/lets-encrypt-nginx
+  - html/input
+  - js/closures
   - css/grid-guide
+  - html/form
+  - tools/oop
+  - tools/webpack
+  - tools/agile
+  - css/display
+  - js/deal-with-forms
+  - css/pseudoelements
+  - tools/markdown
+  - tools/static-types
+  - a11y/screenreaders
+  - css/attr
+  - js/function-context
+  - tools/docker
+  - tools/ci-cd
+  - recipes/progress
+  - js/infinite-scroll
+  - css/position
+  - css/box-shadow
+  - css/specificity
+  - tools/bundlers
+  - recipes/snow
+  - css/custom-properties
+  - js/boolean
 ---
 
