@@ -4,8 +4,8 @@ description: "ARIA-роль для выпадающего списка с нес
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
+  - html/datalist
   - html/select
 tags:
   - doka
