@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ленивая загрузка — Ленивая загрузка изображений с цветным превью — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color:  #18191C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lazy-image {
+    width: 300px;
+    height: 300px;
+    background: no-repeat;
+    background-size: cover;
+    background-color: #C56FFF;
+  }
+  </style>
+</head>
+<body>
+  <img
+    loading="lazy"
+    class="lazy-image"
+    src="images/lazy-cat.jpg"
+  />
+</body>
+</html>
