@@ -90,6 +90,7 @@ groups:
       - index-of
       - array-length
       - array-from
+      - array-of
       - array-isarray
   - name: "Объекты"
     items:
