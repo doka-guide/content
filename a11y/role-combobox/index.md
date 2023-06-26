@@ -13,7 +13,8 @@ tags:
 ---
 
 ## Кратко
-https://doka.guide/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для комбинированного списка. Также его иногда называют полем со списком. В такое поле можно ввести данные или заполнить его, выбрав опцию из связанного с ним выпадающего списка.
+
+[Роль виджета](https://doka.guide/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для комбинированного списка. Также его иногда называют полем со списком. В такое поле можно ввести данные или заполнить его, выбрав опцию из связанного с ним выпадающего списка.
 
 В HTML эта роль есть у [`<select>`](/html/select/) без атрибута `multiple` и с `size` со значением `1`.
 
@@ -27,6 +28,6 @@ ARIA-роли не изменяют внешний вид и поведение 
 
 У комбинированного списка обязательно должен быть атрибут [`aria-expanded`](/a11y/aria-expanded/).
 
-Для `combobox` можно также использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) `aria-autocomplete`, [`aria-errormessage`](/a11y/aria-errormessage/), [`aria-haspopup`](/a11y/aria-haspopup/), [`aria-invalid`](/a11y/aria-invalid/), [`aria-readonly`](/a11y/aria-readonly/), [`aria-required`](/a11y/aria-required/) и ещё один [атрибут связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-activedescendant`](/a11y/aria-activedescendant/).
+Для `combobox` можно также использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-autocomplete`](/a11y/aria-autocomplete/), [`aria-errormessage`](/a11y/aria-errormessage/), [`aria-haspopup`](/a11y/aria-haspopup/), [`aria-invalid`](/a11y/aria-invalid/), [`aria-readonly`](/a11y/aria-readonly/), [`aria-required`](/a11y/aria-required/) и ещё один [атрибут связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-activedescendant`](/a11y/aria-activedescendant/).
 
 По умолчанию у роли `combobox` есть атрибут `aria-haspopup` со значением `listbox`.
