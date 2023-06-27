@@ -103,4 +103,4 @@ p {
 }
 ```
 
-<iframe title="Выравнивание текста в контейнере" src="demos/text-align/" height="515"></iframe>
+<iframe title="Выравнивание текста в контейнере" src="demos/text-align/" height="460"></iframe>
