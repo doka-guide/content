@@ -34,4 +34,4 @@ p {
 - `clip` — текст обрезается ровно по краю родительского блока.
 - `ellipsis` — при обрезке текста в конце строки добавляется многоточие «…», показывая незавершённость предложения.
 
-<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="250"></iframe>
+<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="420"></iframe>
