@@ -16,6 +16,7 @@ tags:
 Можно использовать с изображениями, фоновыми картинками, [`<video>`](/html/video/) и [`<canvas>`](/html/canvas/).
 
 ## Пример
+
 ```css
  img {
   image-rendering: crisp-edges;
