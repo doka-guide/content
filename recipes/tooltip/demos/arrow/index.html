@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Тултип со стрелочкой — Тултип — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <style>
+        body {
+            font-family: Roboto, sans-serif;
+        }
+
+        .tooltip {
+            position: relative;
+            margin: 40px;
+            display: inline-block;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            position: absolute;
+            width: 145px;
+            color: white;
+            background-color: #192733;
+            border-radius: 10px;
+            padding: 10px 15px 10px 15px;
+            top: -9px;
+            left: 120%;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltiptext::before {
+            content: "";
+            position: absolute;
+            transform: rotate(45deg);
+            background-color: #192733;
+            padding: 5px;
+            z-index: 1;
+            top: 35%;
+            left: -2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tooltip">Наведись на меня
+        <span class="tooltiptext">Всплывающий текст</span>
+    </div>
+</body>
+
+</html>
