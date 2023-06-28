@@ -21,7 +21,6 @@ tags:
  img {
   image-rendering: crisp-edges;
 }
-
  ```
 
 
