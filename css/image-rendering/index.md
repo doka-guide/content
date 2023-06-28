@@ -6,7 +6,7 @@ authors:
 related:
   - ""
 tags:
-  - article
+  - doka
 ---
 
 <!--
