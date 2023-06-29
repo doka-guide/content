@@ -24,6 +24,12 @@
 - [Про стиль демок](demos/style.md)
 - [Про схемы](schemes.md)
 
+## Дока API
+
+- [Поиск](https://github.com/doka-guide/search#readme)
+- [Бэкенд](https://github.com/doka-guide/api#readme)
+- [Материалы](api.md)
+
 ## Как запустить Доку
 
 - [⚠️ Если сайт Доки медленно загружается или не работает совсем](load-fix.md)
