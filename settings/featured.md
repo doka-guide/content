@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/how-to-test-and-why
-  - tools/how-the-browser-creates-pages
+  - html/input
+  - html/section
+  - a11y/screenreaders
+  - tools/static-types
+  - recipes/progress
+  - html/head
+  - css/media
   - html/doctype
-  - html/div
-  - html/article
-  - css/flexbox-guide
   - css/transform-function
+  - js/async-in-js
+  - a11y/aria-intro
+  - css/attr
+  - tools/docker
+  - tools/network
+  - js/infinite-scroll
+  - js/deal-with-forms
+  - css/custom-properties
+  - js/execution-order
+  - html/form
+  - css/keyframes
+  - recipes/lets-encrypt-nginx
+  - html/nav
+  - tools/clean-architecture
+  - recipes/snow
+  - tools/how-the-browser-creates-pages
+  - html/img
   - a11y/aria-hidden
   - tools/gitlab-ci-cd
-  - html/video
-  - tools/network
-  - css/media
-  - tools/clean-architecture
-  - html/head
-  - html/flow
-  - a11y/aria-intro
-  - html/img
-  - js/async-in-js
-  - js/function
-  - html/nav
-  - css/box-model
-  - html/section
-  - css/keyframes
-  - js/execution-order
-  - js/var-let
   - tools/cli
-  - recipes/lets-encrypt-nginx
-  - html/input
-  - js/closures
-  - css/grid-guide
-  - html/form
-  - tools/oop
-  - tools/webpack
-  - tools/agile
-  - css/display
-  - js/deal-with-forms
+  - html/flow
   - css/pseudoelements
+  - html/article
   - tools/markdown
-  - tools/static-types
-  - a11y/screenreaders
-  - css/attr
-  - js/function-context
-  - tools/docker
-  - tools/ci-cd
-  - recipes/progress
-  - js/infinite-scroll
   - css/position
-  - css/box-shadow
+  - js/function
+  - js/function-context
+  - tools/agile
+  - html/div
+  - css/grid-guide
   - css/specificity
-  - tools/bundlers
-  - recipes/snow
-  - css/custom-properties
+  - html/video
+  - js/var-let
+  - tools/how-to-test-and-why
+  - tools/ci-cd
+  - css/display
   - js/boolean
+  - css/flexbox-guide
+  - tools/bundlers
+  - tools/webpack
+  - js/closures
+  - tools/oop
+  - css/box-model
+  - css/box-shadow
 ---
 
