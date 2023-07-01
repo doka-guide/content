@@ -2,6 +2,14 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2023
+
+- 25 июня, [Intl.DateTimeFormat](https://doka.guide/js/intl-datetimeformat/), Антон Горелов
+- 22 июня, [Атрибут `capture`](https://doka.guide/html/capture/), eshevlyakova
+- 13 июня, [`<wbr>`](https://doka.guide/html/wbr/), Дмитрий Мех
+- 9 июня, [Создание массива из большого количества повторяющихся элементов](https://doka.guide/recipes/array-filling/), Александр Юрьев
+- 8 июня, [Что такое CMS](https://doka.guide/tools/cms/), Александр Рассудихин
+
 ## Май 2023
 
 - 29 мая, [`alert`](https://doka.guide/a11y/role-alert/), Александр Ламков
