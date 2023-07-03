@@ -27,7 +27,12 @@ tags:
 
 ```html
 <button aria-labelledby="tooltip">❤️</button>
-<span role="tooltip" id="tooltip">Поставить отметку «Нравится»</span>
+<span
+  role="tooltip"
+  id="tooltip"
+>
+  Поставить отметку «Нравится»
+</span>
 ```
 
 <iframe title="Кнопка с эмодзи с сердцем и тултипом к ней" src="demos/button-with-tooltip/" height="250"></iframe>
