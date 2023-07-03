@@ -1,12 +1,14 @@
 ---
 title: "Ленивая загрузка картинок с цветным превью"
-description: "Как добавить цветное превью при ленивой загрузки изображения"
+description: "Как добавить цветное превью при ленивой загрузки изображения."
 authors:
   - prorokky
 related:
-  - ""
+  - js/intersection-observer
+  - html/img
+  - css/background-color
 tags:
-  - doka
+  - article
 ---
 
 ## Задача
