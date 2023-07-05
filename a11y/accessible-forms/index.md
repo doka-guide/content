@@ -35,10 +35,10 @@ tags:
   <div class="wrapper">
     <form>
       <div>
-         <label for="firstname">
-           Имя
-         </label>
-         <input type="text" id="firstname" name="firstname" required>
+        <label for="firstname">
+          Имя
+        </label>
+        <input type="text" id="firstname" name="firstname" required>
       </div>
       <div class="looks-like-label" for="secondname">
         Фамилия
