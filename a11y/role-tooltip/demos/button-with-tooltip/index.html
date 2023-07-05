@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Кнопка с эмодзи и тултипом «Поставить отметку "Нравится"» — Роль tooltip — Дока</title>
+  <title>Кнопка с эмодзи и тултипом «Поставить отметку "Нравится"» — tooltip — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,6 +68,7 @@
       position: absolute;
       bottom: calc(100% + 15px);
       left: 50%;
+      min-width: 210px;
       padding: 10px 40px;
       background-color: #FFFFFF;
       color: #000000;
@@ -93,7 +94,7 @@
 </head>
 <body>
     <div class="container">
-      <button class="button button-aqua" id="button" aria-describedby="tooltip">❤️</button>
+      <button class="button button-aqua" id="button" aria-labelledby="tooltip">❤️</button>
       <span class="tooltip" role="tooltip" id="tooltip">Поставить отметку «Нравится»</span>
     </div>
   <script>
