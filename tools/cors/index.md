@@ -42,7 +42,7 @@ _CORS_ расшифровывается как _Cross-Origin Resource Sharing_. 
 
 Для настройки _CORS_ со стороны сервера используются специальные заголовки запроса:
 - `Access-Control-Allow-Origin` - указывает на `origin`, откуда на сервер разрешены запросы.
-- `Access-Control-Allow-Methods` - указывает, какие [HTTP-методы](/tools/http-protocol/#startovaya-stroka) разрешены для запросов на сервер. Например, `GET`, `POST`, `DELETE` и др.
+- `Access-Control-Allow-Methods` - указывает, какие [HTTP-методы](/tools/http-protocol/#startovaya-stroka) разрешены для запросов на сервер. Например, `GET`, `POST`, `DELETE`.
 - `Access-Control-Allow-Headers` - определяет, какие заголовки могут быть использованы в ответе от сервера, которые не являются стандартными для [HTTP](/tools/http-protocol/).
 - `Access-Control-Allow-Credentials` - указывает, разрешено ли отправлять [cookie](/js/cookie/) и авторизационные данные вместе с запросом на сервер. Для разрешения используется значение `true`.
 - и другие.
