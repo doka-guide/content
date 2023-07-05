@@ -26,6 +26,6 @@ tags:
 
 Внутри элемента с ролью `grid` должно быть несколько ячеек с ролью `gridcell`.
 
-ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать сетку с помощью CSS и добавить поддержку клавиатуры с помощью `JavaScript` и [`tabindex`](/html/global-attrs/#tabindex).
+ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать сетку с помощью CSS и добавить поддержку клавиатуры с помощью JavaScript и [`tabindex`](/html/global-attrs/#tabindex).
 
 Для `grid` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), а также [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-readonly`](/a11y/aria-readonly/) и [`aria-multiselectable`](/a11y/aria-multiselectable/).
