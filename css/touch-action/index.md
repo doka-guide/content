@@ -1,7 +1,12 @@
 ---
 title: "`touch-action`"
+description: "Можно ли нажать на элемент пальцем? Что-то вроде тач-событий в JavaScript."
 authors:
   - doka-dog
+related:
+  - js/element-touch
+  - js/events
+  - css/hover
 tags:
   - doka
   - placeholder

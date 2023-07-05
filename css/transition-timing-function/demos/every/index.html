@@ -5,13 +5,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
-      margin: 0;
+      min-block-size: 100%;
       padding: 5%;
       background-color: #18191c;
       color: #ffffff;
@@ -20,19 +28,17 @@
     }
 
     .parent {
-      width: 90vw;
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      flex-direction: column;
+      inline-size: 90vw;
+      margin-inline: auto;
+      display: grid;
       align-items: center;
     }
 
     .parent > div[class] {
-      width: 45vw;
-      min-width: 13em;
+      inline-size: 45vw;
+      min-inline-size: 13em;
       padding: 10px;
-      margin-bottom: 10px;
+      margin-block-end: 10px;
       background-color: black;
       border: 1px solid #f498ad;
       color: white;
@@ -43,8 +49,8 @@
     }
 
     .parent > div.box1 {
-      width: 100%;
-      min-width: 26em;
+      inline-size: 100%;
+      min-inline-size: 26em;
       background-color: #49a16c;
       color: black;
       border: 1px solid #1a5ad7;

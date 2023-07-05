@@ -3,26 +3,40 @@
 <head>
   <title>Слайды на всю высоту окна браузера — vh — Дока</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <style>
-    section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: white;
-      height: 100vh;
-      background: red;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    section:nth-child(even) {
-      background: blue;
+    html {
+      color-scheme: dark;
+    }
+
+    section {
+      height: 100vh;
+      background-position: center bottom;
+      background-size: cover;
+    }
+
+    section:nth-of-type(1) {
+      background-image: url(images/1.jpg);
+    }
+
+    section:nth-of-type(2) {
+      background-image: url(images/2.jpg);
+    }
+
+    section:nth-of-type(3) {
+      background-image: url(images/3.jpg);
+      background-position: center;
     }
   </style>
 </head>
 <body>
-<section>Scroll me</section>
-<section>Scroll me</section>
-<section>Scroll me</section>
+<section></section>
+<section></section>
+<section></section>
 </body>
 </html>

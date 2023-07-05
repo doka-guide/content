@@ -46,8 +46,8 @@
     }
 
     .result {
-      min-width: 415px;
-      margin-bottom: 25px;
+      min-inline-size: 415px;
+      margin-block-end: 25px;
       font-family: "Roboto Mono", monospace;
       font-size: calc(2em - 1px);
       font-weight: 800;
@@ -66,7 +66,7 @@
     .circle {
       position: absolute;
       inset: 50% 50%;
-      width: 100%;
+      inline-size: 100%;
       border-radius: 50%;
       z-index: -1;
       padding: 65%;
@@ -85,10 +85,10 @@
     .circle::after {
       content: "";
       position: absolute;
-      top: -6px;
-      right: calc(50% - 11px);
-      width: 22px;
-      height: 22px;
+      inset-block-start: -6px;
+      inset-inline-end: calc(50% - 11px);
+      inline-size: 22px;
+      block-size: 22px;
       background-color: currentColor;
       border: 3px solid rgb(255 255 255);
     }

@@ -19,43 +19,58 @@
       text-align: center;
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      block-size: 100%;
+    }
+
     /* Оформление */
     body {
+      display: grid;
+      place-items: center;
       background-color: #18191c;
-      color: #ffffff;
       font-family: "Roboto", sans-serif;
       font-size: 16px;
-      padding: 5%;
+      padding: 50px;
       margin: 0;
+    }
+
+    .wrapper {
+      inline-size: 75%;
     }
 
     div {
       border: 1px solid;
       padding: 15px;
-      margin-bottom: 25px;
-    }
-
-    .content {
-      width: 75%;
-      margin-bottom: 0;
+      margin-block-end: 25px;
+      color: #000000;
     }
 
     .left {
-      border-color: #1a5ad7;
+      border-color: #2e9aff;
     }
 
     .left .content {
-      background-color: #1a5ad7;
-      border-color: #1a5ad7;
+      background-color: #2e9aff;
+      border-color: #2e9aff;
     }
 
     .center {
-      border-color: #49a16c;
+      border-color: #41e847;
     }
 
     .center .content {
-      background-color: #49a16c;
-      border-color: #49a16c;
+      background-color: #41e847;
+      border-color: #41e847;
     }
 
     .right {
@@ -69,16 +84,16 @@
   </style>
 </head>
 <body>
-
-<div class="left">
-  <div class="content">Выравнивание по левому краю</div>
-</div>
-<div class="center">
-  <div class="content">Выравнивание по центру</div>
-</div>
-<div class="right">
-  <div class="content">Выравнивание по правому краю</div>
-</div>
-
+<section class="wrapper">
+  <div class="left">
+    <div class="content">Выравнивание по левому краю</div>
+  </div>
+  <div class="center">
+    <div class="content">Выравнивание по центру</div>
+  </div>
+  <div class="right">
+    <div class="content">Выравнивание по правому краю</div>
+  </div>
+</section>
 </body>
 </html>

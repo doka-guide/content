@@ -8,6 +8,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
       margin: 0;
       font-family: "Roboto", sans-serif;
@@ -16,28 +25,24 @@
     header {
       position: relative;
       background: #f5f5f5 url("../../images/landscape.jpg") no-repeat center / cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      block-size: 100%;
+      display: grid;
+      place-items: center;
       z-index: 0;
     }
 
     header::after {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(125, 20, 204, 0.5);
+      inset: 0;
+      background-color: rgb(125 20 204 / 0.5);
       z-index: -1;
     }
 
     h1 {
-      color: white;
+      color: #fff;
       font-size: 4rem;
-      max-width: 50%;
+      max-inline-size: 50%;
       text-align: center;
       text-transform: uppercase;
     }

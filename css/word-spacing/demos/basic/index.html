@@ -9,20 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
   <style>
-    html {
-      height: 100%;
+    * {
+      box-sizing: border-box;
     }
 
     html {
+      color-scheme: dark;
+      block-size: 100%;
       display: grid;
       place-items: center;
     }
 
     body {
-      width: 600px;
+      inline-size: 600px;
       font-size: 2rem;
-      font-family: "Roboto", Arial, sans-serif;
-      color: white;
+      font-family: "Roboto", sans-serif;
+      color: #fff;
       background-color: #18191c;
     }
 
@@ -52,7 +54,7 @@
       font-size: inherit;
       font-weight: bold;
       text-align: center;
-      color: white;
+      color: #fff;
       outline: none;
       background-color: inherit;
     }
@@ -72,9 +74,13 @@
       padding: 3px;
       font-size: inherit;
       font-weight: bold;
-      color: white;
+      color: #fff;
       outline: none;
       background-color: inherit;
+    }
+
+    option {
+      color: #000000;
     }
 
     .visually-hidden {
@@ -103,7 +109,6 @@
   <select id="numeric-type" name="word-spacing">
     <option selected value="normal">normal</option>
     <option value="px">px</option>
-    <option value="%">%</option>
     <option value="rem">rem</option>
   </select>
 </fieldset>
@@ -112,20 +117,22 @@
 </p>
 
 <script>
-  const numInput = document.querySelector('#number');
-  const typeInput = document.querySelector('#numeric-type');
-  const text = document.querySelector('p');
+  const numInput = document.querySelector('#number')
+  const typeInput = document.querySelector('#numeric-type')
+  const text = document.querySelector('p')
+
   numInput.addEventListener('input', function (e) {
-    text.style.wordSpacing = this.value.toString() + typeInput.options[typeInput.selectedIndex].value;
-  });
+    text.style.wordSpacing = this.value.toString() + typeInput.options[typeInput.selectedIndex].value
+  })
   typeInput.addEventListener('change', function (e) {
     if (this.options[this.selectedIndex].value !== 'normal') {
-      numInput.disabled = false;
-      text.style.wordSpacing = numInput.value.toString() + this.options[this.selectedIndex].value;
+      numInput.disabled = false
+      text.style.wordSpacing = numInput.value.toString() + this.options[this.selectedIndex].value
+      console.log(text.style.wordSpacing = numInput.value.toString() + this.options[this.selectedIndex].value)
     } else {
-      numInput.disabled = true;
-      numInput.value = 0;
-      text.style.wordSpacing = 'normal';
+      numInput.disabled = true
+      numInput.value = 0
+      text.style.wordSpacing = 'normal'
     }
   });
 </script>

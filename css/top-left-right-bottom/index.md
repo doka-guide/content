@@ -3,13 +3,14 @@ title: "`top`, `left`, `right`, `bottom`"
 description: "Указываем положение позиционированного элемента."
 authors:
   - spheno
+keywords:
+  - inset
 related:
   - css/position
   - css/z-index
   - css/position-sticky
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко

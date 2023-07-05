@@ -1,12 +1,16 @@
 ---
 title: "`transform-origin`"
+description: "«Точка опоры» для применения трансформаций к элементу."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
-  - трансформация
-  - точка
+  - точка трансформации
+related:
+  - css/perspective
+  - css/backface-visibility
+  - css/will-change
 tags:
   - doka
 ---

@@ -8,27 +8,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 50px;
-      background-color: #ffffff;
-      color: #000000;
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
+    html {
+      color-scheme: dark;
     }
 
-    p {
-      max-width: 700px;
+    html,
+    body {
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    div {
+      inline-size: 65%;
+      padding: 55px 40px;
+      background-color: #2e9aff;
+      color: #000000;
     }
 
     del {

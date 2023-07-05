@@ -1,6 +1,6 @@
 ---
 title: "`url()`"
-description: "Функция `url()` для вставки файлов в документ по ссылке в CSS."
+description: "Функция `url()` для вставки в CSS файлов по ссылке."
 authors:
   - bellabzhu
 keywords:
@@ -11,7 +11,6 @@ related:
   - html/link
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
@@ -24,7 +23,7 @@ CSS-функция `url()` вставляет файл с указанной с�
 
 ```css
 div {
-  background-image: url("carpet.png");
+  background-image: url('carpet.png');
 }
 ```
 
@@ -32,8 +31,8 @@ div {
 
 ```css
 @font-face {
-  font-family: "Roboto Mono";
-  src: url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+  font-family: 'Roboto Mono';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 }
 ```
 
@@ -47,27 +46,27 @@ div {
 
 ```css
 div {
-  mask-image: image(url("mask.png"), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
+  mask-image: image(url('mask.png'), red, radial-gradient(rgba(0, 0, 0, 1.0), transparent));
 }
 ```
 
 <details>
   <summary>Список свойств, где используется `url()`</summary>
 
-  - `background`;
-  - `background-image`;
-  - `border`;
-  - `border-image`;
+  - [`background`](/css/background/);
+  - [`background-image`](/css/background-image/);
+  - [`border`](/css/border/);
+  - [`border-image`](/css/border-image/);
   - `border-image-source`;
-  - `content`;
-  - `cursor`;
-  - `filter`;
-  - `list-style`;
-  - `list-style-image`;
+  - [`content`](/css/content/);
+  - [`cursor`](/css/cursor/);
+  - [`filter`](/css/filter/);
+  - [`list-style`](/css/list-style/);
+  - [`list-style-image`](/css/list-style-image/);
   - `mask`;
   - `mask-image`;
   - `offset-path`;
-  - `src` как часть `@font-face`;
+  - `src` как часть [`@font-face`](/css/font-face/);
   - `@counter-style`;
 
 </details>
@@ -101,5 +100,3 @@ div {
   background-image: url(image.png);
 }
 ```
-
-Но всё же рекомендуем их ставить для единообразия [стиля кода](/tools/code-style/).

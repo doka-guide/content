@@ -2,22 +2,22 @@
 
 ```html
 <div class="container">
-  <a href="#" class="logo">
-    <img src="../images/logo.png" alt="Company logo">
+  <a href="#0" class="logo">
+    <img src="images/logo.png" alt="Company logo">
   </a>
   <nav class="menu">
     <ul class="menu-list">
       <li class="menu-list__item">
-        <a href="#" class="menu-list__link">Главная</a>
+        <a href="#0" class="menu-list__link">Главная</a>
       </li>
       <li class="menu-list__item">
-        <a href="#" class="menu-list__link">О компании</a>
+        <a href="#0" class="menu-list__link">О компании</a>
       </li>
       <li class="menu-list__item">
-        <a href="#" class="menu-list__link">Проекты</a>
+        <a href="#0" class="menu-list__link">Проекты</a>
       </li>
       <li class="menu-list__item">
-        <a href="#" class="menu-list__link">Контакты</a>
+        <a href="#0" class="menu-list__link">Контакты</a>
       </li>
     </ul>
   </nav>

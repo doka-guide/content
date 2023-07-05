@@ -10,20 +10,24 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
-      margin: 0;
+      display: grid;
+      place-items: center;
+      min-height: 100%;
       padding: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -38,20 +42,20 @@
     h1, .description {
       text-transform: lowercase;
       text-align: right;
-      width: 150px;
+      inline-size: 150px;
     }
 
     .description {
       line-height: 1.2;
-      margin-right: 50px;
+      margin-inline-end: 50px;
     }
 
     .font-options {
-      margin-top: 30px;
+      margin-block-start: 30px;
     }
 
     .font-options + .font-options {
-      margin-top: 60px;
+      margin-block-start: 60px;
     }
 
     .font-option {
@@ -60,7 +64,7 @@
     }
 
     .font-option + .font-option {
-      margin-top: 30px;
+      margin-block-start: 30px;
     }
 
     .symbols {
@@ -101,16 +105,16 @@
       }
 
       h1, .description {
-        width: 100%;
+        inline-size: 100%;
       }
 
       .description {
-        margin-right: auto;
-        margin-bottom: 10px;
+        margin-inline-end: auto;
+        margin-block-end: 10px;
       }
 
       .font-options, .font-options + .font-options {
-        margin-top: 40px;
+        margin-block-start: 40px;
       }
 
       .font-option {

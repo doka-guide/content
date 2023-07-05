@@ -9,22 +9,25 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     html {
+      color-scheme: dark;
+      block-size: 100%;
       font-size: 18px;
     }
 
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -40,8 +43,7 @@
     }
 
     h3 {
-      margin-top: 50px;
-      margin-bottom: 17px;
+      margin-block: 50px 17px;
       font-size: 1.25rem;
     }
 
@@ -55,12 +57,9 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 20px;
       padding: 0;
       list-style-type: none;
-    }
-
-    .nav-item + .nav-item {
-      margin-left: 20px;
     }
 
     .nav a {
@@ -99,18 +98,18 @@
     <h2>Увеличиваем размер шрифта при наведении</h2>
     <h3>Через изменение <code>font-size</code></h3>
     <ul class="nav font-size">
-      <li class="nav-item"><a href="#">Каталог</a></li>
-      <li class="nav-item"><a href="#">О нас</a></li>
-      <li class="nav-item"><a href="#">Доставка</a></li>
-      <li class="nav-item"><a href="#">Оплата</a></li>
+      <li class="nav-item"><a href="#0">Каталог</a></li>
+      <li class="nav-item"><a href="#0">О нас</a></li>
+      <li class="nav-item"><a href="#0">Доставка</a></li>
+      <li class="nav-item"><a href="#0">Оплата</a></li>
     </ul>
 
     <h3>Через применение <code>transform</code></h3>
     <ul class="nav transform">
-      <li class="nav-item"><a href="#">Каталог</a></li>
-      <li class="nav-item"><a href="#">О нас</a></li>
-      <li class="nav-item"><a href="#">Доставка</a></li>
-      <li class="nav-item"><a href="#">Оплата</a></li>
+      <li class="nav-item"><a href="#0">Каталог</a></li>
+      <li class="nav-item"><a href="#0">О нас</a></li>
+      <li class="nav-item"><a href="#0">Доставка</a></li>
+      <li class="nav-item"><a href="#0">Оплата</a></li>
     </ul>
   </div>
 </body>
