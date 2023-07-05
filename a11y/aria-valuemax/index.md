@@ -24,7 +24,7 @@ tags:
 
 `aria-valuemax` можно задавать только некоторым тегам и ролям:
 
-- [`<input type="range">`](/html/input/#type) или `range` и `slider`;
+- [`<input type="range">`](/html/input/#type) или ролям `range` и `slider`;
 - [`<input type="number">`](/html/input/#type) или `spinbutton`;
 - [`separator`](/a11y/role-separator/), когда разделитель интерактивный;
 - [`<meter>`](/html/meter/) или `meter`;
