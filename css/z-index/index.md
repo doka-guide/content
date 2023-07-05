@@ -1,6 +1,6 @@
 ---
 title: "`z-index`"
-deescription: "Если сложить элементы друг на друга, то какой из них будет сверху?"
+description: "Если сложить элементы друг на друга, то какой из них будет сверху?"
 authors:
   - solarrust
 contributors:
