@@ -7,7 +7,7 @@ contributors:
   - skorobaeus
 related:
   - css/grid-guide
-  - css/flex-guide
+  - css/flexbox-guide
   - css/align-items
 tags:
   - doka
