@@ -52,3 +52,4 @@ location: "/about/"
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
 - [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.
 - [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Веб-платформа.
+- [<!-- yaspeller ignore:start -->Саша Патлух<!-- yaspeller ignore:end -->](/people/pa7lux/) — за помощь Доке в сложный период.
