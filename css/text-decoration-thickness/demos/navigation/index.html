@@ -33,6 +33,12 @@
       font-family: "Roboto", sans-serif;
     }
 
+    a {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
     .nav-list {
       display: flex;
       flex-wrap: wrap;
@@ -81,16 +87,16 @@
   <nav>
     <ul class="nav-list">
       <li class="nav-list__item">
-        <a class="nav-list__link orange" href="#0">HTML</a>
+        <a class="nav-list__link orange" role="link" aria-disabled="true">HTML</a>
       </li>
       <li class="nav-list__item">
-        <a class="nav-list__link blue" href="#0">CSS</a>
+        <a class="nav-list__link blue" role="link" aria-disabled="true">CSS</a>
       </li>
       <li class="nav-list__item">
-        <a class="nav-list__link yellow" href="#0">JavaScript</a>
+        <a class="nav-list__link yellow" role="link" aria-disabled="true">JavaScript</a>
       </li>
       <li class="nav-list__item">
-        <a class="nav-list__link green" href="#0">Веб-платформа</a>
+        <a class="nav-list__link green" role="link" aria-disabled="true">Веб-платформа</a>
       </li>
     </ul>
   </nav>
