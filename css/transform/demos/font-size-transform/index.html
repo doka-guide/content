@@ -52,6 +52,12 @@
       text-align: center;
     }
 
+    a {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
     .nav {
       display: flex;
       align-items: center;
@@ -98,18 +104,18 @@
     <h2>Увеличиваем размер шрифта при наведении</h2>
     <h3>Через изменение <code>font-size</code></h3>
     <ul class="nav font-size">
-      <li class="nav-item"><a href="#0">Каталог</a></li>
-      <li class="nav-item"><a href="#0">О нас</a></li>
-      <li class="nav-item"><a href="#0">Доставка</a></li>
-      <li class="nav-item"><a href="#0">Оплата</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Каталог</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">О нас</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Доставка</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Оплата</a></li>
     </ul>
 
     <h3>Через применение <code>transform</code></h3>
     <ul class="nav transform">
-      <li class="nav-item"><a href="#0">Каталог</a></li>
-      <li class="nav-item"><a href="#0">О нас</a></li>
-      <li class="nav-item"><a href="#0">Доставка</a></li>
-      <li class="nav-item"><a href="#0">Оплата</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Каталог</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">О нас</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Доставка</a></li>
+      <li class="nav-item"><a role="link" aria-disabled="true">Оплата</a></li>
     </ul>
   </div>
 </body>
