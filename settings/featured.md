@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
+  - js/deal-with-forms
+  - js/boolean
+  - js/var-let
+  - html/div
+  - a11y/aria-hidden
+  - css/grid-guide
+  - css/pseudoelements
+  - tools/oop
+  - tools/clean-architecture
   - html/input
+  - tools/network
+  - html/article
+  - css/box-shadow
+  - js/function-context
+  - js/async-in-js
+  - css/flexbox-guide
+  - recipes/lets-encrypt-nginx
+  - html/doctype
+  - js/execution-order
+  - tools/markdown
+  - tools/webpack
+  - css/custom-properties
+  - css/keyframes
+  - js/infinite-scroll
+  - html/video
+  - css/display
+  - html/img
+  - tools/cli
+  - css/position
+  - tools/how-the-browser-creates-pages
+  - js/function
+  - tools/static-types
+  - tools/gitlab-ci-cd
+  - html/head
+  - html/nav
+  - html/form
+  - js/closures
+  - recipes/snow
+  - css/media
+  - tools/docker
+  - css/transform-function
+  - css/box-model
+  - tools/how-to-test-and-why
+  - css/specificity
+  - css/attr
+  - html/flow
+  - a11y/aria-intro
+  - recipes/progress
+  - tools/ci-cd
   - html/section
   - a11y/screenreaders
-  - tools/static-types
-  - recipes/progress
-  - html/head
-  - css/media
-  - html/doctype
-  - css/transform-function
-  - js/async-in-js
-  - a11y/aria-intro
-  - css/attr
-  - tools/docker
-  - tools/network
-  - js/infinite-scroll
-  - js/deal-with-forms
-  - css/custom-properties
-  - js/execution-order
-  - html/form
-  - css/keyframes
-  - recipes/lets-encrypt-nginx
-  - html/nav
-  - tools/clean-architecture
-  - recipes/snow
-  - tools/how-the-browser-creates-pages
-  - html/img
-  - a11y/aria-hidden
-  - tools/gitlab-ci-cd
-  - tools/cli
-  - html/flow
-  - css/pseudoelements
-  - html/article
-  - tools/markdown
-  - css/position
-  - js/function
-  - js/function-context
   - tools/agile
-  - html/div
-  - css/grid-guide
-  - css/specificity
-  - html/video
-  - js/var-let
-  - tools/how-to-test-and-why
-  - tools/ci-cd
-  - css/display
-  - js/boolean
-  - css/flexbox-guide
   - tools/bundlers
-  - tools/webpack
-  - js/closures
-  - tools/oop
-  - css/box-model
-  - css/box-shadow
 ---
 
