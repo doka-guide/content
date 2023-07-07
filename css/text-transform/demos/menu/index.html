@@ -27,6 +27,12 @@
       background-color: #2e9aff;
     }
 
+    a {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
     .container {
       inline-size: 85%;
       max-inline-size: 1200px;
@@ -83,22 +89,22 @@
 <body>
   <header>
     <div class="container">
-      <a href="#0" class="logo">
+      <a role="link" aria-disabled="true" class="logo">
         <img src="images/logo.svg" alt="Company logo" class="logo-image">
       </a>
       <nav class="menu">
         <ul class="menu-list">
           <li class="menu-list__item">
-            <a href="#0" class="menu-list__link">Главная</a>
+            <a role="link" aria-disabled="true" class="menu-list__link">Главная</a>
           </li>
           <li class="menu-list__item">
-            <a href="#0" class="menu-list__link">О компании</a>
+            <a role="link" aria-disabled="true" class="menu-list__link">О компании</a>
           </li>
           <li class="menu-list__item">
-            <a href="#0" class="menu-list__link">Проекты</a>
+            <a role="link" aria-disabled="true" class="menu-list__link">Проекты</a>
           </li>
           <li class="menu-list__item">
-            <a href="#0" class="menu-list__link">Контакты</a>
+            <a role="link" aria-disabled="true" class="menu-list__link">Контакты</a>
           </li>
         </ul>
       </nav>
