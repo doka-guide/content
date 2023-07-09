@@ -88,6 +88,7 @@ groups:
       - array-reverse
       - includes
       - index-of
+      - last-index-of
       - array-length
       - array-from
       - array-of
