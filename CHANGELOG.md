@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2023
+
+- 9 июля, [`.lastIndexOf()`](https://doka.guide/js/last-index-of/), Евгения Шевлякова
+
 ## Июнь 2023
 
 - 25 июня, [Intl.DateTimeFormat](https://doka.guide/js/intl-datetimeformat/), Антон Горелов
