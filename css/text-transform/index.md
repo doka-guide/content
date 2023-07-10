@@ -7,8 +7,8 @@ contributors:
   - skorobaeus
 related:
   - css/text-decoration
-  - css/text-underline
-  - css/trasform
+  - css/text-underline-offset
+  - css/transform
 tags:
   - doka
 ---

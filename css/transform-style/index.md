@@ -10,7 +10,7 @@ keywords:
 related:
   - css/transform
   - css/will-change
-  - css/translate
+  - css/transform-style
 tags:
   - doka
 ---
