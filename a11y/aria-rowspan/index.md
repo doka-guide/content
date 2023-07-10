@@ -4,8 +4,8 @@ description: "ARIA-атрибут для числа строк, которые �
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/aria-rowindex
+  - a11y/aria-rowcount
   - html/tables
 tags:
   - doka

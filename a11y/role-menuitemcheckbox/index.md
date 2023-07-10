@@ -4,8 +4,8 @@ description: "Роль пункта списка в виде чекбокса и
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/role-menuitem
+  - a11y/role-menubar
   - a11y/role-menu
 tags:
   - doka
@@ -28,4 +28,4 @@ tags:
 
 У элемента с `menuitemcheckbox` обязательно должен быть атрибут [`aria-checked`](/a11y/aria-checked/), как у любого другого чекбокса.
 
-С ролью `menuitemcheckbox` можно сочетать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые другие [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-expanded`](/a11y/aria-expanded/), [`aria-haspopup`](/a11y/aria-haspopup/), `aria-posinset` и `aria-setsize`.
+С ролью `menuitemcheckbox` можно сочетать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые другие [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-expanded`](/a11y/aria-expanded/), [`aria-haspopup`](/a11y/aria-haspopup/), [`aria-posinset`](/a11y/aria-posinset/) и [`aria-setsize`](/a11y/aria-setsize/).

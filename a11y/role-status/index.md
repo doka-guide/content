@@ -11,8 +11,8 @@ keywords:
   - живая область
   - интерактивная область
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/role-alert
+  - a11y/role-log
   - a11y/aria-live
 tags:
   - doka

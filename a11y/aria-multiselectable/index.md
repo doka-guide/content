@@ -8,8 +8,8 @@ keywords:
   - ARIA
   - ARIA-атрибут
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-selected
   - html/multiple
 tags:
   - doka

@@ -4,8 +4,8 @@ description: "Атрибут, который нужен для указания 
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-errormessage
   - a11y/aria-describedby
 tags:
   - doka
@@ -66,7 +66,7 @@ tags:
 - `application`.
 - `tree`.
 
-Когда у `aria-invalid` значение `true`, `grammar` или `spelling`, хорошо рассказать пользователям, что пошло не так и как правильно ввести данные. С этим помогут атрибуты [`aria-describedby`](/a11y/aria-describedby/) или `aria-errormessage`. С их помощью свяжите текст ошибки с элементом, где она допущена.
+Когда у `aria-invalid` значение `true`, `grammar` или `spelling`, хорошо рассказать пользователям, что пошло не так и как правильно ввести данные. С этим помогут атрибуты [`aria-describedby`](/a11y/aria-describedby/) или [`aria-errormessage`](/a11y/aria-errormessage/). С их помощью свяжите текст ошибки с элементом, где она допущена.
 
 ## Как понять
 

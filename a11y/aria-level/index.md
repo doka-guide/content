@@ -8,9 +8,9 @@ keywords:
   - ARIA
   - ARIA-атрибут
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/role-heading
+  - html/h1-h6
 tags:
   - doka
   - placeholder

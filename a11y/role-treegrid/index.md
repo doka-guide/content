@@ -4,8 +4,8 @@ description: "ARIA-роль для древовидной сетки."
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/role-tree
+  - a11y/role-treeitem
   - html/tables
 tags:
   - doka
@@ -28,4 +28,4 @@ tags:
 
 ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать древовидную сетку с помощью CSS и добавить поддержку клавиатуры с помощью JavaScript и [`tabindex`](/html/global-attrs/#tabindex).
 
-Для `treegrid` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-disabled`](/a11y/aria-disabled/), [`aria-invalid`](/a11y/aria-invalid/), [`aria-readonly`](/a11y/aria-readonly/), [`aria-multiselectable`](/a11y/aria-multiselectable/), [`aria-orientation`](/a11y/aria-orientation/) и [`aria-required`](/a11y/aria-required/), а также [атрибуты связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-activedescendant`](/a11y/aria-activedescendant/), `aria-colcount` и `aria-rowcount`.
+Для `treegrid` можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-disabled`](/a11y/aria-disabled/), [`aria-invalid`](/a11y/aria-invalid/), [`aria-readonly`](/a11y/aria-readonly/), [`aria-multiselectable`](/a11y/aria-multiselectable/), [`aria-orientation`](/a11y/aria-orientation/) и [`aria-required`](/a11y/aria-required/), а также [атрибуты связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-activedescendant`](/a11y/aria-activedescendant/), [`aria-colcount`](/a11y/aria-colcount/) и [`aria-rowcount`](/a11y/aria-rowcount/).

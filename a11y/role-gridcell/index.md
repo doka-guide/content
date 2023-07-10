@@ -5,7 +5,7 @@ authors:
   - doka-dog
 related:
   - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/role-grid
   - html/tables
 tags:
   - doka

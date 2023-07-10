@@ -10,8 +10,8 @@ keywords:
   - переключатель
   - тогл
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/role-button
   - html/button
 tags:
   - doka
