@@ -9,8 +9,6 @@ keywords:
   - программа чтения с экрана
   - программа экранного доступа
   - screen reader
-  - скрин ридер
-  - ридер
 related:
   - a11y/chto-takoe-a11y
   - a11y/aria-intro
