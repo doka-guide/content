@@ -178,7 +178,7 @@ _Скринридер (screen reader)_ — программа, которая п
 
 Возьмём для примера список со ссылками из демки и послушаем его в разных скринридерах.
 
-<iframe title="Ненумированный список из трёх внешних ссылок" src="demos/list-with-links/" height="150"></iframe>
+<iframe title="Ненумированный список из трёх внешних ссылок" src="demos/list-with-links/" height="200"></iframe>
 
 <video controls poster="images/video-cover.png" width="700">
   <source src="video/list-and-screenreaders.mp4" type="video/mp4">
