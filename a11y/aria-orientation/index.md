@@ -4,8 +4,8 @@ description: "ARIA-атрибут для обозначения располож
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-separator
+  - a11y/role-menu
   - a11y/role-tablist
 tags:
   - doka

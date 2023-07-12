@@ -9,8 +9,8 @@ keywords:
   - ARIA-атрибут
   - readonly
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-combobox
+  - a11y/role-listbox
   - html/input
 tags:
   - doka

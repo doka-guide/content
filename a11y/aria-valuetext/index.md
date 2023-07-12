@@ -4,7 +4,7 @@ description: "ARIA-атрибут для текстового описания �
 authors:
   - doka-dog
 related:
-  - a11y/aria-attrs
+  - a11y/aria-valuenow
   - html/progress
   - html/input
 tags:
@@ -29,4 +29,4 @@ tags:
 - [`<progress>`](/html/progress/) или `progressbar`;
 - `scrollbar`.
 
-Когда задаёте `aria-valuetext`, не забудьте также указать `aria-valuenow`, если известно текущее значение.
+Когда задаёте `aria-valuetext`, не забудьте также указать [`aria-valuenow`](/a11y/aria-valuenow/), если известно текущее значение.

@@ -4,8 +4,8 @@ description: "ARIA-атрибут для общего числа элемент�
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-menuitem
+  - a11y/role-treeitem
   - a11y/role-tab
 tags:
   - doka

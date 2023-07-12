@@ -4,8 +4,8 @@ description: "ARIA-атрибут для максимального значен
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/aria-valunow
+  - a11y/aria-valuemin
   - html/input
 tags:
   - doka
@@ -20,7 +20,7 @@ tags:
 
 ## Как пишется
 
-Добавьте к тегу `aria-valuemax` со значением в виде целого или дробного числа. К примеру, `1`, `0`, `2` или `0.5`. Важно, чтобы значение `aria-valuemax` было выше или таким же, как у `aria-valuemin`.
+Добавьте к тегу `aria-valuemax` со значением в виде целого или дробного числа. К примеру, `1`, `0`, `2` или `0.5`. Важно, чтобы значение `aria-valuemax` было выше или таким же, как у [`aria-valuemin`](/a11y/aria-valuemin/).
 
 `aria-valuemax` можно задавать только некоторым тегам и ролям:
 

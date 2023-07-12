@@ -4,8 +4,8 @@ description: "Роль строки меню, пункты которой все
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/role-menuitem
+  - a11y/role-menuitemcheckbox
   - a11y/role-menu
 tags:
   - doka

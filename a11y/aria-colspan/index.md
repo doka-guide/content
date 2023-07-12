@@ -4,8 +4,8 @@ description: "ARIA-атрибут для числа колонок (столбц
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-colindex
   - html/tables
 tags:
   - doka

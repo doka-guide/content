@@ -4,8 +4,8 @@ description: "Роль древовидного списка."
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/role-treeitem
+  - a11y/role-treegrid
   - html/ul
 tags:
   - doka

@@ -84,9 +84,8 @@ tags:
 
 - [`aria-disabled`](/a11y/aria-disabled/);
 - [`aria-haspopup`](/a11y/aria-haspopup/);
-- `aria-posinset`;
-- `aria-setsize`;
-- `aria-multiselectable`.
+- [`aria-posinset`](/a11y/aria-posinset/);
+- [`aria-setsize`](/a11y/aria-setsize/).
 
 Внутри `tab` лучше всего размещать текст. Если в названии вкладки иконка, не забудьте её подписать с помощью [`aria-label`](/a11y/aria-label/) или добавить скрытую подпись с классом [`.visually-hidden`](/a11y/content-hidden/#klassy-.visually-hidden-.sr-only-.off-screen).
 

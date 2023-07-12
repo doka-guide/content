@@ -4,8 +4,8 @@ description: "Атрибут для элемента с подробной ин�
 authors:
   - tatianafokina
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-description
   - a11y/aria-describedby
 tags:
   - doka

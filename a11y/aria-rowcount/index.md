@@ -4,7 +4,7 @@ description: "ARIA-атрибут для обозначения количест
 authors:
   - doka-dog
 related:
-  - a11y/aria-attrs
+  - a11y/aria-rowindex
   - a11y/role-tree
   - html/tables
 tags:

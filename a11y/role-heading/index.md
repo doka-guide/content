@@ -8,8 +8,8 @@ keywords:
   - ARIA
   - ARIA-роль
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
+  - a11y/aria-level
   - html/h1-h6
 tags:
   - doka

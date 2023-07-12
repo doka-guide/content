@@ -4,8 +4,8 @@ description: "ARIA-атрибут для обозначения активног
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-current
   - a11y/role-tablist
 tags:
   - doka

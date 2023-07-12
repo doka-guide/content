@@ -4,8 +4,8 @@ description: "ARIA-атрибут для минимального значени
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/aria-valuenow
+  - a11y/aria-valuemax
   - html/input
 tags:
   - doka
@@ -20,7 +20,7 @@ tags:
 
 ## Как пишется
 
-Добавьте к тегу `aria-valuemin` со значением в виде целого или дробного числа. К примеру, `1`, `0`, `2` или `0.5`. Важно, чтобы значение `aria-valuemin` было ниже или таким же, как у `aria-valuemax`.
+Добавьте к тегу `aria-valuemin` со значением в виде целого или дробного числа. К примеру, `1`, `0`, `2` или `0.5`. Важно, чтобы значение `aria-valuemin` было ниже или таким же, как у [`aria-valuemax`](/a11y/aria-valuemax/).
 
 `aria-valuemin` можно задавать только некоторым тегам и ролям:
 

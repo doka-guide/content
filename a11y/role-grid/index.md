@@ -4,8 +4,8 @@ description: "ARIA-роль для сетки как в Exel."
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
+  - a11y/aria-multiselectable
+  - a11y/role-gridcell
   - html/tables
 tags:
   - doka

@@ -4,9 +4,9 @@ description: "Роль меню в виде выпадающего списка 
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-menuitemradio
+  - a11y/role-menuitemcheckbox
+  - a11y/role-menuitem
 tags:
   - doka
   - placeholder
@@ -28,7 +28,7 @@ tags:
 
 У роли `menu` есть встроенное свойство [`aria-orientation="vertical"`](/a11y/aria-orientation/).
 
-Для меню можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), ещё один [атрибут виджета](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-disabled`](/a11y/aria-disabled/) и [атрибут связи](/a11y/aria-attrs/#atributy-svyazi) `aria-activedescendant`.
+Для меню можно использовать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), ещё один [атрибут виджета](/a11y/aria-attrs/#atributy-vidzhetov) [`aria-disabled`](/a11y/aria-disabled/) и [атрибут связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-activedescendant`](/a11y/aria-activedescendant/).
 
 ## Как понять
 

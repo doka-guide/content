@@ -4,7 +4,7 @@ description: "Роль элемента-контейнера без имени �
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-presentation-none
   - html/div
   - html/span
 tags:

@@ -7,8 +7,8 @@ keywords:
   - доступность
   - ARIA
 related:
-  - a11y/aria-intro
   - a11y/aria-roles
+  - a11y/role-generic
   - a11y/aria-describedby
 tags:
   - doka

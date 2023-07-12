@@ -7,8 +7,8 @@ keywords:
   - доступность
   - ARIA
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-dialog
+  - a11y/role-alertdialog
   - html/dialog
 tags:
   - doka
@@ -50,8 +50,8 @@ tags:
 
 Атрибут можно использовать только для некоторых ролей и атрибутов:
 
-- [`<dialog>`](/html/dialog/) или вместе с ролью `dialog`;
-- с ролью `alertdialog`.
+- [`<dialog>`](/html/dialog/) или вместе с ролью [`dialog`](/a11y/role-dialog/);
+- с ролью [`alertdialog`](/a11y/role-alertdialog/).
 
 Если показываете модальное окно с `<dialog>` с помощью метода `showModal()`, в этом случае не нужно задавать ему `aria-modal` и менять динамически значения. В методе уже по умолчанию используется `aria-modal="true"`.
 
