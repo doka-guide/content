@@ -4,7 +4,7 @@ description: "ARIA-атрибут для максимального значен
 authors:
   - doka-dog
 related:
-  - a11y/aria-valunow
+  - a11y/aria-valuenow
   - a11y/aria-valuemin
   - html/input
 tags:
