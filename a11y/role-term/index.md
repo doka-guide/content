@@ -16,7 +16,7 @@ tags:
 
 [Роль структуры документа](/a11y/aria-roles/) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для термина.
 
-В HTML эта роль есть у [`<dt>`](/html/dl-dd-dt/) и `<dfn>`.
+В HTML эта роль есть у [`<dt>`](/html/dl-dd-dt/) и [`<dfn>`](/html/dfn/).
 
 ## Как пишется
 
