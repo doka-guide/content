@@ -29,7 +29,7 @@ server {
 |--|--post-1.html
 ```
 
-По URL-адресу `https://mydomain.com/about` откроется страница `about.html`, а по адресу `https://mydomain.com/posts` — странца `/posts/index.html`.
+По URL-адресу `https://mydomain.com/about` откроется страница `about.html`, а по адресу `https://mydomain.com/posts` — страница `/posts/index.html`.
 
 Вот готовое решение:
 
