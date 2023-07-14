@@ -23,9 +23,8 @@
       padding: 50px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       background-color: #18191C;
-      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
@@ -36,40 +35,27 @@
     }
 
     ul {
-      position: relative;
-      list-style-type: none;
-      font-size: 24px;
-    }
-
-    ul::before {
-      content: 'меню';
-      position: absolute;
-      right: calc(100% + 25px);
-      top: 7px;
-      padding: 2px 7px;
-      background-color: #10F3AF;
-      color: #000000;
-      font-size: 14px;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      list-style: none;
     }
 
     li {
-      font-size: 24px;
+      font-size: 18px;
     }
 
     a {
-      border-radius: 3px;
-      color: inherit;
-      -webkit-text-decoration-color: #10F3AF;
-      text-decoration-color: #10F3AF;
-      text-decoration-thickness: 2px;
-      transition: background-color 0.2s linear;
+      color: #8fb8f8;
     }
 
-    a:hover, a:focus {
-      background-color: #10F3AF;
-      color: #000000;
-      transition: background-color 0.2s linear;
-      outline-width: 0;
+    a:hover {
+      color: #e65100;
+    }
+
+    a:focus {
+      outline: 3px solid #e65100;
+      outline-offset: 4px;
     }
   </style>
 </head>
