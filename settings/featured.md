@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/deal-with-forms
-  - js/boolean
-  - js/var-let
-  - html/div
-  - a11y/aria-hidden
-  - css/grid-guide
-  - css/pseudoelements
-  - tools/oop
-  - tools/clean-architecture
-  - html/input
-  - tools/network
   - html/article
-  - css/box-shadow
-  - js/function-context
-  - js/async-in-js
-  - css/flexbox-guide
-  - recipes/lets-encrypt-nginx
+  - tools/ci-cd
+  - js/closures
+  - js/var-let
   - html/doctype
-  - js/execution-order
+  - recipes/progress
+  - html/input
+  - css/attr
   - tools/markdown
-  - tools/webpack
+  - tools/clean-architecture
+  - html/section
   - css/custom-properties
-  - css/keyframes
+  - css/media
+  - css/box-shadow
+  - recipes/lets-encrypt-nginx
+  - a11y/aria-intro
+  - js/deal-with-forms
+  - tools/docker
+  - tools/how-to-test-and-why
+  - js/function
+  - tools/cli
+  - tools/static-types
   - js/infinite-scroll
+  - tools/agile
+  - html/nav
+  - css/box-model
+  - css/pseudoelements
+  - a11y/aria-hidden
+  - js/boolean
+  - tools/webpack
+  - css/flexbox-guide
+  - css/grid-guide
+  - js/execution-order
+  - css/position
+  - css/specificity
+  - tools/oop
+  - css/transform-function
+  - tools/network
+  - html/img
+  - recipes/snow
+  - html/flow
+  - tools/gitlab-ci-cd
+  - tools/bundlers
+  - tools/how-the-browser-creates-pages
+  - html/form
+  - html/head
+  - js/function-context
+  - css/keyframes
+  - js/async-in-js
   - html/video
   - css/display
-  - html/img
-  - tools/cli
-  - css/position
-  - tools/how-the-browser-creates-pages
-  - js/function
-  - tools/static-types
-  - tools/gitlab-ci-cd
-  - html/head
-  - html/nav
-  - html/form
-  - js/closures
-  - recipes/snow
-  - css/media
-  - tools/docker
-  - css/transform-function
-  - css/box-model
-  - tools/how-to-test-and-why
-  - css/specificity
-  - css/attr
-  - html/flow
-  - a11y/aria-intro
-  - recipes/progress
-  - tools/ci-cd
-  - html/section
+  - html/div
   - a11y/screenreaders
-  - tools/agile
-  - tools/bundlers
 ---
 
