@@ -33,7 +33,7 @@ server {
 
 Вот готовое решение:
 
-```
+```nginxconf
 server {
   root /path-to-your-static-files;
   index index.html index.htm index.nginx-debian.html;
