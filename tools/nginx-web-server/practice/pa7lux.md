@@ -8,7 +8,7 @@
 server {
   listen 80;
   listen [::]:80;
-  server_name yourdomain.com www.yourdomain.coom;
+  server_name yourdomain.com www.yourdomain.com;
 
   location / {
     proxy_redirect off;
