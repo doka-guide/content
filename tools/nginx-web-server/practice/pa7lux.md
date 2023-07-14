@@ -37,7 +37,7 @@ server {
 server {
   root /path-to-your-static-files;
   index index.html index.htm index.nginx-debian.html;
-  server_name yourdomain.com www.yourdomain.coom;
+  server_name mydomain.com www. mydomain.com;
 
   location / {
     rewrite ^/([^.]+)$ /$1.html break;
