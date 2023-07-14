@@ -5,13 +5,13 @@
 1. Если приложение запускается с определенного порта, нужен ревёрс-прокси с локального хоста. Подходит, чтобы крутить на сервере NodeJS-приложения и отдавать результаты по запросу на определённый домен. Подходит, чтобы запускать Next, Nuxt, Express и всё подобное на собственном домене.
 
 ```
- server {
+server {
   listen 80;
   listen [::]:80;
   server_name yourdomain.com www.yourdomain.coom;
 
   location / {
-  	proxy_redirect off;
+    proxy_redirect off;
     proxy_pass http://localhost:3000;
   }
 }
@@ -35,13 +35,13 @@
 
 ```
 server {
-	root /path-to-your-static-files;
-	index index.html index.htm index.nginx-debian.html;
-	server_name yourdomain.com www.yourdomain.coom;
+  root /path-to-your-static-files;
+  index index.html index.htm index.nginx-debian.html;
+  server_name yourdomain.com www.yourdomain.coom;
 
-	location / {
-	  rewrite ^/([^.]+)$ /$1.html break;
-	  try_files $uri $uri/ /$1/index.html;
-	}
+  location / {
+    rewrite ^/([^.]+)$ /$1.html break;
+    try_files $uri $uri/ /$1/index.html;
+  }
 }
 ```
