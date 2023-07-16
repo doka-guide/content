@@ -33,17 +33,17 @@ tags:
 }
 
 .container-item-grown {
-  background-color: orange;
+  background-color: #2E9AFF;
   flex-grow: 2;
 }
 
 .container-item-common {
-  background-color: yellow;
+  background-color: #F498AD;
   flex-grow: 1;
 }
 ```
 
-<iframe title="Пример select" src="demos/grow/" height="300"></iframe>
+<iframe title="Пример flex-grow" src="demos/grow/" height="300"></iframe>
 
 У нас есть контейнер шириной 1200 px, для первого элемента указан `flex-grow: 2`, а для второго — `flex-grow: 1`. 
 Первый элемент занимает 800 px, а второй 400 px. 
@@ -79,21 +79,20 @@ tags:
 .container {
   display: flex;
   width: 1200px;
-  height: 100px;
 }
 
 .container-item-grown {
-  background-color: orange;
+  background-color: #2E9AFF;
   flex-grow: 2;
 }
 
 .container-item-common {
-  background-color: yellow;
+  background-color: #F498AD;
   flex-grow: 1;
 }
 ```
 
-<iframe title="Пример select" src="demos/grow-equal/" height="300"></iframe>
+<iframe title="Пример flex-grow" src="demos/grow-equal/" height="300"></iframe>
 
 Пример отличается от предыдущего тем, что в блоках появился текст, обернутый в параграф. И результат таков, что блоки стали одинаковыми по ширине. 
 
@@ -132,19 +131,19 @@ tags:
 }
 
 .container-item-grown {
-  background-color: orange;
+  background-color: #2E9AFF;
   flex-grow: 2;
   flex-basis: 800px;
 }
 
 .container-item-common {
-  background-color: yellow;
+  background-color: #F498AD;
   flex-grow: 1;
   flex-basis: 400px;
 }
 ```
 
-<iframe title="Пример select" src="demos/grow-basis/" height="300"></iframe>
+<iframe title="Пример flex-grow" src="demos/grow-basis/" height="300"></iframe>
 
 Ещё один пример без `flex-basis` для закрепления. Попробуем задать ширину параграфов: для первого параграфа зададим 300 px, а для второго 600 px.
 
@@ -170,12 +169,12 @@ tags:
 }
 
 .container-item-grown {
-  background-color: orange;
+  background-color: #2E9AFF;
   flex-grow: 2;
 }
 
 .container-item-common {
-  background-color: yellow;
+  background-color: #F498AD;
   flex-grow: 1;
 }
 
@@ -188,7 +187,7 @@ tags:
 }
 ```
 
-<iframe title="Пример select" src="demos/grow-width/" height="300"></iframe>
+<iframe title="Пример flex-grow" src="demos/grow-width/" height="300"></iframe>
 
 Здесь получается не совсем ожидаемый от `flex-grow` результат, если не знать как работает свойство на самом деле. Но мы-то уже знаем, давайте посчитаем:
 
@@ -199,7 +198,7 @@ tags:
  - В итоге первый элемент займет 500 px (300px + 200px), а второй - 700 px (600px + 100px).
 
 ### Что еще здесь важно помнить?
-Как работает свойство [box-sizing](/css/box-sizing/). Так как свойство flex-basis - это изначальная ширина, оно и вычисляется как свойство width. А значит вычисление зависит и от box-sizing.
+Как работает свойство [box-sizing](/css/box-sizing/). Вычисление свойства `flex-basis` также, как и свойства `width` зависит от `box-sizing`, и результат, в зависимости от указанного значения, будет разным.
 
 ## `flex-shrink`
 
@@ -227,35 +226,37 @@ tags:
 }
 
 .container-item-shrikned {
-  background-color: orange;
+  background-color: #2E9AFF;
   flex-shrink: 2;
   flex-basis: 400px;
 }
 
 .container-item-common {
-  background-color: yellow;
+  background-color: #F498AD;
   flex-shrink: 1;
   flex-basis: 800px;
 }
 ```
 
-<iframe title="Пример select" src="demos/grow-width/" height="300"></iframe>
+<iframe title="Пример flex-shrink" src="demos/grow-width/" height="300"></iframe>
 
 У нас в примере два элемента, у каждого есть изначальная ширина (`flex-basis` равен 400 px и 800 px соответственно). Итого 1200 px. Однако ширина флекс-контейнера всего 800 px;
 
 Сначала посчитаем общий вес при том, что для первого элемента значение `flex-shrink` составляет 2, а для второго — 1: 2 * 400px + 1 * 800px = 1600px.
 Для полноценного размещения нам не хватает 1200px - 800px = 400px.
 
-Посчитаем на сколько пикселей сократится каждый элемент:
+Подсчет сокращения будет выглядеть следующим образом:
+ - Пространство, которого **не хватает**, умножим на значение `flex-shrink`
+ - Затем результат умножим на значение `flex-basis`
+ - Результат предыдущего действия разделим на общий вес
 
- - 400px (пространство, которого не хватает) * 2 (значение flex-shrink) * 400px (значение flex-basis) / 1600px (общий вес) = 200px
- 
- - 400px (пространство, которого не хватает) * 1 (значение flex-shrink) * 800px (значение flex-basis) / 1600px (общий вес) =
-   200px
+Считаем:
+ - 400 px * 2 * 400 px / 1600 px = 200 px
+ - 400 px * 1 * 800 px / 1600 px = 200 px
 
 А в результате ширина блоков будет следующая:
-- 400px - 200px = 200px
-- 800px - 200px = 600px
+ - 400 px - 200 px = 200 px
+ - 800 px - 200 px = 600 px
 
 Вывод: с помощью свойств [`flex-basis`](/css/flex-basis/), [`flex-grow`](/css/flex-grow/), [`flex-shrink`](/css/flex-shrink/) можно предусмотреть как ситуации, когда контейнер окажется больше, чем элементы, в нём размещенные, так и наоборот - когда контейнер мал для элементов. А если знать как рассчитываются итоговые размеры, то можно избежать различных неожиданностей.
 
