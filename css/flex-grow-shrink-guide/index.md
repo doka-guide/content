@@ -1,6 +1,6 @@
 ---
 title: "Как реально работают `flex-shrink` и `flex-grow`"
-description: "Механизм расчёта свободного места во flex-контейнере, работа свойств flex-grow и flex-shrink"
+description: "Механизм расчёта свободного места во флекс-контейнере при помощи свойств `flex-grow` и `flex-shrink`."
 authors:
   - openysheva
 related:
