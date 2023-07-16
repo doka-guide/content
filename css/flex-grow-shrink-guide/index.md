@@ -42,6 +42,7 @@ tags:
   flex-grow: 1;
 }
 ```
+
 <iframe title="Пример select" src="demos/grow/" height="300"></iframe>
 
 У нас есть контейнер шириной 1200px, для первого элемента указан flex-grow: 2, а для второго - flex-grow: 1. 
