@@ -9,7 +9,6 @@ tags:
   - article
 ---
 
-## Как реально работают flex-shrink и flex-grow
 
 [`flex-grow`](/css/flex-grow/) и [`flex-shrink`](/css/flex-shrink/) - это css-свойства, определяющие, какое количество свободного пространства flex-контейнера может занимать текущий элемент.
 
