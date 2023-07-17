@@ -4,6 +4,7 @@
 
 ## Июль 2023
 
+- 15 июля, [Что такое CORS](https://doka.guide/tools/cors/), Денис Путнов
 - 9 июля, [`.lastIndexOf()`](https://doka.guide/js/last-index-of/), Евгения Шевлякова
 
 ## Июнь 2023
