@@ -5,8 +5,8 @@ authors:
   - doka-dog
 related:
   - a11y/aria-rowindex
-  - a11y/role-row
-  - a11y/role-cell
+  - a11y/aria-roles
+  - a11y/aria-attrs
 tags:
   - doka
   - placeholder

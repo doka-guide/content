@@ -6,7 +6,7 @@ authors:
 related:
   - a11y/aria-roles
   - html/caption
-  - html/figure
+  - html/figure-figcaption
 tags:
   - doka
   - placeholder
