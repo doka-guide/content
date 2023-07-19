@@ -28,7 +28,7 @@ tags:
 }
  ```
 
-<iframe title="Варианты image-rendering" src="demos/" height="489"></iframe>
+<iframe title="Варианты image-rendering" src="demos/base/" height="489"></iframe>
 
 
 ## Как пишется
