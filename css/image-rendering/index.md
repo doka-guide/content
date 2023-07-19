@@ -2,7 +2,7 @@
 title: "image-rendering"
 description: "Интерполяция изображений: что это, какие алгоритмы и как этим управлять?"
 authors:
-  - AndreySukhov
+  - andreysukhov
 related:
   - ""
 tags:
