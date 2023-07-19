@@ -20,13 +20,13 @@ tags:
 ## Пример
 
 ```css
- img {
+img {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: -o-crisp-edges;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
- ```
+```
 
 ## Как пишется
 
