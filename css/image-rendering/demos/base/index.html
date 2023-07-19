@@ -43,6 +43,9 @@
     .img-wrap {
       width: 370px;
       height: 370px;
+      max-width: 600px;
+      max-height: 600px;
+      resize: both;
       overflow: hidden;
       border: 1px solid #f1f1f1;
       object-fit: cover;
@@ -68,14 +71,6 @@
       image-rendering: pixelated;
     }
 
-    .smooth {
-      image-rendering: smooth;
-    }
-
-    .high-quality {
-      image-rendering: high-quality;
-    }
-
     form {
       display: flex;
       flex-wrap: wrap;
@@ -96,14 +91,6 @@
     <label>
       <input type="radio" value="pixelated" name="image-rendering">
       <code>pixelated</code>
-    </label>
-    <label>
-      <input type="radio" value="smooth" name="image-rendering">
-      <code>smooth</code>
-    </label>
-    <label>
-      <input type="radio" value="high-quality" name="image-rendering">
-      <code>high-quality</code>
     </label>
   </form>
   <div class="card">
