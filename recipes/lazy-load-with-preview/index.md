@@ -36,8 +36,6 @@ _Ленивая загрузка (lazy loadnig)_ — это асинхронна
 
 ### Разметка
 
-Для добавления цветного превью нужно в стилях прописать свойство [`background-color`](/css/background-color/), а если нужно вставить картинку, то нужно использовать [`background-image`](/css/background-image/).
-
 ```html
 <img
   loading="lazy"
@@ -47,6 +45,8 @@ _Ленивая загрузка (lazy loadnig)_ — это асинхронна
 ```
 
 ### Стили
+
+Для добавления цветного превью нужно в стилях прописать свойство [`background-color`](/css/background-color/), а если нужно вставить картинку, то нужно использовать [`background-image`](/css/background-image/).
 
 ```css
 .lazy-image {
