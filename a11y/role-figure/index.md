@@ -6,7 +6,7 @@ authors:
 related:
   - a11y/aria-roles
   - a11y/aria-label
-  - html/figure
+  - html/figure-figcaption
 tags:
   - doka
   - placeholder
@@ -16,7 +16,7 @@ tags:
 
 [Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для автономного содержимого в виде изображений, иллюстраций и прочего, обычно с подписью к нему.
 
-В HTML эта роль есть у [`<figure>`](/html/figure/) по умолчанию.
+В HTML эта роль есть у [`<figure>`](/html/figure-figcaption/) по умолчанию.
 
 ## Как пишется
 
