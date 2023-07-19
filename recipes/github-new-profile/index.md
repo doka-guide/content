@@ -3,6 +3,10 @@ title: "Как создать профиль на GitHub"
 description: "Начните работу на GitHub с создания профиля пользователя."
 authors:
   - igsekor
+related:
+  - tools/version-control
+  - tools/git-cli
+  - tools/github-actions
 tags:
   - article
 ---
