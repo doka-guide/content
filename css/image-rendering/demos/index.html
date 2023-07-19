@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>image rendering</title>
+  <title>Разные режимы — image-rendering — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     * {
       margin: 0;
@@ -14,14 +14,18 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
       padding: 50px;
       background-color: #18191c;
-      font-family: "Roboto", sans-serif;
+      font-family: "Roboto Mono", monospace;
       font-size: 24px;
       text-align: center;
     }
@@ -37,83 +41,89 @@
     }
 
     .img-wrap {
-      max-width: 600px;
-      resize: both;
-      overflow: scroll;
+      width: 370px;
+      height: 370px;
+      overflow: hidden;
       border: 1px solid #f1f1f1;
+      object-fit: cover;
+      object-position: center;
     }
 
-    .img {
-      width: 100%;
+    img {
+      width: 150%;
     }
 
-    .img--auto {
+    .auto {
       image-rendering: auto;
     }
 
-    .img--crisp-edges {
+    .crisp-edges {
       image-rendering: -webkit-optimize-contrast;
       image-rendering: -o-crisp-edges;
       image-rendering: -moz-crisp-edges;
       image-rendering: crisp-edges;
     }
 
-    .img--pixelated {
+    .pixelated {
       image-rendering: pixelated;
     }
 
-    .img--smooth {
+    .smooth {
       image-rendering: smooth;
     }
 
-    .img--high-quality {
+    .high-quality {
       image-rendering: high-quality;
     }
 
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+    }
   </style>
 </head>
 <body>
-  <div>
-    <div class="card">
-      <p class="card-description">
-        auto
-      </p>
-      <div class="img-wrap">
-        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--auto">
-      </div>
-    </div>
-    <div class="card">
-      <p class="card-description">
-        crisp-edges
-      </p>
-      <div class="img-wrap">
-        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--crisp-edges">
-      </div>
-    </div>
-    <div class="card">
-      <p class="card-description">
-        pixelated
-      </p>
-      <div class="img-wrap">
-        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--pixelated">
-      </div>
-    </div>
-    <div class="card">
-      <p class="card-description">
-        smooth
-      </p>
-      <div class="img-wrap">
-        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--smooth">
-      </div>
-    </div>
-    <div class="card">
-      <p class="card-description">
-        high-quality
-      </p>
-      <div class="img-wrap">
-        <img src="../images/triangle.jpg" alt="белый треугольник" class="img img--high-quality">
-      </div>
+  <form>
+    <label>
+      <input type="radio" value="auto" name="image-rendering" checked>
+      <code>auto</code>
+    </label>
+    <label>
+      <input type="radio" value="crisp-edges" name="image-rendering">
+      <code>crisp-edges</code>
+    </label>
+    <label>
+      <input type="radio" value="pixelated" name="image-rendering">
+      <code>pixelated</code>
+    </label>
+    <label>
+      <input type="radio" value="smooth" name="image-rendering">
+      <code>smooth</code>
+    </label>
+    <label>
+      <input type="radio" value="high-quality" name="image-rendering">
+      <code>high-quality</code>
+    </label>
+  </form>
+  <div class="card">
+    <div class="img-wrap">
+      <img src="../images/triangle.jpg" alt="белый треугольник" class="auto">
     </div>
   </div>
+
+  <script>
+    const radios = document.querySelectorAll('input[type="radio"]')
+    const img = document.querySelector('img')
+
+    radios.forEach(radio => {
+      radio.addEventListener('click', (event) => {
+        if (event.target.checked) {
+          img.className = ''
+          img.classList.add(event.target.value)
+        }
+      })
+    })
+  </script>
 </body>
 </html>
