@@ -11,7 +11,6 @@ related:
   - html/link
 tags:
   - doka
-  - placeholder
 ---
 
 
