@@ -307,6 +307,7 @@ groups:
       - aspect-ratio
       - filter
       - filter-functions
+      - image-rendering
   - name: 'Рамки, обводки и тени'
     items:
       - border
