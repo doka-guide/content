@@ -5,6 +5,10 @@ authors:
   - hellsquirrel
 keywords:
   - git
+related:
+  - tools/git-cli
+  - tools/gitlab-ci-cd
+  - tools/github-actions
 tags:
   - article
 ---
