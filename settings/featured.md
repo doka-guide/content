@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/article
-  - tools/ci-cd
+  - js/boolean
+  - css/box-model
+  - css/position
+  - html/flow
+  - js/infinite-scroll
   - js/closures
   - js/var-let
+  - html/article
+  - tools/cli
+  - tools/docker
   - html/doctype
-  - recipes/progress
-  - html/input
-  - css/attr
-  - tools/markdown
-  - tools/clean-architecture
-  - html/section
-  - css/custom-properties
-  - css/media
   - css/box-shadow
   - recipes/lets-encrypt-nginx
-  - a11y/aria-intro
-  - js/deal-with-forms
-  - tools/docker
-  - tools/how-to-test-and-why
-  - js/function
-  - tools/cli
-  - tools/static-types
-  - js/infinite-scroll
-  - tools/agile
-  - html/nav
-  - css/box-model
-  - css/pseudoelements
-  - a11y/aria-hidden
-  - js/boolean
-  - tools/webpack
-  - css/flexbox-guide
-  - css/grid-guide
-  - js/execution-order
-  - css/position
-  - css/specificity
-  - tools/oop
-  - css/transform-function
   - tools/network
-  - html/img
-  - recipes/snow
-  - html/flow
-  - tools/gitlab-ci-cd
-  - tools/bundlers
-  - tools/how-the-browser-creates-pages
-  - html/form
-  - html/head
-  - js/function-context
-  - css/keyframes
-  - js/async-in-js
-  - html/video
-  - css/display
-  - html/div
   - a11y/screenreaders
+  - tools/agile
+  - tools/ci-cd
+  - tools/clean-architecture
+  - tools/gitlab-ci-cd
+  - css/media
+  - css/attr
+  - css/grid-guide
+  - html/img
+  - tools/static-types
+  - html/form
+  - css/display
+  - html/section
+  - a11y/aria-hidden
+  - a11y/aria-intro
+  - recipes/snow
+  - recipes/progress
+  - js/function-context
+  - css/flexbox-guide
+  - tools/bundlers
+  - js/async-in-js
+  - css/transform-function
+  - tools/markdown
+  - js/deal-with-forms
+  - html/nav
+  - tools/oop
+  - html/video
+  - css/specificity
+  - html/div
+  - css/custom-properties
+  - tools/how-to-test-and-why
+  - css/pseudoelements
+  - tools/webpack
+  - html/head
+  - html/input
+  - css/keyframes
+  - js/execution-order
+  - tools/how-the-browser-creates-pages
+  - js/function
 ---
 
