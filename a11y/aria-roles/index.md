@@ -111,7 +111,7 @@ _Самостоятельные роли_ — это роли элементов
 
 - `application` — часть страницы, которая ведёт себя как приложение.
 - `article` — законченный и самодостаточный раздел документа. Эквивалент в HTML — [`<article>`](/html/article/).
-- `blockquote` — цитата. Эквивалент в HTML — [`<blockquote>`](/html/blockquote/).
+- [`blockquote`](/a11y/role-blockquote/) — цитата. Эквивалент в HTML — [`<blockquote>`](/html/blockquote/).
 - `caption` — видимая подпись к таблице, сетке и похожим элементам. Эквивалент в HTML — [`<caption>`](/html/caption/).
 - `cell` — ячейка таблицы. Эквиваленты в HTML — [`<td>`](/html/tables/#td).
 - `code` — код. Эквивалент в HTML — [`<code>`](/html/code/).
