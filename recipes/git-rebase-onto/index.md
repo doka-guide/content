@@ -111,7 +111,7 @@ git rebase --onto backend main frontend
 - `git rebase --onto` — переносим;
 - backend — на последний коммит ветки backend, т. е. на API2;
 - main — все коммиты в моей ветке frontend, начиная с того, которым заканчивается ветка main (Статья 3);
-- frontend — заканчивая последним коммитом ветки frontend (Тултипчик 2);
+- frontend — заканчивая последним коммитом ветки frontend (<!-- yaspeller ignore:start -->Тултипчик<!-- yaspeller ignore:end --> 2);
 
 ## Бонус
 
