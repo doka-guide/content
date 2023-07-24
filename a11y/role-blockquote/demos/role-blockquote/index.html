@@ -1,70 +1,67 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <title>ARIA-роль blockquote — Дока</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
-    <style>
-        body {
-            background-color: #282a2e;;
-        }
+  <title>ARIA-роль blockquote — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    body {
+      background-color: #282a2e;;
+    }
 
-        .quote-wrapper {
-            width: 50%;
-            padding: 30px 30px 30px 90px;
-        }
+    .quote-wrapper {
+      width: 50%;
+      padding: 30px 30px 30px 90px;
+    }
 
-        .quote-wrapper::before {
-            content: "\201C";
-            font-family: serif;
-            position: absolute;
-            left: 20px;
-            top: 30px;
-            color: #f8faf9;
-            background: #FB6652;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 50px;
-            line-height: 1.35;
-            text-align: center;
-        }
+    .quote-wrapper::before {
+      content: "\201C";
+      font-family: serif;
+      position: absolute;
+      left: 20px;
+      top: 30px;
+      color: #f8faf9;
+      background: #FB6652;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 50px;
+      line-height: 1.35;
+      text-align: center;
+    }
 
-        div[role="blockquote"] {
-            background-color: #282a2e;
-            margin: 0;
-            position: relative;
-            font-family: sans-serif;
-            font-weight: 300;
-            color: #f8faf9;
-        }
+    div[role="blockquote"] {
+      background-color: #282a2e;
+      margin: 0;
+      position: relative;
+      font-family: sans-serif;
+      font-weight: 300;
+      color: #f8faf9;
+    }
 
-        div[role="blockquote"] p {
-            margin: 0 0 16px;
-            font-size: 22px;
-            letter-spacing: .05em;
-            line-height: 1.4;
-        }
+    div[role="blockquote"] p {
+      margin: 0 0 16px;
+      font-size: 22px;
+      letter-spacing: .05em;
+      line-height: 1.4;
+    }
 
-        p, cite {
-            font-style: normal;
-            color: #f8faf9;
-            font-family: sans-serif;
-        }
-    </style>
+    p, cite {
+      font-style: normal;
+      color: #f8faf9;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="quote-wrapper">
-        <div role="blockquote">
-            <p>Простота – необходимое условие прекрасного.</p>
-        </div>
-        <p>— Л. Н. Толстой, <cite>Из письма Л. Н. Андрееву.</cite></p>
+  <div class="quote-wrapper">
+    <div role="blockquote">
+      <p>Простота – необходимое условие прекрасного.</p>
     </div>
+    <p>— Л. Н. Толстой, <cite>Из письма Л. Н. Андрееву.</cite></p>
+  </div>
 </body>
-
 </html>
