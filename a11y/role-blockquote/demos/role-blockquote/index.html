@@ -7,51 +7,72 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
   <style>
+    html, body {
+      height: 100%;
+    }
+
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 50px;
       background-color: #18191c;
+      font-family: "Roboto", sans-serif;
     }
 
     .quote-wrapper {
-      width: 50%;
-      padding: 30px 30px 30px 90px;
+      position: relative;
     }
 
     .quote-wrapper::before {
       content: "\201C";
-      font-family: serif;
       position: absolute;
-      left: 20px;
-      top: 30px;
-      color: #f8faf9;
-      background: #FB6652;
+      top: -7px;
+      left: -80px;
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      background: #10f3af;
+      font-family: "Roboto Slab", serif;
       font-size: 50px;
-      line-height: 1.35;
+      line-height: 1.45;
       text-align: center;
     }
 
     div[role="blockquote"] {
-      margin: 0;
       position: relative;
-      font-family: sans-serif;
-      font-weight: 300;
-      color: #f8faf9;
+      margin: 0 0 30px;
+      color: #ffffff;
     }
 
     div[role="blockquote"] p {
       margin: 0 0 16px;
-      font-size: 22px;
-      letter-spacing: .05em;
+      font-size: 24px;
       line-height: 1.4;
     }
 
     p, cite {
       font-style: normal;
-      color: #f8faf9;
-      font-family: sans-serif;
+      color: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .quote-wrapper::before {
+        position: static;
+        display: block;
+      }
+
+      div[role="blockquote"] {
+        margin-block-start: 30px;
+      }
     }
   </style>
 </head>
