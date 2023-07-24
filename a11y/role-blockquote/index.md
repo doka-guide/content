@@ -2,7 +2,7 @@
 title: "`blockquote`"
 description: "Роль для цитат, взятых из других источников."
 authors:
-  - alexTaraskina
+  - alextaraskina
 keywords:
   - доступность
   - ARIA-роль
