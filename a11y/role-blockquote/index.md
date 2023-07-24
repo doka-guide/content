@@ -30,8 +30,8 @@ tags:
 ```html
 <div role="blockquote">
   Простота — необходимое условие прекрасного.
-  <p>— Л. Н. Толстой, <cite>Из письма Л. Н. Андрееву.</cite></p>
 </div>
+<p>— Л. Н. Толстой, <cite>Из письма Л. Н. Андрееву.</cite></p>
 ```
 
 <iframe title="Пример использования роли blockquote" src="demos/role-blockquote/" height="250"></iframe>
