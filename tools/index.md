@@ -97,6 +97,7 @@ groups:
     items:
       - web-security
       - ssl-certificates
+      - cors
 
   - name: Форматы данных
     items:
