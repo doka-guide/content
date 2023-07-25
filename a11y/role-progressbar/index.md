@@ -6,7 +6,7 @@ authors:
 related:
   - a11y/aria-valuemin
   - a11y/role-status
-  - html/progressbar
+  - html/progress
 tags:
   - doka
   - placeholder
@@ -16,7 +16,7 @@ tags:
 
 [Самостоятельная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для индикатор выполнения задачи — прогресс-бара.
 
-В HTML эта роль есть у [`<progressbar>`](/html/progressbar/) по умолчанию.
+В HTML эта роль есть у [`<progress>`](/html/progress/) по умолчанию.
 
 ## Как пишется
 
