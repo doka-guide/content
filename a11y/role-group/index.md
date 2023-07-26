@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для группы элементов, которая не является частью основного содержимого. К примеру, внутри такой группы могут быть пункты выпадающего списка. 
+[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для группы элементов, которая не является частью основного содержимого. К примеру, внутри такой группы могут быть пункты выпадающего списка.
 
 В HTML эта роль есть у [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/) и [`<optgroup>`](/html/optgroup/) по умолчанию.
 
