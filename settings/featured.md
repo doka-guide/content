@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/boolean
-  - css/box-model
   - css/position
-  - html/flow
-  - js/infinite-scroll
-  - js/closures
-  - js/var-let
-  - html/article
-  - tools/cli
-  - tools/docker
-  - html/doctype
-  - css/box-shadow
-  - recipes/lets-encrypt-nginx
-  - tools/network
-  - a11y/screenreaders
-  - tools/agile
-  - tools/ci-cd
-  - tools/clean-architecture
-  - tools/gitlab-ci-cd
-  - css/media
-  - css/attr
-  - css/grid-guide
-  - html/img
-  - tools/static-types
-  - html/form
-  - css/display
-  - html/section
-  - a11y/aria-hidden
-  - a11y/aria-intro
-  - recipes/snow
-  - recipes/progress
-  - js/function-context
-  - css/flexbox-guide
-  - tools/bundlers
-  - js/async-in-js
-  - css/transform-function
   - tools/markdown
-  - js/deal-with-forms
-  - html/nav
-  - tools/oop
-  - html/video
-  - css/specificity
-  - html/div
-  - css/custom-properties
-  - tools/how-to-test-and-why
-  - css/pseudoelements
-  - tools/webpack
-  - html/head
-  - html/input
   - css/keyframes
-  - js/execution-order
-  - tools/how-the-browser-creates-pages
+  - tools/ci-cd
+  - tools/network
+  - html/section
+  - css/pseudoelements
+  - a11y/screenreaders
+  - js/var-let
+  - tools/docker
+  - css/specificity
+  - js/closures
+  - css/display
+  - tools/webpack
+  - recipes/snow
   - js/function
+  - html/nav
+  - css/flexbox-guide
+  - a11y/aria-hidden
+  - css/custom-properties
+  - js/execution-order
+  - tools/cli
+  - tools/agile
+  - js/infinite-scroll
+  - html/form
+  - a11y/aria-intro
+  - tools/oop
+  - css/box-model
+  - tools/gitlab-ci-cd
+  - css/transform-function
+  - html/head
+  - css/attr
+  - css/media
+  - css/box-shadow
+  - tools/how-the-browser-creates-pages
+  - js/async-in-js
+  - js/deal-with-forms
+  - js/function-context
+  - html/input
+  - html/doctype
+  - css/grid-guide
+  - html/video
+  - tools/how-to-test-and-why
+  - html/flow
+  - tools/bundlers
+  - tools/static-types
+  - recipes/progress
+  - recipes/lets-encrypt-nginx
+  - html/div
+  - html/img
+  - js/boolean
+  - html/article
+  - tools/clean-architecture
 ---
 
