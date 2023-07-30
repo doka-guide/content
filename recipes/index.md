@@ -16,6 +16,9 @@ groups:
   - name: 'На клиентской стороне'
     items:
       - array-filling
+  - name: 'Работа с GitHub'
+    items:
+      - github-new-profile
   - name: 'Рутина'
     items:
       - font-script
