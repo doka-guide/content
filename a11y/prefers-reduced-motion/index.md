@@ -150,7 +150,7 @@ const loadGSAPAndInitAnimations = () => {
 
   import('gsap').then((object) => {
     const gsap = object.default;
-    /* Здесь иИнициализируем анимацию с использованием GSAP */
+    /* Здесь инициализируем анимацию с использованием GSAP */
   })
 };
 
