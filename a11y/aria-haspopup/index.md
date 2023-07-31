@@ -9,9 +9,9 @@ keywords:
   - ARIA-атрибут
   - попап
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
-  - a11y/aria-roles
+  - a11y/role-menu
+  - a11y/role-listbox
+  - a11y/role-dialog
 tags:
   - doka
   - placeholder
@@ -42,11 +42,11 @@ tags:
 Добавьте к тегу атрибут `aria-haspopup` с одним из значений:
 
 - `false` (по умолчанию) — у элемента нет попапа.
-- `true`, `menu` — у элемента попап с ролью `menu`.
-- `listbox` — у элемента попап с ролью `listbox`.
-- `tree` — у элемента попап с ролью `tree`.
-- `grid` — у элемента попап с ролью `grid`.
-- `dialog` — у элемента попап с ролью `dialog`.
+- `true`, `menu` — у элемента попап с ролью [`menu`](/a11y/role-menu/).
+- `listbox` — у элемента попап с ролью [`listbox`](/a11y/role-listbox/).
+- `tree` — у элемента попап с ролью [`tree`](/a11y/role-tree/).
+- `grid` — у элемента попап с ролью [`grid`](/a11y/role-grid/).
+- `dialog` — у элемента попап с ролью [`dialog`](/a11y/role-dialog/).
 
 Значение `aria-haspopup` должно совпадать с ролью попапа.
 
@@ -54,14 +54,14 @@ tags:
 
 - [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или роли [`button`](/a11y/role-button/).
 - [`<a>`](/html/link/) или [`link`](/a11y/role-link/).
-- [`<input type="range">`](/html/input/#type) или `slider`.
-- [`<textarea>`](/html/textarea/) или [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` и роли `textbox`.
-- [`<select>`](/html/select/) или `combobox`.
+- [`<input type="range">`](/html/input/#type) или [`slider`](/a11y/role-slider/).
+- [`<textarea>`](/html/textarea/) или [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` и роли [`textbox`](/a11y/role-textbox/).
+- [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/).
 - [`tab`](/a11y/role-tab/).
-- `application`.
-- `gridcell`.
-- `menuitem`.
-- `treeitem`.
+- [`application`](/a11y/role-application/).
+- [`gridcell`](/a11y/role-gridcell/).
+- [`menuitem`](/a11y/role-menuitem/).
+- [`treeitem`](/a11y/role-treeitem/).
 
 ## Как понять
 

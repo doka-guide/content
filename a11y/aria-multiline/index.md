@@ -4,7 +4,7 @@ description: "ARIA-атрибут для кастомного текстовог
 authors:
   - doka-dog
 related:
-  - a11y/aria-attrs
+  - a11y/role-textbox
   - html/input
   - html/textarea
 tags:
@@ -18,7 +18,7 @@ tags:
 
 ## Как пишется
 
-Свойство можно задавать только элементу с ролью `textbox`. У [`<textarea>`](/html/textarea/) и [`<input>`](/html/input/#type) с типами `text`, `email`, `tel`, `url` эта роль есть по умолчанию, как и собственно свойство `aria-multiline`.
+Свойство можно задавать только элементу с ролью [`textbox`](/a11y/role-textbox/). У [`<textarea>`](/html/textarea/) и [`<input>`](/html/input/#type) с типами `text`, `email`, `tel`, `url` эта роль есть по умолчанию, как и собственно свойство `aria-multiline`.
 
 У `aria-multiline` есть два значения:
 

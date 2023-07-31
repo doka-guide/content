@@ -22,16 +22,16 @@ tags:
 
 `aria-posinset` можно задавать только некоторым тегам и ролям:
 
-- [`<article>`](/html/article/) или роли `article`.
-- [`<tr>`](/html/tables/#tr) или `row`.
-- [`<li>`](/html/li/) и `listitem`.
-- [`<option>`](/html/option/) или `option`.
-- [`<input type="radio">`](/html/input/#type) или `radio`.
+- [`<article>`](/html/article/) или роли [`article`](/a11y/role-article/).
+- [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/).
+- [`<li>`](/html/li/) или [`listitem`](/a11y/role-listitem/).
+- [`<option>`](/html/option/) или роли [`option`](/a11y/role-option/).
+- [`<input type="radio">`](/html/input/#type) или роли [`radio`](/a11y/role-radio/).
 - [`tab`](/a11y/role-tab/).
 - [`menuitem`](/a11y/role-menuitem/).
 - [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/).
 - [`menuitemradio`](/a11y/role-menuitemradio/).
-- `treeitem`.
+- [`treeitem`](/a11y/role-treeitem/).
 - `comment`.
 - `associationlistitemkey`.
 - `associationlistitemvalue`.

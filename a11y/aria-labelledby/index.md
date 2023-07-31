@@ -38,21 +38,21 @@ tags:
 
 `aria-labelledby` можно использовать для всех интерактивных и неинтерактивных элементов вроде таблиц и графики, кроме:
 
-- [`<caption>`](/html/caption/) и роли `caption`.
-- [`<code>`](/html/code/) и роли `code`.
-- [`<dd>`](/html/dl-dd-dt/) и роли `definition`.
-- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роли `term`.
+- [`<caption>`](/html/caption/) и роли [`caption`](/a11y/role-caption/).
+- [`<code>`](/html/code/) и роли [`code`](/a11y/role-code/).
+- [`<dd>`](/html/dl-dd-dt/) и роли [`definition`](/a11y/role-definition/).
+- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роли [`term`](/a11y/role-term/).
 - [`<del>`](/html/del/) и роли `deletion`.
-- [`<em>`](/html/em/) и роли `emphasis`.
+- [`<em>`](/html/em/) и роли [`emphasis`](/a11y/role-emphasis/).
 - [`<ins>`](/html/ins/) и роли `insertion`.
 - [`<mark>`](/html/mark/) и роли [`mark`](/a11y/role-mark/).
-- [`<p>`](/html/p/) и роли `paragraph`.
+- [`<p>`](/html/p/) и роли [`paragraph`](/a11y/role-paragraph/).
 - [`<strong>`](/html/strong/) и роли `strong`.
-- [`<sub>`](/html/sub/) и роли `subscript`.
-- [`<sup>`](/html/sup/) и роли `superscript`.
-- [`<time>`](/html/time/) и роли `time`.
+- [`<sub>`](/html/sub/) и роли [`subscript`](/a11y/role-subscript/).
+- [`<sup>`](/html/sup/) и роли [`superscript`](/a11y/role-superscript/).
+- [`<time>`](/html/time/) и роли [`time`](/a11y/role-time/).
 - [`<span>`](/html/span/), [`<div>`](/html/div/) и роли [`generic`](/a11y/role-generic/).
-- роли [`presentation`или `none`](/a11y/role-presentation-none/) и `suggestion`.
+- роли [`presentation`или `none`](/a11y/role-presentation-none/) и [`suggestion`](/a11y/role-suggestion/).
 
 Для [`<input>`](/html/input/) в первую очередь используйте `<label>`. У этого HTML-тега есть важная особенность — при клике по тегу фокус перемещается на поле по умолчанию.
 

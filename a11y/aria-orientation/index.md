@@ -26,6 +26,6 @@ tags:
 - `horizontal` — элемент расположен горизонтально.
 - `vertical` — элемент расположен вертикально.
 
-Можно использовать `aria-orientation` для следующих тегов и [ARIA-ролей](/a11y/aria-roles/): [`<input type="range">`](/html/input/#type) или `slider`, [`tablist`](/a11y/role-tablist/), `scrollbar`, `separator`, `toolbar`, `menu`, `menubar`, `tree` и `listbox`.
+Можно использовать `aria-orientation` для следующих тегов и [ARIA-ролей](/a11y/aria-roles/): [`<input type="range">`](/html/input/#type) или [`slider`](/a11y/role-slider/), [`tablist`](/a11y/role-tablist/), [`scrollbar`](/a11y/role-scrollbar/), [`separator`](/a11y/role-separator/), [`toolbar`](/a11y/role-toolbar/), [`menu`](/a11y/role-menu/), [`menubar`](/a11y/role-menubar/), [`tree`](/a11y/role-tree/) и [`listbox`](/a11y/role-listbox/).
 
 У этих тегов и ролей `aria-orientation` есть по умолчанию, но его значение можно менять в зависимости от ситуации. Например, `tablist` задан `aria-orientation="horizontal"`, а `scrollbar` — `aria-orientation="vertical"`.
