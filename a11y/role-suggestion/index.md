@@ -5,7 +5,7 @@ authors:
   - doka-dog
 related:
   - a11y/aria-description
-  - html/ins
+  - a11y/role-comment
   - html/del
 tags:
   - doka
@@ -28,7 +28,7 @@ tags:
 
 Задайте тегу `role="suggestion"`. Для этого больше всего подходит [`<span>`](/html/span/) или [`div`](/html/div/).
 
-Внутри контейнера с ролью `suggestion` обязательно должен быть один или оба элемента с ролями `insertion` или `deletion`. Роль `insertion` по умолчанию есть у [`<ins>`](/html/ins/), а `deletion` — у [`<del>`](/html/del/).
+Внутри контейнера с ролью `suggestion` обязательно должен быть один или оба элемента с ролями [`insertion`](/a11y/role-insertion/) или [`deletion`](/a11y/role-deletion/). Роль `insertion` по умолчанию есть у [`<ins>`](/html/ins/), а `deletion` — у [`<del>`](/html/del/).
 
 Предложение с `suggestion` можно связывать с относящейся к нему информацией с помощью [`aria-details`](/a11y/aria-details/) или дополнительным описанием благодаря [`aria-description`](/a11y/aria-description/).
 

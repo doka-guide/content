@@ -13,7 +13,7 @@ keywords:
   - car-элемент
   - key
 related:
-  - a11y/aria-posinset
+  - a11y/role-associationlist
   - a11y/aria-level
   - a11y/aria-setsize
 tags:
@@ -37,6 +37,6 @@ tags:
 
 Задайте тегу `role="associationlistitemkey"`. Для этого больше всего подходит [`<span>`](/html/span/) или [`div`](/html/div/).
 
-Элемент `associationlistitemkey` обязательно должен быть вложен внутрь ассоциативного списка с ролью `associationlist`. Также рядом с ключом должно находиться связанное с ним значение с `associationlistitemvalue`.
+Элемент `associationlistitemkey` обязательно должен быть вложен внутрь ассоциативного списка с ролью [`associationlist`](/a11y/role-associationlist/). Также рядом с ключом должно находиться связанное с ним значение с [`associationlistitemvalue`](/a11y/role-associationlistitemvalue/).
 
 Элементам с ролью `associationlistitemkey` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и атрибуты виджетов [`aria-level`](/a11y/aria-level/), [`aria-posinset`](/a11y/aria-posinset/) и [`aria-setsize`](/a11y/aria-setsize/).

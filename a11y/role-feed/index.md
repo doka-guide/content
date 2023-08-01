@@ -4,7 +4,7 @@ description: "Роль для части страницы с фидом."
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-article
   - html/section
   - html/article
 tags:
@@ -22,7 +22,7 @@ tags:
 
 Задайте тегу `role="feed"`, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<section>`](/html/section/).
 
-Внутри контейнера с ролью `feed` обычно помещают список из элементов с ролями `article`. Она есть по умолчанию у тега [`<article>`](/html/article/).
+Внутри контейнера с ролью `feed` обычно помещают список из элементов с ролями [`article`](/a11y/role-article/). Она есть по умолчанию у тега [`<article>`](/html/article/).
 
 Хорошо добавить элементы в фиде в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex) или другим способом.
 

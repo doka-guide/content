@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="menuitemcheckbox"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<li>`](/html/li/).
 
-Элемент с `menuitemcheckbox` обязательно должен находится внутри другого с [`menu`](/a11y/role-menu/) или `menubar`.
+Элемент с `menuitemcheckbox` обязательно должен находится внутри другого с [`menu`](/a11y/role-menu/) или [`menubar`](/a11y/role-menubar/).
 
 Не забудьте добавить `menuitemcheckbox` в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex).
 

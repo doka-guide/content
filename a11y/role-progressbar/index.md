@@ -20,7 +20,7 @@ tags:
 
 ## Как пишется
 
-Задайте `role="progressbar"` любому тегу, но лучше всего [`<div>`](/html/div/) или [`<span>`](/html/span/). В большинстве случаев лучше использовать `<progressbar>`.
+Задайте `role="progressbar"` любому тегу, но лучше всего [`<div>`](/html/div/) или [`<span>`](/html/span/). В большинстве случаев лучше использовать `<progress>`.
 
 У `progressbar` должны быть атрибуты [`aria-valuemin`](/a11y/aria-valuemin/) для минимального значения, [`aria-valuemax`](/a11y/aria-valuemax/) для максимального и [`aria-valuenow`](/a11y/aria-valuenow/) для текущего. По умолчанию роли заданы `aria-valuemin="0"` и `aria-valuemax="100"`. Значение `aria-valuenow` не должно быть выше максимального значения и ниже минимального.
 

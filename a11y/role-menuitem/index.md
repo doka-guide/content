@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="menuitem"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<li>`](/html/li/).
 
-Элемент с `menuitem` нужно обязательно вкладывать внутрь другого с [`menu`](/a11y/role-menu/) или `menubar`.
+Элемент с `menuitem` нужно обязательно вкладывать внутрь другого с [`menu`](/a11y/role-menu/) или [`menubar`](/a11y/role-menubar/).
 
 Не забудьте добавить пункт меню `menuitem` в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex).
 

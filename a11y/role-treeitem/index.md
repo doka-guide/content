@@ -24,6 +24,6 @@ tags:
 
 Задайте `role="treeitem"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<li>`](/html/li/).
 
-Элемент с `treeitem` обязательно должен находится внутри `tree`.
+Элемент с `treeitem` обязательно должен находится внутри [`tree`](/a11y/role-tree/).
 
 Элементам с ролью `treeitem` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov) — [`aria-disabled`](/a11y/aria-disabled/), [`aria-expanded`](/a11y/aria-expanded/), [`aria-haspopup`](/a11y/aria-haspopup/), [`aria-level`](/a11y/aria-level/), [`aria-checked`](/a11y/aria-checked/), [`aria-posinset`](/a11y/aria-posinset/), [`aria-selected`](/a11y/aria-selected/) и [`aria-setsize`](/a11y/aria-setsize/).

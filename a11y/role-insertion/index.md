@@ -4,7 +4,7 @@ description: "Роль для добавленного содержимого."
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-deletion
   - html/ins
   - html/del
 tags:

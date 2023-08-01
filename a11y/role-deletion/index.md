@@ -4,7 +4,7 @@ description: "Роль для удалённого содержимого."
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-insertion
   - html/ins
   - html/del
 tags:

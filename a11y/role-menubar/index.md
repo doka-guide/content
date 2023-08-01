@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="menubar"` любому тегу, лучше [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<ul>`](/html/ul/).
 
-Внутри контейнера с этой ролью должен быть минимум один пункт списка с `menuitem`, `menuitemcheckbox` или `menuitemradio`.
+Внутри контейнера с этой ролью должен быть минимум один пункт списка с [`menuitem`](/a11y/role-menuitem/), [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/) или [`menuitemradio`](/a11y/role-menuitemradio/).
 
 Не забудьте о навигации с клавиатуры по пунктам меню и поработайте над порядком фокуса. С этим помогут JavaScript и глобальный атрибут [`tabindex`](/html/global-attrs/#tabindex).
 

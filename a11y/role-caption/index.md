@@ -16,7 +16,7 @@ tags:
 
 [Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для видимой подписи к таблице, обычной или древовидной сетке и автономного графического содержимого.
 
-В HTML эта роль есть у [`<caption>`](/html/caption/) и [`<figcaption>`](/html/figure-figcaption/) по умолчанию.
+В HTML эта роль есть у [`<caption>`](/html/caption/) по умолчанию.
 
 ## Как пишется
 
@@ -24,8 +24,8 @@ tags:
 
 Элементы с `caption` могут быть описывать только некоторые элементы и [ARIA-роли](/a11y/aria-roles/):
 
-- `<figure>` или роль `figure`;
-- `<table>` или роль `table`;
+- `<figure>` или роль [`figure`](/a11y/role-figure/);
+- `<table>` или роль [`table`](/a11y/role-table/);
 - [`grid`](/a11y/role-grid/);
 - [`treegrid`](/a11y/role-treegrid/).
 

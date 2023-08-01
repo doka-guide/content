@@ -24,7 +24,7 @@ tags:
 
 ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать список и добавить поддержку клавиатуры с помощью JavaScript и [`tabindex`](/html/global-attrs/#tabindex), когда используете неинтерактивный элемент.
 
-Элемент `combobox` важно связать с выпадающим списком с опциями для выбора из элементов с `listbox`, [`tree`](/a11y/role-tree/), `grid` или [`dialog`](/a11y/role-dialog/) с помощью [`aria-controls`](/a11y/aria-controls/).
+Элемент `combobox` важно связать с выпадающим списком с опциями для выбора из элементов с [`listbox`](/a11y/role-listbox/), [`tree`](/a11y/role-tree/), [`grid`](/a11y/role-grid/) или [`dialog`](/a11y/role-dialog/) с помощью [`aria-controls`](/a11y/aria-controls/).
 
 У комбинированного списка обязательно должен быть атрибут [`aria-expanded`](/a11y/aria-expanded/).
 

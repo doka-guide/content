@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="menu"` любому тегу, лучше [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<ul>`](/html/ul/).
 
-Вложите внутрь контейнера с `menu` как минимум один пункт списка с `menuitem`, `menuitemcheckbox` или `menuitemradio`.
+Вложите внутрь контейнера с `menu` как минимум один пункт списка с [`menuitem`](/a11y/role-menuitem/), [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/) или [`menuitemradio`](/a11y/role-menuitemradio/).
 
 Не забудьте о навигации с клавиатуры по пунктам меню и поработайте над порядком фокуса. С этим помогут JavaScript и атрибут [`tabindex`](/html/global-attrs/#tabindex).
 
