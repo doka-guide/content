@@ -59,7 +59,7 @@ tags:
 ```css
 .button {
   /*  Весёлая анимация трясущейся кнопки */
-  animation: shake 300s linear infinite both;
+  animation: shake 300ms linear infinite both;
 }
 
 /*  Полностью отключает анимацию */
@@ -72,7 +72,7 @@ tags:
 /* Замедляет анимацию в 2 раза */
 @media (prefers-reduced-motion: reduce) {
   .button {
-    animation: shake 600s linear infinite both;
+    animation: shake 600ms linear infinite both;
   }
 }
 ```
@@ -82,7 +82,7 @@ tags:
 ```css
 @media (prefers-reduced-motion: no-preference) {
   .button {
-    animation: shake 300s linear infinite both;
+    animation: shake 300ms linear infinite both;
   }
 }
 ```
@@ -158,12 +158,14 @@ loadGSAPAndInitAnimations();
 ```
 
 <aside>
+
 ❗️ Обратите внимание, что корректный синтаксис включает круглые скобки:
 
 ```javascript
-✅ window.matchMedia('(prefers-reduced-motion: reduce)');
+window.matchMedia('(prefers-reduced-motion: reduce)');
 
-⛔ window.matchMedia('prefers-reduced-motion: reduce');
+ // Так работать не будет!
+ window.matchMedia('prefers-reduced-motion: reduce');
 ```
 
 </aside>
@@ -180,28 +182,28 @@ loadGSAPAndInitAnimations();
 <details>
   <summary>Windows 10</summary>
 
-  «Настройки» > «Легкость доступа» > «Дисплей» > «Показать анимацию в Windows».
+  Настройки > Лёгкость доступа > Дисплей > Показать анимацию в Windows
 
 </details>
 
 <details>
   <summary>Windows 11</summary>
 
-  «Настройки» > «Универсальный доступ» > «Визуальные эффекты» > «Эффекты анимации».
+  Настройки > Универсальный доступ > Визуальные эффекты > Эффекты анимации
 
 </details>
 
 <details>
   <summary>macOS</summary>
 
-  Системные настройки> Специальные возможности > Дисплей > Уменьшить движение.
+  Системные настройки > Специальные возможности > Дисплей > Уменьшить движение
 
 </details>
 
 <details>
   <summary>iOS</summary>
 
-  «Настройки» > «Основные» > «Универсальный доступ» > «Уменьшить движение».
+  Настройки > Основные > Универсальный доступ > Уменьшить движение
 
 </details>
 
@@ -239,6 +241,22 @@ loadGSAPAndInitAnimations();
   />
 </picture>
 ```
+
+<picture>
+
+  <source
+    srcset="nyancat.gif"
+    type="image/gif"
+    media="(prefers-reduced-motion: no-preference)"
+  />
+  <img
+    src="nyancat.png"
+    alt="Котик с телом из печенья летит в космосе и оставляет за собой шлейф из радуги"
+    width="400"
+    height="400"
+  />
+
+</picture>
 
 ## Ссылки
 
