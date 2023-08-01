@@ -33,7 +33,7 @@ tags:
 
 ## Как пишется
 
-Добавьте к тегу `aria-placeholder` с короткой текстовой подсказкой по заполнению поля. Атрибут можно использовать только для [`<input>`](/html/input/), [`<textarea>`](/html/textarea/), семантически нейтральных [`<div>`](/html/div/) и [`<span>`](/html/span/) или роли `textbox`.
+Добавьте к тегу `aria-placeholder` с короткой текстовой подсказкой по заполнению поля. Атрибут можно использовать только для [`<input>`](/html/input/), [`<textarea>`](/html/textarea/), семантически нейтральных [`<div>`](/html/div/) и [`<span>`](/html/span/) или роли [`textbox`](/a11y/role-textbox/).
 
 Для `<input>` и `<textarea>` лучше использовать атрибут `placeholder`.
 

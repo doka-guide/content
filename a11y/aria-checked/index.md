@@ -12,9 +12,9 @@ keywords:
   - радиокнопка
   - переключатель
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
-  - a11y/aria-roles
+  - html/input
+  - a11y/role-option
+  - a11y/role-checkbox
 tags:
   - doka
   - placeholder
@@ -42,12 +42,12 @@ tags:
 - `mixed` — у элементов смешанное состояние.
 - `undefined` (по умолчанию) — элемент нельзя отметить или выбрать.
 
-Значение `mixed` поддерживают элементы с ролями [`checkbox`](/a11y/role-checkbox/) и `menuitemcheckbox`.
+Значение `mixed` поддерживают элементы с ролями [`checkbox`](/a11y/role-checkbox/) и [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/).
 
 `aria-checked` можно использовать только для некоторых [ролей](/a11y/aria-roles/):
 
-- `option`.
-- `radio`.
+- [`option`](/a11y/role-option/).
+- [`radio`](/a11y/role-radio/).
 - `checkbox`.
 - `menuitemcheckbox`.
 - [`switch`](/a11y/role-switch/).

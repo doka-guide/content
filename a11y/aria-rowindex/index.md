@@ -20,4 +20,4 @@ tags:
 
 Добавьте к родительскому элементу `aria-rowindex` со значением в виде целого числа, больше 1. Например, `1`, `2` или `10`. Значение должно быть равно номеру строки в таблице или сетке.
 
-`aria-rowindex` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или `cell`, [`<tr>`](/html/tables/#tr) или `row`.
+`aria-rowindex` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или [`cell`](/a11y/role-cell/), [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/).

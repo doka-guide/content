@@ -6,7 +6,7 @@ authors:
 related:
   - a11y/aria-attrs
   - html/select
-  - html/input
+  - a11y/role-combobox
 tags:
   - doka
   - placeholder
@@ -18,7 +18,7 @@ tags:
 
 ## Как пишется
 
-Задайте тегу `aria-autocomplete` с нужным значением. Свойство можно задавать только [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли `textbox`, [`<select>`](/html/select/) или `combobox`, [`<input type="search">`](/html/input/#type) или `searchbox`.
+Задайте тегу `aria-autocomplete` с нужным значением. Свойство можно задавать только [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли [`textbox`](/a11y/role-textbox/), [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/), [`<input type="search">`](/html/input/#type) или [`searchbox`](/a11y/role-searchbox/).
 
 Возможные значения `aria-autocomplete`:
 

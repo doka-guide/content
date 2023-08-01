@@ -8,7 +8,7 @@ keywords:
   - ARIA
   - ARIA-атрибут
 related:
-  - a11y/aria-intro
+  - a11y/aria-owns
   - a11y/aria-attrs
   - a11y/aria-controls
 tags:
@@ -49,14 +49,14 @@ tags:
 - [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
 - [`<button>`](/html/button/) или [`button`](/a11y/role-button/).
 - [`<input type="checkbox">`](/html/input/#type) или [`checkbox`](/a11y/role-checkbox/).
-- [`<select>`](/html/select/) или `combobox`, `listbox`.
-- [`<tr>`](/html/tables/#tr) или `row`.
-- [`<th>`](/html/tables/#th) или `rowheader`.
-- `application`.
+- [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/), [`listbox`](/a11y/role-listbox/).
+- [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/).
+- [`<th>`](/html/tables/#th) или [`rowheader`](/a11y/role-rowheader/).
+- [`application`](/a11y/role-application/).
 - [`tab`](/a11y/role-tab/).
-- `menuitem`.
-- `treeitem`.
-- `gridcell`.
+- [`menuitem`](/a11y/role-menuitem/).
+- [`treeitem`](/a11y/role-treeitem/).
+- [`gridcell`](/a11y/role-gridcell/).
 
 Используйте `aria-expanded` вместе с [`aria-controls`](/a11y/aria-controls/) или [`aria-owns`](/a11y/aria-owns/), когда контейнер с разворачивающимся содержимым не вложен в главный элемент.
 

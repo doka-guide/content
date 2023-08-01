@@ -4,7 +4,7 @@ description: "ARIA-атрибут для числа колонок (столбц
 authors:
   - doka-dog
 related:
-  - a11y/aria-attrs
+  - a11y/role-treegrid
   - a11y/role-tree
   - html/tables
 tags:
@@ -20,4 +20,4 @@ tags:
 
 Добавьте к родительскому элементу `aria-colcount` со значением в виде целого числа. Например, `1`, `2` или `10`. Значение должно быть равно количеству колонок. Если их число неизвестно, используйте `-1`.
 
-`aria-colcount` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<table>`](/html/tables/) или ролям `table`, [`tree`](/a11y/role-tree/) и [`treegrid`](/a11y/role-treegrid/). При этом у [`<table>`] этот атрибут есть по умолчанию.
+`aria-colcount` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<table>`](/html/tables/) или ролям [`table`](/a11y/role-table/), [`tree`](/a11y/role-tree/) и [`treegrid`](/a11y/role-treegrid/). При этом у [`<table>`] этот атрибут есть по умолчанию.

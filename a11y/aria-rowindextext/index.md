@@ -5,8 +5,8 @@ authors:
   - doka-dog
 related:
   - a11y/aria-rowindex
-  - a11y/aria-roles
-  - a11y/aria-attrs
+  - a11y/role-cell
+  - a11y/role-row
 tags:
   - doka
   - placeholder
@@ -30,4 +30,4 @@ tags:
 
 Используйте `aria-rowindextext` вместе с `aria-rowindex` и только тогда, когда одного числового значения не хватает для полного понимания положения пользователя в таблице или сетке. К примеру, как в браузерной игре крестики-нолики.
 
-`aria-rowindextext` можно задавать только некоторым тегам и ARIA-ролям — [`<td>`](/html/tables/#td) или роли `cell`, [`<tr>`](/html/tables/#tr) или `row`.
+`aria-rowindextext` можно задавать только некоторым тегам и ARIA-ролям — [`<td>`](/html/tables/#td) или роли [`cell`](/a11y/role-cell/), [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/).

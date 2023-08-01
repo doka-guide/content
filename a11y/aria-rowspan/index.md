@@ -22,4 +22,4 @@ tags:
 
 Добавьте к тегу `aria-rowspan` со значением в виде целого числа, которое меньше или равно 0. Например, `0` или `-1`. Атрибут лучше использовать только для кастомных таблиц и сеток. Если используете [`<table>`](/html/tables/) без явно указанной ARIA-роли и нативные возможности HTML, лучше задавать `rowspan`.
 
-`aria-rowspan` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или роли `cell`, [`<th>`](/html/tables/#th) или `columnheader` и `rowheader`.
+`aria-rowspan` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или роли [`cell`](/a11y/role-cell/), [`<th>`](/html/tables/#th) или [`columnheader`](/a11y/role-columnheader/) и [`rowheader`](/a11y/role-rowheader/).

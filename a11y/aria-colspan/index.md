@@ -4,7 +4,7 @@ description: "ARIA-атрибут для числа колонок (столбц
 authors:
   - doka-dog
 related:
-  - a11y/aria-attrs
+  - a11y/role-columnheader
   - a11y/aria-colindex
   - html/tables
 tags:
@@ -22,4 +22,4 @@ tags:
 
 Добавьте к тегу `aria-colspan` со значением в виде целого числа, которое больше или равно 1. Например, `1` или `2`. Атрибут лучше использовать только для кастомных таблиц и сеток. Если используете [`<table>`](/html/tables/) и нативные возможности HTML, лучше задавать `colspan`.
 
-`aria-colspan` можно использовать только для некоторых тегов и [ARIA-ролей](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или роли `cell`, [`<th>`](/html/tables/#th) или `columnheader` и `rowheader`.
+`aria-colspan` можно использовать только для некоторых тегов и [ARIA-ролей](/a11y/aria-roles/) — [`<td>`](/html/tables/#td) или роли [`cell`](/a11y/role-cell/), [`<th>`](/html/tables/#th) или [`columnheader`](/a11y/role-columnheader/) и [`rowheader`](/a11y/role-rowheader/).

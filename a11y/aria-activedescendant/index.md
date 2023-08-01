@@ -22,9 +22,9 @@ tags:
 
 `aria-activedescendant` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли `textbox`.
-- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или `group`.
-- [`<select>`](/html/select/) или `combobox`.
-- `application`.
+- [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли [`textbox`](/a11y/role-textbox/).
+- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/).
+- [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/).
+- [`application`](/a11y/role-application/).
 
-Этот атрибут есть по умолчанию у `<select>` с ролью `listbox`, [`<tr>`](/html/tables/#tr) или `row`, [`<input type="search">`](/html/input/#type) или `searchbox`, `<input type="number">` или `spinbutton`, `radiogroup`, [`tablist`](/a11y/role-tablist/), `grid`, `toolbar`, `menu`, `menubar`, `tree` и `treegrid`.
+Этот атрибут есть по умолчанию у `<select>` с ролью [`listbox`](/a11y/role-listbox/), [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/), [`<input type="search">`](/html/input/#type) или [`searchbox`](/a11y/role-searchbox/), `<input type="number">` или [`spinbutton`](/a11y/role-spinbutton/), [`radiogroup`](/a11y/role-radiogroup/), [`tablist`](/a11y/role-tablist/), [`grid`](/a11y/role-grid/), [`toolbar`](/a11y/role-toolbar/), [`menu`](/a11y/role-menu/), [`menubar`](/a11y/role-menubar/), [`tree`](/a11y/role-tree/) и [`treegrid`](/a11y/role-treegrid/).
