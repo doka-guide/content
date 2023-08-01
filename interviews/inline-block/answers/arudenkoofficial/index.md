@@ -2,3 +2,4 @@
 
 Элементы с `display: inline-block` также располагаются в потоке текста, но вы можете установить ширину и высоту такому элементу, а так же любые значения `margin` и `padding`. Это позволит блоку отображаться в строке, но занимать пространство как блочному элементу. Примеры элементов со значением `display: inline-block` по умолчанию: [`button`](/html/button/) или [`textarea`](/html/textarea/).
 
+Алексей Руденко — наставник на курсе «[Мидл фронтенд-разработчик](https://practicum.yandex.ru/middle-frontend/?utm_source=pr&utm_medium=content&utm_campaign=middle-frontend_doka_content)» в Яндекс Практикуме.
