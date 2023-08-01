@@ -244,12 +244,12 @@ window.matchMedia('(prefers-reduced-motion: reduce)');
 <picture>
 
   <source
-    srcset="nyancat.gif"
+    srcset="images/nyancat.gif"
     type="image/gif"
     media="(prefers-reduced-motion: no-preference)"
   />
   <img
-    src="nyancat.png"
+    src="images/nyancat.png"
     alt="Котик с телом из печенья летит в космосе и оставляет за собой шлейф из радуги"
     width="400"
     height="400"
