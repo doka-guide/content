@@ -29,7 +29,7 @@ changelog:
         - вопрос
     - title: Демка
       labels:
-        - 8
+        - демо
     - title: Справочный материал
       labels:
         - дока
