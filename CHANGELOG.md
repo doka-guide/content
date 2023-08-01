@@ -2,6 +2,15 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2023
+
+- 30 июля, [Как создать профиль на GitHub](https://doka.guide/recipes/github-new-profile/), Игорь Коровченко
+- 25 июля, [Как ребейзить ветку и не думать ни о чём](https://doka.guide/recipes/git-rebase-onto/), Полина Гуртовая
+- 24 июля, [`blockquote`](https://doka.guide/a11y/role-blockquote/), Саша Тараскина
+- 19 июля, [image-rendering](https://doka.guide/css/image-rendering), Андрей Сухов
+- 15 июля, [Что такое CORS](https://doka.guide/tools/cors/), Денис Путнов
+- 9 июля, [`.lastIndexOf()`](https://doka.guide/js/last-index-of/), Евгения Шевлякова
+
 ## Июнь 2023
 
 - 25 июня, [Intl.DateTimeFormat](https://doka.guide/js/intl-datetimeformat/), Антон Горелов
