@@ -22,7 +22,7 @@ tags:
 
 `aria-activedescendant` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли `textbox`.
+- [`<textarea>`](/html/textarea/), [`<input>`](/html/input/) с типами `text`, `email`, `tel`, `url` или роли [`textbox`](/a11y/role-textbox/).
 - [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/).
 - [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/).
 - [`application`](/a11y/role-application/).

@@ -45,12 +45,12 @@ tags:
 - [`<code>`](/html/code/) и роль [`code`](/a11y/role-code/).
 - [`<dd>`](/html/dl-dd-dt/) и роль [`definition`](/a11y/role-definition/).
 - [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роль [`term`](/a11y/role-term/).
-- [`<del>`](/html/del/) и роль `deletion`.
+- [`<del>`](/html/del/) и роль [`deletion`](/a11y/role-deletion/).
 - [`<em>`](/html/em/) и роль [`emphasis`](/a11y/role-emphasis/).
-- [`<ins>`](/html/ins/) и роль `insertion`.
+- [`<ins>`](/html/ins/) и роль [`insertion`](/a11y/role-insertion/).
 - [`<mark>`](/html/mark/) и роль [`mark`](/a11y/role-mark/).
 - [`<p>`](/html/p/) и роль [`paragraph`](/a11y/role-paragraph/).
-- [`<strong>`](/html/strong/) и роль `strong`.
+- [`<strong>`](/html/strong/) и роль [`strong`](/a11y/role-strong/).
 - [`<sub>`](/html/sub/) и роль [`subscript`](/a11y/role-subscript/).
 - [`<sup>`](/html/sup/) и роль [`superscript`](/a11y/role-superscript/).
 - [`<time>`](/html/time/) и роль [`time`](/a11y/role-time/).

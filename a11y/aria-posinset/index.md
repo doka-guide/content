@@ -32,8 +32,8 @@ tags:
 - [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/).
 - [`menuitemradio`](/a11y/role-menuitemradio/).
 - [`treeitem`](/a11y/role-treeitem/).
-- `comment`.
-- `associationlistitemkey`.
-- `associationlistitemvalue`.
+- [`comment`](/a11y/role-comment/).
+- [`associationlistitemkey`](/a11y/role-associationlistitemkey/).
+- [`associationlistitemvalue`](/a11y/role-associationlistitemvalue/).
 
 Если используете `aria-posinset`, не забудьте указать общее число элементов из списка в [`aria-setsize`](/a11y/aria-setsize/).

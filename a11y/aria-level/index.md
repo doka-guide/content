@@ -33,8 +33,8 @@ tags:
 - [`<h1>`–`<h6>`](/html/h1-h6/) или роль [`heading`](/a11y/role-heading/).
 - [`<li>`](/html/li/), [`<dt>`](/html/dl-dd-dt/) или роль [`listitem`](/a11y/role-listitem/).
 - [`<tr>`](/html/tables/#tr) или роль [`row`](/a11y/role-row/).
-- Роль `comment`.
-- Роль `associationlistitemkey`.
+- Роль [`comment`](/a11y/role-comment/).
+- Роль [`associationlistitemkey`](/a11y/role-associationlistitemkey/).
 
 У элемента с явно заданной ролью `heading` обязательно должен быть атрибут `aria-level` со значениями от `1` до `6`. Если в этом случае значение атрибута не задано, по умолчанию применится `2`.
 
