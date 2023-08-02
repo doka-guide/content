@@ -1,11 +1,9 @@
 ---
 title: "`prefers-reduced-motion`"
-description: "Как сделать анимацию на сайте доступной."
+description: "Как управлять анимацией на сайте и сделать её доступной."
 authors:
-  - doka-dog
   - katkopikat
 keywords:
-  - доступность
   - ＠-правило
   - media
   - media-query
@@ -20,9 +18,18 @@ tags:
 ## Кратко
 
 Одно из значений директивы [@media](/css/media/) для проверки пользовательских настроек воспроизведения анимации.
+
 Большинство современных OS позволяют пользователю настраивать параметры анимации в настройках системы. Медиа-запрос `prefers-reduced-motion` позволяет определить, отключена ли или уменьшена анимация в системе, и применять стили CSS, которые это учитывают.
 
-С помощью `prefers-reduced-motion` можно замедлить или полностью отключить анимацию для людей, которые не хотят её видеть.
+С помощью `prefers-reduced-motion` можно замедлить или полностью отключить анимацию.
+
+## Как пишется
+
+У `prefers-reduced-motion` есть два значения:
+
+- `no-preference` — настройки анимации по умолчанию.
+- `reduce` — анимация отключена.
+
 В примере добавляем плавную прокрутку только для пользователей, у которых не отключена анимация на уровне системы.
 
 ```css
@@ -33,25 +40,17 @@ tags:
 }
 ```
 
-## Как пишется
-
-У `prefers-reduced-motion` есть два значения:
-
-- `no-preference` — настройки анимации по умолчанию.
-- `reduce` — анимация отключена.
-
 ## Зачем?
 
 Пользователь может отключить анимацию по разным причинам, например:
 
 - не все люди воспринимают анимацию одинаково. То, что может показаться плавным и приятным глазу одним, может раздражать или отвлекать других (мигающая реклама, сложные параллаксы, автовоспроизведение видео);
-
 - медицинские аспекты: у некоторых людей могут быть [вестибулярные расстройства](https://www.a11yproject.com/posts/understanding-vestibular-disorders/), при которых даже простая анимация может вызывать головокружение, чувство тошноты или вызывать судороги;
-
 - сайты с большим количеством анимации могут быстро снижать заряд батареи девайсов или использовать больше трафика (например, для автовоспроизведения видео потребуется больше данных, чем для показа статического изображения).
 
-## Примеры использования
-### Пример 1: Отключаем или замедляем анимацию на элементе
+## Примеры
+
+### Отключаем или замедляем анимацию
 
 Чтобы отключить анимацию элемента или изменить её скорость, если пользователь явно настроил предпочтение для её уменьшения, можно прописать в CSS следующее:
 
@@ -86,12 +85,12 @@ tags:
 }
 ```
 
-При втором способе записи есть 2 преимущества:
+При втором способе записи есть два преимущества:
+
 - меньше кода;
 - старые браузеры, которые не поддерживают `prefers-reduced-motion`, просто проигнорируют это правило и отобразят только оригинальный элемент без анимации.
 
-
-### Пример 2: Плавная прокрутка
+### Плавная прокрутка
 
 ```css
 html {
@@ -131,7 +130,7 @@ a.addEventListener('click', () => {
 })
 ```
 
-### Пример 3: Оптимизация загрузки стилей и библиотек для анимации
+### Оптимизация загрузки стилей и библиотек
 
 Если у вас много CSS, связанного с анимацией, можно вынести стили для её воспроизведения в отдельный файл и не грузить его пользователям, которые отказались от анимации:
 
@@ -170,11 +169,12 @@ window.matchMedia('prefers-reduced-motion: reduce');
 </aside>
 
 ## Поддержка
+
 Имеет [отличную](https://caniuse.com/prefers-reduced-motion) поддержку всеми современными браузерами — глобальная поддержка 95.53%.
 
-## Как изменить предпочтения показа анимации в OS?
-В разных OS настройки могут располагаться в разных местах, но искать их нужно в разделах, которые связаны с доступностью и специальными возможностями. В некоторых системах движение можно уменьшить, в других анимация отключается полностью (например, Windows 10).
+## Системные настройки
 
+В разных OS настройки могут располагаться в разных местах, но искать их нужно в разделах, которые связаны с доступностью и специальными возможностями. В некоторых системах движение можно уменьшить, в других анимация отключается полностью (например, Windows 10).
 
 <details>
   <summary>Windows 10</summary>
@@ -211,28 +211,25 @@ window.matchMedia('prefers-reduced-motion: reduce');
 
 </details>
 
-## Тестирование и эмуляция настройки
+## Тестирование и эмуляция
 
 Если хочется посмотреть, как работает `prefers-reduced-motion`, но в настройки OS лезть не хочется, в браузерах на Chromium или Edge можно эмулировать её включение.
 
 ### Chrome
 
-1. Откройте средства разработчика (`F12`)
-2. Зайдите в «Другие инструменты» (More tools)
-3. Выберите вкладку «Отрисовка» (Rendering)
-4. Включите «Эмулировать медиафункцию CSS prefers-reduce-motion» (Emulate CSS media feature prefers-reduce-motion).
+1. Откройте средства разработчика (`F12`).
+1. Зайдите в «Другие инструменты» (More tools).
+1. Выберите вкладку «Отрисовка» (Rendering).
+1. Включите «Эмулировать медиафункцию CSS prefers-reduce-motion» (Emulate CSS media feature prefers-reduce-motion).
 
 ### Edge
 
 1. Откройте средства разработчика (`F12`) и нажмите `CTRL+SHIFT+P` в Windows/Linux или `COMMAND+SHIFT+P` в macOS — откроется меню Команд.
-
-2. Начните вводить **"reduced"** и выберите [«Эмулировать CSS prefers-reduced-motion»](https://learn.microsoft.com/ru-ru/microsoft-edge/devtools-guide-chromium/accessibility/reduced-motion-simulation-images/reduced-motion-command-menu-entry.png), после чего нажмите Enter.
+1. Начните вводить **"reduced"** и выберите [«Эмулировать CSS prefers-reduced-motion»](https://learn.microsoft.com/ru-ru/microsoft-edge/devtools-guide-chromium/accessibility/reduced-motion-simulation-images/reduced-motion-command-menu-entry.png), после чего нажмите Enter.
 
 Посмотрите, проигрывается ли анимация ниже. При активном режиме котик должен быть статичным.
 
-
 <picture>
-
   <source
     srcset="images/nyancat.gif"
     type="image/gif"
@@ -246,7 +243,6 @@ window.matchMedia('prefers-reduced-motion: reduce');
     width="250"
     height="250"
   />
-
 </picture>
 
 ```html
@@ -269,6 +265,6 @@ window.matchMedia('prefers-reduced-motion: reduce');
 
 ## Ссылки
 
-- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
-- [prefers-reduced-motion: Sometimes less movement is more](https://web.dev/prefers-reduced-motion/)
-- [Respecting Users’ Motion Preferences](https://www.smashingmagazine.com/2021/10/respecting-users-motion-preferences/)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion).
+- [prefers-reduced-motion: Sometimes less movement is more](https://web.dev/prefers-reduced-motion/).
+- [Respecting Users’ Motion Preferences](https://www.smashingmagazine.com/2021/10/respecting-users-motion-preferences/).
