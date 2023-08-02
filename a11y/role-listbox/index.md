@@ -4,7 +4,7 @@ description: "ARIA-роль для выпадающего списка с нес
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-option
   - html/datalist
   - html/select
 tags:
@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="listbox"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или `<select>`.
 
-Внутри элемента с ролью `listbox` должен быть один или несколько с ролью `option`. Эта роль есть у `<option>` по умолчанию.
+Внутри элемента с ролью `listbox` должен быть один или несколько с ролью [`option`](/a11y/role-option/). Эта роль есть у `<option>` по умолчанию.
 
 ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать список и добавить поддержку клавиатуры с помощью JavaScript и [`tabindex`](/html/global-attrs/#tabindex), когда используете неинтерактивный элемент.
 

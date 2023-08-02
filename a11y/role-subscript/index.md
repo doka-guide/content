@@ -4,7 +4,7 @@ description: "Роль для подстрочного текста."
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-superscript
   - html/sub
   - html/sup
 tags:

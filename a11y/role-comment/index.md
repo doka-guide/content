@@ -4,7 +4,7 @@ description: "Роль для комментариев."
 authors:
   - doka-dog
 related:
-  - a11y/aria-owns
+  - a11y/role-suggestion
   - a11y/aria-level
   - a11y/aria-details
 tags:

@@ -13,7 +13,7 @@ keywords:
   - cdr-элемент
   - datum
 related:
-  - a11y/aria-roles
+  - a11y/role-associationlist
   - a11y/aria-posinset
   - a11y/aria-setsize
 tags:
@@ -37,6 +37,6 @@ tags:
 
 Задайте тегу `role="associationlistitemvalue"`. Для этого больше всего подходит [`<span>`](/html/span/) или [`div`](/html/div/).
 
-Элемент `associationlistitemvalue` обязательно должен быть вложен внутрь ассоциативного списка с ролью `associationlist`. Также рядом с ним должен находиться связанный с ним ключ с `associationlistitemkey`.
+Элемент `associationlistitemvalue` обязательно должен быть вложен внутрь ассоциативного списка с ролью [`associationlist`](/a11y/role-associationlist/). Также рядом с ним должен находиться связанный с ним ключ с [`associationlistitemkey`](/a11y/role-associationlistitemkey/).
 
 Элементам с ролью `associationlistitemvalue` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и атрибуты виджетов [`aria-posinset`](/a11y/aria-posinset/) и [`aria-setsize`](/a11y/aria-setsize/).

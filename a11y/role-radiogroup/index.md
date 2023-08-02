@@ -4,7 +4,7 @@ description: "Роль для группы радиокнопок."
 authors:
   - doka-dog
 related:
-  - a11y/aria-roles
+  - a11y/role-radio
   - html/input
   - html/fieldset
 tags:
@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-[Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая нужна для группы радиокнопок. Внутри элемента с этой ролью должно быть несколько элементов с ролями `radio`.
+[Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая нужна для группы радиокнопок. Внутри элемента с этой ролью должно быть несколько элементов с ролями [`radio`](/a11y/role-radio/).
 
 Нативные радиокнопки [`<input type="radio">`](/html/input/) лучше вкладывать внутрь [`<fieldset>`](/html/fieldset/).
 

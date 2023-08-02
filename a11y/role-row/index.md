@@ -22,9 +22,9 @@ tags:
 
 Тегам  можно установить атрибут `role="row". Чаще всего эта роль используется для тега `<tr>`, но можно использовать эту роль и для тегов [`<div>`](/html/div/) или [`<span>`](/html/span/)
 
-Строка обязательно должна быть вложена в контейнер с ролями [`grid`](/a11y/role-grid/), [`treegrid`](/a11y/role-treegrid/), `rowgroup` или [`table`](/a11y/role-table/), которая есть по умолчанию у [`<table>`](/html/tables/).
+Строка обязательно должна быть вложена в контейнер с ролями [`grid`](/a11y/role-grid/), [`treegrid`](/a11y/role-treegrid/), [`rowgroup`](/a11y/role-rowgroup/) или [`table`](/a11y/role-table/), которая есть по умолчанию у [`<table>`](/html/tables/).
 
-Внутри строки с `row` должен находится как минимум один элемент с `cell`, `gridcell`, `columnheader` или `rowheader`.
+Внутри строки с `row` должен находится как минимум один элемент с [`cell`](/a11y/role-cell/), [`gridcell`](/a11y/role-gridcell/), [`columnheader`](/a11y/role-columnheader/) или [`rowheader`](/a11y/role-rowheader/).
 
 В случае обычной сетки или таблицы элементу с ролью `row` можно задавать атрибуты [`aria-expanded`](/a11y/aria-expanded/), [`aria-posinset`](/a11y/aria-posinset/), [`aria-setsize`](/a11y/aria-setsize/) и [`aria-level`](/a11y/aria-level/).
 

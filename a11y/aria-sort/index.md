@@ -4,8 +4,8 @@ description: "ARIA-атрибут для сортировки содержимо
 authors:
   - doka-dog
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-rowheader
+  - a11y/role-columnheader
   - html/tables
 tags:
   - doka
@@ -25,4 +25,4 @@ tags:
 - `descending` — сортировка по убыванию.
 - `other` — другой способ сортировки.
 
-`aria-sort` можно задавать только заголовкам таблиц или сеток — [`<th>`](/html/tables/#th) или ролям `columnheader` и `rowheader`.
+`aria-sort` можно задавать только заголовкам таблиц или сеток — [`<th>`](/html/tables/#th) или ролям [`columnheader`](/a11y/role-columnheader/) и [`rowheader`](/a11y/role-rowheader/).

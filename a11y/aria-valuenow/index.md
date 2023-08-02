@@ -22,12 +22,12 @@ tags:
 
 `aria-valuenow` можно задавать только некоторым тегам и [ARIA-ролям](/a11y/aria-roles/):
 
-- [`<input type="range">`](/html/input/#type) или `range` и `slider`;
-- [`<input type="number">`](/html/input/#type) или `spinbutton`;
+- [`<input type="range">`](/html/input/#type) или роли [`slider`](/a11y/role-slider/);
+- [`<input type="number">`](/html/input/#type) или [`spinbutton`](/a11y/role-spinbutton/);
 - [`separator`](/a11y/role-separator/), когда разделитель интерактивный;
-- [`<meter>`](/html/meter/) или `meter`;
-- [`<progress>`](/html/progress/) или `progressbar`;
-- `scrollbar`.
+- [`<meter>`](/html/meter/) или [`meter`](/a11y/role-meter/);
+- [`<progress>`](/html/progress/) или [`progressbar`](/a11y/role-progressbar/);
+- [`scrollbar`](/a11y/role-scrollbar/).
 
 Когда у элемента есть максимальное и минимальное значения, не забудьте добавить ещё [`aria-valuemax`](/a11y/aria-valuemax/) и [`aria-valuemin`](/a11y/aria-valuemin/).
 

@@ -33,6 +33,6 @@ tags:
 
 Задайте тегу `role="associationlist"`. Для этого больше всего подходит [`<span>`](/html/span/) или [`div`](/html/div/).
 
-Внутри элемента `associationlistitemkey` обязательно должны быть ключ `associationlistitemkey` и связанное с ним значение `associationlistitemvalue`.
+Внутри элемента `associationlistitemkey` обязательно должны быть ключ [`associationlistitemkey`](/a11y/role-associationlistitemkey/) и связанное с ним значение [`associationlistitemvalue`](/a11y/role-associationlistitemvalue/).
 
 Элементам с ролью `associationlist` можно также задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy).

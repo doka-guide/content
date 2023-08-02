@@ -22,7 +22,7 @@ tags:
 
 Задайте тегу `role="table"`. Для этого больше всего подходят [`<div>`](/html/div/) или [`<span>`](/html/span/). В большинстве случаев используйте `<table>`.
 
-Когда создаёте свою таблицу, внутри `table` обязательно должны быть отдельные элементы с ролью `row` или вложенные внутрь `rowgroup`.
+Когда создаёте свою таблицу, внутри `table` обязательно должны быть отдельные элементы с ролью [`row`](/a11y/role-row/) или вложенные внутрь [`rowgroup`](/a11y/role-rowgroup/).
 
 Элементам с ролью `table` можно задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и два [атрибута связи](/a11y/aria-attrs/#atributy-svyazi) [`aria-colcount`](/a11y/aria-colcount/) и [`aria-rowcount`](/a11y/aria-rowcount/).
 

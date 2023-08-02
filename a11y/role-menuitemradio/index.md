@@ -22,7 +22,7 @@ tags:
 
 Задайте `role="menuitemradio"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или [`<li>`](/html/li/).
 
-Элемент с `menuitemradio` обязательно должен находится внутри другого с [`menu`](/a11y/role-menu/) или `menubar`.
+Элемент с `menuitemradio` обязательно должен находится внутри другого с [`menu`](/a11y/role-menu/) или [`menubar`](/a11y/role-menubar/).
 
 Не забудьте добавить `menuitemradio` в порядок фокуса с помощью [`tabindex`](/html/global-attrs/#tabindex).
 

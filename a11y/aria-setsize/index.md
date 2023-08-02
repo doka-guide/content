@@ -22,13 +22,13 @@ tags:
 
 `aria-setsize` можно задавать только некоторым тегам и ролям:
 
-- [`<article>`](/html/article/) или роли `article`.
-- [`<tr>`](/html/tables/#tr) или `row`.
-- [`<li>`](/html/li/) и `listitem`.
-- [`<option>`](/html/option/) или `option`.
-- [`<input type="radio">`](/html/input/#type) или `radio`.
+- [`<article>`](/html/article/) или роли [`article`](/a11y/role-article/).
+- [`<tr>`](/html/tables/#tr) или [`row`](/a11y/role-row/).
+- [`<li>`](/html/li/) и [`listitem`](/a11y/role-listitem/).
+- [`<option>`](/html/option/) или [`option`](/a11y/role-option/).
+- [`<input type="radio">`](/html/input/#type) или [`radio`](/a11y/role-radio/).
 - [`tab`](/a11y/role-tab/).
-- `menuitem`, `menuitemcheckbox`, `menuitemradio`.
-- `treeitem`.
-- `comment`.
-- `associationlistitemkey`, `associationlistitemvalue`.
+- [`menuitem`](/a11y/role-menuitem/), [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/), [`menuitemradio`](/a11y/role-menuitemradio/).
+- [`treeitem`](/a11y/role-treeitem/).
+- [`comment`](/a11y/role-comment/).
+- [`associationlistitemkey`](/a11y/role-associationlistitemkey/), [`associationlistitemvalue`](/a11y/role-associationlistitemvalue/).
