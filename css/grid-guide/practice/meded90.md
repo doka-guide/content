@@ -42,4 +42,4 @@
 
 <iframe title="Гибкая сетка на гридах" src="../demos/mobile-example/" height="600"></iframe>
 
-Балдин Кирилл — наставник на курсе «[Мидл фронтенд-разработчик](https://practicum.yandex.ru/middle-frontend/?utm_source=pr&utm_medium=content&utm_campaign=middle-frontend_doka_content)» в Яндекс Практикуме.
+<!-- yaspeller ignore:start -->Балдин Кирилл<!-- yaspeller ignore:end --> — наставник на курсе «[Мидл фронтенд-разработчик](https://practicum.yandex.ru/middle-frontend/?utm_source=pr&utm_medium=content&utm_campaign=middle-frontend_doka_content)» в Яндекс Практикуме.

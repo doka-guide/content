@@ -1,5 +1,5 @@
 ---
-name: <!-- yaspeller ignore:start -->'Балдин Кирилл'<!-- yaspeller ignore:end -->
+name: 'Балдин Кирилл'
 url: https://github.com/meded90
 photo: photo.jpg
 roles:
