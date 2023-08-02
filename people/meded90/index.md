@@ -1,7 +1,7 @@
 ---
 name: 'Балдин Кирилл'
 url: https://github.com/meded90
-photo: photo.jpg
+photo: photo.jpeg
 roles:
   - praktikum-mentor
 badges:
