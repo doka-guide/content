@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Гибкая сетка на гридах — Гайд по grid — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    .cart-product {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* 6 столбцов одинаковой ширины для десктопа */
+      grid-template-rows: repeat(5, 1fr); /* 5 строки автоматической высоты */
+      grid-gap: 10px; /* промежуток между блоками */
+      grid-template-areas:
+        "image       image       image         title        title    title"
+        "image       image       image         price        rating   rating"
+        "features    features    features      price        payment  payment"
+        "description description description   description  reviews  reviews  "
+        "shipping    contact     availability  availability warranty sizes"
+        "material    material    related       related      related  related";
+    }
+
+    @media (max-width: 720px) {
+      .cart-product {
+        grid-template-columns: repeat(4, 1fr); /* 4 столбца одинаковой ширины для мобильника */
+        grid-template-areas:
+          "image        image    price       rating"
+          "image        image    description description"
+          "title        title    title       title"
+          "reviews      reviews  features    features"
+          "availability payment  shipping    contact"
+          "warranty     warranty sizes       sizes"
+          "warranty     warranty sizes       sizes"
+          "material     material material    related";
+      }
+    }
+
+    .image {
+      grid-area: image;
+    }
+
+    .title {
+      grid-area: title;
+    }
+
+    .price {
+      grid-area: price;
+    }
+
+    .description {
+      grid-area: description;
+    }
+
+    .rating {
+      grid-area: rating;
+    }
+
+    .reviews {
+      grid-area: reviews;
+    }
+
+    .features {
+      grid-area: features;
+    }
+
+    .availability {
+      grid-area: availability;
+    }
+
+    .shipping {
+      grid-area: shipping;
+    }
+
+    .payment {
+      grid-area: payment;
+    }
+
+    .contact {
+      grid-area: contact;
+    }
+
+    .warranty {
+      grid-area: warranty;
+    }
+
+    .sizes {
+      grid-area: sizes;
+    }
+
+    .material {
+      grid-area: material;
+    }
+
+    .related {
+      grid-area: related;
+    }
+
+    /* Дополнительные стили для каждого блока */
+    .cart-product {
+      max-width: 1000px;
+      margin: auto;
+      margin-top: 10px;
+    }
+
+    .cart-product > div {
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      border: #f9fafc 2px solid;
+      font-size: 18px;
+      color: #fff;
+      font-family: Roboto, sans-serif;
+    }
+
+    .image {
+      background-color: #4f98f6;
+    }
+
+    .title {
+      background-color: #f64fec;
+    }
+
+    .price {
+      background-color: #f6ad4f;
+    }
+
+    .description {
+      background-color: #4ff659;
+    }
+
+    .rating {
+      background-color: #ed586f;
+    }
+
+    .reviews {
+      background-color: #b9ed58;
+    }
+
+    .features {
+      background-color: #58edd6;
+    }
+
+    .availability {
+      background-color: #8c58ed;
+    }
+
+    .shipping {
+      background-color: #ee8957;
+    }
+
+    .payment {
+      background-color: #70ee57;
+    }
+
+    .contact {
+      background-color: #57bcee;
+    }
+
+    .warranty {
+      background-color: #d557ee;
+    }
+
+    .sizes {
+      background-color: #4f98f6;
+    }
+
+    .material {
+      background-color: #f64fec;
+    }
+
+    .related {
+      background-color: #f6ad4f;
+    }
+
+
+    /*rest*/
+    body {
+      background-color: #181A1B;
+      color: #fff;
+      padding: 20px;
+      font-family: Roboto, sans-serif;
+      margin: 0px;
+      text-align: center;
+    }
+
+    :checked ~ .cart-product{
+      max-width: 420px;
+      grid-template-columns: repeat(4, 1fr); /* 4 столбца одинаковой ширины для мобильника */
+      grid-template-areas:
+        "image        image    price       rating"
+        "image        image    description description"
+        "title        title    title       title"
+        "reviews      reviews  features    features"
+        "availability payment  shipping    contact"
+        "warranty     warranty sizes       sizes"
+        "warranty     warranty sizes       sizes"
+        "material     material material    related";
+    }
+  </style>
+</head>
+<body>
+<input type="checkbox"  id="is-mobile">
+<label for="is-mobile">
+  Мобильная версия
+</label>
+<div class="cart-product">
+  <div class="image">Изображение</div>
+  <div class="title">Название</div>
+  <div class="price">Цена</div>
+  <div class="description">Описание</div>
+  <div class="rating">Рейтинг</div>
+  <div class="reviews">Отзывы</div>
+  <div class="features">Характеристики</div>
+  <div class="availability">Наличие</div>
+  <div class="shipping">Доставка</div>
+  <div class="payment">Оплата</div>
+  <div class="contact">Связь</div>
+  <div class="warranty">Гарантия</div>
+  <div class="sizes">Размеры</div>
+  <div class="material">Материал</div>
+  <div class="related">Сопутствующие</div>
+</div>
+</body>
+</html>
