@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Гибкая сетка на гридах — Дока</title>
+  <title>Гибкая сетка на гридах — Гайд по grid — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -192,6 +192,7 @@
       margin: 0px;
       text-align: center;
     }
+
     :checked ~ .cart-product{
       max-width: 420px;
       grid-template-columns: repeat(4, 1fr); /* 4 столбца одинаковой ширины для мобильника */
@@ -205,15 +206,11 @@
         "warranty     warranty sizes       sizes"
         "material     material material    related";
     }
-
   </style>
-  <script>
-    document.documentElement.className.replace('no-js', 'js')
-  </script>
 </head>
 <body>
 <input type="checkbox"  id="is-mobile">
-<label  for="is-mobile">
+<label for="is-mobile">
   Мобиьная версия
 </label>
 <div class="cart-product">
