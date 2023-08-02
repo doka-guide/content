@@ -163,8 +163,8 @@ loadGSAPAndInitAnimations();
 ```javascript
 window.matchMedia('(prefers-reduced-motion: reduce)');
 
- // Так работать не будет!
- window.matchMedia('prefers-reduced-motion: reduce');
+// Так работать не будет!
+window.matchMedia('prefers-reduced-motion: reduce');
 ```
 
 </aside>
