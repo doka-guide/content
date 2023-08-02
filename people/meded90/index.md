@@ -1,6 +1,6 @@
 ---
 name: 'Балдин Кирилл'
-url: https://www.linkedin.com/in/kirill-baldin-80b66274/
+url: https://github.com/meded90
 photo: photo.jpg
 roles:
   - praktikum-mentor
