@@ -41,32 +41,28 @@ tags:
 Для начала создадим базовый блок с контентом.
 
 ```html
-<div class="container">
-  <span>Предисловие о многоножках...</span>
-  <p class="paragraph">
-    <!-- Тут текст про многоножек -->
-  </p>
-</div>
+<p>Поговорим о многоножках:</p>
+<p><!-- Тут текст про многоножек --></p>
 ```
 
 ```css
-.container {
-  font-size: 30px;
+body {
+  color: #FFFFFF;
+  font-size: 16px;
 }
 ```
 
-<iframe src="demos/basic/" title="Пример с initial" height="300"></iframe>
+<iframe src="demos/basic/" title="Пример с initial" height="500"></iframe>
 
-Сбросим у параграфа стили при помощи: `all: initial;`. Ещё зададим `color: white;`, иначе цвет текста сбросится до чёрного и текст станет не читаем на тёмном фоне.
+Сбросим у параграфа стили при помощи: `all: initial;`.
 
 ```css
-.paragraph {
+p {
   all: initial;
-  color: white;
 }
 ```
 
-<iframe src="demos/initial/" title="Пример с initial" height="300"></iframe>
+<iframe src="demos/initial/" title="Пример с initial" height="400"></iframe>
 
 Все значения сбросились до дефолтных. Больше всего бросаются глаза изменения [`font-family`](/css/font-family/), [`font-size`](/css/font-size/), [`display`](/css/display/).
 
