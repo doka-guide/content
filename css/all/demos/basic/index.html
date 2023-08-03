@@ -25,14 +25,13 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
-      font-size: 16px;
     }
 
     p {
-      font-size: 1rem;
-      line-height: 1.4;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #FFFFFF;
     }
 
     p + p {
@@ -53,6 +52,22 @@
       div {
         width: 100%;
         padding: 55px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      div {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      p {
+        line-height: 1.5;
       }
     }
   </style>

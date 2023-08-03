@@ -46,13 +46,15 @@ tags:
 ```
 
 ```css
-body {
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
   color: #FFFFFF;
-  font-size: 16px;
 }
 ```
 
-<iframe src="demos/basic/" title="Пример с initial" height="500"></iframe>
+<iframe src="demos/basic/" title="Пример с initial" height="520"></iframe>
 
 Сбросим у параграфа стили при помощи: `all: initial;`.
 
