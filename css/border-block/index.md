@@ -94,4 +94,4 @@ div {
 }
 ```
 
-<iframe title="Рамка по строчной оси" src="demos/border-inline/" height="250"></iframe>
+<iframe title="Рамка по строчной оси" src="demos/border-inline/" height="300"></iframe>
