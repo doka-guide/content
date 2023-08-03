@@ -9,9 +9,9 @@
 ```css
 .element {
   height: 100vh;
-  background-color: #f1f1f1;
+  background-color: #18191C;
   background-image: url("pattern.svg");
-  background-size: 40px auto;
+  background-size: 100px auto;
 }
 ```
 
