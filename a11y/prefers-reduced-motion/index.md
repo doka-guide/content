@@ -160,10 +160,10 @@ loadGSAPAndInitAnimations()
 ❗️ Обратите внимание, что корректный синтаксис включает круглые скобки:
 
 ```javascript
-window.matchMedia('(prefers-reduced-motion: reduce)');
+window.matchMedia('(prefers-reduced-motion: reduce)')
 
 // Так работать не будет!
-window.matchMedia('prefers-reduced-motion: reduce');
+window.matchMedia('prefers-reduced-motion: reduce')
 ```
 
 </aside>
