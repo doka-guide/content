@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Групповая картинка с подписью — Как описывать картинки — Дока</title>
+  <title>Ссылка с логотипом на сайт — Как описывать картинки — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 26px;
+      font-size: 21px;
     }
 
     body {
@@ -27,7 +27,7 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
@@ -37,30 +37,43 @@
       }
     }
 
-    figure {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #10F3AF;
     }
 
-    figcaption {
-      margin-bottom: 24px;
+    @media (max-width: 768px) {
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
 
-    img {
-      display: inline-block;
-      margin-bottom: 8px;
-      width: 100%;
-      border: 2px solid #F498AD;
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    p {
+      margin: 7px 0 20px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    a {
+      display: inline-flex;
     }
   </style>
 </head>
 <body>
-  <figure>
-    <figcaption>Примеры маргариток разных цветов 🌼</figcaption>
-    <img src="./images/daisy-1.png" alt="Малиновая маргаритка.">
-    <img src="./images/daisy-2.png" alt="Жёлтая маргаритка.">
-    <img src="./images/daisy-3.png" alt="Классическая белая маргаритка.">
-  </figure>
+  <div>
+    <h1>Наши партнёры</h1>
+    <p>Справочники, которые нас во всём поддерживают ❤️</p>
+    <a href="https://doka.guide/">
+      <img src="./images/logo.svg" alt="Дока">
+    </a>
+  </div>
 </body>
 </html>
