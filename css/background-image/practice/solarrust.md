@@ -5,68 +5,45 @@
 Пример ниже не пустой, но в нём не загрузилась фоновая картинка:
 
 ```html
-<div class="element">
-  <h1 class="main-title">Фронтенд-блог: чиним вёрстку одной строкой</h1>
+<div>
+  <h1>Фронтенд-блог: чиним вёрстку одной строкой</h1>
 </div>
 ```
 
 ```css
-.element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+div {
   background-image: url("broken-link-to-image.png");
 }
 
-.main-title {
-  width: 80%;
-  margin: 0 auto;
+h1 {
   color: white;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: sans-serif;
-  font-size: 3rem;
 }
 ```
 
-Демка будет наглядной, если на сайте включить светлую тему ☀️
-
-<iframe title="Ошибка загрузки" src="../demos/fix/" height="150"></iframe>
+<iframe title="Ошибка загрузки картинки" src="../demos/fix/" height="150"></iframe>
 
 Чиним одной строкой:
 
 ```css
 .element {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: url("broken-link-to-image.png");
-  background-color: gray;
+  background-color: #18191C;
 }
 ```
 
-<iframe title="Ошибка загрузки" src="../demos/fix-2/" height="150"></iframe>
+<iframe title="Ошибка загрузки картинки" src="../demos/fix-2/" height="150"></iframe>
 
 Да, будет не так красиво, как нарисовал дизайнер, но вся информация будет доступна.
 
 🛠 Кроме линейного градиента можно задавать радиальный — круглый — градиент. Для этого нужно написать следующее:
 
 ```html
-<div class="parent">
-  <div class="spread-gradient"></div>
-  <div class="smooth-circle"></div>
-  <div class="sharp-circle"></div>
-</div>
+<div class="spread-gradient"></div>
+<div class="smooth-circle"></div>
+<div class="sharp-circle"></div>
 ```
 
 ```css
-.parent {
-  display: flex;
-  justify-content: space-around;
-  padding: 5%;
-  background-color: #1a5ad7;
-}
-
 .spread-gradient,
 .smooth-circle,
 .sharp-circle {
@@ -87,4 +64,4 @@
 }
 ```
 
-<iframe title="Радиальные градиенты" src="../demos/gradient/" height="400"></iframe>
+<iframe title="Радиальные градиенты" src="../demos/gradient/" height="300"></iframe>
