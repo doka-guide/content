@@ -38,7 +38,6 @@ tags:
 ```css
 blockquote[cite] {
   background-color: #2E9AFF;
-  color: #000000;
 }
 ```
 
