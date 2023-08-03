@@ -6,61 +6,130 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
     .form {
-      text-align: center;
-      padding: 5%;
-      background-color: #ffd829;
+      display: flex;
+    }
+
+    .label {
+      margin-right: 10px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .input {
-      display: inline-block;
-      margin-left: 10px;
-      padding: 10px 12px;
-      font-size: 16px;
-      border: 1px solid black;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
       background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     .input:focus {
+      border-color: #2E9AFF;
       outline: none;
-      background-color: hsl(49 100% 48% / 1);
     }
 
-    .submit {
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
       margin-left: 10px;
-      padding: 10px 12px;
-      font-size: 16px;
-      font-weight: 100;
-      border: 1px solid transparent;
-      color: #fff;
-      background-color: black;
-      transition: 0.3s ease-in-out;
-      cursor: pointer;
+      background-color: #2E9AFF;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
-    .submit:hover {
-      color: black;
-      border: 1px solid black;
-      background-color: transparent;
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        display: block;
+      }
+
+      .label {
+        display: inline-block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
+
+      .button {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <form class="form">
-    <label>
-      Email:
-      <input class="input" type="text" placeholder="Введите ваш email">
-    </label>
-    <button class="submit">Подписаться</button>
-  </form>
+<form class="form">
+  <label>
+    <span class="label">Email:</span>
+    <input class="input" type="text" placeholder="Введите ваш email">
+  </label>
+  <button class="button">Подписаться</button>
+</form>
 </body>
 </html>

@@ -8,34 +8,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
       box-sizing: border-box;
     }
 
-    body {
-      padding: 5%;
-      background-color: #18191c;
+    html {
+      color-scheme: dark;
     }
 
-    .parent {
-      padding: 25px;
-      background-color: #ffffff;
-      font-size: 18px;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    p {
+      line-height: 1.4;
     }
 
     .bkg {
-      line-height: 1.5;
-      background-color: #ffd829;
-      box-shadow: 0 6px 0 #ffd829;
+      background-color: #F498AD;
+      box-shadow: 0 4px 0 #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="parent">
+<div>
+  <p>
     Чем отличается маркер от текстовыделителя? <span class="bkg">Текстовыделительные маркеры заправляются флуоресцентными полупрозрачными чернилами. Они не покрывают поверхность бумаги плотным слоем, не пропускающим свет, как это делают обычные маркеры на водной или спиртовой основе.</span>
-  </div>
+  </p>
+</div>
 </body>
 </html>
