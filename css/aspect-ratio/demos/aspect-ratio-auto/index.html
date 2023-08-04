@@ -89,19 +89,22 @@
     }
 
     .block img {
+      display: block;
       width: 100%;
     }
 
     .block code {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #2E9AFF;
-      color: #000000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #18191C;
+      color: #FFFFFF;
       border-radius: 5px;
       padding: 5px 10px;
       font-family: "Roboto Mono", monospace;
       font-size: calc(1em - 1px);
+      white-space: nowrap;
     }
 
     @media (max-width: 480px) {
