@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Отключение анимации — prefers-reduced-motion — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+</head>
+<style>
+  body {
+    margin: 0;
+    background-color: #282a2e;
+    overflow: hidden;
+  }
+</style>
+<body>
+  <picture>
+    <source
+      srcset="images/nyancat.gif"
+      type="image/gif"
+      media="(prefers-reduced-motion: no-preference)"
+      width="250"
+      height="250"
+    />
+    <img
+      src="images/nyancat.png"
+      alt="Котик с телом из печенья летит в космосе и оставляет за собой шлейф из радуги"
+      width="250"
+      height="250"
+    />
+  </picture>
+</body>
+</html>
