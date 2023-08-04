@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/position
-  - tools/markdown
-  - css/keyframes
-  - tools/ci-cd
-  - tools/network
-  - html/section
-  - css/pseudoelements
+  - css/grid-guide
+  - js/infinite-scroll
+  - js/async-in-js
+  - css/transform-function
+  - tools/how-to-test-and-why
+  - js/function
   - a11y/screenreaders
-  - js/var-let
-  - tools/docker
-  - css/specificity
-  - js/closures
+  - html/nav
   - css/display
   - tools/webpack
-  - recipes/snow
-  - js/function
-  - html/nav
-  - css/flexbox-guide
-  - a11y/aria-hidden
-  - css/custom-properties
-  - js/execution-order
-  - tools/cli
-  - tools/agile
-  - js/infinite-scroll
-  - html/form
-  - a11y/aria-intro
-  - tools/oop
-  - css/box-model
-  - tools/gitlab-ci-cd
-  - css/transform-function
-  - html/head
-  - css/attr
-  - css/media
-  - css/box-shadow
-  - tools/how-the-browser-creates-pages
-  - js/async-in-js
-  - js/deal-with-forms
-  - js/function-context
-  - html/input
-  - html/doctype
-  - css/grid-guide
-  - html/video
-  - tools/how-to-test-and-why
-  - html/flow
-  - tools/bundlers
-  - tools/static-types
-  - recipes/progress
-  - recipes/lets-encrypt-nginx
-  - html/div
-  - html/img
-  - js/boolean
-  - html/article
   - tools/clean-architecture
+  - tools/oop
+  - css/pseudoelements
+  - tools/network
+  - recipes/snow
+  - html/head
+  - html/section
+  - css/box-model
+  - html/form
+  - recipes/lets-encrypt-nginx
+  - tools/docker
+  - recipes/progress
+  - html/input
+  - css/specificity
+  - html/flow
+  - tools/cli
+  - tools/how-the-browser-creates-pages
+  - html/img
+  - js/closures
+  - css/box-shadow
+  - html/doctype
+  - html/video
+  - js/var-let
+  - tools/static-types
+  - html/article
+  - css/attr
+  - js/execution-order
+  - css/position
+  - js/function-context
+  - tools/bundlers
+  - a11y/aria-hidden
+  - css/keyframes
+  - js/deal-with-forms
+  - a11y/aria-intro
+  - tools/ci-cd
+  - tools/gitlab-ci-cd
+  - css/custom-properties
+  - css/media
+  - js/boolean
+  - tools/agile
+  - css/flexbox-guide
+  - html/div
+  - tools/markdown
 ---
 
