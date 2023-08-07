@@ -3,6 +3,8 @@ title: "`:has()`"
 description: "Уникальный селектор, позволяющий стилизовать родителя при наличии конкретного ребёнка."
 authors:
   - realetive
+contributors:
+  - wonder-sma
 editors:
   - tachisis
 keywords:
