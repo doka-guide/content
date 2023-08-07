@@ -6,6 +6,7 @@ groups:
       - chto-takoe-a11y
       - a11y-html
       - content-hidden
+      - how-to-describe-pictures
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
