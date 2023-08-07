@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <title>Фон для цитаты с атрибутом cite — Селектор по атрибут — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
@@ -13,18 +14,28 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: grid;
+      place-items: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-size: 18px;
+      font-size: 16px;
       font-family: "Roboto", sans-serif;
     }
 
-    blockquote {
+    div {
       width: 65%;
       max-width: 750px;
-      margin: auto;
+    }
+
+    blockquote {
+      width: 100%;
       padding: 55px 40px;
       background-color: #FFFFFF;
       color: #123E66;
@@ -43,13 +54,28 @@
     blockquote[cite]::after {
       content: attr(cite);
       display: block;
-      margin-top: 20px;
+      margin-top: 10px;
       font-size: 16px;
       font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+      }
+
+      blockquote {
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
+<div>
   <blockquote cite="А.С. Пушкин">
     Октябрь уж наступил — уж роща отряхает<br>
     Последние листы с нагих своих ветвей;
@@ -58,5 +84,6 @@
   <blockquote>
     Самое большое наше заблуждение в том, что у нас ещё много времени.
   </blockquote>
+</div>
 </body>
 </html>
