@@ -15,6 +15,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       display: flex;
       align-items: center;
@@ -194,7 +198,6 @@
       }
 
       .mode {
-        flex-direction: column;
         align-items: center;
       }
 
@@ -205,6 +208,12 @@
 
       .modes {
         margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      li {
+        width: 60px;
       }
     }
   </style>
@@ -246,7 +255,10 @@
         </ul>
       </div>
     </div>
-    <footer><p>Обновите страницу или нажмите кнопку, чтобы просмотреть анимацию:</p><button onclick="document.location.reload(true);">Сначала</button></footer>
-  </section>
+    <footer>
+      <p>Обновите страницу или нажмите кнопку, чтобы просмотреть анимацию:</p>
+      <button onclick="document.location.reload(true);">Сначала</button>
+    </footer>
+  </div>
 </body>
 </html>

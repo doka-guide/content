@@ -38,7 +38,7 @@ tags:
 
 Для лучшего понимания работы этих значений посмотрите демо 👇
 
-<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="450"></iframe>
+<iframe title="Светофоры с разными режимами animation-fill-mode" src="demos/traffic-lights/" height="610"></iframe>
 
 ## Подсказки
 
