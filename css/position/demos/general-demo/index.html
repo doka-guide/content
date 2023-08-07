@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Название демо — Title статьи — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      max-width: 90%;  
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .demo {
+     display: flex;
+     flex-wrap: wrap;
+     width: 100%;
+    }
+    
+    .chosenOne {
+        width: 200px;
+        height:200px;
+        border-radius: 50%;
+        background-color: #F498AD
+    }
+    .heading {
+        border: 1px solid white;
+        margin-bottom: 20px;
+    }
+    
+    .dashboard {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 0 auto;
+    }
+
+    .input-radio {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    
+    .paragraph {
+        border: 1px solid white;
+        padding: 20px;
+    }
+    
+    .coordinates {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 5px;
+    }
+    .inputs {
+        display: flex;
+        flex-direction: column;
+   }
+
+    .button {
+        margin: 30px;
+        align-self: flex-end;
+        width: 50px;
+        height: 35px;
+        background-color: #F498AD
+    }
+
+    .circle {
+      width: 200px;
+      height:200px;
+      border-radius: 50%;
+      background-color: #2E9AFF
+    }
+
+    .demo div {
+  flex: 1 0 20%; }
+
+ 
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dashboard">
+      <form class="input-radio">
+          <input type="radio" value='relative' name="position"><label for="rel">relative</label>
+          <input type="radio" value='absolute'  name="position"><label for="abs">absolute</label>
+          <input type="radio" value='fixed'   name="position"><label for="fix">fixed</label>
+          <input type="radio" value='sticky'   name="position"><label for="stk">sticky</label>
+      </form>
+      <form class="inputs">
+      <div class="coordinates">
+       <p class="name">top</p>   
+      <input value="0" type='text' name="top" placeholder="add a pinch of pixels"></input> 
+      </div>
+      <div class="coordinates">
+          <p class="name">left</p>   
+         <input value="0" type="text" name="left" placeholder="add a pinch of pixels"></input></div>
+       <div class="coordinates">
+          <p class="name" type="text" name="bottom">bottom</p>   
+         <input name='bottom' value="0" placeholder="add a pinch of pixels"></input></div>
+         
+      <div class="coordinates">
+          <p class="name">right</p>   
+         <input value="0" type='text' name="right" placeholder="add a pinch of pixels"></input>
+       </div>
+ 
+      <button class='button' type="button" onClick='setPosition()'>Try it</button>
+  </form>
+</div>
+    <div class="demo">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="chosenOne" id="chosenOne"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        
+     </div>
+
+  </div>
+<script>
+
+function setPosition() {
+       
+      
+        const chosen = document.getElementById('chosenOne');
+        
+
+        const position = document.querySelector('input[name="position"]:checked').value;
+        console.log(position)
+  
+
+    
+    
+      
+        const topValue = document.querySelector('input[name="top"]').value || '';
+        const leftValue = document.querySelector('input[name="left"]').value || '';
+        const bottomValue = document.querySelector('input[name="bottom"]').value || '';
+        const rightValue = document.querySelector('input[name="right"]').value || '';
+
+        chosen.style.position = position;
+
+        chosen.style.top = topValue ? `${topValue}px` : 'auto';
+        chosen.style.left = leftValue ? `${leftValue}px` : 'auto';
+        chosen.style.bottom = bottomValue ? `${bottomValue}px` : 'auto';
+        chosen.style.right = rightValue ? `${rightValue}px` : 'auto';
+
+
+
+       
+    }
+
+  </script>
+</body>
+</html>
