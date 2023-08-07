@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -21,35 +25,61 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
+    }
+
+    p {
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #FFFFFF;
+    }
+
+    p + p {
+      margin-top: 7px;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
     }
 
     @media (max-width: 768px) {
       body {
         padding: 30px;
       }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
 
-    .container {
-      font-size: 30px;
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      div {
+        padding: 30px 20px;
+      }
     }
 
-    .paragraph {
-      margin-top: 20px;
+    @media (max-width: 360px) {
+      p {
+        line-height: 1.5;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <span>Предисловие о многоножках...</span>
-    <p class="paragraph">
-      Тело каждой многоножки состоит из длинного туловища и округлённой головы.
-      Обычно последняя снизу практически плоская (губоногие – исключение из этого правила), чтобы членистоногому было проще передвигаться по поверхностям.
-      Также на голове есть пара усиков, выполняющих функцию осязательного и обонятельного органа.
-      По-научному их называют антеннулы.
-      Питание обеспечивают 2 пары челюстей: верхние – мандибулы, и нижние – максиллы.
-    </p>
-  </div>
+<div>
+  <p>Поговорим о многоножках:</p>
+  <p>
+    Тело каждой многоножки состоит из длинного туловища и округлённой головы. Обычно последняя снизу практически
+    плоская (губоногие – исключение из этого правила), чтобы членистоногому было проще передвигаться по поверхностям.
+    Также на голове есть пара усиков, выполняющих функцию осязательного и обонятельного органа.
+  </p>
+</div>
 </body>
 </html>
