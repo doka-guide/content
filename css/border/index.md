@@ -35,15 +35,15 @@ tags:
 </div>
 ```
 
-Зададим рамку толщиной 5 пикселей, сплошную, цвета #ED6742:
+Зададим рамку толщиной 5 пикселей, сплошную, голубого цвета:
 
 ```css
 .element {
-  border: 5px solid #ed6742;
+  border: 5px solid #2E9AFF;
 }
 ```
 
-<iframe title="Обычная рамка" src="demos/basic/" height="355"></iframe>
+<iframe title="Обычная рамка" src="demos/basic/" height="400"></iframe>
 
 ## Как пишется
 
