@@ -34,11 +34,11 @@ tags:
 
 ```css
 .custom {
-  accent-color: hotpink;
+  accent-color: #F498AD;
 }
 ```
 
-<iframe title="Базовый пример" src="demos/base/" height="300"></iframe>
+<iframe title="Базовый пример" src="demos/base/" height="190"></iframe>
 
 ## Как пишется
 

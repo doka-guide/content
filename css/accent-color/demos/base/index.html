@@ -14,75 +14,63 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     html, body {
       height: 100%;
       margin: 0;
     }
 
     body {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      min-height: 100vh;
       padding: 50px;
-      color: #ffffff;
-      font-size: 24px;
-      line-height: 1.6;
-      background-color: #18191c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
     }
 
-    fieldset {
-      padding: 25px;
-      border: 1px solid rgb(255 105 180 / 0.5);
-      border-radius: 5px;
-      color: #1F2937;
-      background-color: #ffffff;
-    }
-
-    .dark {
-      color: #ffffff;
-      background-color: #020d18;
-    }
-
-    label {
-      display: block;
-    }
-
-    input {
+    .checkbox {
       width: 20px;
       height: 20px;
+      margin-right: 15px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
     }
 
     .custom {
-      accent-color: hotpink;
+      accent-color: #F498AD;
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       body {
-        flex-direction: column;
+        padding: 30px;
       }
     }
   </style>
 </head>
 <body>
-<fieldset>
-  <label>
-    Стандартный
-    <input type="checkbox" checked>
+<form>
+  <label class="form-row">
+    <input class="checkbox" type="checkbox" checked>
+    <span>Стандартный</span>
   </label>
-  <label>
-    Кастомный
-    <input class="custom" type="checkbox" checked>
+  <label class="form-row">
+    <input class="checkbox custom" type="checkbox" checked>
+    <span>Кастомный</span>
   </label>
-</fieldset>
-<fieldset class="dark">
-  <label>
-    Стандартный
-    <input type="checkbox" checked>
-  </label>
-  <label>
-    Кастомный
-    <input class="custom" type="checkbox" checked>
-  </label>
-</fieldset>
+</form>
 </body>
 </html>
