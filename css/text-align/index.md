@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - reznikovandrey
 related:
   - css/vertical-align
   - css/text-indent
