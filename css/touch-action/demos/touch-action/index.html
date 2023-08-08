@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>None vs. Auto — touch-action — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+      font-size: 18px;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-size: calc(1em - 1px);
+      font-family: "Roboto Mono", monospace;
+    }
+
+    h2 {
+      font-size: 1.375rem;
+    }
+
+    h3 {
+      margin-block: 50px 17px;
+      font-size: 1.25rem;
+    }
+
+    h2, h3 {
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .touch-auto {
+      touch-action: auto;
+    }
+
+    .touch-none {
+      touch-action: none;
+    }
+
+    .map {
+      width: 250px;
+      height: 250px;
+      overflow: scroll;
+      position: relative;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    .map img {
+      width: 800px;
+      height: 346px;
+    } 
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>touch-action в действии</h2>
+    <h3>Дефолное поведение: <code>touch-action: auto;</code></h3>
+    <div class="map touch-auto">
+      <img src='./images/map.png' alt='карта'>
+    </div>
+
+    <h3>А теперь отключим обработку прикосновений по умолчанию (нужно сенсорное
+      устройство, чтобы увидеть разницу): <code>touch-action: none;</code></h3>
+    <div class="map touch-none">
+      <img src='./images/map.png' alt='карта'>
+    </div>
+  </div>
+</body>
+</html>
