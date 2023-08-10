@@ -1,6 +1,6 @@
 ---
 name: 'Матвей Романов'
-url: https://twitter.com/romanov_web
+url: https://ra1nbow.xyz
 photo: photo.png
 badges:
   - first-contribution-small
