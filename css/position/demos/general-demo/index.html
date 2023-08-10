@@ -36,7 +36,7 @@
     }
 
     .container {
-      max-width: 90%;  
+      width: 80%;  
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -46,67 +46,184 @@
     .demo {
      display: flex;
      flex-wrap: wrap;
-     width: 100%;
+     justify-content: center;
+    
+     }
+
+    .circle, .chosenOne {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    border-radius: 50%;
+   } 
+
+
+    .circle {
+      background-color: #2E9AFF
     }
     
     .chosenOne {
-        width: 200px;
-        height:200px;
-        border-radius: 50%;
-        background-color: #F498AD
+      background-color: #F498AD
     }
+    
     .heading {
-        border: 1px solid white;
-        margin-bottom: 20px;
+      border: 1px solid white;
+      margin-bottom: 20px;
     }
     
     .dashboard {
-        width: 45%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
     }
 
     .input-radio {
       display: flex;
-      justify-content: space-around;
-      margin-bottom: 20px;
+      justify-content: center;
+      margin-bottom: 12px;
     }
     
     .paragraph {
-        border: 1px solid white;
-        padding: 20px;
+      border: 1px solid white;
+      padding: 20px;
     }
     
     .coordinates {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-bottom: 5px;
     }
     .inputs {
-        display: flex;
-        flex-direction: column;
-   }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
     .button {
-        margin: 30px;
-        align-self: flex-end;
-        width: 50px;
-        height: 35px;
-        background-color: #F498AD
+      margin: 30px;
+      align-self: flex-end;
+      min-width: 210px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
     }
 
-    .circle {
-      width: 200px;
-      height:200px;
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+
+    .coordinate {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .coordinate:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    } 
+
+    textarea {
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+  
+    }
+
+    textarea:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .name {
+      margin-right: 7px;
+    }
+
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
       border-radius: 50%;
-      background-color: #2E9AFF
     }
 
-    .demo div {
-  flex: 1 0 20%; }
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+  
+    }
 
- 
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+      #FFFFFF 0%,
+      #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+        );
+    }
 
   </style>
 </head>
@@ -114,29 +231,45 @@
   <div class="container">
     <div class="dashboard">
       <form class="input-radio">
-          <input type="radio" value='relative' name="position"><label for="rel">relative</label>
-          <input type="radio" value='absolute'  name="position"><label for="abs">absolute</label>
-          <input type="radio" value='fixed'   name="position"><label for="fix">fixed</label>
-          <input type="radio" value='sticky'   name="position"><label for="stk">sticky</label>
+        <label class="radio-label">
+          <input class="radio" type="radio" value='relative' name="position">
+          <span class="radio-title" for="rel">relative</span>
+          
+        </label>
+        <label class="radio-label">
+          
+          <input class="radio" type="radio" value='absolute'  name="position">
+          <span class="radio-title" for="abs">absolute</span>
+        </label>
+        <label class="radio-label">
+          
+          <input class="radio" type="radio" value='fixed'   name="position">
+          <span class="radio-title" for="fix">fixed</span>
+        </label>
+        <label class="radio-label">
+          
+          <input class="radio" type="radio" value='sticky' name="position">
+          <span class="radio-title" for="stk">sticky</span>
+        </label>
       </form>
       <form class="inputs">
       <div class="coordinates">
-       <p class="name">top</p>   
-      <input value="0" type='text' name="top" placeholder="add a pinch of pixels"></input> 
+       <label class='name' for="coordinate">top</label>   
+      <input id='coordinate' class='coordinate' value="0" type='text' name="top" placeholder="координата в пикселях"></input> 
       </div>
       <div class="coordinates">
-          <p class="name">left</p>   
-         <input value="0" type="text" name="left" placeholder="add a pinch of pixels"></input></div>
+          <label class='name' for="coordinate">left</label>   
+         <input id='coordinate' class='coordinate' value="0" type="text" name="left" placeholder="координата в пикселях"></input></div>
        <div class="coordinates">
-          <p class="name" type="text" name="bottom">bottom</p>   
-         <input name='bottom' value="0" placeholder="add a pinch of pixels"></input></div>
+          <label class='name' for="coordinate"  type="text">bottom</label>   
+         <input id='coordinate' class='coordinate' name='bottom' value="0" placeholder="координата в пикселях"></input></div>
          
       <div class="coordinates">
-          <p class="name">right</p>   
-         <input value="0" type='text' name="right" placeholder="add a pinch of pixels"></input>
+          <label class='name' for="coordinate">right</label>   
+         <input id='coordinate' class='coordinate' value="0" type='text' name="right" placeholder="координата в пикселях"></input>
        </div>
  
-      <button class='button' type="button" onClick='setPosition()'>Try it</button>
+      <button class='button button-blue' type="button" onClick='setPosition()'>Попробовать</button>
   </form>
 </div>
     <div class="demo">
@@ -167,35 +300,20 @@
 <script>
 
 function setPosition() {
-       
+  const chosen = document.getElementById('chosenOne');
+  const position = document.querySelector('input[name="position"]:checked').value;
       
-        const chosen = document.getElementById('chosenOne');
-        
+  const topValue = document.querySelector('input[name="top"]').value || '';
+  const leftValue = document.querySelector('input[name="left"]').value || '';
+  const bottomValue = document.querySelector('input[name="bottom"]').value || '';
+  const rightValue = document.querySelector('input[name="right"]').value || '';
 
-        const position = document.querySelector('input[name="position"]:checked').value;
-        console.log(position)
-  
-
-    
-    
-      
-        const topValue = document.querySelector('input[name="top"]').value || '';
-        const leftValue = document.querySelector('input[name="left"]').value || '';
-        const bottomValue = document.querySelector('input[name="bottom"]').value || '';
-        const rightValue = document.querySelector('input[name="right"]').value || '';
-
-        chosen.style.position = position;
-
-        chosen.style.top = topValue ? `${topValue}px` : 'auto';
-        chosen.style.left = leftValue ? `${leftValue}px` : 'auto';
-        chosen.style.bottom = bottomValue ? `${bottomValue}px` : 'auto';
-        chosen.style.right = rightValue ? `${rightValue}px` : 'auto';
-
-
-
-       
-    }
-
+  chosen.style.position = position;
+  chosen.style.top = topValue ? `${topValue}px` : 'auto';
+  chosen.style.left = leftValue ? `${leftValue}px` : 'auto';
+  chosen.style.bottom = bottomValue ? `${bottomValue}px` : 'auto';
+  chosen.style.right = rightValue ? `${rightValue}px` : 'auto';
+}
   </script>
 </body>
 </html>
