@@ -5,3 +5,5 @@ photo: photo.png
 badges:
   - first-contribution-small
 ---
+
+Отец русского программирования 🥸 
