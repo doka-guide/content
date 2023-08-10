@@ -2,86 +2,75 @@
 <html lang="ru">
 <head>
   <title>Блоки разного размера со скруглением — border-radius — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    .selector {
-      border-radius: 5em / 50%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .selector {
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #18191C;
+    }
+
+    div {
+      border-radius: 5em / 50%;
       width: 200px;
       height: 200px;
-      color: #fff;
-      background-color: #123;
+      background-color: #2E9AFF;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1em;
     }
 
-    .selector_view_horizontal {
-      width: 400px;
+    div + div {
+      margin-top: 20px;
     }
 
-    .selector_view_vertical {
-      height: 400px;
+    .horizontal {
+      width: 300px;
     }
 
-    .list__item {
-      display: flex;
+    .vertical {
+      height: 300px;
     }
 
-    .list__key {
-      margin: 0;
+    code {
+      font-family: "Roboto Mono", monospace;
     }
 
-    .list__key:after {
-      content: ':'
-    }
 
-    .list__key + .list__value {
-      margin-left: .5em;
-    }
   </style>
 </head>
 <body>
-<div class="selector selector_view_horizontal">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">400px</dt>
-    </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-  </dl>
+<div class="horizontal">
+<pre><code>width: 300px;
+height: 200px;</code></pre>
 </div>
 
-<div class="selector">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-  </dl>
+<div>
+<pre><code>width: 200px;
+height: 200px;</code></pre>
 </div>
 
-<div class="selector selector_view_vertical">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">400px</dt>
-    </div>
-  </dl>
+<div class="vertical">
+<pre><code>width: 200px;
+height: 300px;</code></pre>
 </div>
 </body>
 </html>
