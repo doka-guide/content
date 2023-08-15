@@ -65,7 +65,7 @@ div {
 
 ```css
 .ellipse {
-  border-radius: 5em / 50%;
+  border-radius: 2em / 50%;
 }
 ```
 
@@ -73,14 +73,14 @@ div {
 
 ```css
 .ellipse {
-  border-top-left-radius: 5em 50%;
-  border-top-right-radius: 5em 50%;
-  border-bottom-right-radius: 5em 50%;
-  border-bottom-left-radius: 5em 50%;
+  border-top-left-radius: 2em 50%;
+  border-top-right-radius: 2em 50%;
+  border-bottom-right-radius: 2em 50%;
+  border-bottom-left-radius: 2em 50%;
 }
 ```
 
-<iframe title="Название" src="demos/different-blocks/" height="840"></iframe>
+<iframe title="Скруглённые блоки разного размера" src="demos/different-blocks/" height="550"></iframe>
 
 ## Подсказки
 
