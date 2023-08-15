@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Название демо — Title статьи — Дока</title>
   <meta charset="utf-8">
@@ -8,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -36,7 +39,7 @@
     }
 
     .container {
-      width: 80%;  
+      width: 80%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -44,33 +47,34 @@
     }
 
     .demo {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-    
-     }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
 
-    .circle, .chosenOne {
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-    border-radius: 50%;
-   } 
+    }
+
+    .circle,
+    .chosenOne {
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+      border-radius: 50%;
+    }
 
 
     .circle {
       background-color: #2E9AFF
     }
-    
+
     .chosenOne {
       background-color: #F498AD
     }
-    
+
     .heading {
       border: 1px solid white;
       margin-bottom: 20px;
     }
-    
+
     .dashboard {
       width: 100%;
       display: flex;
@@ -84,18 +88,19 @@
       justify-content: center;
       margin-bottom: 12px;
     }
-    
+
     .paragraph {
       border: 1px solid white;
       padding: 20px;
     }
-    
+
     .coordinates {
       display: flex;
       justify-content: center;
       align-items: baseline;
       margin-bottom: 5px;
     }
+
     .inputs {
       display: flex;
       flex-direction: column;
@@ -155,7 +160,7 @@
     .coordinate:focus {
       border-color: #2E9AFF;
       outline: none;
-    } 
+    }
 
     textarea {
       min-width: 300px;
@@ -170,7 +175,7 @@
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
-  
+
     }
 
     textarea:focus {
@@ -207,113 +212,117 @@
       height: 25px;
       opacity: 0;
       margin-right: 15px;
-  
+
     }
 
-    .radio:focus + .radio-title::before {
+    .radio:focus+.radio-title::before {
       border-color: #2E9AFF;
     }
 
-    .radio:checked + .radio-title::before {
+    .radio:checked+.radio-title::before {
       background-color: #FFFFFF;
-      background: radial-gradient(
-        circle,
-      #FFFFFF 0%,
-      #FFFFFF 40%,
-        transparent 50%,
-        transparent 100%
-        );
+      background: radial-gradient(circle,
+          #FFFFFF 0%,
+          #FFFFFF 40%,
+          transparent 50%,
+          transparent 100%);
     }
-
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="dashboard">
       <form class="input-radio">
         <label class="radio-label">
           <input class="radio" type="radio" value='relative' name="position">
-          <span class="radio-title" for="rel">relative</span>
-          
+          <span class="radio-title">relative</span>
+
         </label>
         <label class="radio-label">
-          
-          <input class="radio" type="radio" value='absolute'  name="position">
-          <span class="radio-title" for="abs">absolute</span>
+
+          <input class="radio" type="radio" value='absolute' name="position">
+          <span class="radio-title">absolute</span>
         </label>
         <label class="radio-label">
-          
-          <input class="radio" type="radio" value='fixed'   name="position">
-          <span class="radio-title" for="fix">fixed</span>
+
+          <input class="radio" type="radio" value='fixed' name="position">
+          <span class="radio-title">fixed</span>
         </label>
         <label class="radio-label">
-          
+
           <input class="radio" type="radio" value='sticky' name="position">
-          <span class="radio-title" for="stk">sticky</span>
+          <span class="radio-title">sticky</span>
         </label>
       </form>
       <form class="inputs">
-      <div class="coordinates">
-       <label class='name' for="coordinate">top</label>   
-      <input id='coordinate' class='coordinate' value="0" type='text' name="top" placeholder="координата в пикселях"></input> 
-      </div>
-      <div class="coordinates">
-          <label class='name' for="coordinate">left</label>   
-         <input id='coordinate' class='coordinate' value="0" type="text" name="left" placeholder="координата в пикселях"></input></div>
-       <div class="coordinates">
-          <label class='name' for="coordinate"  type="text">bottom</label>   
-         <input id='coordinate' class='coordinate' name='bottom' value="0" placeholder="координата в пикселях"></input></div>
-         
-      <div class="coordinates">
-          <label class='name' for="coordinate">right</label>   
-         <input id='coordinate' class='coordinate' value="0" type='text' name="right" placeholder="координата в пикселях"></input>
-       </div>
- 
-      <button class='button button-blue' type="button" onClick='setPosition()'>Попробовать</button>
-  </form>
-</div>
+        <div class="coordinates">
+          <label class='name' for="coordinate">top</label>
+          <input id='coordinate' class='coordinate' value="0" type='text' name="top"
+            placeholder="координата в пикселях"></input>
+        </div>
+        <div class="coordinates">
+          <label class='name' for="coordinate">left</label>
+          <input id='coordinate' class='coordinate' value="0" type="text" name="left"
+            placeholder="координата в пикселях"></input>
+        </div>
+        <div class="coordinates">
+          <label class='name' for="coordinate" type="text">bottom</label>
+          <input id='coordinate' class='coordinate' name='bottom' value="0" placeholder="координата в пикселях"></input>
+        </div>
+
+        <div class="coordinates">
+          <label class='name' for="coordinate">right</label>
+          <input id='coordinate' class='coordinate' value="0" type='text' name="right"
+            placeholder="координата в пикселях"></input>
+        </div>
+
+        <button class='button button-blue' type="button" onClick='setPosition()'>Попробовать</button>
+      </form>
+    </div>
     <div class="demo">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="chosenOne" id="chosenOne"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        
-     </div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="chosenOne" id="chosenOne"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+
+    </div>
 
   </div>
-<script>
+  <script>
 
-function setPosition() {
-  const chosen = document.getElementById('chosenOne');
-  const position = document.querySelector('input[name="position"]:checked').value;
-      
-  const topValue = document.querySelector('input[name="top"]').value || '';
-  const leftValue = document.querySelector('input[name="left"]').value || '';
-  const bottomValue = document.querySelector('input[name="bottom"]').value || '';
-  const rightValue = document.querySelector('input[name="right"]').value || '';
+    function setPosition() {
+      const chosen = document.getElementById('chosenOne');
+      const position = document.querySelector('input[name="position"]:checked').value;
 
-  chosen.style.position = position;
-  chosen.style.top = topValue ? `${topValue}px` : 'auto';
-  chosen.style.left = leftValue ? `${leftValue}px` : 'auto';
-  chosen.style.bottom = bottomValue ? `${bottomValue}px` : 'auto';
-  chosen.style.right = rightValue ? `${rightValue}px` : 'auto';
-}
+      const topValue = document.querySelector('input[name="top"]').value || '';
+      const leftValue = document.querySelector('input[name="left"]').value || '';
+      const bottomValue = document.querySelector('input[name="bottom"]').value || '';
+      const rightValue = document.querySelector('input[name="right"]').value || '';
+
+      chosen.style.position = position;
+      chosen.style.top = topValue ? `${topValue}px` : 'auto';
+      chosen.style.left = leftValue ? `${leftValue}px` : 'auto';
+      chosen.style.bottom = bottomValue ? `${bottomValue}px` : 'auto';
+      chosen.style.right = rightValue ? `${rightValue}px` : 'auto';
+    }
   </script>
 </body>
+
 </html>
