@@ -28,7 +28,8 @@ tags:
 ```html
 <figure>
   <img src="elephant-sunset.jpg"
-      alt="Взрослый африканский слон стоит на фоне заката и задумчиво смотрит в камеру.">
+      alt="Взрослый африканский слон стоит на фоне заката и задумчиво смотрит в
+      камеру.">
   <figcaption>Слон на фоне заката</figcaption>
 </figure>
 ```
@@ -83,7 +84,9 @@ tags:
 
 ```html
 <figure>
-  <figcaption>Получаем данные о текущем URL из свойства <code>location</code>.</figcaption>
+  <figcaption>
+    Получаем данные о текущем URL из свойства <code>location</code>.
+  </figcaption>
   <pre>
     function LocationExample() {
     console.log(`Protocol: ${location.protocol}`);
