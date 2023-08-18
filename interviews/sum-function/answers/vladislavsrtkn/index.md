@@ -4,7 +4,7 @@
 
 ```js
 function sumOrConcat(...rest) {
-	...
+  ...
 }
 ```
 
@@ -14,7 +14,7 @@ function sumOrConcat(...rest) {
 
 ```js
 function sumOrConcat(...rest) {
-	return rest.reduce((sum, num) => (sum += num));
+  return rest.reduce((sum, num) => (sum += num));
 }
 ```
 
