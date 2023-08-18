@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/boolean
-  - tools/static-types
-  - tools/how-the-browser-creates-pages
-  - tools/agile
-  - tools/oop
-  - css/display
-  - html/head
-  - css/box-shadow
-  - a11y/screenreaders
-  - css/pseudoelements
-  - tools/clean-architecture
-  - js/deal-with-forms
-  - js/function
-  - js/function-context
-  - css/grid-guide
-  - tools/webpack
-  - recipes/snow
   - tools/network
-  - html/section
-  - css/keyframes
-  - html/nav
-  - css/flexbox-guide
-  - html/img
-  - html/div
-  - css/media
-  - html/form
-  - recipes/lets-encrypt-nginx
-  - css/custom-properties
-  - tools/gitlab-ci-cd
+  - tools/markdown
   - html/article
-  - html/flow
-  - recipes/progress
+  - a11y/screenreaders
   - html/input
+  - css/grid-guide
+  - css/display
+  - js/function-context
+  - tools/webpack
+  - html/div
+  - js/function
+  - tools/gitlab-ci-cd
+  - recipes/lets-encrypt-nginx
+  - js/async-in-js
+  - html/nav
+  - css/box-model
+  - css/specificity
+  - tools/clean-architecture
+  - recipes/progress
+  - tools/agile
+  - tools/cli
+  - html/img
+  - html/flow
+  - css/media
+  - js/boolean
+  - css/box-shadow
+  - css/pseudoelements
+  - a11y/aria-intro
+  - tools/oop
+  - js/execution-order
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
   - js/var-let
-  - a11y/aria-hidden
-  - css/position
+  - js/infinite-scroll
+  - tools/bundlers
+  - css/custom-properties
+  - html/video
+  - tools/how-to-test-and-why
+  - html/form
+  - html/doctype
   - tools/ci-cd
   - css/attr
-  - tools/cli
-  - css/specificity
-  - html/doctype
-  - tools/bundlers
-  - js/execution-order
-  - js/infinite-scroll
-  - tools/markdown
-  - css/transform-function
+  - js/deal-with-forms
   - tools/docker
+  - css/position
+  - html/head
   - js/closures
-  - a11y/aria-intro
-  - tools/how-to-test-and-why
-  - css/box-model
-  - js/async-in-js
-  - html/video
+  - css/flexbox-guide
+  - tools/static-types
+  - a11y/aria-hidden
+  - css/transform-function
+  - html/section
+  - recipes/snow
 ---
 
