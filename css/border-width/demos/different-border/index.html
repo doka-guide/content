@@ -219,21 +219,21 @@
   </div>
 </div>
 <script>
-  const element = document.querySelector('.element');
-  const listItems = Array.from(document.querySelector('.list').children);
-  const rangeTitle = document.querySelector('.range-title');
-  const range = document.querySelector('.range-input');
+  const element = document.querySelector('.element')
+  const listItems = Array.from(document.querySelector('.list').children)
+  const rangeTitle = document.querySelector('.range-title')
+  const range = document.querySelector('.range-input')
 
   listItems.forEach((radio) => {
     radio.addEventListener('click', (event) => {
-      element.style.borderStyle = event.target.parentNode.textContent.trim();
-    });
-  });
+      element.style.borderStyle = event.target.parentNode.textContent.trim()
+    })
+  })
 
   range.addEventListener('input', () => {
-    element.style.borderWidth = `${range.value}px`;
-    rangeTitle.textContent = `border-width: ${range.value}px;`;
-  });
+    element.style.borderWidth = `${range.value}px`
+    rangeTitle.textContent = `border-width: ${range.value}px;`
+  })
 </script>
 </body>
 </html>
