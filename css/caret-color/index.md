@@ -3,6 +3,8 @@ title: "`caret-color`"
 description: "С помощью `caret-color` можно менять цвет курсора в режиме набора текста."
 authors:
   - mishamad
+contributors:
+  - starhamster
 related:
   - html/input
   - html/textarea
