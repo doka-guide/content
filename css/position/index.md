@@ -119,4 +119,4 @@ tags:
 
 <iframe title="Положение по второй оси при нестатичном позиционировании" src="demos/absolute-sec-axis/" height="495"></iframe>
 
-<iframe title="Общая интерактивная демка по всем стилям позиционирования" src="demos/general-demo" height='700px'></iframe>
+<iframe title="Общая интерактивная демка по всем стилям позиционирования" src="demos/general-demo" height="700"></iframe>
