@@ -1,0 +1,460 @@
+---
+title: "Генераторы и yield"
+description: "Генератор – это специальная функция, которая может приостанавливать своё выполнение и возвращает в результате объект-итератор"
+authors:
+  - windrushfarer
+  - SergeyKrasnolobov
+keywords:
+  - Итератор
+  - Генератор
+  - Symbol.iterator
+  - iterator
+  - yield
+tags:
+  - doka
+---
+
+## Кратко
+
+
+Генератор – это синтаксический сахар для создания особого вида [объекта-итератора](/js/iterator), который, помимо метода `next()`, реализует 2 дополнительных метода `throw()` и `return()`.
+
+Чтобы создать такой объект нужно использовать **функцию-генератор**. Для еë объявления к названию функции в начале добавляют символ звёздочки `*`.
+
+Вызов функции вернет **объект-генератор**, который по сути и является итератором. У объекта-генератора есть 2 возможных состояния `suspended` - приостановлен, и `closed` - завершён.
+
+Для возврата значений используется оператор `yield` или `yield*`.
+А еще эти операторы приостанавливают выполнение функции с полным сохранением промежуточных вычислений.
+
+Вызов `return` завершает перебор итератора.
+Вызов `throw()` завершает перебор итератора с ошибкой.
+
+
+## Пример
+
+Сначала необходимо создать функцию-генератор.
+
+```js
+function* getLangs() {
+  yield 'java';
+  yield 'js';
+  yield 'rust';
+}
+```
+
+Вызов функции вернёт объект-генератор.
+
+```js
+const generator = getLangs()
+```
+
+Далее вызываем метод `next()`, чтобы получать значения по одному:
+
+```js
+generator.next()
+// { value: 'java', done: false }
+generator.next()
+// { value: 'js', done: false }
+generator.next()
+// { value: 'rust', done: true }
+```
+
+Если нужно получать значения в цикле, то можно подставить результат вызова функции-генератора в `for..of`:
+
+```js
+const generator = getLangs()
+
+for (const value of generator) {
+    console.log(value)
+}
+// 'java'
+// 'js'
+// 'rust'
+```
+
+
+## Как пишется
+
+Чтобы создать функцию-генератор, нужно добавить знак звёздочки между ключевым словом `function` и названием функции. При этом возможны любые варианты постановки, и где поставить звёздочку — дело вкуса.
+
+```js
+function* generator() {}
+
+function * generator() {}
+
+function *generator() {}
+```
+
+Чтобы вернуть значение, используется оператор `yield`.
+
+```js
+function* generator() {
+    yield 1
+    yield 2
+}
+```
+
+<aside>
+
+  ☝️ Оператор `yield` можно использовать исключительно внутри функции-генератора. То есть в функциях обратного вызова использование `yiled` приведет к синтаксической ошибке. Это накладывает определенные ограничения при работе с генераторами.
+
+</aside>
+
+Немного модифицирем пример выше.
+
+```js
+function* generator() {
+    [1, 2].forEach(x => yield x)
+}
+// SyntaxError
+```
+
+Обратите внимание, что слово `return` в генераторе необязательно. Если `return` нет, то после выполнения всех `yield` следующий вызов `next()` вернёт `{ value: undefined, done: true }`.
+
+```js
+const g = generator()
+
+g.next()
+// { value: 1, done: false }
+g.next()
+// { value: 1, done: false }
+g.next()
+// { value: undefined, done: true }
+```
+
+
+## Как это понять
+
+Для лучшего понимания проведём сравнение с обычными функциями. Функции в JavaScript выполняются полностью и в конце мы ожидаем получить результат.
+
+```js
+function createFullName(firstName, secondName) {
+  return `${firstName} ${secondName}`
+}
+
+const fullName = createFullName("Анна", "Каренина")
+console.log(fullName)
+// Анна Каренина
+```
+
+Функция-генератор во время вызова не вернёт значение сразу, а вместо этого вернёт специальный объект-генератор. Из этого объекта мы можем получить ожидаемый результат, вызывая метод `next()`. При этом выполнение функции в буквальном смысле остановится.
+
+```js
+function imaginaryHeavyComputation() {
+  let result = 0
+  for (let i = 0; i < 100; i++) {
+    result += i
+  }
+
+  return result
+}
+
+function* getLangs() {
+  const result1 = imaginaryHeavyComputation()
+  console.log('result of heavy compuation #1:', result1)
+  yield 'java';
+
+  const result2 = imaginaryHeavyComputation()
+  console.log('result of heavy compuation #2:', result1 + result2)
+  yield 'js';
+
+  console.log("easy compuation:", 2 + 2)
+  yield 'rust';
+}
+
+const generator = getLangs()
+// Никаких логов и вызовов функций не произошло
+```
+
+Генераторы по умолчанию ленивые, и до тех пор пока не будет вызван метод `next()`, у возвращаемого объекта-генератора никакие вычисления не будут происходить. Но даже после вызова `next()` выполнение функции произойдёт только до первого вызова `yield`. Если вызвать `next()` ещё раз, то выполнение продолжится до следующего `yield` и так далее. Продолжим пример выше.
+
+```js
+console.log(generator.next())
+// "result of heavy compuation #1: 4950"
+// { value: 'java', done: false }
+
+console.log(generator.next())
+// "result of heavy compuation #2: 9900"
+// { value: 'js', done: false }
+
+console.log(generator.next())
+// "easy compuation: 4"
+// { value: 'rust', done: false }
+```
+
+Таким образом мы получили функцию, которая выполняется частями. Если вывести в консоль содержимое, то можно лучше понять что происходит внутри.
+
+```js
+const generator = getLangs()
+console.log(generator)
+/*
+[[GeneratorLocation]]: VM229:1
+[[Prototype]]: Generator
+[[GeneratorState]]: "suspended"
+[[GeneratorFunction]]: ƒ* getLangs()
+[[GeneratorReceiver]]: Window
+[[Scopes]]: Scopes[3]
+*/
+```
+
+В самом начале генератор находится в состоянии `suspended`, т.е он приостановлен. Дальнейшие вызовы `next()` тоже будут переводить генератор в это состояние до тех пор, пока генератор не вернёт все значения (пройдёт все вызовы `yield`). Генератор закроется, только когда вызов метода `next()` вернёт объект с полем `done: true`.
+
+```js
+generator.next()
+// { value: 'java', done: false }
+generator.next()
+// { value: 'js', done: false }
+generator.next()
+// { value: 'rust', done: false }
+generator.next()
+// { value: undefined, done: true }
+
+console.log(generator)
+/*
+[[GeneratorLocation]]: VM229:1
+[[Prototype]]: Generator
+[[GeneratorState]]: "closed" // Обратите внимание на изменившийся статус
+[[GeneratorFunction]]: ƒ* getLangs()
+[[GeneratorReceiver]]: Window
+[[Scopes]]: Scopes[3]
+*/
+```
+
+### Передача значений в генератор с `yield`
+
+Вместе с генераторами в JavaScript был введён оператор `yield`. Как мы видели в примерах выше, `yield` приостанавливает функцию-генератор и возвращает значение. Однако `yield` можно представлять как двусторонний канал общения с генератором. С одной стороны мы получаем результат, но с другой мы можем передать значение в генератор в любой момент.
+
+Немного изменим пример с языками выше и добавим условие, что если первый язык программирования нам понравился, то мы учим другой похожий язык вместо JavaScript.
+
+```js
+function* getLangs() {
+  // Сюда запишется аргумент из следующего вызова next
+  const isFavorite = yield 'java';
+
+  if (isFavorite) {
+    yield 'kotlin'
+  } else {
+    yield 'js';
+  }
+
+  yield 'rust';
+}
+
+const generator = getLangs()
+
+generator.next()
+// { value: 'java', done: false }
+
+// Передаём true, потому что java нам понравилась
+generator.next(true)
+// { value: 'kotlin', done: false }
+```
+
+Сначала может показаться нелогичным, что при первом вызове `next()` значение аргумента не запишется. Однако это является особенностью генераторов, из-за того что генераторы ленивые первый вызов `next()` можно считать инициализацией.
+
+Если представить генератор как закрытую коробку, то первый вызов `next()` – это как вытянуть первый предмет вслепую. Вам неизвестно заранее, что вы получите, потому нельзя заранее сказать, что предмет нам понравится. Аналогично и в примере выше, сначала мы хотим получить результат, а затем на его основе можем решить какой аргумент передать в следующий вызов `next()`.
+
+Потому мы не можем передать значение в `isFavorite` в первом вызове `next()`, но можем в следующем. Из-за этого появляется ассиметричность, что сначала генератор вернёт значение, а только потом сможет записывать переданный ему аргумент.
+
+Используя возможность передачи данных в генератор можно по ходу его выполнения менять возвращаемые значения и создавать очень гибкие конструкции.
+
+### Вызов генераторов внутри генератора
+
+Если к вызову оператора `yield` добавить звёздочку `*`, то можно перенаправить выполнение в другой генератор.
+
+Снова дополним наш пример и предположим, что если нам понравился язык `java`, то мы хотим попробовать несколько языков на базе JVM.
+
+```js
+function* jvmLangs() {
+  yield 'kotlin'
+  yield 'scala'
+  yield 'closure'
+}
+
+function* getLangs() {
+  const isFavorite = yield 'java';
+
+  if (isFavorite) {
+    yield* jvmLangs() // Обратите внимание на звёздочку
+  } else {
+    yield 'js';
+  }
+
+  yield 'rust';
+}
+
+const generator = getLangs()
+
+generator.next()
+// { value: 'java', done: false }
+generator.next(true)
+// { value: 'kotlin', done: false }
+generator.next()
+// { value: 'scala', done: false }
+generator.next()
+// { value: 'closure', done: false }
+generator.next()
+// { value: 'rust', done: false }
+```
+
+Так можно вызывать генераторы внутри генераторов и удобно разбивать логику на отдельные части.
+
+
+## Генератор vs Итератор
+
+Объект-генератор  является  расширенной версией объекта-итератора, поэтому его также можно использовать для создания коллекций, например `Array` или `Set`.
+
+```js
+function* nums() {
+    yield 1
+    yield 2
+    yield 3
+}
+
+const arr = Array.from(nums())
+console.log(arr)
+// [1, 2, 3]
+const set = new Set(nums())
+console.log(set)
+// Set { 1, 2, 3 }
+```
+
+Помимо метода `next()`, у объекта-генератора есть методы `return()` и `throw()`, которые завершают генератор после их вызова.
+
+При наличии оператора `return` или после вызова метода `return()` с любым аргументом, в поле `value` будет находиться указанное значение.
+
+<aside>
+
+  ☝️ Так как вызов `return` завершит генератор (переведёт в состояние `closed`), то это значение **не попадёт** в цикл во время итерации.
+
+</aside>
+
+```js
+function* generator() {
+    yield 1
+    yield 2
+    return 3
+}
+
+for (const num of generator()) {
+    console.log(num)
+}
+// 1
+// 2
+```
+
+Вызов `return()` с переданным аргументом:
+
+```js
+function* getLangs() {
+  yield 'java';
+  yield 'js';
+  yield 'rust';
+}
+
+const generator = getLangs()
+generator.next()
+// { value: 'java', done: false }
+generator.return('Programming is too hard!')
+// { value: 'Programming is too hard!', done: true }
+generator.next()
+// { value: undefined, done: true }
+```
+
+Метод `throw()` позволяет бросить ошибку в генератор и тоже закрывает его.
+
+```js
+function* getLangs() {
+  try {
+    yield 'java';
+    yield 'js';
+    yield 'rust';
+  } catch (e) {
+      console.log(e)
+  }
+}
+
+const generator = getLangs()
+
+generator.next()
+// { value: 'java', done: false }
+generator.throw(new Error("Too much OOP. Brain is melted"))
+// Error: Too much OOP. Brain is melted
+generator.next()
+// { value: undefined, done: true }
+```
+
+Оператор `break` в цикле тоже завершает генератор, после чего его невозможно использовать повторно в новом цикле.
+Итератор просто остановит перебор, но его спокойно можно использовать повторно в новых циклах.
+
+```js
+function* id() {
+  let id = 0
+  while(true){
+    yield id
+    id++
+  }
+}
+
+const idGenerator = id()
+
+const users = []
+
+for(const id of idGenerator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 3) break
+}
+
+console.log(users.length)
+// 3
+
+//Новый цикл
+for(const id of idGenerator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 5) break
+}
+
+console.log(users.length)
+// 3, ожидалось 5
+```
+
+Повторим этот же пример с использованием итератора.
+
+```js
+function id() {
+  let id = 0
+  return {
+    [Symbol.iterator](){
+      return this
+    },
+    next(){
+      return {
+        value: id++,
+        done: false
+      }
+    }
+  }
+}
+
+const idIterator = id()
+
+const users = []
+
+for(const id of idIterator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 3) break
+}
+
+console.log(users.length)
+// 3
+
+//Новый цикл
+for(const id of idIterator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 5) break
+}
+
+console.log(users.length)
+// 5
+```
+
