@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 editors:
   - tachisis
 related:

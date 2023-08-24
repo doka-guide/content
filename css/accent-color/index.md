@@ -3,6 +3,8 @@ title: "`accent-color`"
 description: "Современный способ стилизовать чекбоксы, радиокнопки и другие контролы формы"
 authors:
   - solarrust
+contributors:
+  - starhamster
 keywords:
   - цвет акцента
 related:

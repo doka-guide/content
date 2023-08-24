@@ -3,6 +3,8 @@ title: "`border-style`"
 description: "Рамку можно сделать двойной, пунктирной и даже объёмной в точку! И всё это одним свойством."
 authors:
   - solarrust
+contributors:
+  - starhamster
 related:
   - css/border
   - css/outline

@@ -3,6 +3,8 @@ title: "`animation-timing-function`"
 description: "Анимация скачками, плавно или как прыгающий мячик? Управляем механизмом проигрывания анимации."
 authors:
   - solarrust
+contributors:
+  - starhamster
 editors:
   - tachisis
 keywords:
