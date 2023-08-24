@@ -3,6 +3,8 @@ title: "`border-width`"
 description: "Задаёт ширину рамки элемента. Часто указывается в шорткате, но иногда пригождается и отдельно."
 authors:
   - lordoys
+contributors:
+  - starhamster
 keywords:
   - ширина рамки
 related:
