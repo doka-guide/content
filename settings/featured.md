@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/network
-  - tools/markdown
-  - html/article
-  - a11y/screenreaders
-  - html/input
-  - css/grid-guide
-  - css/display
-  - js/function-context
-  - tools/webpack
-  - html/div
-  - js/function
-  - tools/gitlab-ci-cd
-  - recipes/lets-encrypt-nginx
-  - js/async-in-js
-  - html/nav
-  - css/box-model
-  - css/specificity
-  - tools/clean-architecture
-  - recipes/progress
-  - tools/agile
-  - tools/cli
-  - html/img
-  - html/flow
-  - css/media
-  - js/boolean
-  - css/box-shadow
-  - css/pseudoelements
-  - a11y/aria-intro
-  - tools/oop
-  - js/execution-order
   - tools/how-the-browser-creates-pages
-  - css/keyframes
-  - js/var-let
-  - js/infinite-scroll
-  - tools/bundlers
+  - tools/markdown
+  - js/execution-order
+  - tools/how-to-test-and-why
   - css/custom-properties
   - html/video
-  - tools/how-to-test-and-why
-  - html/form
-  - html/doctype
+  - html/img
+  - tools/cli
+  - css/box-shadow
+  - css/keyframes
   - tools/ci-cd
+  - css/specificity
+  - css/pseudoelements
+  - html/flow
+  - css/transform-function
+  - tools/bundlers
+  - tools/network
+  - css/box-model
+  - js/function
+  - a11y/aria-hidden
+  - html/form
+  - css/grid-guide
+  - css/position
+  - js/async-in-js
+  - a11y/screenreaders
+  - html/doctype
+  - tools/docker
+  - css/display
+  - a11y/aria-intro
+  - css/media
+  - tools/agile
+  - tools/static-types
+  - html/nav
+  - html/head
+  - recipes/snow
+  - recipes/progress
+  - js/function-context
+  - recipes/lets-encrypt-nginx
+  - html/input
+  - tools/gitlab-ci-cd
+  - js/infinite-scroll
+  - tools/clean-architecture
+  - js/boolean
+  - html/article
   - css/attr
   - js/deal-with-forms
-  - tools/docker
-  - css/position
-  - html/head
-  - js/closures
-  - css/flexbox-guide
-  - tools/static-types
-  - a11y/aria-hidden
-  - css/transform-function
+  - js/var-let
   - html/section
-  - recipes/snow
+  - css/flexbox-guide
+  - html/div
+  - js/closures
+  - tools/webpack
+  - tools/oop
 ---
 
