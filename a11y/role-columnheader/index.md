@@ -16,7 +16,7 @@ tags:
 
 [Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для заголовка ячейки или строки таблицы и обычной сетки.
 
-В HTML эта роль есть по умолчанию у [`<th>`](/tables/#th) с атрибутом `scope="col`.
+В HTML эта роль есть по умолчанию у [`<th>`](/html/tables/#th) с атрибутом `scope="col`.
 
 ## Как пишется
 
