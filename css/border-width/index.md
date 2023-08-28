@@ -3,6 +3,8 @@ title: "`border-width`"
 description: "Задаёт ширину рамки элемента. Часто указывается в шорткате, но иногда пригождается и отдельно."
 authors:
   - lordoys
+contributors:
+  - starhamster
 keywords:
   - ширина рамки
 related:
@@ -28,11 +30,11 @@ tags:
 ```css
 .text {
   border-style: solid;
-  border-width: 3px;
+  border-width: 4px;
 }
 ```
 
-<iframe title="Блок текста" src="demos/basic/" height="200"></iframe>
+<iframe title="Блок текста" src="demos/basic/" height="240"></iframe>
 
 ## Как пишется
 
@@ -53,7 +55,7 @@ tags:
 
 На этом демо можете посмотреть как выглядят разные размеры толщины рамки при разных значениях стиля рамки.
 
-<iframe title="Варианты рамок" src="demos/different-border/" height="460"></iframe>
+<iframe title="Варианты рамок" src="demos/different-border/" height="550"></iframe>
 
 ## Подсказки
 
