@@ -12,6 +12,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
+  - starhamster
 related:
   - css/selector-list
   - html/global-attrs
