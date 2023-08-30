@@ -59,7 +59,18 @@ generator.next()
 // { value: 'rust', done: true }
 ```
 
-Так как генератор это еще и **итерируемый-объект**, то можем обойти его в цикле `for..of`:
+Так как генератор это еще и **итерируемый-объект**, то можем обойти его в цикле `for..of`.
+
+Сначала убедимся что наш генератор действительно **итерируемый**:
+
+```js
+const generator = getLangs()
+
+console.log(generator[Symbol.iterator]() === generator)
+//true
+```
+
+А теперь попробуем обойти его в цикле:
 
 ```js
 const generator = getLangs()
@@ -71,6 +82,8 @@ for (const value of generator) {
 // 'js'
 // 'rust'
 ```
+
+
 
 
 ## Как пишется
@@ -456,5 +469,48 @@ for(const id of idIterator){
 
 console.log(users.length)
 // 5
+```
+
+Если присвоить функцию-генератор в свойство `Symbol.iterator` объекта-генератора, то можно использовать тот же генератор в новых циклах
+
+```js
+function* id() {
+  let id = 0
+  while(true){
+    yield id
+    id++
+  }
+}
+
+const idGenerator = id()
+
+//Присваием функцию-генератор в Symbol.iterator
+idGenerator[Symbol.iterator] = function*(){
+    let id = 0
+  while(true){
+    yield id
+    id++
+  }
+}
+
+const users = []
+
+//1 Цикл
+for(const id of idGenerator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 3) break
+}
+
+console.log(users)
+//3
+
+//2 Цикл с тем же генератором
+for(const id of idGenerator){
+  users.push({id, name: 'User-' + id})
+  if(users.length === 5) break
+}
+
+console.log(users)
+//5
 ```
 
