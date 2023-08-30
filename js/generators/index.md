@@ -484,7 +484,7 @@ function* id() {
 
 const idGenerator = id()
 
-//Присваием функцию-генератор в Symbol.iterator
+//Присвоим функцию-генератор в свойство Symbol.iterator
 idGenerator[Symbol.iterator] = function*(){
     let id = 0
   while(true){
@@ -495,7 +495,7 @@ idGenerator[Symbol.iterator] = function*(){
 
 const users = []
 
-//1 Цикл
+//Первый цикл
 for(const id of idGenerator){
   users.push({id, name: 'User-' + id})
   if(users.length === 3) break
@@ -504,7 +504,7 @@ for(const id of idGenerator){
 console.log(users)
 //3
 
-//2 Цикл с тем же генератором
+//Новый цикл с тем же генератором
 for(const id of idGenerator){
   users.push({id, name: 'User-' + id})
   if(users.length === 5) break
