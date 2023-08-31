@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2023
+
+- 11 августа, [Как описывать картинки](https://doka.guide/a11y/how-to-describe-pictures/), Татьяна Фокина
+- 4 августа, [`prefers-reduced-motion`](https://doka.guide/a11y/prefers-reduced-motion/), Катерина Рогозинская
+
 ## Июль 2023
 
 - 30 июля, [Как создать профиль на GitHub](https://doka.guide/recipes/github-new-profile/), Игорь Коровченко
