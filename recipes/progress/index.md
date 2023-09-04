@@ -251,7 +251,7 @@ function loadHandler(event) {
   label="Russian"
   kind="subtitles"
   srclang="ru"
-  src="video/closed-captions.srt">
+  src="video/closed-captions.vtt">
 </video>
 
 ## Разбор решения
