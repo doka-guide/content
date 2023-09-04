@@ -178,7 +178,7 @@ function processingUploadFile(fileInstanceUpload) {
 }
 ```
 
-<iframe title="Пример загрузки файла перетаскиванием" src="demos/dragndrop-demo/" height="330"></iframe>
+<iframe title="Пример загрузки файла перетаскиванием" src="demos/dragndrop-demo/" height="600"></iframe>
 
 Полный вариант загрузки файла с его сохранением на сервере выглядит так:
 
@@ -401,4 +401,4 @@ xhr.onload = function (event){
 }
 ```
 
-<iframe title="Загрузка файла перетаскиванием" src="demos/dragndrop-demo/" height="330"></iframe>
+<iframe title="Загрузка файла перетаскиванием" src="demos/dragndrop-demo/" height="600"></iframe>
