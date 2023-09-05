@@ -21,12 +21,16 @@ tags:
 
 Чтобы создать такой объект нужно использовать **функцию-генератор**. Для еë объявления к названию функции в начале добавляют символ звёздочки `*`.
 
-Вызов функции вернëт **объект-генератор**, который одновременно будет итератором и итерируемым объектом (иметь свойство `Symbol.iterator`). У объекта-генератора есть 2 возможных состояния `suspended` - приостановлен, и `closed` - завершён.
+Вызов функции вернëт **объект-генератор**, который одновременно будет итератором и итерируемым объектом (иметь свойство `Symbol.iterator`). У объекта-генератора есть 5 возможных состояний: `undefined`, `suspended-start`, `suspended-yield`, `executing` and `completed`, но доступно нам 3 `suspended` - приостановлен, `executing` - выполняется и `close` - завершён.
 
 Для возврата значений используется оператор `yield` или `yield*`.
+
+Оператор `yield*` перенаправляет процесс итерации в другой генератор, мы как бы делаем спред другого генератора внутри нашего, получаем его значения и возвращаем их.
+
 А ещë эти операторы приостанавливают выполнение функции с полным сохранением промежуточных вычислений.
 
 Вызов `return` завершает итерации и возвращает значение.
+
 Вызов `throw()` завершает итерации и бросает ошибку.
 
 
@@ -37,6 +41,7 @@ tags:
 ```js
 function* getLangs() {
   yield 'java';
+  debugger;
   yield 'js';
   yield 'rust';
 }
@@ -83,9 +88,6 @@ for (const value of generator) {
 // 'rust'
 ```
 
-
-
-
 ## Как пишется
 
 Чтобы создать функцию-генератор, нужно добавить знак звёздочки между ключевым словом `function` и названием функции. Как именно ставить звёздочку – не важно.
@@ -109,7 +111,7 @@ function* generator() {
 
 <aside>
 
-  ☝️ Оператор `yield` можно использовать исключительно внутри функции-генератора. То есть в функциях обратного вызова использование `yiled` приведëт к синтаксической ошибке. Это накладывает определённые ограничения при работе с генераторами.
+  ☝️ Оператор `yield` можно использовать исключительно внутри функции-генератора. То есть в колбеках использование `yiled` приведëт к синтаксической ошибке.
 
 </aside>
 
@@ -119,7 +121,7 @@ function* generator() {
 function* generator() {
     [1, 2].forEach(x => yield x)
 }
-// SyntaxError
+// Получили SyntaxError
 ```
 
 Обратите внимание, что слово `return` в генераторе необязательно. Если `return` нет, то после выполнения всех `yield` следующий вызов `next()` вернёт `{ value: undefined, done: true }`.
@@ -241,13 +243,31 @@ console.log(generator)
 
 ```js
 function* getLangs() {
-  // Сюда запишется аргумент из следующего вызова next
+  /**
+   * Первый вызов next в любом случае вернет 'java',
+   * не имеет значения передадим мы что то в него или нет
+   *
+   * Переменная isFavorite при этом будет 'undefined'
+  */
+
   const isFavorite = yield 'java';
 
+    /**
+    * Если мы передадим аргумент в 'next' при следующем вызове, то:
+    *
+    * 1) он будет присвоен переменной isFavorite;
+    * 2) условие будет верно, и мы получим значение 'kotlin'
+    */
   if (isFavorite) {
+
     yield 'kotlin'
+
   } else {
+     /**
+      * или 'js' если вызовем 'next' без аргументов
+      */
     yield 'js';
+
   }
 
   yield 'rust';
@@ -288,13 +308,16 @@ function* getLangs() {
   const isFavorite = yield 'java';
 
   if (isFavorite) {
-    yield* jvmLangs() // Обратите внимание на звёздочку
+    // Обратите внимание на звёздочку
+    yield* jvmLangs()
   } else {
     yield 'js';
   }
 
   yield 'rust';
 }
+
+Мы как будто разворачиваем одну книгу внутри другой, и продолжаем читать текст из этой развёрнутой книги.
 
 const generator = getLangs()
 
@@ -311,7 +334,6 @@ generator.next()
 ```
 
 Так можно вызывать генераторы внутри генераторов и удобно разбивать логику на отдельные части.
-
 
 ## Генератор vs Итератор
 
@@ -401,116 +423,101 @@ generator.next()
 Итератор просто остановит перебор, но его спокойно можно использовать повторно в новых циклах.
 
 ```js
-function* id() {
-  let id = 0
-  while(true){
-    yield id
-    id++
-  }
+
+const generator = getLangs()
+
+const langs = []
+
+for(const lang of generator){
+  langs.push(lang)
+  if(langs.length === 1) break
 }
 
-const idGenerator = id()
-
-const users = []
-
-for(const id of idGenerator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 3) break
-}
-
-console.log(users.length)
-// 3
+console.log(langs.length)
+// 1
 
 //Новый цикл
-for(const id of idGenerator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 5) break
+for(const lang of generator){
+  langs.push(lang)
+  if(langs.length === 2) break
 }
 
-console.log(users.length)
-// 3, ожидалось 5
+console.log(langs.length)
+// Все еще 1, а ожидалось 2
 ```
 
 Повторим этот же пример с использованием итератора.
 
 ```js
-function id() {
-  let id = 0
+function getLangs() {
+  let index = 0
+  const langs = ['java', 'js', 'rust']
   return {
     [Symbol.iterator](){
       return this
     },
     next(){
       return {
-        value: id++,
-        done: false
+        value: langs[index++],
+        done: index >= langs.length
       }
     }
   }
 }
 
-const idIterator = id()
+const iterator = getLangs()
 
-const users = []
+const langs = []
 
-for(const id of idIterator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 3) break
+for(const lang of iterator){
+  langs.push(lang)
+  if(langs.length === 1) break
 }
 
-console.log(users.length)
-// 3
+console.log(langs.length)
+// 1
 
 //Новый цикл
-for(const id of idIterator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 5) break
+for(const lang of iterator){
+  langs.push(lang)
+  if(langs.length === 2) break
 }
 
-console.log(users.length)
-// 5
+console.log(langs.length)
+//2
 ```
 
 Если присвоить функцию-генератор в свойство `Symbol.iterator` объекта-генератора, то можно использовать тот же генератор в новых циклах
 
 ```js
-function* id() {
-  let id = 0
-  while(true){
-    yield id
-    id++
-  }
-}
 
-const idGenerator = id()
+
+const generator = getLangs()
 
 //Присвоим функцию-генератор в свойство Symbol.iterator
-idGenerator[Symbol.iterator] = function*(){
-    let id = 0
-  while(true){
-    yield id
-    id++
-  }
+generator[Symbol.iterator] = function*(){
+    yield 'java';
+    yield 'js';
+    yield 'rust';
 }
 
-const users = []
+const langs = []
 
-//Первый цикл
-for(const id of idGenerator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 3) break
+for(const lang of iterator){
+  langs.push(lang)
+  if(langs.length === 1) break
 }
 
-console.log(users)
-//3
+console.log(langs.length)
+// 1
 
-//Новый цикл с тем же генератором
-for(const id of idGenerator){
-  users.push({id, name: 'User-' + id})
-  if(users.length === 5) break
+//Новый цикл
+for(const lang of iterator){
+  langs.push(lang)
+  if(langs.length === 2) break
 }
 
-console.log(users)
-//5
+console.log(langs.length)
+//2
 ```
 
