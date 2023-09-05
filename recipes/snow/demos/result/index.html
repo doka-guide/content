@@ -6,14 +6,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
       margin: 0;
       padding: 50px;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
+    }
+
+    .snow-toggle {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      margin: 0;
+      gap: 40px;
+      border: 0;
+    }
+
+    .snow-toggle__label {
+      padding-bottom: 10px;
+    }
+
+    .snow-toggle__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .snow-toggle__text::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .snow-toggle__control {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .snow-toggle__control:focus + .snow-toggle__text::before {
+      border-color: #2E9AFF;
+    }
+
+    .snow-toggle__control:checked + .snow-toggle__text::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
     }
 
     .snow {
@@ -144,7 +207,8 @@
     <div class="snow__flake">﹡</div>
   </div>
 
-  <div class="snow-toggle">
+  <fieldset class="snow-toggle">
+    <legend class="snow-toggle__label">Переключатель осадков</legend>
     <label class="snow-toggle__item">
       <input class="snow-toggle__control" type="radio" name="snow" value="snowfall" checked>
       <span class="snow-toggle__text">Снег</span>
@@ -153,7 +217,7 @@
       <input class="snow-toggle__control" type="radio" name="snow" value="none">
       <span class="snow-toggle__text">Без осадков</span>
     </label>
-  </div>
+  </fieldset>
 
   <script>
     const storageKey = 'snow'
