@@ -308,8 +308,17 @@ function* getLangs() {
   const isFavorite = yield 'java';
 
   if (isFavorite) {
-    // Обратите внимание на звёздочку
+    /**
+     * Обратите внимание на звёздочку
+     *
+     * Данная строка тоже самое что и:
+     * yield 'kotlin'
+     * yield 'scala'
+     * yield 'closure'
+     *
+    */
     yield* jvmLangs()
+
   } else {
     yield 'js';
   }
@@ -501,7 +510,7 @@ generator[Symbol.iterator] = function*(){
 
 const langs = []
 
-for(const lang of iterator){
+for(const lang of generator){
   langs.push(lang)
   if(langs.length === 1) break
 }
@@ -510,7 +519,7 @@ console.log(langs.length)
 // 1
 
 //Новый цикл
-for(const lang of iterator){
+for(const lang of generator){
   langs.push(lang)
   if(langs.length === 2) break
 }
