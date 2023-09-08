@@ -7,6 +7,10 @@ keywords:
   - программа чтения с экрана
   - программа экранного доступа
   - screen reader
+  - уведомления-тосты
+  - toast notification
+  - интерактивна область
+  - живая область
 related:
   - a11y/aria-roles
   - a11y/aria-intro
