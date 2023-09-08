@@ -31,7 +31,7 @@ _Live region_ или _«живая»/интерактивная область_ 
 
 - Использовать теги, в которые уже встроены нужные роли и свойства, — `<output>` и `<progress>`.
 - Добавить к тегам специальные ARIA-роли `alert`, `log`, `status`, `marque`, `progressbar` и `timer`.
-- Задействовать атрибуты `[aria-live](https://www.w3.org/TR/wai-aria-1.2/#aria-live)` и опционально `aria-busy`, `aria-atomic` или `aria-relevant`.
+- Задействовать атрибуты `aria-live` и опционально `aria-busy`, `aria-atomic` или `aria-relevant`.
 
 Обычно проблему доступности динамически изменяющегося контента решают с помощью [WAI-ARIA](/a11y/aria-intro/) или просто ARIA(Web Accessibility Initiative — Accessible Rich Internet Applications).
 
