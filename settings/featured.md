@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/gitlab-ci-cd
-  - tools/how-the-browser-creates-pages
   - css/box-shadow
-  - tools/markdown
-  - tools/oop
-  - css/pseudoelements
-  - html/doctype
   - tools/ci-cd
-  - recipes/snow
-  - tools/cli
-  - css/grid-guide
-  - tools/docker
-  - js/var-let
-  - css/custom-properties
-  - js/boolean
-  - tools/agile
-  - html/article
-  - tools/network
-  - css/box-model
-  - js/async-in-js
-  - a11y/screenreaders
-  - css/attr
-  - html/form
-  - html/input
-  - tools/clean-architecture
-  - html/flow
-  - html/video
-  - html/img
-  - tools/static-types
-  - js/closures
-  - css/specificity
-  - css/position
-  - recipes/progress
-  - css/keyframes
-  - html/section
-  - html/head
-  - js/infinite-scroll
-  - html/nav
-  - css/flexbox-guide
-  - html/div
-  - css/media
-  - js/deal-with-forms
-  - js/function
-  - js/execution-order
   - js/function-context
-  - recipes/lets-encrypt-nginx
-  - tools/how-to-test-and-why
-  - tools/webpack
-  - tools/bundlers
+  - html/img
+  - css/box-model
+  - tools/network
   - css/display
-  - css/transform-function
+  - tools/agile
+  - tools/how-the-browser-creates-pages
+  - css/grid-guide
+  - html/doctype
+  - css/attr
+  - html/head
+  - html/form
+  - css/position
   - a11y/aria-hidden
+  - js/boolean
+  - js/infinite-scroll
+  - html/input
+  - recipes/snow
+  - tools/gitlab-ci-cd
+  - tools/bundlers
+  - tools/static-types
+  - html/nav
+  - tools/oop
+  - html/section
+  - css/keyframes
+  - js/closures
+  - css/pseudoelements
   - a11y/aria-intro
+  - html/div
+  - tools/clean-architecture
+  - css/specificity
+  - tools/cli
+  - recipes/progress
+  - tools/how-to-test-and-why
+  - js/execution-order
+  - tools/docker
+  - a11y/screenreaders
+  - tools/webpack
+  - html/flow
+  - recipes/lets-encrypt-nginx
+  - js/function
+  - html/video
+  - css/custom-properties
+  - css/transform-function
+  - js/var-let
+  - css/media
+  - tools/markdown
+  - js/async-in-js
+  - js/deal-with-forms
+  - html/article
+  - css/flexbox-guide
 ---
 
