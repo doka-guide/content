@@ -142,7 +142,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <label class="row-label">Загрузка файла</label>
+      <label class="row-label" for="progressBar">Загрузка файла</label>
       <div class="upload">
         <div id="progressCounter" class="upload__counter">0%</div>
         <progress id="progressBar" class="upload__indicator" value="0" max="100"></progress>
@@ -166,7 +166,7 @@
         } else {
           progressWidth++;
           progressBar.style.width = progressWidth + '%'
-          progressBar.val = progressWidth
+          progressBar.value = progressWidth
           uploadCounter.textContent = progressWidth + '%'
         }
       }, 10)
