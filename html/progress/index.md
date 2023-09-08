@@ -3,6 +3,8 @@ title: "`<progress>`"
 description: "Элемент, который показывает ход выполнения задачи."
 authors:
   - webdb81
+contributors:
+  - tatianafokina
 keywords:
   - индикация загрузки
   - индикатор процесса
