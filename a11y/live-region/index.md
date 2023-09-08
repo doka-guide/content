@@ -85,7 +85,7 @@ _Live region_ или _«живая»/интерактивная область_ 
 Бывают ситуации, когда `<progress>` связан с другой частью страницы, где что-то тоже изменяется. Например, подгружается новое содержимое. При этом нам неизвестно, где у него начало и конец. В этом случае добавьте к части страницы с изменениями [`aria-busy="true"`](/a11y/aria-busy/) и свяжите её с прогресс-баром с помощью [`aria-describedby`](/a11y/aria-describedby/).
 
 ```html
-<div aria-busy="true" aria-describedby="progress-bar">
+<div role="feed" aria-busy="true" aria-describedby="progress-bar">
   <!-- Содержимое, которое сейчас обновляется -->
 </div>
 
