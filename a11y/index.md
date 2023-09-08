@@ -68,9 +68,10 @@ groups:
       - role-contentinfo
   - name: '«Живые» области'
     items:
+      - live-region
       - role-status
-      - role-alert
       - role-log
+      - role-alert
       - role-marquee
       - role-timer
       - aria-live
