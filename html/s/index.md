@@ -27,7 +27,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
 
 ## Как понять
 
@@ -54,4 +54,4 @@ tags:
 </div>
 ```
 
-<iframe title="Пример с ценами" src="demos/prices/" height="370"></iframe>
+<iframe title="Пример с ценами" src="demos/prices/" height="500"></iframe>
