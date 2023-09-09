@@ -69,4 +69,4 @@ tags:
 
 Также тег можно использовать для вывода всплывающих уведомлений.
 
-<iframe title="Пример всплывающего уведомления" src="demos/toast-notification/" height="450"></iframe>
+<iframe title="Пример всплывающего уведомления" src="demos/toast-notification/" height="350"></iframe>
