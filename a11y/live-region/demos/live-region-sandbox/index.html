@@ -23,7 +23,6 @@
       min-height: 100vh;
       padding: 50px;
       display: flex;
-      align-items: center;
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
@@ -244,6 +243,11 @@
       padding: 5px 10px;
     }
 
+    .status-message {
+      height: 22px;
+      margin-top: 25px;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
@@ -371,10 +375,13 @@
           </div>
         </div>
       </fieldset>
+
       <div class="row row--center">
         <button class="button button-aqua" type="button" id="set-button" aria-controls="output">Применить 🚀</button>
         <button class="button button-aqua" type="reset" id="reset-button" >Сбросить 🧹</button>
       </div>
+
+      <div class="status-message"></div>
     </form>
 
     <div class="row row--column">
@@ -399,6 +406,7 @@
     const resetButton = document.getElementById('reset-button')
     const addButton = document.getElementById('add-button')
     const deleteButton = document.getElementById('delete-button')
+    const statusMessage = document.querySelector('.status-message')
 
     let itemNumber = 1
 
@@ -432,6 +440,7 @@
         if(radio.checked) {
           let selectedValue = radio.value
           liveRegion.setAttribute('role', selectedValue)
+          statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
         }
       })
 
@@ -441,22 +450,35 @@
       setSelectAttribute(liveRegion, selectBusy)
     })
 
-    const setSelectAttribute = function(element, select) {
+    const setSelectAttribute = (element, select) => {
       let selectedValue = select.value
 
       if(selectedValue !== 'none') {
         element.setAttribute(`${select.name}`, selectedValue)
+        statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
       } else {
         element.removeAttribute(`${select.name}`, selectedValue)
       }
     }
 
     resetButton.addEventListener('click', function() {
-      liveRegion.removeAttribute('role')
-      liveRegion.removeAttribute('aria-live')
-      liveRegion.removeAttribute('aria-relevant')
-      liveRegion.removeAttribute('aria-busy')
-      liveRegion.removeAttribute('aria-atomic')
+      const attributesList = [
+        'role',
+        'aria-live',
+        'aria-relevant',
+        'aria-busy',
+        'aria-atomic'
+      ]
+
+      const hadAttribute = attributesList.some(attr => liveRegion.hasAttribute(attr))
+
+      if(hadAttribute) {
+        attributesList.forEach(attr => {
+          liveRegion.removeAttribute(attr)
+        })
+
+        statusMessage.textContent = 'Настройки очищены. Блок ниже больше не изменяющаяся область.'
+      }
     })
   </script>
 </body>
