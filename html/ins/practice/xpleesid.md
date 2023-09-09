@@ -10,4 +10,4 @@
 </pre>
 ```
 
-<iframe title="Пример с кодом" src="../demos/code/" height="300"></iframe>
+<iframe title="Пример с кодом" src="../demos/code/" height="260"></iframe>
