@@ -36,7 +36,7 @@ tags:
 </ul>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="280"></iframe>
 
 ## Как понять
 
@@ -70,4 +70,4 @@ tags:
 
 По умолчанию значения атрибутов невидимы для пользователя, но можно автоматически выводить их при помощи скриптов. Например, мы можем добавлять для всех удалённых пунктов дату и время удаления, это будет выглядеть примерно так:
 
-<iframe title="Атрибуты" src="demos/attributes/" height="200"></iframe>
+<iframe title="Атрибуты" src="demos/attributes/" height="230"></iframe>
