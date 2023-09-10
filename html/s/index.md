@@ -3,6 +3,8 @@ title: "`<s>`"
 description: "Размечает уже неактуальный контент."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - зачёркивание
 related:

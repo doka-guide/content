@@ -3,6 +3,8 @@ title: "`<ins>`"
 description: "Обозначаем только что добавленный контент."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - добавить
 related:

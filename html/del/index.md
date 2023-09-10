@@ -3,6 +3,8 @@ title: "`<del>`"
 description: "Отображаем удалённый контент."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - зачеркнуть
   - удалить
