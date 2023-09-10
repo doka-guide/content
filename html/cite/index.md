@@ -3,6 +3,8 @@ title: "`<cite>`"
 description: "Указывает на источник цитаты или названия произведений."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - ссылка
   - цитата
