@@ -3,13 +3,18 @@ title: "`<sub>`"
 description: "Выводит подстрочный текст."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - подстрочный
   - индекс
+  - семантика
+  - screen reader
+  - ридер
 related:
-  - html/var
+  - a11y/role-subscript
   - css/tag-selector
-  - css/font-size
+  - html/var
 tags:
   - doka
 ---
@@ -17,6 +22,8 @@ tags:
 ## Кратко
 
 Тег `<sub>` позволяет выводить подстрочный текст, например, в химических формулах: H<sub>2</sub>O.
+
+У `<sub>` есть роль [`subscript`](/a11y/role-subscript/). Это добавляет ему семантически вес и делает полезным для [скринридеров](/a11y/screenreaders/).
 
 ## Пример
 
@@ -30,7 +37,7 @@ tags:
 </p>
 ```
 
-<iframe title="Пример с формулой воды" src="demos/basic/" height="100"></iframe>
+<iframe title="Пример с формулой воды" src="demos/basic/" height="220"></iframe>
 
 ## Как пишется
 
@@ -40,9 +47,11 @@ tags:
 <p>
   Сумма массива может быть
   вычислена последовательным
-  сложением всех его элементов:<br>
+  сложением всех его элементов:
+</p>
+<p>
   sum := <var>X<sub>1</sub></var> +
-  <var>X<sub>2</sub></var> + ... +
+  <var>X<sub>2</sub></var> + … +
   <var>X<sub>N</sub></var>
 </p>
 ```
@@ -53,7 +62,7 @@ var {
 }
 ```
 
-<iframe title="Пример с математической формулой" src="demos/variables/" height="180"></iframe>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="240"></iframe>
 
 Теги `<sub>` можно вкладывать друг в друга, тогда на каждом шаге текст будет спускаться ниже, а его размер будет уменьшаться.
 
@@ -68,7 +77,7 @@ var {
 </p>
 ```
 
-<iframe title="Пример с математической формулой" src="demos/nested/" height="120"></iframe>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="250"></iframe>
 
 Также `<sub>` можно комбинировать с тегом [`<sup>`](/html/sup/) для построения сложных формул.
 
@@ -83,4 +92,4 @@ var {
 </p>
 ```
 
-<iframe title="Пример с тегом sup" src="demos/sup/" height="120"></iframe>
+<iframe title="Пример с тегом sup" src="demos/sup/" height="220"></iframe>
