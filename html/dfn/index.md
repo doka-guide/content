@@ -12,7 +12,7 @@ keywords:
   - ридер
   - a11y
 related:
-  - a11y/role-definition
+  - a11y/role-term
   - html/abbr
   - html/dl-dd-dt
 tags:
@@ -23,7 +23,7 @@ tags:
 
 Тег `<dfn>` используется для вывода терминов или расшифровки сокращений.
 
-У тега есть [роль `definition`](/a11y/role-definition/), что делает этот тег полезным для [скринридеров](/a11y/screenreaders/).
+У тега есть [роль `term`](/a11y/role-term/), что делает этот тег полезным для [скринридеров](/a11y/screenreaders/).
 
 ## Пример
 
