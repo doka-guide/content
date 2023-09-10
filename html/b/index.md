@@ -5,6 +5,8 @@ authors:
   - gkhabada
 contributors:
   - gingerraccoon
+contributors:
+  - tatianafokina
 editors:
   - tachisis
 keywords:

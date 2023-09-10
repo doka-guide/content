@@ -3,6 +3,8 @@ title: "`<strong>`"
 description: "Семантически выделяет важный текст."
 authors:
   - gingerraccoon
+contributors:
+  - tatianafokina
 keywords:
   - семантическое выделение
   - важность
