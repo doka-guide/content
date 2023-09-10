@@ -7,9 +7,9 @@ keywords:
   - аккордеон
   - спойлер
 related:
-  - css/animation
+  - a11y/role-group
   - js/element-classlist
-  - css/display
+  - css/animation
 tags:
   - doka
 ---
@@ -17,6 +17,8 @@ tags:
 ## Кратко
 
 Блок с раскрывающимся контентом на чистом HTML.
+
+У `<details>` есть групповая [роль `group`](/a11y/role-group/).
 
 ## Пример
 
@@ -29,7 +31,7 @@ tags:
 </details>
 ```
 
-<iframe title="details + summary" src="demos/details-summary/" height="250"></iframe>
+<iframe title="details и summary" src="demos/details-summary/" height="280"></iframe>
 
 ## Как понять
 
@@ -52,7 +54,7 @@ tags:
 </details>
 ```
 
-<iframe title="Открытый аккордеон" src="demos/details-open/" height="300"></iframe>
+<iframe title="Открытый аккордеон" src="demos/details-open/" height="400"></iframe>
 
 ## Подсказки
 
