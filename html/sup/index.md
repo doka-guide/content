@@ -3,13 +3,18 @@ title: "`<sup>`"
 description: "Выводит надстрочный текст."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - надстрочный
   - индекс
+  - семантика
+  - screen reader
+  - ридер
 related:
-  - html/var
+  - a11y/role-superscript
   - css/tag-selector
-  - css/font-size
+  - html/var
 tags:
   - doka
 ---
@@ -17,6 +22,8 @@ tags:
 ## Кратко
 
 Тег `<sup>` позволяет выводить надстрочный текст, например, в математических уравнениях: c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup>.
+
+У `<sup>` есть роль [`superscript`](/a11y/role-superscript/). Это добавляет ему семантически вес и делает полезным для [скринридеров](/a11y/screenreaders/).
 
 ## Пример
 
@@ -31,7 +38,7 @@ tags:
 </p>
 ```
 
-<iframe title="Теорема пифагора" src="demos/basic/" height="100"></iframe>
+<iframe title="Теорема пифагора" src="demos/basic/" height="220"></iframe>
 
 ## Как пишется
 
@@ -41,7 +48,7 @@ tags:
 <p>
   Квадрат суммы может быть вычислен как сумма
   квадратов слагаемых и их удвоенное произведение:
-  <var>(a + b)<sup>2</sup> = a<sup>2</sup> + 2*a*b + b<sup>2</sup></var>
+  <var>(a + b)<sup>2</sup> = a<sup>2</sup> + 2 × a × b + b<sup>2</sup></var>
 </p>
 ```
 
@@ -51,7 +58,7 @@ var {
 }
 ```
 
-<iframe title="Пример с математической формулой" src="demos/variables/" height="150"></iframe>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="230"></iframe>
 
 Теги `<sup>` можно вкладывать друг в друга, тогда на каждом шаге текст будет подниматься вверх, а его размер будет уменьшаться.
 
@@ -66,7 +73,7 @@ var {
 </p>
 ```
 
-<iframe title="Пример с математической формулой" src="demos/nested/" height="180"></iframe>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="300"></iframe>
 
 Также `<sup>` можно комбинировать с тегом [`<sub>`](/html/sub/) для построения сложных формул.
 
@@ -81,4 +88,4 @@ var {
 </p>
 ```
 
-<iframe title="Пример с тегом sub" src="demos/sub/" height="120"></iframe>
+<iframe title="Пример с тегом sub" src="demos/sub/" height="220"></iframe>
