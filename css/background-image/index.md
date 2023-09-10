@@ -89,7 +89,7 @@ div {
 }
 ```
 
-Подробнее о градиентах можно прочитать в статьях о [`linear-gradient`](/css/line-height/), [`radial-gradient`](/css/radial-gradient/) и [`conic-gradient()`](/css/conic-gradient/).
+Подробнее о градиентах можно прочитать в статьях о [`linear-gradient`](/css/linear-gradient/), [`radial-gradient`](/css/radial-gradient/) и [`conic-gradient()`](/css/conic-gradient/).
 
 ## Подсказки
 
