@@ -8,6 +8,9 @@ contributors:
 keywords:
   - ударение
   - семантический акцент
+  - screen reader
+  - ридер
+  - a11y
 related:
   - a11y/role-emphasis
   - html/strong

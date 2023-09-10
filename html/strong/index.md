@@ -8,8 +8,9 @@ contributors:
 keywords:
   - семантическое выделение
   - важность
-  - скрин ридер
   - screen reader
+  - ридер
+  - a11y
 related:
   - a11y/strong
   - html/b
