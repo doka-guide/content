@@ -37,7 +37,7 @@ tags:
 </p>
 ```
 
-<iframe title="Пример с формулой воды" src="demos/basic/" height="220"></iframe>
+<iframe title="Пример с формулой воды" src="demos/basic/" height="300"></iframe>
 
 ## Как пишется
 
@@ -62,7 +62,7 @@ var {
 }
 ```
 
-<iframe title="Пример с математической формулой" src="demos/variables/" height="240"></iframe>
+<iframe title="Пример с математической формулой" src="demos/variables/" height="400"></iframe>
 
 Теги `<sub>` можно вкладывать друг в друга, тогда на каждом шаге текст будет спускаться ниже, а его размер будет уменьшаться.
 
@@ -77,7 +77,7 @@ var {
 </p>
 ```
 
-<iframe title="Пример с математической формулой" src="demos/nested/" height="250"></iframe>
+<iframe title="Пример с математической формулой" src="demos/nested/" height="480"></iframe>
 
 Также `<sub>` можно комбинировать с тегом [`<sup>`](/html/sup/) для построения сложных формул.
 
@@ -92,4 +92,4 @@ var {
 </p>
 ```
 
-<iframe title="Пример с тегом sup" src="demos/sup/" height="220"></iframe>
+<iframe title="Пример с тегом sup" src="demos/sup/" height="300"></iframe>
