@@ -161,27 +161,27 @@
     <form class="form" id="form">
       <div class="form-row">
         <label class="row-label" for="max"><code>max</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="max" value="1.0" maxlength="3">
+        <input type="number" class="input" id="max" value="1.0" onKeyPress="if(this.value.length===3) return false">
       </div>
       <div class="form-row">
         <label class="row-label" for="min"><code>min</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="min" value="0.0" maxlength="3">
+        <input type="number" class="input" id="min" value="0.0" onKeyPress="if(this.value.length===3) return false">
       </div>
       <div class="form-row">
         <label class="row-label" for="value"><code>value</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="value" value="0.5" maxlength="3">
+        <input type="number" class="input" id="value" value="0.5" onKeyPress="if(this.value.length===3) return false">
       </div>
       <div class="form-row">
         <label class="row-label" for="high"><code>high</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="high" value=".75" maxlength="3">
+        <input type="number" class="input" id="high" value=".75" onKeyPress="if(this.value.length===3) return false">
       </div>
       <div class="form-row">
         <label class="row-label" for="low"><code>low</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="low" value=".25" maxlength="3">
+        <input type="number" class="input" id="low" value=".25" onKeyPress="if(this.value.length===3) return false">
       </div>
       <div class="form-row">
         <label class="row-label" for="optimum"><code>optimum</code></label>
-        <input type="text" pattern="[0-9]" class="input" id="optimum" value="0.5" maxlength="3">
+        <input type="number" class="input" id="optimum" value="0.5" onKeyPress="if(this.value.length===3) return false">
       </div>
     </form>
     <meter class="meter" id="meter" value=".5" max="1" max="0" high=".75" low=".25" form="form"></meter>
