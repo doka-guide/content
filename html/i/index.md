@@ -3,7 +3,6 @@ title: "`<i>`"
 description: "Тег для изменения настроения текста, но без семантического значения."
 authors:
   - gkhabada
-contributors:
   - tatianafokina
 keywords:
   - курсив

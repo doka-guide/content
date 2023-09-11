@@ -3,8 +3,6 @@ title: "`<em>`"
 description: "Придаёт особый смысл отдельным словам или фразам в тексте."
 authors:
   - xpleesid
-contributors:
-  - tatianafokina
 keywords:
   - ударение
   - семантический акцент
