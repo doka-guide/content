@@ -289,7 +289,6 @@ function processingDownloadFileWithFetch() {
 
 <video controls width="640">
   <source src="video/dragndrop-upload.mp4" type="video/mp4">
-  <source src="video/dragndrop-upload_safari.mp4" type="video/mp4">
 </video>
 
 ## Разбор решения
