@@ -13,7 +13,7 @@
 </details>
 ```
 
-<iframe title="details с иконкой, вставленной через img" src="../demos/details-with-img/" height="330"></iframe>
+<iframe title="details с иконкой, вставленной через img" src="../demos/details-with-img/" height="280"></iframe>
 
 🛠 У `<summary>` есть встроенная роль `button`. На практике [скринридеры](/a11y/screenreaders/) определяют роль тега по-разному. NVDA считает его кнопкой, Narrator — раскрывающим треугольником (disclosure triangle), десктопный VoiceOver — саммари (summary), а TalkBack в Firefox и мобильный VoiceOver в Safari вообще не определяют роль `<summary>`.
 

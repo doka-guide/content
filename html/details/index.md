@@ -31,7 +31,7 @@ tags:
 </details>
 ```
 
-<iframe title="details и summary" src="demos/details-summary/" height="280"></iframe>
+<iframe title="details и summary" src="demos/details-summary/" height="340"></iframe>
 
 ## Как понять
 
@@ -54,7 +54,7 @@ tags:
 </details>
 ```
 
-<iframe title="Открытый аккордеон" src="demos/details-open/" height="400"></iframe>
+<iframe title="Открытый аккордеон" src="demos/details-open/" height="500"></iframe>
 
 ## Подсказки
 
