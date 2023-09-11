@@ -29,7 +29,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 ## Как понять
 
@@ -99,7 +99,7 @@ tags:
 </p>
 ```
 
-<iframe title="Хорошие примеры" src="demos/good/" height="360"></iframe>
+<iframe title="Хорошие примеры" src="demos/good/" height="620"></iframe>
 
 Случаи, в которых `<cite>` будет не лучшим выбором.
 
@@ -123,4 +123,4 @@ tags:
 </p>
 ```
 
-<iframe title="Плохие примеры" src="demos/bad/" height="300"></iframe>
+<iframe title="Плохие примеры" src="demos/bad/" height="380"></iframe>
