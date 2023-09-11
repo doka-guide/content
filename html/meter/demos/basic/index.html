@@ -43,12 +43,10 @@
       background-color: #FF8630;
     }
 
-    meter::-webkit-meter-optimum-value {
-      background: #2E9AFF;
-    }
-
-    meter:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-      background: #2E9AFF;
+    meter::-webkit-meter-bar {
+      height: 18px;
+      background: transparent;
+      border: 1px solid #000000;
     }
 
     @media (max-width: 768px) {
@@ -66,7 +64,7 @@
 <body>
   <div class="container">
     <p>
-      Капибара победила в выборах с результатом <meter min="3" max="10" value="6"></meter>.
+      Капибара победила в выборах с результатом <meter min="3" max="10" value="6"></meter>
     </p>
   </div>
 </body>
