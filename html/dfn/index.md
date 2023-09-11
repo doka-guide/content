@@ -36,7 +36,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="240"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
 
 ## Как пишется
 
@@ -59,7 +59,7 @@ tags:
 </p>
 ```
 
-<iframe title="Пример со ссылкой" src="demos/link/" height="260"></iframe>
+<iframe title="Пример со ссылкой" src="demos/link/" height="400"></iframe>
 
 ### Атрибуты
 

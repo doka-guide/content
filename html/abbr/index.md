@@ -36,7 +36,7 @@ tags:
 </p>
 ```
 
-<iframe title="Пример с аббревиатурой ООН" src="demos/un/" height="240"></iframe>
+<iframe title="Пример с аббревиатурой ООН" src="demos/un/" height="410"></iframe>
 
 ## Как пишется
 
@@ -54,7 +54,7 @@ tags:
 </p>
 ```
 
-<iframe title="Пример с тегом dfn" src="demos/with-dfn/" height="240"></iframe>
+<iframe title="Пример с тегом dfn" src="demos/with-dfn/" height="450"></iframe>
 
 ### Доступность
 
