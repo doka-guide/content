@@ -289,6 +289,11 @@ function processingDownloadFileWithFetch() {
 
 <video controls width="640">
   <source src="video/dragndrop-upload.mp4" type="video/mp4">
+  track
+    label="Русский"
+    kind="subtitles"
+    srclang="ru"
+    src="video/closed-captions.vtt">
 </video>
 
 ## Разбор решения
