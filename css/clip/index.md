@@ -34,11 +34,11 @@ tags:
 ```css
 img {
   position: absolute;
-  clip: rect(auto 220px 150px auto);
+  clip: rect(40px, 190px, 180px, auto);
 }
 ```
 
-<iframe title="Картинки" src="demos/basic/" height="400"></iframe>
+<iframe title="Картинки" src="demos/basic/" height="350"></iframe>
 
 ## Как понять
 
