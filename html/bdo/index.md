@@ -31,7 +31,7 @@ tags:
 </p>
 ```
 
-<iframe title="Визуальное отображение" src="demos/view/" height="210"></iframe>
+<iframe title="Визуальное отображение" src="demos/view/" height="300"></iframe>
 
 ## Как пишется
 

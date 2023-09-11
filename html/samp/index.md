@@ -26,7 +26,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="220"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="350"></iframe>
 
 ## Как пишется
 
@@ -90,4 +90,4 @@ tags:
 </div>
 ```
 
-<iframe title="Пример использования с var и kbd" src="demos/complex/" height="520"></iframe>
+<iframe title="Пример использования с var и kbd" src="demos/complex/" height="600"></iframe>
