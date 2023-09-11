@@ -60,7 +60,7 @@ img {
 
 Эта демка поможет лучше понять, как работает свойство:
 
-<iframe title="Картинка" src="demos/interactive/" height="650"></iframe>
+<iframe title="Картинка" src="demos/interactive/" height="450"></iframe>
 
 ## Подсказки
 

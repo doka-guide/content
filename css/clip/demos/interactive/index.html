@@ -26,26 +26,32 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 80px;
+      gap: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+    }
+
     .controls {
-      width: 360px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 250px;
       font-family: "Roboto Mono", monospace;
+      font-size: 15px;
     }
 
     .controls__item {
-      width: 300px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
+      width: 100%;
+      margin-bottom: 20px;
     }
 
     .controls__title {
@@ -55,6 +61,19 @@
     .controls__range {
       width: 100%;
       accent-color: #2E9AFF;
+    }
+
+    .controls__range--left {
+      accent-color: #F498AD;
+    }
+
+    .controls__range--right{
+      accent-color: #F498AD;
+    }
+
+    .controls__example {
+      font-family: "Roboto Mono", monospace;
+      font-size: 23px;
     }
 
     .view {
@@ -74,7 +93,7 @@
     }
 
     .view__line::after {
-      font-size: 14px;
+      font-size: 16px;
       position: absolute;
     }
 
@@ -143,35 +162,98 @@
       padding-bottom: 5px;
       transform: translate(50%, -100%);
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        gap: 75px;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .controls {
+        width: 300px;
+      }
+
+      .controls__item {
+        width: 100%;
+      }
+
+      .controls__example {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .view__line::after {
+        padding: 0 5px;
+        z-index: 1;
+        color: #000000;
+      }
+
+      .view__line--top::after {
+        transform: translateY(-100%);
+        background-color: #2E9AFF;
+      }
+
+      .view__line--right::after {
+        left: 0;
+        right: auto;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+        background-color: #F498AD;
+      }
+
+      .view__line--bottom::after {
+        top: -18px;
+        left: 0px;
+        transform: none;
+        background-color: #2E9AFF;
+      }
+
+      .view__line--left::after {
+        right: auto;
+        transform: translate(0%, -100%) rotate(90deg);
+        transform-origin: bottom left;
+        background-color: #F498AD;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="controls">
-    <label class="controls__item">
-      <span class="controls__title">top:</span>
-      <input class="controls__range js-range-top" type="range" min="0" max="200" value="0">
-    </label>
-    <label class="controls__item">
-      <span class="controls__title">right:</span>
-      <input class="controls__range js-range-right" type="range" min="0" max="300" value="300">
-    </label>
-    <label class="controls__item">
-      <span class="controls__title">bottom:</span>
-      <input class="controls__range js-range-bottom" type="range" min="0" max="200" value="200">
-    </label>
-    <label class="controls__item">
-      <span class="controls__title">left:</span>
-      <input class="controls__range js-range-left" type="range" min="0" max="300" value="0">
-    </label>
-    <span class="controls__example js-example">clip: rect(0px, 300px, 200px, 0px);</span>
+  <div class="container">
+    <div class="controls">
+      <label class="controls__item">
+        <span class="controls__title">top</span>
+        <input class="controls__range controls__range--top js-range-top" type="range" min="0" max="200" value="0">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">right</span>
+        <input class="controls__range controls__range--right js-range-right" type="range" min="0" max="300" value="300">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">bottom</span>
+        <input class="controls__range controls__range--bottom js-range-bottom" type="range" min="0" max="200" value="200">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">left</span>
+        <input class="controls__range controls__range--left js-range-left" type="range" min="0" max="300" value="0">
+      </label>
+    </div>
+    <div class="view">
+      <img class="view__image js-image" src="../../images/house.jpg" alt="Домик в деревне">
+      <span class="view__line view__line--top js-line-top"></span>
+      <span class="view__line view__line--right js-line-right"></span>
+      <span class="view__line view__line--bottom js-line-bottom"></span>
+      <span class="view__line view__line--left js-line-left"></span>
+    </div>
   </div>
-  <div class="view">
-    <img class="view__image js-image" src="../../images/house.jpg" alt="Домик в деревне">
-    <span class="view__line view__line--top js-line-top"></span>
-    <span class="view__line view__line--right js-line-right"></span>
-    <span class="view__line view__line--bottom js-line-bottom"></span>
-    <span class="view__line view__line--left js-line-left"></span>
-  </div>
+  <span class="controls__example js-example">clip: rect(0px, 300px, 200px, 0px);</span>
+
   <script>
     let positionTop = 0
     let positionRight = 300
