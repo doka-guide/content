@@ -34,7 +34,7 @@ tags:
 </p>
 ```
 
-<iframe title="Ремарки в пьесе" src="demos/base/" height="210"></iframe>
+<iframe title="Ремарки в пьесе" src="demos/base/" height="350"></iframe>
 
 ## Как понять
 

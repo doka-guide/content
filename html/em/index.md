@@ -29,7 +29,7 @@ tags:
 <p>Коты <em>обожают</em> кошачью мяту</p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="220"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 ## Как пишется
 
@@ -46,7 +46,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/nested/" height="220"></iframe>
+<iframe title="Базовый пример" src="demos/nested/" height="300"></iframe>
 
 ### Доступность
 

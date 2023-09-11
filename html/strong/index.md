@@ -29,7 +29,7 @@ tags:
 <p>Эта правка <strong>критически важна</strong> для проекта!</p>
 ```
 
-<iframe title="Как выглядит" src="demos/view/" height="220"></iframe>
+<iframe title="Как выглядит" src="demos/view/" height="300"></iframe>
 
 ## Как пишется
 ### `<strong>` против `<b>`
