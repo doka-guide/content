@@ -37,7 +37,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="230"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 В этом примере при помощи `<mark>` выделены все прилагательные.
 
@@ -49,4 +49,4 @@ tags:
 
 Можно реализовать текстовый поиск, выделяя цветом найденные фрагменты.
 
-<iframe title="Текстовый поиск" src="demos/search/" height="750"></iframe>
+<iframe title="Текстовый поиск" src="demos/search/" height="900"></iframe>

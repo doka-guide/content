@@ -30,7 +30,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример с тегом small" src="demos/basic/" height="220"></iframe>
+<iframe title="Базовый пример с тегом small" src="demos/basic/" height="400"></iframe>
 
 ## Как пишется
 
@@ -51,7 +51,7 @@ tags:
 </small>
 ```
 
-<iframe title="Правовые формулировки" src="demos/pechkin/" height="430"></iframe>
+<iframe title="Правовые формулировки" src="demos/pechkin/" height="480"></iframe>
 
 ## Как понять
 

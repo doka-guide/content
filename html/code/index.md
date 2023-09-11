@@ -32,7 +32,7 @@ tags:
 </code>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="200"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 ## Как пишется
 
