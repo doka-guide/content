@@ -33,16 +33,17 @@
     .container {
       display: flex;
       flex-direction: column;
-      max-width: 480px;
-      width: 100%;
     }
 
     .row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
       margin-bottom: 25px;
+    }
+
+    .row--end {
+      margin-left: auto;
     }
 
     .row-label {
@@ -54,7 +55,6 @@
 
     .progress {
       display: flex;
-      width: 450px;
       border: 1px solid #10F3AF;
       border-radius: 16px;
     }
@@ -126,9 +126,25 @@
       outline: none;
     }
 
+    .button, .progress {
+      width: 350px;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      .container, .row {
+        display: block;
+      }
+
+      .button, .progress, .container {
+        width: 100%;
+      }
+
+      .progress, .progress__counter {
+        margin-top: 10px;
       }
     }
   </style>
@@ -136,13 +152,15 @@
 <body>
   <div class="container">
     <div class="row">
-      <label for="progress-bar" class="row-label">Очищаем корзину</label>
+      <label for="progress-bar" class="row-label">Очищаем корзину:</label>
       <div id="progress-counter" class="progress__counter">0%</div>
       <div class="progress">
         <progress id="progress-bar" class="progress__indicator" value="0" max="100"></progress>
       </div>
     </div>
-    <button class="button button-aqua" onclick="start()">Очистить</button>
+    <div class="row row--end">
+      <button class="button button-aqua" onclick="start()">Очистить</button>
+    </div>
   </div>
 
   <script>
