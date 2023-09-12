@@ -29,7 +29,7 @@ tags:
 </p>
 ```
 
-<iframe title="Формула" src="demos/formula/" height="350"></iframe>
+<iframe title="Формула" src="demos/formula/" height="370"></iframe>
 
 ## Как пишется
 
@@ -48,4 +48,4 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
