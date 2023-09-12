@@ -69,10 +69,6 @@
       padding-left: 10px;
     }
 
-    .row {
-      width: 50%;
-    }
-
     .row + .row {
       margin-top: 25px;
     }
@@ -100,11 +96,14 @@
         padding: 30px;
       }
 
+      .container {
+        width: 100%;
+      }
+
       .row {
         display: block;
       }
 
-      .row,
       .input {
         width: 100%;
       }
@@ -120,20 +119,22 @@
   </style>
 </head>
 <body>
-  <div class="row row--top">
-    <label for="font-size" class="label">Размер шрифта родителя:</label>
-    <div class="input-container">
-      <input class="input" id="font-size" type="number" value="18" min="0" max="99">
-      <span class="var">px</span>
+  <div class="container">
+    <div class="row row--top">
+      <label for="font-size" class="label">Размер шрифта родителя:</label>
+      <div class="input-container">
+        <input class="input" id="font-size" type="number" value="18" min="0" max="99">
+        <span class="var">px</span>
+      </div>
     </div>
-  </div>
 
-  <div class="row row--bottom">
-    <p>Lorem ipsum dolor sit amet.</p>
-    <br>
-    <p>Lorem ipsum dolor.</p>
-    <br>
-    <p>Lorem ipsum dolor sit.</p>
+    <div class="row row--bottom">
+      <p>Lorem ipsum dolor sit amet.</p>
+      <br>
+      <p>Lorem ipsum dolor.</p>
+      <br>
+      <p>Lorem ipsum dolor sit.</p>
+    </div>
   </div>
 
   <script>
