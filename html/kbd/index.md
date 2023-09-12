@@ -68,8 +68,9 @@ tags:
 ```css
 kbd {
   padding: 2px 3px 1px;
-  border: 1px solid #ffffff;
+  border: 1px solid #000000;
   border-radius: 3px;
+  font-family: "Roboto Mono", monospace;
 }
 ```
 
@@ -83,7 +84,7 @@ kbd {
 
 Результат будет выглядеть так:
 
-<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="100"></iframe>
+<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="200"></iframe>
 
 ## Использование
 
@@ -102,7 +103,7 @@ kbd {
 
 Листинг программы является распространённым вариантом совместного использования нескольких тегов для оформления кода:
 
-<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="280"></iframe>
+<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="350"></iframe>
 
 Разметка в этом случае будет выглядеть следующим образом:
 

@@ -6,28 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    html, body {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
-      margin: 0;
+      min-height: 100vh;
+      padding: 50px;
       display: grid;
       place-content: center;
       background-color: #18191C;
-      color: #ffffff;
-      font-size: 18px;
-      font-family: "Roboto", sans-serif;
+      color: #000000;
     }
 
     pre {
       white-space: pre-wrap;
     }
+
+    code, kbd {
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+    }
+
+    div {
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
   </style>
 </head>
 <body>
+<div>
 <pre><code>int main()
 {
   int <var>age</var>;
@@ -37,5 +65,6 @@
   std::cout &lt;&lt; "Укажите вес: ";
   std::cin &gt;&gt; <var><kbd>weight</kbd></var>;
 }</code></pre>
+</div>
 </body>
 </html>
