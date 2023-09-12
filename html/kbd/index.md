@@ -84,7 +84,7 @@ kbd {
 
 Результат будет выглядеть так:
 
-<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="200"></iframe>
+<iframe title="Стилизация тега kbd" src="demos/style-kbd/" height="220"></iframe>
 
 ## Использование
 
@@ -103,7 +103,7 @@ kbd {
 
 Листинг программы является распространённым вариантом совместного использования нескольких тегов для оформления кода:
 
-<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="350"></iframe>
+<iframe title="Пример использования с code, pre и var" src="demos/complex-kbd/" height="500"></iframe>
 
 Разметка в этом случае будет выглядеть следующим образом:
 
