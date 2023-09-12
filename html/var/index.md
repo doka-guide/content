@@ -3,6 +3,8 @@ title: "`<var>`"
 description: "Семантически выделяет математические выражения и переменные."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
 keywords:
   - переменные
 related:
@@ -28,7 +30,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="120"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 ## Как понять
 
@@ -48,4 +50,4 @@ tags:
 </p>
 ```
 
-<iframe title="Формула" src="demos/formula/" height="120"></iframe>
+<iframe title="Формула" src="demos/formula/" height="350"></iframe>
