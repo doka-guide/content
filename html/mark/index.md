@@ -37,7 +37,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
 
 В этом примере при помощи `<mark>` выделены все прилагательные.
 

@@ -28,7 +28,7 @@ tags:
 
 ```html
 <code>
-  const element = document.getElementById('#some-id');
+  const element = document.getElementById('some-id');
 </code>
 ```
 
@@ -79,7 +79,7 @@ tags:
 А пользователи его увидят так:
 
 ```js
-const element = document.getElementById('#some-id')
+const element = document.getElementById('some-id')
 ```
 
 Этот пример кода был обёрнут в теги [`<pre>`](/html/pre/) и `<code>` (вы можете проверить это, выбрав фрагмент в инспекторе элементов), а подсветку синтаксиса обеспечила библиотека prism.js.
