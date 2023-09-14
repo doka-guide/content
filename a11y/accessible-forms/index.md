@@ -2,7 +2,7 @@
 title: "Доступные формы"
 description: "Рекомендации по созданию доступных форм: валидация, элементы управления и их атрибуты."
 authors:
-  - OskarStud
+  - oskarstud
 related:
   - a11y/chto-takoe-a11y
   - a11y/screenreaders
