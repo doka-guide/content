@@ -19,6 +19,7 @@ groups:
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
+      - github-new-repo
   - name: 'Рутина'
     items:
       - font-script
