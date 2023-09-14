@@ -1,5 +1,5 @@
 ---
-title: "Как сделать пулреквест"
+title: "Как сделать пулреквест на GitHub"
 description: "Создайте свой первый запрос на изменение GitHub pull request."
 authors:
   - igsekor
