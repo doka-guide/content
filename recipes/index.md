@@ -20,6 +20,7 @@ groups:
     items:
       - github-new-profile
       - github-new-repo
+      - github-add-user-to-repo
   - name: 'Рутина'
     items:
       - font-script
