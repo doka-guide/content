@@ -5,6 +5,7 @@ groups:
     items:
       - chto-takoe-a11y
       - a11y-html
+      - accessible-forms
       - content-hidden
   - name: 'Вспомогательные технологии'
     items:
