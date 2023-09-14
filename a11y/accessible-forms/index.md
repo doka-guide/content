@@ -206,7 +206,8 @@ tags:
 <!-- Простая кнопка <button>, в неё встроена роль button -->
 <button type="submit">Отправить</button>
 
-<!-- Кнопки для отправки и сброса данных с <input> и типами submit и reset, в них тоже встроена роль button -->
+<!-- Кнопки для отправки и сброса данных с типами submit и reset,
+в них тоже встроена роль button -->
 <input type="submit" name="submit" value="Отправить">
 <input type="reset" name="reset" value="Сбросить">
 ```
@@ -272,7 +273,10 @@ tags:
   autocomplete="new-password"
   aria-describedby="passwordHint"
 >
-<span id="passwordHint">Новый пароль должен содержать от 8 015 символов, включая буквы и цифры.</span>
+<span id="passwordHint">
+  Новый пароль должен содержать от 8 015 символов,
+  включая буквы и цифры.
+</span>
 ```
 
 В примере `aria-describedby` связан с `id` элемента с требованиями к паролю. Скринридер обычно произносит текст из `<label>`, затем тип `<input>` (`text`, `checkbox` и т. д.), другие необходимые свойства полня (`required`, `readonly` и др.), а затем дополнительное описание.
