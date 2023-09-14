@@ -1,6 +1,6 @@
 ---
 title: "Как сделать пулреквест"
-description: "Начните работу на GitHub с создания профиля пользователя."
+description: "Создайте свой первый запрос на изменение GitHub pull request."
 authors:
   - igsekor
 related:
