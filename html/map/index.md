@@ -1,6 +1,6 @@
 ---
 title: "`<map>`"
-description: "Уютный контейнер для `<area>`."
+description: "Уютный контейнер для <area>."
 authors:
   - inventoris
 related:
@@ -22,11 +22,14 @@ tags:
   <area
   shape="poly"
   coords="192,2,131,31,112,103,134,160,185,191,585,191,643,155,661,93,637,30,579,1"
-  href="/js/"
-  target="_blank"
-  alt="JS">
+  href="/html/"
+  alt="Раздел HTML">
 </map>
-<img usemap="#doka-label">
+<img
+  src="../../images/doka-map.svg"
+  usemap="#doka-label"
+  alt=""
+>
 ```
 
 <iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
