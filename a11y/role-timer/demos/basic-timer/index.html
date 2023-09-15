@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с простым таймером — `timer` — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .timer {
+      margin-bottom: 22px;
+    }
+
+    .timer__item {
+      position: relative;
+      padding: 8px;
+      border: 1px solid #FFFFFF;
+      border-radius: 3px;
+    }
+
+    .timer__item:first-of-type {
+      margin-right: 70px;
+    }
+
+    .timer__item--min::after {
+      content: "минут";
+      position: absolute;
+      top: 8px;
+      left: 45px;
+    }
+
+    .timer__item--sec::after {
+      content: "секунд";
+      position: absolute;
+      top: 8px;
+      left: 45px;
+    }
+
+    .timer-message {
+      height: 22px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-aqua" id="button">
+    Начать отсчёт
+  </button>
+  <div class="container">
+    <h2 id="label">Оставшееся время</h2>
+    <div role="timer" class="timer" id="timer" aria-labelledby="label" aria-atomic="true">
+      <span class="timer__item timer__item--min" id="min">02</span>
+      <span class="timer__item timer__item--sec" id="sec">00</span>
+    </div>
+    <div class="timer-message" id="message" aria-live="polite"></div>
+  </div>
+
+  <script>
+    const button = document.getElementById('button')
+    const timer = document.getElementById('timer')
+    const minute = document.getElementById('min')
+    const seconds = document.getElementById('sec')
+    const message = document.getElementById('message')
+
+    let interval
+    let totalSeconds = 120
+    let timerState = 'stop'
+
+    function setAriaLive() {
+      timer.setAttribute('aria-live', 'polite')
+      setTimeout(() => {
+        timer.removeAttribute('aria-live')
+      }, 1000)
+    }
+
+    button.addEventListener('click', () => {
+      if (timerState === 'stop') {
+        startTimer()
+        timerState = 'start'
+        button.setAttribute('data-timer-state', 'start')
+        button.textContent = 'Сделать паузу'
+      } else if (timerState === 'start') {
+        clearInterval(interval)
+        timerState = 'pause'
+        button.setAttribute('data-timer-state', 'pause')
+        button.textContent = 'Продолжить отсчёт'
+      } else if (timerState === 'pause') {
+        startTimer()
+        timerState = 'start'
+        button.setAttribute('data-timer-state', 'start')
+        button.textContent = 'Сделать паузу'
+      }
+    });
+
+    function startTimer() {
+      message.textContent = ''
+
+      interval = setInterval(() => {
+        --totalSeconds
+        let currentMinutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0')
+        let currentSeconds = String(totalSeconds % 60).padStart(2, '0')
+
+        minute.textContent = currentMinutes
+        seconds.textContent = currentSeconds
+
+        if (totalSeconds === 119 || totalSeconds === 60 || totalSeconds === 10) {
+          setAriaLive()
+        }
+
+        if (totalSeconds === 0) {
+          clearInterval(interval)
+          timerState = 'stop'
+          button.textContent = 'Начать отсчёт опять'
+          message.textContent = 'Время вышло!'
+          totalSeconds = 120
+          minute.textContent = '02'
+          seconds.textContent = '00'
+        }
+      }, 1000)
+    }
+  </script>
+</body>
+</html>
