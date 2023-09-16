@@ -22,12 +22,12 @@ tags:
 ```html
 <fieldset disabled>
   <label>
-    Ваше имя
+    Имя:
     <input type="text">
   </label>
   <label>
-    Ваш номер телефона
-    <input type="text">
+    Телефон:
+    <input type="tel">
   </label>
 </fieldset>
 ```
@@ -46,7 +46,7 @@ tags:
 - [`<textarea>`](/html/textarea/);
 - [`<input>`](/html/input/).
 
-<iframe title="Примеры использования" src="demos/base/" height="510"></iframe>
+<iframe title="Примеры использования" src="demos/base/" height="700"></iframe>
 
 ## Как понять
 
