@@ -46,7 +46,7 @@ tags:
 - [`<textarea>`](/html/textarea/);
 - [`<input>`](/html/input/).
 
-<iframe title="Примеры использования" src="demos/base/" height="700"></iframe>
+<iframe title="Примеры использования" src="demos/base/" height="1000"></iframe>
 
 ## Как понять
 
