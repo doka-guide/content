@@ -20,6 +20,7 @@ groups:
     items:
       - github-new-profile
       - github-new-repo
+      - github-new-pull-request
   - name: 'Рутина'
     items:
       - font-script
