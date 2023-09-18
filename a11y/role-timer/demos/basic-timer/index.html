@@ -37,8 +37,6 @@
     }
 
     h2 {
-      margin-top: 40px;
-      margin-bottom: 30px;
       font-weight: 500;
       font-size: 1.375rem;
     }
@@ -76,8 +74,21 @@
       outline: none;
     }
 
-    .timer {
-      margin-bottom: 22px;
+    .container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .container-timer {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
+
+    .container + .container {
+      margin-top: 45px;
     }
 
     .timer__item {
@@ -113,14 +124,31 @@
       body {
         padding: 30px;
       }
+
+      .button + .button {
+        margin-top: 25px;
+      }
+
+      h2 {
+        margin-bottom: 25px;
+      }
+
+      .container {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
-  <button class="button button-aqua" id="button">
-    Начать отсчёт
-  </button>
   <div class="container">
+    <button class="button button-aqua" id="start-button">
+      Старт
+    </button>
+    <button class="button button-aqua" id="pause-button">
+      Пауза
+    </button>
+  </div>
+  <div class="container container-timer">
     <h2 id="label">Оставшееся время</h2>
     <div role="timer" class="timer" id="timer" aria-labelledby="label" aria-atomic="true">
       <span class="timer__item timer__item--min" id="min">02</span>
@@ -130,7 +158,8 @@
   </div>
 
   <script>
-    const button = document.getElementById('button')
+    const startButton = document.getElementById('start-button')
+    const pauseButton = document.getElementById('pause-button')
     const timer = document.getElementById('timer')
     const minute = document.getElementById('min')
     const seconds = document.getElementById('sec')
@@ -138,7 +167,6 @@
 
     let interval
     let totalSeconds = 120
-    let timerState = 'stop'
 
     function setAriaLive() {
       timer.setAttribute('aria-live', 'polite')
@@ -147,24 +175,17 @@
       }, 1000)
     }
 
-    button.addEventListener('click', () => {
-      if (timerState === 'stop') {
+    startButton.addEventListener('click', () => {
         startTimer()
-        timerState = 'start'
-        button.setAttribute('data-timer-state', 'start')
-        button.textContent = 'Сделать паузу'
-      } else if (timerState === 'start') {
-        clearInterval(interval)
-        timerState = 'pause'
-        button.setAttribute('data-timer-state', 'pause')
-        button.textContent = 'Продолжить отсчёт'
-      } else if (timerState === 'pause') {
-        startTimer()
-        timerState = 'start'
-        button.setAttribute('data-timer-state', 'start')
-        button.textContent = 'Сделать паузу'
-      }
-    });
+    })
+
+    pauseButton.addEventListener('click', () => {
+      pauseTimer()
+    })
+
+    function pauseTimer() {
+      clearInterval(interval)
+    }
 
     function startTimer() {
       message.textContent = ''
@@ -183,8 +204,6 @@
 
         if (totalSeconds === 0) {
           clearInterval(interval)
-          timerState = 'stop'
-          button.textContent = 'Начать отсчёт опять'
           message.textContent = 'Время вышло!'
           totalSeconds = 120
           minute.textContent = '02'
