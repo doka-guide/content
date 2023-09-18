@@ -38,6 +38,7 @@
     .dialogue {
       display: grid;
       gap: 1em;
+      min-width: 40%;
       margin: 1em auto;
     }
 
@@ -62,6 +63,10 @@
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      .dialogue {
+        min-width: 100%;
       }
     }
   </style>
