@@ -2,6 +2,14 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2023
+
+- 18 сентября, [Генераторы и yield](https://doka.guide/js/generators/), Егор Огарков, Сергей Краснолобов
+- 18 сентября, [Как добавить пользователей в репозиторий на GitHub](https://doka.guide/recipes/github-add-user-to-repo/), Игорь Коровченко
+- 18 сентября, [Как сделать пулреквест на GitHub](https://doka.guide/recipes/github-new-pull-request/), Игорь Коровченко
+- 14 сентября, [Доступные формы](https://doka.guide/a11y/accessible-forms/), Оскар Шайхутдинов
+- 11 сентября, [Как создать репозиторий на GitHub](https://doka.guide/recipes/github-new-repo/), Игорь Коровченко
+
 ## Август 2023
 
 - 11 августа, [Как описывать картинки](https://doka.guide/a11y/how-to-describe-pictures/), Татьяна Фокина
