@@ -28,7 +28,7 @@ tags:
 
 ```html
 <code>
-  const element = document.getElementById('some-id');
+  const element = document.getElementById('some-id')
 </code>
 ```
 
