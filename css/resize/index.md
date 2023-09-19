@@ -42,6 +42,7 @@ tags:
  По умолчанию поддерживается в Firefox и Safari. В браузерах Chrome и Edge необходимо включить флаг `Experimental Web Platform features`. Более подробную информацию можно узнать на [`caniuse`](https://caniuse.com/mdn-css_properties_resize_flow_relative_support).
 
 ## Пример
+
 <iframe title="Песочница resize" src="demos/resize-playground/" height="500"></iframe>
 
 При применение свойства `resize` к картинкам (`<img>` или `<picture>`), видео (`<video>`) или фреймам (`<iframe>`), оно не будет работать. Но вы можете обернуть картинку в `div` (или другую обёртку) и задать данному блоку возможность изменения размеров.
