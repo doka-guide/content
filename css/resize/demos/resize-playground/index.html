@@ -27,44 +27,44 @@
     }
 
     .radio-label {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
 
-.radio-title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: calc(50% - 12px);
-  width: 25px;
-  height: 25px;
-  border: 1px solid #FFFFFF;
-  border-radius: 50%;
-}
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
 
-.radio {
-  width: 25px;
-  height: 25px;
-  opacity: 0;
-  margin-right: 15px;
-}
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
 
-.radio:focus + .radio-title::before {
-  border-color: #2E9AFF;
-}
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
 
-.radio:checked + .radio-title::before {
-  background-color: #FFFFFF;
-  background: radial-gradient(
-    circle,
-    #FFFFFF 0%,
-    #FFFFFF 40%,
-    transparent 50%,
-    transparent 100%
-  );
-}
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
 
     .resize-demo {
       display: grid;
