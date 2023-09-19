@@ -2,7 +2,7 @@
 title: "`log`"
 description: "Роль для области с логами."
 authors:
-  - doka-dog
+  - tatianafokina
 keywords:
   - a11y
   - ARIA
@@ -16,7 +16,6 @@ related:
   - a11y/aria-live
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
