@@ -23,7 +23,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #18191C;
     }
 
     canvas {
@@ -198,7 +197,7 @@
     }
 
     function drawScene(gl, programInfo, buffers, deltaTime) {
-      gl.clearColor(0.0, 0.0, 0.0, 1.0)
+      gl.clearColor(0.09411764705882353, 0.09803921568627451, 0.10980392156862745, 1.0)
       gl.clearDepth(1.0)
       gl.enable(gl.DEPTH_TEST)
       gl.depthFunc(gl.LEQUAL)
