@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример использования в вёрстке чата — <data> — Дока</title>
+  <title>Чат с ролью log — `log` — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,12 +45,12 @@
     }
 
     .container, .message-container {
-      width: 65%;
       display: flex;
       flex-direction: column;
     }
 
     .container {
+      width: 65%;
       gap: 25px;
       align-items: center;
     }
@@ -213,20 +213,54 @@
       }
     })
 
+    function getFormattedDate() {
+      const now = new Date()
+      const userTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`
+      const machineTime = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}T${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`
+
+      return {userTime, machineTime}
+    }
+
+    function createMessage(className, userName, text, time) {
+      const message = document.createElement('div')
+      const user = document.createElement('span')
+      const messageText = document.createElement('p')
+      const messageTime = document.createElement('time')
+
+      message.className = className
+      user.textContent = userName
+      messageText.textContent = text
+      messageTime.setAttribute('datetime', time.machineTime)
+      messageTime.textContent = time.userTime
+
+      message.appendChild(user)
+      message.appendChild(messageText)
+      message.appendChild(messageTime)
+
+      return message
+    }
+
+    let userFirstMessage = false
+
     function sendMessage() {
       let text = userMessage.value
 
       if(text.trim()) {
-        const now = new Date()
-        const userTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`
-        const machineTime = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}T${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`
+        const time = getFormattedDate()
+        const userMessageElement = createMessage('chat__item chat__item--right', 'Читатель Доки', text, time)
 
-        const message = document.createElement('div')
-        message.className = 'chat__item chat__item--right'
-        message.innerHTML = `<span>Читатель Доки</span><p>${text}</p><time datetime="${machineTime}">${userTime}</time>`
-
-        chatLog.appendChild(message)
+        chatLog.appendChild(userMessageElement)
         userMessage.value = ''
+
+        if(!userFirstMessage) {
+          const dokaMessageElement = createMessage('chat__item chat__item--left', 'Дока', 'Надеюсь, тебе у нас понравится, и ты даже напишешь свою собственную статью.', time)
+
+          setTimeout(() => {
+            chatLog.appendChild(dokaMessageElement)
+          }, 1000)
+
+          userFirstMessage = true
+        }
       }
     }
   </script>
