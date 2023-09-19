@@ -36,6 +36,10 @@
       line-height: 1.4;
     }
 
+    .chat__item > p:first-of-type {
+      font-size: 0.9rem;
+    }
+
     span {
       font-size: 0.9rem;
     }
@@ -183,8 +187,8 @@
   <div class="container">
     <div role="log" class="chat" id="chat-log" tabindex="0">
       <div class="chat__item chat__item--left">
-        <span>Дока</span>
-        <p>Привет, я Дока — дружелюбный справочник для фрондендеров на понятном языке 🐶 Давай дружить?</p>
+        <p>Дока</p>
+        <p>Привет, я Дока — дружелюбный справочник для фронтендеров на понятном языке 🐶 Давай дружить?</p>
         <time datetime="2023-09-18T14:00:00">14:00</time>
       </div>
     </div>
@@ -223,7 +227,7 @@
 
     function createMessage(className, userName, text, time) {
       const message = document.createElement('div')
-      const user = document.createElement('span')
+      const user = document.createElement('p')
       const messageText = document.createElement('p')
       const messageTime = document.createElement('time')
 
@@ -250,7 +254,12 @@
         const userMessageElement = createMessage('chat__item chat__item--right', 'Читатель Доки', text, time)
 
         chatLog.appendChild(userMessageElement)
+        chatLog.removeAttribute('role')
         userMessage.value = ''
+
+        setTimeout(() => {
+          chatLog.setAttribute('role', 'log')
+        }, 100)
 
         if(!userFirstMessage) {
           const dokaMessageElement = createMessage('chat__item chat__item--left', 'Дока', 'Надеюсь, тебе у нас понравится, и ты даже напишешь свою собственную статью.', time)
