@@ -32,8 +32,14 @@ tags:
 - `both` — размеры можно изменять по горизонтали и вертикали.
 - `horizontal` — размер можно изменять по горизонтали.
 - `vertical` — размер можно изменять по вертикали.
-- `block` — экспериментальное значение. Размер можно изменять в блочном измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
-- `inline` — экспериментальное значение. Размер можно изменять в строковом измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
+
+Экспериментальные значения:
+- `block` — размер можно изменять в блочном измерении элемента.
+- `inline` — размер можно изменять в строковом измерении элемента.
+ 
+ Блочное или строчное [`измерение`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values) элемента зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction).
+
+ По умолчанию поддерживается в Firefox и Safari. В браузерах Chrome и Edge необходимо включить флаг `Experimental Web Platform features`. Более подробную информацию можно узнать на [`caniuse`](https://caniuse.com/mdn-css_properties_resize_flow_relative_support).
 
 ## Пример
 <iframe title="Песочница resize" src="demos/resize-playground/" height="500"></iframe>
