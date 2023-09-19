@@ -26,6 +26,46 @@
       font-size: 18px;
     }
 
+    .radio-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 12px);
+  width: 25px;
+  height: 25px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+.radio {
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+  margin-right: 15px;
+}
+
+.radio:focus + .radio-title::before {
+  border-color: #2E9AFF;
+}
+
+.radio:checked + .radio-title::before {
+  background-color: #FFFFFF;
+  background: radial-gradient(
+    circle,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    transparent 50%,
+    transparent 100%
+  );
+}
+
     .resize-demo {
       display: grid;
       grid-template-columns: auto minmax(0, 1fr);
@@ -98,25 +138,25 @@
       <fieldset class="resize-demo__values">
         <legend class="resize-demo__legend">Выберите значение свойства resize</legend>
 
-        <div class="resize-demo__item">
-            <input class="resize-demo__value" type="radio" id="resize-none" name="resize-value" value="none" />
-            <label class="resize-demo__value-label" for="resize-none">resize: none</label>
-        </div>
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-none" name="resize-value" value="none" />
+            <span class="radio-title resize-demo__value-label">resize: none</span>
+        </label>
 
-        <div class="resize-demo__item">
-            <input class="resize-demo__value" type="radio" id="resize-both" name="resize-value" value="both" checked />
-            <label class="resize-demo__value-label" for="resize-both">resize: both</label>
-        </div>
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-both" name="resize-value" value="both" checked />
+            <span class="radio-title resize-demo__value-label">resize: both</span>
+        </label>
 
-        <div class="resize-demo__item">
-            <input class="resize-demo__value" type="radio" id="resize-horizontal" name="resize-value" value="horizontal" />
-            <label class="resize-demo__value-label" for="resize-horizontal">resize: horizontal</label>
-        </div>
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-horizontal" name="resize-value" value="horizontal" />
+            <span class="radio-title resize-demo__value-label">resize: horizontal</span>
+        </label>
 
-        <div class="resize-demo__item">
-            <input class="resize-demo__value" type="radio" id="resize-vertical" name="resize-value" value="vertical" />
-            <label class="resize-demo__value-label" for="resize-vertical">resize: vertical</label>
-        </div>
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-vertical" name="resize-value" value="vertical" />
+            <span class="radio-title resize-demo__value-label">resize: vertical</span>
+        </label>
       </fieldset>  
     </aside>
 
