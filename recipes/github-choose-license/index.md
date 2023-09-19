@@ -1,5 +1,5 @@
 ---
-title: "Как выбирать лицензию на GitHub"
+title: "Как выбрать лицензию на GitHub"
 description: "Организуйте работу в пулреквестах на GitHub."
 authors:
   - igsekor
