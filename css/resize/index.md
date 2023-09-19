@@ -2,7 +2,7 @@
 title: "`resize`"
 description: "Можно ли увеличить или уменьшить поле ввода? Управляем этим через стили."
 authors:
-  - doka-dog
+  - s-dudko
 related:
   - html/textarea
   - css/overflow
@@ -10,7 +10,6 @@ related:
   - css/cascade
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
