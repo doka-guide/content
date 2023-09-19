@@ -28,12 +28,12 @@ tags:
 
 ## Как пишется
 
-- `none` — Размеры изменить нельзя (значение по умолчанию).
-- `both` — Размеры можно изменять по горизонтали и вертикали.
-- `horizontal` — Размер можно изменять по горизонтали.
-- `vertical` — Размер можно изменять по вертикали.
-- `block` — Экспериментальное значение. Размер можно изменять в блочном измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
-- `inline` — Экспериментальное значение. Размер можно изменять в строковом измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
+- `none` — размеры изменить нельзя (значение по умолчанию).
+- `both` — размеры можно изменять по горизонтали и вертикали.
+- `horizontal` — размер можно изменять по горизонтали.
+- `vertical` — размер можно изменять по вертикали.
+- `block` — экспериментальное значение. Размер можно изменять в блочном измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
+- `inline` — экспериментальное значение. Размер можно изменять в строковом измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
 
 ## Пример
 <iframe title="Песочница resize" src="demos/resize-playground/" height="500"></iframe>
