@@ -36,6 +36,7 @@ tags:
 - `inline` — экспериментальное значение. Размер можно изменять в строковом измерении элемента, которое зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
 
 ## Пример
+
 <iframe title="Песочница resize" src="demos/resize-playground/" height="500"></iframe>
 
 При применение свойства `resize` к картинкам (`<img>` или `<picture>`), видео (`<video>`) или фреймам (`<iframe>`), оно не будет работать. Но вы можете обернуть картинку в `div` (или другую обёртку) и задать данному блоку возможность изменения размеров.
