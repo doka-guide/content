@@ -43,11 +43,11 @@ tags:
   width="600"
   height="700"
 >
-  <a href="example.pdf">Лунная соната №14 PDF</a>
+  <a href="example.pdf">Лунная соната № 14 PDF</a>
 </object>
 ```
 
-<iframe title="Встроенный с помощью object pdf-файл" src="./demos/show-pdf/" height="830"></iframe>
+<iframe title="Встроенный с помощью object pdf-файл" src="demos/show-pdf/" height="830"></iframe>
 
 Если браузер не поддерживает тип встроенного файла, то он покажет вложенное содержимое в качестве фолбэка. В нашем примере, если встраивание PDF-инструкции не поддерживается, то мы увидим ссылку на её скачивание.
 
