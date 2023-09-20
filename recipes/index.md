@@ -22,6 +22,7 @@ groups:
       - github-new-repo
       - github-add-user-to-repo
       - github-new-pull-request
+      - github-editing-files-in-browser
   - name: 'Рутина'
     items:
       - font-script
