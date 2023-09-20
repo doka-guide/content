@@ -22,6 +22,7 @@ groups:
       - github-new-repo
       - github-add-user-to-repo
       - github-new-pull-request
+      - github-manage-pull-request
   - name: 'Рутина'
     items:
       - font-script
