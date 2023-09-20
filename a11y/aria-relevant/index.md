@@ -35,6 +35,8 @@ tags:
 </div>
 ```
 
+<iframe title="Список друзей с aria-relevant" src="demos/friends-list/" height="400"></iframe>
+
 ## Как пишется
 
 Добавьте к любому тегу или [ARIA-роли](/a11y/aria-roles/) `aria-relevant` со значением из списка:
