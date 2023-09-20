@@ -109,14 +109,10 @@
   <div class="container">
     <button class="button button-aqua" id="button">Открыть список друзей</button>
     <h2>Сейчас онлайн</h2>
-    <ul class="list" id="online-list">
+    <ul class="list" id="online-list" aria-live="polite" aria-relevant="removals additions">
       <li class="list__item">
         <span class="list__item-avatar"></span>
         Джим Моррисон
-      </li>
-      <li class="list__item">
-        <span class="list__item-avatar"></span>
-        Йен Кёртис
       </li>
     </ul>
     <h2>Были недавно онлайн</h2>
@@ -133,9 +129,26 @@
     const listOffline = document.getElementById('offline-list')
 
     function createElement(userName) {
+      const listItem = document.createElement('li')
+      const itemAvatar = document.createElement('span')
+      listItem.className = 'list__item'
+      itemAvatar.className = 'list__item-avatar'
+
+      listItem.appendChild(itemAvatar)
+      listItem.textContent = userName
+
+      return listItem
     }
 
     button.addEventListener('click', () => {
+      users [
+        'Йен Кёртис',
+        'Пользователь 2',
+        'Пользователь 3'
+      ]
+
+      const newUser = createElement('Новый пользователь')
+      listOnline.appendChild(newUser)
     })
   </script>
 </body>
