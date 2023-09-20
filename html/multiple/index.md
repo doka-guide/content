@@ -70,6 +70,6 @@ tags:
 
 ### Доступность
 
-В [ARIA](/a11y/aria-intro/) есть атрибут [`aria-multiselectable`](/a11y/aria-multiselectable/). Он тоже нужен для выбора нескольких опций из выпадающего списка или файлов.
+В [ARIA](/a11y/aria-intro/) есть атрибут [`aria-multiselectable`](/a11y/aria-multiselectable/). Он тоже нужен для выбора нескольких опций или файлов.
 
 Старайтесь всегда использовать `multiple`. `aria-multiselectable` поможет в сложных ситуациях, когда создаёте кастомные элементы.
