@@ -5,6 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     html, body {
       height: 100%;
     }
@@ -12,13 +22,19 @@
     body {
       display: grid;
       place-items: center;
-      margin: 0;
+      padding: 50px;
       background-color: #18191C;
     }
 
     embed {
       width: 80%;
       height: 80%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
