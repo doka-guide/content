@@ -4,6 +4,10 @@
 
 ## Сентябрь 2023
 
+- 21 сентября, [Как редактировать файлы на GitHub](https://doka.guide/recipes/github-editing-files-in-browser/), Игорь Коровченко
+- 21 сентября, [Как создать ишью на GitHub](https://doka.guide/recipes/github-new-issue/), Игорь Коровченко
+- 21 сентября, [Как написать README на GitHub](https://doka.guide/recipes/github-add-readme/), Игорь Коровченко
+- 21 сентября, [Как выбрать лицензию на GitHub](https://doka.guide/recipes/github-choose-license/), Игорь Коровченко
 - 18 сентября, [Генераторы и yield](https://doka.guide/js/generators/), Егор Огарков, Сергей Краснолобов
 - 18 сентября, [Как добавить пользователей в репозиторий на GitHub](https://doka.guide/recipes/github-add-user-to-repo/), Игорь Коровченко
 - 18 сентября, [Как сделать пулреквест на GitHub](https://doka.guide/recipes/github-new-pull-request/), Игорь Коровченко
