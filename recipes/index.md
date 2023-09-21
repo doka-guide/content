@@ -22,6 +22,7 @@ groups:
       - github-new-repo
       - github-choose-license
       - github-add-user-to-repo
+      - github-search-in-issues
       - github-new-pull-request
       - github-editing-files-in-browser
       - github-new-issue
