@@ -65,7 +65,7 @@ tags:
 </ul>
 ```
 
-<iframe title="Список друзей с aria-relevant" src="demos/friends-list/" height="400"></iframe>
+<iframe title="Список друзей с aria-relevant" src="demos/friends-list/" height="450"></iframe>
 
 К примеру, NVDA сообщит об изменениях так: «<!-- yaspeller ignore:start -->Джим Моррисон, Йен Кёртис, Эми Уайнхаус<!-- yaspeller ignore:end -->». Он не расскажет о том, что <!-- yaspeller ignore:start -->Джим Моррисон<!-- yaspeller ignore:end --> вышел из чата, когда это произойдёт.
 
