@@ -23,6 +23,7 @@ groups:
       - github-choose-license
       - github-add-user-to-repo
       - github-new-pull-request
+      - github-add-readme
   - name: 'Рутина'
     items:
       - font-script
