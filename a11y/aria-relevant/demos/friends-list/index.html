@@ -107,19 +107,12 @@
 </head>
 <body>
   <div class="container">
-    <button class="button button-aqua" id="button">Открыть список друзей</button>
+    <button class="button button-aqua" id="button">Узнать, кто ещё онлайн</button>
     <h2>Сейчас онлайн</h2>
-    <ul class="list" id="online-list" aria-live="polite" aria-relevant="removals additions">
+    <ul class="list" id="online-list" aria-live="polite" aria-relevant="all">
       <li class="list__item">
         <span class="list__item-avatar"></span>
-        Джим Моррисон
-      </li>
-    </ul>
-    <h2>Были недавно онлайн</h2>
-    <ul class="list" id="offline-list">
-      <li class="list__item">
-        <span class="list__item-avatar"></span>
-        Эми Уайнхаус
+        Соседский кот всегда онлайн
       </li>
     </ul>
   </div>
@@ -131,24 +124,40 @@
     function createElement(userName) {
       const listItem = document.createElement('li')
       const itemAvatar = document.createElement('span')
+      const itemText = document.createTextNode(userName)
+
       listItem.className = 'list__item'
       itemAvatar.className = 'list__item-avatar'
 
-      listItem.appendChild(itemAvatar)
-      listItem.textContent = userName
+      listItem.prepend(itemAvatar, itemText)
 
       return listItem
     }
 
+    function addDelayedElement(user, time) {
+      setTimeout(() => {
+        const userItem = createElement(user)
+        listOnline.appendChild(userItem)
+      }, time)
+    }
+
     button.addEventListener('click', () => {
-      users [
+      const users = [
+        'Джим Моррисон',
         'Йен Кёртис',
-        'Пользователь 2',
-        'Пользователь 3'
+        'Эми Уайнхаус'
       ]
 
-      const newUser = createElement('Новый пользователь')
-      listOnline.appendChild(newUser)
+      addDelayedElement(users[0], 1000)
+      addDelayedElement(users[1], 3000)
+      addDelayedElement(users[2], 5000)
+
+      setTimeout(() => {
+        const offlineUser = listOnline.children[1]
+        if (offlineUser) {
+          listOnline.removeChild(offlineUser)
+        }
+      }, 7000)
     })
   </script>
 </body>
