@@ -20,6 +20,7 @@ groups:
     items:
       - github-new-profile
       - github-new-repo
+      - github-choose-license
       - github-add-user-to-repo
       - github-new-pull-request
   - name: 'Рутина'
