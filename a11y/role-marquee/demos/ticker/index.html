@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Тикер с ролью marquee — marquee — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .button {
+      display: block;
+      align-self: center;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .ticker__item {
+      display: flex;
+      padding: 12px 25px;
+      justify-content: space-around;
+      border: 1px solid #FFFFFF;
+      border-radius: 3px;
+    }
+
+    .ticker__item:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+
+    .ticker__item-company {
+      margin-left: -23px;
+    }
+
+    .ticker__item-up,
+    .ticker__item-down {
+      position: relative;
+    }
+
+    .ticker__item-up:after,
+    .ticker__item-down:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      right: -23px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+    }
+
+    .ticker__item-up:after {
+      border-bottom: 11px solid #10F3AF;
+    }
+
+    .ticker__item-down:after {
+      border-top: 11px solid #F498AD;
+    }
+
+    .visually-hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .ticker__item {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button-aqua" id="button">Узнать стоимость акций</button>
+    <h1>Стоимость акций на сегодня</h1>
+    <div role="marquee" class="ticker" id="ticker">
+      <div class="ticker__item">
+        <span class="ticker__item-company">Рога и копыта</span>
+        <span>444.44 $</span>
+        <span class="ticker__item-up">
+          + 12%
+          <span class="visually-hidden">рост</span>
+        </span>
+      </div>
+      <div class="ticker__item">
+        Радуга и пони
+        <span>100 $</span>
+        <span class="ticker__item-down">- 42%</span>
+        <span class="visually-hidden">спад</span>
+      </div>
+      <div class="ticker__item">
+        Мир обоев
+        <span>900.34 $</span>
+        <span class="ticker__item-up">+ 22%</span>
+        <span class="visually-hidden">рост</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const button = document.getElementById('button')
+    const ticker = document.getElementById('ticker')
+  </script>
+</body>
+</html>
