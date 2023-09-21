@@ -20,9 +20,13 @@ groups:
     items:
       - github-new-profile
       - github-new-repo
+      - github-choose-license
       - github-add-user-to-repo
       - github-new-pull-request
       - github-manage-pull-request
+      - github-editing-files-in-browser
+      - github-new-issue
+      - github-add-readme
   - name: 'Рутина'
     items:
       - font-script
