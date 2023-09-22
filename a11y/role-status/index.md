@@ -26,20 +26,27 @@ tags:
 
 [Роль изменяющихся областей](/a11y/aria-roles/#roli-izmenyayushchihsya-oblastey) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Делает часть страницы изменяющейся или «живой» областью. `status` означает область со справочной информацией, которая добавляется на страницу после действий пользователей.
 
-[У тега `<output>`](/html/output/) по умолчанию есть эта роль.
+[У `<output>`](/html/output/) эта роль есть по умолчанию.
 
 ## Пример
 
 ```html
-<button aria-controls="status-message">Сохранить</button>
-<span role="status" id="status-message">
-  Данные успешно сохранены!
-</span>
+<button aria-controls="message">Сохранить</button>
+<div>
+  <span role="status" id="message">
+    <!-- Сюда добавляем текст с помощью JavaScript-->
+  </span>
+  <button aria-label="Закрыть">
+    X
+  </button>
+</div>
 ```
+
+<iframe title="Тост c ролью status" src="demos/toast-message/" height="400"></iframe>
 
 ## Как пишется
 
-Добавьте к элементу атрибут `role="status"`. Роль можно использовать для всех тегов и [ARIA-ролей](/a11y/aria-roles/).
+Добавьте к элементу атрибут `role="status"`. Роль можно использовать для всех тегов и [ARIA-ролей](/a11y/aria-roles/). В большинстве случаев лучше использовать `<output>`.
 
 Роль пригодится для несрочных сообщений и похожей информации. К примеру, для сообщений об успешном сохранении данных, отправке письма, подписке и так далее.
 
