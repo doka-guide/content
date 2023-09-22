@@ -126,9 +126,9 @@
 </head>
 <body>
   <div class="container">
-    <button class="button button-orange" onclick="show()">Сохранить</button>
+    <button class="button button-orange" onclick="show()" aria-controls="message">Сохранить</button>
     <div class="toast">
-      <output role="status"></output>
+      <output role="status" id="message"></output>
       <button class="toast__button button-orange" onclick="dismiss()" aria-label="Закрыть">X</button>
     </div>
   </div>
