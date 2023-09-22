@@ -98,6 +98,7 @@
     }
 
     .post {
+      display: none;
       max-width: 350px;
       padding: 15px 10px;
       background-color: transparent;
@@ -114,27 +115,44 @@
 </head>
 <body>
   <div class="container">
-    <button class="button button-aqua" id="button">Что нового?</button>
-    <section role="feed" class="feed" aria-live="polite" aria-busy="true">
-      <article class="post" aria-posinset="1" aria-setsize="-1">
+    <button class="button button-aqua">Что нового?</button>
+    <section role="feed" class="feed" aria-live="polite">
+      <article class="post">
         <a href="#user1" class="post-user">Дока</a>
         <p>Сегодня я съел невероятно вкусный морковный торт 🥕</p>
       </article>
-      <article class="post" aria-posinset="2" aria-setsize="-1">
+      <article class="post">
         <a href="#user2" class="post-user">Стрела в колене</a>
         <p>Продам гараж, куплю машину.</p>
       </article>
-      <article class="post" aria-posinset="3" aria-setsize="-1">
+      <article class="post">
         <a href="#user3" class="post-user">Сыр-косичка</a>
         <p>Как часто вы думаете про Римскую империю?</p>
       </article>
     </section>
   </div>
   <script>
-    const button = document.getElementById('button')
+    const button = document.querySelector('.button')
 
-    function createElement() {
+    let isButtonClicked = false
+
+    function showPosts() {
+      const feed = document.querySelector('.feed')
+      const posts = document.querySelectorAll('.post')
+
+      posts.forEach((element) => {
+        setInterval(() => {
+          element.style.display = 'block'
+          feed.setAttribute('aria-busy', 'true')
+        }, 1000)
+      })
+
+      isButtonClicked = false
     }
+
+    button.addEventListener('click', () => {
+      showPosts()
+    })
   </script>
 </body>
 </html>
