@@ -66,13 +66,13 @@
       gap: 1em;
       padding: 0 10px;
       display: grid;
+      align-items: start;
       overflow: auto;
     }
 
     .chat__item {
       min-width: 50%;
       max-width: 50%;
-      height: fit-content;
       padding: 10px;
       word-wrap: break-word;
       border-radius: 15px;
@@ -102,6 +102,7 @@
       font-size: 1.3rem;
       font-weight: 500;
       line-height: 1;
+      align-self: center;
       color: #FFFFFF;
     }
 
@@ -140,6 +141,8 @@
     }
 
     .message__input {
+      max-width: 350px;
+      min-width: 350px;
       min-height: 100px;
       max-height: 300px;
       border: 1px solid #FFFFFF;
@@ -157,7 +160,7 @@
       outline: none;
     }
 
-    .message__input, .button {
+    .button {
       width: 350px;
     }
 
@@ -168,9 +171,12 @@
 
       .container,
       .message-container,
-      .message__input,
       .button {
         width: 100%;
+      }
+
+      .message__input {
+        min-width: 100%;
       }
 
       .message {
