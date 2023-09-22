@@ -116,10 +116,10 @@
 <body>
   <div class="container">
     <button class="button button-aqua">Что нового?</button>
-    <section role="feed" class="feed" aria-live="polite">
+    <section role="feed" class="feed" aria-live="polite" aria-atomic="true">
       <article class="post">
         <a href="#user1" class="post-user">Дока</a>
-        <p>Сегодня я съел невероятно вкусный морковный торт 🥕</p>
+        <p>Сегодня я съел невероятно вкусный морковный торт.</p>
       </article>
       <article class="post">
         <a href="#user2" class="post-user">Стрела в колене</a>
@@ -133,25 +133,34 @@
   </div>
   <script>
     const button = document.querySelector('.button')
+    const posts = document.querySelectorAll('.post')
+    const feed = document.querySelector('.feed')
 
     let isButtonClicked = false
 
-    function showPosts() {
-      const feed = document.querySelector('.feed')
-      const posts = document.querySelectorAll('.post')
+    function showPosts(timeIntervals) {
+      posts.forEach((post, index) => {
+        const time = timeIntervals[index] || 1000
 
-      posts.forEach((element) => {
-        setInterval(() => {
-          element.style.display = 'block'
+        const maxInterval = Math.max(...timeIntervals)
+
+        setTimeout(() => {
+          post.style.display = 'block'
           feed.setAttribute('aria-busy', 'true')
-        }, 1000)
+        }, time)
+
+        setTimeout(() => {
+          feed.removeAttribute('aria-busy')
+        }, maxInterval)
       })
 
       isButtonClicked = false
     }
 
     button.addEventListener('click', () => {
-      showPosts()
+      const timeIntervals = [1000, 3000, 6000]
+
+      showPosts(timeIntervals)
     })
   </script>
 </body>
