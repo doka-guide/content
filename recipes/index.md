@@ -27,6 +27,7 @@ groups:
       - github-editing-files-in-browser
       - github-new-issue
       - github-add-readme
+      - github-new-organization
   - name: 'Рутина'
     items:
       - font-script
