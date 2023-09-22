@@ -24,6 +24,7 @@
       padding: 50px;
       display: flex;
       justify-content: center;
+      align-items: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -98,7 +99,7 @@
     }
 
     .post {
-      display: none;
+      visibility: hidden;
       max-width: 350px;
       padding: 15px 10px;
       background-color: transparent;
@@ -145,7 +146,7 @@
         const maxInterval = Math.max(...timeIntervals)
 
         setTimeout(() => {
-          post.style.display = 'block'
+          post.style.visibility = 'visible'
           feed.setAttribute('aria-busy', 'true')
         }, time)
 

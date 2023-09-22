@@ -71,7 +71,7 @@ tags:
 </section>
 ```
 
-<iframe title="Фид с атрибутом aria-busy" src="demos/feed/" height="450"></iframe>
+<iframe title="Фид с атрибутом aria-busy" src="demos/feed/" height="540"></iframe>
 
 ## Как понять
 
