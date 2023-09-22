@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/section
-  - js/closures
-  - tools/how-the-browser-creates-pages
-  - css/flexbox-guide
-  - css/display
   - js/deal-with-forms
-  - js/execution-order
-  - tools/webpack
-  - js/async-in-js
-  - html/video
-  - tools/markdown
-  - html/doctype
-  - tools/agile
   - tools/gitlab-ci-cd
   - js/function-context
-  - html/div
-  - tools/ci-cd
-  - css/grid-guide
-  - css/attr
-  - css/box-model
-  - css/box-shadow
-  - html/input
-  - js/boolean
-  - tools/cli
-  - html/img
-  - tools/network
-  - a11y/screenreaders
+  - html/article
+  - html/video
   - html/flow
-  - tools/how-to-test-and-why
+  - html/section
   - js/infinite-scroll
   - css/position
-  - css/custom-properties
-  - css/keyframes
-  - css/specificity
+  - html/img
   - css/media
-  - recipes/snow
-  - html/nav
-  - html/article
-  - a11y/aria-intro
-  - js/var-let
   - a11y/aria-hidden
-  - css/pseudoelements
-  - html/form
-  - html/head
-  - recipes/progress
-  - recipes/lets-encrypt-nginx
-  - tools/bundlers
-  - tools/clean-architecture
-  - css/transform-function
-  - js/function
-  - tools/docker
-  - tools/static-types
   - tools/oop
+  - js/var-let
+  - css/transform-function
+  - tools/clean-architecture
+  - css/pseudoelements
+  - a11y/aria-intro
+  - tools/ci-cd
+  - recipes/progress
+  - css/display
+  - tools/cli
+  - html/doctype
+  - js/boolean
+  - tools/markdown
+  - css/custom-properties
+  - css/flexbox-guide
+  - css/keyframes
+  - html/div
+  - recipes/snow
+  - css/box-shadow
+  - tools/network
+  - tools/how-to-test-and-why
+  - css/grid-guide
+  - js/closures
+  - css/attr
+  - recipes/lets-encrypt-nginx
+  - tools/agile
+  - js/function
+  - tools/static-types
+  - css/specificity
+  - html/form
+  - tools/bundlers
+  - a11y/screenreaders
+  - html/nav
+  - tools/how-the-browser-creates-pages
+  - js/execution-order
+  - css/box-model
+  - tools/webpack
+  - js/async-in-js
+  - tools/docker
+  - html/head
+  - html/input
 ---
 
