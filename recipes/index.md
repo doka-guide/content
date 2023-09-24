@@ -23,6 +23,7 @@ groups:
       - github-choose-license
       - github-add-user-to-repo
       - github-search-in-issues
+      - gihub-new-fork
       - github-new-pull-request
       - github-editing-files-in-browser
       - github-new-issue
