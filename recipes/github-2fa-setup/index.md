@@ -33,7 +33,7 @@ tags:
 
 4. Нажать на кнопку «Enable two-factor authentication».
 
-5. На смартфонe запустить приложения для аутентификации, например, Google Authenticator (для [iOS/iPadOS](https://apps.apple.com/us/app/google-authenticator/id388497605) или для [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)), и отсканировать QR-код, который появился на открывшейся странице.
+5. На смартфоне запустить приложения для аутентификации, например, Google Authenticator (для [iOS/iPadOS](https://apps.apple.com/us/app/google-authenticator/id388497605) или для [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2)), и отсканировать QR-код, который появился на открывшейся странице.
 
 ![Настройка приложения для аутентификации. Описание выше.](images/2-factor-auth-first-step.png)
 
