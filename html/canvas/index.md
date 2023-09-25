@@ -3,6 +3,8 @@ title: "`<canvas>`"
 description: "Тег для рисования графики и анимаций прямо в браузере!"
 authors:
   - epodivilov
+contributors:
+  - tatianafokina
 related:
   - html/picture
   - html/svg
