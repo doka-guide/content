@@ -4,6 +4,7 @@
 
 ## Сентябрь 2023
 
+- 27 сентября, [Как работать в пулреквестах на GitHub](https://doka.guide/recipes/github-manage-pull-request/), Игорь Коровченко
 - 21 сентября, [Как найти ишью в репозитории на GitHub](https://doka.guide/recipes/github-search-in-issues/), Игорь Коровченко
 - 21 сентября, [Как редактировать файлы на GitHub](https://doka.guide/recipes/github-editing-files-in-browser/), Игорь Коровченко
 - 21 сентября, [Как создать ишью на GitHub](https://doka.guide/recipes/github-new-issue/), Игорь Коровченко
