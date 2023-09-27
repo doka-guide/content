@@ -24,6 +24,7 @@ groups:
       - github-add-user-to-repo
       - github-search-in-issues
       - github-new-pull-request
+      - github-manage-pull-request
       - github-editing-files-in-browser
       - github-new-issue
       - github-add-readme
