@@ -29,6 +29,7 @@ groups:
       - github-editing-files-in-browser
       - github-new-issue
       - github-add-readme
+      - github-add-ssh-access
   - name: 'Рутина'
     items:
       - font-script
