@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Базовый пример с кнопкой и текстом — Атрибут inert — Дока</title>
+  <title>Сравнение disabled и inert — Атрибут inert — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -16,7 +16,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     body {
@@ -24,6 +24,7 @@
       padding: 50px;
       gap: 50px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
@@ -38,20 +39,27 @@
       line-height: 1.4;
     }
 
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
     code {
       font-family: "Roboto Mono", monospace;
     }
 
-    .container {
+    .container, .row {
       display: flex;
       flex-direction: column;
     }
+    
+    .container {
+      gap: 50px;
+    }
 
-    [inert], [inert] * {
-      opacity: 0.7;
-      pointer-events: none;
-      cursor: default;
-      user-select: none;
+    .row {
+      align-items: start;
     }
 
     .button {
@@ -95,13 +103,18 @@
   </style>
 </head>
 <body>
-  <div class="container" inert>
-    <p>Есть <code>inert</code>.</p>
-    <button class="button button-orange">Неактивная кнопка</button>
-  </div>
   <div class="container">
-    <p>Нет <code>inert</code>.</p>
-    <button class="button button-orange">Активная кнопка</button>
+    <div class="row">
+      <h2>Область с <code>inert</code> без стилей</h2>
+      <div inert>
+        <p>Текст, который видят, но не слышат и не могут скопировать.</p>
+        <button class="button button-orange">Неактивная кнопка</button>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Кнопка с <code>disabled</code> без стилей</h2>
+      <button class="button button-orange" disabled>Неактивная кнопка</button>
+    </div>
   </div>
 </body>
 </html>
