@@ -19,6 +19,7 @@ groups:
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
+      - github-2fa-setup
       - github-new-repo
       - github-choose-license
       - github-add-user-to-repo
