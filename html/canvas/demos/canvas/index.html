@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
+  <title>Canvas API — <canvas> — Дока</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Canvas API - Canvas - Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
     }
 
     canvas {
@@ -16,30 +32,29 @@
     }
   </style>
 </head>
-
 <body>
   <canvas id="canvas"></canvas>
   <script>
     function raf(callback, fps = 60) {
-      const delay = 1000 / fps;
-      let time = null;
-      let frame = -1;
-      let rafId = null;
+      const delay = 1000 / fps
+      let time = null
+      let frame = -1
+      let rafId = null
 
       /** @param {number} timestamp */
       function loop(timestamp) {
         if (time === null) {
-          time = timestamp;
+          time = timestamp
         }
 
-        const seg = Math.floor((timestamp - time) / delay);
+        const seg = Math.floor((timestamp - time) / delay)
 
         if (seg > frame) {
           frame = seg;
-          callback(timestamp);
+          callback(timestamp)
         }
 
-        rafId = requestAnimationFrame(loop);
+        rafId = requestAnimationFrame(loop)
       }
       loop(0)
     }
@@ -48,52 +63,51 @@
     const width = window.innerWidth * window.devicePixelRatio
     const height = window.innerHeight * window.devicePixelRatio
 
-
     /** @type {HTMLCanvasElement} */
-    const canvas = document.getElementById('canvas');
+    const canvas = document.getElementById('canvas')
 
-    canvas.width = width;
-    canvas.height = height;
+    canvas.width = width
+    canvas.height = height
 
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d')
 
-    context.font = '48px serif';
+    context.font = '48px Roboto, sans-serif'
 
     const position = {
       x: 10,
       y: 40,
-    };
+    }
 
     const direction = {
       x: 1,
       y: 1,
-    };
+    }
 
     raf(() => {
-      context.clearRect(0, 0, width, height);
+      context.clearRect(0, 0, width, height)
 
-      position.x += direction.x * 4;
-      position.y += direction.y * 4;
+      position.x += direction.x * 4
+      position.y += direction.y * 4
 
       if (position.x < 0) {
-        direction.x = 1;
+        direction.x = 1
       }
 
       if (position.x > width - 120) {
-        direction.x = -1;
+        direction.x = -1
       }
 
       if (position.y < 35) {
-        direction.y = 1;
+        direction.y = 1
       }
 
       if (position.y > height - 10) {
-        direction.y = -1;
+        direction.y = -1
       }
 
-      context.fillText('U·ᴥ·U', position.x, position.y);
+      context.fillText('U·ᴥ·U', position.x, position.y)
+      context.fillStyle = '#FFFFFF'
     })
   </script>
 </body>
-
 </html>
