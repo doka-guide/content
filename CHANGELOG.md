@@ -4,6 +4,9 @@
 
 ## Сентябрь 2023
 
+- 28 сентября, [Как настроить двухфакторную аутентификацию на GitHub](https://doka.guide/recipes/github-2fa-setup/), Игорь Коровченко
+- 28 сентября, [Как настроить доступ по SSH на GitHub](https://doka.guide/recipes/github-add-ssh-access/), Игорь Коровченко
+- 28 сентября, [Как клонировать репозиторий на GitHub](https://doka.guide/recipes/github-clone-repo/), Игорь Коровченко
 - 27 сентября, [Атрибуты `data-*`](https://doka.guide/html/data-attributes/), Анатолий Кротов
 - 27 сентября, [Как работать в пулреквестах на GitHub](https://doka.guide/recipes/github-manage-pull-request/), Игорь Коровченко
 - 21 сентября, [Как найти ишью в репозитории на GitHub](https://doka.guide/recipes/github-search-in-issues/), Игорь Коровченко
