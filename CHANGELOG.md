@@ -4,6 +4,7 @@
 
 ## Сентябрь 2023
 
+- 28 сентября, [Атрибут `tabindex`](https://doka.guide/html/tabindex/), Татьяна Фокина
 - 28 сентября, [Как настроить двухфакторную аутентификацию на GitHub](https://doka.guide/recipes/github-2fa-setup/), Игорь Коровченко
 - 28 сентября, [Как настроить доступ по SSH на GitHub](https://doka.guide/recipes/github-add-ssh-access/), Игорь Коровченко
 - 28 сентября, [Как клонировать репозиторий на GitHub](https://doka.guide/recipes/github-clone-repo/), Игорь Коровченко
