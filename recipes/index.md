@@ -19,15 +19,18 @@ groups:
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
+      - github-2fa-setup
       - github-new-repo
       - github-choose-license
       - github-add-user-to-repo
       - github-search-in-issues
       - github-new-pull-request
+      - github-manage-pull-request
       - github-editing-files-in-browser
       - github-new-issue
       - github-add-readme
       - github-new-organization
+      - github-add-ssh-access
   - name: 'Рутина'
     items:
       - font-script
