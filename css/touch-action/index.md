@@ -35,7 +35,7 @@ tags:
 }
 
 .touch-none {
-  ouch-action: none;
+  touch-action: none;
 }
 
 .map {
