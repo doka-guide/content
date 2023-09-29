@@ -53,11 +53,11 @@ tags:
 
 ```html
 <div class="map touch-auto">
-  <img src='map.png' alt='карта'>
+  <img src="map.png" alt="Карта мира">
 </div>
 
 <div class="map touch-none">
-  <img src='map.png' alt='карта'>
+  <img src="map.png" alt="Карта мира">
 </div>
 ```
 
