@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Resize Playground — Дока</title>
+  <title>Песочница — resize — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,10 +158,10 @@
             <input class="radio resize-demo__value" type="radio" id="resize-vertical" name="resize-value" value="vertical" />
             <span class="radio-title resize-demo__value-label">resize: vertical</span>
         </label>
-      </fieldset>  
+      </fieldset>
     </aside>
 
-    <section class="resize-demo__view">  
+    <section class="resize-demo__view">
       <div class="resize-demo__content">Потяните за правый нижний угол, чтобы изменить размер текстового поля</div>
     </section>
   </main>
@@ -169,7 +169,7 @@
   <script defer>
     const demoContent = document.querySelector('.resize-demo__content');
     const radioButtons = document.querySelectorAll('input[name="resize-value"]');
-    
+
     for(const radioButton of radioButtons){
         radioButton.addEventListener('change', changeDemoView);
     }
