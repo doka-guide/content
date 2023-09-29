@@ -93,7 +93,6 @@ groups:
       - figure-figcaption
       - picture
       - source
-      - svg
       - map
       - area
   - name: 'Ссылки'
