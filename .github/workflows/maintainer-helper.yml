@@ -17,7 +17,7 @@ jobs:
         run: |
           echo '{"type": "module","dependencies": {"@octokit/core": "^5.0.0","node-fetch": "^3.3.2"}}' > package.json
           npm install
-          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md a11y/**/index.md svg/**/index.md
+          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md a11y/**/index.md
       - name: Обновление списков материалов-кандидатов на редактирование
         run: node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}
       - name: Обновление списков материалов-кандидатов на доработку демок

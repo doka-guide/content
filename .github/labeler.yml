@@ -13,9 +13,6 @@ js:
 a11y:
   files:
     - a11y/**/*
-svg:
-  files:
-    - svg/**/*
 'рецепт':
   files:
     - recipes/**/*
