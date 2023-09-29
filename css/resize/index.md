@@ -22,7 +22,7 @@ tags:
 
 <iframe title="Простая textarea" src="demos/resize-textarea/" height="250"></iframe>
 
- По умолчанию поле ввода `<textarea>` может изменять свой размер, если потянуть за нижний правый угол. Если вы хотите запретить изменение размеров текстовой области, вы должны явно указать значение свойства `resize` как `none`.
+По умолчанию поле ввода `<textarea>` может изменять свой размер, если потянуть за нижний правый угол. Если вы хотите запретить изменение размеров текстовой области, вы должны явно указать значение свойства `resize` как `none`.
 
 ## Как пишется
 
@@ -35,9 +35,9 @@ tags:
 - `block` — размер можно изменять в блочном измерении элемента.
 - `inline` — размер можно изменять в строковом измерении элемента.
 
- Блочное или строчное [`измерение`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values) элемента зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction).
+Блочное или строчное [`измерение`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values) элемента зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction).
 
- По умолчанию поддерживается в Firefox и Safari. В браузерах Chrome и Edge необходимо включить флаг `Experimental Web Platform features`. Более подробную информацию можно узнать на [`caniuse`](https://caniuse.com/mdn-css_properties_resize_flow_relative_support).
+По умолчанию поддерживается в Firefox и Safari. В браузерах Chrome и Edge необходимо включить флаг `Experimental Web Platform features`. Более подробную информацию можно узнать на [`caniuse`](https://caniuse.com/mdn-css_properties_resize_flow_relative_support).
 
 ## Пример
 
