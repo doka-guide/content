@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/deal-with-forms
-  - tools/gitlab-ci-cd
-  - js/function-context
-  - html/article
-  - html/video
-  - html/flow
-  - html/section
-  - js/infinite-scroll
-  - css/position
-  - html/img
-  - css/media
-  - a11y/aria-hidden
-  - tools/oop
+  - recipes/lets-encrypt-nginx
+  - js/execution-order
   - js/var-let
-  - css/transform-function
-  - tools/clean-architecture
-  - css/pseudoelements
-  - a11y/aria-intro
-  - tools/ci-cd
-  - recipes/progress
-  - css/display
-  - tools/cli
-  - html/doctype
-  - js/boolean
-  - tools/markdown
   - css/custom-properties
-  - css/flexbox-guide
-  - css/keyframes
+  - tools/oop
   - html/div
+  - html/img
+  - js/function
+  - css/transform-function
+  - a11y/aria-intro
+  - css/grid-guide
+  - js/boolean
+  - html/form
+  - tools/how-the-browser-creates-pages
+  - tools/how-to-test-and-why
+  - css/box-model
+  - css/display
+  - css/position
   - recipes/snow
+  - tools/ci-cd
+  - js/async-in-js
+  - html/section
+  - html/head
   - css/box-shadow
   - tools/network
-  - tools/how-to-test-and-why
-  - css/grid-guide
-  - js/closures
-  - css/attr
-  - recipes/lets-encrypt-nginx
-  - tools/agile
-  - js/function
   - tools/static-types
-  - css/specificity
-  - html/form
-  - tools/bundlers
+  - css/pseudoelements
+  - js/closures
   - a11y/screenreaders
-  - html/nav
-  - tools/how-the-browser-creates-pages
-  - js/execution-order
-  - css/box-model
-  - tools/webpack
-  - js/async-in-js
+  - js/deal-with-forms
+  - css/flexbox-guide
+  - css/keyframes
+  - js/function-context
+  - html/video
+  - css/media
   - tools/docker
-  - html/head
+  - tools/gitlab-ci-cd
+  - css/attr
+  - tools/clean-architecture
+  - tools/webpack
+  - html/flow
+  - a11y/aria-hidden
+  - js/infinite-scroll
+  - tools/cli
+  - html/article
+  - recipes/progress
+  - html/doctype
+  - html/nav
+  - tools/agile
+  - css/specificity
+  - tools/markdown
   - html/input
+  - tools/bundlers
 ---
 
