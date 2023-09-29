@@ -54,6 +54,10 @@ do
       CATEGORY=a11y
       break
       ;;
+    "SVG")
+      CATEGORY=svg
+      break
+      ;;
     "Вопрос на собеседовании")
       CATEGORY=interviews
       break

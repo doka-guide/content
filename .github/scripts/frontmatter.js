@@ -50,6 +50,7 @@ const loadCheckModules = async (specialCheck) => {
   processIndexFile(commonMeta, 'js/index.md')
   processIndexFile(commonMeta, 'tools/index.md')
   processIndexFile(commonMeta, 'a11y/index.md')
+  processIndexFile(commonMeta, 'svg/index.md')
 
   const { requireField, requireOrder, specialCheck } = JSON.parse(settings)
   let errorRequiredFieldsCounter = 0
