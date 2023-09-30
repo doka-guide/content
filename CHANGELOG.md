@@ -4,6 +4,9 @@
 
 ## Сентябрь 2023
 
+- 30 сентября, [Как создать организацию на GitHub](https://doka.guide/recipes/github-new-organization/), Игорь Коровченко
+- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/gihub-new-fork/), Игорь Коровченко
+- 30 сентября, [Как опубликовать сайт прямо на GitHub](https://doka.guide/recipes/github-pages-static-site/), Игорь Коровченко
 - 29 сентября, [`resize`](https://doka.guide/css/resize/), Сергей Дудко
 - 28 сентября, [Атрибут `tabindex`](https://doka.guide/html/tabindex/), Татьяна Фокина
 - 28 сентября, [Как настроить двухфакторную аутентификацию на GitHub](https://doka.guide/recipes/github-2fa-setup/), Игорь Коровченко
