@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница с картинками — resize — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .resize-demo {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 32px;
+      width: 100%;
+      max-width: 1360px;
+    }
+
+    .resize-demo__content {
+      display: block;
+
+      width: 100%;
+      max-width: 100%;
+
+      height: 100%;
+      max-height: 50vh;
+
+      overflow: auto;
+      resize: both;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 16px;
+      }
+
+      .resize-demo {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        align-items: start;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resize-demo">
+    <section class="resize-demo__view">
+      <h2>Без обёртки</h2>
+      <img class="resize-demo__content" src="https://img.freepik.com/premium-photo/cat-kitten-cute-cat_303714-537.jpg" alt="Милый котенок сгенерированный нейросетью лежит на полу и смотрит на вас большими глазами">
+    </section>
+
+    <section class="resize-demo__view">
+      <h2>С обёрткой</h2>
+      <div class="resize-demo__content">
+        <img class="resize-demo__content-img" src="https://img.freepik.com/premium-photo/cat-kitten-cute-cat_303714-537.jpg" alt="Милый котенок сгенерированный нейросетью лежит на полу и смотрит на вас большими глазами">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Элемент с overflow — Атрибут `tabindex` — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 24px;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h3 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    div[role="group"] {
+      height: 9rem;
+      padding: 25px 15px;
+      overflow: auto;
+    }
+
+    *:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    *:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div role="group" tabindex="0">
+      <h3>Условия хранения данных</h3>
+      <p>Мы заботимся о ваших данных и аккуратно храним их вечность.</p>
+      <p>Конечно, вечность — пугающая концепция, но, согласно Межгалактическому постановлению о Вечности 4999 года эры Помидора, мы обязаны это делать.</p>
+      <p>Если вечность пугает, обратитесь к местному коту, исполняющему обязанности Помидора в вашей галактике, и напишите заявление об отказе от вечности по форме ETJO-4567-UO.</p>
+    </div>
+  </div>
+</body>
+</html>

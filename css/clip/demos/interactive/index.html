@@ -4,34 +4,80 @@
   <title>Интерактивный пример с картинкой — clip — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
-    * {
-      padding: 0;
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
     }
 
     body {
-      height: 100%;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      background-color: #dfdfdf;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 100px;
+    }
+
     .controls {
-      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 250px;
+      font-family: "Roboto Mono", monospace;
+      font-size: 15px;
+    }
+
+    .controls__item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .controls__title {
+      min-width: 80px;
+    }
+
+    .controls__range {
+      width: 100%;
+      accent-color: #2E9AFF;
+    }
+
+    .controls__range--left {
+      accent-color: #F498AD;
+    }
+
+    .controls__range--right{
+      accent-color: #F498AD;
+    }
+
+    .controls__example {
+      font-family: "Roboto Mono", monospace;
+      font-size: 23px;
     }
 
     .view {
       position: relative;
-      margin: auto;
       width: 300px;
       height: 200px;
     }
@@ -47,16 +93,16 @@
     }
 
     .view__line::after {
-      font-size: 14px;
+      font-size: 16px;
       position: absolute;
     }
 
     .view__line--top {
-      left: 0;
+      left: -10px;
       top: 0;
-      width: calc(100% + 10px);
+      width: calc(100% + 20px);
       height: 1px;
-      border-bottom: 1px dashed cornflowerblue;
+      border-bottom: 1px dashed #2E9AFF;
       transform: translateY(-1px);
     }
 
@@ -70,10 +116,10 @@
 
     .view__line--right {
       left: 300px;
-      top: 0;
-      height: calc(100% + 10px);
+      top: -10px;
+      height: calc(100% + 20px);
       width: 1px;
-      border-left: 1px dashed #7264ed;
+      border-left: 1px dashed #F498AD;
     }
 
     .view__line--right::after {
@@ -85,11 +131,11 @@
     }
 
     .view__line--bottom {
-      right: 0;
+      right: -10px;
       top: 200px;
-      width: calc(100% + 10px);
+      width: calc(100% + 20px);
       height: 1px;
-      border-bottom: 1px dashed #ed64db;
+      border-bottom: 1px dashed #2E9AFF;
     }
 
     .view__line--bottom::after {
@@ -102,10 +148,10 @@
 
     .view__line--left {
       left: 0;
-      bottom: 0;
-      height: calc(100% + 10px);
+      bottom: -10px;
+      height: calc(100% + 20px);
       width: 1px;
-      border-left: 1px dashed #edb264;
+      border-left: 1px dashed #F498AD;
       transform: translateX(-1px);
     }
 
@@ -117,67 +163,97 @@
       transform: translate(50%, -100%);
     }
 
-    .controls {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex: calc(100% - 550px) 0 0;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        gap: 75px;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .controls {
+        width: 300px;
+      }
+
+      .controls__item {
+        width: 100%;
+      }
+
+      .controls__example {
+        font-size: 15px;
+      }
     }
 
-    .controls__item {
-      width: 90%;
-      max-width: 400px;
-      display: flex;
-      align-items: center;
-      margin: 0 auto 30px;
-      font-family: "Roboto Mono", monospace;
-    }
+    @media (max-width: 450px) {
+      .view__line::after {
+        padding: 0 5px;
+        z-index: 1;
+        color: #000000;
+      }
 
-    .controls__title {
-      margin-right: 10px;
-      min-width: 70px;
-    }
+      .view__line--top::after {
+        transform: translateY(-100%);
+        background-color: #2E9AFF;
+      }
 
-    .controls__range {
-      width: 100%;
-    }
+      .view__line--right::after {
+        left: 0;
+        right: auto;
+        bottom: 0;
+        transform: rotate(-90deg);
+        transform-origin: bottom left;
+        background-color: #F498AD;
+      }
 
-    .controls__example {
-      width: 90%;
-      max-width: 400px;
-      font-family: "Roboto Mono", monospace;
-      margin: 0 auto;
+      .view__line--bottom::after {
+        top: -18px;
+        left: 0px;
+        transform: none;
+        background-color: #2E9AFF;
+      }
+
+      .view__line--left::after {
+        right: auto;
+        transform: translate(0%, -100%) rotate(90deg);
+        transform-origin: bottom left;
+        background-color: #F498AD;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="controls">
-    <div class="controls__item">
-      <p class="controls__title">top:</p>
-      <input class="controls__range js-range-top" type="range" min="0" max="200" value="0">
+  <div class="container">
+    <div class="controls">
+      <label class="controls__item">
+        <span class="controls__title">top</span>
+        <input class="controls__range controls__range--top js-range-top" type="range" min="0" max="200" value="0">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">right</span>
+        <input class="controls__range controls__range--right js-range-right" type="range" min="0" max="300" value="300">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">bottom</span>
+        <input class="controls__range controls__range--bottom js-range-bottom" type="range" min="0" max="200" value="200">
+      </label>
+      <label class="controls__item">
+        <span class="controls__title">left</span>
+        <input class="controls__range controls__range--left js-range-left" type="range" min="0" max="300" value="0">
+      </label>
     </div>
-    <div class="controls__item">
-      <p class="controls__title">right:</p>
-      <input class="controls__range js-range-right" type="range" min="0" max="300" value="300">
+    <div class="view">
+      <img class="view__image js-image" src="../../images/house.jpg" alt="Домик в деревне">
+      <span class="view__line view__line--top js-line-top"></span>
+      <span class="view__line view__line--right js-line-right"></span>
+      <span class="view__line view__line--bottom js-line-bottom"></span>
+      <span class="view__line view__line--left js-line-left"></span>
     </div>
-    <div class="controls__item">
-      <p class="controls__title">bottom:</p>
-      <input class="controls__range js-range-bottom" type="range" min="0" max="200" value="200">
-    </div>
-    <div class="controls__item">
-      <p class="controls__title">left:</p>
-      <input class="controls__range js-range-left" type="range" min="0" max="300" value="0">
-    </div>
-    <span class="controls__example js-example">clip: rect(6px, 300px, 200px, 0px);</span>
   </div>
-  <div class="view">
-    <img class="view__image js-image" src="../../images/house.jpg" alt="Домик в деревне">
-    <span class="view__line view__line--top js-line-top"></span>
-    <span class="view__line view__line--right js-line-right"></span>
-    <span class="view__line view__line--bottom js-line-bottom"></span>
-    <span class="view__line view__line--left js-line-left"></span>
-  </div>
+  <span class="controls__example js-example">clip: rect(0px, 300px, 200px, 0px);</span>
+
   <script>
     let positionTop = 0
     let positionRight = 300
