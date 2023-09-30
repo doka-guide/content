@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Чекбоксы — :checked — Дока</title>
+  <title>Стилизация выбранных элементов — :checked — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,17 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #18191c;
+      background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
@@ -41,56 +45,89 @@
       font-size: 24px;
       font-weight: 500;
       line-height: 1;
+      cursor: auto;
     }
 
-    .radio-label, .checkbox-label {
+    .radio-label,
+    .checkbox-label {
+      position: relative;
       display: inline-flex;
       align-items: center;
+      cursor: pointer;
     }
 
     .radio-label + .radio-label {
       margin-left: 35px;
     }
 
-    .radio-title, .checkbox-title {
-      margin-left: 15px;
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
     }
 
-    input[type="checkbox"],
-    input[type="radio"] {
+    .radio + .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background: radial-gradient(
+        circle,
+        #2E9AFF 0%,
+        #2E9AFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .checkbox {
       width: 24px;
       height: 24px;
+      opacity: 0;
+      margin-right: 15px;
     }
 
-    input[type="checkbox"],
-    input[type="checkbox"] ~ span,
-    input[type="radio"],
-    input[type="radio"] ~ span
-    {
-      opacity: 0.5;
+    .checkbox + .checkbox-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
     }
 
-    input[type="checkbox"]:checked {
-      opacity: 1;
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #2E9AFF;
     }
 
-    input[type="checkbox"]:checked ~ span {
-      opacity: 1;
-      color: #2E9AFF;
-    }
-
-    input[type="radio"]:checked {
-      opacity: 1;
-    }
-
-    input[type="radio"]:checked ~ span {
-      opacity: 1;
-      color: #2E9AFF;
+    .checkbox:checked + .checkbox-title::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: calc(50% - 6px);
+      width: 12px;
+      height: 12px;
+      rotate: 45deg;
+      border-radius: 3px;
+      background-color: #2E9AFF;
     }
 
     .select-wrapper {
       position: relative;
-      display: inline-block;
     }
 
     .select-wrapper::after {
@@ -99,21 +136,22 @@
       top: calc(50% - 4px);
       right: 15px;
       width: 14px;
-      height: 8px;
+      height: 9px;
       background-image: url("images/arrow-down.svg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100%;
+      pointer-events: none;
     }
 
     select {
       position: relative;
       width: 300px;
-      border: 1px solid #ffffff;
+      border: 1px solid #FFFFFF;
       border-radius: 6px;
       padding: 10px 15px;
-      background-color: #18191c;
-      color: #ffffff;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: inherit;
       font-size: inherit;
       font-weight: 300;
@@ -134,8 +172,8 @@
     }
 
     option:checked {
-      background-color: #FFFFFF;
-      color: #2E9AFF;
+      background-color: #2E9AFF;
+      color: #18191C;
     }
 
     @media (max-width: 768px) {
@@ -156,10 +194,6 @@
         display: block;
         margin-right: 0;
         margin-bottom: 10px;
-      }
-
-      .select-wrapper {
-        display: block;
       }
     }
   </style>
@@ -187,9 +221,9 @@
     </div>
 
     <div class="row">
-      <span class="row-title">Место назначения</span>
+      <label class="row-title" for="city">Место назначения</label>
         <div class="select-wrapper">
-          <select name="city">
+          <select name="city" id="city">
             <option value="Лондон">Лондон</option>
             <option value="Париж">Париж</option>
             <option value="Рига">Рига</option>

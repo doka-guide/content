@@ -2,67 +2,127 @@
 <html lang="ru">
 <head>
   <title>50% скругления — border-radius — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    .border-radius {
-      width: 200px;
-      height: 200px;
-      background-color: #fc34fc;
-      border-radius: 50%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .border-radius::after {
-      content: 'border-radius: 50%';
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .option-container + .option-container {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 260px;
+      margin-right: 50px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    code {
       display: block;
-      text-align: center;
-      background-color: #fff;
-      border-radius: .25em;
-      position: relative;
-      top:100%;
-      margin-top: 2em;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
-    .border-radius_view_stretched {
-      background-color: #ffd600;
+    .border-radius {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      background-color: #2E9AFF;
+    }
+
+    .border-radius--stretched {
+      background-color: #FF8630;
       width: 250px;
     }
 
-    .border-radius_view_stretched::after {
-      content: 'border-radius: 50%, но ширина теперь больше высоты'
-    }
-
-    .border-radius_view_fixed {
-      background-color: #5674ce;
+    .border-radius--fixed {
+      background-color: #F498AD;
       width: 250px;
       border-radius: 9999px;
     }
 
-    .border-radius_view_fixed::after {
-      content: 'ширина по-прежнему больше высоты, но теперь border-radius: 9999px'
-    }
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
 
-    :root {
-      height: 100vh;
-      font-size: 20px;
-      display: grid;
-      place-items: center;
-    }
+      .option-title {
+        width: 230px;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
 
-    .border-radius-box {
-      background-color: #eee;
-      padding: 1em;
-      border-radius: .5em;
-      display: grid;
-      grid-gap: 1em;
-      grid-auto-flow: column;
+      .option-container {
+        flex-direction: column;
+      }
+
+      .border-radius {
+        width: 100px;
+        height: 100px;
+      }
+
+      .border-radius--stretched {
+        width: 200px;
+      }
+
+      .border-radius--fixed {
+        width: 200px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="border-radius-box">
-  <div class="border-radius"></div>
-  <div class="border-radius border-radius_view_stretched"></div>
-  <div class="border-radius border-radius_view_fixed"></div>
+<div class="container">
+  <div class="option-container">
+    <div class="option-title">
+      <span>квадратный блок</span>
+      <code>border-radius: 50%;</code>
+    </div>
+    <div class="border-radius"></div>
+  </div>
+  <div class="option-container">
+    <div class="option-title">
+      <span>прямоугольный блок</span>
+      <code>border-radius: 50%;</code>
+    </div>
+    <div class="border-radius border-radius--stretched"></div>
+  </div>
+  <div class="option-container">
+    <div class="option-title">
+      <span>прямоугольный блок</span>
+      <code>border-radius: 9999px;</code>
+    </div>
+    <div class="border-radius border-radius--fixed"></div>
+  </div>
 </div>
 </body>
 </html>

@@ -3,6 +3,8 @@ title: "`clip`"
 description: "CSS-ножницы для превращения банальных прямоугольников в разные причудливые фигуры."
 authors:
   - lordoys
+contributors:
+  - starhamster
 keywords:
   - обрезка
   - кадрирование
@@ -17,7 +19,13 @@ tags:
 
 ## Кратко
 
-С помощью свойства `clip` можно обрезать элемент, оставив видимой только его часть.
+<aside>
+
+⚠️ Это свойство устарело. Вместо него следует использовать [`clip-path`](/css/clip-path/)
+
+</aside>
+
+С помощью свойства `clip` можно обрезать элемент, оставив видимой только его часть. Это сработает, если свойство [`position`](/css/position/) имеет значение `absolute` или `fixed`.
 
 ## Пример
 
@@ -25,11 +33,12 @@ tags:
 
 ```css
 img {
-  clip: rect(auto 220px 150px auto);
+  position: absolute;
+  clip: rect(40px, 190px, 180px, auto);
 }
 ```
 
-<iframe title="Картинки" src="demos/basic/" height="300"></iframe>
+<iframe title="Картинки" src="demos/basic/" height="350"></iframe>
 
 ## Как понять
 
@@ -51,7 +60,7 @@ img {
 
 Эта демка поможет лучше понять, как работает свойство:
 
-<iframe title="Картинка" src="demos/interactive/" height="300"></iframe>
+<iframe title="Картинка" src="demos/interactive/" height="450"></iframe>
 
 ## Подсказки
 
