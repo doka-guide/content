@@ -24,6 +24,7 @@ groups:
       - github-choose-license
       - github-add-user-to-repo
       - github-search-in-issues
+      - gihub-new-fork
       - github-clone-repo
       - github-new-pull-request
       - github-manage-pull-request
@@ -31,6 +32,7 @@ groups:
       - github-new-issue
       - github-add-readme
       - github-pages-static-site
+      - github-new-organization
       - github-add-ssh-access
   - name: 'Рутина'
     items:
