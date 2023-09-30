@@ -30,6 +30,7 @@ groups:
       - github-editing-files-in-browser
       - github-new-issue
       - github-add-readme
+      - github-new-organization
       - github-add-ssh-access
   - name: 'Рутина'
     items:
