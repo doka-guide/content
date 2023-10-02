@@ -26,6 +26,7 @@ groups:
       - aria-intro
       - aria-roles
       - aria-attrs
+      - abstract-roles
   - name: 'Другие спецификации и руководства'
     items:
       - wcag
