@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример flex-grow — Дока</title>
+  <title>Пример flex-grow — Как реально работают flex-shrink и flex-grow — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -22,7 +22,7 @@
       padding: 10px 50px 100px;
       background-color: #18191c;
       color: #ffffff;
-      font-family: "Roboto", sans-serif;
+      font-family: "Roboto Mono", monospace;
       font-size: 18px;
     }
 
@@ -30,6 +30,12 @@
       display: flex;
       width: 1200px;
       min-height: 100px;
+    }
+
+    code {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .container-item-grown {
@@ -45,8 +51,8 @@
 </head>
 <body>
   <div class="container">
-    <div class="container-item-grown">flex-grow - 2</div>
-    <div class="container-item-common">flex-grow - 1</div>
+    <code class="container-item-grown">flex-grow: 2;</code>
+    <code class="container-item-common">flex-grow: 1;</code>
   </div>
 </body>
 </html>

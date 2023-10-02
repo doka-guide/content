@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример flex-grow — Дока</title>
+  <title>Пример flex-grow — Как реально работают flex-shrink и flex-grow — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -21,6 +21,7 @@
       min-height: 100vh;
       padding: 10px 50px 100px;
       background-color: #18191c;
+      color: #ffffff;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
     }
@@ -30,16 +31,18 @@
       width: 1200px;
     }
 
+    .container > div {
+      padding: 25px;
+    }
+
     .container-item-grown {
       background-color: #2E9AFF;
       flex-grow: 2;
-      flex-basis: 800px;
     }
 
     .container-item-common {
       background-color: #F498AD;
       flex-grow: 1;
-      flex-basis: 400px;
     }
   </style>
 </head>
