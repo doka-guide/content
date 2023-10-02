@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример flex-grow — Как реально работают flex-shrink и flex-grow — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 10px 50px 100px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto Mono", monospace;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      width: 1200px;
+      min-height: 100px;
+    }
+
+    code {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-item-grown {
+      background-color: #2E9AFF;
+      flex-grow: 2;
+    }
+
+    .container-item-common {
+      background-color: #F498AD;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <code class="container-item-grown">flex-grow: 2;</code>
+    <code class="container-item-common">flex-grow: 1;</code>
+  </div>
+</body>
+</html>
