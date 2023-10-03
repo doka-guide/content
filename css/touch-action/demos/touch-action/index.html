@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>None vs. Auto — touch-action — Дока</title>
+  <title>Демонстрация разницы значений — touch-action — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -37,18 +38,32 @@
       font-family: "Roboto Mono", monospace;
     }
 
-    h2 {
-      font-size: 1.375rem;
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
     }
 
-    h3 {
-      margin-block: 50px 17px;
-      font-size: 1.25rem;
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
     }
 
-    h2, h3 {
+    h1, .option-title {
+      width: 260px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    h1 {
+      font-size: 30px;
       font-weight: 500;
-      text-align: center;
+      line-height: 1;
+    }
+
+    .option-hint {
+      font-size: calc(1em - 2px);
+      font-style: italic;
     }
 
     .touch-auto {
@@ -60,38 +75,62 @@
     }
 
     .map {
-      width: 250px;
+      width: 350px;
       height: 250px;
       overflow: scroll;
       position: relative;
-      margin: auto;
-      margin-bottom: 15px;
     }
 
     .map img {
-      width: 800px;
-      height: 346px;
-    } 
+      width: 640px;
+      height: 425px;
+    }
 
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      h1 {
+        width: 100%;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+
+      .map {
+        width: 300px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>touch-action в действии</h2>
-    <h3>Дефолное поведение: <code>touch-action: auto;</code></h3>
-    <div class="map touch-auto">
-      <img src='./images/map.png' alt='карта'>
+    <h1>touch-action</h1>
+    <div class="option-container">
+      <div class="option-title">
+        <code>touch-action: auto;</code>
+        <span class="option-hint">Дефолтное поведение</span>
+      </div>
+      <div class="map touch-auto">
+        <img src="./images/map.jpg" alt="Карта мира">
+      </div>
     </div>
-
-    <h3>А теперь отключим обработку прикосновений по умолчанию (нужно сенсорное
-      устройство, чтобы увидеть разницу): <code>touch-action: none;</code></h3>
-    <div class="map touch-none">
-      <img src='./images/map.png' alt='карта'>
+    <div class="option-container">
+      <div class="option-title">
+        <code>touch-action: none;</code>
+        <span class="option-hint">Обработка прикосновений по умолчанию отключена<br>
+          (нужно сенсорное устройство)</span>
+      </div>
+      <div class="map touch-none">
+        <img src="./images/map.jpg" alt="Карта мира">
+      </div>
     </div>
   </div>
 </body>
