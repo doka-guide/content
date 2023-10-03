@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Октябрь 2023
+
+3 октября, [Как реально работают `flex-shrink` и `flex-grow`](https://doka.guide/css/flex-grow-shrink/), Юля Опёнышева
+
 ## Сентябрь 2023
 
 - 30 сентября, [Как создать организацию на GitHub](https://doka.guide/recipes/github-new-organization/), Игорь Коровченко
