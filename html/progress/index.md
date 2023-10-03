@@ -82,5 +82,11 @@ tags:
 </label>
 
 <!-- Подпись с aria-label -->
-<progress id="progress" value="0" max="100" aria-label="Загрузка файла"></progress>
+<progress
+  id="progress"
+  value="0"
+  max="100"
+  aria-label="Загрузка файла"
+>
+</progress>
 ```
