@@ -59,7 +59,7 @@ const el = document.getElementById('element')
 
 // Включаем will-change при наведении курсора на элемент
 el.addEventListener('mouseenter', hintBrowser)
-el.addEventListener('animationEnd', removeHint)
+el.addEventListener('transitionend', removeHint)
 
 function hintBrowser() {
   // Свойства, которые будут изменяться в блоке
