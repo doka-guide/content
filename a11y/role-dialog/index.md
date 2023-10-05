@@ -1,6 +1,6 @@
 ---
 title: "`dialog`"
-description: "Как сделать кастомное диалоговое окно."
+description: "Как сделать кастомное диалоговое окно так, чтобы вас поняли даже скринридеры."
 authors:
   - agarkov
 contributors:
@@ -10,7 +10,7 @@ keywords:
   - диалог
   - модалка
 related:
-  - a11y/aria-roles
+  - a11y/aria-modal
   - a11y/role-alertdialog
   - html/dialog
 tags:
@@ -19,9 +19,7 @@ tags:
 
 ## Кратко
 
-[Роль окна](/a11y/aria-roles/#roli-okon) `dialog` используется для диалогового окна на странице.
-
-В HTML эта роль есть у [`<dialog>`](/html/dialog/) по умолчанию.
+[Роль окна](/a11y/aria-roles/#roli-okon) `dialog` используется для диалоговых окон. В HTML эта роль есть у [`<dialog>`](/html/dialog/) по умолчанию.
 
 В вебе используют два типа диалоговых окон:
 
@@ -76,6 +74,10 @@ tags:
 С ролью `dialog` можно сочетать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy).
 
 [Пример модального диалогового окна](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) в Руководстве по авторским ARIA-практикам (APG).
+
+### Особенности использования
+
+В `dialog` встроен атрибут [`aria-live`](/a11y/aria-live/) со значением `assertive`. Из-за этого скринридеры сразу же читают содержимое окна, когда оно появляется на странице.
 
 ### Управление фокусом
 
