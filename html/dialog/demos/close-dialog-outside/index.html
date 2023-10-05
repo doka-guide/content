@@ -135,28 +135,28 @@
       target: button
     }) {
       const dialogID = button.getAttribute("aria-controls");
-      const dialogElement = document.querySelector(`#${dialogID}`);
-      dialogElement.show();
+      const dialogElement = document.querySelector(`#${dialogID}`)
+      dialogElement.show()
 
       setTimeout(() => {
-        document.addEventListener("click", closeDialogOnOutsideClick);
+        document.addEventListener("click", closeDialogOnOutsideClick)
         dialogElement.addEventListener("close", () =>
           document.removeEventListener("click", closeDialogOnOutsideClick)
-        );
-      }, 100);
+        )
+      }, 100)
 
       function closeDialogOnOutsideClick({
         target
       }) {
-        const isClickOnDialog = target === dialogElement;
-        const isClickOnDialogChildrenNodes = dialogElement.contains(target);
+        const isClickOnDialog = target === dialogElement
+        const isClickOnDialogChildrenNodes = dialogElement.contains(target)
 
         const isClickOutsideOfDialog = !(
           isClickOnDialog || isClickOnDialogChildrenNodes
         );
 
         if (isClickOutsideOfDialog) {
-          dialogElement.close();
+          dialogElement.close()
         }
       }
     }

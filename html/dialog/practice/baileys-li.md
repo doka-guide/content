@@ -29,7 +29,7 @@ function returnScroll() {
 }
 ```
 
-<iframe title="Блокируем срколл при открытии модальных окон" src="../demos/scroll-lock/" height="320"></iframe>
+<iframe title="Блокируем скролл при открытии модальных окон" src="../demos/scroll-lock/" height="320"></iframe>
 
 #### Закрываем по клику на `::backdrop`
 
