@@ -5,6 +5,10 @@ authors:
   - agarkov
 contributors:
   - tatianafokina
+keywords:
+  - a11y
+  - диалог
+  - модалка
 related:
   - a11y/aria-roles
   - a11y/role-alertdialog
