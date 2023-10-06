@@ -4,6 +4,7 @@
 
 ## Октябрь 2023
 
+6 октября, [Атрибут `inert`](https://doka.guide/html/inert/), Татьяна Фокина
 5 октября, [Что такое изменяющаяся область](https://doka.guide/a11y/live-region/), Татьяна Фокина
 5 октября, [`touch-action`](https://doka.guide/css/touch-action/), Борис Ермаченко
 3 октября, [Как реально работают `flex-shrink` и `flex-grow`](https://doka.guide/css/flex-grow-shrink/), Юля Опёнышева
