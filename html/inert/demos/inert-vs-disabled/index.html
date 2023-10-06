@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение disabled и inert — Атрибут inert — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      gap: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 0 0 15px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container, .row {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      gap: 50px;
+    }
+
+    .row {
+      align-items: start;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h2>Область с <code>inert</code> без стилей</h2>
+      <div inert>
+        <p>Текст, который видят, но не слышат и не могут скопировать.</p>
+        <button class="button button-orange">Неактивная кнопка</button>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Кнопка с <code>disabled</code> без стилей</h2>
+      <button class="button button-orange" disabled>Неактивная кнопка</button>
+    </div>
+  </div>
+</body>
+</html>

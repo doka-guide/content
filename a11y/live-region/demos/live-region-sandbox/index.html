@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — Что такое изменяющаяся область — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .row + .row {
+      margin-top: 50px;
+    }
+
+    .row--column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row--center {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .row-label {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .row-title {
+      width: 220px;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      cursor: auto;
+    }
+
+    .radio-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-label + .radio-label {
+      margin-left: 35px;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio + .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #10F3AF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background: radial-gradient(
+        circle,
+        #10F3AF 0%,
+        #10F3AF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 9px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      pointer-events: none;
+    }
+
+    select {
+      position: relative;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid #10F3AF;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    option:checked {
+      background-color: #10F3AF;
+      color: #18191C;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    code {
+      background-color: inherit;
+      color: #FFFFFF;
+      border-radius: 5px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .live-region {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-width: 650px;
+      padding: 20px;
+      gap: 10px;
+      border: 1px solid white;
+      border-radius: 6px;
+    }
+
+    .live-region__content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .live-region__item {
+      width: 50px;
+      height: 50px;
+      padding: 8px 8px;
+      line-height: 2;
+      background: #F498AD;
+      text-align: center;
+      border-radius: 2px;
+      color: #000000;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button-small {
+      min-width: 150px;
+      padding: 5px 10px;
+    }
+
+    .status-message {
+      height: 22px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .row-title, select {
+        width: 100%;
+        min-width: 280px;
+      }
+
+      .row-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .button, .radio {
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <fieldset class="row">
+        <legend class="row-label">
+          ARIA-роли
+        </legend>
+        <div class="row">
+          <label class="radio-label">
+            <input class="radio" type="radio" name="role" value="status">
+            <span class="radio-title">
+              <code>status</code>
+            </span>
+          </label>
+          <label class="radio-label">
+            <input class="radio" type="radio" name="role" value="alert">
+            <span class="radio-title">
+              <code>alert</code>
+            </span>
+          </label>
+          <label class="radio-label">
+            <input class="radio" type="radio" name="role" value="log">
+            <span class="radio-title">
+              <code>log</code>
+            </span>
+          </label>
+          <label class="radio-label">
+            <input class="radio" type="radio" name="role" value="timer">
+            <span class="radio-title">
+              <code>timer</code>
+            </span>
+          </label>
+          <label class="radio-label">
+            <input class="radio" type="radio" name="role" value="marquee">
+            <span class="radio-title">
+              <code>marquee</code>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="row row--column">
+        <legend class="row-label">
+          ARIA-атрибуты
+        </legend>
+
+        <div class="row">
+          <label class="row-title" for="live">
+            <code>aria-live</code>
+          </label>
+          <div class="select-wrapper">
+            <select name="aria-live" id="live">
+              <option value="none">не выбрано</option>
+              <option value="off">off</option>
+              <option value="assertive">assertive</option>
+              <option value="polite">polite</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="row-title" for="atomic">
+            <code>aria-atomic</code>
+          </label>
+          <div class="select-wrapper">
+            <select name="aria-atomic" id="atomic">
+              <option value="none">не выбрано</option>
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="row-title" for="relevant">
+            <code>aria-relevant</code>
+          </label>
+          <div class="select-wrapper">
+            <select name="aria-relevant" id="relevant">
+              <option value="none">не выбрано</option>
+              <option value="text">text</option>
+              <option value="additions">additions</option>
+              <option value="removals">removals</option>
+              <option value="all">all</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="row-title" for="busy">
+            <code>aria-busy</code>
+          </label>
+          <div class="select-wrapper">
+            <select name="aria-busy" id="busy">
+              <option value="none">не выбрано</option>
+              <option value="false">false</option>
+              <option value="true">true</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="row row--center">
+        <button class="button button-aqua" type="button" id="set-button" aria-controls="output">Применить 🚀</button>
+        <button class="button button-aqua" type="reset" id="reset-button" >Сбросить 🧹</button>
+      </div>
+
+      <div class="status-message"></div>
+    </form>
+
+    <div class="row row--column">
+      <h2 class="row-label">Область для тестирования со скринридерами</h2>
+      <div class="live-region">
+        <div class="row row--center">
+          <button class="button button-aqua button-small" id="add-button">Добавить</button>
+          <button class="button button-aqua button-small" id="delete-button">Удалить</button>
+        </div>
+        <p>Под этим текстом добавляются или удаляются карточки с цифрами при нажатии на кнопки «Добавить» и «Удалить».</p>
+        <div class="live-region__content">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const liveRegion = document.querySelector('.live-region')
+    const liveRegionContent = document.querySelector('.live-region__content')
+    const liveRegionItemName = 'live-region__item'
+    const radioButton = document.getElementsByName('role')
+    const setButton = document.getElementById('set-button')
+    const resetButton = document.getElementById('reset-button')
+    const addButton = document.getElementById('add-button')
+    const deleteButton = document.getElementById('delete-button')
+    const statusMessage = document.querySelector('.status-message')
+
+    let itemNumber = 1
+
+    addButton.addEventListener('click', function() {
+      const element = document.createElement('article')
+
+      element.className = liveRegionItemName
+      element.innerHTML = itemNumber++
+      liveRegionContent.appendChild(element)
+    })
+
+    deleteButton.addEventListener('click', function() {
+      const element = liveRegionContent.lastElementChild
+
+      if (element && element.classList.contains(liveRegionItemName)) {
+        liveRegionContent.removeChild(element);
+      }
+
+      if (liveRegionContent.childElementCount === 0) {
+        itemNumber = 1
+      }
+    })
+
+    setButton.addEventListener('click', function() {
+      const selectLive = document.getElementById('live')
+      const selectAtomic = document.getElementById('atomic')
+      const selectRelevant = document.getElementById('relevant')
+      const selectBusy = document.getElementById('busy')
+
+      radioButton.forEach(function(radio) {
+        if(radio.checked) {
+          let selectedValue = radio.value
+          liveRegion.setAttribute('role', selectedValue)
+          statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
+        }
+      })
+
+      setSelectAttribute(liveRegion, selectLive)
+      setSelectAttribute(liveRegion, selectAtomic)
+      setSelectAttribute(liveRegion, selectRelevant)
+      setSelectAttribute(liveRegion, selectBusy)
+    })
+
+    const setSelectAttribute = (element, select) => {
+      let selectedValue = select.value
+
+      if(selectedValue !== 'none') {
+        element.setAttribute(`${select.name}`, selectedValue)
+        statusMessage.textContent = 'Настройки применились. Блок стал изменяющейся областью.'
+      } else {
+        element.removeAttribute(`${select.name}`, selectedValue)
+      }
+    }
+
+    resetButton.addEventListener('click', function() {
+      const attributesList = [
+        'role',
+        'aria-live',
+        'aria-relevant',
+        'aria-busy',
+        'aria-atomic'
+      ]
+
+      const hadAttribute = attributesList.some(attr => liveRegion.hasAttribute(attr))
+
+      if(hadAttribute) {
+        attributesList.forEach(attr => {
+          liveRegion.removeAttribute(attr)
+        })
+
+        statusMessage.textContent = 'Настройки очищены. Блок ниже больше не изменяющаяся область.'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,49 +1,75 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>details + summary — Дока</title>
+  <title>Базовый пример с details и summary — <details>, <summary> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
       color: #000000;
-      font-size: 24px;
       font-family: "Roboto", sans-serif;
     }
 
-    summary {
-      background-color: lightpink;
-      padding: 10px 15px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    details {
-      background-color: #f9cdd4;
-    }
-
     p {
-      padding: 20px;
-      margin: 0;
-      line-height: 1.6;
-      font-size: 16px;
+      padding: 15px 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+    }
+
+    summary {
+      background-color: #FF8630;
+      padding: 10px 15px;
+      font-size: 1em;
     }
 
     summary::marker {
       color: #000000;
     }
+
+    details {
+      background-color: #ffd2b2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <details>
-    <summary>Жмакнуть</summary>
-    <p><b>Сквиш</b> — это мягкая и приятная на ощупь игрушка. В продаже есть сквиши самых разных форм: в виде фруктов, тортиков, животных, придуманных персонажей и так далее. Сквиши приятно мять в руках, из-за чего их ещё называют игрушками-антистресс. «Жмаканье» в руках сквиша помогает снять напряжение, избавиться от стресса.</p>
-  </details>
+  <div class="container">
+    <details>
+      <summary>Жмакнуть</summary>
+      <p><b>Сквиш</b> — это мягкая и приятная на ощупь игрушка. В продаже есть сквиши самых разных форм: в виде фруктов, тортиков, животных, придуманных персонажей и так далее. Сквиши приятно мять в руках, из-за чего их ещё называют игрушками-антистресс. «Жмаканье» в руках сквиша помогает снять напряжение, избавиться от стресса.</p>
+    </details>
+  </div>
 </body>
 </html>

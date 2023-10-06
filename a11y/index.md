@@ -5,6 +5,7 @@ groups:
     items:
       - chto-takoe-a11y
       - a11y-html
+      - accessible-forms
       - content-hidden
       - how-to-describe-pictures
   - name: 'Вспомогательные технологии'
@@ -66,11 +67,12 @@ groups:
       - role-form
       - role-search
       - role-contentinfo
-  - name: '«Живые» области'
+  - name: 'Изменяющиеся области'
     items:
+      - live-region
       - role-status
-      - role-alert
       - role-log
+      - role-alert
       - role-marquee
       - role-timer
       - aria-live

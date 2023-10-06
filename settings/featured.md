@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/box-shadow
-  - tools/ci-cd
-  - js/function-context
-  - html/img
-  - css/box-model
-  - tools/network
-  - css/display
-  - tools/agile
-  - tools/how-the-browser-creates-pages
-  - css/grid-guide
-  - html/doctype
-  - css/attr
-  - html/head
-  - html/form
-  - css/position
-  - a11y/aria-hidden
-  - js/boolean
-  - js/infinite-scroll
-  - html/input
-  - recipes/snow
-  - tools/gitlab-ci-cd
-  - tools/bundlers
-  - tools/static-types
-  - html/nav
-  - tools/oop
-  - html/section
-  - css/keyframes
-  - js/closures
   - css/pseudoelements
-  - a11y/aria-intro
-  - html/div
-  - tools/clean-architecture
-  - css/specificity
-  - tools/cli
-  - recipes/progress
-  - tools/how-to-test-and-why
-  - js/execution-order
-  - tools/docker
-  - a11y/screenreaders
-  - tools/webpack
-  - html/flow
-  - recipes/lets-encrypt-nginx
-  - js/function
-  - html/video
+  - js/infinite-scroll
+  - tools/bundlers
+  - css/attr
   - css/custom-properties
-  - css/transform-function
-  - js/var-let
-  - css/media
-  - tools/markdown
-  - js/async-in-js
-  - js/deal-with-forms
+  - a11y/screenreaders
   - html/article
+  - html/img
+  - tools/gitlab-ci-cd
+  - css/box-model
+  - css/box-shadow
+  - tools/webpack
+  - html/form
+  - recipes/snow
+  - js/function-context
+  - css/transform-function
   - css/flexbox-guide
+  - tools/agile
+  - css/specificity
+  - html/div
+  - recipes/progress
+  - js/var-let
+  - tools/how-to-test-and-why
+  - html/doctype
+  - a11y/aria-hidden
+  - css/media
+  - tools/clean-architecture
+  - tools/ci-cd
+  - html/input
+  - recipes/lets-encrypt-nginx
+  - html/head
+  - css/display
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - js/async-in-js
+  - js/function
+  - js/boolean
+  - js/deal-with-forms
+  - html/flow
+  - css/grid-guide
+  - tools/network
+  - tools/markdown
+  - tools/docker
+  - css/position
+  - tools/static-types
+  - tools/oop
+  - js/closures
+  - html/nav
+  - tools/cli
+  - js/execution-order
+  - html/section
+  - a11y/aria-intro
+  - html/video
 ---
 

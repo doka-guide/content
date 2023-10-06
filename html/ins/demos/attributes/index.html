@@ -6,38 +6,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
-      min-height: 100%;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      padding: 40px;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      color: white;
-      font-size: 24px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    h4 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.125rem;
+      align-self: flex-start;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #FF8630;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <h4>Сдача проекта</h4>
-  <ul>
-    <li><del>Созвониться с подрядчиком по поводу актов</del></li>
-    <li><ins cite="https://our-cool-customers.com/reports/upload">Выгрузить отчёт в сервис заказчика</ins></li>
-    <li><ins datetime="2021-12-21T11:00Z">Ещё раз позвонить подрядчику и напомнить про акты</ins>(21.12.2021, 15:00:00)</li>
-  </ul>
+  <div>
+    <h4>Сдача проекта</h4>
+    <ul>
+      <li><del>Созвониться с подрядчиком по поводу актов</del></li>
+      <li><ins cite="https://our-cool-customers.com/reports/upload">Выгрузить отчёт в сервис заказчика</ins></li>
+      <li><ins datetime="2021-12-21T11:00Z">Ещё раз позвонить подрядчику и напомнить про акты</ins> (21.12.2021, 15:00:00)</li>
+    </ul>
+  </div>
 </body>
 </html>
