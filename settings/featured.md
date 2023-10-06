@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - recipes/lets-encrypt-nginx
-  - js/execution-order
-  - js/var-let
-  - css/custom-properties
-  - tools/oop
-  - html/div
-  - html/img
-  - js/function
-  - css/transform-function
-  - a11y/aria-intro
-  - css/grid-guide
-  - js/boolean
-  - html/form
-  - tools/how-the-browser-creates-pages
-  - tools/how-to-test-and-why
-  - css/box-model
-  - css/display
-  - css/position
-  - recipes/snow
-  - tools/ci-cd
-  - js/async-in-js
-  - html/section
-  - html/head
-  - css/box-shadow
-  - tools/network
-  - tools/static-types
   - css/pseudoelements
-  - js/closures
-  - a11y/screenreaders
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - css/keyframes
-  - js/function-context
-  - html/video
-  - css/media
-  - tools/docker
-  - tools/gitlab-ci-cd
-  - css/attr
-  - tools/clean-architecture
-  - tools/webpack
-  - html/flow
-  - a11y/aria-hidden
   - js/infinite-scroll
-  - tools/cli
+  - tools/bundlers
+  - css/attr
+  - css/custom-properties
+  - a11y/screenreaders
   - html/article
-  - recipes/progress
-  - html/doctype
-  - html/nav
+  - html/img
+  - tools/gitlab-ci-cd
+  - css/box-model
+  - css/box-shadow
+  - tools/webpack
+  - html/form
+  - recipes/snow
+  - js/function-context
+  - css/transform-function
+  - css/flexbox-guide
   - tools/agile
   - css/specificity
-  - tools/markdown
+  - html/div
+  - recipes/progress
+  - js/var-let
+  - tools/how-to-test-and-why
+  - html/doctype
+  - a11y/aria-hidden
+  - css/media
+  - tools/clean-architecture
+  - tools/ci-cd
   - html/input
-  - tools/bundlers
+  - recipes/lets-encrypt-nginx
+  - html/head
+  - css/display
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - js/async-in-js
+  - js/function
+  - js/boolean
+  - js/deal-with-forms
+  - html/flow
+  - css/grid-guide
+  - tools/network
+  - tools/markdown
+  - tools/docker
+  - css/position
+  - tools/static-types
+  - tools/oop
+  - js/closures
+  - html/nav
+  - tools/cli
+  - js/execution-order
+  - html/section
+  - a11y/aria-intro
+  - html/video
 ---
 
