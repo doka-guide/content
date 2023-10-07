@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница - пример спрайта</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .sprite-demo__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px
+    }
+    
+    .sprite-demo__btn {
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+
+      width: 24px;
+      height: 24px;
+
+      padding: 8px;
+      background-color: rgb(255, 255, 255);
+      border: none;
+      
+      background-image: url('stack.svg#cat');
+    }
+
+    .sprite-demo__btn:hover,
+    .sprite-demo__btn:focus {
+      background-image: url('stack.svg#dog');
+    }
+  </style>
+</head>
+<body>
+  <main class="sprite-demo">
+    <section class="sprite-demo__container">
+      <span class="sprite-demo__heading">Наведите курсор на иконку</span>
+      <button class="sprite-demo__btn"></button>
+  </main>
+</body>
+</html>
