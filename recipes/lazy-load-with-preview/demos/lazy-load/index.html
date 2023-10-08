@@ -22,18 +22,32 @@
 
     .lazy-image {
       width: 300px;
-      height: 300px;
+      height: 250px;
       background: no-repeat;
       background-size: cover;
-      background-color: #C56FFF;
+      filter: blur(20px);
     }
   </style>
 </head>
 <body>
   <img
-    loading="lazy"
+    src="images/lazy-frog-small.jpg"
+    data-src="images/lazy-frog-large.jpg"
+    alt="Лягушка"
     class="lazy-image"
-    src="images/lazy-cat.jpg"
-  />
+    id="progressive-image"
+  >
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const progressiveImage = document.getElementById("progressive-image")
+
+        const lowResImage = new Image()
+        lowResImage.src = progressiveImage.src
+        lowResImage.onload = function() {
+            progressiveImage.src = progressiveImage.getAttribute("data-src")
+            progressiveImage.style.filter = "none"
+        }
+    })
+  </script>
 </body>
 </html>
