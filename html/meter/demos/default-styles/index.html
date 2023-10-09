@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -16,6 +16,7 @@
 
     html {
       color-scheme: dark;
+      font-size: 16px;
     }
 
     body {
@@ -30,14 +31,22 @@
       font-family: "Roboto", sans-serif;
     }
 
+    .code {
+      display: inline-block;
+      padding: 8px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      font-family: "Roboto Mono", monospace;
+    }
+
     .meter {
       display: block;
-      width: 280px;
+      width: 300px;
       height: 50px;
     }
 
-    .meter + .meter {
-      margin-top: 25px;
+    .meter + .code {
+      margin-top: 30px;
     }
 
     @media (max-width: 768px) {
@@ -52,12 +61,27 @@
   </style>
 </head>
 <body>
-  <meter class="meter" min="1" max="10"></meter>
-  <meter class="meter" min="1" max="10" low="2" value="3"></meter>
-  <meter class="meter" min="1" max="10" low="2" high="5" optimum="8" value="3"></meter>
-  <meter class="meter" min="1" max="10" value="5"></meter>
-  <meter class="meter" low=".25" optimum=".15" high=".75" value=".5"></meter>
-  <meter class="meter" low=".25" optimum=".2" high=".75" value=".8"></meter>
-  <meter class="meter" value="1"></meter>
+  <div>
+    <code class="code">min="1" max="10"</code>
+    <meter class="meter" min="1" max="10"></meter>
+
+    <code class="code">min="1" max="10" low="2" value="3"</code>
+    <meter class="meter" min="1" max="10" low="2" value="3"></meter>
+
+    <code class="code">min="1" max="10" low="2" high="5" optimum="8" value="3"</code>
+    <meter class="meter" min="1" max="10" low="2" high="5" optimum="8" value="3"></meter>
+
+    <code class="code">min="1" max="10" value="5"</code>
+    <meter class="meter" min="1" max="10" value="5"></meter>
+
+    <code class="code">low=".25" optimum=".15" high=".75" value=".5"</code>
+    <meter class="meter" low=".25" optimum=".15" high=".75" value=".5"></meter>
+
+    <code class="code">low=".25" optimum=".2" high=".75" value=".8"</code>
+    <meter class="meter" low=".25" optimum=".2" high=".75" value=".8"></meter>
+
+    <code class="code">value="1"</code>
+    <meter class="meter" value="1"></meter>
+  </div>
 </body>
 </html>
