@@ -3,6 +3,8 @@ title: "Атрибут `multiple`"
 description: "Позволяет выбрать несколько значений или файлов."
 authors:
   - inventoris
+contributors:
+  - tatianafokina
 keywords:
   - множественный выбор
 related:
@@ -31,7 +33,7 @@ tags:
 </select>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="350"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
 
 ## Как пишется
 
@@ -56,7 +58,7 @@ tags:
 </datalist>
 ```
 
-<iframe title="Использование атрибута multiple для множественного выбора имейлов" src="demos/multiple-input-email/" height="200"></iframe>
+<iframe title="Множественный выбор имейлов" src="demos/multiple-input-email/" height="300"></iframe>
 
 Создадим `<input>` с атрибутом `multiple`, но теперь для возможности закачать несколько файлов.
 
@@ -64,4 +66,10 @@ tags:
 <input type="file" multiple>
 ```
 
-<iframe title="Использование атрибута multiple для множественного выбора файлов" src="demos/multiple-input-files/" height="200"></iframe>
+<iframe title="Множественный выбор файлов" src="demos/multiple-input-files/" height="210"></iframe>
+
+### Доступность
+
+В [ARIA](/a11y/aria-intro/) есть атрибут [`aria-multiselectable`](/a11y/aria-multiselectable/). Он тоже нужен для выбора нескольких опций или файлов.
+
+Старайтесь всегда использовать `multiple`. `aria-multiselectable` поможет в сложных ситуациях, когда создаёте кастомные элементы.
