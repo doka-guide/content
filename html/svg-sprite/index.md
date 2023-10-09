@@ -75,14 +75,14 @@ SVG-спрайт — это файл, получаемый в результат
 
 ```css
 .social-icon {
-	background-color: black;
+  background-color: black;
   fill: white;
   transition: fill 0.3s ease-in-out;
 }
 
 .social-icon:hover,
 .social-icon:focus {
-  fill: rgb(160, 123, 80);
+  fill: rgb(160 123 80);
 }
 ```
 
