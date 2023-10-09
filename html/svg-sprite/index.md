@@ -8,7 +8,7 @@ keywords:
   - векторная графика
 related:
   - html/svg
-  - css/fill/
+  - css/fill
   - tools/http-protocol
 tags:
   - doka
