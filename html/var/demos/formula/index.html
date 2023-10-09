@@ -6,39 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
-      min-height: 100%;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
-      font-size: 24px;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
     p {
-      width: 100%;
-      text-align: center;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    Одна из наиболее известных формул в физике была сформулирована Альбертом Эйнштейном:<br>
+  <div class="container">
+    <p>Одна из наиболее известных формул в физике была сформулирована Альбертом Эйнштейном:<br>
     <var>E</var> = <var>m</var> × <var>c<sup>2</sup></var>
-  </p>
+  </div>
 </body>
 </html>
