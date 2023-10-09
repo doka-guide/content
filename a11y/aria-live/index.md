@@ -23,6 +23,7 @@ tags:
 
 [Свойство изменяющихся областей](/a11y/aria-attrs/#atributy-izmenyayushchihsya-oblastey) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Делает часть страницы live region или «живой» областью. Благодаря этому вспомогательные технологии узнают обо всех изменениях в ней.
 
+
 ## Пример
 
 ```html
