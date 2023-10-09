@@ -7,33 +7,56 @@
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-      background-color: #18191C;
-      color: #FFFFFF;
+    html {
+      color-scheme: dark;
       font-size: 24px;
     }
 
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+    }
+
     code {
-      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      line-height: 1.4;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <code>
-    const element = document.getElementById('#some-id')
-  </code>
+  <div class="container">
+    <code>
+      const element = document.getElementById('some-id')
+    </code>
+  </div>
 </body>
 </html>
