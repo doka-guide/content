@@ -43,7 +43,8 @@ SVG-спрайт — это файл, получаемый в результат
 	...
 </svg>
 ```
-Далее каждая SVG иконка помешается внутрь тега [`<symbol>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), который предоставляет возможность группировать элементы. При этом данные объекты не отображаются до тех пор пока на них не будут ссылаться при помощи тега [`<use>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use).
+
+Далее каждая SVG-иконка помешается внутрь тега [`<symbol>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/symbol), который предоставляет возможность группировать элементы. При этом данные объекты не отображаются до тех пор пока на них не будут ссылаться при помощи тега [`<use>`](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/use).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
