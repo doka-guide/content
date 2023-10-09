@@ -27,7 +27,7 @@ tags:
 
 Попробуйте изменить размер родительского элемента чтобы увидеть как работает тег `<wbr>`.
 
-<iframe title="Переносы текста" src="demos/usage-example/" height="350"></iframe>
+<iframe title="Переносы текста" src="demos/usage-example/" height="400"></iframe>
 
 ## Как пишется
 
@@ -47,7 +47,7 @@ tags:
 
 Просто не думайте обо всех ситуациях в которых может оказаться твой кусок текста. Расставьте `<wbr>` везде где считаете возможным, а дальше браузер сам сделает красиво в зависимости от ситуации.
 
-<iframe title="Переносы текста" src="demos/diffrent-screens/" height="1055"></iframe>
+<iframe title="Переносы текста" src="demos/diffrent-screens/" height="1000"></iframe>
 
 Тег `<wbr>` поддерживает [глобальные атрибуты](/html/global-attrs/) и [события](/js/events/).
 
