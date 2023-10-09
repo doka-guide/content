@@ -24,31 +24,42 @@ tags:
 ## Пример
 
 ```html
-<button type="button" id="menubutton" aria-controls="real-menu" aria-haspopup="true">
-  Настройки профиля <span class="chevron-icon"></span>
-</button>
-<ul role="menu" id="real-menu" aria-labelledby="menubutton">
-  <li role="menuitem" data-selector-id="editProfile">
-    Редактировать профиль
-  </li>
-  <li role="menuitem" data-selector-id="showNotification">
-    Посмотреть уведомления
-  </li>
-</ul>
+<div role="menubar" class="menu">
+  <button role="menuitem" type="button" class="menu__button" aria-expanded="false" aria-controls="popup" aria-haspopup="menu">
+    Настройки профиля
+    <span class="menu__button__arrow"></span>
+  </button>
+  <ul role="menu" class="menu__popup" id="popup">
+    <li role="menuitem" class="menu__popup__item">
+      Добавить почту
+    </li>
+    <li role="menuitem" class="menu__popup__item">
+      Сменить пароль
+    </li>
+  </ul>
+  <button role="menuitem" class="menu__button" type="button">
+    Уведомления
+  </button>
+  <button role="menuitem" class="menu__button" type="button">
+    Выйти из профиля
+  </button>
+</div>
+
+
 ```
 
 ## Как пишется
 
-Добавьте к тегу атрибут `aria-haspopup` с одним из значений:
+Добавьте к тегу или [ARIA-роли](/a11y/aria-roles/) атрибут `aria-haspopup` с одним из значений:
 
 - `false` (по умолчанию) — у элемента нет попапа.
-- `true`, `menu` — у элемента попап с ролью [`menu`](/a11y/role-menu/).
-- `listbox` — у элемента попап с ролью [`listbox`](/a11y/role-listbox/).
-- `tree` — у элемента попап с ролью [`tree`](/a11y/role-tree/).
-- `grid` — у элемента попап с ролью [`grid`](/a11y/role-grid/).
-- `dialog` — у элемента попап с ролью [`dialog`](/a11y/role-dialog/).
+- `true`, `menu` — попап с ролью «настоящего» меню [`menu`](/a11y/role-menu/).
+- `listbox` — попап с ролью выпадающего списка [`listbox`](/a11y/role-listbox/).
+- `tree` — попап с ролью древовидного списка [`tree`](/a11y/role-tree/).
+- `grid` — попап с ролью сетки [`grid`](/a11y/role-grid/).
+- `dialog` — попап с ролью модального окна [`dialog`](/a11y/role-dialog/).
 
-Значение `aria-haspopup` должно совпадать с ролью попапа.
+Значение `aria-haspopup` должно совпадать с ролью попапа. Этот атрибут *не подходит* для тултипов и простой навигации по сайту со ссылками на другие страницы.
 
 Атрибут можно использовать только для некоторых тегов и ролей:
 
@@ -65,6 +76,4 @@ tags:
 
 ## Как понять
 
-`aria-haspopup` нужен для сложных элементов, которые раскрывают попап — блок с содержимым, который появляется поверх всего остального на странице. У таких элементов есть визуальный указатель на то, что они открывают попап. Это может быть иконка с треугольником, стрелкой или точками или линиями как в бургерном меню.
-
-Этот атрибут *не подходит* для тултипов и простой навигации по сайту со ссылками на другие страницы.
+`aria-haspopup` нужен для сложных элементов, которые раскрывают _попап_ — блок с содержимым, который появляется поверх остального на странице. У таких элементов есть визуальный указатель на то, что они открывают попап. Это может быть иконка с треугольником, стрелкой или точками или линиями как в бургерном меню.

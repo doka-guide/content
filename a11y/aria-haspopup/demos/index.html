@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Меню — aria-haspopup — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .menu {
+      position: relative;
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu__button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 5px 10px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      text-align: center;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .menu__button__avatar {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-image: url(images/avatar.svg);
+      background-repeat: no-repeat;
+      border: 1px solid #000000;
+      border-radius: 50%;
+    }
+
+    .menu__button__arrow--down {
+      display: inline-block;
+      border-right: 3px solid #000000;
+      border-bottom: 3px solid #000000;
+      width: 10px;
+      height: 10px;
+      transform: rotate(-315deg);
+    }
+
+    .menu__button__cross {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-image: url(images/plus.svg);
+      background-repeat: no-repeat;
+    }
+
+    .menu__button__bell {
+      display: inline-block;
+      width: 27px;
+      height: 30px;
+      background-image: url(images/bell.svg);
+      background-repeat: no-repeat;
+    }
+
+    .menu__popup {
+      position: absolute;
+      top: 60px;
+      left: -26px;
+      margin: 0;
+      font-size: 1.2rem;
+      color: #000000;
+      list-style: none;
+      background-color: #FFFFFF;
+    }
+
+    .menu__popup__item {
+      padding-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div role="menubar" class="menu">
+    <button role="menuitem" class="menu__button" type="button">
+      <span class="menu__button__cross"></span>
+      Добавить доку
+    </button>
+    <button role="menuitem" class="menu__button" type="button" aria-label="Уведомления">
+      <span class="menu__button__bell"></span>
+      <output class="menu__button__notifications">34</output> 
+    </button>
+    <button role="menuitem" type="button" class="menu__button" aria-expanded="false" aria-controls="popup" aria-haspopup="menu">
+      <span class="menu__button__avatar"></span>
+      Дока Дог
+      <span class="menu__button__arrow menu__button__arrow--down"></span>
+    </button>
+    <ul role="menu" class="menu__popup" id="popup">
+      <li role="menuitem" class="menu__popup__item">
+        Настройки
+      </li>
+      <li role="menuitem" class="menu__popup__item">
+        Случайный аватар
+      </li>
+      <hr>
+      <li role="menuitem" class="menu__popup__item">
+        Выйти
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
