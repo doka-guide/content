@@ -11,7 +11,7 @@ related:
   - css/fill
   - tools/http-protocol
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
