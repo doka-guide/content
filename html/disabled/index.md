@@ -3,6 +3,8 @@ title: "Атрибут `disabled`"
 description: "Если у элемента формы есть этот атрибут, то с ним нельзя взаимодействовать."
 authors:
   - solarrust
+contributors:
+  - tatianafokina
 related:
   - html/global-attrs
   - css/disabled-enabled
@@ -22,12 +24,12 @@ tags:
 ```html
 <fieldset disabled>
   <label>
-    Ваше имя
+    Имя:
     <input type="text">
   </label>
   <label>
-    Ваш номер телефона
-    <input type="text">
+    Телефон:
+    <input type="tel">
   </label>
 </fieldset>
 ```
@@ -46,7 +48,13 @@ tags:
 - [`<textarea>`](/html/textarea/);
 - [`<input>`](/html/input/).
 
-<iframe title="Примеры использования" src="demos/base/" height="510"></iframe>
+<iframe title="Примеры использования" src="demos/base/" height="1000"></iframe>
+
+### Доступность
+
+В [ARIA](/a11y/aria-intro/) есть атрибут [`aria-disabled`](/a11y/aria-disabled/). Он тоже указывает на то, что элемент нельзя изменить или взаимодействовать с ним другим способом.
+
+Старайтесь использовать `disabled`. `aria-disabled` поможет в сложных ситуациях, когда создаёте кастомные элементы.
 
 ## Как понять
 
