@@ -83,16 +83,29 @@ tags:
 В демке собраны разные варианты стилей `<meter>` по умолчанию.
 
 ```html
-<meter class="meter" min="1" max="10"></meter>
-<meter class="meter" min="1" max="10" low="2" value="3"></meter>
-<meter class="meter" min="1" max="10" low="2" high="5" optimum="8" value="3"></meter>
-<meter class="meter" min="1" max="10" value="5"></meter>
-<meter class="meter" low=".25" optimum=".15" high=".75" value=".5"></meter>
-<meter class="meter" low=".25" optimum=".2" high=".75" value=".8"></meter>
-<meter class="meter" value="1"></meter>
+<meter class="meter" min="1" max="10">
+</meter>
+
+<meter class="meter" min="1" max="10" low="2" value="3">
+</meter>
+
+<meter class="meter" min="1" max="10" low="2" high="5" optimum="8" value="3">
+</meter>
+
+<meter class="meter" min="1" max="10" value="5">
+</meter>
+
+<meter class="meter" low=".25" optimum=".15" high=".75" value=".5">
+</meter>
+
+<meter class="meter" low=".25" optimum=".2" high=".75" value=".8">
+</meter>
+
+<meter class="meter" value="1">
+</meter>
 ```
 
-<iframe title="Базовый пример с meter" src="demos/default-styles/" height="600"></iframe>
+<iframe title="Базовый пример с meter" src="demos/default-styles/" height="910"></iframe>
 
 Попробовать как изменяется внешний вид тега в зависимости от выбранных значений можете в этой песочнице. По мотивам примера «[HTML5 Meter Element](https://codepen.io/pankajparashar/pen/GnFpA)» <!-- yaspeller ignore:start -->Панкаджа Парашара<!-- yaspeller ignore:end -->.
 
