@@ -37,7 +37,8 @@ tags:
 
 ```html
 <p>
-  <span lang="sv">Lagom</span> — не слишком много, не слишком мало, а так, что в самый раз.
+  <span lang="sv">Lagom</span> — не слишком много, не слишком мало,
+  а так, что в самый раз.
 </p>
 ```
 
@@ -108,7 +109,7 @@ span:lang(sv) {
 
 ```html
 <p lang="he" dir="rtl">לחיים</p>
-<!-- לחיים — «Еврейское благословение или тост, «за жизнь -->
+<!-- לחיים — еврейское благословение или тост, «за жизнь« -->
 ```
 
 Атрибут `dir` не требуется для страниц, написанных на языках с письмом слева направо, поскольку это направление текста используется по умолчанию.
@@ -130,7 +131,7 @@ span:lang(sv) {
 - `alt` элементов [`<area>`](/html/area/), [`<img>`](/html/img/), и [`<input>`](/html/input/);
 - `content` некоторых элементов [`<meta>`](/html/meta/);
 - `download` элементов [`<a`>](/html/a/) и [`<area>`](/html/area/);
-- `label` элементов [`<optgroup>`](/html/optgroup/), [`<option>`](/html/option/) и [`<track>`];
+- `label` элементов [`<optgroup>`](/html/optgroup/), [`<option>`](/html/option/) и `<track>`;
 - `placeholder` элементов [`<input>`](/html/input/) и [`<textarea>`](/html/textarea/);
 - `srcdoc` элемента [`<iframe>`](/html/iframe/);
 - `value` элемента [`<input>`](/html/input/) со значением [`type="button"` или `type="reset"`](/html/input/#type);
