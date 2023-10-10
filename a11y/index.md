@@ -5,6 +5,7 @@ groups:
     items:
       - chto-takoe-a11y
       - a11y-html
+      - site-language
       - accessible-forms
       - content-hidden
       - how-to-describe-pictures
