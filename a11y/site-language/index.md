@@ -2,7 +2,7 @@
 title: "Язык сайта и содержимого"
 description: "Как установить язык сайта и его отдельных фрагментов, и почему это важно."
 authors:
-  - alexTaraskina
+  - alextaraskina
 keywords:
   - доступность
   - a11y
