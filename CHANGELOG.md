@@ -4,10 +4,12 @@
 
 ## Октябрь 2023
 
-6 октября, [Атрибут `inert`](https://doka.guide/html/inert/), Татьяна Фокина
-5 октября, [Что такое изменяющаяся область](https://doka.guide/a11y/live-region/), Татьяна Фокина
-5 октября, [`touch-action`](https://doka.guide/css/touch-action/), Борис Ермаченко
-3 октября, [Как реально работают `flex-shrink` и `flex-grow`](https://doka.guide/css/flex-grow-shrink/), Юля Опёнышева
+- 10 октября, [Язык сайта и содержимого](https://doka.guide/a11y/site-language/), Саша Тараскина
+- 9 октября, [`log`](https://doka.guide/a11y/role-log/), Татьяна Фокина
+- 6 октября, [Атрибут `inert`](https://doka.guide/html/inert/), Татьяна Фокина
+- 5 октября, [Что такое изменяющаяся область](https://doka.guide/a11y/live-region/), Татьяна Фокина
+- 5 октября, [`touch-action`](https://doka.guide/css/touch-action/), Борис Ермаченко
+- 3 октября, [Как реально работают `flex-shrink` и `flex-grow`](https://doka.guide/css/flex-grow-shrink/), Юля Опёнышева
 
 ## Сентябрь 2023
 
