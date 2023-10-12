@@ -340,24 +340,55 @@
 
       popupItems.forEach((item, index) => {
         item.addEventListener('keydown', (event) => {
-          let currentIndex = -1
+          let currentIndex = -1;
 
           if (event.key === "ArrowDown") {
-            currentIndex = (index + 1) % popupItems.length
+              currentIndex = (index + 1) % popupItems.length;
           } else if (event.key === "ArrowUp") {
-            currentIndex = (index - 1 + popupItems.length) % popupItems.length
+              currentIndex = (index - 1 + popupItems.length) % popupItems.length;
+          } else if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+              const currentPopup = item.closest('[id]');
+              const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`);
+              const currentButtonIndex = focusableElements.indexOf(currentButton);
+              let nextElement;
+
+              if (event.key === "ArrowRight") {
+                  nextElement = focusableElements[(currentButtonIndex + 1) % focusableElements.length];
+              } else {
+                  nextElement = currentButtonIndex > 0 ? focusableElements[currentButtonIndex - 1] : focusableElements[focusableElements.length - 1];
+              }
+
+              closePopup(currentButton, currentPopup);
+
+              if (nextElement.hasAttribute('aria-controls')) {
+                  // If the next element is a menu button, open its popup
+                  const nextPopupId = nextElement.getAttribute('aria-controls');
+                  const nextPopup = document.getElementById(nextPopupId);
+                  openPopup(nextElement, nextPopup);
+              } else {
+                  // Otherwise, just focus on the next element
+                  nextElement.focus();
+              }
+
+              event.preventDefault();
+              return;
           }
 
           if (currentIndex !== -1) {
-            popupItems[currentIndex].focus()
+              popupItems[currentIndex].focus();
           }
-        })
-      })
+        });
+      });
     }
 
     function openPopup(menuItem, popup) {
       menuItem.setAttribute('aria-expanded', 'true')
       popup.classList.add(menuPopupOpenedClass)
+
+      const firstFocusableItem = popup.querySelector(focusableSelectors.join(','))
+      if (firstFocusableItem) {
+        firstFocusableItem.focus()
+      }
     }
 
     function closePopup(menuItem, popup) {
@@ -366,14 +397,6 @@
     }
 
     function togglePopup(menuElement, popupElement) {
-      menuElement.addEventListener('click', () => {
-        if (popupElement.classList.contains(menuPopupOpenedClass)) {
-          closePopup(menuElement, popupElement)
-        } else {
-          openPopup(menuElement, popupElement)
-        }
-      },
-
       document.addEventListener('click', (event) => {
         if (popupElement.classList.contains(menuPopupOpenedClass)
         && !popupElement.contains(event.target)
@@ -381,6 +404,14 @@
           closePopup(menuElement, popupElement)
         }
       }),
+
+      menuElement.addEventListener('click', () => {
+        if (popupElement.classList.contains(menuPopupOpenedClass)) {
+          closePopup(menuElement, popupElement)
+        } else {
+          openPopup(menuElement, popupElement)
+        }
+      },
 
       menuElement.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowDown') {
@@ -397,7 +428,24 @@
           closePopup(menuElement, popupElement)
           popupElement.querySelector('button[data-option]').focus()
         }
-      })
+      }),
+
+      popupElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape'){
+          closePopup(menuElement, popupElement)
+          menuElement.focus()
+        }
+
+        if (event.key === 'Tab'){
+          closePopup(menuElement, popupElement)
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (popupElement.classList.contains(menuPopupOpenedClass)) {
+            closePopup(menuElement, popupElement)
+          }
+        }
+      })      
     )}
 
     function checkOption(menuElement, popupElement) {
