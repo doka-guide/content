@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/pseudoelements
-  - js/infinite-scroll
-  - tools/bundlers
-  - css/attr
-  - css/custom-properties
-  - a11y/screenreaders
-  - html/article
   - html/img
-  - tools/gitlab-ci-cd
-  - css/box-model
-  - css/box-shadow
-  - tools/webpack
-  - html/form
-  - recipes/snow
-  - js/function-context
-  - css/transform-function
-  - css/flexbox-guide
-  - tools/agile
-  - css/specificity
-  - html/div
-  - recipes/progress
+  - css/media
   - js/var-let
+  - js/async-in-js
+  - a11y/aria-intro
+  - html/article
+  - html/div
+  - js/execution-order
+  - tools/oop
+  - css/box-model
+  - html/nav
+  - css/keyframes
+  - a11y/screenreaders
+  - css/specificity
+  - tools/webpack
+  - recipes/lets-encrypt-nginx
+  - recipes/progress
+  - css/grid-guide
+  - html/section
+  - a11y/aria-hidden
+  - css/transform-function
+  - html/form
+  - css/flexbox-guide
+  - recipes/snow
+  - html/head
+  - css/attr
+  - tools/static-types
+  - tools/markdown
+  - tools/bundlers
   - tools/how-to-test-and-why
   - html/doctype
-  - a11y/aria-hidden
-  - css/media
-  - tools/clean-architecture
-  - tools/ci-cd
-  - html/input
-  - recipes/lets-encrypt-nginx
-  - html/head
-  - css/display
-  - tools/how-the-browser-creates-pages
-  - css/keyframes
-  - js/async-in-js
   - js/function
-  - js/boolean
-  - js/deal-with-forms
+  - tools/clean-architecture
+  - html/input
+  - css/pseudoelements
   - html/flow
-  - css/grid-guide
-  - tools/network
-  - tools/markdown
-  - tools/docker
-  - css/position
-  - tools/static-types
-  - tools/oop
+  - js/infinite-scroll
   - js/closures
-  - html/nav
-  - tools/cli
-  - js/execution-order
-  - html/section
-  - a11y/aria-intro
+  - css/display
+  - js/boolean
+  - tools/network
+  - tools/agile
   - html/video
+  - tools/docker
+  - js/deal-with-forms
+  - tools/cli
+  - tools/gitlab-ci-cd
+  - css/custom-properties
+  - js/function-context
+  - css/box-shadow
+  - css/position
+  - tools/how-the-browser-creates-pages
+  - tools/ci-cd
 ---
 
