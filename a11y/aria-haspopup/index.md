@@ -44,9 +44,9 @@ tags:
     Выйти из профиля
   </button>
 </div>
-
-
 ```
+
+<iframe title="Меню редактора текста" src="demos/app-menu/" height="600"></iframe>
 
 ## Как пишется
 
