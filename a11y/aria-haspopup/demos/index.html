@@ -40,6 +40,7 @@
       position: relative;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
       margin: -5px -5px 6px;
       background-color: #10F3AF;
       border-radius: 6px;
@@ -110,7 +111,7 @@
     .menu__popup {
       display: none;
       position: absolute;
-      top: 35px;
+      top: 30px;
       left: 0;
       margin: 0;
       padding: 10px 18px;
@@ -192,8 +193,10 @@
     }
 
     textarea:focus {
-      border: 2px solid #10F3AF;
-      outline: none;
+      outline-width: 2px;
+      outline-offset: -2px;
+      outline-style: solid;
+      outline-color: #10F3AF;
     }
 
     @media (max-width: 768px) {
@@ -203,6 +206,11 @@
 
       .container {
         width: 100%;
+      }
+
+      .menu {
+        justify-content: start;
+        gap: 10px;
       }
     }
   </style>
@@ -224,6 +232,11 @@
           <li role="none" class="menu__popup__i">
             <button role="menuitemradio" class="menu__popup__i__button" type="button" aria-checked="false" data-option="bold">
               Жирное
+            </button>
+          </li>
+          <li role="none" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" type="button" aria-checked="true" data-option="default">
+              Обычное
             </button>
           </li>
         </ul>
@@ -262,25 +275,39 @@
         Создать новую доку
       </button>
     </div>
-    <textarea class="doka" spellcheck="true" data-text="doka"></textarea>
+    <textarea class="doka" spellcheck="true"></textarea>
   </div>
   <script>
-    const menuButtons = Array.from(document.querySelectorAll('button[aria-controls]'))
     const menuPopupOpenedClass = 'menu__popup--opened'
+    const menuButtons = Array.from(document.querySelectorAll('button[aria-controls]'))
+    const mainMenuItems = Array.from(document.querySelectorAll('button[data-item]'))
 
     const focusableSelectors = [
-      'a[href]',
-      'area[href]',
-      'input:not([disabled])',
-      'select:not([disabled])',
-      'textarea:not([disabled])',
-      'button:not([disabled])',
-      '[tabindex]:not([tabindex="-1"])',
+      'a[href]', 'area[href]', 'input:not([disabled])', 
+      'select:not([disabled])', 'textarea:not([disabled])', 
+      'button:not([disabled])', '[tabindex]:not([tabindex="-1"])',
       '[contenteditable]'
     ]
-    const focusableElements = Array.from(document.querySelectorAll(focusableSelectors.join(',')))
 
-    function getNextFocusableElement(currentElement) {
+    const styleConfig = {
+      pink: { color: 'pink' },
+      green: { color: '#10F3AF' },
+      white: { color: '#FFFFFF' },
+      italic: { fontStyle: 'italic' },
+      bold: { fontWeight: 'bold' },
+      default: { fontWeight: 'normal' }
+    }
+
+    function getFocusableElements() {
+      return Array.from(document.querySelectorAll(focusableSelectors.join(',')))
+    }
+
+    function resetStyles(element) {
+      element.style.fontWeight = ''
+      element.style.fontStyle = ''
+    }
+
+    function getNextFocusableElement(currentElement, focusableElements) {
       const index = focusableElements.indexOf(currentElement)
 
       if (index === -1 || index + 1 === focusableElements.length) {
@@ -290,16 +317,117 @@
       return focusableElements[index + 1]
     }
 
-    menuButtons.forEach(button => {
-      const controlledPopupId = button.getAttribute('aria-controls')
-      const controlledPopup = document.getElementById(controlledPopupId)
+    function openPopup(menuItem, popup) {
+      menuItem.setAttribute('aria-expanded', 'true')
+      popup.classList.add(menuPopupOpenedClass)
 
-      togglePopup(button, controlledPopup)
-      checkOption(button, controlledPopup)
-      navigateThroughtItems(button, controlledPopup)
-    })
+      const firstFocusableItem = popup.querySelector(focusableSelectors.join(','))
 
-    function navigateThroughtItems() {
+      if (firstFocusableItem) {
+        firstFocusableItem.focus()
+      }
+    }
+
+    function closePopup(menuItem, popup) {
+      menuItem.setAttribute('aria-expanded', 'false')
+      popup.classList.remove(menuPopupOpenedClass)
+    }
+
+    function togglePopup(menuElement, popupElement) {
+      document.addEventListener('click', (event) => {
+        if (popupElement.classList.contains(menuPopupOpenedClass)
+        && !popupElement.contains(event.target)
+        && event.target !== menuElement) {
+          closePopup(menuElement, popupElement)
+        }
+      })
+
+      menuElement.addEventListener('click', () => {
+        if (popupElement.classList.contains(menuPopupOpenedClass)) {
+          closePopup(menuElement, popupElement)
+        } else {
+          openPopup(menuElement, popupElement)
+        }
+      })
+
+      menuElement.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+          openPopup(menuElement, popupElement)
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (popupElement.classList.contains(menuPopupOpenedClass)) {
+            closePopup(menuElement, popupElement)
+          }
+        }
+
+        if (event.key === 'Escape'){
+          closePopup(menuElement, popupElement)
+          popupElement.querySelector('button[data-option]').focus()
+        }
+      })
+
+      popupElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape'){
+          closePopup(menuElement, popupElement)
+          menuElement.focus()
+        }
+
+        if (event.key === 'Tab'){
+          closePopup(menuElement, popupElement)
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (popupElement.classList.contains(menuPopupOpenedClass)) {
+            closePopup(menuElement, popupElement)
+          }
+        }
+      })
+    }
+
+    function checkOption(menuElement, popupElement) {
+      elements = Array.from(popupElement.querySelectorAll('button'))
+
+      elements.forEach(element => {
+        element.addEventListener('click', () => {
+          setAriaChecked(element, popupElement)
+          applyStyleToTextarea(element.getAttribute('data-option'))
+          closePopup(menuElement, popupElement)
+        })
+
+        element.addEventListener('keydown', event => {
+          if (event.key === 'Enter') {
+            event.preventDefault()
+            setAriaChecked(element, popupElement)
+            applyStyleToTextarea(element.getAttribute('data-option'))
+            closePopup(menuElement, popupElement)
+            menuElement.focus()
+          }
+        })
+      })
+    }
+
+    function setAriaChecked(option, popupElement) {
+      const currentlyChecked = popupElement.querySelector('button[aria-checked="true"]')
+
+      if (currentlyChecked) {
+        currentlyChecked.setAttribute('aria-checked', 'false')
+      }
+      option.setAttribute('aria-checked', 'true')
+    }
+
+    function applyStyleToTextarea(option) {
+      const textareaElement = document.querySelector('textarea')
+      resetStyles(textareaElement)
+
+      const styles = styleConfig[option]
+
+      for (const [styleProperty, styleValue] of Object.entries(styles)) {
+        textareaElement.style[styleProperty] = styleValue
+      }
+    }
+
+    function navigateThroughtItems(menuButtons, mainMenuItems, focusableElements) {
       const menuItems = Array.from(document.querySelectorAll('button[data-item]'))
       const popupItems = Array.from(document.querySelectorAll('button[data-option]'))
       let lastFocusedItem = null
@@ -328,155 +456,76 @@
           }
 
           if (event.key === 'Tab' && event.shiftKey) {
-            if (lastElement) {
-              lastElement.focus()
+            if (lastFocusedItem) {
+              lastFocusedItem.focus()
             } else if (event.key === 'Tab') {
-              const nextElement = getNextFocusableElement(item)
+              const nextElement = getNextFocusableElement(item, focusableElements)
               nextElement.focus()
             }
           }
         })
       })
 
+      function getMainMenuItemIndex(item) {
+        return mainMenuItems.indexOf(item)
+      }
+
       popupItems.forEach((item, index) => {
         item.addEventListener('keydown', (event) => {
-          let currentIndex = -1;
+          let currentIndex = -1
 
-          if (event.key === "ArrowDown") {
-              currentIndex = (index + 1) % popupItems.length;
-          } else if (event.key === "ArrowUp") {
-              currentIndex = (index - 1 + popupItems.length) % popupItems.length;
-          } else if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
-              const currentPopup = item.closest('[id]');
-              const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`);
-              const currentButtonIndex = focusableElements.indexOf(currentButton);
-              let nextElement;
-
-              if (event.key === "ArrowRight") {
-                  nextElement = focusableElements[(currentButtonIndex + 1) % focusableElements.length];
-              } else {
-                  nextElement = currentButtonIndex > 0 ? focusableElements[currentButtonIndex - 1] : focusableElements[focusableElements.length - 1];
-              }
-
-              closePopup(currentButton, currentPopup);
-
-              if (nextElement.hasAttribute('aria-controls')) {
-                  // If the next element is a menu button, open its popup
-                  const nextPopupId = nextElement.getAttribute('aria-controls');
-                  const nextPopup = document.getElementById(nextPopupId);
-                  openPopup(nextElement, nextPopup);
-              } else {
-                  // Otherwise, just focus on the next element
-                  nextElement.focus();
-              }
-
-              event.preventDefault();
-              return;
+          if (event.key === 'ArrowDown') {
+            currentIndex = (index + 1) % popupItems.length
+          } else if (event.key === 'ArrowUp') {
+            currentIndex = (index - 1 + popupItems.length) % popupItems.length
           }
 
           if (currentIndex !== -1) {
-              popupItems[currentIndex].focus();
+            popupItems[currentIndex].focus()
           }
-        });
-      });
-    }
 
-    function openPopup(menuItem, popup) {
-      menuItem.setAttribute('aria-expanded', 'true')
-      popup.classList.add(menuPopupOpenedClass)
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            const currentPopup = item.closest('[id]')
+            const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
+            const nextElement = mainMenuItems[currentButtonIndex]
+            const nextPopupId = nextElement.getAttribute('aria-controls')
 
-      const firstFocusableItem = popup.querySelector(focusableSelectors.join(','))
-      if (firstFocusableItem) {
-        firstFocusableItem.focus()
-      }
-    }
+            let currentButtonIndex = getMainMenuItemIndex(currentButton)
 
-    function closePopup(menuItem, popup) {
-      menuItem.setAttribute('aria-expanded', 'false')
-      popup.classList.remove(menuPopupOpenedClass)
-    }
+            if (event.key === 'ArrowRight') {
+              currentButtonIndex = (currentButtonIndex + 1) % mainMenuItems.length
+            } else {
+              currentButtonIndex = (currentButtonIndex - 1 + mainMenuItems.length) % mainMenuItems.length
+            }
 
-    function togglePopup(menuElement, popupElement) {
-      document.addEventListener('click', (event) => {
-        if (popupElement.classList.contains(menuPopupOpenedClass)
-        && !popupElement.contains(event.target)
-        && event.target !== menuElement) {
-          closePopup(menuElement, popupElement)
-        }
-      }),
+            closePopup(currentButton, currentPopup)
+            nextElement.focus()
 
-      menuElement.addEventListener('click', () => {
-        if (popupElement.classList.contains(menuPopupOpenedClass)) {
-          closePopup(menuElement, popupElement)
-        } else {
-          openPopup(menuElement, popupElement)
-        }
-      },
+            if (nextPopupId) {
+              const nextPopup = document.getElementById(nextPopupId)
+            }
 
-      menuElement.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowDown') {
-          openPopup(menuElement, popupElement)
-        }
+            if (nextPopup) {
+              openPopup(nextElement, nextPopup)
+            }
 
-        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-          if (popupElement.classList.contains(menuPopupOpenedClass)) {
-            closePopup(menuElement, popupElement)
-          }
-        }
-
-        if (event.key === 'Escape'){
-          closePopup(menuElement, popupElement)
-          popupElement.querySelector('button[data-option]').focus()
-        }
-      }),
-
-      popupElement.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape'){
-          closePopup(menuElement, popupElement)
-          menuElement.focus()
-        }
-
-        if (event.key === 'Tab'){
-          closePopup(menuElement, popupElement)
-        }
-
-        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-          if (popupElement.classList.contains(menuPopupOpenedClass)) {
-            closePopup(menuElement, popupElement)
-          }
-        }
-      })      
-    )}
-
-    function checkOption(menuElement, popupElement) {
-      elements = Array.from(popupElement.querySelectorAll('button'))
-
-      function toggleAriaChecked(option) {
-        const currentlyChecked = popupElement.querySelector('button[aria-checked="true"]')
-
-        if (currentlyChecked) {
-          currentlyChecked.setAttribute('aria-checked', 'false')
-        }
-
-        option.setAttribute('aria-checked', 'true')
-      }
-
-      elements.forEach((element) => {
-        element.addEventListener('click', () => {
-          toggleAriaChecked(element)
-          closePopup(menuElement, popupElement)
-        })
-
-        element.addEventListener('keydown', (event) => {
-          if(event.key === 'Enter') {
-            event.preventDefault()
-            toggleAriaChecked(element)
-            closePopup(menuElement, popupElement)
-            menuElement.focus()
+            return
           }
         })
       })
     }
+
+    const focusableElements = getFocusableElements()
+
+    menuButtons.forEach(button => {
+      const controlledPopupId = button.getAttribute('aria-controls')
+      const controlledPopup = document.getElementById(controlledPopupId)
+
+      togglePopup(button, controlledPopup)
+      checkOption(button, controlledPopup)
+    })
+
+    navigateThroughtItems(menuButtons, mainMenuItems, focusableElements)
   </script>
 </body>
 </html>
