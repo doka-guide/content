@@ -4,6 +4,9 @@
 
 ## Октябрь 2023
 
+- 16 октября, [SVG-спрайт](https://doka.guide/html/svg-sprite/), Сергей Дудко
+- 16 октября, [`marquee`](https://doka.guide/a11y/role-marquee/), Татьяна Фокина
+- 16 октября, [`mark`](https://doka.guide/a11y/role-mark/), Белла Бжукова
 - 16 октября, [`status`](https://doka.guide/a11y/role-status/), Татьяна Фокина
 - 16 октября, [`<meter>`](https://doka.guide/html/meter/), Татьяна Фокина
 - 10 октября, [Язык сайта и содержимого](https://doka.guide/a11y/site-language/), Саша Тараскина
