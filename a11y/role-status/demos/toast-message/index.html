@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Тост c ролью status — status — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .button {
+      display: block;
+      width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .toast__button {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 10px 10px;
+      color: #000000;
+      border: 0;
+      border-left: 2px solid #FFFFFF;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      z-index: 1;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button:hover, .toast__button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible, .toast__button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus, .toast__button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: .4em;
+      left: 0;
+      right: 0;
+      max-width: 500px;
+      margin: auto;
+      padding: 10px 40px;
+      text-align: left;
+      font-size: calc(1rem - 2px);
+      color: #000000;
+      background-color: #FFFFFF;
+      opacity: 0;
+      transform: translateY(0);
+      transition:
+        transform .2s ease-in-out,
+        opacity .2s ease-in-out;
+    }
+
+    .toast.toast--open {
+      opacity: 1;
+      transform: translateY(-4em);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .toast {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button-aqua" onclick="show()" aria-controls="message">Сохранить</button>
+    <div class="toast">
+      <span role="status" id="message"></span>
+      <button class="toast__button button-aqua" onclick="dismiss()" aria-label="Закрыть">X</button>
+    </div>
+  </div>
+  <script>
+    const toastContainer = document.querySelector('.toast')
+    const toastMessage = toastContainer.querySelector('span')
+    const showedToastMessage = 'toast--open'
+    let timer = undefined
+    let init
+
+    const show = function () {
+      if (typeof timer === 'number') {
+        clear()
+      }
+      init = event.target
+      toastMessage.innerHTML = '<p>' + 'Настройки успешно применены. Если захотите изменить их, снова зайдите в пункт «Настройки» вашего профиля.' + '</p>'
+      toastContainer.classList.add(showedToastMessage)
+      timer = setTimeout(autoDismiss, 5000)
+    }
+
+    const clear = function () {
+      window.clearTimeout(timer)
+    }
+
+    const dismiss = function ( ) {
+      init.focus()
+      autoDismiss()
+    }
+
+    const autoDismiss = function () {
+      toastContainer.classList.remove(showedToastMessage)
+
+      timer = setTimeout(function () {
+        toastMessage.innerHTML = ''
+        timer = undefined
+      }, 1000)
+    }
+  </script>
+</body>
+</html>
