@@ -22,12 +22,12 @@
       min-height: 100vh;
       padding: 50px;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
       background-color: rgb(24 25 28);
       color: rgb(255 255 255);
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      font-size: 24px;
     }
 
     .sprite-demo__container {
@@ -40,17 +40,13 @@
     .sprite-demo__btn {
       cursor: pointer;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
       flex-shrink: 0;
 
-      width: 24px;
-      height: 24px;
-
-      padding: 8px;
-      background-color: rgb(255 255 255);
-      border: none;
+      width: 40px;
+      height: 40px;
+      border: 8px solid rgb(255 134 48);
+      border-radius: 6px;
+      background-color: rgb(255 134 48);
 
       background-image: url('stack.svg#cat');
     }
@@ -59,12 +55,18 @@
     .sprite-demo__btn:focus {
       background-image: url('stack.svg#dog');
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
   <main class="sprite-demo">
     <section class="sprite-demo__container">
-      <span class="sprite-demo__heading">Наведите курсор на иконку</span>
+      <span class="sprite-demo__heading">Наведите курсор на иконку:</span>
       <button class="sprite-demo__btn"></button>
   </main>
 </body>
