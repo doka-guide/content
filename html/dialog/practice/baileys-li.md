@@ -4,7 +4,7 @@
 
 Решить эту проблему можно, ставя [`overflow: hidden`](/css/overflow/) на [`<body>`](/html/body/). В демке ниже это реализовано добавлением класса `scroll-lock`.
 
-Так же с помощью `scrollbar-gutter` можно «зарезервировать» место под скролл, чтобы контент не прыгал при его исчезновении скроллбара.
+Так же с помощью [`scrollbar-gutter`](/css/scrollbar-gutter/) можно «зарезервировать» место под скролл, чтобы контент не прыгал при его исчезновении скроллбара.
 
 ```css
 html,
@@ -15,21 +15,21 @@ body {
 
 Не забываем так же вернуть всё как было, при закрытии.
 
-```js
-dialogOpener.addEventListener("click", openModalAndLockScroll);
-dialog.addEventListener("close", returnScroll);
+```javascript
+dialogOpener.addEventListener("click", openModalAndLockScroll)
+dialog.addEventListener("close", returnScroll)
 
 function openModalAndLockScroll() {
-  dialog.showModal();
-  document.body.classList.add("scroll-lock");
+  dialog.showModal()
+  document.body.classList.add("scroll-lock")
 }
 
 function returnScroll() {
-  document.body.classList.remove("scroll-lock");
+  document.body.classList.remove("scroll-lock")
 }
 ```
 
-<iframe title="Блокируем срколл при открытии модальных окон" src="../demos/scroll-lock/" height="320"></iframe>
+<iframe title="Блокируем скролл при открытии модальных окон" src="../demos/scroll-lock/" height="320"></iframe>
 
 #### Закрываем по клику на `::backdrop`
 
@@ -40,7 +40,7 @@ function returnScroll() {
 ```html
 <dialog class="dialog">
   <div class="dialog__wrapper">
-    Контент диалога
+    Содержимое диалога
   </div>
 </dialog>
 ```
@@ -60,14 +60,14 @@ function returnScroll() {
 
 Теперь на элемент диалога мы можем добавить обработчик клика. Если пользователь нажал на подложку, то `currentTarget` будет совпадать с `target`. В противном случае, клик пошёл на дочерний DOM-узел, который и будет `target`.
 
-```js
-dialogElement.addEventListener("click", closeOnBackDropClick);
+```javascript
+dialogElement.addEventListener("click", closeOnBackDropClick)
 
 function closeOnBackDropClick({ currentTarget, target }) {
-  const dialogElement = currentTarget;
+  const dialogElement = currentTarget
   const isClickedOnBackDrop = target === dialogElement
   if (isClickedOnBackDrop) {
-    dialogElement.close();
+    dialogElement.close()
   }
 }
 ```
@@ -80,22 +80,22 @@ function closeOnBackDropClick({ currentTarget, target }) {
 
 Этот пример похож на предыдущий, только теперь по отслеживаем клики по всему документу и проверяем был ли кликнут диалог или его потомок. Если оба случая неверны, значит клик прошёл вне диалога и его можно закрыть.
 
-```js
+```javascript
 function closeDialogOnOutsideClick({ target }) {
-  const isClickOnDialog = target === dialogElement;
-  const isClickOnDialogChildrenNodes = dialogElement.contains(target);
+  const isClickOnDialog = target === dialogElement
+  const isClickOnDialogChildrenNodes = dialogElement.contains(target)
 
   const isClickOutsideOfDialog = !(
     isClickOnDialog || isClickOnDialogChildrenNodes
-  );
+  )
 
   if (isClickOutsideOfDialog) {
-    dialogElement.close();
+    dialogElement.close()
   }
 }
 ```
 
-<iframe title="Закрытие dialog кликом по свободной области" src="../demos/close-dialog-outside/" height="295"></iframe>
+<iframe title="Закрытие диалога кликом по свободной области" src="../demos/close-dialog-outside/" height="295"></iframe>
 
 #### Расширяем браузерную поддержку
 
@@ -103,28 +103,30 @@ function closeDialogOnOutsideClick({ target }) {
 
 К счастью, команда Google Chrome давно разработала [полифил](https://github.com/GoogleChrome/dialog-polyfill), который имитирует работу `<dialog>` в старых браузерах. Всё что нужно это подключить скрипт и дополнительные стили.
 
-Но стойте! Неужели ≈<sup>3</sup>/<sub>4</sub> наших пользователей придётся грузить скрипт, который им вообще не нужен? Получается, одно из главных преимуществ нативных диалоговых окон сразу отпадает. А если из-за полифила эти нативные окна будут работать [нестабильно](https://github.com/GoogleChrome/dialog-polyfill/blob/master/index.js#L533-L534)?
+Но стойте! Неужели ≈<sup>3</sup>/<sub>4</sub> наших пользователей придётся грузить скрипт, который им вообще не нужен? Получается, одно из главных преимуществ нативных диалоговых окон сразу отпадает. А если из-за полифила эти [нативные окна будут работать нестабильно](https://github.com/GoogleChrome/dialog-polyfill/blob/master/index.js#L533-L534)?
 
 К счастью, этих проблем можно избежать с помощью динамического импорта:
 
-```js
+```javascript
 /**
  * В реальных проектах мы бы брали полифил из Node пакета.
- * Но для примера воспользуемся CDN */
-const dialogPolyfillURL = "https://esm.run/dialog-polyfill";
+ * Но для примера воспользуемся CDN
+**/
+const dialogPolyfillURL = "https://esm.run/dialog-polyfill"
 
-const isBrowserNotSupportDialog = window.HTMLDialogElement === undefined;
+const isBrowserNotSupportDialog = window.HTMLDialogElement === undefined
 
 /**
- * Подключаем полифил к каждому dialog на странице, если в браузере нет поддержки
- * */
+ * Подключаем полифил к каждому dialog на странице,
+ * если в браузере нет поддержки
+**/
 if (isBrowserNotSupportDialog) {
-  const dialogs = document.querySelectorAll("dialog");
+  const dialogs = document.querySelectorAll("dialog")
 
   dialogs.forEach(async (dialog) => {
-    const { default: polyfill } = await import(dialogPolyfillURL);
-    polyfill.registerDialog(dialog);
-  });
+    const { default: polyfill } = await import(dialogPolyfillURL)
+    polyfill.registerDialog(dialog)
+  })
 }
 ```
 
@@ -136,6 +138,7 @@ if (isBrowserNotSupportDialog) {
 dialog::backdrop {
   background-color: rgb(0 0 0 / 70%);
 }
+
 dialog + .backdrop {
   background-color: rgb(0 0 0 / 70%);
 }
