@@ -12,7 +12,7 @@ keywords:
   - alert notification
   - интерактивная область
 related:
-  - a11y/aria-alertdialog
+  - a11y/role-alertdialog
   - a11y/role-status
   - a11y/aria-live
 tags:
