@@ -1,6 +1,6 @@
 ---
 title: "`<map>`"
-description: "Уютный контейнер для <area>."
+description: "Уютный контейнер для `<area>`."
 authors:
   - inventoris
 related:
