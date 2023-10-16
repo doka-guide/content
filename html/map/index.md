@@ -20,13 +20,16 @@ tags:
 ```html
 <map name="doka-label">
   <area
-  shape="poly"
-  coords="192,2,131,31,112,103,134,160,185,191,585,191,643,155,661,93,637,30,579,1"
-  href="/js/"
-  target="_blank"
-  alt="JS">
+  shape="rect"
+  coords="40,20,420,130"
+  href="/html/"
+  alt="Раздел HTML">
 </map>
-<img usemap="#doka-label">
+<img
+  src="../../images/doka-map.svg"
+  usemap="#doka-label"
+  alt="Мордочка собаки с ушами, носом, ртом и сердечками вместо глаз."
+>
 ```
 
 <iframe title="Базовый пример" src="demos/basic/" height="300"></iframe>
