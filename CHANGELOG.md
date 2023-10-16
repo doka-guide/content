@@ -4,6 +4,8 @@
 
 ## Октябрь 2023
 
+- 16 октября, [`status`](https://doka.guide/a11y/role-status/), Татьяна Фокина
+- 16 октября, [`<meter>`](https://doka.guide/html/meter/), Татьяна Фокина
 - 10 октября, [Язык сайта и содержимого](https://doka.guide/a11y/site-language/), Саша Тараскина
 - 9 октября, [`log`](https://doka.guide/a11y/role-log/), Татьяна Фокина
 - 6 октября, [Атрибут `inert`](https://doka.guide/html/inert/), Татьяна Фокина
