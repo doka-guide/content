@@ -3,12 +3,14 @@ title: "`navigation`"
 description: "Как добавить ориентир для навигации с помощью WAI-ARIA."
 authors:
   - katokdoescode
+contributors:
+  - tatianafokina
 keywords:
+  - a11y
   - доступность
-  - ARIA
-  - ARIA-роль
-  - ориентир
-  - навигация
+  - landmark role
+  - ARIA role
+  - landmark
 related:
   - a11y/aria-intro
   - a11y/aria-roles
@@ -26,19 +28,21 @@ tags:
 ## Пример
 
 ```html
-<header>
-  <span role="navigation">
-    <ul>
-      <li>
-        <a href="/tapirs-life/">Где обитают тапиры</a>
-      </li>
-      <li>
-        <a href="/tapirs-food/">Как питаются тапиры</a>
-      </li>
-    </ul>
-  </span>
-</header>
+<div role="navigation">
+  <ul>
+    <li>
+      <a href="#tapirs-life">Где обитают тапиры</a>
+    </li>
+    <li>
+      <a href="#tapirs-food">Как питаются тапиры</a>
+    </li>
+  </ul>
+</div>
 ```
+
+<iframe title="Навигация с явной ролью" src="demos/basic-example/" height="400px"></iframe>
+
+[Скринридеры](/a11y/screenreaders/) прочитают демку примерно так: «Навигация, ориентир. Список, три пункта». Также пользователи смогут переместиться к навигации через специальный список со всеми ориентирами.
 
 ## Как пишется
 
