@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Простой svg-спрайт - SVG-спрайт — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(24 25 28);
+      color: rgb(255 255 255);
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    .sprite-demo__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sprite-demo__heading {
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .sprite-demo__share {
+      margin-top: 32px;
+
+      display: flex;
+      gap: 32px;
+    }
+
+    .sprite-demo__btn {
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 8px;
+      background-color: rgb(255 255 255);
+      border: none;
+      border-radius: 6px;
+    }
+
+    .sprite-demo__social-icon {
+      fill: rgb(0 0 0);
+      transition: fill 0.3s ease-in-out;
+    }
+
+    .sprite-demo__btn:has(.sprite-demo__social-icon_vk):hover .sprite-demo__social-icon_vk,
+    .sprite-demo__btn:has(.sprite-demo__social-icon_vk):focus .sprite-demo__social-icon_vk {
+      fill: rgb(76 117 163);
+    }
+
+    .sprite-demo__btn:has(.sprite-demo__social-icon_twitter):hover .sprite-demo__social-icon_twitter,
+    .sprite-demo__btn:has(.sprite-demo__social-icon_twitter):focus .sprite-demo__social-icon_twitter {
+      fill: rgb(29 161 242);
+    }
+
+    .sprite-demo__btn:has(.sprite-demo__social-icon_facebook):hover .sprite-demo__social-icon_facebook,
+    .sprite-demo__btn:has(.sprite-demo__social-icon_facebook):focus .sprite-demo__social-icon_facebook {
+      fill: rgb(66 103, 178);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sprite-demo">
+    <section class="sprite-demo__container">
+      <span class="sprite-demo__heading">Наведите курсор на иконку чтобы изменить её стиль</span>
+
+      <div class="sprite-demo__share">
+      <button class="sprite-demo__btn">
+        <svg class="sprite-demo__social-icon sprite-demo__social-icon_vk" viewBox="0 0 24 24" width="24" height="24">
+          <use href="sprite.svg#social-vk" x="0" y="0"></use>
+        </svg>
+      </button>
+
+      <button class="sprite-demo__btn">
+        <svg class="sprite-demo__social-icon sprite-demo__social-icon_twitter" viewBox="0 0 24 24" width="24" height="24">
+          <use href="sprite.svg#social-twitter" x="0" y="0"></use>
+        </svg>
+      </button>
+
+      <button class="sprite-demo__btn">
+        <svg class="sprite-demo__social-icon sprite-demo__social-icon_facebook" viewBox="0 0 24 24" width="24" height="24">
+          <use href="sprite.svg#social-facebook" x="0" y="0"></use>
+        </svg>
+      </button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
