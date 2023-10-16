@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный container — container — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+    }
+    section {
+      margin-block: 25px;
+    }
+    .container {
+      max-width: 425px;
+      margin-inline: auto;
+      background-color: #d5ffe9;
+    }
+    .content {
+      background-color: #ffd829;
+    }
+    @media screen and (max-width: 425px) {
+      .container {
+        padding-inline: 48px;
+      }
+    }
+    @media screen and (max-width: 375px) {
+      .container {
+        padding-inline: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="section-one">
+    <div class="container">
+      <p class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet architecto deserunt dignissimos excepturi incidunt minus recusandae rem soluta voluptate.
+      </p>
+    </div>
+  </section>
+  <section class="section-two">
+    <div class="container">
+      <p class="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque est illum iste magni, tempore voluptate?
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>
