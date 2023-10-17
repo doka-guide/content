@@ -33,7 +33,6 @@
       width: 65%;
       padding: 5px;
       border: 1px solid #FFFFFF;
-      border-radius: 6px;
     }
 
     .menu {
@@ -43,7 +42,6 @@
       flex-wrap: wrap;
       margin: -5px -5px 6px;
       background-color: #10F3AF;
-      border-radius: 6px;
     }
 
     .menu-group {
@@ -93,8 +91,8 @@
 
     .menu__button__arrow--down {
       display: inline-block;
-      border-right: 3px solid #000000;
-      border-bottom: 3px solid #000000;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
       width: 8px;
       height: 8px;
       transform: rotate(-315deg);
@@ -114,8 +112,6 @@
     }
 
     .menu__button__cloud {
-      width: 31px;
-      height: 22px;
       background-image: url(images/save.svg);
     }
 
@@ -168,13 +164,6 @@
       outline-offset: -3px;
     }
 
-    .menu__popup__i__button:focus {
-      outline: #000000;
-      outline-width: 2px;
-      outline-style: solid;
-      outline-offset: -3px;
-    }
-
     .menu__popup__i__button[aria-checked="true"] {
       position: relative;
     }
@@ -186,8 +175,8 @@
       right: 25px;
       width: 7px;
       height: 13px;
-      border-bottom: 3px solid #000000;
-      border-right: 3px solid #000000;
+      border-bottom: 2px solid #000000;
+      border-right: 2px solid #000000;
       transform: rotate(45deg);
     }
 
@@ -375,6 +364,7 @@
         if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
           if (popupElement.classList.contains(menuPopupOpenedClass)) {
             closePopup(menuElement, popupElement)
+            menuElement.focus()
           }
         }
 
@@ -399,6 +389,27 @@
             closePopup(menuElement, popupElement)
           }
         }
+
+        if (event.key === 'Home') {
+          event.preventDefault()
+
+          const firstFocusableItem = popupElement.querySelector(focusableSelectors.join(','))
+
+          if (firstFocusableItem) {
+            firstFocusableItem.focus()
+          }
+        }
+
+        if (event.key === 'End') {
+          event.preventDefault()
+
+          const focusableItems = popupElement.querySelectorAll(focusableSelectors.join(','))
+          const lastFocusableItem = focusableItems[focusableItems.length - 1]
+
+          if (lastFocusableItem) {
+            lastFocusableItem.focus()
+          }
+        }
       })
     }
 
@@ -413,7 +424,7 @@
         })
 
         element.addEventListener('keydown', event => {
-          if (event.key === 'Enter') {
+          if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault()
             setAriaChecked(element, popupElement)
             applyStyleToTextarea(element.getAttribute('data-option'))
@@ -430,6 +441,7 @@
       if (currentlyChecked) {
         currentlyChecked.setAttribute('aria-checked', 'false')
       }
+
       option.setAttribute('aria-checked', 'true')
     }
 
@@ -454,8 +466,13 @@
           if (lastFocusedItem && lastFocusedItem !== item) {
             lastFocusedItem.setAttribute('tabindex', '-1')
           }
+
           item.removeAttribute('tabindex')
           lastFocusedItem = item
+        })
+
+        const firstIndex = mainMenuItems.findIndex(item => {
+          return true
         })
 
         item.addEventListener('keydown', (event) => {
@@ -465,6 +482,22 @@
             currentIndex = (index + 1) % menuItems.length
           } else if (event.key === 'ArrowLeft') {
             currentIndex = (index - 1 + menuItems.length) % menuItems.length
+          }
+
+          if(event.key === 'Home') {
+            event.preventDefault()
+
+            const firstIndex = 0
+
+            menuItems[firstIndex].focus()
+          }
+          
+          if(event.key === 'End') {
+            event.preventDefault()
+
+            const lastIndex = menuItems.length - 1
+
+            menuItems[lastIndex].focus()
           }
 
           if (currentIndex !== -1) {
@@ -497,38 +530,33 @@
             currentIndex = (index + 1) % popupItems.length
           } else if (event.key === 'ArrowUp') {
             currentIndex = (index - 1 + popupItems.length) % popupItems.length
+          } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
+            const currentButtonIndex = mainMenuItems.indexOf(currentButton)
+            let nextButtonIndex
+            
+            if (event.key === 'ArrowRight') {
+              nextButtonIndex = (currentButtonIndex + 1) % mainMenuItems.length
+            } else if (event.key === 'ArrowLeft') {
+              nextButtonIndex = (currentButtonIndex - 1 + mainMenuItems.length) % mainMenuItems.length
+            }
+            
+            if (typeof nextButtonIndex !== 'undefined') {
+              const nextButton = mainMenuItems[nextButtonIndex]
+              nextButton.focus()
+
+              nextPopupIndex = nextButton.getAttribute('aria-controls')
+              const nextPopup = document.getElementById(nextPopupIndex)
+
+              if (nextPopup) {
+                openPopup(nextButton, nextPopup)
+              }
+            }
+            return
           }
 
           if (currentIndex !== -1) {
             popupItems[currentIndex].focus()
-          }
-
-          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-            const currentPopup = item.closest('[id]')
-            const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
-            const nextPopupId = nextElement.getAttribute('aria-controls')
-            let currentButtonIndex = getMainMenuItemIndex(currentButton)
-
-            const nextElement = mainMenuItems[currentButtonIndex]
-
-            if (event.key === 'ArrowRight') {
-              currentButtonIndex = (currentButtonIndex + 1) % mainMenuItems.length
-            } else {
-              currentButtonIndex = (currentButtonIndex - 1 + mainMenuItems.length) % mainMenuItems.length
-            }
-
-            closePopup(currentButton, currentPopup)
-            nextElement.focus()
-
-            if (nextPopupId) {
-              const nextPopup = document.getElementById(nextPopupId)
-            }
-
-            if (nextPopup) {
-              openPopup(nextElement, nextPopup)
-            }
-
-            return
           }
         })
       })
