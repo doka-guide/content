@@ -52,8 +52,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      border: 2px solid transparent;
-      border-radius: 6px;
       padding: 5px 10px;
       color: #000000;
       font-size: 1.125rem;
@@ -61,6 +59,8 @@
       font-family: inherit;
       text-align: center;
       background-color: inherit;
+      border-radius: 6px;
+      border: 2px solid transparent;
       transition: background-color 0.2s linear;
     }
 
@@ -136,13 +136,9 @@
       display: block;
     }
 
-    .menu__popup__i + .menu__popup__i {
-      padding-top: 7px;
-    }
-
     .menu__popup__i__button {
       min-width: 155px;
-      padding: 5px 10px;
+      padding: 10px 10px;
       margin: 0 -15px;
       text-align: left;
       font-size: 1rem;
@@ -171,7 +167,7 @@
     .menu__popup__i__button[aria-checked="true"]:after {
       position: absolute;
       content: "";
-      top: 6px;
+      top: 10px;
       right: 25px;
       width: 7px;
       height: 13px;
@@ -358,6 +354,7 @@
 
       menuElement.addEventListener('keydown', (event) => {
         if (event.key === 'ArrowDown') {
+          event.preventDefault()
           openPopup(menuElement, popupElement)
         }
 
@@ -542,8 +539,10 @@
           let currentIndex = -1
 
           if (event.key === 'ArrowDown') {
+            event.preventDefault()
             currentIndex = (index + 1) % popupItems.length
           } else if (event.key === 'ArrowUp') {
+            event.preventDefault()
             currentIndex = (index - 1 + popupItems.length) % popupItems.length
           } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
             const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
