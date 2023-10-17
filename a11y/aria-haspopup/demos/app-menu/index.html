@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Меню редактора текста — aria-haspopup — Дока</title>
+  <title>Меню веб-редактора текста — aria-haspopup — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -460,6 +460,7 @@
       const menuItems = Array.from(document.querySelectorAll('button[data-item]'))
       const popupItems = Array.from(document.querySelectorAll('button[data-option]'))
       let lastFocusedItem = null
+      let currentFocusedButtonIndex = -1
 
       menuItems.forEach((item, index) => {
         item.addEventListener('focus', () => {
@@ -512,6 +513,20 @@
               const nextElement = getNextFocusableElement(item, focusableElements)
               nextElement.focus()
             }
+          }
+
+          const keyPressed = event.key.toLowerCase()
+
+          const filteredMenuItems = mainMenuItems.filter((item) => {
+            const buttonText = item.textContent.trim().toLowerCase()
+
+            // return buttonText.charAt(0) === keyPressed
+            return buttonText.startsWith(keyPressed)
+          })
+
+          if (filteredMenuItems.length > 0) {
+            currentFocusedButtonIndex = (currentFocusedButtonIndex + 1) % filteredMenuItems.length
+            filteredMenuItems[currentFocusedButtonIndex].focus()
           }
         })
       })
