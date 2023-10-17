@@ -109,7 +109,7 @@ kbd {
   Эту страницу можно
   распечатать, если нажать
   <kbd>
-    <kbd>Ctrl</kbd> + <kbd>P</kbd>
+    <kbd>Ctrl</kbd> <kbd>P</kbd>
   </kbd>.
 </p>
 ```
