@@ -285,8 +285,8 @@
     const mainMenuItems = Array.from(document.querySelectorAll('button[data-item]'))
 
     const focusableSelectors = [
-      'a[href]', 'area[href]', 'input:not([disabled])', 
-      'select:not([disabled])', 'textarea:not([disabled])', 
+      'a[href]', 'area[href]', 'input:not([disabled])',
+      'select:not([disabled])', 'textarea:not([disabled])',
       'button:not([disabled])', '[tabindex]:not([tabindex="-1"])',
       '[contenteditable]'
     ]
@@ -489,7 +489,7 @@
 
             menuItems[firstIndex].focus()
           }
-          
+
           if(event.key === 'End') {
             event.preventDefault()
 
@@ -548,13 +548,13 @@
             const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
             const currentButtonIndex = mainMenuItems.indexOf(currentButton)
             let nextButtonIndex
-            
+
             if (event.key === 'ArrowRight') {
               nextButtonIndex = (currentButtonIndex + 1) % mainMenuItems.length
             } else if (event.key === 'ArrowLeft') {
               nextButtonIndex = (currentButtonIndex - 1 + mainMenuItems.length) % mainMenuItems.length
             }
-            
+
             if (typeof nextButtonIndex !== 'undefined') {
               const nextButton = mainMenuItems[nextButtonIndex]
               nextButton.focus()
