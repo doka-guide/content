@@ -12,7 +12,7 @@ keywords:
   - ридер
   - a11y
 related:
-  - a11y/strong
+  - a11y/role-strong
   - html/b
   - html/i
 tags:

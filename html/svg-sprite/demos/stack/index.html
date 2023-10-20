@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Стек изображений — SVG-спрайт — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(24 25 28);
+      color: rgb(255 255 255);
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    .sprite-demo__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px
+    }
+
+    .sprite-demo__btn {
+      cursor: pointer;
+
+      flex-shrink: 0;
+
+      width: 40px;
+      height: 40px;
+      border: 8px solid rgb(255 134 48);
+      border-radius: 6px;
+      background-color: rgb(255 134 48);
+
+      background-image: url('stack.svg#cat');
+    }
+
+    .sprite-demo__btn:hover,
+    .sprite-demo__btn:focus {
+      background-image: url('stack.svg#dog');
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="sprite-demo">
+    <section class="sprite-demo__container">
+      <span class="sprite-demo__heading">Наведите курсор на иконку:</span>
+      <button class="sprite-demo__btn"></button>
+  </main>
+</body>
+</html>

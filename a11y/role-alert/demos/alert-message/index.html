@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Срочное сообщение с alert — alert — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: block;
+      max-width: 210px;
+      margin-bottom: 25px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .message {
+      height: 44px;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .message-showed {
+      height: auto;
+      border: 1px solid #F498AD;
+      border-radius: 3px;
+    }
+
+    .message-showed:before {
+      content: url('images/error.svg');
+      width: 24px;
+      height: 24px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.4;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-aqua">Подключиться</button>
+  <div role="alert" class="message" id="message">
+    <p id="message-text"></p>
+  </div>
+
+  <script>
+    const button = document.querySelector('.button')
+    const message = document.getElementById('message')
+    const messageText = document.getElementById('message-text')
+
+    button.addEventListener('click', () => {
+      message.classList.add('message-showed')
+      messageText.textContent = 'Сервер сейчас перегружен. Попробуйте подключиться через час.'
+    })
+  </script>
+</body>
+</html>
