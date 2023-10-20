@@ -198,8 +198,8 @@
       }
     </style>
     <script>
-      // Скрипт для парсинга данных с инпута и вывода нужного количества чекбоксов из шаблона + кнопка reset (!!!добавить в ее действие также обнуление value инпута пользователя)
       document.addEventListener("DOMContentLoaded", function () {
+        // Скрипт для элементов
         document
           .getElementById("numElements")
           .addEventListener("input", function () {
@@ -207,34 +207,39 @@
             generateElements(num);
           });
 
-        function generateElements(num) {
-          const container = document.getElementById("elementsContainer");
-          const template = document.getElementById("template");
-          container.innerHTML = ""; // Очищаем контейнер
-
-          for (let i = 0; i < num; i++) {
-            const clone = document.importNode(template.content, true);
-            container.appendChild(clone);
-          }
-        }
-
         document
           .getElementById("clearButton")
           .addEventListener("click", function () {
             const container = document.getElementById("elementsContainer");
             container.innerHTML = "";
           });
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
+        // Скрипт для функционала калькулятора с вводом формулы
         document
           .getElementById("formulaInput")
           .addEventListener("input", function () {
             const formula = this.value.trim();
             applyFormula(formula);
-            a;
           });
-
+        // Listener for changes in checkboxes
+        document
+          .getElementById("elementsContainer")
+          .addEventListener("change", function () {
+            const checkedBoxes = Array.from(document.querySelectorAll(".demo-calculator__checkbox:checked"));
+            const allBoxes = Array.from(document.querySelectorAll(".demo-calculator__checkbox"));
+            const checkedIndexes = checkedBoxes.map(box => Array.from(box.parentNode.parentNode.children).indexOf(box.parentNode) + 1);
+            const formula = getResults(checkedIndexes, allBoxes.length);
+            document.getElementById("formulaInput").value = formula;
+          });
+        
+        function generateElements(num) {
+          const container = document.getElementById("elementsContainer");
+          const template = document.getElementById("template");
+          container.innerHTML = ""; // Очищаем контейнер
+          for (let i = 0; i < num; i++) {
+            const clone = document.importNode(template.content, true);
+            container.appendChild(clone);
+          }
+        }
         function applyFormula(formula) {
           // Сбрасываем состояние всех чекбоксов
           const checkboxes = document.querySelectorAll(
@@ -270,78 +275,67 @@
             return;
           }
         }
-      });
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const checkedIndexes = []; // Массив для хранения индексов отмеченных элементов
-        // Получение уже созданных checkbox-ов из контейнера с id="elementsContainer"
-        const container = document.getElementById("elementsContainer");
-        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
-
-        checkboxes.forEach((checkbox, index) => {
-          checkbox.addEventListener("change", function (e) {
-            handleCheckboxChange(e, index + 1);
-          });
-        });
-
-        // Обработка изменения состояния checkbox
-        function handleCheckboxChange(e, index) {
-          if (e.target.checked) {
-            checkedIndexes.push(index);
-          } else {
-            const removeIndex = checkedIndexes.indexOf(index);
-            if (removeIndex > -1) {
-              checkedIndexes.splice(removeIndex, 1);
+        function getResults(checkedArray, amount) {
+          let resultArray = [];
+          console.log(amount)
+          //One item
+          if (checkedArray.length === 1) {
+            if (checkedArray[0] === 1) {
+              resultArray.push('first-child');
             }
-          }
-          const formula = calculateFormula(checkedIndexes);
-
-          displayFormula(formula);
-        }
-
-        // Вычисление формулы на основе отмеченных checkbox-ов
-        function calculateFormula(indexes) {
-          indexes.sort((a, b) => a - b); // Сортируем индексы
-          const totalCheckboxes = checkboxes.length;
-          const totalChecked = indexes.length;
-
-          // Если все checkbox-ы отмечены, возвращаем 'nth-child(n)'
-          if (totalChecked === totalCheckboxes) {
-            return "nth-child(n)";
-          }
-
-          // Проверка на четные или нечетные элементы
-          const areAllEven = indexes.every((x) => x % 2 === 0);
-          const areAllOdd = indexes.every((x) => x % 2 !== 0);
-
-          if (areAllEven && totalChecked === totalCheckboxes / 2) {
-            return "nth-child(even)";
-          }
-
-          if (areAllOdd && totalChecked === Math.ceil(totalCheckboxes / 2)) {
-            return "nth-child(odd)";
-          }
-
-          // Попытка вычислить формулу вида an+b
-          if (totalChecked >= 2) {
-            const diffs = [];
-            for (let i = 1; i < indexes.length; i++) {
-              diffs.push(indexes[i] - indexes[i - 1]);
+            if (checkedArray[0] === amount) {
+              resultArray.push('last-child');
             }
-
-            const areAllDiffsEqual = diffs.every((x) => x === diffs[0]);
-
-            if (areAllDiffsEqual) {
-              return `nth-child(${diffs[0]}n+${indexes[0]})`;
-            }
+            resultArray.push('nth-child(' + (checkedArray[0]) + ')');
+            resultArray.push('nth-last-child(' + (amount - checkedArray[0] + 1) + ')');
+            return resultArray.join(", "); // Добавьте эту строку
           }
-          // Если ничего не подошло, возможно, возвращаем пустую строку или какой-то другой флаг
-          return "";
-        }
-        // Отображение формулы пользователю
-        function displayFormula(formula) {
-          const resultElement = document.getElementById("formulaInput");
-          resultElement.value = formula;
+          if (checkedArray.length > 1) {
+          
+            //Regular
+            var diff = checkedArray[1] - checkedArray[0];
+            var diffFirst = checkedArray[0];
+            var diffLast = amount - checkedArray[checkedArray.length - 1];
+          
+            var regular = true;
+            var endGood = false;
+            var startGood = false;
+            for (var i = 1; i < checkedArray.length; i++) {
+              if (checkedArray[i] - checkedArray[i - 1] !== diff) {
+                regular = false;
+              }
+            }
+          
+            if (regular) {
+              if (diffFirst <= diff) {
+                startGood = true;
+              } 
+              if (diffLast <= diff - 1) {
+                endGood = true;
+              }
+            }
+          
+            if (startGood || endGood) {
+              var density = (diff > 1) ? diff : '';
+              var direction = (endGood) ? '' : '-';
+              var hook = (endGood) ? checkedArray[0] : checkedArray[checkedArray.length - 1];
+              if (diff !== hook) {
+                resultArray.push('nth-child(' + direction + density + 'n+' + hook + ')');
+              } else {
+                resultArray.push('nth-child(' + direction + density + 'n)');
+              }
+            } 
+          
+            //odd & even
+            if (regular && diff === 2 && endGood) {
+              if (diffFirst === 1) {
+                resultArray.push('nth-child(odd)');
+              } else if (diffFirst === 2) {
+                resultArray.push('nth-child(even)');
+              }
+            }
+            return resultArray.length ? resultArray.join(", ") : "";
+          }
         }
       });
     </script>
