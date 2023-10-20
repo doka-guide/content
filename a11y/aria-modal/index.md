@@ -5,6 +5,7 @@ authors:
   - tatianafokina
 keywords:
   - доступность
+  - a11y
   - ARIA
 related:
   - a11y/role-dialog
@@ -30,16 +31,21 @@ tags:
 
 ```html
 <div
-  role="alertdialog"
+  role="dialog"
   aria-modal="true"
   aria-labelledby="label"
+  aria-describedby="description"
 >
-  <h2 id="label">Важное уточнение</h2>
-  <p>Точно хотите посадить дерево?</p>
-  <button type="button" onclick="growTree(this)">Да</button>
-  <button type="button" onclick="deleteTree(this)">Нет</button>
+  <h3 id="label">Заказ был отправлен!</h3>
+  <p id="description">
+    Заказ будет доставлен в течение следующих 3–5 рабочих дней.
+  </p>
+  <button>Закрыть</button>
+  <a href="#details">Детали заказа</a>
 </div>
 ```
+
+<iframe title="Модальное окно с атрибутом" src="demos/custom-modal-dialog/" height="350"></iframe>
 
 ## Как пишется
 
