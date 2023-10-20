@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/img
-  - css/media
-  - js/var-let
-  - js/async-in-js
-  - a11y/aria-intro
-  - html/article
-  - html/div
-  - js/execution-order
-  - tools/oop
-  - css/box-model
-  - html/nav
-  - css/keyframes
-  - a11y/screenreaders
-  - css/specificity
-  - tools/webpack
-  - recipes/lets-encrypt-nginx
-  - recipes/progress
-  - css/grid-guide
-  - html/section
-  - a11y/aria-hidden
-  - css/transform-function
-  - html/form
-  - css/flexbox-guide
-  - recipes/snow
-  - html/head
-  - css/attr
-  - tools/static-types
-  - tools/markdown
-  - tools/bundlers
-  - tools/how-to-test-and-why
   - html/doctype
-  - js/function
-  - tools/clean-architecture
-  - html/input
+  - recipes/progress
+  - tools/cli
+  - css/position
+  - html/nav
+  - html/section
+  - tools/ci-cd
+  - html/video
   - css/pseudoelements
-  - html/flow
+  - html/input
+  - css/media
+  - tools/how-the-browser-creates-pages
+  - html/form
+  - css/specificity
+  - css/box-shadow
+  - js/deal-with-forms
+  - tools/agile
+  - tools/gitlab-ci-cd
+  - js/function-context
+  - a11y/aria-hidden
+  - css/flexbox-guide
+  - html/head
+  - a11y/aria-intro
   - js/infinite-scroll
+  - css/grid-guide
+  - tools/docker
+  - tools/markdown
+  - a11y/screenreaders
+  - css/attr
+  - css/keyframes
+  - tools/webpack
+  - html/img
+  - css/box-model
+  - js/boolean
+  - tools/bundlers
+  - html/div
+  - tools/static-types
+  - js/var-let
+  - tools/clean-architecture
+  - js/execution-order
+  - js/function
+  - tools/how-to-test-and-why
+  - tools/network
+  - recipes/snow
   - js/closures
   - css/display
-  - js/boolean
-  - tools/network
-  - tools/agile
-  - html/video
-  - tools/docker
-  - js/deal-with-forms
-  - tools/cli
-  - tools/gitlab-ci-cd
+  - tools/oop
+  - css/transform-function
+  - html/article
+  - html/flow
+  - js/async-in-js
+  - recipes/lets-encrypt-nginx
   - css/custom-properties
-  - js/function-context
-  - css/box-shadow
-  - css/position
-  - tools/how-the-browser-creates-pages
-  - tools/ci-cd
 ---
 
