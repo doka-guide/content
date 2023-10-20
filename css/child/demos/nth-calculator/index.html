@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Калькулятор nth-child — Превдоклассы группы child — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Oswald:wght@200&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+    />
+    <style>
+      /* общие стили */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      ul[class],
+      ol[class],
+      li,
+      figure,
+      figcaption,
+      blockquote,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: grid;
+        grid-template-columns: 289px 652px;
+        grid-template-rows: 63px auto;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+        font-size: 1em;
+        gap: 29px 46px;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+
+      .visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+
+      /* стили кода */
+
+      .code {
+        font-size: 15px;
+        width: fit-content;
+        font-family: "Roboto Mono", monospace;
+      }
+
+      .accent_green {
+        color: #98c379;
+      }
+
+      .accent_red {
+        color: #e06c75;
+      }
+
+      input {
+        background-color: transparent;
+        border: 1px solid #fff;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-size: 1em;
+        border-radius: 5px;
+      }
+
+      .code__input {
+        color: #98c379;
+        padding-left: 5px;
+        font-size: 15px;
+      }
+
+      /* стили для описания работы программы  */
+
+      .calculator-description {
+        grid-row-start: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .calculator-description__containter {
+        display: flex;
+        gap: 9px;
+        justify-content: space-between;
+      }
+
+      .calculator-description__number-input {
+        height: 19px;
+        width: 34px;
+        text-align: center;
+      }
+
+      .calculator-description__reset-button {
+        height: 25px;
+        width: 81px;
+        border: 1px solid #fff;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: 300;
+      }
+
+      .calculator-description__reset-button:hover {
+        text-decoration: underline;
+      }
+
+      /* Посмотреть что там с фокусом и с фокус визибл по дизайну
+      :focus {
+        outline: none
+      }
+
+      .calculator-description__number-input:has(:focus-visible) {
+        outline: ;
+      }
+*/
+
+      /* стили чекбокса */
+
+      .demo-calculator {
+        grid-row-start: 2;
+        grid-column-start: 2;
+        display: flex;
+        align-content: start;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .demo-calculator_child {
+        display: flex;
+        gap: 5px;
+        width: fit-content;
+        cursor: pointer;
+      }
+
+      .demo-calculator_pseudo-checkbox {
+        width: 28px;
+        height: 28px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        justify-self: center;
+        align-self: center;
+      }
+
+      input[type="checkbox"]:checked + .demo-calculator_pseudo-checkbox {
+        width: 28px;
+        height: 28px;
+        background-color: #2e9aff;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        justify-self: center;
+        align-self: center;
+      }
+    </style>
+    <script>
+      // Скрипт для парсинга данных с инпута и вывода нужного количества чекбоксов из шаблона + кнопка reset (!!!добавить в ее действие также обнуление value инпута пользователя)
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("numElements")
+          .addEventListener("input", function () {
+            const num = parseInt(this.value, 10);
+            generateElements(num);
+          });
+
+        function generateElements(num) {
+          const container = document.getElementById("elementsContainer");
+          const template = document.getElementById("template");
+          container.innerHTML = ""; // Очищаем контейнер
+
+          for (let i = 0; i < num; i++) {
+            const clone = document.importNode(template.content, true);
+            container.appendChild(clone);
+          }
+        }
+
+        document
+          .getElementById("clearButton")
+          .addEventListener("click", function () {
+            const container = document.getElementById("elementsContainer");
+            container.innerHTML = "";
+          });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("formulaInput")
+          .addEventListener("input", function () {
+            const formula = this.value.trim();
+            applyFormula(formula);
+            a;
+          });
+
+        function applyFormula(formula) {
+          // Сбрасываем состояние всех чекбоксов
+          const checkboxes = document.querySelectorAll(
+            '#elementsContainer input[type="checkbox"]'
+          );
+          checkboxes.forEach((checkbox) => {
+            checkbox.checked = false;
+          });
+
+          // Проверка на odd и even
+          if (formula === "nth-child(odd)") {
+            for (let i = 0; i < checkboxes.length; i += 2) {
+              checkboxes[i].checked = true;
+            }
+            return;
+          }
+
+          if (formula === "nth-child(even)") {
+            for (let i = 1; i < checkboxes.length; i += 2) {
+              checkboxes[i].checked = true;
+            }
+            return;
+          }
+
+          // Проверка на формулы an и an+b !!! Добавить возможность писать формулы вида (-an + b)
+          const match = formula.match(/^nth-child\((\d*)n(\+?\d*)?\)$/);
+          if (match) {
+            const a = match[1] ? parseInt(match[1]) : 1;
+            const b = match[2] ? parseInt(match[2]) : 0;
+            for (let i = b; i < checkboxes.length; i += a) {
+              checkboxes[i].checked = true;
+            }
+            return;
+          }
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const checkedIndexes = []; // Массив для хранения индексов отмеченных элементов
+        // Получение уже созданных checkbox-ов из контейнера с id="elementsContainer"
+        const container = document.getElementById("elementsContainer");
+        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+
+        checkboxes.forEach((checkbox, index) => {
+          checkbox.addEventListener("change", function (e) {
+            handleCheckboxChange(e, index + 1);
+          });
+        });
+
+        // Обработка изменения состояния checkbox
+        function handleCheckboxChange(e, index) {
+          if (e.target.checked) {
+            checkedIndexes.push(index);
+          } else {
+            const removeIndex = checkedIndexes.indexOf(index);
+            if (removeIndex > -1) {
+              checkedIndexes.splice(removeIndex, 1);
+            }
+          }
+          const formula = calculateFormula(checkedIndexes);
+
+          displayFormula(formula);
+        }
+
+        // Вычисление формулы на основе отмеченных checkbox-ов
+        function calculateFormula(indexes) {
+          indexes.sort((a, b) => a - b); // Сортируем индексы
+          const totalCheckboxes = checkboxes.length;
+          const totalChecked = indexes.length;
+
+          // Если все checkbox-ы отмечены, возвращаем 'nth-child(n)'
+          if (totalChecked === totalCheckboxes) {
+            return "nth-child(n)";
+          }
+
+          // Проверка на четные или нечетные элементы
+          const areAllEven = indexes.every((x) => x % 2 === 0);
+          const areAllOdd = indexes.every((x) => x % 2 !== 0);
+
+          if (areAllEven && totalChecked === totalCheckboxes / 2) {
+            return "nth-child(even)";
+          }
+
+          if (areAllOdd && totalChecked === Math.ceil(totalCheckboxes / 2)) {
+            return "nth-child(odd)";
+          }
+
+          // Попытка вычислить формулу вида an+b
+          if (totalChecked >= 2) {
+            const diffs = [];
+            for (let i = 1; i < indexes.length; i++) {
+              diffs.push(indexes[i] - indexes[i - 1]);
+            }
+
+            const areAllDiffsEqual = diffs.every((x) => x === diffs[0]);
+
+            if (areAllDiffsEqual) {
+              return `nth-child(${diffs[0]}n+${indexes[0]})`;
+            }
+          }
+          // Если ничего не подошло, возможно, возвращаем пустую строку или какой-то другой флаг
+          return "";
+        }
+        // Отображение формулы пользователю
+        function displayFormula(formula) {
+          const resultElement = document.getElementById("formulaInput");
+          resultElement.value = formula;
+        }
+      });
+    </script>
+  </head>
+  <body class="page">
+    <pre id="code-display" class="code">
+<span class="accent_green">parent:<input type="text" id="formulaInput" value="nth-child(2n+1)" class="code__input"></span> { <!-- надо стилизовать ввод -->
+  <span class="accent_red">background-color:</span> #2E9AFF;
+}
+    </pre>
+    <section class="calculator-description">
+      <label class="calculator-description__containter">
+        Сколько элементов в родителе?
+        <input
+          class="calculator-description__number-input"
+          type="number"
+          min="0"
+          max="56"
+          maxlength="2"
+          id="numElements"
+          value="14"
+        />
+      </label>
+      <p>
+        Отметьте элементы внутри родителя, которые будут подчиняться правилу или
+        введите формулу.
+      </p>
+      <button
+        type="reset"
+        class="calculator-description__reset-button"
+        id="clearButton"
+      >
+        Очистить
+      </button>
+    </section>
+    <section class="demo-calculator" id="elementsContainer">
+      <!-- будут встраиваться template по итогам функции. При открытии пользователь увидит 14 квадратиков-элементом родителя -->
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+      <label class="demo-calculator_child">
+        <input
+          type="checkbox"
+          class="demo-calculator__checkbox visually-hidden"
+          name="item"
+        />
+        <span class="demo-calculator_pseudo-checkbox"></span>
+      </label>
+    </section>
+  </body>
+</html>
+
+<!-- templates -->
+
+<template id="template">
+  <label class="demo-calculator_child">
+    <input
+      type="checkbox"
+      class="demo-calculator__checkbox visually-hidden"
+      name="item"
+    />
+    <span class="demo-calculator_pseudo-checkbox"></span>
+  </label>
+</template>
