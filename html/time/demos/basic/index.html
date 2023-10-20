@@ -13,24 +13,27 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
+
     body {
       min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
-      background-color: #1F2937;
+      background-color: #18191C;
+      color: #000000;
     }
 
     .person {
       padding: 16px 24px;
       display: flex;
       align-items: center;
-      background-color: rgba(75, 85, 99, 0.7);
-      border: 1px solid #6B7280;
-      border-radius: 8px;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+      background-color: #FF8630;
     }
 
     .profile-photo-section {
@@ -44,38 +47,42 @@
     }
 
     .profile-info {
-      margin-left: 12px;
+      margin-left: 25px;
     }
 
     .profile-name {
-      font-size: 22px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
       font-weight: 500;
-      color: #D1D5DB;
     }
 
     .last-visit {
       display: flex;
       align-items: baseline;
-      font-size: 18px;
-      line-height: 20px;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .last-visit-datetime {
-      color: #F4F4F5;
       text-decoration: underline;
     }
 
     .last-visit-label {
       margin-left: 5px;
-      color: #E5E7EB;
-      font-size: 18px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
   <article class="person">
     <div class="profile-photo-section">
-      <img class="profile-photo" src="images/profile-photo.jpg" alt="Билл Джобс">
+      <img class="profile-photo" src="images/profile-photo.jpg" alt="">
     </div>
     <div class="profile-info">
       <header class="profile-name">
