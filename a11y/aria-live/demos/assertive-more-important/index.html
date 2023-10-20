@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>DEMO — ARTICLE — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    /* STYLES */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    main {}
+
+    #container {
+      display: flex;
+      justify-content: center;
+    }
+
+    #itemContainer {
+      margin: 8px;
+      min-width: 240px;
+    }
+
+    #content {
+      padding: 20px;
+      /* min-width: 200px; */
+      min-height: 200px;
+      border: 1px solid firebrick;
+      text-align: center;
+    }
+
+    #content>p {
+      font-size: 20px;
+      color: red;
+      padding-top: 2em;
+    }
+
+    #buttonContainer {
+      display: flex;
+      justify-content: center;
+    }
+
+    button {
+      margin: 8px;
+      display: block;
+      min-width: 160px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MARKUP -->
+  <main>
+    <div id="buttonContainer">
+      <!-- <p>
+        Белеет парус одинокой<br>
+        В тумане моря голубом!..<br>
+      </p> -->
+      <button id="politeButtonLive">Оживить</button>
+      <button id="politeButtonStop">Остановить</button>
+    </div>
+
+    <div id="container">
+      <div id="itemContainer">
+
+        <div id="content" aria-live="polite">
+          <span>polite</span>
+          <p id="politeContent"></p>
+        </div>
+      </div>
+      <div id="itemContainer" aria-live="assertive">
+        <!-- <button id="assertiveButtonLive">Оживить</button>
+        <button id="assertiveButtonStop">Остановить</button> -->
+        <div id="content">
+          <span>assertive</span>
+          <p id="assertiveContent"></p>
+
+        </div>
+      </div>
+      <div id="itemContainer" aria-live="off">
+        <!-- <button id="offButtonLive">Оживить</button>
+        <button id="offButtonStop">Остановить</button> -->
+        <div id="content">
+          <span>off</span>
+          <p id="offContent"></p>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<script>
+  politeButtonLive.addEventListener('click', () => {
+    const assertiveText = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    const offText = ['Меня', 'игнорируют', ';(']
+    const randomLetters = () => {
+      return assertiveText[Math.round(Math.random() * 32)]
+    }
+
+
+    politeContent.innerHTML = '1'
+    assertiveContent.innerHTML = assertiveText[32]
+    offContent.innerHTML = `${offText[0]} ${offText[1]} ${offText[2]}`
+
+    const liveInterval = setInterval(() => {
+      politeContent.innerHTML = Math.round(Math.random() * 10)
+      assertiveContent.innerHTML = randomLetters()
+
+    }, 2_000)
+
+    // const assertiveInterval = setInterval(() => {
+    //   assertiveContent.innerHTML = randomLetters()
+    // },2_000)
+
+    politeButtonStop.addEventListener('click', () => {
+      clearInterval(liveInterval)
+      politeContent.innerHTML = ''
+      assertiveContent.innerHTML = ''
+      offContent.innerHTML = ''
+      // clearInterval(assertiveInterval)
+    })
+  })
+
+  assertiveButtonLive.addEventListener('click', () => {
+    // const demoText = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+
+    // const randomLetters = () => {
+    //   return demoText[Math.round(Math.random() * 32)]
+    // }
+    // assertiveContent.innerHTML = demoText[32]
+    // const assertiveInterval = setInterval(() => {
+    //   assertiveContent.innerHTML = randomLetters()
+    // },2_000)
+
+    // assertiveButtonStop.addEventListener('click', () => {
+    // clearInterval(assertiveInterval)
+    // assertiveContent.innerHTML = ''
+    // })
+  })
+
+
+</script>
+
+</html>
