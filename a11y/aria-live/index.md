@@ -2,7 +2,7 @@
 title: "`aria-live`"
 description: "Базовый ARIA-атрибут для того, чтобы сделать часть страницы «живой» областью."
 authors:
-  - doka-dog
+  - oskarstud
 keywords:
   - доступность
   - ARIA
@@ -16,7 +16,6 @@ related:
   - a11y/role-alert
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
