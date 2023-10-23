@@ -126,8 +126,8 @@
     offContent.innerHTML = `${offText[0]} <br> ${offText[1]} ${offText[2]}`
 
     const liveInterval = setInterval(() => {
-      politeContent.innerHTML = Math.round(Math.random() * 10)
       assertiveContent.innerHTML = randomLetters()
+      politeContent.innerHTML = Math.round(Math.random() * 10)
       offContent.innerHTML = randomText()
     }, 2_000)
 
