@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    /* STYLES */
     *,
     *::before,
     *::after {
@@ -35,8 +34,6 @@
       }
     }
 
-    main {}
-
     #container {
       display: flex;
       justify-content: center;
@@ -44,21 +41,20 @@
 
     #itemContainer {
       margin: 8px;
-      min-width: 240px;
+      min-width: 200px;
     }
 
     #content {
       padding: 20px;
-      /* min-width: 200px; */
-      min-height: 200px;
-      border: 1px solid firebrick;
+      min-height: 140px;
+      border: 1px solid #10F3AF;
       text-align: center;
     }
 
     #content>p {
       font-size: 20px;
-      color: red;
-      padding-top: 2em;
+      color: #F498AD;
+      padding-top: 20px;
     }
 
     #buttonContainer {
@@ -83,28 +79,20 @@
 </head>
 
 <body>
-  <!-- MARKUP -->
   <main>
     <div id="buttonContainer">
-      <!-- <p>
-        Белеет парус одинокой<br>
-        В тумане моря голубом!..<br>
-      </p> -->
       <button id="politeButtonLive">Оживить</button>
       <button id="politeButtonStop">Остановить</button>
     </div>
 
     <div id="container">
       <div id="itemContainer">
-
         <div id="content" aria-live="polite">
           <span>polite</span>
           <p id="politeContent"></p>
         </div>
       </div>
       <div id="itemContainer" aria-live="assertive">
-        <!-- <button id="assertiveButtonLive">Оживить</button>
-        <button id="assertiveButtonStop">Остановить</button> -->
         <div id="content">
           <span>assertive</span>
           <p id="assertiveContent"></p>
@@ -112,8 +100,6 @@
         </div>
       </div>
       <div id="itemContainer" aria-live="off">
-        <!-- <button id="offButtonLive">Оживить</button>
-        <button id="offButtonStop">Остановить</button> -->
         <div id="content">
           <span>off</span>
           <p id="offContent"></p>
@@ -126,54 +112,32 @@
 </body>
 <script>
   politeButtonLive.addEventListener('click', () => {
-    const assertiveText = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    const assertiveLetters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     const offText = ['Меня', 'игнорируют', ';(']
     const randomLetters = () => {
-      return assertiveText[Math.round(Math.random() * 32)]
+      return assertiveLetters[Math.round(Math.random() * 32)]
+    }
+    const randomText = () => {
+      return offText[Math.round(Math.random() * 2)]
     }
 
-
     politeContent.innerHTML = '1'
-    assertiveContent.innerHTML = assertiveText[32]
-    offContent.innerHTML = `${offText[0]} ${offText[1]} ${offText[2]}`
+    assertiveContent.innerHTML = assertiveLetters[32]
+    offContent.innerHTML = `${offText[0]} <br> ${offText[1]} ${offText[2]}`
 
     const liveInterval = setInterval(() => {
       politeContent.innerHTML = Math.round(Math.random() * 10)
       assertiveContent.innerHTML = randomLetters()
-
+      offContent.innerHTML = randomText()
     }, 2_000)
-
-    // const assertiveInterval = setInterval(() => {
-    //   assertiveContent.innerHTML = randomLetters()
-    // },2_000)
 
     politeButtonStop.addEventListener('click', () => {
       clearInterval(liveInterval)
       politeContent.innerHTML = ''
       assertiveContent.innerHTML = ''
       offContent.innerHTML = ''
-      // clearInterval(assertiveInterval)
     })
   })
-
-  assertiveButtonLive.addEventListener('click', () => {
-    // const demoText = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
-
-    // const randomLetters = () => {
-    //   return demoText[Math.round(Math.random() * 32)]
-    // }
-    // assertiveContent.innerHTML = demoText[32]
-    // const assertiveInterval = setInterval(() => {
-    //   assertiveContent.innerHTML = randomLetters()
-    // },2_000)
-
-    // assertiveButtonStop.addEventListener('click', () => {
-    // clearInterval(assertiveInterval)
-    // assertiveContent.innerHTML = ''
-    // })
-  })
-
-
 </script>
 
 </html>
