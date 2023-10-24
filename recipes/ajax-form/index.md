@@ -1,6 +1,6 @@
 ---
-title: "Отправка данных формы при помощи AJAX"
-description: "Отправляем данные формы без перезагрузки страницы"
+title: "Отправка данных формы при помощи Ajax"
+description: "Отправляем данные формы без перезагрузки страницы."
 authors:
   - fpetrakov
 keywords:
@@ -17,7 +17,7 @@ tags:
 
 ## Задача
 
-Возможно, вы хотите иметь больше контроля над вашей формой: показывать лоадер при отправке данных или обновить интерфейс еще до получения ответа с сервера. Первым делом нужно отключить дефолтное поведение формы - перезагрузку страницы.
+Возможно, вы хотите иметь больше контроля над вашей формой: показывать лоадер при отправке данных или обновить интерфейс ещё до получения ответа с сервера. Первым делом нужно отключить дефолтное поведение формы — перезагрузку страницы.
 
 ## Готовое решение
 
@@ -25,24 +25,24 @@ tags:
 <form>
   <label>
     Почта:
-    <input type="email" autocomplete="email" name="email" required />
+    <input type="email" autocomplete="email" name="email" required>
   </label>
   <label>
     Пароль:
-    <input type="password" autocomplete="password" name="password" required />
+    <input type="password" autocomplete="password" name="password" required>
   </label>
   <button type="submit">Войти</button>
 </form>
 ```
 
 ```js
-const form = document.querySelector("form");
-const submitButton = document.querySelector("button");
+const form = document.querySelector("form")
+const submitButton = document.querySelector("button")
 
 form.addEventListener("submit", async (event) => {
   // Отключаем дефолтное поведение
-  event.preventDefault();
-  submitButton.disabled = true;
+  event.preventDefault()
+  submitButton.disabled = true
 
   try {
     showLoader();
@@ -51,12 +51,12 @@ form.addEventListener("submit", async (event) => {
       method: "POST"
       body: new FormData(form);
     })
-    const result = await response.json();
+    const result = await response.json()
   } catch (error) {
-    showError(error);
+    showError(error)
   } finally {
-    hideLoader();
-    submitButton.disabled = false;
+    hideLoader()
+    submitButton.disabled = false
   }
 })
 
@@ -81,26 +81,27 @@ function showError() {
 <form>
   <label>
     Почта:
-    <input type="email" autocomplete="email" name="email" required />
+    <input type="email" autocomplete="email" name="email" required>
   </label>
   <label>
     Пароль:
-    <input type="password" autocomplete="password" name="password" required />
+    <input type="password" autocomplete="password" name="password" required>
   </label>
   <button type="submit">Войти</button>
 </form>
 ```
-Найдем нашу форму по тегу.
+
+Найдём нашу форму по тегу [`<form>`](/html/form/).
 
 ```js
-const form = document.querySelector("form");
+const form = document.querySelector("form")
 ```
 
-На форму добавим обработчик события `submit` и отключим его дефолтное поведение с помощью метода preventDefault().
+На форму добавим обработчик события [`submit`](/js/event-submit/) и отключим его дефолтное поведение с помощью метода [`preventDefault()`](/js/event-prevent-default/).
 
 ```js
 form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+  event.preventDefault()
 })
 ```
 
@@ -108,20 +109,20 @@ form.addEventListener("submit", async (event) => {
 
 ```js
 form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+  event.preventDefault()
 
   try {
-    showLoader();
+    showLoader()
     const response = await fetch("/api/login", {
       headers: { "Content-Type": "multipart/form-data" },
       method: "POST"
       body: new FormData(form);
     })
-    const result = await response.json();
+    const result = await response.json()
   } catch (error) {
-    showError(error);
+    showError(error)
   } finally {
-    hideLoader();
+    hideLoader()
   }
 })
 
@@ -138,15 +139,15 @@ function showError() {
 }
 ```
 
-Также можно отключить кнопку, пока сервер не пришел с ответом, чтобы предотвратить повторную отправку формы.
+Также можно отключить кнопку, пока сервер не пришёл с ответом, чтобы предотвратить повторную отправку формы.
 
 ```js
-const form = document.querySelector("form");
-const submitButton = document.querySelector("button");
+const form = document.querySelector("form")
+const submitButton = document.querySelector("button")
 
 form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  submitButton.disabled = true;
+  event.preventDefault()
+  submitButton.disabled = true
 
   try {
     showLoader();
@@ -155,12 +156,12 @@ form.addEventListener("submit", async (event) => {
       method: "POST"
       body: new FormData(form);
     })
-    const result = await response.json();
+    const result = await response.json()
   } catch (error) {
-    showError(error);
+    showError(error)
   } finally {
-    hideLoader();
-    submitButton.disabled = false;
+    hideLoader()
+    submitButton.disabled = false
   }
 })
 ```
