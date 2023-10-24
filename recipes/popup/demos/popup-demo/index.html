@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Popup — пишем доступный попап на `<dialog>` — Дока</title>
+    <title>Попап — Пишем доступный попап на <dialog> — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,6 @@
         html {
             color-scheme: dark;
             height: 100vh;
-
         }
 
         body {
@@ -162,40 +161,38 @@
         <button class='openDialogBtn button-violet' type="button">Открыть попап</button>
     </div>
     <script>
-        const dialog = document.getElementById('myDialog');
-        const dialogOpener = document.querySelector('.openDialogBtn');
-        const dialogCloser = document.querySelector('.closeDialogBtn');
+        const dialog = document.getElementById('myDialog')
+        const dialogOpener = document.querySelector('.openDialogBtn')
+        const dialogCloser = document.querySelector('.closeDialogBtn')
 
         function closeOnBackDropClick({ currentTarget, target }) {
-            const dialog = currentTarget;
-            const isClickedOnBackDrop = target === dialog;
+            const dialog = currentTarget
+            const isClickedOnBackDrop = target === dialog
             if (isClickedOnBackDrop) {
-                dialog.close();
+                dialog.close()
             }
         }
 
         function openModalAndLockScroll() {
-            dialog.showModal();
-            document.body.classList.add("scroll-lock");
+            dialog.showModal()
+            document.body.classList.add('scroll-lock')
         }
 
         function returnScroll() {
-            document.body.classList.remove("scroll-lock");
+            document.body.classList.remove('scroll-lock')
         }
 
         function close() {
-            dialog.close();
-            returnScroll();
+            dialog.close()
+            returnScroll()
         }
 
-        dialog.addEventListener('click', closeOnBackDropClick);
-        dialogOpener.addEventListener("click", openModalAndLockScroll);
+        dialog.addEventListener('click', closeOnBackDropClick)
+        dialogOpener.addEventListener('click', openModalAndLockScroll)
         dialogCloser.addEventListener('click', (event) => {
-            event.stopPropagation();
-            close();
-        });
-
-
+            event.stopPropagation()
+            close()
+        })
     </script>
 </body>
 
