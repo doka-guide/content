@@ -1,29 +1,26 @@
 ---
 title: "Как реализовать попап"
-description: "Будем писать попап на `<dialog>` с использованием всех его возможностей"
-
+description: "Будем писать попап на `<dialog>` с использованием всех его возможностей."
 authors:
   - AnnaBaraulina
-contributors:
-  - Никнеймы всех соавторов и контрибьюторов
-editors:
-  - Никнеймы всех редакторов
 keywords:
   - popup
+  - модалка
   - модальное окно
   - dialog
 related:
-  - [<dialog>](https://doka.guide/html/dialog/)
-  - [доступность](https://doka.guide/a11y/role-dialog/)
+  - html/dialog
+  - a11y/role-dialog
+  - a11y/aria-haspopup
 tags:
   - article
 ---
 
 ## Задача
 
-Создание попапа — распространенная задача для разработчика. Попапы, или модальные окна, эффективно привлекают внимание юзера. Это может быть полезно как для самого пользователя, так и для заказчика. Например, попап - это удобный способ предупреждения о невозвратности действия при попытке перезагрузки страницы, а также хороший инструмент для сбора контактов пользователей. 
+Создание попапа — распространенная задача для разработчика. Попапы, или модальные окна, эффективно привлекают внимание юзера. Это может быть полезно как для самого пользователя, так и для заказчика. Например, попап - это удобный способ предупреждения о невозвратности действия при попытке перезагрузки страницы, а также хороший инструмент для сбора контактов пользователей.
 
-В статье мы покажем простой и понятный способ создания попапа с использованиме тега `<dialog>`. 
+В статье мы покажем простой и понятный способ создания попапа с использованиме тега `<dialog>`.
 
 ## Готовое решение
 
@@ -31,17 +28,17 @@ tags:
 
 ```html
 <body class="parent">
-    <dialog class='child' id="myDialog">
-        <div class="dialog__wrapper">
-            <h2>Привет, я и есть попап!</h2>
-            <button class="closeDialogBtn" type="button">
-                Закрыть попап
-            </button>
-        </div>
-    </dialog>
-    <div class="container">
-        <button class='openDialogBtn' type="button">Открыть попап</button>
+  <dialog class='child' id="myDialog">
+    <div class="dialog__wrapper">
+      <h2>Привет, я и есть попап!</h2>
+      <button class="closeDialogBtn" type="button">
+        Закрыть попап
+      </button>
     </div>
+  </dialog>
+  <div class="container">
+    <button class='openDialogBtn' type="button">Открыть попап</button>
+  </div>
 </body>
 ```
 
@@ -133,38 +130,38 @@ dialog::backdrop {
 Реализуем открытие и закрытие попапа с помощью JavaScript-методов:
 
 ```javascript
-const dialog = document.getElementById('myDialog');
-const dialogOpener = document.querySelector('.openDialogBtn');
-const dialogCloser = document.querySelector('.closeDialogBtn');
+const dialog = document.getElementById('myDialog')
+const dialogOpener = document.querySelector('.openDialogBtn')
+const dialogCloser = document.querySelector('.closeDialogBtn')
 
 function closeOnBackDropClick({ currentTarget, target }) {
-  const dialog = currentTarget;
-  const isClickedOnBackDrop = target === dialog;
-            if (isClickedOnBackDrop) {
-                dialog.close();
-            }
-        }
+  const dialog = currentTarget
+  const isClickedOnBackDrop = target === dialog
+    if (isClickedOnBackDrop) {
+      dialog.close()
+    }
+  }
 
 function openModalAndLockScroll() {
-            dialog.showModal();
-            document.body.classList.add("scroll-lock");
-        }
+  dialog.showModal()
+  document.body.classList.add('scroll-lock')
+}
 
 function returnScroll() {
-            document.body.classList.remove("scroll-lock");
-        }
+  document.body.classList.remove('scroll-lock')
+}
 
 function close() {
-            dialog.close();
-            returnScroll();
-        }
+  dialog.close()
+  returnScroll()
+}
 
-dialog.addEventListener('click', closeOnBackDropClick);
-dialogOpener.addEventListener("click", openModalAndLockScroll);
+dialog.addEventListener('click', closeOnBackDropClick)
+dialogOpener.addEventListener('click', openModalAndLockScroll)
 dialogCloser.addEventListener('click', (event) => {
-    event.stopPropagation();
-    close();
-        });
+  event.stopPropagation()
+  close()
+})
 ```
 
 <iframe title='Пример попапа' src='demos/popup-demo/' height='330'></iframe>
@@ -177,17 +174,17 @@ dialogCloser.addEventListener('click', (event) => {
 
 ```html
 <body class="parent">
-    <dialog class='child' id="myDialog">
-        <div class="dialog__wrapper">
-            <h1>Привет, я попап</h1>
-            <button class="closeDialogBtn" type="button">
-                Закрыть попап
-            </button>
-        </div>
-    </dialog>
-    <div class="container">
-        <button class='openDialogBtn' type="button">Открыть попап</button>
+  <dialog class='child' id="myDialog">
+    <div class="dialog__wrapper">
+      <h1>Привет, я попап</h1>
+      <button class="closeDialogBtn" type="button">
+        Закрыть попап
+      </button>
     </div>
+  </dialog>
+  <div class="container">
+    <button class='openDialogBtn' type="button">Открыть попап</button>
+  </div>
 </body>
 ```
 
@@ -253,51 +250,51 @@ body {
 Для начала найдем все элементы, которые понадобятся нам для работы с попапом - модальное окно и кнопки для его открытия и закрытия:
 
 ```JavaScript
-const dialog = document.getElementById('myDialog');
-const dialogOpener = document.querySelector('.openDialogBtn');
-const dialogCloser = document.querySelector('.closeDialogBtn');
+const dialog = document.getElementById('myDialog')
+const dialogOpener = document.querySelector('.openDialogBtn')
+const dialogCloser = document.querySelector('.closeDialogBtn')
 ```
 
 Напишем функции для открытия и закрытия попапа. Также поместим в них код необходимый для блокировки скролла страницы. Не забудем вернуть скролл обратно при закрытии попапа: 
 
 ```JavaScript
 function openModalAndLockScroll() {
-            dialog.showModal();
-            document.body.classList.add("scroll-lock");
-        }
+  dialog.showModal()
+  document.body.classList.add('scroll-lock')
+}
 
 function returnScroll() {
-            document.body.classList.remove("scroll-lock");
-        }
+  document.body.classList.remove('scroll-lock')
+}
 
 function close() {
-            dialog.close();
-            returnScroll();
-        }
+  dialog.close()
+  returnScroll()
+}
 ```
 
 Навесим соответствующие обработчики событий на наши кнопки:
 
 ```JavaScript
-dialogOpener.addEventListener("click", openModalAndLockScroll);
+dialogOpener.addEventListener('click', openModalAndLockScroll)
 dialogCloser.addEventListener('click', (event) => {
-    event.stopPropagation();
-    close();
-        });
+  event.stopPropagation()
+  close()
+})
 ```
 
 В коде выше мы поместили `stopPropagation()` внутрь обработчика события на кнопку закрытия попапа. Это необходимо для того, чтобы реализовать закрытие модального окна по клику на оверлей:
 
 ```JavaScript
 function closeOnBackDropClick({ currentTarget, target }) {
-  const dialog = currentTarget;
-  const isClickedOnBackDrop = target === dialog;
-            if (isClickedOnBackDrop) {
-                dialog.close();
-            }
-        }
-dialog.addEventListener('click', closeOnBackDropClick);
+  const dialog = currentTarget
+  const isClickedOnBackDrop = target === dialog
+  if (isClickedOnBackDrop) {
+    dialog.close()
+  }
+}
 
+dialog.addEventListener('click', closeOnBackDropClick)
 ```
 
-Другой функцией нашего попапа окажется его закрытие по клику на кнопку esс. Это является встроенной функцией элемента `<dialog>` и не требует допольнительного кода. 
+Другой функцией нашего попапа окажется его закрытие по клику на кнопку esс. Это является встроенной функцией элемента `<dialog>` и не требует допольнительного кода.
