@@ -59,6 +59,7 @@ groups:
       - index-of
       - includes
       - string-length
+      - concat
   - name: "Булев тип"
     items:
       - boolean
@@ -94,6 +95,7 @@ groups:
       - array-of
       - array-isarray
       - array-at
+      - concat
   - name: "Объекты"
     items:
       - object
