@@ -93,6 +93,7 @@ groups:
       - array-from
       - array-of
       - array-isarray
+      - array-at
   - name: "Объекты"
     items:
       - object
