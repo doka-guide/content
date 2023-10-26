@@ -1,5 +1,5 @@
 ---
-title: ".concat()"
+title: "`.concat()`"
 description: "Способ быстро и просто склеить несколько массивов или строк."
 authors:
   - doka-dog
