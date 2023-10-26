@@ -111,15 +111,15 @@ tags:
 ```html
 <section class="section-one">
   <div class="container">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <!-- Контент -->
   </div>
 </section>
 <section class="section-two">
-  Lorem ipsum dolor sit, amet consectetur
+  <!-- Контент -->
 </section>
 <section class="section-third">
   <div class="container">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    <!-- Контент -->
   </div>
 </section>
 ```
