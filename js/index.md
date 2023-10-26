@@ -96,6 +96,7 @@ groups:
       - array-isarray
       - array-at
       - concat
+      - array-copywithin
   - name: "Объекты"
     items:
       - object
