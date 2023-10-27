@@ -42,7 +42,11 @@ tags:
   aria-expanded="true"
   aria-owns="owned-listbox"
 >
-<ul role="listbox" id="owned-listbox">
+
+<ul
+  role="listbox"
+  id="owned-listbox"
+>
   <li role="option">Опоссум</li>
   <li role="option">Капибара</li>
 </ul>
