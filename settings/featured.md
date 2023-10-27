@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/doctype
-  - recipes/progress
-  - tools/cli
-  - css/position
-  - html/nav
-  - html/section
-  - tools/ci-cd
-  - html/video
-  - css/pseudoelements
-  - html/input
-  - css/media
-  - tools/how-the-browser-creates-pages
-  - html/form
-  - css/specificity
-  - css/box-shadow
-  - js/deal-with-forms
-  - tools/agile
-  - tools/gitlab-ci-cd
-  - js/function-context
-  - a11y/aria-hidden
-  - css/flexbox-guide
-  - html/head
-  - a11y/aria-intro
-  - js/infinite-scroll
-  - css/grid-guide
-  - tools/docker
-  - tools/markdown
-  - a11y/screenreaders
-  - css/attr
-  - css/keyframes
-  - tools/webpack
-  - html/img
-  - css/box-model
-  - js/boolean
-  - tools/bundlers
-  - html/div
-  - tools/static-types
-  - js/var-let
-  - tools/clean-architecture
-  - js/execution-order
   - js/function
-  - tools/how-to-test-and-why
-  - tools/network
   - recipes/snow
-  - js/closures
-  - css/display
-  - tools/oop
-  - css/transform-function
-  - html/article
-  - html/flow
+  - js/deal-with-forms
+  - js/execution-order
   - js/async-in-js
-  - recipes/lets-encrypt-nginx
+  - html/article
+  - css/position
   - css/custom-properties
+  - css/flexbox-guide
+  - html/doctype
+  - css/box-shadow
+  - recipes/progress
+  - html/form
+  - tools/static-types
+  - css/box-model
+  - js/infinite-scroll
+  - html/flow
+  - css/transform-function
+  - tools/network
+  - recipes/lets-encrypt-nginx
+  - html/head
+  - tools/ci-cd
+  - tools/markdown
+  - tools/how-the-browser-creates-pages
+  - html/section
+  - css/keyframes
+  - js/closures
+  - css/grid-guide
+  - js/boolean
+  - a11y/aria-hidden
+  - html/video
+  - tools/gitlab-ci-cd
+  - tools/docker
+  - js/var-let
+  - tools/bundlers
+  - css/attr
+  - tools/how-to-test-and-why
+  - html/nav
+  - css/display
+  - css/media
+  - tools/oop
+  - js/function-context
+  - html/img
+  - tools/cli
+  - css/specificity
+  - a11y/aria-intro
+  - tools/clean-architecture
+  - tools/agile
+  - html/div
+  - css/pseudoelements
+  - tools/webpack
+  - a11y/screenreaders
+  - html/input
 ---
 
