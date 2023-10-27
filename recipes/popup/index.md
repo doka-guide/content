@@ -28,16 +28,25 @@ tags:
 
 ```html
 <body class="parent">
-    <button class="openDialogBtn button-violet" type="button" aria-haspopup='dialog' aria-controls="myDialog">Открыть
-        попап</button>
-    <dialog class="child" id="myDialog">
-        <div class="dialog__wrapper">
-            <h2>Дока — самая добрая документация &#128579</h2>
-            <button class="closeDialogBtn button-black" type="button">
-                Согласен &#128156
-            </button>
-        </div>
-    </dialog>
+  <button
+    class="openDialogBtn button-violet"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="myDialog"
+  >
+    Открыть попап
+  </button>
+  <dialog class="child" id="myDialog">
+    <div class="dialog__wrapper">
+      <h2>Дока — самая добрая документация &#128579</h2>
+      <button
+        class="closeDialogBtn button-black"
+        type="button"
+      >
+        Согласен &#128156
+      </button>
+    </div>
+  </dialog>
 </body>
 ```
 
@@ -122,10 +131,10 @@ const dialogCloser = document.querySelector('.closeDialogBtn')
 function closeOnBackDropClick({ currentTarget, target }) {
   const dialog = currentTarget
   const isClickedOnBackDrop = target === dialog
-    if (isClickedOnBackDrop) {
-      dialog.close()
-    }
+  if (isClickedOnBackDrop) {
+    dialog.close()
   }
+}
 
 function openModalAndLockScroll() {
   dialog.showModal()
@@ -149,26 +158,35 @@ dialogCloser.addEventListener('click', (event) => {
 })
 ```
 
-<iframe title='Пример попапа' src='demos/popup-demo/' height='330'></iframe>
+<iframe title="Пример попапа" src="demos/popup-demo/" height="330"></iframe>
 
 ## Разбор решения
 
 ### Разметка
 
-Сделаем `<dialog>` дочерним элементом относительно [`<body>`](/html/body/). Это позволит нам в дальнейшем расположить попап по центру экрана. Текст и кнопку внутри модального окна обернём в тег с классом `dialogWrapper`. С помощью этой обёртки мы реализуем закрытия попапа по клику на тёмную область (оверлею). Теги `aria-haspopup` и `aria-controls` сообщают вспомогательным технологиям о функциях и возможностях кода и повышают доступность нашего приложения для пользователя. 
+Сделаем `<dialog>` дочерним элементом относительно [`<body>`](/html/body/). Это позволит нам в дальнейшем расположить попап по центру экрана. Текст и кнопку внутри модального окна обернём в тег с классом `dialogWrapper`. С помощью этой обёртки мы реализуем закрытия попапа по клику на тёмную область (оверлею). Атрибуты [`aria-haspopup`](/a11y/aria-haspopup/) и [`aria-controls`](/a11y/aria-controls/) сообщают вспомогательным технологиям о том, как связаны элементы. Так они повышают доступность приложения для пользователей.
 
 ```html
 <body class="parent">
-    <button class="openDialogBtn button-violet" type="button" aria-haspopup='dialog' aria-controls="myDialog">Открыть
-        попап</button>
-    <dialog class="child" id="myDialog">
-        <div class="dialog__wrapper">
-            <h2>Дока — самая добрая документация &#128579</h2>
-            <button class="closeDialogBtn button-black" type="button">
-                Согласен &#128156
-            </button>
-        </div>
-    </dialog>
+  <button
+    class="openDialogBtn button-violet"
+    type="button"
+    aria-haspopup="dialog"
+    aria-controls="myDialog"
+  >
+    Открыть попап
+  </button>
+  <dialog class="child" id="myDialog">
+    <div class="dialog__wrapper">
+      <h2>Дока — самая добрая документация &#128579</h2>
+      <button
+        class="closeDialogBtn button-black"
+        type="button"
+      >
+        Согласен &#128156
+      </button>
+    </div>
+  </dialog>
 </body>
 ```
 
@@ -260,7 +278,7 @@ function close() {
 
 Навесим соответствующие обработчики событий на наши кнопки:
 
-```JavaScript
+```javascript
 dialogOpener.addEventListener('click', openModalAndLockScroll)
 dialogCloser.addEventListener('click', (event) => {
   event.stopPropagation()
@@ -270,7 +288,7 @@ dialogCloser.addEventListener('click', (event) => {
 
 В коде выше мы поместили [`stopPropagation()`](/js/event/) внутрь обработчика события на кнопку закрытия попапа. Это необходимо для того, чтобы реализовать закрытие модального окна по клику на оверлей. Снова не будем забывать о возвращении скролла странице:
 
-```JavaScript
+```javascript
 function closeOnBackDropClick({ currentTarget, target }) {
   const dialog = currentTarget
   const isClickedOnBackDrop = target === dialog
