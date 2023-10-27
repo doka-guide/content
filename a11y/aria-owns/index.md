@@ -41,11 +41,10 @@ tags:
   aria-autocomplete="list"
   aria-expanded="true"
   aria-owns="owned-listbox"
-  aria-activedescendant="selected-option"
 >
 <ul role="listbox" id="owned-listbox">
   <li role="option">Опоссум</li>
-  <li role="option" id="selected-option">Капибара</li>
+  <li role="option">Капибара</li>
 </ul>
 ```
 
