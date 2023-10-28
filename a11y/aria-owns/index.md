@@ -107,8 +107,8 @@ tags:
 
 ```html
 <ul>
-  <li>Ирландские породы</li>
-  <li>Австралийские породы</li>
+  <li>Ирландия</li>
+  <li>Австралия</li>
 </ul>
 
 <ul>
@@ -121,9 +121,9 @@ tags:
 
 ```html
 <ul>
-  <li>Ирландские породы</li>
+  <li>Ирландия</li>
   <li aria-owns="aussie-breeds">
-    Австралийские породы
+    Австралия
   </li>
 </ul>
 
@@ -147,6 +147,10 @@ tags:
   </li>
 </ul>
 ```
+
+В интрументе разработчика в Chrome у пункта списка с [ролью `listitem`](/a11y/role-listitem/) есть атрибут `aria-owns`, который связывает с ним [`<ul>`](/html/ul/) с `id="aussie-breeds"`.
+
+![Содержимое вкладки «Accessibility» в Chrome.](images/aria-owns-a11y-tree.png)
 
 <iframe title="Раскрывающееся меню" src="demos/nav-with-subnavs/" height="300"></iframe>
 
