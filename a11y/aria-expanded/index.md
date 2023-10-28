@@ -51,6 +51,8 @@ tags:
 </nav>
 ```
 
+<iframe title="Бургерное меню" src="demos/button-with-tooltip/" height="300"></iframe>
+
 ## Как пишется
 
 Добавьте к элементу атрибут `aria-expanded` с одним из трёх значений:
