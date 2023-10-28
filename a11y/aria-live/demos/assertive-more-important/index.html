@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Важность тега assertive — aria-live — Дока</title>
+  <title>Как работают значения polite, assertive, off — aria-live — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto@300;400&display=swap">
   <style>
     *,
     *::before,
@@ -15,6 +14,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 20px;
     }
 
     body {
@@ -36,6 +40,7 @@
 
     #container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
     }
 
@@ -47,19 +52,22 @@
     #content {
       padding: 20px;
       min-height: 140px;
-      border: 1px solid #10F3AF;
+      border: 1px solid #FFFFFF;
       text-align: center;
     }
 
-    #content>p {
-      font-size: 20px;
+    #content > p {
+      font-size: 1rem;
       color: #F498AD;
       padding-top: 20px;
     }
 
     #buttonContainer {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
     button {
@@ -70,10 +78,35 @@
       border-radius: 6px;
       padding: 9px 15px;
       color: #000000;
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
+    }
+
+    button#politeButtonLive {
+      background-color: #10F3AF;
+    }
+
+    button#politeButtonStop {
+      background-color: #F498AD;
+    }
+
+    button#politeButtonLive:hover,
+    button#politeButtonStop:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
     }
   </style>
 </head>
@@ -87,22 +120,21 @@
 
     <div id="container">
       <div id="itemContainer">
-        <div id="content" aria-live="polite">
+        <div id="content">
           <span>polite</span>
-          <p id="politeContent"></p>
+          <p id="politeContent" aria-live="polite"></p>
         </div>
       </div>
-      <div id="itemContainer" aria-live="assertive">
+      <div id="itemContainer">
         <div id="content">
           <span>assertive</span>
-          <p id="assertiveContent"></p>
-
+          <p id="assertiveContent" aria-live="assertive"></p>
         </div>
       </div>
-      <div id="itemContainer" aria-live="off">
+      <div id="itemContainer">
         <div id="content">
           <span>off</span>
-          <p id="offContent"></p>
+          <p id="offContent" aria-live="off"></p>
           <div>
           </div>
         </div>
@@ -139,5 +171,4 @@
     })
   })
 </script>
-
 </html>
