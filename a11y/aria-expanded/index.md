@@ -39,19 +39,24 @@ tags:
       <li>
         <a href="/dogs-pools/">
           Бассейны для собак
-          </a>
+        </a>
       </li>
       <li>
         <a href="/cats-boxes/">
           Коробки для кошек
-          </a>
+        </a>
+      </li>
+      <li>
+        <a href="/rats-water-bowls/">
+          Поилки для крыс
+        </a>
       </li>
     </ul>
   </div>
 </nav>
 ```
 
-<iframe title="Бургерное меню" src="demos/button-with-tooltip/" height="300"></iframe>
+<iframe title="Бургерное меню" src="demos/burger-menu/" height="300"></iframe>
 
 ## Как пишется
 
