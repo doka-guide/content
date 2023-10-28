@@ -150,9 +150,15 @@
     const subnav = document.querySelector('.subnav')
     const openedSubnavClass = 'subnav-opened'
 
+    button.addEventListener('click', (event) => {
+      event.stopPropagation()
+      button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')
+      subnav.classList.toggle(openedSubnavClass)
+    })
+
     function closeSubnav() {
-      subnav.classList.remove(openedSubnavClass)
       button.setAttribute('aria-expanded', 'false')
+      subnav.classList.remove(openedSubnavClass)
     }
 
     document.addEventListener('click', (event) => {
@@ -161,11 +167,6 @@
 
     document.addEventListener('focusin', (event) => {
       closeSubnav()
-    })
-
-    button.addEventListener('click', () => {
-      button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')
-      subnav.classList.add(openedSubnavClass)
     })
   </script>
 </body>
