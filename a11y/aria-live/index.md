@@ -46,7 +46,7 @@ tags:
 
 В примере показано, как будет читаться высшее по приоритету значение `assertive` при одновременном изменении содержимого. Для того, чтобы услышать результат, используйте [скринридер](/a11y/screenreaders/):
 
-<iframe title="Assertive имеет высший приоритет" src="demos/assertive-more-important/" height="400"></iframe>
+<iframe title="Как работают значения polite, assertive, off" src="demos/assertive-more-important/" height="400"></iframe>
 
 ## Как понять
 
