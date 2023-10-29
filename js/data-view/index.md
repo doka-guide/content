@@ -10,8 +10,8 @@ keywords:
   - typed array view
 related:
   - js/arrays
-  - js/typedarray
-  - js/arraybuffer
+  - js/typed-array
+  - js/array-buffer
 tags:
   - doka
   - placeholder
@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-Объект, который предоставляет низкоуровневое API (Application Programming Interface, интерфейс программирования приложения) для записи и чтения данных из [буфера `ArrayBuffer`](/js/arraybuffer/). Является частью типизированного массива.
+Объект, который предоставляет низкоуровневое API (Application Programming Interface, интерфейс программирования приложения) для записи и чтения данных из [буфера `ArrayBuffer`](/js/array-buffer/). Является частью типизированного массива.
 
 Типизированные массивы упрощают работу с тяжёлыми данными, например, видео, аудио и анимациями. Их часто используют с различными API — WebGL, Canvas 2D, XMLHttpRequest2 и так далее.
 

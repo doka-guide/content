@@ -10,8 +10,8 @@ keywords:
   - typed array view
 related:
   - js/arrays
-  - js/arraybuffer
-  - js/dataview
+  - js/array-buffer
+  - js/data-view
 tags:
   - doka
   - placeholder
@@ -47,7 +47,7 @@ console.log(view)
 
 Типизированные массивы состоят из буферов и представлений. В буфере содержатся данные, а представление помогает получить доступ к данным из буфера и представить их в виде типизированного массива.
 
-Чтобы создать типизированный массив, сначала создайте буфер с помощью [объекта `ArrayBuffer`](/js/arraybuffer/), а потом его представление объектами `TypedArray` или [`DataView`](/js/dataview/).
+Чтобы создать типизированный массив, сначала создайте буфер с помощью [объекта `ArrayBuffer`](/js/array-buffer/), а потом его представление объектами `TypedArray` или [`DataView`](/js/data-view/).
 
 В `TypedArray` указывают нужный размер данных, количество элементов и их начальную позицию в буфере. Для этого используют разные [числовые форматы](https://tc39.es/ecma262/multipage/indexed-collections.html#table-the-typedarray-constructors). Например, `Int8Array`, `Uint8Array`, `Float64Array`, `Uint8ClampedArray`.
 
