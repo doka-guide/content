@@ -38,8 +38,13 @@ groups:
     items:
       - object
       - arrays
+      - typed-array
+      - data-view
+      - array-buffer
+      - shared-array-buffer
       - function-as-datatype
       - set
+      - weak-set
       - map
       - collection-weakmap
   - name: "Числа"
