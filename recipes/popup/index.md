@@ -67,7 +67,7 @@ body {
 
 dialog {
   position: absolute;
-  height: 200px;
+  height: 250px;
   width: 300px;
   margin-inline: auto;
   inset-inline: 0;
@@ -192,7 +192,7 @@ dialogCloser.addEventListener('click', (event) => {
 
 ### Стили
 
-Для центрирования попапа на странице зададим высоту в `100vh` для `<body>` и [`<html>`](/html/html/), затем присвоим [`position: relative`](/css/position/) для родительского элемента попапа и `position: absolute` для самого модального окна. Присвоим попапу такие свойства, как `margin-inline`, [`inset-inline`](/css/inset/) и `inset-block-start`. Это позволит нам рассчитать положение модального окна посередине окна просмотра относительно заданной ему высоты в `200px`.
+Для центрирования попапа на странице зададим высоту в `100vh` для `<body>` и [`<html>`](/html/html/), затем присвоим [`position: relative`](/css/position/) для родительского элемента попапа и `position: absolute` для самого модального окна. Присвоим попапу такие свойства, как `margin-inline`, [`inset-inline`](/css/inset/) и `inset-block-start`. Это позволит нам рассчитать положение модального окна посередине окна просмотра относительно заданной ему высоты в `250px`.
 
 ```css
 body {
@@ -208,7 +208,7 @@ body {
 
 dialog {
   position: absolute;
-  height: 200px;
+  height: 250px;
   width: 300px;
   margin-inline: auto;
   inset-inline: 0;
