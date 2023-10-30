@@ -9,7 +9,7 @@ keywords:
   - javascript collection
   - typed array view
 related:
-  - js/arrays
+  - js/shared-array-buffer
   - js/array-buffer
   - js/data-view
 tags:
@@ -47,9 +47,9 @@ console.log(view)
 
 Типизированные массивы состоят из буферов и представлений. В буфере содержатся данные, а представление помогает получить доступ к данным из буфера и представить их в виде типизированного массива.
 
-Чтобы создать типизированный массив, сначала создайте буфер с помощью [объекта `ArrayBuffer`](/js/array-buffer/), а потом его представление объектами `TypedArray` или [`DataView`](/js/data-view/).
+Чтобы создать типизированный массив, сначала создайте буфер с помощью [объекта `ArrayBuffer`](/js/array-buffer/) или [`SharedArrayBuffer`](/js/shared-array-buffer/), а потом его представление объектами `TypedArray` или [`DataView`](/js/data-view/).
 
-В `TypedArray` указывают нужный размер данных, количество элементов и их начальную позицию в буфере. Для этого используют разные [числовые форматы](https://tc39.es/ecma262/multipage/indexed-collections.html#table-the-typedarray-constructors). Например, `Int8Array`, `Uint8Array`, `Float64Array`, `Uint8ClampedArray`.
+Для создания `ArrayBuffer` используйте оператор `new`. В `TypedArray` указывают нужный размер данных, количество элементов и их начальную позицию в буфере. Для этого используют разные [числовые форматы](https://tc39.es/ecma262/multipage/indexed-collections.html#table-the-typedarray-constructors). Например, `Int8Array`, `Uint8Array`, `Float64Array`, `Uint8ClampedArray`.
 
 Можно использовать одновременно несколько представлений `TypedArray` для одного и того же буфера.
 

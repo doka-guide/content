@@ -9,8 +9,8 @@ keywords:
   - javascript collection
   - typed array view
 related:
-  - js/arrays
   - js/typed-array
+  - js/shared-array-buffer
   - js/array-buffer
 tags:
   - doka
@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-Объект, который предоставляет низкоуровневое API (Application Programming Interface, интерфейс программирования приложения) для записи и чтения данных из [буфера `ArrayBuffer`](/js/array-buffer/). Является частью типизированного массива.
+Объект, который предоставляет низкоуровневое API (Application Programming Interface, интерфейс программирования приложения) для записи и чтения данных из [`ArrayBuffer`](/js/array-buffer/) или [`SharedArrayBuffer`](/js/shared-array-buffer/). Является частью типизированного массива.
 
 Типизированные массивы упрощают работу с тяжёлыми данными, например, видео, аудио и анимациями. Их часто используют с различными API — WebGL, Canvas 2D, XMLHttpRequest2 и так далее.
 
@@ -41,10 +41,12 @@ console.log(littleEndian)
 
 `DataView`, как и `TypedArray`, используют для представления данных из `ArrayBuffer`. Этот объект позволяет контролировать порядок байтов, который может не совпадать с их порядком в операционной системе пользователя. К примеру, через `DataView` можно установить порядок от младшего к старшему (little-endian) или смешанный (middle-endian).
 
+Чтобы создать DataView, обязательно используйте оператор `new`. Обратите внимание, что значение `DataView` нельзя измененять. Оно устанавливается один раз при создании объекта.
+
 ### Свойства
 
 - `DataView.prototype.buffer` — на какой `ArrayBuffer` ссылается представление. Только для чтения.
-- `DataView.prototype.constructor` — функция-конструктор, которая создала объект экземпляра. Значение по умолчанию `DataView`.
+- `DataView.prototype.constructor` — функция-конструктор, которая создала экземпляр объекта. Значение по умолчанию `DataView`.
 - `DataView.prototype.byteLength` — размер представления в байтах. Только для чтения.
 - `DataView.prototype.byteOffset` — смещение представления в байтах от начального значения в `ArrayBuffer`. Только для чтения.
 
