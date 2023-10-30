@@ -33,7 +33,7 @@
       font-family: "Roboto", sans-serif;
       font-size: 18px;
       scrollbar-gutter: stable;
-      height: 900px;
+
     }
 
     dialog {
@@ -62,6 +62,9 @@
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
     }
 
     .closeDialogBtn {
@@ -79,6 +82,21 @@
       justify-content: center;
       align-items: center;
       color: white;
+    }
+
+    .memes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 0 20px;
+    }
+
+    .memes img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      opacity: 0.7;
     }
 
     h2 {
@@ -132,6 +150,16 @@
 </head>
 
 <body class="parent">
+  <div class="memes">
+    <img src="images/cute.jpg" alt="Мем про голодного котика">
+    <img src="images/home.jpg" alt="Мем про котика на дороге">
+    <img src="images/partie.jpg" alt="Мем про кота и вечеринку">
+    <img src="images/grechka.jpg" alt="Мем про кота и гречку">
+    <img src="images/sad.jpg" alt="Мем про фото котика из сада">
+    <img src="images/independance.jpg" alt="Мем про котика и независимость">
+    <img src="images/fizra.jpg" alt='Мем с котиком про физкультуру'>
+    <img src="images/sleep.jpg" alt="Мем про спящего котика">
+  </div>
   <button class="openDialogBtn button-violet" type="button" aria-haspopup="dialog" aria-controls="myDialog">Открыть
     попап</button>
   <dialog class="child" id="myDialog">
