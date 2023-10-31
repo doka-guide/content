@@ -73,6 +73,16 @@ tags:
 
 <iframe title="Фид с атрибутом aria-busy" src="demos/feed/" height="540"></iframe>
 
+<video controls width="640">
+  <source src="video/aria-busy.mp4" type="video/mp4">
+  <track
+    label="Russian"
+    kind="subtitles"
+    srclang="ru"
+    src="video/closed-captions.vtt"
+  >
+</video>
+
 ## Как понять
 
 _Изменяющаяся область_ — это область страницы, в которой содержимое обновляется из-за внешних событий или действий пользователей. Благодаря изменяющимся областям вспомогательные технологии узнают об обновлениях на странице и автоматически рассказывают о них пользователям.
