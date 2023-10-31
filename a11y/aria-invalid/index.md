@@ -35,7 +35,7 @@ tags:
 <button>Рассказать</button>
 ```
 
-<iframe title="Валидация пустого поля с помощью aria-invalid" src="demos/field-with-aria-invalid/" height="400"></iframe>
+<iframe title="Валидация пустого поля с помощью ARIA" src="demos/field-with-aria-invalid/" height="400"></iframe>
 
 В демо показываем ошибку с текстом «Введите один любимый напиток. Например, чай, кофе или вода», когда поле пустое и нажали на кнопку «Отправить».
 
