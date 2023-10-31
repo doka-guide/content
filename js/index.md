@@ -98,6 +98,7 @@ groups:
       - concat
       - array-copywithin
       - array-fill
+      - array-findlast
   - name: "Объекты"
     items:
       - object

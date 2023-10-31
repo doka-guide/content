@@ -4,7 +4,9 @@ description: "Заполняем весь массив нужными значе
 authors:
   - doka-dog
 related:
-  - Ссылка на материал Доки по теме
+  - js/array
+  - js/array-every
+  - js/array-copywithin
 tags:
   - doka
   - placeholder
