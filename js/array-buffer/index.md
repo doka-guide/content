@@ -50,19 +50,19 @@ new ArrayBuffer(8)
 
 ### Свойства
 
-- `ArrayBuffer.length` — длина `ArrayBuffer` в байтах. По умолчанию равна 1.
-- `ArrayBuffer.prototype.byteLength` — размер `ArrayBuffer` в байтах, если для буфера используется метод `ArrayBuffer.prototype.resize()`.
-- `ArrayBuffer.prototype.maxByteLength` — максимальный размер `ArrayBuffer` в байтах, до которого может быть увеличен буфер.
-- `ArrayBuffer.prototype.resizable` — увеличивается ли размер буфера. Возвращает `true` или `false`.
-- `ArrayBuffer.prototype.detached` — был ли отсоединён новый массив от старого. Возвращает `true` или `false`.
+- `length` — длина `ArrayBuffer` в байтах. По умолчанию равна 1.
+- `byteLength` — размер `ArrayBuffer` в байтах, если для буфера используется метод `ArrayBuffer.prototype.resize()`.
+- `maxByteLength` — максимальный размер `ArrayBuffer` в байтах, до которого может быть увеличен буфер.
+- `resizable` — увеличивается ли размер буфера. Возвращает `true` или `false`.
+- `detached` — был ли отсоединён новый массив от старого. Возвращает `true` или `false`.
 
 ### Методы
 
-- `ArrayBuffer.isView()` — возвращает представление буфера. Это может быть `true` или `false`.
-- `ArrayBuffer.prototype.resize()` — увеличивает размер `ArrayBuffer` в байтах до указанного числа.
-- `ArrayBuffer.prototype.slice()` — возвращает новый `ArrayBuffer`, который содержит копию старого.
-- `ArrayBuffer.transfer()` — возвращает новый `ArrayBuffer`, который в том числе содержит данные из старого.
-- `ArrayBuffer.prototype.transferToFixedLength()` — создаёт новый `ArrayBuffer` с неизменяемым размером и отсоединяет его от старого.
+- `.isView()` — возвращает представление буфера. Это может быть `true` или `false`.
+- `.resize()` — увеличивает размер `ArrayBuffer` в байтах до указанного числа.
+- `.slice()` — возвращает новый `ArrayBuffer`, который содержит копию старого.
+- `.transfer()` — возвращает новый `ArrayBuffer`, который в том числе содержит данные из старого.
+- `.transferToFixedLength()` — создаёт новый `ArrayBuffer` с неизменяемым размером и отсоединяет его от старого.
 
 ## Как понять
 

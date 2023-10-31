@@ -45,10 +45,9 @@ console.log(littleEndian)
 
 ### Свойства
 
-- `DataView.prototype.buffer` — на какой `ArrayBuffer` ссылается представление. Только для чтения.
-- `DataView.prototype.constructor` — функция-конструктор, которая создала экземпляр объекта. Значение по умолчанию `DataView`.
-- `DataView.prototype.byteLength` — размер представления в байтах. Только для чтения.
-- `DataView.prototype.byteOffset` — смещение представления в байтах от начального значения в `ArrayBuffer`. Только для чтения.
+- `buffer` — на какой `ArrayBuffer` ссылается представление. Только для чтения.
+- `byteLength` — размер представления в байтах. Только для чтения.
+- `byteOffset` — смещение представления в байтах от начального значения в `ArrayBuffer`. Только для чтения.
 
 ### Методы
 

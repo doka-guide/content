@@ -45,15 +45,15 @@ buffer.grow(12)
 
 ### Свойства
 
-- `SharedArrayBuffer.prototype.byteLength` — размер буфера в байтах.
-- `SharedArrayBuffer.prototype.constructor` — создаёт экземпляр объекта.
-- `SharedArrayBuffer.prototype.growable` — увеличивается или нет длина буфера. Возвращает `true` или `false`.
-- `SharedArrayBuffer.prototype.maxByteLength` — максимальный размер, до которого может увеличиться `SharedArrayBuffer`.
+- `byteLength` — размер буфера в байтах.
+- `constructor` — создаёт экземпляр объекта.
+- `growable` — увеличивается или нет длина буфера. Возвращает `true` или `false`.
+- `maxByteLength` — максимальный размер, до которого может увеличиться `SharedArrayBuffer`.
 
 ### Методы
 
-- `SharedArrayBuffer.prototype.grow()` — расширяет размеры объекта `SharedArrayBuffer` в байтах до установленного значения.
-- `SharedArrayBuffer.prototype.slice()` — возвращает копию `SharedArrayBuffer` с таким же количеством байтов, как оригинальный объект.
+- `.grow()` — расширяет размеры объекта `SharedArrayBuffer` в байтах до установленного значения.
+- `.slice()` — возвращает копию `SharedArrayBuffer` с таким же количеством байтов, как оригинальный объект.
 
 ## Как понять
 
