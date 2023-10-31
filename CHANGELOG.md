@@ -4,6 +4,7 @@
 
 ## Октябрь 2023
 
+- 30 октября, [Абстрактные ARIA-роли](https://doka.guide/a11y/abstract-roles/), Татьяна Фокина
 - 16 октября, [SVG-спрайт](https://doka.guide/html/svg-sprite/), Сергей Дудко
 - 16 октября, [`marquee`](https://doka.guide/a11y/role-marquee/), Татьяна Фокина
 - 16 октября, [`mark`](https://doka.guide/a11y/role-mark/), Белла Бжукова
