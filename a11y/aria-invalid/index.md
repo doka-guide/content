@@ -4,8 +4,8 @@ description: "Атрибут, который нужен для указания 
 authors:
   - tatianafokina
 related:
-  - a11y/aria-attrs
   - a11y/aria-errormessage
+  - html/required
   - a11y/aria-describedby
 tags:
   - doka
@@ -14,6 +14,12 @@ tags:
 ## Кратко
 
 [Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Нужно для обозначения того, что пользователь ввёл неправильные данные. Например, в них ошибка, они не соответствуют нужному формату, вообще не введены и другие похожие ситуации.
+
+<aside>
+
+⚠️ Если используете [`required`](/html/required/), `aria-invalid` со всеми значениями есть у HTML-атрибута по умолчанию.
+
+</aside>
 
 ## Пример
 
