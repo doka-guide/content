@@ -1,5 +1,5 @@
 ---
-title: ".findLast()"
+title: "`.findLast()`"
 description: "Ищем последний подходящий элемент массива"
 authors:
   - doka-dog

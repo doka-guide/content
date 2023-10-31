@@ -1,5 +1,5 @@
 ---
-title: ".fill()"
+title: "`.fill()`"
 description: "Заполняем весь массив нужными значениями одной строкой."
 authors:
   - doka-dog
