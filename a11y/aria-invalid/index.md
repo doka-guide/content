@@ -45,8 +45,8 @@ tags:
 
 Добавьте к тегу `aria-invalid` с одним из следующих значений:
 
+- `false` (по умолчанию) — нет ошибки;
 - `true` — введены неверные данные;
-- `false` (по умолчанию) — ошибки нет;
 - `grammar` — есть грамматическая ошибка;
 - `spelling` — есть орфографическая ошибка.
 
@@ -57,7 +57,7 @@ tags:
 Этот атрибут раньше использовали для всех тегов и ролей, но сейчас его можно задавать только некоторым интерактивным элементам:
 
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или роли `textbox`.
-- [`<input type="checkbox">`](/html/input/#type) или роли [`checkbox`](/a11y/role-checkbox/).
+- [`<input type="checkbox">`](/html/input/#type) или [роли `checkbox`](/a11y/role-checkbox/).
 - [`<input type="range">`](/html/input/#type) или роли [`slider`](/a11y/role-slider/).
 - [`<input type="number">`](/html/input/#type) или роли [`spinbutton`](/a11y/role-spinbutton/).
 - [`<select>`](/html/select/) или ролям [`combobox`](/a11y/role-combobox/) и [`listbox`](/a11y/role-listbox/).
