@@ -3,6 +3,8 @@ title: "`aria-errormessage`"
 description: "Атрибут, который нужен для описания ошибки при вводе данных."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - html/input
   - a11y/aria-invalid
