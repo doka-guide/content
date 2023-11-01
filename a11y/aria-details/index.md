@@ -3,6 +3,8 @@ title: "`aria-details`"
 description: "Атрибут для элемента с подробной информацией о другом."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность

@@ -3,6 +3,8 @@ title: "`aria-invalid`"
 description: "Атрибут, который нужен для указания на ошибку при вводе данных."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-errormessage
   - html/required

@@ -3,6 +3,8 @@ title: "`aria-label`"
 description: "Атрибут для добавления доступного имени элемента."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность
