@@ -5,8 +5,8 @@ authors:
   - minich
 contributors:
   - starhamster
-keywords:
-  - плейсхолдер
+  - skorobaeus
+  - tatianafokina
 related:
   - html/input
   - css/placeholder
@@ -24,13 +24,19 @@ tags:
 ```html
 <div>
   <label for="name">Ваше имя:</label>
-  <input type="text" id="name" placeholder="Евгений Онегин">
+  <input
+    type="text"
+    id="name"
+    placeholder="Евгений Онегин"
+  >
 </div>
 <div>
   <label for="about">О вас:</label>
   <textarea
     id="about"
-    placeholder="Томясь в бездействии досуга&#10;Без службы, без жены, без дел,&#10;Ничем заняться не умел">
+    placeholder="Томясь в бездействии досуга&#10;Без службы,
+      без жены, без дел,&#10;Ничем заняться не умел"
+  >
   </textarea>
 </div>
 ```
@@ -78,6 +84,12 @@ input::-ms-input-placeholder {
 }
 ```
 
+### Доступность
+
+В [ARIA](/a11y/aria-intro/) есть атрибут [`aria-placeholder`](/a11y/aria-placeholder/). Он тоже нужен для добавления плейсхолдера к полю.
+
+Старайтесь всегда использовать `placeholder`. `aria-placeholder` поможет в сложных ситуациях, когда создаёте кастомные поля.
+
 ## Как понять
 
 Текст плейсхолдера должен быть краткой подсказкой о том, что пользователь должен ввести в поле ввода.
@@ -85,12 +97,20 @@ input::-ms-input-placeholder {
 Если для заполнения поля нужна инструкция (формате номера телефона или длина пароля), то такую инструкцию лучше оформить отдельно от поля ввода. Иначе пользователь не сможет эффективно её использовать, потому что заполнители исчезают во время набора текста.
 
 ```html
-<label for="password">Пароль</label>
-<input type="text" id="password" placeholder="Введите пароль" aria-describedby="hint">
-<span id="hint">Пароль должен состоять из 8 символов, включая цифры и буквы.</span>
+<label for="password">Пароль:</label>
+<input
+  type="text"
+  id="password"
+  placeholder="Введите пароль"
+  aria-describedby="hint"
+>
+<span id="hint">
+  Пароль должен состоять из 8 символов,
+  включая цифры и буквы.
+</span>
 ```
 
-В этом примере инструкция к паролю всегда доступна пользователю и точно не потеряется.
+В этом примере инструкция к паролю всегда доступна пользователю и точно не потеряется. Для неё также используется атрибут [`aria-describedby`](/a11y/aria-describedby/). Благодаря ему [скринридеры](/a11y/screenreaders/) зачитывают подсказку при фокусе на поле.
 
 ## Контрастность
 
