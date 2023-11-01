@@ -99,6 +99,8 @@ groups:
       - array-copywithin
       - array-fill
       - array-findlast
+      - findlastindex
+      - join
   - name: "Объекты"
     items:
       - object
