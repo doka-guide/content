@@ -1,5 +1,5 @@
 ---
-title: "window.close()"
+title: "`window.close()`"
 description: "Закройте окно, а то что-то холодно."
 authors:
   - doka-dog
