@@ -3,6 +3,9 @@ title: "`<time>`"
 description: "Разметка для даты и времени — и для людей, и для роботов."
 authors:
   - slavarazum
+contributors:
+  - tatianafokina
+  - skorobaeus
 keywords:
   - время
   - дата
