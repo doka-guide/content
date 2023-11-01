@@ -36,13 +36,13 @@ tags:
 
 Как было раньше
 ```html
- <form role="search">
+<form role="search">
 </form>
  ```
 
 Как будет теперь
 ```html
- <search>
+<search>
   <form>
   </form>
 </search>
