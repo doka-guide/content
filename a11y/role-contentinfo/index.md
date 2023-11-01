@@ -3,13 +3,13 @@ title: "`contentinfo`"
 description: "Как добавить ориентир футера на страницу."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
+  - a11y
   - доступность
   - ARIA
-  - ARIA-роль
-  - ориентир
-  - футер
-  - подвал
+  - landmark
 related:
   - a11y/aria-intro
   - a11y/aria-roles
@@ -29,12 +29,12 @@ tags:
 ```html
 <body>
   <div role="contentinfo">
-    <p>© Киберпанк, 2077</p>
+    <p>© Мистер Тапир, 2077</p>
   </div>
 </body>
 ```
 
-<iframe title="Футер страницы с ролью contentinfo" src="demos/footer-with-contentinfo/" height="250"></iframe>
+<iframe title="Футер страницы с явной ролью" src="demos/footer-with-contentinfo/" height="400"></iframe>
 
 ## Как пишется
 
@@ -57,7 +57,12 @@ tags:
       <h2>Котики</h2>
       <!-- Содержимое статьи -->
       <footer aria-label="Дата публикации «Котики»">
-        <p>Опубликовано <time datetime="2037-12-11 15:40">11 декабря 2037</time></p>
+        <p>
+          Опубликовано
+          <time datetime="2037-12-11 15:40">
+            11 декабря 2037
+          </time>
+        </p>
       </footer>
     </article>
   </main>
