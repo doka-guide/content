@@ -3,6 +3,8 @@ title: "`timer`"
 description: "Отсчитываем время доступно."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - ARIA
@@ -66,7 +68,7 @@ tags:
 <div id="message" aria-live="polite"></div>
 ```
 
-<iframe title="Таймер с ролью timer" src="demos/basic-timer/" height="330"></iframe>
+<iframe title="Таймер с ролью timer" src="demos/basic-timer/" height="500"></iframe>
 
 Элементам с `role="timer"` можно задавать подписи. Для видимой подойдёт атрибут [`aria-labelledby`](/a11y/aria-labelledby/), а для невидимой — [`aria-label`](/a11y/aria-label/). Только помните, что хоть на практике и можно добавлять подписи ко всем элементам, спецификация не рекомендует подписывать [`<div>`](/html/div/), [`<span>`](/html/span/) и другие неинтерактивные элементы.
 

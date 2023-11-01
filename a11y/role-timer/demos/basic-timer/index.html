@@ -16,7 +16,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 18px;
+      font-size: 16px;
     }
 
     body {
@@ -26,6 +26,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      /* font-size: 20px; */
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
@@ -36,9 +37,10 @@
       line-height: 1.4;
     }
 
-    h2 {
+    h1 {
+      margin-bottom: 17px;
       font-weight: 500;
-      font-size: 1.375rem;
+      font-size: 1.625rem;
     }
 
     .button {
@@ -48,7 +50,7 @@
       border-radius: 6px;
       padding: 9px 15px;
       color: #000000;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
@@ -56,6 +58,10 @@
 
     .button-aqua {
       background-color: #10F3AF;
+    }
+
+    .button-pink {
+      background-color: #F498AD;
     }
 
     .button:hover {
@@ -74,50 +80,48 @@
       outline: none;
     }
 
-    .container {
+    .timer, .timer-controls {
       display: flex;
+    }
+
+    .timer {
+      gap: 130px;
+    }
+
+    .timer-controls {
       align-items: center;
       flex-wrap: wrap;
-      gap: 25px;
-    }
-
-    .container-timer {
-      flex-direction: column;
-      justify-content: start;
-      align-items: start;
-    }
-
-    .container + .container {
-      margin-top: 45px;
+      margin-top: 30px;
+      gap: 20px;
     }
 
     .timer__item {
       position: relative;
-      padding: 8px;
-      border: 1px solid #FFFFFF;
-      border-radius: 3px;
+      font-size: 6.25rem;
+      line-height: 1;
     }
 
-    .timer__item:first-of-type {
-      margin-right: 70px;
+    .timer__item--min::after,
+    .timer__item--sec::after {
+      bottom: 11px;
+      padding-left: 20px;
+      font-size: 1.375rem;
     }
 
     .timer__item--min::after {
       content: "минут";
       position: absolute;
-      top: 8px;
-      left: 45px;
+      
     }
 
     .timer__item--sec::after {
       content: "секунд";
       position: absolute;
-      top: 8px;
-      left: 45px;
     }
 
     .timer-message {
       height: 22px;
+      margin-top: 10px;
     }
 
     @media (max-width: 768px) {
@@ -125,36 +129,40 @@
         padding: 30px;
       }
 
-      .button + .button {
-        margin-top: 25px;
+      .timer {
+        gap: 60px;
       }
 
-      h2 {
-        margin-bottom: 25px;
+      .timer__item--min::after,
+      .timer__item--sec::after {
+        left: 0;
+        bottom: -20px;
+        padding-left: 0;
       }
 
-      .container {
-        display: block;
+      .timer-message {
+        margin-top: 50px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <button class="button button-aqua" id="start-button">
-      Старт
-    </button>
-    <button class="button button-aqua" id="pause-button">
-      Пауза
-    </button>
-  </div>
-  <div class="container container-timer">
-    <h2>Оставшееся время</h2>
+  <div>
+    <h1>Оставшееся время</h1>
     <div role="timer" class="timer" id="timer" aria-atomic="true">
       <span class="timer__item timer__item--min" id="min">02</span>
       <span class="timer__item timer__item--sec" id="sec">00</span>
     </div>
     <div class="timer-message" id="message" aria-live="polite"></div>
+
+    <div class="timer-controls">
+      <button class="button button-aqua" id="start-button">
+        Старт
+      </button>
+      <button class="button button-pink" id="pause-button">
+        Пауза
+      </button>
+    </div>
   </div>
 
   <script>
@@ -172,7 +180,7 @@
       timer.setAttribute('aria-live', 'polite')
       setTimeout(() => {
         timer.removeAttribute('aria-live')
-      }, 1000)
+      }, 100)
     }
 
     startButton.addEventListener('click', () => {
