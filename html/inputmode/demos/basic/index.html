@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -14,75 +14,109 @@
       padding: 0;
     }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 32px;
-      font-family: 'Roboto', sans-serif;
-      background-color: #18191c;
-    }
-
-    .demo-wrapper {
-      margin: 0 auto;
-      width: 560px;
-    }
-
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -12px;
-      width: 100%;
-    }
-
-    .form-field {
-      display: inline-flex;
-      flex-direction: column;
-      width: calc(50% - 24px);
-      margin: 0 12px 20px;
-    }
-
-    .form-field__name {
-      display: inline-block;
-      margin-bottom: 4px;
-      font-size: 17px;
-      color: #b8c0c8;
-    }
-
-    .form-field__input {
-      width: 100%;
-      border: 1px solid #a8b4c0;
-      border-radius: 4px;
-      padding: 8px;
+    html {
+      color-scheme: dark;
       font-size: 16px;
     }
 
-    textarea {
-      width: 100%;
-      font-family: inherit;
-      padding: 8px;
-      resize: none;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 560px) {
+    .demo-wrapper {
+      width: 40%;
+    }
+
+    .form-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-field + .form-field {
+      margin-top: 25px;
+    }
+
+    .form-field__name {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      color: inherit;
+    }
+
+    .form-field__input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-field__input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    textarea {
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
       body {
-        padding: 24px;
-      }
-
-      .demo-wrapper {
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      form {
-        flex-direction: column;
-        margin: 0;
+        padding: 30px;
       }
 
       .form-field {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .demo-wrapper, .form-field__input {
         width: 100%;
-        margin: 0 0 20px;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .form-field__name {
+        margin-right: 0;
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -91,35 +125,35 @@
   <div class="demo-wrapper">
     <form>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="none"</code></span>
+        <span class="form-field__name"><code>none</code>:</span>
         <input type="text" inputmode="none" name="name_input" class="form-field__input">
       </label>
       <label class="form-field ">
-        <span class="form-field__name"><code>inputmode="text"</code></span>
+        <span class="form-field__name"><code>text</code>:</span>
         <textarea inputmode="text" name="comment_input" placeholder="Оставьте комментарий"></textarea>
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="numeric"</code></span>
+        <span class="form-field__name"><code>numeric</code>:</span>
         <input type="text" inputmode="numeric" name="numeric_input" class="form-field__input">
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="decimal"</code></span>
+        <span class="form-field__name"><code>decimal</code>:</span>
         <input type="text" inputmode="decimal" name="decimal_input" class="form-field__input">
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="tel"</code></span>
+        <span class="form-field__name"><code>tel</code>:</span>
         <input type="tel" inputmode="tel" name="phone_input" class="form-field__input" pattern="[8]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}" placeholder="8 999 999-99-99">
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="email"</code></span>
+        <span class="form-field__name"><code>email</code>:</span>
         <input type="email" inputmode="email" name="email_input" class="form-field__input" placeholder="email@example.com">
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="search"</code></span>
+        <span class="form-field__name"><code>search</code>:</span>
         <input type="text" inputmode="search" name="search_input" class="form-field__input">
       </label>
       <label class="form-field">
-        <span class="form-field__name"><code>inputmode="url"</code></span>
+        <span class="form-field__name"><code>url</code>:</span>
         <input type="text" inputmode="url" name="link_input" class="form-field__input">
       </label>
     </form>
