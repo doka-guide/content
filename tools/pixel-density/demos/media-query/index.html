@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример двух изображений с разной плотностью пикселей — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .demo__section {
+      width: 512px;
+      height: 512px;
+    }
+
+    .demo__image {
+      width: 100%;
+      height: 100%;
+
+      background-image: url(./../../images/cat@1x.jpg);
+      background-size: 512px 512px;
+    }
+
+    @media screen and (min-resolution: 2dppx) {
+      .demo__image {
+        background-image: url(./../../images/cat@2x.jpg);
+      }
+    }
+
+    @media all and (max-width: 768px) {
+      .demo__section {
+        width: 256px;
+        height: 256px;
+      }
+
+      .demo__image {
+        background-size: 256px 256px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo">
+    <section class="demo__section">
+      <div class="demo__image">
+      </div>
+    </section>
+  </main>
+</body>
+</html>

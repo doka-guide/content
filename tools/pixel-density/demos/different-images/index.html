@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример двух изображений с разной плотностью пикселей — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .demo__section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .demo__title {
+      margin-bottom: 16px;
+    }
+
+    .demo__subtitle {
+      margin-bottom: 32px;
+    }
+
+    .demo__images-wr {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .demo__picture {
+      width: 128px;
+      height: 128px;
+      aspect-ratio: 1 / 1;
+    }
+
+    .demo__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (min-width: 769px) {
+      .demo__picture {
+        width: 256px;
+        height: 256px;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .demo__picture {
+        width: 512px;
+        height: 512px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo">
+    <section class="demo__section">
+      <h1 class="demo__title">Изображения с разной плотностью пикселей при одинаковом размере</h2>
+      <span class="demo__subtitle">Изображение слева имеет одинарную плотность пикселей, справа - двойную</span>
+      <div class="demo__images-wr">
+        <picture class="demo__picture">
+          <source srcset="../../images/cat-512.jpg" media="(min-width: 1200px)">
+          <source srcset="../../images/cat-256.jpg" media="(min-width: 769px)">
+          <img
+            class="demo__image"
+            src="../../images/cat-128.jpg"
+            alt="Нарисованный рыжий котенок в очках сидит перед ноутбуком и что-то изучает с умным видом"
+          >
+        </picture>
+
+        <picture class="demo__picture">
+          <source srcset="../../images/cat-1024.jpg" media="(min-width: 1200px)">
+          <source srcset="../../images/cat-512.jpg" media="(min-width: 769px)">
+          <img
+            class="demo__image"
+            src="../../images/cat-256.jpg"
+            alt="Нарисованный рыжий котенок в очках сидит перед ноутбуком и что-то изучает с умным видом"
+          >
+        </picture>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
