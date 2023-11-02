@@ -29,11 +29,11 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример использования тега u" src="demos/basic/" height="100"></iframe>
+<iframe title="Базовый пример использования тега u" src="demos/basic/" height="300"></iframe>
 
 ## Как понять
 
-По умолчанию браузеры добавляют тексту в `<u>` подчёркивание с помощью `text-decoration: underline`.
+По умолчанию браузеры добавляют тексту в `<u>` подчёркивание с помощью [`text-decoration: underline`](/css/text-decoration/).
 
 `<u>` стоит использовать, только если мы хотим показать, что текст внутри него стилистически отличается от остального текста. `<u>` не используется:
 
@@ -49,7 +49,7 @@ tags:
 ```css
 u {
   text-decoration-style: wavy;
-  text-decoration-color: red;
+  text-decoration-color: #FFFFFF;
 }
 ```
 
@@ -61,4 +61,4 @@ u {
 </p>
 ```
 
-<iframe title="Кастомизация подчёркивания" src="demos/custom/" height="100"></iframe>
+<iframe title="Кастомизация подчёркивания" src="demos/custom/" height="300"></iframe>

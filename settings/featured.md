@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/pseudoelements
-  - js/infinite-scroll
-  - tools/bundlers
-  - css/attr
-  - css/custom-properties
-  - a11y/screenreaders
-  - html/article
-  - html/img
-  - tools/gitlab-ci-cd
-  - css/box-model
-  - css/box-shadow
-  - tools/webpack
-  - html/form
+  - js/function
   - recipes/snow
-  - js/function-context
-  - css/transform-function
+  - js/deal-with-forms
+  - js/execution-order
+  - js/async-in-js
+  - html/article
+  - css/position
+  - css/custom-properties
   - css/flexbox-guide
-  - tools/agile
-  - css/specificity
-  - html/div
-  - recipes/progress
-  - js/var-let
-  - tools/how-to-test-and-why
   - html/doctype
-  - a11y/aria-hidden
-  - css/media
-  - tools/clean-architecture
-  - tools/ci-cd
-  - html/input
+  - css/box-shadow
+  - recipes/progress
+  - html/form
+  - tools/static-types
+  - css/box-model
+  - js/infinite-scroll
+  - html/flow
+  - css/transform-function
+  - tools/network
   - recipes/lets-encrypt-nginx
   - html/head
-  - css/display
-  - tools/how-the-browser-creates-pages
-  - css/keyframes
-  - js/async-in-js
-  - js/function
-  - js/boolean
-  - js/deal-with-forms
-  - html/flow
-  - css/grid-guide
-  - tools/network
+  - tools/ci-cd
   - tools/markdown
-  - tools/docker
-  - css/position
-  - tools/static-types
-  - tools/oop
-  - js/closures
-  - html/nav
-  - tools/cli
-  - js/execution-order
+  - tools/how-the-browser-creates-pages
   - html/section
-  - a11y/aria-intro
+  - css/keyframes
+  - js/closures
+  - css/grid-guide
+  - js/boolean
+  - a11y/aria-hidden
   - html/video
+  - tools/gitlab-ci-cd
+  - tools/docker
+  - js/var-let
+  - tools/bundlers
+  - css/attr
+  - tools/how-to-test-and-why
+  - html/nav
+  - css/display
+  - css/media
+  - tools/oop
+  - js/function-context
+  - html/img
+  - tools/cli
+  - css/specificity
+  - a11y/aria-intro
+  - tools/clean-architecture
+  - tools/agile
+  - html/div
+  - css/pseudoelements
+  - tools/webpack
+  - a11y/screenreaders
+  - html/input
 ---
 

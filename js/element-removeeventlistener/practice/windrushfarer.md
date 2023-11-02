@@ -37,5 +37,5 @@ function handleKeypress(event) {
   }
 }
 
-window.addEventListener('keypress', handleClick)
+window.addEventListener('keypress', handleKeypress)
 ```
