@@ -3,6 +3,8 @@ title: "`aria-current`"
 description: "Как рассказать пользователям скринридеров, на какой странице они сейчас находятся?"
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - текущее положение
   - a11y
