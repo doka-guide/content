@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Группа картинок без всех подписей — figure — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #10F3AF;
+    }
+
+    .figure {
+      display: flex;
+      gap: 5px;
+    }
+
+    img {
+      display: block;
+      width: 50%;
+    }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .container, img {
+        width: 100%;
+      }
+
+      .container {
+        padding: 55px 30px;
+      }
+
+      .figure {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div role="figure" class="figure">
+      <img src="../images/dog-1.png" alt="">
+      <img src="../images/dog-2.png" alt="">
+    </div>
+  </div>
+</body>
+</html>
