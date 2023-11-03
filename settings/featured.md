@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/function
-  - recipes/snow
-  - js/deal-with-forms
-  - js/execution-order
-  - js/async-in-js
-  - html/article
-  - css/position
-  - css/custom-properties
-  - css/flexbox-guide
-  - html/doctype
-  - css/box-shadow
-  - recipes/progress
-  - html/form
-  - tools/static-types
-  - css/box-model
-  - js/infinite-scroll
-  - html/flow
-  - css/transform-function
-  - tools/network
-  - recipes/lets-encrypt-nginx
-  - html/head
-  - tools/ci-cd
-  - tools/markdown
-  - tools/how-the-browser-creates-pages
-  - html/section
-  - css/keyframes
-  - js/closures
-  - css/grid-guide
-  - js/boolean
-  - a11y/aria-hidden
-  - html/video
-  - tools/gitlab-ci-cd
-  - tools/docker
-  - js/var-let
-  - tools/bundlers
-  - css/attr
-  - tools/how-to-test-and-why
-  - html/nav
-  - css/display
-  - css/media
-  - tools/oop
-  - js/function-context
-  - html/img
-  - tools/cli
-  - css/specificity
-  - a11y/aria-intro
-  - tools/clean-architecture
-  - tools/agile
   - html/div
+  - tools/clean-architecture
+  - css/attr
+  - tools/markdown
+  - css/media
+  - css/display
+  - js/closures
+  - tools/network
+  - js/function-context
+  - js/deal-with-forms
   - css/pseudoelements
+  - recipes/snow
+  - css/grid-guide
   - tools/webpack
-  - a11y/screenreaders
+  - tools/oop
+  - js/function
+  - tools/cli
+  - tools/how-to-test-and-why
+  - html/article
+  - js/boolean
+  - css/specificity
+  - js/async-in-js
   - html/input
+  - tools/how-the-browser-creates-pages
+  - css/box-model
+  - css/keyframes
+  - js/execution-order
+  - html/flow
+  - css/position
+  - tools/ci-cd
+  - tools/bundlers
+  - css/box-shadow
+  - css/transform-function
+  - a11y/aria-hidden
+  - js/infinite-scroll
+  - html/video
+  - html/section
+  - css/flexbox-guide
+  - css/custom-properties
+  - html/img
+  - tools/agile
+  - html/doctype
+  - html/nav
+  - recipes/progress
+  - a11y/screenreaders
+  - tools/docker
+  - recipes/lets-encrypt-nginx
+  - js/var-let
+  - a11y/aria-intro
+  - html/form
+  - html/head
+  - tools/gitlab-ci-cd
+  - tools/static-types
 ---
 
