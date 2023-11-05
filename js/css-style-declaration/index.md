@@ -16,7 +16,7 @@ tags:
 
 Интерфейс `CSSStyleDeclaration` представляет объект, в котором хранится информацию о CSS-стилях и связанных с ними методах и свойствах.
 
-`CSSStyleDeclaration` можно представить через несколько других API (Application Programming Interface, интерфейс программирования приложения) — `HTMLElement.style`, `CSSStyleSheet` и `Window.getComputedStyle()`.
+`CSSStyleDeclaration`-объект возвращают другие [API](https://doka.guide/tools/api/) — `HTMLElement.style`, `CSSStyleSheet` и `Window.getComputedStyle()`.
 
 ## Как пишется
 
@@ -36,4 +36,4 @@ tags:
 - `.getPropertyValue()` — возвращает значение свойства по его названию.
 - `.getPropertyCSSValue()` — возвращает значение свойства в виде интерфейса `CSSPrimitiveValue` или `null` для сокращённых CSS-свойств.
 - `.item()` — возвращает название свойства.
-- `.getPropertyPriority()` — возвращает необязательный приоритет "important".
+- `.getPropertyPriority()` — возвращает необязательный приоритет [`!important`](https://doka.guide/css/important/).
