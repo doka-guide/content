@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2023
+
+- 5 ноября, [Как анализировать алгоритмы?](https://doka.guide/tools/algorithm-complexity/), Евгения Шевлякова
+- 1 ноября, [`aria-busy`](https://doka.guide/a11y/aria-busy/), Татьяна Фокина
+
 ## Октябрь 2023
 
 - 30 октября, [Абстрактные ARIA-роли](https://doka.guide/a11y/abstract-roles/), Татьяна Фокина
