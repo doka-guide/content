@@ -1,6 +1,6 @@
 ---
 title: "`CSSStyleDeclaration`"
-description: "."
+description: "Объект, который хранит информацию о ваших CSS-стилях."
 authors:
   - doka-dog
 related:
