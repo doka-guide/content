@@ -89,7 +89,10 @@
     <input
       type="number"
       id="items"
-      onKeyPress="if(this.value.length===3) return false"
+      pattern="/^-?\d+\.?\d*$/"
+      min="1"
+      max="999"
+      onKeyPress="if(this.value.length === 3 ) return false"
     >
   </div>
 </body>
