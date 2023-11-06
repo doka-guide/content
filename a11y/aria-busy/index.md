@@ -3,6 +3,8 @@ title: "`aria-busy`"
 description: "Свойство, которое просит скринридеры немного подождать. Тут, вообще-то, очередь!"
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - ARIA

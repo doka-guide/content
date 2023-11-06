@@ -5,6 +5,7 @@ authors:
   - katokdoescode
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - a11y
   - доступность

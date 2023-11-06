@@ -3,6 +3,8 @@ title: "`aria-flowto`"
 description: "Как изменить порядок чтения только для вспомогательных технологий."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - ARIA
