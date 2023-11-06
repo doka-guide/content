@@ -48,7 +48,7 @@ tags:
 >
 ```
 
-<iframe title="Поле для пароля с ограничениями по количеству символов" src="demos/input-example/" height="220"></iframe>
+<iframe title="Поле для пароля с ограничениями по количеству символов" src="demos/input/" height="220"></iframe>
 
 ## Как пишется
 
@@ -79,7 +79,7 @@ tags:
 <input
   type="number"
   id="items"
-  pattern="/^-?\d+\.?\d*$/"
+  pattern="\d+"
   min="1"
   max="999"
   onKeyPress="if(this.value.length === 3) return false"
@@ -108,7 +108,7 @@ input:invalid {
 }
 ```
 
-<iframe title="Поле со стилями для invalid" src="demos/styled-invalid-input/" height="220"></iframe>
+<iframe title="Поле со стилями для invalid" src="demos/input-invalid-styles/" height="220"></iframe>
 
 Стили из `:user-invalid` применятся к полю только после начала ввода неправильного количества символов.
 
@@ -120,4 +120,4 @@ input:user-invalid {
 }
 ```
 
-<iframe title="Поле со стилями для user-invalid" src="demos/styled-userinvalid-input/" height="220"></iframe>
+<iframe title="Поле со стилями для user-invalid" src="demos/input-userinvalid-styles/" height="220"></iframe>
