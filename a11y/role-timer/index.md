@@ -64,6 +64,16 @@ tags:
 
 <iframe title="Таймер с ролью timer" src="demos/basic-timer/" height="500"></iframe>
 
+<video controls width="640">
+  <source src="video/role-timer.mp4" type="video/mp4">
+  <track
+    label="Russian"
+    kind="subtitles"
+    srclang="ru"
+    src="video/closed-captions.vtt"
+  >
+</video>
+
 Элементам с `role="timer"` можно задавать подписи. Для видимой подойдёт атрибут [`aria-labelledby`](/a11y/aria-labelledby/), а для невидимой — [`aria-label`](/a11y/aria-label/). Только помните, что хоть на практике и можно добавлять подписи ко всем элементам, спецификация не рекомендует подписывать [`<div>`](/html/div/), [`<span>`](/html/span/) и другие неинтерактивные элементы.
 
 ## Как понять
