@@ -3,6 +3,8 @@ title: "`<map>`"
 description: "Уютный контейнер для `<area>`."
 authors:
   - inventoris
+contributors:
+  - skorobaeus
 related:
   - html/area
   - html/img

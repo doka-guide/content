@@ -5,6 +5,7 @@ authors:
   - inventoris
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - множественный выбор
 related:

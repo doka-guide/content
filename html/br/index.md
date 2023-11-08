@@ -6,6 +6,7 @@ authors:
 contributors:
   - kazakovas
   - tatianafokina
+  - skorobaeus
 editors:
   - tachisis
 keywords:

@@ -3,6 +3,8 @@ title: "`<meter>`"
 description: "Отображает текущее значение в заданном диапазоне."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/role-meter
   - html/progress

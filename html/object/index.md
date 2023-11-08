@@ -3,6 +3,8 @@ title: "`<object>`"
 description: "Встраиваем мультимедиа на страницу."
 authors:
   - kalpovskii
+contributors:
+  - skorobaeus
 keywords:
   - встраиваемый объект
 related:

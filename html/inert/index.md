@@ -3,6 +3,8 @@ title: "Атрибут `inert`"
 description: "Элемент бездельничает? Не беда, ведь есть inert."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - неактивный компонент
   - модалка

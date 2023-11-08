@@ -6,6 +6,7 @@ authors:
 contributors:
   - gingerraccoon
   - tatianafokina
+  - skorobaeus
 editors:
   - tachisis
 keywords:

@@ -3,6 +3,8 @@ title: "Атрибут `for`"
 description: "Когда двум тегам нужно почувствовать связь 👉👈"
 authors:
   - inventoris
+contributors:
+  - skorobaeus
 related:
   - html/input
   - html/output
