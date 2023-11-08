@@ -119,7 +119,8 @@ html {
 Если необходимо узнать предпочтения по анимации с помощью JavaScript, это можно сделать с помощью [`matchMedia`](/js/match-media/). Так выглядит эта же настройка поведения прокрутки в JavaScript:
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)')
 
 a.addEventListener('click', () => {
   const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth'
@@ -137,13 +138,18 @@ a.addEventListener('click', () => {
 Если у вас много CSS, связанного с анимацией, можно вынести стили для её воспроизведения в отдельный файл и не грузить его пользователям, которые отказались от анимации:
 
 ```javascript
-<link rel="stylesheet" href="animations.css" media="(prefers-reduced-motion: no-preference)">
+<link
+  rel="stylesheet"
+  href="animations.css"
+  media="(prefers-reduced-motion: no-preference)"
+>
 ```
 
 Похожим способом можно предотвратить и загрузку тяжёлых библиотек для анимаций. В примере ниже, если пользователь предпочитает уменьшить количество анимации, то функция сделает `return` и её выполнение прервётся. Благодаря этому не произойдёт импорт [GreenSock](https://greensock.com/) (GSAP).
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)')
 
 const loadGSAPAndInitAnimations = () => {
   if (prefersReducedMotion.matches) return
@@ -240,12 +246,14 @@ window.matchMedia('prefers-reduced-motion: reduce')
     srcset="nyancat.gif"
     type="image/gif"
     media="(prefers-reduced-motion: no-preference)"
-  />
+  >
+
   <!-- Статичный котик -->
   <img
     src="nyancat.png"
-    alt="Котик с телом из печенья летит в космосе и оставляет за собой шлейф из радуги"
-  />
+    alt="Котик с телом из печенья летит в космосе
+      и оставляет за собой шлейф из радуги"
+  >
 </picture>
 ```
 
