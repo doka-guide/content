@@ -128,7 +128,7 @@ input:invalid {
 ```css
 input:user-invalid {
   border-color: #2E9AFF;
-  background-color: rgb(46, 154, 255, 0.1);
+  background-color: rgb(46 154 255 / 0.1);
   outline: none;
 }
 ```
