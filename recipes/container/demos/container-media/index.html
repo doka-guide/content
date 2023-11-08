@@ -11,26 +11,28 @@
       grid-auto-flow: column;
     }
     body {
-      background-color: #18191c;
+      background-color: #18191C;
       display: grid;
       place-content: center;
+      min-width: 550px;
+      margin: auto;
     }
     iframe {
       margin-bottom: 1em;
-      width: 470px;
-      height: 250px;
+      width: 550px;
+      height: 320px;
       border: none;
     }
     input {
       margin: auto;
       display: block;
-      width: 300px;
+      width: 350px;
+      accent-color: #FFFFFF;
     }
   </style>
-</html>
 <body>
   <iframe src="code.html"></iframe>
-  <input type="range" min="320" max="470" value="470">
+  <input type="range" min="350" max="550" value="550">
 
   <script>
     const range = document.querySelector('input')

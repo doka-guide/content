@@ -143,7 +143,7 @@ tags:
 - Последний параметр `1024px` — задаёт максимальное значение.
 - Средний параметр `90%` — применяется в тех случаях, когда нижний или верхний пределы не достигнуты.
 
-<iframe title="Адаптивный контейнер вместе с clamp()" src="demos/container-clamp/" height="450"></iframe>
+<iframe title="Адаптивный контейнер вместе с clamp()" src="demos/container-clamp/" height="530"></iframe>
 
 ## Заключение
 
@@ -178,4 +178,4 @@ tags:
 }
 ```
 
-<iframe title="Адаптивный container c дополнительным содержимым" src="demos/container-wrapper/" height="370"></iframe>
+<iframe title="Адаптивный container c дополнительным содержимым" src="demos/container-wrapper/" height="250"></iframe>
