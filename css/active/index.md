@@ -71,7 +71,7 @@ a:active {
 ### Составной селектор в состоянии `:active`
 
 ```css
-li .link:focus {
+li .link:active {
   /* Стили */
 }
 ```
