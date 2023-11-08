@@ -64,7 +64,7 @@ WCAG 2 состоит из нескольких частей:
 
 <aside>
 
-🗺️ С устройством руководств поможет лучше разобраться [карта WCAG 2.1](https://intopia.digital/wp-content/uploads/2019/10/2019-WCAG2.1-Map-Intopia-plus-reading-order.pdf) (pdf).
+🗺️ Лучше разобраться с устройством руководств помогут [карта WCAG 2.1](https://intopia.digital/wp-content/uploads/2019/10/2019-WCAG2.1-Map-Intopia-plus-reading-order.pdf) (pdf) и [карта WCAG 2.2](https://intopia.digital/wp-content/uploads/2023/10/Intopia-WCAG-2.2-Map-Portrait-Mode.pdf) (pdf).
 
 </aside>
 
