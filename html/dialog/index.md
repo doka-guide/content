@@ -5,6 +5,7 @@ authors:
   - baileys-li
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - диалог
   - модальное окно

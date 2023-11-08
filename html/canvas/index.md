@@ -5,6 +5,7 @@ authors:
   - epodivilov
 contributors:
   - tatianafokina
+  - skorobaeus
 related:
   - html/picture
   - html/svg

@@ -5,6 +5,7 @@ authors:
   - gingerraccoon
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - семантическое выделение
   - важность

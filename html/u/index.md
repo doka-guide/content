@@ -3,6 +3,9 @@ title: "`<u>`"
 description: "Выделяет стилистически отличающийся текст."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
+  - skorobaeus
 editors:
   - tachisis
 keywords:
