@@ -1,6 +1,6 @@
 ---
 title: "<search>"
-description: "Один тег чтобы обернуть секцию с поиском или фильтром"
+description: "Один тег чтобы обернуть секцию с поиском или фильтром."
 authors:
   - AndreySukhov
 related:
