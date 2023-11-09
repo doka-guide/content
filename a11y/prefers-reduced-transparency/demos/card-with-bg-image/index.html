@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Отключение прозрачности карточки с фоном — prefers-reduced-transparency — Дока</title>
+  <title>Пример с градиентом и фоновой картинкой — prefers-reduced-transparency — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,8 +46,8 @@
   }
 
   code {
-    font-family: "Roboto Mono", monospace;
     font-size: 1.125rem;
+    font-family: "Roboto Mono", monospace;
     color: inherit;
   }
 
@@ -59,7 +59,6 @@
     display: grid;
     align-items: end;
     grid-template-rows: 1fr auto;
-    max-inline-size: 480px;
     overflow: clip;
   }
 
@@ -73,9 +72,9 @@
 
   img {
     display: block;
+    width: 480px;
     max-width: 100%;
-    block-size: 100%;
-    inline-size: 100%;
+    height: 250px;
     object-fit: cover;
   }
 
@@ -92,11 +91,6 @@
     .with-mediaquery article > * {
       grid-area: unset;
     }
-
-    .with-mediaquery img {
-      width: 480px;
-      height: 200px;
-    }
   }
 
   @media (max-width: 768px) {
@@ -109,7 +103,7 @@
   <div>
     <code>no-preference</code>
     <article>
-      <img width="480" height="200" src="./images/daycare.jpg" alt="">
+      <img src="./images/daycare.png" alt="">
       <span>
         <h3>Ясли для питомцев</h3>
         <p>Присмотрим за животными, пока вы на работе.</p> 
@@ -119,7 +113,7 @@
   <div class="with-mediaquery">
     <code>reduce</code>
     <article>
-      <img width="480" height="200"  src="./images/walking.jpg" alt="">
+      <img src="./images/walking.png" alt="">
       <span>
         <h3>Прогулки</h3>
         <p>Выгуляем животных вместо вас.</p> 

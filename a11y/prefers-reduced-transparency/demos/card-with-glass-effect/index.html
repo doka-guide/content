@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с эффектом «матового стекла» — prefers-reduced-transparency — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+</head>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    font-size: 20px;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #18191C;
+    font-family: "Roboto", sans-serif;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+    padding: 55px 40px;
+    background-image: url(./images/grass.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  h2 {
+    margin-bottom: 17px;
+    font-weight: 500;
+    font-size: 1.375rem;
+  }
+
+  p {
+    margin: 7px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  article {
+    width: 300px;
+    overflow: visible;
+    color: #FFFFFF;
+    background-color: #18191C;
+  }
+
+  article span {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  @media (prefers-reduced-transparency: no-preference) {
+    article {
+      color: #000000;
+      backdrop-filter: blur(15px);
+      background: hsl(none none 100% / 20%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 30px;
+    }
+
+    div, article {
+      width: 100%;
+    }
+
+    div {
+      padding: 55px 30px;
+    }
+  }
+</style>
+<body>
+  <div>
+    <article>
+      <span>
+        <h2>Добавь ярких красок</h2>
+        <p>Чтобы жизнь пользователей была красочной, интересной и насыщенной, используй везде эффект стекла. Или не везде?</p>
+      </span>
+    </article>
+  </div>
+</body>
+</html>
