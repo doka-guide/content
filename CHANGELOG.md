@@ -4,6 +4,7 @@
 
 ## Ноябрь 2023
 
+- 9 ноября, [`aria-live`](https://doka.guide/a11y/aria-live/), Оскар Шайхутдинов
 - 7 ноября, [`timer`](https://doka.guide/a11y/role-timer/), Татьяна Фокина
 - 5 ноября, [Как анализировать алгоритмы?](https://doka.guide/tools/algorithm-complexity/), Евгения Шевлякова
 - 1 ноября, [`aria-busy`](https://doka.guide/a11y/aria-busy/), Татьяна Фокина
