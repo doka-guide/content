@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>тег — search -  Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
+      padding: 50px;
+      background-color: #18191c;
+      font-family: "Roboto Mono", monospace;
+      font-size: 24px;
+      text-align: center;
+    }
+    </style>
+</head>
+<body>
+  <h2>
+    Форма поиска
+  </h2>
+  <search role="search">
+    <form>
+      <input type="search">
+      <button>Поиск</button>
+    </form>
+  </search>
+
+  <br>
+  <h2>Фильтры</h2>
+  <search>
+    <h4>
+      Поиск по фильтрам
+    </h4>
+    <form>
+      <label>
+        цвет
+        <select name="color">
+          <option value="red">red</option>
+          <option value="green">green</option>
+          <option value="blue">blue</option>
+        </select>
+      </label>
+    </form>
+  </search>
+</body>
+</html>

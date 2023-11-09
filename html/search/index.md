@@ -6,6 +6,7 @@ authors:
 related:
   - html/form
   - html/input
+  - a11y/role-search
 tags:
   - doka
 ---
@@ -31,6 +32,9 @@ tags:
   ...
 </search>
 ```
+
+<iframe title="Примеры использования search" src="demos/base/" height="489"></iframe>
+
 
 ## Как понять
 
