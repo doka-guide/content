@@ -67,9 +67,9 @@ tags:
     <label>
       цвет
       <select name="color">
-        <option value="red">red</option>
-        <option value="green">green</option>
-        <option value="blue">blue</option>
+        <option value="red">Красный</option>
+        <option value="green">Зелёный</option>
+        <option value="blue">Синий</option>
       </select>
     </label>
   </form>
