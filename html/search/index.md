@@ -80,16 +80,17 @@ tags:
 
 ```html
 <body>
-<search title="global-search">
-  <form>
-    ...
-  </form>
-</search>
-<search title="products-filter-results">
-  <h2>
-    Результаты фильтрации
-  </h2>
-</search>
+  <search aria-label="По сайту">
+    <form>
+      <!-- Содержимое, связанное с поиском -->
+    </form>
+  </search>
+  
+  <search aria-labelledby="label">
+    <h2 id="label">
+      Результаты фильтрации
+    </h2>
+  </search>
 </body>
 ```
 
