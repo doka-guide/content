@@ -15,11 +15,12 @@ tags:
 Семантический тег-обёртка для блока с поиском или фильтром.
 
 ## Пример
+
 ```html
 <search>
   <form>
-    <input type="search" />
-    <button>Search</button>
+    <input type="search">
+    <button>Поиск</button>
   </form>
 </search>
 ```
