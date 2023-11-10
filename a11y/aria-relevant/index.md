@@ -79,6 +79,16 @@ tags:
 
 <iframe title="Список друзей с aria-relevant" src="demos/friends-list/" height="450"></iframe>
 
+<video controls width="640">
+  <source src="video/aria-relevant-reading.mp4" type="video/mp4">
+  <track
+    label="Russian"
+    kind="subtitles"
+    srclang="ru"
+    src="video/closed-captions.vtt"
+  >
+</video>
+
 NVDA сообщит об изменениях так: «<!-- yaspeller ignore:start -->Джим Моррисон, Йен Кёртис, Эми Уайнхаус<!-- yaspeller ignore:end -->». Он не расскажет о том, что <!-- yaspeller ignore:start -->Джим Моррисон<!-- yaspeller ignore:end --> вышел из чата, когда это произойдёт.
 
 Сейчас у атрибута нет практической пользы. В случае обновляющихся списков пользователей можно изменять видимый только скринридерам статус «активен» на «неактивен» и наоборот.
