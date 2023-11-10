@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Модальное окно с атрибутом — aria-modal — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .button, .dialog__button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1.12rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__button {
+      margin: 0 auto 10px;
+    }
+
+    .button-aqua {
+      background-color: #10f3af;
+    }
+
+    .button:hover, .dialog__button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__button:hover {
+      border: 2px solid #000000;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .dialog__link {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10f3af;
+      text-decoration-color: #10f3af;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__link:hover, .dialog__link:focus {
+      background-color: #10f3af;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .dialog {
+      display: none;
+      width: calc(100% - 40px);
+      max-width: 400px;
+      color: #000000;
+      background-color: #FFFFFF;
+      position: fixed;
+      padding: 16px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .dialog__title {
+      margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    .dialog p {
+      margin: 15px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <button class="button button-aqua opener" type="button" aria-controls="my-dialog" onclick="openDialog(event)">
+    Завершить покупку
+  </button>
+
+  <div role="dialog" class="dialog" id="my-dialog" aria-modal="true" aria-labelledby="label" aria-describedby="description">
+    <h3 class="dialog__title" id="label">Заказ был отправлен!</h3>
+    <p id="description">
+      Заказ будет доставлен в течение следующих 3–5 рабочих дней.
+    </p>
+    <button class="dialog__button button-aqua" id="dialog-button">Закрыть</button>
+    <a href="#" class="dialog__link">Детали заказа</a>
+  </div>
+
+  <script>
+    function openDialog({
+      target: button
+    }) {
+      const dialogID = button.getAttribute("aria-controls")
+      const dialogButton = document.querySelector("#dialog-button")
+      const dialogElement = document.querySelector(`#${dialogID}`)
+      const pageElements = Array.from(document.body.children)
+
+      setTimeout(() => {
+        document.addEventListener("click", closeDialogOnOutsideClick)
+        document.addEventListener("keydown", closeDialogOnPressEsc)
+        dialogElement.addEventListener("click", closeDialogOnButtonClick)
+
+        dialogElement.addEventListener("close", () =>
+          document.removeEventListener("click", closeDialogOnOutsideClick)
+        )
+
+        dialogElement.style.display = "block"
+        dialogButton.focus()
+        dialogElement.addEventListener("keydown", setFocusTrap)
+      }, 200)
+
+      button.addEventListener("refocusAfterClose", function() {
+        button.focus()
+      })
+
+      pageElements.forEach(child => {
+        if (child !== dialogElement) {
+          child.setAttribute("inert", "")
+        }
+      })
+
+      function setFocusTrap(event) {
+        const interactiveDialogElements = getInteractiveElements(dialogElement)
+        const firstInteractiveDialogElement = interactiveDialogElements[0]
+        const lastInteractiveDialogElement = interactiveDialogElements[interactiveDialogElements.length - 1]
+
+        if (event.key === "Tab" && !event.shiftKey) {
+          if (document.activeElement === lastInteractiveDialogElement) {
+            firstInteractiveDialogElement.focus()
+            event.preventDefault()
+          }
+        } else if (event.key === "Tab" && event.shiftKey) {
+          if (document.activeElement === firstInteractiveDialogElement) {
+            lastInteractiveDialogElement.focus()
+            event.preventDefault()
+          }
+        }
+      }
+
+      function getInteractiveElements(element) {
+        return element.querySelectorAll(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      }
+
+      function closeDialogOnOutsideClick({
+        target
+      }) {
+        const isClickOnDialog = target === dialogElement
+        const isClickOnDialogChildrenNodes = dialogElement.contains(target)
+
+        const isClickOutsideOfDialog = !(
+          isClickOnDialog || isClickOnDialogChildrenNodes
+        )
+
+        if (isClickOutsideOfDialog) {
+          closeDialogAndRefocus()
+        }
+      }
+
+      function closeDialogOnButtonClick({
+        target
+      }) {
+        if (target === dialogButton) {
+          closeDialogAndRefocus()
+        }
+      }
+
+      function closeDialogOnPressEsc(event) {
+        if(event.key === "Escape") {
+          closeDialogAndRefocus()
+        }
+      }
+
+      function closeDialogAndRefocus() {
+        dialogElement.style.display = "none"
+
+        pageElements.forEach(child => {
+          child.removeAttribute("inert")
+        })
+
+        setTimeout(() => {
+          let refocusEvent = new Event("refocusAfterClose")
+          button.dispatchEvent(refocusEvent)
+        }, 50)
+      }
+    }
+  </script>
+</body>
+</html>
