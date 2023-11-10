@@ -97,7 +97,7 @@ function showError() {
 const form = document.querySelector("form")
 ```
 
-На форму добавим обработчик события [`submit`](/js/event-submit/) и отключим его дефолтное поведение с помощью метода [`preventDefault()`](/js/event-prevent-default/).
+На форму добавим обработчик события [`submit`](/js/event-submit/) и отключим дефолтное поведение события с помощью метода [`preventDefault()`](/js/event-prevent-default/).
 
 ```js
 form.addEventListener("submit", async (event) => {
