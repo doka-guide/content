@@ -80,7 +80,7 @@ tags:
 <iframe title="Список друзей с aria-relevant" src="demos/friends-list/" height="450"></iframe>
 
 <video controls width="640">
-  <source src="video/aria-relevant-reading.mp4" type="video/mp4">
+  <source src="video/aria-relevant.mp4" type="video/mp4">
   <track
     label="Russian"
     kind="subtitles"
