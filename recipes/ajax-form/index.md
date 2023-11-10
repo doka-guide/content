@@ -116,7 +116,7 @@ form.addEventListener("submit", async (event) => {
     const response = await fetch("/api/login", {
       headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
-      body: new FormData(form),
+      body: new FormData(form)
     })
     const result = await response.json()
   } catch (error) {
