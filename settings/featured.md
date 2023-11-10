@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/div
-  - tools/clean-architecture
-  - css/attr
-  - tools/markdown
-  - css/media
-  - css/display
-  - js/closures
-  - tools/network
-  - js/function-context
-  - js/deal-with-forms
-  - css/pseudoelements
-  - recipes/snow
-  - css/grid-guide
-  - tools/webpack
-  - tools/oop
-  - js/function
-  - tools/cli
-  - tools/how-to-test-and-why
-  - html/article
-  - js/boolean
-  - css/specificity
-  - js/async-in-js
-  - html/input
-  - tools/how-the-browser-creates-pages
-  - css/box-model
   - css/keyframes
-  - js/execution-order
-  - html/flow
-  - css/position
-  - tools/ci-cd
-  - tools/bundlers
-  - css/box-shadow
-  - css/transform-function
-  - a11y/aria-hidden
-  - js/infinite-scroll
-  - html/video
-  - html/section
-  - css/flexbox-guide
-  - css/custom-properties
-  - html/img
-  - tools/agile
-  - html/doctype
-  - html/nav
-  - recipes/progress
-  - a11y/screenreaders
-  - tools/docker
-  - recipes/lets-encrypt-nginx
-  - js/var-let
   - a11y/aria-intro
+  - html/doctype
+  - recipes/lets-encrypt-nginx
+  - a11y/aria-hidden
+  - css/attr
+  - tools/bundlers
   - html/form
-  - html/head
+  - tools/ci-cd
+  - html/video
+  - js/var-let
+  - html/input
+  - js/async-in-js
+  - tools/oop
+  - tools/webpack
   - tools/gitlab-ci-cd
+  - tools/cli
+  - css/custom-properties
+  - css/transform-function
+  - css/position
+  - tools/how-to-test-and-why
+  - css/specificity
+  - tools/clean-architecture
+  - tools/agile
+  - html/article
+  - html/flow
+  - recipes/snow
   - tools/static-types
+  - js/deal-with-forms
+  - html/nav
+  - js/infinite-scroll
+  - js/execution-order
+  - tools/docker
+  - tools/markdown
+  - recipes/progress
+  - html/head
+  - css/media
+  - js/boolean
+  - css/display
+  - a11y/screenreaders
+  - tools/network
+  - html/img
+  - js/function
+  - css/grid-guide
+  - html/section
+  - html/div
+  - css/box-model
+  - js/closures
+  - js/function-context
+  - css/box-shadow
+  - tools/how-the-browser-creates-pages
+  - css/pseudoelements
+  - css/flexbox-guide
 ---
 
