@@ -4,6 +4,8 @@
 
 ## Ноябрь 2023
 
+- 10 ноября, [Колонка с контентом по центру экрана](https://doka.guide/recipes/container/), Владимир Ткачёв
+- 10 ноября, [`aria-haspopup`](https://doka.guide/a11y/aria-haspopup/), Татьяна Фокина
 - 9 ноября, [`aria-live`](https://doka.guide/a11y/aria-live/), Оскар Шайхутдинов
 - 7 ноября, [`timer`](https://doka.guide/a11y/role-timer/), Татьяна Фокина
 - 5 ноября, [Как анализировать алгоритмы?](https://doka.guide/tools/algorithm-complexity/), Евгения Шевлякова
