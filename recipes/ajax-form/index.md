@@ -39,7 +39,7 @@ tags:
 const form = document.querySelector("form")
 const submitButton = document.querySelector("button")
 
-form.addEventListener("submit", async (event) => {
+form?.addEventListener("submit", async (event) => {
   // Отключаем дефолтное поведение
   event.preventDefault()
   submitButton.disabled = true
