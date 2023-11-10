@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-`presentation` — [роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из WAI-ARIA, которая удаляет семантику элемента. Другая роль `none` — это другое название для `presentation`.
+`presentation` — [роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из WAI-ARIA, которая удаляет семантику элемента. `none` — это другое название для `presentation`.
 
 `presentation` и `none` превращают любой семантический тег в [`<div>`](/html/div/) или [`<span>`](/html/span/) для [скринридеров](/a11y/screenreaders/) и других вспомогательных технологий.
 
@@ -136,7 +136,7 @@ tags:
 </table>
 ```
 
-Если загляните в [дерево доступности](/a11y/screenreaders/#derevo-dostupnosti) в инструменте разработчика Chrome, заметите, то у `<th>` внутри `<table>` с `role="presentation"` вычисляется [роль `generic`](/a11y/role-generic/). Это значит, что для браузеров и других программ это элемент без семантики.
+Если загляните в [дерево доступности](/a11y/screenreaders/#derevo-dostupnosti) в инструменте разработчика в Chrome, заметите, что у `<th>` внутри `<table role="presentation">` вычисляется [роль `generic`](/a11y/role-generic/). Это значит, что для браузеров и других программ это элемент без семантики.
 
 ![Слева HTML-код таблицы из примера, справа дерево доступности с вычисленными свойствами. Таблице задана роль presentation.](images/table-role-presentation.png)
 
