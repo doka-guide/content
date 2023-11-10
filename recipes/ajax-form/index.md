@@ -21,7 +21,7 @@ tags:
 
 ## Готовое решение
 
-```html
+```htmkl
 <form>
   <label>
     Почта:
@@ -51,7 +51,6 @@ async function handleFormSubmit(event) {
   try {
     showLoader();
     const response = await fetch("/api/login", {
-      headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
       body: new FormData(form)
     })
