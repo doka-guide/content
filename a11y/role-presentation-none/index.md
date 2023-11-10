@@ -42,7 +42,7 @@ tags:
 </p>
 ```
 
-<iframe title="Текст с декоративным разделителем" src="demos/decorative-hr/" height="500"></iframe>
+<iframe title="Текст с декоративным разделителем" src="demos/decorative-hr/" height="530"></iframe>
 
 В этом примере тег [`<hr>`](/html/hr/) потерял свою семантику и стал просто декоративным разделителем. Из-за этого скринридер не расскажет, что на странице есть элемент с [ролью `separator`](/a11y/role-separator/).
 
