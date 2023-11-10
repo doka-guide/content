@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Меню веб-редактора текста — aria-haspopup — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 75%;
+      padding: 5px;
+      border: 1px solid #FFFFFF;
+    }
+
+    .menu {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: -5px -5px 6px;
+      background-color: #10F3AF;
+    }
+
+    .menu-group {
+      position: relative;
+    }
+
+    .menu__button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 5px 10px;
+      color: #000000;
+      font-size: 1.125rem;
+      font-weight: 300;
+      font-family: inherit;
+      text-align: center;
+      background-color: inherit;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      transition: background-color 0.2s linear;
+    }
+
+    .menu__button[aria-expanded="true"] {
+      background-color: #FFFFFF;
+      transition: none;
+    }
+
+    .menu__button--group {
+      height: 100%;
+    }
+
+    .menu__button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .menu__button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .menu__button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .menu__button__arrow--down {
+      display: inline-block;
+      border-right: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      width: 8px;
+      height: 8px;
+      transform: rotate(-315deg);
+    }
+
+    .menu__button__cross,
+    .menu__button__cloud,
+    .menu__button__arrows {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      background-repeat: no-repeat;
+    }
+
+    .menu__button__cross {
+      background-image: url(images/plus.svg);
+    }
+
+    .menu__button__cloud {
+      background-image: url(images/save.svg);
+    }
+
+    .menu__button__arrows {
+      background-image: url(images/pr.svg);
+    }
+
+    .menu__popup {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      margin: 0;
+      padding: 10px 18px;
+      font-size: 1rem;
+      color: #000000;
+      list-style: none;
+      background-color: #FFFFFF;
+    }
+
+    .menu__popup--opened {
+      display: block;
+    }
+
+    .menu__popup__i__button {
+      min-width: 155px;
+      padding: 10px 10px;
+      margin: 0 -15px;
+      text-align: left;
+      font-size: 1rem;
+      color: #000000;
+      background-color: inherit;
+      border: 0;
+    }
+
+    .menu__popup__i__button:hover {
+      background-color: #10F3AF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .menu__popup__i__button:focus-visible {
+      outline: #000000;
+      outline-width: 2px;
+      outline-style: solid;
+      outline-offset: -3px;
+    }
+
+    .menu__popup__i__button[aria-checked="true"] {
+      position: relative;
+    }
+
+    .menu__popup__i__button[aria-checked="true"]:after {
+      position: absolute;
+      content: "";
+      top: 10px;
+      right: 25px;
+      width: 7px;
+      height: 13px;
+      border-bottom: 2px solid #000000;
+      border-right: 2px solid #000000;
+      transform: rotate(45deg);
+    }
+
+    .doka {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      height: 300px;
+      max-height: 100%;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 300;
+      font-family: inherit;
+      border: 0;
+      border-radius: 6px;
+    }
+
+    textarea:focus {
+      outline-width: 2px;
+      outline-offset: -2px;
+      outline-style: solid;
+      outline-color: #10F3AF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .menu {
+        justify-content: start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div role="menubar" class="menu">
+      <div class="menu-group">
+        <button role="menuitem" type="button" class="menu__button menu__button--group" aria-expanded="false" aria-controls="fonts" aria-haspopup="menu" data-item="font">
+          Начертание
+          <span class="menu__button__arrow menu__button__arrow--down"></span>
+        </button>
+        <ul role="menu" class="menu__popup" id="fonts">
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" type="button" aria-checked="false" data-option="italic">
+              Наклонное
+            </button>
+          </li>
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" type="button" aria-checked="false" data-option="bold">
+              Жирное
+            </button>
+          </li>
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" type="button" aria-checked="true" data-option="default">
+              Обычное
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="menu-group">
+        <button role="menuitem" type="button" class="menu__button menu__button--group" aria-expanded="false" aria-controls="colors" aria-haspopup="menu" data-item="color" tabindex="-1">
+          Цвет
+          <span class="menu__button__arrow menu__button__arrow--down"></span>
+        </button>
+        <ul role="menu" class="menu__popup" id="colors">
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" aria-checked="false" data-option="pink">
+              Розовый
+            </button>
+          </li>
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" aria-checked="false" data-option="green">
+              Зелёный
+            </button>
+          </li>
+          <li role="presentation" class="menu__popup__i">
+            <button role="menuitemradio" class="menu__popup__i__button" aria-checked="true" data-option="white">
+              Белый
+            </button>
+          </li>
+        </ul>
+      </div>
+      <button role="menuitem" class="menu__button" type="button" data-item="image" tabindex="-1">
+        <span class="menu__button__arrows"></span>
+        Пулреквест
+      </button>
+      <button role="menuitem" class="menu__button" type="button" data-item="save" tabindex="-1">
+        <span class="menu__button__cloud"></span>
+        Сохранить
+      </button>
+      <button role="menuitem" class="menu__button" type="button" data-item="new-doka" tabindex="-1">
+        <span class="menu__button__cross"></span>
+        Новая дока
+      </button>
+    </div>
+    <textarea class="doka" spellcheck="true"></textarea>
+  </div>
+  <script>
+    const menuPopupOpenedClass = 'menu__popup--opened'
+    const menuButtons = Array.from(document.querySelectorAll('button[aria-controls]'))
+    const mainMenuItems = Array.from(document.querySelectorAll('button[data-item]'))
+
+    const focusableSelectors = [
+      'a[href]', 'area[href]', 'input:not([disabled])',
+      'select:not([disabled])', 'textarea:not([disabled])',
+      'button:not([disabled])', '[tabindex]:not([tabindex="-1"])',
+      '[contenteditable]'
+    ]
+
+    const styleConfig = {
+      pink: { color: 'pink' },
+      green: { color: '#10F3AF' },
+      white: { color: '#FFFFFF' },
+      italic: { fontStyle: 'italic' },
+      bold: { fontWeight: 'bold' },
+      default: { fontWeight: 'normal' }
+    }
+
+    function getFocusableElements(root = document) {
+      return Array.from(root.querySelectorAll(focusableSelectors.join(',')))
+    }
+
+    function resetStyles(element) {
+      element.style.fontWeight = ''
+      element.style.fontStyle = ''
+    }
+
+    function getNextFocusableElement(currentElement, focusableElements) {
+      const index = focusableElements.indexOf(currentElement)
+
+      if (index === -1 || index + 1 === focusableElements.length) {
+        return focusableElements[0]
+      }
+
+      return focusableElements[index + 1]
+    }
+
+    function openPopup(menuItem, popup) {
+      menuItem.setAttribute('aria-expanded', 'true')
+      popup.classList.add(menuPopupOpenedClass)
+
+      const firstFocusableItem = popup.querySelector(focusableSelectors.join(','))
+
+      if (firstFocusableItem) {
+        firstFocusableItem.focus()
+      }
+    }
+
+    function closePopup(menuItem, popup) {
+      menuItem.setAttribute('aria-expanded', 'false')
+      popup.classList.remove(menuPopupOpenedClass)
+    }
+
+    function togglePopup(menuElement, popupElement) {
+      document.addEventListener('click', (event) => {
+        if (popupElement.classList.contains(menuPopupOpenedClass)
+        && !popupElement.contains(event.target)
+        && event.target !== menuElement) {
+          closePopup(menuElement, popupElement)
+        }
+      })
+
+      menuElement.addEventListener('click', () => {
+        if (popupElement.classList.contains(menuPopupOpenedClass)) {
+          closePopup(menuElement, popupElement)
+        } else {
+          openPopup(menuElement, popupElement)
+        }
+      })
+
+      menuElement.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+          event.preventDefault()
+          openPopup(menuElement, popupElement)
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (popupElement.classList.contains(menuPopupOpenedClass)) {
+            closePopup(menuElement, popupElement)
+            menuElement.focus()
+          }
+        }
+
+        if (event.key === 'Escape'){
+          closePopup(menuElement, popupElement)
+          popupElement.querySelector('button[data-option]').focus()
+        }
+      })
+
+      popupElement.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape'){
+          closePopup(menuElement, popupElement)
+          menuElement.focus()
+        }
+
+        if (event.key === 'Tab'){
+          closePopup(menuElement, popupElement)
+        }
+
+        if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (popupElement.classList.contains(menuPopupOpenedClass)) {
+            closePopup(menuElement, popupElement)
+          }
+        }
+
+        if (event.key === 'Home') {
+          event.preventDefault()
+
+          const firstFocusableItem = popupElement.querySelector(focusableSelectors.join(','))
+
+          if (firstFocusableItem) {
+            firstFocusableItem.focus()
+          }
+        }
+
+        if (event.key === 'End') {
+          event.preventDefault()
+
+          const focusableItems = popupElement.querySelectorAll(focusableSelectors.join(','))
+          const lastFocusableItem = focusableItems[focusableItems.length - 1]
+
+          if (lastFocusableItem) {
+            lastFocusableItem.focus()
+          }
+        }
+      })
+    }
+
+    function checkOption(menuElement, popupElement) {
+      elements = Array.from(popupElement.querySelectorAll('button'))
+
+      elements.forEach(element => {
+        element.addEventListener('click', () => {
+          setAriaChecked(element, popupElement)
+          applyStyleToTextarea(element.getAttribute('data-option'))
+          closePopup(menuElement, popupElement)
+        })
+
+        element.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            setAriaChecked(element, popupElement)
+            applyStyleToTextarea(element.getAttribute('data-option'))
+            closePopup(menuElement, popupElement)
+            menuElement.focus()
+          }
+        })
+      })
+    }
+
+    function setAriaChecked(option, popupElement) {
+      const currentlyChecked = popupElement.querySelector('button[aria-checked="true"]')
+
+      if (currentlyChecked) {
+        currentlyChecked.setAttribute('aria-checked', 'false')
+      }
+
+      option.setAttribute('aria-checked', 'true')
+    }
+
+    function applyStyleToTextarea(option) {
+      const textareaElement = document.querySelector('textarea')
+      resetStyles(textareaElement)
+
+      const styles = styleConfig[option]
+
+      for (const [styleProperty, styleValue] of Object.entries(styles)) {
+        textareaElement.style[styleProperty] = styleValue
+      }
+    }
+
+    function navigateThroughtItems(menuButtons, mainMenuItems, focusableElements) {
+      const menuItems = Array.from(document.querySelectorAll('button[data-item]'))
+      const popupItems = Array.from(document.querySelectorAll('button[data-option]'))
+      let lastFocusedItem = null
+      let currentFocusedButtonIndex = -1
+
+      menuItems.forEach((item, index) => {
+        item.addEventListener('focus', () => {
+          if (lastFocusedItem && lastFocusedItem !== item) {
+            lastFocusedItem.setAttribute('tabindex', '-1')
+          }
+
+          item.removeAttribute('tabindex')
+          lastFocusedItem = item
+        })
+
+        const firstIndex = mainMenuItems.findIndex(item => {
+          return true
+        })
+
+        item.addEventListener('keydown', (event) => {
+          let currentIndex = -1
+
+          if (event.key === 'ArrowRight') {
+            currentIndex = (index + 1) % menuItems.length
+          } else if (event.key === 'ArrowLeft') {
+            currentIndex = (index - 1 + menuItems.length) % menuItems.length
+          }
+
+          if(event.key === 'Home') {
+            event.preventDefault()
+
+            const firstIndex = 0
+
+            menuItems[firstIndex].focus()
+          }
+
+          if(event.key === 'End') {
+            event.preventDefault()
+
+            const lastIndex = menuItems.length - 1
+
+            menuItems[lastIndex].focus()
+          }
+
+          if (currentIndex !== -1) {
+            menuItems[currentIndex].removeAttribute('tabindex')
+            menuItems[currentIndex].focus()
+          }
+
+          if (event.key === 'Tab' && event.shiftKey) {
+            if (lastFocusedItem) {
+              lastFocusedItem.focus()
+            } else if (event.key === 'Tab') {
+              const nextElement = getNextFocusableElement(item, focusableElements)
+              nextElement.focus()
+            }
+          }
+
+          const keyPressed = event.key.toLowerCase()
+
+          const filteredMenuItems = mainMenuItems.filter((item) => {
+            const buttonText = item.textContent.trim().toLowerCase()
+
+            // return buttonText.charAt(0) === keyPressed
+            return buttonText.startsWith(keyPressed)
+          })
+
+          if (filteredMenuItems.length > 0) {
+            currentFocusedButtonIndex = (currentFocusedButtonIndex + 1) % filteredMenuItems.length
+            filteredMenuItems[currentFocusedButtonIndex].focus()
+          }
+        })
+      })
+
+      function getMainMenuItemIndex(item) {
+        return mainMenuItems.indexOf(item)
+      }
+
+      popupItems.forEach((item, index) => {
+        item.addEventListener('keydown', (event) => {
+          let currentPopup = item.closest('.menu__popup')
+          let popupItems = getFocusableElements(currentPopup)
+          let currentIndex = -1
+
+          if (event.key === 'ArrowDown') {
+            event.preventDefault()
+            currentIndex = (index + 1) % popupItems.length
+          } else if (event.key === 'ArrowUp') {
+            event.preventDefault()
+            currentIndex = (index - 1 + popupItems.length) % popupItems.length
+          } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
+            const currentButtonIndex = mainMenuItems.indexOf(currentButton)
+            let nextButtonIndex
+
+            if (event.key === 'ArrowRight') {
+              nextButtonIndex = (currentButtonIndex + 1) % mainMenuItems.length
+            } else if (event.key === 'ArrowLeft') {
+              nextButtonIndex = (currentButtonIndex - 1 + mainMenuItems.length) % mainMenuItems.length
+            }
+
+            if (typeof nextButtonIndex !== 'undefined') {
+              const nextButton = mainMenuItems[nextButtonIndex]
+              nextButton.focus()
+
+              nextPopupIndex = nextButton.getAttribute('aria-controls')
+              const nextPopup = document.getElementById(nextPopupIndex)
+
+              if (nextPopup) {
+                openPopup(nextButton, nextPopup)
+              }
+            }
+            return
+          }
+
+          if (currentIndex !== -1) {
+            popupItems[currentIndex].focus()
+          }
+        })
+      })
+    }
+
+    const focusableElements = getFocusableElements()
+
+    menuButtons.forEach(button => {
+      const controlledPopupId = button.getAttribute('aria-controls')
+      const controlledPopup = document.getElementById(controlledPopupId)
+
+      togglePopup(button, controlledPopup)
+      checkOption(button, controlledPopup)
+    })
+
+    navigateThroughtItems(menuButtons, mainMenuItems, focusableElements)
+  </script>
+</body>
+</html>
