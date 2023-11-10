@@ -8,6 +8,7 @@ groups:
       - dragndrop-upload
       - character-counter
       - center
+      - container
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx

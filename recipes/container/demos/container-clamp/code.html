@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный container — Колонка с контентом по центру экрана — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      background-color: #18191C;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      width: clamp(350px, 85%, 550px);
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #593273;
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+
+    section:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    section {
+      padding-block: 40px;
+    }
+
+    .section-one {
+      background-color: #C56FFF;
+    }
+
+    .section-two {
+      background-color: #41E847;
+    }
+
+    .section-third {
+      background-color: #C56FFF;
+    }
+  </style>
+</head>
+<body>
+  <section class="section-one">
+    <div class="container">
+      Хорошо бы, если бы был способ узнать, что ты живёшь в старые добрые времена, прежде, чем они закончатся.
+    </div>
+  </section>
+  <section class="section-two">
+    Дорогой дневник. Бурундук спросил моё имя сегодня. Я представился как Джо. Эта ложь будет преследовать меня вечно.
+  </section>
+  <section class="section-third">
+    <div class="container">
+      Хороший юрист знает закон. Великий юрист знает судью.
+    </div>
+  </section>
+</body>
+</html>
