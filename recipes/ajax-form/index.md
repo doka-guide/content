@@ -39,26 +39,38 @@ tags:
 const form = document.querySelector("form")
 const submitButton = document.querySelector("button")
 
-form?.addEventListener("submit", async (event) => {
+if (form) {
+  form.addEventListener("submit", handleFormSubmit)
+}
+
+async function handleFormSubmit(event) {
   // Отключаем дефолтное поведение
   event.preventDefault()
-  submitButton?.disabled = true
+  disableButton()
 
   try {
     showLoader();
     const response = await fetch("/api/login", {
       headers: { "Content-Type": "multipart/form-data" },
-      method: "POST"
-      body: new FormData(form);
+      method: "POST",
+      body: new FormData(form)
     })
     const result = await response.json()
   } catch (error) {
     showError(error)
   } finally {
     hideLoader()
-    submitButton.disabled = false
+    enableButton()
   }
-})
+}
+
+function disableButton() {
+  if (submitButton) submitButton.disabled = true
+}
+
+function enableButton() {
+  if (submitButton) submitButton.disabled = false
+}
 
 function showLoader() {
   // Показываем пользователю лоадер
@@ -100,19 +112,24 @@ const form = document.querySelector("form")
 На форму добавим обработчик события [`submit`](/js/event-submit/) и отключим дефолтное поведение события с помощью метода [`preventDefault()`](/js/event-prevent-default/).
 
 ```js
-form.addEventListener("submit", async (event) => {
+if (form) {
+  form.addEventListener("submit", handleFormSubmit)
+}
+
+async function handleFormSubmit(event) {
   event.preventDefault()
-})
+}
 ```
 
 Теперь наша страница не будет перезагружаться, а мы можем, например, не только отправить запрос, но и показать пользователю лоадер или ошибку.
 
 ```js
-form.addEventListener("submit", async (event) => {
+async function handleFormSubmit(event) {
+  // Отключаем дефолтное поведение
   event.preventDefault()
 
   try {
-    showLoader()
+    showLoader();
     const response = await fetch("/api/login", {
       headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
@@ -124,7 +141,7 @@ form.addEventListener("submit", async (event) => {
   } finally {
     hideLoader()
   }
-})
+}
 
 function showLoader() {
   // Показываем пользователю лоадер
@@ -142,26 +159,32 @@ function showError() {
 Также можно отключить кнопку, пока сервер не пришёл с ответом, чтобы предотвратить повторную отправку формы.
 
 ```js
-const form = document.querySelector("form")
-const submitButton = document.querySelector("button")
-
-form.addEventListener("submit", async (event) => {
+async function handleFormSubmit(event) {
+  // Отключаем дефолтное поведение
   event.preventDefault()
-  submitButton.disabled = true
+  disableButton()
 
   try {
     showLoader();
     const response = await fetch("/api/login", {
       headers: { "Content-Type": "multipart/form-data" },
-      method: "POST"
-      body: new FormData(form);
+      method: "POST",
+      body: new FormData(form)
     })
     const result = await response.json()
   } catch (error) {
     showError(error)
   } finally {
     hideLoader()
-    submitButton.disabled = false
+    enableButton()
   }
-})
+}
+
+function disableButton() {
+  if (submitButton) submitButton.disabled = true
+}
+
+function enableButton() {
+  if (submitButton) submitButton.disabled = false
+}
 ```
