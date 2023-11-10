@@ -42,7 +42,7 @@ const submitButton = document.querySelector("button")
 form?.addEventListener("submit", async (event) => {
   // Отключаем дефолтное поведение
   event.preventDefault()
-  submitButton.disabled = true
+  submitButton?.disabled = true
 
   try {
     showLoader();
