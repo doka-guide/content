@@ -3,6 +3,8 @@ title: "`aria-haspopup`"
 description: "Атрибут, который рассказывает вспомогательным технологиям о попапах."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность
