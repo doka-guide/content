@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -17,7 +16,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 18px;
+      font-size: 22px;
     }
 
     body {
@@ -32,7 +31,7 @@
     }
 
     .container {
-      width: 75%;
+      width: 65%;
       background-color: #10F3AF;
     }
 
@@ -41,14 +40,18 @@
     }
 
     .figure-pictures {
-      display: flex;
-      gap: 5px;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
       margin-bottom: 10px;
     }
 
     img {
       display: block;
-      width: 50%;
+      width: 100%;
     }
 
     .figcaption {
@@ -61,7 +64,7 @@
         padding: 30px;
       }
 
-      .container, img {
+      .container {
         width: 100%;
       }
 
@@ -70,8 +73,7 @@
       }
 
       .figure-pictures {
-        flex-direction: column;
-        gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   </style>
