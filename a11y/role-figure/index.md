@@ -37,7 +37,7 @@ tags:
 </div>
 ```
 
-<iframe title="Группа картинок с общей подписью" src="demos/figure-with-caption/" height="450"></iframe>
+<iframe title="Группа картинок с общей подписью" src="demos/figure-with-caption/" height="480"></iframe>
 
 Скринридеры прочитают код демки примерно так: «Фигура, на первой картинке чихуахуа, на второй — карликовый пинчер».
 
@@ -50,7 +50,7 @@ tags:
 </div>
 ```
 
-<iframe title="Группа картинок без общей подписи" src="demos/figure-without-caption/" height="440"></iframe>
+<iframe title="Группа картинок без общей подписи" src="demos/figure-without-caption/" height="470"></iframe>
 
 На этот раз скринридеры расскажут о демке так: «Фигура. Графика, чихуахуа. Графика, карликовый пинчер».
 
@@ -162,7 +162,7 @@ tags:
 
 Cкринридеры никак не расскажут о `figure` и его содержимом, если оставить его без подписи или описания.  Это похоже на поведение [тега `<img>`](/html/img/) с пустым атрибутом `alt`.
 
-<iframe title="Группа картинок без подписей и описания" src="demos/just-figure/" height="440"></iframe>
+<iframe title="Группа картинок без подписей и описания" src="demos/just-figure/" height="470"></iframe>
 
 Для элементов с `figure` можно использовать и другие [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy).
 
