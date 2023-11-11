@@ -52,18 +52,14 @@
 
       body {
         min-height: 100vh;
-        display: flex;
-        padding: 80px 379px;
-        flex-direction: column;
+        padding: 50px;
+        display: grid;
         justify-content: center;
-        align-content: center;
-        background-color: #18191c;
-        color: #ffffff;
+        background-color: #18191C;
+        color: #FFFFFF;
         font-family: "Roboto", sans-serif;
         font-size: 1em;
         line-height: 1.4;
-        flex-wrap: wrap;
-        gap: 81px;
       }
 
       @media (max-width: 768px) {
@@ -88,12 +84,14 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 25px;
+        gap: 2vi;
       }
 
       .demo-calculator__labels {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+        gap: 1em;
+        width: 100%;
       }
 
       .demo-calculator__labels-infinity {
@@ -102,7 +100,6 @@
 
       .demo-calculator_child {
         display: flex;
-        gap: 5px;
         width: fit-content;
         cursor: pointer;
       }
@@ -112,8 +109,6 @@
         height: 32px;
         border: 1px solid #fff;
         border-radius: 5px;
-        justify-self: center;
-        align-self: center;
       }
 
       .demo-calculator_pseudo-checkbox:focus-visible {
@@ -127,8 +122,83 @@
         background-color: #2e9aff;
         border: 1px solid #fff;
         border-radius: 5px;
-        justify-self: center;
-        align-self: center;
+      }
+
+      .calculator {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .calculator__title {
+        font-size:  17px;
+        font-weight: 500;
+      }
+
+      .calcultor__input {
+        display: flex;
+        justify-content: space-between;
+        gap: 25px;
+      }
+
+      @media (max-width: 715px) {
+        .calcultor__input {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .code__input:focus-visible {
+        outline: none;
+        border-color: #2E9AFF;
+      }
+
+      .calculator__input-container {
+        position: relative;
+      }
+
+      .code__input {
+        background-color: transparent;
+        border: 1px solid #fff;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-size: 1em;
+        border-radius: 5px;
+        padding-left: 9px;
+        min-width: 285px;
+        min-height: 35px;
+        font-size: 15px;
+      }
+
+      @media (max-width: 715px) {
+        .calculator__input-container {
+          width: 100%;
+        }
+        .code__input {
+          width: 100%;
+        }
+      }
+
+      .calculator__input-checkmark {
+        position: absolute;
+        right: 10px;
+        top: 8px;
+        display: none;
+        width: 19px;
+        height: 19px;
+      }
+
+      .calculator__input__button {
+        display: flex;
+        gap: 15px;
+      }
+
+      @media (max-width: 715px) {
+        .calculator__input__button {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+        }
       }
 
       .button {
@@ -139,6 +209,12 @@
         font-weight: 300;
         width: 172px;
         height: 35px;
+      }
+
+      @media (max-width: 715px) {
+        .button {
+          width: 100%;
+        }
       }
 
       .button:hover {
@@ -178,82 +254,6 @@
 
       .calculator-description__reset-button:focus-visible {
         border: 2px solid #2e9aff;
-      }
-
-      /* стили ввода калькулятора*/
-
-      .calculator {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .calculator__title {
-        font-size:  17px;
-        font-weight: 500;
-      }
-
-      .calcultor__input {
-        display: flex;
-        justify-content: space-between;
-        gap: 25px;
-      }
-
-      .code__input:focus-visible {
-        outline: none;
-        border-color: #2E9AFF;
-      }
-
-      .calculator__input-container {
-        position: relative;
-      }
-
-      .calculator__input-checkmark {
-        position: absolute;
-        right: 10px;
-        top: 8px;
-        display: none;
-        width: 19px;
-        height: 19px;
-      }
-
-      .calculator__input__button {
-        display: flex;
-        gap: 15px;
-      }
-
-      .code__input {
-        background-color: transparent;
-        border: 1px solid #fff;
-        font-family: "Roboto", sans-serif;
-        font-weight: 300;
-        font-size: 1em;
-        border-radius: 5px;
-        padding-left: 9px;
-        min-width: 285px;
-        min-height: 35px;
-        font-size: 15px;
-      }
-
-      /* стили для описания работы программы  */
-
-      .calculator-description {
-        grid-row-start: 2;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      .calculator-description__containter {
-        display: flex;
-        gap: 9px;
-        justify-content: space-between;
-      }
-
-      .calculator-description__number-input {
-        height: 19px;
-        width: 34px;
-        text-align: center;
       }
 
     </style>
