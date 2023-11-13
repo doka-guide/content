@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -16,6 +16,7 @@
 
     html {
       color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -27,28 +28,40 @@
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .demo {
+      width: 65%;
     }
 
     .demo__section {
       display: flex;
       flex-direction: column;
-      gap: 8px;
     }
 
     .demo__title {
-      margin-bottom: 16px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
     }
 
     .demo__subtitle {
-      margin-bottom: 32px;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .demo__images-wr {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      margin-top: 32px;
     }
 
     .demo__picture {
@@ -81,8 +94,8 @@
 <body>
   <main class="demo">
     <section class="demo__section">
-      <h1 class="demo__title">Изображения с разной плотностью пикселей при одинаковом размере</h2>
-      <span class="demo__subtitle">Изображение слева имеет одинарную плотность пикселей, справа - двойную</span>
+      <h1 class="demo__title">Изображения одинакового размера с разной плотностью пикселей</h1>
+      <p class="demo__subtitle">У изображения слева одинарная плотность пикселей, справа — двойная.</p>
       <div class="demo__images-wr">
         <picture class="demo__picture">
           <source srcset="../../images/cat-512.jpg" media="(min-width: 1200px)">
@@ -90,7 +103,7 @@
           <img
             class="demo__image"
             src="../../images/cat-128.jpg"
-            alt="Нарисованный рыжий котенок в очках сидит перед ноутбуком и что-то изучает с умным видом"
+            alt="Нарисованный рыжий котёнок в очках сидит перед ноутбуком и что-то изучает с умным видом"
           >
         </picture>
 
@@ -100,7 +113,7 @@
           <img
             class="demo__image"
             src="../../images/cat-256.jpg"
-            alt="Нарисованный рыжий котенок в очках сидит перед ноутбуком и что-то изучает с умным видом"
+            alt=""
           >
         </picture>
       </div>
