@@ -3,6 +3,8 @@ title: "`aspect-ratio`"
 description: "Помогает задать соотношение сторон для элемента."
 authors:
   - denisputnov
+contributors:
+  - starhamster
 keywords:
   - aspect-ratio
   - соотношение сторон

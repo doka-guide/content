@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Демонстрация работы — <dialog> — Дока</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
     }
 
     html,
@@ -22,65 +22,74 @@
     }
 
     body {
-      margin: 0;
-      padding: 20px;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 18px;
-      gap: 20px 25px;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      font-family: Roboto, sans-serif;
       display: grid;
       place-items: center;
       place-content: center;
       grid-auto-columns: min(100%, 250px);
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
+      gap: 20px 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
     }
 
-    .button {
-      --back: #ffd829;
-      width: 100%;
-      padding: 10px 15px 12px;
-      text-align: center;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .button, .dialog__button {
+      display: block;
+      min-width: 210px;
       border: 2px solid transparent;
       border-radius: 6px;
+      padding: 9px 15px;
       color: #000000;
-      font-family: inherit;
+      font-size: 1.12rem;
       font-weight: 300;
-      font-size: 1rem;
+      font-family: inherit;
       transition: background-color 0.2s linear;
+    }
+
+    .dialog__button {
+      margin: 0 auto;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button:hover, .dialog__button:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
-      background-color: var(--back);
-      outline: none;
-      position: relative;
-    }
-
-    .button:hover {
-      background-color: #ffffff;
       transition: background-color 0.2s linear;
     }
 
-    .button:focus {
-      border-color: #ffffff;
-    }
-
-    .button--dark {
-      --back: #000000;
-      color: #ffffff;
-    }
-
-    .button--dark:hover {
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .button--dark:focus {
-      border-color: #ffd829;
+    .dialog__button:hover {
+      border: 2px solid #000000;
     }
 
     .button:focus-visible {
-      outline: 2px solid var(--back);
-      outline-offset: 2px;
-      border-color: transparent;
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus {
+      border: 2px solid #000000;
+      outline: none;
     }
 
     .dialog {
@@ -112,29 +121,29 @@
     }
 
     .dialog__title {
-      font-size: 26px;
+      margin-top: 0;
+      margin-bottom: 17px;
       font-weight: 500;
-      margin: 0;
+      font-size: 1.375rem;
     }
 
     .dialog p {
-      margin: 0.2em 0 1.5em;
-      font-size: 16px;
+      margin: 15px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
-
   </style>
 </head>
-
 <body>
-  <button class="button opener" type="button" aria-controls="modal-example"
-    onclick="window['modal-example'].showModal()">
+  <button class="button button-orange opener" type="button" aria-controls="modal-example" onclick="window['modal-example'].showModal()">
     Открыть модальное окно
   </button>
+
   <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)">
     <form class="dialog__wrapper" method="dialog">
-      <h1 class="dialog__title">Я модальное окно</h1>
+      <h2 class="dialog__title">Я модальное окно</h2>
       <p>Но меня можно закрыть как по кнопке снизу, так и по нажатию по подложке.</p>
-      <button class="button button--dark">Ясно ☀️</button>
+      <button class="dialog__button button-orange">Ясно ☀️</button>
     </form>
   </dialog>
 
@@ -143,14 +152,12 @@
       currentTarget,
       target
     }) {
-      const dialogElement = currentTarget;
-      const isClickedOnBackDrop = target === dialogElement;
+      const dialogElement = currentTarget
+      const isClickedOnBackDrop = target === dialogElement
       if (isClickedOnBackDrop) {
-        dialogElement.close();
+        dialogElement.close()
       }
     }
-
   </script>
 </body>
-
 </html>

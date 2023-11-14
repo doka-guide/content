@@ -247,6 +247,11 @@ function loadHandler(event) {
 <video controls width="640">
   <source src="video/progress.mp4" type="video/mp4">
   <source src="video/progress_safari.mp4" type="video/mp4">
+  <track
+  label="Russian"
+  kind="subtitles"
+  srclang="ru"
+  src="video/closed-captions.vtt">
 </video>
 
 ## Разбор решения
@@ -294,7 +299,7 @@ function loadHandler(event) {
 
 Отправка файла на сервер выполняется при отправке формы. Для этого в JS-коде мы подписываемся на событие `submit`. Обработчик этого события будет обрабатывать выбранный файл и передавать его на сервер.
 
-Ход выполнения загрузки будет показываться с использованием специального элемента [`<progress>`](/html/progress/).
+Ход выполнения загрузки будет показываться с использованием специального элемента [`<progress>`](/html/progress/). В этот тег встроена роль [`progressbar`](/a11y/role-progressbar/), благодаря которой [скринридеры](/a11y/screenreaders/) объявляют прогресс загрузки автоматически.
 
 Чтобы показать текстовую информацию о результатах загрузки, используются текстовые элементы [`<span>`](/html/span/).
 

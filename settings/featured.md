@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/grid-guide
-  - js/infinite-scroll
-  - js/async-in-js
-  - css/transform-function
-  - tools/how-to-test-and-why
-  - js/function
-  - a11y/screenreaders
-  - html/nav
-  - css/display
-  - tools/webpack
-  - tools/clean-architecture
-  - tools/oop
-  - css/pseudoelements
-  - tools/network
-  - recipes/snow
-  - html/head
-  - html/section
-  - css/box-model
-  - html/form
-  - recipes/lets-encrypt-nginx
-  - tools/docker
-  - recipes/progress
-  - html/input
-  - css/specificity
-  - html/flow
-  - tools/cli
-  - tools/how-the-browser-creates-pages
-  - html/img
-  - js/closures
-  - css/box-shadow
+  - css/keyframes
+  - a11y/aria-intro
   - html/doctype
+  - recipes/lets-encrypt-nginx
+  - a11y/aria-hidden
+  - css/attr
+  - tools/bundlers
+  - html/form
+  - tools/ci-cd
   - html/video
   - js/var-let
-  - tools/static-types
-  - html/article
-  - css/attr
-  - js/execution-order
-  - css/position
-  - js/function-context
-  - tools/bundlers
-  - a11y/aria-hidden
-  - css/keyframes
-  - js/deal-with-forms
-  - a11y/aria-intro
-  - tools/ci-cd
+  - html/input
+  - js/async-in-js
+  - tools/oop
+  - tools/webpack
   - tools/gitlab-ci-cd
+  - tools/cli
   - css/custom-properties
+  - css/transform-function
+  - css/position
+  - tools/how-to-test-and-why
+  - css/specificity
+  - tools/clean-architecture
+  - tools/agile
+  - html/article
+  - html/flow
+  - recipes/snow
+  - tools/static-types
+  - js/deal-with-forms
+  - html/nav
+  - js/infinite-scroll
+  - js/execution-order
+  - tools/docker
+  - tools/markdown
+  - recipes/progress
+  - html/head
   - css/media
   - js/boolean
-  - tools/agile
-  - css/flexbox-guide
+  - css/display
+  - a11y/screenreaders
+  - tools/network
+  - html/img
+  - js/function
+  - css/grid-guide
+  - html/section
   - html/div
-  - tools/markdown
+  - css/box-model
+  - js/closures
+  - js/function-context
+  - css/box-shadow
+  - tools/how-the-browser-creates-pages
+  - css/pseudoelements
+  - css/flexbox-guide
 ---
 

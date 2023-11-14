@@ -3,6 +3,8 @@ title: "`all`"
 description: "Удобное свойство для сброса всех стилей сразу."
 authors:
   - xpleesid
+contributors:
+  - starhamster
 keywords:
   - сброс стилей
   - каскад

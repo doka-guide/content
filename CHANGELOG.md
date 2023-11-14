@@ -2,6 +2,49 @@
 
 <!-- yaspeller ignore:start -->
 
+## Октябрь 2023
+
+- 30 октября, [Абстрактные ARIA-роли](https://doka.guide/a11y/abstract-roles/), Татьяна Фокина
+- 16 октября, [SVG-спрайт](https://doka.guide/html/svg-sprite/), Сергей Дудко
+- 16 октября, [`marquee`](https://doka.guide/a11y/role-marquee/), Татьяна Фокина
+- 16 октября, [`mark`](https://doka.guide/a11y/role-mark/), Белла Бжукова
+- 16 октября, [`status`](https://doka.guide/a11y/role-status/), Татьяна Фокина
+- 16 октября, [`<meter>`](https://doka.guide/html/meter/), Татьяна Фокина
+- 10 октября, [Язык сайта и содержимого](https://doka.guide/a11y/site-language/), Саша Тараскина
+- 9 октября, [`log`](https://doka.guide/a11y/role-log/), Татьяна Фокина
+- 6 октября, [Атрибут `inert`](https://doka.guide/html/inert/), Татьяна Фокина
+- 5 октября, [Что такое изменяющаяся область](https://doka.guide/a11y/live-region/), Татьяна Фокина
+- 5 октября, [`touch-action`](https://doka.guide/css/touch-action/), Борис Ермаченко
+- 3 октября, [Как реально работают `flex-shrink` и `flex-grow`](https://doka.guide/css/flex-grow-shrink/), Юля Опёнышева
+
+## Сентябрь 2023
+
+- 30 сентября, [Как создать организацию на GitHub](https://doka.guide/recipes/github-new-organization/), Игорь Коровченко
+- 30 сентября, [Как создать форк репозитория на GitHub](https://doka.guide/recipes/gihub-new-fork/), Игорь Коровченко
+- 30 сентября, [Как опубликовать сайт прямо на GitHub](https://doka.guide/recipes/github-pages-static-site/), Игорь Коровченко
+- 29 сентября, [`resize`](https://doka.guide/css/resize/), Сергей Дудко
+- 28 сентября, [Атрибут `tabindex`](https://doka.guide/html/tabindex/), Татьяна Фокина
+- 28 сентября, [Как настроить двухфакторную аутентификацию на GitHub](https://doka.guide/recipes/github-2fa-setup/), Игорь Коровченко
+- 28 сентября, [Как настроить доступ по SSH на GitHub](https://doka.guide/recipes/github-add-ssh-access/), Игорь Коровченко
+- 28 сентября, [Как клонировать репозиторий на GitHub](https://doka.guide/recipes/github-clone-repo/), Игорь Коровченко
+- 27 сентября, [Атрибуты `data-*`](https://doka.guide/html/data-attributes/), Анатолий Кротов
+- 27 сентября, [Как работать в пулреквестах на GitHub](https://doka.guide/recipes/github-manage-pull-request/), Игорь Коровченко
+- 21 сентября, [Как найти ишью в репозитории на GitHub](https://doka.guide/recipes/github-search-in-issues/), Игорь Коровченко
+- 21 сентября, [Как редактировать файлы на GitHub](https://doka.guide/recipes/github-editing-files-in-browser/), Игорь Коровченко
+- 21 сентября, [Как создать ишью на GitHub](https://doka.guide/recipes/github-new-issue/), Игорь Коровченко
+- 21 сентября, [Как написать README на GitHub](https://doka.guide/recipes/github-add-readme/), Игорь Коровченко
+- 21 сентября, [Как выбрать лицензию на GitHub](https://doka.guide/recipes/github-choose-license/), Игорь Коровченко
+- 18 сентября, [Генераторы и yield](https://doka.guide/js/generators/), Егор Огарков, Сергей Краснолобов
+- 18 сентября, [Как добавить пользователей в репозиторий на GitHub](https://doka.guide/recipes/github-add-user-to-repo/), Игорь Коровченко
+- 18 сентября, [Как сделать пулреквест на GitHub](https://doka.guide/recipes/github-new-pull-request/), Игорь Коровченко
+- 14 сентября, [Доступные формы](https://doka.guide/a11y/accessible-forms/), Оскар Шайхутдинов
+- 11 сентября, [Как создать репозиторий на GitHub](https://doka.guide/recipes/github-new-repo/), Игорь Коровченко
+
+## Август 2023
+
+- 11 августа, [Как описывать картинки](https://doka.guide/a11y/how-to-describe-pictures/), Татьяна Фокина
+- 4 августа, [`prefers-reduced-motion`](https://doka.guide/a11y/prefers-reduced-motion/), Катерина Рогозинская
+
 ## Июль 2023
 
 - 30 июля, [Как создать профиль на GitHub](https://doka.guide/recipes/github-new-profile/), Игорь Коровченко

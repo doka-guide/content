@@ -6,25 +6,12 @@
 
 ```css
 @keyframes rainbow {
-  0% { caret-color: red; }
-  20% { caret-color: orange; }
-  40% { caret-color: yellow; }
-  60% { caret-color: green; }
-  80% { caret-color: blue; }
-  100% { caret-color: purple; }
-}
-
-input {
-  display: block;
-  width: 60vw;
-  height: 50px;
-  font-family: "Roboto", sans-serif;
-  font-size: 50px;
-  caret-color: red;
-  background-color: rgb(255 255 255 / 0.1);
-  color: #eee;
-  border-radius: 1rem;
-  border: 2px dotted rgb(255 255 255 / 0.1);
+  0% { caret-color: #F498AD; }
+  20% { caret-color: #FF8630; }
+  40% { caret-color: #FFD829; }
+  60% { caret-color: #41E847; }
+  80% { caret-color: #2E9AFF; }
+  100% { caret-color: #F498AD; }
 }
 
 input:focus {
@@ -32,4 +19,4 @@ input:focus {
 }
 ```
 
-<iframe title="Анимированная радужная каретка" src="../demos/rainbow-input/" height="330" sandbox></iframe>
+<iframe title="Анимированная радужная каретка" src="../demos/rainbow-input/" height="230"></iframe>

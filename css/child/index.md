@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 editors:
   - tachisis
 related:
@@ -25,7 +26,7 @@ tags:
 
 ```html
 <ul class="list">
-  <li class="list-item">Изумрудно зелёный</li>
+  <li class="list-item">Фиолетовый</li>
   <li class="list-item">Лаймовый</li>
   <li class="list-item">Лазурный</li>
   <li class="list-item">Лазурный</li>
@@ -43,11 +44,11 @@ tags:
 }
 ```
 
-У первого пункта списка (первого дочернего элемента) будет тёмно-зелёный фон:
+У первого пункта списка (первого дочернего элемента) будет фиолетовый:
 
 ```css
 .list-item:first-child {
-  background-color: #286C2D;
+  background-color: #C56FFF;
 }
 ```
 
@@ -75,7 +76,7 @@ tags:
 }
 ```
 
-<iframe title="Псевдоклассы группы child" src="demos/child/" height="390"></iframe>
+<iframe title="Разноцветный список" src="demos/child/" height="390"></iframe>
 
 ## Как пишется
 

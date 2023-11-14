@@ -9,6 +9,7 @@ groups:
       - character-counter
       - center
       - popup
+      - container
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
@@ -20,6 +21,21 @@ groups:
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
+      - github-2fa-setup
+      - github-new-repo
+      - github-choose-license
+      - github-add-user-to-repo
+      - github-search-in-issues
+      - gihub-new-fork
+      - github-clone-repo
+      - github-new-pull-request
+      - github-manage-pull-request
+      - github-editing-files-in-browser
+      - github-new-issue
+      - github-add-readme
+      - github-pages-static-site
+      - github-new-organization
+      - github-add-ssh-access
   - name: 'Рутина'
     items:
       - font-script
