@@ -19,8 +19,8 @@ tags:
 ## Пример
 
 ```js
-const sab = new SharedArrayBuffer(1024)
-const ta = new Uint8Array(sab)
+const arrayForMultipleThreads = new SharedArrayBuffer(1024)
+const threadArrayView = new Uint8Array(sab)
 
 ta[0]
 // 0
