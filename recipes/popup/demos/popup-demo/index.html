@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Пример попапа — Как реализовать попап — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *,
     *::before,
@@ -17,9 +16,14 @@
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      scrollbar-gutter: stable;
+    }
+
     html {
       color-scheme: dark;
-      height: 100vh;
+      font-size: 18px;
     }
 
     body {
@@ -32,8 +36,6 @@
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
-      scrollbar-gutter: stable;
     }
 
     dialog {
@@ -49,54 +51,44 @@
       background-color: #FFFFFF;
       color: #000000;
       text-align: center;
-      font-family: "Roboto", sans-serif;
     }
 
-    .openDialogBtn {
+    .button {
       min-width: 210px;
-      border: 2px solid transparent;
-      border-radius: 6px;
       padding: 9px 15px;
-      color: #000000;
-      font-size: 18px;
+      border: 2px solid transparent;
+      border-radius: 6px; 
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
+      color: #000000;
+    }
+
+    .openDialogBtn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 50px;
+      right: 50px;
     }
 
     .closeDialogBtn {
       margin: 10% auto 0;
-      border: 2px solid transparent;
-      min-width: 210px;
-      border-radius: 6px;
-      padding: 9px 15px;
-      color: #000000;
-      font-size: 18px;
-      font-weight: 300;
-      font-family: inherit;
-      transition: background-color 0.2s linear;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
     }
 
     .memes {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
       padding: 0 20px;
+      gap: 15px;
     }
 
     .memes img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      opacity: 0.7;
+      max-width: 420px;
+      opacity: 0.8;
     }
 
     h2 {
@@ -105,28 +97,36 @@
       font-size: 1.375rem;
     }
 
-    .openDialogBtn:hover {
+    .button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
       transition: background-color 0.2s linear;
     }
 
-    .openDialogBtn:focus-visible {
+    .closeDialogBtn:hover {
+      border: 2px solid #000000;
+    }
+
+    .button:focus-visible {
       border: 2px solid #FFFFFF;
       outline: none;
     }
 
-    .openDialogBtn:focus {
+    .closeDialogBtn:focus-visible {
+      border: 2px solid #000000;
+    }
+
+    .button:focus {
       border: 2px solid #FFFFFF;
       outline: none;
+    }
+
+    .closeDialogBtn:focus {
+      border: 2px solid #000000;
     }
 
     .button-violet {
       background-color: #C56FFF;
-    }
-
-    .button-black {
-      background-color: #000000;
     }
 
     .dialog__wrapper {
@@ -145,6 +145,10 @@
       body {
         padding: 30px;
       }
+
+      .memes img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -160,16 +164,17 @@
     <img src="images/fizra.jpg" alt='Мем с котиком про физкультуру'>
     <img src="images/sleep.jpg" alt="Мем про спящего котика">
   </div>
-  <button class="openDialogBtn button-violet" type="button" aria-haspopup="dialog" aria-controls="myDialog">Открыть
+  <button class="openDialogBtn button button-violet" type="button" aria-haspopup="dialog" aria-controls="myDialog">Открыть
     попап</button>
   <dialog class="child" id="myDialog">
     <div class="dialog__wrapper">
       <h2>Дока — самая добрая документация &#128579</h2>
-      <button class="closeDialogBtn button-black" type="button">
+      <button class="closeDialogBtn button button-violet" type="button">
         Согласен &#128156
       </button>
     </div>
   </dialog>
+
   <script>
     const dialog = document.getElementById('myDialog')
     const dialogOpener = document.querySelector('.openDialogBtn')
@@ -206,5 +211,4 @@
     })
   </script>
 </body>
-
 </html>
