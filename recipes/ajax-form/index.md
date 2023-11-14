@@ -29,7 +29,7 @@ tags:
   </label>
   <label>
     Пароль:
-    <input type="password" autocomplete="password" name="password" required>
+    <input type="password" name="password" required>
   </label>
   <button type="submit">Войти</button>
 </form>
@@ -96,7 +96,7 @@ function showError() {
   </label>
   <label>
     Пароль:
-    <input type="password" autocomplete="password" name="password" required>
+    <input type="password" name="password" required>
   </label>
   <button type="submit">Войти</button>
 </form>
