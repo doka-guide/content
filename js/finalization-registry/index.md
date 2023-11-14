@@ -36,6 +36,8 @@ const registry = new FinalizationRegistry((heldValue) => {
 new FinalizationRegistry(anyCallbackFunction)
 ```
 
+Старайтесь не полагаться на обработчики событий в объекте `FinalizationRegistry`. Сборка мусора — сложный процесс, и никто не знает, когда эти колбэки сработают и сработают ли вообще.
+
 ## Методы
 
 - `.register()` — регистрирует объект в реестре.
