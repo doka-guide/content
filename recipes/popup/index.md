@@ -158,7 +158,7 @@ dialogCloser.addEventListener('click', (event) => {
 })
 ```
 
-<iframe title="Пример попапа" src="demos/popup-demo/" height="650"></iframe>
+<iframe title="Пример попапа" src="demos/popup-demo/" height="480"></iframe>
 
 ## Разбор решения
 
