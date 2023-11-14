@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница для атрибутов <meter> — <meter> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #FF8630;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .meter {
+      display: block;
+      width: 100%;
+      height: 50px;
+    }
+
+    .meter::-webkit-meter-optimum-value {
+      background: #FF8630;
+    }
+
+    .meter::-webkit-meter-suboptimum-value {
+      background: #2E9AFF;
+    }
+
+    .meter::-webkit-meter-even-less-good-value  {
+      background: #FFFFFF;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      margin: 25px 0;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input, .container {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+      }
+
+      .input {
+        margin-top: 10px;
+      }
+
+      .input, .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <p>Измените значения и узнайте, что произойдёт с <code>&lt;meter></code> 👀</p>
+    <form class="form" id="form">
+      <div class="form-row">
+        <label class="row-label" for="max"><code>max</code></label>
+        <input type="number" class="input" id="max" value="1" onKeyPress="if(this.value.length===3) return false">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="min"><code>min</code></label>
+        <input type="number" class="input" id="min" value="0" onKeyPress="if(this.value.length===3) return false">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="value"><code>value</code></label>
+        <input type="number" class="input" id="value" value=".5" onKeyPress="if(this.value.length===3) return false">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="high"><code>high</code></label>
+        <input type="number" class="input" id="high" value=".75" onKeyPress="if(this.value.length===3) return false">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="low"><code>low</code></label>
+        <input type="number" class="input" id="low" value=".25" onKeyPress="if(this.value.length===3) return false">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="optimum"><code>optimum</code></label>
+        <input type="number" class="input" id="optimum" value="0.5" onKeyPress="if(this.value.length===3) return false">
+      </div>
+    </form>
+    <meter class="meter" id="meter" value=".5" min="0" max="1" high=".75" low=".25" optimum="0.5" form="form"></meter>
+  </div>
+  <script>
+    const attrsContainer = document.querySelector('.form')
+    const inputs = document.querySelectorAll('.input')
+    const meter = document.getElementById('meter')
+
+    Array.from(inputs).forEach(input => {
+      input.addEventListener('input', () => {
+        const inputValue = input.value
+        const inputID = input.id
+        const meterAttr = Array.from(meter.attributes).map(attr => attr.name)
+
+        if (meterAttr.includes(inputID)) {
+          meter.setAttribute(inputID, inputValue);
+        }
+      })
+    })
+  </script>
+</body>
+</html>

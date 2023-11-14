@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Навигация с явной ролью — navigation — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"/>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 50%;
+    }
+
+    main {
+      min-height: 200px;
+      margin-top: 30px;
+      padding: 55px 40px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    ul {
+      position: relative;
+      list-style-type: none;
+      font-size: 1.5rem;
+    }
+
+    ul::before {
+      content: 'меню';
+      position: absolute;
+      right: calc(100% + 25px);
+      top: 7px;
+      padding: 2px 7px;
+      background-color: #10F3AF;
+      color: #000000;
+      font-size: 0.875rem;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      text-transform: lowercase;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      color: #000000;
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding-top: 45px;
+      }
+
+      ul::before {
+        right: calc(100% - 50px);
+        top: -40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div role="navigation">
+        <ul>
+          <li>
+            <a href="#tapirs-life">Где обитают тапиры</a>
+          </li>
+          <li>
+            <a href="#tapirs-food">Как питаются тапиры</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <h1>Сайт о тапирах</h1>
+      <p>Остальное содержимое страницы.</p>
+    </main>
+  </div>
+</body>
+</html>
