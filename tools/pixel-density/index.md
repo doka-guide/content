@@ -3,6 +3,8 @@ title: "Плотность пикселей"
 description: "Что такое плотность пикселей: как она влияет на качество изображения на различных устройствах и как подготовить графику для разных устройств?"
 authors:
   - s-dudko
+contributors:
+  - skorobaeus
 related:
   - html/picture
   - css/image-set
