@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования — Атрибут dir — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 15px;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      color: #ffffff;
+      accent-color: darkmagenta;
+      background-color: #18191c;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    p {
+      margin-block-start: 10px;
+      margin-block-end: 10px;
+
+      padding-inline-end: 50px;
+      line-height: 1;
+    }
+
+    hr {
+      margin: 25px 0;
+    }
+
+    @media screen and (max-width: 767px) {
+      .wrapper {
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <p dir="ltr">Пример русского текста с верно установленным направлением.</p>
+    <p dir="rtl">Пример русского текста с неверно установленным направлением.</p>
+
+    <hr />
+
+    <p>هذه الفقرة باللغة العربية ولكن بشكل خاطئ من اليسار إلى اليمين.</p>
+    <p dir="auto">هذه الفقرة باللغة العربية ، لذا يجب الانتقال من اليمين إلى اليسار.</p>
+  </div>
+</body>
+</html>
