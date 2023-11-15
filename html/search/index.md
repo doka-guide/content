@@ -33,7 +33,7 @@ tags:
 </search>
 ```
 
-<iframe title="Примеры использования search" src="demos/base/" height="489"></iframe>
+<iframe title="Примеры использования search" src="demos/base/" height="540"></iframe>
 
 
 ## Как понять
