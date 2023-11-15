@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пагинация с aria-current — aria-current — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      border: 1px solid #FFFFFF;
+      border-radius: 3px;
+      padding: 8px 15px;
+      text-decoration: none;
+      transition: background-color 0.2s linear;
+    }
+
+    a[aria-current] {
+      color: #000000;
+      font-weight: 500;
+      background-color: #F498AD;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      color: #000000;
+      background-color: #10F3AF;
+      outline-width: 0;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      ol {
+        gap: 15px;
+      }
+
+      li {
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Страницы с результатами">
+    <ol>
+      <li>
+        <a href="#">
+          <span class="visually-hidden">Страница</span>
+          1
+        </a>
+      </li>
+      <li>
+        <a href="#" aria-current="page">
+          <span class="visually-hidden">Страница</span>
+          2
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="visually-hidden">Страница</span>
+          3
+        </a>
+      </li>
+    </ol>
+  </nav>
+</body>
+</html>

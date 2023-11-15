@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список страниц с aria-current — aria-current — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 22px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      gap: 34px;
+      list-style: none;
+    }
+
+    a {
+      position: relative;
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      margin-right: -21px;
+      border-right: 2px solid #FFFFFF;
+      border-bottom: 2px solid #FFFFFF;
+      transform: rotate(-45deg);
+    }
+
+    li:last-of-type a::after {
+      content: none;
+    }
+
+    a[aria-current] {
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus {
+      color: #000000;
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      ul {
+        gap: 15px;
+      }
+
+      li {
+        padding-right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Страницы">
+    <ul>
+      <li>
+        <a href="#">Породы собак</a>
+      </li>
+      <li>
+        <a href="#">Ирландские породы</a>
+      </li>
+      <li>
+        <a href="#" aria-current="page">Ирландский волкодав</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
