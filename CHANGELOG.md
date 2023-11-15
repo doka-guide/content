@@ -4,6 +4,8 @@
 
 ## Ноябрь 2023
 
+- 15 ноября, [`aria-owns`](https://doka.guide/a11y/aria-owns/), Татьяна Фокина
+- 15 ноября, [`aria-current`](https://doka.guide/a11y/aria-current/), Татьяна Фокина
 - 11 ноября, [`aria-relevant`](https://doka.guide/a11y/aria-relevant/), Татьяна Фокина
 - 10 ноября, [Колонка с контентом по центру экрана](https://doka.guide/recipes/container/), Владимир Ткачёв
 - 10 ноября, [`aria-haspopup`](https://doka.guide/a11y/aria-haspopup/), Татьяна Фокина
