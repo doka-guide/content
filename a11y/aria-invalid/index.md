@@ -19,7 +19,7 @@ tags:
 
 <aside>
 
-⚠️ Если используете [`required`](/html/required/), `aria-invalid` со всеми значениями есть у HTML-атрибута по умолчанию.
+⚠️ У [`required`](/html/required/) есть ARIA-атрибут `aria-invalid` со всеми значениями по умолчанию.
 
 </aside>
 
