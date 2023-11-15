@@ -3,6 +3,8 @@ title: "`aria-owns`"
 description: "Как имитировать связь родительского элемента с дочерними с помощью ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность
