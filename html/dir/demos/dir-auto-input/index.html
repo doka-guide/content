@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -24,7 +24,7 @@
       justify-content: center;
       padding: 50px 15px;
       font-family: "Roboto", sans-serif;
-      font-size: 24px;
+      font-size: 18px;
       color: #ffffff;
       accent-color: darkmagenta;
       background-color: #18191c;
@@ -41,23 +41,36 @@
     label {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 500;
     }
 
     label + label {
-      margin-block-start: 16px;
+      margin-block-start: 25px;
     }
 
     input,
     textarea {
-      font-size: 1.5rem;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
     }
 
     p {
-      font-size: 0.85rem;
-      font-style: italic;
-
-      margin-block-end: 24px;
+      margin-block-end: 25px;
     }
   </style>
 </head>
