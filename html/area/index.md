@@ -3,6 +3,8 @@ title: "`<area>`"
 description: "Размечает картинку невидимыми областями."
 authors:
   - inventoris
+contributors:
+  - skorobaeus
 related:
   - html/map
   - html/img
