@@ -3,6 +3,8 @@ title: "Атрибут `dir`"
 description: "Указываем направление текста внутри всего документа или отдельного элемента."
 authors:
   - s-dudko
+contributors:
+  - skorobaeus
 related:
   - html/global-attrs
   - html/bdi
