@@ -38,14 +38,14 @@
     id="progressive-image"
   >
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const progressiveImage = document.getElementById("progressive-image")
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressiveImage = document.getElementById('progressive-image')
 
         const lowResImage = new Image()
         lowResImage.src = progressiveImage.src
         lowResImage.onload = function() {
-            progressiveImage.src = progressiveImage.getAttribute("data-src")
-            progressiveImage.style.filter = "none"
+            progressiveImage.src = progressiveImage.getAttribute('data-src')
+            progressiveImage.style.filter = 'none'
         }
     })
   </script>
