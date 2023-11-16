@@ -56,35 +56,35 @@ tags:
 body {
   min-height: 100vh;
   padding: 50px;
-  position: relative;
-  background-color: #18191c;
-  color: #ffffff;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-color: #18191C;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  scrollbar-gutter: stable;
-  height: 900px;
 }
 
 dialog {
-  position: absolute;
+  position: fixed;
   height: 250px;
-  width: 300px;
-  margin-inline: auto;
-  inset-inline: 0;
-  inset-block-start: calc(50% - 125px);
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #000000;
   text-align: center;
 }
 
 .openDialogBtn {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
   min-width: 210px;
   border: 2px solid transparent;
   border-radius: 6px;
-  padding: 9px 15px;
-  color: #000000;
   font-size: 18px;
   font-weight: 300;
   font-family: inherit;
@@ -192,30 +192,19 @@ dialogCloser.addEventListener('click', (event) => {
 
 ### Стили
 
-Для центрирования попапа на странице зададим высоту в `100vh` для `<body>` и [`<html>`](/html/html/), затем присвоим [`position: relative`](/css/position/) для родительского элемента попапа и `position: absolute` для самого модального окна. Присвоим попапу такие свойства, как `margin-inline`, [`inset-inline`](/css/inset/) и `inset-block-start`. Это позволит нам рассчитать положение модального окна посередине окна просмотра относительно заданной ему высоты в `250px`.
+Для центрирования попапа на странице присвоим ему [`position: fixed`](/css/position/), а также зададим 50% для его расположения по осям для `top` и `left`:
 
 ```css
-body {
-  min-height: 100vh;
-  padding: 50px;
-  position: relative;
-  background-color: #18191c;
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  scrollbar-gutter: stable;
-}
-
 dialog {
-  position: absolute;
+  position: fixed;
   height: 250px;
-  width: 300px;
-  margin-inline: auto;
-  inset-inline: 0;
-  inset-block-start: calc(50% - 125px);
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: none;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #000000;
   text-align: center;
 }
@@ -235,7 +224,6 @@ dialog::backdrop {
 body {
   min-height: 100vh;
   padding: 50px;
-  position: relative;
   background-color: #18191c;
   color: #ffffff;
   font-family: "Roboto", sans-serif;
