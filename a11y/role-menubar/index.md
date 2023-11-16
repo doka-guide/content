@@ -34,7 +34,11 @@ tags:
   >
     Начертание
   </button>
-  <ul role="menu" id="fonts">
+  <ul
+    role="menu"
+    id="fonts"
+    tabindex="-1"
+  >
     <!-- Содержимое подменю -->
   </ul>
   <!-- Остальные элементы строки меню -->
@@ -55,22 +59,22 @@ tags:
 <ul role="menubar">
   <span role="group">
     <li role="presentation">
-      <button
+      <span
         role="menuitemcheckbox"
-        type="button"
-        aria-selected="false"
+        aria-selected="true"
+        tabindex="0"
       >
         Показать превью
-      </button>
+      </span>
     </li>
     <li role="presentation">
-      <button
+      <span
         role="menuitemcheckbox"
-        type="button"
-        aria-selected="true"
+        aria-selected="false"
+        tabindex="-1"
       >
         Показать неразрывные пробелы
-      </button>
+      </span>
     </li>
   </span>
 
@@ -81,18 +85,18 @@ tags:
   </span>
 
   <li role="presentation">
-    <button
+    <span
       role="menuitem"
-      type="button"
+      tabindex="-1"
     >
       Сохранить
-    </button>
+    </span>
   </li>
   <!-- Остальные элементы -->
 </ul>
 ```
 
-В `menubar` встроено свойство [`aria-orientation`](/a11y/aria-orientation/) со значением `horizontal` по умолчанию. Благодаря этому значению пользователи [скринридеров](/a11y/screenreaders/) и других вспомогательных технологий знают, что могут перемещаться по пунктам клавишами со стрелками влево <kbd>←</kdb> и вправо <kbd>→</kbd>.
+У `menubar` есть свойство [`aria-orientation`](/a11y/aria-orientation/) со значением `horizontal` по умолчанию. Благодаря этому значению пользователи [скринридеров](/a11y/screenreaders/) и других вспомогательных технологий знают, что могут перемещаться по пунктам клавишами со стрелками влево <kbd>←</kdb> и вправо <kbd>→</kbd>.
 
 `menubar` можно также задавать все [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и несколько специальных атрибутов для виджетов:
 
@@ -132,15 +136,72 @@ tags:
 
 Дополнительно можете поддерживать и пробел. Он делает то же, что и <kbd>Enter</kdb>: раскрывает подменю или выбирает и отменяет выбор чекбокса или радиокнопки.
 
-Необязательно, но можно отслеживать нажатия на клавиши с буквами или символами при фокусе на строке меню. Пользователи смогут быстро перемещаться к нужным пунктам, которые начинаются с буквы или символа, на клавишу с которым нажали.
+Необязательно, но можно при фокусе на строке меню отслеживать нажатие на клавиши с буквами и символами. Пользователи смогут быстро переместиться к нужным пунктам, которые начинаются со знака с нажатой клавиши. Например, попасть на пункт «Настройки» при нажатии на клавишу <kbd>H</kdb>.
 
 #### Управление фокусом
 
-При работе над навигацией с клавиатуры не обойтись без глобального атрибута [`tabindex`](/html/global-attrs/#tabindex) с отрицательным или нулевым значениями.
+Для правильной навигации в строке меню не обойтись без HTML-атрибута [`tabindex`](/html/global-attrs/#tabindex). Это особенно важно, когда создаёте кастомные элементы на тегах, с которыми обычно не могут взаимодействовать пользователи. К примеру, на [`<span>`](/html/span/) и `<div>`.
 
-One of the following approaches is used to enable scripts to move focus among items in a menu as described in the practice for Keyboard Navigation Inside Components:
-The menu container has tabindex set to -1 or 0 and aria-activedescendant set to the ID of the focused item.
-Each item in the menu has tabindex set to -1, except in a menubar, where the first item has tabindex set to 0.
+Только у одного пункта из `menubar` может быть `tabindex="0"` — у первого элемента до того, как на строке сделали фокус, и у пункта, на котором сейчас фокус. Остальные элементы должны быть с `tabindex="-1"`, пока их не выбрали. В том числе отрицательный `tabindex` должен быть у контейнера с попапом.
+
+```html
+<ul role="menubar">
+  <li role="presentation">
+    <span
+      role="menuitem"
+      tabindex="0"
+    >
+      Прикрепить картинку
+    </span>
+  </li>
+  <li role="presentation">
+    <span
+      role="menuitemcheckbox"
+      aria-selected="false"
+      tabindex="-1"
+    >
+      Показать превью
+    </span>
+  </li>
+  <li role="presentation">
+    <span
+      role="menuitem"
+      aria-expanded="false"
+      aria-controls="color"
+      aria-haspopup="menu"
+      tabindex="-1"
+    >
+      Цвет
+    </span>
+  </li>
+  <ul
+    role="menu"
+    id="color"
+    tabindex="-1"
+  >
+    <!-- Содержимое попапа -->
+  </ul>
+</ul>
+```
+
+Один из многочисленных вариантов решения на JavaScript:
+
+```js
+const menuItems = Array.from(document.querySelectorAll('span[data-item]'))
+let lastFocusedItem = null
+let currentFocusedButtonIndex = -1
+
+menuItems.forEach((item, index) => {
+  item.addEventListener('focus', () => {
+    if (lastFocusedItem && lastFocusedItem !== item) {
+      lastFocusedItem.setAttribute('tabindex', '-1')
+    }
+
+    item.setAttribute('tabindex', '0')
+    lastFocusedItem = item
+  })
+})
+```
 
 ## Как понять
 
