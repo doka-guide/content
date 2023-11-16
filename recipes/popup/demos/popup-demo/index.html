@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>Пример попапа — Как реализовать попап — Дока</title>
   <meta charset="utf-8">
@@ -70,6 +71,14 @@
       position: fixed;
       bottom: 50px;
       right: 50px;
+      min-width: 210px;
+
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
     .closeDialogBtn {
@@ -147,6 +156,14 @@
         padding: 30px;
       }
 
+      .openDialogBtn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 210px;
+        height: 40px;
+      }
+
       .memes img {
         max-width: 100%;
       }
@@ -160,12 +177,9 @@
     <img src="images/home.jpg" alt="Мем про котика на дороге">
     <img src="images/partie.jpg" alt="Мем про кота и вечеринку">
     <img src="images/grechka.jpg" alt="Мем про кота и гречку">
-    <img src="images/sad.jpg" alt="Мем про фото котика из сада">
-    <img src="images/independance.jpg" alt="Мем про котика и независимость">
-    <img src="images/fizra.jpg" alt='Мем с котиком про физкультуру'>
-    <img src="images/sleep.jpg" alt="Мем про спящего котика">
   </div>
-  <button class="openDialogBtn button button-violet" type="button" aria-haspopup="dialog" aria-controls="myDialog">Открыть
+  <button class="openDialogBtn button button-violet" type="button" aria-haspopup="dialog"
+    aria-controls="myDialog">Открыть
     попап</button>
   <dialog class="child" id="myDialog">
     <div class="dialog__wrapper">
@@ -212,4 +226,5 @@
     })
   </script>
 </body>
+
 </html>
