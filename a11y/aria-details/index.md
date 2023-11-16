@@ -3,6 +3,13 @@ title: "`aria-details`"
 description: "Атрибут для элемента с подробной информацией о другом."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
+keywords:
+  - a11y
+  - доступность
+  - ARIA
+  - accessible description
 related:
   - a11y/aria-attrs
   - a11y/aria-description
@@ -28,15 +35,23 @@ tags:
 ```html
 <img
   src="turtle.png"
-  alt="Взрослая зелёная черепаха повернулась боком и развернула голову вправо. У неё коричневый овальный панцирь со светлыми разводами. Лапы похожи на ласты, при этом передние больше задних. Снаружи на лапах и на коже головы коричневые пятна, шея и внутрення часть лап почти белые."
+  alt="Взрослая зелёная черепаха повернулась боком и развернула
+  голову вправо. У неё коричневый овальный панцирь со светлыми разводами.
+  Лапы похожи на ласты, при этом передние больше задних.
+  Снаружи на лапах и на коже головы коричневые пятна, шея и внутрення часть
+  лап почти белые."
   aria-details="more-info"
 >
-<p>Узнать больше про
-  <a href="https://en.wikipedia.org/wiki/Green_sea_turtle" id="more-info">зелёных морских черепах</a>
+
+<p>
+  Узнать больше про
+  <a href="https://en.wikipedia.org/wiki/Green_sea_turtle" id="more-info">
+    зелёных морских черепах
+  </a>.
 </p>
 ```
 
-<iframe title="Изображение с расширенным описанием" src="demos/image-with-details/" height="440"></iframe>
+<iframe title="Картинка с дополнительным описанием" src="demos/image-with-details/" height="440"></iframe>
 
 ## Как пишется
 
