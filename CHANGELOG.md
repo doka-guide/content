@@ -4,6 +4,8 @@
 
 ## Ноябрь 2023
 
+- 16 ноября, [Атрибут `dir`](https://doka.guide/html/dir/), Сергей Дудко
+- 16 ноября, [`<search>`](https://doka.guide/html/search/), Андрей Сухов
 - 15 ноября, [`aria-owns`](https://doka.guide/a11y/aria-owns/), Татьяна Фокина
 - 15 ноября, [`aria-current`](https://doka.guide/a11y/aria-current/), Татьяна Фокина
 - 11 ноября, [`aria-relevant`](https://doka.guide/a11y/aria-relevant/), Татьяна Фокина
