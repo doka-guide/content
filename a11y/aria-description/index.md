@@ -3,6 +3,8 @@ title: "`aria-description`"
 description: "Добавляем к элементу описание, которое видят только вспомогательные технологии."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-attrs
   - a11y/aria-label
