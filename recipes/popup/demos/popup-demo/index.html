@@ -29,7 +29,6 @@
     }
 
     body {
-      position: relative;
       min-height: 100vh;
       padding: 50px;
       display: grid;
@@ -41,13 +40,12 @@
     }
 
     dialog {
-      position: absolute;
+      position: fixed;
       height: 250px;
       width: 350px;
-      margin-inline: auto;
-      margin-block: auto;
-      inset-inline: 0;
-      inset-block: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       border: none;
       padding: 0;
       background-color: #FFFFFF;
@@ -160,8 +158,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 210px;
-        height: 40px;
+        width: 250px;
+        height: 50px;
       }
 
       .memes img {
