@@ -24,7 +24,9 @@ tags:
 ## Пример
 
 ```html
-<button aria-description="Открыть модальное окно">Настройки</button>
+<button aria-description="Открыть модальное окно">
+  Настройки
+</button>
 ```
 
 <iframe title="Кнопка с визуально скрытым описанием" src="demos/button-with-description/" height="190"></iframe>
