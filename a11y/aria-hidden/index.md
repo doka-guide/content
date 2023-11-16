@@ -6,7 +6,7 @@ authors:
 contributors:
   - skorobaeus
 keywords:
-  - a11y 
+  - a11y
   - доступность
   - ARIA
   - ридер
