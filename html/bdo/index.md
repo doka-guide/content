@@ -5,6 +5,7 @@ authors:
   - gingerraccoon
 contributors:
   - tatianafokina
+  - skorobaeus
 editors:
   - tachisis
 keywords:

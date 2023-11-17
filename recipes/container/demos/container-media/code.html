@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный container — Колонка с контентом по центру экрана — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #FFFFFF;
+      margin: 0;
+    }
+
+    section {
+      margin-block: 25px;
+    }
+
+    .container {
+      max-width: 425px;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #C56FFF;
+      color: #FFFFFF;
+      padding-block: 20px;
+    }
+
+    .content {
+      background-color: #593273;
+    }
+
+    @media (max-width: 425px) {
+      .container {
+        padding-left: 48px;
+        padding-right: 48px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="section-one">
+    <div class="container">
+      <p class="content">
+        Если орёл — я выиграла, если решка — ты проиграл.
+      </p>
+    </div>
+  </section>
+  <section class="section-two">
+    <div class="container">
+      <p class="content">
+        Я чувствую себя как функция арктангенса, которая приближается к асимптоте.
+      </p>
+    </div>
+  </section>
+</body>
+</html>

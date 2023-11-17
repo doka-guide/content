@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список шагов с aria-current — aria-current — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      gap: 24px;
+      list-style: none;
+    }
+
+    a {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 19px;
+      padding: 19px;
+      color: #000000;
+      background: #FFFFFF;
+      text-decoration: none;
+      transition: background-color 0.2s linear;
+    }
+
+    a[aria-current] {
+      font-size: 1.2rem;
+      text-decoration: none;
+      background-color: #F498AD;
+    }
+
+    a::before, a::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-style: solid;
+      border-color: #FFFFFF;
+      border-width: 19px 0 19px 19px;
+      transition: border-color 0.2s linear;
+    }
+
+    a[aria-current]::before {
+      border-color: #F498AD;
+      border-left-color: transparent;
+    }
+
+    a[aria-current]::after {
+      border-color: transparent;
+      border-left-color: #F498AD;
+    }
+
+    a::before {
+      right: 100%;
+      border-color: #FFFFFF;
+      border-left-color: transparent;
+    }
+
+    a::after {
+      left: 100%;
+      border-color: transparent;
+      border-left-color: #FFFFFF;
+    }
+
+    li:first-of-type a::before {
+      content: none;
+    }
+
+    a:hover, a:focus {
+      color: #000000;
+      background-color: #10F3AF;
+      outline-width: 0;
+    }
+
+    a:hover::before,
+    a:focus::before {
+      right: 100%;
+      border-color: #10F3AF;
+      border-left-color: transparent;
+    }
+
+    a:hover::after,
+    a:focus::after {
+      left: 100%;
+      border-color: transparent;
+      border-left-color: #10F3AF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      li {
+        padding-right: 15px;
+      }
+
+      ol {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Оформление заказа">
+    <ol>
+      <li>
+        <a href="#">Оплата</a>
+      </li>
+      <li>
+        <a href="#">Адрес доставки</a>
+      </li>
+      <li>
+        <a href="#" aria-current="step">Время доставки</a>
+      </li>
+      <li>
+        <a href="#">Детали</a>
+      </li>
+    </ol>
+  </nav>
+</body>
+</html>
