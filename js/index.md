@@ -101,6 +101,7 @@ groups:
       - array-findlast
       - findlastindex
       - join
+      - pop
   - name: "Объекты"
     items:
       - object
