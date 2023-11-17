@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/keyframes
-  - a11y/aria-intro
+  - js/deal-with-forms
+  - tools/gitlab-ci-cd
+  - tools/network
+  - tools/oop
+  - css/position
+  - html/nav
+  - css/display
+  - js/execution-order
   - html/doctype
-  - recipes/lets-encrypt-nginx
   - a11y/aria-hidden
-  - css/attr
+  - tools/ci-cd
+  - tools/webpack
+  - html/img
+  - tools/how-to-test-and-why
+  - tools/static-types
+  - html/div
   - tools/bundlers
   - html/form
-  - tools/ci-cd
-  - html/video
-  - js/var-let
-  - html/input
-  - js/async-in-js
-  - tools/oop
-  - tools/webpack
-  - tools/gitlab-ci-cd
-  - tools/cli
-  - css/custom-properties
-  - css/transform-function
-  - css/position
-  - tools/how-to-test-and-why
-  - css/specificity
-  - tools/clean-architecture
   - tools/agile
-  - html/article
-  - html/flow
-  - recipes/snow
-  - tools/static-types
-  - js/deal-with-forms
-  - html/nav
-  - js/infinite-scroll
-  - js/execution-order
-  - tools/docker
-  - tools/markdown
-  - recipes/progress
-  - html/head
   - css/media
-  - js/boolean
-  - css/display
   - a11y/screenreaders
-  - tools/network
-  - html/img
-  - js/function
-  - css/grid-guide
-  - html/section
-  - html/div
-  - css/box-model
-  - js/closures
-  - js/function-context
-  - css/box-shadow
-  - tools/how-the-browser-creates-pages
-  - css/pseudoelements
   - css/flexbox-guide
+  - css/specificity
+  - js/var-let
+  - tools/docker
+  - css/pseudoelements
+  - js/boolean
+  - tools/how-the-browser-creates-pages
+  - js/async-in-js
+  - js/infinite-scroll
+  - tools/clean-architecture
+  - html/article
+  - css/grid-guide
+  - a11y/aria-intro
+  - recipes/snow
+  - html/head
+  - js/closures
+  - css/custom-properties
+  - html/section
+  - js/function
+  - recipes/lets-encrypt-nginx
+  - css/attr
+  - css/transform-function
+  - recipes/progress
+  - tools/cli
+  - html/input
+  - tools/markdown
+  - css/box-shadow
+  - js/function-context
+  - html/flow
+  - css/box-model
+  - html/video
+  - css/keyframes
 ---
 
