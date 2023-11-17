@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - tatianafokina
+  - skorobaeus
 related:
   - html/global-attrs
   - css/disabled-enabled

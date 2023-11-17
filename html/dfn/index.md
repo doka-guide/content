@@ -5,6 +5,7 @@ authors:
   - xpleesid
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - определение
   - термин

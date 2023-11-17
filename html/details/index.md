@@ -3,6 +3,9 @@ title: "`<details>`, `<summary>`"
 description: "Нативный раскрывающийся блок с контентом без магии и JavaScript."
 authors:
   - lenaryan
+contributors:
+  - tatianafokina
+  - skorobaeus
 keywords:
   - аккордеон
   - спойлер

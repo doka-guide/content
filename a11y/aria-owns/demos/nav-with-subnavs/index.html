@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Раскрывающееся меню — aria-owns — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .subnav-container {
+      position: relative;
+    }
+
+    .subnav {
+      display: none;
+      position: absolute;
+      max-width: 240px;
+      min-width: 180px;
+      padding: 10px;
+      list-style: none;
+      background-color: #FFFFFF;
+    }
+
+    .subnav-opened {
+      display: block;
+    }
+
+    .subnav-first {
+      top: 53px;
+      right: 0;
+    }
+
+    .subnav-second {
+      top: 105px;
+      right: -245px;
+    }
+
+    .subnav-link {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      gap: 10px;
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .subnav-link:hover, .subnav-link:focus {
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .subnav-arrow {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: #000000;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .button {
+      display: block;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button-dots {
+      width: 23px;
+      height: 23px;
+      stroke: #000000;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .subnav {
+        max-width: 100%;
+        right: -60px;
+      }
+
+      .subnav-second {
+        top: 161px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="subnav-container">
+    <button class="button button-aqua" aria-label="Породы собак" aria-expanded="false" aria-controls="submenu">
+      <svg class="button-dots" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true">
+        <circle cx="12" cy="12" r="1"/>
+        <circle cx="19" cy="12" r="1"/>
+        <circle cx="5" cy="12" r="1"/>
+      </svg>
+    </button>
+
+    <ul class="subnav subnav-first" id="submenu">
+      <li class="subnav-item">
+        <a href="https://en.wikipedia.org/wiki/Category:Dog_breeds_originating_in_Ireland" class="subnav-link" lang="en">Ирландия</a>
+      </li>
+      <li class="subnav-item" aria-owns="aussie-breeds">
+        <a href="https://en.wikipedia.org/wiki/Category:Dog_breeds_originating_in_Australia" class="subnav-link" lang="en">
+          Австралия
+          <svg class="subnav-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 22" aria-hidden="true">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="subnav subnav-second" id="aussie-breeds">
+      <li class="subnav-item">
+        <a href="https://en.wikipedia.org/wiki/Australian_Shepherd" class="subnav-link" lang="en">Австралийская овчарка</a>
+      </li>
+      <li class="subnav-item">
+        <a href="https://en.wikipedia.org/wiki/Australian_Cattle_Dog" class="subnav-link" lang="en">Австралийская пастушья собака</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const button = document.querySelector('button')
+    const subnavs = [...document.querySelectorAll('.subnav')]
+    const openedSubnav = 'subnav-opened'
+    const subnavItems = [...document.querySelectorAll('.subnav-item')]
+
+    button.addEventListener('click', () => {
+      button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')
+
+      const firstSubnav = document.querySelector('.subnav-first')
+      const secondSubnav = document.querySelector('.subnav-second')
+
+      if (secondSubnav && secondSubnav.classList.contains(openedSubnav)) {
+        firstSubnav.classList.toggle(openedSubnav)
+        secondSubnav.classList.remove(openedSubnav)
+      } else {
+        firstSubnav.classList.toggle(openedSubnav)
+      }
+    })
+
+    subnavItems.forEach(item => {
+      if(item.hasAttribute('aria-owns')) {
+        const ownedItemId = item.getAttribute('aria-owns')
+        const ownedItem = document.getElementById(ownedItemId)
+
+        if(ownedItem) {
+          item.addEventListener('mouseover', () => {
+            ownedItem.classList.add(openedSubnav)
+          })
+
+          item.addEventListener('focusin', () => {
+            ownedItem.classList.add(openedSubnav)
+          })
+        }
+      }
+    })
+
+    function closeSubnavs() {
+      subnavs.forEach(subnav => {
+        subnav.classList.remove(openedSubnav)
+      })
+
+      button.setAttribute('aria-expanded', 'false')
+    }
+
+    document.addEventListener('click', (event) => {
+      if (!button.contains(event.target) && !subnavs.some(subnav => subnav.contains(event.target))) {
+        closeSubnavs()
+      }
+    })
+
+    document.addEventListener('focusin', (event) => {
+      if (event.target !== button && !subnavs.some(subnav => subnav.contains(event.target))) {
+        closeSubnavs()
+      }
+    })
+  </script>
+</body>
+</html>

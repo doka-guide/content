@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/doctype
-  - recipes/progress
-  - tools/cli
+  - js/deal-with-forms
+  - tools/gitlab-ci-cd
+  - tools/network
+  - tools/oop
   - css/position
   - html/nav
-  - html/section
-  - tools/ci-cd
-  - html/video
-  - css/pseudoelements
-  - html/input
-  - css/media
-  - tools/how-the-browser-creates-pages
-  - html/form
-  - css/specificity
-  - css/box-shadow
-  - js/deal-with-forms
-  - tools/agile
-  - tools/gitlab-ci-cd
-  - js/function-context
+  - css/display
+  - js/execution-order
+  - html/doctype
   - a11y/aria-hidden
-  - css/flexbox-guide
-  - html/head
-  - a11y/aria-intro
-  - js/infinite-scroll
-  - css/grid-guide
-  - tools/docker
-  - tools/markdown
-  - a11y/screenreaders
-  - css/attr
-  - css/keyframes
+  - tools/ci-cd
   - tools/webpack
   - html/img
-  - css/box-model
-  - js/boolean
-  - tools/bundlers
-  - html/div
-  - tools/static-types
-  - js/var-let
-  - tools/clean-architecture
-  - js/execution-order
-  - js/function
   - tools/how-to-test-and-why
-  - tools/network
-  - recipes/snow
-  - js/closures
-  - css/display
-  - tools/oop
-  - css/transform-function
-  - html/article
-  - html/flow
+  - tools/static-types
+  - html/div
+  - tools/bundlers
+  - html/form
+  - tools/agile
+  - css/media
+  - a11y/screenreaders
+  - css/flexbox-guide
+  - css/specificity
+  - js/var-let
+  - tools/docker
+  - css/pseudoelements
+  - js/boolean
+  - tools/how-the-browser-creates-pages
   - js/async-in-js
-  - recipes/lets-encrypt-nginx
+  - js/infinite-scroll
+  - tools/clean-architecture
+  - html/article
+  - css/grid-guide
+  - a11y/aria-intro
+  - recipes/snow
+  - html/head
+  - js/closures
   - css/custom-properties
+  - html/section
+  - js/function
+  - recipes/lets-encrypt-nginx
+  - css/attr
+  - css/transform-function
+  - recipes/progress
+  - tools/cli
+  - html/input
+  - tools/markdown
+  - css/box-shadow
+  - js/function-context
+  - html/flow
+  - css/box-model
+  - html/video
+  - css/keyframes
 ---
 
