@@ -102,6 +102,7 @@ groups:
       - findlastindex
       - join
       - pop
+      - shift
   - name: "Объекты"
     items:
       - object
