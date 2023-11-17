@@ -1,13 +1,16 @@
 name: Update Index
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller All"
+  push:
     branches:
       - main
-    types:
-      - completed
+  # workflow_run:
+  #   workflows:
+  #     - "YaSpeller All"
+  #   branches:
+  #     - main
+  #   types:
+  #     - completed
 
 jobs:
   update-index:
