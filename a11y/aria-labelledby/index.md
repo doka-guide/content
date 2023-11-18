@@ -5,8 +5,12 @@ authors:
   - tatianafokina
 keywords:
   - доступность
+  - a11y
   - ARIA
-  - ARIA-атрибут
+  - доступная подпись
+  - подпись для элемента
+  - подпись для тега
+  - лейбл
 related:
   - a11y/aria-attrs
   - a11y/aria-describedby
@@ -23,7 +27,11 @@ tags:
 
 ```html
 <figure aria-labelledby="group-label">
-  <img src="images/chart.png" alt="Прогресс похудения за 9 недель. Сначала ёж весил 11 килограмм, в конце — 4 килограмма.">
+  <img
+    src="images/chart.png"
+    alt="Прогресс похудения за 9 недель. Сначала ёж весил 11 килограмм,
+    в конце — 4 килограмма."
+  >
   <figcaption id="group-label">График похудения ежа.</figcaption>
 </figure>
 ```
@@ -77,7 +85,10 @@ tags:
 
 ```html
 <label id="label1" for="select">Вес</label>
-<select id="select" aria-labelledby="label1 label1 select label2 label2">
+<select
+  id="select"
+  aria-labelledby="label1 label1 select label2 label2"
+>
   <option value="1">1</option>
   <option value="2">2</option>
 </select>

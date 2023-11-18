@@ -3,6 +3,8 @@ title: "Атрибут `tabindex`"
 description: "Атрибут для управления порядком фокуса на вашем сайте."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - focus
   - focus order

@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/function
-  - recipes/snow
   - js/deal-with-forms
-  - js/execution-order
-  - js/async-in-js
-  - html/article
-  - css/position
-  - css/custom-properties
-  - css/flexbox-guide
-  - html/doctype
-  - css/box-shadow
-  - recipes/progress
-  - html/form
-  - tools/static-types
-  - css/box-model
-  - js/infinite-scroll
-  - html/flow
-  - css/transform-function
-  - tools/network
-  - recipes/lets-encrypt-nginx
-  - html/head
-  - tools/ci-cd
-  - tools/markdown
-  - tools/how-the-browser-creates-pages
-  - html/section
-  - css/keyframes
-  - js/closures
-  - css/grid-guide
-  - js/boolean
-  - a11y/aria-hidden
-  - html/video
   - tools/gitlab-ci-cd
-  - tools/docker
-  - js/var-let
-  - tools/bundlers
-  - css/attr
-  - tools/how-to-test-and-why
+  - tools/network
+  - tools/oop
+  - css/position
   - html/nav
   - css/display
-  - css/media
-  - tools/oop
-  - js/function-context
-  - html/img
-  - tools/cli
-  - css/specificity
-  - a11y/aria-intro
-  - tools/clean-architecture
-  - tools/agile
-  - html/div
-  - css/pseudoelements
+  - js/execution-order
+  - html/doctype
+  - a11y/aria-hidden
+  - tools/ci-cd
   - tools/webpack
+  - html/img
+  - tools/how-to-test-and-why
+  - tools/static-types
+  - html/div
+  - tools/bundlers
+  - html/form
+  - tools/agile
+  - css/media
   - a11y/screenreaders
+  - css/flexbox-guide
+  - css/specificity
+  - js/var-let
+  - tools/docker
+  - css/pseudoelements
+  - js/boolean
+  - tools/how-the-browser-creates-pages
+  - js/async-in-js
+  - js/infinite-scroll
+  - tools/clean-architecture
+  - html/article
+  - css/grid-guide
+  - a11y/aria-intro
+  - recipes/snow
+  - html/head
+  - js/closures
+  - css/custom-properties
+  - html/section
+  - js/function
+  - recipes/lets-encrypt-nginx
+  - css/attr
+  - css/transform-function
+  - recipes/progress
+  - tools/cli
   - html/input
+  - tools/markdown
+  - css/box-shadow
+  - js/function-context
+  - html/flow
+  - css/box-model
+  - html/video
+  - css/keyframes
 ---
 

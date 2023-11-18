@@ -5,6 +5,7 @@ authors:
   - webdb81
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - индикация загрузки
   - индикатор процесса

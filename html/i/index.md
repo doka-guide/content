@@ -5,6 +5,7 @@ authors:
   - gkhabada
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - курсив
   - италик
