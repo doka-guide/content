@@ -3,6 +3,8 @@ title: "`prefers-reduced-motion`"
 description: "Как управлять анимацией на сайте и сделать её доступной."
 authors:
   - katkopikat
+contributors:
+  - skorobaeus
 keywords:
   - ＠-правило
   - media
