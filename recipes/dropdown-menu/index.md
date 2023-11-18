@@ -31,7 +31,7 @@ tags:
           <!-- Первый уровень вложенности -->
           <ul class="menu" role="list" id="doka-submenu" hidden>
             <li class="menu__item"><a href="#" class="menu__link" aria-current="page">Рецепты</a><li>
-            
+
             <li class="menu__item">
               <button class="menu__btn" aria-expanded="false" aria-controls="html-submenu">HTML</button>
 
@@ -193,30 +193,28 @@ const icon = '<svg>...</svg>'
 
 // Находи подменю, заменяем в нем span на кнопку
 submenus.forEach((item) => {
-	const dropdown = item.querySelector(":scope > .menu");
-	dropdown.setAttribute("hidden", "");
+  const dropdown = item.querySelector(":scope > .menu");
+  dropdown.setAttribute("hidden", "");
 
-	const span = item.querySelector(":scope > span");
-	const text = span.innerText;
+  const span = item.querySelector(":scope > span");
+  const text = span.innerText;
   const ariaControlsId = span.dataset.controls;
-
-	const button = document.createElement("button");
+  const button = document.createElement("button");
 
   // Добавляем класс и необходимые aria-атрибуты
   button.classList.add("menu__btn")
-	button.setAttribute("aria-expanded", "false");
-	button.setAttribute("aria-controls", ariaControlsId);
+  button.setAttribute("aria-expanded", "false");
+  button.setAttribute("aria-controls", ariaControlsId);
 
-	button.innerText = text;
+  button.innerText = text;
 
   // Добавляем иконку к кнопке, чтобы визуально было понятно открыто меню или нет
-	button.innerHTML += icon;
+  button.innerHTML += icon;
+  span.replaceWith(button);
 
-	span.replaceWith(button);
-
-	button.addEventListener("click", function (e) {
-		toggleDropdown(button, dropdown);
-	});
+  button.addEventListener("click", function (e) {
+    toggleDropdown(button, dropdown);
+  });
 
   // Обрабатываем нажатие на esc
   dropdown.addEventListener("keydown", (e) => {
@@ -230,13 +228,13 @@ submenus.forEach((item) => {
 });
 
 function toggleDropdown(button, dropdown) {
-	if (button.getAttribute("aria-expanded") === "true") {
-		button.setAttribute("aria-expanded", "false");
-		dropdown.setAttribute("hidden", "");
-	} else {
-		button.setAttribute("aria-expanded", "true");
-		dropdown.removeAttribute("hidden");
-	}
+  if (button.getAttribute("aria-expanded") === "true") {
+    button.setAttribute("aria-expanded", "false");
+    dropdown.setAttribute("hidden", "");
+  } else {
+    button.setAttribute("aria-expanded", "true");
+    dropdown.removeAttribute("hidden");
+  }
 }
 
 function focusIsInside(element) {
@@ -244,25 +242,25 @@ function focusIsInside(element) {
 }
 
 function collapseDropdownsWhenTabbingOutsideNav(e) {
-	if (e.keyCode === 9 && !focusIsInside(nav)) {
-		dropdowns.forEach(function (dropdown) {
-			dropdown.setAttribute("hidden", "");
-			const btn = dropdown.parentNode.querySelector("button");
-			btn.setAttribute("aria-expanded", "false");
-		});
-	}
+  if (e.keyCode === 9 && !focusIsInside(nav)) {
+    dropdowns.forEach(function (dropdown) {
+      dropdown.setAttribute("hidden", "");
+      const btn = dropdown.parentNode.querySelector("button");
+      btn.setAttribute("aria-expanded", "false");
+    });
+  }
 }
 
 function collapseDropdownsWhenClickingOutsideNav(e) {
-	const target = e.target;
+  const target = e.target;
 
-	dropdowns.forEach(function (dropdown) {
-		if (!dropdown.parentNode.contains(target)) {
-			dropdown.setAttribute("hidden", "");
-			const btn = dropdown.parentNode.querySelector("button");
-			btn.setAttribute("aria-expanded", "false");
-		}
-	});
+  dropdowns.forEach(function (dropdown) {
+    if (!dropdown.parentNode.contains(target)) {
+      dropdown.setAttribute("hidden", "");
+      const btn = dropdown.parentNode.querySelector("button");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 // Закрыть навигацию если протапались за ее пределы
@@ -383,7 +381,7 @@ function toggleDropdown(button, dropdown) {
   display: flex;
   gap: 16px;
 }
-``` 
+```
 
 В примере разметка горизонтального многоуровневого меню базируется на css-позиционировании. Всем элементам списка li задается относительное позиционирование, а вложенному меню ul — абсолютное позиционирование.
 Первый уровень вложенного меню оставляем без смещения, я для второго уровня установили смещение влево на 100%, чтобы меню прилипало к правой границе первого меню.
