@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выпадающее меню — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+
+      margin: 0;
+      padding: 50px;
+
+      background-color: #18191c;
+
+      color: #ffffff;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ul, li {
+      list-style: none;
+
+      padding: 0;
+      margin: 0;
+
+      text-align: start;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid;
+      outline-offset: 2px;
+    }
+
+    /*
+      Почему-то hidden атрибут не работает когда на меню установлен dislay: flex
+      Такое решение не самое лучшее, но как быстрый фикс думаю подходит
+    */
+    .menu[hidden] {
+     display: none !important;
+    }
+
+    .header {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      background-color: #fff;
+      box-shadow: 0 1px 3px rgba(0 0 0 / 0.1);
+      padding: 1em;
+    }
+
+    .menu {
+      display: flex;
+      gap: 64px;
+
+      min-width: max-content;
+
+      background: #fff;
+	    color: #111;
+    }
+
+    .menu__btn,
+    .menu__link {
+      display: flex;
+      gap: .5em;
+      align-items: center;
+
+      padding: .75rem 1.5rem;
+
+      font-size: 1.5em;
+      color: #18191c;
+
+      cursor: pointer;
+
+      border: none;
+      background: none;
+    }
+
+    .menu__link:hover,
+    .menu__btn:hover,
+    .menu__btn[aria-expanded="true"] {
+      background-color: #eee;
+    }
+
+    .menu__btn-icon {
+      color: inherit;
+	    transition: transform .1s linear;
+    }
+
+    .menu__btn[aria-expanded="true"] .menu__btn-icon {
+      transform: rotate(180deg);
+    }
+
+    .menu__item {
+      position: relative;
+    }
+
+    .menu__link {
+      text-decoration: none;
+    }
+
+    a[aria-current="page"] {
+      font-weight: bold;
+      color: deepPink;
+    }
+
+    a[aria-current="page"]:hover {
+      color: deepPink;
+    }
+
+    /* Вложенное меню */
+    .menu .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      padding-inline-start: 3rem;
+    }
+
+    /* Первый уровень вложенности */
+    .enhanced .menu .menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+
+      padding-inline-start: 0;
+
+      box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Второй уровень вложенности */
+    .enhanced .menu .menu .menu {
+      top: 0;
+      left: 100%;
+    }
+
+    .main {
+      display: flex;
+      width: 100%;
+
+      padding-block-start: 64px;
+    }
+
+    .main a {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="site-nav" aria-label="Сайт">
+      <!--
+        Устанавливаю роль list, так как в некоторых версиях Сафари
+        css-правило list-style: none; удаляет семантику с элемента ul
+        - https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
+      -->
+      <ul class="menu" role="list">
+        <li class="menu__item" data-has-children>
+          <span data-controls="doka-submenu">Дока</span>
+
+          <ul
+            class="menu"
+            role="list"
+            id="doka-submenu"
+          >
+            <li class="menu__item">
+              <a href="#" class="menu__link" aria-current="page">Рецепты</a>
+            </li>
+            <li class="menu__item" data-has-children>
+              <span data-controls="html-submenu">HTML</span>
+
+              <ul class="menu" role="list" id="html-submenu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Основы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Форматирование</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Семантика</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item" data-has-children>
+              <span data-controls="css-submenu">CSS</span>
+
+              <ul class="menu" role="list" id="css-submenu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Основы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Селекторы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Псевдоклассы</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">JavaScript</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">A11y</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu__item">
+          <a href="#" class="menu__link">Новости</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Блог</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Архив</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <a href="#">Тестовая ссылка</a>
+  </main>
+
+  <script src="./index.js"></script>
+</body>
+</html>
