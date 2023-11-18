@@ -227,7 +227,7 @@
 <body>
   <div class="container">
     <div class="form-swither-container">
-      <button role="switch" class="button button-orange" type="button" data-validation-control>
+      <button role="switch" aria-selected="false" class="button button-orange" type="button" data-validation-control>
         Вернуть валидацию
       </button>
       <output class="form-tag" data-form-tag>&lt;form novalidate&gt;</output>
@@ -269,10 +269,12 @@
       if (form.getAttribute('novalidate') === '') {
         form.removeAttribute('novalidate')
         validationControl.innerText = 'Выключить валидацию'
+        validationControl.setAttribute('aria-selected', 'true')
         formTag.innerText = '<form>'
       } else {
         form.setAttribute('novalidate', '')
         validationControl.innerText = 'Вернуть валидацию'
+        validationControl.setAttribute('aria-selected', 'false')
         formTag.innerText = '<form novalidate>'
       }
 
