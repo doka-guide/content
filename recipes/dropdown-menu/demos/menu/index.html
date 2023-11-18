@@ -152,6 +152,34 @@
     .main a {
       color: #fff;
     }
+
+    @media all and (max-width: 1024px) {
+      .site-nav {
+        width: 100%;
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+      }
+
+      .menu__btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      /* Первый уровень вложенности */
+      .enhanced .menu .menu,
+      .enhanced .menu .menu .menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        padding-inline-start: 1em;
+      }
+    }
   </style>
 </head>
 <body>
