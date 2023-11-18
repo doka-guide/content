@@ -1,16 +1,13 @@
 name: Sort Dictionary
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "YaSpeller All"
     branches:
       - main
-  # workflow_run:
-  #   workflows:
-  #     - "YaSpeller All"
-  #   branches:
-  #     - main
-  #   types:
-  #     - completed
+    types:
+      - completed
 
 jobs:
   sort-dictionary:
@@ -19,7 +16,7 @@ jobs:
       matrix:
         node-version: ['16']
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
       - name: Сортировка словаря исключений
