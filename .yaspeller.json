@@ -1,10 +1,17 @@
 {
   "lang": "ru",
   "ignoreUrls": true,
+  "ignoreDigits": true,
   "ignoreText": [
     "(\\d+|n)-(го|е|й|м|ми|му|х|ю|я)",
+    "(authors|contributors|cover|editors|keywords|related|tags):\n(  .*\n)+",
     ""
   ],
+  "fileExtensions": [
+    ".md",
+    ".html"
+  ],
+  "format": "auto",
   "excludeFiles": [
     "people/**/index.md"
   ],
@@ -189,6 +196,7 @@
     "кастомиз(ировать|ация|ации|ируем)",
     "кастомн(ый|ого|ому|ых|ое|ые|ым|ыми|ой|ая)",
     "Катакана",
+    "Каталанский",
     "катч",
     "квиз",
     "кейлогер(е|)",
