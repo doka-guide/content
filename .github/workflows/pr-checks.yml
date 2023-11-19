@@ -99,7 +99,7 @@ jobs:
           for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [[ $changed_file == $config ]]; then
               echo "Проверяются все файлы..."
-              npx yaspeller --only-errors --file-extensions ".md,.html" *
+              yaspeller --only-errors --file-extensions ".md,.html" *
               break
             elif [[ $changed_file =~ \.(md|html)$ ]]; then
               file_list="${file_list} ${changed_file}"
@@ -108,5 +108,5 @@ jobs:
           done
           if ! [[ $file_list == "" ]]; then
             echo "Проверяются файлы из PR..."
-            npx yaspeller --only-errors ${file_list}
+            yaspeller --only-errors ${file_list}
           fi

@@ -16,4 +16,4 @@ jobs:
       - name: Проверка правописания в main
         run: |
           npm i -g yaspeller
-          npx yaspeller --only-errors --file-extensions ".md,.html" *
+          yaspeller --only-errors *
