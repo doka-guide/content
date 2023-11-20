@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -22,7 +27,6 @@
       justify-content: center;
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
-      font-size: 16px;
       color: #FFFFFF;
     }
 
@@ -32,18 +36,29 @@
       justify-content: space-between;
     }
 
+    .container-row {
+      position: relative;
+    }
+
     .container-row, .button {
       display: flex;
     }
 
+    .label {
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     .input {
+      width: 300px;
       border: 1px solid #FFFFFF;
       border-radius: 6px;
-      width: 100%;
-      padding: 10px 15px;
+      padding: 10px 60px 10px 15px;
       background-color: transparent;
       color: #FFFFFF;
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       -webkit-appearance: none;
@@ -55,23 +70,14 @@
       outline: none;
     }
 
-    .label {
-      margin-right: 55px;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
     .button {
       display: block;
+      position: absolute;
+      right: 5px;
+      top: 4px;
       border: 2px solid transparent;
       border-radius: 6px;
-      margin-left: 25px;
-      padding: 9px 15px;
-      color: #000000;
-      font-size: 18px;
-      font-weight: 300;
-      font-family: inherit;
+      padding: 3px 12px;
       transition: background-color 0.2s linear;
     }
 
@@ -120,6 +126,10 @@
         display: inline-block;
         margin-right: 10px;
         margin-bottom: 10px;
+      }
+
+      .input {
+        width: 100%;
       }
     }
   </style>
