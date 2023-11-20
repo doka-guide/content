@@ -88,7 +88,8 @@ tags:
     xmlns:xlink="http://www.w3.org/1999/xlink"
     width="30"
     height="30"
-    viewBox="0 0 17 17">
+    viewBox="0 0 17 17"
+  >
     <!-- Описание фигуры -->
   </svg>
 </button>
