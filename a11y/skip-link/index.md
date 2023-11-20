@@ -5,10 +5,10 @@ authors:
   - xpleesid
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
-  - ссылка
-  - доступность
-  - навигация
+  - a11y
+  - клавиатурная навигация
 related:
   - html/a
   - a11y/chto-takoe-a11y
@@ -37,7 +37,7 @@ Skip link (далее скип-линк) — специальный элемен
 
 Допустим, у нас есть сайт с простой навигацией:
 
-<iframe title="Пример с простой навигацией без скип-линка" src="demos/basic/" height="610"></iframe>
+<iframe title="Пример с простой навигацией без скип-линка" src="demos/basic/" height="800"></iframe>
 
 Если будем использовать клавиатуру для навигации, то придётся 5 раз нажать <kbd>Tab</kbd>, чтобы добраться до основного контента. И так придётся делать на каждой новой странице.
 
@@ -62,9 +62,10 @@ Skip link (далее скип-линк) — специальный элемен
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   padding: 10px 15px;
-  background: #F498AD;
+  color: #18191c;
+  background: #10F3AF;
   transform: translateY(-100%);
 }
 ```
@@ -73,10 +74,10 @@ Skip link (далее скип-линк) — специальный элемен
 
 ```css
 .skip-link:focus {
-  transform: translateY(0);
+  transform: translateY(20%);
 }
 ```
 
-<iframe title="Пример со скип-линком" src="demos/with-skip-link/" height="610"></iframe>
+<iframe title="Пример со скип-линком" src="demos/with-skip-link/" height="800"></iframe>
 
 Теперь на странице сразу же появится скип-линк, когда нажмём <kbd>Tab</kbd>. С её помощью можем сразу перейти к контенту, не тратя время на навигацию. Если всё-таки интересует какой-то пункт в меню, можем нажать <kbd>Tab</kbd> ещё раз. Тогда скип-линк скроется, а фокус окажется на первом интерактивном элементе на странице.
