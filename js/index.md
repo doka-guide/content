@@ -79,6 +79,7 @@ groups:
       - array-foreach
       - array-map
       - array-reduce
+      - reduceright
       - array-filter
       - array-find
       - array-find-index
