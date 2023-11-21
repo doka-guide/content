@@ -8,6 +8,7 @@ groups:
       - dragndrop-upload
       - character-counter
       - center
+      - popup
       - container
   - name: 'На серверной стороне'
     items:

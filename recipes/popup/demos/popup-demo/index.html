@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример попапа — Попап — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      scrollbar-gutter: stable;
+    }
+
+    html {
+      height: 100vh;
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    dialog {
+      position: fixed;
+      height: 250px;
+      width: 350px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+    }
+
+    .button {
+      min-width: 210px;
+      padding: 9px 15px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      color: #000000;
+    }
+
+    .openDialogBtn {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .closeDialogBtn {
+      margin: 10% auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .memes {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+      gap: 15px;
+    }
+
+    .memes img {
+      max-width: 420px;
+      opacity: 0.8;
+    }
+
+    h2 {
+      margin-top: 10%;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .closeDialogBtn:hover {
+      border: 2px solid #000000;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .closeDialogBtn:focus-visible {
+      border: 2px solid #000000;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .closeDialogBtn:focus {
+      border: 2px solid #000000;
+    }
+
+    .button-violet {
+      background-color: #C56FFF;
+    }
+
+    .dialog__wrapper {
+      padding: 1em;
+    }
+
+    dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .scroll-lock {
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .openDialogBtn {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 250px;
+        height: 50px;
+      }
+
+      .memes img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="parent">
+  <div class="memes">
+    <img src="images/cute.jpg" alt="Мем про голодного котика">
+    <img src="images/home.jpg" alt="Мем про котика на дороге">
+    <img src="images/partie.jpg" alt="Мем про кота и вечеринку">
+    <img src="images/grechka.jpg" alt="Мем про кота и гречку">
+  </div>
+  <button class="openDialogBtn button button-violet" type="button" aria-haspopup="dialog"
+    aria-controls="myDialog">Открыть
+    попап</button>
+  <dialog class="child" id="myDialog">
+    <div class="dialog__wrapper">
+      <h2>Дока — самая добрая документация &#128579</h2>
+      <button class="closeDialogBtn button button-violet" type="button">
+        Согласен &#128156
+      </button>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById('myDialog')
+    const dialogOpener = document.querySelector('.openDialogBtn')
+    const dialogCloser = document.querySelector('.closeDialogBtn')
+
+    function closeOnBackDropClick({ currentTarget, target }) {
+      const dialog = currentTarget
+      const isClickedOnBackDrop = target === dialog
+      if (isClickedOnBackDrop) {
+        dialog.close()
+        returnScroll()
+      }
+    }
+
+    function openModalAndLockScroll() {
+      dialog.showModal()
+      document.body.classList.add('scroll-lock')
+    }
+
+    function returnScroll() {
+      document.body.classList.remove('scroll-lock')
+    }
+
+    function close() {
+      dialog.close()
+      returnScroll()
+    }
+
+    dialog.addEventListener('click', closeOnBackDropClick)
+    dialogOpener.addEventListener('click', openModalAndLockScroll)
+    dialogCloser.addEventListener('click', (event) => {
+      event.stopPropagation()
+      close()
+    })
+  </script>
+</body>
+
+</html>
