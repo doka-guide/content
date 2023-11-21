@@ -105,6 +105,7 @@ groups:
       - pop
       - shift
       - unshift
+      - array-slice
   - name: "Объекты"
     items:
       - object
