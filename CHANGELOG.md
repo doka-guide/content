@@ -4,6 +4,7 @@
 
 ## Ноябрь 2023
 
+- 21 ноября, [Попап](https://doka.guide/recipes/popup/), Анна Бараулина
 - 16 ноября, [Атрибут `dir`](https://doka.guide/html/dir/), Сергей Дудко
 - 16 ноября, [`<search>`](https://doka.guide/html/search/), Андрей Сухов
 - 15 ноября, [`aria-owns`](https://doka.guide/a11y/aria-owns/), Татьяна Фокина
