@@ -27,19 +27,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(./images/grass.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-color: #18191C;
     font-family: "Roboto", sans-serif;
   }
 
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  article {
     width: 65%;
     padding: 55px 40px;
-    background-image: url(./images/grass.png);
-    background-repeat: no-repeat;
-    background-position: center;
+    color: #FFFFFF;
+    background-color: #18191C;
   }
 
   h2 {
@@ -52,19 +52,6 @@
     margin: 7px 0;
     font-size: 1rem;
     line-height: 1.4;
-  }
-
-  article {
-    width: 300px;
-    overflow: visible;
-    color: #FFFFFF;
-    background-color: #18191C;
-  }
-
-  article span {
-    display: inline-flex;
-    flex-direction: column;
-    padding: 30px 20px;
   }
 
   @media (prefers-reduced-transparency: no-preference) {
@@ -80,23 +67,16 @@
       padding: 30px;
     }
 
-    div, article {
+    article {
       width: 100%;
-    }
-
-    div {
       padding: 55px 30px;
     }
   }
 </style>
 <body>
-  <div>
-    <article>
-      <span>
-        <h2>Добавь ярких красок</h2>
-        <p>Чтобы жизнь пользователей была красочной, интересной и насыщенной, используй везде эффект стекла. Или не везде?</p>
-      </span>
-    </article>
-  </div>
+  <article>
+    <h2>Добавь ярких красок</h2>
+    <p>Чтобы жизнь пользователей была красочной, интересной и насыщенной, используй везде эффект стекла. Или не везде?</p>
+  </article>
 </body>
 </html>
