@@ -3,6 +3,8 @@ title: "`aria-keyshortcuts`"
 description: "Как рассказать пользователю вспомогательной технологии о вашем сочетании клавиш."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
