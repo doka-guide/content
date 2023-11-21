@@ -5,6 +5,7 @@ authors:
   - bellabzhu
 contributors:
   - tatianafokina
+  - skorobaeus
 related:
   - html/mark
   - a11y/aria-roles

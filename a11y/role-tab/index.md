@@ -3,6 +3,8 @@ title: "`tab`"
 description: "Как правильно и доступно наверстать вкладки?"
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-roles
   - a11y/role-tablist

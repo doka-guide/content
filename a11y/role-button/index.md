@@ -3,6 +3,8 @@ title: "`button`"
 description: "Как превратить элемент в кнопку с помощью WAI-ARIA."
 authors:
   - jkorichneva
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-roles

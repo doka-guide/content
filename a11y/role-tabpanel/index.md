@@ -3,6 +3,8 @@ title: "`tabpanel`"
 description: "Как сделать элемент содержимым вкладки."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-roles
   - a11y/role-tablist

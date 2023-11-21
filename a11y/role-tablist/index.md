@@ -3,6 +3,8 @@ title: "`tablist`"
 description: "Роль-обёртка для группы вкладок."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-roles
   - a11y/role-tab

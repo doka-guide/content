@@ -3,6 +3,8 @@ title: "Как описывать картинки"
 description: "Разбираемся, как описывать картинки так, чтобы были довольны даже поисковые роботы."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/screenreaders
   - a11y/content-hidden

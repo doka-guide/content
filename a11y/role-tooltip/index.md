@@ -3,6 +3,8 @@ title: "`tooltip`"
 description: "Как сделать элемент тултипом с помощью WAI-ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-roles
