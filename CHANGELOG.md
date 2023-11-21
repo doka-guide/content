@@ -4,6 +4,7 @@
 
 ## Ноябрь 2023
 
+- 21 ноября, [Атрибуты `minlength` и `maxlength`](https://doka.guide/html/minlength-maxlength/), Юрий Четвериков, Татьяна Фокина
 - 21 ноября, [Попап](https://doka.guide/recipes/popup/), Анна Бараулина
 - 16 ноября, [Атрибут `dir`](https://doka.guide/html/dir/), Сергей Дудко
 - 16 ноября, [`<search>`](https://doka.guide/html/search/), Андрей Сухов
