@@ -3,14 +3,18 @@ title: "`aria-hidden`"
 description: "Атрибут для скрытия элементов от вспомогательных технологий."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
+  - a11y
   - доступность
   - ARIA
-  - ARIA-атрибут
+  - ридер
+  - screen reader
 related:
+  - a11y/content-hidden
   - a11y/aria-intro
   - a11y/aria-attrs
-  - a11y/aria-roles
 tags:
   - doka
 ---
@@ -23,12 +27,16 @@ tags:
 
 ```html
 <button class="button button-aqua">
-  <span class="material-symbols-outlined" aria-hidden="true">logout</span>
-  <span class="visually-hidden">Выйти из аккаунта</span>
+  <span class="material-symbols-outlined" aria-hidden="true">
+    logout
+  </span>
+  <span class="visually-hidden">
+    Выйти из аккаунта
+  </span>
 </button>
 ```
 
-<iframe title="Кнопка с иконочным шрифтом и скрытым текстом" src="demos/button-with-icon-font/index.html" height="150"></iframe>
+<iframe title="Кнопка с иконочным шрифтом и скрытым текстом" src="demos/button-with-icon-font/" height="160"></iframe>
 
 ## Как пишется
 

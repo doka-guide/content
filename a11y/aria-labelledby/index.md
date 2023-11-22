@@ -3,10 +3,11 @@ title: "`aria-labelledby`"
 description: "Как добавить подпись к элементу с помощью ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - a11y
-  - ARIA
   - доступная подпись
   - подпись для элемента
   - подпись для тега
@@ -46,20 +47,20 @@ tags:
 
 `aria-labelledby` можно использовать для всех интерактивных и неинтерактивных элементов вроде таблиц и графики, кроме:
 
-- [`<caption>`](/html/caption/) и роли [`caption`](/a11y/role-caption/).
-- [`<code>`](/html/code/) и роли [`code`](/a11y/role-code/).
-- [`<dd>`](/html/dl-dd-dt/) и роли [`definition`](/a11y/role-definition/).
-- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роли [`term`](/a11y/role-term/).
-- [`<del>`](/html/del/) и роли [`deletion`](/a11y/role-deletion/).
-- [`<em>`](/html/em/) и роли [`emphasis`](/a11y/role-emphasis/).
-- [`<ins>`](/html/ins/) и роли [`insertion`](/a11y/role-insertion/).
-- [`<mark>`](/html/mark/) и роли [`mark`](/a11y/role-mark/).
-- [`<p>`](/html/p/) и роли [`paragraph`](/a11y/role-paragraph/).
-- [`<strong>`](/html/strong/) и роли [`strong`](/a11y/role-strong/).
-- [`<sub>`](/html/sub/) и роли [`subscript`](/a11y/role-subscript/).
-- [`<sup>`](/html/sup/) и роли [`superscript`](/a11y/role-superscript/).
-- [`<time>`](/html/time/) и роли [`time`](/a11y/role-time/).
-- [`<span>`](/html/span/), [`<div>`](/html/div/) и роли [`generic`](/a11y/role-generic/).
+- [`<caption>`](/html/caption/) и [роли `caption`](/a11y/role-caption/).
+- [`<code>`](/html/code/) и [роли `code`](/a11y/role-code/).
+- [`<dd>`](/html/dl-dd-dt/) и [роли `definition`](/a11y/role-definition/).
+- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и [роли `term`](/a11y/role-term/).
+- [`<del>`](/html/del/) и [роли `deletion`](/a11y/role-deletion/).
+- [`<em>`](/html/em/) и [роли `emphasis`](/a11y/role-emphasis/).
+- [`<ins>`](/html/ins/) и [роли `insertion`](/a11y/role-insertion/).
+- [`<mark>`](/html/mark/) и [роли `mark`](/a11y/role-mark/).
+- [`<p>`](/html/p/) и [роли `paragraph`](/a11y/role-paragraph/).
+- [`<strong>`](/html/strong/) и [роли `strong`](/a11y/role-strong/).
+- [`<sub>`](/html/sub/) и [роли `subscript`](/a11y/role-subscript/).
+- [`<sup>`](/html/sup/) и [роли `superscript`](/a11y/role-superscript/).
+- [`<time>`](/html/time/) и [роли `time`](/a11y/role-time/).
+- [`<span>`](/html/span/), [`<div>`](/html/div/) и [роли `generic`](/a11y/role-generic/).
 - роли [`presentation`или `none`](/a11y/role-presentation-none/) и [`suggestion`](/a11y/role-suggestion/).
 
 Для [`<input>`](/html/input/) в первую очередь используйте `<label>`. У этого HTML-тега есть важная особенность — при клике по тегу фокус перемещается на поле по умолчанию.
