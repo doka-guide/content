@@ -9,7 +9,7 @@ keywords:
   - a11y
   - доступность
   - ARIA
-  - subnuv
+  - submenu
   - pop up
   - accessible menu
 related:
