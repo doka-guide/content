@@ -3,6 +3,9 @@ title: "Атрибут `novalidate`"
 description: "Отключает валидацию формы. Зачем нам валидация формы браузером, когда у нас есть JavaScript?"
 authors:
   - vchychuzhko
+contributors:
+  - skorobaeus
+  - tatianafokina
 editors:
   - tachisis
 keywords:
@@ -36,31 +39,54 @@ tags:
 
 ```html
 <form novalidate>
-  <label class="form-row">
-    <span>Имя</span>
-    <input type="text" name="name" placeholder="Микки">
-  </label>
-  <label class="form-row required">
-    <span>Почта</span>
-    <input type="email" name="email" placeholder="email@example.com" required>
-  </label>
-  <label class="form-row required">
-    <span>Комментарий</span>
-    <textarea name="comment" placeholder="Мне всё понравилось!" required></textarea>
-  </label>
-  <label class="form-row">
-    <input type="checkbox" name="agree" required>
-    Я согласен с политикой обработки персональных данных
-  </label>
-  <div class="form-toolbar">
-    <button type="submit">Отправить</button>
+  <div class="form-row">
+    <label for="name">Имя:</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Микки"
+    >
   </div>
+  <div class="form-row required">
+    <label for="email">Почта</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="email@example.com"
+      required
+    >
+  </div>
+  <div class="form-row required">
+    <label for="comment">Комментарий</label>
+    <textarea
+      name="comment"
+      id="comment"
+      placeholder="Мне всё понравилось!"
+      required
+    >
+    </textarea>
+  </div>
+  <div class="form-row">
+    <label>
+      <input
+        type="checkbox"
+        name="agree"
+        required
+      >
+      <span class="checkbox-title">
+        Соглашаюсь с обработкой персональных данных
+      </span>
+    </label>
+  </div>
+  <button type="submit">Отправить</button>
 </form>
 ```
 
 ### Результат
 
-<iframe title="Форма с отключенной валидацией" src="demos/form-validation/" height="410"></iframe>
+<iframe title="Форма с отключенной валидацией" src="demos/form-validation/" height="610"></iframe>
 
 Хоть некоторые поля являются обязательными к заполнению, и даже есть поле с типом `email`, вы всё равно сможете отправить пустую форму. Но как только вы уберёте атрибут `novalidate` с помощью кнопки «Вернуть валидацию», браузер не даст отправить форму, пока все поля не будут заполнены верно.
 
