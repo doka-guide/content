@@ -3,6 +3,8 @@ title: "`switch`"
 description: "Как сделать элемент переключателем с помощью WAI-ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-roles
@@ -26,19 +28,26 @@ tags:
 ## Пример
 
 ```html
-<span class="label" id="label">Оповещения:</span>
+<span class="label" id="label">
+  Оповещения:
+</span>
+
 <button
   class="button"
   role="switch"
   aria-checked="false"
   aria-labelledby="label"
 >
-  <span class="button__off" aria-hidden="true">Выключены</span>
-  <span class="button__on" aria-hidden="true">Включены</span>
+  <span class="button__off" aria-hidden="true">
+    Выключены
+  </span>
+  <span class="button__on" aria-hidden="true">
+    Включены
+  </span>
 </button>
 ```
 
-<iframe title="Переключатель оповещений с ролью switch" src="demos/button-with-switch-role/" height="250"></iframe>
+<iframe title="Кнопка-переключатель" src="demos/button-with-switch-role/" height="250"></iframe>
 
 Скринридер прочитает код примерно так: «Переключатель с ролью switch, не выбран, оповещения».
 
@@ -65,7 +74,9 @@ tags:
 А так видит код скринридер:
 
 ```html
-<div role="switch" tabindex="0" aria-checked="false">Оповещения включены</div>
+<div role="switch" tabindex="0" aria-checked="false">
+  Оповещения включены
+</div>
 ```
 
 ## Как понять
