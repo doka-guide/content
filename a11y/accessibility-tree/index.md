@@ -17,6 +17,13 @@ tags:
   - article
 ---
 
+https://canvas.workday.com/accessibility/the-accessibility-tree/
+https://alistapart.com/article/semantics-to-screen-readers/#section5
+https://adrianroselli.com/2020/12/be-careful-with-dynamic-accessible-names.html
+https://developer.chrome.com/blog/full-accessibility-tree/
+https://web.dev/articles/the-accessibility-tree
+https://hidde.blog/how-accessibility-trees-inform-assistive-tech/#heading-3
+
 _Дерево доступности_ или _доступное дерево (accessibility tree)_ — это представление элементов документа в виде дерева на основе [DOM](/js/dom/) (Document Object Model) и некоторых CSS стилей. Это одна из частей DOM, которая доступна для вспомогательных технологий.
 
 Благодаря ему вспомогательные технологии, например, скринридеры, знают, что содержит страница сайта и что на ней происходит. Конечно, такие технологии взаимодействуют с деревьями не напрямую, а через посредника, Accessibility API, но это уже совсем другая история. Деревья передают технологиям самую важную информацию о странице, благодаря которой пользователи её могут воспринимать, управлять ей, понимать её и прочее.
