@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Плавное выпадающее меню — Рецепт — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      color-scheme: dark;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      height: inherit;
+      padding: 50px;
+      color: #000000;
+      font-family: Roboto, sans-serif;
+      font-size: 24px;
+      background-color: #18191C;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: currentColor;
+    }
+
+    .container {
+      height: 50vb;
+    }
+
+    .button {
+      inline-size: 100%;
+      padding: 0.5lh 1.5lh;
+      font: inherit;
+      color: currentColor;
+      border: none;
+      background-color: #C56FFF;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      background-color: #FFFFFF;
+    }
+
+    .menu {
+      position: relative;
+      display: grid;
+      margin-block-start: 0.5lh;
+      background-color: #C56FFF;
+
+      overflow: hidden;
+      line-height: 0;
+      transition: line-height 0.5s;
+    }
+
+    .menu-item {
+      overflow: hidden;
+    }
+
+    .menu-link {
+      display: block;
+      padding: 0.5lh 25px;
+    }
+
+    .menu-link:hover,
+    .menu-link:focus-visible {
+      background-color: #FFFFFF;
+    }
+
+    .button.active ~ .menu {
+      line-height: 1.2;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button">Меню</button>
+
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="#" class="menu-link">Винни-Пух</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">Тигра</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link">Пятачок</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const button = document.querySelector('.button')
+
+    button.addEventListener('click', (e) => {
+      e.target.classList.toggle('active')
+    })
+  </script>
+</body>
+</html>
