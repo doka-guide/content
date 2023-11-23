@@ -4,7 +4,7 @@
 
 ## Ноябрь 2023
 
-- 23 ноября, [`prefers-reduced-transparency`](https://doka.guide/a11y/prefers-reduced-transparency/), Татьяна Фокина 
+- 23 ноября, [`prefers-reduced-transparency`](https://doka.guide/a11y/prefers-reduced-transparency/), Татьяна Фокина
 - 21 ноября, [Атрибуты `minlength` и `maxlength`](https://doka.guide/html/minlength-maxlength/), Юрий Четвериков, Татьяна Фокина
 - 21 ноября, [Попап](https://doka.guide/recipes/popup/), Анна Бараулина
 - 16 ноября, [Атрибут `dir`](https://doka.guide/html/dir/), Сергей Дудко
