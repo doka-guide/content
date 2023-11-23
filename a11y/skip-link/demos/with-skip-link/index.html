@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,15 +14,27 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
       justify-content: center;
-      font-family: Roboto, sans-serif;
-      font-size: 20px;
+      font-family: "Roboto", sans-serif;
       background-color: #18191c;
       color: #FFFFFF;
+    }
+
+    .main-container {
+      width: 65%;
+    }
+
+    main {
+      margin-top: 40px;
     }
 
     h1 {
@@ -33,28 +45,25 @@
 
     p {
       margin: 7px 0;
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1.4;
     }
 
     ul {
-      display: flex;
-      align-items: center;
-      list-style: none;
+      position: relative;
+      list-style-type: none;
+      font-size: 1.5rem;
     }
 
-    li {
-      height: 40px;
-      line-height: 40px;
-      margin: 0 20px;
-    }
-
-    li:first-child {
-      margin-left: 0;
-    }
-
-    main {
-      margin-top: 40px;
+    ul::before {
+      content: 'меню';
+      position: absolute;
+      right: calc(100% + 25px);
+      top: 7px;
+      padding: 2px 7px;
+      background-color: #10F3AF;
+      color: #000000;
+      font-size: 0.875rem;
     }
 
     a {
@@ -63,6 +72,7 @@
       -webkit-text-decoration-color: #10F3AF;
       text-decoration-color: #10F3AF;
       text-decoration-thickness: 2px;
+      text-transform: lowercase;
       transition: background-color 0.2s linear;
     }
 
@@ -80,7 +90,7 @@
       border-radius: 6px;
       padding: 9px 15px;
       color: #000000;
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
@@ -119,7 +129,7 @@
       padding: 10px 15px;
       background-color: transparent;
       color: #FFFFFF;
-      font-size: 18px;
+      font-size: 1rem;
       font-weight: 300;
       font-family: inherit;
       -webkit-appearance: none;
@@ -151,15 +161,16 @@
       display: block;
       position: absolute;
       top: 0;
-      left: 0;
+      left: 40%;
       padding: 10px 15px;
+      color: #18191c;
       background: #10F3AF;
+      text-transform: none;
       transform: translateY(-100%);
     }
 
     .skip-link:focus {
-      transform: translateY(0);
-      color: #18191c;
+      transform: translateY(20%);
     }
 
     @media (max-width: 768px) {
@@ -171,8 +182,9 @@
         flex-direction: column;
       }
 
-      li:first-child {
-        margin-left: 20px;
+      ul::before {
+        right: calc(100% - 50px);
+        top: -40px;
       }
 
       label {
@@ -184,13 +196,18 @@
         display: block;
       }
 
-      form, .container {
+      form, .container, .main-container {
         width: 100%;
       }
+
+      .main-container {
+        padding-top: 45px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div>
+  <div class="main-container">
     <a class="skip-link" href="#main">
       Перейти к контенту
     </a>
@@ -216,11 +233,13 @@
     <main id="main">
       <h1>Лемминги</h1>
       <p>
-        Лемминги — группа из нескольких близкородственных родов подсемейства полёвковых (Arvicolinae) семейства хомяков (Cricetidae) отряда грызунов.
-        К леммингам близки пеструшки.
-        Лемминг питается семенами, листьями и корнями.
-        В спячку он не впадает и поэтому летом припрятывает еду в расщелинах земли, а зимой роет в снегу ходы и отыскивает свои запасы.
-        Лемминги весьма плодовиты, у самки бывает от 3 до 4 помётов в год, в каждом по 5-6 детёнышей.
+        Лемминги — группа из нескольких близкородственных родов подсемейства полёвковых (Arvicolinae) семейства хомяков (Cricetidae) отряда грызунов. К леммингам близки пеструшки.
+      </p>
+      <p>
+        Лемминг питается семенами, листьями и корнями. В спячку он не впадает и поэтому летом припрятывает еду в расщелинах земли, а зимой роет в снегу ходы и отыскивает свои запасы.
+      </p>
+      <p>
+        Лемминги весьма плодовиты, у самки бывает от 3 до 4 помётов в год, в каждом по 5–6 детёнышей.
       </p>
       <p>
         Интересуетесь леммингами? Оставьте свою почту, и мы будем каждый день присылать вам интересные факты про леммингов.
@@ -228,7 +247,7 @@
       <form>
         <div class="form-row">
           <label for="input">
-            Email:
+            Почта:
           </label>
           <div class="container">
             <input type="email" id="input"></input>

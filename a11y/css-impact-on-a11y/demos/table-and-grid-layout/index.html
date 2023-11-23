@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -22,14 +27,13 @@
       justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-family: Roboto, sans-serif;
+      font-family: "Roboto", sans-serif;
     }
 
     h1 {
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.625rem;
-      text-align: center;
     }
 
     h2 {
@@ -41,7 +45,6 @@
 
     code {
       padding: 4px 6px;
-      border-radius: 4px;
       font-family: "Roboto Mono", monospace;
       font-size: calc(1em - 1px);
       background-color: rgba(16, 243, 175, 0.2);
@@ -55,47 +58,50 @@
     .table {
       margin-top: 16px;
       min-width: 100%;
+      border-top: 7px solid #10F3AF;
+      border-collapse: collapse;
+      text-align: center;
     }
 
     .table, td, th {
-      padding: 6px;
-      border-bottom: 1px solid #ffffff;
-      border-right: 1px solid #ffffff;
-      border-collapse: collapse;
+      padding: 14px;
+      border-bottom: 1px solid #10F3AF;
+      border-right: 1px solid #10F3AF;
+      border-left-width: 0;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    th:first-child, td:first-child {
       text-align: left;
+      padding-left: 0;
     }
 
-    .table,
-    .table th:last-child,
-    .table td:last-child {
-      border-right: none;
-    }
-
-    .table,
-    .table tr:last-child td {
-      border-bottom: none;
+    th, .grid-layout__item--heading {
+      font-weight: 500;
     }
 
     .grid-layout {
       display: grid;
       grid-template-columns: 6fr 2fr 2fr;
       margin-top: 16px;
+      border-top: 7px solid #10F3AF;
+      line-height: 1.2;
     }
 
     .grid-layout__item {
-      padding: 6px;
-      border-bottom: 1px solid #ffffff;
-      border-right: 1px solid #ffffff;
+      padding: 14px;
+      border-bottom: 1px solid #10F3AF;
+      border-right: 1px solid #10F3AF;
     }
 
-    .grid-layout__item:nth-child(3n) {
-      border-right: none;
+    .grid-layout__item:not(.grid-layout__item--heading:first-of-type):not(.grid-layout__item--name) {
+      text-align: center;
     }
 
-    .grid-layout__item:nth-last-child(1),
-    .grid-layout__item:nth-last-child(2),
-    .grid-layout__item:nth-last-child(3) {
-      border-bottom: none;
+    .grid-layout__item--name,
+    .grid-layout__item--heading:first-of-type {
+      padding-left: 0;
     }
 
     @media (max-width: 768px) {
@@ -138,18 +144,18 @@
   <div class="element-wrapper">
     <h2>Контейнеры и <code>display: grid</code></h2>
     <div class="grid-layout">
-        <p class="grid-layout__item">Продукт</p>
-        <p class="grid-layout__item">Количество</p>
-        <p class="grid-layout__item">Цена</p>
-        <p class="grid-layout__item">Апельсины</p>
-        <p class="grid-layout__item">1 килограмм</p>
-        <p class="grid-layout__item">💰💰</p>
-        <p class="grid-layout__item">Молоко</p>
-        <p class="grid-layout__item">1 литр</p>
-        <p class="grid-layout__item">💰</p>
-        <p class="grid-layout__item">Воздушный змей</p>
-        <p class="grid-layout__item">1 штука</p>
-        <p class="grid-layout__item">💰💰💰</p>
+      <p class="grid-layout__item grid-layout__item--heading">Продукт</p>
+      <p class="grid-layout__item grid-layout__item--heading">Количество</p>
+      <p class="grid-layout__item grid-layout__item--heading">Цена</p>
+      <p class="grid-layout__item grid-layout__item--name">Апельсины</p>
+      <p class="grid-layout__item">1 килограмм</p>
+      <p class="grid-layout__item">💰💰</p>
+      <p class="grid-layout__item grid-layout__item--name">Молоко</p>
+      <p class="grid-layout__item">1 литр</p>
+      <p class="grid-layout__item">💰</p>
+      <p class="grid-layout__item grid-layout__item--name">Воздушный змей</p>
+      <p class="grid-layout__item">1 штука</p>
+      <p class="grid-layout__item">💰💰💰</p>
     </div>
   </div>
 </div>

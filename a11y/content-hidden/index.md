@@ -3,9 +3,11 @@ title: "Как скрыть содержимое от скринридеров"
 description: "Как скрыть содержимое страницы от скринридеров и других вспомогательных технологий."
 authors:
   - minich
+contributors:
+  - skorobaeus
 keywords:
+  - a11y
   - доступность
-  - ARIA
 related:
   - a11y/aria-hidden
   - a11y/role-presentation-none
@@ -29,7 +31,9 @@ tags:
 Можно использовать атрибут [`aria-hidden`](/a11y/aria-hidden/) со значением `true`, чтобы скрыть содержимое от программ чтения с экрана, но оставить его видимым на странице.
 
 ```html
-<p aria-hidden="true">Этот текст виден на странице, но скрыт от скринридера.</p>
+<p aria-hidden="true">
+  Этот текст виден на странице, но скрыт от скринридера.
+</p>
 ```
 
 <aside>
@@ -51,6 +55,7 @@ tags:
 </aside>
 
 ```css
+.sr-only {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
@@ -58,10 +63,14 @@ tags:
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
 ```
 
 ```html
-<p class="sr-only">Этот текст скрыт визуально, но доступен для скринридеров.</p>
+<p class="sr-only">
+  Этот текст скрыт визуально, но доступен
+  для скринридеров.
+</p>
 ```
 
 Свойство [`clip`](/css/clip/) устарело, но его можно использовать для браузеров, которые не поддерживают более новое свойство `clip-path`.
@@ -76,11 +85,16 @@ tags:
   <span class="sr-only">Искать на странице</span>
   <svg
     aria-hidden="true"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="#000000"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    width="30"
-    height="30"
-    viewBox="0 0 17 17">
+  >
     <!-- Описание фигуры -->
   </svg>
 </button>
@@ -116,9 +130,15 @@ tags:
 
 ```html
 <article>
-  <p class="visibility-visible">Этот текст виден всем пользователям.</p>
-  <p class="visibility-hidden">Этот текст скрыт, но элемент занимает место в потоке.</p>
-  <p class="visibility-none">Этот текст снова скрыт и не занимает место на странице.</p>
+  <p class="visibility-visible">
+    Этот текст виден всем пользователям.
+  </p>
+  <p class="visibility-hidden">
+    Этот текст скрыт, но элемент занимает место в потоке.
+  </p>
+  <p class="visibility-none">
+    Этот текст снова скрыт и не занимает место на странице.
+  </p>
 </article>
 ```
 
@@ -137,7 +157,9 @@ tags:
 HTML-атрибут [`hidden`](/html/hidden/) работает как `display: none`. Если добавить атрибут к элементу, он визуально скроется со страницы и не будет занимать место, как-будто его совсем нет.
 
 ```html
-<p hidden>Этот текст не виден на странице и не виден для скринридера.</p>
+<p hidden>
+  Этот текст не виден на странице и не виден для скринридера.
+</p>
 ```
 
 <aside>
