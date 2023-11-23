@@ -16,6 +16,7 @@ groups:
     items:
       - css-impact-on-a11y
       - prefers-reduced-motion
+      - prefers-reduced-transparency
       - prefers-contrast
       - forced-colors
       - inverted-colors
