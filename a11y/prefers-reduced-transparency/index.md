@@ -3,6 +3,8 @@ title: "`prefers-reduced-transparency`"
 description: "Значение директивы `@media`, которое отслеживает настройки прозрачности."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - ＠-правило
