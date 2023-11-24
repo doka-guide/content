@@ -190,22 +190,18 @@
         css-правило list-style: none; удаляет семантику с элемента ul
         - https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html
       -->
-      <ul class="menu" role="list">
+      <ul class="menu">
         <li class="menu__item" data-has-children>
           <span data-controls="doka-submenu">Дока</span>
 
-          <ul
-            class="menu"
-            role="list"
-            id="doka-submenu"
-          >
+          <ul class="menu" id="doka-submenu">
             <li class="menu__item">
               <a href="#" class="menu__link" aria-current="page">Рецепты</a>
             </li>
             <li class="menu__item" data-has-children>
               <span data-controls="html-submenu">HTML</span>
 
-              <ul class="menu" role="list" id="html-submenu">
+              <ul class="menu" id="html-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">Основы</a>
                 </li>
@@ -220,7 +216,7 @@
             <li class="menu__item" data-has-children>
               <span data-controls="css-submenu">CSS</span>
 
-              <ul class="menu" role="list" id="css-submenu">
+              <ul class="menu" id="css-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">Основы</a>
                 </li>
