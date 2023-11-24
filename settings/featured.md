@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/deal-with-forms
-  - tools/gitlab-ci-cd
-  - tools/network
-  - tools/oop
-  - css/position
-  - html/nav
-  - css/display
-  - js/execution-order
-  - html/doctype
-  - a11y/aria-hidden
-  - tools/ci-cd
-  - tools/webpack
-  - html/img
-  - tools/how-to-test-and-why
-  - tools/static-types
-  - html/div
-  - tools/bundlers
-  - html/form
-  - tools/agile
-  - css/media
-  - a11y/screenreaders
-  - css/flexbox-guide
-  - css/specificity
-  - js/var-let
-  - tools/docker
-  - css/pseudoelements
-  - js/boolean
-  - tools/how-the-browser-creates-pages
-  - js/async-in-js
-  - js/infinite-scroll
-  - tools/clean-architecture
-  - html/article
-  - css/grid-guide
-  - a11y/aria-intro
-  - recipes/snow
-  - html/head
   - js/closures
+  - css/grid-guide
+  - js/deal-with-forms
   - css/custom-properties
-  - html/section
+  - tools/webpack
+  - a11y/aria-hidden
+  - css/pseudoelements
+  - tools/ci-cd
+  - html/img
+  - tools/docker
   - js/function
-  - recipes/lets-encrypt-nginx
+  - tools/network
   - css/attr
-  - css/transform-function
-  - recipes/progress
-  - tools/cli
-  - html/input
-  - tools/markdown
+  - js/infinite-scroll
+  - html/article
+  - js/var-let
+  - tools/how-to-test-and-why
   - css/box-shadow
-  - js/function-context
+  - js/boolean
+  - html/input
+  - html/section
+  - tools/cli
+  - tools/markdown
+  - tools/static-types
+  - tools/gitlab-ci-cd
+  - html/video
+  - a11y/aria-intro
+  - tools/clean-architecture
+  - js/execution-order
   - html/flow
   - css/box-model
-  - html/video
+  - recipes/snow
+  - css/specificity
+  - css/position
+  - css/display
+  - html/doctype
+  - tools/agile
+  - recipes/lets-encrypt-nginx
+  - tools/how-the-browser-creates-pages
+  - html/div
+  - html/nav
+  - html/form
+  - html/head
+  - js/function-context
+  - tools/oop
+  - js/async-in-js
+  - css/transform-function
+  - css/media
   - css/keyframes
+  - css/flexbox-guide
+  - recipes/progress
+  - a11y/screenreaders
+  - tools/bundlers
 ---
 
