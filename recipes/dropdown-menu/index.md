@@ -3,6 +3,9 @@ title: "Выпадающее меню"
 description: "Как сверстать многоуровневое выпадающее меню, да ещё доступно."
 authors:
   - s-dudko
+contributors:
+  - skorobaeus
+  - tatianafokina
 tags:
   - article
 ---
@@ -245,8 +248,12 @@ a[aria-current="page"]:hover {
 const nav = document.querySelector('.site-nav')
 nav.classList.add("enhanced")
 
-const submenus = document.querySelectorAll(".menu__item[data-has-children]")
-const dropdowns = document.querySelectorAll(".menu__item[data-has-children] > .menu")
+const submenus = document.querySelectorAll(
+  ".menu__item[data-has-children]"
+)
+const dropdowns = document.querySelectorAll(
+  ".menu__item[data-has-children] > .menu"
+)
 
 const icon = '<svg>...</svg>'
 
@@ -332,7 +339,7 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
 
 Итоговый результат выглядит так:
 
-<iframe title="Реализация выпадающего меню" src="demos/menu/" height="700"></iframe>
+<iframe title="Реализация выпадающего меню" src="demos/menu/" height="600"></iframe>
 
 ## Разбор решения
 
@@ -419,7 +426,7 @@ function toggleDropdown(button, dropdown) {
 
 Если нужно, чтобы элемент навигации был одновременно и ссылкой на родительскую директорию, и содержал вложенную информацию, можно обернуть текст в `<a>`, а рядом с ней расположить `<button>` со стрелкой, которая будет открывать и закрывать список. В рецепте не рассматриваем этот паттерн, но его не так сложно реализовать самостоятельно.
 
-![Пример паттерна использование ссылки и кнопки в названии вложенного меню](images/pattern.png)
+![Пример паттерна использования ссылки и кнопки в названии вложенного меню](images/pattern.png)
 
 Процесс вложения одного списка в другой может повторяться столько раз, сколько нужно. На практике довольно редко встречается больше трёх уровней.
 
