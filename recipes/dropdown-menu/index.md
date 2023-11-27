@@ -222,7 +222,6 @@ a[aria-current="page"]:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-
   padding-inline-start: 3rem;
 }
 

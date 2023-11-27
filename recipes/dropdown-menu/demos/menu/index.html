@@ -68,7 +68,7 @@
       gap: .5em;
       align-items: center;
       padding: .75rem 1.5rem;
-      font-size: 1.1875rem;
+      font-size: 1.125rem;
       color: #000000;
       cursor: pointer;
       border: none;
@@ -146,8 +146,16 @@
 
     .main {
       display: flex;
+      flex-direction: column;
+      align-items: start;
       width: 100%;
       padding-block-start: 64px;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
     }
 
     .main a {
@@ -166,7 +174,11 @@
       outline-width: 0;
     }
 
-    @media all and (max-width: 1024px) {
+    @media all and (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
       .site-nav {
         width: 100%;
       }
@@ -191,12 +203,6 @@
         left: 0;
         padding-inline-start: 1em;
         padding-inline-end: 1em;
-      }
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
       }
     }
   </style>
@@ -265,7 +271,8 @@
   </header>
 
   <main class="main">
-    <a href="#">Наши участники 😺</a>
+    <h1>Рецепты</h1>
+    <a href="#">Как приготовить меню 👨‍🍳</a>
   </main>
 
   <script>
