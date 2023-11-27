@@ -6,10 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      color-scheme: dark;
     }
 
     body {
@@ -17,7 +24,6 @@
       margin: 0;
       padding: 50px;
       background-color: #18191c;
-      color: #ffffff;
       text-align: center;
       font-family: "Roboto", sans-serif;
     }
@@ -35,48 +41,59 @@
       outline-offset: 2px;
     }
 
-    /*
-      Почему-то hidden атрибут не работает когда на меню установлен dislay: flex
-      Такое решение не самое лучшее, но как быстрый фикс думаю подходит
-    */
-    .menu[hidden] {
-      display: none !important;
-    }
-
     .header {
       display: flex;
       gap: 2rem;
       align-items: center;
-      background-color: #fff;
-      box-shadow: 0 1px 3px rgba(0 0 0 / 0.1);
-      padding: 1em;
+      background-color: #C56FFF;
+      padding: .7rem;
     }
 
     .menu {
       display: flex;
       gap: 64px;
       min-width: max-content;
-      background: #fff;
-      color: #111;
+      background: #C56FFF;
+      color: #000000;
+    }
+
+    .menu-submenu {
+      background: #FFFFFF;
     }
 
     .menu__btn,
     .menu__link {
       display: flex;
+      width: 100%;
       gap: .5em;
       align-items: center;
       padding: .75rem 1.5rem;
-      font-size: 1.5em;
-      color: #18191c;
+      font-size: 1.1875rem;
+      color: #000000;
       cursor: pointer;
       border: none;
-      background: none;
+      background: transparent;
+      transition: background-color 0.2s linear;
     }
 
     .menu__link:hover,
     .menu__btn:hover,
     .menu__btn[aria-expanded="true"] {
-      background-color: #eee;
+      background-color: #FFFFFF;
+    }
+
+    .menu-submenu .menu__link:hover,
+    .menu-submenu .menu__btn:hover,
+    .menu-submenu .menu__btn[aria-expanded="true"] {
+      background-color: #C56FFF;
+    }
+
+    .menu-submenu .menu__link:focus-visible,
+    .menu-submenu .menu__btn:focus-visible {
+      outline-width: 2px;
+      outline-offset: -3px;
+      outline-style: solid;
+      outline-color: #000000;
     }
 
     .menu__btn-icon {
@@ -97,12 +114,8 @@
     }
 
     a[aria-current="page"] {
-      font-weight: bold;
-      color: deepPink;
-    }
-
-    a[aria-current="page"]:hover {
-      color: deepPink;
+      font-weight: 500;
+      color: #000000;
     }
 
     /* Вложенное меню */
@@ -119,13 +132,16 @@
       top: 110%;
       left: 0;
       padding-inline-start: 0;
-      box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
     }
 
     /* Второй уровень вложенности */
     .enhanced .menu .menu .menu {
       top: 0;
-      left: 100%;
+      left: 104%;
+    }
+
+    .menu[hidden] {
+      display: none;
     }
 
     .main {
@@ -135,7 +151,19 @@
     }
 
     .main a {
-      color: #fff;
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #C56FFF;
+      text-decoration-color: #C56FFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .main a:hover, .main a:focus {
+      color: #000000;
+      background-color: #C56FFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
     }
 
     @media all and (max-width: 1024px) {
@@ -161,8 +189,14 @@
         position: relative;
         top: 0;
         left: 0;
-        box-shadow: none;
         padding-inline-start: 1em;
+        padding-inline-end: 1em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
       }
     }
   </style>
@@ -174,14 +208,14 @@
         <li class="menu__item" data-has-children>
           <span data-controls="doka-submenu">Дока</span>
 
-          <ul class="menu" id="doka-submenu">
+          <ul class="menu menu-submenu" id="doka-submenu">
             <li class="menu__item">
               <a href="#" class="menu__link" aria-current="page">Рецепты</a>
             </li>
             <li class="menu__item" data-has-children>
               <span data-controls="html-submenu">HTML</span>
 
-              <ul class="menu" id="html-submenu">
+              <ul class="menu menu-submenu" id="html-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">Основы</a>
                 </li>
@@ -196,7 +230,7 @@
             <li class="menu__item" data-has-children>
               <span data-controls="css-submenu">CSS</span>
 
-              <ul class="menu" id="css-submenu">
+              <ul class="menu menu-submenu" id="css-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">Основы</a>
                 </li>
@@ -231,7 +265,7 @@
   </header>
 
   <main class="main">
-    <a href="#">Тестовая ссылка</a>
+    <a href="#">Наши участники 😺</a>
   </main>
 
   <script>
