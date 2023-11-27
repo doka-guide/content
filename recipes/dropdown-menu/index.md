@@ -3,9 +3,6 @@ title: "Выпадающее меню"
 description: "Как сверстать многоуровневое выпадающее меню, да ещё доступно."
 authors:
   - s-dudko
-keywords:
-  - меню
-  - навигация
 tags:
   - article
 ---
@@ -23,44 +20,117 @@ tags:
 ```html
 <body>
   <header class="header">
-    <nav class="site-nav enhanced" aria-label="Сайт">
+    <nav
+      class="site-nav enhanced"
+      aria-label="Сайт"
+    >
       <ul class="menu">
         <li class="menu__item" data-has-children>
-          <button class="menu__btn" aria-expanded="false" aria-controls="doka-submenu">Дока</button>
+          <button
+            class="menu__btn"
+            aria-expanded="false"
+            aria-controls="doka-submenu"
+          >
+            Дока
+          </button>
 
           <!-- Первый уровень вложенности -->
           <ul class="menu" id="doka-submenu" hidden>
-            <li class="menu__item"><a href="#" class="menu__link" aria-current="page">Рецепты</a><li>
+            <li class="menu__item">
+              <a
+                href="#"
+                class="menu__link"
+                aria-current="page"
+              >
+                Рецепты
+              </a>
+            <li>
 
             <li class="menu__item">
-              <button class="menu__btn" aria-expanded="false" aria-controls="html-submenu">HTML</button>
+              <button
+                class="menu__btn"
+                aria-expanded="false"
+                aria-controls="html-submenu"
+              >
+                HTML
+              </button>
 
               <!-- Второй уровень вложенности -->
               <ul class="menu" id="html-submenu" hidden>
-                <li class="menu__item"><a href="#" class="menu__link">Основы</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Форматирование</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Семантика</a></li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Основы
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Форматирование
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Семантика
+                  </a>
+                </li>
               </ul>
             </li>
 
             <li class="menu__item">
-              <button class="menu__btn" aria-expanded="false" aria-controls="css-submenu">CSS</button>
+              <button
+                class="menu__btn"
+                aria-expanded="false"
+                aria-controls="css-submenu"
+              >
+                CSS
+              </button>
 
               <!-- Второй уровень вложенности -->
               <ul class="menu" id="css-submenu" hidden>
-                <li class="menu__item"><a href="#" class="menu__link">Основы</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Селекторы</a></li>
-                <li class="menu__item"><a href="#" class="menu__link">Псевдоклассы</a></li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Основы
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Селекторы
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">
+                    Псевдоклассы
+                  </a>
+                </li>
               </ul>
             </li>
-            <li class="menu__item"><a href="#" class="menu__link">JavaScript</a></li>
-            <li class="menu__item"><a href="#" class="menu__link">A11y</a></li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">
+                JavaScript
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">
+                Доступность
+              </a>
+            </li>
           </ul>
         </li>
 
-        <li class="menu__item"><a href="#" class="menu__link">Новости</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Блог</a></li>
-        <li class="menu__item"><a href="#" class="menu__link">Архив</a></li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">
+            Новости
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">
+            Блог
+          </a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">
+            Архив
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -198,13 +268,14 @@ submenus.forEach((item) => {
 
   button.innerText = text
 
-  // Добавляем иконку к кнопке, чтобы визуально было понятно открыто меню или нет
+  // Добавляем иконку к кнопке, чтобы визуально было
+  // понятно открыто меню или нет
   button.innerHTML += icon
   span.replaceWith(button)
 
   button.addEventListener("click", function (e) {
     toggleDropdown(button, dropdown)
-  });
+  })
 
   // Обрабатываем нажатие на Esc
   dropdown.addEventListener("keydown", (e) => {
@@ -215,7 +286,7 @@ submenus.forEach((item) => {
       button.focus()
     }
   }, false)
-});
+})
 
 function toggleDropdown(button, dropdown) {
   if (button.getAttribute("aria-expanded") === "true") {
@@ -262,7 +333,7 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
 
 Итоговый результат выглядит так:
 
-<iframe title="Подгрузка разных картинок" src="demos/menu/" height="700"></iframe>
+<iframe title="Реализация выпадающего меню" src="demos/menu/" height="700"></iframe>
 
 ## Разбор решения
 
@@ -280,7 +351,7 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
     <li class="menu__item">
       <a href="#" class="menu__link">Блог</a>
     </li>
-  </ul
+  </ul>
 </nav>
 ```
 
@@ -288,15 +359,15 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
 
 Встроенная роль `<nav>` позволяет вспомогательным технологиям понять, для чего нужен элемент и корректно рассказать о нём пользователям. Например, пользователи [скринридеров](/a11y/screenreaders/) смогут попасть в такое меню с помощью специальных сочетаний клавиш и, тем самым, быстрее взаимодействовать со страницей.
 
-Важно, чтобы у навигации было дуступное имя. Оно поможет отличить одно меню от другого, когда на сайте есть несколько вариантов меню. Например, основная навигация по сайту и навигация с хлебными крошками по категориям товаров. В примере для задания доступного имени используем ARIA-атрибут [`aria-label`](/a11y/aria-label/).
+Важно, чтобы у навигации было дуступное имя. Оно поможет отличить одно меню от другого, когда на сайте несколько вариантов меню. Например, основная навигация по сайту и навигация с хлебными крошками по категориям товаров. В примере для задания доступного имени используем ARIA-атрибут [`aria-label`](/a11y/aria-label/).
 
-Также важно подсказать пользователям о том, что они взаимодействуют с набором связанных элементов. Для этого будем использовать тег [`<ul>`](/html/ul/), который подскажет вспомогательным технологиям сколько элементов в списке. Использование данного тега также поможет в определении уровня меню, на котором сейчас находится пользователь.
+Также важно рассказать пользователям о том, что они взаимодействуют с набором связанных элементов. Для этого будем использовать тег [`<ul>`](/html/ul/), который подскажет вспомогательным технологиям сколько элементов в списке. Использование данного тега и [`aria-current`](/a11y/aria-current/) также помогут в определении уровня меню, на котором сейчас находится пользователь.
 
 ### Вложенные уровни
 
-При необходимости внутрь базового уровня меню можно добавить ещё один. Для этого добавьте внутрь элемента списка ещё один список и заголовок нового уровня. В нашем примере в пункт меню «Дока» добавлен ещё один список с классом `.menu`.
+Внутрь базового уровня меню можно вложить ещё один. Для этого добавьте внутрь элемента списка другой список и заголовок нового уровня. В нашем примере в пункт меню «Дока» добавлен ещё один список с классом `.menu`.
 
-В большинстве случаев для элемента заголовка используют кнопку [`<button>`](/html/button/). Использование кнопки позволяет попасть на элемент меню с помощью клавиши <kbd>Tab</kbd> и повесить на неё событие `click`, которое может быть вызвано с помощью клавиш <kbd>Enter</kbd> или пробела. Это особенно важно для людей, которые не используют мышку.
+В большинстве случаев для элемента заголовка используют кнопку [`<button>`](/html/button/). Использование кнопки позволяет попасть на элемент меню с помощью клавиши <kbd>Tab</kbd> и повесить на неё событие `click`, которое вызывается с помощью нажатия на <kbd>Enter</kbd> или пробел. Это особенно важно для людей, которые не используют мышку для навигации по сайту.
 
 ```html
 <nav class="site-nav" aria-label="Сайт">
@@ -305,27 +376,31 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
       <button
         class="menu__btn"
         aria-expanded="false"
-        aria-controls="doca-menu"
+        aria-controls="doka-menu"
       >
         Дока
       </button>
 
-      <ul class="menu" id="doca-menu">
+      <ul class="menu" id="doka-menu">
         <a href="#" class="menu__link">HTML</a>
         <a href="#" class="menu__link">CSS</a>
-        <a href="#" class="menu__link">JS</a>
-        <a href="#" class="menu__link">A11y</a>
+        <a href="#" class="menu__link">JavaScript</a>
+        <a href="#" class="menu__link">Доступность</a>
       </ul>
     </li>
-    ...
-    <li class="menu__item"><a href="#" class="menu__link">Блог</a></li>
-  </ul
+    <!-- Другие элементы -->
+    <li class="menu__item">
+      <a href="#" class="menu__link">
+        Блог
+      </a>
+    </li>
+  </ul>
 </nav>
 ```
 
 В примере к кнопке добавлены ARIA-атрибуты, которые помогают вспомогательным технологиям лучше взаимодействовать с элементами на странице. Атрибут [`aria-expanded`](/a11y/aria-expanded/) указывает открыт ли пункт меню или нет. [`aria-controls`](/a11y/aria-controls/) связывает кнопку со списком, который она разворачивает или сворачивает.
 
-В таком случае нужно будет написать небольшой скрипт на JavaScript, чтобы можно было программно изменять значение атрибута [`aria-expanded`](/a11y/aria-expanded/) при взаимодействии с кнопкой.
+В таком случае нужно будет написать небольшой скрипт на JavaScript, чтобы можно изменять значение атрибута [`aria-expanded`](/a11y/aria-expanded/) при взаимодействии с кнопкой.
 
 ```js
 button.addEventListener("click", function (e) {
@@ -333,13 +408,13 @@ button.addEventListener("click", function (e) {
 })
 
 function toggleDropdown(button, dropdown) {
-	if (button.getAttribute("aria-expanded") === "true") {
-		button.setAttribute("aria-expanded", "false")
-		dropdown.setAttribute("hidden", "")
-	} else {
-		button.setAttribute("aria-expanded", "true")
-		dropdown.removeAttribute("hidden")
-	}
+  if (button.getAttribute("aria-expanded") === "true") {
+    button.setAttribute("aria-expanded", "false")
+    dropdown.setAttribute("hidden", "")
+  } else {
+    button.setAttribute("aria-expanded", "true")
+    dropdown.removeAttribute("hidden")
+  }
 }
 ```
 
@@ -347,11 +422,11 @@ function toggleDropdown(button, dropdown) {
 
 ![Пример паттерна использование ссылки и кнопки в названии вложенного меню](images/pattern.png)
 
-Процесс вложения одного списка в другой может повторяться столько раз, сколько вам нужно. На практике довольно редко встречается больше трёх уровней.
+Процесс вложения одного списка в другой может повторяться столько раз, сколько нужно. На практике довольно редко встречается больше трёх уровней.
 
 ### Стили
 
-Стили для меню могут быть абсолютно разными. Чаще всего встречаются горизонтальные и вертикальные варианты. Для создания одноуровневого горизонтального меню можно воспользоваться следующими стилями:
+Стили для меню могут быть абсолютно разными. Чаще всего встречаются горизонтальные и вертикальные варианты расположения элементов навигации. Для создания одноуровневого горизонтального меню воспользуемся следующими стилями:
 
 ```css
 .menu {
@@ -386,6 +461,6 @@ function toggleDropdown(button, dropdown) {
 }
 ```
 
-Также при создании многоуровневых меню можно часто встретить вариант, когда элементы меню появляются при наведении на них курсора мыши, — по событию `hover`. В таком случае базовая вёрстка останется аналогичной примеру, только нужно будет доработать стили появления — скрывать вложенное меню по умолчанию своствойм `display: none` и показывать при наведении мыши.
+Также при создании многоуровневых меню можно часто встретить вариант, когда элементы меню появляются при наведении на них курсора мыши, — по событию `hover`. В таком случае базовая вёрстка останется аналогичной примеру, только нужно будет доработать стили появления — скрывать вложенное меню по умолчанию свойством `display: none` и показывать при наведении мыши.
 
-В мобильной версии меню выглядит как аккордеон. Часто мобильное меню прячут за иконкой с тремя линиями или точками (бургер) или чем-то подобным. При такой реализации важно помнить о доступности и скрыть меню полностью, чтобы пользователи не могли на сделать на нём фокус с помощью клавиши [`Tab`](/html/tabindex/). Для этого можно использовать свойство [`display: none`](/css/display/#kak-pishetsya) или HTML-атрибут [`hidden`](/html/hidden/). Данные методы помогут спрятать меню из [дерева доступности](/a11y/screenreaders/#derevo-dostupnosti), но не дабт анимировать открытие и закрытие меню.
+В мобильной версии меню выглядит как аккордеон. Часто мобильное меню прячут за иконкой с тремя линиями или точками (бургер) или чем-то подобным. При такой реализации важно помнить о доступности и скрывать меню полностью, чтобы пользователи не могли сделать на нём фокус с помощью клавиши <kbd>Tab</kbd>. Для этого можно использовать свойство [`display: none`](/css/display/#kak-pishetsya) или HTML-атрибут [`hidden`](/html/hidden/). Данные методы прячут меню из [дерева доступности](/a11y/screenreaders/#derevo-dostupnosti), но не дают анимировать открытие и закрытие меню.
