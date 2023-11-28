@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Плавное выпадающее меню без анимации цвета — Рецепты — Дока</title>
+  <title>Плавное выпадающее меню без скрытия — Рецепты — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,8 @@
 
       overflow: hidden;
       line-height: 0;
-      transition: line-height 0.5s;
+      color: transparent;
+      transition: line-height 0.5s, color 0.5s;
     }
 
     .menu-item {
@@ -88,6 +89,7 @@
 
     .button.active ~ .menu {
       line-height: 1.2;
+      color: currentColor;
     }
 
     @media (width <= 768px) {

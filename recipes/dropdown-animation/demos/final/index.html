@@ -79,7 +79,7 @@
 
     .menu-link {
       display: block;
-      padding: 0.5lh 25px;
+      padding: 0.5lh 80px;
     }
 
     .menu-link:hover,
@@ -103,25 +103,36 @@
   <div class="container">
     <button class="button" aria-expanded="false" aria-controls="list">Меню</button>
 
-    <ul class="menu" id="list">
+    <ul class="menu" id="list" aria-hidden="true">
       <li class="menu-item">
-        <a href="#" class="menu-link">Винни-Пух</a>
+        <a href="#" class="menu-link" tabindex="-1">Винни-Пух</a>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">Тигра</a>
+        <a href="#" class="menu-link" tabindex="-1">Тигра</a>
       </li>
       <li class="menu-item">
-        <a href="#" class="menu-link">Пятачок</a>
+        <a href="#" class="menu-link" tabindex="-1">Пятачок</a>
       </li>
     </ul>
   </div>
 
   <script>
     const button = document.querySelector('.button')
+    const menu = document.querySelector('.menu')
+    const menuLinks = document.querySelectorAll('.menu-link')
 
     button.addEventListener('click', (e) => {
-      e.target.classList.toggle('active')
-      e.target.setAttribute('aria-expanded', e.target.classList.contains('active') ? 'true' : 'false')
+      button.classList.toggle('active')
+
+      if (button.classList.contains('active')) {
+        button.setAttribute('aria-expanded', 'true')
+        menu.setAttribute('aria-hidden', 'false')
+        menuLinks.forEach(link => link.setAttribute('tabindex', '0'))
+      } else {
+        button.setAttribute('aria-expanded', 'false')
+        menu.setAttribute('aria-hidden', 'true')
+        menuLinks.forEach(link => link.setAttribute('tabindex', '-1'))
+      }
     })
   </script>
 </body>

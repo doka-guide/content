@@ -79,7 +79,7 @@ tags:
 
 .menu-link {
   display: block;
-  padding: 0.5lh 25px;
+  padding: 0.5lh 80px;
 }
 
 .menu-link:hover,
@@ -226,7 +226,7 @@ button.addEventListener('click', (e) => {
 
 Для плавности используется свойство [`transition`](/css/transition/). С его помощью высота строк меняется не резко, а плавно, за пол секунды.
 
-<iframe title="Плавное выпадающее меню" src="demos/no-color-transition/" height="450"></iframe>
+<iframe title="Плавное выпадающее меню без анимации цвета" src="demos/no-color-transition/" height="450"></iframe>
 
 Сейчас, при закрытии, строки текста наезжают друг на друга и получается грязно. Добавим изменения цвета текста с [`transparent`](/css/web-colors/#transparent) на [`currentColor`](/css/web-colors/#currentcolor) — цвет, заданный родителю. Не забудем указать в свойстве `transition`, что `color` тоже должен меняться за 0.5 секунды. Тогда текст появляется и исчезает плавно вместе с открытием и закрытием меню. Чистота и красота!
 
@@ -245,21 +245,71 @@ button.addEventListener('click', (e) => {
 }
 ```
 
+<iframe title="Плавное выпадающее меню без скрытия" src="demos/final-no-tab/" height="450"></iframe>
+
+### Навигация с клавиатуры
+
+Сейчас, даже если меню закрыто, на ссылки из него можно попасть при помощи <kbd>Tab</kbd>. Это не лучшее поведение. Нужно «скрывать» меню от клавиатурной навигации, не только визуально.
+
+Для этого используем атрибуты [`aria-hidden`](/a11y/aria-hidden/) для `.menu` и [`tabindex`](/html/tabindex/) для каждой ссылки. В закрытом состоянии значения будут `true` и `-1` соответственно. Таким образом скринридеры не зачитают содержимое раскрывающегося меню, а на ссылки нельзя будет попасть с клавиатуры.
+
+В открытом состоянии будем менять значения на `fale` и `0` с помощью JavaScript, делая меню доступным для клавиатуры и скринридеров.
+
+```html
+<div class="container">
+  <button class="button" aria-expanded="false" aria-controls="list">Меню</button>
+
+  <ul class="menu" id="list" aria-hidden="true">
+    <li class="menu-item">
+      <a href="#" class="menu-link" tabindex="-1">Винни-Пух</a>
+    </li>
+    <li class="menu-item">
+      <a href="#" class="menu-link" tabindex="-1">Тигра</a>
+    </li>
+    <li class="menu-item">
+      <a href="#" class="menu-link" tabindex="-1">Пятачок</a>
+    </li>
+  </ul>
+</div>
+```
+
+```js
+const button = document.querySelector('.button')
+const menu = document.querySelector('.menu')
+const menuLinks = document.querySelectorAll('.menu-link')
+
+button.addEventListener('click', (e) => {
+  button.classList.toggle('active')
+
+  if (button.classList.contains('active')) {
+    button.setAttribute('aria-expanded', 'true')
+    menu.setAttribute('aria-hidden', 'false')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '0'))
+  } else {
+    button.setAttribute('aria-expanded', 'false')
+    menu.setAttribute('aria-hidden', 'true')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '-1'))
+  }
+})
+```
+
+<iframe title="Плавное выпадающее меню" src="demos/final/" height="450"></iframe>
+
 ### Финальный код
 
 ```html
 <div class="container">
   <button class="button" aria-expanded="false" aria-controls="list">Меню</button>
 
-  <ul class="menu" id="list">
+  <ul class="menu" id="list" aria-hidden="true">
     <li class="menu-item">
-      <a href="#" class="menu-link">Винни-Пух</a>
+      <a href="#" class="menu-link" tabindex="-1">Винни-Пух</a>
     </li>
     <li class="menu-item">
-      <a href="#" class="menu-link">Тигра</a>
+      <a href="#" class="menu-link" tabindex="-1">Тигра</a>
     </li>
     <li class="menu-item">
-      <a href="#" class="menu-link">Пятачок</a>
+      <a href="#" class="menu-link" tabindex="-1">Пятачок</a>
     </li>
   </ul>
 </div>
@@ -299,7 +349,7 @@ button.addEventListener('click', (e) => {
 
 .menu-link {
   display: block;
-  padding: 0.5lh 25px;
+  padding: 0.5lh 80px;
 }
 
 .menu-link:hover,
@@ -315,10 +365,21 @@ button.addEventListener('click', (e) => {
 
 ```js
 const button = document.querySelector('.button')
+const menu = document.querySelector('.menu')
+const menuLinks = document.querySelectorAll('.menu-link')
 
 button.addEventListener('click', (e) => {
-  e.target.classList.toggle('active')
-  e.target.setAttribute('aria-expanded', e.target.classList.contains('active') ? 'true' : 'false')
+  button.classList.toggle('active')
+
+  if (button.classList.contains('active')) {
+    button.setAttribute('aria-expanded', 'true')
+    menu.setAttribute('aria-hidden', 'false')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '0'))
+  } else {
+    button.setAttribute('aria-expanded', 'false')
+    menu.setAttribute('aria-hidden', 'true')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '-1'))
+  }
 })
 ```
 
