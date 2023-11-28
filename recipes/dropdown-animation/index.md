@@ -21,26 +21,26 @@ tags:
 
 ```html
 <div class="container">
-  <button
-    class="button"
-    aria-expanded="false"
-    aria-controls="list"
+    <button
+      class="button"
+      aria-expanded="false"
+      aria-controls="list"
     >
       Меню
-  </button>
+    </button>
 
-  <ul class="menu" id="list">
-    <li class="menu-item">
-      <a href="#" class="menu-link">Винни-Пух</a>
-    </li>
-    <li class="menu-item">
-      <a href="#" class="menu-link">Тигра</a>
-    </li>
-    <li class="menu-item">
-      <a href="#" class="menu-link">Пятачок</a>
-    </li>
-  </ul>
-</div>
+    <ul class="menu" id="list" aria-hidden="true">
+      <li class="menu-item">
+        <a href="#" class="menu-link" tabindex="-1">Винни-Пух</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link" tabindex="-1">Тигра</a>
+      </li>
+      <li class="menu-item">
+        <a href="#" class="menu-link" tabindex="-1">Пятачок</a>
+      </li>
+    </ul>
+  </div>
 ```
 
 Вся магия будет реализована в CSS. Тут готовый код, а полный разбор стилей будет ниже.
@@ -97,14 +97,21 @@ JavaScript в этом примере будет только добавлять
 
 ```js
 const button = document.querySelector('.button')
+const menu = document.querySelector('.menu')
+const menuLinks = document.querySelectorAll('.menu-link')
 
 button.addEventListener('click', (e) => {
-  e.target.classList.toggle('active')
-  e.target.setAttribute(
-    'aria-expanded', e.target.classList.contains('active')
-    ? 'true'
-    : 'false'
-  )
+  button.classList.toggle('active')
+
+  if (button.classList.contains('active')) {
+    button.setAttribute('aria-expanded', 'true')
+    menu.setAttribute('aria-hidden', 'false')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '0'))
+  } else {
+    button.setAttribute('aria-expanded', 'false')
+    menu.setAttribute('aria-hidden', 'true')
+    menuLinks.forEach(link => link.setAttribute('tabindex', '-1'))
+  }
 })
 ```
 
