@@ -249,9 +249,9 @@ button.addEventListener('click', (e) => {
 
 ```html
 <div class="container">
-  <button class="button">Меню</button>
+  <button class="button" aria-expanded="false" aria-controls="list">Меню</button>
 
-  <ul class="menu">
+  <ul class="menu" id="list">
     <li class="menu-item">
       <a href="#" class="menu-link">Винни-Пух</a>
     </li>
@@ -318,6 +318,7 @@ const button = document.querySelector('.button')
 
 button.addEventListener('click', (e) => {
   e.target.classList.toggle('active')
+  e.target.setAttribute('aria-expanded', e.target.classList.contains('active') ? 'true' : 'false')
 })
 ```
 
