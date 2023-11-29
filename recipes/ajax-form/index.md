@@ -36,7 +36,7 @@ tags:
   </label>
   <label>
     Пароль:
-    <input type="password" name="password" required>
+    <input type="password" name="password" autocomplete="current-password" required>
   </label>
   <button type="submit">Войти</button>
 </form>
@@ -137,7 +137,6 @@ async function handleFormSubmit(event) {
   try {
     showLoader();
     const response = await fetch("/api/login", {
-      headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
       body: new FormData(form)
     })
@@ -173,7 +172,6 @@ async function handleFormSubmit(event) {
   try {
     showLoader();
     const response = await fetch("/api/login", {
-      headers: { "Content-Type": "multipart/form-data" },
       method: "POST",
       body: new FormData(form)
     })
