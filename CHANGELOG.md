@@ -2,6 +2,25 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2023
+
+- 30 ноября, [`aria-expanded`](https://doka.guide/a11y/aria-expanded/), Татьяна Фокина
+- 30 ноября, [`figure`](https://doka.guide/a11y/role-figure/), Татьяна Фокина
+- 23 ноября, [`prefers-reduced-transparency`](https://doka.guide/a11y/prefers-reduced-transparency/), Татьяна Фокина
+- 21 ноября, [Атрибуты `minlength` и `maxlength`](https://doka.guide/html/minlength-maxlength/), Юрий Четвериков, Татьяна Фокина
+- 21 ноября, [Попап](https://doka.guide/recipes/popup/), Анна Бараулина
+- 16 ноября, [Атрибут `dir`](https://doka.guide/html/dir/), Сергей Дудко
+- 16 ноября, [`<search>`](https://doka.guide/html/search/), Андрей Сухов
+- 15 ноября, [`aria-owns`](https://doka.guide/a11y/aria-owns/), Татьяна Фокина
+- 15 ноября, [`aria-current`](https://doka.guide/a11y/aria-current/), Татьяна Фокина
+- 11 ноября, [`aria-relevant`](https://doka.guide/a11y/aria-relevant/), Татьяна Фокина
+- 10 ноября, [Колонка с контентом по центру экрана](https://doka.guide/recipes/container/), Владимир Ткачёв
+- 10 ноября, [`aria-haspopup`](https://doka.guide/a11y/aria-haspopup/), Татьяна Фокина
+- 9 ноября, [`aria-live`](https://doka.guide/a11y/aria-live/), Оскар Шайхутдинов
+- 7 ноября, [`timer`](https://doka.guide/a11y/role-timer/), Татьяна Фокина
+- 5 ноября, [Как анализировать алгоритмы?](https://doka.guide/tools/algorithm-complexity/), Евгения Шевлякова
+- 1 ноября, [`aria-busy`](https://doka.guide/a11y/aria-busy/), Татьяна Фокина
+
 ## Октябрь 2023
 
 - 30 октября, [Абстрактные ARIA-роли](https://doka.guide/a11y/abstract-roles/), Татьяна Фокина
