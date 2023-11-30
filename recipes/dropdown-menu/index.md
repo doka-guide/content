@@ -9,7 +9,7 @@ contributors:
 related:
   - html/nav
   - html/ul
-  - a11y/role-navigation/
+  - a11y/role-navigation
 tags:
   - article
 ---
