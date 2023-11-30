@@ -6,6 +6,10 @@ authors:
 contributors:
   - skorobaeus
   - tatianafokina
+related:
+  - html/nav
+  - html/ul
+  - a11y/role-navigation
 tags:
   - article
 ---
@@ -159,7 +163,7 @@ a:focus-visible {
   gap: 2rem;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0 0 0 / 0.1);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
   padding: 1em;
 }
 
@@ -234,7 +238,7 @@ a[aria-current="page"]:hover {
   top: 110%;
   left: 0;
   padding-inline-start: 0;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px 2px rgb(0 0 0 / 0.1);
 }
 
 /* Второй уровень вложенности */
@@ -246,31 +250,31 @@ a[aria-current="page"]:hover {
 
 ```js
 const nav = document.querySelector('.site-nav')
-nav.classList.add("enhanced")
+nav.classList.add('enhanced')
 
 const submenus = document.querySelectorAll(
-  ".menu__item[data-has-children]"
+  '.menu__item[data-has-children]'
 )
 const dropdowns = document.querySelectorAll(
-  ".menu__item[data-has-children] > .menu"
+  '.menu__item[data-has-children] > .menu'
 )
 
 const icon = '<svg>...</svg>'
 
 // Находим подменю, заменяем в нём span на кнопку
 submenus.forEach((item) => {
-  const dropdown = item.querySelector(":scope > .menu")
-  dropdown.setAttribute("hidden", "")
+  const dropdown = item.querySelector(':scope > .menu')
+  dropdown.setAttribute('hidden', '')
 
-  const span = item.querySelector(":scope > span")
+  const span = item.querySelector(':scope > span')
   const text = span.innerText
   const ariaControlsId = span.dataset.controls
-  const button = document.createElement("button")
+  const button = document.createElement('button')
 
   // Добавляем класс и необходимые aria-атрибуты
-  button.classList.add("menu__btn")
-  button.setAttribute("aria-expanded", "false")
-  button.setAttribute("aria-controls", ariaControlsId)
+  button.classList.add('menu__btn')
+  button.setAttribute('aria-expanded', 'false')
+  button.setAttribute('aria-controls', ariaControlsId)
 
   button.innerText = text
 
@@ -279,12 +283,12 @@ submenus.forEach((item) => {
   button.innerHTML += icon
   span.replaceWith(button)
 
-  button.addEventListener("click", function (e) {
+  button.addEventListener('click', function (e) {
     toggleDropdown(button, dropdown)
   })
 
   // Обрабатываем нажатие на Esc
-  dropdown.addEventListener("keydown", (e) => {
+  dropdown.addEventListener('keydown', (e) => {
     e.stopImmediatePropagation()
 
     if (e.keyCode === 27 && focusIsInside(dropdown)) {
@@ -295,12 +299,12 @@ submenus.forEach((item) => {
 })
 
 function toggleDropdown(button, dropdown) {
-  if (button.getAttribute("aria-expanded") === "true") {
-    button.setAttribute("aria-expanded", "false")
-    dropdown.setAttribute("hidden", "")
+  if (button.getAttribute('aria-expanded') === 'true') {
+    button.setAttribute('aria-expanded', 'false')
+    dropdown.setAttribute('hidden', '')
   } else {
-    button.setAttribute("aria-expanded", "true")
-    dropdown.removeAttribute("hidden")
+    button.setAttribute('aria-expanded', 'true')
+    dropdown.removeAttribute('hidden')
   }
 }
 
@@ -311,9 +315,9 @@ function focusIsInside(element) {
 function collapseDropdownsWhenTabbingOutsideNav(e) {
   if (e.keyCode === 9 && !focusIsInside(nav)) {
     dropdowns.forEach(function (dropdown) {
-      dropdown.setAttribute("hidden", "")
-      const btn = dropdown.parentNode.querySelector("button")
-      btn.setAttribute("aria-expanded", "false")
+      dropdown.setAttribute('hidden', '')
+      const btn = dropdown.parentNode.querySelector('button')
+      btn.setAttribute('aria-expanded', 'false')
     })
   }
 }
@@ -323,18 +327,18 @@ function collapseDropdownsWhenClickingOutsideNav(e) {
 
   dropdowns.forEach(function (dropdown) {
     if (!dropdown.parentNode.contains(target)) {
-      dropdown.setAttribute("hidden", "")
-      const btn = dropdown.parentNode.querySelector("button")
-      btn.setAttribute("aria-expanded", "false")
+      dropdown.setAttribute('hidden', '')
+      const btn = dropdown.parentNode.querySelector('button')
+      btn.setAttribute('aria-expanded', 'false')
     }
   });
 }
 
 // Закрываем навигацию, если протапались за её пределы
-document.addEventListener("keyup", collapseDropdownsWhenTabbingOutsideNav)
+document.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav)
 
 // Закрываем навигацию, если кликнули вне навигации
-window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
+window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
 ```
 
 Итоговый результат выглядит так:
@@ -409,17 +413,17 @@ window.addEventListener("click", collapseDropdownsWhenClickingOutsideNav)
 В таком случае нужно будет написать небольшой скрипт на JavaScript, чтобы можно изменять значение атрибута [`aria-expanded`](/a11y/aria-expanded/) при взаимодействии с кнопкой.
 
 ```js
-button.addEventListener("click", function (e) {
+button.addEventListener('click', function (e) {
   toggleDropdown(button, dropdown)
 })
 
 function toggleDropdown(button, dropdown) {
-  if (button.getAttribute("aria-expanded") === "true") {
-    button.setAttribute("aria-expanded", "false")
-    dropdown.setAttribute("hidden", "")
+  if (button.getAttribute('aria-expanded') === 'true') {
+    button.setAttribute('aria-expanded', 'false')
+    dropdown.setAttribute('hidden', '')
   } else {
-    button.setAttribute("aria-expanded", "true")
-    dropdown.removeAttribute("hidden")
+    button.setAttribute('aria-expanded', 'true')
+    dropdown.removeAttribute('hidden')
   }
 }
 ```
