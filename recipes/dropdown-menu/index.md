@@ -234,7 +234,7 @@ a[aria-current="page"]:hover {
   top: 110%;
   left: 0;
   padding-inline-start: 0;
-  box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px 2px rgb(0 0 0 / 0.1);
 }
 
 /* Второй уровень вложенности */
