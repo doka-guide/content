@@ -4,6 +4,8 @@
 
 ## Ноябрь 2023
 
+- 30 ноября, [`aria-expanded`](https://doka.guide/a11y/aria-expanded/), Татьяна Фокина
+- 30 ноября, [`figure`](https://doka.guide/a11y/role-figure/), Татьяна Фокина
 - 23 ноября, [`prefers-reduced-transparency`](https://doka.guide/a11y/prefers-reduced-transparency/), Татьяна Фокина
 - 21 ноября, [Атрибуты `minlength` и `maxlength`](https://doka.guide/html/minlength-maxlength/), Юрий Четвериков, Татьяна Фокина
 - 21 ноября, [Попап](https://doka.guide/recipes/popup/), Анна Бараулина
