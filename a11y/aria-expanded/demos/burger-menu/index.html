@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Бургер-меню — aria-expanded — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .subnav-container {
+      position: relative;
+    }
+
+    .subnav {
+      display: none;
+      position: absolute;
+      top: 53px;
+      right: 0;
+      max-width: 240px;
+      min-width: 180px;
+      padding: 10px;
+      list-style: none;
+      background-color: #FFFFFF;
+    }
+
+    .subnav-opened {
+      display: block;
+    }
+
+    .subnav-link {
+      display: inline-flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      gap: 10px;
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #10F3AF;
+      text-decoration-color: #10F3AF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .subnav-link:hover, .subnav-link:focus {
+      background-color: #10F3AF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .button {
+      display: block;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 11px 15px;
+      color: #000000;
+      font-size: 1rem;
+      line-height: 0;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button-dots {
+      width: 23px;
+      height: 23px;
+      stroke: #000000;
+      stroke-width: 2.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .subnav {
+        max-width: 100%;
+        right: -60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="subnav-container">
+    <button class="button button-aqua" aria-label="Список товаров" aria-expanded="false" aria-controls="subnav">
+      <svg class="button-dots" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" aria-hidden="true">
+        <circle cx="12" cy="12" r="1"/>
+        <circle cx="19" cy="12" r="1"/>
+        <circle cx="5" cy="12" r="1"/>
+      </svg>
+    </button>
+
+    <ul class="subnav" id="subnav">
+      <li class="subnav-item">
+        <a href="#" class="subnav-link">Бассейны для собак</a>
+      </li>
+      <li class="subnav-item">
+        <a href="#" class="subnav-link">Коробки для кошек</a>
+      </li>
+      <li class="subnav-item">
+        <a href="#" class="subnav-link">Поилки для крыс</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const button = document.querySelector('.button')
+    const subnav = document.querySelector('.subnav')
+    const openedSubnavClass = 'subnav-opened'
+
+    button.addEventListener('click', (event) => {
+      event.stopPropagation()
+      button.setAttribute('aria-expanded', button.getAttribute('aria-expanded') === 'true' ? 'false' : 'true')
+      subnav.classList.toggle(openedSubnavClass)
+    })
+
+    function closeSubnav() {
+      button.setAttribute('aria-expanded', 'false')
+      subnav.classList.remove(openedSubnavClass)
+    }
+
+    document.addEventListener('click', (event) => {
+      closeSubnav()
+    })
+
+    document.addEventListener('focusin', (event) => {
+      closeSubnav()
+    })
+  </script>
+</body>
+</html>
