@@ -3,6 +3,8 @@ title: "`aria-expanded`"
 description: "Как рассказать скринридерам, что элемент что-то разворачивает и сворачивает."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность
