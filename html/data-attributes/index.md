@@ -3,6 +3,8 @@ title: "Атрибуты `data-*`"
 description: "Пользовательские HTM-атрибуты для хранения информации в разметке, стилизации при помощи CSS и обращения через JavaScript."
 authors:
   - kranatoly
+contributors:
+  - skorobaeus
 keywords:
   - data-атрибуты
   - дата-атрибуты
