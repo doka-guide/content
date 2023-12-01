@@ -3,6 +3,8 @@ title: "SVG-спрайт"
 description: "Что такое SVG-спрайты, как их создавать, когда применять и как они могут помочь вам в улучшении производительности вашего сайта."
 authors:
   - s-dudko
+contributors:
+  - skorobaeus
 keywords:
   - свг
   - векторная графика
@@ -111,15 +113,21 @@ SVG-спрайт — это файл, получаемый в результат
 В [спецификации SVG](https://www.w3.org/TR/SVG/linking.html#SVGFragmentIdentifiers) такой способ называется именованными фрагментами.
 
 ```xml
-<svg width="24" height="72" viewBox="0 0 24 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <view id="icon-first-view" viewBox="0 0 24 24"/>
-    <path d="M4 12V20C4 20.5304 ..."/>
+<svg
+  width="24"
+  height="72"
+  viewBox="0 0 24 72"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <view id="icon-first-view" viewBox="0 0 24 24"/>
+  <path d="M4 12V20C4 20.5304 ..."/>
 
-    <view id="icon-first-view" viewBox="0 24 24 24"/>
-    <path d="M4 12V20C4 20.5304 ..."/>
+  <view id="icon-first-view" viewBox="0 24 24 24"/>
+  <path d="M4 12V20C4 20.5304 ..."/>
 
-    <view id="icon-first-view" viewBox="0 48 24 24"/>
-    <path d="M4 12V20C4 20.5304 ..."/>
+  <view id="icon-first-view" viewBox="0 48 24 24"/>
+  <path d="M4 12V20C4 20.5304 ..."/>
 </svg>
 ```
 
