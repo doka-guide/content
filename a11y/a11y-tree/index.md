@@ -17,8 +17,6 @@ tags:
   - article
 ---
 
-https://web.dev/articles/the-accessibility-tree
-
 _Дерево доступности_ или _доступное дерево (accessibility tree)_ — это представление элементов документа в виде дерева на основе [DOM](/js/dom/) (Document Object Model). Благодаря ему вспомогательные технологии, например, [скринридеры](/a11y/screenreaders/), знают про содержимое страницы и что на ней происходит.
 
 ## Как создаётся
@@ -194,10 +192,6 @@ _Дерево доступности_ или _доступное дерево (a
   Вкладка «Узел» (Node) в основной вкладке «Элементы» > аккордеон «Доступность» (Accessibility)
 
 </details>
-
-Например, так выглядит [`<img>`](/html/img/) в виде объекта дерева в Firefox. У него роль `graphic` (в Chrome будет [`img`](/a11y/role-img-image/)), а имя — это описание картинки из атрибута `alt`.
-
-![Дерево доступности в инструментах разработчика в Firefox для элемента картинки. name: Пример клавиатуры для поля ввода номера телефона. role: graphic. DOMNode: img.](images/2.png)
 
 Подробнее как работать с деревом доступности в Chrome узнаете из [Full accessibility tree in Chrome DevTools](https://developer.chrome.com/blog/full-accessibility-tree/).
 
