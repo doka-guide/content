@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-tree
       - a11y-html
       - site-language
       - accessible-forms
