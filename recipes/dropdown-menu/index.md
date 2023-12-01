@@ -155,47 +155,62 @@ ul, li {
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid;
-  outline-offset: 2px;
+  outline-offset: -3px;
 }
 
 .header {
   display: flex;
-  gap: 2rem;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-  padding: 1em;
+  background-color: #C56FFF;
+  padding: 0 50px;
 }
 
 .menu {
   display: flex;
-  gap: 64px;
   min-width: max-content;
-  background: #fff;
-  color: #111;
+  background: #C56FFF;
+  color: #000000;
 }
 
-.menu[hidden] {
-  display: none !important;
+.menu-submenu {
+  background: #FFFFFF;
 }
 
 .menu__btn,
 .menu__link {
   display: flex;
+  width: 100%;
   gap: .5em;
   align-items: center;
   padding: .75rem 1.5rem;
-  font-size: 1.5em;
-  color: #18191c;
+  font-size: 1.125rem;
+  font-weight: 300;
+  font-family: inherit;
+  color: #000000;
   cursor: pointer;
   border: none;
-  background: none;
+  background: transparent;
+  transition: background-color 0.2s linear;
 }
 
 .menu__link:hover,
 .menu__btn:hover,
 .menu__btn[aria-expanded="true"] {
-  background-color: #eee;
+  background-color: #FFFFFF;
+}
+
+.menu-submenu .menu__link:hover,
+.menu-submenu .menu__btn:hover,
+.menu-submenu .menu__btn[aria-expanded="true"] {
+  background-color: #C56FFF;
+}
+
+.menu-submenu .menu__link:focus-visible,
+.menu-submenu .menu__btn:focus-visible {
+  outline-width: 2px;
+  outline-offset: -3px;
+  outline-style: solid;
+  outline-color: #000000;
 }
 
 .menu__btn-icon {
@@ -203,8 +218,16 @@ a:focus-visible {
   transition: transform .1s linear;
 }
 
+.menu-submenu .menu__btn-icon {
+  transform: rotate(-90deg);
+}
+
 .menu__btn[aria-expanded="true"] .menu__btn-icon {
   transform: rotate(180deg);
+}
+
+.menu-submenu .menu__btn[aria-expanded="true"] .menu__btn-icon {
+  transform: rotate(90deg);
 }
 
 .menu__item {
@@ -216,12 +239,8 @@ a:focus-visible {
 }
 
 a[aria-current="page"] {
-  font-weight: bold;
-  color: deepPink;
-}
-
-a[aria-current="page"]:hover {
-  color: deepPink;
+  font-weight: 500;
+  color: #000000;
 }
 
 /* Вложенное меню */
@@ -238,13 +257,12 @@ a[aria-current="page"]:hover {
   top: 110%;
   left: 0;
   padding-inline-start: 0;
-  box-shadow: 0 0 5px 2px rgb(0 0 0 / 0.1);
 }
 
 /* Второй уровень вложенности */
 .enhanced .menu .menu .menu {
   top: 0;
-  left: 100%;
+  left: 104%;
 }
 ```
 
