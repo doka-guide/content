@@ -7,6 +7,7 @@ keywords:
   - программа чтения с экрана
   - программа экранного доступа
   - screen reader
+  - ассистивные технологии
   - assistive technology
   - a11y tree
 related:
