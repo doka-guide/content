@@ -233,7 +233,7 @@ _Дерево доступности (accessibility tree)_ — это предс
 - _Multi-line: false_ — поле однострочное, нельзя перейти на новую строку.
 - _Read-only: false_ — поле не только для чтения и в него можно вводить данные.
 - _Required: true_ — поле обязательно для заполнения из-за атрибута [`required`](/html/required/).
-- _Labelled by_ — связано с подписью `<label>` с классом `.subscribe-popup__label`.
+- _Labelled by_ — название поля берётся из `<label>` с классом `.subscribe-popup__label`.
 
 ![Информация об объекте из дерева доступности в Chrome. Описание перед скриншотом.](images/chrome-textbox-a11y-object.png)
 
