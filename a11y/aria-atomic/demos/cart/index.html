@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Корзина с товарами — aria-atomic — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    h3 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .button {
+      display: block;
+      align-self: center;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    label {
+      margin-right: 25px;
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      width: 130px;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .cards {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card, form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card {
+      max-width: 310px;
+      padding: 15px 10px;
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+
+    .card > p {
+      margin-bottom: 15px;
+    }
+
+    .card > form {
+      margin-top: auto;
+    }
+
+    form > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    form > .button {
+      margin-top: 15px;
+      min-width: 130px;
+      align-self: end;
+    }
+
+    .cart > div > div {
+      height: 40px;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #10F3AF;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .cards {
+        flex-direction: column;
+      }
+
+      form > .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Новинки игровой индустрии</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Skyrim</h3>
+        <p>Победи драконов и спаси мир 🐲</p>
+        <form>
+          <div>
+            <label for="game-1">Количество:</label>
+            <input type="number" min="0" id="game-1">
+          </div>
+          <button type="button" class="button button-aqua">Добавить</button>
+        </form>
+      </article>
+      <article class="card">
+        <h3>Fallout 76</h3>
+        <p>Построй и потеряй дом 🤠</p>
+        <form>
+          <div>
+          <label for="game-2">Количество:</label>
+            <input type="number" min="0" id="game-2">
+          </div>
+          <button type="button" class="button button-aqua">Добавить</button>
+        </form>
+      </article>
+    </div>
+    <div class="cart">
+      <h2>Корзина</h2>
+      <div>
+        <p id="empty-сart">В корзине пока ничего нет. Купи..?</p>
+        <div aria-live="polite" aria-atomic="true"></div>
+        <button class="button button-aqua">Купить</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cartOutput = document.querySelector('.cart div[aria-live="polite"]')
+      const emptyCartMessage = document.getElementById('empty-сart')
+      let itemList = null
+      const cartItems = {}
+
+      const updateCart = () => {
+        const totalQuantity = Object.values(cartItems).reduce((acc, qty) => acc + qty, 0)
+
+        if (totalQuantity > 0) {
+          emptyCartMessage.style.display = 'none'
+
+          if (!itemList) {
+            itemList = document.createElement('ul')
+            cartOutput.appendChild(itemList)
+          }
+
+          itemList.innerHTML = ''
+
+          Object.entries(cartItems).forEach(([gameName, quantity]) => {
+            if (quantity > 0) {
+              const listItem = document.createElement('li')
+              listItem.textContent = `${gameName}, количество — ${quantity}`
+              itemList.appendChild(listItem)
+            }
+          })
+        } else {
+          if (itemList) {
+            itemList.remove()
+            itemList = null
+          }
+          emptyCartMessage.style.display = 'block'
+        }
+      }
+
+      document.querySelectorAll('.card').forEach(card => {
+        const gameName = card.querySelector('h3').textContent
+        const input = card.querySelector('input[type="number"]')
+        const addButton = card.querySelector('.button')
+
+        addButton.addEventListener('click', () => {
+          let quantity = parseInt(input.value) || 0
+          if (quantity < 0) {
+            quantity = 0
+          }
+
+          cartItems[gameName] = (cartItems[gameName] || 0) + quantity
+          updateCart()
+        })
+      })
+    })
+  </script>
+</body>
+</html>
