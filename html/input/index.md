@@ -104,7 +104,7 @@ tags:
 
 Большое преимущество установки правильного значения для `type` — в мобильных браузерах будет появляться «специальная» клавиатура, упрощающая и улучшающая пользовательский опыт. Так, для `<input type=tel>` у пользователя отобразится клавиатура, содержащая лишь цифры и специальные символы, нужные для корректного ввода номера телефона. Пример такой клавиатуры можно увидеть на картинке ниже:
 
-![Пример клавиатуры для поля ввода номера телефона](images/tel.jpeg)
+![Пример клавиатуры для поля ввода номера телефона](images/tel.png)
 
 ### `value`
 
@@ -141,38 +141,46 @@ tags:
 Вот так будет выглядеть простая форма, собранная из нескольких элементов `<input>`. Мы поместили их все в контейнер `<form>`, чтобы данные, которые введёт пользователь, можно было отправить на сервер:
 
 ```html
-<form name="test" method="post" action="input1.php">
-  <label>
-    Текстовое поле в одну строчку:
-    <input type="text" size="40">
+<form method="get" action="../result">
+  <label class="input-label">
+    <span class="input-title">Текстовое поле в одну строчку:</span>
+    <input class="input" type="text" size="40" name="one-line">
   </label>
 
-  <fieldset>
-    Радиокнопки:
-    <label class="radio-label">
-      <input type="radio" name="browser" value="ie" id="ie">
-      Вариант 1
-    </label>
-    <label class="radio-label">
-      <input type="radio" name="browser" value="opera" id="opera">
-      Вариант 2
-    </label>
-    <label class="radio-label">
-      <input type="radio" name="browser" value="firefox" id="firefox">
-      Вариант 3
-    </label>
+  <label class="input-label">
+    <span class="input-title">Поле для пароля:</span>
+    <input class="input" type="password" size="40" name="one-line-password">
+  </label>
+
+  <fieldset class="radio-set">
+    <legend class="visually-hidden">Радио-кнопки:</legend>
+    <span class="radio-legend" aria-hidden="true">Радио-кнопки:</span>
+    <div class="radio-container">
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="ie" id="ie">
+        <span class="radio-title">Вариант 1</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="opera" id="opera">
+        <span class="radio-title">Вариант 2</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
+        <span class="radio-title">Вариант 3</span>
+      </label>
+    </div>
   </fieldset>
 
-  <label>
-    Большое текстовое поле:
-    <textarea name="comment" cols="40" rows="3"></textarea>
+  <label class="input-label">
+    <span class="input-title">Большое текстовое поле:</span>
+    <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
   </label>
 
-  <div>
-    <input type="reset" value="Очистить">
-    <input type="submit" value="Отправить">
+  <div class="buttons">
+    <input type="reset" value="Очистить" class="button button-blue">
+    <input type="submit" value="Отправить" class="button button-orange" disabled>
   </div>
 </form>
 ```
 
-<iframe title="Различные input" src="demos/inputs/" height="440"></iframe>
+<iframe title="Различные input" src="demos/inputs/" height="500"></iframe>
