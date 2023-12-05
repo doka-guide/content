@@ -144,28 +144,56 @@ tags:
 <form method="get" action="../result">
   <label class="input-label">
     <span class="input-title">Текстовое поле в одну строчку:</span>
-    <input class="input" type="text" size="40" name="one-line">
+    <input
+      class="input"
+      type="text"
+      size="40"
+      name="one-line"
+    >
   </label>
 
   <label class="input-label">
     <span class="input-title">Поле для пароля:</span>
-    <input class="input" type="password" size="40" name="one-line-password">
+    <input
+      class="input"
+      type="password"
+      size="40"
+      name="one-line-password"
+    >
   </label>
 
   <fieldset class="radio-set">
     <legend class="visually-hidden">Радиокнопки:</legend>
-    <span class="radio-legend" aria-hidden="true">Радио-кнопки:</span>
+    <span class="radio-legend" aria-hidden="true">Радиокнопки:</span>
     <div class="radio-container">
       <label class="radio-label">
-        <input class="radio" type="radio" name="browser" value="ie" id="ie">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="ie"
+          id="ie"
+        >
         <span class="radio-title">Вариант 1</span>
       </label>
       <label class="radio-label">
-        <input class="radio" type="radio" name="browser" value="opera" id="opera">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="opera"
+          id="opera"
+        >
         <span class="radio-title">Вариант 2</span>
       </label>
       <label class="radio-label">
-        <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="firefox"
+          id="firefox"
+        >
         <span class="radio-title">Вариант 3</span>
       </label>
     </div>
@@ -173,14 +201,29 @@ tags:
 
   <label class="input-label">
     <span class="input-title">Большое текстовое поле:</span>
-    <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
+    <textarea
+      class="input input-textarea"
+      name="comment"
+      cols="40"
+      rows="3"
+    >
+    </textarea>
   </label>
 
   <div class="buttons">
-    <input type="reset" value="Очистить" class="button button-blue">
-    <input type="submit" value="Отправить" class="button button-orange" disabled>
+    <input
+      type="reset"
+      value="Очистить"
+      class="button button-blue"
+    >
+    <input
+      type="submit"
+      value="Отправить"
+      class="button button-orange"
+      disabled
+    >
   </div>
 </form>
 ```
 
-<iframe title="Различные input" src="demos/inputs/" height="500"></iframe>
+<iframe title="Различные input" src="demos/inputs/" height="550"></iframe>
