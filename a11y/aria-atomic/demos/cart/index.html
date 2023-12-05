@@ -67,10 +67,10 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:hover {
-      background-color: #FFFFFF;
-      cursor: pointer;
-      transition: background-color 0.2s linear;
+    form > .button {
+      margin-top: 15px;
+      min-width: 130px;
+      align-self: end;
     }
 
     .button:focus-visible {
@@ -78,9 +78,21 @@
       outline: none;
     }
 
-    .button:focus {
-      border: 2px solid #FFFFFF;
+    form > .button:focus-visible {
+      background-color: #10F3AF;
+      border: 2px solid #000000;
       outline: none;
+    }
+
+    .button:hover,
+    form > .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    form > .button:hover {
+      border: 2px solid #000000;
     }
 
     .button-aqua {
@@ -145,14 +157,7 @@
       justify-content: space-between;
     }
 
-    form > .button {
-      margin-top: 15px;
-      min-width: 130px;
-      align-self: end;
-    }
-
-    .cart > div > div {
-      height: 40px;
+    .cart > div {
       margin-bottom: 30px;
     }
 
@@ -204,7 +209,7 @@
     <h2>Новинки игровой индустрии</h2>
     <div class="cards">
       <article class="card">
-        <h3>Skyrim</h3>
+        <h3>Skream</h3>
         <p>Победи драконов и спаси мир 🐲</p>
         <form>
           <div>
@@ -215,7 +220,7 @@
         </form>
       </article>
       <article class="card">
-        <h3>Fallout 76</h3>
+        <h3>Autumnout 78</h3>
         <p>Построй и потеряй дом 🤠</p>
         <form>
           <div>
@@ -228,50 +233,23 @@
     </div>
     <div class="cart">
       <h2>Корзина</h2>
-      <div>
-        <p id="empty-сart">В корзине пока ничего нет. Купи..?</p>
-        <div aria-live="polite" aria-atomic="true"></div>
-        <button class="button button-aqua">Купить</button>
+      <div aria-live="polite" aria-atomic="true">
+        <ul>
+          <li>Skream, количество — <span id="item-1">0</span></li>
+          <li>Autumnout 78, количество — <span id="item-2">0</span></li>
+        </ul>
       </div>
+      <button class="button button-aqua">Купить</button>
     </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const cartOutput = document.querySelector('.cart div[aria-live="polite"]')
-      const emptyCartMessage = document.getElementById('empty-сart')
-      let itemList = null
-      const cartItems = {}
-
-      const updateCart = () => {
-        const totalQuantity = Object.values(cartItems).reduce((acc, qty) => acc + qty, 0)
-
-        if (totalQuantity > 0) {
-          emptyCartMessage.style.display = 'none'
-
-          if (!itemList) {
-            itemList = document.createElement('ul')
-            cartOutput.appendChild(itemList)
-          }
-
-          itemList.innerHTML = ''
-
-          Object.entries(cartItems).forEach(([gameName, quantity]) => {
-            if (quantity > 0) {
-              const listItem = document.createElement('li')
-              listItem.textContent = `${gameName}, количество — ${quantity}`
-              itemList.appendChild(listItem)
-            }
-          })
-        } else {
-          if (itemList) {
-            itemList.remove()
-            itemList = null
-          }
-          emptyCartMessage.style.display = 'block'
-        }
+      const updateCartQuantity = (gameName, quantity) => {
+        const itemSpan = document.querySelector(`#item-${gameName === 'Skream' ? '1' : '2'}`)
+        itemSpan.textContent = quantity
       }
 
-      document.querySelectorAll('.card').forEach(card => {
+      document.querySelectorAll('.card').forEach((card, index) => {
         const gameName = card.querySelector('h3').textContent
         const input = card.querySelector('input[type="number"]')
         const addButton = card.querySelector('.button')
@@ -282,8 +260,7 @@
             quantity = 0
           }
 
-          cartItems[gameName] = (cartItems[gameName] || 0) + quantity
-          updateCart()
+          updateCartQuantity(gameName, quantity)
         })
       })
     })
