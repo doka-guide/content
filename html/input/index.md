@@ -153,7 +153,7 @@ tags:
   </label>
 
   <fieldset class="radio-set">
-    <legend class="visually-hidden">Радио-кнопки:</legend>
+    <legend class="visually-hidden">Радиокнопки:</legend>
     <span class="radio-legend" aria-hidden="true">Радио-кнопки:</span>
     <div class="radio-container">
       <label class="radio-label">
