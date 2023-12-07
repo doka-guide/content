@@ -25,7 +25,7 @@ const colors = [
 ];
 
 const groupedColors = Object.groupBy(colors, (color, index) => {
-    return color.name === "oklch" ? "easyToUnderstand" : "notEasyToUnderstand";
+  return color.name === "oklch" ? "easyToUnderstand" : "notEasyToUnderstand";
 });
 
 console.log(groupedColors);
@@ -45,6 +45,7 @@ console.log(groupedColors);
 ## Как пишется
 
 `groupBy()` принимает два аргумента:
+
 - итерируемый объект, например массив;
 - колбэк-функцию.
 
