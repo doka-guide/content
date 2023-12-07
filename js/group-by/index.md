@@ -1,6 +1,11 @@
 ---
 title: ".groupBy()"
 description: "Группирует элементы итерируемого объекта."
+baseline:
+  - group: array-group
+    features:
+      - javascript.builtins.Object.groupBy
+      - javascript.builtins.Map.groupBy
 authors:
   - fpetrakov
 related:
