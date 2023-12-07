@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Реализация выпадающего меню — Выпадающее меню — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px 0;
+      background-color: #18191c;
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    ul, li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: start;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid;
+      outline-offset: -3px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      background-color: #C56FFF;
+      padding: 0 50px;
+    }
+
+    .menu {
+      display: flex;
+      min-width: max-content;
+      background: #C56FFF;
+      color: #000000;
+    }
+
+    .menu-submenu {
+      background: #FFFFFF;
+    }
+
+    .menu__btn,
+    .menu__link {
+      display: flex;
+      width: 100%;
+      gap: .5em;
+      align-items: center;
+      padding: .75rem 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 300;
+      font-family: inherit;
+      color: #000000;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      transition: background-color 0.2s linear;
+    }
+
+    .menu__link:hover,
+    .menu__btn:hover,
+    .menu__btn[aria-expanded="true"] {
+      background-color: #FFFFFF;
+    }
+
+    .menu-submenu .menu__link:hover,
+    .menu-submenu .menu__btn:hover,
+    .menu-submenu .menu__btn[aria-expanded="true"] {
+      background-color: #C56FFF;
+    }
+
+    .menu-submenu .menu__link:focus-visible,
+    .menu-submenu .menu__btn:focus-visible {
+      outline-width: 2px;
+      outline-offset: -3px;
+      outline-style: solid;
+      outline-color: #000000;
+    }
+
+    .menu__btn-icon {
+      color: inherit;
+      transition: transform .1s linear;
+    }
+
+    .menu-submenu .menu__btn-icon {
+      transform: rotate(-90deg);
+    }
+
+    .menu__btn[aria-expanded="true"] .menu__btn-icon {
+      transform: rotate(180deg);
+    }
+
+    .menu-submenu .menu__btn[aria-expanded="true"] .menu__btn-icon {
+      transform: rotate(90deg);
+    }
+
+    .menu__item {
+      position: relative;
+    }
+
+    .menu__link {
+      text-decoration: none;
+    }
+
+    a[aria-current="page"] {
+      font-weight: 500;
+      color: #000000;
+    }
+
+    /* Вложенное меню */
+    .menu .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-inline-start: 3rem;
+    }
+
+    /* Первый уровень вложенности */
+    .enhanced .menu .menu {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      padding-inline-start: 0;
+    }
+
+    /* Второй уровень вложенности */
+    .enhanced .menu .menu .menu {
+      top: 0;
+      left: 104%;
+    }
+
+    .menu[hidden] {
+      display: none;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 100%;
+      padding: 50px calc(50px + 1.5rem);
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .main a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #C56FFF;
+      text-decoration-color: #C56FFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .main a:hover, .main a:focus {
+      color: #000000;
+      background-color: #C56FFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media all and (max-width: 768px) {
+      body {
+        padding: 30px 0;
+      }
+
+      .header {
+        padding: 0;
+      }
+
+      .site-nav {
+        width: 100%;
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 16px;
+      }
+
+      .menu__btn {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .menu-submenu .menu__btn-icon {
+        transform: initial;
+      }
+
+      .menu-submenu .menu__btn[aria-expanded="true"] .menu__btn-icon {
+        transform: rotate(180deg);
+      }
+
+      /* Первый уровень вложенности */
+      .enhanced .menu .menu,
+      .enhanced .menu .menu .menu {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding-inline-start: 1em;
+        padding-inline-end: 1em;
+      }
+
+      .main {
+        padding: 50px 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="site-nav" aria-label="Сайт">
+      <ul class="menu">
+        <li class="menu__item" data-has-children>
+          <span data-controls="doka-submenu">Дока</span>
+
+          <ul class="menu menu-submenu" id="doka-submenu">
+            <li class="menu__item">
+              <a href="#" class="menu__link" aria-current="page">Рецепты</a>
+            </li>
+            <li class="menu__item" data-has-children>
+              <span data-controls="html-submenu">HTML</span>
+
+              <ul class="menu menu-submenu" id="html-submenu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Основы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Форматирование</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Семантика</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item" data-has-children>
+              <span data-controls="css-submenu">CSS</span>
+
+              <ul class="menu menu-submenu" id="css-submenu">
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Основы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Селекторы</a>
+                </li>
+                <li class="menu__item">
+                  <a href="#" class="menu__link">Псевдоклассы</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">JavaScript</a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__link">Доступность</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu__item">
+          <a href="#" class="menu__link">Новости</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Блог</a>
+        </li>
+        <li class="menu__item">
+          <a href="#" class="menu__link">Архив</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+    <h1>Рецепты</h1>
+    <a href="#">Как приготовить меню 👨‍🍳</a>
+  </main>
+
+  <script>
+    // Следуем принципам прогрессивного улучшения.
+    // Показываем пользователю простую навигацию в случае, если не удаётся загрузить JavaScript.
+    // Если JavaScript-файл загружен, заменяем span на кнопки и вешаем дополнительные ARIA-атрибуты.
+
+    const nav = document.querySelector('.site-nav')
+    nav.classList.add('enhanced')
+
+    const submenus = document.querySelectorAll('.menu__item[data-has-children]')
+    const dropdowns = document.querySelectorAll('.menu__item[data-has-children] > .menu')
+
+    const icon = `
+      <svg
+        width="24px"
+        height="24px"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        class="menu__btn-icon"
+      >
+      <path fill="currentColor" d="M5.64645 8.64645c.19526-.19527.51184-.19527.7071 0L12 14.2929l5.6464-5.64645c.1953-.19527.5119-.19527.7072 0 .1952.19526.1952.51184 0 .7071L12 15.7071 5.64645 9.35355c-.19527-.19526-.19527-.51184 0-.7071Z"></path>
+      </svg>
+    `
+
+    // Находим подменю, заменяем в нём span на кнопку
+    submenus.forEach((item) => {
+      const dropdown = item.querySelector(':scope > .menu')
+      dropdown.setAttribute('hidden', '')
+
+      const span = item.querySelector(':scope > span')
+      const text = span.innerText
+      const ariaControlsId = span.dataset.controls
+
+      const button = document.createElement('button')
+
+      // Добавляем класс и необходимые ARIA-атрибуты
+      button.classList.add('menu__btn')
+      button.setAttribute('aria-expanded', 'false')
+      button.setAttribute('aria-controls', ariaControlsId)
+
+      button.innerText = text
+
+      // Добавляем иконку к кнопке, чтобы визуально было понятно открыто меню или нет
+      button.innerHTML += icon
+
+      span.replaceWith(button)
+
+      button.addEventListener('click', function (e) {
+        toggleDropdown(button, dropdown)
+      })
+
+      // Обрабатываем нажатие на Esc
+      dropdown.addEventListener('keydown', (e) => {
+        e.stopImmediatePropagation()
+
+        if (e.keyCode === 27 && focusIsInside(dropdown)) {
+          toggleDropdown(button, dropdown)
+          button.focus()
+        }
+      }, false)
+    })
+
+    function toggleDropdown(button, dropdown) {
+      if (button.getAttribute('aria-expanded') === 'true') {
+        button.setAttribute('aria-expanded', 'false')
+        dropdown.setAttribute('hidden', '')
+      } else {
+        button.setAttribute('aria-expanded', 'true')
+        dropdown.removeAttribute('hidden')
+      }
+    }
+
+    function focusIsInside(element) {
+      return element.contains(document.activeElement)
+    }
+
+    function collapseDropdownsWhenTabbingOutsideNav(e) {
+      if (e.keyCode === 9 && !focusIsInside(nav)) {
+        dropdowns.forEach(function (dropdown) {
+          dropdown.setAttribute('hidden', '')
+          const btn = dropdown.parentNode.querySelector('button')
+          btn.setAttribute('aria-expanded', 'false')
+        })
+      }
+    }
+
+    function collapseDropdownsWhenClickingOutsideNav(e) {
+      const target = e.target
+
+      dropdowns.forEach(function (dropdown) {
+        if (!dropdown.parentNode.contains(target)) {
+          dropdown.setAttribute('hidden', '')
+          const btn = dropdown.parentNode.querySelector('button')
+          btn.setAttribute('aria-expanded', 'false')
+        }
+      })
+    }
+
+    // Закрываем навигацию, если протапались за её пределы
+    document.addEventListener('keyup', collapseDropdownsWhenTabbingOutsideNav)
+
+    // Закрываем навигацию, если кликнули вне навигации
+    window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
+  </script>
+</body>
+</html>

@@ -9,6 +9,7 @@ groups:
       - character-counter
       - center
       - popup
+      - dropdown-menu
       - container
   - name: 'На серверной стороне'
     items:
