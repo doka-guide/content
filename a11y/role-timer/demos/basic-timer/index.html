@@ -173,6 +173,7 @@
 
     let interval
     let totalSeconds = 120
+    let isTimerRunning = false
 
     function setAriaLive() {
       timer.setAttribute('aria-live', 'polite')
@@ -182,7 +183,9 @@
     }
 
     startButton.addEventListener('click', () => {
+      if (!isTimerRunning) {
         startTimer()
+      }
     })
 
     pauseButton.addEventListener('click', () => {
@@ -191,9 +194,11 @@
 
     function pauseTimer() {
       clearInterval(interval)
+      isTimerRunning = false
     }
 
     function startTimer() {
+      isTimerRunning = true
       message.textContent = ''
 
       interval = setInterval(() => {
