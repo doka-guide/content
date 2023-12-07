@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2023
+
+- 7 декабря, [Выпадающее меню](https://doka.guide/recipes/dropdown-menu/), Сергей Дудко
+
 ## Ноябрь 2023
 
 - 30 ноября, [`aria-expanded`](https://doka.guide/a11y/aria-expanded/), Татьяна Фокина
