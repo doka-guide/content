@@ -1,5 +1,5 @@
 ---
-title: "group-by"
+title: ".groupBy()"
 description: "Группирует элементы итерируемого объекта."
 authors:
   - fpetrakov
