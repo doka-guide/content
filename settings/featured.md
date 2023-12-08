@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/nav
-  - js/execution-order
-  - css/media
-  - tools/oop
-  - tools/agile
-  - css/specificity
-  - tools/ci-cd
-  - html/input
-  - tools/network
-  - js/infinite-scroll
-  - html/section
-  - tools/bundlers
-  - recipes/progress
-  - html/form
-  - tools/how-the-browser-creates-pages
-  - css/transform-function
-  - html/div
-  - tools/clean-architecture
-  - css/display
-  - js/function-context
-  - tools/static-types
-  - js/deal-with-forms
-  - css/box-shadow
-  - html/doctype
-  - css/position
-  - a11y/screenreaders
-  - tools/cli
-  - tools/how-to-test-and-why
-  - a11y/aria-intro
-  - a11y/aria-hidden
-  - html/article
-  - css/flexbox-guide
+  - recipes/lets-encrypt-nginx
   - js/async-in-js
-  - js/closures
   - css/pseudoelements
+  - css/box-shadow
+  - html/flow
+  - css/media
+  - tools/markdown
+  - css/grid-guide
+  - html/div
+  - tools/cli
+  - tools/ci-cd
+  - js/closures
+  - html/nav
+  - a11y/screenreaders
+  - tools/how-the-browser-creates-pages
+  - js/var-let
+  - tools/network
+  - tools/bundlers
   - tools/gitlab-ci-cd
+  - css/position
+  - css/transform-function
+  - a11y/aria-hidden
+  - tools/how-to-test-and-why
+  - tools/webpack
+  - js/boolean
+  - tools/clean-architecture
+  - css/attr
+  - html/doctype
+  - html/head
+  - tools/agile
+  - tools/static-types
+  - html/article
+  - html/input
+  - html/section
+  - html/img
+  - recipes/snow
+  - css/display
+  - recipes/progress
+  - js/function-context
+  - css/custom-properties
+  - js/infinite-scroll
+  - css/specificity
+  - css/keyframes
+  - a11y/aria-intro
+  - html/form
+  - js/execution-order
+  - css/flexbox-guide
+  - js/function
+  - js/deal-with-forms
+  - html/video
   - tools/docker
   - css/box-model
-  - css/grid-guide
-  - css/keyframes
-  - css/attr
-  - tools/webpack
-  - js/function
-  - recipes/snow
-  - html/video
-  - html/head
-  - recipes/lets-encrypt-nginx
-  - js/var-let
-  - tools/markdown
-  - css/custom-properties
-  - js/boolean
-  - html/flow
-  - html/img
+  - tools/oop
 ---
 
