@@ -68,10 +68,10 @@ console.log(elements.at(1) === elements[1])
 const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
 
 console.log(hobbits.at(-1))
-
+// Бильбо
 ```
 
-Меняем последний элемент используя традиционный подход. Для это требуется вычислить его индекс:
+Получаем последний элемент используя традиционный подход. Для это требуется вычислить его индекс:
 
 ```js
 const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
@@ -87,7 +87,7 @@ console.log(hobbits[lastIndex]);
 ```js
 const array = ['ночь','улица','фонарь']
 try {
-  console.log(array.at(-1,'январь'))
+  console.log(array.at(4))
 } catch (err) {
   console.log('Поймали ошибку! Вот она: ', err.message)
 }
