@@ -1,8 +1,8 @@
-Так же удобно отлаживать производительность через вкладку chorome ->  devtools -> Performance,
-потому что вызовы `performance.mark()` и `performance.measure()` будут отбросаться в разделе `Timings` после записи
+Удобно анализировать производительность при помощи вкладки Performance в инструментах разработчика.
+Вызовы `performance.mark()` и `performance.measure()` будут отображаться в разделе `Timings` после записи.
 профиля.
 
-![панель отладки производительности с performance.mark](images/img.png)
+![панель отладки производительности с `performance.mark`](images/img.png)
 
 <iframe title="Измерение времени работы иерархий медленных  функций " src="../demos/meded90/" height="150"></iframe>
 

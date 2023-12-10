@@ -50,12 +50,12 @@
     <main>
     <div id="container">
       <ol>
-        <li> Откройте devtools -> Performance  </li>
-        <li> Кликтие на круглу  кнопку  для начла записи или <code>ctrl+e</code></li>
+        <li>Откройте инструменты разработчика (developer tools) и перейдите в раздел «Производительность» (Performance).</li>
+        <li>Нажмите круглую кнопку для начала записи или <code>Ctrl E</code></li>
         <li>
-          Нажмите для старта мелденых  функций - <button id="start-button" class="button">Запустить</button>
+          Нажмите для старта медленных функций — <button id="start-button" class="button">Запустить</button>
         </li>
-        <li> Нжамите красную кнопку для остоновки записи или <code>ctrl+e</code></li>
+        <li>Нажмите красную кнопку для остановки записи или <code>Ctrl E</code></li>
 
       </ol>
     </div>
@@ -66,7 +66,7 @@
     const startButton = document.getElementById('start-button')
     const result = document.getElementById('result')
 
-    const slow = function() {
+    const performSlowCalculation = function() {
       performance.mark('slow start')
       for (let i = 0; i < 100000000; i++) {
         const a = i * i
@@ -76,7 +76,7 @@
     }
 
     function function_1(){
-      performance.mark('function_1 start')
+      performance.mark('first slow iteration')
       slow()
       performance.mark('function_1 end')
       performance.measure('function_1 duration', 'function_1 start', 'function_1 end')
