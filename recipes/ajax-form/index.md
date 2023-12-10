@@ -22,7 +22,7 @@ tags:
 
 <aside>
 
-💬 Ещё атрибут `method` может иметь значение `dialog`. В таком случае дефолтное поведение - закрытие «[модального окна](/html/dialog/)». Страница перезагружаться не будет.
+💬 Ещё атрибут `method` может иметь значение `dialog`. В таком случае дефолтное поведение — закрытие [модального окна](/html/dialog/). Страница перезагружаться не будет.
 
 </aside>
 
@@ -56,7 +56,7 @@ async function handleFormSubmit(event) {
   disableButton()
 
   try {
-    showLoader();
+    showLoader()
     const response = await fetch("/api/login", {
       method: "POST",
       body: new FormData(form)
@@ -135,7 +135,7 @@ async function handleFormSubmit(event) {
   event.preventDefault()
 
   try {
-    showLoader();
+    showLoader()
     const response = await fetch("/api/login", {
       method: "POST",
       body: new FormData(form)
