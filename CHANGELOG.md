@@ -4,6 +4,8 @@
 
 ## Декабрь 2023
 
+- 10 декабря, [Асинхронная отправка формы](https://doka.guide/recipes/ajax-form/), Федя Петраков
+- 10 декабря, [Плотность пикселей](https://doka.guide/tools/pixel-density/), Сергей Дудко
 - 7 декабря, [Выпадающее меню](https://doka.guide/recipes/dropdown-menu/), Сергей Дудко
 
 ## Ноябрь 2023
