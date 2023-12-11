@@ -1,14 +1,16 @@
 ---
 title: "Плавное раскрытие выпадающего меню"
-description: "Раскрываем меню без расчёта высоты в JS и знания количества элементов, на чистом CSS."
+description: "Раскрываем меню на чистом CSS без расчёта высоты в JavaScript и знания количества элементов."
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 related:
   - css/numeric-types
   - html/button
   - css/transition
 tags:
-  - doka
+  - article
 ---
 
 ## Задача
