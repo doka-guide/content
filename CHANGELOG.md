@@ -4,6 +4,8 @@
 
 ## Декабрь 2023
 
+- 12 декабря, [Ленивая загрузка картинок с цветным превью](https://doka.guide/recipes/lazy-load-with-preview/), Владислав Гапонов
+- 12 декабря, [Дерево доступности](https://doka.guide/a11y/a11y-tree/), Татьяна Фокина
 - 10 декабря, [Асинхронная отправка формы](https://doka.guide/recipes/ajax-form/), Федя Петраков
 - 10 декабря, [Плотность пикселей](https://doka.guide/tools/pixel-density/), Сергей Дудко
 - 7 декабря, [Выпадающее меню](https://doka.guide/recipes/dropdown-menu/), Сергей Дудко
