@@ -10,11 +10,13 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 keywords:
   - футер
 related:
   - css/position
-  - a11y/screenreaders
+  - a11y/role-contentinfo
   - css/flexbox-guide
 tags:
   - doka
@@ -24,6 +26,8 @@ tags:
 
 `<footer>` создаёт нижнюю часть страницы или блока — «подвал». Обычно здесь находятся контакты, ссылки на разделы сайта, копирайт.
 
+У `<footer>` есть роль [`contentinfo`](/a11y/role-contentinfo/). Благодаря роли пользователи [скринридеров](/a11y/screenreaders/) могут быстро перемещаться к этой области страницы с помощью специальных клавиш.
+
 ## Пример
 
 В нашем блоке со статьёй будет небольшой футер с указанием автора и его контактами:
@@ -31,15 +35,20 @@ tags:
 ```html
 <article>
   <h1>Бигфут</h1>
-  <p>Бигфут (от англ. Bigfoot, «большеногий») — название полумифического млекопитающего...</p>
+  <p>
+    Бигфут (от англ. Bigfoot, «большеногий») — название
+    полумифического млекопитающего...
+  </p>
   <footer>
     <p>Ольга Сасквоч</p>
-    <p>Почта: <a href="mailto:sasquatch@yandex.ru">sasquatch@yandex.ru</a>.</p>
+    <p>
+      Почта: <a href="mailto:sasquatch@yandex.ru">sasquatch@yandex.ru</a>.
+    </p>
   </footer>
 </article>
 ```
 
-<iframe title="Футер для статьи" src="demos/footer/" height="300"></iframe>
+<iframe title="Футер для статьи" src="demos/footer/" height="360"></iframe>
 
 ## Как понять
 
