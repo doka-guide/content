@@ -12,6 +12,7 @@ contributors:
   - skorobaeus
   - valeriimakhniuk
   - whyme0
+  - jag-k
 editors:
   - tachisis
 keywords:
