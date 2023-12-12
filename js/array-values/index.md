@@ -1,6 +1,6 @@
 ---
 title: "`.values()`"
-description: "Возвращает объект-итератор значений элементов массива"
+description: "Возвращает объект-итератор значений элементов массива."
 authors:
   - vitya-ne
 related:
@@ -18,14 +18,14 @@ tags:
 ## Пример
 
 Создадим объект-итератор и получим его значения с помощью `for...of`:
-```js
 
+```js
 const array = [1, 2, 3]
 
 const iterator = array.values()
 
 for (const item of iterator) {
-    console.log(item)
+  console.log(item)
 }
 
 // 1
@@ -64,7 +64,7 @@ const colors = []
 
 colors[2] = 'crimson'
 for (const color of colors.values()) {
-    console.log(color)
+  console.log(color)
 }
 // undefined
 // undefined
@@ -80,6 +80,4 @@ const numbers = Array.from(numbersIterator)
 
 console.log(numbers)
 // [1, 2, 3, 4]
-
 ```
-💡
