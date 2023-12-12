@@ -3,6 +3,8 @@ title: "`<search>`"
 description: "Один тег чтобы обернуть секцию с поиском или фильтром."
 authors:
   - andreysukhov
+contributors:
+  - skorobaeus
 related:
   - html/form
   - html/input
