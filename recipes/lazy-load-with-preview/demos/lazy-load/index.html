@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ленивая загрузка — Ленивая загрузка изображений с цветным превью — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #18191C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .lazy-image {
+      width: 300px;
+      height: 250px;
+      background: no-repeat;
+      background-size: cover;
+      filter: blur(20px);
+    }
+  </style>
+</head>
+<body>
+  <img
+    src="images/lazy-frog-small.jpg"
+    data-src="images/lazy-frog-large.jpg"
+    alt="Лягушка"
+    class="lazy-image"
+    id="progressive-image"
+  >
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressiveImage = document.getElementById('progressive-image')
+
+        const lowResImage = new Image()
+        lowResImage.src = progressiveImage.src
+        lowResImage.onload = function() {
+            progressiveImage.src = progressiveImage.getAttribute('data-src')
+            progressiveImage.style.filter = 'none'
+        }
+    })
+  </script>
+</body>
+</html>
