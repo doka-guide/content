@@ -48,7 +48,7 @@ console.log(years.join())
 // 1970,1980,1990
 // 1970,1980,1990
 ```
-Если метод `.join() не может быть вызван, будет вызван `Object.prototype.toString()`:
+Если метод `.join()` не может быть вызван, будет вызван `Object.prototype.toString()`:
 
 ```js
 const years = [1970, 1980, 1990]
