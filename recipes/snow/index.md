@@ -113,7 +113,7 @@ body {
 }
 
 .snow-toggle__control:focus + .snow-toggle__text::before {
-  border-color: #2E9AFF;
+  border-color: #C56FFF;
 }
 
 .snow-toggle__control:checked + .snow-toggle__text::before {
