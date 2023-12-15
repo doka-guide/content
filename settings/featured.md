@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - recipes/lets-encrypt-nginx
-  - js/async-in-js
-  - css/pseudoelements
-  - css/box-shadow
   - html/flow
-  - css/media
-  - tools/markdown
-  - css/grid-guide
-  - html/div
-  - tools/cli
-  - tools/ci-cd
-  - js/closures
-  - html/nav
-  - a11y/screenreaders
-  - tools/how-the-browser-creates-pages
-  - js/var-let
-  - tools/network
-  - tools/bundlers
-  - tools/gitlab-ci-cd
-  - css/position
-  - css/transform-function
-  - a11y/aria-hidden
-  - tools/how-to-test-and-why
-  - tools/webpack
-  - js/boolean
-  - tools/clean-architecture
-  - css/attr
-  - html/doctype
   - html/head
   - tools/agile
-  - tools/static-types
-  - html/article
-  - html/input
-  - html/section
-  - html/img
-  - recipes/snow
-  - css/display
   - recipes/progress
-  - js/function-context
-  - css/custom-properties
-  - js/infinite-scroll
-  - css/specificity
-  - css/keyframes
-  - a11y/aria-intro
-  - html/form
-  - js/execution-order
-  - css/flexbox-guide
-  - js/function
-  - js/deal-with-forms
+  - tools/bundlers
+  - tools/static-types
+  - tools/webpack
+  - a11y/screenreaders
+  - css/box-shadow
+  - js/boolean
   - html/video
-  - tools/docker
-  - css/box-model
+  - html/input
+  - tools/how-the-browser-creates-pages
+  - css/specificity
+  - css/media
+  - css/grid-guide
+  - html/doctype
+  - js/function-context
+  - js/function
+  - html/img
   - tools/oop
+  - html/form
+  - a11y/aria-hidden
+  - recipes/lets-encrypt-nginx
+  - js/deal-with-forms
+  - css/custom-properties
+  - tools/markdown
+  - html/article
+  - css/flexbox-guide
+  - css/pseudoelements
+  - css/transform-function
+  - recipes/snow
+  - tools/clean-architecture
+  - css/position
+  - css/keyframes
+  - css/display
+  - tools/docker
+  - js/infinite-scroll
+  - tools/gitlab-ci-cd
+  - a11y/aria-intro
+  - js/execution-order
+  - css/attr
+  - js/var-let
+  - js/async-in-js
+  - tools/how-to-test-and-why
+  - tools/network
+  - css/box-model
+  - tools/cli
+  - js/closures
+  - html/section
+  - html/div
+  - html/nav
+  - tools/ci-cd
 ---
 
