@@ -10,6 +10,8 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - article
 ---
