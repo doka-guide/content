@@ -63,7 +63,7 @@ console.log(todos)
 // ['купить молока', 'почитать Доку', <2 пустых ячейки>]
 
 todos.forEach(function(todo, index) {
-  console.log(`${index + 1}. todo`)
+  console.log(`${index + 1}. ${todo}`)
 })
 // 1. купить молока
 // 2. почитать Доку
