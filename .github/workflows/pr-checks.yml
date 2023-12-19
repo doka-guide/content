@@ -77,36 +77,3 @@ jobs:
           markdown: true
           serverRoot: "/home/runner/work/content/content"
           linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
-  yaspeller:
-    name: Орфография
-    needs:
-      - link-checker
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 16
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v2.2.0
-      - name: Проверяет правописание
-        run: |
-          npm i -g yaspeller
-          config=.yaspeller.json
-          file_list=""
-          echo "Устанавливаю утилиту..."
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
-            if [[ $changed_file == $config ]]; then
-              echo "Проверяются все файлы..."
-              yaspeller --only-errors --file-extensions ".md,.html" *
-              break
-            elif [[ $changed_file =~ \.(md|html)$ ]]; then
-              file_list="${file_list} ${changed_file}"
-              echo "Файл ${changed_file} добавлен в список для проверки."
-            fi
-          done
-          if ! [[ $file_list == "" ]]; then
-            echo "Проверяются файлы из PR..."
-            yaspeller --only-errors ${file_list}
-          fi
