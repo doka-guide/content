@@ -1,13 +1,9 @@
 name: Frontmatter Lint
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller All"
+  push:
     branches:
       - main
-    types:
-      - completed
 
 jobs:
   frontmatter-lint:
