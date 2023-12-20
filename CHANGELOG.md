@@ -4,6 +4,7 @@
 
 ## Декабрь 2023
 
+- 20 декабря, [`clip-path`](https://doka.guide/css/clip-path/), Валерия Дубровская, Антон Капустинский
 - 13 декабря, [`aria-atomic`](https://doka.guide/a11y/aria-atomic/), Татьяна Фокина
 - 12 декабря, [Ленивая загрузка картинок с цветным превью](https://doka.guide/recipes/lazy-load-with-preview/), Владислав Гапонов
 - 12 декабря, [Дерево доступности](https://doka.guide/a11y/a11y-tree/), Татьяна Фокина
