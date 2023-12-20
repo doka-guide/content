@@ -3,6 +3,8 @@ title: "`aria-roledescription`"
 description: "Как дать роли элемента своё название."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - доступность
