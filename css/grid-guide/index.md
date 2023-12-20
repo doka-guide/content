@@ -12,6 +12,7 @@ contributors:
   - corocoto
   - filimonovalexey
   - starhamster
+  - skorobaeus
 editors:
   - tachisis
 keywords:

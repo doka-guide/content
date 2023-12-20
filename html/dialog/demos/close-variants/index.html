@@ -45,7 +45,7 @@
 
     .button, .dialog__button {
       display: block;
-      min-width: 210px;
+      min-width: 260px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
@@ -57,6 +57,7 @@
     }
 
     .dialog__button {
+      min-width: 300px;
       margin: 0 auto;
     }
 
@@ -134,6 +135,11 @@
         /* Сдвигаем диалоговые окна ближе к низу страницы, чтобы они не перекрывали кнопки на демке */
         margin-bottom: 30px;
         bottom: 0;
+      }
+
+      .dialog__button {
+        min-width: auto;
+        width: 100%;
       }
     }
   </style>
