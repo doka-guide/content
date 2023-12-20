@@ -31,6 +31,7 @@ groups:
       - small
       - pre
       - code
+      - dir
   - name: 'Семантика'
     items:
       - div
@@ -42,6 +43,7 @@ groups:
       - article
       - aside
       - nav
+      - search
       - time
       - data
       - sub
@@ -96,6 +98,7 @@ groups:
       - svg
       - map
       - area
+      - svg-sprite
   - name: 'Ссылки'
     items:
       - a
@@ -139,14 +142,20 @@ groups:
       - defer-async
       - template
       - output
+      - data-attributes
   - name: 'Глобальные атрибуты'
     items:
       - global-attrs
       - class
       - hidden
+      - inert
+      - dir
+      - tabindex
+      - data-attributes
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners
+      - noindex
 ---
 
 HTML — язык разметки для создания структуры веб-страницы и представления контента. Благодаря разметке браузер знает в каком порядке отображать элементы, и что они значат.
