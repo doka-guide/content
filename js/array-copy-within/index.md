@@ -82,8 +82,11 @@ console.log(companies.copyWithin(3, 0))
 ```js
 const colors = ['red', 'green', 'blue', 'white']
 
+// работает
 console.log(colors.copyWithin(2))
 // ['red', 'green', 'red', 'green']
+
+// тоже самое, но понятнее
 console.log(colors.copyWithin(2, 0))
 // ['red', 'green', 'red', 'green']
 ```
