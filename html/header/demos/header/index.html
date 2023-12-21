@@ -91,6 +91,59 @@
     .portfolio-footer .text + .text {
       margin-top: 5px;
     }
+
+    .portfolio-articles {
+      display: grid;
+      align-items: stretch;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      margin-block-start: 50px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .card-article {
+      display: flex;
+      flex-flow: column;
+      padding: 20px;
+      border: 1px solid rgb(104, 104, 104);
+      border-radius: 20px;
+      box-sizing: border-box;
+      height: 100%;
+    }
+
+    .card-article__title {
+      font-size: 20px;
+      font-weight: normal;
+    }
+
+    .portfolio-work {
+      max-width: 400px;
+      aspect-ratio: 1;
+      margin-block: 20px;
+    }
+
+    .portfolio-work_color_orange-1 {
+      background-color: #dd8e55;
+    }
+
+    .portfolio-work_color_orange-2 {
+      background-color: #e0782d;
+    }
+
+    .portfolio-work_color_orange-3 {
+      background-color: #6b3d1c;
+    }
+
+    .card-article__description {
+      margin-block-end: 20px;
+      line-height: 1.5;
+    }
+
+    .card-article__header {
+      font-size: 14px;
+      color: rgb(168, 168, 168);
+    }
   </style>
 </head>
 <body>
@@ -110,6 +163,47 @@
     <h1 class="portfolio-title">Портфолио Ольги Сасквоч</h1>
     <p class="text">Добро пожаловать!</p>
     <p class="text">Рада приветствовать вас на своём сайте. Здесь вы можете посмотреть уже готовые работы и узнать, что ещё я могу сделать для вас.</p>
+
+    <ul class="portfolio-articles">
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Работа номер 1</h2>
+            <div class="portfolio-work portfolio-work_color_orange-1"></div>
+            <p class="card-article__description">
+              Тут мы описываем какой мы сделали замечательный проект, причём в одиночку. Все эти
+              бессонные ночи наедине с монитором и клавиатурой.
+            </p>
+            <!--
+              header может находится в любом месте секционного контента.
+              Он отделяет сопутствующего описание от основного контента
+            -->
+            <header class="card-article__header">Авторы: Ольга Сасквоч</header>
+          </article>
+        </li>
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Работа номер 2</h2>
+            <div class="portfolio-work portfolio-work_color_orange-2"></div>
+            <p class="card-article__description">
+              Тут тоже описание не менее замечательного проекта, который мы сделали вместе с Васей.
+              Бессоных ночей было чуть-чуть меньше.
+            </p>
+            <header class="card-article__header">Авторы: Ольга Сасквоч, Вася Пупкин</header>
+          </article>
+        </li>
+        <li>
+          <article class="card-article">
+            <h2 class="card-article__title">Работа номер 3</h2>
+            <div class="portfolio-work portfolio-work_color_orange-3"></div>
+            <p class="card-article__description">
+              Этот проект вышле просто таки грандиозным. И всё из-за того, что в проекте участвовал
+              не только Пётр Романо, но и я, Ольга Саскович
+            </p>
+            <header class="card-article__header">Авторы: Ольга Сасквоч, Пётр Романов</header>
+          </article>
+        </li>
+      </ul>
+
   </main>
   <footer class="portfolio-footer">
     <p class="text">Ольга Сасквоч</p>
