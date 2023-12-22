@@ -113,7 +113,7 @@
 
     .card-article__title {
       font-size: 20px;
-      font-weight: normal;
+      font-weight: 500;
     }
 
     .portfolio-work {
@@ -123,7 +123,7 @@
     }
 
     .portfolio-work_color_orange-1 {
-      background-color: #dd8e55;
+      background-color: #DD8E55;
     }
 
     .portfolio-work_color_orange-2 {
@@ -142,6 +142,36 @@
     .card-article__header {
       font-size: 14px;
       color: rgb(168, 168, 168);
+    }
+
+
+    @media (max-width: 768px) {
+      body {
+        padding-bottom: 30px;
+      }
+
+      .portfolio-container, .portfolio, .portfolio-footer {
+        width: 100%;
+        min-width: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      nav {
+        position: relative;
+      }
+
+      nav::before {
+        content: "...";
+        font-size: 5rem;
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+      }
     }
   </style>
 </head>
