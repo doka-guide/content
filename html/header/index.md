@@ -69,17 +69,20 @@ tags:
         <h2 class="card-article__title">Работа номер 1</h2>
         <div class="portfolio-work portfolio-work_color_orange-1"></div>
         <p class="card-article__description">
-          Тут описываем какой мы сделали замечательный проект, причём в одиночку. Все эти
-          бессонные ночи наедине с монитором и клавиатурой.
+          Тут описываем какой мы сделали замечательный проект,
+          причём в одиночку. Все эти бессонные ночи наедине с монитором
+          и клавиатурой.
         </p>
-        <header class="card-article__header">Авторы: Ольга Сасквоч</header>
+        <header class="card-article__header">
+          Авторы: Ольга Сасквоч
+        </header>
       </article>
     </li>
   </ul>
 </main>
 ```
 
-<iframe title="Шапка сайта" src="demos/header/" height="850"></iframe>
+<iframe title="Шапка сайта" src="demos/header/" height="1080"></iframe>
 
 ## Как понять
 
@@ -133,7 +136,10 @@ tags:
         </nav>
         <h2>Я прочитал всю спецификацию EcmaScript!</h2>
       </header>
-      <p>Сегодня я закончил последнюю главу спецификации. Теперь я точно знаю весь JavaScript!</p>
+      <p>
+        Сегодня я закончил последнюю главу спецификации.
+        Теперь я точно знаю весь JavaScript!
+      </p>
     </section>
   </body>
 </html>
