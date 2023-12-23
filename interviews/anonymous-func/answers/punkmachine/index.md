@@ -1,4 +1,4 @@
-Типичными случаями для использования анонимных функций в JavaScript являются замыкания, обработчики событий, таймеры и callback-и для методов и других функций. Приведу несколько примеров:
+Типичными случаями для использования анонимных функций в JavaScript являются [замыкания](/js/closures/#funkcii-vnutri-funkciy-i-zamykaniya), [обработчики событий](/js/element-addeventlistener/), [таймеры](/js/settimeout/) и callback-и для методов и других функций. Приведу несколько примеров:
 
 1. Callback метода массива:
 
@@ -9,7 +9,7 @@ const squared = numbers.map(num => num * num);
 console.log(squared); // [1, 4, 9, 16, 25]
 ```
 
-2. Обработчик события для HTML элемента:
+1. Обработчик события для HTML элемента. Стоит обратить внимание, что в таком случае не получится удалить его через [`removeEventListener`](/js/element-removeeventlistener/).
 
 ```js
 document.getElementById('buttonId').addEventListener('click', () => {
