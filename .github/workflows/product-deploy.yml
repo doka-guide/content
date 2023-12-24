@@ -24,6 +24,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: content
+      - name: Загрузка кеша
+        uses: actions/checkout@v2
+        with:
+          repository: doka-guide/cache
+          path: cache
       - uses: actions/setup-node@v2
         with:
           node-version: 16
@@ -49,6 +54,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no deploy@dev.doka.guide
       - name: Установка модулей
         run: npm ci
+      - name: Копирование кеша
+        run: cp -r ./cache/.cache ./
       - name: Сборка сайта
         run: |
           cp .env.example .env
