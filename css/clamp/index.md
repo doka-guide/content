@@ -4,7 +4,6 @@ authors:
   - gartonot
 tags:
   - doka
-  - css
 ---
 
 ## Кратко
