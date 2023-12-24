@@ -1,5 +1,5 @@
 ---
-title: "`clamp`"
+title: "`clamp()`"
 authors:
   - gartonot
 tags:
