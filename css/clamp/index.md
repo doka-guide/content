@@ -34,8 +34,8 @@ tags:
 
 ```css
 .box {
-    width: clamp(240px, 80%, 360px);
-    margin: 0 auto;
+  width: clamp(240px, 80%, 360px);
+  margin: 0 auto;
 }
 ```
 
