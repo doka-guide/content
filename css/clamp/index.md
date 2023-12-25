@@ -2,6 +2,12 @@
 title: "`clamp()`"
 authors:
   - gartonot
+contributors:
+  - skorobaeus
+related:
+  - css/calc
+  - css/max
+  - css/min
 tags:
   - doka
 ---
