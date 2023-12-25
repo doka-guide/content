@@ -6,6 +6,7 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
+  - gvozdenkov
 editors:
   - tachisis
 keywords:
