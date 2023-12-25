@@ -148,7 +148,6 @@
 
     function firstFunction(){
       performance.mark('function_1 start')
-      //performance.mark('function_1 slow iteration')
       performSlowCalculation()
       performance.mark('function_1 end')
       performance.measure('function_1 duration', 'function_1 start', 'function_1 end')
