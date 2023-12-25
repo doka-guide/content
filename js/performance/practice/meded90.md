@@ -19,6 +19,6 @@ const withPerformanceMeasure = (markName, functionToAudit) => {
 withPerformanceMeasure(myApp)
 ```
 
-Этого не стоит делать. Затраты на выполнение функции `performance.mark()` минимальные, но не нулевые. Например, раньше в React все компоненты были обёрнуты в подобную функцию в dev-режиме, но в React версии 17 эту функциональность убрали из-за проблем с производительностью.
+Этого не стоит делать. Затраты на выполнение функции `performance.mark()` минимальные, но не нулевые.
 
 ![Панель Performance Timings для React 17](images/perfomance-timings-r17.png)
