@@ -1,5 +1,6 @@
 ---
 title: "`clamp()`"
+description: "Как задать минимальное и максимальное значения в CSS в одну строчку кода?"
 authors:
   - gartonot
 contributors:
