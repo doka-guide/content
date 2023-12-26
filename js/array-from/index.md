@@ -97,7 +97,8 @@ bookSet.add(bookObj2)
 
 const bookArray = Array.from(bookSet) // получим массив из Set
 
-bookObj1.filmYears.push(1965) // добавим экранизацию 'Войны и мира' в исходный объект
+// добавим экранизацию 'Войны и мира' в исходный объект
+bookObj1.filmYears.push(1965)
 
 // это изменение отразится и на массиве
 console.log(bookArray[0])
