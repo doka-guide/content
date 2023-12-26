@@ -87,7 +87,7 @@ const bookObj1 = {
 }
 const bookObj2 = {
   name: 'Братья Карамазовы',
-  author: 'Ф. М. Достоквский',
+  author: 'Ф. М. Достоевский',
   filmYears: [1915, 1920, 1931, 1969]
 }
 
