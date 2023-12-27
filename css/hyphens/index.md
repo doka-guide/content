@@ -1,9 +1,14 @@
 ---
 title: "`hyphens`"
+description: "Указываем, как браузеру следует переносить слова, если они не поместились в элемент."
 authors:
   - doka-dog
 keywords:
   - перенос слова через дефис
+related:
+  - css/word-wrap
+  - css/overflow-wrap
+  - css/white-space
 tags:
   - doka
   - placeholder

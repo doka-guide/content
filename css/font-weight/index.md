@@ -1,5 +1,6 @@
 ---
 title: "`font-weight`"
+description: "Как изменить толщину букв в тексте?"
 authors:
   - doka-dog
 contributors:
@@ -8,6 +9,10 @@ contributors:
 keywords:
   - вес шрифта
   - жирность шрифта
+related:
+  - html/strong
+  - css/font-style
+  - css/font-size
 tags:
   - doka
 ---
@@ -52,7 +57,7 @@ div {
 }
 ```
 
-## Как это понять
+## Как понять
 
 Большинство шрифтов имеют два варианта начертания: обычное `normal` и жирное `bold`. Их в основном и используют.
 

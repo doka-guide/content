@@ -1,7 +1,12 @@
 ---
-title: "`.includes()`"
+title: '`.includes()`'
+description: 'Проверяет, есть ли элемент в массиве или подстрока в строке.'
 authors:
   - nlopin
+related:
+  - js/array-find-index
+  - js/set
+  - js/deal-with-forms
 tags:
   - doka
 ---
@@ -18,29 +23,46 @@ tags:
 
 ## Пример
 
-Метод принимает один аргумент — значение, которое нужно проверить.
+Метод принимает два аргумента — значение, которое нужно проверить и позицию, начиная с которой необходимо проверять.
+
+Второй аргумент не обязательный, он равен `0` по умолчанию.
+
+### Особенности использования второго аргумента
+
+- Если передать в качестве аргумента положительное значение или `0`, поиск начнётся с этого индекса и до конца массива.
+- Если передать отрицательное значение, поиск начнётся с этого индекса, отсчитанного от конца массива и будет происходить до конца массива. Для этого случая индекс начала поиска можно рассчитать по формуле — `длинна массива/строки + переданное отрицательное число`. Например, длинна массива/строки — `10`, переданный аргумент — `-2`. Начало поиска с позиции — `8`, т. к. `10 + (-2) = 8`.
+- Если второй аргумент больше длинны массива/строки, то метод всегда будет возвращать `false`.
 
 Массив:
 
 ```js
-const dead = ["Joffrey", "Ned Stark", "Night king"]
-const isJonDead = dead.includes("Jon Snow")
-console.log(isJonDead) // напечатает false
+const dead = ['Джон Сноу', 'Джофри', 'Нед Старк', 'Король ночи']
+const isAryaDead = dead.includes('Арья Старк')
+console.log(isAryaDead)
+// false
 
-const isJoffreyDead = dead.includes("Joffrey")
-console.log(isJoffreyDead) // напечатает true
+const isJoffreyDead = dead.includes('Джофри')
+console.log(isJoffreyDead)
+// true
+
+const isJohnDead = dead.includes('Джон Сноу', 1)
+console.log(isJohnDead)
+// false
 ```
 
 Строка:
 
 ```js
 const text =
-  "Посмотри, ведь это рядом наша панда. Мы бежим с тобой как-будто от гепарда."
+  'Посмотри, ведь это рядом наша панда. Мы бежим с тобой как-будто от гепарда.'
 
-console.log(text.includes("панда")) // true
+console.log(text.includes('панда'))
+// true
 
-console.log(text.includes("Обезьяна")) // false
+console.log(text.includes('Обезьяна'))
+// false
 
 // поиск идет с учетом регистра
-console.log(text.includes("Панда")) // false
+console.log(text.includes('Панда'))
+// false
 ```

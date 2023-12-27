@@ -4,25 +4,54 @@
   <title>Псевдоклассы группы type — nth-of-type — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 20px;
-      font-weight: 300;
     }
 
     ol {
-      padding-left: 2em;
+      width: 600px;
+      padding-left: 14px;
+      list-style-type: none;
+      counter-reset: num;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      counter-increment: num;
+    }
+
+    li::before {
+      content: counter(num);
+      position: absolute;
+      top: 3px;
+      right: 100%;
+      width: 14px;
+      height: 14px;
+      padding: 1px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
+      background-color: #FFFFFF;
+      color: #000000;
     }
 
     li + li {
@@ -32,24 +61,35 @@
     /* следующий пункт не имеет класса, всё, что мы о нём «знаем» — что он
     третий <li> по порядку */
     li:nth-of-type(3) {
-      color: #49a16c;
+      color: #41E847;
     }
 
     /* 2, 4, 6 пункт с классом .list__item имеет синий цвет, т. е. каждый чётный */
     .list__item:nth-of-type(2n) {
-      color: #1a5ad7;
+      color: #2E9AFF;
     }
 
     /* 5-й <li> (или 3 .list__item) — жёлтый */
     li:nth-of-type(5),
     .list__item:nth-of-type(3) {
-      color: #ffd829;
+      color: #FFD829;
     }
 
     /* последний пункт должен быть белым (укажем это и для тега, и для класса) */
     li:nth-last-of-type(1),
     .list__item:last-of-type {
       color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      ol {
+        width: 100%;
+        min-width: auto;
+      }
     }
   </style>
 </head>

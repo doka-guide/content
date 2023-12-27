@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры использования — Атрибут disabled — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px;
+      font-family: "Roboto", sans-serif;
+      color: #FFFFFF;
+      accent-color: #FF8630;
+      background-color: #18191c;
+    }
+
+    div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    div:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    button, input, textarea, select {
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    fieldset {
+      flex: 1 1 45%;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .fieldset-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fieldset-item + .fieldset-item {
+      margin-top: 25px;
+    }
+
+    .fieldset-label {
+      margin-right: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 8px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    textarea {
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    textarea:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .checkbox-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    input[type="checkbox"] + .checkbox-label::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    input[type="checkbox"]:focus + .checkbox-label::before {
+      border-color: #FF8630;
+    }
+
+    input[type="checkbox"]:checked + .checkbox-label::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #FF8630;
+    }
+
+    select {
+      position: relative;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .select-container {
+      position: relative;
+    }
+
+    .select-container::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      left: 295px;
+      width: 14px;
+      height: 9px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      pointer-events: none;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid #FF8630;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    option:checked {
+      background-color: #FF8630;
+      color: #18191C;
+    }
+
+    [disabled], .checkbox-item--inactive {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: default;
+      user-select: none;
+    }
+
+    @media (max-width: 780px) {
+      body {
+        padding: 30px;
+      }
+
+      div, input {
+        width: 100%;
+      }
+
+      textarea {
+        min-width: 100%;
+      }
+
+      .fieldset-item {
+        display: block;
+      }
+
+      input {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button class="button-orange">Подтвердить</button>
+    <button class="button-orange" disabled>Подтвердить</button>
+  </div>
+  <div>
+    <fieldset>
+      <label class="fieldset-item">
+        <span class="fieldset-label">Имя:</span>
+        <input type="text">
+      </label>
+      <label class="fieldset-item">
+        <span class="fieldset-label">Телефон:</span>
+        <input type="tel">
+      </label>
+    </fieldset>
+    <fieldset disabled>
+      <label class="fieldset-item">
+        <span class="fieldset-label">Имя:</span>
+        <input type="text">
+      </label>
+      <label class="fieldset-item">
+        <span class="fieldset-label">Телефон:</span>
+        <input type="tel">
+      </label>
+    </fieldset>
+  </div>
+  <div class="select-container">
+    <select name="flowers">
+      <optgroup>
+        <option value="Незабудка">Незабудка</option>
+        <option value="Подснежник">Подснежник</option>
+      </optgroup>
+      <optgroup disabled>
+        <option value="Анютины глазки">Анютины глазки</option>
+        <option value="Хризантемы">Хризантемы</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="select-container">
+    <select name="flowers">
+      <option value="Незабудка">Незабудка</option>
+      <option value="Подснежник">Подснежник</option>
+      <option value="Анютины глазки">Анютины глазки</option>
+      <option value="Хризантемы" disabled>Хризантемы</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <select name="flowers" disabled>
+      <option value="Незабудка">Незабудка</option>
+      <option value="Подснежник">Подснежник</option>
+      <option value="Анютины глазки">Анютины глазки</option>
+      <option value="Хризантемы">Хризантемы</option>
+    </select>
+  </div>
+  <div>
+    <textarea>Некий текст</textarea>
+    <textarea disabled>Некий текст</textarea>
+  </div>
+  <div>
+    <label class="checkbox-item">
+      <input type="checkbox">
+      <span class="checkbox-label">Подтверждаю</span>
+    </label>
+    <label class="checkbox-item checkbox-item--inactive">
+      <input type="checkbox" disabled>
+      <span class="checkbox-label">Подтверждаю</span>
+    </label>
+  </div>
+</body>
+</html>

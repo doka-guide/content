@@ -12,6 +12,11 @@
     }
 
     body {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
       padding: 50px;
       background-color: #18191C;
       text-align: center;
@@ -34,10 +39,6 @@
 
     .button:active, .button:focus {
       outline: none;
-    }
-
-    .button + .button {
-      margin-left: 25px;
     }
   </style>
 </head>

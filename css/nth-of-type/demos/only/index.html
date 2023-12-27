@@ -4,24 +4,31 @@
   <title>Выбор единственного элемента родителя — nth-of-type — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
     h2 {
+      margin-bottom: 17px;
       font-weight: 500;
-      font-size: 22px;
+      font-size: 1.375rem;
     }
 
     h2:not(:first-of-type) {
@@ -29,8 +36,22 @@
     }
 
     ul {
-      margin-top: 10px;
-      padding-left: 2em;
+      list-style-type: none;
+      padding-left: 54px;
+    }
+
+    li {
+      position: relative;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 7px);
+      left: -24px;
+      width: 14px;
+      height: 14px;
+      background-color: #FFFFFF;
     }
 
     li + li {
@@ -42,25 +63,39 @@
     }
 
     li:only-of-type span {
-      background-color: #ed6742;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      ul {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Дни недели в немецком языке</h2>
-  <ul>
-    <li><span>der Montag</span> — понедельник</li>
-    <li><span>der Dienstag</span> — вторник</li>
-    <li><span>der Mittwoch</span> — среда</li>
-    <li><span>der Donnerstag</span> — четверг</li>
-    <li><span>der Freitag</span> — пятница</li>
-    <li><span>der Sonnabend</span> — суббота</li>
-    <li><span>der Sonntag</span> — воскресенье</li>
-  </ul>
+  <div class="container">
+    <h2>Дни недели в немецком языке</h2>
+    <ul>
+      <li><span>der Montag</span> — понедельник</li>
+      <li><span>der Dienstag</span> — вторник</li>
+      <li><span>der Mittwoch</span> — среда</li>
+      <li><span>der Donnerstag</span> — четверг</li>
+      <li><span>der Freitag</span> — пятница</li>
+      <li><span>der Sonnabend</span> — суббота</li>
+      <li><span>der Sonntag</span> — воскресенье</li>
+    </ul>
 
-  <h2>Единственный день, в названии которого нет слова «день»</h2>
-  <ul>
-    <li><span>der Mittwoch</span> — среда</li>
-  </ul>
+    <h2>Единственный день, в названии которого нет слова «день»</h2>
+    <ul>
+      <li><span>der Mittwoch</span> — среда</li>
+    </ul>
+  </div>
 </body>
 </html>

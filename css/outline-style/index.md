@@ -1,7 +1,12 @@
 ---
 title: "`outline-style`"
+description: "Задаём стиль обводки элемента. Сплошная, пунктирная или объёмная."
 authors:
   - doka-dog
+related:
+  - css/outline
+  - css/border-style
+  - css/web-colors
 tags:
   - doka
   - placeholder
@@ -9,7 +14,7 @@ tags:
 
 ## Кратко
 
-Свойство `outline-style` задаёт стиль обводки. Можно использовать шорткат [`outline`](/css/outline) для одновременного указания толщины, стиля и цвета обводки.
+Свойство `outline-style` задаёт стиль обводки. Можно использовать шорткат [`outline`](/css/outline/) для одновременного указания толщины, стиля и цвета обводки.
 
 ## Как пишется
 

@@ -4,39 +4,83 @@
   <title>Базовый пример — <ins> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      padding: 20px;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      color: white;
-      font-size: 24px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    h4 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.125rem;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #FF8630;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <h4>Список дел</h4>
-  <ul>
-    <li>Помыть посуду</li>
-    <li>Полить цветы</li>
-    <li><ins>Погулять с собакой</ins></li>
-    <li><ins>Пропылесосить комнату</ins></li>
-  </ul>
+  <div>
+    <h4>Список дел</h4>
+    <ul>
+      <li>Помыть посуду</li>
+      <li>Полить цветы</li>
+      <li><ins>Погулять с собакой</ins></li>
+      <li><ins>Пропылесосить комнату</ins></li>
+    </ul>
+  </div>
 </body>
 </html>

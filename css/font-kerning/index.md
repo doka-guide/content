@@ -1,7 +1,12 @@
 ---
 title: "`font-kerning`"
+description: "Управляем кернингом. Если вы понимаете о чём я."
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-language-override
+  - css/font-smooth
 tags:
   - doka
   - placeholder

@@ -1,15 +1,17 @@
 ---
 title: "`<span>`"
+description: "Помогает выделить стилем часть текста в блоке."
 authors:
   - doka-dog
 contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - тэг
-  - тег
-  - span
   - спан
+related:
+  - html/class
+  - css/class-selector
+  - js/query-selector-all
 tags:
   - doka
 ---
@@ -28,7 +30,7 @@ tags:
 </p>
 ```
 
-## Как это понять
+## Как понять
 
 Например, хочется, чтобы одно слово в абзаце было написано красным цветом. Помести это слово в коде в контейнер `<span>`...`</span>` и примени к нему CSS-стиль.
 

@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-numeric`"
+description: "Используйте это свойство, чтобы написать ½ вместо 1/2."
 authors:
   - doka-dog
+related:
+  - css/font-variant-caps
+  - css/font-face
+  - css/font-family
 tags:
   - doka
   - placeholder

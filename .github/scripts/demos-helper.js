@@ -1,5 +1,6 @@
-const { Octokit } = require("@octokit/core")
-const fs = require('fs')
+import fetch from 'node-fetch'
+import { Octokit } from '@octokit/core'
+import fs from 'fs'
 
 const args = process.argv.slice(2)
 const ghKey = args.includes('--github-key') ? args[args.indexOf('--github-key') + 1] : false
@@ -12,14 +13,16 @@ const issueNumberToChapter = {
   css: 1944,
   html: 1943,
   js: 1942,
-  tools: 1941
+  tools: 1941,
+  a11y: 3954,
 }
 
 const issueLists = {
   css: [],
   html: [],
   js: [],
-  tools: []
+  tools: [],
+  a11y: [],
 }
 
 const printItem = (fileName, title, isChecked, isPlaceholder) => {
@@ -42,7 +45,7 @@ if (ghKey) {
     }
   }
 
-  const octokit = new Octokit({ auth: ghKey })
+  const octokit = new Octokit({ auth: ghKey, request: { fetch }})
   for (const chapter in issueNumberToChapter) {
     octokit.request('PATCH /repos/{owner}/{repo}/issues/{issue_number}', {
       owner: 'doka-guide',

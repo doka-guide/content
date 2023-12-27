@@ -1,5 +1,6 @@
 ---
 title: "Вендорные префиксы"
+description: "Специальная запись CSS-свойств на этапе эксперимента."
 authors:
   - solarrust
 editors:
@@ -8,6 +9,10 @@ keywords:
   - css vendor prefixes
   - browser prefixes
   - браузерные префиксы
+related:
+  - tools/how-the-browser-creates-pages
+  - css/appearance
+  - css/cascade
 tags:
   - article
 ---
@@ -43,7 +48,7 @@ CSS — это одна из трёх основных мощных технол
 
 ### Директивы
 
-Самый частый случай, когда вам может пригодится вендорный префикс для директивы — [`@keyframes`](/css/keyframes):
+Самый частый случай, когда вам может пригодится вендорный префикс для директивы — [`@keyframes`](/css/keyframes/):
 
 ```css
 @-webkit-keyframes animation {
@@ -93,13 +98,13 @@ input::placeholder {
 
 ### Значения свойств
 
-Бывает и так, что свойство старое, а вот значение для него новое, экспериментальное. В данный момент таким новым значением является функция [`image-set()`](/css/image-set) для свойства [`background-image`](/css/background-image):
+Бывает и так, что свойство старое, а вот значение для него новое, экспериментальное. В данный момент таким новым значением является функция [`image-set()`](/css/image-set/) для свойства [`background-image`](/css/background-image/):
 
 ```css
 div {
-  background-image: url("image.png");
-  background-image: -webkit-image-set(url("image.png") 1x, url("image-2x.png") 2x);
-  background-image: image-set("image.png" 1x, "image-2x.png" 2x);
+  background-image: url('image.png');
+  background-image: -webkit-image-set(url('image.png') 1x, url('image-2x.png') 2x);
+  background-image: image-set('image.png' 1x, 'image-2x.png' 2x);
 }
 ```
 
@@ -109,7 +114,7 @@ div {
 
 ### Селекторы
 
-Случается так, что в процессе внедрения фича меняется. Изначально планировалось, что функция выбора нескольких селекторов будет называться `:any()`, потом `:match()`, а в итоге пришли к [`:is()`](/css/is). Чтобы селектор сработал везде, даже в старых браузерах, где функция называлась иначе, нужна будет такая запись:
+Случается так, что в процессе внедрения фича меняется. Изначально планировалось, что функция выбора нескольких селекторов будет называться `:any()`, потом `:match()`, а в итоге пришли к [`:is()`](/css/is/). Чтобы селектор сработал везде, даже в старых браузерах, где функция называлась иначе, нужна будет такая запись:
 
 ```css
 :-moz-any(header, footer) a:hover {
@@ -129,7 +134,7 @@ div {
 }
 ```
 
-В примере выше мы задаём красный цвет для ссылок при наведении курсора при условии, что эти ссылки находятся внутри [`<header>`](/html/header) или [`<footer>`](/html/footer).
+В примере выше мы задаём красный цвет для ссылок при наведении курсора при условии, что эти ссылки находятся внутри [`<header>`](/html/header/) или [`<footer>`](/html/footer/).
 
 ## Как всё запомнить?
 

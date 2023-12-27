@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Выделение формы — :focus-within — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      padding: 55px 40px;
+    }
+
+    form:focus-within {
+      background-color: #282A2E;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input, .container {
+      width: 350px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .input {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      flex-shrink: 0;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 0;
+      }
+
+      form {
+        padding: 35px 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        display: inline-block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .container {
+        width: 100%;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label class="row-label" for="name">Любимая пицца:</label>
+      <input class="input" type="text" id="name" placeholder="Пеперони">
+    </div>
+    <div class="form-row">
+      <span class="row-label">Любимый ингредиент:</span>
+      <div class="container">
+        <label class="radio-label">
+          <input class="radio" type="radio" name="pizza" value="pineapple" checked>
+          <span class="radio-title">Ананасы</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="pizza" value="cheese">
+          <span class="radio-title">Сыр</span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="pizza" value="onion">
+          <span class="radio-title">Лук</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,31 +1,27 @@
 name: Frontmatter Lint
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller All"
+  push:
     branches:
       - main
-    types:
-      - completed
 
 jobs:
   frontmatter-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Проверка линтером меты в main
         run: |
           echo "Проверка для всех файлов"
-          npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md
+          npx yaml-cat --format json --output result.json a11y/**/index.md css/**/index.md html/**/index.md js/**/index.md recipes/**/index.md tools/**/index.md
           node .github/scripts/frontmatter.js --fix
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Сортирует мету в материалах
-          file_pattern: (css|html|js|tools)/**/index.md
+          file_pattern: (a11y|css|html|js|recipes|tools)/**/index.md
           commit_user_name: Doka Dog
           commit_user_email: hi@doka.guide
           commit_author: Doka Dog <hi@doka.guide>

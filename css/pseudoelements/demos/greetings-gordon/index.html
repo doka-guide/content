@@ -4,43 +4,62 @@
   <title>Подчёркивание — Псевдоэлементы — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191c;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      text-align: center;
-      overflow: hidden;
+      font-size: 18px;
     }
 
-    .username {
+    .message {
       display: inline-block;
-      padding: 30px 70px;
-      background-color: #1a5ad7;
-      color: #ffffff;
-      border-radius: 82px;
-      font-size: 24px;
-      font-weight: 300;
-      line-height: 1;
+      padding: 20px 60px;
+      border-radius: 32px;
+      color: #000000;
     }
 
-    .username:before {
+    .incoming {
+      border-bottom-left-radius: 0;
+      background-color: #2E9AFF;
+    }
+
+    .incoming::before {
       content: "Привет, ";
     }
 
-    .username:after {
+    .incoming::after {
       content: "";
       display: block;
       width: 100%;
       height: 2px;
-      background-color: #f498ad;
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <span class="username">Гордон</span>
+  <div class="container">
+    <span class="message incoming">Гордон</span>
+  </div>
 </body>
 </html>

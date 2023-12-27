@@ -4,91 +4,138 @@
   <title>Transition одного или двух свойств — transition — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
-      padding: 10% 5%;
-      overflow: hidden;
-      background-color: #f498ad;
-      color: #18191c;
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .wrapper {
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      inline-size: 400px;
+      margin-inline: auto;
     }
 
     .col {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: space-between;
     }
 
     .col + .col {
-      margin-top: 70px;
+      margin-block-start: 30px;
     }
 
-    .title {
-      width: 50%;
-      font-size: 24px;
-      font-weight: 600;
+    .option-title {
+      inline-size: 150px;
+      margin-inline-end: 50px;
+      text-align: right;
+      text-transform: lowercase;
     }
 
     .button-container {
-      width: 50%;
+      flex-grow: 1;
       text-align: center;
     }
 
     .button {
-      min-width: 140px;
-      border: 1px solid #18191c;
-      padding: 10px 15px;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 16px;
+      min-inline-size: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
       font-weight: 300;
-      transition: background-color 0.6s;
+      font-family: inherit;
       cursor: pointer;
+      transition: background-color 0.6s;
     }
 
-    .transitioned .button {
-      transition: background-color 0.6s, padding 0.5s;
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button-pink {
+      background-color: #F498AD;
     }
 
     .button:hover {
-      background-color: transparent;
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
     .button:focus {
-      border-radius: 0;
-      outline: 1px solid #ffffff;
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .transitioned .button {
+      transition: background-color 0.6s, transform 0.5s;
     }
 
     .transitioned .button:hover {
-      padding: 10px 30px;
-      background-color: transparent;
+      transform: scale(110%);
+      background-color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        inline-size: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .option-title {
+        inline-size: auto;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <div class="col">
-      <h2 class="title">Одно свойство</h2>
+      <span class="option-title">Одно свойство</span>
       <div class="button-container">
-        <button class="button">В избранное</button>
+        <button class="button button-blue">В избранное</button>
       </div>
     </div>
     <div class="col transitioned">
-      <h2 class="title">Два свойства</h2>
+      <span class="option-title">Два свойства</span>
       <div class="button-container">
-        <button class="button">Купить скорее!</button>
+        <button class="button button-pink">Купить скорее!</button>
       </div>
     </div>
   </div>

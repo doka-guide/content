@@ -16,7 +16,10 @@
   </style>
 </head>
 <body>
-  <video controls src="video/frontend.mp4" poster="images/frontend.jpg" width="580">
+  <video controls muted poster="images/frontend.jpg" width="580">
+    <source src="video/frontend.mp4" type="video/mp4">
+    <!-- Видео в формате mp4 с кодеком HEVC специально для Safari-->
+    <source src="video/frontend_safari.mp4" type="video/mp4">
     Простите, но ваш браузер не поддерживает встроенные видео.
     Попробуйте скачать видео <a href="video/frontend.mp4">по этой ссылке</a>
     и открыть его на своём устройстве.

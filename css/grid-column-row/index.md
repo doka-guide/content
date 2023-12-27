@@ -1,5 +1,11 @@
 ---
 title: "`grid-column`, `grid-row`"
+description: "Где начнётся и где закончится грид-элемент?"
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-column
+      - css.properties.grid-row
 authors:
   - solarrust
 editors:
@@ -7,13 +13,17 @@ editors:
 keywords:
   - грид-колонка
   - грид-полоса
+related:
+  - css/grid-guide
+  - css/grid-template
+  - css/grid-area
 tags:
   - doka
 ---
 
 ## Кратко
 
-Свойства-шорткаты для `grid-column-start` + `grid-column-end` и `grid-row-start` + `grid-row-end` соответственно. [Статья про эти свойства](/css/grid-start-end).
+Свойства-шорткаты для `grid-column-start` + `grid-column-end` и `grid-row-start` + `grid-row-end` соответственно. [Статья про эти свойства](/css/grid-start-end/).
 
 Значения для `*-start` и `*-end` разделяются слэшем.
 
@@ -21,12 +31,12 @@ tags:
 
 ## Пример
 
-Элемент начинается с третьей линии по горизонтали и растягивается на 2 ячейки. По вертикали элемент начинается от линии с именем `[third-line]` и заканчивается у четвёртой линии:
+Элемент начинается с третьей линии по горизонтали и растягивается на 2 ячейки. По вертикали элемент начинается от третьей линии и заканчивается у четвёртой линии:
 
 ```css
 .item1 {
   grid-column: 3 / span 2;
-  grid-row: third-line / 4;
+  grid-row: 3 / 4;
 }
 ```
 
@@ -34,7 +44,7 @@ tags:
 
 ## Как пишется
 
-Используйте доступные значения свойств [`grid-column-start`, `grid-column-end`, `grid-row-start` и `grid-row-end`](/css/grid-start-end), разделяя их слэшем.
+Используйте доступные значения свойств [`grid-column-start`, `grid-column-end`, `grid-row-start` и `grid-row-end`](/css/grid-start-end/), разделяя их слэшем.
 
 ## Подсказки
 

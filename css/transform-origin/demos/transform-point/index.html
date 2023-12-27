@@ -2,52 +2,66 @@
 <html lang="ru">
 <head>
   <title>Точка трансформации — transform-origin — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 50px;
+      min-block-size: 100%;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+      gap: 100px;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
     }
 
     .parent {
-      width: 150px;
-      height: 150px;
-      border: 2px dashed lightcoral;
-      margin-left: 30px;
-      margin-right: 30px;
+      inline-size: 150px;
+      block-size: 150px;
+      border: 2px dashed #F498AD;
       position: relative;
     }
 
     .parent::after {
-      content: "";
-      width: 26px;
-      height: 26px;
+      content: '';
+      inline-size: 26px;
+      block-size: 26px;
       position: absolute;
-      left: 50%;
-      top: 50%;
+      inset: 50%;
       transform: translate(-50%, -50%);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cdefs%3E%3Cstyle%3E.a%7Bfill:%23e66465;%7D.b%7Bfill:none;stroke:%23e66465;stroke-miterlimit:10;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Ecrosshair%3C/title%3E%3Ccircle class='a' cx='13' cy='13' r='3.5'/%3E%3Cline class='b' x1='13' x2='13' y2='26'/%3E%3Cline class='b' x1='26' y1='13' y2='13'/%3E%3Ccircle class='b' cx='13' cy='13' r='8.5'/%3E%3C/svg%3E%0A");
+      background-image: url("images/point.svg");
     }
 
     .rotate-lt::after {
-      left: 0;
-      top: 0;
+      inset: 0;
     }
 
     .element {
-      width: 150px;
-      height: 150px;
-      border: 2px solid green;
+      inline-size: 150px;
+      block-size: 150px;
+      border: 2px solid #2E9AFF;
       box-sizing: border-box;
-      background: #00FF0033;
+      background-color: rgb(46 154 255 / 30%);
       transform: rotate(-30deg);
       animation: rot 2s linear infinite ;
     }
 
     .rotate-lt .element {
-      transform-origin: top;
+      transform-origin: 0 0;
     }
 
     @keyframes rot {
@@ -61,13 +75,20 @@
         transform: rotate(0);
       }
     }
+
+    @media (max-width: 768px) {
+      body {
+        grid-auto-flow: row;
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="parent rotate-lt">
+  <div class="parent">
     <div class="element"></div>
   </div>
-  <div class="parent">
+  <div class="parent rotate-lt">
     <div class="element"></div>
   </div>
 </body>

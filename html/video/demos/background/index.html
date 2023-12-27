@@ -4,7 +4,8 @@
   <title>Видео на фоне — <video> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
@@ -54,6 +55,8 @@
 <body>
     <video autoplay muted loop>
       <source src="video/storm.mp4" type="video/mp4">
+      <!-- Видео в формате mp4 с кодеком HEVC специально для Safari-->
+      <source src="video/storm_safari.mp4" type="video/mp4">
     </video>
     <article>
       <h1>Банановый эквивалент</h1>

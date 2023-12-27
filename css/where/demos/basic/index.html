@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Объяснение работы — :where() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      margin: 0;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      max-inline-size: 800px;
+    }
+
+    h1 {
+      margin-block: 0;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    ._styles {
+      position: relative;
+    }
+
+    ._styles::before {
+      margin-bottom: 0.5em;
+      position: absolute;
+      inset: 8px 8px auto auto;
+      width: max-content;
+      padding: 0.45em 0.9em 0.25em;
+      text-transform: uppercase;
+      font-size: 0.6em;
+      line-height: 1;
+      letter-spacing: 0.025em;
+      background-color: hsla(209, 100%, 59%, 0.5);
+      border-radius: 2em;
+      transition: opacity 0.2s;
+    }
+
+    ._styles::before {
+      content: "CSS";
+    }
+
+    code {
+      font-family: "Roboto Mono",  monospace;
+      white-space: pre-wrap;
+    }
+
+    .button {
+      display: block;
+      min-inline-size: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button-pink {
+      background-color: #F498AD;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    header,
+    main {
+      margin-block-end: 25px;
+    }
+
+    footer {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .code-section {
+      padding: 20px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    .code-block {
+      display: block;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+      transition-property: transform, opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+
+    .code-block_hidden {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(1em);
+    }
+
+    .cat {
+      transition-property: background-color;
+      transition-duration: 300ms;
+      transition-timing-function: ease;
+    }
+
+    :where(h1, ul) .cat {
+      border-radius: 3px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body, .code-section {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Сколько <span class="cat">голубых котов</span> приходится на сотню шерстяных <!-- yaspeller ignore:start -->тыгыдыков<!-- yaspeller ignore:end -->?</h1>
+      <ul>
+        <li>50 чёрных кошек</li>
+        <li>25 полосатых котят</li>
+        <li><span class="cat">25 голубых котов</span></li>
+      </ul>
+    </header>
+    <main>
+      <div class="code-section _styles">
+        <pre><code class="code-block">:where(h1, ul) .cat {
+  background-color: #2E9AFF;
+}</code>
+  <code class="code-block code-block_hidden" id="code-block-color-override">ul .cat {
+  background-color: #FF8630;
+}</code></pre>
+      </div>
+    </main>
+    <footer>
+      <button id="play" class="button button-blue">Покрасить 25 голубых котов в рыжий</button>
+      <button id="reset" class="button button-pink hidden">Давайте ещё раз</button>
+    </footer>
+  </div>
+  <script>
+    const play = document.querySelector('#play')
+    const reset = document.querySelector('#reset')
+    const style = document.querySelector('style')
+
+    const cssColorOverrideRule = `
+    ul .cat {
+      background-color: #FF8630;
+    }
+    `
+
+    play.addEventListener('click', (event) => {
+      style.appendChild(document.createTextNode(cssColorOverrideRule))
+
+      document.querySelector('#code-block-color-override').classList.remove('code-block_hidden')
+
+      event.target.textContent = 'Котики покрашены'
+      event.target.setAttribute('disabled', true)
+
+      reset.classList.toggle('hidden')
+    })
+
+    reset.addEventListener('click', (event) => {
+      style.innerText = style.innerText.substring(0, style.innerText.indexOf(cssColorOverrideRule))
+
+      document.querySelector('#code-block-color-override').classList.add('code-block_hidden')
+
+      play.textContent = 'Покрасить 25 голубых котов в рыжий'
+      play.removeAttribute('disabled')
+
+      reset.classList.toggle('hidden')
+    })
+  </script>
+</body>
+</html>

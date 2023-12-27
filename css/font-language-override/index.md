@@ -1,7 +1,12 @@
 ---
 title: "`font-language-override`"
+description: "Подстраиваем шрифт под конкретный язык."
 authors:
   - doka-dog
+related:
+  - css/font-optical-sizing
+  - css/font-variant
+  - css/font-variant-caps
 tags:
   - doka
   - placeholder

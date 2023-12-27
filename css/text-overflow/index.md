@@ -1,14 +1,19 @@
 ---
 title: "`text-overflow`"
+description: "Красиво обрезаем текст, не влезающий в блок. Можем даже добавить в конце многоточие…"
 authors:
   - solarrust
+related:
+  - css/white-space
+  - css/overflow
+  - css/overflow-wrap
 tags:
   - doka
 ---
 
 ## Кратко
 
-Свойство `text-overflow` определяет, как будет обрезаться текст, если он не влезает в доступную область полностью. Работает только если родительскому элементу заданы свойства [`white-space`](/css/white-space) со значением `nowrap` и [`overflow`](/css/overflow) со значением `hidden`, `scroll` или `auto`.
+Свойство `text-overflow` определяет, как будет обрезаться текст, если он не влезает в доступную область полностью. Работает только если элементу заданы также свойства [`white-space`](/css/white-space/) со значением `nowrap` и [`overflow`](/css/overflow/) со значением `hidden`, `scroll` или `auto`.
 
 ## Пример
 
@@ -29,4 +34,4 @@ p {
 - `clip` — текст обрезается ровно по краю родительского блока.
 - `ellipsis` — при обрезке текста в конце строки добавляется многоточие «…», показывая незавершённость предложения.
 
-<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="200"></iframe>
+<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="420"></iframe>

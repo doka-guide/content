@@ -4,50 +4,83 @@
   <title>Правовые формулировки — <small> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      margin-top: 0;
-      margin-bottom: 0;
+    html {
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
+      color: #000000;
       font-family: "Roboto", sans-serif;
-      color: white;
-      font-size: 24px;
-      padding: 20px;
-      box-sizing: border-box;
-      text-align: center;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     small {
-      font-size: 15px;
+      font-size: 0.6rem;
+      line-height: 1.4;
+      color: #FFFFFF;
     }
 
     h3 {
-      color: #bb0af1;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    .container {
+      width: 65%;
     }
 
     .coupon {
-      border: 2px dashed #67f309;
-      padding: 10px;
+      padding: 55px 40px;
+      background-color: #FF8630;
+      margin-bottom: 10px;
       text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .coupon {
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="coupon">
-    <h3>Акция!</h3>
-    <p>Предъявите усы, лапы или хвост и получите скидку до 30% на услуги почтовых отправлений.</p>
+  <div class="container">
+    <div class="coupon">
+      <h3>Акция!</h3>
+      <p>Предъявите усы, лапы или хвост и получите скидку до 30% на услуги почтовых отправлений 📨</p>
+    </div>
+    <small>Не является публичной офертой. Копирайт © 2023 ОАО «Печкин и партнёры». Все права сохранены.</small>
   </div>
-  <small>Не является публичной офертой. Копирайт © 2021 ОАО «Печкин и партнёры». Все права сохранены.</small>
 </body>
 </html>

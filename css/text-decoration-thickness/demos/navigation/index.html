@@ -4,13 +4,28 @@
   <title>Декор текста — text-decoration-thickness — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
       margin: 0;
       padding: 5%;
       background-color: #18191c;
@@ -30,7 +45,7 @@
       display: inline-block;
       color: inherit;
       font-size: 36px;
-      line-height: 48px;
+      line-height: 1.3;
       padding: 6px 10px;
       text-decoration-skip-ink: none;
       text-decoration-thickness: 4px;
@@ -75,7 +90,7 @@
         <a class="nav-list__link yellow" href="#">JavaScript</a>
       </li>
       <li class="nav-list__item">
-        <a class="nav-list__link green" href="#">Инструменты</a>
+        <a class="nav-list__link green" href="#">Веб-платформа</a>
       </li>
     </ul>
   </nav>

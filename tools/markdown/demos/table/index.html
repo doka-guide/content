@@ -4,7 +4,8 @@
   <title>Таблица — Markdown — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
     html {
@@ -12,28 +13,33 @@
     }
 
     body {
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
       color: #fff;
       font-family: Roboto, sans-serif;
-      line-height: 1.5;
+      line-height: 1.4;
     }
 
     table {
       width: 100%;
       max-width: 400px;
+      border-top: 7px solid #41E847;
       border-collapse: collapse;
     }
 
     table th,
     table td {
-      padding: 0.25em 0.5em;
-      border: 1px solid #54575f;
+      padding: 14px;
+      border: 1px solid #41E847;
+      border-left-width: 0;
+      line-height: 1.2;
     }
 
-    table thead {
-      background: #050506;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

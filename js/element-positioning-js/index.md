@@ -1,5 +1,11 @@
 ---
 title: "Позиционирование элементов с помощью JS"
+description: "CSS отлично справляется с позиционированием элементов, но иногда его не хватает. Учимся выбирать, когда нужен CSS, а когда — JS."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Компьютерная стрелочка передвигает окошки с изображениями'
 authors:
   - bespoyasov
 contributors:
@@ -7,6 +13,10 @@ contributors:
 keywords:
   - анимации animation
   - transform
+related:
+  - tools/how-the-browser-creates-pages
+  - css/transition
+  - recipes/dragndrop-upload
 tags:
   - article
 ---
@@ -31,7 +41,7 @@ CSS — это инструмент, который специально был 
 
 Используйте скрипты для позиционирования тогда, когда стилей не хватает.
 
-CSS ограничен в обратной связи на действия пользователей на экране. В нём есть такие штуки как `@keyframes`, [`transition`](/css/transition), [`:hover`](/css/hover), [`:active`](/css/active), [`:focus`](/css/focus) и т. д., но этого не всегда достаточно.
+CSS ограничен в обратной связи на действия пользователей на экране. В нём есть такие штуки как `@keyframes`, [`transition`](/css/transition/), [`:hover`](/css/hover/), [`:active`](/css/active/), [`:focus`](/css/focus/) и т. д., но этого не всегда достаточно.
 
 Иногда нужно, чтобы в ответ на действия пользователя на странице происходили сложные преобразования или чтобы пользователи сами могли управлять анимациями на странице.
 
@@ -39,11 +49,11 @@ CSS ограничен в обратной связи на действия по
 
 ## Как менять позиционирование на скриптах
 
-Изменять положение элементов (как и любые стили элементов) на странице можно с помощью нескольких способов.
+Изменять положение элементов (как и любые стили элементов) на странице можно несколькими способами.
 
 ### Изменять классы
 
-Допустим, мы хотим переместить элемент при клике на него в другое место. Для решения такой задачи нам вполне подойдёт способ с изменением класса у элемента.
+Допустим, мы хотим переместить элемент при клике на него в другое место. Для решения такой задачи нам вполне подойдёт способ с изменением [класса](/html/class/) у элемента.
 
 Определим CSS-классы:
 
@@ -66,13 +76,13 @@ CSS ограничен в обратной связи на действия по
 
 Элементу изначально заданы классы `element element-initial`, которые задают его стили, а также его начальное положение.
 
-Теперь в ответ на действие пользователя (например, в ответ на клик), поменяем класс элемента, отвечающий за положение. Воспользуемся методом [`classList.toggle`](/js/element-classlist/#element.classlist.toggle) у элемента, чтобы добавить класс, если его нет на элементе, и убрать, если класс есть:
+Теперь в ответ на действие пользователя (например, в ответ на клик), поменяем класс элемента, отвечающий за положение. Воспользуемся методом [`classList.toggle()`](/js/element-classlist/#classlist.toggle) у элемента, чтобы добавить класс, если его нет на элементе, и убрать, если класс есть:
 
 ```js
 // Обрабатываем событие клика на элементе:
-element.addEventListener("click", () => {
-  element.classList.toggle("element-final")
-  element.classList.toggle("element-initial")
+element.addEventListener('click', () => {
+  element.classList.toggle('element-final')
+  element.classList.toggle('element-initial')
 })
 ```
 
@@ -86,9 +96,9 @@ element.addEventListener("click", () => {
 
 ### Изменять `style`
 
-Второй способ изменять положение элемента — менять атрибут `style` с помощью JS.
+Второй способ изменять положение элемента — менять атрибут [`style`](/html/style/) с помощью JS.
 
-При работе со `style` следует помнить, что у этого атрибута высокая специфичность, из-за чего он будет перебивать основные стили элемента. Его следует использовать с осторожностью.
+При работе со `style` следует помнить, что у этого атрибута высокая [специфичность](/css/specificity/), из-за чего он будет перебивать основные стили элемента. Его следует использовать с осторожностью.
 
 Он подойдёт в случае, когда мы мгновенно хотим отражать изменения на элементе, даже если не знаем, что и когда поменяется. Например, если мы хотим перемещать элемент мышкой на экране, нам может понадобиться менять его `style`.
 
@@ -96,7 +106,7 @@ element.addEventListener("click", () => {
 
 #### Изменение `margin` или `top / left / right / bottom`
 
-Первое, что приходит на ум — изменение соответствующих свойств типа `margin` или `left / top / right / bottom`.
+Первое, что приходит на ум — изменение соответствующих CSS-свойств типа [`margin`](/css/margin/) или `left / top / right / bottom`.
 
 Создадим элемент с классом `element`:
 
@@ -114,7 +124,7 @@ element.addEventListener("click", () => {
 ```js
 // Сперва создадим ссылку на этот элемент,
 // чтобы обрабатывать события на нём:
-const element = document.querySelector(".element")
+const element = document.querySelector('.element')
 
 // Переменная dragging будет отвечать за состояние элемента.
 // Если его тащат, то переменная будет со значением true.
@@ -127,8 +137,8 @@ let startX = 0
 let startY = 0
 
 // При событии mousedown (когда на элемент нажимают мышью)
-// мы отмечаем dragging как true — значит, элемента начали тащить.
-element.addEventListener("mousedown", (e) => {
+// мы отмечаем dragging как true — значит, элемент начали тащить.
+element.addEventListener('mousedown', (e) => {
   dragging = true
 
   // В значения для startX и startY мы помещаем положение курсора
@@ -146,7 +156,7 @@ element.addEventListener("mousedown", (e) => {
 // Мы наблюдаем именно за body, потому что хотим,
 // чтобы изменения работали на всей странице,
 // а не только внутри элемента element.
-document.body.addEventListener("mousemove", (e) => {
+document.body.addEventListener('mousemove', (e) => {
   // Если элемент не тащат, то ничего не делаем.
   if (!dragging) return
 
@@ -157,7 +167,7 @@ document.body.addEventListener("mousemove", (e) => {
 })
 
 // Когда мы отпускаем мышь, мы отмечаем dragging как false.
-document.body.addEventListener("mouseup", () => {
+document.body.addEventListener('mouseup', () => {
   dragging = false
 })
 ```
@@ -168,20 +178,20 @@ document.body.addEventListener("mouseup", () => {
 
 Это работает, но не очень эффективно, потому что изменения в этих свойствах заставляют браузер делать много лишней работы.
 
-[Как браузер рисует страницы](/js/how-the-browser-creates-pages)
+[Как браузер рисует страницы](/tools/how-the-browser-creates-pages/)
 
 Мы можем сделать лучше.
 
 #### Изменение `transform`
 
-Перепишем наш драг-н-дроп, меняя теперь значение свойства `transform`.
+Перепишем наш драг-н-дроп, меняя теперь значение свойства [`transform`](/css/transform/).
 
 Основа кода останется той же, стили и разметка не поменяются вовсе. В скриптах мы слегка изменим определение положения элемента.
 
 ```js
 // ...
 
-element.addEventListener("mousedown", (e) => {
+element.addEventListener('mousedown', (e) => {
   dragging = true
 
   // В этот раз мы не сможем считать нужные нам значения напрямую.
@@ -223,6 +233,10 @@ element.addEventListener("mousedown", (e) => {
   startX = e.pageX - translateX
   startY = e.pageY - translateY
 })
+// добавляем возможность отпустить элемент при отжатии клавиши
+document.body.addEventListener("mouseup", () => {
+  dragging = false;
+});
 ```
 
 А также немного обновим изменение положения:
@@ -230,7 +244,7 @@ element.addEventListener("mousedown", (e) => {
 ```js
 // ...
 
-document.body.addEventListener("mousemove", (e) => {
+document.body.addEventListener('mousemove', (e) => {
   if (!dragging) return
 
   const x = e.pageX - startX
@@ -253,7 +267,7 @@ document.body.addEventListener("mousemove", (e) => {
 
 Сейчас код рабочий, но его трудно читать. Как минимум потому, что надо знать, как работает матрица преобразований и `DOMMatrixReadOnly`.
 
-Мы же можем не менять значение `transform` вовсе, а вместо этого менять значение CSS-переменных, чтобы обновлять положение элемента!
+Мы же можем не менять значение `transform` вовсе, а вместо этого менять значение [CSS-переменных](/css/custom-properties/), чтобы обновлять положение элемента!
 
 Первым делом определяем кастомные свойства CSS в стилях элемента:
 
@@ -284,15 +298,15 @@ document.body.addEventListener("mousemove", (e) => {
 ```js
 // ...
 
-element.addEventListener("mousedown", (e) => {
+element.addEventListener('mousedown', (e) => {
   dragging = true
 
   // Получаем стиль элемента:
   const style = window.getComputedStyle(element)
 
   // Считываем значение каждой переменной через getPropertyValue:
-  const translateX = parseInt(style.getPropertyValue("--x"))
-  const translateY = parseInt(style.getPropertyValue("--y"))
+  const translateX = parseInt(style.getPropertyValue('--x'))
+  const translateY = parseInt(style.getPropertyValue('--y'))
 
   // Дальше всё остаётся по-старому :–)
   startX = e.pageX - translateX
@@ -305,7 +319,7 @@ element.addEventListener("mousedown", (e) => {
 ```js
 // ...
 
-document.body.addEventListener("mousemove", (e) => {
+document.body.addEventListener('mousemove', (e) => {
   if (!dragging) return
 
   // Обратите внимание, насколько лаконичной стала запись.

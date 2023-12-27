@@ -1,11 +1,18 @@
 ---
 title: "`<embed>`"
+description: "Блок для видео, аудио и прочего контента."
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
   - вставка контента
+related:
+  - html/object
+  - html/iframe
+  - html/video
 tags:
   - doka
 ---
@@ -22,12 +29,12 @@ tags:
 <embed src="sample.pdf" type="application/pdf">
 ```
 
-<iframe title="Вставка PDF" src="demos/embed-pdf/" height="400"></iframe>
+<iframe title="Вставка PDF" src="demos/embed-pdf/" height="700"></iframe>
 
 ## Как понять
 
 Тег `<embed>` создаёт своеобразное окошко, в котором отображается подгружаемый контент.
-Чем-то его поведение похоже на теги [`<object>`](/html/object) и [`<iframe>`](/html/iframe).
+Чем-то его поведение похоже на теги [`<object>`](/html/object/) и [`<iframe>`](/html/iframe/).
 
 ## Как пишется
 
@@ -42,7 +49,7 @@ tags:
 
 При указании ширины и высоты проценты недопустимы. Указывается только число, без единиц измерения.
 
-Помимо этих атрибутов можно использовать любые [глобальные атрибуты](/html/global-attrs).
+Помимо этих атрибутов можно использовать любые [глобальные атрибуты](/html/global-attrs/).
 
 ## Подсказки
 

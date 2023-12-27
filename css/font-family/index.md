@@ -1,11 +1,16 @@
 ---
 title: "`font-family`"
+description: "Каким шрифтом будем текст писать?"
 authors:
   - doka-dog
 contributors:
   - skorobaeus
 keywords:
-  - font-family
+  - имя шрифта
+related:
+  - css/font-style
+  - css/font-face
+  - css/color
 tags:
   - doka
 ---
@@ -20,11 +25,11 @@ tags:
 
 ```css
 body {
-  font-family: "PT Sans", "Arial", serif;
+  font-family: "PT Sans", "Arial", sans-serif;
 }
 ```
 
-## Как это понять
+## Как понять
 
 «PT Sans», «Arial», «Times New Roman» — это примеры семейств шрифтов. С помощью `font-family` можно задать любой шрифт для любого текстового элемента на странице.
 

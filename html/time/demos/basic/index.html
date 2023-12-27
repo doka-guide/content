@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Точное время — <time> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191C;
+      color: #000000;
+    }
+
+    .person {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      background-color: #FF8630;
+    }
+
+    .profile-photo-section {
+      flex-shrink: 0;
+    }
+
+    .profile-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 9999px;
+    }
+
+    .profile-info {
+      margin-left: 25px;
+    }
+
+    .profile-name {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .last-visit {
+      display: flex;
+      align-items: baseline;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .last-visit-datetime {
+      text-decoration: underline;
+    }
+
+    .last-visit-label {
+      margin-left: 5px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="person">
+    <div class="profile-photo-section">
+      <img class="profile-photo" src="images/profile-photo.jpg" alt="">
+    </div>
+    <div class="profile-info">
+      <header class="profile-name">
+        Билл Джобс
+      </header>
+      <div class="last-visit">
+        <time class="last-visit-datetime" datetime="2020-03-16T14:25">
+          16 марта 2020
+        </time>
+        <span class="last-visit-label">последний визит</span>
+      </div>
+    </div>
+  </article>
+</body>
+</html>

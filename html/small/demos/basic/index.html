@@ -4,34 +4,62 @@
   <title>Базовый пример — <small> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    html, body {
-      height: 100%;
-      margin-top: 0;
-      margin-bottom: 0;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #18191C;
-      font-family: "Roboto", sans-serif;
-      color: white;
+    html {
+      color-scheme: dark;
       font-size: 24px;
     }
 
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
     p {
-      text-align: center;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    JavaScript — это лучший язык программирования в мире!<br>
-    <small>Но это не точно</small>
-  </p>
+  <div class="container">
+    <p>
+      JavaScript — это лучший язык программирования в мире!<br>
+      <small>Но это не точно.</small>
+    </p>
+  </div>
 </body>
 </html>

@@ -1,11 +1,10 @@
 🛠 Автоматическое очищение обработчика после первого срабатывания
 
-Если нужно чтобы событие только один раз, то можно не использовать `Element.removeEventListener`, а использовать опцию `once` в `Element.addEventListener`.
+Если нужно чтобы событие сработало только один раз, то можно не использовать `removeEventListener()`, а использовать опцию `once` в `addEventListener()`.
 
 ```js
 window.addEventListener('click', function (event) {
   console.log('Клик!')
-  // установим опцию once: true
 }, { once: true })
 ```
 
@@ -38,5 +37,5 @@ function handleKeypress(event) {
   }
 }
 
-window.addEventListener('keypress', handleClick)
+window.addEventListener('keypress', handleKeypress)
 ```

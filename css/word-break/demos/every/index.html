@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение разных значений — word-break — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    .option-title {
+      margin-inline-end: 50px;
+      text-align: right;
+    }
+
+    h1,
+    .option-title {
+      inline-size: 180px;
+    }
+
+    .option {
+      inline-size: 170px;
+      border: 1px solid #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
+    }
+
+    .normal {
+      word-break: normal;
+    }
+
+    .break-all {
+      word-break: break-all;
+    }
+
+    .keep-all {
+      word-break: keep-all;
+    }
+
+    .break-word {
+      word-break: break-word;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+        overflow: scroll;
+      }
+
+      h1,
+      .option-title {
+        inline-size: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <h1><code>word-break</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>normal</code></span>
+      <p class="option normal">
+        <mark>
+          Пароксизмально-циклокарбонатация-дезоксирибонуклеиновая-кислота.
+        </mark>
+        <br />
+        <mark>
+          一二三四五六七八九十、いろはにほへとちりぬるを、わかよたれそつねならむ
+        </mark>
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>break-all</code></span>
+      <p class="option break-all">
+        <mark>
+          Пароксизмально-циклокарбонатация-дезоксирибонуклеиновая-кислота.
+        </mark>
+        <br />
+        <mark>
+          一二三四五六七八九十、いろはにほへとちりぬるを、わかよたれそつねならむ
+        </mark>
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>keep-all</code></span>
+      <p class="option keep-all">
+        <mark>
+          Пароксизмально-циклокарбонатация-дезоксирибонуклеиновая-кислота.
+        </mark>
+        <br />
+        <mark>
+          一二三四五六七八九十、いろはにほへとちりぬるを、わかよたれそつねならむ
+        </mark>
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>break-word (нестандартное)</code></span>
+      <p class="option break-word">
+        <mark>
+          Пароксизмально-циклокарбонатация-дезоксирибонуклеиновая-кислота.
+        </mark>
+        <br />
+        <mark>
+          一二三四五六七八九十、いろはにほへとちりぬるを、わかよたれそつねならむ
+        </mark>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

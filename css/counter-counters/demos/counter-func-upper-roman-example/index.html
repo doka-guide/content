@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования counter() — counter() и counters() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .table-of-contents {
+      counter-reset: chapter;
+      color: white;
+    }
+
+    .table-of-contents__title {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+      position: relative;
+    }
+
+    .table-of-contents__chapter {
+      counter-increment: chapter;
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+      position: relative;
+    }
+
+
+    .table-of-contents__chapter::before {
+      content: "Глава " counter(chapter, upper-roman) ": ";
+      color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="table-of-contents">
+    <h1 class="table-of-contents__title">Оглавление</h1>
+    <h2 class="table-of-contents__chapter">HTML и CSS</h2>
+    <h2 class="table-of-contents__chapter">Создание стилей и таблиц стилей</h2>
+    <h2 class="table-of-contents__chapter">Селекторы: выбор форматируемых элементов</h2>
+    <h2 class="table-of-contents__chapter">Механизм наследования стилей</h2>
+    <h2 class="table-of-contents__chapter">Управление сложной структурой стилей: каскад</h2>
+    <h2 class="table-of-contents__chapter">Поля, отступы, границы</h2>
+  </section>
+</body>
+</html>

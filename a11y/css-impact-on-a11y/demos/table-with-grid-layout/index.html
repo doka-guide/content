@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Таблица с display: grid — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    code {
+      padding: 4px 6px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+      background-color: rgba(16, 243, 175, 0.2);
+    }
+
+    .element-wrapper {
+      min-width: 600px;
+      margin-top: 48px;
+    }
+
+    .table {
+      min-width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table, td, th {
+      padding: 14px;
+      border-bottom: 1px solid #10F3AF;
+      border-right: 1px solid #10F3AF;
+      border-left-width: 0;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    .table th:last-child,
+    .table td:last-child,
+    .table-layout__col:last-child {
+      border-right: none;
+    }
+
+    .table tr:last-child td,
+    .table-layout__row:last-child {
+      border-bottom: none;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    th, .table-layout__col--heading {
+      font-weight: 500;
+    }
+
+    .table_grid {
+      display: grid;
+      margin-top: 16px;
+      padding: 0;
+      border-top: 7px solid #10F3AF;
+      text-align: center;
+    }
+
+    .table-layout {
+      display: table;
+      margin-top: 16px;
+      border-top: 7px solid #10F3AF;
+      text-align: center;
+    }
+
+    .table-layout__row {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #10F3AF;
+    }
+
+    .table-layout__col {
+      padding: 14px;
+      border-right: 1px solid #10F3AF;
+      border-left-width: 0;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    .table-layout__col:nth-child(3n + 1) {
+      min-width: 360px;
+    }
+
+    .table-layout__col:nth-child(3n + 2) {
+      min-width: 140px;
+    }
+
+    .table-layout__col:nth-child(3n) {
+      min-width: 110px;
+    }
+
+    .table-layout__col--heading:first-of-type,
+    .table-layout__col--name {
+      padding-left: 0;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .table-layout__col:nth-child(3n + 1) {
+        min-width: 50%;
+      }
+
+      .table-layout__col:nth-child(3n + 2) {
+        min-width: 30%;
+      }
+
+      .table-layout__col:nth-child(3n) {
+        min-width: 20%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1>Чек</h1>
+
+  <div class="element-wrapper">
+    <h2 id="fake-heading">Контейнеры и <code>display: table</code></h2>
+    <div class="table table-layout" aria-labelledby="fake-heading">
+      <div class="table-layout__row">
+        <p class="table-layout__col table-layout__col--heading">Продукт</p>
+        <p class="table-layout__col table-layout__col--heading">Количество</p>
+        <p class="table-layout__col table-layout__col--heading">Цена</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col table-layout__col--name">Апельсины</p>
+        <p class="table-layout__col">1 килограмм</p>
+        <p class="table-layout__col">💰💰</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col table-layout__col--name">Молоко</p>
+        <p class="table-layout__col">1 литр</p>
+        <p class="table-layout__col">💰</p>
+      </div>
+      <div class="table-layout__row">
+        <p class="table-layout__col table-layout__col--name">Воздушный змей</p>
+        <p class="table-layout__col">1 штука</p>
+        <p class="table-layout__col">💰💰💰</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="heading">Таблица и <code>display: grid</code> 💀?</h2>
+    <table class="table table_grid" aria-labelledby="heading">
+      <tr>
+        <th style="width: 61%">Продукт</th>
+        <th>Количество</th>
+        <th>Цена</th>
+      </tr>
+      <tr>
+        <td style="width: 61%">Апельсины</td>
+        <td>1 килограмм</td>
+        <td>💰💰</td>
+      </tr>
+      <tr>
+        <td style="width: 61%">Молоко</td>
+        <td>1 литр</td>
+        <td>💰</td>
+      </tr>
+      <tr>
+        <td style="width: 61%">Воздушный змей</td>
+        <td>1 штука</td>
+        <td>💰💰💰</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

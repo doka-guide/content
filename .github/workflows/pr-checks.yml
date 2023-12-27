@@ -8,18 +8,18 @@ jobs:
     name: Форматирование
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
       - name: Работает линтер
         run: |
           npm install editorconfig-checker --global
           config=.editorconfig
-          for changed_file in ${{ steps.files.outputs.all }}; do
+          for changed_file in ${{ steps.files.outputs.added_modified }}; do
             if [ $changed_file == $config ]
             then
               echo "Проверка для всех файлов"
@@ -34,24 +34,23 @@ jobs:
     name: Мета
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: |
-            index.md
-            !(css|html|js|tools)/index.md
-            !(pages|people)/*/index.md
+            (css|html|js|tools|a11y)/**/index.md
+            !(pages|people)/**/index.md
       - name: Работает линтер
         run: |
           files='${{ steps.files.outputs.added_modified }}'
           if ! [[ $files == "" ]]; then
             echo "Проверка для файлов из PR"
-            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools)/[a-z-]+/index.md')
+            npx yaml-cat --format json --output result.json $(echo $files | grep -o -E '(css|html|js|tools|a11y)/[a-z-]+/index.md')
             node .github/scripts/frontmatter.js
           else
             echo "В PR нет файлов для проверки"
@@ -63,10 +62,10 @@ jobs:
       - frontmatter-checker
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - id: files
         if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
+        uses: Ana06/get-changed-files@v2.2.0
         with:
           filter: '*.md'
           format: 'csv'
@@ -78,34 +77,3 @@ jobs:
           markdown: true
           serverRoot: "/home/runner/work/content/content"
           linksToSkip: "https?://(localhost|codepen.io)?(:[0-9]+)?/.*"
-  yaspeller:
-    name: Орфография
-    needs:
-      - link-checker
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16
-      - id: files
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: Ana06/get-changed-files@v1.2
-      - name: Проверяет правописание
-        run: |
-          config=.yaspeller.json
-          file_list=""
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
-            if [[ $changed_file == $config ]]; then
-              echo "Проверяются все файлы..."
-              npx yaspeller --only-errors --file-extensions ".md,.html" *
-              break
-            elif [[ $changed_file =~ \.(md|html)$ ]]; then
-              file_list="${file_list} ${changed_file}"
-              echo "Файл ${changed_file} добавлен в список для проверки."
-            fi
-          done
-          if ! [[ $file_list == "" ]]; then
-            echo "Проверяются файлы из PR..."
-            npx yaspeller --only-errors ${file_list}
-          fi

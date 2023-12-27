@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивный пример значений place-content — place-content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .select-wrapper {
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      width: 400px;
+      height: 250px;
+      gap: 30px;
+    }
+
+    .select-wrapper div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .align-parameters {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+    }
+
+    .justify-parameters {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+    }
+
+    .code-example {
+      grid-row: 2 / 3;
+      grid-column: 1 / 3;
+    }
+
+    label {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    select {
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-weight: 300;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    select:focus {
+      border: 1px solid #2E9AFF;
+      outline: none;
+    }
+
+    code {
+      border-bottom: 1px solid #979797;
+      padding: 15px 0;
+      font-size: 16px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .container {
+      place-content: start;
+      border: 1px solid #FF8630;
+      width: 150px;
+      height: 150px;
+      gap: 20px;
+    }
+
+    .container div {
+      width: 25px;
+      height: 25px;
+    }
+
+    .flex-layout {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-layout div {
+      background-color: #2E9AFF;
+    }
+
+    .grid-layout {
+      display: grid;
+    }
+
+    .grid-layout div {
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="select-wrapper">
+    <div class="align-parameters">
+      <label for="align-select">align-content</label>
+      <select id="align-select">
+        <option value="start" selected>start</option>
+        <option value="end">end</option>
+        <option value="center">center</option>
+        <option value="flex-start">flex-start</option>
+        <option value="flex-end">flex-end</option>
+        <option value="space-between">space-between</option>
+        <option value="space-around">space-around</option>
+        <option value="space-evenly">space-evenly</option>
+        <option value="baseline">baseline</option>
+      </select>
+    </div>
+    <div class="justify-parameters">
+      <label for="justify-select">justify-content</label>
+      <select id="justify-select">
+        <option value="start" selected>start</option>
+        <option value="end">end</option>
+        <option value="left">left</option>
+        <option value="right">right</option>
+        <option value="center">center</option>
+        <option value="flex-start">flex-start</option>
+        <option value="flex-end">flex-end</option>
+        <option value="space-between">space-between</option>
+        <option value="space-around">space-around</option>
+        <option value="space-evenly">space-evenly</option>
+      </select>
+    </div>
+    <div class="code-example">
+      <code>place-content: start;</code>
+    </div>
+  </div>
+  <div class="container flex-layout">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="container grid-layout">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <script>
+    const alignSelect = document.querySelector('#align-select')
+    const justifySelect = document.querySelector('#justify-select')
+    const codeExample = document.querySelector('code')
+    const container = document.querySelectorAll('.container')
+    let firstParam = alignSelect.value
+    let secondParam = justifySelect.value
+
+    alignSelect.addEventListener('change', styleChanger)
+    justifySelect.addEventListener('change', styleChanger)
+
+    function styleChanger(event) {
+      if (event.target.id == 'align-select') {
+        firstParam = this.value
+      } else {
+        secondParam = this.value
+      }
+
+      for (let item of container) {
+        item.style.placeContent = `${firstParam} ${secondParam}`
+      }
+
+      if (firstParam === secondParam) {
+        codeExample.textContent = `place-content: ${firstParam};`
+      } else {
+        codeExample.textContent = `place-content: ${firstParam} ${secondParam};`
+      }
+    }
+  </script>
+</body>
+</html>

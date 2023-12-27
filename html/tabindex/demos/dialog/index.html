@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с атрибутом в модальном окне — Атрибут `tabindex` — Дока</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    p[tabindex="0"]:focus-visible {
+      outline: solid 2px #000000;
+    }
+
+    p[tabindex="0"]:focus {
+      outline: solid 2px #000000;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    .dialog {
+      padding: 23px 20px;
+      max-width: 500px;
+      inset: 0;
+      color: #000000;
+      background-color: #FFFFFF;
+      border: none;
+    }
+
+    .dialog-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .dialog::backdrop {
+      background-color: rgb(0 0 0 / 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-invert:hover {
+      border: 2px solid #000000;
+    }
+
+    .button-invert:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button-invert:focus {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .dialog {
+        max-width: 100%;
+        margin-bottom: 2rem;
+        bottom: 0;
+      }
+
+      .dialog-buttons {
+        display: block;
+      }
+
+      .button + .button {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button
+    class="button button-orange"
+    type="button"
+    aria-controls="modal"
+    onclick="window['modal'].showModal()"
+  >
+    Принять условия
+  </button>
+  <dialog id="modal" class="dialog" aria-labelledby="label">
+    <h3 id="label">Условия подписки</h3>
+      <p tabindex="-1">
+        Подписываясь на наш сервис, вы обещаете учить язык не менее 50 часов в день 🦉
+      </p>
+      <p>
+        Если кажется, что это слишком много, идите в другой сервис. Здесь вам не рады!
+      </p>
+      <p>
+        Смысл начинать учить испанский или китайский, если откладываете его изучение? К чему бесполезные обещания?
+      </p>
+    <form class="dialog-buttons" method="dialog">
+      <button class="button button-orange button-invert">Принимаю</button>
+      <button class="button button-orange button-invert">Убегаю</button>
+    </form>
+  </dialog>
+</body>
+</html>

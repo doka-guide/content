@@ -1,5 +1,13 @@
 ---
 title: "`flex-basis`"
+description: "Задаём базовый размер флекс-элемента."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-basis
+      - css.properties.flex-basis.auto
+      - css.properties.flex-basis.max-content
+      - css.properties.flex-basis.min-content
 authors:
   - solarrust
 editors:
@@ -7,6 +15,10 @@ editors:
 keywords:
   - размер флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-grow
+  - css/flex-shrink
 tags:
   - doka
 ---
@@ -29,7 +41,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 У флекс-элементов размеры по основной и поперечной осям более приоритетны чем ширина (`width`) и высота (`height`). Это связано с идеей гибкости структуры, лежащей в основе модели флексбоксов.
 

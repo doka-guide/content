@@ -4,27 +4,48 @@
   <title>Выделение первой строки — Псевдоэлементы — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #e6e6e6;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
-      overflow: hidden;
+      font-size: 18px;
     }
 
     section {
-      max-width: 80%;
-      margin: 0 auto;
-      font-size: 18px;
-      line-height: 27px;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+      line-height: 1.4;
     }
 
-    .text:first-line {
-      background-color: #ed4242;
-      color: #ffffff;
+    .text::first-line {
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      section {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>

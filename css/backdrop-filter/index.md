@@ -1,7 +1,14 @@
 ---
 title: "`backdrop-filter`"
+description: "Свойство для применения фильтров к фоновой картинке."
 authors:
   - doka-dog
+keywords:
+  - фильтр фона
+related:
+  - css/filter-functions
+  - css/filter
+  - css/hover
 tags:
   - doka
   - placeholder
@@ -13,4 +20,4 @@ tags:
 
 ## Как пишется
 
-В качестве значения можно использовать одну из [функций фильтров](/css/filter-functions).
+В качестве значения можно использовать одну из [функций фильтров](/css/filter-functions/).

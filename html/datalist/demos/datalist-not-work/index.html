@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример неработающего элемента <datalist> — <datalist> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    [list]::-webkit-calendar-picker-indicator {
+      display: none !important;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      top: calc(50% - 4px);
+      height: 8px;
+      right: 15px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      .select-wrapper::after {
+        top: calc(50% - 24px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <label for="fruits">Выберите фрукт из неработающего списка:</label>
+    <input list="fruitsList" id="fruits" name="fruits">
+    <div class="select-wrapper" id="fruitsList">
+      <datalist id="fruitsList">
+        <option value="Банан">
+        <option value="Арбуз">
+        <option value="Киви">
+      </datalist>
+    </div>
+  </form>
+</body>
+
+</html>

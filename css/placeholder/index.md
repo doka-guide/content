@@ -1,5 +1,6 @@
 ---
 title: "`::placeholder`"
+description: "Стилизуем плейсхолдеры в полях ввода."
 authors:
   - ezhkov
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - плейсхолдер
   - placeholder
   - подсказка
+related:
+  - css/pseudoelements
+  - html/input
+  - css/text-shadow
 tags:
   - doka
 ---
@@ -30,9 +35,9 @@ tags:
 }
 ```
 
-<iframe title="Подсказка в поле ввода" src="demos/example/" height="180"></iframe>
+<iframe title="Подсказка в поле ввода" src="demos/example/" height="240"></iframe>
 
-## Как это понять
+## Как понять
 
 Элементам [`<input>`](/html/input/) и [`<textarea>`](/html/textarea/) можно задавать атрибут `placeholder`. Текст, содержащийся в этом атрибуте, будет отображаться внутри поля ввода, пока пользователь ничего не ввёл. Этот текст можно стилизовать, используя псевдоэлемент `::placeholder`. Стили для введённого текста и текста-подсказки в общем случае должны различаться.
 

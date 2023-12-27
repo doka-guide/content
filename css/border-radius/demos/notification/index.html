@@ -5,11 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #e6e6e6;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
     }
 
     .icon {
@@ -20,8 +32,8 @@
       border-radius: 10px;
       background-size: 55px;
       background-repeat: no-repeat;
-      background-color: #000000;
-      background-image: url(../../images/eyes.png);
+      background-color: #2E9AFF;
+      background-image: url(images/doka.svg);
       cursor: pointer;
     }
 
@@ -33,8 +45,8 @@
       width: 25px; /* равные ширина */
       height: 25px; /* и высота */
       border-radius: 50%; /* закругляем углы на 50% */
-      color: #ffffff;
-      background-color: #ed4242;
+      color: #FFFFFF;
+      background-color: #ED4242;
       font-size: 14px;
       line-height: 25px;
       text-align: center;

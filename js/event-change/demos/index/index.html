@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Как работает событие change — Дока</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+<form class="wrapper-change">
+  <label class="change change-text">
+    change, ты здесь?
+    <input
+      type="text"
+      class="change-text__input"
+      placeholder="Введите текст"
+      maxlength="15"
+    />
+    <span class="change-text__value"></span>
+  </label>
+</form>
+<script>
+  const value = document.querySelector(".change-text__value");
+  const input = document.querySelector(".change-text__input");
+  const text = document.querySelector(".change-title");
+
+  input.addEventListener("change", (evt) =>
+    changeTextValue(evt, value.textContent)
+  );
+
+  const changeTextValue = () => {
+    value.textContent = "Событие change()";
+    setTimeout(() => (value.textContent = ""), 1200);
+  }
+</script>
+<style>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #18191c;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .wrapper-change {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  .change {
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 250px;
+  }
+
+  .change-text {
+    position: relative;
+  }
+
+  .change-text__input {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 18px;
+    resize: vertical;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+    border: 2px solid #fff;
+    outline: none;
+  }
+
+  .change-text__input:focus-visible {
+    border: 2px solid #ffd829;
+  }
+
+  .change-text__value {
+    position: absolute;
+    bottom: -25px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffd829;
+    font-weight: 400;
+  }
+</style>
+</body>
+</html>

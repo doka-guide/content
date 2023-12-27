@@ -4,24 +4,42 @@
   <title>Разница значений clip и ellipsis — text-overflow — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
       margin: 0;
-      padding: 5%;
+      padding: 50px;
       background-color: #18191c;
-      color: #ffffff;
       font-size: 24px;
       font-family: "Roboto", sans-serif;
     }
 
     p {
-      max-width: 80%;
-      padding: 5px 0;
+      inline-size: 65%;
+      padding: 55px 40px;
       white-space: nowrap;
       overflow: hidden;
-      outline: 1px solid #1a5ad7;
+      background-color: #2e9aff;
+      color: #000000;
     }
 
     .clip {

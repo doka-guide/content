@@ -4,38 +4,64 @@
   <title>Сумма массива — <sub> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    html, body {
-      height: 100%;
-      margin-top: 0;
-      margin-bottom: 0;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #18191c;
-      color: white;
-      font-family: "Roboto Mono", sans-serif;
+    html {
+      color-scheme: dark;
       font-size: 24px;
     }
 
-    var {
-      font-style: normal;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
     }
 
     p {
-      text-align: center;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    Сумма массива может быть вычислена последовательным сложением всех его элементов:<br>
-    sum := <var>X<sub>1</sub></var> + <var>X<sub>2</sub></var> + ... + <var>X<sub>N</sub></var>
-  </p>
+  <div class="container">
+    <p>
+      Сумма массива может быть вычислена последовательным сложением всех его элементов:
+    </p>
+    <p>
+      sum := <var>X<sub>1</sub></var> + <var>X<sub>2</sub></var> + … + <var>X<sub>N</sub></var>
+    </p>
+  </div>
 </body>
 </html>

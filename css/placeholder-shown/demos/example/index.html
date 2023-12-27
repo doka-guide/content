@@ -4,26 +4,69 @@
   <title>Пример placeholder-shown — placeholder-shown — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
-    p {
-      margin-bottom: 5px;
+    .option-container {
+      min-height: 55px;
+      display: flex;
+      align-items: flex-end;
     }
 
-    input {
-      width: 300px;
-      padding: 5px;
+    .option-container + .option-container {
+      margin-top: 30px;
+    }
+
+    .option-title {
+      width: 310px;
+      margin-right: 50px;
+      text-transform: lowercase;
+    }
+
+    .option-comment {
+      display: block;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .input {
+      width: 310px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #2E9AFF;
+      outline: none;
     }
 
     .no-pseudo {
@@ -33,16 +76,37 @@
     .pseudo:placeholder-shown {
       text-overflow: ellipsis;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
-  <p>Обычная обрезка</p>
-  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email">
+  <div class="option-container">
+    <p class="option-title">Обычная обрезка</p>
+    <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="input">
+  </div>
 
-  <p>Попытка обрезки без псевдокласса <br>Если ввести длинную строку, то она тоже обрежется многоточием</p>
-  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="no-pseudo">
+  <div class="option-container">
+    <p class="option-title">Попытка обрезки без псевдокласса <span class="option-comment">Если ввести длинную строку, то она тоже обрежется многоточием</span></p>
+    <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="input no-pseudo">
+  </div>
 
-  <p>Красивая обрезка с использованием псевдокласса</p>
-  <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="pseudo">
+  <div class="option-container">
+    <p class="option-title">Красивая обрезка с использованием псевдокласса</p>
+    <input type="text" placeholder="Можно искать по номеру телефона, фамилии или email" class="input pseudo">
+  </div>
 </body>
 </html>

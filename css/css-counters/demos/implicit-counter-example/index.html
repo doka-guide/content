@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования неявного счётчика — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    ol {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      padding-top: 0.625rem;
+      counter-increment: list-item 2;
+    }
+
+    li::after {
+      content: ".";
+    }
+
+    li::before {
+      content: counter(list-item);
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 7px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <ol>
+    <li>Первый элемент</li>
+    <li>Второй элемент</li>
+    <li>Третий элемент</li>
+  </ol>
+</body>
+</html>

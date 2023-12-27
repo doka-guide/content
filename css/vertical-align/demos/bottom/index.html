@@ -4,18 +4,28 @@
   <title>Вертикальное выравнивание по низу — vertical-align — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&amp;display=swap">
   <style>
     * {
       margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
       padding: 5%;
       overflow: hidden;
-      background-color: #e6e6e6;
-      color: #282a2e;
+      background-color: #18191C;
+      color: #ffffff;
       text-align: center;
       font-family: "Roboto", sans-serif;
       font-weight: 300;

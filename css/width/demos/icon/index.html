@@ -4,7 +4,8 @@
   <title>Вёрстка иконки — width — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
@@ -13,14 +14,21 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
       padding: 50px;
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
 
     .card {
-      width: 600px;
+      inline-size: 600px;
       margin: 0 auto;
       padding: 55px 40px;
       color: #000000;
@@ -36,8 +44,8 @@
     }
 
     .card__title {
-      margin-top: 27px;
-      margin-bottom: 17px;
+      margin-block-start: 27px;
+      margin-block-end: 17px;
       font-weight: 500;
       font-size: 30px;
       line-height: 1;
@@ -50,10 +58,12 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <i class="card__icon"></i> <!-- Внимание на меня! -->
-    <h2 class="card__title">Заголовок карточки</h2>
-    <p class="card__text">Некий текст новостной карточки</p>
+  <div class="wrapper">
+    <div class="card">
+      <i class="card__icon"></i> <!-- Внимание на меня! -->
+      <h2 class="card__title">Заголовок карточки</h2>
+      <p class="card__text">Некий текст новостной карточки</p>
+    </div>
   </div>
 </body>
 </html>

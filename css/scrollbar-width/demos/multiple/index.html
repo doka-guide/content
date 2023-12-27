@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Разные значения ширины скроллбара — scrollbar-width — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    p {
+      font-size: 30px;
+      margin-bottom: 2em;
+    }
+
+    .container {
+      height: 200px;
+      overflow-y: scroll;
+      padding: 15px;
+      margin: 15px 0;
+      scrollbar-color: white #18191C;
+      border-top: 1px dashed white;
+      border-bottom: 1px dashed white;
+    }
+
+    .container-thin {
+      scrollbar-width: thin;
+    }
+
+    .container-none {
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>
+      Ленивцы все делают медленно - даже моргают. Как получилось, что эти
+      животные ведут такую, мягко говоря, размеренную жизнь? Им что, никогда
+      не хочется побегать?
+    </p>
+    <p>
+      Ленивцам, как следует из их имени, некуда спешить. Большую часть времени
+      они проводят на деревьях в лесах Центральной и Южной Америки, почти не
+      двигаясь, и спускаются на землю (примерно раз в неделю) только для того,
+      чтобы испражниться.
+    </p>
+    <p>
+      Жизнь, которую они ведут, проходит как в замедленной съёмке. Каким
+      образом эволюция привела их к этому?
+    </p>
+  </div>
+  <div class="container container-thin">
+    <p>
+      Ленивцы все делают медленно - даже моргают. Как получилось, что эти
+      животные ведут такую, мягко говоря, размеренную жизнь? Им что, никогда
+      не хочется побегать?
+    </p>
+    <p>
+      Ленивцам, как следует из их имени, некуда спешить. Большую часть времени
+      они проводят на деревьях в лесах Центральной и Южной Америки, почти не
+      двигаясь, и спускаются на землю (примерно раз в неделю) только для того,
+      чтобы испражниться.
+    </p>
+    <p>
+      Жизнь, которую они ведут, проходит как в замедленной съёмке. Каким
+      образом эволюция привела их к этому?
+    </p>
+  </div>
+  <div class="container container-none">
+    <p>
+      Ленивцы все делают медленно - даже моргают. Как получилось, что эти
+      животные ведут такую, мягко говоря, размеренную жизнь? Им что, никогда
+      не хочется побегать?
+    </p>
+    <p>
+      Ленивцам, как следует из их имени, некуда спешить. Большую часть времени
+      они проводят на деревьях в лесах Центральной и Южной Америки, почти не
+      двигаясь, и спускаются на землю (примерно раз в неделю) только для того,
+      чтобы испражниться.
+    </p>
+    <p>
+      Жизнь, которую они ведут, проходит как в замедленной съёмке. Каким
+      образом эволюция привела их к этому?
+    </p>
+  </div>
+</body>
+</html>

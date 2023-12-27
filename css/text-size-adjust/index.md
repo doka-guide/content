@@ -1,9 +1,14 @@
 ---
 title: "`text-size-adjust`"
+description: "Может ли браузер на мобильных самовольно увеличить шрифт страницы?"
 authors:
   - doka-dog
 keywords:
   - размер шрифта от строчных букв
+related:
+  - css/font-size
+  - css/media
+  - css/supports
 tags:
   - doka
   - placeholder

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Зависимость размера <br> от размера шрифта родителя — <br> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 350px;
+    }
+
+    .var {
+      padding-left: 10px;
+    }
+
+    .row + .row {
+      margin-top: 25px;
+    }
+
+    .row--top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .row--bottom {
+      padding: 25px;
+      color: #000000;
+      background-color: #FF8630;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .input {
+        width: 100%;
+      }
+
+      .input-container {
+        margin-top: 10px;
+      }
+
+      .label {
+        margin-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row row--top">
+      <label for="font-size" class="label">Размер шрифта родителя:</label>
+      <div class="input-container">
+        <input class="input" id="font-size" type="number" value="18" min="0" max="99">
+        <span class="var">px</span>
+      </div>
+    </div>
+
+    <div class="row row--bottom">
+      <p>Осенний ветер.</p>
+      <br>
+      <p>Он мимо прошёл,</p>
+      <br>
+      <p>Будто не узнал.</p>
+    </div>
+  </div>
+
+  <script>
+    let fontSize = document.querySelector('.input');
+
+    fontSize.oninput = function() {
+      document.querySelector('.row--bottom').style.fontSize = `${fontSize.value}px`;
+    };
+  </script>
+</body>
+</html>

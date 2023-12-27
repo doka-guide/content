@@ -1,22 +1,27 @@
 ---
 title: "`stroke`"
+description: "Управляем цветом и толщиной обводки у SVG."
 authors:
   - realetive
 keywords:
   - svg-обводка
+related:
+  - html/svg
+  - css/fill
+  - css/hover
 tags:
   - doka
 ---
 
 ## Кратко
 
-Как и у одноимённого SVG-атрибут, задаёт цвет обводки SVG-элемента. При наличии указанного через CSS или атрибут на этом же SVG-теге свойства `stroke-width` — толщины обводки, которая должна быть больше `0`.
+Как и у одноимённого SVG-атрибута, задаёт цвет обводки SVG-элемента. При наличии указанного через CSS или атрибут на этом же SVG-теге свойства `stroke-width` — толщины обводки, которая должна быть больше `0`.
 
 ## Пример
 
 ```css
 .circle {
-    stroke: #123456;
+  stroke: #123456;
 }
 ```
 
@@ -28,7 +33,7 @@ tags:
 
 ```css
 .circle {
-    stroke: url(#pattern);
+  stroke: url(#pattern);
 }
 ```
 
@@ -40,10 +45,10 @@ tags:
 
 ```css
 .circle {
-    stroke: url(#pattern);
+  stroke: url(#pattern);
 }
 
 .circle:hover {
-    stroke: blue;
+  stroke: blue;
 }
 ```

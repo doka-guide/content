@@ -1,16 +1,28 @@
 ---
 title: "Преобразование типов"
+description: "Брюки превращаются в элегантные шорты, а во что превращается строка «55ab» при преобразовании в число?"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Прогноз погоды, где ведущий показывает на облака с разными типами'
 authors:
   - bespoyasov
 tags:
   - article
+related:
+  - js/if-else
+  - js/number
+  - tools/how-to-test-and-why
+keywords:
+  - приведение типов
 ---
 
 ## Кратко
 
 Представим ситуацию: у нас есть форма с полем, в которое пользователь вписывает свой возраст в годах.
 
-По умолчанию любой ввод в полях — это строка. Если мы хотим работать с этим значением, как с числом, то нам нужно _привести его к числу_.
+По умолчанию любой ввод в полях — это [строка](/js/string/). Если мы хотим работать с этим значением, как с [числом](/js/number/), то нам нужно _привести его к числу_.
 
 Приведение (или преобразование) типов — это процесс конвертации значения из одного типа в другой.
 
@@ -19,7 +31,7 @@ tags:
 Когда мы вызываем функцию, чтобы получить конкретный тип — это явное преобразование:
 
 ```js
-const x = "4"
+const x = '4'
 Number(x)
 
 const y = 4
@@ -31,8 +43,10 @@ String(y)
 Когда же мы _[сравниваем значения нестрого](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Операторы*сравнения#Равно)_ между собой с помощью `==`, JavaScript приводит типы самостоятельно:
 
 ```js
-5 == "5" // true
-5 === "5" // false
+console.log(5 == '5')
+// true
+console.log(5 === '5')
+// false
 ```
 
 Чтобы понять, почему так, нам надо сперва разобраться, какие типы в JS есть.
@@ -41,35 +55,35 @@ String(y)
 
 ## Примитивные типы
 
-В JavaScript [примитивные типы](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#javascript_types) следующие:
+В JavaScript [примитивные типы](/js/#primitivnye-tipy-dannyh) следующие:
 
 ```js
 // 1. Undefined
-typeof undefined === "undefined"
+typeof undefined === 'undefined'
 
 // 2. Boolean, логический
-typeof true === "boolean"
-typeof false === "boolean"
+typeof true === 'boolean'
+typeof false === 'boolean'
 
 // 3. Number, число
-typeof 42 === "number"
-typeof 4.2 === "number"
-typeof -42 === "number"
-typeof Infinity === "number"
-typeof -Infinity === "number"
+typeof 42 === 'number'
+typeof 4.2 === 'number'
+typeof -42 === 'number'
+typeof Infinity === 'number'
+typeof -Infinity === 'number'
 
 // 4. String, строка
-typeof "" === "string"
-typeof "string" === "string"
-typeof "number" === "string"
-typeof "boolean" === "string"
+typeof '' === 'string'
+typeof 'string' === 'string'
+typeof 'number' === 'string'
+typeof 'boolean' === 'string'
 
 // 5. Symbol, символ, ES6
-typeof Symbol() === "symbol"
+typeof Symbol() === 'symbol'
 
 // 6. BigInt, большое число, ES6
-typeof 9007199254740991n === "bigint"
-typeof BigInt(9007199254740991) === "bigint"
+typeof 9007199254740991n === 'bigint'
+typeof BigInt(9007199254740991) === 'bigint'
 
 // 7. Null
 typeof null === 'object'
@@ -92,14 +106,15 @@ theAnswers[0] = 142
 // мы не перезаписали его полностью, а лишь изменили часть.
 ```
 
-Этот механизм связан с тем, как значения переменных хранятся в памяти. Мы не пойдём слишком глубоко в эту тему, но, грубо говоря, примитивные типы «ссылаются на одно и то же значение в памяти», а не примитивные — на разные.
+Этот механизм связан с тем, как значения переменных хранятся в памяти. Мы не пойдём слишком глубоко в эту тему, но, грубо говоря, примитивные типы «ссылаются на одно и то же значение в памяти», а не примитивные — на разные. Этот вопрос мы разбираем подробнее в статье [«Хранение по ссылке и по значению »](/js/ref-type-vs-value-type/)
 
 Из-за этого, например, примитивы можно сравнивать по значению:
 
 ```js
 const a = 5
 const b = 5
-a == b // true
+console.log(a == b)
+// true
 ```
 
 А вот не примитивы — не получится:
@@ -107,58 +122,59 @@ a == b // true
 ```js
 const a = [1, 2, 3]
 const b = [1, 2, 3]
-a == b // false
-
-// Даже несмотря на то, что массивы содержат одни и те же числа,
-// при сравнении они не являются «одинаковыми».
-
-// Когда JavaScript сравнивает a и b, он грубо говоря
-// «сравнивает места в памяти, на которые ссылаются эти переменные».
-// У не примитивов, эти места — разные, из-за чего они считаются неодинаковыми.
+console.log(a == b)
+// false
 ```
+
+Даже несмотря на то, что массивы содержат одни и те же числа, при сравнении они не являются «одинаковыми». Когда JavaScript сравнивает `a` и `b`, он, грубо говоря, «сравнивает места в памяти, на которые ссылаются эти переменные». У не примитивов, эти места — разные, из-за чего они считаются неодинаковыми.
 
 ## Объекты
 
-Объекты в JavaScript используются для хранения коллекций значений.
+[Объекты](/js/object/) в JavaScript используются для хранения коллекций значений.
 
-Массивы (Array) в JS — [тоже объекты](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array).
+Массивы (Array) в JS — [тоже объекты](/js/objects-objects-everywhere/).
 
 Как мы уже говорили, не примитивы сравниваются по ссылке, а не по значению. Объекты и массивы — это как раз не примитивы.
 
 У объектов в JavaScript собственный тип — `object`.
 
 ```js
-const keyValueCollection = { key: "value" }
-typeof keyValueCollection === "object"
+const keyValueCollection = { key: 'value' }
+typeof keyValueCollection === 'object'
 
 const listCollection = [1, 2, 3]
-typeof listCollection === "object"
+typeof listCollection === 'object'
 ```
 
-У [`null`](https://doka.guide/js/null-primitive/) оператор `typeof` возвращает `object`, хотя это тоже примитив:
+У [`null`](/js/null-primitive/) оператор `typeof` возвращает `'object'`, хотя это тоже примитив:
 
 ```js
-typeof null === "object"
+console.log(typeof null === 'object')
+// true
 ```
 
 ## Функции
 
-У функций в JavaScript тоже тип — `object`, хотя `typeof` возвращает `function`:
+У функций в JavaScript тоже тип — `object`, хотя `typeof` возвращает `'function'`:
 
 ```js
 function simpleFunction() {}
-typeof simpleFunction === "function"
+console.log(typeof simpleFunction === 'function')
+// true
 
 const assignedFunction = function () {}
-typeof assignedFunction === "function"
+console.log(typeof assignedFunction === 'function')
+// true
 
 const arrowFunction = () => {}
-typeof arrowFunction === "function"
+console.log(typeof arrowFunction === 'function')
+// true
 
-typeof function () {} === "function"
+console.log(typeof function () {} === 'function')
+// true
 ```
 
-Разницу между разными видами функций мы описали в статье о функциях [Функции](/js/function/).
+Разницу между разными видами функций мы описали в статье [«Функции»](/js/function/).
 
 ## `typeof`
 
@@ -178,7 +194,7 @@ typeof function () {} === "function"
 
 ```js
 String(42) // Приводит к строке.
-Number("42") // Приводит к числу.
+Number('42') // Приводит к числу.
 Boolean(42) // Приводит к логическому значению.
 ```
 
@@ -186,27 +202,27 @@ Boolean(42) // Приводит к логическому значению.
 
 ```js
 // К строке:
-String(123) // "123"
-String(-12.3) // "-12.3"
-String(null) // "null"
-String(undefined) // "undefined"
-String(true) // "true"
-String(false) // "false"
-String(function () {}) // "function () {}"
-String({}) // "[object Object]"
-String({ key: 42 }) // "[object Object]"
-String([]) // ""
-String([1, 2]) // "1,2"
+String(123) // '123'
+String(-12.3) // '-12.3'
+String(null) // 'null'
+String(undefined) // 'undefined'
+String(true) // 'true'
+String(false) // 'false'
+String(function () {}) // 'function () {}'
+String({}) // '[object Object]'
+String({ key: 42 }) // '[object Object]'
+String([]) // ''
+String([1, 2]) // '1,2'
 ```
 
-К числу также можно пытаться приводить любые значения. Если JavaScript не сможет привести какое-то значение к числу, мы получим `NaN` — [особое значение](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/NaN), представляющее не-число (Not-a-Number).
+К числу также можно пытаться приводить любые значения. Если JavaScript не сможет привести какое-то значение к числу, мы получим `NaN` — [особое значение](/js/number/#specialnye-znacheniya), представляющее не-число (Not-a-Number).
 
 ```js
 // К числу:
-Number("123") // 123
-Number("123.4") // 123.4
-Number("123,4") // NaN
-Number("") // 0
+Number('123') // 123
+Number('123.4') // 123.4
+Number('123,4') // NaN
+Number('') // 0
 Number(null) // 0
 Number(undefined) // NaN
 Number(true) // 1
@@ -226,9 +242,9 @@ Number([1, 2]) // NaN
 К логическому также можно приводить любые значения:
 
 ```js
-Boolean("") // false
-Boolean("string") // true
-Boolean("false") // true
+Boolean('') // false
+Boolean('string') // true
+Boolean('false') // true
 Boolean(0) // false
 Boolean(42) // true
 Boolean(-42) // true
@@ -254,15 +270,15 @@ Boolean([1, 2]) // true
 Неявное преобразование происходит, когда мы заставляем JavaScript работать со значениями разных типов. Например, если мы хотим «сложить» число и строку:
 
 ```js
-5 + "3" === "53"
-5 - "3" === 2
-5 + "-3" === "5-3"
+5 + '3' === '53'
+5 - '3' === 2
+5 + '-3' === '5-3'
 5 - +3 === 2
 5 + -3 === 2
 
 // Из-за этого же появилась и такая шутка:
-Array(16).join("wat" - 1) + " Batman!"
-// "NaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaN Batman!"
+Array(16).join('wat' - 1) + ' Batman!'
+// 'NaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaNNaN Batman!'
 ```
 
 Дело в том, как JavaScript пробует эти два типа «сопоставить» друг с другом, чтобы с ними работать.
@@ -280,13 +296,13 @@ Array(16).join("wat" - 1) + " Batman!"
 
 Но примитивами дело не заканчивается, JavaScript также неявно приводит и не примитивные значения.
 
-Интерпретатор приводит их к логическому, если мы используем `&&` или `||`. (Объекты — всегда `true`).
+Интерпретатор приводит их к логическому, если мы используем `&&` или `||`. Объекты — всегда `true`.
 
-С числом и строкой всё немного интереснее. Чтобы определить, к строке приводить значение или к числу, JavaScript смотрит, какой из двух методов (`valueOf` и `toString`) в текущем объекте объявлен.
+С числом и строкой всё немного интереснее. Чтобы определить, к строке приводить значение или к числу, JavaScript смотрит, какой из двух методов (`valueOf()` и `toString()`) в текущем объекте объявлен.
 
-1. Если перед нами не объект `Date`, то метод `valueOf` вызывается, обычно, первым (если не сильно углубляться в [детали спецификации](http://es5.github.io/#x8.12.8)).
+1. Если перед нами не объект `Date`, то метод `valueOf()` вызывается, обычно, первым (если не сильно углубляться в [детали спецификации](http://es5.github.io/#x8.12.8)).
 2. Если возвращённое после этого значение — это примитив, то возвращается оно.
-3. Если нет, то вызывается другой метод (если `valueOf` не вернул примитив, то вызывается `toString` и наоборот).
+3. Если нет, то вызывается другой метод (если `valueOf()` не вернул примитив, то вызывается `toString()` и наоборот).
 4. Если после этого вернулся примитив, возвращается он.
 5. Если даже после этого не вернулся примитив, то будет ошибка `Uncaught TypeError: Cannot convert object to primitive value`.
 
@@ -296,7 +312,7 @@ Array(16).join("wat" - 1) + " Batman!"
 // 1. Простой объект
 const obj1 = {}
 obj1.valueOf() // {}
-obj1.toString() // "[object Object]"
+obj1.toString() // '[object Object]'
 
 // Чтобы «сложить» число с объектом,
 // вначале будет вызван obj1.valueOf().
@@ -304,15 +320,15 @@ obj1.toString() // "[object Object]"
 // после чего будет вызван obj1.toString().
 
 1 + obj1
-// 1 + "[object Object]"
-// "1" + "[object Object]"
-// "1[object Object]"
+// 1 + '[object Object]'
+// '1' + '[object Object]'
+// '1[object Object]'
 
 // 2. Объект с указанным .valueOf()
 const obj2 = {}
-obj2.valueOf = () => "obj2"
-obj2.valueOf() // "obj2";
-obj2.toString() // "[object Object]"
+obj2.valueOf = () => 'obj2'
+obj2.valueOf() // 'obj2'
+obj2.toString() // '[object Object]'
 
 // Теперь, когда мы объявили метод .valueOf(),
 // при вызове он будет возвращать строку.
@@ -320,15 +336,15 @@ obj2.toString() // "[object Object]"
 // она и будет использована при «сложении».
 
 1 + obj2
-// 1 + "obj2"
-// "1" + "obj2"
-// "1obj2"
+// 1 + 'obj2'
+// '1' + 'obj2'
+// '1obj2'
 
 // 2.1. Если же мы будем возвращать число
 const obj2 = {}
 obj2.valueOf = () => 42
 obj2.valueOf() // 42
-obj2.toString() // "[object Object]"
+obj2.toString() // '[object Object]'
 
 1 + obj2
 // 1 + 42
@@ -337,16 +353,16 @@ obj2.toString() // "[object Object]"
 // 3. Даты
 const date = new Date()
 date.valueOf() // 1467864738527
-date.toString() // "Sun Sep 15 2019..."
+date.toString() // 'Sun Sep 15 2019...'
 
 // У дат приоритет методов обратный:
 // то есть вначале будет вызываться .toString(),
 // и только после него — .valueOf().
 
 1 + date
-// 1 + "Sun Sep 15 2019..."
-// "1" + "Sun Sep 15 2019..."
-// "1Sun Sep 15 2019..."
+// 1 + 'Sun Sep 15 2019...'
+// '1' + 'Sun Sep 15 2019...'
+// '1Sun Sep 15 2019...'
 ```
 
 ## Строгое и нестрогое равенство

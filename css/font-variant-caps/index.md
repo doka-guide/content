@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-caps`"
+description: "Какие символы будем использовать для заглавных?"
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/text-transform
+  - css/font-variant-ligatures
 tags:
   - doka
   - placeholder

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования returnValue — <dialog> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 50px;
+      padding: clamp(30px, 4.1vw, 50px);
+      display: grid;
+      place-items: center;
+      place-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .bugs, .content {
+      margin: 15px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .bugs:empty::after {
+      content: "✨";
+    }
+
+    .button, .dialog__button {
+      display: block;
+      min-width: 260px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:hover, .dialog__button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__button:hover {
+      border: 2px solid #000000;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .dialog {
+      width: calc(100% - 50px);
+      max-width: 580px;
+      border: none;
+      inset: 0;
+      transition: transform 0.3s ease-in-out;
+      position: fixed;
+    }
+
+    .dialog::-webkit-backdrop {
+      background-color: rgb(0 0 0 / 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .dialog::backdrop {
+      background-color: rgb(0 0 0 / 0.6);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .dialog__title {
+      margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .dialog__options {
+      display: grid;
+      gap: 10px 20px;
+    }
+
+    @media (min-width: 768px) {
+      .dialog__options {
+        grid-template-columns: auto auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <output class="bugs">🐞</output>
+  <p class="content">В ваш код заполз жук.</p>
+  <button class="button button-orange" onclick="window.debugger.showModal()" type="button">
+    Дебажить
+  </button>
+  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)">
+    <h2 class="dialog__title">Прихлопнуть жука?</h2>
+    <form class="dialog__options" method="dialog">
+      <button class="dialog__button button-orange" value="debug">
+        Дави его!
+      </button>
+      <button class="dialog__button button-blue" value="reproduction">
+        Каждая жизнь священна
+      </button>
+    </form>
+  </dialog>
+
+  <script>
+    function addOrRemoveBug({
+      target: dialog
+    }) {
+      const bugs = document.querySelector(".bugs")
+
+      if (dialog.returnValue === "debug") {
+        bugs.innerText = bugs.innerText.substring(0, bugs.innerText.length - 2)
+      } else {
+        bugs.innerText += "🐞"
+      }
+    }
+  </script>
+</body>
+</html>

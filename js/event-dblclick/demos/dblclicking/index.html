@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация работы - Свойства события dblclick — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+    }
+
+    .card {
+      display: flex;
+      margin: 60px auto;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 150px;
+      padding: 10px;
+      background-color: rgb(239, 245, 182);
+      transition: all .5s;
+    }
+
+    .card_enlarged {
+      transform: scale(1.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Моя карточка</h1>
+    <p>Кликни по мне дважды и я увеличусь</p>
+  </div>
+  <script>
+    const card = document.querySelector('.card')
+    card.addEventListener('dblclick', function () {
+      card.classList.toggle('card_enlarged')
+    })
+  </script>
+</body>
+</html>

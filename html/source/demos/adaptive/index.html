@@ -4,18 +4,81 @@
   <title>Адаптивные изображения — <source> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 20px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .code {
+      margin-top: 15px;
+    }
+
+    .code-line {
+      display: block;
+    }
+
+    .big {
+      background-color: #2e9aff;
+      color: #18191C;
+    }
+
+    @media (max-width: 1200px) {
+      .small {
+        background-color: #ff8630;
+        color: #18191C;
+      }
+
+      .big {
+        background-color: inherit;
+        color: inherit;
+      }
+
+      @media (min-resolution: 2x), (-webkit-min-device-pixel-ratio: 2) {
+        .small {
+          background-color: inherit;
+          color: inherit;
+        }
+
+        .big {
+          background-color: #2e9aff;
+          color: #18191C;
+        }
+      }
     }
   </style>
 </head>
 <body>
+  <div class="container">
     <picture>
       <source
-        srcset="images/640x480.png 640w, images/1024x768.png 1024w"
-        sizes="(max-width: 1200px) 50vw, 1024px">
-      <img src="images/1024x768.png" alt="Тестовое изображение">
+        srcset="images/600x100.png 600w, images/1000x200.png 1000w"
+        sizes="(max-width: 1200px) 50vw, 1000px">
+      <img src="images/1000x200.png" alt="Тестовое изображение">
     </picture>
+    <div class="code">
+      <span class="code-line">&lt;picture&gt;</span>
+        <span class="code-line">&nbsp;&nbsp;&lt;source</span>
+        <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;srcset="<span class="small">600x100.png 600w</span>, <span class="big">1000x200.png 1000w</span>"</span>
+        <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;sizes="(max-width: 1200px) 50vw, 1000px"&gt;</span>
+        <span class="code-line">&nbsp;&nbsp;&lt;img src="1000x200.png" alt="Тестовое изображение"&gt;</span>
+      <span class="code-line">&lt;/picture&gt;</span>
+    </div>
+  </div>
 </body>
 </html>

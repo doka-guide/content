@@ -1,14 +1,22 @@
 ---
 title: "Селектор по атрибуту"
+description: "Находим элемент на странице по конкретному атрибуту."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Сачок, в который поймана белая рыба. Чёрные рыбы плавают в реке'
 authors:
   - ezhkov
 editors:
   - tachisis
 contributors:
   - skorobaeus
-keywords:
-  - селектор
-  - атрибут
+  - starhamster
+related:
+  - css/selector-list
+  - html/global-attrs
+  - css/class-selector
 tags:
   - doka
 ---
@@ -26,12 +34,11 @@ tags:
 </blockquote>
 ```
 
-Селектор ниже _найдёт_ все цитаты ([`<blockquote>`](/html/blockquote)) с атрибутом `cite`:
+Селектор ниже _найдёт_ все цитаты ([`<blockquote>`](/html/blockquote/)) с атрибутом `cite`:
 
 ```css
 blockquote[cite] {
   background-color: #2E9AFF;
-  color: #000000;
 }
 ```
 
@@ -102,17 +109,22 @@ blockquote[cite] {
 <div lang="zh-TW">世界您好！</div>
 ```
 
+Выберет первый `<div>`:
+
 ```css
-/* Выберет первый div */
 [lang|="en"] {
   color: blue;
 }
+```
 
-/* Выберет два других div */
+Выберет два других `<div>`:
+
+```css
 [lang|="zh"] {
   color: red;
 }
 ```
+
 
 ### `[attr^=value]`
 

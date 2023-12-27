@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — <map> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    area:focus, area:focus-visible {
+      outline-color: #FFFFFF;
+    }
+
+    .map-container {
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container">
+    <map name="doka-label">
+      <area shape="rect" coords="40,20,420,130" href="/html/" alt="Раздел HTML">
+    </map>
+    <img usemap="#doka-label" src="../../images/doka-map.svg" alt="Мордочка собаки с ушами, носом, ртом и сердечками вместо глаз.">
+  </div>
+</body>
+</body>
+</html>

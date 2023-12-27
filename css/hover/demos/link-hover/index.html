@@ -4,16 +4,22 @@
   <title>Ховер-эффект на ссылке — :hover — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
       background-color: #18191c;
       font-family: "Roboto", sans-serif;
       font-size: 24px;
@@ -21,14 +27,17 @@
     }
 
     .link {
+      border-radius: 3px;
       color: #ffffff;
-      text-decoration-color: #ffd829;
-      transition: color 0.5s;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.5s linear;
     }
 
     .link:hover {
-      color: #ed6742;
-      transition: color 0.1s;
+      background-color: #2E9AFF;
+      transition: background-color 0.1s linear;
     }
   </style>
 </head>

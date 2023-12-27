@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — <area> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
+    area:focus, area:focus-visible {
+      outline-color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <map name="doka">
+    <area shape="rect" coords="120,10,260,60" href="/html/" target="_blank" alt="HTML">
+    <area shape="rect" coords="120,75,260,122" href="/css/" target="_blank" alt="CSS">
+    <area shape="rect" coords="120,140,260,187" href="/js/" target="_blank" alt="JavaScript">
+  </map>
+  <img usemap="#doka" src="../../images/doka_demo_basic.svg" alt="Картинка с тремя цветными прямоугольниками с подписями HTML, CSS и JS.">
+</body>
+</html>

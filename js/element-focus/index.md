@@ -1,21 +1,25 @@
 ---
-title: "`Element.focus()`"
+title: "`.focus()`"
 description: "Метод, который устанавливает фокус на DOM-элемент, на котором вызван."
 authors:
   - nlopin
+related:
+  - js/dom
+  - js/element
+  - html/form
 tags:
   - doka
 ---
 
 ## Кратко
 
-Вызов метода `focus` на [DOM-элементе](/js/element) устанавливает фокус на этот элемент. Когда элемент находится в фокусе, он перехватывает и обрабатывает события клавиатуры.
+Вызов метода `focus()` на [DOM-элементе](/js/element/) устанавливает фокус на этот элемент. Когда элемент находится в фокусе, он перехватывает и обрабатывает события клавиатуры.
 
-Фокус нельзя поставить на элемент, если он заблокирован. Например, если у кнопки или поля ввода стоит атрибут `disabled`.
+Фокус нельзя поставить на элемент, если он заблокирован. Например, если у кнопки или поля ввода стоит атрибут [`disabled`](/html/disabled/).
 
 ## Как пишется
 
-Метод `focus` обычно вызывается без аргументов, но в него также можно передать объект со свойством `preventScroll`:
+Метод `focus()` обычно вызывается без аргументов, но в него также можно передать объект со свойством `preventScroll`:
 
 ```js
 element.focus()
@@ -47,7 +51,7 @@ element.focus({ preventScroll: true })
 Чтобы программно установить фокус в поле _Email_ нужно получить искомый элемент и вызвать метод `focus()` на нём:
 
 ```js
-const emailInput = document.getElementById("email")
+const emailInput = document.getElementById('email')
 emailInput.focus()
 ```
 
@@ -65,7 +69,7 @@ emailInput.focus()
 
 Фокус критически важен для людей, которые не могут или не хотят пользоваться мышью. С помощью кнопки <kbd>Tab</kbd> такие пользователи перемещают фокус между интерактивными элементами внутри страницы. Это поведение предоставляется браузером по умолчанию.
 
-На фокус можно влиять с помощью HTML-атрибутов [`autofocus`](/html/input) и [`tabindex`](/html/global-attrs), а также из JavaScript с помощью вызова методов `focus()` и `blur()` у [DOM-элементов](/js/element).
+На фокус можно влиять с помощью HTML-атрибутов [`autofocus`](/html/input/) и [`tabindex`](/html/global-attrs/), а также из JavaScript с помощью вызова методов `focus()` и [`blur()`](/js/element-blur/) у DOM-элементов.
 
 Когда браузер отображает страницу, то по умолчанию фокус не установлен. При нажатии <kbd>Tab</kbd> фокус установится в первый интерактивный элемент сверху страницы и будет двигаться сверху вниз по порядку в разметке.
 
@@ -82,9 +86,9 @@ emailInput.focus()
 Например, в случае с открытием модального окна нужно переместить фокус на него. Подпишемся на событие `click` на кнопке открытия окна и вызовем `focus()` в обработчике:
 
 ```js
-const openModalButton = document.getElementById("open-modal-button")
-const modalWindow = document.getElementById("modal-window")
-openModalButton.addEventListener("click", function(event) {
+const openModalButton = document.getElementById('open-modal-button')
+const modalWindow = document.getElementById('modal-window')
+openModalButton.addEventListener('click', function(event) {
   modalWindow.focus()
 })
 ```
@@ -99,12 +103,12 @@ openModalButton.addEventListener("click", function(event) {
 
 Если не устанавливать атрибуты, которые влияют на доступность элемента для фокуса, то каждый браузер самостоятельно определяет, какой элемент может иметь фокус. Во всех современных браузерах, следующие элементы могут иметь фокус:
 
-- ссылки [`<a>`](/html/a) с установленным атрибутом `href`;
-- кнопки [`<button>`](/html/button);
-- поля ввода [`<input>`](/html/input), кроме скрытых (`type="hidden"`);
-- выпадающие списки [`<select>`](/html/select);
-- поля многостраничного ввода [`textarea`](/html/textarea);
-- элементы [`<summary>`](/html/summary);
+- ссылки [`<a>`](/html/a/) с установленным атрибутом `href`;
+- кнопки [`<button>`](/html/button/);
+- поля ввода [`<input>`](/html/input/), кроме скрытых (`type="hidden"`);
+- выпадающие списки [`<select>`](/html/select/);
+- поля многостраничного ввода [`textarea`](/html/textarea/);
+- элементы [`<summary>`](/html/details/);
 - произвольный элемент, если у него установлен атрибут `tabindex`.
 
 Если у любого из этих элементов установить атрибут `disabled`, то элемент перестаёт быть доступным для фокуса.

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Таблица с оценками фильмов — Таблицы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-top: 7px solid #FF8630;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    thead th:first-child, tbody td:first-child  {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    td, th {
+      border: 1px solid #FF8630;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        min-width: 360px;
+        padding: 30px;
+        overflow-x: scroll;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Место</th>
+        <th>Оценка</th>
+        <th>Название фильма</th>
+        <th>Год выхода</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>9.1</td>
+        <td>Зелёная миля</td>
+        <td>1999</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>9.1</td>
+        <td>Побег из Шоушенка</td>
+        <td>1994</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>8.6</td>
+        <td>Властелин колец: Возвращение Короля</td>
+        <td>2003</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

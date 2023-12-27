@@ -4,7 +4,8 @@
   <title>Заголовки через подчёркивания — Markdown — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap">
   <style>
     html {
@@ -12,11 +13,26 @@
     }
 
     body {
-      padding: 25px;
+      padding: 50px;
       margin: 0;
       background: #18191c;
       color: #fff;
       font-family: Roboto, sans-serif;
+    }
+
+    h1,
+    h2 {
+      margin-top: 17px;
+      margin-bottom: 17px;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 26px;
+    }
+
+    h2 {
+      font-size: 22px;
     }
 
     :first-child {
@@ -25,6 +41,12 @@
 
     :last-child {
       margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

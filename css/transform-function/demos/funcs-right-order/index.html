@@ -2,20 +2,47 @@
 <html lang="ru">
 <head>
   <title>Правильный порядок функций — transforms — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
+    body {
+      block-size: 100%;
+    }
+
+    body {
+      background-color: #18191c;
+    }
+
     .elem {
       position: absolute;
-      left: 40%;
-      top: 20px;
-      width: 200px;
-      height: 200px;
-      border: 1px solid red;
+      inset-inline-start: calc(50% - 125px);
+      inset-block-start: calc(50% - 125px);
+      inline-size: 200px;
+      block-size: 200px;
+    }
+
+    .elem1 {
+      border: 2px solid #2E9AFF;
+      background-color: rgb(46 154 255 / 30%);
       animation: transform1 5s linear infinite;
     }
 
     .elem2 {
-      border-color: green;
+      border: 2px solid #F498AD;
+      background-color: rgb(244 152 173 / 30%);
       animation: transform2 5s linear infinite;
     }
 
@@ -67,7 +94,7 @@
   </style>
 </head>
 <body>
-<div class="elem"></div>
+<div class="elem elem1"></div>
 <div class="elem elem2"></div>
 </body>
 </html>

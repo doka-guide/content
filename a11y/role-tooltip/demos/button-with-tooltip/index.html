@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кнопка с эмодзи и тултипом «Поставить отметку "Нравится"» — tooltip — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: inline-block;
+      position: relative;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: calc(100% + 15px);
+      left: 50%;
+      min-width: 210px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+      font-size: calc(1rem - 2px);
+      text-align: left;
+      transform: translateX(-50%);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+
+    .button:hover ~ .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <button class="button button-aqua" id="button" aria-labelledby="tooltip">❤️</button>
+      <span class="tooltip" role="tooltip" id="tooltip">Поставить отметку «Нравится»</span>
+    </div>
+  <script>
+    function initTooltip() {
+      const button = document.getElementById('button')
+      const tooltip = document.getElementById('tooltip')
+
+      button.addEventListener('mouseenter', () => {
+        showTooltip(tooltip)
+      })
+      button.addEventListener('focus', () => {
+        showTooltip(tooltip)
+      })
+
+      button.addEventListener('mouseleave', () => {
+        hideTooltip(tooltip)
+      })
+      button.addEventListener('blur', () => {
+        hideTooltip(tooltip)
+      })
+
+      button.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          hideTooltip(tooltip)
+        }
+      })
+    }
+
+    function showTooltip(tooltip) {
+      tooltip.style.visibility = 'visible'
+      tooltip.style.opacity = '1'
+    }
+
+    function hideTooltip(tooltip) {
+      tooltip.style.visibility = 'hidden'
+      tooltip.style.opacity = '0'
+    }
+
+    window.addEventListener('load', () => {
+      initTooltip(tooltip)
+    })
+  </script>
+</body>
+</html>

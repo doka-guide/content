@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Вкладки с ролью tab — tab — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .tabs {
+      width: 600px;
+    }
+
+    .tablist {
+      font-size: 0;
+    }
+
+    .tab {
+      padding: 9px 15px;
+      border: 2px solid transparent;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      font-size: 18px;
+      font-family: inherit;
+    }
+
+    .tab + .tab {
+      margin-left: 2px;
+    }
+
+    .tab[aria-selected="true"] {
+      background: #10F3AF;
+    }
+
+    .tab[aria-selected="false"] {
+      border-width: 0;
+      border-bottom: 2px solid #000000;
+      background: #FFFFFF;
+    }
+
+    .tab:hover {
+      background: #F498AD;
+      cursor: pointer;
+    }
+
+    .tabpanel {
+      padding: 20px 15px;
+      min-height: 5em;
+      min-width: 100px;
+      overflow: auto;
+      color: #000000;
+      background: #10F3AF;
+    }
+
+    .tabpanel--hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .tabs {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <h1 id="label">Необычные животные</h1>
+    <div class="tablist" role="tablist" aria-labelledby="label">
+      <button class="tab" role="tab" type="button" id="tab-1" aria-selected="true" aria-controls="tabpanel-1">Тапиры</button>
+      <button class="tab" role="tab" type="button" id="tab-2" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">Ламантины</button>
+      <div class="tabpanel" role="tabpanel" id="tabpanel-1" tabindex="0" aria-labelledby="tab-1">
+        <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tabpanel-2" tabindex="0" aria-labelledby="tab-2">
+        <p>Травоядные животные, которые живут на мелководье.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const hideTabpanel = 'tabpanel--hidden'
+    let tabpanels = []
+    let tabs = []
+    let firstTab = null
+    let lastTab = null
+
+    tabs = Array.from(document.querySelectorAll('.tab'))
+
+    tabpanels = tabs.map((tab) => {
+      const tabpanel = document.getElementById(tab.getAttribute('aria-controls'))
+      tab.tabIndex = -1
+      tab.setAttribute('aria-selected', 'false')
+      tab.addEventListener('keydown', onKeydown)
+      tab.addEventListener('click', onClick)
+
+      if (!firstTab) {
+        firstTab = tab
+      }
+
+      lastTab = tab
+
+      return tabpanel
+    })
+
+    setSelectedTab(firstTab, false)
+
+    function setSelectedTab(currentTab, setFocus = true) {
+      tabs.forEach((tab, i) => {
+        if (currentTab === tab) {
+          tab.setAttribute('aria-selected', 'true')
+          tab.removeAttribute('tabindex')
+          tabpanels[i].classList.remove('tabpanel--hidden')
+
+          if (setFocus) {
+            tab.focus()
+          }
+        }
+
+        else {
+          tab.setAttribute('aria-selected', 'false')
+          tab.tabIndex = -1
+          tabpanels[i].classList.add('tabpanel--hidden')
+        }
+      })
+    }
+
+    function setSelectedToPreviousTab(currentTab) {
+      const index = tabs.indexOf(currentTab)
+      setSelectedTab(index === 0 ? lastTab : tabs[index - 1])
+    }
+
+    function setSelectedToNextTab(currentTab) {
+      const index = tabs.indexOf(currentTab)
+      setSelectedTab(index === tabs.length - 1 ? firstTab : tabs[index + 1])
+    }
+
+    function onKeydown(event) {
+      const target = event.currentTarget
+      let flag = false
+
+      switch (event.key) {
+        case 'ArrowLeft':
+          setSelectedToPreviousTab(target)
+          flag = true
+          break
+        case 'ArrowRight':
+          setSelectedToNextTab(target)
+          flag = true
+          break
+        default:
+          break
+      }
+
+      if (flag) {
+        event.stopPropagation()
+        event.preventDefault()
+      }
+    }
+
+    function onClick(event) {
+      setSelectedTab(event.currentTarget)
+    }
+  </script>
+</body>
+</html>

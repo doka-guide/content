@@ -1,9 +1,14 @@
 ---
 title: "`background-attachment`"
+description: "Одним свойством создаём эффектный параллакс."
 authors:
   - doka-dog
 keywords:
   - закрепление фона
+related:
+  - css/background
+  - css/background-position
+  - css/radial-gradient
 tags:
   - doka
   - placeholder

@@ -4,16 +4,33 @@
   <title>Выравнивание по центру инлайн-блочных элементов в контейнере — text-align — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
+      margin: 0;
       background-color: #18191c;
       font-family: "Roboto", sans-serif;
     }
 
     .parent {
-      box-sizing: border-box;
       width: 80%;
       margin: 0 auto;
       padding: 25px;
@@ -21,35 +38,32 @@
     }
 
     .child {
-      box-sizing: border-box;
       display: inline-block;
-      width: 125px;
-      height: 125px;
       padding: 25px;
       text-align: center;
       font-size: 75px;
-      line-height: 75px;
+      line-height: 1;
       font-weight: bold;
     }
 
     .child:first-child {
-      background-color: #ed6742;
+      background-color: #ff8630;
     }
 
     .child:nth-child(2) {
-      background-color: #49a16c;
+      background-color: #41e847;
     }
 
     .child:last-child {
-      background-color: #e6e6e6;
+      background-color: #2e9aff;
     }
   </style>
 </head>
 <body>
   <div class="parent">
-    <div class="child">1</div>
-    <div class="child">2</div>
-    <div class="child">3</div>
+    <div class="child">🙈</div>
+    <div class="child">🙉</div>
+    <div class="child">🙊</div>
   </div>
 </body>
 </html>

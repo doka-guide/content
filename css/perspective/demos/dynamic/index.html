@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная песочница — perspective — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      accent-color: #2E9AFF;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+    }
+
+    .controls {
+      margin-bottom: 25px;
+      text-align: center;
+      text-transform: lowercase;
+    }
+
+    .value {
+      font-size: 40px;
+      font-weight: 500;
+    }
+
+    .slider {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+    }
+
+    .scene {
+      position: absolute;
+      width: 500px;
+      height: 250px;
+      perspective: 500px;
+    }
+
+    .scene-wrapper {
+      width: 500px;
+      height: 250px;
+      transform-style: preserve-3d;
+    }
+
+    .element {
+      display: flex;
+      justify-content: center;
+      width: 500px;
+      height: 250px;
+      padding: 15px;
+    }
+
+    .element--front {
+      align-items: end;
+      background-color: #2e9aff80;
+      transform: rotateY(0) translateZ(100px);
+    }
+
+    .element--back {
+      align-items: start;
+      background-color: #F498AD;
+      transform: rotateY(180deg) translateZ(100px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container, .scene, .scene-wrapper, .element {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <label>
+        <code class="value"><span id="demo"></span></code>
+        <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
+      </label>
+      <p>Значение свойства <code>perspective</code></p>
+    </div>
+    <div class="scene">
+      <div class="scene-wrapper">
+        <div class="element element--back">Задняя стенка экрана</div>
+      </div>
+    </div>
+    <div class="element element--front">Пользователь</div>
+  </div>
+
+  <script>
+    const myRange = document.getElementById('myRange')
+    const output = document.getElementById('demo')
+    const scene = document.querySelector('.scene')
+    const elementBack = document.querySelector('.element--back')
+    output.textContent = myRange.value + 'px'
+
+    myRange.onchange = myRange.oninput = function() {
+      let value = myRange.value
+      elementBack.style.transform='rotateY(180deg) translateZ(100px)'
+
+      if (value === '1000') {
+        value = 'none'
+        elementBack.style.transform='rotateY(180deg) translateZ(0)'
+      }
+
+      scene.style.perspective = value === 'none' ? 'none' : `${ +value}px`
+      output.textContent = value === 'none' ? 'none' : `${ +value}px`
+    }
+  </script>
+</body>
+</html>

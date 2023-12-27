@@ -4,48 +4,87 @@
   <title>Хорошие примеры — <cite> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
+
     body {
-      padding: 20px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-size: 24px;
       font-family: "Roboto", sans-serif;
     }
 
     p {
-      width: 100%;
-      margin-bottom: 10px;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
-    a, a:visited, a:active {
-      color: white;
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #FF8630;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    — Только что дочитал цикл <cite>Тёмная башня</cite>. Я впечатлён! Где можно узнать о выходе новых книг?
-  </p>
-  <p>
-    — За актуальными новостями можно следить на
-    <cite>
-      <a href="https://stephenking.com/upcoming/">сайте Стивена Кинга</a>
-    </cite>.
-  </p>
-  <p>
-    — Спасибо! Я так впечатлился, что хочу подарить ему оригинал <cite>Утра в сосновом бору</cite>. Вы знаете, когда у него день рождения?
-  </p>
-  <p>
-    — Вы можете найти ответ на том же сайте в разделе <cite>FAQ</cite>.
-  </p>
+  <div class="container">
+    <p>
+      — Только что дочитал цикл <cite>Тёмная башня</cite>. Я впечатлён! Где можно узнать о выходе новых книг?
+    </p>
+    <p>
+      — За актуальными новостями можно следить на
+      <cite>
+        <a href="https://stephenking.com/upcoming/">сайте Стивена Кинга</a>
+      </cite>.
+    </p>
+    <p>
+      — Спасибо! Я так впечатлился, что хочу подарить ему оригинал <cite>Утра в сосновом бору</cite>. Вы знаете, когда у него день рождения?
+    </p>
+    <p>
+      — Вы можете найти ответ на том же сайте в разделе <cite>FAQ</cite>.
+    </p>
+  </div>
 </body>
 </html>

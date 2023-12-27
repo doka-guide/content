@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый вид — all — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
+    p {
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #FFFFFF;
+    }
+
+    p + p {
+      margin-top: 7px;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      div {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      p {
+        line-height: 1.5;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <p>Поговорим о многоножках:</p>
+  <p>
+    Тело каждой многоножки состоит из длинного туловища и округлённой головы. Обычно последняя снизу практически
+    плоская (губоногие – исключение из этого правила), чтобы членистоногому было проще передвигаться по поверхностям.
+    Также на голове есть пара усиков, выполняющих функцию осязательного и обонятельного органа.
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Управление анимацией с помощью prefers-reduced-motion — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: Roboto, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+      text-align: center;
+    }
+
+    .animated-emoji {
+      width: fit-content;
+      height: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 16px;
+      font-size: 3rem;
+      transform: rotate(-100deg);
+      transform-origin: 25px 45px;
+      animation: rotation 1.6s infinite;
+    }
+
+    @media (prefers-reduced-motion) {
+      .animated-emoji {
+        transform: none;
+        animation: none;
+      }
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(-100deg);
+      }
+
+      50% {
+        transform: rotate(10deg);
+      }
+
+      to {
+        transform: rotate(-100deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1>Ура, вы всё купили!</h1>
+  <div class="animated-emoji">🎉</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример индикатора загрузки файла — <progress> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .row + .row {
+      margin-top: 25px;
+    }
+
+    .row--upload {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .upload, .button  {
+      width: 350px;
+    }
+
+    .upload {
+      position: relative;
+      border: 1px solid #FF8630;
+      border-radius: 16px;
+    }
+
+    .upload__counter {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .upload__indicator {
+      overflow: hidden;
+      display: block;
+      width: 0;
+      border: none;
+      border-radius: 16px;
+      height: 28px;
+      background-color: #FF8630;
+    }
+
+    .upload__indicator::-webkit-progress-bar {
+      border: none;
+      background-color: #FF8630;
+      border-radius: 16px;
+    }
+
+    .upload__indicator::-webkit-progress-value {
+      background-color: #FF8630;
+      border-radius: 16px;
+    }
+
+    .upload__indicator::-moz-progress-bar {
+      border: none;
+      background-color: #FF8630;
+      border-radius: 16px;
+    }
+
+    .success-message {
+      height: 22px;
+      margin-top: 15px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .upload, .button, .container  {
+        width: 100%;
+      }
+
+      .upload {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <label class="row-label" for="progressBar">Загрузка файла:</label>
+      <div class="upload">
+        <div id="progressCounter" class="upload__counter">0%</div>
+        <progress id="progressBar" class="upload__indicator" value="0" max="100"></progress>
+      </div>
+    </div>
+    <div class="row row--upload">
+      <button class="button button-orange" onclick="start()">Загрузить файл</button>
+      <p class="success-message" id="successText" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script>
+    const progressBar = document.getElementById('progressBar')
+    const uploadSuccess = document.getElementById('successText')
+    const uploadCounter = document.getElementById('progressCounter')
+    let progressWidth = 0
+
+    function start() {
+      setInterval(() => {
+        if (progressWidth >= 100) {
+          uploadSuccess.textContent = 'Файл успешно загружен.'
+          clearInterval()
+        } else {
+          progressWidth++;
+          progressBar.style.width = progressWidth + '%'
+          progressBar.value = progressWidth
+          uploadCounter.textContent = progressWidth + '%'
+        }
+      }, 10)
+    }
+  </script>
+</body>
+</html>

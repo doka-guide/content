@@ -15,26 +15,23 @@ location: "/about/"
 
 В редакцию входят:
 
-- **<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->** — главный редактор проекта.
-- **<!-- yaspeller ignore:start -->Алёна Батицкая<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html) и [CSS](/css).
-- **<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js) и [Инструменты](/tools).
-- **<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->** — ревьюер разделов [JavaScript](/js) и [Инструменты](/tools).
-- **<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->** — литературный редактор.
+- **<!-- yaspeller ignore:start -->[Алёна Батицкая](/people/solarrust/)<!-- yaspeller ignore:end -->** — редактор разделов [HTML](/html/) и [CSS](/css/), тимлид Доки.
+- **<!-- yaspeller ignore:start -->[Полина Гуртовая](/people/hellsquirrel/)<!-- yaspeller ignore:end -->** — редактор разделов [JavaScript](/js/) и [Веб-платформа](/tools/).
+- **<!-- yaspeller ignore:start -->[Татьяна Фокина](/people/tatianafokina/)<!-- yaspeller ignore:end -->** — редактор раздела [Доступность](/a11y/).
 
-Редакторы и ревьюеры работают с авторами, помогают делать пул-реквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
+Редакторы и ревьюеры работают с авторами, помогают делать пулреквесты, планируют развитие и следят за тем, чтобы контент Доки был полным, актуальным, понятным и грамотным, чтобы у материалов были иллюстрации и демки.
 
-- **<!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end -->** — арт-директор по визуальному контенту, помогает насыщать статьи иллюстрациями, объясняющими картинками и анимациями.
-- **<!-- yaspeller ignore:start -->Кира Кустова<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
-- **<!-- yaspeller ignore:start -->Света Коробцева<!-- yaspeller ignore:end -->** — дизайнер и разработчик демок, берёт обычные демки и превращает их в красивые и интерактивные.
-- **<!-- yaspeller ignore:start -->Игорь Коровченко<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
-- **<!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end -->** — фронтенд-разработчик, верстает сайт и разрабатывает движок платформы.
-- **<!-- yaspeller ignore:start -->Егор Левченко<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
+- **<!-- yaspeller ignore:start -->[Кира Кустова](/people/kirakusto/)<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
+- **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — продуктовый дизайнер, делает сайт Доки прекраснее.
+- **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — фулстек-разработчик, девопс, «мастер ключей».
+- **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — менеджер по развитию и коммуникациям.
+- **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
-Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс.Практикум](https://practicum.yandex.ru/).
+Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership).
 
 ## Откуда мы взялись
 
-Идея Доки родилась в Яндекс.Практикуме, где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
+Идея Доки родилась в [Практикуме](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership), где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
 
 ## Чего мы хотим
 
@@ -42,4 +39,17 @@ location: "/about/"
 
 ## Ваш ход!
 
-Дока — это вы, это ваш опыт и знания, которыми вы хотите поделиться с сообществом. Вы можете писать статьи, предлагать уточнения и правки, помогать с развитием платформы — словом, вы можете делать все, что по вашему мнению сделает Доку лучше. Почитайте о том, [как присоединиться к работе над Докой](https://github.com/doka-guide/content/blob/main/docs/contributing.md) и внести свой вклад.
+Дока — это вы, это ваш опыт и знания, которыми вы хотите поделиться с сообществом. Вы можете писать статьи, предлагать уточнения и правки, помогать с развитием платформы — словом, вы можете делать все, что по вашему мнению сделает Доку лучше. Почитайте о том, [как присоединиться к работе над Докой](https://github.com/doka-guide/content/blob/main/docs/contributing.md) и влиться в [сообщество замечательных людей](/people/), которые уже внесли свой вклад.
+
+## Особая благодарность
+
+Хотим поблагодарить людей, которые принимали активное участие в создании и развитии проекта:
+
+- <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> — за то, что собрал нас вместе.
+- <!-- yaspeller ignore:start -->Валя Броницкая<!-- yaspeller ignore:end --> — за контентный дизайн.
+- <!-- yaspeller ignore:start -->Алексей Бузмаков<!-- yaspeller ignore:end --> — за разработку платформы.
+- [<!-- yaspeller ignore:start -->Ольга Алексашенко<!-- yaspeller ignore:end -->](/people/tachisis/) — за литературную редактуру.
+- [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
+- [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.
+- [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Веб-платформа.
+- [<!-- yaspeller ignore:start -->Саша Патлух<!-- yaspeller ignore:end -->](/people/pa7lux/) — за помощь Доке в сложный период.

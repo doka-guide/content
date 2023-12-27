@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-east-asian`"
+description: "Используем специальные символы для восточноазиатских языков."
 authors:
   - doka-dog
+related:
+  - css/font-variation-settings
+  - css/font-variant
+  - css/font-synthesis
 tags:
   - doka
   - placeholder

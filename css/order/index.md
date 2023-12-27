@@ -1,5 +1,10 @@
 ---
 title: "`order`"
+description: "Меняем визуальный порядок флекс-элементов, не меняя HTML."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.order
 authors:
   - solarrust
 editors:
@@ -7,6 +12,10 @@ editors:
 keywords:
   - порядок флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/display
+  - a11y/css-impact-on-a11y
 tags:
   - doka
 ---
@@ -29,7 +38,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 По умолчанию элементы отображаются в том порядке, в котором они расположены в разметке, а значение свойства `order` равно 0. Но это свойство позволяет переставлять их местами.
 

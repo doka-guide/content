@@ -1,5 +1,13 @@
 ---
 title: "`grid-column-start`, `grid-column-end`, `grid-row-start`, `grid-row-end`"
+description: "Между какими грид-линиями расположится элемент."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-column-start
+      - css.properties.grid-column-end
+      - css.properties.grid-row-end
+      - css.properties.grid-row-start
 authors:
   - solarrust
 editors:
@@ -7,6 +15,10 @@ editors:
 keywords:
   - начальная линия грида
   - конечная линия грида
+related:
+  - css/grid-guide
+  - css/flexbox-guide
+  - css/z-index
 tags:
   - doka
 ---
@@ -39,9 +51,9 @@ tags:
 ## Как пишется
 
 - `[name]` или `1` — порядковый номер или название конкретной линии.
-- `span 2` — элемент растянется на указанное количество ячеек.
-- `span [name]` — элемент будет растягиваться до следующей указанной линии.
-- `auto` — означает автоматическое размещение, автоматический диапазон ячеек или дефолтное растягивание элемента, равное одному.
+- `span 2` — элемент растянется на указанное количество ячеек.
+- `span [name]` — элемент будет растягиваться до следующей указанной линии.
+- `auto` — означает автоматическое размещение, автоматический диапазон ячеек или дефолтное растягивание элемента, равное одному.
 
 ## Подсказки
 

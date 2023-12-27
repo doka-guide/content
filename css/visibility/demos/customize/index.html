@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Свойство visibility — visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      padding: 5%;
+      margin: 0;
+      color: #fff;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    button {
+      padding: 15px 25px;
+      border: none;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      color: #000000;
+      background-color: #F498AD;
+    }
+
+    .container {
+      margin-block-end: 25px;
+      padding: 35px;
+      border: 1px solid;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-block: 15px;
+      font-size: 2rem;
+    }
+
+    #customize {
+      background-color: #2E9AFF;
+    }
+
+    .customized .container {
+      visibility: hidden;
+    }
+
+    .customized button._visible {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="buttons">
+        <button>🐶</button>
+        <button>🐱</button>
+        <button>🐭</button>
+        <button>🦊</button>
+        <button>🐸</button>
+      </div>
+    </div>
+    <button id="customize">Кастомизировать</button>
+  </div>
+  <script>
+    document.querySelector('#customize').onclick = (event) => {
+      document.body.classList.toggle('customized')
+
+      document.querySelectorAll('.buttons > button').forEach(btn => btn.classList.remove('_visible'))
+      document.querySelectorAll('.buttons > button')[Math.floor(Math.random() * (4 - 0 + 1) + 0)].classList.add('_visible')
+
+      event.target.textContent = event.target.textContent === 'Кастомизировать'
+        ? 'Отменить'
+        : 'Кастомизировать'
+    }
+  </script>
+</body>
+</html>

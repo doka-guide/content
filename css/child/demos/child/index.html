@@ -1,74 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Псевдоклассы группы child — nth-child — Дока</title>
+  <title>Разноцветный список — Псевдоклассы группы child — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
-      font-size: 20px;
-      font-weight: 100;
     }
 
     .list {
-      padding-left: 1em;
-      list-style-image: url("../../images/marker.png");
+      width: 600px;
+      padding-left: 24px;
+      list-style-type: none;
     }
 
     .list-item {
+      position: relative;
       padding: 10px;
-      color: #000000;
+      color: #18191C;
       line-height: 1;
+      text-transform: lowercase;
+    }
+
+    .list-item::before {
+      content: "";
+      position: absolute;
+      top: calc(50% - 7px);
+      left: -24px;
+      width: 14px;
+      height: 14px;
+      background-color: #FFFFFF;
+    }
+
+    .list-item::after {
+      content: ";";
+    }
+
+    .list-item:last-of-type::after {
+      content: ".";
     }
 
     .list-item + .list-item {
       margin-top: 5px;
     }
 
-    /* У всех пунктов списка будет жёлтый фон */
+    /* У всех пунктов списка будет синий фон */
     .list-item {
-      background-color: #ffd829;
+      background-color: #2E9AFF;
     }
 
-    /* У первого пункта списка (первого дочернего элемента) будет тёмно-зелёный фон */
+    /* У первого пункта списка (первого дочернего элемента) будет фиолетовый фон */
     .list-item:first-child {
-      background-color: #064236;
+      background-color: #C56FFF;
     }
 
     /* У последнего пункта списка (последнего дочернего элемента) будет оранжевый фон */
     .list-item:last-child {
-      background-color: #ed6742;
+      background-color: #FF8630;
     }
 
     /* У второго пункта списка будет зелёный фон */
     .list-item:nth-child(2) {
-      background-color: #49a16c;
+      background-color: #41E847;
     }
 
     /* У предпоследнего пункта списка будет розовый фон */
     .list-item:nth-last-child(2) {
-      background-color: #f498ad;
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .list {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <ul class="list">
-    <li class="list-item">Тёмный синевато-зелёный</li>
-    <li class="list-item">Блестящий зелёный</li>
-    <li class="list-item">Блестящий зеленовато-жёлтый</li>
-    <li class="list-item">Блестящий зеленовато-жёлтый</li>
-    <li class="list-item">Блестящий зеленовато-жёлтый</li>
+    <li class="list-item">Фиолетовый</li>
+    <li class="list-item">Лаймовый</li>
+    <li class="list-item">Лазурный</li>
+    <li class="list-item">Лазурный</li>
+    <li class="list-item">Лазурный</li>
     <li class="list-item">Розовый щербет</li>
     <li class="list-item">Умеренный оранжевый</li>
   </ul>

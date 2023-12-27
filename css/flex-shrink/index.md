@@ -1,5 +1,10 @@
 ---
 title: "`flex-shrink`"
+description: "Как будет сжиматься флекс-элемент если места мало."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-shrink
 authors:
   - solarrust
 editors:
@@ -7,6 +12,10 @@ editors:
 keywords:
   - сжатие флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-grow
+  - css/flex-basis
 tags:
   - doka
 ---
@@ -29,7 +38,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Чем больше значение у этого свойства, тем быстрее элемент будет сжиматься по сравнению с соседями, имеющими меньшее значение.
 

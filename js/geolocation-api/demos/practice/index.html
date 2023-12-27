@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Местоположение на карте — Geolocation API — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    iframe {
+      border: 1px solid #000000;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    width="425"
+    height="350"
+    frameborder="0"
+    scrolling="no"
+    marginheight="0"
+    marginwidth="0"
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-37.08984375000001%2C-38.41055825094608%2C143.96484375000003%2C72.81607371878991&amp;layer=mapnik">
+  </iframe>
+  <button class="button button-yellow">Где я?</button>
+  <p id="status"></p>
+  <script>
+    const map = document.querySelector('iframe')
+    const button = document.querySelector('button')
+    const status = document.querySelector('#status')
+
+    button.addEventListener('click', findLocation)
+
+    function findLocation() {
+      if (!navigator.geolocation) {
+        status.textContent = 'Ваш браузер не дружит с геолокацией...'
+      } else {
+        navigator.geolocation.getCurrentPosition(success, error)
+      }
+
+      function success(position) {
+        const { longitude, latitude }  = position.coords
+
+        map.src = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude}%2C${latitude}&amp;layer=mapnik`
+      }
+
+      function error() {
+        status.textContent = 'Не получается определить вашу геолокацию :('
+      }
+    }
+  </script>
+</body>
+</html>

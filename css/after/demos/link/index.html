@@ -4,29 +4,35 @@
   <title>Стилизация — ::after — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,700;1,900&amp;display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
       box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #ffd829;
-      color: #ffffff;
-      text-align: center;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .link {
       position: relative;
-      padding: 6px 18px;
-      color: #000000;
+      padding: 14px 20px;
+      color: #2E9AFF;
       font-size: 50px;
       font-weight: 700;
+      line-height: 1;
       text-transform: uppercase;
       text-decoration: none;
     }
@@ -34,24 +40,24 @@
     .link::before,
     .link::after {
       content: "";
-      height: 8px;
-      width: 8px;
+      height: 14px;
+      width: 14px;
       position: absolute;
       transition: all 0.6s;
     }
 
     .link::before {
-      top: -3px;
-      left: -3px;
-      border-top: 6px solid #000000;
-      border-left: 6px solid #000000;
+      top: 0;
+      left: 0;
+      border-top: 6px solid currentColor;
+      border-left: 6px solid currentColor;
     }
 
     .link::after {
-      bottom: -3px;
-      right: -3px;
-      border-bottom: 6px solid #000000;
-      border-right: 6px solid #000000;
+      bottom: 0;
+      right: 0;
+      border-bottom: 6px solid currentColor;
+      border-right: 6px solid currentColor;
     }
 
     .link:hover::before,
@@ -60,9 +66,15 @@
       height: 100%;
       transition: all 0.3s;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <a href="#" class="link">choose me</a>
+  <a href="#" class="link">выбери меня</a>
 </body>
 </html>

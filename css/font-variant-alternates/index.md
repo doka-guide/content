@@ -1,7 +1,12 @@
 ---
 title: "`font-variant-alternates`"
+description: "В вариативном шрифте бывает несколько видов одного символа."
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-synthesis
+  - css/font-size-adjust
 tags:
   - doka
   - placeholder
@@ -9,7 +14,7 @@ tags:
 
 ## Кратко
 
-Свойство `font-variant-alternates` управляет использованием альтернативных глифов. Имена альтернативных глифов могут быть определены в директиве [`@font-feature-values`](/css/font-feature-values).
+Свойство `font-variant-alternates` управляет использованием альтернативных глифов. Имена альтернативных глифов могут быть определены в директиве [`@font-feature-values`](https://developer.mozilla.org/ru/docs/Web/CSS/@font-feature-values).
 
 ## Как пишется
 

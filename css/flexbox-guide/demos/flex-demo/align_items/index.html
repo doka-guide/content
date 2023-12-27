@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Пример свойства align-items — Гайд по flexbox — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="./align_items.js"></script>
+  <link rel="stylesheet" href="../main.css">
+</head>
+
+<body class="_dark">
+  <main class="main-wrap">
+    <code class="code">
+        <pre><span class="code__selector">.container</span> {</pre>
+        <pre>	<span class="code__properties">width</span>: <span class="code__value">100%</span>;</pre>
+        <pre>	<span class="code__properties">height</span>: <span class="code__value">320px</span>;</pre>
+        <pre>	<span class="code__properties">display</span>: <span class="code__value">flex</span>;</pre>
+
+        <pre>	<span class="code__properties">flex-direction</span>: <select data-select="flex-direction" class="code__select" name="flex-direction" >
+          <option selected value="row">row</option>
+          <option value="row-reverse">row-reverse</option>
+          <option value="column">column</option>
+          <option value="column-reverse">column-reverse</option>
+        </select>;</pre>
+
+        <pre>	<span class="code__properties">flex-wrap</span>: <select data-select="flex-wrap" class="code__select" name="flex-wrap" >
+          <option selected value="nowrap">nowrap</option>
+          <option value="wrap">wrap</option>
+          <option value="wrap-reverse">wrap-reverse</option>
+        </select>;</pre>
+
+        <pre>	<span class="code__properties">justify-content</span>: <select data-select="justify-content" class="code__select" name="justify-content" >
+          <option selected value="flex-start">flex-start</option>
+          <option value="flex-end">flex-end</option>
+          <option value="start">start</option>
+          <option value="end">end</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+          <option value="center">center</option>
+          <option value="space-between">space-between</option>
+          <option value="space-around">space-around</option>
+          <option value="space-evenly">space-evenly</option>
+        </select>;</pre>
+
+        <pre class="_active">	<span class="code__properties">align-items</span>: <select data-select="align-items" class="code__select" name="align-items" >
+          <option  value="stretch">stretch</option>
+          <option value="flex-start">flex-start</option>
+          <option value="flex-end">flex-end</option>
+          <option selected value="center">center</option>
+          <option value="baseline">baseline</option>
+        </select>;</pre>
+        <pre>}</pre>
+      </code>
+
+    <div data-demo-wrap class="demo">
+      <div class="item item_start"><span class="item__name">Start</span></div>
+      <div data-demo-item class="item">
+        <span data-demo-item-name class="item__name">Item</span>
+        <div class="item__controls">
+          <button data-demo-item-btn="remove" class="item__btn item__btn_remove" aria-label="Удалить элемент"></button>
+          <button data-demo-item-btn="size" class="item__btn item__btn_size"
+            aria-label="Увеличить/уменьшить элемент"></button>
+          <button data-demo-item-btn="add" class="item__btn item__btn_add" aria-label="Добавить элемент"></button>
+        </div>
+      </div>
+      <div data-demo-end class="item item_end"><span class="item__name">End</span></div>
+    </div>
+  </main>
+
+</body>
+
+</html>

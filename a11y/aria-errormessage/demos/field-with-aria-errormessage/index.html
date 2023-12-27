@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>aria-errormessage для пустого поля — aria-errormessage — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-size: 18px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    form {
+      width: 700px;
+      margin-top: 30px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    input[aria-invalid=true] {
+      border-color: #F498AD;
+    }
+
+    label {
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .error-message {
+      display: none;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .container {
+      width: 350px;
+    }
+
+    .input-container {
+      min-height: 105px;
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      label {
+        display: inline-block;
+        margin: 0 0 10px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      form, .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-row">
+    <label for="email">Ваша почта (обязательно):</label>
+    <div class="container">
+      <div class="input-container">
+        <input id="email" type="email" name="email" aria-invalid="false" aria-errormessage="error" required>
+        <span class="error-message" id="error" aria-live="assertive">Поле с почтой обязательно для заполнения.</span>
+      </div>
+      <button id="button" class="button button-aqua">Отправить</button>
+    </div>
+  </div>
+  <script>
+    const input = document.getElementById('email')
+    const button = document.getElementById('button')
+    const error = document.getElementById('error')
+
+    button.addEventListener('click', event => {
+      const value = input.value
+
+      if (!value) {
+        input.setAttribute('aria-invalid', 'true')
+        error.style.display = 'block'
+      } else {
+        input.setAttribute('aria-invalid', 'false')
+        error.style.display = 'none'
+      }
+    })
+  </script>
+</body>
+</html>

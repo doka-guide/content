@@ -1,0 +1,62 @@
+changelog:
+  categories:
+    - title: Контент по Веб-платформе
+      labels:
+        - веб-платформа
+    - title: Контент про Доступность
+      labels:
+        - a11y
+    - title: Контент по CSS
+      labels:
+        - css
+    - title: Задачи для хаккатона
+      labels:
+        - hackathon
+    - title: Статьи с HolyJS
+      labels:
+        - holyJS
+    - title: Контент по HTML
+      labels:
+        - html
+    - title: Контент по JavaScript
+      labels:
+        - js
+    - title: Заготовка материала
+      labels:
+        - placeholder
+    - title: Требуется обсуждение
+      labels:
+        - вопрос
+    - title: Демка
+      labels:
+        - демо
+    - title: Справочный материал
+      labels:
+        - дока
+    - title: Документация, репозиторий, задачи редакции
+      labels:
+        - кухня
+    - title: Что-то критичное и мешает
+      labels:
+        - ошибка
+    - title: Контент для Рецептов
+      labels:
+        - рецепт
+    - title: Контент для На собеседовании
+      labels:
+        - собеседование
+    - title: Расширенный материал
+      labels:
+        - статья
+    - title: Доработка существующего
+      labels:
+        - улучшение
+    - title: Подходит для начинающих
+      labels:
+        - хороший
+    - title: Временный лейбл для конкурса
+      labels:
+        - ЯЛФ
+    - title: Другие изменения
+      labels:
+        - "*"

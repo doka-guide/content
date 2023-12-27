@@ -4,32 +4,38 @@
   <title>Нестандартный маркер — ::before — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
-      background-color: #1a5ad7;
-      color: #ffffff;
-      text-align: center;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     ul {
-      display: inline-block;
       list-style-type: none;
     }
 
     li {
       position: relative;
       font-size: 20px;
-      text-align: left;
       font-weight: 300;
+      text-align: left;
+      text-transform: lowercase;
     }
 
     li + li {
@@ -37,9 +43,22 @@
     }
 
     li::before {
-      content: "💛";
+      content: "💜";
       margin-right: 5px;
-      vertical-align: middle;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

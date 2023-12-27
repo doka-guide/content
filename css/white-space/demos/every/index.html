@@ -4,33 +4,67 @@
   <title>Сравнение разных значений — white-space — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
-      color: #ffffff;
-      font-size: 24px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 16px;
     }
 
-    p::before {
-      content: attr(data-title);
-      display: block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      color: red;
-      font-weight: bold;
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
-    .parent {
-      width: 350px;
-      padding: 5%;
-      background: #00000022;
-      margin-left: auto;
-      margin-right: auto;
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    .option-title {
+      margin-inline-end: 50px;
+      text-align: right;
+    }
+
+    h1, .option-title {
+      inline-size: 180px;
+    }
+
+    .option {
+      inline-size: 340px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
     }
 
     .normal {
@@ -57,41 +91,65 @@
       white-space: break-spaces;
     }
 
-    mark {
-      background-color: #FFFFFF;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+        overflow: scroll;
+      }
+
+      h1, .option-title {
+        inline-size: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .option {
+        inline-size: calc(100vw - 60px);
+      }
     }
   </style>
 </head>
 <body>
 <div class="parent">
-  <p class="normal" data-title="white-space: normal;">
-    <mark>Однажды,
-    в студёную, зимнюю пору,
-    я из лесу вышел,
-    был сильный мороз</mark>
-  </p>
-  <p class="nowrap" data-title="white-space: nowrap;">
-    <mark>Однажды,
-    в студёную, зимнюю пору,
-    я из лесу вышел,
-    был сильный мороз</mark>
-  </p>
-  <p class="pre" data-title="white-space: pre;">
-    <mark>Однажды,     в студёную, зимнюю пору,     я из лесу вышел,
-    был сильный мороз</mark>
-  </p>
-  <p class="pre-wrap" data-title="white-space: pre-wrap;">
-    <mark>Однажды,     в студёную, зимнюю пору,     я           из лесу вышел,
-      был сильный мороз</mark>
-  </p>
-  <p class="pre-line" data-title="white-space: pre-line;">
-    <mark>Однажды,     в студёную, зимнюю пору,     я из лесу вышел,
-      был сильный мороз</mark>
-  </p>
-  <p class="break-spaces" data-title="white-space: break-spaces;">
-    <mark>Однажды,     в студёную, зимнюю пору,  я         из лесу вышел,
-      был сильный мороз</mark>
-  </p>
+  <h1><code>white-space</code></h1>
+  <div class="option-container">
+    <span class="option-title"><code>normal</code></span>
+    <p class="option normal"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>nowrap</code></span>
+    <p class="option nowrap"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre</code></span>
+    <p class="option pre"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre-wrap</code></span>
+    <p class="option pre-wrap"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>pre-line</code></span>
+    <p class="option pre-line"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>break-spaces</code></span>
+    <p class="option break-spaces"><mark>Однажды,    в    студёную зимнюю     пору
+        Я из лесу       вышел;        был сильный мороз.</mark></p>
+  </div>
 </div>
 </body>
 </html>

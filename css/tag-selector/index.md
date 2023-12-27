@@ -1,13 +1,16 @@
 ---
 title: "Селектор по тегу"
+description: "Выбираем определённые теги в HTML для их стилизации."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 editors:
   - tachisis
-keywords:
-  - селектор
+related:
+  - css/class-selector
+  - css/specificity
+  - css/cascade
 tags:
   - doka
 ---
@@ -44,7 +47,7 @@ h1 {
 }
 ```
 
-## Как это понять
+## Как понять
 
 Когда нужно применить одни и те же правила к определённым тегам, используется селектор по тегу. Он применяется ко всем тегам с таким названием вне зависимости от вложенности.
 

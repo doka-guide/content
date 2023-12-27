@@ -4,12 +4,31 @@
   <title>Декор текста — text-decoration-thickness — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      gap: 35px;
       margin: 0;
-      padding: 5%;
+      padding: 50px;
       background-color: #18191c;
       color: #e6e6e6;
       font-family: "Roboto", sans-serif;
@@ -23,16 +42,11 @@
       font-size: 18px;
     }
 
-    p + p {
-      margin-top: 35px;
-    }
-
     p::after {
       content: "text-decoration-thickness: "attr(data-size);
       position: absolute;
-      left: 30px;
-      top: -13px;
-      display: block;
+      inset-inline-start: 30px;
+      inset-block-start: -13px;
       padding: 5px 10px;
       font-size: 0.8em;
       font-family: monospace;
@@ -41,21 +55,21 @@
     }
 
     .thin {
-      text-decoration: underline solid red 1px;
+      text-decoration: underline solid #2e9aff 1px;
     }
 
     .thick {
-      text-decoration: underline solid red 3px;
+      text-decoration: underline solid #2e9aff 3px;
     }
 
     .shorthand {
-      text-decoration: underline solid red 5px;
+      text-decoration: underline solid #2e9aff 5px;
     }
   </style>
 </head>
   <body>
-    <p class="thin" data-size="1px">Текст с красным подчёркиванием в 1px.</p>
-    <p class="thick" data-size="3px">Текст с красным подчёркиванием в 3px.</p>
-    <p class="shorthand" data-size="5px">Текст с красным подчёркиванием в 5px.</p>
+    <p class="thin" data-size="1px">Текст с голубым подчёркиванием в 1px.</p>
+    <p class="thick" data-size="3px">Текст с голубым подчёркиванием в 3px.</p>
+    <p class="shorthand" data-size="5px">Текст с голубым подчёркиванием в 5px.</p>
   </body>
 </html>

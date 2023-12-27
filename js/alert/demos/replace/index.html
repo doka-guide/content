@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Попап на замену alert()  — alert() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .dialog-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: none;
+      background-color: rgb(255 216 41 / 10%);
+      z-index: 1;
+    }
+
+    .dialog-box {
+      position: fixed;
+      display: none;
+      padding: 20px 80px;
+      background-color: #FFFFFF;
+      color: #000000;
+      z-index: 10;
+    }
+
+    .dialog-box h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .dialog-box .dialog-content {
+      margin: 17px 0 27px;
+    }
+
+    .dialog-box .button {
+      width: 100%;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    .dialog-box .button:focus-visible {
+      border-color: #FFD829;
+    }
+
+    .dialog-box .button:focus {
+      border-color: #FFD829;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .dialog-box {
+        width: calc(100% - 60px);
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dialog-overlay js-overlay"></div>
+  <div class="dialog-box js-box">
+    <h1 class="js-header"></h1>
+    <p class="dialog-content js-body"></p>
+    <div class="js-footer"></div>
+  </div>
+
+  <button class="button button-yellow" onclick="popup()">Сгенерировать случайное число</button>
+
+  <script>
+    class CustomAlert {
+      constructor() {}
+
+      show(message) {
+        const dialogOverlay = document.querySelector('.js-overlay');
+        const dialogBox = document.querySelector('.js-box')
+
+        dialogOverlay.style.display = 'block'
+        dialogBox.style.display = 'block'
+
+        document.querySelector('.js-header').innerHTML = 'Всплывающее диалоговое окно'
+        document.querySelector('.js-body').innerHTML = message
+        document.querySelector('.js-footer').innerHTML = '<button class="button" onclick="alert.ok()">Закрыть</button>'
+      }
+
+      ok() {
+        this.hide()
+      }
+
+      hide() {
+        document.querySelector('.js-box').style.display = 'none'
+        document.querySelector('.js-overlay').style.display = 'none'
+      }
+    }
+
+    const alert = new CustomAlert()
+
+    function popup() {
+      const message = `Случайное число: ${Math.random()}`
+      alert.show(message)
+    }
+  </script>
+</body>
+</html>

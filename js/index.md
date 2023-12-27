@@ -18,9 +18,12 @@ groups:
       - use-strict
   - name: "Продвинутый синтаксис"
     items:
+      - ternary-operator
       - spread
       - for-in
       - shallow-or-deep-clone
+      - iterator
+      - date
   - name: "Примитивные типы данных"
     items:
       - number
@@ -34,29 +37,29 @@ groups:
   - name: "Коллекции"
     items:
       - object
-      - function-as-datatype
       - arrays
+      - function-as-datatype
       - set
-      - objects-objects-everywhere
+      - map
+      - collection-weakmap
   - name: "Числа"
     items:
-      - number-wrapper
-      - number-is-nan
-      - number-isfinite
-      - number-tostring
+      - number
       - parseint
       - parsefloat
-      - math
-      - math-floor
-      - math-random
+      - number-wrapper
+      - number-tostring
+      - number-is-nan
+      - number-isfinite
   - name: "Строки"
     items:
+      - string
       - string-wrapper
       - template-strings
       - index-of
       - includes
       - string-length
-  - name: "Булевый тип"
+  - name: "Булев тип"
     items:
       - boolean
       - logic-operators
@@ -77,19 +80,29 @@ groups:
       - array-reduce
       - array-filter
       - array-find
+      - array-find-index
+      - array-flat
+      - array-flatmap
       - array-every
       - array-some
       - array-reverse
       - includes
       - index-of
+      - last-index-of
       - array-length
       - array-from
+      - array-of
       - array-isarray
-  - name : "Множество Set"
+  - name: "Объекты"
+    items:
+      - object
+      - object-tostring
+      - descriptors
+      - objects-objects-everywhere
+  - name : "Множества (`Set`)"
     items:
       - set
       - set-constructor
-      - set-size
       - set-add
       - set-delete
       - set-has
@@ -98,47 +111,53 @@ groups:
       - set-values
       - set-keys
       - set-entries
+      - set-size
   - name: "Обработка исключений"
     items:
       - try-catch
       - errors
+  - name: "`Math`"
+    items:
+      - math
+      - math-floor
+      - math-random
   - name: "Браузерное окружение и API"
     items:
       - bom
       - dom
       - fetch
+      - form-data
       - console-log
       - window-history
       - window-location
       - window-navigator
+      - geolocation-api
       - match-media
       - urlsearchparams
       - local-storage
+      - session-storage
+      - performance
       - alert
       - prompt
       - confirm
-      - session-storage
+      - queuemicrotask
       - settimeout
       - cleartimeout
       - setinterval
       - clearinterval
-      - parseint
       - window-print
-  - name: "О браузере"
-    items:
-      - how-the-browser-creates-pages
-      - coordinates
-      - browsers-storages
+      - window-open
+      - intersection-observer
+
   - name: "Объектная модель документа DOM"
     items:
       - dom
       - element
       - events
       - htmlcollection-and-nodelist
-  - name: "Объект страницы `document`"
+
+  - name: "Объект страницы (`document`)"
     items:
-      - cookie
-      - forms
       - element-addeventlistener
       - element-removeeventlistener
       - getelementbyid
@@ -146,11 +165,14 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
-  - name: "Элемент на странице `Element`"
+      - forms
+      - cookie
+  - name: "Элемент на странице (`Element`)"
     items:
       - element
       - element-addeventlistener
       - element-removeeventlistener
+      - element-remove-property
       - getelementsbyclassname
       - getelementsbytagname
       - query-selector
@@ -158,8 +180,11 @@ groups:
       - element-getattribute
       - element-focus
       - element-blur
-      - element-scroll-scrollintoview
-      - element-scroll-scrollto
+      - element-get-property-value
+      - element-set-property
+      - element-scrollby
+      - element-scrollintoview
+      - element-scrollto
       - element-classlist
       - element-dataset
       - element-style
@@ -168,23 +193,37 @@ groups:
       - element-innertext
       - element-textcontent
       - element-hidden
-  - name: "События `Event`"
+  - name: "События"
     items:
       - events
+      - event
+      - event-change
+      - event-reset
+      - event-input
+      - event-dblclick
       - element-click
-      - event-load-and-domcontentloaded
-      - element-keydown-keyup
+      - event-invalid
+      - event-submit
+      - event-domcontentloaded
+      - event-load
+      - event-unload
+      - event-beforeunload
+      - element-keydown
+      - element-keyup
       - element-mouseout
       - element-mouseover
-      - element-scroll-wheel
+      - event-prevent-default
+      - element-scroll
+      - element-wheel
       - element-touch
+
   - name: "Хранение данных в браузере"
     items:
-      - browsers-storages
       - cookie
       - local-storage
       - session-storage
-  - name: "Асинхронный код"
+
+  - name: "Асинхронность"
     items:
       - async-in-js
       - promise
@@ -193,45 +232,20 @@ groups:
       - promise-finally
       - promise-all
       - promise-allsettled
+      - promise-any
+      - promise-race
       - async-await
+
   - name: "Обмен данными с API"
     items:
-      - api
       - fetch
       - async-await
-  - name: "Парадигмы программирования"
-    items:
-      - programming-paradigms
-      - oop
-      - fp
+
   - name: "Веб-приложение"
     items:
-      - web-app-types
-      - web-app-works
-      - web-security
       - language-versions
       - modules
-      - react-and-alternatives
-      - reactivity
-      - architecture-and-design-patterns
-      - technical-debt
-      - code-style
-  - name: "Архитектура приложения"
-    items:
-      - clean-architecture
-      - architecture-data-flow
-      - architecture-mvc
-      - architecture-and-design-patterns
-      - design-patterns-creational
-      - design-patterns-structural
-      - design-patterns-behaviorial
-  - name: "Тестирование"
-    items:
-      - how-to-test-and-why
-      - tdd
-      - how-to-simplify-tests
-      - testing-and-fake-objects
-      - integration-and-system-testing
+
   - name: "Типовые решения"
     items:
       - deal-with-forms
@@ -242,4 +256,4 @@ groups:
 ---
 
 JavaScript — язык программирования широкого спектра. На нём можно как создавать динамические интерфейсы, так и работать с базами данных и операционными системами.
-Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html) и [CSS](/css) веб-страницы, создавать веб-приложения.
+Основная область применения JavaScript — веб. С его помощью можно обмениваться данными между браузером и сервером, изменять [HTML](/html/) и [CSS](/css/) веб-страницы, создавать веб-приложения.

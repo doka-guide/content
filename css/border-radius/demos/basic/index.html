@@ -4,35 +4,65 @@
   <title>Кнопка — border-radius — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    body {
-      padding: 5%;
+    *, *::before, *::after {
       margin: 0;
-      text-align: center;
-      background-color: #e6e6e6;
-      overflow-y: hidden;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .btn {
-      border: none;
-      border-radius: 5px;
-      padding: 15px 45px;
-      color: #e6e6e6;
-      background-color: #282a2e;
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
       font-size: 18px;
       font-weight: 300;
-      cursor: pointer;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
-    .btn:focus {
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
       outline: none;
     }
   </style>
 </head>
 <body>
-  <button class="btn">Купить</button>
+  <button class="button button-blue">Купить</button>
 </body>
 </html>

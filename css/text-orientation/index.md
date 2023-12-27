@@ -1,10 +1,15 @@
 ---
 title: "`text-orientation`"
+description: "Если текст поставить боком, то повернётся вся строка или каждый символ отдельно?"
 authors:
   - doka-dog
 keywords:
   - отображение вертикального текста
   - вертикальный текст
+related:
+  - css/writing-mode
+  - css/hyphens
+  - css/lang
 tags:
   - doka
   - placeholder
@@ -12,7 +17,7 @@ tags:
 
 ## Кратко
 
-Свойство `text-orientation` указывает как буквы должны выстроиться при вертикальном начертании, если значение свойства [`writing-mode`](/css/writing-mode) не `horizontal-tb`.
+Свойство `text-orientation` указывает как буквы должны выстроиться при вертикальном начертании, если значение свойства [`writing-mode`](/css/writing-mode/) не `horizontal-tb`.
 
 ## Как пишется
 

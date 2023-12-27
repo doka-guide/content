@@ -4,7 +4,8 @@
   <title>Список без маркера — list-style-type — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
     *, *::before, *::after {
@@ -40,10 +41,14 @@
 
     address {
       color: #2E9AFF;
-      /* margin-top: 15px;
-      padding-top: 10px; */
       font-size: 16px;
       font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

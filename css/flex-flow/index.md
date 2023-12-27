@@ -1,12 +1,20 @@
 ---
 title: "`flex-flow`"
+description: "Короткая запись для свойств переноса и направления."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-flow
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - шорткат
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-direction
+  - css/flex-wrap
 tags:
   - doka
 ---
@@ -26,7 +34,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 У флексбоксов множество свойств. Это приводит к необходимости сокращать код. Шорткаты дают возможность указывать в одну строку сразу несколько значений для нескольких свойств.
 

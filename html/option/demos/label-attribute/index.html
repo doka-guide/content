@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Атрибут label — <option> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    form {
+      display: flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-right: 35px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    select {
+      position: relative;
+      width: 400px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    select:focus {
+      border: 1px solid #ff8630;
+      outline: none;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      top: calc(50% - 4px);
+      height: 9px;
+      right: 15px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<form>
+  <label for="city-select">Атрибут <code>label</code></label>
+  <div class="select-wrapper">
+    <select name="city2" id="city-select2">
+      <option value="petersburg" selected label="Ленинград">Санкт-Петербург</option>
+      <option value="samara" label="Куйбышев">Самара</option>
+      <option value="volgograd" label="Сталинград">Волгоград</option>
+      <option value="ekaterinburg" label="Свердловск">Екатеринбург</option>
+    </select>
+  </div>
+</form>
+</body>
+</html>

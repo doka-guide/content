@@ -1,5 +1,6 @@
 ---
 title: "`:visited`"
+description: "Подсвечиваем ссылки, по которым пользователь уже ходил."
 authors:
   - solarrust
 contributors:
@@ -7,9 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - :visited
-  - псевдокласс
-  - LVHA
+  - LVFHA
+related:
+  - html/a
+  - css/focus-visible
+  - css/focus-within
 tags:
   - doka
 ---
@@ -22,7 +25,7 @@ tags:
 
 На скриншоте выше посещённым ссылкам задан красный цвет. Ссылки окрасились в него автоматически, как только по ним перешли. По первой ссылке ещё не кликали, поэтому она стандартного цвета.
 
-У этого свойства есть [ряд ограничений](#limits). Из-за этого его редко используют в реальной практике.
+У этого свойства есть [ряд ограничений](#limits). Из-за этого его не часто используют в реальной практике.
 
 ## Пример
 
@@ -42,7 +45,7 @@ a:visited {
 
 К селектору, выбирающему ссылки на странице, добавляем двоеточие и ключевое слово `visited`.
 
-### Селектор ссылки по тегу в состоянии `:visited`
+Селектор ссылки по тегу в состоянии `:visited`
 
 ```css
 a:visited {
@@ -50,7 +53,7 @@ a:visited {
 }
 ```
 
-### Селектор ссылки по классу + `:visited`
+Селектор ссылки по классу + `:visited`
 
 ```css
 .link:visited {
@@ -58,7 +61,7 @@ a:visited {
 }
 ```
 
-### Составной селектор ссылки, вложенной в пункт списка, в состоянии `:visited`
+Составной селектор ссылки, вложенной в пункт списка, в состоянии `:visited`
 
 ```css
 li .link:visited {
@@ -66,7 +69,7 @@ li .link:visited {
 }
 ```
 
-### Селектор ссылки по тегу в состоянии `:visited`
+Селектор ссылки по идентификатору в состоянии `:visited`
 
 ```css
 #id:visited {
@@ -74,7 +77,7 @@ li .link:visited {
 }
 ```
 
-### Селектор ссылки по классу в состоянии `:visited` и её псевдоэлемент
+Селектор ссылки по классу в состоянии `:visited` и её псевдоэлемент
 
 ```css
 .link:visited::before {
@@ -82,7 +85,7 @@ li .link:visited {
 }
 ```
 
-## Как это понять
+## Как понять
 
 Браузер отслеживает, по каким ссылкам на странице кликнул пользователь, и подставляет фантомный класс `:visited` тем из них, по которым был совершён переход на другую страницу. При этом весь механизм присвоения этого класса скрыт под капотом браузера.
 
@@ -94,17 +97,17 @@ li .link:visited {
 
 Для предотвращения злодеяний браузеры приняли решение, что ограничат стили, которые будут срабатывать для псевдокласса `:visited`. Вот список доступных свойств:
 
-- [`color`](/css/color),
-- [`background-color`](/css/background-color),
-- [`border-color`](/css/border-color),
-- `border-bottom-color`,
-- `border-left-color`,
-- `border-right-color`,
-- `border-top-color`,
-- [`outline-color`](/css/outline-color),
-- `column-rule-color`,
-- [`fill`](/css/fill),
-- [`stroke`](/css/stroke).
+- [`color`](/css/color/),
+- [`background-color`](/css/background-color/),
+- [`border-color`](/css/border-color/),
+- `border-bottom-color` или `border-block-end-color`,
+- `border-left-color` или `border-inline-start-color`,
+- `border-right-color` или `border-inline-end-color`,
+- `border-top-color` или `border-block-start-color`,
+- [`outline-color`](/css/outline-color/),
+- [`column-rule-color`](/css/column-rule-color/),
+- [`fill`](/css/fill/),
+- [`stroke`](/css/stroke/).
 
 Любые другие стили будут игнорироваться. Так что не удивляйтесь, если что-то из написанного вами кода не будет работать.
 

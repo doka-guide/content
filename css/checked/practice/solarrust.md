@@ -5,12 +5,14 @@
 ```html
 <div class="dropdown">
   <input type="checkbox" id="menu">
-  <label for="menu">Выбери меня</label>
+  <label for="menu">Выбери черепашку</label>
   <ul>
     <li><a href="#">Леонардо</a></li>
     <li><a href="#">Рафаэль</a></li>
     <li><a href="#">Донателло</a></li>
     <li><a href="#">Микеланджело</a></li>
+    <li><a href="#">Боттичелли</a></li>
+    <li><a href="#">Караваджо</a></li>
   </ul>
 </div>
 ```
@@ -27,22 +29,27 @@
 
 .dropdown label {
   cursor: pointer;
-  border-bottom: 3px dashed #1a5ad7;
+  border-bottom: 3px dashed #2E9AFF;
 }
 
 .dropdown ul {
   position: absolute;
-  left: 0;
-  top: 1.4em;
+  left: calc(100% + 25px);
+  top: 50%;
+  transform: translateY(-50%);
   margin: 0;
-  padding: 5px;
+  padding: 40px 10px;
   list-style: none;
-  background: #1a5ad7;
+  background-color: #FFFFFF;
   font-size: 20px;
 }
 
 .dropdown a {
-  color: #fff;
+  color: #000000;
+}
+
+.dropdown :checked ~ label {
+  color: #2E9AFF;
 }
 
 .dropdown :checked ~ ul {
@@ -50,4 +57,4 @@
 }
 ```
 
-<iframe title="Выпадающее меню" src="../demos/choose/" height="300"></iframe>
+<iframe title="Выпадающее меню" src="../demos/choose/" height="330"></iframe>

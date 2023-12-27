@@ -1,8 +1,14 @@
 ---
-title: "`[].length`"
+title: "`.length`"
 description: "Свойство, которое возвращает количество элементов в массиве."
 authors:
   - nlopin
+editors:
+  - tachisis
+related:
+  - js/arrays
+  - js/set-size
+  - js/string-length
 tags:
   - doka
 ---
@@ -14,12 +20,12 @@ tags:
 ## Пример
 
 ```js
-const series = ['Silicon Valley', 'Game of Thrones', 'Rick & Morty', 'Gravity Falls']
+const series = ['Кремниевая долина', 'Игра престолов', 'Рик и Морти', 'Гравити Фолс']
 console.log(series.length)
 // 4
 
 const empty = []
-console.log(series.length)
+console.log(empty.length)
 // 0
 ```
 
@@ -29,22 +35,6 @@ console.log(series.length)
 
 Значение свойства `length` — целое положительное число в диапазоне от 0 до 2<sup>32</sup>.
 
-Попытка создать массив с размером вне разрешённого диапазона приведёт к ошибке `Range error: invalid array length`.
-
-Воспользуемся конструктором массива, чтобы создать массив размера вне допустимого диапазона:
-
-```js
-const myTodos = new Array(Math.pow(2, 32))
-const freeTimes = new Array(-9000)
-// Range error: invalid array length
-```
-
-Ошибки не будет, если создать пустой массив допустимого размера:
-
-```js
-const watchlist = new Array(Math.pow(2, 32) - 1)
-```
-
 ### Запись в свойство `length`
 
 Свойство `length` перезаписываемое, вы можете записать в него любое число из диапазона возможных значений. Это изменит количество ячеек массива.
@@ -52,31 +42,31 @@ const watchlist = new Array(Math.pow(2, 32) - 1)
 Если уменьшить значение свойства `length`, то из конца массива будут отброшены элементы, которые не входят в новый размер массива:
 
 ```js
-const series = ['Silicon Valley', 'Game of Thrones', 'Rick & Morty', 'Gravity Falls']
+const series = ['Кремниевая долина', 'Игра престолов', 'Рик и Морти', 'Гравити Фолс']
 console.log(series.length)
 // 4
 
 series.length = 2
 console.log(series)
-// ['Silicon Valley', 'Game of Thrones']
+// ['Кремниевая долина', 'Игра престолов']
 ```
 
-Если увеличить значение свойства `length`, то в конец массива добавятся пустые ячейки массива. Значение в них не будет установлено и они будут игнорироваться при обходе массива:
+Если увеличить значение свойства `length`, то в конец массива добавятся пустые ячейки. Значение в них не будет установлено и они будут игнорироваться при обходе:
 
 ```js
-const todos = ['buy milk', 'contribute to Doka']
+const todos = ['купить молока', 'почитать Доку']
 console.log(todos.length)
 // 2
 
 todos.length = 4
 console.log(todos)
-// ['buy milk', 'contribute to Doka', <2 empty slots>]
+// ['купить молока', 'почитать Доку', <2 пустых ячейки>]
 
 todos.forEach(function(todo, index) {
-  console.log(`${index + 1}. todo`)
+  console.log(`${index + 1}. ${todo}`)
 })
-// 1. buy milk
-// 2. contribute to Doka
+// 1. купить молока
+// 2. почитать Доку
 ```
 
 ### Случаи, когда `length` не совпадает с количеством элементов в массиве
@@ -102,25 +92,25 @@ console.log(anotherEmptyArray.length)
 2️⃣ При записи нового элемента в индекс далеко за пределами массива. В этом случае между последним элементом и новым появляется «дыра» из пустых ячеек:
 
 ```js
-const priorities = ['sleep', 'eat', 'drink']
+const priorities = ['спать', 'есть', 'пить']
 console.log(priorities.length)
 // 3
 
-priorities[999] = 'work'
+priorities[999] = 'работать'
 console.log(priorities.length)
 // 1000
 console.log(priorities)
-// ['sleep', 'eat', 'drink', <996 empty slots>, 'work']
+// ['спать', 'есть', 'пить', <996 пустых ячейки>, 'работать']
 ```
 
 3️⃣ При ручном увеличении значения свойства `length`:
 
 ```js
-const todos = ['buy milk', 'contribute to Doka']
+const todos = ['купить молока', 'почитать Доку']
 console.log(todos.length)
 // 2
 
 todos.length = 4
 console.log(todos)
-// ['buy milk', 'contribute to Doka', <2 empty slots>]
+// ['купить молока', 'почитать Доку', <2 пустых ячейки>]
 ```

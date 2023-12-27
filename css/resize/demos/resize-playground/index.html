@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — resize — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .resize-demo {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 32px;
+
+      width: 100%;
+      max-width: 1360px;
+    }
+
+    .resize-demo__sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .resize-demo__values {
+      padding: 16px;
+    }
+
+    .resize-demo__value:hover,
+    .resize-demo__value-label:hover {
+      cursor: pointer;
+    }
+
+    .resize-demo__item + .resize-demo__item {
+      margin-top: 12px;
+    }
+
+    .resize-demo__legend {
+      padding: 0 8px;
+    }
+
+    .resize-demo__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        max-width: 100%;
+
+        height: 100%;
+        max-height: 50vh;
+
+        padding: 8px;
+
+        background-color: #2E9AFF;
+        color: #000000;
+        overflow: auto;
+
+        resize: both;
+    }
+
+    @media (max-width: 992px) {
+      body {
+        padding: 16px;
+
+        align-items: flex-start;
+      }
+
+      .resize-demo {
+        display: flex;
+        flex-direction: column;
+
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="resize-demo">
+    <aside class="resize-demo__sidebar">
+      <fieldset class="resize-demo__values">
+        <legend class="resize-demo__legend">Выберите значение свойства resize</legend>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-none" name="resize-value" value="none" />
+            <span class="radio-title resize-demo__value-label">resize: none</span>
+        </label>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-both" name="resize-value" value="both" checked />
+            <span class="radio-title resize-demo__value-label">resize: both</span>
+        </label>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-horizontal" name="resize-value" value="horizontal" />
+            <span class="radio-title resize-demo__value-label">resize: horizontal</span>
+        </label>
+
+        <label class="radio-label resize-demo__item">
+            <input class="radio resize-demo__value" type="radio" id="resize-vertical" name="resize-value" value="vertical" />
+            <span class="radio-title resize-demo__value-label">resize: vertical</span>
+        </label>
+      </fieldset>
+    </aside>
+
+    <section class="resize-demo__view">
+      <div class="resize-demo__content">Потяните за правый нижний угол, чтобы изменить размер текстового поля</div>
+    </section>
+  </main>
+
+  <script defer>
+    const demoContent = document.querySelector('.resize-demo__content');
+    const radioButtons = document.querySelectorAll('input[name="resize-value"]');
+
+    for(const radioButton of radioButtons){
+        radioButton.addEventListener('change', changeDemoView);
+    }
+
+    function changeDemoView(event) {
+        demoContent.style.resize = event.target.value
+    }
+  </script>
+</body>
+</html>

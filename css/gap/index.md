@@ -1,5 +1,12 @@
 ---
 title: "`gap`"
+description: "Удобный способ задать отступы между элементами внутри гридов и флексбоксов."
+baseline:
+  - group: grid
+    features:
+      - css.properties.gap.grid_context
+      - css.properties.gap.grid_context.calc_values
+      - css.properties.gap.grid_context.percentage_values
 authors:
   - solarrust
 editors:
@@ -10,13 +17,17 @@ keywords:
   - отступы между грид-ячейками
   - отступы в флексбоксе
   - шорткат
+related:
+  - css/numeric-types
+  - css/grid-guide
+  - css/flexbox-guide
 tags:
   - doka
 ---
 
 ## Кратко
 
-Шорткат для записи значений свойств `row-gap` и `column-gap`. Значения разделяются пробелом. Работает как с [гридами](/css/grid-guide), так и с [флексбоксами](/css/flexbox-guide).
+Шорткат для записи значений свойств `row-gap` и `column-gap`. Значения разделяются пробелом. Работает как с [гридами](/css/grid-guide/), так и с [флексбоксами](/css/flexbox-guide/).
 
 ## Как пишется
 

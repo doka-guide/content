@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Таблицы и гриды — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    code {
+      padding: 4px 6px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+      background-color: rgba(16, 243, 175, 0.2);
+    }
+
+    .element-wrapper {
+      max-width: 600px;
+      margin-top: 48px;
+    }
+
+    .table {
+      margin-top: 16px;
+      min-width: 100%;
+      border-top: 7px solid #10F3AF;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .table, td, th {
+      padding: 14px;
+      border-bottom: 1px solid #10F3AF;
+      border-right: 1px solid #10F3AF;
+      border-left-width: 0;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    th:first-child, td:first-child {
+      text-align: left;
+      padding-left: 0;
+    }
+
+    th, .grid-layout__item--heading {
+      font-weight: 500;
+    }
+
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 6fr 2fr 2fr;
+      margin-top: 16px;
+      border-top: 7px solid #10F3AF;
+      line-height: 1.2;
+    }
+
+    .grid-layout__item {
+      padding: 14px;
+      border-bottom: 1px solid #10F3AF;
+      border-right: 1px solid #10F3AF;
+    }
+
+    .grid-layout__item:not(.grid-layout__item--heading:first-of-type):not(.grid-layout__item--name) {
+      text-align: center;
+    }
+
+    .grid-layout__item--name,
+    .grid-layout__item--heading:first-of-type {
+      padding-left: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1>Чек</h1>
+
+  <div class="element-wrapper">
+    <h2 id="heading">Таблица и <code>display: table</code></h2>
+    <table class="table" aria-labelledby="heading">
+      <tr>
+        <th style="width: 60%">Продукт</th>
+        <th>Количество</th>
+        <th>Цена</th>
+      </tr>
+      <tr>
+        <td style="width: 60%">Апельсины</td>
+        <td>1 килограмм</td>
+        <td>💰💰</td>
+      </tr>
+      <tr>
+        <td style="width: 60%">Молоко</td>
+        <td>1 литр</td>
+        <td>💰</td>
+      </tr>
+      <tr>
+        <td style="width: 60%">Воздушный змей</td>
+        <td>1 штука</td>
+        <td>💰💰💰</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="element-wrapper">
+    <h2>Контейнеры и <code>display: grid</code></h2>
+    <div class="grid-layout">
+      <p class="grid-layout__item grid-layout__item--heading">Продукт</p>
+      <p class="grid-layout__item grid-layout__item--heading">Количество</p>
+      <p class="grid-layout__item grid-layout__item--heading">Цена</p>
+      <p class="grid-layout__item grid-layout__item--name">Апельсины</p>
+      <p class="grid-layout__item">1 килограмм</p>
+      <p class="grid-layout__item">💰💰</p>
+      <p class="grid-layout__item grid-layout__item--name">Молоко</p>
+      <p class="grid-layout__item">1 литр</p>
+      <p class="grid-layout__item">💰</p>
+      <p class="grid-layout__item grid-layout__item--name">Воздушный змей</p>
+      <p class="grid-layout__item">1 штука</p>
+      <p class="grid-layout__item">💰💰💰</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

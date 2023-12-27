@@ -1,20 +1,26 @@
 ---
 title: "`HTMLCollection` и `NodeList`"
+description: "Коллекции элементов DOM-дерева. Похожие, но отличающиеся."
 authors:
   - nlopin
 tags:
   - doka
+related:
+  - tools/how-the-browser-creates-pages
+  - js/query-selector-all
+  - js/getelementsbyclassname
 contributors:
   - northrain-cmd
+  - rakleed
 ---
 
 ## Кратко
 
-`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы (узлы DOM). `NodeList` может хранить любые типы узлов, а `HTMLCollection` — только узлы HTML элементов. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
+`HTMLCollection` и `NodeList` — это очень похожие на массив коллекции. Они хранят элементы веб-страницы (узлы [DOM](/js/dom/)). `NodeList` может хранить любые типы узлов, а `HTMLCollection` — только узлы HTML элементов. К элементам коллекций можно обращаться по индексу, но у них нет привычных [методов массива](/js/arrays/).
 
-`HTMLCollection` возвращают методы [`getElementsByTagName`](/js/getelementsbytagname/) и [`getElementsByClassName`](/js/getelementsbyclassname/).
+`HTMLCollection` возвращают методы [`getElementsByTagName()`](/js/getelementsbytagname/) и [`getElementsByClassName()`](/js/getelementsbyclassname/).
 
-`NodeList` возвращают методы [`querySelectorAll`](/js/query-selector-all/) и `childNodes`.
+`NodeList` возвращают метод [`querySelectorAll()`](/js/query-selector-all/) и свойство `childNodes`.
 
 Полный список всех методов, возвращающих типы `NodeList` или `HTMLCollection` можно узнать в [стандарте DOM](https://dom.spec.whatwg.org/#document).
 
@@ -26,7 +32,7 @@ contributors:
 
 Например, единожды получив коллекцию мы можем не заботиться о её поддержке:
 
-<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/Lopinopulos-xNOBow/" height="350"></iframe>
+<iframe title="Название — HTMLCollection и NodeList — Дока" src="demos/htmlcollection-example/" height="450"></iframe>
 
 `NodeList` работает почти так же, как и `HTMLCollection`.
 
@@ -36,6 +42,6 @@ contributors:
 1. `HTMLCollection` позволяет обращаться к элементам не только по индексу, но и по имени с помощью метода `namedItem`;
 1. `NodeList` может быть не только «живой» коллекцией, но и статической. Такая коллекция не обновляется при появлении на странице новых элементов.
 
-«Живой» `NodeList` возвращают методы `getElementsByName` и `childNodes`.
+«Живой» `NodeList` возвращают метод `getElementsByName()` и свойство `childNodes`.
 
-Статический `NodeList` возвращает метод `querySelectorAll`.
+Статический `NodeList` возвращает метод `querySelectorAll()`.

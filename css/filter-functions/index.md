@@ -3,6 +3,8 @@ title: "Функции фильтров"
 description: "Список функций, с помощью которых можно задать фильтры картинкам. Почти как в Инстаграме"
 authors:
   - solarrust
+contributors:
+  - pepelsbey
 tags:
   - doka
 ---
@@ -11,7 +13,7 @@ tags:
 
 CSS позволяет накладывать поверх картинок или фонов различные фильтры. Почти как в Инстаграме. Можно, например, размыть или обесцветить изображение, сделать его более контрастным.
 
-Функции используются в качестве значений для свойств [`filter`](/css/filter) и [`backdrop-filter`](/css/backdrop-filter).
+Функции используются в качестве значений для свойств [`filter`](/css/filter/) и [`backdrop-filter`](/css/backdrop-filter/).
 
 ## Пример
 
@@ -33,7 +35,7 @@ img {
 }
 ```
 
-<iframe title="Функция blur()" src="demos/blur/" height="470"></iframe>
+<iframe title="Функция blur()" src="demos/blur/" height="490"></iframe>
 
 ### `brightness()`
 
@@ -45,7 +47,7 @@ img {
 }
 ```
 
-<iframe title="Функция brightness()" src="demos/brightness/" height="470"></iframe>
+<iframe title="Функция brightness()" src="demos/brightness/" height="490"></iframe>
 
 ### `contrast()`
 
@@ -57,11 +59,11 @@ img {
 }
 ```
 
-<iframe title="Функция contrast()" src="demos/contrast/" height="470"></iframe>
+<iframe title="Функция contrast()" src="demos/contrast/" height="490"></iframe>
 
 ### `drop-shadow()`
 
-Задаёт тень для картинки. Тень располагается снаружи элемента. Эта функция очень похожа на [`box-shadow`](/css/box-shadow) по допустимым значениям и результату. Разница лишь в том, что нельзя указывать ключевое слово `inset`.
+Задаёт тень для картинки. Тень располагается снаружи элемента. Эта функция очень похожа на [`box-shadow`](/css/box-shadow/) по допустимым значениям и результату. Разница лишь в том, что нельзя указывать ключевое слово `inset`.
 
 ```css
 img {
@@ -69,7 +71,7 @@ img {
 }
 ```
 
-<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="470"></iframe>
+<iframe title="Функция drop-shadow()" src="demos/drop-shadow/" height="490"></iframe>
 
 ### `grayscale()`
 
@@ -81,7 +83,7 @@ img {
 }
 ```
 
-<iframe title="Функция grayscale()" src="demos/grayscale/" height="470"></iframe>
+<iframe title="Функция grayscale()" src="demos/grayscale/" height="490"></iframe>
 
 ### `hue-rotate()`
 
@@ -93,7 +95,7 @@ img {
 }
 ```
 
-<iframe title="Функция hue-rotate()" src="demos/hue-rotation/" height="470"></iframe>
+<iframe title="Функция hue-rotate()" src="demos/hue-rotation/" height="490"></iframe>
 
 ### `invert()`
 
@@ -105,13 +107,13 @@ img {
 }
 ```
 
-<iframe title="Функция invert()" src="demos/invert/" height="470"></iframe>
+<iframe title="Функция invert()" src="demos/invert/" height="490"></iframe>
 
 ### `opacity()`
 
 Меняет прозрачность изображения. Можно указать процент прозрачности от 0% до 100%. 0% делает картинку полностью прозрачной. 100% не меняет прозрачность изображения. Отрицательные значения или значения больше 100% не допускаются.
 
-Очень похоже на работу свойства [`opacity`](/css/opacity) с той разницей, что для фильтра браузер, как правило, применяет аппаратное ускорение для улучшения производительности.
+Очень похоже на работу свойства [`opacity`](/css/opacity/) с той разницей, что для фильтра браузер, как правило, применяет аппаратное ускорение для улучшения производительности.
 
 ```css
 img {
@@ -119,7 +121,7 @@ img {
 }
 ```
 
-<iframe title="Функция opacity()" src="demos/opacity/" height="470"></iframe>
+<iframe title="Функция opacity()" src="demos/opacity/" height="490"></iframe>
 
 
 ### `saturate()`
@@ -132,7 +134,7 @@ img {
 }
 ```
 
-<iframe title="Функция saturate()" src="demos/saturate/" height="470"></iframe>
+<iframe title="Функция saturate()" src="demos/saturate/" height="490"></iframe>
 
 ### `sepia()`
 
@@ -144,7 +146,11 @@ img {
 }
 ```
 
-<iframe title="Функция sepia()" src="demos/sepia/" height="470"></iframe>
+<iframe title="Функция sepia()" src="demos/sepia/" height="490"></iframe>
+
+## Все фильтры сразу
+
+<iframe title="Все фильтры сразу" src="demos/all/" height="646"></iframe>
 
 ## Подсказки
 

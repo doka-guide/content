@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Примеры события input и change в JS у кнопок и чекбокса — Событие input — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --main-color: #FFD829;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      display: flex;
+      gap: 70px;
+    }
+
+    .container >  * {
+      width: 300px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap: 25px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      background-color: var(--main-color);
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible,
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button--input-file {
+      position: relative;
+    }
+
+    .button--input-file:before {
+      content: 'input type="file"';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--main-color);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .button--input-file:hover::before {
+      background-color: white;
+      transition: background-color 0.2s linear;
+    }
+
+    .checkbox-label {
+      cursor: pointer;
+    }
+
+    .checkbox-wrap {
+      position: relative;
+      margin-left: 5px;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+    }
+
+    .checkbox-wrap::before {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      left: 0;
+      top: calc(50% - 12px);
+      border-radius: 6px;
+    }
+
+    .checkbox-wrap:has(.checkbox:checked)::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 7px);
+      left: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: var(--main-color);
+    }
+
+    .checkbox-wrap:has(.checkbox:focus)::before {
+      border-width: 2px;
+    }
+
+    .event-log {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .textarea {
+      flex-grow: 1;
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .textarea[disabled] {
+      border: none;
+      border-radius: 0;
+      outline: none;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      resize: none;
+    }
+
+    .hint {
+      display: block;
+      margin-top: 5px;
+      color: #979797;
+      font-size: 16px;
+    }
+
+    .visually-hidden:not(:focus):not(:active) {
+      border: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .has-columns {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <h1 class="visually-hidden">Пример событий <code lang="EN">input</code> и <code lang="EN">change</code> у кнопок и чекбокса</h1>
+    <section class="controls">
+      <p class="controls-description">
+        Попробуйте кликнуть чекбокс и каждую кнопку:
+      </p>
+
+      <label class="checkbox-label">
+        <span class="checkbox-title">Чекбокс:</span>
+        <span class="checkbox-wrap"><input type="checkbox" name="checkbox-input" class="checkbox"></span>
+        <span class="hint">Вызываются события <code>input</code>, <code>change</code></span>
+      </label>
+
+      <label>
+        <input class="button" name="input-button"
+          type="button" value='input type="button"'
+        >
+        <span class="hint">Вызывается событие <code>click</code>, не вызываются события <code>input</code>, <code>change</code></span>
+      </label>
+
+      <label>
+        <input class="button" name="input-submit"
+          type="submit" value='input type="submit"'
+        >
+        <span class="hint">Вызывается событие <code>click</code>, не вызываются события <code>input</code>, <code>change</code></span>
+      </label>
+
+      <label>
+        <span class="visually-hidden">Выберите файл с диска:</span>
+        <input class="button button--input-file" name="input-file" type="file">
+        <span class="hint">Вызываются события <code>input</code>, <code>change</code></span>
+      </label>
+    </section>
+
+    <section class="event-log">
+      <label class="event-log-description" for="events-log">
+        Посмотрите, какие события происходят:
+      </label>
+      <textarea
+        class="textarea" cols="30" disabled id="events-log" rows="10"
+      >
+      </textarea>
+    </section>
+  </main>
+
+  <script>
+    function getHandleEvent(resultTextNode) {
+      return function addTextToNode(evt) {
+        resultTextNode.value += evt.type + ";\n";
+      };
+    }
+
+    const eventsLog = document.getElementById('events-log');
+
+    const checkbox = document.querySelector("[name=checkbox-input]");
+    checkbox.addEventListener('input', getHandleEvent(eventsLog));
+    checkbox.addEventListener('change', getHandleEvent(eventsLog));
+    checkbox.addEventListener('click', getHandleEvent(eventsLog));
+
+    const inputButton = document.querySelector("[name=input-button]");
+    inputButton.addEventListener("input", getHandleEvent(eventsLog));
+    inputButton.addEventListener("change", getHandleEvent(eventsLog));
+    inputButton.addEventListener("click", getHandleEvent(eventsLog));
+
+    const inputSubmit = document.querySelector("[name=input-submit]");
+    inputSubmit.addEventListener('input', getHandleEvent(eventsLog));
+    inputSubmit.addEventListener('change', getHandleEvent(eventsLog));
+    inputSubmit.addEventListener('click', getHandleEvent(eventsLog));
+
+    const inputFile = document.querySelector("[name=input-file]");
+    inputFile.addEventListener('input', getHandleEvent(eventsLog));
+    inputFile.addEventListener('change', getHandleEvent(eventsLog));
+    inputFile.addEventListener('click', getHandleEvent(eventsLog));
+  </script>
+</body>
+</html>

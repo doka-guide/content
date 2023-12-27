@@ -20,15 +20,18 @@ groups:
       - blockquote
       - q
       - br
+      - wbr
       - hr
       - b
       - i
       - s
       - u
-      - pre
       - bdo
       - bdi
       - small
+      - pre
+      - code
+      - dir
   - name: 'Семантика'
     items:
       - div
@@ -40,6 +43,9 @@ groups:
       - article
       - aside
       - nav
+      - search
+      - time
+      - data
       - sub
       - sup
       - del
@@ -52,7 +58,8 @@ groups:
       - cite
       - var
       - dfn
-      - screenreaders
+      - samp
+      - abbr
   - name: 'Формы'
     items:
       - form
@@ -68,6 +75,20 @@ groups:
       - label
       - fieldset
       - legend
+      - for
+      - inputmode
+      - placeholder
+      - disabled
+      - readonly
+      - required
+      - value
+      - accept
+      - pattern
+      - multiple
+      - size
+      - minlength-maxlength
+      - step
+      - capture
   - name: 'Картинки'
     items:
       - img
@@ -75,11 +96,16 @@ groups:
       - picture
       - source
       - svg
+      - map
+      - area
+      - svg-sprite
   - name: 'Ссылки'
     items:
       - a
       - link
       - nav
+      - map
+      - area
   - name: 'Списки'
     items:
       - ol
@@ -97,9 +123,12 @@ groups:
       - meter
       - object
       - progress
+      - canvas
+      - dialog
   - name: 'Таблицы'
     items:
       - tables
+      - caption
   - name: 'Мета'
     items:
       - head
@@ -109,13 +138,24 @@ groups:
     items:
       - style
       - script
+      - noscript
+      - defer-async
       - template
       - output
+      - data-attributes
   - name: 'Глобальные атрибуты'
     items:
       - global-attrs
       - class
       - hidden
+      - inert
+      - dir
+      - tabindex
+      - data-attributes
+  - name: 'Поисковая оптимизация'
+    items:
+      - seo-for-beginners
+      - noindex
 ---
 
 HTML — язык разметки для создания структуры веб-страницы и представления контента. Благодаря разметке браузер знает в каком порядке отображать элементы, и что они значат.

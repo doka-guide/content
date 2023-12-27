@@ -1,9 +1,14 @@
 ---
 title: "`:is()`"
+description: "Пишем условие для селектора, при котором стили применятся."
 authors:
   - doka-dog
 keywords:
   - псевдокласс
+related:
+  - css/has
+  - css/where
+  - css/vendor-prefixes
 tags:
   - doka
   - placeholder
@@ -17,7 +22,7 @@ tags:
 
 ## Как пишется
 
-Применяем стили по наведению курсора на абзацы, вложенные в [`<header>`](/html/header), [`<main>`](/html/main) или [`<footer>`](/html/footer):
+Применяем стили по наведению курсора на абзацы, вложенные в [`<header>`](/html/header/), [`<main>`](/html/main/) или [`<footer>`](/html/footer/):
 
 ```css
 :is(header, main, footer) p:hover {

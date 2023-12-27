@@ -1,5 +1,10 @@
 ---
 title: "`flex-grow`"
+description: "Может ли флекс-элемент занимать свободное пространство?"
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-grow
 authors:
   - solarrust
 editors:
@@ -7,6 +12,10 @@ editors:
 keywords:
   - рост флекс-элементов
   - flexbox
+related:
+  - css/flexbox-guide
+  - css/flex-shrink
+  - css/flex-basis
 tags:
   - doka
 ---
@@ -29,7 +38,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Если у всех флекс-элементов будет прописано `flex-grow: 1`, то свободное пространство в контейнере будет равномерно распределено между ними всеми.
 

@@ -1,12 +1,18 @@
 ---
 title: "`<details>`, `<summary>`"
+description: "Нативный раскрывающийся блок с контентом без магии и JavaScript."
 authors:
   - lenaryan
+contributors:
+  - tatianafokina
+  - skorobaeus
 keywords:
-  - details
-  - summary
   - аккордеон
   - спойлер
+related:
+  - a11y/role-group
+  - js/element-classlist
+  - css/animation
 tags:
   - doka
 ---
@@ -14,6 +20,8 @@ tags:
 ## Кратко
 
 Блок с раскрывающимся контентом на чистом HTML.
+
+У `<details>` есть групповая [роль `group`](/a11y/role-group/).
 
 ## Пример
 
@@ -26,7 +34,7 @@ tags:
 </details>
 ```
 
-<iframe title="details + summary" src="demos/details-summary/" height="250"></iframe>
+<iframe title="details и summary" src="demos/details-summary/" height="340"></iframe>
 
 ## Как понять
 
@@ -49,7 +57,7 @@ tags:
 </details>
 ```
 
-<iframe title="Открытый аккордеон" src="demos/details-open/" height="300"></iframe>
+<iframe title="Открытый аккордеон" src="demos/details-open/" height="500"></iframe>
 
 ## Подсказки
 

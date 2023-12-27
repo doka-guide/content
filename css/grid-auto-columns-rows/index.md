@@ -1,5 +1,10 @@
 ---
 title: "`grid-auto-columns`, `grid-auto-rows`"
+description: "Как расположить грид-элементы, если им не хватило колонок и строк?"
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-auto-columns
 authors:
   - solarrust
 editors:
@@ -7,6 +12,10 @@ editors:
 keywords:
   - автоматические колонки
   - автоматические ряды
+related:
+  - css/grid-guide
+  - css/grid-auto-flow
+  - css/grid-template
 tags:
   - doka
 ---
@@ -17,28 +26,20 @@ tags:
 
 ## Пример
 
-В этом примере создаются две явные колонки размером 50 и 150 пикселей соответственно. Элементы, начиная с третьего, в эти две строки не помещаются, и для них создаются автоматические ряды. При помощи свойства `grid-auto-rows` мы указываем, что автоматические ряды должны иметь размер 15 пикселей.
+В этом примере создаются два явных ряда размером 50 и 140 пикселей. Элементы, начиная с третьего, в эти две строки не помещаются, и для них создаются автоматические ряды. При помощи свойства `grid-auto-rows` мы указываем, что автоматические ряды должны иметь размер 40 пикселей.
 
 ```css
 .container {
   display: grid;
-  grid-template-rows: 50px 150px;
-  grid-auto-rows: 15px;
-  gap: 10px;
-}
-
-.item {
-  background: lightblue;
-}
-
-.item:nth-child(n + 3) {
-  background: pink;
+  grid-template-rows: 50px 140px;
+  grid-auto-rows: 40px;
+  gap: 20px;
 }
 ```
 
 ![Пример реализации свойств grid-auto-columns, grid-auto-rows.](images/1.png)
 
-## Как это понять
+## Как понять
 
 Если вы не уверены в количестве элементов, вложенных в грид-контейнер, то стоит предусмотреть автоматические колонки или ряды.
 

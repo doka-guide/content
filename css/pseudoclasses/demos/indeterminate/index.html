@@ -4,6 +4,7 @@
   <title>Промежуточные состояния элементов форм — Псевдоклассы — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
@@ -15,7 +16,11 @@
     }
 
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
       font-size: 18px;
@@ -24,7 +29,7 @@
 
     code {
       font-family: "Roboto Mono", monospace;
-      font-size: 17px;
+      font-size: calc(1em - 1px);
     }
 
     .container {
@@ -32,15 +37,15 @@
       width: 670px;
     }
 
+    .disclaimer {
+      font-size: 18px;
+      line-height: 140%;
+    }
+
     input:indeterminate + span,
     input:indeterminate + span::before,
     .progress-bar:indeterminate {
       opacity: 0.45;
-    }
-
-    .disclaimer {
-      font-size: 18px;
-      line-height: 140%;
     }
 
     .form {
@@ -68,7 +73,8 @@
 
     .inputs-container {
       display: flex;
-      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
     }
 
     .input-label {
@@ -76,10 +82,6 @@
       font-size: 18px;
       display: flex;
       align-items: center;
-    }
-
-    .input-label + .input-label {
-      margin-left: 60px;
     }
 
     .input-label, .checkbox, .radio {
@@ -165,6 +167,7 @@
       border-radius: 6px;
       background-color: #FFFFFF;
     }
+
     .progress-bar::-webkit-progress-value {
       background-color: #2E9AFF;
       border-top-left-radius: 6px;
@@ -198,6 +201,41 @@
 
     .button-blue {
       background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form {
+        margin-top: 30px;
+      }
+
+      .form-section {
+        display: block;
+      }
+
+      .group-title {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      .radio,
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      .inputs-container, .progress-bar, .button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .inputs-container {
+        flex-direction: column;
+        gap: 5px;
+      }
     }
   </style>
 </head>

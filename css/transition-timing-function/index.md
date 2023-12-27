@@ -1,9 +1,14 @@
 ---
 title: "`transition-timing-function`"
+description: "Будет ли элемент меняться линейно или более причудливо?"
 authors:
   - ezhkov
 keywords:
   - функция времени
+related:
+  - css/animation-timing-function
+  - css/transform-function
+  - css/transition-delay
 tags:
   - doka
 ---
@@ -70,7 +75,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Например, нам нужно изменить какое-то свойство от 0 до 100 за 1 секунду. В течение этой секунды значение свойства может меняться с разной скоростью. Как именно — как раз описывает наша функция.
 

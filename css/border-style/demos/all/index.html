@@ -4,150 +4,185 @@
   <title>Все рамки — border — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
       box-sizing: border-box;
     }
 
-    body {
-      padding: 5% 0;
-      background-color: #18191c;
+    html {
+      color-scheme: dark;
     }
 
-    .element {
-      width: 50%;
-      margin: auto;
+    body {
+      min-height: 100vh;
       padding: 50px;
-      border: 5px solid #ed6742;
-      color: #f498ad;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     .style-list {
-      display: flex;
-      flex-wrap: wrap;
-      width: 50%;
-      margin: auto;
-      margin-top: 25px;
-      padding: 25px 0;
       list-style-type: none;
-      user-select: none;
-      color: #ffffff;
+      width: 65%;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 10px;
+      justify-content: space-between;
+      margin-bottom: 20px;
     }
 
-    .style-list__item {
-      margin-bottom: 25px;
-      text-transform: capitalize;
-    }
-
-    .style-list__item:not(:last-child) {
-      margin-right: 25px;
-    }
-
-    label {
+    .radio-label {
       position: relative;
+      display: flex;
+      align-items: center;
       cursor: pointer;
     }
 
-    label::before {
+    .radio-title::before {
       content: "";
       position: absolute;
-      left: -26px;
-      width: 15px;
-      height: 15px;
-      border: 2px solid #ffffff;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
       border-radius: 50%;
     }
 
-    input:checked + label::before {
-      background: #ed6742;
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
       background: radial-gradient(
         circle,
-        #ed6742 0%,
-        #ed6742 40%,
-        rgba(0, 0, 0, 0) 50%,
-        rgba(0, 0, 0, 0) 100%
+        #2E9AFF 0%,
+        #2E9AFF 40%,
+        transparent 50%,
+        transparent 100%
       );
     }
 
-    input[type="radio"] {
-      width: 19px;
-      margin-right: 2px;
-      opacity: 0;
+    .element {
+      width: 65%;
+      padding: 55px 40px;
+      border: 5px solid #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .style-list,
+      .element {
+        width: 100%;
+      }
+
+      .element {
+        padding: 55px 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .style-list {
+        grid-template-columns: repeat(3, auto);
+      }
+
+      .element {
+        padding: 30px 20px;
+      }
     }
   </style>
 </head>
 <body>
+<div class="container">
   <ul class="style-list">
-    <li class="style-list__item">
-      <input id="dotted" type="radio" name="style">
-      <label for="dotted">
-        dotted
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">dotted</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="dashed" type="radio" name="style">
-      <label for="dashed">
-        dashed
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">dashed</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="solid" type="radio" name="style" checked>
-      <label for="solid">
-        solid
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style" checked>
+        <span class="radio-title">solid</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="double" type="radio" name="style">
-      <label for="double">
-        double
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">double</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="groove" type="radio" name="style">
-      <label for="groove">
-        groove
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">groove</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="ridge" type="radio" name="style">
-      <label for="ridge">
-        ridge
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">ridge</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="inset" type="radio" name="style">
-      <label for="inset">
-        inset
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">inset</span>
       </label>
     </li>
-    <li class="style-list__item">
-      <input id="outset" type="radio" name="style">
-      <label for="outset">
-        outset
+    <li>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="style">
+        <span class="radio-title">outset</span>
       </label>
     </li>
   </ul>
 
   <div class="element">
-    <p>Повседневная практика показывает, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание направлений прогрессивного развития. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет оценить значение дальнейших направлений развития.</p>
+    <p>Так, например, будучи в душе игрок, никогда не брал он карты в руки, ибо рассчитал, что его состояние не позволяло ему (как сказывал он) жертвовать необходимым в надежде приобрести излишнее, – а между тем целые ночи просиживал за карточными столами и следовал с лихорадочным трепетом за различными оборотами игры.</p>
   </div>
-  <script>
-    const element = document.querySelector('.element')
-    const itemsArr = Array.from(document.querySelector('.style-list').children)
+</div>
+<script>
+  const element = document.querySelector('.element')
+  const itemsArr = Array.from(document.querySelector('.style-list').children)
 
-    itemsArr.forEach((el) => {
-      el.addEventListener('click', (e) => {
-        element.style.borderStyle =
-          e.target.tagName !== 'label'
-            ? e.target.parentNode.textContent.trim()
-            : e.target.textContent.trim()
-      })
+  itemsArr.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      element.style.borderStyle = e.target.parentNode.textContent.trim()
     })
-  </script>
+  })
+</script>
 </body>
 </html>

@@ -1,10 +1,15 @@
 ---
 title: "`text-underline-position`"
+description: "Будет ли декоративная линия пересекать хвостик у буквы У?"
 authors:
   - doka-dog
 keywords:
   - положение подчёркивания
   - положение декоративной линии
+related:
+  - css/text-decoration
+  - html/a
+  - css/text-decoration-skip-ink
 tags:
   - doka
   - placeholder
@@ -12,7 +17,7 @@ tags:
 
 ## Кратко
 
-Свойство `text-underline-position` управляет положением декоративной линии, если у элемента задано свойство [`text-decoration: underline`](/css/text-decoration).
+Свойство `text-underline-position` управляет положением декоративной линии, если у элемента задано свойство [`text-decoration: underline`](/css/text-decoration/).
 
 ## Как пишется
 

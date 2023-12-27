@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>HWB — Цвета в вебе — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;800&display=swap">
+  <style>
+    :root {
+      --angle: -257deg;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      background-color: hwb(257 20% 20%);
+      accent-color: hwb(257 20% 20%);
+    }
+
+    .container {
+      position: relative;
+      padding: 2rem;
+      border-radius: 10px;
+      color: #fff;
+      filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.2));
+      background-color: #fff;
+    }
+
+    .result {
+      min-inline-size: 415px;
+      margin-block-end: 25px;
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(2em - 1px);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .controls {
+      display: grid;
+      gap: 15px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .circle {
+      position: absolute;
+      inset: 50% 50%;
+      inline-size: 100%;
+      border-radius: 50%;
+      z-index: -1;
+      padding: 65%;
+      color: hwb(257 0% 0%);
+      transform: translate(-50%, -50%);
+    }
+
+    .circle::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background-color: #18191C;
+    }
+
+    .circle::after {
+      content: "";
+      position: absolute;
+      inset-block-start: -6px;
+      inset-inline-end: calc(50% - 11px);
+      inline-size: 22px;
+      block-size: 22px;
+      background-color: currentColor;
+      border: 3px solid rgb(255 255 255);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="circle" style="background: conic-gradient(from var(--angle), rgb(255, 0, 0), rgb(255, 170, 0), rgb(170, 255, 0), rgb(0, 255, 0), rgb(0, 255, 170), rgb(0, 170, 255), rgb(0, 0, 255), rgb(170, 0, 255), rgb(255, 0, 170), rgb(255, 0, 0));"></div>
+    <p class="result"><code>hwb(257 20% 20%)</code></p>
+    <div class="controls">
+      <div>
+        <label for="hue" id="hue-label">Оттенок: <span>257</span></label>
+        <input id="hue" type="range" min="0" max="360" value="257">
+      </div>
+      <div>
+        <label for="whiteness" id="whiteness-label">Количество белого: <span>20%</span></label>
+        <input id="whiteness" type="range" min="0" max="100" value="20">
+      </div>
+      <div>
+        <label for="blackness" id="blackness-label">Количество чёрного: <span>20%</span></label>
+        <input id="blackness" type="range" min="0" max="100" value="20">
+      </div>
+    </div>
+  </div>
+  <script>
+    const controls = document.querySelector('.controls')
+    const result = document.querySelector('.result')
+    const circle = document.querySelector('.circle')
+
+    const hue = document.querySelector('#hue')
+    const whiteness = document.querySelector('#whiteness')
+    const blackness = document.querySelector('#blackness')
+
+    controls.addEventListener('input', (e) => {
+      const { value, id } = e.target
+
+      document.querySelector(`#${id}-label`).lastChild.innerText = `${value}${id !== 'hue' ? '%' : ''}`
+
+      const hwbValue = `hwb(${hue.value} ${whiteness.value}% ${blackness.value}%)`
+
+      document.documentElement.style.setProperty('--angle', `-${hue.value}deg`)
+
+      result.lastChild.innerText = hwbValue
+      document.body.style.backgroundColor = hwbValue
+      document.body.style.accentColor = hwbValue
+
+      circle.style.color = `hwb(${hue.value} 0% 0%)`
+    });
+  </script>
+</body>
+</html>

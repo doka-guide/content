@@ -2,25 +2,61 @@
 <html lang="ru">
 <head>
   <title>Кнопка с трансформацией по наведению — transition-delay — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
   <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    button {
-      height: 80px;
-      padding-left: 20px;
-      padding-right: 20px;
-      border: none;
-      background-color: #45eefc;
-      font-size: 20px;
-      display: inline-flex;
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: flex;
       align-items: center;
+      block-size: 44px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 25px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
     }
 
     button span {
@@ -30,7 +66,7 @@
     }
 
     button:before {
-      content: 'Now you hovered me';
+      content: 'Спасибо! U*ᴥ*U';
       font-size: 0;
       transition-property: font-size;
       transition-duration: .5s;
@@ -38,7 +74,7 @@
     }
 
     button:hover:before {
-      font-size: 20px;
+      font-size: 18px;
       transition-property: font-size;
       transition-duration: .5s;
       transition-delay: .5s;
@@ -54,6 +90,6 @@
   </style>
 </head>
 <body>
-<button><span>Hover me</span></button>
+<button class="button button-blue"><span>Наведи на меня</span></button>
 </body>
 </html>

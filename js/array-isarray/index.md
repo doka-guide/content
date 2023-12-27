@@ -1,10 +1,14 @@
 ---
 title: "`Array.isArray()`"
-description: "Проверка на массив"
+description: "Отличит массив в толпе объектов."
 authors:
   - yurlovr
 editors:
   - tachisis
+related:
+  - js/objects-objects-everywhere
+  - js/arrays
+  - js/object
 tags:
   - doka
 ---
@@ -13,7 +17,7 @@ tags:
 
 Статический метод `Array.isArray()` проверяет, является ли переданный аргумент массивом. Возвращает `true`, если является, и `false` — если нет.
 
-## Как пишется
+## Пример
 
 ```js
 const arr = [1, 2, 3]
@@ -30,6 +34,12 @@ console.log(Array.isArray(bool))
 console.log(Array.isArray(num))
 // false
 ```
+
+## Как пишется
+
+`Array.isArray()` принимает один аргумент — переменную или значение, которое вы хотите проверить.
+
+Возвращает `true`, если в переменной хранится массив и `false` во всех остальных случаях.
 
 ## Как понять
 
@@ -75,7 +85,7 @@ console.log(Array.isArray('array'))
 
 ### Массивоподобные объекты
 
-Метод возвращает `false` при переданных массивоподобных элементах. Например, на [`NodeList`](/js/htmlcollection-and-nodelist), [`HTMLCollection`](/js/htmlcollection-and-nodelist), [`arguments`](/js/function-arguments-object).
+Метод возвращает `false` при переданных массивоподобных элементах. Например, на [`NodeList`](/js/htmlcollection-and-nodelist/), [`HTMLCollection`](/js/htmlcollection-and-nodelist/), [`arguments`](/js/function-arguments-object/).
 
 ```js
 const nodes = document.querySelectorAll('div')

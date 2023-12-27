@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шапка с паддингами в vmin — vmin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #18191c;
+      color: #ffffff;
+      font-size: 24px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      background-color: #2E9AFF;
+      display: grid;
+      padding: 15vmin;
+      place-content: center;
+    }
+
+    section {
+      width: 60%;
+      margin-block-start: 25px;
+      margin-inline: auto;
+      font-size: 20px;
+    }
+
+    @media (max-width: 1000px) {
+      section {
+        width: 100%;
+        box-sizing: border-box;
+        padding-inline: 5vmin;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Шапка с паддингами в vmin</header>
+  <!-- yaspeller ignore:start --><section>Купец, то есть шляпа, борода, крутое брюхо и сапоги, смотрел, как рабочие, кряхтя, складывали мешки хлеба в амбар; там толпились какие-то неопределенные личности у кабака, а там проехала длинная и глубокая телега, с насаженным туда невероятным числом рослого, здорового мужичья, в порыжевших шапках без полей, в рубашках с синими заплатами, и в бурых армяках, и в лаптях, и в громадных сапожищах, с рыжими, седыми и разношерстными бородами, то клином, то лопатой, то раздвоенными, то козлинообразными.</section><!-- yaspeller ignore:end -->
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Тикер с ролью marquee — marquee — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .button {
+      display: block;
+      align-self: center;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .ticker {
+      display: inline-flex;
+      flex-direction: column;
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .ticker__item {
+      display: inline-flex;
+      padding: 12px 20px;
+      justify-content: space-around;
+      border: 1px solid #FFFFFF;
+      border-radius: 3px;
+    }
+
+    .ticker__item:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+
+    .ticker__item-precent--up,
+    .ticker__item-precent--down {
+      position: relative;
+      margin-right: calc(20px - 8px);
+    }
+
+    .ticker__item-precent--up {
+      color: #10F3AF;
+    }
+
+    .ticker__item-precent--down {
+      color: #F498AD;
+    }
+
+    .ticker__item-precent--up:after,
+    .ticker__item-precent--down:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+    }
+
+    .ticker__item-precent--up:after {
+      left: 56px;
+      border-bottom: 11px solid #10F3AF;
+    }
+
+    .ticker__item-precent--down:after {
+      left: 50px;
+      border-top: 11px solid #F498AD;
+    }
+
+    .visually-hidden {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .ticker__item {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Стоимость акций на сегодня</h1>
+    <button class="button button-aqua" id="button">Обновить данные</button>
+    <ul role="marquee" aria-live="polite" class="ticker" aria-atomic="false">
+      <li class="ticker__item">
+        Рога и копыта
+        <span class="ticker__item-price">134.56 USD</span>
+        <span class="ticker__item-precent ticker__item-precent--up">+ 12%</span>
+        <span class="ticker__item-precent-text visually-hidden">рост</span>
+      </li>
+      <li class="ticker__item">
+        Радуга и пони
+        <span class="ticker__item-price">154.56 USD</span>
+        <span class="ticker__item-precent ticker__item-precent--down">- 42%</span>
+        <span class="ticker__item-precent-text visually-hidden">спад</span>
+      </li>
+      <li class="ticker__item">
+        Мир обоев
+        <span class="ticker__item-price">900.34 USD</span>
+        <span class="ticker__item-precent ticker__item-precent--up">+ 22%</span>
+        <span class="ticker__item-precent-text visually-hidden">рост</span>
+      </li>
+    </div>
+  </div>
+  <script>
+    const button = document.getElementById('button')
+    const prices = document.querySelectorAll('.ticker__item-price')
+    const changes = document.querySelectorAll('.ticker__item-precent')
+    const changesText = document.querySelectorAll('.ticker__item-precent-text')
+
+    let isButtonClicked = false
+
+    function updateElement() {
+      oldPrices = Array.from(prices).map(element => parseFloat(element.textContent))
+      const newPrices = ['22.16', '137.86', '11.66']
+
+      if(isButtonClicked) {
+        return
+      }
+
+      prices.forEach((element, index) => {
+        element.textContent = newPrices[index] + ' USD'
+
+        const oldPrice = oldPrices[index]
+        const newPrice = parseFloat(newPrices[index])
+
+        const precentChange = ((oldPrice - newPrice) / oldPrice) * 100
+
+        changes[index].textContent = `${newPrice > oldPrice ? '+ ' : '- '}` + precentChange.toFixed() + '%'
+
+        if(newPrice > oldPrice) {
+          changes[index].classList = 'ticker__item-precent--up'
+          changesText[index].textContent = 'рост'
+        } else {
+          changes[index].classList = 'ticker__item-precent--down'
+          changesText[index].textContent = 'спад'
+        }
+      })
+
+      isButtonClicked = true
+    }
+
+    button.addEventListener('click', () => {
+      updateElement()
+    })
+  </script>
+</body>
+</html>

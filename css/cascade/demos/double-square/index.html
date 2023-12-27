@@ -5,21 +5,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
     .wrapper {
-      width: 300px;
-      height: 150px;
-      background-color: #112393;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2E9AFF;
       /* описываем свойство */
-      border: 1em solid;
+      border: 10px solid #FFFFFF;
     }
 
     .inner {
-      background-color: #fff;
-      width: 120px;
-      height: 80px;
+      background-color: #F498AD;
+      width: 50%;
+      height: 50%;
       margin: auto;
       /* наследуем свойство у «родителя» */
       border: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

@@ -1,12 +1,16 @@
 ---
 title: "`animation-direction`"
+description: "Решаем, в каком направлении будет проигрываться анимация."
 authors:
   - solarrust
 editors:
   - tachisis
 keywords:
-  - CSS-анимации
   - направление анимации
+related:
+  - css/animation-play-state
+  - css/animation-name
+  - css/animation-iteration-count
 tags:
   - doka
 ---
@@ -37,6 +41,6 @@ tags:
 
 <aside>
 
-🦄 Подробнее об анимациях написано в статье «[CSS-анимации](/css/animation)».
+🦄 Подробнее об анимациях написано в статье «[CSS-анимации](/css/animation/)».
 
 </aside>

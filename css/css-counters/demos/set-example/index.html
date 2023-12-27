@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования свойства counter-set — Счётчики в CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .list {
+      list-style-type: none;
+    }
+
+    .list__item {
+      position: relative;
+      padding-left: 10px;
+      padding-top: 0.625rem;
+    }
+
+    .list__item::after {
+      content: ".";
+    }
+
+    .list__item:first-child {
+      counter-increment: example 1;
+    }
+
+    .list__item:first-child+li {
+      counter-increment: example 3;
+      counter-set: example 9;
+    }
+
+    .list__item:last-child {
+      counter-increment: example 6;
+    }
+
+    .list__item::before {
+      content: counter(example);
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 2.2px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+
+    .list__item:nth-child(-n+2):before {
+      content: counter(example);
+      position: absolute;
+      right: 100%;
+      width: 22px;
+      height: 20px;
+      padding: 4px 7px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+  <ul class="list">
+    <li class="list__item">Значение счётчика <i>example</i> равно 1</li>
+    <li class="list__item">Значение счётчика <i>example</i> равно 9</li>
+    <li class="list__item">Значение счётчика <i>example</i> равно 15</li>
+  </ul>
+</body>
+</html>

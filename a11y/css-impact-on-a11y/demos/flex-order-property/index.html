@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Изменение порядка элементов с помощью свойства order — Влияние CSS на доступность — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: Roboto, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .element-wrapper {
+      max-width: 600px;
+      margin-top: 24px;
+    }
+
+    .flex-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -8px;
+      margin-right: -8px;
+    }
+
+    .flex-list__item {
+      width: calc(100%/3 - 16px);
+      margin: 24px 8px 0;
+    }
+
+    .flex-list__item:nth-child(1) {
+      order: 1;
+    }
+
+    .flex-list__item:nth-child(2) {
+      order: 6;
+    }
+
+    .flex-list__item:nth-child(3) {
+      order: 2;
+    }
+
+    .flex-list__item:nth-child(4) {
+      order: 4;
+    }
+
+    .flex-list__item:nth-child(5) {
+      order: 5;
+    }
+
+    .flex-list__item:nth-child(6) {
+      order: 3;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      font-size: 1em;
+      font-weight: 300;
+      font-family: inherit;
+      color: #FFFFFF;
+      background-color: transparent;
+      border: 2px solid #FFFFFF;
+      transition: background-color 0.2s linear;
+    }
+
+    .item:hover {
+      color: #000000;
+      background-color: #10F3AF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .item:focus {
+      border: 0;
+      outline-width: 4px;
+      outline-style: solid;
+      outline-color: #10F3AF;
+    }
+
+    .item__icon {
+      font-size: 2em;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .flex-list__item {
+        width: calc(100%/2 - 16px);
+        margin: 24px 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1>Список товаров</h1>
+
+  <div class="element-wrapper">
+    <div class="flex-list">
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🍊</span>
+        <span class="item__text">Апельсины</span>
+      </button>
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🍏</span>
+        <span class="item__text">Яблоки</span>
+      </button>
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🥛</span>
+        <span class="item__text">Молоко</span>
+      </button>
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🧃</span>
+        <span class="item__text">Сок</span>
+      </button>
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🥨</span>
+        <span class="item__text">Брецель</span>
+      </button>
+      <button type="button" class="flex-list__item item">
+        <span class="item__icon" aria-hidden="true">🪁</span>
+        <span class="item__text">Воздушный змей</span>
+      </button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

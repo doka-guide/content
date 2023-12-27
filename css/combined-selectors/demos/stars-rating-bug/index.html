@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Звёздный рейтинг — Комбинированные селекторы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+    }
+
+    button {
+      border: none;
+      padding-bottom: 4%;
+      background-color: transparent;
+      color: #2E9AFF;
+      font-size: 5em;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus,
+    button:hover ~ button,
+    button:focus ~ button {
+      color: #F498AD;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      button {
+        font-size: 3em;
+      }
+
+      .rating {
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rating">
+    <button>★</button>
+    <button>★</button>
+    <button>★</button>
+    <button>★</button>
+    <button>★</button>
+  </div>
+<script>
+  /* В Safari и Firefox на Mac при клике на кнопку не устанавливается фокус. Этот код устанавливает фокус принудительно */
+  document.querySelectorAll('.rating button').forEach(button => button.addEventListener("click", event => event.target.focus()));
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Загрузка файла перетаскиванием — Рецепты — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 50px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      background-color: #18191c;
+    }
+
+    .form-upload {
+      display: grid;
+      align-items: center;
+      width: 80vw;
+      min-width: 360px;
+    }
+
+    .upload-zone_dragover {
+      display: grid;
+      height: 50vh;
+      min-height: 360px;
+      margin-bottom: 25px;
+      border: 1px solid currentColor;
+      color: #FFFFFF;
+      font-weight: 500;
+      font-size: 18px;
+      place-content: center;
+      text-align: center;
+    }
+
+    .upload-zone_dragover svg {
+      width: 10vw;
+      margin: auto;
+      pointer-events: none;
+    }
+
+    .form-upload__hint {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .upload-zone_dragover._active {
+      color: #c56fff;
+      background-color: #c56fff77;
+    }
+
+    .form-upload__label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .form-upload__title {
+      margin-right: 55px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .form-upload__input {
+      font-family: inherit;
+      font-size: 18px;
+    }
+
+    .form-upload__input::file-selector-button {
+      margin-right: 30px;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 15px;
+      font-family: inherit;
+      font-weight: inherit;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+    }
+
+    .form-upload__input::file-selector-button:hover {
+      background-color: #c56fff;
+    }
+
+    .form-upload__container {
+      width: 360px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .upload-zone_gragover {
+      background-color: #593273;
+    }
+
+    .upload-hint,
+    .upload-status {
+      width: 75%;
+    }
+
+    .upload-hint {
+      display: none;
+    }
+
+    .upload-hint_visible {
+      display: block;
+      pointer-events: none;
+    }
+
+    .upload-loader {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-loader_visible {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #593273;
+    }
+
+    .upload-loader__image {
+      width: 150px;
+      height: 150px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .upload-zone {
+        padding: 55px 30px;
+      }
+
+      .form-upload__title {
+        display: block;
+        margin-right: 0;
+      }
+
+      .form-upload__input::file-selector-button {
+        min-width: initial;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="uploadFile_Loader" class="upload-zone">
+    <form class="form-upload" id="uploadForm" method="post" enctype="multipart/form-data">
+      <div class="upload-zone_dragover">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" class="upload-loader__image">
+          <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M12 12v9"/>
+          <path d="m16 16-4-4-4 4"/>
+        </svg>
+        <p>Перетащи файл сюда</p>
+        <span class="form-upload__hint" id="hint">Можно загружать только картинки</span>
+      </div>
+      <label class="form-upload__label" for="uploadForm_file">
+        <span class="form-upload__title">Или нажми кнопку</span>
+        <input class="form-upload__input" id="uploadForm_File" type="file" name="file_name" accept="image/*" aria-describedby="hint">
+      </label>
+      <div class="form-upload__container">
+        <span class="form-upload__hint" id="uploadForm_Hint"></span>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const dropFileZone = document.querySelector(".upload-zone_dragover")
+    const statusText = document.getElementById("uploadForm_Status")
+    const uploadInput = document.querySelector(".form-upload__input")
+
+    let setStatus = (text) => {
+      statusText.textContent = text
+    }
+
+    const uploadUrl = "/unicorns";
+
+    ["dragover", "drop"].forEach(function(event) {
+      document.addEventListener(event, function(evt) {
+        evt.preventDefault()
+        return false
+      })
+    })
+
+    dropFileZone.addEventListener("dragenter", function() {
+      dropFileZone.classList.add("_active")
+    })
+
+    dropFileZone.addEventListener("dragleave", function() {
+      dropFileZone.classList.remove("_active")
+    })
+
+    dropFileZone.addEventListener("drop", function() {
+      dropFileZone.classList.remove("_active")
+      const file = event.dataTransfer?.files[0]
+      if (!file) {
+        return
+      }
+
+      if (file.type.startsWith("image/")) {
+        uploadInput.files = event.dataTransfer.files
+        processingUploadFile()
+      } else {
+        setStatus("Можно загружать только изображения")
+        return false
+      }
+    })
+
+    uploadInput.addEventListener("change", (event) => {
+      const file = uploadInput.files?.[0]
+      if (file && file.type.startsWith("image/")) {
+        processingUploadFile()
+      } else {
+        setStatus("Можно загружать только изображения")
+        return false
+      }
+    })
+
+    function processingUploadFile(file) {
+      if (file) {
+        const dropZoneData = new FormData()
+        const xhr = new XMLHttpRequest()
+
+        dropZoneData.append("file", file)
+
+        xhr.open("POST", uploadUrl, true)
+
+        xhr.send(dropZoneData)
+
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            setStatus("Всё загружено")
+          } else {
+            setStatus("Oшибка загрузки")
+          }
+          HTMLElement.style.display = "none"
+        }
+      }
+    }
+
+    function processingDownloadFileWithFetch() {
+      fetch(url, {
+        method: "POST",
+      }).then(async (res) => {
+        const reader = res?.body?.getReader();
+        while (true && reader) {
+          const { value, done } = await reader?.read()
+          console.log("value", value)
+          if (done) break
+          console.log("Received", value)
+        }
+      })
+    }
+  </script>
+</body>
+</html>

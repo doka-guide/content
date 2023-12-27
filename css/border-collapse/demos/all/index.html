@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значения свойства — border-collapse — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    h1,
+    .option-title {
+      width: 270px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 350px;
+      border-top: 7px solid #2E9AFF;
+      text-align: center;
+    }
+
+    td,
+    th {
+      border: 1px solid #2E9AFF;
+      border-left-width: 0;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    .collapse {
+      border-collapse: collapse;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+
+      table {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1><code>border-collapse</code></h1>
+  <div class="option-container">
+    <span class="option-title"><code>separate</code></span>
+    <table class="separate">
+      <thead>
+        <tr>
+          <th>Фильм</th>
+          <th>Оценка</th>
+          <th>Год</th>
+        </tr>
+      <tr>
+        <td>Побег из&nbsp;Шоушенка</td>
+        <td>9.1</td>
+        <td>1994</td>
+      </tr>
+      <tr>
+        <td>Зелёная миля</td>
+        <td>9.1</td>
+        <td>1999</td>
+      </tr>
+      <tr>
+        <td>Форрест Гамп</td>
+        <td>8.9</td>
+        <td>1994</td>
+      </tr>
+    </table>
+  </div>
+  <div class="option-container">
+    <span class="option-title"><code>collapse</code></span>
+    <table class="collapse">
+      <thead>
+        <tr>
+          <th>Фильм</th>
+          <th>Оценка</th>
+          <th>Год</th>
+        </tr>
+      <tr>
+        <td>Побег из&nbsp;Шоушенка</td>
+        <td>9.1</td>
+        <td>1994</td>
+      </tr>
+      <tr>
+        <td>Зелёная миля</td>
+        <td>9.1</td>
+        <td>1999</td>
+      </tr>
+      <tr>
+        <td>Форрест Гамп</td>
+        <td>8.9</td>
+        <td>1994</td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

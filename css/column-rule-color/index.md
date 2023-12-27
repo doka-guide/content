@@ -1,7 +1,12 @@
 ---
 title: "`column-rule-color`"
+description: "Управляем цветом линии между колонками текста."
 authors:
   - xpleesid
+related:
+  - css/currentcolor
+  - css/web-colors
+  - css/column-rule
 tags:
   - doka
 ---
@@ -12,7 +17,7 @@ tags:
 
 ## Как пишется
 
-Можно использовать любые допустимые [значения цветов](/css/web-colors/). По умолчанию установлено значение [`currentColor`](/css/web-colors/#currentcolor).
+Можно использовать любые допустимые [значения цветов](/css/web-colors/). По умолчанию установлено значение [`currentColor`](/css/currentcolor/).
 
 Для того, чтобы задать межколоночной линии красный цвет, мы напишем:
 
@@ -23,7 +28,7 @@ p {
 }
 ```
 
-Также `column-rule-color` — это третье значение в свойстве [`column-rule`](/css/column-rule).
+Также `column-rule-color` — это третье значение в свойстве [`column-rule`](/css/column-rule/).
 
 ## Пример
 

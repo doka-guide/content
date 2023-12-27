@@ -4,48 +4,60 @@
   <title>Пример с ценами — <s> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 100%;
-      padding: 20px;
+      justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
-      font-size: 24px;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
+    p {
+      margin: 15px 0;
+      border-bottom: 1px dashed #000000;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
     .menu {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid white;
-      border-radius: 5px;
-      padding: 20px;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #FF8630;
     }
 
     h3 {
-      margin-bottom: 15px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.25rem;
     }
 
-    p {
-      border-bottom: 1px dashed white;
-      margin-bottom: 10px;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .menu {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>

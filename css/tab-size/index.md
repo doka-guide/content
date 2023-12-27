@@ -1,9 +1,14 @@
 ---
 title: "`tab-size`"
+description: "В CSS можно управлять размером табуляции."
 authors:
   - pepelsbey
 editors:
   - tachisis
+related:
+  - css/numeric-types
+  - css/transition
+  - html/code
 tags:
   - doka
 ---
@@ -27,7 +32,7 @@ pre {
 У свойства `tab-size` есть два варианта значений:
 
 - Длина в количестве пробелов, по умолчанию — 8.
-- Длина в любых [единицах измерения длины](/css/numeric-types).
+- Длина в любых [единицах измерения длины](/css/numeric-types/).
 
 <iframe title="Варианты значений" src="demos/values/" height="375"></iframe>
 
@@ -41,7 +46,7 @@ pre {
 
 <iframe title="Адаптивный tab-size" src="demos/adaptive/" height="470"></iframe>
 
-При изменении ширины фрейма срабатывает медиавыражение, которое меняет ширину таба, а свойство [`transition`](/css/transition) позволяет делать это плавно:
+При изменении ширины фрейма срабатывает медиавыражение, которое меняет ширину таба, а свойство [`transition`](/css/transition/) позволяет делать это плавно:
 
 ```css
 pre {

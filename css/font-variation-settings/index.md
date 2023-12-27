@@ -1,7 +1,12 @@
 ---
 title: "`font-variation-settings`"
+description: "Панель управления настройками вариативного шрифта."
 authors:
   - doka-dog
+related:
+  - css/font-variant
+  - css/font-style
+  - css/font-stretch
 tags:
   - doka
   - placeholder
@@ -23,11 +28,11 @@ div {
 
 ### Названия стандартных осей
 
-- `"wght"` — [`font-weight`](/css/font-weight)
-- `"wdth"` — [`font-stretch`](/css/font-stretch)
-- `"slnt"` — [`font-style`](/css/font-style): oblique + угол наклона
-- `"ital"` — [`font-style`](/css/font-style): italic
-- `"opsz"` — [`font-optical-sizing`](/css/font-optical-sizing)
+- `"wght"` — [`font-weight`](/css/font-weight/);
+- `"wdth"` — [`font-stretch`](/css/font-stretch/);
+- `"slnt"` — [`font-style`](/css/font-style/): oblique + угол наклона;
+- `"ital"` — [`font-style`](/css/font-style/): italic;
+- `"opsz"` — [`font-optical-sizing`](/css/font-optical-sizing/).
 
 <aside>
 

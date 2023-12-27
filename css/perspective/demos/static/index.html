@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования — perspective — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .wrapper {
+      width: 320px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .parent {
+      margin-bottom: 24px;
+    }
+
+    .perspective-50 {
+      perspective: 50px;
+    }
+
+    .perspective-100 {
+      perspective: 100px;
+    }
+
+    .transform-rotate-x {
+      background-color: #F498AD;
+      transform: rotateX(50deg);
+    }
+
+    .transform-rotate-y {
+      background-color: #2E9AFF;
+      transform: rotateY(20deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="parent perspective-50">
+      <div class="transform-rotate-x">Перспектива 50 градусов по <i>x</i></div>
+    </div>
+
+    <div class="parent perspective-100">
+      <div class="transform-rotate-y">Перспектива 20 градусов по <i>y</i></div>
+    </div>
+  </div>
+</body>
+</html>

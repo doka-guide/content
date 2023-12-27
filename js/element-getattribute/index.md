@@ -1,20 +1,25 @@
 ---
-title: "`Element.getAttribute()`"
+title: "`.getAttribute()`"
+description: "Получить значение любого HTML-атрибута."
 authors:
-  - Windrushfarer
+  - windrushfarer
 keywords:
   - атрибуты
+related:
+  - html/global-attrs
+  - js/dom
+  - js/element-hidden
 tags:
   - doka
 ---
 
 ## Кратко
 
-Метод `Element.getAttribute` позволяет получить значение указанного атрибута у HTML-элемента. Если атрибута нет, то метод вернёт `null`.
+Метод `getAttribute()` позволяет получить значение указанного [атрибута](/html/global-attrs/) у [HTML-элемента](/js/element/). Если атрибута нет, то метод вернёт [`null`](/js/null-primitive/).
 
 ## Как пишется
 
-`Element.getAttribute` принимает один аргумент – строку с именем атрибута. В ответ метод возвращает значение атрибута в виде строки или `null`, если атрибута нет на элементе.
+`getAttribute()` принимает один аргумент – строку с именем атрибута. В ответ метод возвращает значение атрибута в виде строки или `null`, если атрибута нет на элементе.
 
 ```html
 <script type="application/json" id="hydration"></script>
@@ -23,19 +28,19 @@ tags:
 ```js
 const scriptElement = document.querySelector('script')
 
-scriptElement.getAttribute('type')
+console.log(scriptElement.getAttribute('type'))
 // 'application/json'
-scriptElement.getAttribute('id')
+console.log(scriptElement.getAttribute('id'))
 // 'hydration'
-scriptElement.getAttribute('class')
+console.log(scriptElement.getAttribute('class'))
 // null
 ```
 
 ## Как понять
 
-Существует множество стандартных HTML-атрибутов, и разработчики могут задавать элементу свои собственные атрибуты. Метод `Element.getAttribute` является универсальным способом прочитать значение любого атрибута.
+Существует множество стандартных HTML-атрибутов, и разработчики могут задавать элементу свои собственные атрибуты. Метод `getAttribute()` является универсальным способом прочитать значение любого атрибута.
 
-Не все атрибуты имеет смысл считывать с помощью  `Element.getAttribute`. Значения атрибутов, доступные в объекте [DOM-элемента](/js/element), как например [`Element.hidden`](/js/element-hidden) или [`Element.dataset`](/js/element-dataset), лучше считывать из соответствующих полей.
+Не все атрибуты имеет смысл считывать с помощью  `getAttribute()`. Например, [атрибут `hidden`](/html/hidden/) лучше читать из поля [`hidden`](/js/element-hidden/) DOM-элемента, а дата-атрибуты — из поля [`dataset`](/js/element-dataset/).
 
 Сравним два варианта получения значения атрибута. Возьмём элемент и считаем его атрибуты:
 

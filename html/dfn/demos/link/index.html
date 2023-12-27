@@ -4,42 +4,83 @@
   <title>Пример со ссылкой — <dfn> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    html, body {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin: 0;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #18191c;
-      color: white;
-      font-family: "Roboto", sans-serif;
+    html {
+      color-scheme: dark;
       font-size: 24px;
     }
 
-    p {
-      text-align: center;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
-    a, a:visited {
-      color: white;
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #FF8630;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    abbr[title] {
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    <dfn id="chavo"><abbr title="Часто задаваемые вопросы">ЧАВО</abbr></dfn> — сокращённая форма фразы «Часто задаваемые вопросы».
-  </p>
-  <p>
-    Перед обращением в техподдержку убедитесь, что вы прочитали раздел <a href="#chavo"><abbr title="Часто задаваемые вопросы">ЧАВО</abbr></a> и там нет решения Вашей проблемы.
-  </p>
+  <div class="container">
+    <p>
+      <dfn id="chavo"><abbr title="Часто задаваемые вопросы">ЧАВО</abbr></dfn> — сокращённая форма фразы «Часто задаваемые вопросы».
+    </p>
+    <p>
+      Перед обращением в техподдержку убедитесь, что вы прочитали раздел <a href="#chavo"><abbr title="Часто задаваемые вопросы">ЧАВО</abbr></a> и там нет решения вашей проблемы.
+    </p>
+  </div>
 </body>
 </html>

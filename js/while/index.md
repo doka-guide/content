@@ -1,5 +1,6 @@
 ---
 title: "`while`"
+description: "Классический цикл, который есть в каждом языке программирования."
 authors:
   - nlopin
 contributors:
@@ -11,13 +12,17 @@ keywords:
   - cycle
   - iteration
   - вайл
+related:
+  - js/array-map
+  - js/typecasting
+  - js/iterator
 tags:
   - doka
 ---
 
 ## Кратко
 
-Управляющая конструкция, которая создаёт _[цикл](/js/loop)_.
+Управляющая конструкция, которая создаёт _[цикл](/js/loop/)_.
 
 ## Как пишется
 

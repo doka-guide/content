@@ -12,20 +12,28 @@ on:
 jobs:
   product-deploy:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: content
-      - uses: actions/setup-node@v2
+      - name: Загрузка кеша
+        uses: actions/checkout@v4
         with:
-          node-version: 16
+          repository: doka-guide/cache
+          path: cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Кэширование модулей
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -41,13 +49,20 @@ jobs:
           mkdir "$HOME/.ssh"
           echo "${{ secrets.DEPLOY_KEY }}" > "$HOME/.ssh/doka_deploy"
           chmod 600 "$HOME/.ssh/doka_deploy"
+          echo "${{ secrets.DEPLOY_CONFIG }}" > "$HOME/.ssh/config"
+          chmod 600 "$HOME/.ssh/config"
+          ssh -o StrictHostKeyChecking=no deploy@dev.doka.guide
       - name: Установка модулей
         run: npm ci
+      - name: Копирование кеша
+        run: cp -r ./cache/.cache ./
       - name: Сборка сайта
         run: |
-          node make-links.js --default
+          cp .env.example .env
           npm run build
       - name: Генерация карточек для социальных сетей
         run: npx gulp socialCards
       - name: Публикация сайта
-        run: npm run deploy
+        run: |
+          cd dist
+          rsync --exclude 'api.json' --exclude 'mail' --archive --progress --compress --delete . dev.doka.guide:/web/sites/doka.guide/www/

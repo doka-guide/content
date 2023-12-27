@@ -1,9 +1,14 @@
 ---
 title: "`justify-self`"
+description: "Выравниваем грид-элемент вопреки правилам грид-контейнера."
 authors:
   - solarrust
 keywords:
   - выравнивание грид-элемента
+related:
+  - css/justify-items
+  - css/grid-guide
+  - css/align-items
 tags:
   - doka
 ---
@@ -28,7 +33,7 @@ tags:
 
 ## Как пишется
 
-Возможные значения аналогичны значениям свойства [`justify-items`](/css/justify-items).
+Возможные значения аналогичны значениям свойства [`justify-items`](/css/justify-items/).
 
 ## Подсказки
 

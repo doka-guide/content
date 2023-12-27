@@ -4,38 +4,52 @@
   <title>Липкое позиционирование — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     .section {
-      border: 2px solid black;
-      margin: 5px 10px;
       display: flex;
+      width: 650px;
+      background-color: #282A2E;
     }
 
     .section__left {
-      flex-shrink: 0;
-      width: 30%;
-      padding: 20px;
+      width: 100%;
+      padding: 15px;
       box-sizing: border-box;
     }
 
     .section__right {
       box-sizing: border-box;
-      padding: 20px;
+      padding: 15px;
     }
 
     .section__title {
-      text-transform: uppercase;
       text-align: center;
-      font-size: 23px;
-      margin: 0;
       position: sticky;
-      top: 20px;
+      top: 15px;
+      font-size: 26px;
+      font-weight: 500;
     }
 
     .squares {
@@ -44,25 +58,39 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 15px;
-      width: 100%;
     }
 
     .squares__item {
-      background-color: tomato;
+      background-color: #2E9AFF;
+      width: 120px;
       height: 120px;
     }
 
     .squares__item:last-of-type {
-      background-color: cornflowerblue;
+      background-color: #F498AD;
       position: sticky;
       bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .section {
+        width: 100%;
+      }
+
+      .squares__item {
+        width: 50px;
+      }
     }
   </style>
 </head>
 <body>
   <section class="section">
     <div class="section__left">
-      <p class="section__title">Sticky Title 1</p>
+      <h1 class="section__title">Липкий заголовок</h1>
     </div>
     <ul class="section__right squares">
       <li class="squares__item"></li>
@@ -75,7 +103,7 @@
   </section>
   <section class="section">
     <div class="section__left">
-      <p class="section__title">Sticky Title 2</p>
+      <h1 class="section__title">Липкий заголовок</h1>
     </div>
     <ul class="section__right squares">
       <li class="squares__item"></li>
@@ -88,7 +116,7 @@
   </section>
   <section class="section">
     <div class="section__left">
-      <p class="section__title">Sticky Title 3</p>
+      <h1 class="section__title">Липкий заголовок</h1>
     </div>
     <ul class="section__right squares">
       <li class="squares__item"></li>

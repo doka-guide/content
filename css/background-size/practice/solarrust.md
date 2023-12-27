@@ -9,12 +9,12 @@
 ```css
 .element {
   height: 100vh;
-  background-color: #f1f1f1;
+  background-color: #18191C;
   background-image: url("pattern.svg");
-  background-size: 40px auto;
+  background-size: 100px auto;
 }
 ```
 
 <iframe title="Паттерн на фоне" src="../demos/pattern/" height="400"></iframe>
 
-Попробуй поменять размеры фоновой картинки и посмотреть, как будет меняться фоновый паттерн.
+Попробуйте поменять размеры фоновой картинки и посмотреть, как будет меняться фоновый паттерн.

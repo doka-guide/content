@@ -1,0 +1,217 @@
+---
+name: 'Доступность'
+groups:
+  - name: 'Основы'
+    items:
+      - chto-takoe-a11y
+      - a11y-tree
+      - a11y-html
+      - site-language
+      - accessible-forms
+      - content-hidden
+      - how-to-describe-pictures
+  - name: 'Вспомогательные технологии'
+    items:
+      - screenreaders
+  - name: 'CSS и доступность'
+    items:
+      - css-impact-on-a11y
+      - prefers-reduced-motion
+      - prefers-reduced-transparency
+      - prefers-contrast
+      - forced-colors
+      - inverted-colors
+  - name: 'Доступные элементы'
+    items:
+      - skip-link
+  - name: 'ARIA'
+    items:
+      - aria-intro
+      - aria-roles
+      - aria-attrs
+      - abstract-roles
+  - name: 'Другие спецификации и руководства'
+    items:
+      - wcag
+      - wcag-conformance-levels
+  - name: 'Глобальные ARIA-атрибуты'
+    items:
+      - aria-hidden
+      - aria-label
+      - aria-braillelabel
+      - aria-labelledby
+      - aria-describedby
+      - aria-description
+      - aria-details
+      - aria-roledescription
+      - aria-brailleroledescription
+      - aria-keyshortcuts
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+      - aria-owns
+      - aria-current
+      - aria-controls
+      - aria-flowto
+  - name: 'Имена и описания'
+    items:
+      - aria-label
+      - aria-labelledby
+      - aria-describedby
+      - aria-description
+      - aria-details
+  - name: 'Ориентиры'
+    items:
+      - role-banner
+      - role-navigation
+      - role-main
+      - role-complementary
+      - role-region
+      - role-form
+      - role-search
+      - role-contentinfo
+  - name: 'Изменяющиеся области'
+    items:
+      - live-region
+      - role-status
+      - role-log
+      - role-alert
+      - role-marquee
+      - role-timer
+      - aria-live
+      - aria-atomic
+      - aria-relevant
+      - aria-busy
+  - name: 'Структура документа'
+    items:
+      - role-presentation-none
+      - role-generic
+      - role-application
+      - role-toolbar
+      - role-feed
+      - role-document
+      - role-figure
+      - role-group
+      - role-article
+      - role-heading
+      - role-paragraph
+      - role-blockquote
+      - role-suggestion
+      - role-comment
+      - role-mark
+      - role-term
+      - role-definition
+      - role-strong
+      - role-emphasis
+      - role-insertion
+      - role-deletion
+      - role-subscript
+      - role-superscript
+      - role-code
+      - role-note
+      - role-time
+      - role-math
+      - role-meter
+      - role-separator
+      - role-img-image
+      - role-tooltip
+      - role-list
+      - role-listitem
+      - role-associationlist
+      - role-associationlistitemkey
+      - role-associationlistitemvalue
+      - role-caption
+      - role-table
+      - role-columnheader
+      - role-rowheader
+      - role-rowgroup
+      - role-row
+      - role-cell
+  - name: 'Окна'
+    items:
+      - role-dialog
+      - role-alertdialog
+      - aria-modal
+  - name: 'Виджеты'
+    items:
+      - role-link
+      - role-button
+      - role-switch
+      - role-checkbox
+      - role-textbox
+      - role-searchbox
+      - role-slider
+      - role-spinbutton
+      - role-progressbar
+      - role-separator
+      - role-scrollbar
+      - role-tablist
+      - role-tab
+      - role-tabpanel
+      - role-listbox
+      - role-combobox
+      - role-option
+      - role-radiogroup
+      - role-radio
+      - role-treegrid
+      - role-tree
+      - role-treeitem
+      - role-menubar
+      - role-menu
+      - role-menuitem
+      - role-menuitemradio
+      - role-menuitemcheckbox
+      - role-grid
+      - role-gridcell
+  - name: 'Атрибуты виджетов'
+    items:
+      - aria-hidden
+      - aria-level
+      - aria-placeholder
+      - aria-required
+      - aria-invalid
+      - aria-errormessage
+      - aria-checked
+      - aria-pressed
+      - aria-selected
+      - aria-disabled
+      - aria-readonly
+      - aria-multiselectable
+      - aria-multiline
+      - aria-autocomplete
+      - aria-expanded
+      - aria-haspopup
+      - aria-controls
+      - aria-owns
+      - aria-modal
+      - aria-orientation
+      - aria-sort
+      - aria-setsize
+      - aria-posinset
+      - aria-valuetext
+      - aria-valuenow
+      - aria-valuemax
+      - aria-valuemin
+  - name: 'Атрибуты связи'
+    items:
+      - aria-labelledby
+      - aria-describedby
+      - aria-details
+      - aria-errormessage
+      - aria-controls
+      - aria-owns
+      - aria-activedescendant
+      - aria-posinset
+      - aria-setsize
+      - aria-rowindex
+      - aria-colindex
+      - aria-rowindextext
+      - aria-colindextext
+      - aria-rowcount
+      - aria-colcount
+      - aria-rowspan
+      - aria-colspan
+---
+
+Доступность (accessibility) нужна для того, чтобы вашим сайтом или приложением могли пользоваться люди с инвалидностью, а вместе с ними и все другие пользователи. Часто длинное английское название сокращают до ёмкого a11y.

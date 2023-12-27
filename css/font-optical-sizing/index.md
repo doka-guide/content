@@ -1,7 +1,12 @@
 ---
 title: "`font-optical-sizing`"
+description: "Подстраиваем вариативный шрифт, чтобы он лучше читался."
 authors:
   - doka-dog
+related:
+  - css/font-variation-settings
+  - css/font-variant
+  - css/font-size
 tags:
   - doka
   - placeholder
@@ -20,4 +25,4 @@ tags:
 - `auto` — браузер решает каким начертанием отображать текст (значение по умолчанию).
 - `none` — браузер ничего не решает, текст отображается без изменений.
 
-Оптической осью можно также управлять вручную с помощью ключа `opsz` свойства [`font-variation-settings`](/css/font-variation-settings).
+Оптической осью можно также управлять вручную с помощью ключа `opsz` свойства [`font-variation-settings`](/css/font-variation-settings/).

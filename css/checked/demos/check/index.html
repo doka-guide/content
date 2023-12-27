@@ -1,105 +1,236 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Чекбоксы — :checked — Дока</title>
+  <title>Стилизация выбранных элементов — :checked — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
       font-size: 18px;
     }
 
-    * {
-      font-family: "Roboto", sans-serif;
+    .row {
+      display: flex;
+      align-items: center;
     }
 
-    .input-row {
-      margin-bottom: 30px;
+    .row + .row {
+      margin-top: 25px;
     }
 
-    input[type="checkbox"] {
-      outline: 2px solid #ffffff;
+    .row-title {
+      width: 220px;
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+      cursor: auto;
     }
 
-    input[type="checkbox"]:checked {
-      outline: 2px solid #1a5ad7;
+    .radio-label,
+    .checkbox-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
     }
 
-    input[type="checkbox"]:checked ~ .input-text {
-      color: #1a5ad7;
+    .radio-label + .radio-label {
+      margin-left: 35px;
     }
 
-    input[type="radio"] {
-      outline: 2px solid #ffffff;
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
     }
 
-    input[type="radio"]:checked {
-      outline: 2px solid #1a5ad7;
+    .radio + .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
     }
 
-    input[type="radio"]:checked ~ .input-text {
-      color: #1a5ad7;
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
     }
 
-    option:checked {
-      background-color: #18191c;
-      color: #1a5ad7;
+    .radio:checked + .radio-title::before {
+      background: radial-gradient(
+        circle,
+        #2E9AFF 0%,
+        #2E9AFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: calc(50% - 6px);
+      width: 12px;
+      height: 12px;
+      rotate: 45deg;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 9px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      pointer-events: none;
     }
 
     select {
-      font-size: 16px;
+      position: relative;
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    .input-text,
-    .select-text {
-      width: 60%;
-      margin-left: 10px;
+    select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
     }
 
-    label {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    option:checked {
+      background-color: #2E9AFF;
+      color: #18191C;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .row {
+        display: block;
+      }
+
+      .row-title, select {
+        width: 100%;
+        min-width: 280px;
+      }
+
+      .row-title {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="input-row">
-    <label>
-      <input type="checkbox">
-      <span class="input-text">
-        Чекбокс (нажми!)
-      </span>
-    </label>
-  </div>
+  <div class="container">
+    <div class="row">
+      <span class="row-title">Обратный билет</span>
+      <label class="checkbox-label">
+        <input class="checkbox" type="checkbox" name="return">
+        <span class="checkbox-title">Нужен</span>
+      </label>
+    </div>
 
-  <div class="input-row">
-    <label>
-      <input type="radio" name="radio">
-      <input type="radio" name="radio">
-      <span class="input-text">
-        Радиокнопки (нажми!)
-      </span>
-    </label>
-  </div>
+    <div class="row">
+      <span class="row-title">Везёте багаж?</span>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="luggage" value="true">
+        <span class="radio-title">Да</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="luggage" value="false">
+        <span class="radio-title">Нет</span>
+      </label>
+    </div>
 
-  <div class="input-row">
-    <label>
-      <select name="select">
-        <option value="Лондон">Лондон</option>
-        <option value="Псков">Псков</option>
-        <option value="Нью-Йорк">Нью-Йорк</option>
-      </select>
-      <span class="select-text">
-        Выпадающий список (выбери 😉)
-      </span>
-    </label>
+    <div class="row">
+      <label class="row-title" for="city">Место назначения</label>
+        <div class="select-wrapper">
+          <select name="city" id="city">
+            <option value="Лондон">Лондон</option>
+            <option value="Париж">Париж</option>
+            <option value="Рига">Рига</option>
+            <option value="Москва">Москва</option>
+          </select>
+        </div>
+    </div>
   </div>
 </body>
 </html>

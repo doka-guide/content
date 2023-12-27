@@ -1,5 +1,6 @@
 ---
 title: "`<button>`"
+description: "Тег чтобы добавить на страницу кнопку."
 authors:
   - doka-dog
 contributors:
@@ -7,10 +8,11 @@ contributors:
 editors:
   - tachisis
 keywords:
-  - button
-  - тэг
-  - тег
   - кнопка
+related:
+  - html/form
+  - css/disabled-enabled
+  - js/deal-with-forms
 tags:
   - doka
 ---
@@ -25,7 +27,7 @@ tags:
 <button name="button">Нажми меня</button>
 ```
 
-## Как это понять
+## Как понять
 
 С помощью CSS можно настроить внешний вид кнопки `<button>` и текста на ней: шрифт, размер, цвет фона и другие параметры. А если ничего не менять, то `<button>` будет выглядеть, как стандартная браузерная кнопка.
 

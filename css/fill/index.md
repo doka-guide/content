@@ -1,9 +1,14 @@
 ---
 title: "`fill`"
+description: "Свойство для заливки SVG."
 authors:
   - realetive
 keywords:
   - svg-заливка
+related:
+  - css/stroke
+  - css/background-color
+  - html/svg
 tags:
   - doka
 ---

@@ -1,21 +1,25 @@
 ---
-title: "`set.delete()`"
-description: "Удаляет значение из коллекции Set"
+title: "`.delete()`"
+description: "Удаляет значение из коллекции `Set`."
 authors:
   - nlopin
+related:
+  - js/map
+  - tools/oop
+  - js/object
 tags:
   - doka
 ---
 
 ## Кратко
 
-Метод `delete` удаляет значение из коллекции [`Set`](/js/set).
+Метод `delete()` удаляет значение из коллекции [`Set`](/js/set/).
 
 ## Пример
 
 ```js
 const watchlist = new Set(['Сияние', 'Интерстеллар', 'Казино'])
-console.log(watchlist.length)
+console.log(watchlist.size)
 // 3
 
 const firstTry = watchlist.delete('Казино')
@@ -35,7 +39,7 @@ console.log(watchlist.size)
 
 Метод принимает один аргумент — значение, которое нужно удалить.
 
-Возвращает:
+Возвращает [булевый тип](/js/boolean/):
 
-- `true` если значение было найдено в коллекции и удалено
-- `false` если значения нет в коллекции
+- `true` если значение было найдено в коллекции и удалено;
+- `false` если значения нет в коллекции.

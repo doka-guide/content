@@ -1,10 +1,12 @@
 ---
 title: "`transition-property`"
+description: "Указываем точно, какое свойство будет меняться плавно."
 authors:
   - ezhkov
-keywords:
-  - transition
-  - transition-property
+related:
+  - css/transition
+  - css/animation
+  - css/transform
 tags:
   - doka
 ---
@@ -48,7 +50,7 @@ tags:
 }
 ```
 
-## Как это понять
+## Как понять
 
 Когда нужно анимировать переход сразу нескольких свойств элемента, то лучше использовать не комплексное свойство [`transition`](/css/transition/), а каждое из подсвойств в отдельности. Код получится более понятным и вы не запутаетесь в длинных строчках. Сравним:
 

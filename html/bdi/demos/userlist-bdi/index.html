@@ -4,30 +4,80 @@
   <title>Список пользователей с <bdi> — <bdi> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    html, body {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0;
-      font-family: Roboto, sans-serif;
-      color: white;
-      font-size: 24px;
-      background-color: #18191c;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      text-transform: lowercase;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #FF8630;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <ul>
-    <li>Пользователь <bdi>john_smith78</bdi>: 167 комментариев.</li>
-    <li>Пользователь <bdi>superPanda</bdi>: 152 комментариев.</li>
-    <li>Пользователь <bdi>شاب رائع</bdi>: 133 комментария.</li>
-  </ul>
+  <div>
+    <ul>
+      <li>Пользователь <bdi lang="en">john_smith78</bdi>: 167 комментариев</li>
+      <li>Пользователь <bdi lang="en">superPanda</bdi>: 152 комментария</li>
+      <li>Пользователь <bdi lang="ar">شاب رائع</bdi>: 133 комментария</li>
+    </ul>
+  </div>
 </body>
 </html>

@@ -1,11 +1,17 @@
 ---
 title: "`border-radius`"
+description: "Сглаживает острые углы."
 authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 keywords:
-  - border-radius
+  - скругление углов
+related:
+  - css/border
+  - css/numeric-types
+  - css/outline
 tags:
   - doka
 ---
@@ -21,27 +27,24 @@ tags:
 Самая простая штука — кнопка с закруглёнными краями:
 
 ```html
-<button class="btn">Купить</button>
+<button class="button">Купить</button>
 ```
 
 ```css
-.btn {
-  border: none;
-  border-radius: 5px;
+.button {
+  border: 2px solid transparent;
+  border-radius: 6px;
 }
 ```
 
-<iframe title="Кнопка" src="demos/basic/" height="250"></iframe>
+<iframe title="Кнопка" src="demos/basic/" height="150"></iframe>
 
-Обрати внимание, что мы _сбросили_ стандартную рамку кнопки, но углы тем не менее слегка закруглились.
+Обрати внимание, что мы _переопределили_ стандартную рамку кнопки и слегка закруглили углы. Так же можно сбросить рамку с помощью `none`, скругление всё равно останется.
 
 Если при нажатии добавлять кнопке внутреннюю тень такого же цвета, что и фон, она будет «нажиматься» — получится привлекательно и современно 😉
 
-```css
-body {
-  background-color: #e6e6e6;
-}
 
+```css
 .btn:focus {
   box-shadow: inset 0 0 0 3px #e6e6e6;
   transition: all 0.2s;
@@ -50,7 +53,7 @@ body {
 
 <iframe title="Интерактивная кнопка" src="demos/interactive/" height="250"></iframe>
 
-## Как это понять
+## Как понять
 
 Свойство `border-radius` задаёт радиус закругления каждого из углов элемента.
 
@@ -75,7 +78,7 @@ div {
 
 ```css
 .ellipse {
-  border-radius: 5em / 50%;
+  border-radius: 2em / 50%;
 }
 ```
 
@@ -83,14 +86,14 @@ div {
 
 ```css
 .ellipse {
-  border-top-left-radius: 5em 50%;
-  border-top-right-radius: 5em 50%;
-  border-bottom-right-radius: 5em 50%;
-  border-bottom-left-radius: 5em 50%;
+  border-top-left-radius: 2em 50%;
+  border-top-right-radius: 2em 50%;
+  border-bottom-right-radius: 2em 50%;
+  border-bottom-left-radius: 2em 50%;
 }
 ```
 
-<iframe title="Название" src="demos/different-blocks/" height="400"></iframe>
+<iframe title="Скруглённые блоки разного размера" src="demos/different-blocks/" height="550"></iframe>
 
 ## Подсказки
 

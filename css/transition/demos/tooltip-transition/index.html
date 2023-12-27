@@ -4,54 +4,62 @@
   <title>Анимация подсказки при помощи transition — transition — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
-      padding: 10% 5%;
-      overflow: hidden;
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
-      color: #ffffff;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     .wrapper {
-      width: 350px;
-      margin-left: auto;
-      margin-right: auto;
+      inline-size: 400px;
+      margin-inline: auto;
     }
 
     .col {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: center;
     }
 
     .col + .col {
-      margin-top: 70px;
+      margin-block-start: 30px;
     }
 
-    .title {
-      width: 30%;
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .tooltip-cnt {
-      width: 70%;
-      text-align: center;
+    .option-title {
+      inline-size: 150px;
+      margin-inline-end: 50px;
+      text-align: right;
+      text-transform: lowercase;
     }
 
     .tooltip-target {
       color: #ffffff;
       font-size: 24px;
       text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-color: #1a5ad7;
+      text-decoration-style: dotted;
+      text-decoration-color: #2E9AFF;
       text-decoration-thickness: 2px;
       cursor: pointer;
       user-select: none;
@@ -63,16 +71,15 @@
 
     .tooltip {
       position: absolute;
-      top: -50%;
-      left: 70%;
+      inset-block-start: -50%;
+      inset-inline-start: 70%;
       box-sizing: border-box;
-      width: 70%;
-      padding: 15px 10px;
-      border: 1px solid #1a5ad7;
-      box-shadow: 8px 8px 0 #1a5ad7;
-      color: #ffffff;
-      background-color: #18191c;
-      text-align: center;
+      inline-size: 220px;
+      padding: 10px 40px;
+      color: #000000;
+      background-color: #ffffff;
+      font-size: 16px;
+      text-align: left;
       z-index: 10;
 
       /* Описываем переход */
@@ -87,6 +94,10 @@
       transform: translateY(20px);
     }
 
+    .tooltip-target:hover {
+      color: #2E9AFF;
+    }
+
     .tooltip-target:hover + .tooltip {
       opacity: 1;
       visibility: visible;
@@ -95,23 +106,53 @@
     .transitioned .tooltip-target:hover + .tooltip {
       transform: translateY(0);
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        inline-size: auto;
+      }
+
+      .col {
+        flex-direction: column;
+      }
+
+      .col + .col {
+        margin-block-start: 50px;
+      }
+
+      .option-title {
+        inline-size: auto;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .tooltip {
+        inset-block-start: auto;
+        inset-inline-start: calc(50% - 110px);
+        inset-block-end: 120%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
     <div class="col">
-      <h2 class="title">Fade in</h2>
+      <span class="option-title">Fade in</span>
       <div class="tooltip-cnt">
         <span class="tooltip-target">Наведи на меня</span>
-        <div class="tooltip">Ты — супер!</div>
+        <div class="tooltip">Эта подсказка проявилась</div>
       </div>
 
     </div>
     <div class="col transitioned">
-      <h2 class="title">Slide up</h2>
+      <span class="option-title">Slide up</span>
       <div class="tooltip-cnt">
         <span class="tooltip-target">Наведи на меня</span>
-        <div class="tooltip">Неожиданно, да? :)</div>
+        <div class="tooltip">Это подсказка, которая всплыла</div>
       </div>
     </div>
   </div>
