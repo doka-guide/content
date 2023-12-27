@@ -73,3 +73,33 @@ console.log(numbers);
 console.log(sortedNumbers);
 // [1, 5, 6, 7, 9, 16, 35, 43, 75]
 ```
+
+<aside>
+
+☝️ При сортировке массива методом `toSorted()` возвращаемый массив будет содержать [поверхностную копию (shallow copy) элементов](/js/shallow-or-deep-clone/), если эти элементы являются объектами. При изменении этих элементов в объекте, изменения будут видны и в исходном массиве.
+
+```js
+const obj = {name: 'Scarlett'};
+
+const names = [
+  'Kirill',
+  'Alex',
+  obj,
+  'Denis',
+  'Albert',
+  undefined,
+  '',
+];
+
+const sortedNames = names.toSorted();
+
+console.log(sortedNames);
+//  ['', 'Albert', 'Alex', 'Denis', 'Kirill', { name: 'Scarlett' }, undefined]
+
+obj.name = 'Dan'; // меняем объект
+
+console.log(sortedNames)
+//  ['', 'Albert', 'Alex', 'Denis', 'Kirill', { name: 'Dan' }, undefined]
+// в отсортированном массиве, объект также изменился.
+```
+</aside>
