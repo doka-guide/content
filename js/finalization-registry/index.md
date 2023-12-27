@@ -5,7 +5,7 @@ authors:
   - doka-dog
 related:
   - js/collection-weakmap
-  - js/weak-set
+  - js/map
   - js/set
 tags:
   - doka

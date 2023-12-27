@@ -3,7 +3,7 @@ name: Update Index
 on:
   workflow_run:
     workflows:
-      - "YaSpeller All"
+      - "Update Dates"
     branches:
       - main
     types:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Установка ключа для пользователя
         run: |
           set -eu

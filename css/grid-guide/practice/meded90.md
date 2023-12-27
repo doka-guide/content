@@ -40,7 +40,7 @@
 }
 ```
 
-<iframe title="Гибкая сетка на гридах" src="../demos/mobile-example/" height="600"></iframe>
+<iframe title="Гибкая сетка на гридах" src="../demos/mobile-example/" height="680"></iframe>
 
 <!-- yaspeller ignore:start -->
 

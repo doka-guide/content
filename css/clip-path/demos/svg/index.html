@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>SVG-источник — clip-path — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .option-title {
+      display: block;
+      font-size: 18px;
+    }
+
+    h1, .option-title {
+      width: 250px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 50px;
+      margin-top: 30px;
+    }
+
+    .link {
+      color: #2E9AFF;
+    }
+
+    .option {
+      width: 140px;
+      height: 45px;
+      background-color: #F498AD;
+    }
+
+    .inline-svg {
+      clip-path: url(#clip-path);
+    }
+
+    .external-svg {
+      clip-path: url(images/doka.svg#clip-path);
+    }
+
+    svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    @media (max-width: 480px) {
+      .option-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div>
+  <h1><code>clip-path</code></h1>
+  <div class="option-container">
+    <code class="option-title">url(<span class="link">#clip-path</span>)</code>
+    <div class="option inline-svg"></div>
+  </div>
+  <div class="option-container">
+    <code class="option-title">url(<span class="link">doka.svg<wbr>#clip-path</span>)</code>
+    <div class="option external-svg"></div>
+  </div>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 45" aria-hidden="true">
+  <defs>
+    <clipPath id="clip-path">
+      <path d="M28.6892 36.2352C34.6178 36.2352 37.469 32.4614 37.469 26.2778V10.5459C37.469 9.54561 36.8807 9 36.066 9C35.2514 9 34.7083 9.54561 34.7083 10.5459V26.2778C34.7083 31.5066 32.4455 33.6435 28.6892 33.6435C25.0235 33.6435 22.7606 31.5066 22.7606 26.2778V10.5459C22.7606 9.54561 22.1723 9 21.3577 9C20.5431 9 20 9.54561 20 10.5459V26.2778C20 32.4614 22.8512 36.2352 28.6892 36.2352Z"/>
+      <path d="M49.5348 13.5013C46.8646 13.5013 44.6923 15.6838 44.6923 18.3209C44.6923 21.0035 46.8646 23.186 49.5348 23.186C52.1596 23.186 54.332 21.0035 54.332 18.3209C54.332 15.6838 52.1596 13.5013 49.5348 13.5013Z"/>
+      <path d="M63.9716 36.7808C67.049 36.7808 68.8593 34.8712 70.3527 32.8251C71.8462 34.8712 73.6565 36.7808 76.7339 36.7808C77.8653 36.7808 78.8609 36.4625 78.8609 35.4168C78.8609 34.7802 78.3631 34.1892 77.639 34.1892C77.3675 34.1892 76.8697 34.2801 76.5529 34.2801C75.1047 34.2801 73.3849 32.3704 72.4345 31.0064C74.3806 28.9149 76.5076 26.2323 76.5076 23.2769C76.5076 19.8668 73.928 17.457 70.3527 17.457C66.7775 17.457 64.1979 19.8668 64.1979 23.2769C64.1979 26.2323 66.3249 28.9149 68.2709 31.0064C67.3206 32.3704 65.6008 34.2801 64.1526 34.2801C63.8358 34.2801 63.338 34.1892 63.0664 34.1892C62.3423 34.1892 61.8445 34.7802 61.8445 35.4168C61.8445 36.4625 62.8402 36.7808 63.9716 36.7808Z"/>
+      <path d="M91.153 13.5013C88.4829 13.5013 86.3106 15.6838 86.3106 18.3209C86.3106 21.0035 88.4829 23.186 91.153 23.186C93.7779 23.186 95.9502 21.0035 95.9502 18.3209C95.9502 15.6838 93.7779 13.5013 91.153 13.5013Z"/>
+      <path d="M111.926 36.2352C117.854 36.2352 120.705 32.4614 120.705 26.2778V10.5459C120.705 9.54561 120.117 9 119.303 9C118.488 9 117.945 9.54561 117.945 10.5459V26.2778C117.945 31.5066 115.682 33.6435 111.926 33.6435C108.26 33.6435 105.997 31.5066 105.997 26.2778V10.5459C105.997 9.54561 105.409 9 104.594 9C103.78 9 103.236 9.54561 103.236 10.5459V26.2778C103.236 32.4614 106.088 36.2352 111.926 36.2352Z"/>
+    </clipPath>
+  </defs>
+</svg>
+</body>
+</html>
