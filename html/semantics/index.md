@@ -133,17 +133,17 @@ tags:
   <h1 class="heading">Курсы компании «Гарцующий пони»</h1>
   <div class="wrapper">
     <article class="card">
-      <img src="./images/seo-course.png" alt="на жёлтом фоне изображён текст «SEO»" class="card__img" decoding="async">
+      <img src="./images/seo-course.png" alt="" class="card__img" decoding="async">
       <h2 class="card__heading">SEO для начинающих</h2>
       <p class="card__description">Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.</p>
     </article>
     <article class="card">
-      <img src="./images/wordpress-course.png" alt="на жёлтом фоне изображён текст «WordPress»" class="card__img" decoding="async">
+      <img src="./images/wordpress-course.png" alt="" class="card__img" decoding="async">
       <h2 class="card__heading">Разработка на WordPress</h2>
       <p class="card__description">WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.</p>
     </article>
     <article class="card">
-      <img src="./images/javascript-course.png" alt="на жёлтом фоне изображён текст «JavaScript»" class="card__img" decoding="async">
+      <img src="./images/javascript-course.png" alt="" class="card__img" decoding="async">
       <h2 class="card__heading">JavaScript для чайников</h2>
       <p class="card__description">Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.</p>
     </article>
