@@ -1,6 +1,10 @@
 ---
 title: "`flex-shrink`"
 description: "Как будет сжиматься флекс-элемент если места мало."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-shrink
 authors:
   - solarrust
 editors:

@@ -1,59 +1,86 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Открытый аккордеон — Дока</title>
+  <title>Открытый аккордеон — <details>, <summary> — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
       color: #000000;
-      font-size: 24px;
       font-family: "Roboto", sans-serif;
     }
 
-    summary {
-      background-color: #5be15b;
-      padding: 10px 15px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    details {
-      background-color: #abe7ab;
-    }
-
     p {
-      padding: 20px;
-      margin: 0;
-      line-height: 1.6;
-      font-size: 16px;
+      padding: 15px 10px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+    }
+
+    summary {
+      background-color: #FF8630;
+      padding: 10px 15px;
+      font-size: 1em;
+      border-bottom: 1px solid #000000;
     }
 
     summary::marker {
       color: #000000;
     }
+
+    details {
+      background-color: #ffd2b2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <details open>
-    <summary>Что такое «киновселенная»?</summary>
-    <p>Действие всех фильмов Marvel происходит в одной вселенной. То есть события одного фильма могут напрямую влиять на сюжет другого, а персонажи свободно перемещаются между фильмами. С недавних пор киновселенная включает в себя и несколько сериалов.</p>
-  </details>
+  <div class="container">
+    <details open>
+      <summary>Что такое «киновселенная»?</summary>
+      <p>Действие всех фильмов Marvel происходит в одной вселенной. То есть события одного фильма могут напрямую влиять на сюжет другого, а персонажи свободно перемещаются между фильмами. С недавних пор киновселенная включает в себя и несколько сериалов.</p>
+    </details>
 
-  <details>
-    <summary>Что такое «Мстители»?</summary>
-    <p>Мстители — команда супергероев Marvel. Первый комикс о «Мстителях» вышел ещё в 1963 году и был ответом Marvel на успешную серию комиксов DC о «Лиге справедливости» во главе с Бэтменом и Суперменом. В оригинальном комиксе в состав первых Мстителей входили Железный Человек, Тор, Халк, а также Человек-Муравей и Оса.</p>
-  </details>
+    <details>
+      <summary>Что такое «Мстители»?</summary>
+      <p>Мстители — команда супергероев Marvel. Первый комикс о «Мстителях» вышел ещё в 1963 году и был ответом Marvel на успешную серию комиксов DC о «Лиге справедливости» во главе с Бэтменом и Суперменом. В оригинальном комиксе в состав первых Мстителей входили Железный Человек, Тор, Халк, а также Человек-Муравей и Оса.</p>
+    </details>
 
-  <details>
-    <summary>Так, а почему весь зал оживляется, когда в кадре появляется какой-то седой мужик в очках?</summary>
-    <p>Потому что это — Стэн Ли, создавший половину этих супергероев. Сейчас он появляется в каждом фильме про героев комиксов Marvel в маленькой эпизодической роли. Впервые это случилось в первом большом блокбастере по комиксам Marvel: в «Людях Икс» в 2000 году. Стэн умер в 2018 году. «Мстители: Финал» стал последним фильмом с его участием.</p>
-  </details>
+    <details>
+      <summary>Так, а почему весь зал оживляется, когда в кадре появляется какой-то седой мужик в очках?</summary>
+      <p>Потому что это — Стэн Ли, создавший половину этих супергероев. Сейчас он появляется в каждом фильме про героев комиксов Marvel в маленькой эпизодической роли. Впервые это случилось в первом большом блокбастере по комиксам Marvel: в «Людях Икс» в 2000 году. Стэн умер в 2018 году. «Мстители: Финал» стал последним фильмом с его участием.</p>
+    </details>
+  </div>
 </body>
 </html>

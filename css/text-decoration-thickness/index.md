@@ -1,9 +1,14 @@
 ---
 title: "`text-decoration-thickness`"
+description: "Какой будет толщина декоративной линии под (или над) текстом?"
 authors:
   - nailheart
 keywords:
   - толщина декоративной линии
+related:
+  - css/text-decoration
+  - css/text-decoration-line
+  - recipes/multicolor-text
 tags:
   - doka
 ---
@@ -17,34 +22,34 @@ tags:
 Для примера создадим три абзаца текста и зададим для них разные значения.
 
 ```html
-<p class="thin">Текст с красным подчёркиванием в 1px.</p>
-<p class="thick">Текст с красным подчёркиванием в 3px.</p>
-<p class="shorthand">Текст с красным подчёркиванием в 5px.</p>
+<p class="thin">Текст с голубым подчёркиванием в 1px.</p>
+<p class="thick">Текст с голубым подчёркиванием в 3px.</p>
+<p class="shorthand">Текст с голубым подчёркиванием в 5px.</p>
 ```
 
 ```css
 .thin {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: red;
+  text-decoration-color: #2e9aff;
   text-decoration-thickness: 1px;
 }
 
 .thick {
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: red;
+  text-decoration-color: #2e9aff;
   text-decoration-thickness: 3px;
 }
 
 .shorthand {
-  text-decoration: underline solid red 5px;
+  text-decoration: underline solid #2e9aff 5px;
 }
 ```
 
 Свойство `text-decoration` является шорткатом и позволяет указать все значения сразу.
 
-<iframe title="Толщина декоративной линии" src="demos/basic/" height="400"></iframe>
+<iframe title="Толщина декоративной линии" src="demos/basic/" height="440"></iframe>
 
 ## Как пишется
 

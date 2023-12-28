@@ -1,11 +1,14 @@
 ---
 title: "`quotes`"
+description: "Свойство для управления внешним видом кавычек."
 authors:
   - solarrust
 contributors:
   - skorobaeus
-keywords:
-  - quotes
+related:
+  - html/q
+  - css/content
+  - css/before
 tags:
   - doka
 ---

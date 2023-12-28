@@ -7,7 +7,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap">
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      gap: 1rem;
       margin: 0;
       padding: 5%;
       background-color: #18191c;
@@ -18,13 +35,9 @@
     p {
       font-size: 20px;
       position: relative;
-      padding: 30px;
+      padding: 20px;
       margin: 0;
       border: 1px solid #3b3e44;
-    }
-
-    p:not(:first-of-type) {
-      margin-top: 2rem;
     }
 
     a {
@@ -56,15 +69,15 @@
 <body>
   <p>
     <code>text-decoration-skip-ink: none</code><br>
-    <a class="none" href>Утка с щукой гуляли по парку</a>
+    <a class="none" href="#">Утка со щукой гуляли по парку</a>
   </p>
   <p>
     <code>text-decoration-skip-ink: auto</code><br>
-    <a class="auto" href>Утка с щукой гуляли по парку</a>
+    <a class="auto" href="#">Утка со щукой гуляли по парку</a>
   </p>
   <p>
     <code>text-decoration-skip-ink: all</code><br>
-    <a class="all" href>Утка с щукой гуляли по парку</a>
+    <a class="all" href="#">Утка со щукой гуляли по парку</a>
   </p>
 </body>
 </html>

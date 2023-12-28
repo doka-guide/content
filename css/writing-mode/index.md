@@ -1,9 +1,14 @@
 ---
 title: "`writing-mode`"
+description: "«Зеркалим» сайт: блоки и текст пишутся не слева направо, а справа налево."
 authors:
   - doka-dog
 keywords:
   - поворот текста
+related:
+  - css/flex-direction
+  - css/lang
+  - css/text-orientation
 tags:
   - doka
   - placeholder

@@ -1,7 +1,12 @@
 ---
 title: "`perspective-origin`"
+description: "Определяем позицию смотрящего по отношению к 3D-объекту."
 authors:
   - doka-dog
+related:
+  - css/perspective
+  - css/numeric-types
+  - css/animation
 tags:
   - doka
   - placeholder

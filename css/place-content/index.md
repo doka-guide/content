@@ -1,6 +1,10 @@
 ---
 title: "`place-content`"
 description: "Одной строчкой выравниваем элементы в flex и grid 😎"
+baseline:
+  - group: grid
+    features:
+      - css.properties.place-content.grid_context
 authors:
   - inventoris
 related:

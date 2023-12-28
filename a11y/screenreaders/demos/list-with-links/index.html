@@ -6,51 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
       padding: 50px;
-      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
 
-    .list {
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    ul {
       display: flex;
       justify-content: space-around;
-      margin: 0;
-      padding: 0;
+      width: 100%;
       list-style: none;
     }
 
-    .list-item {
+    li {
       font-size: 18px;
     }
 
-    .list-item__link {
-      color: #0d47a1;
+    a {
+      color: #8fb8f8;
     }
 
-    .list-item__link:hover {
+    a:hover {
       color: #e65100;
     }
 
-    .list-item__link:focus {
+    a:focus {
       outline: 3px solid #e65100;
       outline-offset: 4px;
     }
   </style>
 </head>
 <body>
-  <ul class="list">
-    <li class="list-item">
-      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%A0%D1%8B%D0%B1%D1%8B">Рыбы</a>
+  <ul>
+    <li>
+      <a href="https://ru.wikipedia.org/wiki/%D0%A0%D1%8B%D0%B1%D1%8B">Рыбы</a>
     </li>
-    <li class="list-item">
-      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0">Пёсели</a>
+    <li>
+      <a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0">Пёсели</a>
     </li>
-    <li class="list-item">
-      <a class="list-item__link" href="https://ru.wikipedia.org/wiki/%D0%9B%D1%8F%D0%B3%D1%83%D1%88%D0%BA%D0%B8">Лягухи</a>
+    <li>
+      <a href="https://ru.wikipedia.org/wiki/%D0%9B%D1%8F%D0%B3%D1%83%D1%88%D0%BA%D0%B8">Лягухи</a>
     </li>
   </ul>
 </body>

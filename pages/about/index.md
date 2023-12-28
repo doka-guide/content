@@ -23,8 +23,7 @@ location: "/about/"
 
 - **<!-- yaspeller ignore:start -->[Кира Кустова](/people/kirakusto/)<!-- yaspeller ignore:end -->** — иллюстратор, рисует обложки для статей.
 - **<!-- yaspeller ignore:start -->[Света Коробцева](/people/skorobaeus/)<!-- yaspeller ignore:end -->** — продуктовый дизайнер, делает сайт Доки прекраснее.
-- **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — бэкенд-разработчик, автоматизирует платформу и разрабатывает поиск.
-- **<!-- yaspeller ignore:start -->[Саша Патлух](/people/pa7lux/)<!-- yaspeller ignore:end -->** — продюсер социальных медиа.
+- **<!-- yaspeller ignore:start -->[Игорь Коровченко](/people/igsekor/)<!-- yaspeller ignore:end -->** — фулстек-разработчик, девопс, «мастер ключей».
 - **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — менеджер по развитию и коммуникациям.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
@@ -53,3 +52,4 @@ location: "/about/"
 - [<!-- yaspeller ignore:start -->Вадим Макеев<!-- yaspeller ignore:end -->](/people/pepelsbey/) — за запуск.
 - [<!-- yaspeller ignore:start -->Саша Беспоясов<!-- yaspeller ignore:end -->](/people/bespoyasov/) — за статьи и ревью.
 - [<!-- yaspeller ignore:start -->Николай Лопин<!-- yaspeller ignore:end -->](/people/nlopin/) — за старт разделов JS и Веб-платформа.
+- [<!-- yaspeller ignore:start -->Саша Патлух<!-- yaspeller ignore:end -->](/people/pa7lux/) — за помощь Доке в сложный период.

@@ -5,6 +5,10 @@ authors:
   - inventoris
 keywords:
   - декоративная линия
+related:
+  - css/web-colors
+  - css/border-color
+  - css/outline-color
 tags:
   - doka
 ---

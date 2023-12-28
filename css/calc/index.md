@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 keywords:
   - математика
 related:

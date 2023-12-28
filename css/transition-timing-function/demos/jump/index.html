@@ -6,15 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
-      margin: 0;
+      min-block-size: 100%;
+      display: grid;
+      place-items: center;
       padding: 5%;
       background-color: #18191c;
       color: #ffffff;
@@ -22,28 +32,31 @@
       font-family: "Roboto", sans-serif;
     }
 
+    h3 {
+      font-weight: 500;
+    }
+
     .parent {
       position: relative;
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 40px;
+      inline-size: 600px;
+      margin-inline: auto;
+      margin-block-end: 40px;
       outline: 1px solid #FFFFFF;
     }
 
     .parent span {
       position: absolute;
+      inline-size: fit-content;
       z-index: 1;
-      top: 50%;
-      left: 50%;
+      inset: 50% 0 0 50%;
       transform: translate(-50%, -50%);
       font-family: monospace;
     }
 
     .elem {
-      width: 0;
-      height: 50px;
-      background: red;
+      inline-size: 0;
+      block-size: 50px;
+      background-color: #2e9aff;
       color: white;
       display: flex;
       align-items: center;
@@ -53,21 +66,21 @@
     }
 
     .elem::before {
-      content: "";
+      content: '';
       position: absolute;
       display: flex;
       align-items: center;
       box-sizing: border-box;
       padding-left: 30px;
-      left: 0;
-      width: 600px;
-      height: 100%;
-      top: 0;
-      background: rgb(255, 0, 0);
+      inset-inline-start: 0;
+      inline-size: 600px;
+      block-size: 100%;
+      inset-block-start: 0;
+      background-color: #2e9aff;
     }
 
     .elem.active {
-      width: 600px;
+      inline-size: 600px;
       transition-property: width;
       transition-duration: 3s;
     }
@@ -117,52 +130,54 @@
     }
 
     .ticker {
-      width: 1px;
-      height: 20px;
-      background: #FFFFFF;
-      left: -1px;
+      inline-size: 1px;
+      block-size: 20px;
+      background-color: #FFFFFF;
+      inset-inline-start: -1px;
       position: absolute;
     }
 
     .ticker.active {
-      left: 600px;
+      inset-inline-start: 600px;
       transition-property: left;
       transition-duration: 3s;
       transition-timing-function: linear;
     }
 
     h3 {
-      margin-bottom: 25px;
+      margin-block-end: 25px;
       text-align: center;
     }
   </style>
 </head>
 <body>
-  <h3>Нажми на прямоугольник</h3>
-  <div class="parent">
-    <span class="supports">jump-start</span>
-    <span class="not-supports">start</span>
-    <div class="elem jump-start"></div>
-    <div class="ticker"></div>
-  </div>
+  <div class="wrapper">
+    <h3>Нажми на прямоугольник</h3>
+    <div class="parent">
+      <span class="supports">jump-start</span>
+      <span class="not-supports">start</span>
+      <div class="elem jump-start"></div>
+      <div class="ticker"></div>
+    </div>
 
-  <div class="parent">
-    <span class="supports">jump-end</span>
-    <span class="not-supports">end</span>
-    <div class="elem jump-end"></div>
-    <div class="ticker"></div>
-  </div>
+    <div class="parent">
+      <span class="supports">jump-end</span>
+      <span class="not-supports">end</span>
+      <div class="elem jump-end"></div>
+      <div class="ticker"></div>
+    </div>
 
-  <div class="parent supports">
-    <span>jump-none</span>
-    <div class="elem jump-none"></div>
-    <div class="ticker"></div>
-  </div>
+    <div class="parent supports">
+      <span>jump-none</span>
+      <div class="elem jump-none"></div>
+      <div class="ticker"></div>
+    </div>
 
-  <div class="parent supports">
-    <span>jump-both</span>
-    <div class="elem jump-both"></div>
-    <div class="ticker"></div>
+    <div class="parent supports">
+      <span>jump-both</span>
+      <div class="elem jump-both"></div>
+      <div class="ticker"></div>
+    </div>
   </div>
 
   <script>

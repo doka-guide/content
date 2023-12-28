@@ -8,8 +8,8 @@ keywords:
   - ARIA
   - ARIA-атрибут
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-selected
   - html/multiple
 tags:
   - doka
@@ -47,10 +47,10 @@ tags:
 
 Атрибут можно использовать только для некоторых [ролей](/a11y/aria-roles/):
 
-- `listbox`.
+- [`listbox`](/a11y/role-listbox/).
 - [`tablist`](/a11y/role-tablist/).
-- `grid`.
-- `tree`.
+- [`grid`](/a11y/role-grid/).
+- [`tree`](/a11y/role-tree/).
 
 `aria-multiselectable` пригодится, если решили написать свой выпадающий список или создаёте сложный элемент вроде древовидного списка, сетки или панели вкладок.
 

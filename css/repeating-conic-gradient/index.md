@@ -3,6 +3,10 @@ title: "`repeating-conic-gradient()`"
 description: "Всего одна функция для повторяющегося конического градиента!"
 authors:
   - solarrust
+related:
+  - css/background-image
+  - css/conic-gradient
+  - css/repeating-linear-gradient
 tags:
   - doka
 ---

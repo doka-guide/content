@@ -3,6 +3,8 @@ title: "`border-block`"
 description: "Создаёт рамки элементу по блочной оси."
 authors:
   - inventoris
+contributors:
+  - starhamster
 related:
   - css/border-width
   - css/border-style
@@ -94,4 +96,4 @@ div {
 }
 ```
 
-<iframe title="Рамка по строчной оси" src="demos/border-inline/" height="250"></iframe>
+<iframe title="Рамка по строчной оси" src="demos/border-inline/" height="300"></iframe>

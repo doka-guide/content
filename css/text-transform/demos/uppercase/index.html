@@ -6,34 +6,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
+    body {
+      block-size: 100%;
     }
 
     body {
+      display: grid;
+      place-items: center;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      text-align: center;
-      background-color: #1a5ad7;
-      color: #ffffff;
-      padding: 5%;
     }
 
-    .abbreviation {
+    .container {
+      inline-size: 65%;
+      padding: 55px 40px;
+      background-color: #2e9aff;
+      color: #000000;
+    }
+
+    .term {
       text-transform: uppercase;
       font-size: 5rem;
+      font-weight: 500;
     }
 
     .meaning {
-      width: 50%;
-      margin: 1rem auto 0;
+      margin-block-start: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        inline-size: 100%;
+        padding: 55px 30px;
+      }
+
+      .term {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <p class="abbreviation">вниоптусх</p> <!-- yaspeller ignore -->
-  <p class="meaning">Всероссийский научно-исследовательский институт организации производства, труда и управления в сельском хозяйстве</p>
+  <dl class="container">
+    <dt class="term">Капсить</dt> <!-- yaspeller ignore -->
+    <dd class="meaning">Капсить (<i>сетевой сленг</i>) — значит писать заглавными буквами. Это слово произошло от названия клавиши «Caps Lock».</dd> <!-- yaspeller ignore -->
+  </dl>
 </body>
 </html>

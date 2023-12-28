@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 editors:
   - tachisis
 keywords:
@@ -24,30 +25,28 @@ tags:
 ## Пример
 
 ```html
-<div class="parent">
-  <p class="block">Розовый — цвет, образующийся...</p>
+<p class="block">Розовый — цвет, образующийся...</p>
 
-  <span class="inline">Жёлтый — самый лёгкий и яркий цвет...</span>
+<span class="inline">Жёлтый — самый лёгкий и яркий цвет...</span>
 
-  <div class="inline-block">Зелёный цвет...</div>
-</div>
+<div class="inline-block">Английское слово blue...</div>
 ```
 
 ```css
 .block {
-  background-color: pink;
+  background-color: rgb(244, 152, 173);
 }
 
 .inline {
-  background-color: rgb(255 216 41);
+  background-color: yellow;
 }
 
 .inline-block {
-  background-color: #49a16c;
+  background-color: #2E9AFF;
 }
 ```
 
-<iframe title="Фоновый цвет у элементов разных типов" src="demos/types/" height="400"></iframe>
+<iframe title="Фоновый цвет у элементов разных типов" src="demos/types/" height="520"></iframe>
 
 В примере выше показаны блоки всех трёх типов отображения. С фоном для блочных и строчно-блочных элементов проблем не возникает, а вот со строчными элементами всё не так просто.
 

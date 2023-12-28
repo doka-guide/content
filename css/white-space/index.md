@@ -1,5 +1,6 @@
 ---
 title: "`white-space`"
+description: "Решаем, будет ли текст переноситься по пробелам или нет."
 authors:
   - ezhkov
 contributors:
@@ -8,6 +9,10 @@ keywords:
   - пробел
   - разрыв
   - wrap
+related:
+  - css/hyphens
+  - css/overflow-wrap
+  - html/br
 tags:
   - doka
 ---

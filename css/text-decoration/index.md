@@ -1,5 +1,6 @@
 ---
 title: "`text-decoration`"
+description: "Добавляем любому тексту чёрточку. Или убираем, где она есть, но не нужна."
 authors:
   - solarrust
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - подчёркивание текста
   - перечёркнутый текст
   - надчёркнутый текст
+related:
+  - css/text-transform
+  - css/text-shadow
+  - recipes/multicolor-text
 tags:
   - doka
 ---
@@ -97,7 +102,7 @@ tags:
 Как будет выглядеть двойное перечёркивание:
 
 ```css
-selector {
+p {
   text-decoration: line-through double;
 }
 ```
@@ -115,7 +120,7 @@ selector {
 Например, сделаем двойное подчёркивание красного цвета:
 
 ```css
-selector {
+p {
   text-decoration: underline double #ff0000;
 }
 ```

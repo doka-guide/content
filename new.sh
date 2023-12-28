@@ -97,7 +97,13 @@ else
     esac
   done
 
-  read -r -p "$(echo "Введите название статьи: ")" TITLE
+  if [[ $TYPE == "doka" ]]; then
+    type="доки: "
+  else
+    type="статьи: "
+  fi
+
+  read -r -p "Введите название $type" TITLE
   read -r -p "$(echo "Введите название папки (используется для формирования ссылки): ")" FOLDER
 
 fi

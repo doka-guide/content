@@ -235,6 +235,7 @@ groups:
   - name: 'Флексбоксы'
     items:
       - flexbox-guide
+      - flex-grow-shrink
       - flex
       - flex-basis
       - flex-direction
@@ -307,6 +308,7 @@ groups:
       - aspect-ratio
       - filter
       - filter-functions
+      - image-rendering
   - name: 'Рамки, обводки и тени'
     items:
       - border

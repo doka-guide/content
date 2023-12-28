@@ -1,11 +1,16 @@
 ---
 title: "Подход «Pixel Perfect»"
+description: "Разбираемся с одним из основных подходов к вёрстке сайтов."
 authors:
   - xpleesid
 editors:
   - tachisis
 keywords:
-  - pixel perfect
+  - PerfectPixel
+related:
+  - css/position
+  - html/seo-for-beginners
+  - css/specificity
 tags:
   - article
 ---

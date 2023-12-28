@@ -11,6 +11,10 @@ editors:
 keywords:
   - псевдоэлемент
   - селекторы
+related:
+  - css/pseudoclasses
+  - css/marker
+  - css/content
 tags:
   - doka
 ---
@@ -228,6 +232,10 @@ input::placeholder {
 ```
 
 <iframe title="Placeholder, подсказка" src="demos/placeholder/" height="200"></iframe>
+
+### `::marker`
+
+[`::marker`](/css/marker/) — псевдоэлемент, отвечающий за маркерное поле. В нём находятся, например, маркеры списка.
 
 ## Подсказки
 

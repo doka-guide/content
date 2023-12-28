@@ -1,15 +1,16 @@
 ---
 title: "`object-fit`"
+description: "Подстраиваем картинку или видео под контейнер без деформации."
 authors:
   - solarrust
 contributors:
   - skorobaeus
 keywords:
-  - стили картинок
-  - положение картинок
-  - object
-  - fit
-  - img
+  - размер картинки
+related:
+  - html/img
+  - css/background-size
+  - html/video
 tags:
   - doka
 ---
@@ -48,7 +49,6 @@ tags:
 
 ```css
 .image {
-  /* ---//--- */
   object-fit: cover;
 }
 ```

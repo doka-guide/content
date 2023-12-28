@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <title>Демонстрация свойства — transform-box — Дока</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <title>Демонстрация свойства — transform-box — Дока</title>
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html,
     body {
-      height: 100vh;
+      block-size: 100%;
+    }
+
+    body {
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      margin: 0;
       font-family: "Roboto", sans-serif;
       background-color: #18191C;
       color: #FFFFFF;
@@ -32,21 +47,21 @@
     }
 
     .line-blue::before {
-      content: "";
+      content: '';
       display: block;
       margin-block-end: 5px;
-      width: 100%;
-      height: 6px;
+      inline-size: 100%;
+      block-size: 6px;
       border-radius: 3px;
       background-color: #2E9AFF;
     }
 
     .line-pink::before {
-      content: "";
+      content: '';
       display: block;
       margin-block-end: 5px;
-      width: 100%;
-      height: 6px;
+      inline-size: 100%;
+      block-size: 6px;
       border-radius: 3px;
       background-color: #F498AD;
     }
@@ -58,28 +73,25 @@
     }
 
     .code:last-of-type {
-      margin-bottom: 0;
+      margin-block-end: 0;
     }
 
     svg {
-      width: 80vh;
+      inline-size: 80vh;
       border: 1px solid #d9d9d9;
       position: relative;
       margin: auto;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
     }
 
     #box-blue {
       transform-origin: 50% 50%;
-      transform-box: fill-box;
       animation: rotation 5s linear infinite;
     }
 
     #box-pink {
       transform-origin: 50% 50%;
+      transform-box: fill-box;
       animation: rotation 5s linear infinite;
     }
 
@@ -94,7 +106,6 @@
 
     @media screen and (max-width: 942px) {
       body {
-        height: 100%;
         padding: 30px;
         flex-direction: column;
       }
@@ -102,7 +113,7 @@
         padding: 20px 0 0 0;
       }
       .code {
-        margin-bottom: 34px;
+        margin-block-end: 34px;
       }
     }
   </style>

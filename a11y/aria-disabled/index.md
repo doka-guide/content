@@ -9,8 +9,8 @@ keywords:
   - ARIA-атрибут
   - readonly
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-button
+  - a11y/role-tab
   - html/disabled
 tags:
   - doka
@@ -40,14 +40,14 @@ tags:
 
 - [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/).
 - [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
-- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или `group`.
-- [`<hr>`](/html/hr/) или `separator`.
+- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/).
+- [`<hr>`](/html/hr/) или [`separator`](/a11y/role-separator/).
 - [`<div>`](/html/div/), [`<span>`](/html/span/) или [`generic`](/a11y/role-generic/).
 - [`tab`](/a11y/role-tab/).
-- `scrollbar`.
-- `application`.
-- `gridcell`.
-- `menuitem`.
+- [`scrollbar`](/a11y/role-scrollbar/).
+- [`application`](/a11y/role-application/).
+- [`gridcell`](/a11y/role-gridcell/).
+- [`menuitem`](/a11y/role-menuitem/).
 
 Для HTML-тегов лучше использовать атрибут `disabled` вместо `aria-disabled` там, где он поддерживается.
 

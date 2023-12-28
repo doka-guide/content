@@ -3,6 +3,8 @@ title: "`caret-color`"
 description: "С помощью `caret-color` можно менять цвет курсора в режиме набора текста."
 authors:
   - mishamad
+contributors:
+  - starhamster
 related:
   - html/input
   - html/textarea
@@ -27,21 +29,14 @@ tags:
 ```
 
 ```css
-input {
-  display: block;
-  background-color: #ebebeb;
-  font-family: "Roboto", sans-serif;
-  padding: 5px;
-}
-
 .red {
-  caret-color: #cc0000;
+  caret-color: red;
 }
 ```
 
 В примере ниже ещё несколько полей ввода с каретками разного цвета:
 
-<iframe title="Как красить каретку" src="demos/paint-the-caret/" height="330"></iframe>
+<iframe title="Как красить каретку" src="demos/paint-the-caret/" height="470"></iframe>
 
 ## Как пишется
 
@@ -57,7 +52,7 @@ input {
 
 ## Ещё пример
 
-В данном примере мы создадим форму с несколькими полями ввода, для формы зададим оранжевый цвет каретки, [`<input>`](/html/input/) будет наследовать свойство от формы, для [`<textarea>`](/html/textarea/) переопределим его на синий, а для параграфа с атрибутом [`contenteditable`](/html/global-attrs/) зададим зелёный цвет каретки:
+В данном примере мы создадим форму с несколькими полями ввода, для формы зададим оранжевый цвет каретки, [`<input>`](/html/input/) будет наследовать свойство от формы, для [`<textarea>`](/html/textarea/) переопределим его на синий, а для параграфа с атрибутом [`contenteditable`](/html/global-attrs/) зададим розовый цвет каретки:
 
 ```html
 <form>
@@ -70,16 +65,16 @@ input {
 
 ```css
 form {
-  caret-color: #ff8630;
+  caret-color: #FF8630;
 }
 
 form textarea {
-  caret-color: #0d47a1;
+  caret-color: #2E9AFF;
 }
 
 form p {
-  caret-color: #00dd00;
+  caret-color: #F498AD;
 }
 ```
 
-<iframe title="Наследование и переопределение значения" src="demos/form/" height="330"></iframe>
+<iframe title="Наследование и переопределение значения" src="demos/form/" height="410"></iframe>

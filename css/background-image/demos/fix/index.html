@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Ошибка загрузки — background-image — Дока</title>
+  <title>Ошибка загрузки картинки — background-image — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      outline: 1px solid grey;
-      outline-offset: -1px;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     .element {
@@ -17,16 +20,26 @@
       justify-content: center;
       align-items: center;
       background-image: url("broken-link-to-image.png");
+      font-family: "Roboto", sans-serif;
     }
 
     .main-title {
-      width: 80%;
-      margin: 0 auto;
-      font-family: sans-serif;
-      font-size: 3rem;
+      width: 65%;
+      font-size: 24px;
+      font-weight: 500;
       color: white;
       text-align: center;
       text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      .element {
+        padding: 30px;
+      }
+
+      .main-title {
+        width: 100%;
+      }
     }
   </style>
 </head>

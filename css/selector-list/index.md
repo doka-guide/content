@@ -1,5 +1,6 @@
 ---
 title: "Перечисление селекторов"
+description: "Пишем сразу несколько селекторов, к которым будут применяться стили."
 authors:
   - solarrust
 contributors:
@@ -9,6 +10,10 @@ editors:
 keywords:
   - селектор
   - составной селектор
+related:
+  - css/specificity
+  - css/tag-selector
+  - css/class-selector
 tags:
   - doka
 ---

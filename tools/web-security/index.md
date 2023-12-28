@@ -291,7 +291,7 @@ Set-Cookie: key=value; HttpOnly
 </form>
 ```
 
-Для [AJAX-запросов](/tools/api/) следует указывать CSP и CORS-политику.
+Для [AJAX-запросов](/tools/api/) следует указывать CSP и [CORS-политику](/tools/cors/).
 
 _Cross-Origin Resource Sharing, CORS_ — определяет, доступ к каким ресурсам есть у запросов с другого домена _(origin)_.
 

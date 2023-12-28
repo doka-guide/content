@@ -1,10 +1,15 @@
 ---
 title: "`text-underline-position`"
+description: "Будет ли декоративная линия пересекать хвостик у буквы У?"
 authors:
   - doka-dog
 keywords:
   - положение подчёркивания
   - положение декоративной линии
+related:
+  - css/text-decoration
+  - html/a
+  - css/text-decoration-skip-ink
 tags:
   - doka
   - placeholder

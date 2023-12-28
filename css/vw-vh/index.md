@@ -1,9 +1,14 @@
 ---
 title: "`vw`, `vh`, `vmin`, `vmax`"
+description: "Единицы измерения, которые считаются от размера окна браузера."
 authors:
   - ezhkov
 keywords:
   - относительные размеры
+related:
+  - css/numeric-types
+  - css/rem-em
+  - js/element-get-property-value
 tags:
   - doka
 ---

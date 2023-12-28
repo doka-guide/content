@@ -6,42 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
+      font-size: 20px;
     }
 
     body {
-      min-height: 100%;
-      padding: 20px;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      color: #ffffff;
-      font-size: 18px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    div {
-      max-width: 860px;
-      margin: 0 auto 32px;
-    }
-
-    div:last-child {
-      margin-bottom: 0;
-    }
-
     p {
-      margin-bottom: 8px;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 65%;
+    }
+
+    .row {
+      margin-bottom: 20px;
     }
 
     .console-name {
-      color: #d0d150;
+      color: #FF8630;
+    }
+
+    samp, kbd, code, var {
+      font-family: "Roboto Mono", monospace;
     }
 
     samp > kbd {
@@ -50,37 +58,49 @@
 
     .console-cursor {
       font-weight: bold;
-      color: #00ff00;
+      color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div>
-    <p>
-      В ходе выполнения программы вам будет предложено указать расстояние:
-    </p>
-    <p>
-      <samp>Введите значение для переменной <var>Distance</var>:</samp>
-    </p>
-  </div>
+  <div class="container">
+    <div class="row">
+      <p>
+        В ходе выполнения программы вам будет предложено указать расстояние:
+      </p>
+      <p>
+        <samp>Введите значение для переменной <var>Distance</var>:</samp>
+      </p>
+    </div>
 
-  <div>
-    <p>Следующая команда выведет в консоли браузера результат сложения двух чисел:</p>
-    <pre>
-    <code>console.log(2.3 + 2.4)</code>
-    <samp>4.699999999999999</samp>
-    </pre>
-  </div>
+    <div class="row">
+      <p>Следующая команда выведет в консоли браузера результат сложения двух чисел:</p>
+      <pre>
+      <code>console.log(2.3 + 2.4)</code>
+      <samp>4.699999999999999</samp></pre>
+    </div>
 
-  <div>
-    <p>Неправильно введённая команда не будет выполнена и в консоли отобразится ошибка:</p>
-    <samp>
-      <span class="console-name">user@machine:~$</span> <kbd>ckear</kbd>
-      <br>
-      ckear: The term 'ckear' unidentified as a name of a cmdlet, function, script file, or executable program.
-      <br>
-      <span class="console-name">user@machine:~$</span> <span class="console-cursor">_</span>
-    </samp>
+    <div class="row">
+      <p>Неправильно введённая команда не будет выполнена и в консоли отобразится ошибка:</p>
+      <samp>
+        <span class="console-name">user@machine:~$</span> <kbd>ckear</kbd>
+        <br>
+        ckear: The term 'ckear' unidentified as a name of a cmdlet, function, script file, or executable program.
+        <br>
+        <span class="console-name">user@machine:~$</span>
+        <span class="console-cursor">_</span>
+      </samp>
+    </div>
   </div>
 </body>
 </html>

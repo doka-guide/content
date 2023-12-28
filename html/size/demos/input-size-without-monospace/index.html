@@ -14,39 +14,77 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 100px 50px;
+      background-color: #18191C;
+      font-size: 16px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
     }
 
     .input-label {
-      display: block;
-      font-size: 20px;
-      margin-right: 20px;
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .input {
-      border: 1px solid;
-      border-radius: 3px;
-      padding: 3px 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 300;
       font-family: inherit;
-      font-size: inherit;
-      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     .input:focus {
+      border-color: #ff8630;
       outline: none;
-      border: 1px solid #ff8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .input-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .container {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <label class="input-label" for="input-field">Поле ввода:</label>
-  <input class="input" id="input-field" size="3" placeholder="123456789">
+  <div class="container">
+    <label class="input-label" for="input-field">Поле ввода:</label>
+    <input class="input" id="input-field" size="3" placeholder="123456789">
+</div>
 </body>
 </html>

@@ -12,6 +12,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
+  - starhamster
 related:
   - css/selector-list
   - html/global-attrs
@@ -38,7 +39,6 @@ tags:
 ```css
 blockquote[cite] {
   background-color: #2E9AFF;
-  color: #000000;
 }
 ```
 

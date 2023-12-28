@@ -1,6 +1,13 @@
 ---
 title: "`display`"
 description: "Как поставить несколько элементов `<div>` в строку? Объясняем, как менять стандартный тип отображения на произвольный. Подробно говорим об основных типах отображения."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.display.flex
+      - css.properties.display.inline-flex
+      - css.properties.display.grid
+      - css.properties.display.inline-grid
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'

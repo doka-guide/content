@@ -1,9 +1,14 @@
 ---
 title: "`outline-offset`"
+description: "Отодвигаем обводку элемента от его края."
 authors:
   - solarrust
 editors:
   - tachisis
+related:
+  - css/outline
+  - css/box-model
+  - css/border
 tags:
   - doka
 ---

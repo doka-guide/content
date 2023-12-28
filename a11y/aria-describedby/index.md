@@ -3,13 +3,15 @@ title: "`aria-describedby`"
 description: "Как добавить краткое описание к элементу."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - ARIA
   - ARIA-атрибут
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-description
   - a11y/aria-labelledby
 tags:
   - doka

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Псевдоклассы группы child — nth-child — Дока</title>
+  <title>Разноцветный список — Псевдоклассы группы child — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -21,7 +25,6 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
@@ -34,7 +37,7 @@
     .list-item {
       position: relative;
       padding: 10px;
-      color: #000000;
+      color: #18191C;
       line-height: 1;
       text-transform: lowercase;
     }
@@ -66,9 +69,9 @@
       background-color: #2E9AFF;
     }
 
-    /* У первого пункта списка (первого дочернего элемента) будет тёмно-зелёный фон */
+    /* У первого пункта списка (первого дочернего элемента) будет фиолетовый фон */
     .list-item:first-child {
-      background-color: #286C2D;
+      background-color: #C56FFF;
     }
 
     /* У последнего пункта списка (последнего дочернего элемента) будет оранжевый фон */
@@ -99,7 +102,7 @@
 </head>
 <body>
   <ul class="list">
-    <li class="list-item">Изумрудно зелёный</li>
+    <li class="list-item">Фиолетовый</li>
     <li class="list-item">Лаймовый</li>
     <li class="list-item">Лазурный</li>
     <li class="list-item">Лазурный</li>

@@ -7,19 +7,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -27,9 +34,8 @@
     }
 
     .wrapper {
-      width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      inline-size: 450px;
+      margin-inline: auto;
     }
 
     .col {
@@ -39,17 +45,22 @@
     }
 
     .col + .col {
-      margin-top: 30px;
+      margin-block-start: 30px;
     }
 
     .option-title {
-      width: 150px;
-      margin-right: 50px;
+      inline-size: 150px;
+      margin-inline-end: 50px;
       text-align: right;
       text-transform: lowercase;
     }
 
+    code {
+      font-family: 'Roboto Mono', monospace;
+    }
+
     .link {
+      padding-inline: 15px;
       border-radius: 3px;
       color: #ffffff;
       font-size: 24px;
@@ -72,7 +83,7 @@
       }
 
       .wrapper {
-        width: auto;
+        inline-size: auto;
       }
 
       .col {
@@ -80,13 +91,13 @@
       }
 
       .col + .col {
-        margin-top: 50px;
+        margin-block-start: 50px;
       }
 
       .option-title {
-        width: auto;
-        margin-right: 0;
-        margin-bottom: 10px;
+        inline-size: auto;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
       }
     }
   </style>
@@ -94,11 +105,11 @@
 <body>
   <div class="wrapper">
     <div class="col">
-      <span class="option-title">Без transition</span>
+      <span class="option-title">Без <code>transition</code></span>
       <a href="#" class="link">Наведи на меня</a>
     </div>
     <div class="col transitioned">
-      <span class="option-title">C transition</span>
+      <span class="option-title">C <code>transition</code></span>
       <a href="#" class="link">Наведи на меня</a>
     </div>
   </div>

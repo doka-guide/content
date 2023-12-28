@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>path() — clip-path — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #18191C;
+      font-family: "Roboto Mono", monospace;
+      font-size: 20px;
+    }
+
+    span {
+      width: 110px;
+      height: 82px;
+      display: grid;
+      place-items: center;
+      background-color: #2E9AFF;
+    }
+
+    .before {
+      position: absolute;
+      opacity: 0.2;
+    }
+
+    .clipped {
+      clip-path: path("M94.2271 28.968C88.9828 11.8799 72.9451 0 55.0007 0C37.0549 0 21.0165 11.8806 15.7723 28.968C7.3871 28.3637 0 35.2666 0 43.6714C0 52.8751 8.78756 59.9318 17.7127 58.1115C24.3969 72.644 38.9636 82 55.0013 82C71.0377 82 85.6038 72.644 92.2886 58.1115C101.214 59.9306 110.001 52.8764 110.001 43.6714C110 35.267 102.613 28.3625 94.2271 28.968Z");
+    }
+  </style>
+</head>
+<body>
+<span class="before"></span>
+<span class="clipped">&lt;you/&gt;</span>
+</body>
+</html>

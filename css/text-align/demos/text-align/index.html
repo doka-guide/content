@@ -8,77 +8,96 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    /* Меняем выравнивание текста */
-    .left {
-      text-align: left;
-    }
-    .right {
-      text-align: right;
-    }
-    .center {
-      text-align: center;
+    * {
+      box-sizing: border-box;
     }
 
-    /* Оформление */
     body {
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
-      font-size: 16px;
-      padding: 5%;
+      font-family: Roboto, sans-serif;
+      font-size: 18px;
       margin: 0;
+      background-color: #18191c;
     }
 
-    div {
-      border: 1px solid;
-      padding: 15px;
-      margin-bottom: 25px;
+    html,
+    body {
+      width: 100%;
+      height: 100%;
     }
 
-    .content {
-      width: 75%;
-      margin-bottom: 0;
+    select {
+      font-size: inherit;
     }
 
-    .left {
-      border-color: #1a5ad7;
+    .demo {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 100%;
+      justify-content: center;
     }
 
-    .left .content {
-      background-color: #1a5ad7;
-      border-color: #1a5ad7;
+    .form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      color: #ffffff;
     }
 
-    .center {
-      border-color: #49a16c;
-    }
-
-    .center .content {
-      background-color: #49a16c;
-      border-color: #49a16c;
-    }
-
-    .right {
-      border-color: #f498ad;
-    }
-
-    .right .content {
-      background-color: #f498ad;
-      border-color: #f498ad;
+    .child {
+      background-color: #2e9aff;
+      padding: 55px 40px;
     }
   </style>
+
 </head>
 <body>
+  <main class="demo">
+    <form class="form">
+      <div>
+        <label for="parent-direction">Направление</label>
+        <select name="text-direction" id="parent-direction" onchange="onDirectionChange(this)">
+          <option value="unset">unset</option>
+          <option value="ltr">ltr</option>
+          <option value="rtl">rtl</option>
+        </select>
+      </div>
 
-<div class="left">
-  <div class="content">Выравнивание по левому краю</div>
-</div>
-<div class="center">
-  <div class="content">Выравнивание по центру</div>
-</div>
-<div class="right">
-  <div class="content">Выравнивание по правому краю</div>
-</div>
+      <div>
+        <label for="child-alignment">Выравнивание по горизонтали</label>
+        <select name="text-horizontal-alignment" id="child-alignment" onchange="onHorizontalAlignmentChange(this)">
+          <option value="start">start</option>
+          <option value="end">end</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+          <option value="center">center</option>
+          <option value="justify">justify</option>
+          <option value="match-parent">match-parent</option>
+        </select>
+      </div>
+    </form>
 
+    <div class="parent">
+      <div class="child">
+        С точки зрения научной систематики, домашняя кошка — млекопитающее семейства кошачьих отряда хищных. Одни исследователи рассматривают домашнюю кошку как подвид дикой кошки, другие — как отдельный биологический вид.
+      </div>
+    </div>
+  </main>
+
+
+  <script>
+    const parentEl = document.querySelector('.parent');
+    const childEl = document.querySelector('.child');
+
+    function onDirectionChange(e) {
+      parentEl.style.direction = e.value;
+    }
+
+    function onHorizontalAlignmentChange(e) {
+      childEl.style['text-align'] = e.value;
+    }
+  </script>
 </body>
 </html>

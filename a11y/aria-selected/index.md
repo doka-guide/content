@@ -51,10 +51,10 @@ tags:
 
 Атрибут можно использовать только для некоторых [ролей](/a11y/aria-roles/):
 
-- `option`.
+- [`option`](/a11y/role-option/).
 - [`tab`](/a11y/role-tab/).
-- `row`.
-- `gridcell`.
+- [`row`](/a11y/role-row/).
+- [`gridcell`](/a11y/role-gridcell/).
 
 Атрибут указывает на выбор одного или нескольких элементов. Когда можно выбрать несколько элементов, используйте для их контейнера атрибут [`aria-multiselectable`](/a11y/aria-multiselectable/).
 

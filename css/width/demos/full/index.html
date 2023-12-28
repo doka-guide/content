@@ -14,7 +14,14 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
       padding: 50px;
       background-color: #18191c;
       color: #000000;
@@ -24,7 +31,7 @@
 
     .block {
       width: 50%;
-      margin-bottom: 5px;
+      margin-block-end: 5px;
       padding: 5px 10px;
       background-color: #2E9AFF;
     }
@@ -32,24 +39,26 @@
     .inline-block {
       display: inline-block;
       width: 100%;
-      margin-bottom: 5px;
+      margin-block-end: 5px;
       padding: 5px 10px;
       background-color: #F498AD;
     }
   </style>
 </head>
 <body>
-  <div class="block">
-    Я — блочный элемент!
-  </div>
-  <div class="inline-block">
-    Я
-  </div>
-  <div class="inline-block">
-    строчно-блочный
-  </div>
-  <div class="inline-block">
-    элемент!
+  <div class="wrapper">
+    <div class="block">
+      Я — блочный элемент!
+    </div>
+    <div class="inline-block">
+      Я
+    </div>
+    <div class="inline-block">
+      строчно-блочный
+    </div>
+    <div class="inline-block">
+      элемент!
+    </div>
   </div>
 </body>
 </html>

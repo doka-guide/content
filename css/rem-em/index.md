@@ -1,12 +1,15 @@
 ---
 title: "`rem`, `em`"
+description: "Относительные единицы измерения, которые считаются от размера шрифта."
 authors:
   - realetive
 keywords:
   - единицы измерения
   - относительные единицы
-  - rem
-  - em
+related:
+  - css/numeric-types
+  - css/vw-vh
+  - css/root
 tags:
   - doka
 ---

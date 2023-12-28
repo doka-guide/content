@@ -3,6 +3,8 @@ title: "`<embed>`"
 description: "Блок для видео, аудио и прочего контента."
 authors:
   - solarrust
+contributors:
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -27,7 +29,7 @@ tags:
 <embed src="sample.pdf" type="application/pdf">
 ```
 
-<iframe title="Вставка PDF" src="demos/embed-pdf/" height="400"></iframe>
+<iframe title="Вставка PDF" src="demos/embed-pdf/" height="700"></iframe>
 
 ## Как понять
 

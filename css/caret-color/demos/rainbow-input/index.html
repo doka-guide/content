@@ -5,57 +5,71 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+      }
+
+      input {
+        display: block;
+        width: 600px;
+        margin-top: 10px;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: inherit;
+        font-size: 64px;
+        font-weight: 300;
+        font-family: inherit;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      input:focus {
+        animation: 3s infinite rainbow;
+        border-color: #2E9AFF;
+        outline: none;
+      }
+
+      @keyframes rainbow {
+        0% { caret-color: #F498AD; }
+        20% { caret-color: #FF8630; }
+        40% { caret-color: #FFD829; }
+        60% { caret-color: #41E847; }
+        80% { caret-color: #2E9AFF; }
+        100% { caret-color: #F498AD; }
+      }
+
+      @media (max-width: 768px) {
+        input {
+          width: 100%;
+        }
+      }
+    </style>
   </head>
-
-  <style>
-    @keyframes rainbow {
-      0% { caret-color: red; }
-      20% { caret-color: orange; }
-      40% { caret-color: yellow; }
-      60% { caret-color: green; }
-      80% { caret-color: blue; }
-      100% { caret-color: purple; }
-    }
-
-    html {
-      display: grid;
-      height: 100%;
-    }
-
-    body {
-      display: grid;
-      place-content: center;
-      background-color: #18191c;
-    }
-
-    label {
-      color: #ffffff;
-      padding-bottom: 10px;
-    }
-
-    input {
-      display: block;
-      width: 60vw;
-      height: 50px;
-      font-family: "Roboto", sans-serif;
-      font-size: 50px;
-      caret-color: red;
-      background-color: rgb(255 255 255 / 0.1);
-      color: #eeeeee;
-      border-radius: 1rem;
-      border: 2px dotted rgb(255 255 255 / 0.1);
-    }
-
-    input:focus {
-      animation: 3s infinite rainbow;
-    }
-  </style>
-
   <body>
     <label>
       Текстовая каретка с радужной анимацией!
-      <input type="text" autofocus value="Радуга!">
+      <input type="text" value="Радуга!">
     </label>
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 title: "`text-rendering`"
+description: "Шрифт иногда весит много и может затормозить загрузку страницы. Как поступать браузеру в этом случае?"
 authors:
   - ezhkov
 contributors:
@@ -10,6 +11,10 @@ keywords:
   - кернинг
   - лигатуры
   - SVG
+related:
+  - css/font-face
+  - html/link
+  - css/font-variant
 tags:
   - doka
 ---

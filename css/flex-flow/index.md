@@ -1,6 +1,10 @@
 ---
 title: "`flex-flow`"
 description: "Короткая запись для свойств переноса и направления."
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.flex-flow
 authors:
   - solarrust
 editors:

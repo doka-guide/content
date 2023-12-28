@@ -1,141 +1,179 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Светофоры с разными режимами animation-fill-mode — CSS-анимации — Дока</title>
+  <title>Эквалайзеры с разными режимами animation-fill-mode — animation-fill-mode — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
     }
 
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       margin: 0;
-      background-image:
-      linear-gradient(-45deg, transparent 50%, #E8E8E4 50%, #E8E8E4 55%, transparent 55%),
-      linear-gradient(-45deg, #E8E8E4 5%, transparent 5%);
-      background-color: #FEFFFE;
-      background-size: 1em 1em;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    span {
-      display: block;
-      font-family: monospace;
+    code {
+      font-family: "Roboto Mono", monospace;
     }
 
-    section {
-      width: 660px;
-      margin: 0 auto;
-      overflow: hidden;
+    h1 {
+      font-size: 25px;
+      font-weight: 500;
     }
 
-    .container, .container1, .container2 {
-      padding: 30px 0 20px;
-      width: 210px;
-      text-align: center;
-      float: left;
+    h1, code {
+      width: 300px;
+      text-align: right;
+      line-height: 1;
+    }
+
+    .modes {
+      margin-top: 25px;
+      margin-bottom: 70px;
+    }
+
+    .mode + .mode {
+      margin-top: 30px;
+    }
+
+    .mode {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
     }
 
     ul {
+      display: flex;
+      align-items: flex-end;
+      margin-left: 50px;
       list-style: none;
-      padding: 10px;
-      display: inline-block;
-      background: #3C4147;
-      border-radius: 10px;
-      box-shadow: inset 2px 2px 5px rgba(0,0,0,.7), 2px 2px 1px #3C4147;
     }
 
     li {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: black;
-      box-shadow: inset 2px 2px 4px rgba(0,0,0,.4), inset -2px -2px 4px rgba(255,255,255,.6);
+      display: inline-block;
+      width: 80px;
+      background: linear-gradient(to top, #123E66 10px, transparent 10px);
     }
 
-    @keyframes traffic {
-      100%{background: #FB000D;}
+    li + li {
+      margin-left: 10px;
     }
 
-    @keyframes traffic1 {
-      100%{background: #FED21D;}
-    }
-
-    @keyframes traffic2 {
-      100%{background: #7DFA04;}
-    }
-
-    li:nth-of-type(1) {
-      margin-bottom:5px;
-      animation: traffic 2s forwards;
+    li:first-of-type {
+      height: 10px;
     }
 
     li:nth-of-type(2) {
-      margin-bottom: 5px;
-      animation: traffic1 2s forwards 2s;
+      height: 30px;
     }
 
     li:nth-of-type(3) {
+      height: 50px;
+    }
+
+    @keyframes traffic {
+      100% {
+        background: linear-gradient(to top, #2E9AFF 10px, transparent);
+      }
+    }
+
+    @keyframes traffic1 {
+      100%{
+        background: linear-gradient(to top, #2E9AFF 10px, transparent 10px 20px, #2E9AFF 20px 30px);
+      }
+    }
+
+    @keyframes traffic2 {
+      100%{
+        background: linear-gradient(to top, #2E9AFF 10px, transparent 10px 20px, #2E9AFF 20px 30px, transparent 30px 40px, #2E9AFF 40px 50px);
+      }
+    }
+
+    .mode-none li:nth-of-type(1) {
+      animation: traffic 2s none;
+    }
+
+    .mode-none li:nth-of-type(2) {
+      animation: traffic1 2s none 2s;
+    }
+
+    .mode-none li:nth-of-type(3) {
+      animation: traffic2 2s none 4s;
+    }
+
+    .mode-forwards li:nth-of-type(1) {
+      animation: traffic 2s forwards;
+    }
+
+    .mode-forwards li:nth-of-type(2) {
+      animation: traffic1 2s forwards 2s;
+    }
+
+    .mode-forwards li:nth-of-type(3) {
       animation: traffic2 2s forwards 4s;
     }
 
-    .container1 li:nth-of-type(1) {
-      margin-bottom:5px;
+    .mode-backwards li:nth-of-type(1) {
       animation: traffic 2s backwards;
     }
 
-    .container1 li:nth-of-type(2) {
-      margin-bottom: 5px;
+    .mode-backwards li:nth-of-type(2) {
       animation: traffic1 2s backwards 2s;
     }
 
-    .container1 li:nth-of-type(3) {
+    .mode-backwards li:nth-of-type(3) {
       animation: traffic2 2s backwards 4s;
     }
 
-    .container2 li:nth-of-type(1) {
-      margin-bottom:5px;
+    .mode-both li:nth-of-type(1) {
       animation: traffic 2s both;
     }
 
-    .container2 li:nth-of-type(2) {
-      margin-bottom: 5px;
+    .mode-both li:nth-of-type(2) {
       animation: traffic1 2s both 2s;
     }
 
-    .container3 li:nth-of-type(3) {
+    .mode-both li:nth-of-type(3) {
       animation: traffic2 2s both 4s;
     }
 
     footer {
-      clear: both;
-      text-align: center;
-      padding: 20px 0;
-      font: 14px/1.5 arial;
-      background: #C8C2B7;
-      border-top: 3px solid #6D6D6D;
-      color: #6D6D6D;
+      color: #979797;
     }
 
     button {
       display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 15px;
-      min-width: 150px;
+      width: 100%;
       border: 2px solid transparent;
       border-radius: 6px;
-      padding: 8px 15px;
+      margin-left: auto;
+      margin-top: 15px;
+      padding: 9px 15px;
+      background-color: #E6E6E6;
       color: #000000;
+      font-family: inherit;
       font-size: 18px;
       font-weight: 300;
       transition: background-color 0.2s linear;
-      background-color: #2E9AFF;
     }
 
     button:hover {
@@ -148,38 +186,79 @@
       border: 2px solid #ffffff;
       outline: none;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, code {
+        width: 100%;
+        text-align: left;
+      }
+
+      .mode {
+        align-items: center;
+      }
+
+      ul {
+        margin-left: initial;
+        margin-top: 15px;
+      }
+
+      .modes {
+        margin-bottom: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      li {
+        width: 60px;
+      }
+    }
   </style>
 </head>
 <body>
-  <section>
-    <div class="container">
-      <span>animation-fill-mode: forwards;</span>
+<div class="container">
+  <h1><code>animation-fill-mode</code></h1>
+  <div class="modes">
+    <div class="mode mode-none">
+      <code>none</code>
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
     </div>
-    <div class="container1">
-      <span>animation-fill-mode: backwards;</span>
-      <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      </div>
-    <div class="container2">
-      <span>animation-fill-mode: <br>both;</span>
+    <div class="mode mode-forwards">
+      <code>forwards</code>
       <ul>
         <li></li>
         <li></li>
         <li></li>
       </ul>
     </div>
-
-    <footer><p>Обновите страницу или нажмите кнопку RERUN, чтобы просмотреть анимацию</p></footer>
-
-    <button onclick="document.location.reload(true);">RERUN</button>
-  </section>
+    <div class="mode mode-backwards">
+      <code>backwards</code>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="mode mode-both">
+      <code>both</code>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <p>Обновите страницу или нажмите кнопку, чтобы просмотреть анимацию:</p>
+    <button onclick="document.location.reload(true);">Сначала</button>
+  </footer>
+</div>
 </body>
 </html>

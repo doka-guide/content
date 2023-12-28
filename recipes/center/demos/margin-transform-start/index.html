@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Отступы и трансформация. Начало — Блок по центру экрана — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100vh;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100%;
+      font-family: Roboto, sans-serif;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    dialog {
+      position: static;
+      padding: 140px 60px 20px 20px;
+      border-color: currentColor;
+      color: black;
+      background-color: #C56FFF;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 0.85;
+    }
+
+    .child {
+      margin-inline: auto;
+      margin-block-start: 50vh;
+    }
+  </style>
+</head>
+<body class="parent">
+  <dialog class="child" open>
+    <h1>Привет,<br> это Дока!</h1>
+  </dialog>
+</body>
+</html>

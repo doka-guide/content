@@ -9,8 +9,8 @@ keywords:
   - ARIA-атрибут
   - readonly
 related:
-  - a11y/aria-intro
-  - a11y/aria-attrs
+  - a11y/role-combobox
+  - a11y/role-listbox
   - html/input
 tags:
   - doka
@@ -39,15 +39,15 @@ tags:
 
 `aria-readonly` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или для роли `textbox`.
+- [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или для роли [`textbox`](/a11y/role-textbox/).
 - [`<input type="checkbox">`](/html/input/#type) или [`checkbox`](/a11y/role-checkbox/).
-- [`<input type="number">`](/html/input/#type) или `spinbutton`.
-- [`<select>`](/html/select/) или `combobox`, `listbox`.
-- [`<input type="range">`](/html/input/#type) или `slider`.
-- [`<div>`](/html/div/), [`<span>`](/html/span/) или `generic`.
-- `radiogroup`.
-- `grid`.
-- `gridcel`.
+- [`<input type="number">`](/html/input/#type) или [`spinbutton`](/a11y/role-spinbutton/).
+- [`<select>`](/html/select/) или [`combobox`](/a11y/role-combobox/), [`listbox`](/a11y/role-listbox/).
+- [`<input type="range">`](/html/input/#type) или [`slider`](/a11y/role-slider/).
+- [`<div>`](/html/div/), [`<span>`](/html/span/) или [`generic`](/a11y/role-generic/).
+- [`radiogroup`](/a11y/role-radiogroup/).
+- [`grid`](/a11y/role-grid/).
+- [`gridcell`](/a11y/role-gridcell/).
 
 Для [`<input>`](/html/input/) лучше использовать атрибут `readonly`, если он поддерживается в нужном типе поля.
 
