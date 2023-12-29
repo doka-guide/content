@@ -4,4 +4,4 @@ related:
   - js/promise-allsettled
 ---
 
-Реализуйте полифил для Promise.allSettled
+Реализуйте полифил для `Promise.allSettled`.
