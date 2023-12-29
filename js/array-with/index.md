@@ -184,7 +184,7 @@ const array = ['ночь','улица','фонарь']
 try {
   console.log(array.with(-1,'январь'))
 } catch (err) {
-  console.log('Поймали ошибку! Вот она: ', err.message)
+  console.error('Поймали ошибку! Вот она: ', err.message)
 }
 // Поймали ошибку! Вот она:  array.with is not a function
 ```
