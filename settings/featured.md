@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - recipes/lets-encrypt-nginx
-  - js/async-in-js
-  - css/pseudoelements
-  - css/box-shadow
-  - html/flow
-  - css/media
-  - tools/markdown
-  - css/grid-guide
   - html/div
-  - tools/cli
-  - tools/ci-cd
-  - js/closures
-  - html/nav
-  - a11y/screenreaders
-  - tools/how-the-browser-creates-pages
-  - js/var-let
-  - tools/network
-  - tools/bundlers
-  - tools/gitlab-ci-cd
-  - css/position
-  - css/transform-function
-  - a11y/aria-hidden
-  - tools/how-to-test-and-why
-  - tools/webpack
-  - js/boolean
-  - tools/clean-architecture
-  - css/attr
-  - html/doctype
-  - html/head
-  - tools/agile
-  - tools/static-types
-  - html/article
-  - html/input
-  - html/section
   - html/img
   - recipes/snow
-  - css/display
-  - recipes/progress
-  - js/function-context
-  - css/custom-properties
-  - js/infinite-scroll
-  - css/specificity
-  - css/keyframes
-  - a11y/aria-intro
-  - html/form
-  - js/execution-order
-  - css/flexbox-guide
-  - js/function
-  - js/deal-with-forms
-  - html/video
+  - html/head
   - tools/docker
+  - js/closures
+  - js/deal-with-forms
+  - js/async-in-js
   - css/box-model
+  - css/position
   - tools/oop
+  - a11y/aria-hidden
+  - css/transform-function
+  - tools/bundlers
+  - html/flow
+  - tools/markdown
+  - css/display
+  - tools/gitlab-ci-cd
+  - a11y/screenreaders
+  - tools/how-the-browser-creates-pages
+  - tools/ci-cd
+  - html/video
+  - tools/network
+  - css/attr
+  - js/infinite-scroll
+  - tools/how-to-test-and-why
+  - css/keyframes
+  - html/form
+  - a11y/aria-intro
+  - js/execution-order
+  - js/var-let
+  - recipes/lets-encrypt-nginx
+  - css/media
+  - html/article
+  - css/custom-properties
+  - recipes/progress
+  - css/flexbox-guide
+  - tools/agile
+  - html/input
+  - html/doctype
+  - tools/clean-architecture
+  - html/section
+  - js/boolean
+  - html/nav
+  - js/function
+  - js/function-context
+  - css/pseudoelements
+  - css/grid-guide
+  - tools/static-types
+  - css/box-shadow
+  - css/specificity
+  - tools/cli
+  - tools/webpack
 ---
 
