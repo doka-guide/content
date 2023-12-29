@@ -44,12 +44,6 @@ element.scrollIntoView()
 element.scrollIntoView({behavior: "smooth", block: "center", inline: "start"})
 ```
 
-<aside>
-
-☎️ В режиме с опциями `scrollIntoView()` не дружит с Safari!
-
-</aside>
-
 ## Как понять
 
 Использовать `scrollIntoView()` полезно в случаях длинных веб-страниц, когда нужно прокрутить страницу к определённым частям, а использования [ссылок с якорями](/html/a/) недостаточно.
