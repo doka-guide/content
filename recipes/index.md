@@ -8,7 +8,10 @@ groups:
       - dragndrop-upload
       - character-counter
       - center
+      - popup
+      - dropdown-menu
       - container
+      - lazy-load-with-preview
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
@@ -17,6 +20,10 @@ groups:
   - name: 'На клиентской стороне'
     items:
       - array-filling
+      - ajax-form
+  - name: 'Полезное для разработки'
+    items:
+      - git-rebase-onto
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
@@ -41,9 +48,6 @@ groups:
   - name: 'Ради веселья'
     items:
       - snow
-  - name: 'Полезное для разработки'
-    items:
-      - git-rebase-onto
 ---
 
 Сборник решений часто встречающихся задач. В этом разделе собраны рецепты, совмещающие в себе несколько технологий.

@@ -5,6 +5,7 @@ authors:
   - agarkov
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - a11y
   - диалог

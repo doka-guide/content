@@ -3,6 +3,8 @@ title: "`switch`"
 description: "Как сделать элемент переключателем с помощью WAI-ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-roles
@@ -26,19 +28,26 @@ tags:
 ## Пример
 
 ```html
-<span class="label" id="label">Оповещения:</span>
+<span class="label" id="label">
+  Оповещения:
+</span>
+
 <button
   class="button"
   role="switch"
   aria-checked="false"
   aria-labelledby="label"
 >
-  <span class="button__off" aria-hidden="true">Выключены</span>
-  <span class="button__on" aria-hidden="true">Включены</span>
+  <span class="button__off" aria-hidden="true">
+    Выключены
+  </span>
+  <span class="button__on" aria-hidden="true">
+    Включены
+  </span>
 </button>
 ```
 
-<iframe title="Переключатель оповещений с ролью switch" src="demos/button-with-switch-role/" height="250"></iframe>
+<iframe title="Кнопка-переключатель" src="demos/button-with-switch-role/" height="250"></iframe>
 
 Скринридер прочитает код примерно так: «Переключатель с ролью switch, не выбран, оповещения».
 
@@ -52,7 +61,7 @@ tags:
 
 У `aria-checked` есть ещё значение `mixed`, но его лучше не использовать в случае элемента с ролью `switch`. [Браузеры не всегда обрабатывают значение `mixed` как `false`](https://adrianroselli.com/2021/10/switch-role-support.html), хотя об этом написано в спецификации ARIA.
 
-Если добавите внутрь контейнера с ролью `switch` семантический тег, в [дерево доступности](/a11y/screenreaders/#derevo-dostupnosti) попадёт текст из него, а роль сбросится.
+Если добавите внутрь контейнера с ролью `switch` семантический тег, в [дерево доступности](/a11y/a11y-tree/) попадёт текст из него, а роль сбросится.
 
 Так видите код вы:
 
@@ -65,7 +74,9 @@ tags:
 А так видит код скринридер:
 
 ```html
-<div role="switch" tabindex="0" aria-checked="false">Оповещения включены</div>
+<div role="switch" tabindex="0" aria-checked="false">
+  Оповещения включены
+</div>
 ```
 
 ## Как понять
