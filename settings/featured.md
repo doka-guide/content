@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/section
-  - html/doctype
-  - css/position
-  - tools/docker
-  - tools/how-the-browser-creates-pages
-  - html/img
-  - html/head
-  - js/boolean
-  - css/box-shadow
-  - tools/how-to-test-and-why
-  - html/article
-  - html/form
-  - css/transform-function
-  - css/media
-  - css/display
-  - a11y/aria-hidden
-  - css/box-model
-  - css/pseudoelements
-  - html/input
-  - recipes/snow
-  - tools/webpack
-  - js/execution-order
-  - css/grid-guide
-  - css/custom-properties
-  - tools/bundlers
-  - js/async-in-js
-  - css/specificity
-  - a11y/aria-intro
-  - a11y/screenreaders
-  - tools/clean-architecture
-  - tools/gitlab-ci-cd
-  - recipes/progress
   - html/div
-  - js/deal-with-forms
-  - js/infinite-scroll
-  - tools/static-types
-  - tools/markdown
-  - css/flexbox-guide
-  - tools/cli
-  - js/var-let
-  - html/nav
-  - js/function-context
-  - js/function
+  - html/img
+  - recipes/snow
+  - html/head
+  - tools/docker
   - js/closures
-  - html/flow
-  - css/keyframes
+  - js/deal-with-forms
+  - js/async-in-js
+  - css/box-model
+  - css/position
   - tools/oop
-  - tools/agile
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - tools/network
+  - a11y/aria-hidden
+  - css/transform-function
+  - tools/bundlers
+  - html/flow
+  - tools/markdown
+  - css/display
+  - tools/gitlab-ci-cd
+  - a11y/screenreaders
+  - tools/how-the-browser-creates-pages
   - tools/ci-cd
+  - html/video
+  - tools/network
   - css/attr
+  - js/infinite-scroll
+  - tools/how-to-test-and-why
+  - css/keyframes
+  - html/form
+  - a11y/aria-intro
+  - js/execution-order
+  - js/var-let
+  - recipes/lets-encrypt-nginx
+  - css/media
+  - html/article
+  - css/custom-properties
+  - recipes/progress
+  - css/flexbox-guide
+  - tools/agile
+  - html/input
+  - html/doctype
+  - tools/clean-architecture
+  - html/section
+  - js/boolean
+  - html/nav
+  - js/function
+  - js/function-context
+  - css/pseudoelements
+  - css/grid-guide
+  - tools/static-types
+  - css/box-shadow
+  - css/specificity
+  - tools/cli
+  - tools/webpack
 ---
 
