@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/flow
-  - html/head
-  - tools/agile
-  - recipes/progress
-  - tools/bundlers
-  - tools/static-types
-  - tools/webpack
-  - a11y/screenreaders
-  - css/box-shadow
-  - js/boolean
-  - html/video
-  - html/input
-  - tools/how-the-browser-creates-pages
-  - css/specificity
-  - css/media
-  - css/grid-guide
-  - html/doctype
-  - js/function-context
-  - js/function
+  - html/div
   - html/img
-  - tools/oop
-  - html/form
-  - a11y/aria-hidden
-  - recipes/lets-encrypt-nginx
-  - js/deal-with-forms
-  - css/custom-properties
-  - tools/markdown
-  - html/article
-  - css/flexbox-guide
-  - css/pseudoelements
-  - css/transform-function
   - recipes/snow
-  - tools/clean-architecture
-  - css/position
-  - css/keyframes
-  - css/display
+  - html/head
   - tools/docker
-  - js/infinite-scroll
+  - js/closures
+  - js/deal-with-forms
+  - js/async-in-js
+  - css/box-model
+  - css/position
+  - tools/oop
+  - a11y/aria-hidden
+  - css/transform-function
+  - tools/bundlers
+  - html/flow
+  - tools/markdown
+  - css/display
   - tools/gitlab-ci-cd
+  - a11y/screenreaders
+  - tools/how-the-browser-creates-pages
+  - tools/ci-cd
+  - html/video
+  - tools/network
+  - css/attr
+  - js/infinite-scroll
+  - tools/how-to-test-and-why
+  - css/keyframes
+  - html/form
   - a11y/aria-intro
   - js/execution-order
-  - css/attr
   - js/var-let
-  - js/async-in-js
-  - tools/how-to-test-and-why
-  - tools/network
-  - css/box-model
-  - tools/cli
-  - js/closures
+  - recipes/lets-encrypt-nginx
+  - css/media
+  - html/article
+  - css/custom-properties
+  - recipes/progress
+  - css/flexbox-guide
+  - tools/agile
+  - html/input
+  - html/doctype
+  - tools/clean-architecture
   - html/section
-  - html/div
+  - js/boolean
   - html/nav
-  - tools/ci-cd
+  - js/function
+  - js/function-context
+  - css/pseudoelements
+  - css/grid-guide
+  - tools/static-types
+  - css/box-shadow
+  - css/specificity
+  - tools/cli
+  - tools/webpack
 ---
 
