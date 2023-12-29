@@ -1,6 +1,6 @@
 ---
 title: "`ArrayBuffer`"
-description: "Объект с бинарными данными фиксированной длинны."
+description: "Объект с бинарными данными фиксированной длины."
 authors:
   - doka-dog
 keywords:
