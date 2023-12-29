@@ -2,7 +2,7 @@
 title: "Общие атрибуты в SVG"
 description: "Основные SVG-атрибуты для создания визуальных элементов в вебе."
 authors:
-  - ElizavetaKurochkina
+  - elizavetaa0
 keywords:
   - common attributes
   - SVG attributes
