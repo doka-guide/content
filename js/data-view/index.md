@@ -51,7 +51,7 @@ console.log(littleEndian)
 
 ### Методы
 
-В качестве методов используют разные числовые форматы. Методы `get()` читают дынные из нужного буфера, а `set()` их записывают. Например, `.getInt8()`, `.getUnit8()`, `.setFloat64()`, `.setBigInt64()`.
+В качестве методов используют разные числовые форматы. Методы `get()` читают данные из нужного буфера, а `set()` их записывают. Например, `.getInt8()`, `.getUnit8()`, `.setFloat64()`, `.setBigInt64()`.
 
 [Список всех методов `DataView`](https://tc39.es/ecma262/multipage/structured-data.html#sec-dataview.prototype.constructor).
 
