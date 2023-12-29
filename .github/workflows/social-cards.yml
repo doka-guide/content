@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: content
       - name: Кэширование модулей
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
