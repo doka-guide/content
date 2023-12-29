@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Слайд презентации — aria-roledescription — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 50px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 25px;
+      line-height: 1.4;
+      font-size: 1.125rem;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #FFFFFF;
+    }
+
+    li::after {
+      content: ";";
+    }
+
+    li:last-of-type::after {
+      content: ".";
+    }
+
+    .slide {
+      position: relative;
+      width: 75%;
+      padding: 75px 40px 100px;
+      background-color: #F498AD;
+    }
+
+    .number {
+      position: absolute;
+      padding: 15px 5px;
+      bottom: 0;
+      right: 40px;
+      background-color: #10F3AF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .slide {
+        width: 100%;
+        padding: 55px 30px;
+      }
+
+      .number {
+        right: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="slide" aria-roledescription="Слайд">
+    <h1>Инкунабулы</h1>
+    <ul>
+      <li>от латинского слова <i>incunabula</i> — «колыбель», «начало»</li>
+      <li>европейские книги, изданные от 1440 до 1 января 1501 года</li>
+      <li>термин появился в 1639 году, но стал активно употребляться только в 18 веке</li>
+      <li>известные инкунабулы — Библия Гутенберга (первая половина 1450-х) и «Нюрнбергская хроника» (1493)</li>
+    </ul>
+    <div class="number">10</div>
+  </section>
+</body>
+</html>

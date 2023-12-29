@@ -1,13 +1,9 @@
 name: Frontmatter Lint
 
 on:
-  workflow_run:
-    workflows:
-      - "YaSpeller All"
+  push:
     branches:
       - main
-    types:
-      - completed
 
 jobs:
   frontmatter-lint:
@@ -16,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Проверка линтером меты в main
         run: |
           echo "Проверка для всех файлов"
