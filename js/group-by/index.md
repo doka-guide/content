@@ -10,7 +10,7 @@ authors:
   - fpetrakov
 related:
   - js/array-map
-  - js/for-each
+  - js/for-of
   - js/typecasting
 tags:
   - doka
