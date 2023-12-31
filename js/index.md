@@ -83,7 +83,9 @@ groups:
       - array-foreach
       - array-map
       - array-reduce
+      - array-values
       - array-filter
+      - array-at
       - array-find
       - array-find-index
       - array-flat
@@ -102,6 +104,7 @@ groups:
     items:
       - object
       - object-tostring
+      - group-by
       - descriptors
       - objects-objects-everywhere
   - name : "Множества (`Set`)"
