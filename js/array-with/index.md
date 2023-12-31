@@ -79,7 +79,7 @@ const authors = ['Ф. Кафка', 'Д. Сэлинджер']
 try {
   console.log(authors.with(2, 'К. Воннегут'))
 } catch (err) {
-  console.log('Поймали ошибку! Вот она: ', err.message)
+  console.error('Поймали ошибку! Вот она: ', err.message)
 }
 // Поймали ошибку! Вот она:  Invalid index : 2
 ```
