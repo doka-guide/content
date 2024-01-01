@@ -2,6 +2,21 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2023
+
+- 30 декабря, [`.values()`](https://doka.guide/js/array-values/), Viktar Nezhbart
+- 29 декабря, [`.at()`](https://doka.guide/js/array-at/), Viktar Nezhbart
+- 29 декабря, [`.groupBy`](https://doka.guide/js/group-by/), Федя Петраков
+- 29 декабря, [`.push()`](https://doka.guide/js/array-push/), Максим Марчуков
+- 29 декабря, [Плавное раскрытие выпадающего меню](https://doka.guide/recipes/dropdown-animation/), Алёна Батицкая
+- 20 декабря, [`clip-path`](https://doka.guide/css/clip-path/), Валерия Дубровская, Антон Капустинский
+- 13 декабря, [`aria-atomic`](https://doka.guide/a11y/aria-atomic/), Татьяна Фокина
+- 12 декабря, [Ленивая загрузка картинок с цветным превью](https://doka.guide/recipes/lazy-load-with-preview/), Владислав Гапонов
+- 12 декабря, [Дерево доступности](https://doka.guide/a11y/a11y-tree/), Татьяна Фокина
+- 10 декабря, [Асинхронная отправка формы](https://doka.guide/recipes/ajax-form/), Федя Петраков
+- 10 декабря, [Плотность пикселей](https://doka.guide/tools/pixel-density/), Сергей Дудко
+- 7 декабря, [Выпадающее меню](https://doka.guide/recipes/dropdown-menu/), Сергей Дудко
+
 ## Ноябрь 2023
 
 - 30 ноября, [`aria-expanded`](https://doka.guide/a11y/aria-expanded/), Татьяна Фокина
