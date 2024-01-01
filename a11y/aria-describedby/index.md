@@ -3,6 +3,8 @@ title: "`aria-describedby`"
 description: "Как добавить краткое описание к элементу."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - ARIA

@@ -102,6 +102,7 @@
       color: #000000;
       background-color: #FFFFFF;
       opacity: 0;
+      visibility: hidden;
       transform: translateY(0);
       transition:
         transform .2s ease-in-out,
@@ -110,6 +111,7 @@
 
     .toast.toast--open {
       opacity: 1;
+      visibility: visible;
       transform: translateY(-4em);
     }
 

@@ -49,7 +49,7 @@ _O_, читается как «О», «О-большое» или «биг (big)
 ```js
 const sumAndProd = (someArray) => {
   const sum = (someArray) => someArray.reduce((sum, value) => sum + value, 0)
-  const prod =  (someArray) => someArray.reduce((prod value) => prod* value, 1)
+  const prod = (someArray) => someArray.reduce((prod, value) => prod * value, 1)
   return sum * prod
 }
 ```
@@ -65,7 +65,7 @@ _Ω_, читается как «Сигма» или «Сигма-большая�
 ```js
 const sumAndProd = (someArray) => {
   const sum = (someArray) => someArray.reduce((sum, value) => sum + value, 0)
-  const prod =  (someArray) => someArray.reduce((prod value) => prod * value, 1)
+  const prod = (someArray) => someArray.reduce((prod, value) => prod * value, 1)
   return sum * prod
 }
 ```

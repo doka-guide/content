@@ -4,6 +4,7 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-tree
       - a11y-html
       - site-language
       - accessible-forms
@@ -16,6 +17,7 @@ groups:
     items:
       - css-impact-on-a11y
       - prefers-reduced-motion
+      - prefers-reduced-transparency
       - prefers-contrast
       - forced-colors
       - inverted-colors

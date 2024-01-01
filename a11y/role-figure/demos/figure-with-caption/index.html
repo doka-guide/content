@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Группа картинок с общей подписью — figure — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 22px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      width: 65%;
+      background-color: #10F3AF;
+    }
+
+    .figure {
+      padding: 55px 40px;
+    }
+
+    .figure-pictures {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .figcaption {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .figure {
+        padding: 55px 30px;
+      }
+
+      .figure-pictures {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" aria-labelledby="label">
+    <div role="figure" class="figure">
+      <div class="figure-pictures">
+        <img src="../images/dog-1.png" alt="">
+        <img src="../images/dog-2.png" alt="">
+      </div>
+      <span class="figcaption" id="label">На первой картинке чихуахуа, на второй — карликовый пинчер.</span>
+    </div>
+  </div>
+</body>
+</html>

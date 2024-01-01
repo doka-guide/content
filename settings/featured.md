@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/keyframes
-  - a11y/aria-intro
-  - html/doctype
-  - recipes/lets-encrypt-nginx
-  - a11y/aria-hidden
-  - css/attr
-  - tools/bundlers
-  - html/form
-  - tools/ci-cd
-  - html/video
-  - js/var-let
-  - html/input
-  - js/async-in-js
-  - tools/oop
-  - tools/webpack
-  - tools/gitlab-ci-cd
-  - tools/cli
-  - css/custom-properties
-  - css/transform-function
-  - css/position
-  - tools/how-to-test-and-why
-  - css/specificity
-  - tools/clean-architecture
-  - tools/agile
-  - html/article
-  - html/flow
-  - recipes/snow
-  - tools/static-types
-  - js/deal-with-forms
-  - html/nav
-  - js/infinite-scroll
-  - js/execution-order
-  - tools/docker
-  - tools/markdown
-  - recipes/progress
-  - html/head
-  - css/media
-  - js/boolean
-  - css/display
-  - a11y/screenreaders
-  - tools/network
-  - html/img
-  - js/function
-  - css/grid-guide
   - html/section
-  - html/div
-  - css/box-model
-  - js/closures
-  - js/function-context
-  - css/box-shadow
+  - html/doctype
+  - css/position
+  - tools/docker
   - tools/how-the-browser-creates-pages
+  - html/img
+  - html/head
+  - js/boolean
+  - css/box-shadow
+  - tools/how-to-test-and-why
+  - html/article
+  - html/form
+  - css/transform-function
+  - css/media
+  - css/display
+  - a11y/aria-hidden
+  - css/box-model
   - css/pseudoelements
+  - html/input
+  - recipes/snow
+  - tools/webpack
+  - js/execution-order
+  - css/grid-guide
+  - css/custom-properties
+  - tools/bundlers
+  - js/async-in-js
+  - css/specificity
+  - a11y/aria-intro
+  - a11y/screenreaders
+  - tools/clean-architecture
+  - tools/gitlab-ci-cd
+  - recipes/progress
+  - html/div
+  - js/deal-with-forms
+  - js/infinite-scroll
+  - tools/static-types
+  - tools/markdown
   - css/flexbox-guide
+  - tools/cli
+  - js/var-let
+  - html/nav
+  - js/function-context
+  - js/function
+  - js/closures
+  - html/flow
+  - css/keyframes
+  - tools/oop
+  - tools/agile
+  - html/video
+  - recipes/lets-encrypt-nginx
+  - tools/network
+  - tools/ci-cd
+  - css/attr
 ---
 

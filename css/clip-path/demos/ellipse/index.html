@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>ellipse() — clip-path — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
+    .before {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      background-color: #2E9AFF;
+      opacity: 0.2;
+    }
+
+    .clipped {
+      width: 240px;
+      height: 240px;
+      clip-path: ellipse(4rem farthest-side at top);
+      background-color: #2E9AFF;
+    }
+  </style>
+</head>
+<body>
+<div class="before"></div>
+<div class="clipped"></div>
+</body>
+</html>

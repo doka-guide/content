@@ -3,6 +3,8 @@ title: "`marquee`"
 description: "Как сделать доступной быстро изменяющуюся информацию?"
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - a11y
   - ARIA
