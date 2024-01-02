@@ -96,6 +96,7 @@ groups:
       - includes
       - index-of
       - last-index-of
+      - array-push
       - array-length
       - array-from
       - array-of
