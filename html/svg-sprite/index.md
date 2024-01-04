@@ -123,10 +123,10 @@ SVG-спрайт — это файл, получаемый в результат
   <view id="icon-first-view" viewBox="0 0 24 24"/>
   <path d="M4 12V20C4 20.5304 ..."/>
 
-  <view id="icon-first-view" viewBox="0 24 24 24"/>
+  <view id="icon-second-view" viewBox="0 24 24 24"/>
   <path d="M4 12V20C4 20.5304 ..."/>
 
-  <view id="icon-first-view" viewBox="0 48 24 24"/>
+  <view id="icon-third-view" viewBox="0 48 24 24"/>
   <path d="M4 12V20C4 20.5304 ..."/>
 </svg>
 ```
