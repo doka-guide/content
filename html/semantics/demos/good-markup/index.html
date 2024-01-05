@@ -21,71 +21,89 @@
       color: #ffffff;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
-    font-weight: 300;
+      font-weight: 300;
     }
 
-  a {
-    color: #2E9AFF;
-  }
+    a {
+      color: #2E9AFF;
+    }
 
-  .container {
-    width: 1200px;
-    margin: 0 auto;
-  }
+    .container {
+      width: 1200px;
+      margin: 0 auto;
+    }
 
-  .nav {
-    display: flex;
-    gap: 24px;
-    padding: 12px 0;
-  }
+    .nav {
+      display: flex;
+      gap: 24px;
+      padding: 12px 0;
+    }
 
-  .nav__item {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+    .nav__item {
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
-  .nav__item:hover {
-    color: #2E9AFF;
-  }
+    .nav__item:hover {
+      color: #2E9AFF;
+    }
 
-  .heading {
-    font-size: 32px;
-    margin: 12px 0;
-  }
+    .heading {
+      font-size: 32px;
+      margin: 12px 0;
+    }
 
-  .wrapper {
-    margin-top: 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+    .wrapper {
+      margin-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  .card {
-    display: flex;
-    flex-direction: column;
-    width: 360px;
-    height: 360px;
-    padding: 28px 20px 16px;
-    border-radius: 16px;
-    background-color: #252525;
-    box-shadow: -1px 15px 30px -12px #000;
-    cursor: pointer;
-  }
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 360px;
+      height: 420px;
+      padding: 24px 20px 16px;
+      border-radius: 16px;
+      background-color: #252525;
+      box-shadow: -1px 15px 30px -12px #000;
+      cursor: pointer;
+    }
 
-  .card__img {
-    border-radius: 8px;
-    margin-bottom: 12px;
-  }
+    .card__content {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .card__heading {
-    font-size: 26px;
-    margin-bottom: 12px;
-  }
+    .card__header {
+      margin-bottom: 12px;
+    }
 
-  .footer {
-    margin-top: 36px;
-    text-align: center;
-  }
+    .card__author {
+      text-align: right;
+    }
+
+    .card__footer {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .card__img {
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .card__heading {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -108,46 +126,84 @@
 
       <div class="wrapper">
         <article class="card">
-          <img
-            src="./images/seo-course.png"
-            alt="на жёлтом фоне изображён текст «SEO»"
-            class="card__img"
-            decoding="async"
-          >
-          <h2 class="card__heading">
-            SEO для начинающих
-          </h2>
-          <p class="card__description">
-            Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.
-          </p>
+          <header class="card__header">
+            <h2 class="card__heading">
+              SEO для начинающих
+            </h2>
+            <p class="card__author">
+              Иван Иванович
+            </p>
+          </header>
+
+          <div class="card__content">
+            <img
+              src="./images/seo-course.png"
+              alt="на жёлтом фоне изображён текст «SEO»"
+              class="card__img"
+              decoding="async"
+            >
+            <p class="card__description">
+              Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.
+            </p>
+          </div>
+
+          <footer class="card__footer">
+            <time class="card__date" datetime="2023-10-23">23 октября 2023</time>
+          </footer>
         </article>
+
         <article class="card">
-          <img
-            src="./images/wordpress-course.png"
-            alt="на жёлтом фоне изображён текст «WordPress»"
-            class="card__img"
-            decoding="async"
-          >
-          <h2 class="card__heading">
-            Разработка на WordPress
-          </h2>
-          <p class="card__description">
-            WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.
-          </p>
+          <header class="card__header">
+            <h2 class="card__heading">
+              Разработка на WordPress
+            </h2>
+            <p class="card__author">
+              Иван Иванович
+            </p>
+          </header>
+
+          <div class="card__content">
+            <img
+              src="./images/wordpress-course.png"
+              alt="на жёлтом фоне изображён текст «WordPress»"
+              class="card__img"
+              decoding="async"
+            >
+            <p class="card__description">
+              WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.
+            </p>
+          </div>
+
+          <footer class="card__footer">
+            <time class="card__date" datetime="2023-10-23">23 октября 2023</time>
+          </footer>
         </article>
+
         <article class="card">
-          <img
-            src="./images/javascript-course.png"
-            alt="на жёлтом фоне изображён текст «JavaScript»"
-            class="card__img"
-            decoding="async"
-          >
-          <h2 class="card__heading">
-            JavaScript для чайников
-          </h2>
-          <p class="card__description">
-            Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.
-          </p>
+          <header class="card__header">
+            <h2 class="card__heading">
+              JavaScript для чайников
+            </h2>
+            <p class="card__author">
+              Иван Иванович
+            </p>
+          </header>
+
+          <div class="card__content">
+            <img
+              src="./images/javascript-course.png"
+              alt="на жёлтом фоне изображён текст «JavaScript»"
+              class="card__img"
+              decoding="async"
+            >
+            <p class="card__description">
+              Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.
+            </p>
+          </div>
+
+          <footer class="card__footer">
+            <time class="card__date" datetime="2023-10-23">23 октября 2023</time>
+          </footer>
         </article>
       </div>
     </main>
