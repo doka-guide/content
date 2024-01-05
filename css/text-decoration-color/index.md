@@ -42,7 +42,7 @@ span {
 }
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="250"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="330"></iframe>
 
 ## Как пишется
 
@@ -59,7 +59,7 @@ span {
 }
 ```
 
-<iframe title="Цвет декоративной линии по умолчанию" src="demos/text-decoration-color-default/" height="250"></iframe>
+<iframe title="Цвет декоративной линии по умолчанию" src="demos/text-decoration-color-default/" height="270"></iframe>
 
 В примере выше цвет двойного подчёркивания серобуромалиновый, поскольку для самого текста задан этот цвет, а значит и `currentColor` для `text-decoration-color` будет значиться серобуромалиновым.
 
@@ -73,4 +73,4 @@ del {
 }
 ```
 
-<iframe title="Пример цвета для линии из html-разметки" src="demos/html-line-color/" height="250"></iframe>
+<iframe title="Пример цвета для линии из html-разметки" src="demos/html-line-color/" height="270"></iframe>

@@ -1,6 +1,10 @@
 ---
 title: "`grid-auto-flow`"
 description: "Этим свойством можно поставить грид-элементы на пустое место."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-auto-flow
 authors:
   - solarrust
 editors:
@@ -34,25 +38,12 @@ tags:
   /* Автоматическое размещение в ряд */
   grid-auto-flow: row;
   /* Отступы между ячейками */
-  gap: 10px;
-
-  /* Для красоты */
-  padding: 10px;
-  background-color: #f1f1f1;
-}
-
-.item {
-  min-height: 50px;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
-  background-color: lightblue;
+  gap: 20px;
 }
 
 .item3 {
   /* Занимает один ряд и растягивается на две колонки */
   grid-column: span 2;
-  background-color: pink;
 }
 ```
 
@@ -74,7 +65,6 @@ tags:
 
 ```css
 .container {
-  grid-template-columns: auto auto auto;
   /* Автоматическое размещение в ряд */
   grid-auto-flow: row dense;
 }

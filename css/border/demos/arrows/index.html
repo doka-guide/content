@@ -5,17 +5,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
     }
 
     .arrows {
       position: relative;
+      width: 100%;
       height: 250px;
-      margin: 0 auto;
-      background-color: #1a5ad7;
+      background-color: #2E9AFF;
     }
 
     .arrow {
@@ -35,6 +48,12 @@
     .arrow._next {
       right: 50px;
       transform: rotate(-135deg);
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>

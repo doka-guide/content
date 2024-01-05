@@ -3,6 +3,8 @@ title: "`border-style`"
 description: "Рамку можно сделать двойной, пунктирной и даже объёмной в точку! И всё это одним свойством."
 authors:
   - solarrust
+contributors:
+  - starhamster
 related:
   - css/border
   - css/outline
@@ -46,7 +48,7 @@ p {
 
 Понять текстовое описание этих стилей довольно сложно, посмотрите пример ниже:
 
-<iframe title="Все рамки" src="demos/all/" height="515"></iframe>
+<iframe title="Все рамки" src="demos/all/" height="500"></iframe>
 
 ## Как понять
 

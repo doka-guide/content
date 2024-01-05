@@ -6,33 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
-      font-family: "Roboto", sans-serif;
       box-sizing: border-box;
     }
 
-    .header {
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
       position: relative;
-      z-index: 0;
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      padding: 5%;
-      box-sizing: border-box;
-      color: #fff;
-      font-size: 48px;
-      text-align: center;
-      text-transform: uppercase;
-      background: url("images/background.png")
-      no-repeat center / cover;
+      z-index: 0;
+      background: url("images/background.png") no-repeat center / cover;
     }
 
-    .header:before {
+    header:before {
       content: "";
       position: absolute;
       z-index: -1;
@@ -43,11 +45,33 @@
       height: 100%;
       background-color: rgba(0, 79, 130, 0.5);
     }
+
+    h1 {
+      font-size: 96px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 30px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 36px;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1 class="title">THE BEST PLACEHOLDER EVER!</h1>
+  <header>
+    <h1>THE BEST PLACEHOLDER EVER!</h1>
   </header>
 </body>
 </html>

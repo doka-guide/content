@@ -1,5 +1,6 @@
 ---
 title: "Псевдоклассы"
+description: "Отдельный тип селекторов, уточняющих состояние или тип элемента."
 authors:
   - realetive
 editors:
@@ -10,49 +11,10 @@ contributors:
 keywords:
   - псевдокласс
   - pseudo-classes
-  - селекторы
-  - :active
-  - :any
-  - :any-link
-  - :link
-  - :visited
-  - :checked
-  - :default
-  - :dir
-  - :disabled
-  - :enabled
-  - :empty
-  - :first
-  - :first-child
-  - :last-child
-  - :nth-child
-  - :nth-last-child
-  - :only-child
-  - :first-of-type
-  - :nth-of-type
-  - :last-of-type
-  - :nth-last-of-type
-  - :only-of-type
-  - :fullscreen
-  - :focus
-  - :focus-within
-  - :has
-  - :hover
-  - :indeterminate
-  - :in-range
-  - :out-of-range
-  - :lang
-  - :left
-  - :right
-  - :not
-  - :optional
-  - :required
-  - :read-only
-  - :read-write
-  - :root
-  - :target
-  - :valid
-  - :invalid
+related:
+  - css/pseudoelements
+  - css/class-selector
+  - css/nesting-selector
 tags:
   - doka
 ---
@@ -111,6 +73,8 @@ tr:hover {
 
 ### `:is()`
 
+[Основная статья](/css/is/).
+
 Позволяет сгруппировать схожие селекторы вместо последовательного перечисления через запятую. При группировке большого количества селекторов это может существенно сократить, а главное — упростить написание.
 
 Вместо:
@@ -143,6 +107,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 Применяется к элементам, состояние которых меняется с помощью атрибута `checked`.
 
 ### `:default`
+
+[Основная статья](/css/default/).
 
 Применяется к элементам формы (`<input type="radio">`, `<input type="checkbox">`, `<option>` и `<button>`), у которых можно задать начальное состояние.
 
@@ -202,7 +168,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 ### `:focus` и `:focus-within`
 
-[Основная статья](/css/focus/).
+[Основная статья про `:focus`](/css/focus/).
+[Основная статья про `:focus-within`](/css/focus-within/).
 
 Элемент, который сейчас находится в фокусе. А `:focus-within` ещё обозначает элемент, внутри которого находится элемент в фокусе.
 
@@ -240,6 +207,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 ### `:lang()`
 
+[Основная статья](/css/lang/).
+
 Селектор по языку содержимого. В HTML есть атрибут `lang`, который указывает на язык содержимого. Псевдокласс `lang()` позволяет обратиться к элементу, чьё значение атрибута `lang` подходит под условие.
 
 Например, в арабском языке нет переносов:
@@ -267,6 +236,7 @@ img:not([alt]) {
 ### `:optional` и `:required`
 
 [Основная статья про `:required`](/css/required/).
+[Основная статья про `:optional`](/css/optional/).
 
 `:optional` находит любой `<input>`, у которого не установлен атрибут `required` — то есть находит необязательные поля ввода. А `:required` — наоборот, те `<input>`, у которых есть этот атрибут.
 

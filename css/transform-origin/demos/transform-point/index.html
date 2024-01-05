@@ -5,55 +5,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
+      display: grid;
+      place-items: center;
+      grid-auto-flow: column;
+      gap: 100px;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: #18191c;
       color: #FFFFFF;
     }
 
     .parent {
-      width: 150px;
-      height: 150px;
+      inline-size: 150px;
+      block-size: 150px;
       border: 2px dashed #F498AD;
       position: relative;
     }
 
-    .parent + .parent {
-      margin-left: 100px;
-    }
-
     .parent::after {
-      content: "";
-      width: 26px;
-      height: 26px;
+      content: '';
+      inline-size: 26px;
+      block-size: 26px;
       position: absolute;
-      left: 50%;
-      top: 50%;
+      inset: 50%;
       transform: translate(-50%, -50%);
       background-image: url("images/point.svg");
     }
 
     .rotate-lt::after {
-      left: 0;
-      top: 0;
+      inset: 0;
     }
 
     .element {
-      width: 150px;
-      height: 150px;
+      inline-size: 150px;
+      block-size: 150px;
       border: 2px solid #2E9AFF;
       box-sizing: border-box;
-      background: rgb(46 154 255 / 30%);
+      background-color: rgb(46 154 255 / 30%);
       transform: rotate(-30deg);
       animation: rot 2s linear infinite ;
     }
@@ -76,13 +78,8 @@
 
     @media (max-width: 768px) {
       body {
-        flex-direction: column;
+        grid-auto-flow: row;
         padding: 30px;
-      }
-
-      .parent + .parent {
-        margin-left: 0;
-        margin-top: 100px;
       }
     }
   </style>

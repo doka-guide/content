@@ -1,6 +1,14 @@
 ---
 title: "`grid-template-columns`"
 description: "Задаём количество и размер грид-колонок."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-template-columns
+      - css.properties.grid-template-columns.fit-content
+      - css.properties.grid-template-columns.minmax
+      - css.properties.grid-template-columns.repeat
+      - css.properties.grid-template-columns.animation
 authors:
   - solarrust
 editors:

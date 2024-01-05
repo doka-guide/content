@@ -1,11 +1,16 @@
 ---
 title: "`transition-delay`"
+description: "Откладываем изменение элемента на некоторое время."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
 keywords:
   - задержка
+related:
+  - css/transition
+  - css/transition-timing-function
+  - css/will-change
 tags:
   - doka
 ---
@@ -34,16 +39,6 @@ tags:
 .selector {
   transition-delay: 3s; /* Одно значение в секундах */
   transition-delay: 2s, 4ms; /* Несколько значений в секундах и миллисекундах */
-}
-```
-
-Глобальные значения:
-
-```css
-.selector {
-  transition-delay: inherit;
-  transition-delay: initial;
-  transition-delay: unset;
 }
 ```
 

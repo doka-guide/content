@@ -6,7 +6,6 @@ roles:
   - doka-core-team
 badges:
   - first-contribution-small
-  - hackathon-practicum
 ---
 
 Привет! 🖖

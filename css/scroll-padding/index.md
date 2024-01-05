@@ -3,6 +3,10 @@ title: "`scroll-padding`"
 description: "Как отступы, только для прокрутки: свойство позволяет остановить прокрутку на определённом расстоянии от края контейнера"
 authors:
   - vaiil
+related:
+  - js/element-scrollintoview
+  - css/padding
+  - css/scrollbar-width
 tags:
   - doka
 ---

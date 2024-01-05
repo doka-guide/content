@@ -9,13 +9,14 @@ jobs:
   update-lists:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Формирует список меты файлов
         run: |
-          npm install @octokit/core
+          echo '{"type": "module","dependencies": {"@octokit/core": "^5.0.0","node-fetch": "^3.3.2"}}' > package.json
+          npm install
           npx yaml-cat --format json --output result.json css/**/index.md html/**/index.md js/**/index.md tools/**/index.md a11y/**/index.md
       - name: Обновление списков материалов-кандидатов на редактирование
         run: node .github/scripts/editor-helper.js --github-key ${{ secrets.GITHUB_TOKEN }}

@@ -11,18 +11,26 @@
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
     body {
+      display: grid;
+      place-items: center;
       padding: 5%;
-      background-color: #064236;
+      color: #ffffff;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     article {
-      background-color: #ffffff;
-      color: #064236;
-      padding: 60px 50px;
+      max-inline-size: 65%;
     }
 
     .visibility-hidden {

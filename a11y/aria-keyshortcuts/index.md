@@ -3,6 +3,8 @@ title: "`aria-keyshortcuts`"
 description: "Как рассказать пользователю вспомогательной технологии о вашем сочетании клавиш."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
@@ -24,15 +26,14 @@ tags:
 ## Пример
 
 ```html
-<button
-  aria-keyshortcuts="Shift+F"
-  aria-label="Развернуть на весь экран"
->
-  <img src="expand-icon.svg" alt="">
+<button aria-keyshortcuts="Shift+F">
+  Развернуть
 </button>
 ```
 
-Скринридер прочтёт код примерно так: «Развернуть на весь экран, кнопка. Shift плюс F».
+<iframe title="Клавиатурное сокращение для кнопки" src="demos/button-with-shortcut/" height="210"></iframe>
+
+Скринридер прочтёт код примерно так: «Развернуть, кнопка. Shift плюс F».
 
 ## Как пишется
 

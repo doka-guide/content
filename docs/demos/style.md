@@ -501,6 +501,10 @@ code {
   background-color: #41E847;
 }
 
+.button-aqua {
+  background-color: #10F3AF;
+}
+
 .button-pink {
   background-color: #F498AD;
 }

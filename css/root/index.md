@@ -1,5 +1,6 @@
 ---
 title: "`:root`"
+description: "Селектор для выбора корневого элемента в HTML и SVG. Часто используют для кастомных свойств."
 authors:
   - lenaryan
 editors:
@@ -9,6 +10,10 @@ keywords:
   - псевдокласс
   - кастомные свойства
   - переменные
+related:
+  - css/custom-properties
+  - html/svg
+  - html/html
 tags:
   - doka
 ---

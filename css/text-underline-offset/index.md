@@ -1,9 +1,14 @@
 ---
 title: "`text-underline-offset`"
+description: "Двигаем линию подчёркивания как нам угодно."
 authors:
   - doka-dog
 keywords:
   - отступ декоративной линии
+related:
+  - css/text-decoration
+  - css/text-decoration-thickness
+  - css/text-decoration-skip-ink
 tags:
   - doka
   - placeholder

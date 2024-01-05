@@ -3,6 +3,8 @@ title: "`aspect-ratio`"
 description: "Помогает задать соотношение сторон для элемента."
 authors:
   - denisputnov
+contributors:
+  - starhamster
 keywords:
   - aspect-ratio
   - соотношение сторон
@@ -18,7 +20,7 @@ tags:
 
 Свойство задаёт соотношение сторон для элемента.
 
-<iframe title="Как это работает с блоком" src="demos/variants/" height="630"></iframe>
+<iframe title="Как это работает с блоком" src="demos/variants/" height="600"></iframe>
 
 ## Пример
 
@@ -48,7 +50,7 @@ tags:
 
 При совмещённой записи соотношение `<width> / <height>` приоритетнее, но когда у элемента есть собственное соотношение сторон, применится оно:
 
-<iframe title="Собственное соотношение сторон у тега <img>" src="demos/aspect-ratio-auto/" height="605"></iframe>
+<iframe title="Собственное соотношение сторон у тега <img>" src="demos/aspect-ratio-auto/" height="565"></iframe>
 
 Если использовать значение `auto 1 / 1` для [`<img>`](/html/img/), то применится соотношение сторон фотографии. Это происходит, потому что она имеет собственное соотношение сторон. При значении `1 / 1` мы принудительно применим соотношение сторон 1 к 1.
 

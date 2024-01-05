@@ -28,6 +28,7 @@ tags:
 
 .participle {
   text-decoration-style: dotted;
+  text-decoration-color: #F498AD;
 }
 
 .predicate {

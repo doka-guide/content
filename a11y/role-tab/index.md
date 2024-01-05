@@ -3,6 +3,8 @@ title: "`tab`"
 description: "Как правильно и доступно наверстать вкладки?"
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-roles
   - a11y/role-tablist
@@ -84,9 +86,8 @@ tags:
 
 - [`aria-disabled`](/a11y/aria-disabled/);
 - [`aria-haspopup`](/a11y/aria-haspopup/);
-- `aria-posinset`;
-- `aria-setsize`;
-- `aria-multiselectable`.
+- [`aria-posinset`](/a11y/aria-posinset/);
+- [`aria-setsize`](/a11y/aria-setsize/).
 
 Внутри `tab` лучше всего размещать текст. Если в названии вкладки иконка, не забудьте её подписать с помощью [`aria-label`](/a11y/aria-label/) или добавить скрытую подпись с классом [`.visually-hidden`](/a11y/content-hidden/#klassy-.visually-hidden-.sr-only-.off-screen).
 
@@ -116,6 +117,8 @@ tags:
 
 ## Как понять
 
-Обычно визуально вкладки располагаются либо над их содержимым, либо сбоку от него.
+Обычно визуально вкладки располагаются либо над их содержимым, либо сбоку от него. При клике или фокусе на вкладке появляется связанное с ней содержимое.
 
-При клике или фокусе на вкладке появляется связанное с ней содержимое.
+Устройство вкладок в виде схемы:
+
+![Список вкладок с ролью tablist располагается над открытым содержимым вкладки с ролью tabpanel. Группа вкладок состоит из отдельных элементов с ролями tab.](images/tabs.png)

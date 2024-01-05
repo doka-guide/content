@@ -1,11 +1,14 @@
 ---
 title: "`transform`"
+description: "Вытворяем с элементами что попало: поворачиваем, искажаем, меняем масштаб."
 authors:
   - ezhkov
 contributors:
   - skorobaeus
-keywords:
-  - трансформация
+related:
+  - css/will-change
+  - css/transition
+  - css/perspective
 tags:
   - doka
 ---

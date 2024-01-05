@@ -1,5 +1,6 @@
 ---
 title: "`::selection`"
+description: "Управляем стилями выделенного элемента."
 authors:
   - rusakov
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - ::selection
   - псевдоэлемент
+related:
+  - css/pseudoelements
+  - css/text-shadow
+  - css/background-color
 tags:
   - doka
 ---

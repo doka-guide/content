@@ -1,15 +1,19 @@
 ---
 title: "`zoom`"
+description: "Меняем масштаб элемента."
 authors:
   - ivkrylova
+related:
+  - css/transform-function
+  - css/transform
+  - css/filter
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
-Свойство `zoom` масштабирует элемент согласно заданному значению.
+Свойство `zoom` изменяет масштаб элемента. Если меньше 1 или 100%, то элемент уменьшится. А если больше 1 или 100%, то элемент увеличится.
 
 <aside>
 

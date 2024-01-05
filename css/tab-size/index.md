@@ -1,9 +1,14 @@
 ---
 title: "`tab-size`"
+description: "В CSS можно управлять размером табуляции."
 authors:
   - pepelsbey
 editors:
   - tachisis
+related:
+  - css/numeric-types
+  - css/transition
+  - html/code
 tags:
   - doka
 ---

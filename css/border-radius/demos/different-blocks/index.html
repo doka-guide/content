@@ -2,86 +2,120 @@
 <html lang="ru">
 <head>
   <title>Блоки разного размера со скруглением — border-radius — Дока</title>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
-    .selector {
-      border-radius: 5em / 50%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .selector {
-      width: 200px;
-      height: 200px;
-      color: #fff;
-      background-color: #123;
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1em;
+      background-color: #18191C;
+      color: #FFFFFF;
     }
 
-    .selector_view_horizontal {
-      width: 400px;
-    }
-
-    .selector_view_vertical {
-      height: 400px;
-    }
-
-    .list__item {
+    .option-container {
       display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
     }
 
-    .list__key {
-      margin: 0;
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
     }
 
-    .list__key:after {
-      content: ':'
+    .option-title {
+      width: 300px;
+      text-align: right;
+      text-transform: lowercase;
+      margin-right: 20px;
+      font-size: 18px;
     }
 
-    .list__key + .list__value {
-      margin-left: .5em;
+    .option {
+      border-radius: 2em / 50%;
+      width: 100px;
+      height: 100px;
+      background-color: #2E9AFF;
+    }
+
+    .horizontal {
+      width: 125px;
+    }
+
+    .vertical {
+      height: 125px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      .option-title {
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
+
+      .option-title {
+        width: 140px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-<div class="selector selector_view_horizontal">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">400px</dt>
-    </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-  </dl>
-</div>
+<div class="container">
+  <h1><code>border-radius: 2em / 50%;</code></h1>
 
-<div class="selector">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">200px</dt>
+  <div class="option-container">
+    <div class="option-title">
+<pre><code>width: 125px;
+height: 100px;</code></pre>
     </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">200px</dt>
-    </div>
-  </dl>
-</div>
+    <div class="option horizontal"></div>
+  </div>
 
-<div class="selector selector_view_vertical">
-  <dl>
-    <div class="list__item">
-      <dd class="list__key">width</dd>
-      <dt class="list__value">200px</dt>
+  <div class="option-container">
+    <div class="option-title">
+<pre><code>width: 100px;
+height: 100px;</code></pre>
     </div>
-    <div class="list__item">
-      <dd class="list__key">height</dd>
-      <dt class="list__value">400px</dt>
+    <div class="option"></div>
+  </div>
+
+  <div class="option-container">
+    <div class="option-title">
+<pre><code>width: 100px;
+height: 125px;</code></pre>
     </div>
-  </dl>
+    <div class="option vertical"></div>
+  </div>
 </div>
 </body>
 </html>

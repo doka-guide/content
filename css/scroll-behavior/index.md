@@ -1,7 +1,12 @@
 ---
 title: "`scroll-behavior`"
+description: "Делаем прокрутку на странице плавной."
 authors:
   - vaiil
+related:
+  - js/element-scrollto
+  - css/scroll-padding
+  - css/scrollbar-gutter
 tags:
   - doka
 ---

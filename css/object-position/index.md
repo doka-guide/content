@@ -1,20 +1,21 @@
 ---
 title: "`object-position`"
+description: "Как картинка или видео должны располагаться внутри контейнера?"
 authors:
   - lenaryan
 keywords:
-  - стили картинок
-  - положение картинок
-  - object
-  - position
-  - img
+  - положение картинки
+related:
+  - html/img
+  - css/background-position
+  - html/video
 tags:
   - doka
 ---
 
 ## Кратко
 
-Свойство помогает спозиционировать отрисовку картинки `<img>` или видео `<video>` внутри контейнера, если к нему применили свойство [`object-fit`](/css/object-fit/).
+Свойство помогает спозиционировать отрисовку картинки [`<img>`](/html/img/) или видео [`<video>`](/html/video/) внутри контейнера, если к нему применили свойство [`object-fit`](/css/object-fit/).
 
 ## Примеры
 

@@ -5,16 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      background-color: #18191c;
-      color: #ffffff;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .parent {
-      display: flex;
-      justify-content: space-between;
-      box-sizing: border-box;
-      padding: 5%;
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      grid-template-columns: auto auto auto auto;
+      background-color: #18191C;
     }
 
     .top {
@@ -22,14 +29,14 @@
       height: 0;
       border-left: 50px solid transparent;
       border-right: 50px solid transparent;
-      border-bottom: 100px solid #49a16c;
+      border-bottom: 100px solid #41E847;
     }
 
     .left {
       width: 0;
       height: 0;
       border-top: 50px solid transparent;
-      border-right: 100px solid #064236;
+      border-right: 100px solid #10F3AF;
       border-bottom: 50px solid transparent;
     }
 
@@ -37,7 +44,7 @@
       width: 0;
       height: 0;
       border-top: 50px solid transparent;
-      border-left: 100px solid #1a5ad7;
+      border-left: 100px solid #2E9AFF;
       border-bottom: 50px solid transparent;
     }
 
@@ -46,51 +53,92 @@
       height: 0;
       border-left: 50px solid transparent;
       border-right: 50px solid transparent;
-      border-top: 100px solid #afc9da;
+      border-top: 100px solid #F498AD;
     }
 
     .top-left {
       width: 0;
       height: 0;
-      border-top: 100px solid #e6e6e6;
+      border-top: 100px solid #FFD829;
       border-right: 100px solid transparent;
     }
 
     .top-right {
       width: 0;
       height: 0;
-      border-top: 100px solid #ed6742;
+      border-top: 100px solid #FF8630;
       border-left: 100px solid transparent;
     }
 
     .bottom-left {
       width: 0;
       height: 0;
-      border-bottom: 100px solid #f498ad;
+      border-bottom: 100px solid #C56FFF;
       border-right: 100px solid transparent;
     }
 
     .bottom-right {
       width: 0;
       height: 0;
-      border-bottom: 100px solid #ffd829;
+      border-bottom: 100px solid #FFFFFF;
       border-left: 100px solid transparent;
+    }
+
+    @media (max-width: 768px) {
+      .top {
+        border-left-width: 25px;
+        border-right-width: 25px;
+        border-bottom-width: 50px;
+      }
+
+      .left {
+        border-top-width: 25px;
+        border-right-width: 50px;
+        border-bottom-width: 25px;
+      }
+
+      .right {
+        border-top-width: 25px;
+        border-left-width: 50px;
+        border-bottom-width: 25px;
+      }
+
+      .bottom {
+        border-left-width: 25px;
+        border-right-width: 25px;
+        border-top-width: 50px;
+      }
+
+      .top-left {
+        border-top-width: 50px;
+        border-right-width: 50px;
+      }
+
+      .top-right {
+        border-top-width: 50px;
+        border-left-width: 50px;
+      }
+
+      .bottom-left {
+        border-bottom-width: 50px;
+        border-right-width: 50px;
+      }
+
+      .bottom-right {
+        border-bottom-width: 50px;
+        border-left-width: 50px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="parent">
-    <div class="top"></div>
-    <div class="left"></div>
-    <div class="right"></div>
-    <div class="bottom"></div>
-  </div>
-
-  <div class="parent">
-    <div class="top-left"></div>
-    <div class="top-right"></div>
-    <div class="bottom-left"></div>
-    <div class="bottom-right"></div>
-  </div>
+  <div class="top"></div>
+  <div class="left"></div>
+  <div class="right"></div>
+  <div class="bottom"></div>
+  <div class="top-left"></div>
+  <div class="top-right"></div>
+  <div class="bottom-left"></div>
+  <div class="bottom-right"></div>
 </body>
 </html>

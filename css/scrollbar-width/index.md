@@ -1,16 +1,18 @@
 ---
 title: "`scrollbar-width`"
-description: "Изменяем ширину полосы прокрутки"
+description: "Изменяем ширину полосы прокрутки."
 authors:
   - xpleesid
-tags:
-  - doka
 keywords:
   - скроллбар
   - размеры
   - прокрутка
 related:
   - css/overflow
+  - css/scroll-padding
+  - css/web-colors
+tags:
+  - doka
 ---
 
 ## Кратко

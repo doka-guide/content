@@ -1,6 +1,15 @@
 ---
 title: "`align-items`"
 description: "Работает перпендикулярно `justify-content`, выравнивает флекс-элементы по дополнительной оси. "
+baseline:
+  - group: flexbox
+    features:
+      - css.properties.align-items.flex_context
+      - css.properties.align-items.flex_context.baseline
+  - group: grid
+    features:
+      - css.properties.align-items.grid_context
+      - css.properties.align-items.grid_context.start_end
 authors:
   - solarrust
 contributors:

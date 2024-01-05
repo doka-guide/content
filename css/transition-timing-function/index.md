@@ -1,9 +1,14 @@
 ---
 title: "`transition-timing-function`"
+description: "Будет ли элемент меняться линейно или более причудливо?"
 authors:
   - ezhkov
 keywords:
   - функция времени
+related:
+  - css/animation-timing-function
+  - css/transform-function
+  - css/transition-delay
 tags:
   - doka
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Универсальный селектор"
+description: "Как выбрать все элементы на странице? И при чём тут лоботомированная сова?"
 authors:
   - solarrust
 editors:
@@ -7,6 +8,10 @@ editors:
 keywords:
   - звёздочка
   - лоботомированная сова
+related:
+  - css/class-selector
+  - css/specificity
+  - css/selector-list
 tags:
   - doka
 ---

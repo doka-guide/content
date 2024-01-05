@@ -3,6 +3,8 @@ title: "`accent-color`"
 description: "Современный способ стилизовать чекбоксы, радиокнопки и другие контролы формы"
 authors:
   - solarrust
+contributors:
+  - starhamster
 keywords:
   - цвет акцента
 related:
@@ -34,11 +36,11 @@ tags:
 
 ```css
 .custom {
-  accent-color: hotpink;
+  accent-color: #F498AD;
 }
 ```
 
-<iframe title="Базовый пример" src="demos/base/" height="300"></iframe>
+<iframe title="Базовый пример" src="demos/base/" height="190"></iframe>
 
 ## Как пишется
 

@@ -1,6 +1,13 @@
 ---
 title: "`grid-column-start`, `grid-column-end`, `grid-row-start`, `grid-row-end`"
 description: "Между какими грид-линиями расположится элемент."
+baseline:
+  - group: grid
+    features:
+      - css.properties.grid-column-start
+      - css.properties.grid-column-end
+      - css.properties.grid-row-end
+      - css.properties.grid-row-start
 authors:
   - solarrust
 editors:

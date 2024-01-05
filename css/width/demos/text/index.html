@@ -14,14 +14,21 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
+      display: grid;
+      place-items: center;
       padding: 50px;
       background-color: #18191C;
       font-family: "Roboto", sans-serif;
     }
 
     .card {
-      width: 600px;
+      inline-size: 600px;
       margin: 0 auto;
       padding: 55px 40px;
       color: #000000;
@@ -38,10 +45,9 @@
 
     .card__title {
       max-width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 27px;
-      margin-bottom: 17px;
+      margin-inline: auto;
+      margin-block-start: 27px;
+      margin-block-end: 17px;
       color: #ffffff;
       font-weight: 500;
       font-size: 30px;
@@ -61,10 +67,12 @@
   </style>
 </head>
 <body>
-  <div class="card">
-    <i class="card__icon"></i>
-    <h2 class="card__title">Want to Become an Agent?</h2>
-    <p class="card__text">Get the official status of an agent in the projectname and earn with us.</p>
+  <div class="wrapper">
+    <div class="card">
+      <i class="card__icon"></i>
+      <h2 class="card__title">Want to Become an Agent?</h2>
+      <p class="card__text">Get the official status of an agent in the projectname and earn with us.</p>
+    </div>
   </div>
 </body>
 </html>

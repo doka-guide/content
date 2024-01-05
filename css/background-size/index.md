@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 editors:
   - tachisis
 keywords:
@@ -54,11 +55,11 @@ tags:
 
 <iframe title="Фон при значении cover" src="demos/cover/" height="400"></iframe>
 
-В этой версии ещё добавлено свойство `background-position` со значением `center`, чтобы в области видимости был центр изображения.
+В этой версии ещё добавлено свойство [`background-position`](/css/background-position/) со значением `center`, чтобы в области видимости был центр изображения.
 
 Теперь изображение подстраивается под размеры элемента без деформации. Лишнее просто обрезается. Именно значение `cover` используется чаще всего для создания красивых фонов.
 
-![Примеры background-size](images/1.png)
+![Примеры background-size](images/contain-and-cover.png)
 
 ## Как понять
 

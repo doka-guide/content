@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список друзей — aria-relevant — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .button {
+      display: block;
+      align-self: center;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .list {
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .list__item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .list__item-avatar {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #F498AD;
+      margin-right: 15px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button-aqua" id="button">Узнать, кто ещё онлайн</button>
+    <h2>Сейчас онлайн</h2>
+    <ul class="list" id="online-list" aria-live="polite" aria-relevant="all">
+      <li class="list__item">
+        <span class="list__item-avatar"></span>
+        Соседский кот всегда онлайн
+      </li>
+    </ul>
+  </div>
+  <script>
+    const button = document.getElementById('button')
+    const listOnline = document.getElementById('online-list')
+    const listOffline = document.getElementById('offline-list')
+
+    function createElement(userName) {
+      const listItem = document.createElement('li')
+      const itemAvatar = document.createElement('span')
+      const itemText = document.createTextNode(userName)
+
+      listItem.className = 'list__item'
+      itemAvatar.className = 'list__item-avatar'
+
+      listItem.prepend(itemAvatar, itemText)
+
+      return listItem
+    }
+
+    function addDelayedElement(user, time) {
+      setTimeout(() => {
+        const userItem = createElement(user)
+        listOnline.appendChild(userItem)
+      }, time)
+    }
+
+    button.addEventListener('click', () => {
+      const users = [
+        'Джим Моррисон',
+        'Йен Кёртис',
+        'Эми Уайнхаус'
+      ]
+
+      addDelayedElement(users[0], 1000)
+      addDelayedElement(users[1], 3000)
+      addDelayedElement(users[2], 5000)
+
+      setTimeout(() => {
+        const offlineUser = listOnline.children[1]
+        if (offlineUser) {
+          listOnline.removeChild(offlineUser)
+        }
+      }, 7000)
+    })
+  </script>
+</body>
+</html>

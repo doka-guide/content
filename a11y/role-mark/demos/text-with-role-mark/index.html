@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Демонстрация работы ARIA-роли mark — mark — Дока</title>
+  <title>Элементы с ролью mark и кастомными стилями — mark — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,6 +13,12 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      color-scheme: dark;
+      font-size: 24px;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
@@ -20,28 +26,41 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
+
     .container {
-      width: 50%;
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #10F3AF;
     }
+
     p {
       margin: 7px 0;
-      font-size: 18px;
+      font-size: 1rem;
       line-height: 1.4;
-      text-align: center;
     }
+
     .mark {
-      color: #000000;
-      background: #10F3AF;
+      background-color: #FFFFFF;
     }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
       }
+
       .container {
-        width: 80%;
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .mark {
+        color: HighlightText;
+        background-color: Highlight;
       }
     }
   </style>

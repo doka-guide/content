@@ -3,13 +3,18 @@ title: "`aria-labelledby`"
 description: "Как добавить подпись к элементу с помощью ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
-  - ARIA
-  - ARIA-атрибут
+  - a11y
+  - доступная подпись
+  - подпись для элемента
+  - подпись для тега
+  - лейбл
 related:
-  - a11y/aria-intro
   - a11y/aria-attrs
+  - a11y/aria-describedby
   - a11y/aria-label
 tags:
   - doka
@@ -23,7 +28,11 @@ tags:
 
 ```html
 <figure aria-labelledby="group-label">
-  <img src="images/chart.png" alt="Прогресс похудения за 9 недель. Сначала ёж весил 11 килограмм, в конце — 4 килограмма.">
+  <img
+    src="images/chart.png"
+    alt="Прогресс похудения за 9 недель. Сначала ёж весил 11 килограмм,
+    в конце — 4 килограмма."
+  >
   <figcaption id="group-label">График похудения ежа.</figcaption>
 </figure>
 ```
@@ -38,21 +47,21 @@ tags:
 
 `aria-labelledby` можно использовать для всех интерактивных и неинтерактивных элементов вроде таблиц и графики, кроме:
 
-- [`<caption>`](/html/caption/) и роли `caption`.
-- [`<code>`](/html/code/) и роли `code`.
-- [`<dd>`](/html/dl-dd-dt/) и роли `definition`.
-- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и роли `term`.
-- [`<del>`](/html/del/) и роли `deletion`.
-- [`<em>`](/html/em/) и роли `emphasis`.
-- [`<ins>`](/html/ins/) и роли `insertion`.
-- [`<mark>`](/html/mark/) и роли [`mark`](/a11y/role-mark/).
-- [`<p>`](/html/p/) и роли `paragraph`.
-- [`<strong>`](/html/strong/) и роли `strong`.
-- [`<sub>`](/html/sub/) и роли `subscript`.
-- [`<sup>`](/html/sup/) и роли `superscript`.
-- [`<time>`](/html/time/) и роли `time`.
-- [`<span>`](/html/span/), [`<div>`](/html/div/) и роли [`generic`](/a11y/role-generic/).
-- роли [`presentation`или `none`](/a11y/role-presentation-none/) и `suggestion`.
+- [`<caption>`](/html/caption/) и [роли `caption`](/a11y/role-caption/).
+- [`<code>`](/html/code/) и [роли `code`](/a11y/role-code/).
+- [`<dd>`](/html/dl-dd-dt/) и [роли `definition`](/a11y/role-definition/).
+- [`<dt>`](/html/dl-dd-dt/), [`<dfn>`](/html/dfn/) и [роли `term`](/a11y/role-term/).
+- [`<del>`](/html/del/) и [роли `deletion`](/a11y/role-deletion/).
+- [`<em>`](/html/em/) и [роли `emphasis`](/a11y/role-emphasis/).
+- [`<ins>`](/html/ins/) и [роли `insertion`](/a11y/role-insertion/).
+- [`<mark>`](/html/mark/) и [роли `mark`](/a11y/role-mark/).
+- [`<p>`](/html/p/) и [роли `paragraph`](/a11y/role-paragraph/).
+- [`<strong>`](/html/strong/) и [роли `strong`](/a11y/role-strong/).
+- [`<sub>`](/html/sub/) и [роли `subscript`](/a11y/role-subscript/).
+- [`<sup>`](/html/sup/) и [роли `superscript`](/a11y/role-superscript/).
+- [`<time>`](/html/time/) и [роли `time`](/a11y/role-time/).
+- [`<span>`](/html/span/), [`<div>`](/html/div/) и [роли `generic`](/a11y/role-generic/).
+- роли [`presentation`или `none`](/a11y/role-presentation-none/) и [`suggestion`](/a11y/role-suggestion/).
 
 Для [`<input>`](/html/input/) в первую очередь используйте `<label>`. У этого HTML-тега есть важная особенность — при клике по тегу фокус перемещается на поле по умолчанию.
 
@@ -77,7 +86,10 @@ tags:
 
 ```html
 <label id="label1" for="select">Вес</label>
-<select id="select" aria-labelledby="label1 label1 select label2 label2">
+<select
+  id="select"
+  aria-labelledby="label1 label1 select label2 label2"
+>
   <option value="1">1</option>
   <option value="2">2</option>
 </select>

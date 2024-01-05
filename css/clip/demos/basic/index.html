@@ -4,67 +4,70 @@
   <title>Картинки — clip — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    * {
-      padding: 0;
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     html {
-      height: 100%;
+      color-scheme: dark;
     }
 
     body {
-      height: 100%;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 100px;
-      background-color: #dfdfdf;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
 
-    div {
+    figcaption {
+      margin-top: 1em;
+      text-align: center;
+    }
+
+    .container {
       position: relative;
-      display: flex;
-      justify-content: center;
-      width: 300px;
-      height: 230px;
+      width: 190px;
+      height: 140px;
+      overflow: hidden;
     }
 
-    span {
+    .clip {
       position: absolute;
-      top: 0;
-      left: 150px;
-      transform: translateX(-50%);
+      top: -40px;
+      clip: rect(40px, 190px, 180px, auto);
     }
 
-    img {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
 
-    .clip img {
-      clip: rect(auto, 220px, 150px, auto);
-    }
-
-    .clip span {
-      left: 110px;
+      figcaption {
+        margin-top: .5em;
+      }
     }
   </style>
 </head>
 <body>
-  <div>
-    <span>Начальный вид</span>
+  <figure>
     <img src="../../images/house.jpg" alt="Домик в деревне">
-  </div>
-  <div class="clip">
-    <span>С применением clip</span>
-    <img src="../../images/house.jpg" alt="Домик в деревне">
-  </div>
+    <figcaption>Начальный вид</figcaption>
+  </figure>
+  <figure>
+    <div class="container">
+      <img class="clip" src="../../images/house.jpg" alt="Домик в деревне">
+    </div>
+    <figcaption>С применением clip</figcaption>
+  </figure>
 </body>
 </html>

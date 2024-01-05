@@ -41,6 +41,7 @@ groups:
       - function-as-datatype
       - set
       - map
+      - collection-weakmap
   - name: "Числа"
     items:
       - number
@@ -87,8 +88,10 @@ groups:
       - array-reverse
       - includes
       - index-of
+      - last-index-of
       - array-length
       - array-from
+      - array-of
       - array-isarray
   - name: "Объекты"
     items:

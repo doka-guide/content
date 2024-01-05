@@ -1,7 +1,12 @@
 ---
 title: "`text-overflow`"
+description: "Красиво обрезаем текст, не влезающий в блок. Можем даже добавить в конце многоточие…"
 authors:
   - solarrust
+related:
+  - css/white-space
+  - css/overflow
+  - css/overflow-wrap
 tags:
   - doka
 ---
@@ -29,4 +34,4 @@ p {
 - `clip` — текст обрезается ровно по краю родительского блока.
 - `ellipsis` — при обрезке текста в конце строки добавляется многоточие «…», показывая незавершённость предложения.
 
-<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="200"></iframe>
+<iframe title="Разница значений clip и ellipsis" src="demos/values/" height="420"></iframe>

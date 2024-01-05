@@ -14,12 +14,16 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
     body {
-      min-height: 100vh;
+      min-block-size: 100%;
       padding: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -27,8 +31,8 @@
     }
 
     div {
-      width: 65%;
-      max-width: 600px;
+      inline-size: 65%;
+      max-inline-size: 600px;
       padding: 55px 40px;
       background-color: #2E9AFF;
       color: #000000;
@@ -45,7 +49,7 @@
       }
 
       div {
-        width: 100%;
+        inline-size: 100%;
         padding: 55px 30px;
       }
     }

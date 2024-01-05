@@ -1,6 +1,6 @@
 ---
 title: "`:target`"
-description: "Псевдокласс `:target` управляет стилем элемента, на который ссылается якорная ссылка."
+description: "Управляет стилем элемента, на который ссылается якорная ссылка."
 authors:
   - bellabzhu
 related:
@@ -9,7 +9,6 @@ related:
   - html/a
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
@@ -32,8 +31,8 @@ tags:
 
 ```css
 p:target::before {
-  font-size: 10px;
   content: '';
+  font-size: 10px;
   color: yellow;
 }
 ```

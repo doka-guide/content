@@ -1,5 +1,6 @@
 ---
 title: "Цвета в вебе"
+description: "Разные способы указания цвета в CSS."
 authors:
   - solarrust
 keywords:
@@ -7,6 +8,10 @@ keywords:
   - HEX
   - RGB
   - RGBA
+related:
+  - css/color
+  - css/linear-gradient
+  - css/text-decoration-color
 tags:
   - article
 ---
