@@ -38,8 +38,13 @@ groups:
     items:
       - object
       - arrays
+      - typed-array
+      - data-view
+      - array-buffer
+      - shared-array-buffer
       - function-as-datatype
       - set
+      - weak-set
       - map
       - collection-weakmap
   - name: "Числа"
@@ -78,7 +83,9 @@ groups:
       - array-foreach
       - array-map
       - array-reduce
+      - array-values
       - array-filter
+      - array-at
       - array-find
       - array-find-index
       - array-flat
@@ -89,6 +96,7 @@ groups:
       - includes
       - index-of
       - last-index-of
+      - array-push
       - array-length
       - array-from
       - array-of
@@ -97,6 +105,7 @@ groups:
     items:
       - object
       - object-tostring
+      - group-by
       - descriptors
       - objects-objects-everywhere
   - name : "Множества (`Set`)"

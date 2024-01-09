@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/section
-  - html/doctype
-  - css/position
-  - tools/docker
-  - tools/how-the-browser-creates-pages
-  - html/img
-  - html/head
-  - js/boolean
-  - css/box-shadow
-  - tools/how-to-test-and-why
-  - html/article
-  - html/form
-  - css/transform-function
-  - css/media
-  - css/display
   - a11y/aria-hidden
-  - css/box-model
-  - css/pseudoelements
+  - tools/docker
   - html/input
-  - recipes/snow
-  - tools/webpack
-  - js/execution-order
+  - css/flexbox-guide
+  - js/var-let
+  - css/pseudoelements
+  - html/flow
+  - tools/gitlab-ci-cd
+  - a11y/aria-intro
+  - html/section
+  - tools/clean-architecture
+  - css/media
+  - html/head
+  - tools/how-to-test-and-why
+  - tools/static-types
+  - js/closures
   - css/grid-guide
+  - css/specificity
+  - recipes/lets-encrypt-nginx
+  - html/article
+  - js/async-in-js
+  - tools/markdown
+  - tools/network
+  - js/deal-with-forms
+  - html/doctype
+  - html/img
+  - css/display
+  - css/keyframes
+  - tools/how-the-browser-creates-pages
+  - js/function-context
+  - tools/cli
+  - css/position
+  - js/execution-order
+  - recipes/progress
+  - html/nav
+  - a11y/screenreaders
+  - html/video
+  - html/div
+  - tools/ci-cd
+  - html/form
+  - css/attr
   - css/custom-properties
   - tools/bundlers
-  - js/async-in-js
-  - css/specificity
-  - a11y/aria-intro
-  - a11y/screenreaders
-  - tools/clean-architecture
-  - tools/gitlab-ci-cd
-  - recipes/progress
-  - html/div
-  - js/deal-with-forms
-  - js/infinite-scroll
-  - tools/static-types
-  - tools/markdown
-  - css/flexbox-guide
-  - tools/cli
-  - js/var-let
-  - html/nav
-  - js/function-context
   - js/function
-  - js/closures
-  - html/flow
-  - css/keyframes
+  - css/transform-function
+  - tools/webpack
   - tools/oop
+  - css/box-model
+  - recipes/snow
+  - js/infinite-scroll
+  - js/boolean
   - tools/agile
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - tools/network
-  - tools/ci-cd
-  - css/attr
+  - css/box-shadow
 ---
 
