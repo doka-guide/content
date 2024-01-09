@@ -7,6 +7,7 @@ groups:
   - name: "Базовые формы"
     items:
       - circle
+      - rect
   - name: "Атрибуты"
     items:
       - svg-common-attrs
