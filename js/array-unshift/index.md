@@ -33,7 +33,7 @@ console.log(arrayLength)
 Добавим три новых элемента:
 
 ```js
-const skills = ['HTML', 'CSS', 'CD/CD']
+const skills = ['HTML', 'CSS', 'CI/CD']
 
 const arrayLength = skills.unshift('JS', 'Python', 'PHP')
 
