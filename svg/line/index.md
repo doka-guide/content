@@ -25,9 +25,9 @@ tags:
 >
   <line
     x1="5"
-	  y1="10"
+    y1="10"
     x2="50"
-	  y2="20"
+    y2="20"
     stroke="#F498AD"
     stroke-width="3"
   />
