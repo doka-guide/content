@@ -27,24 +27,20 @@ tags:
 
 ```html
 <body>
-  <h1>Текст ниже мы написали курсивом</h1>
+  <h1>История книгопечатания: XVI век</h1>
   <p>
-    Этот текст написан курсивом. А мог быть написан наклонным шрифтом, но вы всё
-    равно бы это не отличили.
+    Прим. переводчика: курсивное начертание...
   </p>
 </body>
 ```
 
 ```css
-body {
-  font-family: "Roboto", sans-serif;
-}
 p {
   font-style: italic;
 }
 ```
 
-<iframe title="Начертание шрифта" src="demos/font-style/" height="300"></iframe>
+<iframe title="Начертание шрифта" src="demos/font-style/" height="350"></iframe>
 
 ## Как понять
 
