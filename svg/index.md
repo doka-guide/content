@@ -6,8 +6,10 @@ groups:
       - svg
   - name: "Базовые формы"
     items:
+      - line
       - circle
       - rect
+      - polygon
   - name: "Атрибуты"
     items:
       - svg-common-attrs
