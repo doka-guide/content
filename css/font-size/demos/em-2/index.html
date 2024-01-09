@@ -8,26 +8,57 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    /* Задаём размер шрифта для всей страницы. При стандартных настройках браузера 1em будет равен 10px (62.5% от 16) */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
+      color-scheme: dark;
+      /* Задаём размер шрифта для всей страницы. При стандартных настройках браузера 1em будет равен 10px (62.5% от 16) */
       font-size: 62.5%;
     }
 
-    /* Задаём для <span> размер шрифта в единице em, зависящей от родительского элемента */
-    span {
-      font-size: 1.6em;
+    html, body {
+      height: 100%;
     }
 
-    /* Оформление */
     body {
-      padding: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
     }
 
+    span {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+      /* Задаём для <span> размер шрифта в единице em, зависящей от родительского элемента */
+      font-size: 1.6em;
+    }
+
     span span {
-      background-color: #1a5ad7;
+      border-radius: 3px;
+      padding: 0;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      span:has(span) {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
