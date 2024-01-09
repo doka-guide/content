@@ -26,7 +26,7 @@ tags:
 
 <aside>
 
-👶 Пока что у `forced-colors` [не очень высокая поддержка](https://caniuse.com/mdn-css_at-rules_media_forced-colors).
+👶 В старых версиях браузеров у `forced-colors` [не очень высокая поддержка](https://caniuse.com/mdn-css_at-rules_media_forced-colors).
 
 </aside>
 
