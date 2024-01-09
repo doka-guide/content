@@ -43,6 +43,8 @@ tags:
 </div>
 ```
 
+<iframe title="Меню веб-редактора текста" src="demos/app-menu/" height="600"></iframe>
+
 ## Как пишется
 
 Задайте любому HTML-тегу атрибут `role="menu"`, лучше всего [`<div>`](/html/div/) или [`<ul>`](/html/ul/).
