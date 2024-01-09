@@ -4,6 +4,9 @@ groups:
   - name: "Основы"
     items:
       - svg
+  - name: "Базовые формы"
+    items:
+      - circle
   - name: "Атрибуты"
     items:
       - svg-common-attrs
