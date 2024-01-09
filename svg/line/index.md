@@ -24,12 +24,12 @@ tags:
   xmlns="http://www.w3.org/2000/svg"
 >
   <line
-   x1="5"
-	 y1="10"
-   x2="50"
-	 y2="20"
-   stroke="#F498AD"
-   stroke-width="3"
+    x1="5"
+	  y1="10"
+    x2="50"
+	  y2="20"
+    stroke="#F498AD"
+    stroke-width="3"
   />
 </svg>
 ```
