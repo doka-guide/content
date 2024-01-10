@@ -21,7 +21,7 @@ tags:
 ```svg
 <svg
   viewBox="0 0 1200 400"
-  xmlns="http://www.w3.org/2000/svg"s
+  xmlns="http://www.w3.org/2000/svg"
 >
   <polyline
     points="50,375 150,375 150,325 250,325
