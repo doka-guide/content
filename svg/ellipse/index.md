@@ -24,8 +24,8 @@ tags:
   xmlns="http://www.w3.org/2000/svg"
 >
   <ellipse
-	  cx="250"
-	  cy="100"
+    cx="250"
+    cy="100"
     rx="250"
     ry="100"
     fill="#F498AD"
