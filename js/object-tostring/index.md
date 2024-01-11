@@ -27,20 +27,6 @@ console.log(`Сейчас читаю ${book}`)
 // Сейчас читаю [object Object]
 ```
 
-Добавим объекту индивидуальности при отображении:
-
-```js
-const book = {
-  title: 'JavaScript: the good parts',
-  author: 'Douglas Crockford'
-}
-
-book[Symbol.toStringTag] = 'Book'
-
-console.log(`Сейчас читаю ${book}`)
-// Сейчас читаю [object Book]
-```
-
 ## Как пишется
 
 `Object.toString()` не имеет аргументов.
@@ -66,7 +52,7 @@ const person = {name: 'Brendan Eich', year: 1961}
 console.log('person: ', person)
 // person: { name: 'Brendan Eich', year: 1961 }
 
-// сначал происходит преобразование к строке
+// строка как аргумент console.log
 console.log('person: ' + person)
 // person: [object Object]
 ```
@@ -75,33 +61,68 @@ console.log('person: ' + person)
 
 Для обычных объектов ( имеющих набор полей {ключ: значение} ) метод `toString()` возвращает строку `'[object Object]'`.
 
-Однако, результат может быть иной. Это зависит от нескольких факторов:
+<details>
+  <summary>
+    Однако, результат может быть иной. Это зависит от нескольких факторов:
+  </summary>
 
-1. тип this. Мы можем вызвать метод объекта `toString()` для других типов:
+  1. Значение `Symbol.toPrimitive`. Если объект имеет это специальное поле, описывающее преобразование объекта к примитивным типам, то результат этого преобразования к строке используется вместо `toString()`:
 
-```js
-const toString = Object.prototype.toString
+  ```js
+  const book = {
+    title: 'Замок',
+    author: 'Ф. Кафка'
+  }
 
-console.log(toString.call([1, 2, 3]))
-// [object Array]
+  book[Symbol.toPrimitive] = function(hint) {
+    if (hint === 'string') {
+      return `(название: ${this.title}, автор: ${this.author})`;
+    }
+    return true;
+  }
 
-console.log(toString.call(25))
-// [object Number]
+  console.log(`Книга ${book}`)
+  // Книга (название: Замок, автор: Ф. Кафка)
+  ```
 
-console.log(toString.call(true))
-// [object Boolean]
+  2. Значение `Symbol.toStringTag`. Если объект имеет это специальное строковое поле, то его значение отображается как тип объекта:
 
-```
+  ```js
+  const book = {
+    title: 'Дар',
+    author: 'В. В. Набоков'
+  }
 
+  book[Symbol.toStringTag] = 'Book'
 
+  console.log(`Сейчас читаю ${book}`)
+  // Сейчас читаю [object Book]
+  ```
 
-согласно спецификации
+  3. тип this. Метод `Object.toString()` может быть вызван для значений других типов:
 
+  ```js
+  const toString = Object.prototype.toString
+
+  console.log(toString.call([1, 2, 3]))
+  // [object Array]
+
+  console.log(toString.call(25))
+  // [object Number]
+
+  console.log(toString.call(true))
+  // [object Boolean]
+  ```
+
+</details>
 
 ### Переопределение стандартной реализации
 
 Существует несколько способов изменить поведение метода `toString()`.
 
+#### Переопределение метода `toString()` на уровне объекта.
+
+Можно использовать перечисленные выше способы с использованием специальных полей: `Symbol.toPrimitive`, `Symbol.toStringTag`
 
 #### Переопределение метода `toString()` на уровне класса.
 
@@ -146,4 +167,3 @@ const book = new Book('Палата №6', 'А. П. Чехов')
 console.log(`Читаю ${book}`)
 // Читаю «Палата №6», автор А. П. Чехов
 ```
-
