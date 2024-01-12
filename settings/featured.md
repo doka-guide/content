@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - a11y/aria-hidden
-  - tools/docker
-  - html/input
-  - css/flexbox-guide
-  - js/var-let
-  - css/pseudoelements
-  - html/flow
-  - tools/gitlab-ci-cd
-  - a11y/aria-intro
-  - html/section
-  - tools/clean-architecture
-  - css/media
-  - html/head
-  - tools/how-to-test-and-why
-  - tools/static-types
-  - js/closures
-  - css/grid-guide
-  - css/specificity
-  - recipes/lets-encrypt-nginx
-  - html/article
-  - js/async-in-js
-  - tools/markdown
-  - tools/network
-  - js/deal-with-forms
-  - html/doctype
-  - html/img
-  - css/display
-  - css/keyframes
-  - tools/how-the-browser-creates-pages
-  - js/function-context
-  - tools/cli
-  - css/position
-  - js/execution-order
-  - recipes/progress
-  - html/nav
-  - a11y/screenreaders
-  - html/video
   - html/div
-  - tools/ci-cd
-  - html/form
+  - html/input
   - css/attr
-  - css/custom-properties
+  - js/execution-order
   - tools/bundlers
-  - js/function
+  - a11y/aria-intro
+  - tools/static-types
+  - css/position
+  - js/closures
+  - html/article
   - css/transform-function
-  - tools/webpack
-  - tools/oop
-  - css/box-model
-  - recipes/snow
+  - js/var-let
   - js/infinite-scroll
-  - js/boolean
+  - a11y/aria-hidden
+  - recipes/snow
+  - css/keyframes
+  - css/grid-guide
+  - html/section
+  - css/specificity
+  - tools/how-the-browser-creates-pages
+  - html/head
+  - tools/ci-cd
+  - tools/gitlab-ci-cd
+  - tools/docker
+  - recipes/progress
+  - html/img
+  - tools/webpack
+  - tools/clean-architecture
   - tools/agile
+  - html/flow
+  - html/nav
+  - tools/oop
+  - tools/how-to-test-and-why
+  - css/pseudoelements
+  - tools/markdown
+  - js/deal-with-forms
+  - css/flexbox-guide
+  - css/custom-properties
+  - css/display
+  - css/media
+  - recipes/lets-encrypt-nginx
+  - tools/cli
+  - a11y/screenreaders
+  - css/box-model
+  - js/function-context
   - css/box-shadow
+  - tools/network
+  - html/form
+  - html/doctype
+  - js/async-in-js
+  - js/boolean
+  - js/function
+  - html/video
 ---
 
