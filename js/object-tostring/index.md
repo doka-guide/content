@@ -29,9 +29,9 @@ console.log(`Сейчас читаю ${book}`)
 
 ## Как пишется
 
-`Object.toString()` не имеет аргументов.
+`Object.prototype.toString()` не имеет аргументов.
 
-`Object.toString()` возвращает строковое представление объекта.
+`Object.prototype.toString()` возвращает строковое представление объекта.
 
 ## Как понять
 
