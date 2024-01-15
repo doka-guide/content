@@ -2,6 +2,12 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2024
+
+- 12 января, [`.with()`](https://doka.guide/js/array-with/), Viktar Nezhbart
+- 12 января, [`.entries()`](https://doka.guide/js/array-entries/), Viktar Nezhbart
+- 12 января, [`.unshift()`](https://doka.guide/js/array-unshift/), Viktar Nezhbart
+
 ## Декабрь 2023
 
 - 30 декабря, [`.values()`](https://doka.guide/js/array-values/), Viktar Nezhbart
