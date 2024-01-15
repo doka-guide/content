@@ -84,6 +84,7 @@ groups:
       - array-map
       - array-reduce
       - array-values
+      - array-entries
       - array-filter
       - array-at
       - array-find
@@ -97,6 +98,8 @@ groups:
       - index-of
       - last-index-of
       - array-push
+      - array-unshift
+      - array-with
       - array-length
       - array-from
       - array-of
