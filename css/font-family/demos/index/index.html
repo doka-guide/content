@@ -6,30 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    * {
+    *, *::before, *::after {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      padding: 5%;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
-      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
-    h1, h2 {
-      color: #f498ad;
-      font-weight: 500;
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
     }
 
     h1 {
       font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
       font-size: 26px;
+      font-weight: 500;
     }
 
     p {
-      margin-top: 10px;
+      margin-top: 7px;
       font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
     }
 
@@ -39,20 +49,34 @@
 
     .generic h2 {
       font-family: sans-serif;
-      font-size: 24px;
+      font-size: 22px;
+      font-weight: bold;
     }
 
     .generic p {
       font-family: serif;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Этот заголовок написан шрифтом Roboto без засечек</h1>
-  <p>А параграф — шрифтом Roboto Slab с засечками.</p>
-  <div class="generic">
-    <h2>Для второго заголовка установлено семейство sans-serif</h2>
-    <p>Семейство шрифтов этого параграфа указано как serif — это шрифт с засечками, установленный в системе по умолчанию.</p>
+  <div class="container">
+    <h1>Этот заголовок написан шрифтом Roboto без засечек</h1>
+    <p>А параграф — шрифтом Roboto Slab с засечками.</p>
+    <div class="generic">
+      <h2>Для второго заголовка установлено семейство sans-serif</h2>
+      <p>Семейство шрифтов этого параграфа указано как serif — это шрифт с засечками, установленный в системе по умолчанию.</p>
+    </div>
   </div>
 </body>
 </html>
