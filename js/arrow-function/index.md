@@ -1,11 +1,15 @@
 ﻿---
 title: "Стрелочные функции"
 description: "Более компактная запись, чем у обычных функций."
+authors:
+  - alexafcode
 keywords:
   - функция
+  - стрелочная функция
 related:
   - js/function-as-datatype
-  - js/objects-objects-everywhere
+  - js/function
+  - tools/fp
 tags:
   - doka
 ---

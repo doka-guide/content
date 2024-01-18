@@ -72,6 +72,7 @@ groups:
       - closures
       - recursion
       - function-arguments-object
+      - arrow-function
   - name: "Массивы"
     items:
       - arrays
