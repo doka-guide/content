@@ -51,7 +51,7 @@
     }
 
     .form-row + .form-row {
-      margin-top: 25px;
+      margin-block-start: 25px;
     }
 
     .form-row {
@@ -67,10 +67,13 @@
       line-height: 1;
     }
 
-    input {
-      flex-shrink: 0;
+    .input, .select, .button {
       width: 300px;
       height: 46px;
+    }
+
+    .input {
+      flex-shrink: 0;
       border: 1px solid #E6E6E6;
       border-radius: 6px;
       padding: 10px 15px;
@@ -82,7 +85,7 @@
       appearance: none;
     }
 
-    input:focus {
+    .input:focus {
       border-color: #2E9AFF;
       outline: none;
     }
@@ -113,8 +116,6 @@
 
     .select {
       position: relative;
-      width: 100%;
-      height: 46px;
       border: 1px solid #E6E6E6;
       border-radius: 6px;
       padding: 10px 15px;
@@ -159,8 +160,6 @@
     .button {
       flex-shrink: 0;
       display: block;
-      width: 300px;
-      height: 46px;
       border: 2px solid transparent;
       border-radius: 6px;
       margin-inline-start: auto;
@@ -195,7 +194,7 @@
       position: relative;
       border: 1px solid #FFFFFF;
       padding: 35px 80px 25px;
-      margin-block-end: 25px;
+      margin-block-start: 25px;
     }
 
     .checkbox-label {
@@ -275,7 +274,7 @@
         margin-bottom: 10px;
       }
 
-      .input, .select-wrapper, .button {
+      .input, .select-wrapper, .select, .button {
         width: 100%;
       }
 
@@ -301,20 +300,6 @@
 </head>
 <body>
   <div class="container">
-    <div class="controls">
-      <label class="checkbox-label">
-        <input class="checkbox" name="must-have" type="checkbox">
-        <span class="checkbox-title">Унаследовать <code>font-family</code> от родителя</span>
-      </label>
-
-      <code class="code-sample">
-<pre>
-textarea, input, select, option, button {
-  font-family: inherit;
-}</pre>
-      </code>
-    </div>
-
     <form class="">
       <div class="form-row">
         <label class="row-label" for="email">Как вас зовут?</label>
@@ -343,7 +328,19 @@ textarea, input, select, option, button {
       </div>
     </form>
 
+    <div class="controls">
+      <label class="checkbox-label">
+        <input class="checkbox" name="must-have" type="checkbox">
+        <span class="checkbox-title">Унаследовать <code>font-family</code> от родителя</span>
+      </label>
 
+      <code class="code-sample">
+<pre>
+textarea, input, select, option, button {
+  font-family: inherit;
+}</pre>
+      </code>
+    </div>
   </div>
 
   <script>
