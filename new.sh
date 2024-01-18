@@ -11,16 +11,25 @@ function jsonValue() {
   num=$2
   awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
-LOGIN=$(echo $(curl -s https://api.github.com/search/users\?q\=$(echo $(git config --get user.email)) | jsonValue login))
 
-if [[ $LOGIN == "" ]]; then
-  read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
-else
-  read -r -p "$(echo "Введите ник на GitHub (нажмите Enter, и будет использован $LOGIN): ")" AUTHORss
+if [[ -f ".env" ]]; then
+    source .env
 fi
 
 if [[ $AUTHOR == "" ]]; then
-  AUTHOR=$LOGIN
+  if [[ $LOGIN == "" ]]; then
+    LOGIN=$(echo $(curl -s https://api.github.com/search/users\?q\=$(echo $(git config --get user.email)) | jsonValue login))
+  fi
+
+  if [[ $LOGIN == "" ]]; then
+    read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
+  else
+    read -r -p "$(echo "Введите ник на GitHub (нажмите Enter, и будет использован $LOGIN): ")" AUTHOR
+
+    if [[ $AUTHOR == "" ]]; then
+      AUTHOR=$LOGIN
+    fi
+  fi
 fi
 
 echo -e "\nДоступные разделы для публикации в Доке:"
