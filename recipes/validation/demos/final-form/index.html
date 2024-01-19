@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Мгновенная валидация полей — Валидация формы — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+          /* общие стили */
+        *,
+        *::before,
+        *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          color-scheme: dark;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        ul[class],
+        ol[class],
+        li,
+        figure,
+        figcaption,
+        blockquote,
+        dl,
+        dd {
+          margin: 0;
+        }
+
+        body {
+          min-height: 100vh;
+          padding: 50px;
+          display: grid;
+          justify-content: center;
+          background-color: #18191C;
+          color: #FFFFFF;
+          font-family: "Roboto", sans-serif;
+          font-size: 18px;
+          line-height: 1.4;
+          font-weight: 400;
+        }
+
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .form__field {
+          display: grid;
+          grid-template-columns: 200px 300px;
+          align-items: center;
+          position: relative;
+          margin-block-end: 25px;
+        }
+
+        .form__type-input {
+          width: 100%;
+          border: 1px solid #FFFFFF;
+          border-radius: 6px;
+          padding: 10px 15px;
+          background-color: transparent;
+          color: #FFFFFF;
+          font-size: 18px;
+          font-weight: 300;
+          font-family: inherit;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+
+        .form__type-input:focus {
+          outline: 1px solid #C56FFF;
+          border: 1px solid #C56FFF;
+        }
+
+        .form__type-input-error {
+          border: 1px solid #FF8630;
+        }
+
+        .form__error {
+          color: #FF8630;
+          inline-size: calc(300px - 20px);
+          display: none;
+          position: absolute;
+          font-size: 10px;
+          inset-inline-start: 210px;
+          inset-block-start: 50px;
+        }
+
+        .form__checkbox-label .form__error {
+          inset-block-start: 35px;
+         }
+
+        .form__error-active {
+          display: block;
+        }
+
+        .form__checkbox-label {
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          margin-block-end: 50px;
+        }
+
+        .form__type-checkbox {
+          width: 24px;
+          height: 24px;
+          opacity: 0;
+          margin-right: 215px;
+        }
+
+        .form__type-checkbox + .form__type-checkbox-title::before {
+          content: '';
+          position: absolute;
+          left: 200px;
+          top: calc(50% - 12px);
+          width: 24px;
+          height: 24px;
+          border: 1px solid #FFFFFF;
+          border-radius: 6px;
+        }
+
+        .form__type-checkbox:focus + .form__type-checkbox-title::before {
+          border-color: #C56FFF;
+        }
+
+        .form__type-checkbox:checked + .form__type-checkbox-title::after {
+          content: '';
+          position: absolute;
+          left: 205px;
+          top: calc(50% - 7px);
+          width: 14px;
+          height: 14px;
+          border-radius: 3px;
+          background-color: #C56FFF;
+        }
+
+        .button {
+          padding: 10px 15px;
+          cursor: pointer;
+          font-weight: 300;
+          inline-size: 100%;
+          border: 2px solid transparent;
+          background-color: #C56FFF;
+          border-radius: 6px;
+          color: #000000;
+          font-size: 18px;
+          font-family: inherit;
+          transition: background-color 0.2s linear;
+        }
+
+        .button:hover {
+          border: 2px solid #FFFFFF;
+          background-color: #FFFFFF;
+        }
+
+        .button:focus {
+          outline: none;
+          border: 2px solid #FFFFFF;
+        }
+
+        .button-inactive {
+          cursor: default;
+          background-color: rgb(211, 211, 211, 0.2);
+        }
+
+        .button-inactive:hover {
+          background-color: rgb(211, 211, 211, 0.2);
+          border: 2px solid transparent;
+        }
+
+        @media (max-width: 768px) {
+          body {
+            padding: 30px;
+          }
+
+          .form__field {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+          }
+
+          .form__type-checkbox {
+            margin-right: 100px;
+          }
+
+          .form__type-checkbox + .form__type-checkbox-title::before {
+            left: 85px;
+          }
+
+          .form__type-checkbox:checked + .form__type-checkbox-title::after {
+            left: 90px;
+          }
+       }
+    </style>
+  </head>
+  <body>
+      <form class="form" name="form" novalidate>
+        <label class="form__field">
+          <span class="form__label">Имя:</span>
+          <input  type="text"
+                  id="input__name"
+                  class="form__type-input"
+                  placeholder="Иван"
+                  minlength="2"
+                  maxlength="40"
+                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+                  data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+                  required>
+          <span class="form__error input__name-error"></span>
+        </label>
+        <label class="form__field">
+          <span class="form__label">Фамилия:</span>
+          <input  type="text"
+                  id="input__surname"
+                  class="form__type-input"
+                  placeholder="Васильевич"
+                  minlength="2"
+                  maxlength="40"
+                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+                  data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+                  required>
+          <span class="form__error input__surname-error"></span>
+        </label>
+         <label class="form__field">
+          <span class="form__label">E-mail:</span>
+          <input  type="email"
+                  id="input__e-mail"
+                  class="form__type-input"
+                  placeholder="menyaet.professiyu@ivan.com"
+                  required>
+          <span class="form__error input__e-mail-error"></span>
+        </label>
+        </label>
+        <label class="form__field">
+          <span class="form__label">Возраст:</span>
+          <input  type="number"
+                  id="input__age"
+                  class="form__type-input"
+                  placeholder="40"
+                  min="18"
+                  max="100"
+                  required>
+          <span class="form__error input__age-error"></span>
+        </label>
+        <label class="form__checkbox-label">
+          <input  type="checkbox" id="input__checkbox" class="form__type-input form__type-checkbox" checked required>
+          <span class="form__type-checkbox-title">Я согласен быть царём</span>
+          <span class="form__error input__checkbox-error"></span>
+        </label>
+        <button type="submit" class="button">Отправить</button>
+      </form>
+  </body>
+  <script>
+    const form = document.querySelector('.form');
+    const inputList = Array.from(document.querySelectorAll('.form__type-input'));
+    const buttonElement = form.querySelector('.button')
+
+    startValidation();
+
+    function startValidation() {
+      toggleButton()
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+      })
+      inputList.forEach((inputElement) => {
+          console.dir(inputElement)
+
+        inputElement.addEventListener('input', () => {
+          checkInputValidity(inputElement);
+          toggleButton();
+        })
+      })
+    }
+
+    function checkInputValidity(inputElement) {
+      if (inputElement.validity.patternMismatch) {
+        inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+      } else {
+        inputElement.setCustomValidity("");
+      }
+
+      if (!inputElement.validity.valid) {
+        toggleErrorSpan(inputElement, inputElement.validationMessage);
+      } else {
+        toggleErrorSpan(inputElement);
+      }
+    }
+
+    function hasInvalidInput() {
+      return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+      });
+    }
+
+    function toggleErrorSpan(inputElement, errorMessage){
+      const errorElement = document.querySelector(`.${inputElement.id}-error`);
+      if (errorMessage) {
+        inputElement.classList.add('form__type-input-error')
+        errorElement.textContent = errorMessage;
+        errorElement.classList.add('form__error-active')
+      } else {
+        inputElement.classList.remove('form__type-input-error')
+        errorElement.textContent = '';
+        errorElement.classList.remove('form__error-active')
+      }
+    }
+
+    function toggleButton() {
+      if (hasInvalidInput()) {
+        buttonElement.classList.add('button-inactive');
+        buttonElement.setAttribute("disabled", "");
+      } else {
+        buttonElement.classList.remove('button-inactive');
+        buttonElement.removeAttribute("disabled");
+      }
+    }
+  </script>
+</html>
