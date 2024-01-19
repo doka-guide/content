@@ -1,6 +1,6 @@
 ---
-title: "Валидация формы"
-description: "Рецепт мгновенной валидация форм с кастомными сообщениями"
+title: "Рецепт мгновенной валидации форм"
+description: "Рецепт мгновенной валидации форм с кастомными сообщениями"
 authors:
   - makarovaiuliia
 related:
@@ -12,7 +12,7 @@ tags:
 ---
 
 ## Задача
-Кто из нас не знаком с той неприятной ситуацией, когда ты усердно заполняешь форму, вводишь данные, а потом, с надеждой нажимая на кнопку "Отправить", обнаруживаешь, что что-то пошло не так и все твои усилия пропали даром? Не беспокойтесь, для этого есть решение - мгновенная валидация при помощи JavaScript!
+Кто из нас не знаком с той неприятной ситуацией, когда ты усердно заполняешь форму, вводишь данные, а потом, с надеждой нажимая на кнопку «Отправить», обнаруживаешь, что что-то пошло не так и все твои усилия пропали даром? Не беспокойтесь, для этого есть решение - мгновенная валидация при помощи JavaScript!
 
 Традиционные способы валидации форм, основанные исключительно на HTML, потихоньку уходят в прошлое. JavaScript приходит на помощь, внося изменения в привычные сценарии валидации и тем самым значительно улучшая общий пользовательский опыт (UX). Скриптовая валидация форм - это как волшебная палочка: она обеспечивает вас мгновенной обратной связью по заполнению формы и аккуратно подсказывает, что нужно исправить, прежде чем форма отправится.
 
@@ -22,60 +22,59 @@ tags:
 
 ```html
 <form class="form" name="form" novalidate>
-        <label class="form__field">
-          <span class="form__label">Имя:</span>
-          <input  type="text"
-                  id="input__name"
-                  class="form__type-input"
-                  placeholder="Иван"
-                  minlength="2"
-                  maxlength="40"
-                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-                  data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
-                  required>
-          <span class="form__error input__name-error"></span>
-        </label>
-        <label class="form__field">
-          <span class="form__label">Фамилия:</span>
-          <input  type="text"
-                  id="input__surname"
-                  class="form__type-input"
-                  placeholder="Иван"
-                  minlength="2"
-                  maxlength="40"
-                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-                  data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
-                  required>
-          <span class="form__error input__surname-error"></span>
-        </label>
-         <label class="form__field">
-          <span class="form__label">E-mail:</span>
-          <input  type="email"
-                  id="input__e-mail"
-                  class="form__type-input"
-                  placeholder="menyaet.prefessiy@ivan.com"
-                  required>
-          <span class="form__error input__e-mail-error"></span>
-        </label>
-        </label>
-        <label class="form__field">
-          <span class="form__label">Возраст:</span>
-          <input  type="number"
-                  id="input__age"
-                  class="form__type-input"
-                  placeholder="40"
-                  min="18"
-                  max="100"
-                  required>
-          <span class="form__error input__age-error"></span>
-        </label>
-        <label class="form__checkbox-label">
-          <input  type="checkbox" id="input__checkbox" class="form__type-input form__type-checkbox" checked required>
-          <span class="form__type-checkbox-title">Я согласен быть царём</span>
-          <span class="form__error input__checkbox-error"></span>
-        </label>
-        <button type="submit" class="button">Отправить</button>
-      </form>
+  <label class="form__field">
+    <span class="form__label">Имя:</span>
+    <input  type="text"
+            id="input__name"
+            class="form__type-input"
+            placeholder="Иван"
+            minlength="2"
+            maxlength="40"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
+            required>
+    <span class="form__error input__name-error"></span>
+  </label>
+  <label class="form__field">
+    <span class="form__label">Фамилия:</span>
+    <input  type="text"
+            id="input__surname"
+            class="form__type-input"
+            placeholder="Васильевич"
+            minlength="2"
+            maxlength="40"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
+            required>
+     <span class="form__error input__surname-error"></span>
+  </label>
+  <label class="form__field">
+    <span class="form__label">E-mail:</span>
+      <input  type="email"
+              id="input__e-mail"
+              class="form__type-input"
+              placeholder="menyaet.prefessiy@ivan.com"
+              required>
+      <span class="form__error input__e-mail-error"></span>
+  </label>
+  <label class="form__field">
+    <span class="form__label">Возраст:</span>
+    <input  type="number"
+            id="input__age"
+            class="form__type-input"
+            placeholder="40"
+            min="18"
+            max="100"
+            required>
+    <span class="form__error input__age-error"></span>
+  </label>
+  <label class="form__checkbox-label">
+    <input  type="checkbox" id="input__checkbox" class="form__type-input form__type-checkbox" checked required>
+    <span class="form__type-checkbox-title">Я согласен быть царём</span>
+     <span class="form__error input__checkbox-error"></span>
+  </label>
+  <button type="submit" class="button">Отправить</button>
+</form>
 ```
 
 Код JavaScript для валидации всех полей формы:
@@ -164,7 +163,7 @@ CSS-классы, которые будут использоваться при 
     }
 ```
 
-<iframe title="Мгновенная валидация полей" src=./demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src=/demos/final-form/" height="450"></iframe>
 
 ## Разбор решения
 
@@ -334,5 +333,5 @@ CSS-классы, которые будут использоваться при 
     }
 ```
 
-<iframe title="Мгновенная валидация полей" src=./demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src=/demos/final-form/" height="450"></iframe>
 

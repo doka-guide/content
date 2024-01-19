@@ -207,83 +207,96 @@
        }
     </style>
   </head>
-  <body>
-      <form class="form" name="form" novalidate>
-        <label class="form__field">
-          <span class="form__label">Имя:</span>
-          <input  type="text"
-                  id="input__name"
-                  class="form__type-input"
-                  placeholder="Иван"
-                  minlength="2"
-                  maxlength="40"
-                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-                  data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
-                  required>
-          <span class="form__error input__name-error"></span>
-        </label>
-        <label class="form__field">
-          <span class="form__label">Фамилия:</span>
-          <input  type="text"
-                  id="input__surname"
-                  class="form__type-input"
-                  placeholder="Васильевич"
-                  minlength="2"
-                  maxlength="40"
-                  pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-                  data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
-                  required>
-          <span class="form__error input__surname-error"></span>
-        </label>
-         <label class="form__field">
-          <span class="form__label">E-mail:</span>
-          <input  type="email"
-                  id="input__e-mail"
-                  class="form__type-input"
-                  placeholder="menyaet.professiyu@ivan.com"
-                  required>
-          <span class="form__error input__e-mail-error"></span>
-        </label>
-        </label>
-        <label class="form__field">
-          <span class="form__label">Возраст:</span>
-          <input  type="number"
-                  id="input__age"
-                  class="form__type-input"
-                  placeholder="40"
-                  min="18"
-                  max="100"
-                  required>
-          <span class="form__error input__age-error"></span>
-        </label>
-        <label class="form__checkbox-label">
-          <input  type="checkbox" id="input__checkbox" class="form__type-input form__type-checkbox" checked required>
-          <span class="form__type-checkbox-title">Я согласен быть царём</span>
-          <span class="form__error input__checkbox-error"></span>
-        </label>
-        <button type="submit" class="button">Отправить</button>
-      </form>
+    <body>
+    <form class="form" name="form" novalidate>
+      <label class="form__field">
+        <span class="form__label">Имя:</span>
+        <input
+          type="text"
+          id="input__name"
+          class="form__type-input"
+          placeholder="Иван"
+          minlength="2"
+          maxlength="40"
+          pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+          data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+          required
+        />
+        <span class="form__error input__name-error"></span>
+      </label>
+      <label class="form__field">
+        <span class="form__label">Фамилия:</span>
+        <input
+          type="text"
+          id="input__surname"
+          class="form__type-input"
+          placeholder="Васильевич"
+          minlength="2"
+          maxlength="40"
+          pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+          data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+          required
+        />
+        <span class="form__error input__surname-error"></span>
+      </label>
+      <label class="form__field">
+        <span class="form__label">E-mail:</span>
+        <input
+          type="email"
+          id="input__e-mail"
+          class="form__type-input"
+          placeholder="menyaet.professiyu@ivan.com"
+          required
+        />
+        <span class="form__error input__e-mail-error"></span>
+      </label>
+      <label class="form__field">
+        <span class="form__label">Возраст:</span>
+        <input
+          type="number"
+          id="input__age"
+          class="form__type-input"
+          placeholder="40"
+          min="18"
+          max="100"
+          required
+        />
+        <span class="form__error input__age-error"></span>
+      </label>
+      <label class="form__checkbox-label">
+        <input
+          type="checkbox"
+          id="input__checkbox"
+          class="form__type-input form__type-checkbox"
+          checked
+          required
+        />
+        <span class="form__type-checkbox-title">Я согласен быть царём</span>
+        <span class="form__error input__checkbox-error"></span>
+      </label>
+      <button type="submit" class="button">Отправить</button>
+    </form>
   </body>
   <script>
-    const form = document.querySelector('.form');
-    const inputList = Array.from(document.querySelectorAll('.form__type-input'));
-    const buttonElement = form.querySelector('.button')
+    const form = document.querySelector(".form");
+    const inputList = Array.from(document.querySelectorAll(".form__type-input"));
+    const buttonElement = form.querySelector(".button");
 
     startValidation();
 
     function startValidation() {
-      toggleButton()
-      form.addEventListener('submit', (event) => {
+      toggleButton();
+      form.addEventListener("submit", (event) => {
         event.preventDefault();
-      })
+      });
       inputList.forEach((inputElement) => {
-          console.dir(inputElement)
+        console.dir(inputElement);
 
-        inputElement.addEventListener('input', () => {
+        inputElement.addEventListener("input", () => {
           checkInputValidity(inputElement);
           toggleButton();
-        })
-      })
+        });
+      });
     }
 
     function checkInputValidity(inputElement) {
@@ -306,25 +319,25 @@
       });
     }
 
-    function toggleErrorSpan(inputElement, errorMessage){
+    function toggleErrorSpan(inputElement, errorMessage) {
       const errorElement = document.querySelector(`.${inputElement.id}-error`);
       if (errorMessage) {
-        inputElement.classList.add('form__type-input-error')
+        inputElement.classList.add("form__type-input-error");
         errorElement.textContent = errorMessage;
-        errorElement.classList.add('form__error-active')
+        errorElement.classList.add("form__error-active");
       } else {
-        inputElement.classList.remove('form__type-input-error')
-        errorElement.textContent = '';
-        errorElement.classList.remove('form__error-active')
+        inputElement.classList.remove("form__type-input-error");
+        errorElement.textContent = "";
+        errorElement.classList.remove("form__error-active");
       }
     }
 
     function toggleButton() {
       if (hasInvalidInput()) {
-        buttonElement.classList.add('button-inactive');
+        buttonElement.classList.add("button-inactive");
         buttonElement.setAttribute("disabled", "");
       } else {
-        buttonElement.classList.remove('button-inactive');
+        buttonElement.classList.remove("button-inactive");
         buttonElement.removeAttribute("disabled");
       }
     }
