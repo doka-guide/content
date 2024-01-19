@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/div
-  - html/input
-  - css/attr
-  - js/execution-order
-  - tools/bundlers
-  - a11y/aria-intro
-  - tools/static-types
-  - css/position
-  - js/closures
-  - html/article
-  - css/transform-function
-  - js/var-let
-  - js/infinite-scroll
-  - a11y/aria-hidden
-  - recipes/snow
-  - css/keyframes
-  - css/grid-guide
-  - html/section
-  - css/specificity
-  - tools/how-the-browser-creates-pages
-  - html/head
-  - tools/ci-cd
-  - tools/gitlab-ci-cd
-  - tools/docker
-  - recipes/progress
-  - html/img
-  - tools/webpack
-  - tools/clean-architecture
-  - tools/agile
-  - html/flow
-  - html/nav
-  - tools/oop
-  - tools/how-to-test-and-why
-  - css/pseudoelements
-  - tools/markdown
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - css/custom-properties
-  - css/display
-  - css/media
-  - recipes/lets-encrypt-nginx
-  - tools/cli
+  - html/video
   - a11y/screenreaders
-  - css/box-model
+  - css/position
   - js/function-context
+  - html/article
+  - js/execution-order
+  - a11y/aria-hidden
+  - tools/gitlab-ci-cd
+  - html/img
+  - css/box-model
+  - js/boolean
+  - recipes/lets-encrypt-nginx
+  - tools/static-types
+  - html/div
+  - tools/webpack
+  - css/specificity
+  - html/form
+  - recipes/snow
+  - js/async-in-js
+  - css/pseudoelements
+  - html/doctype
+  - html/head
+  - css/attr
+  - tools/how-to-test-and-why
+  - tools/bundlers
   - css/box-shadow
   - tools/network
-  - html/form
-  - html/doctype
-  - js/async-in-js
-  - js/boolean
+  - recipes/progress
+  - html/input
+  - js/closures
+  - html/nav
   - js/function
-  - html/video
+  - js/infinite-scroll
+  - tools/agile
+  - css/keyframes
+  - js/var-let
+  - tools/oop
+  - css/transform-function
+  - css/custom-properties
+  - css/media
+  - tools/ci-cd
+  - html/flow
+  - css/grid-guide
+  - tools/clean-architecture
+  - a11y/aria-intro
+  - css/flexbox-guide
+  - css/display
+  - html/section
+  - js/deal-with-forms
+  - tools/markdown
+  - tools/cli
+  - tools/docker
+  - tools/how-the-browser-creates-pages
 ---
 
