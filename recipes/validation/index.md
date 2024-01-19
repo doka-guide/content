@@ -156,7 +156,7 @@ CSS-классы, которые будут использоваться при 
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src=/demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src="/demos/final-form/index.html" height="450"></iframe>
 
 ## Разбор решения
 
@@ -325,5 +325,5 @@ function startValidation() {
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src=/demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src="/demos/final-form/index.html" height="450"></iframe>
 
