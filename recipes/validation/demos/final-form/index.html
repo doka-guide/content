@@ -303,7 +303,7 @@
       if (inputElement.validity.patternMismatch) {
         inputElement.setCustomValidity(inputElement.dataset.errorMessage);
       } else {
-        inputElement.setCustomValidity("");
+        inputElement.setCustomValidity(checkLengthMismatch(inputElement));
       }
 
       if (!inputElement.validity.valid) {
@@ -311,6 +311,17 @@
       } else {
         toggleErrorSpan(inputElement);
       }
+    }
+
+    function checkLengthMismatch(inputElement) {
+      if (inputElement.type !== 'text') {
+        return ""
+      }
+      const valueLength = inputElement.value.trim().length;
+      if (valueLength < inputElement.minLength) {
+        return `Минимальное количество символов: ${inputElement.minLength}`
+      }
+      return ""
     }
 
     function hasInvalidInput() {

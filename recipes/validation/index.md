@@ -111,6 +111,30 @@ function checkInputValidity(inputElement) {
     toggleErrorSpan(inputElement);
   }
 
+function checkInputValidity(inputElement) {
+  if (inputElement.validity.patternMismatch) {
+    inputElement.setCustomValidity(inputElement.dataset.errorMessage);
+  } else {
+    inputElement.setCustomValidity(checkLengthMismatch(inputElement));
+  }
+  if (!inputElement.validity.valid) {
+    toggleErrorSpan(inputElement, inputElement.validationMessage);
+  } else {
+    toggleErrorSpan(inputElement);
+  }
+}
+
+function checkLengthMismatch(inputElement) {
+  if (inputElement.type !== 'text') {
+    return ""
+  }
+  const valueLength = inputElement.value.trim().length;
+  if (valueLength < inputElement.minLength) {
+    return `Минимальное количество символов: ${inputElement.minLength}`
+  }
+  return ""
+}
+
 function hasInvalidInput() {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
@@ -157,11 +181,11 @@ CSS-классы, которые будут использоваться при 
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="600"></iframe>
 
 ## Разбор решения
 
-Сначала сообщаем браузеру, что он не должен валидировать форму стандартным способом, добавляя атрибут `novalidate` к тегу «[`<form>`](/html/form/)».
+Сначала сообщаем браузеру, что он не должен валидировать форму стандартным способом, добавляя атрибут [`novalidate`](/html/novalidate/) к тегу [`<form>`](/html/form/).
 
 ```html
   <form class="form__field" novalidate>
@@ -171,13 +195,19 @@ CSS-классы, которые будут использоваться при 
 
 ### Разметка
 
-Давайте взглянем на пример разметки элемента формы, чтобы лучше понять, как осуществляется валидация. Начнём с добавления атрибутов: `type`, `placeholder` и `required`. Атрибут `type` определяет ожидаемый тип данных, `placeholder` предоставляет подсказку пользователю о том, какие данные нужно ввести, а `required` указывает на обязательность заполнения поля. Эти атрибуты являются ключевыми для корректной валидации.
+Давайте взглянем на пример разметки элемента формы, чтобы лучше понять, как осуществляется валидация.
 
-Идентификатор поля ввода и класс span-элемента позволяют найти span-элемент в [`DOM`](/js/dom/), добавляя к идентификатору `-error` по такой схеме: `document.querySelector(${input.id}-error)`.
+Начнём с добавления атрибутов:
+
+1. `type` - определяет ожидаемый тип данных в поле;
+1. [`placeholder`](/html/placeholder/) - предоставляет подсказку пользователю о том, какие данные нужно ввести;
+1. [`required`](/html/required/) - указывает на обязательность заполнения поля.
+
+Далее связываем поле ввода и span-элемент с ошибкой с помощью идентификаторов и классов css. Задаём идентификатор input-элементу и присваиваем span-элементу класс, добавляя '-error'. Это позволит найти span-элемент в [`DOM`](/js/dom/) по такой схеме: `document.querySelector(${input.id}-error)`.
 
 Переходим к установке параметров валидации. Тут мы используем как стандартные атрибуты - `maxlength/minlength`, так и нестандартные атрибуты типа `pattern` с регулярными выражениями. Последний позволяет настроить более точные и специфические правила для полей ввода.
 
-Касательно атрибута `pattern`: хотя в большинстве случаев стандартных сообщений, предоставляемых системой валидации, достаточно, иногда возникает необходимость в более специфических требованиях к полям ввода. Возьмём, к примеру, ситуацию, когда требуется ввод только букв латиницы и кириллицы, дефисов и пробелов. Такой набор символов не предусмотрен стандартной валидацией, что делает необходимым использование `кастомной валидации`. Для этого мы используем регулярное выражение и записываем кастомное сообщение об ошибке в специально созданный `data-атрибут` - 'data-error-message'. Подробнее о data-атрибутах можно прочитать здесь: [`.dataset`](/js/element-dataset/).
+Касательно атрибута `pattern`: хотя в большинстве случаев стандартных сообщений, предоставляемых системой валидации, достаточно, иногда возникает необходимость в более специфических требованиях к полям ввода. Возьмём, к примеру, ситуацию, когда требуется ввод только букв латиницы и кириллицы, дефисов и пробелов. Такой набор символов не предусмотрен стандартной валидацией, что делает необходимым использование `кастомной валидации`. Для этого мы используем регулярное выражение и записываем кастомное сообщение об ошибке в специально созданный `data-атрибут` - 'data-error-message'. Подробнее о data-атрибутах можно прочитать тут: [`.dataset`](/js/element-dataset/).
 
 ```html
 <label class="form__field">
@@ -206,9 +236,9 @@ const inputList = Array.from(document.querySelectorAll('.form__type-input'));
 const buttonElement = form.querySelector('.button')
 ```
 
-Функция `startValidation` инициирует процесс валидации. Она назначает обработчик событий для всей формы на событие `submit`, где используется `event.preventDefault()` для предотвращения стандартного поведения формы при отправке. Для дополнительной информации см. [Работа с формами](/js/deal-with-forms/). 
+Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие `submit`, где используется `event.preventDefault()` для предотвращения стандартного поведения формы при отправке. Для дополнительной информации см. [Работа с формами](/js/deal-with-forms/).
 
-Далее, на каждый элемент формы назначаются обработчики события `input`. Эти обработчики активируют функции `checkInputValidity` и `toggleButton` при любых изменениях в полях ввода.
+Далее, на каждый элемент формы назначаются обработчики события `input`. Они активируют функции `checkInputValidity()` и `toggleButton()` при любых изменениях в полях ввода. Их мы напишем далее.
 
 ```js
 function startValidation() {
@@ -225,9 +255,9 @@ function startValidation() {
 }
 ```
 
-Функция `checkInputValidity` использует объект `validityState` для проверки каждого поля ввода. Если поле не валидно, показывается сообщение об ошибке.
+Функция `checkInputValidity()` использует JS объект `ValidityState` для проверки каждого поля ввода. Если поле не валидно, показывается сообщение об ошибке.
 
-Объект validityState можно увидеть, если обратиться к ключу validity элемента input (input.validity)и выглядит вот так:
+Объект validityState можно увидеть, если обратиться к ключу validity элемента input (input.validity) и выглядит вот так:
 
 ```js
 {
@@ -247,20 +277,18 @@ function startValidation() {
 
 Чтобы поле ввода считалось валидным, его свойство `input.validity.valid` должно быть равно true. Это свойство становится true, когда все остальные свойства в объекте validity равны false. Подробнее о validity и значении каждого ключа в этом объекте можно узнать здесь: [MDN web docs - ValidityState](https://developer.mozilla.org/ru/docs/Web/API/ValidityState).
 
-В этой функции мы как раз пользуемся объектом validityState и его ключами `patternMismatch` для кастомных ошибок и `valid` для стандартной проверки.
+В функции `checkInputValidity()` мы как раз пользуемся объектом validityState и его ключами `patternMismatch` для кастомных ошибок и `valid` для стандартной проверки.
 
-Сначала проверяется, задан ли для поля ввода определённый паттерн. Если задан и не совпадает с введёнными данными, то с помощью функции [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) передаётся кастомное сообщение об ошибке, хранящееся в атрибуте data-error-message. В случае соответствия введённых данных паттерну, кастомное сообщение об ошибке очищается.
+Сначала проверяется, задан ли для поля ввода определённому паттерну и установленной минимальной длине. Если задан и не совпадает с введёнными данными, то с помощью функции [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) передаётся кастомное сообщение об ошибке, хранящееся в атрибуте data-error-message. В случае соответствия введённых данных паттерну, с помощью функции `checkLengthMismatch()` также проверяется длина введённых данных, очищенная от пробелов. Если сообщение больше установленного количества символов и не пустое, то сообщение об ошибке не передаётся, в ином случае - пользователь получает сообщение с минимально необходимым количеством символов.
 
-Затем проводится стандартная проверка: если input.validity.valid равно false, выводится сообщение об ошибке; если true, ошибка убирается.
-
-Функция `toggleButton` работает просто: если есть невалидные поля, то блокирует кнопку и наоборот. Узнать валидны ли все поля помогает функция `hasInvalidInput`. Она исследует весь массив с полями ввода и возвращает true или false в зависимости от того, есть невалидные поля или нет.
+Затем проводится стандартная проверка: если свойство `input.validity.valid` равно false, выводится сообщение об ошибке, а если true - ошибка убирается.
 
 ```js
 function checkInputValidity(inputElement) {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
   } else {
-    inputElement.setCustomValidity("");
+    inputElement.setCustomValidity(checkLengthMismatch(inputElement));
   }
   if (!inputElement.validity.valid) {
     toggleErrorSpan(inputElement, inputElement.validationMessage);
@@ -269,6 +297,21 @@ function checkInputValidity(inputElement) {
   }
 }
 
+function checkLengthMismatch(inputElement) {
+  if (inputElement.type !== 'text') {
+    return ""
+  }
+  const valueLength = inputElement.value.trim().length;
+  if (valueLength < inputElement.minLength) {
+    return `Минимальное количество символов: ${inputElement.minLength}`
+  }
+  return ""
+}
+```
+
+Функция `toggleButton()` работает просто: если есть невалидные поля, то блокирует кнопку и наоборот. Функция `hasInvalidInput()` исследует весь массив с полями ввода и возвращает true или false в зависимости от того, есть невалидные поля или нет.
+
+```js
 function toggleButton() {
   if (hasInvalidInput()) {
     buttonElement.classList.add('button-inactive');
@@ -286,7 +329,7 @@ function toggleButton() {
 }
 ```
 
-Осталось самое лёгкое - сделать активными span-элементы с ошибками. Если поле ввода оказалось невалидным, то скрипт показывает заранее подготовленный элемент с сообщением об ошибке. Если поле становится валидным, то сообщение исчезает. Именно в этой функции нам пригодился трюк, где мы создавали класс ошибки по следующему шаблону: `id элемента + '-error'`
+Осталось самое лёгкое - сделать активными span-элементы с ошибками. Если поле ввода оказалось невалидным, то скрипт показывает заранее подготовленный элемент с сообщением об ошибке. Если поле становится валидным, то сообщение исчезает. Именно в этой функции нам пригодился трюк, где мы создавали класс ошибки по следующему шаблону: `id input-элемента + '-error'`
 
 ```js
 function toggleErrorSpan(inputElement, errorMessage){
@@ -306,11 +349,11 @@ function toggleErrorSpan(inputElement, errorMessage){
 
 Наш код готов! Не забудьте:
 
-1. Вызвать функцию валидации;
 1. Добавить в самое начало функции startValidation() функцию `toggleButton()`, чтобы ещё до ввода символов кнопка была заблокирована.
+1. Вызвать функцию `startValidation()`;
 
 ```js
-    // Вызываем функцию
+// Вызываем функцию
 startValidation()
 
 function startValidation() {
@@ -329,5 +372,5 @@ function startValidation() {
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="450"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="600"></iframe>
 
