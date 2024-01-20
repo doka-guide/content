@@ -103,18 +103,6 @@ function checkInputValidity(inputElement) {
   if (inputElement.validity.patternMismatch) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage);
   } else {
-    inputElement.setCustomValidity("");
-
-  if (!inputElement.validity.valid) {
-    toggleErrorSpan(inputElement, inputElement.validationMessage);
-  } else {
-    toggleErrorSpan(inputElement);
-  }
-
-function checkInputValidity(inputElement) {
-  if (inputElement.validity.patternMismatch) {
-    inputElement.setCustomValidity(inputElement.dataset.errorMessage);
-  } else {
     inputElement.setCustomValidity(checkLengthMismatch(inputElement));
   }
   if (!inputElement.validity.valid) {
