@@ -83,6 +83,9 @@ groups:
       - array-foreach
       - array-map
       - array-reduce
+      - array-reduce-right
+      - array-fill
+      - array-keys
       - array-values
       - array-entries
       - array-filter
@@ -103,6 +106,8 @@ groups:
       - array-length
       - array-from
       - array-of
+      - array-join
+      - array-to-string
       - array-isarray
   - name: "Объекты"
     items:
