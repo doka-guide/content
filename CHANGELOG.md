@@ -4,9 +4,9 @@
 
 ## Январь 2024
 
-- 22 января, [`.fill()`](https://doka.guide/js/array-fill/), Viktar Nezhbart.
-- 22 января, [`.keys()`](https://doka.guide/js/array-keys/), Viktar Nezhbart.
-- 22 января, [`.join()`](https://doka.guide/js/array-join/), Viktar Nezhbart.
+- 22 января, [`.fill()`](https://doka.guide/js/array-fill/), Viktar Nezhbart
+- 22 января, [`.keys()`](https://doka.guide/js/array-keys/), Viktar Nezhbart
+- 22 января, [`.join()`](https://doka.guide/js/array-join/), Viktar Nezhbart
 - 22 января, [`.toString()`](https://doka.guide/js/array-to-string/), Viktar Nezhbart
 - 22 января, [`.reduceRight()`](https://doka.guide/js/array-reduce-right/), Алексей Фомин
 - 12 января, [`.with()`](https://doka.guide/js/array-with/), Viktar Nezhbart
