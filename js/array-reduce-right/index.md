@@ -1,12 +1,12 @@
-﻿---
+---
 title: "`.reduceRight()`"
 description: "Приводит массив к одному значению."
-keywords:
-  - редьюсер
-  - свёртка
+authors:
+  - alexafcode
 related:
   - js/arrays
   - js/function-as-datatype
+  - js/values
 tags:
   - doka
 ---
