@@ -47,7 +47,7 @@ tags:
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
             required>
-     <span class="form__error input__surname-error"></span>
+    <span class="form__error input__surname-error"></span>
   </label>
   <label class="form__field">
     <span class="form__label">E-mail:</span>
@@ -56,7 +56,7 @@ tags:
               class="form__type-input"
               placeholder="menyaet.prefessiy@ivan.com"
               required>
-      <span class="form__error input__e-mail-error"></span>
+    <span class="form__error input__e-mail-error"></span>
   </label>
   <label class="form__field">
     <span class="form__label">Возраст:</span>
@@ -72,7 +72,7 @@ tags:
   <label class="form__checkbox-label">
     <input  type="checkbox" id="input__checkbox" class="form__type-input form__type-checkbox" checked required>
     <span class="form__type-checkbox-title">Я согласен быть царём</span>
-     <span class="form__error input__checkbox-error"></span>
+    <span class="form__error input__checkbox-error"></span>
   </label>
   <button type="submit" class="button">Отправить</button>
 </form>
@@ -157,6 +157,7 @@ CSS-классы, которые будут использоваться при 
 /* Для изменения цвета обводки элемента формы при валидации */
 .form__type-input-error {
   border: 1px solid #FF8630;
+  background-color: rgba(255, 134, 48, 0.1);
 }
 
 /* Для отображения span-элемента с ошибкой */
@@ -312,7 +313,7 @@ function toggleButton() {
   }
 }
 
- function hasInvalidInput() {
+function hasInvalidInput() {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
