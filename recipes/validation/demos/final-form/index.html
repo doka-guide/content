@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" >
     <style>
           /* общие стили */
         *,
@@ -21,28 +21,15 @@
           color-scheme: dark;
         }
 
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        ul[class],
-        ol[class],
-        li,
-        figure,
-        figcaption,
-        blockquote,
-        dl,
-        dd {
-          margin: 0;
+        html, body {
+          height: 100%;
         }
 
         body {
-          min-height: 100vh;
-          padding: 50px;
           display: grid;
           justify-content: center;
+          align-items: center;
+          padding: 50px;
           background-color: #18191C;
           color: #FFFFFF;
           font-family: "Roboto", sans-serif;
@@ -57,18 +44,23 @@
           gap: 20px;
         }
 
+        .form__label {
+          font-weight: 500;
+          font-size: 24px;
+        }
+
         .form__field {
           display: grid;
           grid-template-columns: 200px 300px;
+          grid-template-rows: auto calc(14px * 2.2);
           align-items: center;
-          position: relative;
-          margin-block-end: 25px;
         }
 
         .form__type-input {
           width: 100%;
           border: 1px solid #FFFFFF;
           border-radius: 6px;
+          margin-block-end: 5px;
           padding: 10px 15px;
           background-color: transparent;
           color: #FFFFFF;
@@ -80,26 +72,28 @@
         }
 
         .form__type-input:focus {
-          outline: 1px solid #C56FFF;
-          border: 1px solid #C56FFF;
+          border-color: #C56FFF;
+          outline: none;
         }
 
         .form__type-input-error {
           border: 1px solid #FF8630;
+          background-color: rgba(255, 134, 48, 0.1);
         }
 
         .form__error {
-          color: #FF8630;
-          inline-size: calc(300px - 20px);
           display: none;
-          position: absolute;
-          font-size: 10px;
-          inset-inline-start: 210px;
-          inset-block-start: 50px;
+          grid-column: 2/3;
+          align-self: self-start;
+          grid-row-end: span 2;
+          color: #FF8630;
+          inline-size: 300px;
+          font-size: 14px;
+          line-height: 1.1;
         }
 
         .form__checkbox-label .form__error {
-          inset-block-start: 35px;
+          grid-column: 1/3;
         }
 
         .form__error-active {
@@ -108,24 +102,27 @@
 
         .form__checkbox-label {
           position: relative;
-          display: flex;
-          align-items: center;
+          display: grid;
+          grid-template-columns: 24px auto;
+          grid-template-rows: 1fr 1fr;
+          gap: 0 15px;
+          width: 300px;
+          margin-inline-start: auto;
           cursor: pointer;
-          margin-block-end: 50px;
         }
 
         .form__type-checkbox {
           width: 24px;
           height: 24px;
           opacity: 0;
-          margin-right: 215px;
+          padding: 0;
         }
 
         .form__type-checkbox + .form__type-checkbox-title::before {
           content: '';
           position: absolute;
-          left: 200px;
-          top: calc(50% - 12px);
+          left: 0;
+          top: 0;
           width: 24px;
           height: 24px;
           border: 1px solid #FFFFFF;
@@ -139,8 +136,8 @@
         .form__type-checkbox:checked + .form__type-checkbox-title::after {
           content: '';
           position: absolute;
-          left: 205px;
-          top: calc(50% - 7px);
+          left: 5px;
+          top: 5px;
           width: 14px;
           height: 14px;
           border-radius: 3px;
@@ -148,16 +145,17 @@
         }
 
         .button {
-          padding: 10px 15px;
-          cursor: pointer;
-          font-weight: 300;
-          inline-size: 100%;
+          inline-size: 300px;
           border: 2px solid transparent;
+          margin-inline-start: auto;
+          padding: 10px 15px;
           background-color: #C56FFF;
           border-radius: 6px;
           color: #000000;
           font-size: 18px;
+          font-weight: 300;
           font-family: inherit;
+          cursor: pointer;
           transition: background-color 0.2s linear;
         }
 
@@ -187,22 +185,16 @@
           }
 
           .form__field {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            gap: 10px;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto calc(14px * 2.2);
           }
 
-          .form__type-checkbox {
-            margin-right: 100px;
+          .form__label {
+            margin-block-end: 10px;
           }
 
-          .form__type-checkbox + .form__type-checkbox-title::before {
-            left: 85px;
-          }
-
-          .form__type-checkbox:checked + .form__type-checkbox-title::after {
-            left: 90px;
+          .form__error {
+            grid-column: 1;
           }
        }
     </style>
