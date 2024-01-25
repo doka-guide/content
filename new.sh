@@ -25,9 +25,13 @@ if [[ $AUTHOR == "" ]]; then
     read -r -p "$(echo "Введите ник на GitHub: ")" AUTHOR
   else
     read -r -p "$(echo "Введите ник на GitHub (нажмите Enter, и будет использован $LOGIN): ")" AUTHOR
+  fi
 
-    if [[ $AUTHOR == "" ]]; then
-      AUTHOR=$LOGIN
+  if [[ $AUTHOR != "" ]]; then
+    read -r -p "Сохранить ник '$AUTHOR' для последующих публикаций (y/n)?: " -n 1
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]] then
+        echo "AUTHOR=\"$AUTHOR\"" >> .env
     fi
   fi
 fi
