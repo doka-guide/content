@@ -41,11 +41,11 @@ const promises = [
 Promise.allSettled(promises)
   .then(([response1, response2, response3]) => {
     console.log(response1)
-    // { status: 'fulfilled', value: 3 }
+    // { status: 'fulfilled', value: 1 }
     console.log(response2)
     // { status: 'rejected', reason: 'error' }
     console.log(response3)
-    // { status: 'fulfilled', value: 1 }
+    // { status: 'fulfilled', value: 3 }
 })
 ```
 
