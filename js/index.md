@@ -88,10 +88,13 @@ groups:
       - array-keys
       - array-values
       - array-entries
+      - array-tosorted
       - array-filter
       - array-at
       - array-find
+      - array-find-last
       - array-find-index
+      - array-find-last-index
       - array-flat
       - array-flatmap
       - array-every
@@ -108,6 +111,7 @@ groups:
       - array-of
       - array-join
       - array-to-string
+      - array-to-locale-string
       - array-isarray
   - name: "Объекты"
     items:
