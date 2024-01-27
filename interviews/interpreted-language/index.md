@@ -1,7 +1,7 @@
 ---
 related:
   - js/language-versions
-  - tools/programming-paradigms
+  - tools/trivial-memory-model
 ---
 
 Является ли JavaScript интерпретируемым языком?

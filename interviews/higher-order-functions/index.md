@@ -1,7 +1,7 @@
 ---
 related:
   - js/function
-  - js/function-as-datatype
+  - tools/fp
 ---
 
 Что такое функции высшего порядка (Higher Order Functions)?
