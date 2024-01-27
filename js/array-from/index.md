@@ -75,7 +75,7 @@ const arrLinks = Array.from(linkElements, function(a) { return a.href })
 
 <aside>
 
-☝️ При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если объект, на основе которого создаётся массив, содержит вложенные структуры данных внутри итерируемых элементов, то эти вложенные структуры будут [скопированны по ссылке](/js/ref-type-vs-value-type/#ssylochnye-tipy-dannyh). При их последующем изменении в объекте, изменения будут видны в полученном массиве и наоборот.
+☝️ При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если исходный объект содержит итерируемые элементы являющиеся объектами, то эти объекты будут [скопированны по ссылке](/js/ref-type-vs-value-type/#ssylochnye-tipy-dannyh). При их последующем изменении в исходном объекте, изменения будут видны в полученном массиве и наоборот.
 
 Например:
 ```js
@@ -91,16 +91,18 @@ const bookObj2 = {
   filmYears: [1915, 1920, 1931, 1969]
 }
 
-const bookSet = new Set() // создадим Set и добавим в него книги
+// создадим Set и добавим в него книги
+const bookSet = new Set()
 bookSet.add(bookObj1)
 bookSet.add(bookObj2)
 
-const bookArray = Array.from(bookSet) // получим массив из Set
+// создадим массив из Set
+const bookArray = Array.from(bookSet)
 
 // добавим экранизацию 'Войны и мира' в исходный объект
 bookObj1.filmYears.push(1965)
 
-// это изменение отразится и на массиве
+// изменение отразится и на массиве
 console.log(bookArray[0])
 // const bookObj1 = {
 //  name: 'Война и мир',
@@ -108,6 +110,4 @@ console.log(bookArray[0])
 //  filmYears: [1913, 1915, 1956, 1965]
 // }
 ```
-
-
 </aside>
