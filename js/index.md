@@ -106,6 +106,7 @@ groups:
       - array-push
       - array-unshift
       - array-with
+      - array-copy-within
       - array-length
       - array-from
       - array-of
