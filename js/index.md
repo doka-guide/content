@@ -109,6 +109,7 @@ groups:
       - array-length
       - array-from
       - array-of
+      - array-concat
       - array-join
       - array-to-string
       - array-to-locale-string
