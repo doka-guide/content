@@ -4,6 +4,12 @@
 
 ## Январь 2024
 
+- 28 января, [`.copyWithin()`](https://doka.guide/js/array-copy-within/), Viktar Nezhbart
+- 28 января, [`.concat()`](https://doka.guide/js/array-concat/), Viktar Nezhbart
+- 27 января, [`.toSorted()`](https://doka.guide/js/array-tosorted/), Viktar Nezhbart
+- 27 января, [`.findLast()`](https://doka.guide/js/array-find-last/), Viktar Nezhbart
+- 27 января, [`.findLastIndex()`](https://doka.guide/js/array-find-last-index/), Viktar Nezhbart
+- 27 января, [`.toLocaleString()`](https://doka.guide/js/array-to-locale-string/), Viktar Nezhbart
 - 22 января, [`.fill()`](https://doka.guide/js/array-fill/), Viktar Nezhbart
 - 22 января, [`.keys()`](https://doka.guide/js/array-keys/), Viktar Nezhbart
 - 22 января, [`.join()`](https://doka.guide/js/array-join/), Viktar Nezhbart
