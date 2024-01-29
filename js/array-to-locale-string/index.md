@@ -4,9 +4,9 @@ description: "Возвращает строковое представление
 authors:
   - vitya-ne
 related:
-  js/number-wrapper
-  js/date
-  js/array-to-string
+  - js/number-wrapper
+  - js/date
+  - js/array-to-string
 tags:
   - doka
 ---
