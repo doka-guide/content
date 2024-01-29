@@ -2,7 +2,6 @@
 title: "`for`...`of`"
 description: "Обходим перечисляемые свойства итерируемого объекта."
 authors:
-  - doka-dog
   - vitya-ne
 related:
   - js/object
@@ -10,7 +9,6 @@ related:
   - js/iterator
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
