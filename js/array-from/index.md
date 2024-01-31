@@ -5,6 +5,8 @@ authors:
   - nlopin
 editors:
   - tachisis
+contributors:
+  - vitya-ne
 related:
   - js/arrays
   - js/set
