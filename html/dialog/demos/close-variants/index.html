@@ -149,8 +149,8 @@
   Открыть модальное окно
 </button>
 
-<dialog open="open" id="closeMe" class="dialog">
-  <h2 class="dialog__title">Закрой меня! 🙏</h2>
+<dialog open="open" id="closeMe" class="dialog" aria-labelledby="dialog-name">
+  <h2 class="dialog__title" id="dialog-name">Закрой меня! 🙏</h2>
   <p>Результат этих кнопок одинаковый.</p>
   <button class="dialog__button button-orange" type="button" onclick="window['closeMe'].close()">
     Закрыть с помощью JavaScript
