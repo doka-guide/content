@@ -1,4 +1,4 @@
-﻿---
+---
 related:
   - js/typecasting
 ---
