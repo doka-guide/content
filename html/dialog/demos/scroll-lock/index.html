@@ -155,8 +155,8 @@
       Открыть модальное окно
     </button>
   </main>
-  <dialog class="dialog" id="modal-example" onclose="returnScroll()">
-    <h2 class="dialog__title">Я модальное окно</h2>
+  <dialog class="dialog" id="modal-example" onclose="returnScroll()" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
     <p>Теперь я не только перекрываю остальной контент, но блокирую скролл.</p>
     <form method="dialog">
       <button class="dialog__button button-orange">Агась 🙌</button>

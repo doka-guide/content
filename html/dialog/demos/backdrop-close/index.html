@@ -139,9 +139,9 @@
     Открыть модальное окно
   </button>
 
-  <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)">
+  <dialog class="dialog" id="modal-example" onclick="closeOnBackDropClick(event)" aria-labelledby="dialog-name">
     <form class="dialog__wrapper" method="dialog">
-      <h2 class="dialog__title">Я модальное окно</h2>
+      <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
       <p>Но меня можно закрыть как по кнопке снизу, так и по нажатию по подложке.</p>
       <button class="dialog__button button-orange">Ясно ☀️</button>
     </form>

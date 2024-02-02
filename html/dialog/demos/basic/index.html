@@ -142,8 +142,8 @@
     Открыть модальное окно
   </button>
 
-  <dialog class="dialog" id="some-modal-id">
-    <h2 class="dialog__title">Я модальное окно</h2>
+  <dialog class="dialog" id="some-modal-id" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
     <p>Весь остальной контент на странице недоступен, когда я открыто.</p>
     <form method="dialog">
       <button class="dialog__button button-orange">
@@ -152,8 +152,8 @@
     </form>
   </dialog>
 
-  <dialog class="dialog" id="some-dialog-id" open="open">
-    <h2 class="dialog__title">Я окно-диалог</h2>
+  <dialog class="dialog" id="some-dialog-id" open="open" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Я окно-диалог</h2>
     <p>Несмотря на то, что я поверх кнопок, они по-прежнему доступны.</p>
     <button class="dialog__button button-orange" type="button" onclick="window['some-dialog-id'].close()">
       Окей 👌

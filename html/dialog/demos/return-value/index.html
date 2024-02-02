@@ -147,8 +147,8 @@
   <button class="button button-orange" onclick="window.debugger.showModal()" type="button">
     Дебажить
   </button>
-  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)">
-    <h2 class="dialog__title">Прихлопнуть жука?</h2>
+  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Прихлопнуть жука?</h2>
     <form class="dialog__options" method="dialog">
       <button class="dialog__button button-orange" value="debug">
         Дави его!
