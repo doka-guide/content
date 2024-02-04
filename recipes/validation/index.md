@@ -248,7 +248,7 @@ function startValidation() {
 
 Функция `checkInputValidity()` использует JS-объект `ValidityState` для проверки каждого поля ввода. Если поле не валидно, показывается сообщение об ошибке.
 
-Объект validityState можно увидеть, если обратиться к ключу validity элемента input (input.validity). Он выглядит вот так:
+Объект `validityState` можно увидеть, если обратиться к ключу `validity` элемента `input` (`input.validity`). Он выглядит вот так:
 
 ```js
 {
