@@ -341,7 +341,7 @@ function toggleErrorSpan(inputElement, errorMessage){
 Наш код готов! Не забудьте:
 
 1. Добавить в самое начало функции startValidation() функцию `toggleButton()`, чтобы ещё до ввода символов кнопка была заблокирована.
-1. Вызвать функцию `startValidation()`;
+1. Вызвать функцию `startValidation()`.
 
 ```js
 // Вызываем функцию
