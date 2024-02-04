@@ -168,7 +168,7 @@ CSS-стили, которые будут использоваться при в
 /* Для блокировки кнопки submit */
 .button-inactive {
   cursor: default;
-  background-color: rgb(211, 211, 211, 0.2);
+  background-color: rgb(211 211 211 / 0.2);
 }
 ```
 
