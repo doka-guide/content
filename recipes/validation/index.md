@@ -266,7 +266,7 @@ function startValidation() {
 }
 ```
 
-Чтобы поле ввода считалось валидным, его свойство `input.validity.valid` должно быть равно true. Это свойство становится true, когда все остальные свойства в объекте validity равны false. Подробнее о validity и значении каждого ключа в этом объекте можно узнать здесь: [MDN Web Docs — ValidityState](https://developer.mozilla.org/ru/docs/Web/API/ValidityState).
+Чтобы поле ввода считалось валидным, его свойство `input.validity.valid` должно быть равно `true`. Это свойство становится `true`, когда все остальные свойства в объекте `validity` равны `false`. Подробнее о `validity` и значении каждого ключа в этом объекте можно узнать здесь: [MDN Web Docs — ValidityState](https://developer.mozilla.org/ru/docs/Web/API/ValidityState).
 
 В функции `checkInputValidity()` мы как раз пользуемся объектом validityState и его ключами `patternMismatch` для кастомных ошибок и `valid` для стандартной проверки.
 
