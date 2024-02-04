@@ -29,8 +29,6 @@ tags:
             id="input__name"
             class="form__type-input"
             placeholder="Иван"
-            minlength="2"
-            maxlength="40"
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
             required>
@@ -42,15 +40,13 @@ tags:
             id="input__surname"
             class="form__type-input"
             placeholder="Васильевич"
-            minlength="2"
-            maxlength="40"
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы."
             required>
     <span class="form__error input__surname-error"></span>
   </label>
   <label class="form__field">
-    <span class="form__label">E-mail:</span>
+    <span class="form__label">Почта:</span>
       <input  type="email"
               id="input__e-mail"
               class="form__type-input"
@@ -114,13 +110,13 @@ function checkInputValidity(inputElement) {
 
 function checkLengthMismatch(inputElement) {
   if (inputElement.type !== 'text') {
-    return ""
+    return ''
   }
   const valueLength = inputElement.value.trim().length;
   if (valueLength < inputElement.minLength) {
     return `Минимальное количество символов: ${inputElement.minLength}`
   }
-  return ""
+  return ''
 }
 
 function hasInvalidInput() {
@@ -143,10 +139,10 @@ function toggleErrorSpan(inputElement, errorMessage){
 function toggleButton() {
   if (hasInvalidInput()) {
     buttonElement.classList.add('button-inactive');
-    buttonElement.setAttribute("disabled", "");
+    buttonElement.setAttribute('disabled', '');
   } else {
     buttonElement.classList.remove('button-inactive');
-    buttonElement.removeAttribute("disabled");
+    buttonElement.removeAttribute('disabled');
   }
 }
 ```
@@ -196,7 +192,7 @@ CSS-классы, которые будут использоваться при 
 
 Далее связываем поле ввода и span-элемент с ошибкой с помощью идентификаторов и классов CSS. Задаём идентификатор input-элементу и присваиваем span-элементу класс, добавляя '-error'. Это позволит найти span-элемент в [`DOM`](/js/dom/) по такой схеме: `document.querySelector(${input.id}-error)`.
 
-Переходим к установке параметров валидации. Тут мы используем как стандартные атрибуты — `maxlength/minlength`, так и нестандартные атрибуты типа `pattern` с регулярными выражениями. Последний позволяет настроить более точные и специфические правила для полей ввода.
+Переходим к установке параметров валидации. Тут можно использовать как стандартные атрибуты — `maxlength/minlength`, так и нестандартные атрибуты типа `pattern` с регулярными выражениями. Последний позволяет настроить более точные и специфические правила для полей ввода.
 
 Касательно атрибута `pattern`: хотя в большинстве случаев стандартных сообщений, предоставляемых системой валидации, достаточно, иногда возникает необходимость в более специфических требованиях к полям ввода. Возьмём, к примеру, ситуацию, когда требуется ввод только букв латиницы и кириллицы, дефисов и пробелов. Такой набор символов не предусмотрен стандартной валидацией, что делает необходимым использование `кастомной валидации`. Для этого мы используем регулярное выражение и записываем кастомное сообщение об ошибке в специально созданный `data-атрибут` — 'data-error-message'. Подробнее о data-атрибутах можно прочитать тут: [`.dataset`](/js/element-dataset/).
 
@@ -207,12 +203,9 @@ CSS-классы, которые будут использоваться при 
             id="input__name"
             class="form__type-input"
             placeholder="Иван"
-            minlength="2"
-            maxlength="40"
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
             required>
-  <!-- Span-элемент с ошибкой делаем абсолютно позиционированным -->
   <span class="form__error input__name-error"></span>
 </label>
 ```
@@ -290,13 +283,13 @@ function checkInputValidity(inputElement) {
 
 function checkLengthMismatch(inputElement) {
   if (inputElement.type !== 'text') {
-    return ""
+    return ''
   }
   const valueLength = inputElement.value.trim().length;
   if (valueLength < inputElement.minLength) {
     return `Минимальное количество символов: ${inputElement.minLength}`
   }
-  return ""
+  return ''
 }
 ```
 
@@ -306,10 +299,10 @@ function checkLengthMismatch(inputElement) {
 function toggleButton() {
   if (hasInvalidInput()) {
     buttonElement.classList.add('button-inactive');
-    buttonElement.setAttribute("disabled", "");
+    buttonElement.setAttribute('disabled', '');
   } else {
     buttonElement.classList.remove('button-inactive');
-    buttonElement.removeAttribute("disabled");
+    buttonElement.removeAttribute('disabled');
   }
 }
 

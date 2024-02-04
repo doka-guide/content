@@ -170,7 +170,7 @@
         }
 
         .button-inactive {
-          cursor: default;
+          cursor: not-allowed;
           background-color: rgb(211, 211, 211, 0.2);
         }
 
@@ -208,8 +208,6 @@
           id="input__name"
           class="form__type-input"
           placeholder="Иван"
-          minlength="2"
-          maxlength="40"
           pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
           data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
           required
@@ -223,8 +221,6 @@
           id="input__surname"
           class="form__type-input"
           placeholder="Васильевич"
-          minlength="2"
-          maxlength="40"
           pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
           data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
           required
@@ -232,7 +228,7 @@
         <span class="form__error input__surname-error"></span>
       </label>
       <label class="form__field">
-        <span class="form__label">E-mail:</span>
+        <span class="form__label">Почта:</span>
         <input
           type="email"
           id="input__e-mail"
