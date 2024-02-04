@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - js/deal-with-forms
-  - tools/gitlab-ci-cd
-  - tools/network
-  - tools/oop
-  - css/position
-  - html/nav
-  - css/display
-  - js/execution-order
-  - html/doctype
-  - a11y/aria-hidden
-  - tools/ci-cd
-  - tools/webpack
-  - html/img
-  - tools/how-to-test-and-why
-  - tools/static-types
-  - html/div
-  - tools/bundlers
-  - html/form
-  - tools/agile
-  - css/media
-  - a11y/screenreaders
-  - css/flexbox-guide
-  - css/specificity
-  - js/var-let
   - tools/docker
-  - css/pseudoelements
-  - js/boolean
-  - tools/how-the-browser-creates-pages
+  - html/flow
+  - js/var-let
+  - html/video
   - js/async-in-js
-  - js/infinite-scroll
-  - tools/clean-architecture
-  - html/article
+  - tools/gitlab-ci-cd
+  - js/boolean
+  - html/form
+  - css/transform-function
   - css/grid-guide
+  - html/doctype
+  - css/pseudoelements
+  - js/function-context
+  - html/nav
+  - css/position
+  - tools/webpack
+  - tools/cli
+  - tools/how-the-browser-creates-pages
+  - css/media
+  - tools/agile
+  - tools/network
+  - a11y/screenreaders
+  - html/section
+  - css/attr
+  - css/box-model
+  - css/box-shadow
+  - recipes/lets-encrypt-nginx
+  - html/div
+  - tools/clean-architecture
+  - tools/ci-cd
+  - css/flexbox-guide
   - a11y/aria-intro
-  - recipes/snow
-  - html/head
+  - tools/bundlers
   - js/closures
   - css/custom-properties
-  - html/section
+  - tools/static-types
+  - a11y/aria-hidden
   - js/function
-  - recipes/lets-encrypt-nginx
-  - css/attr
-  - css/transform-function
-  - recipes/progress
-  - tools/cli
-  - html/input
-  - tools/markdown
-  - css/box-shadow
-  - js/function-context
-  - html/flow
-  - css/box-model
-  - html/video
+  - html/head
   - css/keyframes
+  - html/img
+  - tools/oop
+  - html/article
+  - recipes/snow
+  - tools/how-to-test-and-why
+  - js/infinite-scroll
+  - js/deal-with-forms
+  - recipes/progress
+  - html/input
+  - js/execution-order
+  - tools/markdown
+  - css/specificity
+  - css/display
 ---
 

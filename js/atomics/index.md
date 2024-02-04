@@ -4,8 +4,8 @@ description: "Специальный объект для хранения фун
 authors:
   - doka-dog
 related:
-  - js/shared-array-buffer
-  - js/array-buffer
+  - js/weak-ref
+  - js/array-isarray
   - js/arrays
 tags:
   - doka
@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-Объект, который хранит атомарные операции и функции, которые отправляют примитивные события. Используется вместе с другим объектом [`SharedArrayBuffer`](/js/shared-array-buffer/).
+Объект, который хранит атомарные операции и функции, которые отправляют примитивные события. Используется вместе с другим объектом `SharedArrayBuffer`.
 
 ## Пример
 

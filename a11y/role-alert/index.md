@@ -5,6 +5,7 @@ authors:
   - aleksanderlamkov
 contributors:
   - tatianafokina
+  - skorobaeus
 keywords:
   - a11y
   - live region

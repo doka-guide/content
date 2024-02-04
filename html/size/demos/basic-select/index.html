@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,44 +14,81 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 100px 50px;
+      background-color: #18191C;
+      font-size: 16px;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
     }
 
     .select-label {
-      display: block;
-      font-size: 20px;
-      font-weight: 400;
-      margin-right: 20px;
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .select {
       width: 300px;
-      border: 1px solid;
-      padding: 3px 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: 300;
       font-family: inherit;
-      font-size: inherit;
-      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
     }
 
     .select:focus {
+      border-color: #ff8630;
       outline: none;
-      border: 1px solid #ff8630;
     }
 
     option {
       font-weight: 300;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .select-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .select, .container {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <label class="select-label" for="city-select">Ваш город</label>
+  <div class="container">
+  <label class="select-label" for="city-select">Ваш город:</label>
     <select class="select" id="city-select" size="3">
       <option value="kaliningrad">Калининград</option>
       <option value="petrozavodsk">Петрозаводск</option>
@@ -60,5 +97,6 @@
       <option value="samara">Самара</option>
       <option value="perm">Пермь</option>
     </select>
+  </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - starhamster
+  - makarovaiuliia
 editors:
   - tachisis
 related:
