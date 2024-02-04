@@ -227,7 +227,7 @@ const inputList = Array.from(document.querySelectorAll('.form__type-input'));
 const buttonElement = form.querySelector('.button')
 ```
 
-Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие `submit`, где используется `event.preventDefault()` для предотвращения стандартного поведения формы при отправке. Для дополнительной информации см. [Работа с формами](/js/deal-with-forms/).
+Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие [`submit`](/js/event-submit/), где используется [`event.preventDefault()`](/js/event-prevent-default/) для предотвращения стандартного поведения формы при отправке. Для дополнительной информации см. «[Работа с формами](/js/deal-with-forms/)».
 
 Далее, на каждый элемент формы назначаются обработчики события `input`. Они активируют функции `checkInputValidity()` и `toggleButton()` при любых изменениях в полях ввода. Их мы напишем далее.
 
