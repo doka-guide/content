@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - html/section
-  - html/doctype
-  - css/position
   - tools/docker
-  - tools/how-the-browser-creates-pages
-  - html/img
-  - html/head
+  - html/flow
+  - js/var-let
+  - html/video
+  - js/async-in-js
+  - tools/gitlab-ci-cd
   - js/boolean
-  - css/box-shadow
-  - tools/how-to-test-and-why
-  - html/article
   - html/form
   - css/transform-function
-  - css/media
-  - css/display
-  - a11y/aria-hidden
-  - css/box-model
-  - css/pseudoelements
-  - html/input
-  - recipes/snow
-  - tools/webpack
-  - js/execution-order
   - css/grid-guide
-  - css/custom-properties
-  - tools/bundlers
-  - js/async-in-js
-  - css/specificity
-  - a11y/aria-intro
-  - a11y/screenreaders
-  - tools/clean-architecture
-  - tools/gitlab-ci-cd
-  - recipes/progress
-  - html/div
-  - js/deal-with-forms
-  - js/infinite-scroll
-  - tools/static-types
-  - tools/markdown
-  - css/flexbox-guide
-  - tools/cli
-  - js/var-let
-  - html/nav
+  - html/doctype
+  - css/pseudoelements
   - js/function-context
-  - js/function
-  - js/closures
-  - html/flow
-  - css/keyframes
-  - tools/oop
+  - html/nav
+  - css/position
+  - tools/webpack
+  - tools/cli
+  - tools/how-the-browser-creates-pages
+  - css/media
   - tools/agile
-  - html/video
-  - recipes/lets-encrypt-nginx
   - tools/network
-  - tools/ci-cd
+  - a11y/screenreaders
+  - html/section
   - css/attr
+  - css/box-model
+  - css/box-shadow
+  - recipes/lets-encrypt-nginx
+  - html/div
+  - tools/clean-architecture
+  - tools/ci-cd
+  - css/flexbox-guide
+  - a11y/aria-intro
+  - tools/bundlers
+  - js/closures
+  - css/custom-properties
+  - tools/static-types
+  - a11y/aria-hidden
+  - js/function
+  - html/head
+  - css/keyframes
+  - html/img
+  - tools/oop
+  - html/article
+  - recipes/snow
+  - tools/how-to-test-and-why
+  - js/infinite-scroll
+  - js/deal-with-forms
+  - recipes/progress
+  - html/input
+  - js/execution-order
+  - tools/markdown
+  - css/specificity
+  - css/display
 ---
 

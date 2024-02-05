@@ -1,6 +1,6 @@
-﻿---
+---
 related:
-  - js/typeof
+  - js/typecasting
 ---
 
 Значение какого типа возвращает оператор `typeof` и почему?
