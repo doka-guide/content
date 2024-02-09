@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - tools/docker
-  - html/flow
-  - js/var-let
-  - html/video
-  - js/async-in-js
-  - tools/gitlab-ci-cd
-  - js/boolean
-  - html/form
-  - css/transform-function
-  - css/grid-guide
-  - html/doctype
-  - css/pseudoelements
-  - js/function-context
-  - html/nav
-  - css/position
-  - tools/webpack
-  - tools/cli
-  - tools/how-the-browser-creates-pages
-  - css/media
-  - tools/agile
-  - tools/network
-  - a11y/screenreaders
-  - html/section
-  - css/attr
   - css/box-model
-  - css/box-shadow
-  - recipes/lets-encrypt-nginx
-  - html/div
-  - tools/clean-architecture
-  - tools/ci-cd
-  - css/flexbox-guide
+  - tools/docker
   - a11y/aria-intro
-  - tools/bundlers
-  - js/closures
-  - css/custom-properties
-  - tools/static-types
-  - a11y/aria-hidden
-  - js/function
-  - html/head
-  - css/keyframes
-  - html/img
   - tools/oop
-  - html/article
+  - js/closures
+  - html/input
+  - tools/bundlers
+  - tools/network
+  - tools/clean-architecture
+  - tools/agile
+  - tools/cli
+  - html/img
   - recipes/snow
-  - tools/how-to-test-and-why
+  - css/keyframes
+  - js/execution-order
+  - html/video
+  - html/div
+  - css/grid-guide
+  - css/media
+  - tools/ci-cd
+  - css/custom-properties
+  - recipes/lets-encrypt-nginx
+  - tools/static-types
   - js/infinite-scroll
   - js/deal-with-forms
-  - recipes/progress
-  - html/input
-  - js/execution-order
-  - tools/markdown
+  - css/attr
+  - js/async-in-js
+  - html/form
+  - css/position
+  - js/function-context
+  - a11y/screenreaders
+  - js/var-let
+  - html/article
+  - a11y/aria-hidden
+  - js/function
   - css/specificity
+  - css/box-shadow
   - css/display
+  - html/nav
+  - css/flexbox-guide
+  - tools/gitlab-ci-cd
+  - html/flow
+  - html/doctype
+  - css/pseudoelements
+  - recipes/progress
+  - tools/webpack
+  - html/head
+  - html/section
+  - tools/how-the-browser-creates-pages
+  - js/boolean
+  - tools/markdown
+  - tools/how-to-test-and-why
+  - css/transform-function
 ---
 
