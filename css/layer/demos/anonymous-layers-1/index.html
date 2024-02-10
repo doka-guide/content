@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Вычисление стилей с !important — @layer — Дока</title>
+  <title>Анонимный слой с чёрным текстом — @layer — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,22 +31,18 @@
     .container {
       width: 65%;
       padding: 55px 40px;
-      background-color: #323232;
+      background-color: #2E9AFF;
     }
 
-    @layer typography {
-      .text--pink {
-        color: #F498AD !important;
+    @layer {
+      p {
+        color: #FFFFFF;
       }
     }
 
-    p {
-      color: #000000 !important;
-    }
-
-    @layer typography {
+    @layer base {
       p {
-        color: #FFFFFF !important;
+        color: #000000;
       }
     }
 
@@ -64,7 +60,7 @@
 </head>
 <body>
   <div class="container">
-    <p class="text--pink">Мутуализм, комменсализм, паразитизм.</p>
+    <p>Трансцендентность бытия.</p>
   </div>
 </body>
 </html>

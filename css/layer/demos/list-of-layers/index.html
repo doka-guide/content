@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Вычисление стилей с !important — @layer — Дока</title>
+  <title>Перечисление слоёв — @layer — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
+    @layer layer-1, layer-2;
+
     *, *::before, *::after {
       margin: 0;
       box-sizing: border-box;
@@ -31,22 +33,18 @@
     .container {
       width: 65%;
       padding: 55px 40px;
-      background-color: #323232;
+      background-color: #2E9AFF;
     }
 
-    @layer typography {
-      .text--pink {
-        color: #F498AD !important;
+    @layer layer-1 {
+      p {
+        color: #FFFFFF;
       }
     }
 
-    p {
-      color: #000000 !important;
-    }
-
-    @layer typography {
+    @layer layer-2 {
       p {
-        color: #FFFFFF !important;
+        color: #000000;
       }
     }
 
@@ -64,7 +62,7 @@
 </head>
 <body>
   <div class="container">
-    <p class="text--pink">Мутуализм, комменсализм, паразитизм.</p>
+    <p>Универсальная теорема аппроксимации.</p>
   </div>
 </body>
 </html>
