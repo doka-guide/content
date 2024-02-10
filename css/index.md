@@ -89,6 +89,7 @@ groups:
       - keyframes
       - media
       - supports
+      - layer
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
