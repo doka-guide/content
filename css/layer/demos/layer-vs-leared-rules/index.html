@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Вычисление стилей с !important — @layer — Дока</title>
+  <title>Вычисление стилей внутри @layer — @layer — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,22 +31,20 @@
     .container {
       width: 65%;
       padding: 55px 40px;
-      background-color: #323232;
-    }
-
-    @layer typography {
-      .text--pink {
-        color: #F498AD !important;
-      }
-    }
-
-    p {
-      color: #000000 !important;
+      background-color: #2E9AFF;
     }
 
     @layer typography {
       p {
-        color: #FFFFFF !important;
+        color: #000000;
+      }
+
+      @layer content;
+    }
+
+    @layer typography.content {
+      p {
+        color: #FFFFFF;
       }
     }
 
@@ -64,7 +62,7 @@
 </head>
 <body>
   <div class="container">
-    <p class="text--pink">Мутуализм, комменсализм, паразитизм.</p>
+    <p class="text--pink">Неограниченный семиозис симулякров.</p>
   </div>
 </body>
 </html>
