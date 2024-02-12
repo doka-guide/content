@@ -8,56 +8,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      grid-auto-flow: column;
+      color-scheme: dark;
     }
 
     body {
-      background-color: #18191c;
-      color: white;
-      font-family: "Roboto Mono", monospace;
-    }
-
-    iframe {
-      width: 100%;
-      height: 250px;
-      margin-bottom: 1em;
-      border: none;
-      border-radius: 1em;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 14px;
     }
 
     input {
       display: block;
       width: 300px;
-      margin: auto;
-      margin-bottom: 12px;
+      margin-bottom: 30px;
+      accent-color:	#2E9AFF;
     }
 
-    .text-wrapper {
+    p {
       column-count: 4;
       column-width: 200px;
-      margin: 0 auto;
-      border: 1px dashed white;
+      padding: 55px 40px;
+      flex-grow: 1;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      p {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      input {
+        width: 100%;
+      }
+
+      p {
+        column-width: 120px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      input {
+        width: 100%;
+      }
+
+      p {
+        column-width: 100px;
+      }
     }
   </style>
 </head>
 <body>
-  <input type="range" min="20" max="100" value="100">
-  <div class="text-wrapper">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-  </div>
+  <input type="range" min="60" max="100" value="100">
+  <p>Ведь сколько же раз я говорил вам, что основная ваша ошибка заключается в том, что вы недооцениваете значения человеческих глаз. Поймите, что язык может скрыть истину, а глаза – никогда! Вам задают внезапный вопрос, вы даже не вздрагиваете, в одну секунду овладеваете собой и знаете, что нужно сказать, чтобы укрыть истину, и весьма убедительно говорите, и ни одна складка на вашем лице не шевельнется, но, увы, встревоженная вопросом истина со дна души на мгновение прыгает в глаза, и все кончено. Она замечена, а вы пойманы!</p>
   <script>
     const range = document.querySelector('input')
-    const wrapper = document.querySelector('.text-wrapper')
+    const text = document.querySelector('p')
 
     range.addEventListener('input', () => {
-      wrapper.style.width = range.value + '%'
+      text.style.width = range.value + '%'
     })
   </script>
 </body>
