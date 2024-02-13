@@ -6,7 +6,7 @@ authors:
 contributors:
   - vitya-ne
 related:
-  - html/article
+  - js/query-selector/
   - js/element-addeventlistener
   - js/dom
 tags:
