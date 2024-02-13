@@ -113,12 +113,12 @@ tags:
     </div>
   </div>
   <div class="main">
-    <h1 class="heading">Курсы компании «Гарцующий пони»</h1>
+    <span class="heading">Курсы компании «Гарцующий пони»</span>
     <div class="wrapper">
       <div class="card">
         <div class="card__header">
-          <h2 class="card__heading">SEO для начинающих</h2>
-          <p class="card__author">Иван Иванович</p>
+          <span class="card__heading">SEO для начинающих</span>
+          <span class="card__author">Иван Иванович</span>
         </div>
         <div class="card__content">
           <img
@@ -127,22 +127,22 @@ tags:
             class="card__img"
             decoding="async"
           >
-          <p class="card__description">
+          <span class="card__description">
             Благодаря этому курсу вы научитесь задавливать конкурентов
             с помощью ссылочной массы, а не качественного контента.
-          </p>
+          </span>
         </div>
         <div class="card__footer">
-          <p>23 октября 2023</p>
+          <span>23 октября 2023</span>
         </div>
       </div>
 
       <div class="card">
         <div class="card__header">
-          <h2 class="card__heading">
+          <span class="card__heading">
             Разработка на WordPress
-          </h2>
-          <p class="card__author">Иван Иванович</p>
+          </span>
+          <span class="card__author">Иван Иванович</span>
         </div>
         <div class="card__content">
           <img
@@ -151,19 +151,19 @@ tags:
             class="card__img"
             decoding="async"
           >
-          <p class="card__description">
+          <span class="card__description">
             WordPress — топ за свои деньги. Изучите его, чтобы стать
             востребованным фрилансером.
-          </p>
+          </span>
         </div>
         <div class="card__footer">
-          <p>23 октября 2023</p>
+          <span>23 октября 2023</span>
         </div>
       </div>
 
       <div class="card">
         <div class="card__header">
-          <h2 class="card__heading">JavaScript для чайников</h2>
+          <span class="card__heading">JavaScript для чайников</span>
           <p class="card__author">Иван Иванович</p>
         </div>
         <div class="card__content">
@@ -173,21 +173,21 @@ tags:
             class="card__img"
             decoding="async"
           >
-          <p class="card__description">
+          <span class="card__description">
             Курс подойдёт для любых чайников: электрических, газовых
             и даже для кастрюлек, временно подменяющих сломанный чайник.
-          </p>
+          </span>
         </div>
         <div class="card__footer">
-          <p>23 октября 2023</p>
+          <span>23 октября 2023</span>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <p class="copyright">
+    <span class="copyright">
       2023. Разработано компанией <a href="#">«Гарцующий пони»</a>
-    </p>
+    </span>
   </div>
 </div>
 ```
