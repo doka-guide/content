@@ -16,14 +16,17 @@ tags:
 
 ## Кратко
 
-Метод `Element.closest()` возвращает сам элемент или ближайший родительский элемент соответствующий указанному CSS-селектору. Если ни один элемент не соответствует указанному CSS-селектору возвращается `null`.
+Метод `Element.closest()` ищет и возвращает ближайший (начиная с самого элемента) родительский элемент соответствующий указанному [CSS-селектору](/css/combined-selectors/).
+Если ни один элемент не соответствует указанному CSS-селектору возвращается `null`.
 
 ## Пример
 
+Для элемента `<div id="25" class="common">` найдём ближайшие родительские элементы соответствующие селекторам: `'.container'` и `'div.common'`:
+
 ```html
-<article class="container">
+<article class="container common">
   <header class="container-header container">
-    <div class="element">
+    <div id="25" class="common">
       <span class="title">Заголовок</span>
     </div>
   </header>
@@ -31,13 +34,25 @@ tags:
 ```
 
 ```javascript
-const element = document.querySelector('element')
-const closestElement = element.closest('.container')
+const element = document.querySelector('#25')
+const closestElement1 = element.closest('.container')
+const closestElement2 = element.closest('div.common')
 
-console.log(closestElement)
-// Вернёт тег <header>
+console.log(closestElement1)
+// <header class="container-header container">
+console.log(closestElement1)
+// <div id="25" class="common">
 ```
 
 ## Как пишется
 
-Чтобы найти ближайший элемент, укажите нужный [CSS-селектор](/css/#selektory). Например значение `id` или название тега.
+`Element.closest()` принимает в качестве аргумента строку с искомым CSS-селектором.
+
+Если строка не является валидным CSS-селектором, произойдет ошибка 'SyntaxError' DOMException.
+
+`Element.closest()` возвращает [Element](/js/element/) соответствующий указанному CSS-селектору или `null` если искомый элемент не был найден.
+
+## Как понять
+
+Метод `Element.closest()` позволяет искать в [DOM](/js/dom/) ближайший подходящий элемент среди родительских начиная от элемента для которого метод был вызван.
+
