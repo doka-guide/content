@@ -1,5 +1,5 @@
 ---
-title: "`.toReversed()`"
+title: ".toReversed()"
 description: "Возвращает массив с измененным порядком элементов.
 authors:
   - vitya-ne
