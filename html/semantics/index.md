@@ -286,9 +286,9 @@ tags:
         <time
           class="card__date"
           datetime="2023-10-23"
-         >
-           23 октября 2023
-         </time>
+        >
+          23 октября 2023
+        </time>
       </footer>
     </article>
   </div>
