@@ -1,6 +1,6 @@
 ---
 title: "`.toReversed()`"
-description: "Возвращает массив с измененным порядком элементов.
+description: "Возвращает массив с измененным порядком элементов."
 authors:
   - vitya-ne
 related:
