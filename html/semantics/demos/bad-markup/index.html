@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример плохой вёрстки — Дока</title>
+  <title>Плохая вёрстка — Что такое семантика и почему нельзя всё верстать на div'ах? — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,18 +14,49 @@
       box-sizing: border-box;
     }
 
-    body {
-      min-height: 100vh;
-      padding: 25px 50px 100px;
-      background-color: #18191c;
-      color: #ffffff;
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
-      font-weight: 300;
+    html {
+      color-scheme: dark;
+      font-size: 16px;
     }
 
-    a {
-      color: #2E9AFF;
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-weight: 300;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .nav__item,
+    .copyright__link {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .nav__item:hover,
+    .nav__item:focus,
+    .copyright__link:hover,
+    .copyright__link:focus {
+      background-color: #FF8630;
+      color: #000000;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .card__author,
+    .card__description,
+    .copyright {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .container {
@@ -36,28 +67,21 @@
     .nav {
       display: flex;
       gap: 24px;
-      padding: 12px 0;
-    }
-
-    .nav__item {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    .nav__item:hover {
-      color: #2E9AFF;
+      padding: 22px 0;
     }
 
     .heading {
-      font-size: 32px;
-      margin: 12px 0;
+      display: inline-block;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
     }
 
     .wrapper {
       margin-top: 28px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 20px;
     }
 
     .card {
@@ -68,7 +92,7 @@
       padding: 24px 20px 16px;
       border-radius: 16px;
       background-color: #252525;
-      box-shadow: -1px 15px 30px -12px #000;
+      box-shadow: -1px 15px 30px -12px #000000;
       cursor: pointer;
     }
 
@@ -78,31 +102,54 @@
     }
 
     .card__header {
+      display: inline-block;
       margin-bottom: 12px;
     }
 
     .card__author {
+      display: block;
       text-align: right;
     }
 
     .card__footer {
-      margin-top: 20px;
-      text-align: right;
+      margin-top: auto;
+      display: flex;
+      justify-content: end;
     }
 
     .card__img {
+      width: 100%;
       border-radius: 8px;
       margin-bottom: 12px;
     }
 
     .card__heading {
-      font-size: 26px;
-      margin-bottom: 12px;
+      display: inline-block;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
     }
 
     .footer {
       margin-top: 48px;
       text-align: center;
+    }
+
+    @media (max-width: 1186px) {
+      .wrapper {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .card {
+        width: auto;
+        height: fit-content;
+      }
     }
   </style>
 </head>
@@ -122,93 +169,93 @@
       </div>
     </div>
     <div class="main">
-      <h1 class="heading">Курсы компании «Гарцующий пони»</h1>
+      <span class="heading">Курсы компании «Гарцующий пони»</span>
 
       <div class="wrapper">
         <div class="card">
           <div class="card__header">
-            <h2 class="card__heading">
+            <span class="card__heading">
               SEO для начинающих
-            </h2>
-            <p class="card__author">
+            </span>
+            <span class="card__author">
               Иван Иванович
-            </p>
+            </span>
           </div>
 
           <div class="card__content">
             <img
               src="./images/seo-course.png"
-              alt="на жёлтом фоне изображён текст «SEO»"
+              alt=""
               class="card__img"
               decoding="async"
             >
-            <p class="card__description">
+            <span class="card__description">
               Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.
-            </p>
+            </span>
           </div>
 
           <div class="card__footer">
-            <p>23 октября 2023</p>
+            <span>23 октября 2023</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card__header">
-            <h2 class="card__heading">
+            <span class="card__heading">
               Разработка на WordPress
-            </h2>
-            <p class="card__author">
+            </span>
+            <span class="card__author">
               Иван Иванович
-            </p>
+            </span>
           </div>
 
           <div class="card__content">
             <img
               src="./images/wordpress-course.png"
-              alt="на жёлтом фоне изображён текст «WordPress»"
+              alt=""
               class="card__img"
               decoding="async"
             >
-            <p class="card__description">
+            <span class="card__description">
               WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.
-            </p>
+            </span>
           </div>
 
           <div class="card__footer">
-            <p>23 октября 2023</p>
+            <span>23 октября 2023</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card__header">
-            <h2 class="card__heading">
+            <span class="card__heading">
               JavaScript для чайников
-            </h2>
-            <p class="card__author">
+            </span>
+            <span class="card__author">
               Иван Иванович
-            </p>
+            </span>
           </div>
 
           <div class="card__content">
             <img
               src="./images/javascript-course.png"
-              alt="на жёлтом фоне изображён текст «JavaScript»"
+              alt=""
               class="card__img"
               decoding="async"
             >
-            <p class="card__description">
+            <span class="card__description">
               Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.
-            </p>
+            </span>
           </div>
 
           <div class="card__footer">
-            <p>23 октября 2023</p>
+            <span>23 октября 2023</span>
           </div>
         </div>
       </div>
     </div>
     <div class="footer">
-      <p class="copyright">2023. Разработано компанией  <a href="#">«Гарцующий пони»</a></p>
+      <span class="copyright">2023. Разработано компанией <a class="copyright__link" href="#">«Гарцующий пони»</a></span>
     </div>
   </div>
 </body>
