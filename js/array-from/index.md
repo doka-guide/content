@@ -5,6 +5,8 @@ authors:
   - nlopin
 editors:
   - tachisis
+contributors:
+  - vitya-ne
 related:
   - js/arrays
   - js/set
@@ -75,6 +77,39 @@ const arrLinks = Array.from(linkElements, function(a) { return a.href })
 
 <aside>
 
-☝️ При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если объект, на основе которого создаётся массив, содержит вложенные структуры данных, то эти вложенные структуры скопированы не будут. При их изменении в объекте изменения будут видны и в полученном массиве.
+☝️ При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если исходный объект содержит итерируемые элементы являющиеся объектами, то эти объекты будут [скопированны по ссылке](/js/ref-type-vs-value-type/#ssylochnye-tipy-dannyh). При их последующем изменении в исходном объекте, изменения будут видны в полученном массиве и наоборот.
 
+Например:
+```js
+// создадим объекты книг
+const bookObj1 = {
+  name: 'Война и мир',
+  author: 'Л. Н. Толстой',
+  filmYears: [1913, 1915, 1956]
+}
+const bookObj2 = {
+  name: 'Братья Карамазовы',
+  author: 'Ф. М. Достоевский',
+  filmYears: [1915, 1920, 1931, 1969]
+}
+
+// создадим Set и добавим в него книги
+const bookSet = new Set()
+bookSet.add(bookObj1)
+bookSet.add(bookObj2)
+
+// создадим массив из Set
+const bookArray = Array.from(bookSet)
+
+// добавим экранизацию 'Войны и мира' в исходный объект
+bookObj1.filmYears.push(1965)
+
+// изменение отразится и на массиве
+console.log(bookArray[0])
+// const bookObj1 = {
+//  name: 'Война и мир',
+//  author: 'Л. Н. Толстой',
+//  filmYears: [1913, 1915, 1956, 1965]
+// }
+```
 </aside>
