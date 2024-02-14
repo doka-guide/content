@@ -7,8 +7,8 @@ contributors:
   - solarrust
   - skorobaeus
 keywords:
-  - размер шрифта
-  - размер текста
+  - величина шрифта
+  - крупность шрифта
 related:
   - css/numeric-types
   - css/rem-em
