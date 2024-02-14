@@ -60,7 +60,6 @@
     }
 
     .container {
-      width: 1200px;
       margin: 0 auto;
     }
 
@@ -79,6 +78,7 @@
     .wrapper {
       margin-top: 28px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 20px;
     }
@@ -89,9 +89,7 @@
       width: 310px;
       height: 420px;
       padding: 24px 20px 16px;
-      border-radius: 16px;
       background-color: #252525;
-      box-shadow: -1px 15px 30px -12px #000;
       cursor: pointer;
     }
 
@@ -116,7 +114,6 @@
 
     .card__img {
       width: 100%;
-      border-radius: 8px;
       margin-bottom: 12px;
     }
 
@@ -129,12 +126,6 @@
     .footer {
       margin-top: 48px;
       text-align: center;
-    }
-
-    @media (max-width: 1186px) {
-      .wrapper {
-        flex-direction: column;
-      }
     }
 
     @media (max-width: 768px) {
