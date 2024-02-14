@@ -42,8 +42,8 @@ tags:
   </p>
 
   <footer>
-    <time datetime="2023-10-23">
-      23 октября 2023
+    <time datetime="2023-02-13">
+      13 февраля 2023
     </time>
   </footer>
 </article>
@@ -135,16 +135,16 @@ tags:
           </span>
         </div>
         <div class="card__footer">
-          <span>23 октября 2023</span>
+          <span>13 февраля 2023</span>
         </div>
       </div>
 
       <div class="card">
         <div class="card__header">
           <span class="card__heading">
-            Разработка на WordPress
+            WordPress разработка
           </span>
-          <span class="card__author">Иван Иванович</span>
+          <span class="card__author">Ольга Ольгина</span>
         </div>
         <div class="card__content">
           <img
@@ -166,7 +166,7 @@ tags:
       <div class="card">
         <div class="card__header">
           <span class="card__heading">JavaScript для чайников</span>
-          <p class="card__author">Иван Иванович</p>
+          <p class="card__author">М. Михайловских</p>
         </div>
         <div class="card__content">
           <img
@@ -181,7 +181,7 @@ tags:
           </span>
         </div>
         <div class="card__footer">
-          <span>23 октября 2023</span>
+          <span>30 ноября 2023</span>
         </div>
       </div>
     </div>
@@ -234,17 +234,17 @@ tags:
       <footer class="card__footer">
         <time
           class="card__date"
-          datetime="2023-10-23"
+          datetime="2023-02-13"
         >
-          23 октября 2023
+          13 февраля 2023
         </time>
       </footer>
     </article>
 
     <article class="card">
       <header class="card__header">
-        <h2 class="card__heading">Разработка на WordPress</h2>
-        <p class="card__author">Иван Иванович</p>
+        <h2 class="card__heading">WordPress разработка</h2>
+        <p class="card__author">Ольга Ольгина</p>
       </header>
       <div class="card__content">
         <img
@@ -271,7 +271,7 @@ tags:
     <article class="card">
       <header class="card__header">
         <h2 class="card__heading">JavaScript для чайников</h2>
-        <p class="card__author">Иван Иванович</p>
+        <p class="card__author">М. Михайловских</p>
       </header>
       <div class="card__content">
         <img
@@ -288,9 +288,9 @@ tags:
       <footer class="card__footer">
         <time
           class="card__date"
-          datetime="2023-10-23"
+          datetime="2023-11-30"
         >
-          23 октября 2023
+          30 ноября 2023
         </time>
       </footer>
     </article>
