@@ -3,6 +3,8 @@ title: "`@layer`"
 description: "Управляем каскадными слоями своими руками."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - ＠-правило
   - поддержка свойств
