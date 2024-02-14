@@ -144,4 +144,6 @@ tags:
 
 Пункты меню обычно раскрывают попапы или изменяют что-то в интерфейсе. `menuitem` по желаемому поведению и свойствам похожа на другую [роль `button`](/a11y/role-button/), которая по умолчанию есть у одноимённого тега `<button>`.  Некоторые [Accessibility API](/a11y/screenreaders/#accessibility-api) даже вычисляют в случае пунктов строк меню и подменю роль `menubutton`.
 
-`menuitem` — базовый элемент строки меню. Два других — [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/) и [`menuitemradio`](/a11y/role-menuitemradio/). Анатомия всех типов пунктов строки меню и подменю в виде схемы:
+`menuitem` — базовый элемент строки меню. Два других — [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/) и [`menuitemradio`](/a11y/role-menuitemradio/). Обычные пункты меню внешне похожи на кнопки или вкладки, `menuitemcheckbox` — на чекбоксы, а `menuitemradio` — на радиокнопки.
+
+![Схема со всеми типами пунктов строки меню и подменю.](/images/true-menu-items.png)
