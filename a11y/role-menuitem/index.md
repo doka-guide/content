@@ -146,4 +146,4 @@ tags:
 
 `menuitem` — базовый элемент строки меню. Два других — [`menuitemcheckbox`](/a11y/role-menuitemcheckbox/) и [`menuitemradio`](/a11y/role-menuitemradio/). Обычные пункты меню внешне похожи на кнопки или вкладки, `menuitemcheckbox` — на чекбоксы, а `menuitemradio` — на радиокнопки.
 
-![Схема со всеми типами пунктов строки меню и подменю.](/images/true-menu-items.png)
+![Схема со всеми типами пунктов строки меню и подменю.](images/true-menu-items.png)
