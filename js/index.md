@@ -112,6 +112,8 @@ groups:
       - array-of
       - array-concat
       - array-join
+      - array-to-reversed
+      - array-to-spliced
       - array-to-string
       - array-to-locale-string
       - array-isarray
