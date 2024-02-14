@@ -3,6 +3,8 @@ title: "`forced-colors`"
 description: "Значение директивы `@media`, которое отслеживает режим принудительных цветов."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - a11y
