@@ -9,6 +9,7 @@ keywords:
   - стиль шрифта
   - курсив
   - наклонное начертание
+  - италик
 related:
   - css/font-weight
   - css/font-size
