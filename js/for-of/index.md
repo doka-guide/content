@@ -208,7 +208,6 @@ for (const item of iterator) {
 ```js
 function* getLangs() {
   yield 'java';
-  debugger;
   yield 'js';
   yield 'rust';
 }
