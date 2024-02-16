@@ -41,7 +41,7 @@
         .form {
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 10px;
         }
 
         .form__label {
@@ -49,11 +49,18 @@
           font-size: 24px;
         }
 
+        .form__field-container {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto calc(14px * 2.2);
+        }
+
         .form__field {
           display: grid;
-          grid-template-columns: 200px 300px;
-          grid-template-rows: auto calc(14px * 2.2);
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
           align-items: center;
+          gap: 10px
         }
 
         .form__type-input {
@@ -83,7 +90,7 @@
 
         .form__error {
           display: none;
-          grid-column: 2/3;
+          grid-column: 1;
           align-self: self-start;
           grid-row-end: span 2;
           color: #FF8630;
@@ -104,7 +111,6 @@
           position: relative;
           display: grid;
           grid-template-columns: 24px auto;
-          grid-template-rows: 1fr 1fr;
           gap: 0 15px;
           width: 300px;
           margin-inline-start: auto;
@@ -171,7 +177,30 @@
 
         .button-inactive {
           cursor: not-allowed;
-          background-color: rgb(211, 211, 211, 0.2);
+          background-color: rgb(211, 211, 211, 0.6);
+          position: relative;
+        }
+
+        .button-inactive::before {
+          padding: 10px 15px;
+          content: 'Заполните все поля для отправки формы';
+          position: absolute;
+          background-color: #FFFFFF;
+          inline-size: 300px;
+          left: 0;
+          top: 50px;
+          font-size: 16px;
+          border-radius: 6px;
+          transition: 0.2s linear;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+        }
+
+        .button-inactive:hover::before {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
         }
 
         .button-inactive:hover {
@@ -183,85 +212,82 @@
           body {
             padding: 30px;
           }
-
-          .form__field {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto calc(14px * 2.2);
-          }
-
-          .form__label {
-            margin-block-end: 10px;
-          }
-
-          .form__error {
-            grid-column: 1;
-          }
         }
     </style>
   </head>
     <body>
     <form class="form" name="form" novalidate>
-      <label class="form__field">
-        <span class="form__label">Имя:</span>
-        <input
-          type="text"
-          id="input__name"
-          class="form__type-input"
-          placeholder="Иван"
-          pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-          data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
-          required
-        />
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Имя:</span>
+          <input
+            type="text"
+            id="input__name"
+            class="form__type-input"
+            placeholder="Иван"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            required
+          />
+        </label>
         <span class="form__error input__name-error"></span>
-      </label>
-      <label class="form__field">
-        <span class="form__label">Фамилия:</span>
-        <input
-          type="text"
-          id="input__surname"
-          class="form__type-input"
-          placeholder="Васильевич"
-          pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-          data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
-          required
-        />
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Фамилия:</span>
+          <input
+            type="text"
+            id="input__surname"
+            class="form__type-input"
+            placeholder="Васильевич"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            required
+          />
+        </label>
         <span class="form__error input__surname-error"></span>
-      </label>
-      <label class="form__field">
-        <span class="form__label">Почта:</span>
-        <input
-          type="email"
-          id="input__e-mail"
-          class="form__type-input"
-          placeholder="menyaet.professiyu@ivan.com"
-          required
-        />
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Почта:</span>
+          <input
+            type="email"
+            id="input__e-mail"
+            class="form__type-input"
+            placeholder="menyaet.professiyu@ivan.com"
+            required
+          />
+        </label>
         <span class="form__error input__e-mail-error"></span>
-      </label>
-      <label class="form__field">
-        <span class="form__label">Возраст:</span>
-        <input
-          type="number"
-          id="input__age"
-          class="form__type-input"
-          placeholder="40"
-          min="18"
-          max="100"
-          required
-        />
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Возраст:</span>
+          <input
+            type="number"
+            id="input__age"
+            class="form__type-input"
+            placeholder="40"
+            min="18"
+            max="100"
+            required
+          />
+        </label>
         <span class="form__error input__age-error"></span>
-      </label>
-      <label class="form__checkbox-label">
-        <input
-          type="checkbox"
-          id="input__checkbox"
-          class="form__type-input form__type-checkbox"
-          checked
-          required
-        />
-        <span class="form__type-checkbox-title">Я согласен быть царём</span>
+      </div>
+      <div class="form__field-container">
+        <label class="form__checkbox-label">
+          <input
+            type="checkbox"
+            id="input__checkbox"
+            class="form__type-input form__type-checkbox"
+            checked
+            required
+          />
+          <span class="form__type-checkbox-title">Я согласен быть царём</span>
+        </label>
         <span class="form__error input__checkbox-error"></span>
-      </label>
+      </div>
       <button type="submit" class="button">Отправить</button>
     </form>
   </body>
@@ -278,8 +304,6 @@
         event.preventDefault();
       });
       inputList.forEach((inputElement) => {
-        console.dir(inputElement);
-
         inputElement.addEventListener("input", () => {
           checkInputValidity(inputElement);
           toggleButton();
@@ -334,10 +358,10 @@
     function toggleButton() {
       if (hasInvalidInput()) {
         buttonElement.classList.add("button-inactive");
-        buttonElement.setAttribute("disabled", "");
+        buttonElement.setAttribute("aria-disabled", "true");
       } else {
         buttonElement.classList.remove("button-inactive");
-        buttonElement.removeAttribute("disabled");
+        buttonElement.setAttribute("aria-disabled", "false");
       }
     }
   </script>
