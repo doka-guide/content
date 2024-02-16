@@ -184,7 +184,7 @@ tags:
 </span>
 ```
 
-<iframe title="Вложенные кастомные заголовки" src="demos/nested-headings/" height="300"></iframe>
+<iframe title="Вложенные кастомные заголовки" src="demos/nested-headings/" height="350"></iframe>
 
 Браузеры решат, что это два отдельных заголовка первого и второго уровня.
 
