@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шрифтовые семейства с засечками и без — font-family — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+    }
+
+    h1 {
+      font-family: Roboto, Geneva, Arial, Helvetica, sans-serif;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    p {
+      margin-top: 7px;
+      font-family: "Roboto Slab", Georgia, "Times New Roman", Times, serif;
+    }
+
+    .generic {
+      margin-top: 40px;
+    }
+
+    .generic h2 {
+      font-family: sans-serif;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .generic p {
+      font-family: serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Этот заголовок написан шрифтом Roboto с жирностью 500 без засечек</h1>
+    <p>А параграф — шрифтом Roboto Slab Regular с засечками.</p>
+    <div class="generic">
+      <h2>Для второго заголовка установлен тип семейства sans-serif</h2>
+      <p>Тип семейства шрифтов этого параграфа указан как serif — это гарнитура с засечками,
+        установленная в системе по умолчанию.</p>
+    </div>
+  </div>
+</body>
+</html>
