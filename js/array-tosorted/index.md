@@ -5,7 +5,8 @@ authors:
   - alexafcode
 related:
   - js/arrays
-  - js/array-toSorted
+  - js/array-to-string
+  - js/array-with
 tags:
   - doka
 ---

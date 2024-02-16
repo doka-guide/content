@@ -4,9 +4,9 @@ description: "Удаляет первый элемент массива и во�
 authors:
   - vitya-ne
 related:
-  - "array-pop"
-  - "array-splice"
-  - "array-unshift"
+  - js/array-pop
+  - js/array-splice
+  - js/array-unshift
 tags:
   - doka
 ---
