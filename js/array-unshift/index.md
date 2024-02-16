@@ -4,9 +4,9 @@ description: "Добавляет новые элементы в начало м�
 authors:
   - vitya-ne
 related:
-  - "arrays"
-  - "array-push"
-  - "array-splice"
+  - js/arrays
+  - js/array-push
+  - js/array-splice
 tags:
   - doka
 ---

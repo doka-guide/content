@@ -6,7 +6,7 @@ authors:
 related:
   - js/arrays
   - js/function-as-datatype
-  - js/values
+  - js/array-shift
 tags:
   - doka
 ---
