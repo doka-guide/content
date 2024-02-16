@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/box-model
-  - tools/docker
-  - a11y/aria-intro
-  - tools/oop
-  - js/closures
-  - html/input
-  - tools/bundlers
-  - tools/network
-  - tools/clean-architecture
-  - tools/agile
-  - tools/cli
-  - html/img
-  - recipes/snow
-  - css/keyframes
-  - js/execution-order
-  - html/video
-  - html/div
-  - css/grid-guide
-  - css/media
-  - tools/ci-cd
   - css/custom-properties
-  - recipes/lets-encrypt-nginx
-  - tools/static-types
-  - js/infinite-scroll
-  - js/deal-with-forms
-  - css/attr
   - js/async-in-js
-  - html/form
-  - css/position
-  - js/function-context
-  - a11y/screenreaders
-  - js/var-let
-  - html/article
-  - a11y/aria-hidden
-  - js/function
-  - css/specificity
-  - css/box-shadow
-  - css/display
-  - html/nav
-  - css/flexbox-guide
-  - tools/gitlab-ci-cd
-  - html/flow
+  - recipes/snow
   - html/doctype
-  - css/pseudoelements
-  - recipes/progress
-  - tools/webpack
-  - html/head
-  - html/section
-  - tools/how-the-browser-creates-pages
-  - js/boolean
-  - tools/markdown
-  - tools/how-to-test-and-why
+  - css/attr
+  - js/function-context
+  - a11y/aria-hidden
+  - html/img
+  - html/input
+  - css/position
+  - css/specificity
+  - tools/docker
   - css/transform-function
+  - recipes/progress
+  - html/section
+  - tools/ci-cd
+  - css/box-shadow
+  - css/media
+  - tools/markdown
+  - css/box-model
+  - tools/network
+  - a11y/screenreaders
+  - tools/gitlab-ci-cd
+  - html/nav
+  - css/grid-guide
+  - js/closures
+  - tools/static-types
+  - html/div
+  - tools/clean-architecture
+  - js/boolean
+  - tools/cli
+  - tools/oop
+  - css/pseudoelements
+  - js/deal-with-forms
+  - js/infinite-scroll
+  - tools/how-the-browser-creates-pages
+  - html/form
+  - html/head
+  - css/keyframes
+  - tools/how-to-test-and-why
+  - html/flow
+  - js/execution-order
+  - tools/webpack
+  - js/var-let
+  - tools/agile
+  - html/video
+  - css/display
+  - recipes/lets-encrypt-nginx
+  - a11y/aria-intro
+  - css/flexbox-guide
+  - html/article
+  - tools/bundlers
+  - js/function
 ---
 
