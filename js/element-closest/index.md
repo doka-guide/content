@@ -37,7 +37,7 @@ const closestElement2 = element.closest('div.common')
 
 console.log(closestElement1)
 // <header class="container-header container">
-console.log(closestElement1)
+console.log(closestElement2)
 // <div id="25" class="common">
 ```
 
@@ -53,7 +53,7 @@ console.log(closestElement1)
 
 Метод `Element.closest()` позволяет искать в [DOM](/js/dom/) ближайший подходящий элемент среди родительских, начиная от элемента для которого метод был вызван.
 
-Типичный пример использования `Element.closest()` — определение области действия при клике. Допустим у нас есть множество кнопок, находящихся во вложенных контейнерах. Необходимо определить контейнер, содержащий нажатую кнопку.
+Типичный пример использования `Element.closest()` — определение области действия при клике. Допустим у нас есть множество кнопок, находящихся во вложенных контейнерах. Необходимо найти ближайший к нажатой кнопке контейнер.
 
 ```html
 <div class="container main-container">
