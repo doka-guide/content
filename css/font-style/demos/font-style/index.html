@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     /* Задаём курсивное начертание для <p> */
     p {
@@ -14,22 +14,53 @@
     }
 
     /* Оформление */
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      box-sizing: border-box;
+      height: 100%;
+    }
+
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 50px;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
     }
 
     h1 {
       font-size: 26px;
       font-weight: 500;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Текст ниже мы написали курсивом</h1>
-  <p>Этот текст написан курсивом. А мог быть написан наклонным шрифтом, но вы всё равно бы это не отличили.</p>
+  <div>
+    <h1>История книгопечатания: XVI век</h1>
+    <p>Прим. переводчика: курсивное начертание было изобретено в 16 веке в Венеции. Уже вскоре курсив начал использоваться для выделения отличающегося текста и расставления акцентов.</p>
+  </div>
 </body>
 </html>
