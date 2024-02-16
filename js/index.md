@@ -21,6 +21,7 @@ groups:
       - ternary-operator
       - spread
       - for-in
+      - for-of
       - shallow-or-deep-clone
       - iterator
       - date
@@ -104,7 +105,11 @@ groups:
       - index-of
       - last-index-of
       - array-push
+      - array-pop
+      - array-shift
       - array-unshift
+      - array-slice
+      - array-splice
       - array-with
       - array-copy-within
       - array-length
