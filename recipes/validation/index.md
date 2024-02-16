@@ -24,7 +24,7 @@ tags:
 ```html
 <form class="form" name="form" novalidate>
   <div class="form__field-container">
-     <label class="form__field">
+    <label class="form__field">
       <span class="form__label">Имя:</span>
         <input
           type="text"
