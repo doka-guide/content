@@ -4,9 +4,9 @@ description: "Удаляет последний элемент массива и
 authors:
   - vitya-ne
 related:
-  - "array-shift"
-  - "array-splice"
-  - "array-pop"
+  - js/array-shift
+  - js/array-splice
+  - js/array-pop
 tags:
   - doka
 ---

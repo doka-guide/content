@@ -4,9 +4,9 @@ description: "Возвращает новый массив, полученный
 authors:
   - vitya-ne
 related:
-  - "array-to-spliced"
-  - "array-push"
-  - "array-splice"
+  - js/array-to-spliced
+  - js/array-push
+  - js/array-splice
 tags:
   - doka
 ---

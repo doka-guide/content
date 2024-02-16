@@ -4,9 +4,9 @@ description: "Возвращает новый массив, копируя ча�
 authors:
   - vitya-ne
 related:
-  - "array-splice"
-  - "array-to-spliced"
-  - "array-reduce"
+  - js/array-splice
+  - js/array-to-spliced
+  - js/array-reduce
 tags:
   - doka
 ---

@@ -6,7 +6,7 @@ authors:
 related:
   - js/arrays
   - js/iterator
-  - js/values
+  - js/array-of
 tags:
   - doka
 ---
