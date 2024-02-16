@@ -37,7 +37,7 @@ const closestElement2 = element.closest('div.common')
 
 console.log(closestElement1)
 // <header class="container-header container">
-console.log(closestElement1)
+console.log(closestElement2)
 // <div id="25" class="common">
 ```
 
