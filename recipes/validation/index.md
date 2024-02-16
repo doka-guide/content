@@ -230,8 +230,8 @@ CSS-стили, которые будут использоваться при в
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
             required>
-  <span class="form__error input__name-error"></span>
 </label>
+<span class="form__error input__name-error"></span>
 ```
 
 ### JavaScript
