@@ -82,7 +82,7 @@ mainContainer.addEventListener('click', function (e) {
   }
 
   const containerElem = targetElem.closest('.container')
-  // Отображаем контейнер, содержащий нажатую кнопку
+  // Выводим в консоль контейнер, содержащий нажатую кнопку
   console.log(containerElem)
 })
 ```
