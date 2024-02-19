@@ -29,7 +29,7 @@
           display: grid;
           justify-content: center;
           align-items: center;
-          padding: 50px;
+          padding: 50px 50px 75px;
           background-color: #18191C;
           color: #FFFFFF;
           font-family: "Roboto", sans-serif;
@@ -94,7 +94,6 @@
           align-self: self-start;
           grid-row-end: span 2;
           color: #FF8630;
-          inline-size: 300px;
           font-size: 14px;
           line-height: 1.1;
         }
@@ -112,7 +111,6 @@
           display: grid;
           grid-template-columns: 24px auto;
           gap: 0 15px;
-          width: 300px;
           margin-inline-start: auto;
           cursor: pointer;
         }
@@ -151,7 +149,6 @@
         }
 
         .button {
-          inline-size: 300px;
           border: 2px solid transparent;
           margin-inline-start: auto;
           padding: 10px 15px;
@@ -208,9 +205,17 @@
           border: 2px solid transparent;
         }
 
+        .form__error, .form__checkbox-label, .button, .button-inactive::before {
+          inline-size: 450px;
+        }
+
         @media (max-width: 768px) {
           body {
             padding: 30px;
+          }
+
+          .form__error, .form__checkbox-label, .button, .button-inactive::before {
+            inline-size: 300px;
           }
         }
     </style>

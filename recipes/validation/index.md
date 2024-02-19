@@ -192,7 +192,7 @@ CSS-стили, которые будут использоваться при в
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="650"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="775"></iframe>
 
 ## Разбор решения
 
@@ -423,5 +423,5 @@ function startValidation() {
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="650"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="775"></iframe>
 
