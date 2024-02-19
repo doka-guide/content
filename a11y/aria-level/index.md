@@ -3,6 +3,8 @@ title: "`aria-level`"
 description: "Рассказываем об иерархии элементов вспомогательным технологиям."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 keywords:
   - доступность
   - a11y
