@@ -3,6 +3,8 @@ title: "Мгновенная валидация форм"
 description: "На лету проверяем, правильно ли пользователь заполнил поля формы."
 authors:
   - makarovaiuliia
+contributors:
+  - skorobaeus
 related:
   - js/forms
   - html/form
@@ -32,9 +34,10 @@ tags:
           class="form__type-input"
           placeholder="Иван"
           pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-          data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+          data-error-message="Разрешены символы латиницы,
+          кириллицы, знаки дефиса и пробелы."
           required
-          />
+        >
     </label>
     <span class="form__error input__name-error"></span>
   </div>
@@ -47,9 +50,10 @@ tags:
         class="form__type-input"
         placeholder="Васильевич"
         pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-        data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+        data-error-message="Разрешены символы латиницы,
+        кириллицы, знаки дефиса и пробелы."
         required
-      />
+      >
     </label>
     <span class="form__error input__surname-error"></span>
   </div>
@@ -62,7 +66,7 @@ tags:
         class="form__type-input"
         placeholder="menyaet.professiyu@ivan.com"
         required
-      />
+      >
     </label>
     <span class="form__error input__e-mail-error"></span>
   </div>
@@ -90,7 +94,9 @@ tags:
         checked
         required
       />
-      <span class="form__type-checkbox-title">Я согласен быть царём</span>
+      <span class="form__type-checkbox-title">
+        Я согласен быть царём
+      </span>
     </label>
     <span class="form__error input__checkbox-error"></span>
   </div>
@@ -223,13 +229,16 @@ CSS-стили, которые будут использоваться при в
 ```html
 <label class="form__field">
   <span class="form__label">Имя:</span>
-    <input  type="text"
-            id="input__name"
-            class="form__type-input"
-            placeholder="Иван"
-            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-            data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
-            required>
+    <input
+      type="text"
+      id="input__name"
+      class="form__type-input"
+      placeholder="Иван"
+      pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+      data-error-message="Разрешены символы латиницы,
+      кириллицы, знаки дефиса и пробелы."
+      required
+    >
 </label>
 <span class="form__error input__name-error"></span>
 ```
@@ -424,4 +433,3 @@ function startValidation() {
 ```
 
 <iframe title="Мгновенная валидация полей" src="demos/final-form/" height="775"></iframe>
-
