@@ -10,7 +10,6 @@ related:
   - js/array-foreach
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
