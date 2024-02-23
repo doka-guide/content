@@ -1,6 +1,11 @@
 ---
 title: "`box-sizing`"
 description: "Это свойство определяет как будут вести себя размеры блока."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Два котика: синий с чёрным хвостом и белый сидят в коробке'
 authors:
   - solarrust
 contributors:
