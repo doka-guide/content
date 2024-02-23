@@ -70,58 +70,58 @@ active:
   - recipes/character-counter
   - js/geolocation-api
   - a11y/content-hidden
-  - css/custom-properties
-  - js/async-in-js
-  - recipes/snow
-  - html/doctype
-  - css/attr
-  - js/function-context
-  - a11y/aria-hidden
-  - html/img
-  - html/input
-  - css/position
-  - css/specificity
-  - tools/docker
-  - css/transform-function
-  - recipes/progress
-  - html/section
-  - tools/ci-cd
-  - css/box-shadow
-  - css/media
-  - tools/markdown
-  - css/box-model
-  - tools/network
-  - a11y/screenreaders
-  - tools/gitlab-ci-cd
-  - html/nav
-  - css/grid-guide
-  - js/closures
   - tools/static-types
-  - html/div
-  - tools/clean-architecture
-  - js/boolean
-  - tools/cli
+  - css/specificity
+  - tools/bundlers
   - tools/oop
-  - css/pseudoelements
   - js/deal-with-forms
-  - js/infinite-scroll
-  - tools/how-the-browser-creates-pages
-  - html/form
-  - html/head
+  - recipes/progress
+  - js/closures
+  - css/media
   - css/keyframes
   - tools/how-to-test-and-why
-  - html/flow
-  - js/execution-order
-  - tools/webpack
-  - js/var-let
-  - tools/agile
-  - html/video
-  - css/display
-  - recipes/lets-encrypt-nginx
-  - a11y/aria-intro
+  - html/doctype
   - css/flexbox-guide
+  - html/video
+  - recipes/snow
+  - js/async-in-js
+  - html/nav
+  - css/display
+  - css/attr
+  - js/boolean
+  - html/flow
+  - tools/gitlab-ci-cd
+  - html/head
+  - a11y/aria-hidden
+  - html/input
+  - a11y/aria-intro
+  - tools/webpack
+  - tools/cli
+  - js/var-let
+  - css/custom-properties
   - html/article
-  - tools/bundlers
+  - tools/clean-architecture
+  - html/img
+  - css/grid-guide
+  - recipes/lets-encrypt-nginx
+  - tools/how-the-browser-creates-pages
+  - tools/network
+  - a11y/screenreaders
+  - css/box-model
+  - tools/ci-cd
+  - tools/agile
+  - css/transform-function
   - js/function
+  - css/pseudoelements
+  - js/execution-order
+  - css/position
+  - js/function-context
+  - html/div
+  - html/form
+  - html/section
+  - tools/docker
+  - tools/markdown
+  - js/infinite-scroll
+  - css/box-shadow
 ---
 
