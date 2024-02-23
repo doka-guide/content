@@ -1,6 +1,11 @@
 ---
 title: "`<section>`"
 description: "Логические блоки сайта принято оборачивать в этот тег."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Книга из которой выглядывают закладки: tools, docs'
 authors:
   - doka-dog
 contributors:
