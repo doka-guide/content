@@ -30,7 +30,7 @@ if [[ $AUTHOR == "" ]]; then
   if [[ $AUTHOR != "" ]]; then
     read -r -p "Сохранить ник '$AUTHOR' для последующих публикаций (y/n)?: " -n 1
     echo
-    if [[ $REPLY =~ ^[Yy]$ ]] then
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "AUTHOR=\"$AUTHOR\"" >> .env
     fi
   fi
