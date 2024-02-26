@@ -1,6 +1,11 @@
 ---
 title: "`@media`"
 description: "Сайт может подстраиваться под обстоятельства благодаря этой директиве."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Схема-дерево с примерами для печати, для мобильных и для всех остальных устройств'
 authors:
   - lenaryan
 editors:

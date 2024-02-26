@@ -1,6 +1,11 @@
 ---
 title: "Блочная модель"
 description: "Браузеры рисуют любой элемент на HTML-странице как прямоугольник. Как рассчитывается размер этого прямоугольника? Разберёмся с одной из основных концепций вёрстки."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Собачка в окружении светочков в стиле тетриса'
 authors:
   - solarrust
 contributors:
