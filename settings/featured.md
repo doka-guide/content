@@ -1,10 +1,14 @@
 ---
 pinned:
-  - css/scrollbar-gutter
-  - a11y/css-impact-on-a11y
-  - recipes/character-counter
-  - js/geolocation-api
-  - a11y/content-hidden
+  - tools/cors
+  - js/array-entries
+  - recipes/git-rebase-onto
+  - tools/algorithm-complexity
+  - a11y/live-region
+  - css/box-sizing
+  - html/section
+  - js/array-reduce-right
+  - recipes/popup
 ready:
   - a11y/screenreaders
   - a11y/aria-intro
@@ -15,7 +19,6 @@ ready:
   - html/article
   - html/form
   - html/nav
-  - html/section
   - html/flow
   - html/input
   - html/video
@@ -64,6 +67,8 @@ ready:
   - recipes/lets-encrypt-nginx
   - recipes/progress
   - recipes/character-counter
+  - recipes/center
+  - recipes/ajax-form
 active:
   - css/scrollbar-gutter
   - a11y/css-impact-on-a11y
