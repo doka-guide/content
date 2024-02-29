@@ -2,6 +2,23 @@
 
 <!-- yaspeller ignore:start -->
 
+## Февраль 2024
+
+- 19 февраля, [`aria-level`](https://doka.guide/a11y/aria-level/), Татьяна Фокина
+- 16 февраля, [`aria-controls`](https://doka.guide/a11y/aria-controls/), Татьяна Фокина
+- 16 февраля, [`forced-colors`](https://doka.guide/a11y/forced-colors/), Татьяна Фокина
+- 16 февраля, [`menu`](https://doka.guide/a11y/role-menu/), Татьяна Фокина
+- 16 февраля, [`menubar`](https://doka.guide/a11y/role-menubar/), Татьяна Фокина
+- 16 февраля, [`menuitem`](https://doka.guide/a11y/role-menuitem/), Татьяна Фокина
+- 16 февраля, [`for`...`of`](https://doka.guide/js/for-of/), Viktar Nezhbart
+- 16 февраля, [`.pop()`](https://doka.guide/js/array-pop/), Viktar Nezhbart
+- 16 февраля, [`.splice()`](https://doka.guide/js/array-splice/), Viktar Nezhbart
+- 16 февраля, [`.shift()`](https://doka.guide/js/array-shift/), Viktar Nezhbart
+- 16 февраля, [`.slice()`](https://doka.guide/js/array-slice/), Viktar Nezhbart
+- 13 февраля, [`.toSpliced()`](https://doka.guide/js/array-to-spliced/), Viktar Nezhbart
+- 13 февраля, [`.toReversed()`](https://doka.guide/js/array-to-reversed/), Viktar Nezhbart
+- 12 февраля, [`clamp()`](https://doka.guide/css/clamp/), Владимир Ткачёв
+
 ## Январь 2024
 
 - 28 января, [`.copyWithin()`](https://doka.guide/js/array-copy-within/), Viktar Nezhbart
