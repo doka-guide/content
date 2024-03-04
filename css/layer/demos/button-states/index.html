@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кнопка с разными состояниями — @layer — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
+  <style>
+    @layer components, states;
+
+    *, *::before, *::after {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+
+    @layer components {
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:hover {
+        background-color: #FFFFFF;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      .button-blue {
+        background-color: #2E9AFF;
+      }
+    }
+
+    @layer states {
+      :disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
+
+      :focus-visible {
+        border: 2px solid #FFFFFF;
+        outline: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button-blue">
+      Узнать слово дня
+    </button>
+
+    <button class="button button-blue" disabled>
+      Узнать слово дня
+    </button>
+  </div>
+</body>
+</html>
