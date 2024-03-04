@@ -166,7 +166,7 @@
         background-color: #FFFFFF;
       }
 
-      .button:focus {
+      .button:focus-visible {
         outline: none;
         border: 2px solid #FFFFFF;
       }
@@ -174,29 +174,6 @@
       .button-inactive {
         cursor: not-allowed;
         background-color: rgb(211 211 211 / 0.6);
-        position: relative;
-      }
-
-      .button-inactive::before {
-        content: 'Заполните все поля для отправки формы';
-        padding: 10px 15px;
-        position: absolute;
-        background-color: #FFFFFF;
-        inline-size: 300px;
-        left: 0;
-        top: 50px;
-        font-size: 16px;
-        border-radius: 6px;
-        transition: 0.2s linear;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-      }
-
-      .button-inactive:hover::before {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
       }
 
       .button-inactive:hover {
@@ -204,7 +181,13 @@
         border: 2px solid transparent;
       }
 
-      .form__error, .form__checkbox-label, .button, .button-inactive::before {
+      .form__empty-error {
+        padding: 10px 0;
+        font-size: 18px;
+        color: #FF8630;
+      }
+
+      .form__error, .form__empty-error, .form__checkbox-label, .button {
         inline-size: 450px;
       }
 
@@ -213,14 +196,14 @@
           padding: 30px;
         }
 
-        .form__error, .form__checkbox-label, .button, .button-inactive::before {
+        .form__error, .form__empty-error, .form__checkbox-label, .button {
           inline-size: 300px;
         }
       }
     </style>
   </head>
   <body>
-    <form class="form" name="form" novalidate>
+    <form class="form" name="form" aria-describedby="form-error" novalidate>
       <div class="form__field-container">
         <label class="form__field">
           <span class="form__label">Имя:</span>
@@ -231,10 +214,11 @@
             placeholder="Иван"
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            aria-describedby="name-error"
             required
           >
         </label>
-        <span class="form__error input__name-error"></span>
+        <span class="form__error input__name-error" id="name-error" aria-live="polite"></span>
       </div>
       <div class="form__field-container">
         <label class="form__field">
@@ -246,10 +230,11 @@
             placeholder="Васильевич"
             pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            aria-describedby="surname-error"
             required
           >
         </label>
-        <span class="form__error input__surname-error"></span>
+        <span class="form__error input__surname-error" id="surname-error" aria-live="polite"></span>
       </div>
       <div class="form__field-container">
         <label class="form__field">
@@ -259,10 +244,11 @@
             id="input__e-mail"
             class="form__type-input"
             placeholder="menyaet.professiyu@ivan.com"
+            aria-describedby="email-error"
             required
           >
         </label>
-        <span class="form__error input__e-mail-error"></span>
+        <span class="form__error input__e-mail-error" id="email-error" aria-live="polite"></span>
       </div>
       <div class="form__field-container">
         <label class="form__field">
@@ -274,10 +260,11 @@
             placeholder="40"
             min="18"
             max="100"
+            aria-describedby="age-error"
             required
           >
         </label>
-        <span class="form__error input__age-error"></span>
+        <span class="form__error input__age-error" id="age-error" aria-live="polite"></span>
       </div>
       <div class="form__field-container">
         <label class="form__checkbox-label">
@@ -286,19 +273,22 @@
             id="input__checkbox"
             class="form__type-input form__type-checkbox"
             checked
+            aria-describedby="checkbox-error"
             required
           />
           <span class="form__type-checkbox-title">Я согласен быть царём</span>
         </label>
-        <span class="form__error input__checkbox-error"></span>
+        <span class="form__error input__checkbox-error" id="checkbox-error" aria-live="polite"></span>
       </div>
-      <button type="submit" class="button">Отправить</button>
+      <button type="submit" class="button" aria-describedby="empty-error">Отправить</button>
+      <span class="form__empty-error" id="empty-error" aria-live="assertive"></span>
     </form>
 
     <script>
       const form = document.querySelector('.form')
       const inputList = Array.from(document.querySelectorAll('.form__type-input'))
       const buttonElement = form.querySelector('.button')
+      const formErrorElement = document.getElementById('empty-error')
 
       startValidation()
 
@@ -306,6 +296,9 @@
         toggleButton()
         form.addEventListener('submit', (event) => {
           event.preventDefault()
+          if (hasInvalidInput()) {
+            formError()
+          }
         })
         inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', () => {
@@ -366,7 +359,13 @@
         } else {
           buttonElement.classList.remove('button-inactive')
           buttonElement.setAttribute('aria-disabled', 'false')
+          formErrorElement.textContent = ''
         }
+      }
+
+      function formError() {
+        const errorMessage = 'Заполните все поля для отправки формы.'
+        formErrorElement.textContent = errorMessage
       }
     </script>
   </body>
