@@ -5,6 +5,7 @@ authors:
   - makarovaiuliia
 contributors:
   - skorobaeus
+  - tatianafokina
 related:
   - js/forms
   - html/form
@@ -17,29 +18,40 @@ tags:
 
 Кто из нас не знаком с той неприятной ситуацией, когда усердно заполняешь форму, вводишь данные, а потом, с надеждой нажимая на кнопку «Отправить», обнаруживаешь, что что-то пошло не так и все усилия пропали даром? Для этого есть решение — мгновенная валидация при помощи JavaScript!
 
-Отличный пользовательский опыт — ключ к успеху. Валидация форм с помощью HTML не может предоставить того уровня UX, который требуется стандартами веб-разработки. Ему на помощь приходит валидация через JavaScript. Она обеспечивает мгновенную обратную связь при заполнении формы и аккуратно подсказывает, что нужно исправить прежде чем форма отправится.
+Отличный пользовательский опыт — ключ к успеху. Валидация форм с помощью HTML не может предоставить того уровня UX (пользовательского опыта), который требуется стандартами веб-разработки. Ему на помощь приходит валидация через JavaScript. Она обеспечивает мгновенную обратную связь при заполнении формы и аккуратно подсказывает, что нужно исправить прежде чем форма отправится.
 
 ## Готовое решение
 
 Пример стандартной HTML-разметки формы:
 
 ```html
-<form class="form" name="form" novalidate>
+<form
+  class="form"
+  name="form"
+  novalidate
+>
   <div class="form__field-container">
     <label class="form__field">
       <span class="form__label">Имя:</span>
-        <input
-          type="text"
-          id="input__name"
-          class="form__type-input"
-          placeholder="Иван"
-          pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-          data-error-message="Разрешены символы латиницы,
-          кириллицы, знаки дефиса и пробелы."
-          required
-        >
+      <input
+        type="text"
+        id="input__name"
+        class="form__type-input"
+        placeholder="Иван"
+        pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+        data-error-message="Разрешены символы латиницы,
+        кириллицы, знаки дефиса и пробелы."
+        aria-describedby="name-error"
+        required
+      >
     </label>
-    <span class="form__error input__name-error"></span>
+    <span
+      class="form__error
+      input__name-error"
+      id="name-error"
+      aria-live="polite"
+    >
+    </span>
   </div>
   <div class="form__field-container">
     <label class="form__field">
@@ -52,10 +64,17 @@ tags:
         pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
         data-error-message="Разрешены символы латиницы,
         кириллицы, знаки дефиса и пробелы."
+        aria-describedby="surname-error"
         required
       >
     </label>
-    <span class="form__error input__surname-error"></span>
+    <span
+      class="form__error
+      input__surname-error"
+      id="surname-error"
+      aria-live="polite"
+    >
+    </span>
   </div>
   <div class="form__field-container">
     <label class="form__field">
@@ -65,10 +84,16 @@ tags:
         id="input__e-mail"
         class="form__type-input"
         placeholder="menyaet.professiyu@ivan.com"
+        aria-describedby="email-error"
         required
       >
     </label>
-    <span class="form__error input__e-mail-error"></span>
+    <span
+      class="form__error input__e-mail-error"
+      id="email-error"
+      aria-live="polite"
+    >
+    </span>
   </div>
   <div class="form__field-container">
     <label class="form__field">
@@ -80,10 +105,16 @@ tags:
         placeholder="40"
         min="18"
         max="100"
+        aria-describedby="age-error"
         required
       >
     </label>
-    <span class="form__error input__age-error"></span>
+    <span
+      class="form__error input__age-error"
+      id="age-error"
+      aria-live="polite"
+    >
+    </span>
   </div>
   <div class="form__field-container">
     <label class="form__checkbox-label">
@@ -92,15 +123,28 @@ tags:
         id="input__checkbox"
         class="form__type-input form__type-checkbox"
         checked
+        aria-describedby="checkbox-error"
         required
-      >
+      />
       <span class="form__type-checkbox-title">
         Я согласен быть царём
       </span>
     </label>
-    <span class="form__error input__checkbox-error"></span>
+    <span class="form__error input__checkbox-error" id="checkbox-error" aria-live="polite"></span>
   </div>
-  <button type="submit" class="button">Отправить</button>
+  <button
+    type="submit"
+    class="button"
+    aria-describedby="empty-error"
+  >
+    Отправить
+  </button>
+  <span
+    class="form__empty-error"
+    id="empty-error"
+    aria-live="assertive"
+  >
+  </span>
 </form>
 ```
 
@@ -108,8 +152,9 @@ tags:
 
 ``` js
 const form = document.querySelector('.form')
-const inputList = Array.from(document.querySelectorAll('.form__type-input'))
+const inputList = Array.from(form.querySelectorAll('.form__type-input'))
 const buttonElement = form.querySelector('.button')
+const formErrorElement = document.getElementById('empty-error')
 
 startValidation()
 
@@ -117,6 +162,9 @@ function startValidation() {
   toggleButton()
   form.addEventListener('submit', (event) => {
     event.preventDefault()
+    if (hasInvalidInput()) {
+      formError()
+    }
   })
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
@@ -124,6 +172,7 @@ function startValidation() {
       toggleButton()
     })
   })
+}
 
 function checkInputValidity(inputElement) {
   if (inputElement.validity.patternMismatch) {
@@ -153,6 +202,7 @@ function hasInvalidInput() {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid
   })
+}
 
 function toggleErrorSpan(inputElement, errorMessage){
   const errorElement = document.querySelector(`.${inputElement.id}-error`)
@@ -165,6 +215,7 @@ function toggleErrorSpan(inputElement, errorMessage){
     errorElement.textContent = ''
     errorElement.classList.remove('form__error-active')
   }
+}
 
 function toggleButton() {
   if (hasInvalidInput()) {
@@ -173,7 +224,13 @@ function toggleButton() {
   } else {
     buttonElement.classList.remove('button-inactive')
     buttonElement.setAttribute('aria-disabled', 'false')
+    formErrorElement.textContent = ''
   }
+}
+
+function formError() {
+  const errorMessage = 'Заполните все поля для отправки формы.'
+  formErrorElement.textContent = errorMessage
 }
 ```
 
@@ -198,16 +255,16 @@ CSS-стили, которые будут использоваться при в
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="775"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="780"></iframe>
 
 ## Разбор решения
 
 Сначала сообщаем браузеру, что он не должен валидировать форму стандартным способом, добавляя атрибут [`novalidate`](/html/novalidate/) к тегу [`<form>`](/html/form/).
 
 ```html
-  <form class="form__field" novalidate>
-    ...
-  </form>
+<form class="form__field" novalidate>
+  <!-- Содержимое формы -->
+</form>
 ```
 
 ### Разметка
@@ -220,27 +277,38 @@ CSS-стили, которые будут использоваться при в
 1. [`placeholder`](/html/placeholder/) — предоставляет подсказку пользователю о том, какие данные нужно ввести.
 1. [`required`](/html/required/) — указывает на обязательность заполнения поля.
 
-Свяжем поле ввода и `<span>` с ошибкой с помощью идентификаторов и классов CSS. Задаём идентификатор для `<input>` и присваиваем для `<span>` аналогичный класс, добавляя '-error' в конце. Это позволит найти `<span>` в [`DOM`](/js/dom/) по такой схеме: `document.querySelector(${input.id}-error)`.
+Свяжем поле ввода и `<span>` с ошибкой с помощью идентификаторов и классов CSS. Задаём идентификатор для `<input>` и присваиваем для `<span>` аналогичный класс, добавляя '-error' в конце. Это позволит найти `<span>` в [`DOM`](/js/dom/) по такой схеме: `document.querySelector(${input.id}-error)`. Чтобы эта связь между полем и ошибкой к нему была понятна и пользователям вспомогательных технологий, свяжем их атрибутом [`aria-describedby`](/a11y/aria-describedby/) у поля и кнопки и `id` с таким же значением у `<span>`. Чтобы вспомогательные технологии рассказывали о них автоматически, добавим ещё другой ARIA-атрибут [`aria-live`](/a11y/aria-live/).
+
+<aside>
+  ⚠️ Текст сообщений об ошибках по умолчанию будет на том языке, который пользователь выбрал в браузере. Так что можете столкнуться с ситуацией, когда ваши ошибки отображаются на одном языке, а стандартные браузерные — на другом.
+</aside>
 
 Настроим параметры валидации. Тут можно использовать как стандартные атрибуты — [`maxlength`/`minlength`](/html/minlength-maxlength/), так и нестандартные атрибуты типа [`pattern`](/html/pattern/) с регулярными выражениями. Последний позволяет настроить более точные и специфические правила для полей ввода.
 
-Подробнее о `pattern`: хотя в большинстве случаев стандартных сообщений валидации достаточно, иногда возникает необходимость в более специфических требованиях к полям ввода. Возьмём, к примеру, ситуацию, когда требуется ввод только букв латиницы и кириллицы, дефисов и пробелов. Такой набор символов не предусмотрен стандартной валидацией, что делает необходимым использование _кастомной валидации_. Для этого используем регулярное выражение и записываем кастомное сообщение об ошибке в специально созданный data-атрибут — 'data-error-message'. Подробнее о data-атрибутах можно прочитать тут: [Атрибуты `data-*`](/html/data-attributes/).
+Подробнее о `pattern`: хотя в большинстве случаев стандартных сообщений валидации достаточно, иногда возникает необходимость в более специфических требованиях к полям ввода. Возьмём, к примеру, ситуацию, когда требуется ввод только букв латиницы и кириллицы, дефисов и пробелов. Такой набор символов не предусмотрен стандартной валидацией, что делает необходимым использование _кастомной валидации_. Для этого используем регулярное выражение и записываем кастомное сообщение об ошибке в специально созданный data-атрибут — 'data-error-message'. Подробнее о data-атрибутах можно прочитать в доке про [атрибуты `data-*`](/html/data-attributes/).
 
 ```html
 <label class="form__field">
   <span class="form__label">Имя:</span>
-    <input
-      type="text"
-      id="input__name"
-      class="form__type-input"
-      placeholder="Иван"
-      pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
-      data-error-message="Разрешены символы латиницы,
-      кириллицы, знаки дефиса и пробелы."
-      required
-    >
+  <input
+    type="text"
+    id="input__name"
+    class="form__type-input"
+    placeholder="Иван"
+    pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+    data-error-message="Разрешены символы латиницы,
+    кириллицы, знаки дефиса и пробелы."
+    aria-describedby="name-error"
+    required
+  >
 </label>
-<span class="form__error input__name-error"></span>
+<span
+  class="form__error
+  input__name-error"
+  id="name-error"
+  aria-live="polite"
+>
+</span>
 ```
 
 ### JavaScript
@@ -249,8 +317,9 @@ CSS-стили, которые будут использоваться при в
 
 ```js
 const form = document.querySelector('.form')
-const inputList = Array.from(document.querySelectorAll('.form__type-input'))
+const inputList = Array.from(form.querySelectorAll('.form__type-input'))
 const buttonElement = form.querySelector('.button')
+const formErrorElement = document.getElementById('empty-error')
 ```
 
 Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие [`submit`](/js/event-submit/), где используется [`event.preventDefault()`](/js/event-prevent-default/) для предотвращения стандартного поведения формы при отправке. Для дополнительной информации читайте «[Работа с формами](/js/deal-with-forms/)».
@@ -261,6 +330,9 @@ const buttonElement = form.querySelector('.button')
 function startValidation() {
   form.addEventListener('submit', (event) => {
     event.preventDefault()
+    if (hasInvalidInput()) {
+      formError()
+    }
   })
 
   inputList.forEach((inputElement) => {
@@ -272,7 +344,7 @@ function startValidation() {
 }
 ```
 
-Функция `checkInputValidity()` использует JS-объект `ValidityState` для проверки каждого поля ввода. Если поле не валидно, показывается сообщение об ошибке.
+Функция `checkInputValidity()` использует JavaScript-объект `ValidityState` для проверки каждого поля ввода. Если поле не валидно, показывается сообщение об ошибке.
 
 Объект `validityState` можно увидеть, если обратиться к ключу `validity` элемента `input` (`input.validity`). Он выглядит вот так:
 
@@ -332,9 +404,9 @@ function checkLengthMismatch(inputElement) {
 
 - Применяем класс `button-inactive`, который изменяет цвет кнопки на менее яркий, подсказывая пользователю, что нажатие невозможно.
 - Добавляем через этот класс свойства [`cursor: not-allowed;`](/css/cursor/), которое меняет форму курсора на символ запрета.
-- При наведении на кнопку отправки формы показываем всплывающую подсказку, которая объясняет причину блокировки. Реализуем это с помощью [`псевдоэлемента`](/css/pseudoelements/).
+- При клике по кнопке отправки формы или при нажатии на неё с клавиатуры показываем ошибку, которая объясняет причину блокировки. Реализуем это с помощью JavaScript.
 - В случае ввода невалидных данных в одно из полей, пользователь моментально получает обратную связь о допущенной ошибке.
-- Чтобы заблокированная кнопка была заметна пользователям, перемещающимся по сайту с помощью клавиши Tab, мы добавляем к кнопке атрибут [`aria-disabled`](/a11y/aria-disabled/).
+- Чтобы заблокированная кнопка была заметна пользователям, перемещающимся по сайту с помощью клавиши <kbd>Tab</kbd>, мы добавляем к кнопке атрибут [`aria-disabled`](/a11y/aria-disabled/).
 
 Так же напоминаем, что при блокировке кнопки отправки формы важно удостовериться, что требования к заполнению формы разумны и могут быть выполнены всеми пользователями. Следует избегать установления _чрезмерно строгих условий_ для данных, вводимых пользователем. К примеру, пользователь может столкнуться с тем, что его имя слишком длинное для установленного в форме ограничения в 10 символов, что сделает невозможным отправку формы и ограничит доступ к вашему продукту.
 
@@ -346,6 +418,7 @@ function toggleButton() {
   } else {
     buttonElement.classList.remove('button-inactive')
     buttonElement.setAttribute('aria-disabled', 'false')
+    formErrorElement.textContent = ''
   }
 }
 
@@ -354,40 +427,28 @@ function hasInvalidInput() {
     return !inputElement.validity.valid
   })
 }
+
+function formError() {
+  const errorMessage = 'Заполните все поля для отправки формы.'
+  formErrorElement.textContent = errorMessage
+}
 ```
 
 ```css
 .button-inactive {
   cursor: not-allowed;
   background-color: rgb(211 211 211 / 0.6);
-  position: relative;
-}
-
-.button-inactive::before {
-  content: 'Заполните все поля для отправки формы';
-  padding: 10px 15px;
-  position: absolute;
-  background-color: #FFFFFF;
-  inline-size: 300px;
-  left: 0;
-  top: 50px;
-  font-size: 16px;
-  border-radius: 6px;
-  transition: 0.2s linear;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-}
-
-.button-inactive:hover::before {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
 }
 
 .button-inactive:hover {
   background-color: rgb(211 211 211 / 0.2);
   border: 2px solid transparent;
+}
+
+.form__empty-error {
+  padding: 10px 0;
+  font-size: 18px;
+  color: #FF8630;
 }
 ```
 
@@ -409,6 +470,47 @@ function toggleErrorSpan(inputElement, errorMessage){
 }
 ```
 
+Также позаботимся об ошибке про пустую форму при клике или нажатии с клавиатуры на кнопку.
+
+```js
+const formErrorElement = document.getElementById('empty-error')
+
+function startValidation() {
+  toggleButton()
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    // Показываем ошибку
+    if (hasInvalidInput()) {
+      formError()
+    }
+  })
+  inputList.forEach((inputElement) => {
+    inputElement.addEventListener('input', () => {
+      checkInputValidity(inputElement)
+      toggleButton()
+    })
+  })
+}
+
+function toggleButton() {
+  if (hasInvalidInput()) {
+    buttonElement.classList.add('button-inactive')
+    buttonElement.setAttribute('aria-disabled', 'true')
+  } else {
+    buttonElement.classList.remove('button-inactive')
+    buttonElement.setAttribute('aria-disabled', 'false')
+    // Удаляем текст ошибки
+    formErrorElement.textContent = ''
+  }
+}
+
+// Здесь храним и добавляем текст к нужному контейнеру
+function formError() {
+  const errorMessage = 'Заполните все поля для отправки формы.'
+  formErrorElement.textContent = errorMessage
+}
+```
+
 Наш код готов! Не забудьте:
 
 1. Добавить в самое начало функции `startValidation()` функцию `toggleButton()`, чтобы ещё до ввода символов кнопка была заблокирована.
@@ -423,6 +525,9 @@ function startValidation() {
 
   form.addEventListener('submit', (event) => {
     event.preventDefault()
+    if (hasInvalidInput()) {
+      formError()
+    }
   })
 
   inputList.forEach((inputElement) => {
@@ -434,4 +539,4 @@ function startValidation() {
 }
 ```
 
-<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="775"></iframe>
+<iframe title="Мгновенная валидация полей" src="demos/final-form/" height="780"></iframe>
