@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - gvozdenkov
+  - tatianafokina
 related:
   - a11y/chto-takoe-a11y
   - a11y/a11y-html
