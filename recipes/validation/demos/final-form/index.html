@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Мгновенная валидация полей — Валидация формы — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" >
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      html, body {
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 50px 75px;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 400;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .form__label {
+        font-weight: 500;
+        font-size: 24px;
+      }
+
+      .form__field-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto calc(14px * 2.2);
+      }
+
+      .form__field {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        align-items: center;
+        gap: 10px
+      }
+
+      .form__type-input {
+        width: 100%;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+        margin-block-end: 5px;
+        padding: 10px 15px;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .form__type-input:focus {
+        border-color: #C56FFF;
+        outline: none;
+      }
+
+      .form__type-input-error {
+        border: 1px solid #FF8630;
+        background-color: rgb(255 134 48 / 0.1);
+      }
+
+      .form__error {
+        display: none;
+        grid-column: 1;
+        align-self: self-start;
+        grid-row-end: span 2;
+        color: #FF8630;
+        font-size: 14px;
+        line-height: 1.1;
+      }
+
+      .form__checkbox-label .form__error {
+        grid-column: 1 / 3;
+      }
+
+      .form__error-active {
+        display: block;
+      }
+
+      .form__checkbox-label {
+        position: relative;
+        display: grid;
+        grid-template-columns: 24px auto;
+        gap: 0 15px;
+        margin-inline-start: auto;
+        cursor: pointer;
+      }
+
+      .form__type-checkbox {
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+        padding: 0;
+      }
+
+      .form__type-checkbox + .form__type-checkbox-title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 24px;
+        height: 24px;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+      }
+
+      .form__type-checkbox:focus + .form__type-checkbox-title::before {
+        border-color: #C56FFF;
+      }
+
+      .form__type-checkbox:checked + .form__type-checkbox-title::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background-color: #C56FFF;
+      }
+
+      .button {
+        border: 2px solid transparent;
+        margin-inline-start: auto;
+        padding: 10px 15px;
+        background-color: #C56FFF;
+        border-radius: 6px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:hover {
+        border: 2px solid #FFFFFF;
+        background-color: #FFFFFF;
+      }
+
+      .button:focus-visible {
+        outline: none;
+        border: 2px solid #FFFFFF;
+      }
+
+      .button-inactive {
+        cursor: not-allowed;
+        background-color: rgb(211 211 211 / 0.6);
+      }
+
+      .button-inactive:hover {
+        background-color: rgb(211 211 211 / 0.2);
+        border: 2px solid transparent;
+      }
+
+      .form__empty-error {
+        padding: 10px 0;
+        font-size: 18px;
+        color: #FF8630;
+      }
+
+      .form__error, .form__empty-error, .form__checkbox-label, .button {
+        inline-size: 450px;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+
+        .form__error, .form__empty-error, .form__checkbox-label, .button {
+          inline-size: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <form class="form" name="form" novalidate>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Имя:</span>
+          <input
+            type="text"
+            id="input__name"
+            class="form__type-input"
+            placeholder="Иван"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            aria-describedby="name-error"
+            required
+          >
+        </label>
+        <span class="form__error input__name-error" id="name-error" aria-live="polite"></span>
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Фамилия:</span>
+          <input
+            type="text"
+            id="input__surname"
+            class="form__type-input"
+            placeholder="Васильевич"
+            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
+            aria-describedby="surname-error"
+            required
+          >
+        </label>
+        <span class="form__error input__surname-error" id="surname-error" aria-live="polite"></span>
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Почта:</span>
+          <input
+            type="email"
+            id="input__e-mail"
+            class="form__type-input"
+            placeholder="menyaet.professiyu@ivan.com"
+            aria-describedby="email-error"
+            required
+          >
+        </label>
+        <span class="form__error input__e-mail-error" id="email-error" aria-live="polite"></span>
+      </div>
+      <div class="form__field-container">
+        <label class="form__field">
+          <span class="form__label">Возраст:</span>
+          <input
+            type="number"
+            id="input__age"
+            class="form__type-input"
+            placeholder="40"
+            min="18"
+            max="100"
+            aria-describedby="age-error"
+            required
+          >
+        </label>
+        <span class="form__error input__age-error" id="age-error" aria-live="polite"></span>
+      </div>
+      <div class="form__field-container">
+        <label class="form__checkbox-label">
+          <input
+            type="checkbox"
+            id="input__checkbox"
+            class="form__type-input form__type-checkbox"
+            checked
+            aria-describedby="checkbox-error"
+            required
+          />
+          <span class="form__type-checkbox-title">Я согласен быть царём</span>
+        </label>
+        <span class="form__error input__checkbox-error" id="checkbox-error" aria-live="polite"></span>
+      </div>
+      <button type="submit" class="button" aria-describedby="empty-error">Отправить</button>
+      <span class="form__empty-error" id="empty-error" aria-live="assertive"></span>
+    </form>
+
+    <script>
+      const form = document.querySelector('.form')
+      const inputList = Array.from(form.querySelectorAll('.form__type-input'))
+      const buttonElement = form.querySelector('.button')
+      const formErrorElement = form.querySelector('.form__empty-error')
+
+      startValidation()
+
+      function startValidation() {
+        toggleButton()
+        form.addEventListener('submit', (event) => {
+          event.preventDefault()
+          if (hasInvalidInput()) {
+            formError()
+          }
+        })
+        inputList.forEach((inputElement) => {
+          inputElement.addEventListener('input', () => {
+            checkInputValidity(inputElement)
+            toggleButton()
+          })
+        })
+      }
+
+      function checkInputValidity(inputElement) {
+        if (inputElement.validity.patternMismatch) {
+          inputElement.setCustomValidity(inputElement.dataset.errorMessage)
+        } else {
+          inputElement.setCustomValidity(checkLengthMismatch(inputElement))
+        }
+
+        if (!inputElement.validity.valid) {
+          toggleErrorSpan(inputElement, inputElement.validationMessage)
+        } else {
+          toggleErrorSpan(inputElement)
+        }
+      }
+
+      function checkLengthMismatch(inputElement) {
+        if (inputElement.type !== 'text') {
+          return ''
+        }
+        const valueLength = inputElement.value.trim().length
+        if (valueLength < inputElement.minLength) {
+          return `Минимальное количество символов: ${inputElement.minLength}`
+        }
+        return ''
+      }
+
+      function hasInvalidInput() {
+        return inputList.some((inputElement) => {
+          return !inputElement.validity.valid
+        })
+      }
+
+      function toggleErrorSpan(inputElement, errorMessage) {
+        const errorElement = document.querySelector(`.${inputElement.id}-error`)
+        if (errorMessage) {
+          inputElement.classList.add('form__type-input-error')
+          errorElement.textContent = errorMessage
+          errorElement.classList.add('form__error-active')
+        } else {
+          inputElement.classList.remove('form__type-input-error')
+          errorElement.textContent = ''
+          errorElement.classList.remove('form__error-active')
+        }
+      }
+
+      function toggleButton() {
+        if (hasInvalidInput()) {
+          buttonElement.classList.add('button-inactive')
+          buttonElement.setAttribute('aria-disabled', 'true')
+        } else {
+          buttonElement.classList.remove('button-inactive')
+          buttonElement.setAttribute('aria-disabled', 'false')
+          formErrorElement.textContent = ''
+        }
+      }
+
+      function formError() {
+        const errorMessage = 'Заполните все поля для отправки формы.'
+        formErrorElement.textContent = errorMessage
+      }
+    </script>
+  </body>
+</html>
