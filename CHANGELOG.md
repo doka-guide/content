@@ -2,6 +2,12 @@
 
 <!-- yaspeller ignore:start -->
 
+## Март 2024
+
+- 5 марта, [Мгновенная валидация форм](https://doka.guide/recipes/validation/), Юлия Макарова
+- 5 марта, [Что такое самантика?](https://doka.guide/html/semantics/), Александр Рассудихин
+- 5 марта, [`@layer`](https://doka.guide/css/layer/), Татьяна Фокина
+
 ## Февраль 2024
 
 - 19 февраля, [`aria-level`](https://doka.guide/a11y/aria-level/), Татьяна Фокина
