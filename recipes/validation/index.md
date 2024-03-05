@@ -154,7 +154,7 @@ tags:
 const form = document.querySelector('.form')
 const inputList = Array.from(form.querySelectorAll('.form__type-input'))
 const buttonElement = form.querySelector('.button')
-const formErrorElement = document.getElementById('empty-error')
+const formErrorElement = form.querySelector('.form__empty-error')
 
 startValidation()
 
@@ -280,7 +280,9 @@ CSS-стили, которые будут использоваться при в
 Свяжем поле ввода и `<span>` с ошибкой с помощью идентификаторов и классов CSS. Задаём идентификатор для `<input>` и присваиваем для `<span>` аналогичный класс, добавляя '-error' в конце. Это позволит найти `<span>` в [`DOM`](/js/dom/) по такой схеме: `document.querySelector(${input.id}-error)`. Чтобы эта связь между полем и ошибкой к нему была понятна и пользователям вспомогательных технологий, свяжем их атрибутом [`aria-describedby`](/a11y/aria-describedby/) у поля и кнопки и `id` с таким же значением у `<span>`. Чтобы вспомогательные технологии рассказывали о них автоматически, добавим ещё другой ARIA-атрибут [`aria-live`](/a11y/aria-live/).
 
 <aside>
-  ⚠️ Текст сообщений об ошибках по умолчанию будет на том языке, который пользователь выбрал в браузере. Так что можете столкнуться с ситуацией, когда ваши ошибки отображаются на одном языке, а стандартные браузерные — на другом.
+
+⚠️ Текст сообщений об ошибках по умолчанию будет на том языке, который пользователь выбрал в браузере. Так что можете столкнуться с ситуацией, когда ваши ошибки отображаются на одном языке, а стандартные браузерные — на другом.
+
 </aside>
 
 Настроим параметры валидации. Тут можно использовать как стандартные атрибуты — [`maxlength`/`minlength`](/html/minlength-maxlength/), так и нестандартные атрибуты типа [`pattern`](/html/pattern/) с регулярными выражениями. Последний позволяет настроить более точные и специфические правила для полей ввода.
@@ -319,7 +321,7 @@ CSS-стили, которые будут использоваться при в
 const form = document.querySelector('.form')
 const inputList = Array.from(form.querySelectorAll('.form__type-input'))
 const buttonElement = form.querySelector('.button')
-const formErrorElement = document.getElementById('empty-error')
+const formErrorElement = form.querySelector('.form__empty-error')
 ```
 
 Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие [`submit`](/js/event-submit/), где используется [`event.preventDefault()`](/js/event-prevent-default/) для предотвращения стандартного поведения формы при отправке. Для дополнительной информации читайте «[Работа с формами](/js/deal-with-forms/)».
@@ -473,7 +475,7 @@ function toggleErrorSpan(inputElement, errorMessage){
 Также позаботимся об ошибке про пустую форму при клике или нажатии с клавиатуры на кнопку.
 
 ```js
-const formErrorElement = document.getElementById('empty-error')
+const formErrorElement = form.querySelector('.form__empty-error')
 
 function startValidation() {
   toggleButton()
