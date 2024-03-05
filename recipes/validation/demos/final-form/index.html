@@ -288,7 +288,7 @@
       const form = document.querySelector('.form')
       const inputList = Array.from(form.querySelectorAll('.form__type-input'))
       const buttonElement = form.querySelector('.button')
-      const formErrorElement = document.getElementById('empty-error')
+      const formErrorElement = form.querySelector('.form__empty-error')
 
       startValidation()
 
@@ -326,7 +326,7 @@
         if (inputElement.type !== 'text') {
           return ''
         }
-        const valueLength = inputElement.value.trim().length;
+        const valueLength = inputElement.value.trim().length
         if (valueLength < inputElement.minLength) {
           return `Минимальное количество символов: ${inputElement.minLength}`
         }
