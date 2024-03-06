@@ -12,6 +12,7 @@ groups:
       - dropdown-menu
       - container
       - lazy-load-with-preview
+      - validation
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
