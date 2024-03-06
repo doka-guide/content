@@ -54,12 +54,13 @@ _Скринридер (screen reader)_ — программа, которая п
 - Linux — [Orca](https://help.gnome.org/users/orca/stable/), тоже установлен по умолчанию в системе.
 - Chrome OS — [ChromeVox](https://support.google.com/chromebook/answer/7031755), предустановленный. Можно скачать как расширение в браузеры на Chromium.
 
-Более полный список можно найти в [Википедии](https://en.wikipedia.org/wiki/List_of_screen_readers).
+Более полный список можно найти [в Википедии](https://en.wikipedia.org/wiki/List_of_screen_readers).
 
-У скринридеров разная популярность среди пользователей, как у браузеров. Следить за статистикой можно через ежегодные [опросы пользователей WebAIM](https://webaim.org/projects/). Это американская компания, которая занимается доступностью.
+У скринридеров разная популярность среди пользователей, как у браузеров. Следить за статистикой можно через ежегодные [опросы пользователей WebAIM](https://webaim.org/projects/). Это американская компания, которая занимается доступностью. Есть и [исследование русскоговорящих пользователей скринридеров](https://habr.com/en/companies/yandex/articles/788740/) (проводилось в 2023).
 
 В лидеры чаще всего попадают:
-- JAWS или NVDA и Chrome. Периодически меняются местами.
+
+- JAWS и Chrome, NVDA и Firefox или Chrome. Периодически меняются местами.
 - Десктопный и мобильный VoiceOver и Safari.
 - TalkBack и Chrome.
 
@@ -101,7 +102,7 @@ _Скринридер (screen reader)_ — программа, которая п
 
 Объект доступности состоит из роли, имени, описания, свойств и состояний.
 
-Во многие [семантические теги](/html/#semantika) роли уже встроены. Роль [`<a>`](/html/a/) — [`link`](/a11y/role-link/), [`<header>`](/html/header/) — [`banner`](/a11y/role-banner/), [`<ul>`](/html/ul/) — [`list`](/a11y/role-list/). Полный список можно найти на [странице с HTML-элементами и именами](https://russmaxdesign.github.io/html-elements-names/). Поэтому для доступности важна семантическая вёрстка. Если вместо [`<button>`](/html/button/) использовать `<div>` с событием `onclick`, то у него не будет роли кнопки и её поведения. Пользователи скринридеров не узнают, что элемент кликабельный.
+Во многие [семантические теги](/html/semantics/) роли уже встроены. Роль [`<a>`](/html/a/) — [`link`](/a11y/role-link/), [`<header>`](/html/header/) — [`banner`](/a11y/role-banner/), [`<ul>`](/html/ul/) — [`list`](/a11y/role-list/). Полный список можно найти на [странице с HTML-элементами и именами](https://russmaxdesign.github.io/html-elements-names/). Поэтому для доступности важна семантическая вёрстка. Если вместо [`<button>`](/html/button/) использовать `<div>` с событием `onclick`, то у него не будет роли кнопки и её поведения. Пользователи скринридеров не узнают, что элемент кликабельный.
 
 <aside>
 
@@ -131,7 +132,7 @@ _Скринридер (screen reader)_ — программа, которая п
 
 ![Схема нажатия на кнопку. Скринридер запрашивает метод у Accessibility API, он передаёт этот метод браузеру, браузер находит скрипт с обработчиком события, в итоге выполняется какая-то функция при клике на кнопку.](images/4.png)
 
-## Особенности навигации по контенту
+## Особенности навигации
 
 Навигация со скринридерами по страницам и экранам отличается от обычной.
 
@@ -173,6 +174,7 @@ _Скринридер (screen reader)_ — программа, которая п
 </video>
 
 Расшифровка видео:
+
 - NVDA 2021.2 и Chrome 95: «Список из 3 элементов. Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка».
 - JAWS 2022 и Chrome 95: «Список из 3 элемента. Рыбы, ссылка. Пёсели, ссылка. Лягухи, ссылка».
 - TalkBack на Android 10 и Firefox 94.1: «Рыбы, элемент списка, 2 из 3. Роль «список», 3 пункта. Пёсели, элемент списка, 3 из 3. Лягухи, элемент списка, 4 из 3». Объявляет информацию об элементах на английском, не зачитывает роль ссылки и неправильно считает элементы списка (баг).
@@ -196,7 +198,8 @@ _Скринридер (screen reader)_ — программа, которая п
 
 - [Шорткаты в NVDA](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts).
 - [Шорткаты в JAWS](https://dequeuniversity.com/screenreaders/jaws-keyboard-shortcuts).
-- [Шорткаты в VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts).
+- [Шорткаты в десктопном VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-keyboard-shortcuts).
+- [Шорткаты в Orca](https://a11ysupport.io/learn/at/orca).
 - [Жесты в TalkBack](https://dequeuniversity.com/screenreaders/talkback-shortcuts).
 - [Жесты в мобильном VoiceOver](https://dequeuniversity.com/screenreaders/voiceover-ios-shortcuts).
 
