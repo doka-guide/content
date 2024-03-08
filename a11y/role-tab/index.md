@@ -17,7 +17,7 @@ tags:
 
 [Самостоятельная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая означает вкладку.
 
-В HTML нет тена, похожего на роль `tab`.
+В HTML нет тега, похожего на роль `tab`.
 
 ## Пример
 
