@@ -17,7 +17,7 @@ tags:
 
 [Самостоятельная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya), которая означает содержимое или панель вкладки.
 
-В HTML нет эквивалента для роли `tabpanel`.
+В HTML нет тега, похожего на роль `tabpanel`.
 
 ## Пример
 
@@ -40,7 +40,27 @@ tags:
 
 Роль `tabpanel` можно задать любому тегу, но лучше всего подходят нейтральные [`<div>`](/html/div/) и [`<span>`](/html/span/).
 
-Элемент с ролью `tabpanel` обязательно должен находится внутри другого с [ролью `tablist`](/a11y/role-tablist/) и быть связанным с нужным [`tab`](/a11y/role-tab/). Для этого используйте атрибут [`aria-controls`](/a11y/aria-controls/) для `tab` и добавьте `id` с таким же значением к `tabpanel`.
+Элемент с ролью `tabpanel` добавляют после списка вкладок [с ролью `tablist`](/a11y/role-tablist/).
+
+```html
+<!-- Список вкладок -->
+<div
+  role="tablist"
+  aria-label="Необычные животные"
+>
+  <!-- Вкладка -->
+</div>
+
+<!-- Содержимое вкладки-->
+<div
+  role="tabpanel"
+  id="tab-1"
+>
+  <p>Травоядные животные с коротким хоботом, которые живут в лесу.</p>
+</div>
+```
+
+Обязательно свяжите содержимое `tabpanel` с нужной вкладкой [`tab`](/a11y/role-tab/). Для этого используйте атрибут [`aria-controls`](/a11y/aria-controls/) для `tab` и добавьте `id` с таким же значением к `tabpanel`.
 
 ```html
 <button
@@ -74,7 +94,7 @@ tags:
 </div>
 ```
 
-У `aria-controls` [пока плохая поддержка](https://a11ysupport.io/tech/aria/aria-controls_attribute), так что часто для надёжности этот атрибут совмещают с `aria-labelledby`.
+[У `aria-controls` пока плохая поддержка](https://a11ysupport.io/tech/aria/aria-controls_attribute), так что часто для надёжности этот атрибут совмещают с `aria-labelledby`.
 
 Элементам с ролью `tabpanel` можно также задавать все остальные [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy) и некоторые [атрибуты виджетов](/a11y/aria-attrs/#atributy-vidzhetov).
 
