@@ -119,7 +119,7 @@ console.log(newCities)
 // [{city: 'Ливерпуль'}, {city: 'Лондон'}]
 
 // изменим элемент исходного массива
-cities[0].established = 1207
+cities[1].established = 1207
 
 console.log(cities)
 // [{city: 'Глазго'}, {city: 'Ливерпуль', established: 1207}, {city: 'Лондон'}]
