@@ -70,8 +70,9 @@ tags:
     двух чисел:
   </p>
   <pre>
-  <code>console.log(2.3 + 2.4)</code>
-  <samp>4.699999999999999</samp></pre>
+    <code>console.log(2.3 + 2.4)</code>
+    <samp>4.699999999999999</samp>
+  </pre>
 </div>
 
 <div>
