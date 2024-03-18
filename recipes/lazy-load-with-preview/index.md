@@ -86,5 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
     progressiveImage.src = progressiveImage.getAttribute('data-src')
     progressiveImage.style.filter = 'none'
   }
+  lowResImage.onerror = function() {
+    progressiveImage.style.filter = 'none'
+  }
 })
 ```
