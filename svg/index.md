@@ -4,6 +4,12 @@ groups:
   - name: "Основы"
     items:
       - svg
+  - name: "Базовые формы"
+    items:
+      - line
+      - circle
+      - rect
+      - polygon
   - name: "Атрибуты"
     items:
       - svg-common-attrs
