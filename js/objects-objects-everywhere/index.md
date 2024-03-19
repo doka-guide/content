@@ -1,6 +1,11 @@
 ---
 title: "Почти всё в JavaScript — объект"
 description: "Что бы мы ни использовали при написании JS кода, почти всё это объекты под капотом."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Семейное фото в стиле семейки Аддамс, где каждый подписан как object'
 authors:
   - windrushfarer
 keywords:
