@@ -1,6 +1,11 @@
 ---
 title: "`<header>`"
 description: "Надень на контент шапку, а то поисковый робот заругает."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Лысый парень в очках и шарфе надевает шапку'
 authors:
   - doka-dog
 contributors:
