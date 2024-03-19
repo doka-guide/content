@@ -1,6 +1,11 @@
 ---
 title: "`<html>`"
 description: "Содержит всю страницу внутри — и метаданные, и контент."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Стена с граффити, которую начали закрашивать, а рядом ведро с краской'
 authors:
   - doka-dog
 contributors:
