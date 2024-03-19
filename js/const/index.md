@@ -1,6 +1,11 @@
 ---
 title: "`const`"
 description: "Создаём переменную, значение которой нельзя изменить."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Мускулистая рука с татуировками, которая показывает козу'
 authors:
   - nlopin
 contributors:
