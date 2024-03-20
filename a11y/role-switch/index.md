@@ -6,7 +6,7 @@ authors:
 contributors:
   - skorobaeus
 related:
-  - a11y/aria-intro
+  - a11y/role-checkbox
   - a11y/aria-roles
   - html/input
 tags:
@@ -15,13 +15,13 @@ tags:
 
 ## Кратко
 
-[Роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент что-то переключает. Например, тему, оповещения или какие-то другие настройки на сайте.
+[Роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент что-то переключает. Например, тему, оповещения или другие настройки на сайте.
 
-К этой роли близок [`<input>` с типом `checkbox`](/html/input/#type), а в ARIA на неё похожа роль [`checkox`](/a11y/role-checkbox/). Однако они не эквиваленты `switch`.
+На `switch` похожи [`<input>` с типом `checkbox`](/html/input/#type) и другая [ARIA-роль `checkbox`](/a11y/role-checkbox/), но они не заменяют роль переключателя. Команда Safari предложила решить проблему нативного переключателя [с помощью HTML-атрибута `switch`](https://webkit.org/blog/15054/an-html-switch-control/) — `<input type="checkbox" switch>`. Атрибут поддерживает только Safari, начиная с версии 17.4. Пока, без стабильной поддержки другими браузерами и вспомогательными технологиями, лучше не использовать этот атрибут.
 
 <aside>
 
-☝ Десктопный VoiceOver пока считает [элементы с ролью `switch` чекбоксами](https://bugs.webkit.org/show_bug.cgi?id=196354).
+☝ Десктопный VoiceOver считает [элементы с ролью `switch` чекбоксами](https://bugs.webkit.org/show_bug.cgi?id=268120).
 
 </aside>
 
@@ -81,4 +81,4 @@ tags:
 
 ## Как понять
 
-У обычного чекбокса есть состояния «Выбран» и «Не выбран». Элемент с ролью `switch` бывает в состояниях «Включён» и «Выключен», в отличие от простого чекбокса.
+У обычного чекбокса есть состояния «Выбран» и «Не выбран». Элемент с ролью `switch` бывает в состоянии «Включён» и «Выключен», в отличие от простого чекбокса.
