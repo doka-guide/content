@@ -1,6 +1,11 @@
 ---
 title: "`.querySelector()`"
 description: "Получить DOM-элемент по CSS-селектору."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Генетическое дерево котиков'
 authors:
   - nlopin
 keywords:
