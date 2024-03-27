@@ -104,7 +104,7 @@ const sendDataToWorker = () => {
 };
 ```
 
- То же самое делаем в другой вкладке:
+То же самое делаем в другой вкладке:
 
 ```tsx
 // Первая вкладка: app2.js
@@ -126,8 +126,7 @@ const sendDataToWorker = () => {
 let sum = 0;
 
 onconnect = (connect) => {
-	// В ports всегда один элемент
-  const port = connect.ports[0];
+  const port = connect.ports[0]; 	// В ports всегда один элемент
 
   port.onmessage = (event) => {
     sum += event;
