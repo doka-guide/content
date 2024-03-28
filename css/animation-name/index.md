@@ -3,6 +3,7 @@ title: "`animation-name`"
 description: "Чтобы анимацию к чему-то применить её нужно сначала назвать."
 authors:
   - solarrust
+  - goingtogogo
 editors:
   - tachisis
 keywords:
@@ -24,9 +25,11 @@ tags:
 
 ```css
 .element {
-  animation-name: circle-to-square;
+  animation-name: left-to-right;
 }
 ```
+
+<iframe title="Слева направо — animation-name — Дока" src="demos/default/" height="300"></iframe>
 
 ## Как понять
 
@@ -34,7 +37,31 @@ tags:
 
 ## Как пишется
 
-В качестве значения указывается имя, заданное для ключевых кадров анимации в директиве [`@keyframes`](/css/keyframes/).
+В качестве значения указывается имя, заданное для ключевых кадров анимации в директиве [`@keyframes`](/css/keyframes/). Предположим, у нас есть две анимации:
+
+```css
+@keyframes left-to-right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(100vw - 250px));
+  }
+}
+
+@keyframes bottom-to-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100vh + 250px));
+  }
+}
+```
+
+С помощью свойства `animation-name` мы указываем, какую анимацию нужно применить к элементу.
+
+<iframe title="Применяем разные названия анимаций — animation-name — Дока" src="demos/multiple/" height="500"></iframe>
 
 Кроме имени анимации можно указать `none`, значение по умолчанию. Означает отсутствие анимации. Удобно использовать для сброса анимации.
 
