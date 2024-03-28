@@ -80,7 +80,7 @@ console.log(alex.sayNameWithArrowFunction.call(den))
 // Alex, т. к. не можем изменить контекст
 ```
 
-### В теле стрелочных функций `arguments` будет ссылаться на `arguments` из внешней лексической области:
+В теле стрелочных функций `arguments` будет ссылаться на `arguments` из внешней лексической области:
 
 ```js
 function f() {
