@@ -1,11 +1,8 @@
-﻿---
+---
 title: "Стрелочные функции"
 description: "Более компактная запись, чем у обычных функций."
 authors:
   - alexafcode
-keywords:
-  - функция
-  - стрелочная функция
 related:
   - js/function-as-datatype
   - js/function
@@ -16,96 +13,102 @@ tags:
 
 ## Кратко
 
-Стрелочная функция это короткая запись функционального выражения (function expression) без собственных привязок this, arguments и super.
+Стрелочная функция это короткая запись функционального выражения (function expression) без собственных привязок `this`, `arguments` и `super`.
 
 ## Как пишется
 
 Если функция принимает только один аргумент, круглые скобки вокруг него можно не ставить. Если тело функции состоит из одного выражения, оператор `return` также необязателен.
 
 ```js
-const divider = n => n / 2;
+const divider = n => n / 2
 ```
 
-Если тело функции содержит несколько выражений, нужно обернуть их в фигурные скобки. Оператор `return` тоже нужен.
+Если тело функции содержит несколько выражений, оберните их в фигурные скобки. Здесь оператор `return` нужен, так как функция что-то возвращает.
 
 ```js
 const sayHello = (name) => {
   const greeting = `Hello ${name}`
-  return greeting;
-};
+  return greeting
+}
 ```
 
 ## Как понять
 
-### Стрелочные функции пишутся короче:
+Стрелочные функции пишутся короче:
 
 ```js
-// запись обычной функции
+// Обычная функция
 function divider(n) {
   return n / 2
 }
 
-// запись стрелочной функции
-const divider = n => n / 2;
+// Стрелочная функция
+const divider = n => n / 2
 ```
 
-### У стрелочных функций нет своих привязок для `arguments`, `super`, `this` или `new.target`. Значения этих ключевых слов привязываются к внешнему лексическому окружению.
+У стрелочных функций нет своих привязок для `arguments`, `super`, `this` или `new.target`. Значения этих ключевых слов привязываются к внешнему лексическому окружению.
 
-Использование call() или apply() никак не влияет на стрелочные функции.
+Использование `call()` или `apply()` никак не влияет на стрелочные функции.
 
 ```js
 class Person {
   constructor(name) {
-    this.name = name;
+    this.name = name
   }
 
   sayName() {
-    console.log(this.name);
+    console.log(this.name)
   }
 
   sayNameWithArrowFunction = () => {
-    console.log(this.name);
+    console.log(this.name)
   }
 }
 
 const alex = new Person('Alex')
-console.log(alex.sayName()) //Alex
-console.log(alex.sayNameWithArrowFunction()) //Alex
+console.log(alex.sayName())
+// Alex
+
+console.log(alex.sayNameWithArrowFunction())
+// Alex
 
 const den = new Person('Den')
-console.log(alex.sayName.call(den)) //Den
-console.log(alex.sayNameWithArrowFunction.call(den)) //Alex, т.к. не можем изменить контекст
+console.log(alex.sayName.call(den))
+// Den
+
+console.log(alex.sayNameWithArrowFunction.call(den))
+// Alex, т. к. не изменить контекст
 ```
 
-### В теле стрелочных функций `arguments` будет ссылаться на `arguments` из внешней лексической области:
+В теле стрелочных функций `arguments` будет ссылаться на `arguments` из внешней лексической области:
 
 ```js
 function f() {
   const arrowFunction = () => {
-    console.log(arguments);
+    console.log(arguments)
   }
 
-  arrowFunction('стрелочная функция');
+  arrowFunction('стрелочная функция')
 }
 
-f('обычная функция'); ////  { 0: 'обычная функция', length: 1 }
+f('обычная функция')
+//  { 0: 'обычная функция', length: 1 }
 ```
 
-### У стрелочных функций нет свойств `сonstructor` и `prototype`:
+У стрелочных функций нет свойств `сonstructor` и `prototype`:
 
 ```js
 const arrowFunction = () => {}
-console.log(arrowFunction.prototype) // undefined
+console.log(arrowFunction.prototype)
+// undefined
 ```
 
-И как следствие, стрелочные функции не могут быть использованы как конструктор. Их нельзя использовать с оператором `new`.
+И, как следствие, стрелочные функции не могут быть использованы как конструктор. Их нельзя использовать с оператором `new`.
 
 ```js
 const arrowFunction = () => {}
-console.log(new arrowFunction()); //TypeError: arrowFunction is not a constructor
-// arrow function не могу быть функциями конструктарами, не доступно ключевое слово new
+console.log(new arrowFunction())
+// TypeError: arrowFunction is not a constructor
 ```
 
-### Стрелочные функции не могут использоваться как генераторы.
-
-### Ключевое слово `super` внутри стрелочных функциях ссылается на `super` из внешнего лексического окружения, а не на `super` родительского класса.
+Стрелочные функции нельзя использоваться как генераторы. Ключевое слово `super` внутри стрелочных функциях ссылается на `super` из внешнего лексического окружения, а не на `super` родительского класса.
