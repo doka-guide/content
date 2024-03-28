@@ -4,6 +4,7 @@
 
 ## Март 2024
 
+- 28 марта, [Web Workers](https://doka.guide/js/web-workers/), Марсель Ахметшин
 - 24 марта, [`Array.of()`](https://doka.guide/js/array-of/), Viktar Nezhbart
 - 10 марта, [Структуры данных в JavaScript](https://doka.guide/tools/structure-data-in-js/), Евгения Шевлякова
 - 5 марта, [Мгновенная валидация форм](https://doka.guide/recipes/validation/), Юлия Макарова
