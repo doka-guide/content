@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Первый экран на всю высоту — dv — Дока</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html,body{
+            font-family: 'Inter', sans-serif;
+            min-width: 375px;
+            overflow-x: hidden;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .grid{
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn{
+            padding: 16px 27px;
+            border-radius: 6px;
+            display: block;
+            width: fit-content;
+            transition: 0.5s;
+        }
+
+        .btn.blue{
+            background: #353535;
+            color: #fff;
+        }
+
+        .main-container{
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-header{
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 60px;
+            color: #353535;
+        }
+
+        .main-text{
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 28px;
+            color: #353535;
+            margin: 16px 0 34px 0;
+        }
+
+        .main-content{
+            padding: 95px 0 130px 0;
+            max-width: 500px;
+        }
+
+        .main-image>img{
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        .grid-s{
+            max-width: 1188px;
+        }
+
+        .doc-wrapper{
+            position: relative;
+        }
+
+        .main-section {
+            height: 100dvh;
+            width: 100dvw;
+        }
+
+        .grid-main {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .btn.blue:hover{
+            background: #000000;
+            color: #fff;
+        }
+
+        .main-image>img {
+            animation: pnf 1s;
+        }
+
+        @keyframes pnf {
+            0% {
+                clip-path: inset(100% 0 0 0 round 0);
+            }
+            100% {
+                clip-path: inset(0 0 0 0 round 0);
+            }
+        }
+
+        @media only screen and (max-width: 1440px) {
+            .grid {
+                max-width: 330px;
+                margin: 0 auto;
+            }
+            .main-image{
+                position: static;
+                width: 100%;
+                overflow: hidden;
+            }
+            .main-content {
+                padding: 0 0 40px 0;
+                max-width: 100%;
+            }
+            .main-header {
+                font-size: 28px;
+                line-height: 27px;
+                text-align: center;
+            }
+            .main-text {
+                font-size: 14px;
+                line-height: 20px;
+                margin: 20px 0 33px 0;
+                text-align: center;
+            }
+            .main-container {
+                flex-direction: column;
+            }
+            .main-image>img{
+                height: 30dvh;
+            }
+            .btn.blue{
+                margin: 0 auto;
+            }
+            .btn {
+                padding: 11px 17px;
+                font-size: 14px;
+                line-height: 17px;
+            }
+            .grid-main{
+                max-width: 350px;
+            }
+            .main-content{
+                max-width: 295px;
+                margin: 0 auto;
+            }
+            .main-text{
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="doc-wrapper">
+        <section role="main" class="main-section">
+            <div class="grid grid-s grid-main">
+                <div class="main-container">
+                    <div class="main-content">
+                        <h1 class="main-header">Lorem ipsum dolor sit</h1>
+                        <p class="main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        <a href="#" class="btn blue">Lorem ipsum</a>
+                    </div>
+                    <div class="main-image">
+                        <img src="./img/dv.svg" alt="main">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
