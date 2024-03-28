@@ -3,12 +3,12 @@ title: "Выразительный React: простые компоненты н
 description: "Создаем простой компонент на React."
 authors:
   - hellsquirrel
-tags:
-  - article
 related:
   - tools/react-and-alternatives
   - tools/web-server
   - tools/bundlers
+tags:
+  - article
 ---
 
 В статье вы познакомитесь с React и создадите первый простой компонент — прямоугольник с собачкой. В этом примере мы не будем запускать код в браузере. Вместо этого напишем простой скрипт, который запустит сервер и отдаст HTML-страницу с компонентом. Эта техника называется Server Side Rendering.
