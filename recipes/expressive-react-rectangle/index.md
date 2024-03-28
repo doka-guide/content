@@ -126,7 +126,7 @@ Bun.serve({
   async fetch() {
     return new Response(html, {
       headers: {
-         "Content-Type": "text/html",
+        "Content-Type": "text/html",
       }
     });
   },
