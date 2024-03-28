@@ -4,7 +4,7 @@ description: "Брутальный способ перенести текст и
 authors:
   - ezhkov
 contributors:
-  - kazakovas
+  - kazakov-al
   - tatianafokina
   - skorobaeus
 editors:
