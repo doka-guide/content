@@ -57,11 +57,13 @@ console.log(closestElement2)
 
 ```html
 <div class="container main-container">
-  <button id="1">Кнопка 1</button>
+  <button id="1" class="button">Кнопка 1</button>
   <div class="container parent-container">
-    <button id="2">Кнопка 2</button>
+    <button id="2" class="button">
+      <span class="button-content">Кнопка 2</span>
+    </button>
     <div class="container child-container">
-      <button id="3">Кнопка 3</button>
+      <button id="4" class="button">Кнопка 4</button>
     </div>
   </div>
 </div>
@@ -73,16 +75,20 @@ console.log(closestElement2)
 const mainContainer = document.querySelector('.main-container')
 
 mainContainer.addEventListener('click', function (e) {
+  // элемент на котором был выполнен клик
   const targetElem = e.target
+  // определяем был ли выполнен клик на одной из кнопок (или внутри её)
+  const buttonElem = targetElem.closest('.button')
 
-  if (targetElem.tagName !== 'BUTTON') {
-    // Eсли клик выполнен не на кнопке ничего не делаем
+  // если клик был выполнен вне кнопки buttonElem === null
+  if (buttonElem === null) {
+    // если клик выполнен не на кнопке ничего не делаем
     e.stopPropagation()
     return
   }
 
   const containerElem = targetElem.closest('.container')
-  // Выводим в консоль контейнер, содержащий нажатую кнопку
+  // выводим в консоль контейнер, содержащий нажатую кнопку
   console.log(containerElem)
 })
 ```
