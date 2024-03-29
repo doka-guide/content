@@ -79,64 +79,64 @@ active:
   - html/section
   - js/array-reduce-right
   - recipes/popup
-  - html/img
-  - recipes/snow
-  - css/flexbox-guide
-  - js/deal-with-forms
-  - css/pseudoelements
-  - tools/markdown
-  - js/infinite-scroll
-  - tools/ci-cd
-  - html/form
-  - a11y/aria-intro
-  - a11y/content-hidden
-  - tools/network
-  - html/doctype
-  - tools/oop
-  - js/async-in-js
-  - js/var-let
-  - html/nav
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - css/scrollbar-gutter
-  - css/keyframes
-  - recipes/character-counter
-  - css/grid-guide
   - tools/gitlab-ci-cd
-  - tools/how-the-browser-creates-pages
-  - recipes/progress
-  - js/execution-order
-  - css/specificity
-  - tools/how-to-test-and-why
+  - css/box-model
+  - recipes/snow
+  - css/custom-properties
+  - tools/agile
+  - html/head
+  - css/flexbox-guide
+  - css/position
+  - tools/webpack
+  - a11y/css-impact-on-a11y
+  - css/box-shadow
+  - a11y/aria-intro
+  - html/doctype
+  - tools/bundlers
+  - html/img
+  - css/display
+  - js/geolocation-api
+  - tools/docker
   - css/transform-function
   - tools/static-types
-  - html/flow
-  - a11y/screenreaders
-  - tools/docker
-  - html/div
-  - recipes/center
-  - recipes/ajax-form
-  - css/box-shadow
-  - js/geolocation-api
-  - css/position
-  - css/attr
-  - js/closures
-  - js/function-context
-  - html/input
-  - html/article
-  - tools/cli
-  - js/function
-  - tools/webpack
-  - html/head
-  - tools/agile
-  - css/custom-properties
-  - css/display
+  - tools/markdown
   - tools/clean-architecture
+  - tools/network
+  - a11y/screenreaders
+  - recipes/character-counter
+  - js/closures
+  - css/pseudoelements
+  - css/specificity
   - a11y/aria-hidden
-  - a11y/css-impact-on-a11y
-  - css/box-model
-  - js/boolean
-  - tools/bundlers
+  - recipes/center
+  - html/video
+  - html/div
+  - js/function-context
   - css/media
+  - html/article
+  - js/execution-order
+  - tools/ci-cd
+  - html/input
+  - tools/oop
+  - css/keyframes
+  - tools/how-the-browser-creates-pages
+  - css/attr
+  - js/deal-with-forms
+  - js/boolean
+  - recipes/progress
+  - html/nav
+  - recipes/ajax-form
+  - css/grid-guide
+  - tools/how-to-test-and-why
+  - html/flow
+  - a11y/content-hidden
+  - js/infinite-scroll
+  - html/form
+  - tools/cli
+  - js/async-in-js
+  - js/var-let
+  - js/function
+  - css/scrollbar-gutter
+  - recipes/lets-encrypt-nginx
 ---
 
