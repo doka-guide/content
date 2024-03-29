@@ -63,7 +63,7 @@ console.log(closestElement2)
       <span class="button-content">Кнопка 2</span>
     </button>
     <div class="container child-container">
-      <button id="4" class="button">Кнопка 4</button>
+      <button id="3" class="button">Кнопка 3</button>
     </div>
   </div>
 </div>
