@@ -4,6 +4,7 @@
 
 ## Март 2024
 
+- 30 марта, [`.closest()`](https://doka.guide/js/element-closest/), Viktar Nezhbart
 - 28 марта, [Web Workers](https://doka.guide/js/web-workers/), Марсель Ахметшин
 - 24 марта, [`Array.of()`](https://doka.guide/js/array-of/), Viktar Nezhbart
 - 10 марта, [Структуры данных в JavaScript](https://doka.guide/tools/structure-data-in-js/), Евгения Шевлякова
