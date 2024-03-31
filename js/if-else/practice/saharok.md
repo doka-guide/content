@@ -16,7 +16,7 @@ if (externalValue) {
 const value = externalValue || 0
 ```
 
-Неявное приведение `externalValue` к логическому типу также игнорирует _определённые ложные_ значения, возможно, вполне валидные: `''`, `NaN`, `0` , `-0`, `0n`, `false`. Чтобы их не терять, нужно вместо `||` использовать `??` — новый, уже [неплохо поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-coalescing-operator) из [ES2020](/js/language-versions/#es2020):
+Неявное приведение `externalValue` к логическому типу также игнорирует _определённые ложные_ значения, возможно, вполне валидные: `''`, `NaN`, `0` , `-0`, `0n`, `false`. Чтобы их не терять, нужно вместо `||` использовать `??` — новый, уже [неплохо поддерживаемый](https://caniuse.com/?search=coalescing) логический оператор [nullish coalescing](https://learn.javascript.ru/nullish-operators#operator-nulevogo-sliyaniya) из [ES2020](/js/language-versions/#es2020):
 
 ```js
 const value = externalValue ?? 42
