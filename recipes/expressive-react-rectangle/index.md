@@ -85,7 +85,7 @@ npx bun install react react-dom
 Создайте файл _Rectangle.tsx_ с таким содержимым:
 
 ```tsx
-const Rectangle: FC = () => <div>🐶</div>;
+const Rectangle: FC = () => <div style={{border: "1px solid brown" }}>🐶</div>;
 
 export const rectangleElement = <Rectangle />;
 ```
