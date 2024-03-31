@@ -208,6 +208,7 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-closest
       - element-getattribute
       - element-focus
       - element-blur
