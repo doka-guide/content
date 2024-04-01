@@ -59,8 +59,7 @@ npm run dev
 Перенесем наработчки из предыдущей статьи в наш новый проект. Создадим файл `src/components/Rectangle.tsx` и добавим в него следующий код:
 
 ```tsx
-import { FC } from "react";
-export const Rectangle: FC = () => <div style={{border: "1px solid brown" }}>🐶</div>;
+export const Rectangle = () => <div style={{border: "1px solid brown" }}>🐶</div>;
 ```
 
 Отобразим компонент, для этого отредактируем файл `src/App.tsx`:
