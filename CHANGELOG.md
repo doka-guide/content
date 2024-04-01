@@ -9,7 +9,7 @@
 - 24 марта, [`Array.of()`](https://doka.guide/js/array-of/), Viktar Nezhbart
 - 10 марта, [Структуры данных в JavaScript](https://doka.guide/tools/structure-data-in-js/), Евгения Шевлякова
 - 5 марта, [Мгновенная валидация форм](https://doka.guide/recipes/validation/), Юлия Макарова
-- 5 марта, [Что такое самантика?](https://doka.guide/html/semantics/), Александр Рассудихин
+- 5 марта, [Что такое семантика?](https://doka.guide/html/semantics/), Александр Рассудихин
 - 5 марта, [`@layer`](https://doka.guide/css/layer/), Татьяна Фокина
 
 ## Февраль 2024
