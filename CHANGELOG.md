@@ -2,6 +2,10 @@
 
 <!-- yaspeller ignore:start -->
 
+## Апрель 2024
+
+- 1 апреля, [Выразительный React: простые компоненты на сервере](https://doka.guide/recipes/expressive-react-rectangle/), Полина Гуртовая
+
 ## Март 2024
 
 - 30 марта, [`.closest()`](https://doka.guide/js/element-closest/), Viktar Nezhbart
