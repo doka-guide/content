@@ -3,6 +3,8 @@ title: "Стрелочные функции"
 description: "Более компактная запись, чем у обычных функций."
 authors:
   - alexafcode
+contributors:
+  - splincool
 related:
   - js/function-as-datatype
   - js/function
