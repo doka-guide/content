@@ -2,6 +2,16 @@
 
 <!-- yaspeller ignore:start -->
 
+## Март 2024
+
+- 30 марта, [`.closest()`](https://doka.guide/js/element-closest/), Viktar Nezhbart
+- 28 марта, [Web Workers](https://doka.guide/js/web-workers/), Марсель Ахметшин
+- 24 марта, [`Array.of()`](https://doka.guide/js/array-of/), Viktar Nezhbart
+- 10 марта, [Структуры данных в JavaScript](https://doka.guide/tools/structure-data-in-js/), Евгения Шевлякова
+- 5 марта, [Мгновенная валидация форм](https://doka.guide/recipes/validation/), Юлия Макарова
+- 5 марта, [Что такое самантика?](https://doka.guide/html/semantics/), Александр Рассудихин
+- 5 марта, [`@layer`](https://doka.guide/css/layer/), Татьяна Фокина
+
 ## Февраль 2024
 
 - 19 февраля, [`aria-level`](https://doka.guide/a11y/aria-level/), Татьяна Фокина
