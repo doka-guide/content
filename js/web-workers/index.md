@@ -163,7 +163,7 @@ onconnect = (connect) => {
 
 ```js
 // Создание ArrayBuffer
-var buffer = new ArrayBuffer(1024) // 1024 байта
+const buffer = new ArrayBuffer(1024) // 1024 байта
 
 // Отправка ArrayBuffer в воркер
 worker.postMessage(buffer, [buffer])
@@ -176,7 +176,7 @@ worker.postMessage(buffer, [buffer])
 
 ```js
 onmessage = function(e) {
-  var buffer = e.data // Получение ArrayBuffer
+  const buffer = e.data // Получение ArrayBuffer
   // Можно начать работу с данными
 };
 
