@@ -34,6 +34,7 @@ groups:
       - dir
   - name: 'Семантика'
     items:
+      - semantics
       - div
       - span
       - header
