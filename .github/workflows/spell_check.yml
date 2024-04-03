@@ -25,4 +25,4 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        python your_script.py
+        python spellCheckAI.py ${{ github.event.pull_request.number }}
