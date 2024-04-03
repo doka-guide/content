@@ -5,6 +5,7 @@ groups:
     items:
       - chto-takoe-a11y
       - a11y-tree
+      - accessible-names-and-descs
       - a11y-html
       - site-language
       - accessible-forms
