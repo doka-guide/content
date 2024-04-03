@@ -121,7 +121,7 @@ _Доступное описание (accessible description)_ — дополн�
 Элементам форм вроде [`<textarea>`](/html/textarea/), [`<select>`](/html/select/) и [`<input>`](/html/input/) доступное имя добавляют при помощи [`<label>`](/html/label/).
 
 ```html
-<label for="car-model">Выберете тип кузова автомобиля:</label>
+<label for="car-model">Выберите тип кузова автомобиля:</label>
 <select id="car-model">
   <option value="sedan">Sedan</option>
   <option value="suv">SUV</option>
