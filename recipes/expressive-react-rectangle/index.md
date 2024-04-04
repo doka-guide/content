@@ -3,6 +3,8 @@ title: "Выразительный React: простые компоненты н
 description: "Создаём простой компонент на React."
 authors:
   - hellsquirrel
+contributors:
+  - vitya-ne
 related:
   - tools/react-and-alternatives
   - tools/web-server
