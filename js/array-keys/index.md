@@ -27,7 +27,6 @@ const iterator = chords.keys()
 for (const item of iterator) {
   console.log(item)
 }
-
 // 0
 // 1
 // 2
