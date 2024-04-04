@@ -21,11 +21,11 @@ tags:
 
 ```js
 const days = ['пн', 'вт', 'ср', 'чт']
-
 const lastItem = days.pop()
 
 console.log(days)
 // ['пн', 'вт', 'ср']
+
 console.log(lastItem)
 // чт
 ```
@@ -40,7 +40,6 @@ console.log(lastItem)
 
 ```js
 const array = []
-
 const firstItem = array.pop()
 
 console.log(firstItem)
@@ -76,4 +75,3 @@ numbers.length = numbers.length - 2
 console.log(numbers)
 // [8, 16, 32]
 ```
-

@@ -17,22 +17,25 @@ tags:
 
 ## Пример
 
-Найдем в массиве строк последний элемент, у которого длина больше 3:
+Найдём в массиве строк последний элемент, у которого длина больше 3:
 
 ```js
 const names = ['Ann', 'Dan', 'Julia', 'Scarlett', 'Pat']
 
 const name = names.findLast((element) => element.length > 3)
+
 console.log(name)
 // Scarlett
 ```
 
-Найдем в массиве последний элемент, для которого соблюдается условие — значение больше 10 и при этом индекс нечётный:
+Найдём в массиве последний элемент, для которого соблюдается условие — значение больше 10 и нечётный индекс при этом:
 
 ```js
 const numbers = [10, 15, 5, 20, 0, -10, 25]
 
-const element = numbers.findLast((element, index) => element > 10 && index % 2 === 1 )
+const element = numbers.findLast((element, index) =>
+element > 10 && index % 2 === 1 )
+
 console.log(element)
 // 20
 ```
@@ -54,7 +57,7 @@ console.log(element)
 
 Если для всех элементов массива колбэк-функция вернёт значения, которые интерпретируются как `false`, метод `findLast()` возвратит `undefined`.
 
-Подробнее об интерпретации (приведении) значений к `true` или `false` можно прочитать в статье [Булев тип](https://doka.guide/js/boolean/#vyrazheniya).
+Подробнее об интерпретации (приведении) значений к `true` или `false` можно прочитать в статье «[Булев тип](/js/boolean/#vyrazheniya)».
 
 ## Как понять
 

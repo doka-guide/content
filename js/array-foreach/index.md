@@ -144,10 +144,12 @@ const someNums = [1, 2, 3]
 
 console.log(empty.forEach)
 // Выведет функцию
+
 console.log(someNums.forEach)
 // И здесь тоже
 
 const obj = {}
+
 console.log(obj.forEach)
 // undefined, потому что у объектов нет такого метода
 ```
