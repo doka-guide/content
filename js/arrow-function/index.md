@@ -3,6 +3,8 @@ title: "Стрелочные функции"
 description: "Более компактная запись, чем у обычных функций."
 authors:
   - alexafcode
+contributors:
+  - splincool
 related:
   - js/function-as-datatype
   - js/function
@@ -112,3 +114,72 @@ console.log(new arrowFunction())
 ```
 
 Стрелочные функции нельзя использоваться как генераторы. Ключевое слово `super` внутри стрелочных функциях ссылается на `super` из внешнего лексического окружения, а не на `super` родительского класса.
+
+До появления стрелочных функций возникали проблемы с использованием `this` внутри функций-колбеков. Посмотрите на пример с [`setTimeout`](/js/settimeout/).
+
+```js
+const obj = {
+  count: 10,
+  doSomethingLater() {
+    setTimeout(function () {
+      this.count++; // тут this ссылается на объект Window
+      console.log(this.count);
+    }, 1000);
+  },
+};
+
+obj.doSomethingLater(); // "NaN"
+```
+
+В callback'е функции `setTimeout` `this` указывет на объект `Window`, а не на `obj`, поэтому значение `this.count` оказывается неверным.
+
+Поэтому приходилось использовать различные методы для передачи контекста внутрь callback'а.
+
+Например, при помощи `bind(this)`:
+
+```js
+const obj = {
+  count: 10,
+  doSomethingLater() {
+    setTimeout(function () {
+      this.count++;
+      console.log(this.count);
+    }.bind(this), 1000);
+  },
+};
+
+obj.doSomethingLater(); // 11
+```
+
+Использовался "хак" с переменной `that`, где сохранялся контекст `this`, и внутри callback'а уже использовалась эта переменная:
+
+```js
+const obj = {
+  count: 10,
+  doSomethingLater() {
+    const that = this;
+    setTimeout(function () {
+      that.count++;
+      console.log(that.count);
+    }, 1000);
+  },
+};
+
+obj.doSomethingLater(); // 11
+```
+
+С появлением стрелочных функций в качестве callback'ов, больше не нужно беспокоиться о правильной привязке `this`, так как их контекст выполнения привязан к лексической области видимости.
+
+```js
+const obj = {
+  count: 10,
+  doSomethingLater() {
+    setTimeout(() => {
+      this.count++;
+      console.log(this.count);
+    }, 1000);
+  },
+};
+
+obj.doSomethingLater(); // 11
+```
