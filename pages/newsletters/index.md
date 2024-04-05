@@ -18,7 +18,7 @@ location: "/newsletters/"
 - [Декабрь #9](https://api.doka.guide/digest-01.html)
 - [Ноябрь #8](https://api.doka.guide/digest-12.html)
 - [Октябрь #7](https://api.doka.guide/digest-11.html)
-- [Сентябрь #6](https://api.doka.guide/digest-10.html) // Потерялась картинка
+- [Сентябрь #6](https://api.doka.guide/digest-10.html)
 - [Август #5](https://api.doka.guide/digest-09.html)
 - [Июль #4](https://api.doka.guide/digest-08.html)
 - [Июнь #3](https://api.doka.guide/digest-07.html)
