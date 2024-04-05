@@ -9,18 +9,18 @@ location: "/newsletters/"
 
 ## 2024
 
-- [Март](https://api.doka.guide/digest-03-24.html)
-- [Февраль](https://api.doka.guide/digest-02-24.html)
-- [Январь](https://api.doka.guide/digest-01-24.html)
+- [Март #12](https://api.doka.guide/digest-03-24.html)
+- [Февраль #11](https://api.doka.guide/digest-02-24.html)
+- [Январь #10](https://api.doka.guide/digest-01-24.html)
 
 ## 2023
 
-- [Декабрь](https://api.doka.guide/digest-01.html)
-- [Ноябрь](https://api.doka.guide/digest-12.html)
-- [Октябрь](https://api.doka.guide/digest-11.html)
-- [Сентябрь](https://api.doka.guide/digest-10.html) // Потерялась картинка
-- [Август](https://api.doka.guide/digest-09.html)
-- [Июль](https://api.doka.guide/digest-08.html)
-- [Июнь](https://api.doka.guide/digest-07.html)
-- [Май](https://api.doka.guide/digest-06.html)
-- [Апрель](https://api.doka.guide/digest-05.html)
+- [Декабрь #9](https://api.doka.guide/digest-01.html)
+- [Ноябрь #8](https://api.doka.guide/digest-12.html)
+- [Октябрь #7](https://api.doka.guide/digest-11.html)
+- [Сентябрь #6](https://api.doka.guide/digest-10.html) // Потерялась картинка
+- [Август #5](https://api.doka.guide/digest-09.html)
+- [Июль #4](https://api.doka.guide/digest-08.html)
+- [Июнь #3](https://api.doka.guide/digest-07.html)
+- [Май #2](https://api.doka.guide/digest-06.html)
+- [Апрель #1](https://api.doka.guide/digest-05.html)
