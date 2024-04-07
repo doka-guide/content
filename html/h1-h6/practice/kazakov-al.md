@@ -100,55 +100,55 @@ body {
 В чем проблема и что сразу бросается в глаза: большое количество повторяемых стилей. Если вдруг поменяется корпоративный цвет или дизайнер захочет поправить типиграфику всего сайта — придётся править огромное количество строчек кода. Избежать этого поможет выделение стилей в отдельные токены. Токены — свойства, вынесенные в переменные, которые затем можно многократно использовать в любом другом месте в коде. Если какое-то свойство объекта повторяется больше одного раза, стоит задуматься, можно ли его вынести в токен. Выглядеть токены будут примерно так:
 
 ```css
-.text_size_3xl {
+.text-size-3xl {
   font-size: 45px;
 }
 
-.text_size_2xl {
+.text-size-2xl {
   font-size: 31px;
 }
 
-.text_size_xl {
+.text-size-xl {
   font-size: 25px;
 }
 
-.text_size_l {
+.text-size-l {
   font-size: 20px;
 }
 
-.text_size_m {
+.text-size-m {
   font-size: 18px;
 }
 
-.text_weight_2xl {
+.text-weight-2xl {
   font-weight: 800;
 }
 
-.text_weight_xl {
+.text-weight-xl {
   font-weight: 700;
 }
 
-.text_weight_l {
+.text-weight-l {
   font-weight: 500;
 }
 
-.text_weight_m {
+.text-weight-m {
   font-weight: 400;
 }
 
-.text_weight_s {
+.text-weight-s {
   font-weight: 300;
 }
 
-.color_accent {
+.color-accent {
   color: #4A148C;
 }
 
-.color_default {
+.color-default {
   color: #000;
 }
 
-.color_secondary {
+.color-secondary {
   color: #2B2B2B;
 }
 ```
