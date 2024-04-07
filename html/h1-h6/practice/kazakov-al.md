@@ -153,4 +153,84 @@ body {
 }
 ```
 
-После того как выделили токены, мы можем их переиспользовать:
+После того как выделили токены, их можно переиспользовать. Здесь есть на выбор два варианта развития событий:
+1. Прописать классы прямо в разметке:
+
+```html
+<body>
+  <header class="header">
+    <h1 class="header__heading"></h1>
+  </header>
+  <main class="content">
+    <section class="promo">
+      <h2 class="promo__heading"></h2>
+      ...
+    </section>
+
+    <section class="about-company">
+      <h2 class="about-company__heading"></h2>
+      ...
+    </section>
+
+    <section class="why-us">
+      <h2 class="why-us__heading"></h2>
+
+      <article class="card">
+        <h3 class="card__title"></h3>
+      </article>
+
+      ...
+    </section>
+
+    ...
+  </main>
+  <footer class="footer">
+    <h3 class="footer__heading"></h3>
+  </footer>
+</body>
+```
+
+2. Использовать препроцессоры, например, SASS и его директиву `@extend`:
+
+```css
+body {
+  @extend .text-size-m;
+  @extend .text-weight-m;
+}
+
+.header__heading {
+  @extend .text-size-3xl;
+  @extend .text-weight-2xl;
+  @extend .color-accent;
+}
+
+.promo__heading {
+  @extend .text-size-2xl;
+  @extend .text-weight-xl;
+  @extend .color-secondary;
+}
+
+.about-company__heading {
+  @extend .text-size-2xl;
+  @extend .text-weight-xl;
+  @extend .color-secondary;
+}
+
+.why-us__heading {
+  @extend .text-size-2xl;
+  @extend .text-weight-xl;
+  @extend .color-secondary;
+}
+
+.card__title {
+  @extend .text-size-l;
+  @extend .text-weight-l;
+  @extend .color-default;
+}
+
+.footer__heading {
+  @extend .text-size-xl;
+  @extend .text-weight-s;
+  @extend .color-secondary;
+}
+```
