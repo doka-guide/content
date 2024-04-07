@@ -154,29 +154,29 @@ body {
 ```
 
 После того как выделили токены, их можно переиспользовать. Здесь есть на выбор два варианта развития событий:
-1. Прописать классы прямо в разметке:
+1. Прописать классы токенов прямо в разметке:
 
 ```html
-<body>
+<body class="text-size-m text-weight-m">
   <header class="header">
-    <h1 class="header__heading"></h1>
+    <h1 class="text-size-3xl text-weight-2xl color-accent header__heading"></h1>
   </header>
   <main class="content">
     <section class="promo">
-      <h2 class="promo__heading"></h2>
+      <h2 class="text-size-2xl text-weight-xl color-secondary promo__heading"></h2>
       ...
     </section>
 
     <section class="about-company">
-      <h2 class="about-company__heading"></h2>
+      <h2 class="text-size-2xl text-weight-xl color-secondary about-company__heading"></h2>
       ...
     </section>
 
     <section class="why-us">
-      <h2 class="why-us__heading"></h2>
+      <h2 class="text-size-2xl text-weight-xl color-secondary why-us__heading"></h2>
 
       <article class="card">
-        <h3 class="card__title"></h3>
+        <h3 class="text-size-l text-weight-l color-default card__title"></h3>
       </article>
 
       ...
@@ -185,7 +185,7 @@ body {
     ...
   </main>
   <footer class="footer">
-    <h3 class="footer__heading"></h3>
+    <h3 class="text-size-xl text-weight-s color-secondary footer__heading"></h3>
   </footer>
 </body>
 ```
