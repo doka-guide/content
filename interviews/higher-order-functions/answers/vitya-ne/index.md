@@ -66,12 +66,11 @@ const log = sourceName => message => {
 Полученную в результате функцию можно использовать для многократного вызова передавая ей только аргумент `message`:
 
 ```js
-// запоминаем имя источника и возвращаем функцию логирования сообщений
 const logAppolo = log('Appolo 13')
 
-logAppolo('Huston...')
-// Appolo 13: Huston...
+logAppolo('Хьюстон…')
+// Appolo 13: Хьюстон…
 
-logAppolo('Huston, we have a problem')
-// Appolo 13: Huston, we have a problem
+logAppolo('Хьюстон, у нас проблемы')
+// Appolo 13: Хьюстон, у нас проблемы
 ```
