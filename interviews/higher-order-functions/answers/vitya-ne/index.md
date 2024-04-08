@@ -8,8 +8,8 @@
 
 ```js
 setTimeout(
-    () => {console.log('А вот и я!')},
-    5000
+  () => {console.log('А вот и я!')},
+  5000
 )
 ```
 
