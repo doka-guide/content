@@ -21,7 +21,6 @@ tags:
 
 ```js
 const numbers = [8, 16, 32, 64]
-
 const firstItem = numbers.shift()
 
 console.log(numbers)
@@ -41,9 +40,7 @@ console.log(firstItem)
 
 ```js
 const numbers = []
-
 const firstItem = numbers.shift()
-
 console.log(firstItem)
 // undefined
 ```
@@ -58,6 +55,7 @@ console.log(firstItem)
   <summary>
     Подробнее о сдвиге
   </summary>
+
   Согласно спецификации ECMAScript, алгоритм работы метода `shift()` включает цикл, предназначенный для сдвига элементов.
 
   Для наглядности выполним метод `shift()` для массивоподобного объекта. Для этого необходимо, чтобы объект имел поле `length`, определяющее количество элементов. Порядок следования полей-элементов в объекте не влияет на работу метода, потому что доступ к значениям осуществляется по ключам-индексам:
@@ -80,15 +78,14 @@ console.log(firstItem)
   ```
 
   В результате работы метода все оставшиеся поля-элементы были записаны с новыми ключами-индексами и изменилось поле `length`.
+
 </details>
 
 Для удаления первого элемента также может быть использован метод `splice()`:
 
 ```js
 const colors = ['red', 'green', 'blue']
-
 colors.splice(0, 1)
-
 console.log(colors)
 // ['green', 'blue']
 ```

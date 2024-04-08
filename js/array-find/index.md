@@ -53,7 +53,7 @@ console.log(tomorrowToDoList.find(isMyFavoriteHobby))
 
 ## Интерактивный пример
 
-<iframe title="Работа метода массива filter — Array.find — Дока" src="demos/index/" height="695"></iframe>
+<iframe title="Как работает метод массива filter" src="demos/index/" height="695"></iframe>
 
 ## Как пишется
 
@@ -70,7 +70,7 @@ console.log(tomorrowToDoList.find(isMyFavoriteHobby))
 
 ```js
 const isOdd = (element) => {
-  return element % 2 === 1;
+  return element % 2 === 1
 }
 ```
 
@@ -153,9 +153,9 @@ const numbers = [1, 2, 3, 4, 5, 2, 6]
 const resultWithFilter = numbers.filter(isTwoOrFour(element))
 const resultWithFind = numbers.find(isTwoOrFour(element))
 
-console.log(resultWithFilter);
+console.log(resultWithFilter)
 // [2, 4, 2]
 
-console.log(resultWithFind);
+console.log(resultWithFind)
 // 2
 ```

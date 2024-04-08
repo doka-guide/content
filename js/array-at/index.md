@@ -74,9 +74,7 @@ console.log(elements.at(1) === elements[1])
 
 ```js
 const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
-
 const lastIndex = hobbits.length - 1
-
 console.log(hobbits[lastIndex])
 // Бильбо
 ```
@@ -85,7 +83,6 @@ console.log(hobbits[lastIndex])
 
 ```js
 const hobbits = ['Фродо', 'Сэм', 'Перегрин', 'Бильбо']
-
 console.log(hobbits.at(-1))
 // Бильбо
 ```
