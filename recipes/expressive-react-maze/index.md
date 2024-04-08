@@ -113,16 +113,15 @@ export const Maze = () => <div style={{border: "1px solid brown" }}>Тут бу�
 Компонент `Rectangle` будет служить _контейнером_ для мячика, собачки и лабиринта. Чтобы этого добиться, нужно добавить в файл `src/Rectangle.tsx` свойство [`children`](https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children). Это встроенное свойство любого React-компонента, с его помощью можно определить как будут отображаться вложенные компоненты.
 
 ```tsx
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 type Props = {
-    children: ReactNode;
+  children: ReactNode
 }
 
-export const Rectangle = ({ children }: Props) =>
-  <div style={{border: "1px solid brown" }}>
-    {children}
-  </div>;
+export const Rectangle = ({ children }: Props) => (
+  <div style={{ border: '1px solid brown' }}>{children}</div>
+)
 ```
 
 **`ReactNode`** — это тип, означающий «всё, что может отрендерить React».
@@ -138,15 +137,16 @@ export const Rectangle = ({ children }: Props) =>
 При этой код компонента `Rectangle` может выглядеть так:
 ```tsx
 type Props = {
-    dog: ReactNode;
-    maze: ReactNode;
+  dog: ReactNode
+  maze: ReactNode
 }
 
-export const Rectangle = ({ dog, maze }: Props) =>
-  <div style={{border: "1px solid brown" }}>
+export const Rectangle = ({ dog, maze }: Props) => (
+  <div style={{ border: '1px solid brown' }}>
     {dog}
     {maze}
-  </div>;
+  </div>
+)
 ```
 </details>
 
@@ -197,59 +197,63 @@ export const minWallLength = 5;
 Код для отображения лабиринта будет выглядеть так, к коду прилагаются замечательные стили. Не торопитесь читать дальше, попробуйте разобраться что тут происходит.
 
 ```tsx
-import { fieldSize, maxWallLength } from './contstatns'
+import { fieldSize } from './constants'
 import { parrotsToPixels } from './units'
 import styles from './Maze.module.css'
 
 export const Maze = () => {
-    const size = parrotsToPixels(fieldSize)
+  const size = parrotsToPixels(fieldSize)
 
-    return (
-        <div
-            style={{
-                width: size,
-                height: size,
-            }}
-            className={styles.maze}
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
+      className={styles.maze}
+    >
+      {Array.from({ length: fieldSize }, (_, i) => (
+        <button
+          key={i}
+          style={{ height: parrotsToPixels(1) }}
+          className={styles.button}
         >
-            {Array.from({ length: fieldSize }, (_, i) => (
-                <button key={i} style={{ height: parrotsToPixels(1) }} className={styles.button}>
-                    { /* Тут может быть стенка */}
-                </button>
-            ))}
-        </div>
-    )
+          {/* Тут может быть стенка */}
+        </button>
+      ))}
+    </div>
+  )
 }
 ```
 
 ```css
 /* src/Maze.module.css */
 .maze {
-    border: '1px solid brown';
-    display: flex;
-    flex-direction: column;
+  border: '1px solid brown';
+  display: flex;
+  flex-direction: column;
 }
 
 .button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin: 0;
-    padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 0;
+  padding: 0;
 
-    &:hover {
-        background-color: #f0f0f0;
-    }
+  &:hover {
+    background-color: #f0f0f0;
+  }
 }
 
 .wall {
-    background-color: black;
-    height: 2px;
-    position: relative;
+  background-color: black;
+  height: 2px;
+  position: relative;
 }
 ```
 
@@ -272,7 +276,7 @@ export const Maze = () => {
 
 Стенки в лабиринт будут добавляться при клике на соответсвующую часть лабиринта (не просто там мы сделали её кнопкой). Чтобы это сделать нам нужно познакомиться еще с одним концептом – хуком useState.
 
-## Сотнояние компонента
+## Состояние компонента
 
 Хук [`useState`](https://react.dev/reference/react/useState) позволяет вам определить переменную-состояние и дает функцию для изменения этого состояния. React гаратнирует что изменение состояния перерисует компонент и в какой-то момент он окажется в актуальном состоянии.
 
@@ -284,85 +288,83 @@ export const Maze = () => {
 Попробуйте разобраться что происходит в примере кода ниже. Если чуть-чуть получится – отлично, если нет – это нормально. К React надо привыкнуть :) Чуть ниже будет подробное объяснение.
 
 ```tsx
-import { fieldSize, maxWallLength, minWallLength } from './contstatns'
+import { fieldSize, maxWallLength, minWallLength } from './constants'
 import { parrotsToPixels } from './units'
 import { useCallback, useState } from 'react'
 import styles from './Maze.module.css'
 
 type Wall = {
-    left: number
-    width: number
+  left: number
+  width: number
 }
 
 const randomInt = (minVal: number, maxVal: number) =>
-    Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal
+  Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal
 
 const generateNewWall = (): Wall => {
-    const width = randomInt(minWallLength, maxWallLength)
-    const alignLeft = Math.random() > 0.5
+  const width = randomInt(minWallLength, maxWallLength)
+  const alignLeft = Math.random() > 0.5
 
-    return {
-        left: alignLeft ? 0 : fieldSize - width,
-        width,
-    }
+  return {
+    left: alignLeft ? 0 : fieldSize - width,
+    width,
+  }
 }
 
 export const Maze = () => {
-    const size = parrotsToPixels(fieldSize)
-    const [walls, setWalls] = useState<Wall[]>(
-        Array.from({ length: fieldSize }, () => ({
-            left: 0,
-            width: 0,
-        }))
+  const size = parrotsToPixels(fieldSize)
+  const [walls, setWalls] = useState<Wall[]>(
+    () => Array.from({ length: fieldSize }, () => ({
+      left: 0,
+      width: 0,
+    })),
+  )
+
+  const toggleWall = useCallback((mazeRow: number) => {
+    setWalls((walls) =>
+      walls.map((wall, i) => {
+        if (i === mazeRow) {
+          if (wall.width === 0) {
+            return generateNewWall()
+          } else {
+            return {
+              left: 0,
+              width: 0,
+            }
+          }
+        }
+        return wall
+      }),
     )
+  }, [])
 
-    console.log(walls)
-
-    const toggleWall = useCallback((mazeRow: number) => {
-        setWalls((walls) =>
-            walls.map((wall, i) => {
-                if (i === mazeRow) {
-                    if (wall.width === 0) {
-                        return generateNewWall()
-                    } else {
-                        return {
-                            left: 0,
-                            width: 0,
-                        }
-                    }
-                }
-                return wall
-            })
-        )
-    }, [])
-
-    return (
-        <div
-            style={{
-                width: size,
-                height: size,
-            }}
-            className={styles.maze}
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+      }}
+      className={styles.maze}
+    >
+      {Array.from({ length: fieldSize }, (_, i) => (
+        <button
+          key={i}
+          style={{ height: parrotsToPixels(1) }}
+          className={styles.button}
+          onClick={() => toggleWall(i)}
         >
-            {Array.from({ length: fieldSize }, (_, i) => (
-                <button
-                    key={i}
-                    style={{ height: parrotsToPixels(1) }}
-                    className={styles.button}
-                    onClick={() => toggleWall(i)}
-                >
-                    <span
-                        key={`${i}`}
-                        className={styles.wall}
-                        style={{
-                            width: parrotsToPixels(walls[i].width),
-                            left: parrotsToPixels(walls[i].left),
-                        }}
-                    />
-                </button>
-            ))}
-        </div>
-    )
+          <span
+            key={`${i}`}
+            className={styles.wall}
+            style={{
+              width: parrotsToPixels(walls[i].width),
+              left: parrotsToPixels(walls[i].left),
+            }}
+          />
+        </button>
+      ))}
+    </div>
+  )
 }
 ```
 
@@ -378,20 +380,20 @@ export const Maze = () => {
 
 ```ts
 setWalls((walls) =>
-            walls.map((wall, i) => {
-                if (i === mazeRow) {
-                    if (wall.width === 0) {
-                        return generateNewWall()
-                    } else {
-                        return {
-                            left: 0,
-                            width: 0,
-                        }
-                    }
-                }
-                return wall
-            })
-        )
+  walls.map((wall, i) => {
+    if (i === mazeRow) {
+      if (wall.width === 0) {
+        return generateNewWall()
+      } else {
+        return {
+          left: 0,
+          width: 0,
+        }
+      }
+    }
+    return wall
+  }),
+)
 ```
 
 Здесь мы изменяет только ту часть лабиринта, на которую кликнул пользователь. Если в кликнутой части стенки нет, то мы добавляем новую стенку. Если стенка есть, то удаляем её.
@@ -432,17 +434,18 @@ export default App;
 И добавляем собачку в `Maze`:
 
 ```tsx
- <>
-    <Dog /> {/* 🐶 */}
-    <div
-        style={{
-            width: size,
-            height: size,
-        }}
-        className={styles.maze}
-    >
-        { /* Реализация лабиринта */ }
-    </div>
+// Dog.tsx
+<>
+  <Dog /> {/* 🐶 */}
+  <div
+    style={{
+      width: size,
+      height: size,
+    }}
+    className={styles.maze}
+  >
+    {/* Реализация лабиринта */}
+  </div>
 </>
 ```
 
@@ -456,7 +459,7 @@ export default App;
 // Maze.tsx
 
 const getBall = useCallback(() => {
-    console.log("Гав!")
+  console.log("Гав!")
 }, [])
 
 // все остальные функции
@@ -485,15 +488,14 @@ import { useCallback, useState, useRef } from 'react'
 // все остальные функции
 
 export const Maze = () => {
+  const dogRef = useRef<HTMLDivElement>(null)
 
-    const dogRef = useRef<HTMLDivElement>(null)
-
-    // все остальные функции
-    <>
-        <button onClick={getBall}>Апорт!</button>
-        <Dog ref={dogRef} />
-        {/* остальной код */}
-    </>
+  // все остальные функции
+  <>
+    <button onClick={getBall}>Апорт!</button>
+    <Dog ref={dogRef} />
+    {/* остальной код */}
+  </>
 }
 ```
 
@@ -503,39 +505,44 @@ export const Maze = () => {
 
 ```ts
 type Point = {
-    x: number
-    y: number
+  x: number
+  y: number
 }
 
-const generatePathAroundWalls = (walls: Wall[], start: Point, end: Point): Point[] => {
-    const path = [start]
-    const reversedWalls = walls.slice().reverse();
-    let currentY = start.y;
-    path.push({...start})
+const generatePathAroundWalls = (
+  walls: Wall[],
+  start: Point,
+  end: Point,
+): Point[] => {
+  const path = [start]
+  const reversedWalls = walls.slice().reverse()
+  let currentY = start.y
+  path.push({ ...start })
 
-    while(reversedWalls.length) {
-        const wall = reversedWalls.pop() as Wall
-        currentY ++;
+  while (reversedWalls.length) {
+    const wall = reversedWalls.pop() as Wall
+    currentY++
 
-        if (wall.width === 0) {
-            continue
-        }
-
-        if (wall.left === 0) {
-            path.push({ x: wall.width + 0.5, y: currentY })
-        } else {
-            path.push({ x: 0, y: currentY })
-        }
+    if (wall.width === 0) {
+      continue
     }
 
-    path.push(end)
-    return path
+    if (wall.left === 0) {
+      path.push({ x: wall.width + 0.5, y: currentY })
+    } else {
+      path.push({ x: 0, y: currentY })
+    }
+  }
+
+  path.push(end)
+  return path
 }
 
 // для анимации
-const generateKeyframes = (path: Point[]) => path.map(({ x, y }) => ({
-    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`
-}))
+const generateKeyframes = (path: Point[]) =>
+  path.map(({ x, y }) => ({
+    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`,
+  }))
 
 ```
 
@@ -550,14 +557,14 @@ const generateKeyframes = (path: Point[]) => path.map(({ x, y }) => ({
 ```tsx
 // Maze.tsx
 const getBall = useCallback(() => {
-    const start = { x: 0, y: 0 } // 🐶
-    const end = { x: 0, y: fieldSize + 1 } // 🎾
-    const path = generatePathAroundWalls(walls, start, end)
-    dogRef.current?.animate(generateKeyframes(path), {
-        duration: 3000,
-        easing: 'linear',
-        fill: 'forwards',
-    })
+  const start = { x: 0, y: 0 } // 🐶
+  const end = { x: 0, y: fieldSize + 1 } // 🎾
+  const path = generatePathAroundWalls(walls, start, end)
+  dogRef.current?.animate(generateKeyframes(path), {
+    duration: 3000,
+    easing: 'linear',
+    fill: 'forwards',
+  })
 }, [walls])
 ```
 
@@ -575,134 +582,139 @@ const getBall = useCallback(() => {
 Посмотите на код компонента `Maze`, подумайте что с ним не так.
 
 ```tsx
-import { fieldSize, maxWallLength, minWallLength } from './contstatns'
+import { fieldSize, maxWallLength, minWallLength } from './constants'
 import { parrotsToPixels } from './units'
-import { useCallback, useSt ate, useRef } from 'react'
+import { useCallback, useState, useRef } from 'react'
 import styles from './Maze.module.css'
 import { Dog } from './Dog'
 
 type Wall = {
-    left: number
-    width: number
+  left: number
+  width: number
 }
 
 const randomInt = (minVal: number, maxVal: number) =>
-    Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal
+  Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal
 
 const generateNewWall = (): Wall => {
-    const width = randomInt(minWallLength, maxWallLength)
-    const alignLeft = Math.random() > 0.5
+  const width = randomInt(minWallLength, maxWallLength)
+  const alignLeft = Math.random() > 0.5
 
-    return {
-        left: alignLeft ? 0 : fieldSize - width,
-        width,
-    }
+  return {
+    left: alignLeft ? 0 : fieldSize - width,
+    width,
+  }
 }
 
 type Point = {
-    x: number
-    y: number
+  x: number
+  y: number
 }
-const generatePathAroundWalls = (walls: Wall[], start: Point, end: Point): Point[] => {
-    const path = [start]
-    const reversedWalls = walls.slice().reverse();
-    let currentY = start.y;
-    path.push({...start})
+const generatePathAroundWalls = (
+  walls: Wall[],
+  start: Point,
+  end: Point,
+): Point[] => {
+  const path = [start]
+  const reversedWalls = walls.slice().reverse()
+  let currentY = start.y
+  path.push({ ...start })
 
-    while(reversedWalls.length) {
-        const wall = reversedWalls.pop() as Wall
-        currentY ++;
+  while (reversedWalls.length) {
+    const wall = reversedWalls.pop() as Wall
+    currentY++
 
-        if (wall.width === 0) {
-            continue
-        }
-
-        if (wall.left === 0) {
-            path.push({ x: wall.width + 0.5, y: currentY })
-        } else {
-            path.push({ x: 0, y: currentY })
-        }
+    if (wall.width === 0) {
+      continue
     }
 
-    path.push(end)
-    return path
+    if (wall.left === 0) {
+      path.push({ x: wall.width + 0.5, y: currentY })
+    } else {
+      path.push({ x: 0, y: currentY })
+    }
+  }
+
+  path.push(end)
+  return path
 }
 
-const generateKeyframes = (path: Point[]) => path.map(({ x, y }) => ({
-    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`
-}))
+const generateKeyframes = (path: Point[]) =>
+  path.map(({ x, y }) => ({
+    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`,
+  }))
 
 export const Maze = () => {
-    const size = parrotsToPixels(fieldSize)
-    const [walls, setWalls] = useState<Wall[]>(
-        Array.from({ length: fieldSize }, () => ({
-            left: 0,
-            width: 0,
-        }))
+  const size = parrotsToPixels(fieldSize)
+  const [walls, setWalls] = useState<Wall[]>(() =>
+    Array.from({ length: fieldSize }, () => ({
+      left: 0,
+      width: 0,
+    })),
+  )
+
+  const dogRef = useRef<HTMLDivElement | null>(null)
+
+  const toggleWall = useCallback((mazeRow: number) => {
+    setWalls((walls) =>
+      walls.map((wall, i) => {
+        if (i === mazeRow) {
+          if (wall.width === 0) {
+            return generateNewWall()
+          } else {
+            return {
+              left: 0,
+              width: 0,
+            }
+          }
+        }
+        return wall
+      }),
     )
+  }, [])
 
-    const dogRef = useRef<HTMLDivElement | null>(null);
+  const getBall = useCallback(() => {
+    const start = { x: 0, y: 0 } // 🐶
+    const end = { x: 0, y: fieldSize + 1 } // 🎾
+    const path = generatePathAroundWalls(walls, start, end)
+    dogRef.current?.animate(generateKeyframes(path), {
+      duration: 3000,
+      easing: 'linear',
+      fill: 'forwards',
+    })
+  }, [walls])
 
-    const toggleWall = useCallback((mazeRow: number) => {
-        setWalls((walls) =>
-            walls.map((wall, i) => {
-                if (i === mazeRow) {
-                    if (wall.width === 0) {
-                        return generateNewWall()
-                    } else {
-                        return {
-                            left: 0,
-                            width: 0,
-                        }
-                    }
-                }
-                return wall
-            })
-        )
-    }, [])
-
-    const getBall = useCallback(() => {
-        const start = { x: 0, y: 0 } // 🐶
-        const end = { x: 0, y: fieldSize + 1 } // 🎾
-        const path = generatePathAroundWalls(walls, start, end)
-        dogRef.current?.animate(generateKeyframes(path), {
-            duration: 3000,
-            easing: 'linear',
-            fill: 'forwards',
-        })
-    }, [walls])
-
-    return (
-        <>
-            <button onClick={getBall}>Апорт!</button>
-            <Dog ref={dogRef} /> {/* 🐶 */}
-            <div
-                style={{
-                    width: size,
-                    height: size,
-                }}
-                className={styles.maze}
-            >
-                {Array.from({ length: fieldSize }, (_, i) => (
-                    <button
-                        key={i}
-                        style={{ height: parrotsToPixels(1) }}
-                        className={styles.button}
-                        onClick={() => toggleWall(i)}
-                    >
-                        <span
-                            key={`${i}`}
-                            className={styles.wall}
-                            style={{
-                                width: parrotsToPixels(walls[i].width),
-                                left: parrotsToPixels(walls[i].left),
-                            }}
-                        />
-                    </button>
-                ))}
-            </div>
-        </>
-    )
+  return (
+    <>
+      <button onClick={getBall}>Апорт!</button>
+      <Dog ref={dogRef} /> {/* 🐶 */}
+      <div
+        style={{
+          width: size,
+          height: size,
+        }}
+        className={styles.maze}
+      >
+        {Array.from({ length: fieldSize }, (_, i) => (
+          <button
+            key={i}
+            style={{ height: parrotsToPixels(1) }}
+            className={styles.button}
+            onClick={() => toggleWall(i)}
+          >
+            <span
+              key={`${i}`}
+              className={styles.wall}
+              style={{
+                width: parrotsToPixels(walls[i].width),
+                left: parrotsToPixels(walls[i].left),
+              }}
+            />
+          </button>
+        ))}
+      </div>
+    </>
+  )
 }
 ```
 
