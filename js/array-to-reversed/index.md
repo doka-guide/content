@@ -77,7 +77,7 @@ versions[0].year = 2015
 console.log(versions)
 // [{name: 'ES6', year: 2015}, {name: 'ES2016'}, {name: 'ES2017'}]
 
-// Изменение так же видны в созданном массиве
+// Изменения так же видны в созданном массиве
 console.log(result)
 // [{ name: 'ES2017'}, {name: 'ES2016'}, {name: 'ES6', year: 2015}]
 ```
