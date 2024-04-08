@@ -125,7 +125,7 @@ export const Rectangle = ({ children }: Props) =>
   </div>;
 ```
 
-**`ReactNode`** — это тип, означающий «всё, что может отрендерить React». 
+**`ReactNode`** — это тип, означающий «всё, что может отрендерить React».
 
 Типизировать React-компоненты очень просто. Достаточно опишисать аргументы функции-компонента.
 
@@ -577,7 +577,7 @@ const getBall = useCallback(() => {
 ```tsx
 import { fieldSize, maxWallLength, minWallLength } from './contstatns'
 import { parrotsToPixels } from './units'
-import { useCallback, useState, useRef } from 'react'
+import { useCallback, useSt ate, useRef } from 'react'
 import styles from './Maze.module.css'
 import { Dog } from './Dog'
 
