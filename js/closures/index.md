@@ -65,18 +65,18 @@ console.log(a)
 
 function wrap() {
   const b = a
-  // Без проблем, переменная a доступна в этой функции.
+  // Без проблем, переменная a доступна в этой функции
 }
 
 const c = {
   d: a,
-  // Хорошо, переменная a доступна и здесь.
+  // Хорошо, переменная a доступна и здесь
 }
 
 function secondWrap() {
   const e = {
     f: a,
-    // И тут ок, переменная a всё ещё доступна.
+    // И тут ок, переменная a всё ещё доступна
   }
 }
 ```
@@ -101,7 +101,7 @@ console.log(console)
 console.log(window.console)
 // Console {debug: function, error: function,
 // log: function, info: function, warn: function, …}
-// То же самое, потому что это один и тот же объект.
+// То же самое, потому что это один и тот же объект
 ```
 
 Глобальный объект `window` — это объект, который даёт доступ к Web API браузера. `window` рекурсивно «содержит сам себя», потому что все глобальные объекты находятся в `window`:
@@ -174,7 +174,7 @@ function scoped() {
 console.log(a)
 // 42
 console.log(b)
-// Reference error.
+// Reference error
 ```
 
 К переменной `b` есть доступ только внутри функции `scoped`.
@@ -186,7 +186,7 @@ console.log(b)
 ```js
 const a = 42
 const a = 43
-// SyntaxError: Cannot declare a const variable twice: 'a'.
+// SyntaxError: Cannot declare a const variable twice: 'a'
 ```
 
 Но функции создают собственные области видимости, которые не пересекаются, поэтому в этом случае ошибки не будет:
@@ -370,15 +370,15 @@ accessToInner()
 function counter() {
   // Начальное значение счётчика будет 0.
   // Мы используем let, потому что будем менять значение,
-  // const не подойдёт.
+  // const не подойдёт
   let state = 0
 
-  // Функция increase будет увеличивать счётчик на единицу.
+  // Функция increase будет увеличивать счётчик на единицу
   function increase() {
     state++
   }
 
-  // Функция decrease будет уменьшать счётчик на единицу.
+  // Функция decrease будет уменьшать счётчик на единицу
   function decrease() {
     state--
   }
@@ -390,11 +390,11 @@ function counter() {
 
   // А наружу мы дадим только лишь доступ к этим функциям.
   // Вернём объект, значениями полей которого будут функции
-  // increase и decrease.
+  // increase и decrease
   //
   // Прямого доступа к переменной state всё ещё нет,
   // но внешний код может изменять её состояние опосредованно —
-  // через функции increase и decrease.
+  // через функции increase и decrease
   return {
     increase,
     decrease,
@@ -464,7 +464,7 @@ console.log(window.hi)
 // Hello world!
 ```
 
-...сработает только с `var`, но не с `let` или `const`. Дело здесь в «поднятии» переменных (_hoisting_).
+…сработает только с `var`, но не с `let` или `const`. Дело здесь в «поднятии» переменных (_hoisting_).
 
 Для начала посмотрим на такой код:
 
@@ -563,7 +563,7 @@ console.log(hello)
 var hello = 'Hello'
 ```
 
-C `let` и `const` — нет:
+С `let` и `const` — нет:
 
 ```js
 console.log(hello)

@@ -21,7 +21,6 @@ tags:
 
 ```js
 const menuItems = ['Файл', 'Редактирование', 'Просмотр']
-
 const menuStr = menuItems.toString()
 
 console.log(menuStr)
@@ -42,10 +41,8 @@ console.log(menuStr)
 
 ```js
 const years = [1970, 1980, 1990]
-
 console.log(years.toString())
 console.log(years.join())
-
 // 1970,1980,1990
 // 1970,1980,1990
 ```
@@ -55,7 +52,8 @@ console.log(years.join())
 ```js
 const years = [1970, 1980, 1990]
 
-years.join = null // обнуляем возможность вызывать .join()
+// Обнуляем возможность вызывать .join()
+years.join = null
 
 console.log(years.toString())
 // [object Array]
@@ -67,7 +65,6 @@ console.log(years.toString())
 
 ```js
 const numbers = [0, , 1, undefined, null, Infinity]
-
 console.log(numbers.toString())
 // 0,,1,,,Infinity
 ```
@@ -90,7 +87,6 @@ console.log(objects.toString())
 
 ```js
 const names = ['Рататоск', 'Иггдрасиль']
-
 console.log(names + ' и Хвергельмир')
 // Рататоск,Иггдрасиль и Хвергельмир
 ```

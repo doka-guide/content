@@ -27,6 +27,7 @@ tags:
 ```js
 console.log('hello')
 // 'hello'
+
 console.log(true, { a: true }, 100)
 // true {a: true} 100
 ```
@@ -83,6 +84,6 @@ disneyCharacters.push({name: 'Pluto', type: 'dog' })
 
 <aside>
 
-💡 Google Chrome при этом показывает информационную иконку, при наведении на которую отобразится подсказка с текстом: "This value was evaluated upon first expanding. It may have changed since then."
+💡 Google Chrome при этом показывает информационную иконку, при наведении на которую отобразится подсказка с текстом: «This value was evaluated upon first expanding. It may have changed since then».
 
 </aside>
