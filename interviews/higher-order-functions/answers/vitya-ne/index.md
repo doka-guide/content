@@ -58,7 +58,7 @@ log('Модуль A', 'Проведено тестирование грунта'
 ```js
 // HOF-функция логирования
 const log = sourceName => message => {
-    console.log(sourceName,':', message)
+  console.log(sourceName,':', message)
 }
 ```
 
