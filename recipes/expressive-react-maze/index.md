@@ -442,7 +442,7 @@ export default App;
 
 Мы добавили собачку и завернули весь компонент в фрагмент. Фрагмент не генерирует DOM-элемент, это удобный способ объединить несколько компонентов в один.
 
-## Запускаем собачку!
+## Ссылаемся на собачку
 
 Добавим кнопку запуска собачки. Вы уже знаете как добавлять новые компоненты. Добавим кнопку и обработчик клика в компонент `Maze`.
 
@@ -459,8 +459,247 @@ const getBall = useCallback(() => {
   <Dog /> {/* 🐶 */}
   {/* остальной код */}
 </>
+```
 
-Кажется что собака пока не готова бежать за мячиком. Исправим ситуацию, немного изменив обработчик getBall. Для этого воспользуемся JavaScript анимацией. Это DOM API, чтобы им воспользоваться нам нужно получить доступ к DOM-элементу собачки. Тут нам пригодится хук `useRef`.
+Кажется что собака пока не готова бежать за мячиком. Исправим ситуацию, немного изменив обработчик getBall. Для этого воспользуемся JavaScript анимацией. Это DOM API, чтобы им воспользоваться нам нужно получить доступ к DOM-элементу собачки. Тут нам пригодится хук [`useRef`](https://react.dev/reference/react/useRef). Этот хук можно использоваться для множества вещей: хранить глобальное состояние (когда мы хотим отвязать состояние какого-то объекта о цикла перерисовки), кроме этого можно ссылаться на DOM-элементы. Сначала научим собачку работать со ссылками. Это можно сделать при помощу функции [`forwardRef`](https://react.dev/reference/react/forwardRef). Это функция-обёртка, которая позволяет передать внешнюю ссылку внутрь компонента.
 
 ```tsx
+// Dog.tsx
+import { forwardRef } from "react";
+
+export const Dog =forwardRef<HTMLDivElement>((_, ref) => <div ref={ref}>🐶</div>);
 ```
+
+Внутри компонента воспользуемся хуком `useRef` и передадим ссылку на DOM-элемент собачки в обработчик `getBall`.
+
+```tsx
+// Maze.tsx
+import { useCallback, useState, useRef } from 'react'
+
+// все остальные функции
+
+export const Maze = () => {
+
+    const dogRef = useRef<HTMLDivElement>(null)
+
+    // все остальные функции
+    <>
+        <button onClick={getBall}>Апорт!</button>
+        <Dog ref={dogRef} />
+        {/* остальной код */}
+    </>
+}
+```
+
+## Пишем вспомогательные функции
+Самое трудное позади. Осталось написать несколько функций-утилит для запуска собачки.
+Как и прежде мы будем использовать TypeScript чтобы спроектировать наши функции
+
+```ts
+type Point = {
+    x: number
+    y: number
+}
+
+const generatePathAroundWalls = (walls: Wall[], start: Point, end: Point): Point[] => {
+    const path = [start]
+    const reversedWalls = walls.slice().reverse();
+    let currentY = start.y;
+    path.push({...start})
+
+    while(reversedWalls.length) {
+        const wall = reversedWalls.pop() as Wall
+        currentY ++;
+
+        if (wall.width === 0) {
+            continue
+        }
+
+        if (wall.left === 0) {
+            path.push({ x: wall.width + 0.5, y: currentY })
+        } else {
+            path.push({ x: 0, y: currentY })
+        }
+    }
+
+    path.push(end)
+    return path
+}
+
+// для анимации
+const generateKeyframes = (path: Point[]) => path.map(({ x, y }) => ({
+    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`
+}))
+
+```
+
+Мы создали новый тип `Point` для хранения координат. Функция `generatePathAroundWalls` сгенерирует нам путь чтобы собачка облетала стенки, а не врезалась в них.
+
+Функция `generateKeyframes` преобразует путь в массив объектов, которые можно передать в CSS-анимацию. `transform: `...` это CSS строка которая задает текущие стили элемента. Мы используем
+трансформацию `translate` чтобы переместить собачку в нужное место.
+
+## Запускаем собачку
+Для запуска собачки нам нужно обновить колбек `getBall`
+
+```tsx
+// Maze.tsx
+const getBall = useCallback(() => {
+    const start = { x: 0, y: 0 } // 🐶
+    const end = { x: 0, y: fieldSize + 1 } // 🎾
+    const path = generatePathAroundWalls(walls, start, end)
+    dogRef.current?.animate(generateKeyframes(path), {
+        duration: 3000,
+        easing: 'linear',
+        fill: 'forwards',
+    })
+}, [walls])
+```
+
+Два момента на которые стоит обратить внимание:
+1. Зависимость `walls` в массиве зависимостей хука `useCallback`. Мы хотим обновлять функцию-коллбек при добавлении или удалении стенок.
+
+2. Метод `animate`. Мы передаем в него keyframes и объект с настройками анимации. В настройках мы указываем продолжительность анимации, функцию сглаживания и что делать с элементом после анимации.
+Ключевое слово `forwards` означает что элемент останется в последнем состоянии анимации (собачка от мячика не убежит).
+
+Попробуйте сами
+<iframe title="Демо игры с собачкой и мячиком" src="https://maze-demo.hellsquirrel.dev" height="600"></iframe>
+
+## Посмотрите на лабиринт
+
+Посмотите на код компонента `Maze`, подумайте что с ним не так.
+
+```tsx
+import { fieldSize, maxWallLength, minWallLength } from './contstatns'
+import { parrotsToPixels } from './units'
+import { useCallback, useState, useRef } from 'react'
+import styles from './Maze.module.css'
+import { Dog } from './Dog'
+
+type Wall = {
+    left: number
+    width: number
+}
+
+const randomInt = (minVal: number, maxVal: number) =>
+    Math.floor(Math.random() * (maxVal - minVal + 1)) + minVal
+
+const generateNewWall = (): Wall => {
+    const width = randomInt(minWallLength, maxWallLength)
+    const alignLeft = Math.random() > 0.5
+
+    return {
+        left: alignLeft ? 0 : fieldSize - width,
+        width,
+    }
+}
+
+type Point = {
+    x: number
+    y: number
+}
+const generatePathAroundWalls = (walls: Wall[], start: Point, end: Point): Point[] => {
+    const path = [start]
+    const reversedWalls = walls.slice().reverse();
+    let currentY = start.y;
+    path.push({...start})
+
+    while(reversedWalls.length) {
+        const wall = reversedWalls.pop() as Wall
+        currentY ++;
+
+        if (wall.width === 0) {
+            continue
+        }
+
+        if (wall.left === 0) {
+            path.push({ x: wall.width + 0.5, y: currentY })
+        } else {
+            path.push({ x: 0, y: currentY })
+        }
+    }
+
+    path.push(end)
+    return path
+}
+
+const generateKeyframes = (path: Point[]) => path.map(({ x, y }) => ({
+    transform: `translate(${parrotsToPixels(x)}px, ${parrotsToPixels(y)}px)`
+}))
+
+export const Maze = () => {
+    const size = parrotsToPixels(fieldSize)
+    const [walls, setWalls] = useState<Wall[]>(
+        Array.from({ length: fieldSize }, () => ({
+            left: 0,
+            width: 0,
+        }))
+    )
+
+    const dogRef = useRef<HTMLDivElement | null>(null);
+
+    const toggleWall = useCallback((mazeRow: number) => {
+        setWalls((walls) =>
+            walls.map((wall, i) => {
+                if (i === mazeRow) {
+                    if (wall.width === 0) {
+                        return generateNewWall()
+                    } else {
+                        return {
+                            left: 0,
+                            width: 0,
+                        }
+                    }
+                }
+                return wall
+            })
+        )
+    }, [])
+
+    const getBall = useCallback(() => {
+        const start = { x: 0, y: 0 } // 🐶
+        const end = { x: 0, y: fieldSize + 1 } // 🎾
+        const path = generatePathAroundWalls(walls, start, end)
+        dogRef.current?.animate(generateKeyframes(path), {
+            duration: 3000,
+            easing: 'linear',
+            fill: 'forwards',
+        })
+    }, [walls])
+
+    return (
+        <>
+            <button onClick={getBall}>Апорт!</button>
+            <Dog ref={dogRef} /> {/* 🐶 */}
+            <div
+                style={{
+                    width: size,
+                    height: size,
+                }}
+                className={styles.maze}
+            >
+                {Array.from({ length: fieldSize }, (_, i) => (
+                    <button
+                        key={i}
+                        style={{ height: parrotsToPixels(1) }}
+                        className={styles.button}
+                        onClick={() => toggleWall(i)}
+                    >
+                        <span
+                            key={`${i}`}
+                            className={styles.wall}
+                            style={{
+                                width: parrotsToPixels(walls[i].width),
+                                left: parrotsToPixels(walls[i].left),
+                            }}
+                        />
+                    </button>
+                ))}
+            </div>
+        </>
+    )
+}
+```
+
+Не смотря на то, что все работает правильно, код компонента далёк от совершенства. Слишком много логики содержится в одном файле компонента. Создание подобных компонентов это типичная ошибка при знакомстве с React. Проблема в том что мы не нашли удобного способа разделить состояние между всеми компонентами и просто сложили все в одину кучу (точнее в один лабиринт).
+
+В следующей статье мы разберемся как разделить состояние между компонентами.
