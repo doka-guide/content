@@ -139,5 +139,5 @@ try {
   console.error('Поймали ошибку! Вот она: ', err.message)
 }
 // Поймали ошибку!
-// Вот она:  [1,2,3].toSpliced is not a function
+// Вот она: [1,2,3].toSpliced is not a function
 ```
