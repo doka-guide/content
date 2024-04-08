@@ -35,9 +35,8 @@ console.log(objects)
 Создадим функцию логирования. Она принимает в качестве аргументов имя источника сообщения и текст сообщения:
 
 ```js
-// простоя функция логирования
 const log = (sourceName, message) => {
-    console.log(sourceName,':', message)
+  console.log(sourceName,':', message)
 }
 ```
 
