@@ -145,7 +145,7 @@ _Самостоятельные роли_ — это роли элементов
 - [`subscript`](/a11y/role-subscript/) — подстрочный текст. Эквивалент в HTML — [`<sub>`](/html/sub/).
 - [`superscript`](/a11y/role-superscript/) — надстрочный текст. Эквивалент в HTML — [`<sup>`](/html/sup/).
 - [`table`](/a11y/role-table/) — таблица. Эквивалент в HTML — [`<table>`](/html/tables/).
-- [`term`](/a11y/role-term/) — термин. Эквиваленты в HTML — [`<dt>`](/html/dl-dd-dt/) и `<dfn>`.
+- [`term`](/a11y/role-term/) — термин. Эквиваленты в HTML — [`<dt>`](/html/dl-dd-dt/) и [`<dfn>`](/html/dfn/).
 - [`time`](/a11y/role-time/) — дата, время или период времени. Эквивалент в HTML — [`<time>`](/html/time/).
 - [`toolbar`](/a11y/role-toolbar/) — панель с часто используемыми элементами управления интерфейсом (тулбар, панель инструментов).
 - [`tooltip`](/a11y/role-tooltip/) — тултип.

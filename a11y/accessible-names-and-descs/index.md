@@ -65,7 +65,7 @@ _Доступное описание (accessible description)_ — дополн�
 
 Некоторые теги тоже задают имена отдельным элементам или группе:
 
-- [`<legend>`](/html/legend/) в `<fieldset>`;
+- [`<legend>`](/html/legend/) в [`<fieldset>`](/html/fieldset/);
 - [`<caption>`](/html/caption/) в [`<table>`](/html/tables/);
 - [`<figcaption>`](/html/figure-figcaption/) в `<figure>`.
 
