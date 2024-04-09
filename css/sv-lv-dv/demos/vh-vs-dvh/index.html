@@ -9,9 +9,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -20,21 +20,21 @@
 
     body {
       display: flex;
-      align-items: center;
       justify-content: center;
-      background-color: #18191C;
+      align-items: center;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      background-color: #18191C;
     }
 
     .hero-area {
-      color: #18191C;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
       padding: 0 2em;
+      color: #18191C;
       background-color: #2E9AFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .vh {
@@ -46,9 +46,9 @@
     }
 
     .hero-area__content {
-      text-align: center;
       max-width: 500px;
       margin-top: 2em;
+      text-align: center;
     }
 
     .hero-area__content h1 {
@@ -66,34 +66,34 @@
     }
 
     .hero-area__button  {
-      margin: 1em auto 0 auto;
       display: block;
       min-width: 210px;
+      margin: 1em auto 0 auto;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
       color: #000000;
-      font-size: 18px;
-      font-weight: 300;
       font-family: inherit;
+      font-weight: 300;
+      font-size: 18px;
       transition: background-color 0.2s linear;
       cursor: pointer;
     }
 
     .hero-area__button:hover {
       background-color: #FFFFFF;
-      cursor: pointer;
       transition: background-color 0.2s linear;
+      cursor: pointer;
     }
 
     .hero-area__button:focus-visible {
-      outline: none;
       border: 2px solid #F498AD;
+      outline: none;
     }
 
     .hero-area__button:focus {
-      outline: none;
       border: 2px solid #F498AD;
+      outline: none;
     }
 
     .pink {
@@ -106,7 +106,7 @@
     <div class="hero-area__content">
     <h1 class="hero-area__title">100 vh</h1>
     <p class="hero-area__text">Демонстрация высоты элемента при указании 100vh.</p>
-    <p class="hero-area__subtext">Чтобы увидеть разницу используй мобильный браузер.</p>
+    <p class="hero-area__subtext">Чтобы увидеть разницу, используй мобильный браузер.</p>
     <button class="hero-area__button pink ">Поменять на dvh</button>
     </div>
   </div>
