@@ -31,15 +31,19 @@ element.addEventListener('keydown', function (event) {
 })
 ```
 
-<iframe title="Обработка событий клавиатуры — Element.addEventListener() — Дока" src="../demos/keyboard-events/" height="450"></iframe>
+<iframe title="Обработка событий клавиатуры" src="../demos/keyboard-events/" height="450"></iframe>
 
 🛠 Предотвращение срабатывания события по умолчанию.
 
 В этом примере мы заменим стандартное поведение в случае, когда пользователь кликает на ссылку. Чтобы стандартное поведение не сработало, нужно вызывать метод `preventDefault` у события.
 
 ```html
-<a href="https://yandex.ru" target="_blank">Ссылка на Яндекс</a>
-<a href="https://yandex.ru" target="_blank" id="custom">Ссылка с измененным поведением</a>
+<a href="https://yandex.ru" target="_blank">
+  Ссылка на Яндекс
+</a>
+<a href="https://yandex.ru" target="_blank" id="custom">
+  Ссылка с измененным поведением
+</a>
 <div id="result"></div>
 ```
 
@@ -59,4 +63,4 @@ linkElement.addEventListener('click', function (event) {
 })
 ```
 
-<iframe title="Обработка событий мыши — Element.addEventListener() — Дока" src="../demos/mouse-events/" height="320"></iframe>
+<iframe title="Обработка событий мыши" src="../demos/mouse-events/" height="320"></iframe>
