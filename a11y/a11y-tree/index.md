@@ -27,7 +27,7 @@ _Дерево доступности (accessibility tree)_ — это предс
 
 Вспомогательные технологии взаимодействуют с деревьями не напрямую, а через посредника — [Accessibility API](/a11y/screenreaders/#accessibility-api) операционной системы пользователя. В свою очередь, деревья строят и передают дальше браузеры.
 
-Одно и то же дерево доступности может быть разным в зависимости от браузера. К примеру, могут отличаться названия ролей и по разному вычисляться имена элементов.
+Одно и то же дерево доступности может быть разным в зависимости от браузера. К примеру, могут отличаться названия ролей и по-разному вычисляться имена элементов.
 
 Дерево доступности создаётся параллельно с [DOM-деревом](/js/dom/#iz-chego-sostoit-dom). Браузеры ждут, пока страница окончательно отрисуется, а потом решают, что забрать в дерево доступности. Кроме информации о семантических тегах, в них, к примеру, попадает содержимое псевдоэлементов [`::before`](/css/before/) и [`::after`](/css/after/) и дополнительная разметка для вспомогательных технологий.
 
@@ -262,9 +262,9 @@ _Дерево доступности (accessibility tree)_ — это предс
 
 Подробнее про работу с деревом доступности в разных браузерах:
 
-- [Дерево доступности в инструментах разработчика в Chrome](https://developer.chrome.com/blog/full-accessibility-tree/).
-- [Документация про инспектор доступности Firefox](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/).
-- [Тестирование доступности в Safari](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html#//apple_ref/doc/uid/TP40001078-CH210-TPXREF101).
+- [Дерево доступности в инструментах разработчика в Chrome](https://developer.chrome.com/blog/full-accessibility-tree/)
+- [Документация об инспекторе доступности Firefox](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/)
+- [Тестирование доступности в Safari](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html#//apple_ref/doc/uid/TP40001078-CH210-TPXREF101)
 
 ## AOM
 
@@ -274,6 +274,6 @@ _Дерево доступности (accessibility tree)_ — это предс
 
 Дополнительные ссылки по теме для пытливых умов 🧠
 
-- [Semantics to Screen Readers](https://alistapart.com/article/semantics-to-screen-readers/).
-- [Accessibility APIs: A Key To Web Accessibility](https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/).
-- [The Accessibility Tree](https://whatsock.com/training/).
+- [Semantics to Screen Readers](https://alistapart.com/article/semantics-to-screen-readers/)
+- [Accessibility APIs: A Key To Web Accessibility](https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/)
+- [The Accessibility Tree](https://whatsock.com/training/)
