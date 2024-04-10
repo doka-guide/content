@@ -102,6 +102,7 @@ groups:
       - numeric-types
       - vw-vh
       - rem-em
+      - sv-lv-dv
   - name: 'Анимации'
     items:
       - animation
