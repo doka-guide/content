@@ -1,11 +1,11 @@
 ---
-title: "Асинхронность в JS"
-description: "Как устроена асинхронность: что такое Event loop и очередь событий, при чём здесь Web API, и как работают промисы и async/await"
+title: "Асинхронность в JavaScript"
+description: "Как устроена асинхронность: что такое Event loop и очередь событий, при чём здесь Web API, и как работают промисы и async/await?"
 cover:
   author: kirakusto
   desktop: 'images/covers/desktop.svg'
   mobile: 'images/covers/mobile.svg'
-  alt: 'Синхронистки, одна плывёт головой вверх - кролем, другая делает фигуры ногами над водой, головой вниз'
+  alt: 'Синхронистки, одна плывёт головой вверх кролем, другая делает фигуры ногами над водой, головой вниз'
 authors:
   - bespoyasov
 contributors:
@@ -139,35 +139,35 @@ outer()
 Вызываем функцию 1 — `outer()`, она попадает в стек:
 
 ```js
-outer;
+outer
 ```
 
 Вызываем функцию 2 — `inner()`, теперь в стеке 2 функции, потому что первая ещё не выполнилась до конца:
 
 ```js
-inner;
-outer;
+inner
+outer
 ```
 
 Вызываем `console.log()`, теперь в стеке 3 функции:
 
 ```js
-console.log;
-inner;
-outer;
+console.log
+inner
+outer
 ```
 
 Как только `console.log()` выполнится, она уйдёт из стека, там останется 2 функции:
 
 ```js
-inner;
-outer;
+inner
+outer
 ```
 
 Выполнившись, функция `inner()` тоже уйдёт из стека, в нём останется лишь одна:
 
 ```js
-outer;
+outer
 ```
 
 После выполнения всего блока стек станет пустым.
@@ -191,33 +191,33 @@ main()
 Вызываем функцию `main()`. Стек:
 
 ```js
-main();
+main()
 ```
 
 Вызываем `setTimeout()`. Стек:
 
 ```js
-setTimeout();
-main();
+setTimeout()
+main()
 ```
 
 `setTimeout` завершился, он выходит из стека:
 
 ```js
-main();
+main()
 ```
 
 Вызываем `console.log('Bye!')`:
 
 ```js
-console.log('Bye!');
-main();
+console.log('Bye!')
+main()
 ```
 
 Его вызов завершён, он выходит из стека:
 
 ```js
-main();
+main()
 ```
 
 Вызов `main()` тоже завершён, стек становится пуст.
@@ -225,20 +225,20 @@ main();
 Проходит около 2 секунд, вызывается функция `greet()`, она попадает в стек:
 
 ```js
-greet();
+greet()
 ```
 
 Она вызывает `console.log('Hello!')`:
 
 ```js
-console.log('Hello!');
-greet();
+console.log('Hello!')
+greet()
 ```
 
 Отработав, она уходит из стека:
 
 ```js
-greet();
+greet()
 ```
 
 После выполнения всего блока стек снова становится пустым.

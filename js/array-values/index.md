@@ -13,7 +13,7 @@ tags:
 
 ## Кратко
 
-Метод `values()` возвращает новый объект-итератор, созданный из значений элементов массива. Подробнее о том, что такое итератор, можно прочитать в статье [Итератор](/js/iterator/).
+Метод `values()` возвращает новый объект-итератор, созданный из значений элементов массива. Подробнее о том, что такое итератор, можно прочитать в статье «[Итератор](/js/iterator/)».
 
 ## Пример
 
@@ -21,13 +21,11 @@ tags:
 
 ```js
 const array = [1, 2, 3]
-
 const iterator = array.values()
 
 for (const item of iterator) {
   console.log(item)
 }
-
 // 1
 // 2
 // 3
@@ -47,7 +45,6 @@ for (const item of iterator) {
 
 ```js
 const array = [1, 2, 3]
-
 console.log(array.values === array[Symbol.iterator])
 // true
 ```
@@ -74,7 +71,6 @@ for (const color of colors.values()) {
 
 ```js
 const numbersIterator = [1, 2, 3, 4].values()
-
 const numbers = Array.from(numbersIterator)
 
 console.log(numbers)

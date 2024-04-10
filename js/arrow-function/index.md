@@ -122,18 +122,20 @@ const obj = {
   count: 10,
   doSomethingLater() {
     setTimeout(function () {
-      this.count++; // тут this ссылается на объект Window
-      console.log(this.count);
-    }, 1000);
+      // Тут this ссылается на объект Window
+      this.count++
+      console.log(this.count)
+    }, 1000)
   },
 };
 
-obj.doSomethingLater(); // "NaN"
+obj.doSomethingLater()
+// "NaN"
 ```
 
-В callback'е функции `setTimeout` `this` указывет на объект `Window`, а не на `obj`, поэтому значение `this.count` оказывается неверным.
+В колбэк-функции `setTimeout` `this` указывет на объект `Window`, а не на `obj`, поэтому значение `this.count` оказывается неверным.
 
-Поэтому приходилось использовать различные методы для передачи контекста внутрь callback'а.
+Поэтому приходилось использовать различные методы для передачи контекста внутрь колбэка.
 
 Например, при помощи `bind(this)`:
 
@@ -142,44 +144,47 @@ const obj = {
   count: 10,
   doSomethingLater() {
     setTimeout(function () {
-      this.count++;
-      console.log(this.count);
-    }.bind(this), 1000);
+      this.count++
+      console.log(this.count)
+    }.bind(this), 1000)
   },
-};
+}
 
-obj.doSomethingLater(); // 11
+obj.doSomethingLater()
+// 11
 ```
 
-Использовался "хак" с переменной `that`, где сохранялся контекст `this`, и внутри callback'а уже использовалась эта переменная:
+Также использовался хак с переменной `that`, где сохранялся контекст `this`, и внутри колбэка уже использовалась эта переменная:
 
 ```js
 const obj = {
   count: 10,
   doSomethingLater() {
-    const that = this;
+    const that = this
     setTimeout(function () {
-      that.count++;
-      console.log(that.count);
-    }, 1000);
+      that.count++
+      console.log(that.count)
+    }, 1000)
   },
-};
+}
 
-obj.doSomethingLater(); // 11
+obj.doSomethingLater()
+// 11
 ```
 
-С появлением стрелочных функций в качестве callback'ов, больше не нужно беспокоиться о правильной привязке `this`, так как их контекст выполнения привязан к лексической области видимости.
+С появлением стрелочных функций в качестве колбэков, больше не нужно беспокоиться о правильной привязке `this`, так как их контекст выполнения привязан к лексической области видимости.
 
 ```js
 const obj = {
   count: 10,
   doSomethingLater() {
     setTimeout(() => {
-      this.count++;
-      console.log(this.count);
-    }, 1000);
+      this.count++
+      console.log(this.count)
+    }, 1000)
   },
-};
+}
 
-obj.doSomethingLater(); // 11
+obj.doSomethingLater()
+// 11
 ```
