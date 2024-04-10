@@ -22,7 +22,7 @@ tags:
 
 ## Кратко
 
-[Свойство связи](/a11y/aria-attrs/#atributy-svyazi) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для одного или нескольких элементов c видимым именем (подписью) для другого.
+[Свойство связи](/a11y/aria-attrs/#atributy-svyazi) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для одного или нескольких элементов с видимым именем (подписью) для другого.
 
 ## Пример
 
