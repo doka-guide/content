@@ -20,13 +20,14 @@ tags:
 Отсортируем массив с числами:
 
 ```js
-const numbers = [43, 6, 35, 1, 9, 7, 5, 75, 16];
+const numbers = [43, 6, 35, 1, 9, 7, 5, 75, 16]
+const sortedNumbers = numbers.toSorted(
+  (a, b) => a - b
+)
+console.log(numbers)
+// [43, 6, 35, 1, 9, 7, 5, 75, 16]
 
-const sortedNumbers = numbers.toSorted((a, b) => a - b);
-
-console.log(numbers);
-// [43, 6, 35, 1, 9, 7, 5, 75, 16];
-console.log(sortedNumbers);
+console.log(sortedNumbers)
 // [1, 5, 6, 7, 9, 16, 35, 43, 75]
 ```
 
@@ -40,12 +41,12 @@ const names = [
   'Albert',
   undefined,
   '',
-];
+]
+const sortedNames = names.toSorted()
 
-const sortedNames = names.toSorted();
 console.log(sortedNames)
 // ['', 'Albert', 'Alex', 'Denis', 'Kirill', undefined]
-// undefined элементы будут в конце массива.
+// undefined элементы будут в конце массива
 ```
 
 ## Как пишется
@@ -63,23 +64,25 @@ console.log(sortedNames)
 💡 Если нет возможности использовать метод `toSorted()`, можно воспользоваться следующим кодом:
 
 ```js
-const numbers = [43, 6, 35, 1, 9, 7, 5, 75, 16];
+const numbers = [
+  43, 6, 35, 1, 9, 7, 5, 75, 16
+]
 
-const sortedNumbers = [...numbers].sort((a, b) => a - b);
-// используем spread оператор
+// Используем спред-оператор
+const sortedNumbers = [...numbers].sort(
+  (a, b) => a - b
+)
+console.log(numbers)
+// [43, 6, 35, 1, 9, 7, 5, 75, 16]
 
-console.log(numbers);
-// [43, 6, 35, 1, 9, 7, 5, 75, 16];
-console.log(sortedNumbers);
+console.log(sortedNumbers)
 // [1, 5, 6, 7, 9, 16, 35, 43, 75]
 ```
-
-<aside>
 
 ☝️ При сортировке массива методом `toSorted()` возвращаемый массив будет содержать [поверхностную копию (shallow copy) элементов](/js/shallow-or-deep-clone/), если эти элементы являются объектами. При изменении этих элементов в объекте, изменения будут видны и в исходном массиве.
 
 ```js
-const obj = {name: 'Scarlett'};
+const obj = {name: 'Scarlett'}
 
 const names = [
   'Kirill',
@@ -89,17 +92,22 @@ const names = [
   'Albert',
   undefined,
   '',
-];
-
-const sortedNames = names.toSorted();
-
-console.log(sortedNames);
-//  ['', 'Albert', 'Alex', 'Denis', 'Kirill', { name: 'Scarlett' }, undefined]
-
-obj.name = 'Dan'; // меняем объект
+]
+const sortedNames = names.toSorted()
 
 console.log(sortedNames)
-//  ['', 'Albert', 'Alex', 'Denis', 'Kirill', { name: 'Dan' }, undefined]
-// в отсортированном массиве, объект также изменился.
+// [
+//  '', 'Albert', 'Alex', 'Denis', 'Kirill',
+//  { name: 'Scarlett' }, undefined
+// ]
+
+// Меняем объект
+obj.name = 'Dan'
+
+// В отсортированном массиве объект также изменился
+console.log(sortedNames)
+// [
+//  '', 'Albert', 'Alex', 'Denis', 'Kirill',
+//  { name: 'Dan' }, undefined
+// ]
 ```
-</aside>
