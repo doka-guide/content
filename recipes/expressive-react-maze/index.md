@@ -575,7 +575,7 @@ const getBall = useCallback(() => {
 Ключевое слово `forwards` означает что элемент останется в последнем состоянии анимации (собачка от мячика не убежит).
 
 Попробуйте сами
-<iframe title="Демо игры с собачкой и мячиком" src="https://maze-demo.hellsquirrel.dev" height="600"></iframe>
+<iframe title="Демо игры с собачкой и мячиком" src="https://maze-demo.hellsquirrel.dev" height="650"></iframe>
 
 ## Посмотрите на лабиринт
 
