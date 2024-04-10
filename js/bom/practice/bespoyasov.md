@@ -4,11 +4,11 @@
 
 ```js
 if ('bluetooth' in navigator) {
-  // Есть доступ к Bluetooth API.
+  // Есть доступ к Bluetooth API
 }
 
 if ('serviceWorker' in navigator) {
-  // Есть доступ к Service Worker API.
+  // Есть доступ к Service Worker API
 }
 ```
 
@@ -17,10 +17,10 @@ if ('serviceWorker' in navigator) {
 Чтобы узнать, сколько пикселей занимает по ширине экран без полосы прокрутки (актуально для Windows, где полоса прокрутки отнимает какое-то пространство), используйте `availWidth`:
 
 ```js
-// Без учёта полосы:
+// Без учёта полосы
 const screenWidth = screen.width
 
-// С учётом полосы прокрутки:
+// С учётом полосы прокрутки
 const withoutScrollBar = screen.availWidth
 ```
 
@@ -29,11 +29,13 @@ const withoutScrollBar = screen.availWidth
 Чтобы программно перейти на другую страницу, используйте `location.href`.
 
 Перейти по адресу на текущем сайте:
+
 ```js
 location.href = '/another-page'
 ```
 
 Чтобы перейти на другой сайт, укажите его URL полностью:
+
 ```js
 location.href = 'https://google.com'
 ```
@@ -77,7 +79,7 @@ document.title = 'Это новая страница!'
 function saveToStorage(key, data) {
   try {
     // Если браузер не поддерживает localStorage,
-    // блок try обезопасит код от неожиданной ошибки.
+    // блок try обезопасит код от неожиданной ошибки
     window.localStorage.setItem(key, JSON.stringify(data))
   }
   catch {
