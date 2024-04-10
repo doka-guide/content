@@ -71,7 +71,7 @@ const usernamesById = users.reduce(function (result, user) {
 ```js
 const nums = [1, 2, 3, 4, 5, 6, 7, 8]
 
-// Не забываем, что аккумулятор идет первым!
+// Не забываем, что аккумулятор идёт первым!
 function findAverage(acc, item, index, arr) {
   const sum = acc + item
 

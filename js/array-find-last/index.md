@@ -21,7 +21,6 @@ tags:
 
 ```js
 const names = ['Ann', 'Dan', 'Julia', 'Scarlett', 'Pat']
-
 const name = names.findLast((element) => element.length > 3)
 
 console.log(name)
@@ -32,7 +31,6 @@ console.log(name)
 
 ```js
 const numbers = [10, 15, 5, 20, 0, -10, 25]
-
 const element = numbers.findLast((element, index) =>
 element > 10 && index % 2 === 1 )
 

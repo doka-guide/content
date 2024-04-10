@@ -53,13 +53,13 @@ console.log(tomorrowToDoList.find(isMyFavoriteHobby))
 
 ## Интерактивный пример
 
-<iframe title="Работа метода массива filter — Array.find — Дока" src="demos/index/" height="695"></iframe>
+<iframe title="Как работает метод массива filter" src="demos/index/" height="695"></iframe>
 
 ## Как пишется
 
-В метод `find()` необходимо передать аргументом функцию. Функция должна возвращать [булевое значение](/js/boolean/) `true` или `false`. `find()` вернёт первый элемент, на котором переданная функция-колбэк вернула `true`.
+В метод `find()` необходимо передать аргументом функцию. Функция должна возвращать [булево значение](/js/boolean/) `true` или `false`. `find()` вернёт первый элемент, на котором переданная функция-колбэк вернула `true`.
 
-Чтобы получить необходимый элемент, нужно определить условие поиска. В этом нам поможет функция-предикат. Предикат — это функция, которая возвращает булевое значение.
+Чтобы получить необходимый элемент, нужно определить условие поиска. В этом нам поможет функция-предикат. Предикат — это функция, которая возвращает булево значение.
 
 От результата выполнения функции зависит, вернёт ли `find()` подходящий элемент:
 
@@ -70,7 +70,7 @@ console.log(tomorrowToDoList.find(isMyFavoriteHobby))
 
 ```js
 const isOdd = (element) => {
-  return element % 2 === 1;
+  return element % 2 === 1
 }
 ```
 
@@ -153,9 +153,9 @@ const numbers = [1, 2, 3, 4, 5, 2, 6]
 const resultWithFilter = numbers.filter(isTwoOrFour(element))
 const resultWithFind = numbers.find(isTwoOrFour(element))
 
-console.log(resultWithFilter);
+console.log(resultWithFilter)
 // [2, 4, 2]
 
-console.log(resultWithFind);
+console.log(resultWithFind)
 // 2
 ```

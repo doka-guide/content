@@ -21,7 +21,6 @@ tags:
 
 ```js
 const numbers = [10, 15, 4, 20, 8, -5]
-
 const elemIndex = numbers.findLastIndex((element) => element > 10)
 
 console.log(elemIndex)

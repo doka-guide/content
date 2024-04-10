@@ -32,7 +32,6 @@ const sum = nums.reduceRight((currentSum, currentNumber) => {
 
 ```js
 const nums = [1, 2, 3, 4]
-
 const sum = nums.reduceRight((currentSum, currentNumber) =>
 currentSum += currentNumber)
 // 10
@@ -48,7 +47,7 @@ const numsArrays = [
 ]
 
 const nums = numsArrays.reduceRight((acc, cur) => {
-  return acc.concat(cur);
+  return acc.concat(cur)
 }, [])
 // [7, 8, 9, 4, 5, 6, 1, 2, 3]
 ```

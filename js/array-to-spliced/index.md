@@ -69,7 +69,6 @@ console.log(newVersions)
 ```js
 const days = ['ПН', 'ПТ']
 const workDays = days.toSpliced(1, 0, 'ВТ', 'СР', 'ЧТ')
-
 console.log(workDays)
 // ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ']
 
@@ -122,7 +121,6 @@ console.log(result)
 
 // Изменим элемент исходного массива
 skills[0].year = 2005
-
 console.log(skills)
 // [{name: 'HTML', year: 2005}, {name: 'CSS'}, {name: 'PHP'}]
 
@@ -146,3 +144,4 @@ try {
 }
 // Поймали ошибку!
 // Вот она: [1,2,3].toSpliced is not a function
+```

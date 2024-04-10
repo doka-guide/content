@@ -46,7 +46,7 @@ const jLanguages = languages.filter(function (language) {
 
 Интерактивный пример:
 
-<iframe title="Работа Array.filter — Array.filter — Дока" src="demos/index/" height="890"></iframe>
+<iframe title="Как работает Array.filter" src="demos/index/" height="890"></iframe>
 
 ## Как пишется
 
@@ -93,10 +93,12 @@ function predicate(num) {
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 // Передаём предикат
-nums.filter(predicate) // [5, 6, 7, 8, 9, 10]
+nums.filter(predicate)
+// [5, 6, 7, 8, 9, 10]
 
 // Либо делаем короче и просто возвращаем результат сравнения
-nums.filter((num) => num >= 5) // [5, 6, 7, 8, 9, 10]
+nums.filter((num) => num >= 5)
+// [5, 6, 7, 8, 9, 10]
 ```
 
 Функция, которую мы передаём в метод `.filter()`, принимает три параметра:
