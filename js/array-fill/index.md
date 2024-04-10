@@ -21,7 +21,6 @@ tags:
 
 ```js
 const colors = ['red', 'green', 'white']
-
 colors.fill('purple')
 
 console.log(colors)
@@ -32,7 +31,6 @@ console.log(colors)
 
 ```js
 const skills = ['HTML', 'CSS', 'JS', 'Python']
-
 skills.fill(null, 2)
 
 console.log(skills)
@@ -59,7 +57,6 @@ console.log(skills)
 
 ```js
 const skills = ['HTML', 'CSS', 'JS', 'Python']
-
 skills.fill('React', -2)
 
 console.log(skills)
@@ -70,7 +67,6 @@ console.log(skills)
 
 ```js
 const fruits = ['яблоко', 'апельсин', 'банан', 'манго']
-
 fruits.fill('лимон', -2, -3)
 
 console.log(fruits)
@@ -100,7 +96,6 @@ console.log(createNullArr(5))
 
 ```js
 const persons = Array(3)
-
 persons.fill({name: 'имя', position: null})
 
 console.log(persons)
@@ -129,7 +124,6 @@ console.log(persons)
 
 ```js
 const persons = Array.from( new Array(3), () => ({ name: 'имя', position: null }))
-
 persons[0].name = 'София'
 
 console.log(persons)

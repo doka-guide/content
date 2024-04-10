@@ -43,7 +43,7 @@ console.log(noEvenNumber)
 
 Интерактивный пример:
 
-<iframe title="Используем some для проверки массива — Array.some — Дока" src="demos/index/" height="930"></iframe>
+<iframe title="Используем some для проверки массива" src="demos/index/" height="930"></iframe>
 
 ## Как пишется
 
@@ -58,7 +58,9 @@ console.log(noEvenNumber)
 ```js
 const balls = ['🎾', '🏈', '🎾', '🎾']
 
-const areAllBallsGreen = balls.some((ball, index, arr) => ball === '🏈')
+const areAllBallsGreen = balls.some(
+  (ball, index, arr) => ball === '🏈'
+)
 console.log(areAllBallsGreen)
 // true
 ```
@@ -70,7 +72,9 @@ console.log(areAllBallsGreen)
 Для сравнения напишем пример через [`for`](/js/for/) или [`while`](/js/while/):
 
 ```js
-const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
+const food = [
+  '🍗', '🍖', '🥓', '🥬', '🥩', '🍔'
+]
 
 let hasAnySalad = false
 
@@ -87,7 +91,9 @@ console.log(hasAnySalad);
 Метод `some()` позволит написать меньше кода и сделать его понятнее:
 
 ```js
-const food = ['🍗', '🍖', '🥓', '🥬', '🥩', '🍔']
+const food = [
+  '🍗', '🍖', '🥓', '🥬', '🥩', '🍔'
+]
 
 const hasAnySalad = food.some(item => item === '🥬')
 console.log(hasAnySalad)

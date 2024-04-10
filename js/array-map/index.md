@@ -164,7 +164,7 @@ console.log(initedArray)
 
 ```js
 const newArray = Array(5)
-console.log("Размер массива:", newArray.length);
+console.log("Размер массива:", newArray.length)
 // Размер массива: 5
 
 const initedArray = [ ...newArray ].map(function (item, index) {
