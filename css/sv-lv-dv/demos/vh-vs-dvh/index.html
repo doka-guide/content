@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение vh и dvh — sv, lv, dv — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191C;
+    }
+
+    .hero-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 0 2em;
+      color: #18191C;
+      background-color: #2E9AFF;
+    }
+
+    .vh {
+      min-height: 100vh;
+    }
+
+    .dvh {
+      min-height: 100dvh;
+    }
+
+    .hero-area__content {
+      max-width: 500px;
+      margin-top: 2em;
+      text-align: center;
+    }
+
+    .hero-area__content h1 {
+      color: #18191C;
+    }
+
+    .hero-area__text {
+      margin-top: 1em;
+      font-size: 18px;
+    }
+
+    .hero-area__subtext {
+      margin-top: 1em;
+      font-size: 14px;
+    }
+
+    .hero-area__button  {
+      display: block;
+      min-width: 210px;
+      margin: 1em auto 0 auto;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-family: inherit;
+      font-weight: 300;
+      font-size: 18px;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+    }
+
+    .hero-area__button:hover {
+      background-color: #FFFFFF;
+      transition: background-color 0.2s linear;
+      cursor: pointer;
+    }
+
+    .hero-area__button:focus-visible {
+      border: 2px solid #F498AD;
+      outline: none;
+    }
+
+    .hero-area__button:focus {
+      border: 2px solid #F498AD;
+      outline: none;
+    }
+
+    .pink {
+      background-color: #F498AD;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-area vh">
+    <div class="hero-area__content">
+    <h1 class="hero-area__title">100 vh</h1>
+    <p class="hero-area__text">Демонстрация высоты элемента при указании 100vh.</p>
+    <p class="hero-area__subtext">Чтобы увидеть разницу, используй мобильный браузер.</p>
+    <button class="hero-area__button pink ">Поменять на dvh</button>
+    </div>
+  </div>
+  <script>
+    const heroArea = document.querySelector('.hero-area')
+    const title = document.querySelector('.hero-area__title')
+    const text = document.querySelector('.hero-area__text')
+    const button = document.querySelector('.hero-area__button')
+    let isDvh = false
+
+    button.addEventListener('click', () => {
+      isDvh = !isDvh
+      if(isDvh) {
+        heroArea.classList.remove('vh')
+        heroArea.classList.add('dvh')
+      } else {
+        heroArea.classList.add('vh')
+        heroArea.classList.remove('dvh')
+      }
+      title.innerHTML = `100 ${isDvh ? 'dvh' : 'vh'}`
+      text.innerHTML = `Демонстрация высоты элемента при указании ${isDvh ? 'dvh' : 'vh'}.`
+      button.innerHTML = `Поменять на ${isDvh ? 'vh' : 'dvh'}`
+    })
+  </script>
+</body>
+</html>
