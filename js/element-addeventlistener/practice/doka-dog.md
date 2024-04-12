@@ -42,7 +42,7 @@ element.addEventListener('keydown', function (event) {
   Ссылка на Яндекс
 </a>
 <a href="https://yandex.ru" target="_blank" id="custom">
-  Ссылка с измененным поведением
+  Ссылка с изменённым поведением
 </a>
 <div id="result"></div>
 ```
