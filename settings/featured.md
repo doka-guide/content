@@ -1,20 +1,18 @@
 ---
 pinned:
-  - tools/cors
-  - js/array-entries
-  - recipes/git-rebase-onto
+  - css/layer
+  - tools/structure-data-in-js
+  - html/semantics
+  - js/web-workers
   - tools/algorithm-complexity
-  - a11y/live-region
-  - css/box-sizing
-  - html/section
-  - js/array-reduce-right
-  - recipes/popup
 ready:
+  - a11y/live-region
   - a11y/screenreaders
   - a11y/aria-intro
   - a11y/aria-hidden
   - a11y/css-impact-on-a11y
   - a11y/content-hidden
+  - html/section
   - html/img
   - html/article
   - html/form
@@ -30,6 +28,7 @@ ready:
   - css/position
   - css/attr
   - css/media
+  - css/box-sizing
   - css/pseudoelements
   - css/specificity
   - css/box-shadow
@@ -49,6 +48,9 @@ ready:
   - js/execution-order
   - js/closures
   - js/geolocation-api
+  - js/array-entries
+  - js/array-reduce-right
+  - tools/cors
   - tools/oop
   - tools/clean-architecture
   - tools/agile
@@ -69,6 +71,8 @@ ready:
   - recipes/character-counter
   - recipes/center
   - recipes/ajax-form
+  - recipes/popup
+  - recipes/git-rebase-onto
 active:
   - tools/cors
   - js/array-entries
