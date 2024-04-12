@@ -24,19 +24,21 @@ tags:
 ```js
 const button = document.querySelector('button')
 
-// добавили класс
+// Добавили класс
 button.classList.add('active')
-// удалили класс
+
+// Удалили класс
 button.classList.remove('active')
-// вернет false, так как такого класса у элемента нет
+
 button.classList.contains('active')
+// Вернёт false, так как такого класса у элемента нет
 ```
 
-<iframe title="Название — Element.classList — Дока" src="demos/Windrushfarer-BaLREeZ/" height="380"></iframe>
+<iframe title="Как работает .classList" src="demos/Windrushfarer-BaLREeZ/" height="380"></iframe>
 
 ## Как понять
 
-Управлять классами элемента — одна из распространённых задач, потому браузеры предоставляют встроенные средства для решения такой задачи. В свойстве `classList` элемента содержится специальный объект, который хранит информацию о текущих классах элемента и содержит методы для работы с ними.
+Управлять классами элемента — одна из распространённых задач, потому браузеры предоставляют встроенные средства для решения такой задачи. В свойстве `classList` содержится специальный объект, который хранит информацию о текущих классах элемента и содержит методы для работы с ними.
 
 ```js
 const button = document.querySelector('button')
@@ -89,12 +91,14 @@ element.classList.add('header', 'animate')
 Метод используется для удаления класса у элемента. В качестве аргумента нужно передавать строку с именем класса.
 
 Предположим, что кнопке назначен единственный класс `submit`:
+
 ```js
 const button = document.querySelector('button.submit')
 
 // Убираем класс
 button.classList.remove('submit')
-console.log(button.classList[0]);
+
+console.log(button.classList[0])
 // undefined
 ```
 
@@ -130,7 +134,7 @@ const result = button.classList.replace('hidden', 'visible')
 console.log(result)
 // true, класс успешно заменился на visible
 
-// Попробуем заменить еще раз
+// Попробуем заменить ещё раз
 const resultAgain = button.classList.replace('hidden', 'visible')
 console.log(result)
 // false, потому что ничего не изменилось
@@ -144,8 +148,9 @@ console.log(result)
 // На кнопке есть класс hidden
 const button = document.querySelector('button.hidden')
 
-// так как класс есть, то он будет убран
+// Так как класс есть, он будет убран
 button.classList.toggle('hidden')
+
 // А при повторном вызове будет снова добавлен
 button.classList.toggle('hidden')
 ```
@@ -156,23 +161,23 @@ button.classList.toggle('hidden')
 // На кнопке есть класс submit
 const button = document.querySelector('button.submit')
 
-// Передаём вторым аргументом false и будет работать как remove()
+// Передаём вторым аргументом false, и будет работать как remove()
 button.classList.toggle('submit', false)
-console.log(button.classList[0]);
+console.log(button.classList[0])
 // undefined, потому что класса больше нет
 
-// Передаём true и теперь класс добавится
+// Передаём true, и теперь класс добавится
 button.classList.toggle('submit', true)
 ```
 
 ### `classList.contains()`
 
-Метод позволяет проверить наличие класса у элемента. Метод принимает один параметр - [строку](/js/string/) с названием класса, наличие которого нужно проверить.
+Метод позволяет проверить наличие класса у элемента. Метод принимает один параметр — [строку](/js/string/) с названием класса, наличие которого нужно проверить.
 
-Метод `contains()` вернёт `true` если класс есть и `false` если класса нет.
+Метод `contains()` вернёт `true`, если класс есть, и `false`, если класса нет.
 
 ```js
-// На кнопке есть класс hidden, найдем эту кнопку.
+// На кнопке есть класс hidden, найдём эту кнопку
 const button = document.querySelector('button.hidden')
 
 // Проверим, есть ли класс visible на кнопке
@@ -190,7 +195,7 @@ console.log(isHidden)
 
 <aside>
 
-☝️ Классом не может быть строка содержащая пробелы. При попытке передать в аргументах такую строку, будет выброшена ошибка. Это правило касается любого метода в `classList`.
+☝️ Классом не может быть строка, содержащая пробелы. При попытке передать в аргументах такую строку, будет выброшена ошибка. Это правило касается любого метода в `classList`.
 
 </aside>
 
@@ -198,5 +203,6 @@ console.log(isHidden)
 const element = document.querySelector('div')
 
 element.classList.add('my awesome class')
-// Ошибка: Uncaught DOMException: String contains an invalid character
+// Ошибка: Uncaught DOMException: String
+// contains an invalid character
 ```
