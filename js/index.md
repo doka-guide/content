@@ -43,6 +43,7 @@ groups:
       - data-view
       - array-buffer
       - shared-array-buffer
+      - atomics
       - function-as-datatype
       - set
       - weak-set
@@ -126,10 +127,12 @@ groups:
   - name: "Объекты"
     items:
       - object
+      - objects-objects-everywhere
+      - descriptors
+      - generators
       - object-tostring
       - group-by
-      - descriptors
-      - objects-objects-everywhere
+      - intl-datetimeformat
   - name : "Множества (`Set`)"
     items:
       - set
@@ -178,15 +181,14 @@ groups:
       - clearinterval
       - window-print
       - window-open
+      - window-close
       - intersection-observer
-
   - name: "Объектная модель документа DOM"
     items:
       - dom
       - element
       - events
       - htmlcollection-and-nodelist
-
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
@@ -198,6 +200,8 @@ groups:
       - query-selector-all
       - forms
       - cookie
+      - css-style-declaration
+      - document-design-mode
   - name: "Элемент на странице (`Element`)"
     items:
       - element
@@ -248,13 +252,15 @@ groups:
       - element-scroll
       - element-wheel
       - element-touch
-
   - name: "Хранение данных в браузере"
     items:
       - cookie
       - local-storage
       - session-storage
-
+  - name: "Работа с памятью"
+    items:
+      - weak-ref
+      - finalization-registry
   - name: "Асинхронность"
     items:
       - async-in-js
@@ -267,17 +273,15 @@ groups:
       - promise-any
       - promise-race
       - async-await
-
   - name: "Обмен данными с API"
     items:
       - fetch
       - async-await
-
   - name: "Веб-приложение"
     items:
       - language-versions
       - modules
-
+      - web-workers
   - name: "Типовые решения"
     items:
       - deal-with-forms
