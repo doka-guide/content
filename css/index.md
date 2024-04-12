@@ -82,6 +82,7 @@ groups:
       - filter-functions
       - transform-function
       - url
+      - clamp
   - name: 'Директивы'
     items:
       - font-face
