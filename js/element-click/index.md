@@ -51,7 +51,7 @@ button.addEventListener('click', function () {
 
 ```js
 button.addEventListener('click', function (event) {
-   // Напечатает количество кликов
+  // Напечатает количество кликов
   alert(event.detail)
 })
 ```
