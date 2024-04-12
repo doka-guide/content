@@ -3,7 +3,7 @@ title: "Генераторы и yield"
 description: "Генератор – это специальная функция, которая может приостанавливать своё выполнение и возвращает в результате объект-итератор"
 authors:
   - windrushfarer
-  - SergeyKrasnolobov
+  - sergeykrasnolobov
 keywords:
   - Итератор
   - Генератор
