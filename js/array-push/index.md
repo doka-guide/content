@@ -2,7 +2,7 @@
 title: "`.push()`"
 description: "Добавляет новый элемент в конец массива."
 authors:
-  - Maksim631
+  - maksim631
 related:
   - js/arrays
   - js/element
