@@ -111,7 +111,7 @@ const pandaPrototype = Object.getPrototypeOf(panda)
 // а, теперь добавим свойство в Bear.prototype
 Bear.prototype.isBear = true;
 
-// отобразим свойства созданного объекта (включая наследуемые)
+// отобразим свойства созданного объекта
 console.dir(panda, {showHidden: true })
 // Bear { name: 'Панда', isBear: true }
 
@@ -156,7 +156,7 @@ person.setSkill('Курьер')
 // получим прототип объекта
 const proto = Object.getPrototypeOf(person)
 
-// отобразим свойства созданного объекта (включая наследуемые)
+// отобразим свойства созданного объекта
 console.dir(person, {showHidden: true})
 // Person { name: 'Иван', skill: 'Курьер' }
 
