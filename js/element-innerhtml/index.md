@@ -76,7 +76,7 @@ document.body.innerHTML = '<h1>Hello Inner HTML!<h1>'
 </aside>
 
 ```js
- // Здесь создаётся полноценный DOM-элемент
+// Здесь создаётся полноценный DOM-элемент
 const divEl = document.createElement('div')
 
 document.body.innerHTML = divEl
