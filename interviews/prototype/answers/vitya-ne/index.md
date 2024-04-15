@@ -39,7 +39,6 @@ console.dir(Object.getPrototypeOf(obj), {showHidden: true, depth: 0 })
 //   ['__proto__']: [Getter/Setter],
 //   [toLocaleString]: [Function]
 // }
-
 ```
 
 Постойте, а как насчёт функций-конструкторов? Ведь они имеют свойство `prototype` доступное напрямую. Свойство `prototype` и прототип функции-конструктора (ведь функция это тоже объект) — это не одно и то же:
@@ -66,7 +65,6 @@ console.dir(Object.getPrototypeOf(Person), {showHidden: true, depth: 0 })
 //   [toString]: [Function],
 //   [Symbol(Symbol.hasInstance)]: [Function]
 // }
-
 ```
 
 Свойство `prototype` у функции-конструктора используется для назначения прототипа объектам, которые будут созданы с помощью этого конструктора и никак не влияет на саму функцию-конструктор.
