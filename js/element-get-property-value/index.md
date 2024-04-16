@@ -1,9 +1,12 @@
 ---
 title: ".getPropertyValue()"
-description: "Получаем строку с CSS-свойством элемента"
+description: "Получаем строку с CSS-свойством элемента."
 authors:
   - madey-kv
 related:
+  - js/element-classlist
+  - js/element
+  - js/element-closest
 tags:
   - doka
   - placeholder
@@ -16,7 +19,7 @@ tags:
 ## Как пишется
 
 ```js
-element.getPropertyValue('value');
+element.getPropertyValue('value')
 ```
 
 ## Пример
@@ -38,9 +41,11 @@ element.getPropertyValue('value');
 Запишем ширину элемента в переменную и выведем её на экран:
 
 ```js
-const block = document.querySelector('.block');
-const styles = window.getComputedStyle(block); // получаем все стили элемента
-const width = styles.getPropertyValue('width');
-console.log(width); // 100px
-```
+const block = document.querySelector('.block')
+// Получаем все стили элемента
+const styles = window.getComputedStyle(block)
+const width = styles.getPropertyValue('width')
 
+console.log(width)
+// 100px
+```
