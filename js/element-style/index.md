@@ -26,9 +26,9 @@ const element = document.getElementById('someElement')
 const inlineStyles = element.style
 ```
 
-В этом случае в значение `inlineStyles` запишется объект [`CSSStyleDeclaration`](https://developer.mozilla.org/ru/docs/Web/API/CSSStyleDeclaration), который будет содержать в себе все инлайновые стили элемента `element`.
+В этом случае в значение `inlineStyles` запишется объект [`CSSStyleDeclaration`](/js/css-style-declaration/), который будет содержать в себе все инлайновые стили элемента `element`.
 
-Чтобы задать стили для элемента, мы можем использовать несколько способов. Либо через `cssText`, чтобы указать несколько свойств разом. (Тем же эффектом обладает установка стиля через `setAttribute()`.) Либо через отдельные свойства в `style.[propertyName]`.
+Чтобы задать стили для элемента, мы можем использовать несколько способов. Либо через `cssText`, чтобы указать несколько свойств разом. Этим же эффектом обладает установка стиля через `setAttribute()`. Либо через отдельные свойства в `style.[propertyName]`.
 
 Следующие две записи работают одинаково и устанавливают несколько стилей в одном выражении:
 
@@ -52,10 +52,10 @@ element.style.color = 'blue'
 Чтобы указать значение конкретного CSS-свойства, мы можем использовать одноимённое отображение в `style`:
 
 ```js
-// Если мы хотим указать color:
+// Если хотим указать color
 element.style.color = 'red' // или 'rgb(255,0,0)', или '#f00'
 
-// Если хотим указать font-family:
+// Если хотим указать font-family
 element.style.fontFamily = 'Arial'
 ```
 
@@ -63,10 +63,10 @@ element.style.fontFamily = 'Arial'
 
 Таким образом `font-family` превращается в `fontFamily`, а, например, `background-color` — в `backgroundColor`.
 
-При сомнениях в том, как правильно называется то или иное свойство, воспользуйтесь списком соответствий:
+При сомнениях в том, как правильно называется то или иное свойство, воспользуйтесь списком соответствий.
 
 <details>
-  <summary>CSS-свойства в JS-нотации</summary>
+  <summary>CSS-свойства в JavaScript-нотации</summary>
 
 | CSS | JavaScript |
 | --- | --- |

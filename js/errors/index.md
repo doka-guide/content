@@ -1,6 +1,6 @@
 ---
 title: "`Error` и стандартные ошибки"
-description: "Какие бывают стандартные ошибки в JavaScript и как создавать собственные типы ошибок."
+description: "Какие бывают стандартные ошибки в JavaScript, и как создавать собственные типы ошибок."
 authors:
   - stegur
   - alexbaumgertner
