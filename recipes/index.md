@@ -33,7 +33,9 @@ groups:
       - github-new-organization
       - github-add-ssh-access
   - name: 'React'
-    - expressive-react-rectangle
+    items:
+      - expressive-react-rectangle
+      - expressive-react-maze
   - name: 'На серверной стороне'
     items:
       - lets-encrypt-nginx
