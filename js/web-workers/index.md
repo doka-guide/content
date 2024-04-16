@@ -77,7 +77,7 @@ worker.onmessage = function (e) { // Слушаем сообщения из во
 ```
 
 Внимательный читатель заметит, что в воркер отправился объект со свойством `message`, а от воркера пришла строка. В функцию `postMessage()` можно передавать значения любого типа, включая объекты. Единственное ограничение — передаваемые данные должны поддерживать [алгоритм структурированного клонирования](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types).
-,
+
 ## Что доступно внутри?
 
 Ранее упоминали, что в контексте выполнения воркера недоступны многие API из объекта `window` основного потока. Что же тогда доступно? Перечислим некоторые функции API, которые часто используются: `fetch()`, `setInterval()`, `setTimeout()`, `requestAnimationFrame()` и `queueMicrotask()`. Для любознательных — [полный список поддерживаемых API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers).
