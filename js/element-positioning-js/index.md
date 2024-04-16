@@ -177,6 +177,7 @@ document.body.addEventListener('mouseup', () => {
 Основа кода останется той же, стили и разметка не поменяются вовсе. В скриптах мы слегка изменим определение положения элемента.
 
 В этот раз не сможем считать нужные значения напрямую. Вместо этого потребуется вначале вычислить стиль элемента через `window.getComputedStyle()`, а затем узнать значение свойства `transform`. Мы могли бы просто считать значение `style.transform`, но это бы не сильно помогло. При обычном считывании мы бы получили нечто вроде `matrix(1, 0, 0, 1, 27, 15)`. Это матрица афинных преобразований. Её можно представить в виде `matrix(scaleX, skewY, skewX, scaleY, translateX, translateY)`, где:
+
 - `scaleX` — масштабирование по горизонтали;
 - `scaleY` — масштабирование по вертикали;
 - `skewX` — перекос по горизонтали;
@@ -204,7 +205,7 @@ element.addEventListener('mousedown', (e) => {
   startY = e.pageY - translateY
 })
 
-document.body.addEventListener("mouseup", () => {
+document.body.addEventListener('mouseup', () => {
   dragging = false
 })
 ```
@@ -280,8 +281,8 @@ element.addEventListener('mousedown', (e) => {
 
 document.body.addEventListener('mousemove', (e) => {
   if (!dragging) return
-  element.style.setProperty("--x", `${e.pageX - startX}px`)
-  element.style.setProperty("--y", `${e.pageY - startY}px`)
+  element.style.setProperty('--x', `${e.pageX - startX}px`)
+  element.style.setProperty('--y', `${e.pageY - startY}px`)
 })
 ```
 
