@@ -44,7 +44,8 @@ document.addEventListener('scroll', function(event) {
 
 ```js
 document.addEventListener('scroll', function() {
-  // получаем высоту элемента, на котором произошло событие
+  // Получаем высоту элемента,
+  // на котором произошло событие
   console.log(this.scrollTop)
 })
 ```
