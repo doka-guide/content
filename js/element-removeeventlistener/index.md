@@ -117,4 +117,4 @@ window.addEventListener('click', handleMouseClick, true)
 window.removeEventListener('click', handleMouseClick)
 ```
 
-Так происходит потому что третий аргумент неявно устанавливается в [`undefined`](/js/undefined/), а `undefined` превращается в `false` при [конвертации в булев тип](/js/typecasting/). Когда браузер ищет обработчик на удаление, он сравнивает опции и видит, что `true !== false`, значит, обработчик не будет удалён.
+Так происходит потому, что третий аргумент неявно устанавливается в [`undefined`](/js/undefined/), а `undefined` превращается в `false` при [конвертации в булев тип](/js/typecasting/). Когда браузер ищет обработчик на удаление, он сравнивает опции и видит, что `true !== false`, значит, обработчик не будет удалён.
