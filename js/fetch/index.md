@@ -117,7 +117,7 @@ fetch('https://jsonplaceholder.typicode.com/there-is-no-such-route')
 
     return response.json()
   })
-  // Теперь попадём сюда, т. к. выбросили ошибку
+  // Теперь попадём сюда, так как выбросили ошибку
   .catch((err) => {
     console.log(err)
   }
