@@ -4,7 +4,7 @@ description: "Прокрутить страницу на указанные ве
 authors:
   - starhamster
 related:
-  - js/scroll
+  - js/element-scroll
   - js/event
   - js/events
 tags:
