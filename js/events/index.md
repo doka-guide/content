@@ -51,7 +51,7 @@ tags:
 const buttonElement = document.getElementById('change')
 const squareDiv = document.getElementById('square')
 
-// чтобы реагировать на нажатие кнопки, записываем функцию в свойство onclick.
+// Чтобы реагировать на нажатие кнопки, записываем функцию в свойство onclick.
 // Эта функция будет вызываться при каждом нажатии на кнопку. Часто говорят,
 // что эта функция обрабатывает событие
 buttonElement.onclick = function() {
@@ -70,7 +70,7 @@ function getColor() {
 }
 ```
 
-<iframe title="Свойство DOM-элемента onclick — События — Дока" src="demos/onclick/" height="310"></iframe>
+<iframe title="Свойство DOM-элемента onclick" src="demos/onclick/" height="310"></iframe>
 
 Чтобы перестать обрабатывать событие, нужно записать в свойство значение [`null`](/js/null-primitive/).
 
@@ -84,14 +84,15 @@ function getColor() {
 const buttonElement = document.getElementById('change')
 const squareDiv = document.getElementById('square')
 
-// чтобы реагировать на нажатие кнопки, подписываемся на событие click и передаем
-// функцию-обработчик. Эта функция будет вызываться при каждом нажатии на кнопку
+// Чтобы реагировать на нажатие кнопки, подписываемся
+// на событие click и передаём функцию-обработчик.
+// Эта функция будет вызываться при каждом нажатии на кнопку
 buttonElement.addEventListener('click', function() {
   squareDiv.style = `background-color: ${getColor()};`
 })
 ```
 
-<iframe title="Метод addEventListener — События — Дока" src="demos/click/" height="310"></iframe>
+<iframe title="Как работает метод" src="demos/click/" height="310"></iframe>
 
 ## Как понять
 
@@ -107,7 +108,8 @@ buttonElement.addEventListener('click', function() {
 
 ```js
 window.addEventListener('keydown', function (event) {
-  // используем объект события, чтобы получить информацию о нажатой клавише
+  // Используем объект события,
+  // чтобы получить информацию о нажатой клавише
   alert(`Вы нажали на кнопку: ${event.key}`)
 })
 ```
@@ -118,21 +120,22 @@ window.addEventListener('keydown', function (event) {
 
 ```js
 function changeColor() {
-  // меняем цвет кнопки, на которой произошло событие. кнопка доступна с помощью
-  // ключевого слова this
-  this.style = `background-color: ${getColor()};`;
-};
+  // Меняем цвет кнопки, на которой произошло событие.
+  // Кнопка доступна с помощью ключевого слова this
+  this.style = `background-color: ${getColor()};`
+}
 
-const buttons = document.getElementsByTagName('button');
+const buttons = document.getElementsByTagName('button')
 for (let i = 0; i < buttons.length; ++i) {
-  const button = buttons[i];
-  // к каждой кнопке привязываем обработчик
-  button.addEventListener('click', changeColor); // обратите внимание, что мы не вызываем
-  // функцию changeColor, а только пишем ее имя
+  const button = buttons[i]
+  // К каждой кнопке привязываем обработчик
+  button.addEventListener('click', changeColor)
+  // Обратите внимание, что мы не вызываем
+  // функцию changeColor, а только пишем её имя
 }
 ```
 
-<iframe title="This в функции-обработчике — События — Дока" src="demos/this/" height="230"></iframe>
+<iframe title="This в функции-обработчике" src="demos/this/" height="230"></iframe>
 
 ### Всплытие событий
 
@@ -142,22 +145,25 @@ for (let i = 0; i < buttons.length; ++i) {
 const container = document.getElementById('container')
 const video = document.getElementById('cat')
 
-// обрабатываем событие click на <div>
+// Обрабатываем событие click на <div>
 container.addEventListener('click', function() {
-  const colors = ['#49A16C', '#064236', '#ED6742', '#F498AD', '#1A5AD7', '#AFC9DA',
-                  '#FFD829', '#282A2E', '#5E6064']
+  const colors = [
+    '#49A16C', '#064236', '#ED6742', '#F498AD',
+    '#1A5AD7', '#AFC9DA', '#FFD829', '#282A2E', '#5E6064'
+  ]
   const randomColorIndex = Math.floor(Math.random() * colors.length)
   container.style = `background-color: ${colors[randomColorIndex]}`
-});
+})
 
-// обрабатываем событие click на видео
+// Обрабатываем событие click на видео
 video.addEventListener('click', function() {
-  this.currentTime = 0 // отматываем видео на начало
+  // Отматываем видео на начало
+  this.currentTime = 0
   this.play()
 })
 ```
 
-<iframe title="Всплытие событий — События — Дока" src="demos/bubbling/" height="460"></iframe>
+<iframe title="Всплытие событий" src="demos/bubbling/" height="460"></iframe>
 
 🤖 Обратите внимание, что событие срабатывает на обоих элементах — цвет фона меняется и запускается видео. Этому есть объяснение, оно называется _всплытие событий (event bubbling)_.
 
@@ -173,7 +179,7 @@ video.addEventListener('click', function() {
 let active
 let counter = 0
 
-// обрабатываем событие click на всех <div>
+// Обрабатываем событие click на всех <div>
 let divs = Array.from(document.querySelectorAll('div')).reverse()
 for (let i = 0; i < divs.length; ++i) {
   const isLast = (i + 1 === divs.length)
@@ -204,7 +210,7 @@ function clickHandlerGenerator(isLast = false) {
 }
 ```
 
-<iframe title=">Всплытие событий по цепочке вложенности — События — Дока" src="demos/bubbling-chain/" height="510"></iframe>
+<iframe title=">Всплытие событий по цепочке вложенности" src="demos/bubbling-chain/" height="510"></iframe>
 
 Всплытие события можно остановить с помощью метода `stopPropagation()` у объекта события:
 
