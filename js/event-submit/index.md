@@ -36,7 +36,9 @@ document.addEventListener('submit', function () {
 ```html
 <div>
   <form>
-    <label for="input-field">Нажмите Enter в поле:</label>
+    <label for="input-field">
+      Нажмите Enter в поле:
+    </label>
     <input id="input-field" type="text">
   </form>
 </div>
