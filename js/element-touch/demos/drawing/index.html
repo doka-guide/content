@@ -67,25 +67,25 @@
     const canvas = document.getElementById("canvas")
     const context = canvas.getContext("2d")
 
-    function start(coors) {
+    function start(coords) {
       context.beginPath()
-      context.moveTo(coors.x, coors.y)
+      context.moveTo(coords.x, coords.y)
       this.isDrawing = true
     }
 
-    function move(coors) {
+    function move(coords) {
       if (this.isDrawing) {
         context.strokeStyle = "#41E847"
         context.lineJoin = "round"
         context.lineWidth = 3
-        context.lineTo(coors.x, coors.y)
+        context.lineTo(coords.x, coords.y)
         context.stroke()
       }
     }
 
-    function stop(coors) {
+    function stop(coords) {
       if (this.isDrawing) {
-        this.touchmove(coors)
+        this.touchmove(coords)
         this.isDrawing = false
       }
     }
@@ -105,33 +105,35 @@
       context.stroke()
     }
 
-    canvas.addEventListener("touchstart", (e) => {
+    function getCoords(e) {
+      const rect = canvas.getBoundingClientRect()
+
+      const scaleX = canvas.width / rect.width
+      const scaleY = canvas.height / rect.height
+
       const coords = {
-        x: e.targetTouches[0].pageX,
-        y: e.targetTouches[0].pageY
+        x: (event.targetTouches[0].pageX - rect.left) * scaleX,
+        y: (event.targetTouches[0].pageY - rect.top) * scaleY
       };
 
+      return coords
+    }
+
+    canvas.addEventListener("touchstart", (e) => {
+      const coords = getCoords(e)
       context.beginPath()
       context.moveTo(coords.x, coords.y)
+    })
 
-    });
     canvas.addEventListener("touchmove", (e) => {
-      const coords = {
-        x: e.targetTouches[0].pageX,
-        y: e.targetTouches[0].pageY
-      };
-
+      const coords = getCoords(e)
       draw(coords)
-    });
+    })
 
     canvas.addEventListener("touchend", (e) => {
-      const coords = {
-        x: e.targetTouches[0].pageX,
-        y: e.targetTouches[0].pageY
-      };
-
+      const coords = getCoords(e)
       draw(coords)
-    });
+    })
   </script>
 </body>
 </html>
