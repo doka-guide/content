@@ -2,18 +2,59 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Обработка жестов — .touch — Дока</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 22px;
+    }
+
     h1, h2 {
       text-align: center;
       touch-action: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
 <h1>Проведите пальцем по экрану</h1>
-<h2 id="result"></h2>
+<h2 id="result">#</h2>
   <script>
     document.addEventListener("touchstart", handleTouchStart);
     document.addEventListener("touchmove", handleTouchMove);

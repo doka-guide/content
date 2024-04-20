@@ -71,4 +71,4 @@ element.addEventListener('touchend', (event) => {
 
 В примере используем поля событий и типы событий касаний. Используйте смартфон, так как касания не работают при использовании мыши.
 
-<iframe title="Рисуем касаниями" src="demos/Windrushfarer-RwGjopb/" height="350"></iframe>
+<iframe title="Рисуем касаниями" src="demos/drawing/" height="450"></iframe>
