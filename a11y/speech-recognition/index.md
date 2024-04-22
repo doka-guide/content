@@ -3,6 +3,9 @@ title: "Распознавание речи"
 description: "Что такое распознавание речи, как работает, кому помогает, и как сделать интерфейсы доступными для управления голосом."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
+  - hellsquirrel
 related:
   - a11y/aria-intro
   - a11y/screenreaders
