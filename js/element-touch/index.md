@@ -3,6 +3,8 @@ title: "`touch`"
 description: "Сенсорные экраны отправляют не только событие клика, но и собственное — `touch`."
 authors:
   - windrushfarer
+contributors:
+  - skorobaeus
 keywords:
   - touchstart
   - touchend
