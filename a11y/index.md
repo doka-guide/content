@@ -14,6 +14,7 @@ groups:
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
+      - speech-recognition
   - name: 'CSS и доступность'
     items:
       - css-impact-on-a11y
