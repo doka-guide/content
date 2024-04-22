@@ -26,7 +26,7 @@ console.log(value)
 // выведет случайное число
 ```
 
-<iframe title="Название — Math.random() — Дока" src="demos/Lopinopulos-agoXBj/" height="150"></iframe>
+<iframe title="Генерация случайного числа" src="demos/random-number/" height="300"></iframe>
 
 ## Детали реализации
 
