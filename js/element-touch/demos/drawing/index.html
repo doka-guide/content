@@ -95,7 +95,7 @@
       touchstart: start,
       touchmove: move,
       touchend: stop
-    };
+    }
 
     function draw(coords) {
       context.strokeStyle = "#41E847"
@@ -112,8 +112,8 @@
       const scaleY = canvas.height / rect.height
 
       const coords = {
-        x: (event.targetTouches[0].pageX - rect.left) * scaleX,
-        y: (event.targetTouches[0].pageY - rect.top) * scaleY
+        x: (e.targetTouches[0].pageX - rect.left) * scaleX,
+        y: (e.targetTouches[0].pageY - rect.top) * scaleY
       };
 
       return coords
