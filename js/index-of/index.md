@@ -50,8 +50,10 @@ const haystack = 'Мама мыла раму'
 
 console.log(haystack.indexOf('а'))
 // 1
+
 console.log(haystack.indexOf('мыла'))
 // 5
+
 console.log(haystack.indexOf('ё'))
 // -1
 ```
