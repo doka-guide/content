@@ -5,6 +5,7 @@ authors:
   - nlopin
 contributors:
   - corocoto
+  - skorobaeus
 related:
   - js/arrays
   - js/number
