@@ -74,26 +74,26 @@ const formattedDate = new Intl.DateTimeFormat('ru').format(date)
 
 ### Опции
 
-- `timeZone` — значение часового пояса. `UTC`, `America/New_York`, `Europe/Paris` и т. д.
-- `calendar` — значение выбранного календаря. `chinese`, `gregory`, `indian` и т. д.
-- `numberingSystem` — используемая система счисления. `arab`, `beng`, `latin` и т. д.
-- `localeMatcher` — алгоритм для согласования выбранной локали.
+- `timeZone` — значение часового пояса. `UTC`, `America/New_York`, `Europe/Paris` и т. д.;
+- `calendar` — значение выбранного календаря. `chinese`, `gregory`, `indian` и т. д.;
+- `numberingSystem` — используемая система счисления. `arab`, `beng`, `latin` и т. д.;
+- `localeMatcher` — алгоритм для согласования выбранной локали:
   - `lookup` — поиск следует алгоритму поиска, определённому в [BCP 47](https://tools.ietf.org/html/rfc4647#section-3.4);
   - `best fit` (наилучший, подходящий) — позволяет среде выполнения выбрать локаль.
-- `formatMatcher` — алгоритм для форматирования. `basic`, `best fit`.
-- `hour12` — 12-часовой формат, если значение `true`.
-- `hourCycle` — часовой формат. `h11`, `h12`, `h23`, `h24`.
-- `dateStyle` — стиль форматирования даты. `full`, `long`, `medium`, `short`.
-- `weekday` — день недели. `long`, `short`, `narrow`.
-- `day` — день месяца. `numeric`, `2-digit`.
-- `month` — месяц. `numeric`, `2-digit`, `long`, `short`, `narrow`.
-- `year` — год. `numeric`, `2-digit`.
-- `era` — эпоха. `long`, `short`, `narrow`.
-- `timeStyle` — стиль форматирования времени. `full`, `long`, `medium`, `short`.
-- `hour` — часы. `numeric`, `2-digit`.
-- `minute` — минуты. `numeric`, `2-digit`.
-- `second` — секунды. `numeric`, `2-digit`.
-- `dayPeriod` — часть дня (утро, вечер и другое). `narrow`, `short`, `long`.
+- `formatMatcher` — алгоритм для форматирования. `basic`, `best fit`;
+- `hour12` — 12-часовой формат, если значение `true`;
+- `hourCycle` — часовой формат. `h11`, `h12`, `h23`, `h24`;
+- `dateStyle` — стиль форматирования даты. `full`, `long`, `medium`, `short`;
+- `weekday` — день недели. `long`, `short`, `narrow`;
+- `day` — день месяца. `numeric`, `2-digit`;
+- `month` — месяц. `numeric`, `2-digit`, `long`, `short`, `narrow`;
+- `year` — год. `numeric`, `2-digit`;
+- `era` — эпоха. `long`, `short`, `narrow`;
+- `timeStyle` — стиль форматирования времени. `full`, `long`, `medium`, `short`;
+- `hour` — часы. `numeric`, `2-digit`;
+- `minute` — минуты. `numeric`, `2-digit`;
+- `second` — секунды. `numeric`, `2-digit`;
+- `dayPeriod` — часть дня (утро, вечер и другое). `narrow`, `short`, `long`;
 - `timeZoneName` — название часового пояса (UTC, PTC). `long`, `short`.
 
 ### Методы
