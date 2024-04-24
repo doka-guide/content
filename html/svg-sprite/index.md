@@ -69,7 +69,7 @@ SVG-спрайт — это файл, получаемый в результат
 
 ```html
 <svg class="social-icon" viewBox="0 0 24 24" width="24" height="24">
-  <use href="sprite.svg#social-vk" x="0" y="0"></use>
+  <use href="sprite.svg#social-vk"></use>
 </svg>
 ```
 
