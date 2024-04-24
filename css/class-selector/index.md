@@ -65,7 +65,7 @@ class-value {
 }
 ```
 
-Стиль применится ко всем заголовкам `<h2>` с атрибутом `class="article-title"`.
+Стиль применится ко всем заголовкам [`<h2>`](/html/h1-h6/) с атрибутом `class="article-title"`.
 
 ```css
 h2.article-title {
