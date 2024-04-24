@@ -42,7 +42,7 @@ navigator.geolocation
 
 Иногда может понадобиться узнать, где находится пользователь. Например, мы хотим показать на карте, где расположен ближайший к нему пункт выдачи товаров.
 
-Для этого браузер предлагает своё `API`. Когда мы воспользуемся свойством `navigator.geolocation`, в ответе получим интерфейс `Geolocation`, — он позволяет работать с данными геопозиции:
+Для этого браузер предлагает своё API. Когда мы воспользуемся свойством `navigator.geolocation`, в ответе получим интерфейс `Geolocation`, — он позволяет работать с данными геопозиции:
 
 ```js
 Geolocation {}
@@ -66,7 +66,10 @@ Symbol(Symbol.toStringTag): "Geolocation"
 Если человек одобрит запрос, мы получим возможность работать с интерфейсом `GeolocationPosition`:
 
 ```js
-GeolocationPosition {coords: GeolocationCoordinates, timestamp: 1665141114856}
+GeolocationPosition {
+  coords: GeolocationCoordinates,
+  timestamp: 1665141114856
+}
 ```
 
 Он включает объект `GeolocationCoordinates` с данными геолокации пользователя и параметр `timestamp` со временем получения координат:
@@ -78,16 +81,17 @@ GeolocationCoordinates {
   altitude: null,
   accuracy: 40,
   altitudeAccuracy: null,
-  …}
+  …
+}
 ```
 
 Чаще всего используются широта `latitude` и долгота `longitude`. Помимо них в объекте содержатся:
 
-- altitude — отвечает за высоту в метрах над эллипсоидом ([что за эллипсоид под нами?](https://support.virtual-surveyor.com/en/support/solutions/articles/1000261351-what-is-wgs84-));
-- accuracy — точность широты и долготы в метрах (например, 40 метров);
-- altitudeAccuracy — уровень точности высоты над эллипсоидом в метрах;
-- heading — направление движения. Угол, который отсчитывается по часовой стрелке относительно [истинного севера](https://en.wikipedia.org/wiki/True_north#:~:text=True%20north%20(also%20called%20geodetic,lines%20of%20a%20map%20projection)) и может принимать значения от 0° до 360°;
-- speed — скорость движения в метрах в секунду.
+- `altitude` — отвечает за высоту в метрах над эллипсоидом ([что за эллипсоид под нами?](https://support.virtual-surveyor.com/en/support/solutions/articles/1000261351-what-is-wgs84-));
+- `accuracy` — точность широты и долготы в метрах (например, 40 метров);
+- `altitudeAccuracy` — уровень точности высоты над эллипсоидом в метрах;
+- `heading` — направление движения. Угол, который отсчитывается по часовой стрелке относительно [истинного севера](https://en.wikipedia.org/wiki/True_north#:~:text=True%20north%20(also%20called%20geodetic,lines%20of%20a%20map%20projection)) и может принимать значения от 0° до 360°;
+- `speed` — скорость движения в метрах в секунду.
 
 ## Как узнать геолокацию единожды
 
@@ -98,15 +102,17 @@ navigator.geolocation.getCurrentPosition(position => {
   const { latitude, longitude } = position.coords
 })
 
-// записываем в переменные latitude и longitude координаты пользователя
+// Записываем в переменные latitude и longitude
+// координаты пользователя
 ```
+
 Кроме колбэка в `getCurrentPosition` можно передать ещё два аргумента: функцию на случай ошибки и объект с дополнительными опциями:
 
 ```js
 navigator.geolocation.getCurrentPosition(success, error, options)
 
 function error() {
-  alert('Где ты вообще...'); // на случай ошибки
+  alert('Где ты вообще...') // На случай ошибки
 }
 
 const options = {
@@ -114,14 +120,13 @@ const options = {
   maximumAge: 1000,
   timeout: 3600
 }
-
 ```
 
 Опции помогают настроить запрос детальнее:
 
-- enableHighAccuracy — просит передавать геолокацию особенно точно, жертвуя энергией устройства и временем;
-- maximumAge — устанавливает время, по истечению которого _кэшированную_ геолокацию следует обновить;
-- timeout — устанавливает временной интервал обновления геолокации.
+- `enableHighAccuracy` — просит передавать геолокацию особенно точно, жертвуя энергией устройства и временем;
+- `maximumAge` — устанавливает время, по истечении которого _кэшированную_ геолокацию следует обновить;
+- `timeout` — устанавливает временной интервал обновления геолокации.
 
 ## Наблюдать в динамике
 
@@ -132,7 +137,8 @@ navigator.geolocation.watchPosition(position => {
   const { latitude, longitude } = position.coords
 })
 
-// постоянно перезаписываем в latitude и longitude координаты пользователя
+// Постоянно перезаписываем в latitude и longitude
+// координаты пользователя
 ```
 
 Метод `watchPosition` без конца вызывает колбэк, чтобы данные не застаивались.
@@ -143,12 +149,12 @@ navigator.geolocation.watchPosition(position => {
 
 ```js
 const geoId = navigator.geolocation.watchPosition(position => {
-  // наблюдаем за геолокацией и храним в geoId идентификатор
+  // Наблюдаем за геолокацией и храним в geoId идентификатор
 })
 
 function geoWatchStopper() {
   navigator.geolocation.clearWatch(geoId)
-  // останавливаем наблюдение
+  // Останавливаем наблюдение
 }
 ```
 
@@ -158,19 +164,19 @@ function geoWatchStopper() {
 
 ```js
 function handleError(error) {
-  // эту фукнцию можно передать колбэком на случай ошибок
+  // Эту функцию можно передать колбэком в случае ошибок
 
   const { code } = error
 
   switch (code) {
     case GeolocationPositionError.TIMEOUT:
-      // время получения геолокации истекло
+      // Время получения геолокации истекло
       break
     case GeolocationPositionError.PERMISSION_DENIED:
-      // пользователь запретил трекинг своей геопозиции
+      // Пользователь запретил отслеживание своей геопозиции
       break
     case GeolocationPositionError.POSITION_UNAVAILABLE:
-      // получить местоположение не удалось
+      // Получить местоположение не удалось
       break
   }
 }
