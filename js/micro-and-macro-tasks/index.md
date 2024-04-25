@@ -1,11 +1,10 @@
 ---
-title: Microtasks and Macrotasks thorough explanation
-description: >-
-  Понимание микротасок и макротасок — ключ к созданию оптимизированных и
-  высокопроизводительных приложений.
-authors: + marsel
-related: null
-tags: + article
+title: "Микротаски и Макротаски подброное объяснение"
+description: "Понимание микротасок и макротасок — ключ к созданию оптимизированных и высокопроизводительных приложений"
+authors:
+  - marsel
+tags:
+  - article
 ---
 
 # Микротаски и макротаски
