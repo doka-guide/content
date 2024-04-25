@@ -203,7 +203,7 @@
     </style>
   </head>
   <body>
-    <form class="form" name="form" novalidate>
+    <form class="form" name="form" method="POST" novalidate>
       <div class="form__field-container">
         <label class="form__field">
           <span class="form__label">Имя:</span>
@@ -212,7 +212,7 @@
             id="input__name"
             class="form__type-input"
             placeholder="Иван"
-            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
             aria-describedby="name-error"
             required
@@ -298,12 +298,18 @@
           event.preventDefault()
           if (hasInvalidInput()) {
             formError()
+            inputList.forEach((inputElement) => {
+              checkInputValidity(inputElement)
+            })
           }
         })
         inputList.forEach((inputElement) => {
-          inputElement.addEventListener('input', () => {
+          inputElement.addEventListener('blur', () => {
             checkInputValidity(inputElement)
             toggleButton()
+          })
+          inputElement.addEventListener('focus', () => {
+            toggleErrorSpan(inputElement)
           })
         })
       }

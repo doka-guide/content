@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - tatianafokina
+  - kozlovtseva
 related:
   - js/forms
   - html/form
@@ -28,6 +29,7 @@ tags:
 <form
   class="form"
   name="form"
+  method="POST"
   novalidate
 >
   <div class="form__field-container">
@@ -38,7 +40,7 @@ tags:
         id="input__name"
         class="form__type-input"
         placeholder="Иван"
-        pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+        pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
         data-error-message="Разрешены символы латиницы,
         кириллицы, знаки дефиса и пробелы."
         aria-describedby="name-error"
@@ -164,12 +166,18 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+      })
     }
   })
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
+    inputElement.addEventListener('blur', () => {
       checkInputValidity(inputElement)
       toggleButton()
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
     })
   })
 }
@@ -297,7 +305,7 @@ CSS-стили, которые будут использоваться при в
     id="input__name"
     class="form__type-input"
     placeholder="Иван"
-    pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+    pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
     data-error-message="Разрешены символы латиницы,
     кириллицы, знаки дефиса и пробелы."
     aria-describedby="name-error"
@@ -326,7 +334,7 @@ const formErrorElement = form.querySelector('.form__empty-error')
 
 Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие [`submit`](/js/event-submit/), где используется [`event.preventDefault()`](/js/event-prevent-default/) для предотвращения стандартного поведения формы при отправке. Для дополнительной информации читайте «[Работа с формами](/js/deal-with-forms/)».
 
-На каждый элемент формы назначаются обработчики события [`input`](/js/event-input/). Они активируют функции `checkInputValidity()` и `toggleButton()` при любых изменениях в полях ввода. Их мы напишем далее.
+На каждый элемент формы назначаются обработчики события `blur` и `focus`. При потере фокуса активируются функции `checkInputValidity()` и `toggleButton()`, а при установке фокуса сбрасывается сообщение об ошибке с помощью `toggleErrorSpan()`. Эти функции мы напишем далее.
 
 ```js
 function startValidation() {
@@ -334,13 +342,19 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+      })
     }
   })
 
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
+    inputElement.addEventListener('blur', () => {
       checkInputValidity(inputElement)
       toggleButton()
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
     })
   })
 }
@@ -484,12 +498,18 @@ function startValidation() {
     // Показываем ошибку
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+      })
     }
   })
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
+    inputElement.addEventListener('blur', () => {
       checkInputValidity(inputElement)
       toggleButton()
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
     })
   })
 }
@@ -529,13 +549,19 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+      })
     }
   })
 
   inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
+    inputElement.addEventListener('blur', () => {
       checkInputValidity(inputElement)
       toggleButton()
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
     })
   })
 }
