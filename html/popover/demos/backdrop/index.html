@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Базовый пример — Popover API — Дока</title>
+  <title>Стилизация подложки — Popover API — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,12 +31,11 @@
     }
 
     .wrapper {
-      width: 50dvh;
-      height: 50dvh;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 50px;
     }
 
     button {
@@ -70,12 +69,11 @@
     }
 
     [popover] {
-      position: static;
-      inset: 0;
       border-radius: 5px;
-      width: 100%;
-      height: 100%;
-      font-size: 100px;
+    }
+
+    [popover]::backdrop {
+      background-color: rgb(255 255 255 / 0.5)
     }
 
     @media (max-width: 768px) {
@@ -87,15 +85,12 @@
 </head>
 <body>
   <div class="wrapper">
-    <button
-      popovertarget="my-popover"
-      popovertargetaction="toggle"
-    >
-      Всплываем!
+    <button popovertarget="my-popover">
+      Показать всплывающую подсказку
     </button>
 
     <div id="my-popover" popover>
-        <p>🛳️</p>
+      <p>Я — всплывающая подсказка с дополнительной информацией!</p>
     </div>
   </div>
 </body>
