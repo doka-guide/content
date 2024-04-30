@@ -5,6 +5,7 @@
 ## Апрель 2024
 
 - 22 апреля, [Распознавание речи](https://doka.guide/a11y/speech-recognition/), Татьяна Фокина
+- 17 апреля, [Выразительный React: интерактивность на клиенте](https://doka.guide/recipes/expressive-react-maze/), Полина Гуртовая
 - 10 апреля, [`sv`, `lv`, `dv`](https://doka.guide/css/sv-lv-dv/), Александр Мосякин
 - 4 апреля, [Доступное имя и описание](https://doka.guide/a11y/accessible-names-and-descs/), Марианна Минич
 - 1 апреля, [Выразительный React: простые компоненты на сервере](https://doka.guide/recipes/expressive-react-rectangle/), Полина Гуртовая
