@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -25,9 +25,14 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      font-size: 24px;
+      font-size: 18px;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
     .wrapper {
@@ -69,13 +74,38 @@
     }
 
     [popover] {
-      border-radius: 5px;
-      font-size: 100px;
+      border: none;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+
+    #popover-auto {
+      transform: translateY(-200%);
+    }
+
+    #popover-manual {
+      transform: translateY(100%);
     }
 
     @media (max-width: 768px) {
       body {
         padding: 30px;
+      }
+
+      .wrapper {
+        flex-direction: column;
+      }
+
+      #popover-auto {
+        transform: translateY(-250%);
+      }
+
+      #popover-manual {
+        transform: translateY(150%);
       }
     }
   </style>

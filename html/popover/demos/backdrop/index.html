@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -25,7 +25,7 @@
       align-items: center;
       justify-content: center;
       background-color: #18191C;
-      font-size: 24px;
+      font-size: 18px;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
     }
@@ -69,11 +69,18 @@
     }
 
     [popover] {
-      border-radius: 5px;
+      border: none;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      transform: translateY(-200%);
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
     }
 
     [popover]::backdrop {
-      background-color: rgb(255 255 255 / 0.5)
+      background-color: rgb(102 54 19 / 0.5);
     }
 
     @media (max-width: 768px) {
@@ -90,7 +97,7 @@
     </button>
 
     <div id="my-popover" popover>
-      <p>Я — поповер с дополнительной информацией!</p>
+      <p>Я — поповер на цветной подложке ✨</p>
     </div>
   </div>
 </body>
