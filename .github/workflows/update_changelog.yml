@@ -25,7 +25,7 @@ jobs:
         run: |
           git fetch origin ${{ github.base_ref }}
           git diff --name-status origin/${{ github.base_ref }} HEAD | grep '^A' | grep -E '^(html|css|js|tools|a11y|recipies)/.*/$' > added_dirs.txt
-          
+
           month_to_rus() {
             case "$1" in
               01) echo "января" ;;
