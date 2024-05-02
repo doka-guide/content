@@ -1,6 +1,11 @@
 ---
 title: "Методологии разработки и Agile"
 description: "Что такое гибкие методологии и почему про них так много говорят? Зачем вообще нужны методологии разработки?"
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Собачка Дока занимается йогой с ноутбуком в лапке.'
 authors:
   - igorkamyshev
 contributors:

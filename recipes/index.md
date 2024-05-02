@@ -10,20 +10,10 @@ groups:
       - center
       - popup
       - dropdown-menu
+      - dropdown-animation
       - container
       - lazy-load-with-preview
-  - name: 'На серверной стороне'
-    items:
-      - lets-encrypt-nginx
-      - self-hosted-preview
-      - short-links
-  - name: 'На клиентской стороне'
-    items:
-      - array-filling
-      - ajax-form
-  - name: 'Полезное для разработки'
-    items:
-      - git-rebase-onto
+      - validation
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
@@ -42,6 +32,22 @@ groups:
       - github-pages-static-site
       - github-new-organization
       - github-add-ssh-access
+  - name: 'React'
+    items:
+      - expressive-react-rectangle
+      - expressive-react-maze
+  - name: 'На серверной стороне'
+    items:
+      - lets-encrypt-nginx
+      - self-hosted-preview
+      - short-links
+  - name: 'На клиентской стороне'
+    items:
+      - array-filling
+      - ajax-form
+  - name: 'Полезное для разработки'
+    items:
+      - git-rebase-onto
   - name: 'Рутина'
     items:
       - font-script

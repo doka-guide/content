@@ -26,7 +26,7 @@ tags:
 
 <aside>
 
-⚠️ `aria-haspopup` **не используют** для тултипов [`tooltp`](/a11y/role-tooltip/) и простой навигации по сайту со ссылками на другие страницы.
+⚠️ `aria-haspopup` **не используют** для тултипов [`tooltip`](/a11y/role-tooltip/) и простой навигации по сайту со ссылками на другие страницы.
 
 </aside>
 
@@ -71,7 +71,7 @@ tags:
 
 Элемент, который открывает попап, обязательно должен быть интерактивным — на нём можно сделать фокус с клавиатуры, а также кликнуть или тапнуть по нему. Вот роли и теги, которым можно задавать `aria-haspopup`:
 
-- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или [роли `button`](/a11y/role-button/).
+- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` с типами](/html/input/#type) `button`, `image`, `reset`, `submit` или [роли `button`](/a11y/role-button/).
 - [`<a>`](/html/link/) или [роли `link`](/a11y/role-link/).
 - [`<input type="range">`](/html/input/#type) или [роли `slider`](/a11y/role-slider/).
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или [роли `textbox`](/a11y/role-textbox/).

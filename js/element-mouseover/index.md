@@ -26,13 +26,13 @@ tags:
 ```js
 const divEl = document.getElementsByTagName('div')[0]
 divEl.addEventListener('mouseover', function () {
-  alert('курсор вошел в границы элемента!')
+  alert('курсор вошёл в границы элемента!')
 })
 ```
 
 ## Как понять
 
-Подробнее о механизме событий читай в статье [«События»](/js/events/).
+Подробнее о механизме событий читай в статье «[События](/js/events/)».
 
 Событие проще всего понять на демо. При событии `mouseover` мы устанавливаем элементу, на котором произошло событие, синий фоновый цвет:
 
@@ -57,4 +57,4 @@ for (let i = 0; i < items.length; ++i) {
 }
 ```
 
-<iframe title="Ховер-эффект при помощи события mouseover — Element.mouseover — Дока" src="demos/index/" height="250"></iframe>
+<iframe title="Ховер-эффект при помощи события mouseover" src="demos/index/" height="250"></iframe>

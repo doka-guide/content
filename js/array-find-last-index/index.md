@@ -1,6 +1,6 @@
 ---
 title: "`.findLastIndex()`"
-description: "Найдет индекс первого подходящего по условию элемента, обходя массив, начиная с конца."
+description: "Найдёт индекс первого подходящего по условию элемента, обходя массив, начиная с конца."
 authors:
   - vitya-ne
 related:
@@ -21,8 +21,8 @@ tags:
 
 ```js
 const numbers = [10, 15, 4, 20, 8, -5]
-
 const elemIndex = numbers.findLastIndex((element) => element > 10)
+
 console.log(elemIndex)
 // 3 (найденный элемент имеет значение 20)
 ```
@@ -32,7 +32,9 @@ console.log(elemIndex)
 ```js
 const numbers = [10, 15, 4, 20, 8, -5]
 
-const elemIndex = numbers.findLastIndex((element, index) => element > 10 && index < 2)
+const elemIndex = numbers.findLastIndex((element, index) =>
+element > 10 && index < 2)
+
 console.log(elemIndex)
 // 1 (найденный элемент имеет значение 15)
 ```
@@ -50,11 +52,11 @@ console.log(elemIndex)
 - индекс текущего элемента;
 - массив, для которого был вызван метод `findLastIndex()`.
 
-Колбэк-функция, выполняется для каждого элемента массива, начиная с последнего. Как только для одного из элементов массива функция вернёт значение, которое интерпретируется как `true`, перебор прекращается и индекс элемента возвращается как результат метода `findLastIndex()`.
+Колбэк-функция выполняется для каждого элемента массива, начиная с последнего. Как только для одного из элементов массива функция вернёт значение, которое интерпретируется как `true`, перебор прекращается и индекс элемента возвращается как результат метода `findLastIndex()`.
 
-Если для всех элементов массива колбэк-функция вернёт значения, которые интерпретируются как `false`, метод `findLastIndex()` возвращает -1.
+Если для всех элементов массива колбэк-функция вернёт значения, которые интерпретируются как `false`, метод `findLastIndex()` возвращает `-1``.
 
-Подробнее об интерпретации (приведении) значений к `true` или `false` можно прочитать в статье [Булев тип](https://doka.guide/js/boolean/#vyrazheniya).
+Подробнее об интерпретации (приведении) значений к `true` или `false` можно прочитать в статье «[Булев тип](/js/boolean/#vyrazheniya)».
 
 ## Как понять
 
@@ -78,7 +80,7 @@ const findLastIndex = (array, callbackFn) => {
   return -1
 }
 
-console.log(findLastIndex(chords, callbackFn));
+console.log(findLastIndex(chords, callbackFn))
 // 3 (найденный элемент имеет значение C)
 ```
 
@@ -90,10 +92,13 @@ console.log(findLastIndex(chords, callbackFn));
 
 ```js
 const colors = ['navy', , , 'purple']
+
 console.log(colors)
 // [ 'navy', <2 empty items>, 'purple' ]
 
-const index = colors.findLastIndex(item => item === undefined)
+const index = colors.findLastIndex(item =>
+item === undefined)
+
 console.log(index, colors[index])
 // 2 undefined
 ```
@@ -105,8 +110,10 @@ const names = ['Джон', 'Ринго', 'Пол', 'Джордж']
 
 const result = names.findLastIndex((name, index, array) => {
   console.log(index, name)
-  if (index === 1) { // если текущий элемент имеет индекс 1
-    array.unshift('Йоко') // добавим еще один элемент в начало массива
+  // Если текущий элемент имеет индекс 1
+  if (index === 1) {
+    // Добавим ещё один элемент в начало массива
+    array.unshift('Йоко')
   }
 
   return name === 'Джон'
@@ -116,8 +123,9 @@ const result = names.findLastIndex((name, index, array) => {
 // 1 Ринго
 // 0 Йоко
 
-console.log(names);
+console.log(names)
 // [ 'Йоко', 'Джон', 'Ринго', 'Пол', 'Джордж' ]
-console.log(result);
+
+console.log(result)
 // -1
 ```

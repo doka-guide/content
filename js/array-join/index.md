@@ -21,7 +21,6 @@ tags:
 
 ```js
 const days = ['пн', 'вт', 'ср']
-
 const daysStr = days.join()
 
 console.log(daysStr)

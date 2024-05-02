@@ -13,7 +13,7 @@ tags:
 
 ## Кратко
 
-Метод массива `reduceRight()` работает так же, как и метод [reduce](/js/array-reduce/). Единственные отличия: `reduce()` перебирает элементы слева направо, а `reduceRight()` — справа налево, а также значение для для второго аргумента, в методе `reduceRight()`, по умолчанию будет последний элемент, а для `reduce()` первый.
+Метод массива `reduceRight()` работает так же, как и метод [reduce](/js/array-reduce/). Единственные отличия: `reduce()` перебирает элементы слева направо, а `reduceRight()` — справа налево, а также значение для второго аргумента; в методе `reduceRight()` по умолчанию будет последний элемент, а для `reduce()` — первый.
 
 ## Пример
 
@@ -32,8 +32,8 @@ const sum = nums.reduceRight((currentSum, currentNumber) => {
 
 ```js
 const nums = [1, 2, 3, 4]
-
-const sum = nums.reduceRight((currentSum, currentNumber) =>  currentSum += currentNumber)
+const sum = nums.reduceRight((currentSum, currentNumber) =>
+currentSum += currentNumber)
 // 10
 ```
 
@@ -47,7 +47,7 @@ const numsArrays = [
 ]
 
 const nums = numsArrays.reduceRight((acc, cur) => {
-  return acc.concat(cur);
+  return acc.concat(cur)
 }, [])
 // [7, 8, 9, 4, 5, 6, 1, 2, 3]
 ```

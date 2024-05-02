@@ -43,7 +43,7 @@ tags:
 
 <iframe title="Песочница resize" src="demos/resize-playground/" height="500"></iframe>
 
-При применение свойства `resize` к картинкам ([`<img>`](/html/img/) или [`<picture>`](/html/picture/)), видео ([`<video>`](/html/video/)) или фреймам ([`<iframe>`](/html/iframe/)), оно не будет работать. Но вы можете обернуть картинку в [`<div>`](/html/div/) или другую обёртку и задать ей возможность изменения размеров.
+При применении свойства `resize` к картинкам ([`<img>`](/html/img/) или [`<picture>`](/html/picture/)), видео ([`<video>`](/html/video/)) или фреймам ([`<iframe>`](/html/iframe/)), оно не будет работать. Но вы можете обернуть картинку в [`<div>`](/html/div/) или другую обёртку и задать ей возможность изменения размеров.
 
 <iframe title="Песочница resize" src="demos/resize-image/" height="500"></iframe>
 

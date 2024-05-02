@@ -2,6 +2,24 @@
 
 <!-- yaspeller ignore:start -->
 
+## Апрель 2024
+
+- 22 апреля, [Распознавание речи](https://doka.guide/a11y/speech-recognition/), Татьяна Фокина
+- 17 апреля, [Выразительный React: интерактивность на клиенте](https://doka.guide/recipes/expressive-react-maze/), Полина Гуртовая
+- 10 апреля, [`sv`, `lv`, `dv`](https://doka.guide/css/sv-lv-dv/), Александр Мосякин
+- 4 апреля, [Доступное имя и описание](https://doka.guide/a11y/accessible-names-and-descs/), Марианна Минич
+- 1 апреля, [Выразительный React: простые компоненты на сервере](https://doka.guide/recipes/expressive-react-rectangle/), Полина Гуртовая
+
+## Март 2024
+
+- 30 марта, [`.closest()`](https://doka.guide/js/element-closest/), Viktar Nezhbart
+- 28 марта, [Web Workers](https://doka.guide/js/web-workers/), Марсель Ахметшин
+- 24 марта, [`Array.of()`](https://doka.guide/js/array-of/), Viktar Nezhbart
+- 10 марта, [Структуры данных в JavaScript](https://doka.guide/tools/structure-data-in-js/), Евгения Шевлякова
+- 5 марта, [Мгновенная валидация форм](https://doka.guide/recipes/validation/), Юлия Макарова
+- 5 марта, [Что такое семантика?](https://doka.guide/html/semantics/), Александр Рассудихин
+- 5 марта, [`@layer`](https://doka.guide/css/layer/), Татьяна Фокина
+
 ## Февраль 2024
 
 - 19 февраля, [`aria-level`](https://doka.guide/a11y/aria-level/), Татьяна Фокина

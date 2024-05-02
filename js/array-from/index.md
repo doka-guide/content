@@ -35,7 +35,6 @@ tags:
 
 ```js
 const arr = Array.from('дока')
-
 console.log(arr)
 // ['д', 'о', 'к', 'а']
 ```
@@ -58,7 +57,6 @@ const arr = Array.from(uniqueNumbers)
 
 ```js
 const linkElements = document.getElementsByTagName('a')
-
 const arrLinks = Array.from(linkElements, function(a) { return a.href })
 ```
 
@@ -75,13 +73,12 @@ const arrLinks = Array.from(linkElements, function(a) { return a.href })
 
 `Array.from()` перебирает каждый элемент и добавляет его в новый массив. Если передан второй аргумент, то перед добавлением происходит преобразование элемента.
 
-<aside>
-
-☝️ При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если исходный объект содержит итерируемые элементы являющиеся объектами, то эти объекты будут [скопированны по ссылке](/js/ref-type-vs-value-type/#ssylochnye-tipy-dannyh). При их последующем изменении в исходном объекте, изменения будут видны в полученном массиве и наоборот.
+При создании массива происходит [поверхностное копирование (shallow copy) элементов](/js/shallow-or-deep-clone/). Если исходный объект содержит итерируемые элементы являющиеся объектами, то эти объекты будут [скопированы по ссылке](/js/ref-type-vs-value-type/#ssylochnye-tipy-dannyh). Изменения будут видны в полученном массиве при их последующем изменении в исходном объекте, и наоборот.
 
 Например:
+
 ```js
-// создадим объекты книг
+// Создадим объекты книг
 const bookObj1 = {
   name: 'Война и мир',
   author: 'Л. Н. Толстой',
@@ -93,18 +90,18 @@ const bookObj2 = {
   filmYears: [1915, 1920, 1931, 1969]
 }
 
-// создадим Set и добавим в него книги
+// Создадим Set и добавим в него книги
 const bookSet = new Set()
 bookSet.add(bookObj1)
 bookSet.add(bookObj2)
 
-// создадим массив из Set
+// Создадим массив из Set
 const bookArray = Array.from(bookSet)
 
-// добавим экранизацию 'Войны и мира' в исходный объект
+// Добавим экранизацию 'Войны и мира' в исходный объект
 bookObj1.filmYears.push(1965)
 
-// изменение отразится и на массиве
+// Изменение отразится и на массиве
 console.log(bookArray[0])
 // const bookObj1 = {
 //  name: 'Война и мир',
@@ -112,4 +109,3 @@ console.log(bookArray[0])
 //  filmYears: [1913, 1915, 1956, 1965]
 // }
 ```
-</aside>

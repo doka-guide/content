@@ -22,7 +22,7 @@ tags:
 
 ## Кратко
 
-[Свойство связи](/a11y/aria-attrs/#atributy-svyazi) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для одного или нескольких элементов c видимым именем (подписью) для другого.
+[Свойство связи](/a11y/aria-attrs/#atributy-svyazi) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для одного или нескольких элементов с видимым именем (подписью) для другого.
 
 ## Пример
 
@@ -76,7 +76,7 @@ tags:
 
 Подпись из `aria-labelledby` должна быть краткой и чётко описывать цель элемента. При этом лучше не изменять её динамически, это запутает пользователей.
 
-`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из [`aria-label`](/a11y/aria-label/) или `<label>`. Так что, используйте атрибут с осторожностью с [некоторыми ролями и тегами](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_with_child_content).
+`aria-labelledby` перезаписывает другие текстовые значения. К примеру, из [`aria-label`](/a11y/aria-label/) или `<label>`. Так что используйте атрибут с осторожностью с [некоторыми ролями и тегами](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/#naming_with_child_content).
 
 Когда у [`<table>`](/html/tables/) есть одновременно `<caption>` и `aria-labelledby`, таблица получит имя из атрибута, а содержимое `<caption>` станет её описанием.
 

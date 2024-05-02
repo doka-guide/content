@@ -5,6 +5,7 @@ groups:
     items:
       - chto-takoe-a11y
       - a11y-tree
+      - accessible-names-and-descs
       - a11y-html
       - site-language
       - accessible-forms
@@ -13,6 +14,7 @@ groups:
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
+      - speech-recognition
   - name: 'CSS и доступность'
     items:
       - css-impact-on-a11y

@@ -31,6 +31,7 @@ groups:
 
   - name: Алгоритмы
     items:
+      - structure-data-in-js
       - algorithm-complexity
 
   - name: Фреймворки

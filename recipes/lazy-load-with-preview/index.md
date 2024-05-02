@@ -25,7 +25,7 @@ _Ленивая загрузка (lazy loadnig)_ — это асинхронна
 1. `low` – низкий приоритет относительно других изображений.
 1. `auto` – приоритет по умолчанию, который указывает на отсутствие предпочтения приоритета выборки. В таком случае браузер сам решает, что лучше для пользователя.
 
-Также стоит помнить о том, что не стоит использовать атрибут `loading` если картинку гарантированно находится в области видимости.
+Также стоит помнить о том, что не стоит использовать атрибут `loading` если картинка гарантированно находится в области видимости.
 
 Ленивую загрузку можно реализовать несколькими способами:
 
@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
   lowResImage.src = progressiveImage.src
   lowResImage.onload = function() {
     progressiveImage.src = progressiveImage.getAttribute('data-src')
+    progressiveImage.style.filter = 'none'
+  }
+  lowResImage.onerror = function() {
     progressiveImage.style.filter = 'none'
   }
 })

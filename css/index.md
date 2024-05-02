@@ -82,6 +82,7 @@ groups:
       - filter-functions
       - transform-function
       - url
+      - clamp
   - name: 'Директивы'
     items:
       - font-face
@@ -102,6 +103,7 @@ groups:
       - numeric-types
       - vw-vh
       - rem-em
+      - sv-lv-dv
   - name: 'Анимации'
     items:
       - animation
