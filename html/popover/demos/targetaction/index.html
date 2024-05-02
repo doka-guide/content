@@ -50,13 +50,13 @@
       font-weight: 300;
       font-family: inherit;
       background-color: #FF8630;
-      transition: background-color 0.2s linear;
+      transition: all 0.2s linear;
     }
 
     button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
-      transition: background-color 0.2s linear;
+      transition: all 0.2s linear;
     }
 
     button:focus-visible {
@@ -74,6 +74,17 @@
       margin-block-start: 10px;
       background-color: #000000;
       color: #FFFFFF;
+    }
+
+    #my-popover button:hover {
+      border-color: #000000;
+      background-color: #FFFFFF;
+      transition: all 0.2s linear;
+    }
+
+
+    #my-popover button:focus {
+      border-color: #ff8630;
     }
 
     [popover] {
