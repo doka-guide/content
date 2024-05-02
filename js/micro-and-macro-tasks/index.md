@@ -319,7 +319,7 @@ function processArrayInChunks(array, chunkProcessingTime) {
   function processChunk() {
     const chunkStartTime = Date.now()
 
-    while (index < array.length && (Date.now() chunkStartTime < chunkProcessingTime)) {
+    while (index < array.length && (Date.now() - chunkStartTime < chunkProcessingTime)) {
       // Пример обработки: увеличиваем каждый элемент массива на 1
       array[index] += 1
       index++
