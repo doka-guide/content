@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — mix-blend-mode — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      place-content: center;
+      grid-auto-columns: min(100%, 250px);
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
+      gap: 20px 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .wrapper {
+      width: 100dvw;
+      height: 100dvh;
+      display: grid;
+      place-items: center;
+      background-image: url(images/bkg.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    h1 {
+      font-size: 100px;
+      mix-blend-mode: exclusion;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Я — маленькая лошадка</h1>
+  </div>
+</body>
+</html>
