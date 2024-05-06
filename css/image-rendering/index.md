@@ -1,5 +1,5 @@
 ---
-title: "image-rendering"
+title: "`image-rendering`"
 description: "Интерполяция изображений: что это, какие алгоритмы и как этим управлять?"
 authors:
   - andreysukhov
