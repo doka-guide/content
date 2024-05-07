@@ -393,7 +393,7 @@ requestAnimationFrame(runFrame)
 for (let i = 0; i < 50; i++) {
   setTimeout(() => {
     requestAnimationFrame(() => {
-      console.log('раф из макрозадачи', Date.now() - lastTimestamp)
+      console.log('requestAnimationFrame из макрозадачи', Date.now() - lastTimestamp)
     })
     heavyTask()
   }, 0)
@@ -407,22 +407,22 @@ for (let i = 0; i < 50; i++) {
 - `кадр 1` — `requestAnimationFrame` обработан через 2 миллисекунды после начала выполнения кода;
 - `Тяжёлая задача завершена!` — выполнено 15 макрозадач;
 - `кадр 2` — с последнего `requestAnimationFrame` прошло 104 миллисекунд;
-- `раф из макрозадачи`— вызвано 15 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи`— вызвано 15 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `Тяжёлая задача завершена!` — выполнено 18 макрозадач;
 - `кадр 3` — с последнего `requestAnimationFrame` прошло 105 миллисекунд;
-- `раф из макрозадачи` — вызвано 18 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи` — вызвано 18 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `Тяжёлая задача завершена!` — выполнено 16 макрозадач;
 - `кадр 4` — с последнего `requestAnimationFrame` прошло 102 миллисекунды;
-- `раф из макрозадачи` — вызвано 16 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи` — вызвано 16 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `Тяжёлая задача завершена!` — выполнено 19 макрозадач;
 - `кадр 5` — с последнего `requestAnimationFrame` прошло 102 миллисекунды;
-- `раф из макрозадачи`— вызвано 19 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи`— вызвано 19 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `Тяжёлая задача завершена!` — выполнено 20 макрозадач;
 - `кадр 6` — с последнего `requestAnimationFrame` прошло 104 миллисекунды;
-- `раф из макрозадачи` — вызвано 20 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи` — вызвано 20 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `Тяжёлая задача завершена!` — выполнено 12 макрозадач;
 - `кадр 7` — с последнего `requestAnimationFrame` прошло 64 миллисекунды;
-- `раф из макрозадачи` — вызвано 12 `requestAnimationFrame` c интервалом в 0 миллисекунд;
+- `requestAnimationFrame из макрозадачи` — вызвано 12 `requestAnimationFrame` c интервалом в 0 миллисекунд;
 - `кадр 8` — с последнего `requestAnimationFrame` прошло 0 миллисекунд;
 - `кадр 9` — с последнего `requestAnimationFrame` прошло 13 миллисекунд;
 - `кадр 10` — с последнего `requestAnimationFrame` прошло 17 миллисекунд.
