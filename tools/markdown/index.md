@@ -1,6 +1,11 @@
 ---
 title: "Язык разметки Markdown"
 description: "Зачем нужен ещё один язык разметки и как на нём писать."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Извивающаяся змейка, толстая змейка, толстая извивающаяся змейка'
 authors:
   - cergmin
 editors:
