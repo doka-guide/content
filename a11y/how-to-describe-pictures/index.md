@@ -447,10 +447,10 @@ _Декоративные изображения_ нужны для того, ч
 </aside>
 
 ```html
-<span role="img" aria-label="Енот">(^>,<^)</span>
+<span role="img" aria-label="Медвед">("\(о_О)/")</span>
 ```
 
-<iframe title="Эмотикон с енотом" src="demos/emoticon/" height="200"></iframe>
+<iframe title="Эмотикон с Медведом" src="demos/emoticon/" height="200"></iframe>
 
 ## Выводы
 
