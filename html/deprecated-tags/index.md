@@ -1,6 +1,11 @@
 ---
 title: "Устаревшие теги"
 description: "Теги, которые нужно удалить из кода и заменять на современные аналоги."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Грустный сгорбленный дедушка со скейтом в руке, на скейте надпись <acronym>, а на заднем плане на скейте едет парень с флажком <abbr>'
 authors:
   - realetive
 contributors:
