@@ -1,6 +1,11 @@
 ---
 title: "Как ребейзить ветку и не думать ни о чём"
 description: "Чтобы легко управлять вашими изменениями и историей git, используйте `git rebase --onto`."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Ветвистое дерево-бонсай растёт из тарелочки и до облаков, одна из веток пересажена и привита в другое место'
 authors:
   - hellsquirrel
 keywords:
