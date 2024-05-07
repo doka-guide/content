@@ -1,6 +1,11 @@
 ---
 title: "Как описывать картинки"
 description: "Разбираемся, как описывать картинки так, чтобы были довольны даже поисковые роботы."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Парень в очках показывает на бабочку и готовится сказать: "Это бабочка"'
 authors:
   - tatianafokina
 contributors:
