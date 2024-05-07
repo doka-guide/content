@@ -1,6 +1,11 @@
 ---
 title: "`use strict`"
 description: "Дополнительные (и строгие!) проверки кода."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'На входе в лес таблички с множеством строгих правил поведения'
 authors:
   - windrushfarer
 related:
