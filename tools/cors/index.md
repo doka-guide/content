@@ -1,6 +1,11 @@
 ---
 title: "Что такое CORS"
 description: "Определяем куда ходить можно, а куда нельзя."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Турист подходит к гробнице, а его встречает недовольный крылатый сфинкс'
 authors:
   - denisputnov
 keywords:
