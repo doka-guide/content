@@ -37,9 +37,9 @@
 
     .wrapper {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(2, 1fr);
       gap: 50px;
     }
 
@@ -55,6 +55,10 @@
       font-family: inherit;
       background-color: #FF8630;
       transition: background-color 0.2s linear;
+    }
+
+    .accent {
+      background-color: #2E9AFF;
     }
 
     button:hover {
@@ -84,11 +88,19 @@
     }
 
     #popover-auto {
-      transform: translateY(-200%);
+      transform: translateY(-300%);
     }
 
     #popover-manual {
-      transform: translateY(100%);
+      transform: translateY(200%);
+    }
+
+    #popover-auto-2 {
+      transform: translateY(-500%);
+    }
+
+    #popover-manual-2 {
+      transform: translateY(350%);
     }
 
     @media (max-width: 768px) {
@@ -101,11 +113,19 @@
       }
 
       #popover-auto {
-        transform: translateY(-250%);
+        transform: translateY(-350%);
       }
 
       #popover-manual {
-        transform: translateY(150%);
+        transform: translateY(250%);
+      }
+
+      #popover-auto-2 {
+        transform: translateY(-500%);
+      }
+
+      #popover-manual-2 {
+        transform: translateY(400%);
       }
     }
   </style>
@@ -120,12 +140,28 @@
       <p>Закрываю другие всплывашки. Легко закрываюсь сам.</p>
     </div>
 
-    <button popovertarget="popover-manual">
+    <button popovertarget="popover-auto-2">
+      Ещё один <code>popover="auto"</code>
+    </button>
+
+    <div id="popover-auto-2" popover="auto">
+      <p>Вы не видели моего брата?!</p>
+    </div>
+
+    <button popovertarget="popover-manual" class="accent">
       <code>popover="manual"</code>
     </button>
 
     <div id="popover-manual" popover="manual">
       <p>Не закрываю другие. Без кнопки не закроюсь.</p>
+    </div>
+
+    <button popovertarget="popover-manual-2" class="accent">
+      Ещё один <code>popover="manual"</code>
+    </button>
+
+    <div id="popover-manual-2" popover="manual">
+      <p>Теперь нас двое!</p>
     </div>
   </div>
 </body>
