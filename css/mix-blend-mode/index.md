@@ -25,7 +25,7 @@ h1 {
 }
 ```
 
-<iframe title="Базовый пример" src="demos/base/" height="300"></iframe>
+<iframe title="Базовый пример" src="demos/base/" height="360"></iframe>
 
 ## Как пишется
 
