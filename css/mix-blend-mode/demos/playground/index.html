@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&family=Roboto:wght@300;400;500&display=swap">
   <style>
     :root {
-      --bkg-color: #18191c;
+      --bkg-color: #000000;
       --blend-mode: exclusion;
     }
 
@@ -28,22 +28,15 @@
 
     body {
       display: grid;
-      place-items: center;
       place-content: center;
       grid-auto-columns: min(100%, 650px);
       margin: 0;
       padding: 50px;
       background-color: #18191c;
       color: #FFFFFF;
-      gap: 20px 25px;
+      gap: 25px;
       -webkit-font-smoothing: antialiased;
       font-family: "Roboto", sans-serif;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
     }
 
     .wrapper {
@@ -52,23 +45,48 @@
     }
 
     h1 {
-      font-size: 100px;
+      margin: 0;
       mix-blend-mode: var(--blend-mode);
-      color: transparent;
-      background-image: linear-gradient(to bottom, red 0 1lh, green 1lh 2lh, blue 2lh 3lh);
-      background-clip: text;
-      -webkit-background-clip: text;
+      color: #2E9AFF;
+      font-size: 85px;
+      font-weight: 300;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .brick {
+      position: relative;
+      top: -0.4em;
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      color: #41E847;
+      font-size: 0.25em;
+      font-weight: 700;
+      font-family: "Roboto Mono", monospace;
+      letter-spacing: 0.4em;
+      line-height: 1;
+    }
+
+    .horse {
+      color: #C56FFF;
     }
 
     .controllers {
       display: grid;
-      gap: 30px;
+      gap: 25px;
       font-size: 20px;
+    }
+
+    .bkg-color-changer-label {
+      font-size: 24px;
+      font-weight: 500;
     }
 
     .bkg-color-changer {
       display: flex;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 10px 50px;
       align-items: center;
     }
 
@@ -94,7 +112,8 @@
       width: 25px;
       height: 25px;
       opacity: 0;
-      margin-right: 15px;
+      margin-inline-start: 0;
+      margin-inline-end: 15px;
     }
 
     input[type='radio']:focus + span::before {
@@ -116,7 +135,7 @@
       display: block;
       font-size: 24px;
       font-weight: 500;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .select {
@@ -142,7 +161,7 @@
 
     .select:focus {
       outline: none;
-      border: 1px solid #ff8630;
+      border: 1px solid #2E9AFF;
     }
 
     .select-wrapper {
@@ -153,6 +172,24 @@
       font-weight: inherit;
       font-family: inherit;
       font-size: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        padding: 30px 10px;
+      }
+
+      .select {
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
     }
   </style>
 </head>
@@ -181,14 +218,14 @@
     </div>
 
     <div class="bkg-color-changer">
-      Изменить цвет фона
+      <span class="bkg-color-changer-label">Цвет фона:</span>
       <label><input type="radio" name="bck-color" value="#FFFFFF"><span>Светлый</span></label>
-      <label><input type="radio" name="bck-color" value="#18191c" checked><span>Тёмный</span></label>
+      <label><input type="radio" name="bck-color" value="#000000" checked><span>Тёмный</span></label>
       <label><input type="radio" name="bck-color" value="#F498AD"><span>Яркий</span></label>
     </div>
   </div>
   <div class="wrapper">
-    <h1>Я — маленькая лошадка</h1>
+    <h1>Я<span class="brick"><span>мал</span><span>ень</span><span>кая</span></span><span class="horse">лошадка</span></h1>
   </div>
 
   <script>

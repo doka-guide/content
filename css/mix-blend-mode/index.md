@@ -46,4 +46,4 @@ h1 {
 - `color` — создаёт цвет с оттенком и насыщенностью элемента и яркостью фона.
 - `luminosity` — создаёт цвет с яркостью элемента, а оттенок и насыщенность берёт от фона. Результат противоположен `color`.
 
-<iframe title="Песочница" src="demos/playground/" height="400"></iframe>
+<iframe title="Песочница" src="demos/playground/" height="450"></iframe>
