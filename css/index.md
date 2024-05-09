@@ -312,6 +312,7 @@ groups:
       - filter
       - filter-functions
       - image-rendering
+      - mix-blend-mode
   - name: 'Рамки, обводки и тени'
     items:
       - border
