@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Май 2024
+
+- 9 мая, [Микро- и макрозадачи](https://doka.guide/js/micro-and-macro-tasks/), Марсель Ахметшин
+- 9 мая, [`sort`](https://doka.guide/js/array-sort/), Maksim631
+
 ## Апрель 2024
 
 - 22 апреля, [Распознавание речи](https://doka.guide/a11y/speech-recognition/), Татьяна Фокина
