@@ -1,6 +1,6 @@
 ---
 title: "`mix-blend-mode`"
-description: "Находим элемент на странице по конкретному атрибуту."
+description: "Смешиваем цвета накладывающихся элементов."
 authors:
   - solarrust
 contributors:
