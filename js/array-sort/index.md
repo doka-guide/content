@@ -2,7 +2,7 @@
 title: "`.sort()`"
 description: "Сортирует элементы массива."
 authors:
-  - Maksim631
+  - maksim631
 related:
   - js/arrays
   - js/element
