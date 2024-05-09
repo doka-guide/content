@@ -10,7 +10,6 @@ related:
   - html/button
   - a11y/role-tooltip
 keyword:
-  - Popover API
   - всплывающее окно
   - всплывающая подсказка
   - модальное окно
