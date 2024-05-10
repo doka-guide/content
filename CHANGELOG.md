@@ -4,8 +4,11 @@
 
 ## Май 2024
 
+- 10 мая, [`::backdrop`](https://doka.guide/css/backdrop/), Алёна Батицкая
+- 10 мая, [Popover API](https://doka.guide/html/popover/), Алёна Батицкая
+- 9 мая, [`mix-blend-mode`](https://doka.guide/css/mix-blend-mode/), Алёна Батицкая
 - 9 мая, [Микро- и макрозадачи](https://doka.guide/js/micro-and-macro-tasks/), Марсель Ахметшин
-- 9 мая, [`sort`](https://doka.guide/js/array-sort/), Maksim631
+- 9 мая, [`.sort()`](https://doka.guide/js/array-sort/), Максим Марчуков
 
 ## Апрель 2024
 
