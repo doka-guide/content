@@ -9,7 +9,7 @@ related:
   - html/dialog
   - html/button
   - a11y/role-tooltip
-keyword:
+keywords:
   - всплывающее окно
   - всплывающая подсказка
   - модальное окно
