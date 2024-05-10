@@ -126,6 +126,7 @@ groups:
       - progress
       - canvas
       - dialog
+      - popover
   - name: 'Таблицы'
     items:
       - tables
