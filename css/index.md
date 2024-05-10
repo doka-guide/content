@@ -65,6 +65,7 @@ groups:
       - first-line
       - selection
       - marker
+      - backdrop
   - name: 'Функции'
     items:
       - attr
