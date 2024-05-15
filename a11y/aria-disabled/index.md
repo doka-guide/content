@@ -128,9 +128,12 @@ tags:
     <script>
       function toggleDisabled() {
         const el = document.getElementById('toggleButton');
-        const isDisabled = el.getAttribute('aria-disabled') === 'true';
-        el.setAttribute('aria-disabled', !isDisabled);
-        el.classList.toggle('disabled');
+        if (el.getAttribute('aria-disabled') === 'true') {
+          return;
+        }
+        el.setAttribute('aria-disabled', 'true');
+        el.textContent = 'Я теперь не активна';
+        el.style.pointerEvents = 'none';
       }
     </script>
   </body>
