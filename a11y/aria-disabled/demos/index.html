@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aria-disabled Demo</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        background-color: #007bff;
+        transition: background-color 0.3s, transform 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      button:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+      }
+      button:active {
+        transform: scale(1);
+      }
+      [aria-disabled='true'] {
+        opacity: 0.5;
+        background-color: #6c757d;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleButton" aria-disabled="false" onclick="toggleDisabled()">
+      Нажми меня
+    </button>
+
+    <script>
+      function toggleDisabled() {
+        const el = document.getElementById('toggleButton');
+        const isDisabled = el.getAttribute('aria-disabled') === 'true';
+        el.setAttribute('aria-disabled', !isDisabled);
+        el.textContent = isDisabled ? 'Нажми меня' : 'Я теперь не активна';
+        el.style.pointerEvents = isDisabled ? 'auto' : 'none';
+      }
+    </script>
+  </body>
+</html>
