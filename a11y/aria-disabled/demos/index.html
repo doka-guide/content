@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aria-disabled Demo</title>
+    <title>aria-disabled — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
     <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+      *,
+      *::before,
+      *::after {
         margin: 0;
-        background-color: #f0f0f0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      button {
-        font-size: 1.2rem;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        background-color: #007bff;
-        transition: background-color 0.3s, transform 0.3s;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      html {
+        color-scheme: dark;
       }
-      button:hover {
-        background-color: #0056b3;
-        transform: scale(1.05);
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
       }
-      button:active {
-        transform: scale(1);
+
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.2s linear;
       }
+
+      .button:hover {
+        background-color: #ffffff;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:focus-visible {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .button:focus {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .button-aqua {
+        background-color: #10f3af;
+      }
+
       [aria-disabled='true'] {
+        color: #ffffff;
         opacity: 0.5;
         background-color: #6c757d;
         pointer-events: none;
       }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
     </style>
   </head>
   <body>
-    <button id="toggleButton" aria-disabled="false" onclick="toggleDisabled()">
+    <button
+      class="button button-aqua"
+      id="toggleButton"
+      aria-disabled="false"
+      onclick="toggleDisabled()"
+    >
       Нажми меня
     </button>
 
