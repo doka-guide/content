@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Цитата с ролью blockquote — blockquote — Дока</title>
+  <title>Скрытые колонки-разделители — Плиточная раскладка — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,48 +18,46 @@
       justify-content: center;
       box-sizing: border-box;
       margin: 0;
-      padding: 10px;
+      padding: 30px;
       background-color: #18191c;
       font-family: "Roboto", sans-serif;
     }
 
     .container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: 8px 4px;
-        height: 600px;
-        width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 8px 4px;
+      height: 600px;
+      width: 100%;
     }
 
     .item {
-        width: calc(100% / 3);
-        border-radius: 16px;
+      width: calc(100% / 3);
     }
 
     .item span {
-        display: inline-block;
-        padding: 24px;
-        color: #282a2e;
-        font-size: 24px;
-        font-weight: 700;
-        font-family: sans-serif;
+      display: inline-block;
+      padding: 12px;
+      color: #282a2e;
+      font-size: 24px;
+      font-weight: 700;
     }
 
     .item:nth-child(4n) {
-        background-color: #ff852e;
+      background-color: #ff852e;
     }
 
     .item:nth-child(4n + 1) {
-        background-color: #2e9aff;
+      background-color: #2e9aff;
     }
 
     .item:nth-child(4n + 2) {
-        background-color: #ffd829;
+      background-color: #ffd829;
     }
 
     .item:nth-child(4n + 3) {
-        background-color: #c670ff;
+      background-color: #c670ff;
     }
 
     .item:nth-child(3n+1) { order: 1; }
@@ -68,16 +66,20 @@
 
     .container::before,
     .container::after {
-        content: "";
-        flex-basis: 100%;
-        width: 0;
-        order: 2;
+      content: "";
+      flex-basis: 100%;
+      width: 0;
+      order: 2;
     }
 
     @media screen and (min-width: 768px) {
-        body {
-            padding: 50px;
-        }
+      body {
+        padding: 50px;
+      }
+
+      .item span {
+        padding: 24px;
+      }
     }
   </style>
 </head>

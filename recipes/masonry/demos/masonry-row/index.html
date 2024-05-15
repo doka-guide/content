@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <title>Цитата с ролью blockquote — blockquote — Дока</title>
+    <title>Раскладка на флексах с flex-direction: row — Плиточная раскладка — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,142 +9,144 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
     <style>
-        html,
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 30px;
+        background-color: #18191c;
+        font-family: "Roboto", sans-serif;
+      }
+
+      :root {
+        --gap: 8px;
+        --columns: 3;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .item {
+        width: calc(100% / var(--columns) - var(--gap));
+      }
+
+      .item span {
+        display: inline-block;
+        padding: 12px;
+        color: #282a2e;
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      .item:nth-child(4n) {
+        background-color: #ff852e;
+      }
+
+      .item:nth-child(4n + 1) {
+        background-color: #2e9aff;
+      }
+
+      .item:nth-child(4n + 2) {
+        background-color: #ffd829;
+      }
+
+      .item:nth-child(4n + 3) {
+        background-color: #c670ff;
+      }
+
+      .item:nth-child(1) {
+        height: 100px;
+      }
+
+      .item:nth-child(2) {
+        height: 130px;
+      }
+
+      .item:nth-child(3) {
+        height: 90px;
+      }
+
+      .item:nth-child(4) {
+        height: 130px;
+      }
+
+      .item:nth-child(5) {
+        height: 90px;
+      }
+
+      .item:nth-child(6) {
+        height: 120px;
+      }
+
+      .item:nth-child(7) {
+        height: 110px;
+      }
+
+      .item:nth-child(8) {
+        height: 140px;
+      }
+
+      .item:nth-child(9) {
+        height: 110px;
+      }
+
+      @media screen and (min-width: 768px) {
         body {
-            height: 100%;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 10px;
-            background-color: #18191c;
-            font-family: "Roboto", sans-serif;
-        }
-
-        :root {
-            --gap: 8px;
-            --columns: 3;
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            gap: 8px;
-            width: 100%;
-        }
-
-        .item {
-            width: calc(100% / var(--columns) - var(--gap));
-            border-radius: 16px;
+          padding: 50px;
         }
 
         .item span {
-            display: inline-block;
-            padding: 24px;
-            color: #282a2e;
-            font-size: 24px;
-            font-weight: 700;
-            font-family: sans-serif;
-        }
-
-        .item:nth-child(4n) {
-            background-color: #ff852e;
-        }
-
-        .item:nth-child(4n + 1) {
-            background-color: #2e9aff;
-        }
-
-        .item:nth-child(4n + 2) {
-            background-color: #ffd829;
-        }
-
-        .item:nth-child(4n + 3) {
-            background-color: #c670ff;
+          padding: 24px;
         }
 
         .item:nth-child(1) {
-            height: 100px;
+          height: 120px;
         }
 
         .item:nth-child(2) {
-            height: 130px;
+          height: 200px;
         }
 
         .item:nth-child(3) {
-            height: 90px;
+          height: 140px;
         }
 
         .item:nth-child(4) {
-            height: 130px;
+          height: 160px;
         }
 
         .item:nth-child(5) {
-            height: 90px;
+          height: 110px;
         }
 
         .item:nth-child(6) {
-            height: 120px;
+          height: 80px;
         }
 
         .item:nth-child(7) {
-            height: 110px;
+          height: 170px;
         }
 
         .item:nth-child(8) {
-            height: 140px;
+          height: 210px;
         }
 
         .item:nth-child(9) {
-            height: 110px;
+          height: 110px;
         }
-
-        @media screen and (min-width: 768px) {
-            body {
-                padding: 50px;
-            }
-
-            .item:nth-child(1) {
-                height: 120px;
-            }
-
-            .item:nth-child(2) {
-                height: 200px;
-            }
-
-            .item:nth-child(3) {
-                height: 140px;
-            }
-
-            .item:nth-child(4) {
-                height: 160px;
-            }
-
-            .item:nth-child(5) {
-                height: 110px;
-            }
-
-            .item:nth-child(6) {
-                height: 80px;
-            }
-
-            .item:nth-child(7) {
-                height: 170px;
-            }
-
-            .item:nth-child(8) {
-                height: 210px;
-            }
-
-            .item:nth-child(9) {
-                height: 110px;
-            }
-        }
+      }
     </style>
 </head>
 
