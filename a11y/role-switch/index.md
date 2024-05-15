@@ -3,8 +3,10 @@ title: "`switch`"
 description: "Как сделать элемент переключателем с помощью WAI-ARIA."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
-  - a11y/aria-intro
+  - a11y/role-checkbox
   - a11y/aria-roles
   - html/input
 tags:
@@ -13,32 +15,39 @@ tags:
 
 ## Кратко
 
-[Роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент что-то переключает. Например, тему, оповещения или какие-то другие настройки на сайте.
+[Роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент что-то переключает. Например, тему, оповещения или другие настройки на сайте.
 
-К этой роли близок [`<input>` с типом `checkbox`](/html/input/#type), а в ARIA на неё похожа роль [`checkox`](/a11y/role-checkbox/). Однако они не эквиваленты `switch`.
+На `switch` похожи [`<input>` с типом `checkbox`](/html/input/#type) и другая [ARIA-роль `checkbox`](/a11y/role-checkbox/), но они не заменяют роль переключателя. Команда Safari предложила решить проблему нативного переключателя [с помощью HTML-атрибута `switch`](https://webkit.org/blog/15054/an-html-switch-control/) — `<input type="checkbox" switch>`. Атрибут поддерживает только Safari, начиная с версии 17.4. Пока, без стабильной поддержки другими браузерами и вспомогательными технологиями, лучше не использовать этот атрибут.
 
 <aside>
 
-☝ Десктопный VoiceOver пока считает [элементы с ролью `switch` чекбоксами](https://bugs.webkit.org/show_bug.cgi?id=196354).
+☝ Десктопный VoiceOver считает [элементы с ролью `switch` чекбоксами](https://bugs.webkit.org/show_bug.cgi?id=268120).
 
 </aside>
 
 ## Пример
 
 ```html
-<span class="label" id="label">Оповещения:</span>
+<span class="label" id="label">
+  Оповещения:
+</span>
+
 <button
   class="button"
   role="switch"
   aria-checked="false"
   aria-labelledby="label"
 >
-  <span class="button__off" aria-hidden="true">Выключены</span>
-  <span class="button__on" aria-hidden="true">Включены</span>
+  <span class="button__off" aria-hidden="true">
+    Выключены
+  </span>
+  <span class="button__on" aria-hidden="true">
+    Включены
+  </span>
 </button>
 ```
 
-<iframe title="Переключатель оповещений с ролью switch" src="demos/button-with-switch-role/" height="250"></iframe>
+<iframe title="Кнопка-переключатель" src="demos/button-with-switch-role/" height="250"></iframe>
 
 Скринридер прочитает код примерно так: «Переключатель с ролью switch, не выбран, оповещения».
 
@@ -52,7 +61,7 @@ tags:
 
 У `aria-checked` есть ещё значение `mixed`, но его лучше не использовать в случае элемента с ролью `switch`. [Браузеры не всегда обрабатывают значение `mixed` как `false`](https://adrianroselli.com/2021/10/switch-role-support.html), хотя об этом написано в спецификации ARIA.
 
-Если добавите внутрь контейнера с ролью `switch` семантический тег, в [дерево доступности](/a11y/screenreaders/#derevo-dostupnosti) попадёт текст из него, а роль сбросится.
+Если добавите внутрь контейнера с ролью `switch` семантический тег, в [дерево доступности](/a11y/a11y-tree/) попадёт текст из него, а роль сбросится.
 
 Так видите код вы:
 
@@ -65,9 +74,11 @@ tags:
 А так видит код скринридер:
 
 ```html
-<div role="switch" tabindex="0" aria-checked="false">Оповещения включены</div>
+<div role="switch" tabindex="0" aria-checked="false">
+  Оповещения включены
+</div>
 ```
 
 ## Как понять
 
-У обычного чекбокса есть состояния «Выбран» и «Не выбран». Элемент с ролью `switch` бывает в состояниях «Включён» и «Выключен», в отличие от простого чекбокса.
+У обычного чекбокса есть состояния «Выбран» и «Не выбран». Элемент с ролью `switch` бывает в состоянии «Включён» и «Выключен», в отличие от простого чекбокса.

@@ -6,10 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
   <style>
-    html, body {
-      height: 100%;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 24px;
     }
 
     body {
@@ -17,26 +24,49 @@
       display: grid;
       place-content: center;
       background-color: #18191C;
-      color: #ffffff;
-      font-size: 18px;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     p {
+      margin: 7px 0;
+      font-size: 1rem;
       line-height: 1.4;
-      text-align: center;
     }
 
     kbd {
       padding: 2px 3px 1px;
-      border: 1px solid #ffffff;
+      border: 1px solid #000000;
       border-radius: 3px;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      padding: 55px 40px;
+      background-color: #FF8630;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
 <body>
-  <p>
-    Для вставки текста нажмите <kbd>Ctrl</kbd> + <kbd>V</kbd>.
-  </p>
+  <div class="container">
+    <p>
+      Для вставки текста нажмите <kbd>Ctrl V</kbd>.
+    </p>
+  </div>
 </body>
 </html>

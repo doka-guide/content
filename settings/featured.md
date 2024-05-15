@@ -1,21 +1,22 @@
 ---
 pinned:
-  - css/scrollbar-gutter
-  - a11y/css-impact-on-a11y
-  - recipes/character-counter
-  - js/geolocation-api
-  - a11y/content-hidden
+  - css/layer
+  - tools/structure-data-in-js
+  - html/semantics
+  - js/web-workers
+  - tools/algorithm-complexity
 ready:
+  - a11y/live-region
   - a11y/screenreaders
   - a11y/aria-intro
   - a11y/aria-hidden
   - a11y/css-impact-on-a11y
   - a11y/content-hidden
+  - html/section
   - html/img
   - html/article
   - html/form
   - html/nav
-  - html/section
   - html/flow
   - html/input
   - html/video
@@ -27,6 +28,7 @@ ready:
   - css/position
   - css/attr
   - css/media
+  - css/box-sizing
   - css/pseudoelements
   - css/specificity
   - css/box-shadow
@@ -46,6 +48,9 @@ ready:
   - js/execution-order
   - js/closures
   - js/geolocation-api
+  - js/array-entries
+  - js/array-reduce-right
+  - tools/cors
   - tools/oop
   - tools/clean-architecture
   - tools/agile
@@ -64,64 +69,82 @@ ready:
   - recipes/lets-encrypt-nginx
   - recipes/progress
   - recipes/character-counter
+  - recipes/center
+  - recipes/ajax-form
+  - recipes/popup
+  - recipes/git-rebase-onto
 active:
-  - css/scrollbar-gutter
-  - a11y/css-impact-on-a11y
-  - recipes/character-counter
-  - js/geolocation-api
-  - a11y/content-hidden
-  - recipes/lets-encrypt-nginx
-  - js/execution-order
-  - js/var-let
-  - css/custom-properties
-  - tools/oop
-  - html/div
-  - html/img
-  - js/function
-  - css/transform-function
-  - a11y/aria-intro
-  - css/grid-guide
-  - js/boolean
-  - html/form
-  - tools/how-the-browser-creates-pages
-  - tools/how-to-test-and-why
-  - css/box-model
-  - css/display
-  - css/position
-  - recipes/snow
-  - tools/ci-cd
-  - js/async-in-js
-  - html/section
-  - html/head
-  - css/box-shadow
-  - tools/network
-  - tools/static-types
-  - css/pseudoelements
-  - js/closures
-  - a11y/screenreaders
-  - js/deal-with-forms
-  - css/flexbox-guide
-  - css/keyframes
-  - js/function-context
-  - html/video
-  - css/media
-  - tools/docker
-  - tools/gitlab-ci-cd
-  - css/attr
-  - tools/clean-architecture
-  - tools/webpack
-  - html/flow
-  - a11y/aria-hidden
-  - js/infinite-scroll
+  - css/layer
+  - tools/structure-data-in-js
+  - html/semantics
+  - js/web-workers
+  - tools/algorithm-complexity
   - tools/cli
-  - html/article
-  - recipes/progress
-  - html/doctype
-  - html/nav
-  - tools/agile
+  - tools/oop
+  - tools/ci-cd
+  - css/transform-function
   - css/specificity
+  - recipes/center
+  - recipes/lets-encrypt-nginx
+  - css/box-shadow
+  - tools/webpack
+  - html/video
+  - css/grid-guide
+  - recipes/git-rebase-onto
+  - html/form
+  - js/array-entries
+  - js/function-context
+  - css/scrollbar-gutter
+  - html/head
   - tools/markdown
-  - html/input
+  - js/function
+  - tools/agile
+  - recipes/character-counter
+  - css/box-model
   - tools/bundlers
+  - html/div
+  - css/box-sizing
+  - js/var-let
+  - js/closures
+  - html/article
+  - css/flexbox-guide
+  - html/flow
+  - js/execution-order
+  - recipes/popup
+  - tools/clean-architecture
+  - a11y/content-hidden
+  - a11y/screenreaders
+  - a11y/css-impact-on-a11y
+  - js/async-in-js
+  - css/display
+  - recipes/ajax-form
+  - css/position
+  - css/media
+  - recipes/snow
+  - a11y/aria-intro
+  - css/attr
+  - recipes/progress
+  - tools/cors
+  - html/img
+  - tools/how-the-browser-creates-pages
+  - css/keyframes
+  - html/section
+  - js/boolean
+  - js/array-reduce-right
+  - css/pseudoelements
+  - html/input
+  - js/infinite-scroll
+  - tools/docker
+  - css/custom-properties
+  - tools/gitlab-ci-cd
+  - a11y/live-region
+  - a11y/aria-hidden
+  - js/geolocation-api
+  - js/deal-with-forms
+  - tools/static-types
+  - html/doctype
+  - tools/network
+  - html/nav
+  - tools/how-to-test-and-why
 ---
 

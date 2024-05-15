@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Слева направо — animation-name — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #18191C;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    @keyframes left-to-right {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(100vw - 250px));
+      }
+    }
+
+    .square {
+      border-radius: 25px;
+      width: 200px;
+      height: 200px;
+      background-color: #2E9AFF;
+      animation-name: left-to-right;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="square"></div>
+  </div>
+</body>
+</html>

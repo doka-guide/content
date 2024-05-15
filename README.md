@@ -5,7 +5,6 @@
 [![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
 [![Статус проверки ссылок](https://github.com/doka-guide/content/actions/workflows/link-checker-all.yml/badge.svg)](https://github.com/doka-guide/content/actions/workflows/link-checker-all.yml)
 [![Статус деплоя](https://github.com/doka-guide/content/workflows/Product%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AProduct%20Deploy)
-[![Дискорд](https://img.shields.io/discord/1006904139969724436)](https://discord.gg/Ncpvbun2mr)
 
 [⚠️ Если сайт Доки медленно загружается или не работает совсем](docs/load-fix.md)
 
@@ -23,7 +22,7 @@
 
 Почитайте, [чем можно помочь Доке](docs/contributing.md).
 
-Присоединяйтесь к [нашему сообществу в Дискорде](https://discord.gg/Ncpvbun2mr), чтобы быть в курсе последних новостей.
+Присоединяйтесь к [нашему сообществу в Телеграм](https://t.me/doka_guide), чтобы быть в курсе последних новостей, или к [чату](https://t.me/+qYFPI2mExuQxZTFi), чтобы пообщаться, задать вопрос и просто хорошо провести время.
 
 ## Станьте автором
 

@@ -1,6 +1,11 @@
 ---
 title: "Разработка через тестирование (TDD)"
 description: "Как писать код без багов? Одно из решений — сначала писать тесты, а потом код."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Робот-тестировщик идёт над пропастью между гор по недостроенному мосту'
 authors:
   - bespoyasov
 keywords:

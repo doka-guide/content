@@ -21,7 +21,6 @@ groups:
       - design-patterns-structural
       - design-patterns-behaviorial
 
-
   - name: Стили программирования
     items:
       - programming-paradigms
@@ -30,6 +29,11 @@ groups:
       - reactivity
       - tdd
 
+  - name: Алгоритмы
+    items:
+      - structure-data-in-js
+      - algorithm-complexity
+
   - name: Фреймворки
     items:
       - react-and-alternatives
@@ -37,7 +41,6 @@ groups:
   - name: TypeScript и другие языки
     items:
       - static-types
-
 
   - name: Как устроен браузер
     items:
@@ -124,6 +127,7 @@ groups:
       - testing-and-fake-objects
       - integration-and-system-testing
       - testing-with-jest
+
   - name: Инструменты
     items:
       - git-cli
@@ -131,7 +135,6 @@ groups:
       - ssh
       - gulp
       - version-control
-
 ---
 
 Здесь собраны технологии, теория и хорошие практики, которые пригодятся при разработке веб-приложений.

@@ -93,7 +93,7 @@ ul {
 - `disc` точка, похожая на символ на • U+2022 BULLET;
 - `circle` кружок, похожий на символ ◦ U+25E6 WHITE BULLET;
 - `square` закрашенный квадрат, похожий на символ ◾ U+25FE BLACK MEDIUM SMALL SQUARE;
-- `disclosure-open` и `disclosure-closed` символы открытого и закрытого списка как у элемента `<details>`.
+- `disclosure-open` и `disclosure-closed` символы открытого и закрытого списка как у элемента [`<details>`](/html/details/).
 
 Для нумерованных списков (`<ol>`) можно задать стартовое значение с помощью атрибута `start` (например, для меню пагинации).
 

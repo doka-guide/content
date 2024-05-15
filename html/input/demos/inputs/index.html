@@ -13,26 +13,32 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
     body {
+      min-height: 100vh;
       padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background-color: #18191C;
       color: #FFFFFF;
-      font-size: 18px;
       font-family: "Roboto", sans-serif;
     }
 
     form {
-      width: 800px;
-      margin: auto;
+      width: 100%;
+      min-width: 550px;
+      max-width: 800px;
     }
 
     .buttons {
       display: flex;
       justify-content: flex-end;
-    }
-
-    .button + .button {
-      margin-left: 50px;
+      gap: 50px;
     }
 
     .button {
@@ -41,10 +47,14 @@
       border-radius: 6px;
       padding: 8px 15px;
       color: #000000;
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 300;
       font-family: inherit;
       transition: background-color 0.2s linear;
+    }
+
+    .button[disabled] {
+      opacity: 0.5;
     }
 
     .button:hover {
@@ -54,16 +64,16 @@
     }
 
     .button:focus, .button:focus-visible {
-      border: 2px solid #ffffff;
+      border: 2px solid #FFFFFF;
       outline: none;
     }
 
     .button-orange {
-    background-color: #FF8630;
+      background-color: #FF8630;
     }
 
     .button-blue {
-    background-color: #2E9AFF;
+      background-color: #2E9AFF;
     }
 
     .input-label, .radio-set {
@@ -72,17 +82,17 @@
     }
 
     .input-title, .radio-legend {
+      margin-right: 35px;
       font-size: 24px;
       font-weight: 500;
       line-height: 1;
-      margin-right: 35px;
     }
 
     .input {
       flex-shrink: 0;
-      border: 1px solid #ffffff;
-      border-radius: 6px;
       padding: 10px 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
       background-color: transparent;
       color: #ffffff;
       font-family: inherit;
@@ -140,12 +150,16 @@
     .radio {
       width: 25px;
       height: 25px;
-      opacity: 0;
       margin-right: 15px;
+      opacity: 0;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #ff8630;
+      border-width: 1px;
     }
 
     .radio:checked + .radio-title::before {
-      background-color: #FFFFFF;
       background: radial-gradient(
         circle,
         #FF8630 0%,
@@ -158,42 +172,90 @@
     .input-label, .radio-set, .radio-legend {
       margin-bottom: 25px;
     }
+
+    .visually-hidden {
+      position: absolute;
+      margin: -1px;
+      -webkit-clip-path: inset(50%);
+      clip-path: inset(50%);
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      border: 0;
+      padding: 0;
+      white-space: nowrap;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      form {
+        min-width: 100%;
+      }
+
+      .input-label, .radio-set {
+        flex-direction: column;
+      }
+
+      .input-title {
+        margin-bottom: 1em;
+      }
+
+      .input, .radio-container, .input-textarea {
+        width: 100%;
+        min-width: 100%;
+      }
+
+      .buttons {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <form name="test" method="post" action="input1.php">
-    <label class="input-label">
-      <span class="input-title">Текстовое поле в одну строчку:</span>
-      <input class="input" type="text" size="40">
-    </label>
+<form method="get" action="../result">
+  <label class="input-label">
+    <span class="input-title">Текстовое поле в одну строчку:</span>
+    <input class="input" type="text" size="40" name="one-line">
+  </label>
 
-    <fieldset class="radio-set">
-      <span class="radio-legend">Радио-кнопки:</span>
-      <div class="radio-container">
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="ie" id="ie">
-          <span class="radio-title">Вариант 1</span>
-        </label>
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="opera" id="opera">
-          <span class="radio-title">Вариант 2</span>
-        </label>
-        <label class="radio-label">
-          <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
-          <span class="radio-title">Вариант 3</span>
-        </label>
-      </div>
-    </fieldset>
+  <label class="input-label">
+    <span class="input-title">Поле для пароля:</span>
+    <input class="input" type="password" size="40" name="one-line-password">
+  </label>
 
-    <label class="input-label">
-      <span class="input-title">Большое текстовое поле:</span>
-      <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
-    </label>
-
-    <div class="buttons">
-      <input type="reset" value="Очистить" class="button button-blue">
-      <input type="submit" value="Отправить" class="button button-orange">
+  <fieldset class="radio-set">
+    <legend class="visually-hidden">Радиокнопки:</legend>
+    <span class="radio-legend" aria-hidden="true">Радиокнопки:</span>
+    <div class="radio-container">
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="ie" id="ie">
+        <span class="radio-title">Вариант 1</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="opera" id="opera">
+        <span class="radio-title">Вариант 2</span>
+      </label>
+      <label class="radio-label">
+        <input class="radio" type="radio" name="browser" value="firefox" id="firefox">
+        <span class="radio-title">Вариант 3</span>
+      </label>
     </div>
-  </form>
+  </fieldset>
+
+  <label class="input-label">
+    <span class="input-title">Большое текстовое поле:</span>
+    <textarea class="input input-textarea" name="comment" cols="40" rows="3"></textarea>
+  </label>
+
+  <div class="buttons">
+    <input type="reset" value="Очистить" class="button button-blue">
+    <input type="submit" value="Отправить" class="button button-orange" disabled>
+  </div>
+</form>
 </body>
 </html>

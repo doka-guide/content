@@ -109,88 +109,86 @@
     .cart-product {
       max-width: 1000px;
       margin: auto;
-      margin-top: 10px;
+      margin-top: 50px;
     }
 
     .cart-product > div {
-      padding: 20px;
+      padding: 20px 0;
       text-align: center;
-      border-radius: 10px;
-      border: #f9fafc 2px solid;
       font-size: 18px;
-      color: #fff;
+      color: #000000;
       font-family: Roboto, sans-serif;
     }
 
     .image {
-      background-color: #4f98f6;
+      background-color: #2E9AFF;
     }
 
     .title {
-      background-color: #f64fec;
+      background-color: #C56FFF;
     }
 
     .price {
-      background-color: #f6ad4f;
+      background-color: #FFD829;
     }
 
     .description {
-      background-color: #4ff659;
+      background-color: #41E847;
     }
 
     .rating {
-      background-color: #ed586f;
+      background-color: #F498AD;
     }
 
     .reviews {
-      background-color: #b9ed58;
+      background-color: #10F3AF;
     }
 
     .features {
-      background-color: #58edd6;
+      background-color: #10F3AF;
     }
 
     .availability {
-      background-color: #8c58ed;
+      background-color: #FFD829;
     }
 
     .shipping {
-      background-color: #ee8957;
+      background-color: #FF8630;
     }
 
     .payment {
-      background-color: #70ee57;
+      background-color: #41E847;
     }
 
     .contact {
-      background-color: #57bcee;
+      background-color: #2E9AFF;
     }
 
     .warranty {
-      background-color: #d557ee;
+      background-color: #C56FFF;
     }
 
     .sizes {
-      background-color: #4f98f6;
+      background-color: #F498AD;
     }
 
     .material {
-      background-color: #f64fec;
+      background-color: #C56FFF;
     }
 
     .related {
-      background-color: #f6ad4f;
+      background-color: #FF8630;
     }
 
 
     /*rest*/
     body {
-      background-color: #181A1B;
-      color: #fff;
-      padding: 20px;
-      font-family: Roboto, sans-serif;
       margin: 0px;
+      padding: 50px;
+      font-family: Roboto, sans-serif;
       text-align: center;
+      background-color: #181A1B;
+      color: #FFFFFF;
     }
 
     :checked ~ .cart-product{
@@ -206,12 +204,60 @@
         "warranty     warranty sizes       sizes"
         "material     material material    related";
     }
+
+    .checkbox-label {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-label .checkbox-title::before {
+      content: '';
+      position: absolute;
+      right: calc(100% + 15px);
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-label .checkbox-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .checkbox:checked + .checkbox-label .checkbox-title::after {
+      content: '';
+      position: absolute;
+      right: calc(100% + 20px);
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .cart-product {
+        margin-top: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-<input type="checkbox"  id="is-mobile">
-<label for="is-mobile">
-  Мобильная версия
+<input type="checkbox"  id="is-mobile" class="checkbox">
+<label for="is-mobile" class="checkbox-label">
+  <span class="checkbox-title">Мобильная версия</span>
 </label>
 <div class="cart-product">
   <div class="image">Изображение</div>

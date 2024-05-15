@@ -1,6 +1,11 @@
 ---
 title: "Парадигмы программирования"
 description: "Моё кунг-фу сильнее твоего кунг-фу (из разговора программистов)."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Парень африканского происхождения в кепке с микрофоном, и дедушка-азиат с усами'
 authors:
   - bespoyasov
 keywords:

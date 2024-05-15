@@ -3,16 +3,17 @@
 <head>
   <title>Пример использования returnValue — <dialog> — Дока</title>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
     }
 
     html,
@@ -22,96 +23,87 @@
 
     body {
       margin: 0;
+      padding: 50px;
       padding: clamp(30px, 4.1vw, 50px);
       display: grid;
       place-items: center;
       place-content: center;
       background-color: #18191c;
-      color: #ffffff;
-      font-size: 18px;
-      line-height: 1.5;
+      color: #FFFFFF;
       -webkit-font-smoothing: antialiased;
-      font-family: Roboto, sans-serif;
+      font-family: "Roboto", sans-serif;
     }
 
-    .bugs {
-      min-height: 1.8rem;
-      font-size: 1.8rem;
-      line-height: 1;
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .bugs, .content {
+      margin: 15px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     .bugs:empty::after {
       content: "✨";
     }
 
-    .content {
-      margin: 1rem auto;
-      font-style: italic;
-      text-align: auto;
-    }
-
-    .button {
-      --back: #ffd829;
-      width: 100%;
-      padding: 9px 14px 12px;
-      text-align: center;
+    .button, .dialog__button {
+      display: block;
+      min-width: 260px;
       border: 2px solid transparent;
       border-radius: 6px;
+      padding: 9px 15px;
       color: #000000;
-      font-family: inherit;
-      font-weight: 300;
       font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
       transition: background-color 0.2s linear;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:hover, .dialog__button:hover {
+      background-color: #FFFFFF;
       cursor: pointer;
-      background-color: var(--back);
-      outline: none;
-      position: relative;
-    }
-
-    .button:hover {
-      background-color: #ffffff;
       transition: background-color 0.2s linear;
     }
 
-    .button:focus {
-      border-color: #ffffff;
-    }
-
-    .button--dark {
-      --back: #000000;
-      color: #ffffff;
-    }
-
-    .button--dark:hover {
-      background-color: rgb(0 0 0 / 0.6);
-    }
-
-    .button--dark:focus {
-      border-color: #ffd829;
-    }
-
-    .button--light {
-      --back: #fff;
-      border-color: #000;
-    }
-
-    .button--light:hover {
-      background-color: #ffd829;
-    }
-
-    .button--light:focus {
-      border-color: #ffd829;
+    .dialog__button:hover {
+      border: 2px solid #000000;
     }
 
     .button:focus-visible {
-      outline: 2px solid var(--back);
-      outline-offset: 2px;
-      border-color: transparent;
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus {
+      border: 2px solid #000000;
+      outline: none;
     }
 
     .dialog {
-      width: calc(100% - 40px);
-      max-width: 400px;
+      width: calc(100% - 50px);
+      max-width: 580px;
       border: none;
       inset: 0;
       transition: transform 0.3s ease-in-out;
@@ -131,19 +123,19 @@
     }
 
     .dialog__title {
-      font-size: 26px;
+      margin-top: 0;
+      margin-bottom: 17px;
       font-weight: 500;
-      margin: 0 0 1em;
-      text-align: center;
+      font-size: 1.375rem;
     }
 
-    .options {
+    .dialog__options {
       display: grid;
       gap: 10px 20px;
     }
 
-    @media (min-width: 400px) {
-      .options {
+    @media (min-width: 768px) {
+      .dialog__options {
         grid-template-columns: auto auto;
       }
     }
@@ -152,12 +144,18 @@
 <body>
   <output class="bugs">🐞</output>
   <p class="content">В ваш код заполз жук.</p>
-  <button class="button" onclick="window.debugger.showModal()" type="button">Дебажить</button>
-  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)">
-    <h1 class="dialog__title">Прихлопнуть жука?</h1>
-    <form class="options" method="dialog">
-      <button class="button button--dark" value="debug">Дави его!</button>
-      <button class="button button--light" value="reproduction">Каждая жизнь священна</button>
+  <button class="button button-orange" onclick="window.debugger.showModal()" type="button">
+    Дебажить
+  </button>
+  <dialog class="dialog" id="debugger" onclose="addOrRemoveBug(event)" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Прихлопнуть жука?</h2>
+    <form class="dialog__options" method="dialog">
+      <button class="dialog__button button-orange" value="debug">
+        Дави его!
+      </button>
+      <button class="dialog__button button-blue" value="reproduction">
+        Каждая жизнь священна
+      </button>
     </form>
   </dialog>
 
@@ -165,7 +163,7 @@
     function addOrRemoveBug({
       target: dialog
     }) {
-      const bugs = document.querySelector(".bugs");
+      const bugs = document.querySelector(".bugs")
 
       if (dialog.returnValue === "debug") {
         bugs.innerText = bugs.innerText.substring(0, bugs.innerText.length - 2)

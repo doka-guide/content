@@ -6,28 +6,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
-    body {
+    *, *::before, *::after {
       margin: 0;
-      padding: 5%;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
-    article {
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 1px solid grey;
-      border-radius: 10px;
-      padding: 10px;
-      background: #00000022;
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
     }
 
     h2 {
       margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    article {
+      padding: 10px;
+      background: #FF8630;
+    }
+
+    article + article {
+      margin-top: 30px;
     }
 
     .fixed-width {
@@ -35,22 +58,28 @@
     }
 
     .fluid-width {
-      width: 30%;
+      width: 25%;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
 <body>
   <article class="fixed-width">
     <h2>Контейнеровоз сел на мель <br> в Суэцком канале</h2>
-    <p>Контейнеровоз длиной 400 метров и грузоподъёмностью порядка 224 тысяч тонн, направлявшийся из Китая в Роттердам, сел на мель на 151-м километре Суэцкого канала. Ever Given перегородил канал и перекрыл движение на одном из самых загруженных морских торговых путей в мире.</p>
+    <p>Контейнеровоз длиной 400 метров и<br>грузоподъёмностью порядка 224 тысяч тонн,<br>сел на мель на 151-м километре Суэцкого канала.</p>
   </article>
   <article class="fluid-width">
     <h2>Контейнеровоз сел на мель <br> в Суэцком канале</h2>
-    <p>Контейнеровоз длиной 400 метров и грузоподъёмностью порядка 224 тысяч тонн, направлявшийся из Китая в Роттердам, сел на мель на 151-м километре Суэцкого канала. Ever Given перегородил канал и перекрыл движение на одном из самых загруженных морских торговых путей в мире.</p>
+    <p>Контейнеровоз длиной 400 метров и<br>грузоподъёмностью порядка 224 тысяч тонн,<br>сел на мель на 151-м километре Суэцкого канала.</p>
   </article>
   <article class="fluid-width">
     <h2>Контейнеровоз сел на мель в Суэцком канале</h2>
-    <p>Контейнеровоз длиной 400 метров и грузоподъёмностью порядка 224 тысяч тонн, направлявшийся из Китая в Роттердам, сел на мель на 151-м километре Суэцкого канала. Ever Given перегородил канал и перекрыл движение на одном из самых загруженных морских торговых путей в мире.</p>
+    <p>Контейнеровоз длиной 400 метров и грузоподъёмностью порядка 224 тысяч тонн, сел на мель на 151-м километре Суэцкого канала. </p>
   </article>
 </body>
 </html>

@@ -1,6 +1,6 @@
 ---
-title: "dblclick"
-description: Что такое событие «dblclick» и чем оно отличается от «click»?"
+title: "`dblclick`"
+description: Что такое событие `dblclick` и чем оно отличается от `click`?"
 authors:
   - ko1p
 related:
@@ -14,8 +14,7 @@ tags:
 
 ## Кратко
 
-[Событие](/js/events/) двойного клика на HTML-элементе происходит, когда пользователь в течение короткого времени дважды кликает один элемент. Временной промежуток между кликами должен быть небольшим, иначе браузер интерпретирует его не как `dblclick`, а как несколько отдельных `click` событий.
-
+[Событие](/js/events/) двойного клика на HTML-элементе происходит, когда пользователь в течение короткого времени дважды кликает один элемент. Временной промежуток между кликами должен быть небольшим, иначе браузер интерпретирует его не как `dblclick`, а как несколько отдельных `click`-событий.
 
 ## Как пишется
 
@@ -32,7 +31,7 @@ document.addEventListener('dblclick', event => {
 ```js
 const card = document.querySelector('.card')
 
-// установим обработчик на событие двойного клика
+// Установим обработчик на событие двойного клика
 card.addEventListener('dblclick', function () {
   alert('Вы дважды кликнули по карточке!')
 })
@@ -47,7 +46,9 @@ card.addEventListener('dblclick', function () {
 
 ```js
 card.addEventListener('dblclick', function (event) {
-  alert(event.target.classList) // отображает название класса элемента, по которому дважды кликнули
+  alert(event.target.classList)
+  // Отображает название класса элемента,
+  // по которому дважды кликнули
 })
 ```
 
@@ -57,8 +58,9 @@ card.addEventListener('dblclick', function (event) {
 const card = document.querySelector('.card')
 
 card.addEventListener('dblclick', function () {
-  card.classList.toggle('card_enlarged') // модификатор увеличивает размер карточки
+  // Модификатор увеличивает размер карточки
+  card.classList.toggle('card_enlarged')
 })
 ```
 
-<iframe title="Название — Element.dblclick — Дока" src="demos/dblclicking/" height="350"></iframe>
+<iframe title="Как работает событие" src="demos/dblclicking/" height="350"></iframe>

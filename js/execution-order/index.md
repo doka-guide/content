@@ -1,6 +1,11 @@
 ---
 title: "Порядок выполнения"
 description: "JavaScript выполняет код в определённой последовательности. Разбираемся, в какой, и как это можно менять."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Рецепт по приготовлению еды, в виде карты по поиску клада с картинками'
 authors:
   - nlopin
 contributors:

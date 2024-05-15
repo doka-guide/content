@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Начертание шрифта — font-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    @font-face {
+      font-family: 'Ubuntu';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgoKfw72.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'UbuntuItalic';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCu6KVjbNBYlgoKej70l0k.woff2) format('woff2');
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 50px 50px;
+      background-color: #18191C;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    h1, .option-title {
+      width: 260px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    .option-title {
+      margin-right: 50px;
+      font-size: 18px;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-top: 30px;
+    }
+
+    .option {
+      font-size: 75px;
+      line-height: 0.80;
+      color: #2E9AFF;
+    }
+
+    .option.normal {
+      font-family: "Ubuntu";
+    }
+
+    .option.oblique {
+      font-family: "Ubuntu";
+      font-style: oblique;
+    }
+
+    .option.italic {
+      font-family: "UbuntuItalic";
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-title {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .option-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>font-style</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>normal</code></span>
+      <span class="option normal">yuanfei</span>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>oblique</code></span>
+      <span class="option oblique">yuanfei</span>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>italic</code></span>
+      <span class="option italic">yuanfei</span>
+    </div>
+  </div>
+</body>
+</html>
