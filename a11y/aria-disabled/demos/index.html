@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>aria-disabled — Дока</title>
+    <title>Демо — aria-disabled — Дока</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,10 +94,12 @@
     <script>
       function toggleDisabled() {
         const el = document.getElementById('toggleButton');
-        const isDisabled = el.getAttribute('aria-disabled') === 'true';
-        el.setAttribute('aria-disabled', !isDisabled);
-        el.textContent = isDisabled ? 'Нажми меня' : 'Я теперь не активна';
-        el.style.pointerEvents = isDisabled ? 'auto' : 'none';
+        if (el.getAttribute('aria-disabled') === 'true') {
+          return;
+        }
+        el.setAttribute('aria-disabled', 'true');
+        el.textContent = 'Я теперь не активна';
+        el.style.pointerEvents = 'none';
       }
     </script>
   </body>
