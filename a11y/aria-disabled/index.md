@@ -83,9 +83,7 @@ tags:
 
 ### Включение CSS и JavaScript для полного функционала
 
-Использование `aria-disabled` отличается от атрибута `disabled` тем, что не останавливает все пользовательские взаимодействия с элементом на уровне браузера. Поэтому важно использовать CSS и JavaScript для управления состояниями элементов. Вот простой пример, как можно улучшить взаимодействие:
-
-Вот простая демонстрация, как можно стилизовать и управлять элементом с `aria-disabled`:
+Использование `aria-disabled` отличается от атрибута `disabled` тем, что не останавливает все пользовательские взаимодействия с элементом на уровне браузера. Поэтому важно использовать CSS и JavaScript для управления состояниями элементов. Вот простой пример, как можно стилизовать и управлять элементом с `aria-disabled`:
 
 ```css
   [aria-disabled='true'] {
@@ -105,41 +103,6 @@ tags:
   })
 ```
 
-Простой пример чтобы попробовать самостоятельно:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aria-disabled</title>
-    <style>
-      .disabled {
-        opacity: 0.5;
-        pointer-events: none;
-      }
-    </style>
-  </head>
-  <body>
-    <button id="toggleButton" aria-disabled="false" onclick="toggleDisabled()">
-      Нажми меня
-    </button>
-    <script>
-      function toggleDisabled() {
-        const el = document.getElementById('toggleButton');
-        if (el.getAttribute('aria-disabled') === 'true') {
-          return;
-        }
-        el.setAttribute('aria-disabled', 'true');
-        el.textContent = 'Я теперь не активна';
-        el.style.pointerEvents = 'none';
-      }
-    </script>
-  </body>
-</html>
-```
-
 ### Интеграция с современными фреймворками
 
 В современных фреймворках, таких как React или Angular, вы можете интегрировать `aria-disabled` напрямую в ваш компонентный подход. Например, в React компоненте это может выглядеть так:
@@ -153,10 +116,6 @@ function SaveButton({ isSaving }) {
   )
 }
 ```
-
-## Практическое применение в реальных проектах
-
-На моей практике был случай с разработкой интерактивной карты мероприятия, где необходимо было временно отключать кнопки управления до загрузки всех данных. Для этого мы использовали `aria-disabled` в сочетании с визуальными изменениями и блокировкой событий через JavaScript. Это не только улучшило доступность, но и предотвратило возможные ошибки пользователей при раннем взаимодействии с картой.
 
 ## Заключение
 
