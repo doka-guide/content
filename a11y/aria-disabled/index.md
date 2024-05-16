@@ -18,7 +18,7 @@ tags:
 
 ## Кратко
 
-`aria-disabled` — это атрибут, который указывает, что элемент интерфейса в данный момент не доступен для взаимодействия. Он позволяет разработчикам явно указать, что элемент неактивен, без изменения его DOM-структуры или удаления привязанных событий.
+`aria-disabled` — это атрибут, который указывает, что элемент интерфейса в данный момент недоступен для взаимодействия. Он позволяет разработчикам явно указать, что элемент неактивен, без изменения его DOM-структуры или удаления привязанных событий.
 
 [Состояние виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Указывает на то, что элемент нельзя изменять и взаимодействовать с ним как-то ещё.
 
@@ -32,38 +32,38 @@ tags:
 <button aria-disabled="true">Отправить</button>
 ```
 
-Кнопка будет визуально отображаться, но пользователь не сможет по ней кликнуть или сфокусироваться.
+Кнопка будет отображаться, но пользователь не сможет по ней кликнуть или сфокусироваться.
 
 ## Как пишется
 
 Добавьте к тегу атрибут `aria-disabled` с одним из значений:
 
-- `true` — элемент неактивен.
+- `true` — элемент неактивен;
 - `false` (по умолчанию) — элемент активен, с ним можно взаимодействовать.
 
 `aria-disabled` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/).
-- [`<a>`](/html/a/) или [`link`](/a11y/role-link/).
-- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/).
-- [`<hr>`](/html/hr/) или [`separator`](/a11y/role-separator/).
-- [`<div>`](/html/div/), [`<span>`](/html/span/) или [`generic`](/a11y/role-generic/).
-- [`tab`](/a11y/role-tab/).
-- [`scrollbar`](/a11y/role-scrollbar/).
-- [`application`](/a11y/role-application/).
-- [`gridcell`](/a11y/role-gridcell/).
+- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/);
+- [`<a>`](/html/a/) или [`link`](/a11y/role-link/);
+- [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/);
+- [`<hr>`](/html/hr/) или [`separator`](/a11y/role-separator/);
+- [`<div>`](/html/div/), [`<span>`](/html/span/) или [`generic`](/a11y/role-generic/);
+- [`tab`](/a11y/role-tab/);
+- [`scrollbar`](/a11y/role-scrollbar/);
+- [`application`](/a11y/role-application/);
+- [`gridcell`](/a11y/role-gridcell/);
 - [`menuitem`](/a11y/role-menuitem/).
 
 Для HTML-тегов лучше использовать атрибут `disabled` вместо `aria-disabled` там, где он поддерживается.
 
 ### Подводные камни и особенности
 
-- **Неактивные родительские элементы**: Если родительский элемент получает `aria-disabled="true"`, его дочерние элементы также считаются неактивными.
-- **CSS и JavaScript**: Чтобы полностью реализовать поведение неактивности, нужно использовать CSS для стилизации и JavaScript для управления состоянием, так как `aria-disabled` сам по себе не останавливает взаимодействие с элементом.
+- **неактивные родительские элементы**: если родительский элемент получает `aria-disabled="true"`, его дочерние элементы также считаются неактивными;
+- **CSS и JavaScript**: чтобы полностью реализовать поведение неактивности, нужно использовать CSS для стилизации и JavaScript для управления состоянием, так как `aria-disabled` сам по себе не останавливает взаимодействие с элементом.
 
 ### Особенности для ссылок
 
-Для элементов `<a>`, которые не содержат атрибут `href`, `aria-disabled="true"` может быть использован для указания, что ссылка в текущем состоянии не функциональна, например:
+Для элементов `<a>`, которые не содержат атрибут `href`, `aria-disabled="true"` может быть использован для указания, что ссылка в текущем состоянии нефункциональна, например:
 
 ```html
 <a href="#" aria-disabled="true">Больше не кликабельно</a>
@@ -100,9 +100,9 @@ tags:
 ```javascript
   document.querySelectorAll('[aria-disabled="true"]').forEach((element) => {
     element.addEventListener('click', (e) => {
-      e.preventDefault(); // Предотвращаем клики
-    });
-  });
+      e.preventDefault() // Предотвращаем клики
+    })
+  })
 ```
 
 Простой пример чтобы попробовать самостоятельно:
@@ -150,7 +150,7 @@ function SaveButton({ isSaving }) {
     <button aria-disabled={isSaving ? 'true' : 'false'}>
       {isSaving ? 'Saving...' : 'Save Changes'}
     </button>
-  );
+  )
 }
 ```
 
