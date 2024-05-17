@@ -14,6 +14,7 @@ groups:
       - container
       - lazy-load-with-preview
       - validation
+      - masonry
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
