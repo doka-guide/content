@@ -96,7 +96,7 @@ tags:
 
 ## Использование с другими атрибутами
 
-- [`multiple`](/html/multiple/): Позволяет пользователю выбрать несколько файлов.
+Атрибут [`multiple`](/html/multiple/): позволяет пользователю выбрать несколько файлов.
 
 ```html
 <input type="file" name="cat-pictures" accept=".jpg, .jpeg, .png" multiple>
