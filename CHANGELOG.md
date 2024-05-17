@@ -4,6 +4,8 @@
 
 ## Май 2024
 
+- 17 мая, [`aria-disabled`](https://doka.guide/a11y/aria-disabled/), Игорь Теплостанский
+- 17 мая, [Плиточная раскладка](https://doka.guide/recipes/masonry/), Саша Тараскина
 - 10 мая, [`::backdrop`](https://doka.guide/css/backdrop/), Алёна Батицкая
 - 10 мая, [Popover API](https://doka.guide/html/popover/), Алёна Батицкая
 - 9 мая, [`mix-blend-mode`](https://doka.guide/css/mix-blend-mode/), Алёна Батицкая
