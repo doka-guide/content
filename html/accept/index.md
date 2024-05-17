@@ -73,7 +73,7 @@ tags:
 
 А тут с определёнными расширениями изображений:
 
-<iframe title="Выбор изображений" src="demos/files" height="500"></iframe>
+<iframe title="Выбор изображений" src="demos/images" height="500"></iframe>
 
 ### Недопустимые значения
 
