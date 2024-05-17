@@ -2,7 +2,8 @@
 title: "Атрибут `accept`"
 description: "При выборе прикрепляемого файла этот атрибут покажет только разрешённые типы"
 authors:
-  - tanugladkih, teplostanski
+  - tanugladkih
+  - teplostanski
 related:
   - html/input
   - html/form
