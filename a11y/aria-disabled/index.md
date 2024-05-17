@@ -24,7 +24,7 @@ tags:
 
 ## Пример
 
-Пример с кнопкой, которую отим временно сделать неактивной, не удаляя при этом обработчики событий:
+Пример с кнопкой, которую хотим временно сделать неактивной, не удаляя при этом обработчики событий:
 
 ```html
 <button aria-disabled="true">Отправить</button>
@@ -41,7 +41,7 @@ tags:
 
 `aria-disabled` можно задавать только некоторым тегам и [ролям](/a11y/aria-roles/):
 
-- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/);
+- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` с типами](/html/input/#type) `button`, `image`, `reset`, `submit` или для роли [`button`](/a11y/role-button/);
 - [`<a>`](/html/a/) или [`link`](/a11y/role-link/);
 - [`<details>`](/html/details/), [`<fieldset>`](/html/fieldset/), [`<optgroup>`](/html/optgroup/) или [`group`](/a11y/role-group/);
 - [`<hr>`](/html/hr/) или [`separator`](/a11y/role-separator/);
