@@ -102,7 +102,7 @@ tags:
 <input type="file" name="cat-pictures" accept=".jpg, .jpeg, .png" multiple>
 ```
 
-- [`required`](/html/required/): Указывает, что поле обязательно для заполнения.
+Атрибут [`required`](/html/required/): указывает, что поле обязательно для заполнения.
 
 ```html
 <input type="file" name="cat-picture" accept=".jpg, .jpeg, .png" required>
