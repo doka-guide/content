@@ -35,23 +35,32 @@
       }
 
       form {
-        width: 370px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
 
       .file-input-container {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 20px;
+        flex-direction: row;
+        align-items: flex-end;
+        height: 135px;
+        gap: 20px;
       }
 
-      .file-input-container label {
-        margin-bottom: 10px;
+      .file-input-wrapper {
+        display: flex;
+        flex-direction: column;
         font-size: 18px;
       }
 
-      input[type="file"] {
-        width: 100%;
+      .file-input-wrapper label {
+        margin-bottom: 10px;
+      }
+
+      input[type='file'] {
+        width: 370px;
         border: 1px solid #ffffff;
         border-radius: 6px;
         padding: 10px 15px;
@@ -63,14 +72,14 @@
         position: relative;
       }
 
-      input[type="file"]::file-selector-button {
+      input[type='file']::file-selector-button {
         display: inline-block;
         min-width: 210px;
         border: 2px solid transparent;
         border-radius: 6px;
         padding: 9px 15px;
         color: #000000;
-        background-color: #FF8630;
+        background-color: #ff8630;
         font-size: 18px;
         font-weight: 300;
         font-family: inherit;
@@ -79,7 +88,7 @@
         transition: background-color 0.2s linear;
       }
 
-      input[type="file"]::file-selector-button:hover {
+      input[type='file']::file-selector-button:hover {
         background-color: #ffffff;
       }
 
@@ -89,7 +98,7 @@
       }
 
       .file-preview {
-        margin: 20px 0;
+        max-height: 135px;
       }
 
       .file-preview img,
@@ -103,34 +112,80 @@
         body {
           padding: 30px;
         }
+
+        form {
+          width: 400px;
+        }
+
+        .file-input-container {
+          height: 105px;
+        }
+
+        .file-input-wrapper {
+          font-size: 14px;
+        }
+
+        .file-preview img,
+        .file-preview video,
+        .file-preview object {
+          max-width: 100px;
+        }
+
+        input[type='file'] {
+          width: 280px;
+          font-size: 14px;
+        }
+
+        input[type='file']::file-selector-button {
+          min-width: 130px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        form {
+          width: auto;
+        }
+
+        .file-input-container {
+          gap: 0;
+        }
+
+        .file-preview {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
     <form id="upload-form" onsubmit="return false;">
       <div class="file-input-container">
-        <label for="image-upload">
-          Прикрепите изображение:
-        </label>
-        <input type="file" id="image-upload" accept="image/*" />
+        <div class="file-input-wrapper">
+          <label for="image-upload"> Прикрепите изображение: </label>
+          <input type="file" id="image-upload" accept="image/*" />
+        </div>
+        <div id="image-preview" class="file-preview"></div>
       </div>
-      <div id="image-preview" class="file-preview"></div>
 
       <div class="file-input-container">
-        <label for="video-upload">
-          Прикрепите видео:
-        </label>
-        <input type="file" id="video-upload" accept="video/*" />
+        <div class="file-input-wrapper">
+          <label for="video-upload"> Прикрепите видео: </label>
+          <input type="file" id="video-upload" accept="video/*" />
+        </div>
+
+        <div id="video-preview" class="file-preview"></div>
       </div>
-      <div id="video-preview" class="file-preview"></div>
 
       <div class="file-input-container">
-        <label for="document-upload">
-          Прикрепите документ (.pdf, .doc, .docx):
-        </label>
-        <input type="file" id="document-upload" accept=".pdf, .doc, .docx" />
+        <div class="file-input-wrapper">
+          <label for="document-upload">
+            Прикрепите документ (.pdf, .doc, .docx):
+          </label>
+          <input type="file" id="document-upload" accept=".pdf, .doc, .docx" />
+        </div>
+
+        <div id="document-preview" class="file-preview"></div>
       </div>
-      <div id="document-preview" class="file-preview"></div>
     </form>
 
     <script>
@@ -165,7 +220,8 @@
               object.height = '500px';
               preview.appendChild(object);
             } else {
-              preview.innerHTML = 'Тип файла не поддерживается для предпросмотра.';
+              preview.innerHTML =
+                'Тип файла не поддерживается для предпросмотра.';
             }
           };
 

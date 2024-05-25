@@ -34,29 +34,33 @@
         font-family: 'Roboto', sans-serif;
       }
 
-      h1 {
-        margin-bottom: 20px;
-        text-align: center;
-      }
-
       form {
-        width: 370px;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
 
       .file-input-container {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 20px;
+        flex-direction: row;
+        align-items: flex-end;
+        height: 135px;
+        gap: 20px;
       }
 
-      .file-input-container label {
-        margin-bottom: 10px;
+      .file-input-wrapper {
+        display: flex;
+        flex-direction: column;
         font-size: 18px;
       }
 
+      .file-input-wrapper label {
+        margin-bottom: 10px;
+      }
+
       input[type='file'] {
-        width: 100%;
+        width: 370px;
         border: 1px solid #ffffff;
         border-radius: 6px;
         padding: 10px 15px;
@@ -94,7 +98,7 @@
       }
 
       .file-preview {
-        margin: 20px 0;
+        max-height: 135px;
       }
 
       .file-preview img {
@@ -106,35 +110,74 @@
         body {
           padding: 30px;
         }
+
+        form {
+          width: 400px;
+        }
+
+        .file-input-container {
+          height: 105px;
+        }
+
+        .file-input-wrapper {
+          font-size: 14px;
+        }
+
+        .file-preview img {
+          max-width: 100px;
+        }
+
+        input[type='file'] {
+          width: 280px;
+          font-size: 14px;
+        }
+
+        input[type='file']::file-selector-button {
+          min-width: 130px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        form {
+          width: auto;
+        }
+
+        .file-input-container {
+          gap: 0;
+        }
+
+        .file-preview {
+          display: none;
+        }
       }
     </style>
   </head>
   <body>
     <form id="upload-form" onsubmit="return false;">
-      <h1>Выбор изображений</h1>
       <div class="file-input-container">
-        <label for="gif-image-upload">
-          Только гифки:
-        </label>
-        <input type="file" id="gif-image-upload" accept=".gif" />
+        <div class="file-input-wrapper">
+          <label for="gif-image-upload"> Только гифки: </label>
+          <input type="file" id="gif-image-upload" accept=".gif" />
+        </div>
+        <div id="gif-image-preview" class="file-preview"></div>
       </div>
-      <div id="gif-image-preview" class="file-preview"></div>
 
       <div class="file-input-container">
-        <label for="jpg-image-upload">
-          Только джипеги:
-        </label>
-        <input type="file" id="jpg-image-upload" accept=".jpg, .jpeg" />
+        <div class="file-input-wrapper">
+          <label for="jpg-image-upload"> Только джипеги: </label>
+          <input type="file" id="jpg-image-upload" accept=".jpg, .jpeg" />
+        </div>
+        <div id="jpg-image-preview" class="file-preview"></div>
       </div>
-      <div id="jpg-image-preview" class="file-preview"></div>
 
       <div class="file-input-container">
-        <label for="png-svg-upload">
-          Пнгшки и свгшки:
-        </label>
-        <input type="file" id="png-svg-upload" accept=".png, .svg" />
+        <div class="file-input-wrapper">
+          <label for="png-svg-upload"> Пнгшки и свгшки: </label>
+          <input type="file" id="png-svg-upload" accept=".png, .svg" />
+        </div>
+        <div id="png-svg-preview" class="file-preview"></div>
       </div>
-      <div id="png-svg-preview" class="file-preview"></div>
     </form>
 
     <script>
