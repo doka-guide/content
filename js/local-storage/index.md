@@ -66,7 +66,7 @@ console.log(name)
 
 ### Запись
 
-Для записи используйте метод `setItem('ключ', 'значение')`. Он принимает два строковых параметра: ключ, по которому будет сохранено значение, и само значение.
+Для записи используйте метод `setItem('ключ', 'значение')`. Он принимает два строковых параметра. Ключ, по которому будет сохранено значение, и само значение.
 
 ```js
 window.localStorage.setItem('name', 'Дока Дог')
@@ -74,16 +74,16 @@ window.localStorage.setItem('name', 'Дока Дог')
 
 ### Чтение
 
-За чтение отвечает `getItem('ключ')` c одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт [`null`](/js/null-primitive/).
+За чтение отвечает `getItem('ключ')` с одним параметром, который указывает на ключ для чтения и возвращает полученное значение из хранилища. Если по этому ключу нет значения, то метод вернёт [`null`](/js/null-primitive/).
 
 ```js
-window.localStorage.getItem('name') // вернет 'Дока Дог'
-window.localStorage.getItem('user') // вернет `null`
+window.localStorage.getItem('name') // вернёт 'Дока Дог'
+window.localStorage.getItem('user') // вернёт `null`
 ```
 
 ### Удаление
 
-Удаляет запись из хранилища `removeItem('ключ')`. Он успешно выполнится даже если указанного ключа не существует в хранилище.
+Удаляет запись из хранилища `removeItem('ключ')`. Он успешно выполнится, даже если указанного ключа не существует в хранилище.
 
 ```js
 window.localStorage.removeItem('name')
@@ -103,7 +103,7 @@ window.localStorage.clear()
 Используя свойство `length`, можно узнать, сколько всего полей было записано в хранилище.
 
 ```js
-console.log(window.localStorage.length);
+console.log(window.localStorage.length)
 // 0
 ```
 
@@ -113,7 +113,7 @@ console.log(window.localStorage.length);
 
 ```js
 window.localStorage.setItem('name', 'Дока Дог')
-console.log(window.localStorage.key(0));
+console.log(window.localStorage.key(0))
 // 'name'
 ```
 
@@ -123,7 +123,7 @@ console.log(window.localStorage.key(0));
 const localStorageSize = window.localStorage.length
 for (let i = 0; i < localStorageSize; i++) {
   console.log(
-      window.localStorage.getItem(localStorage.key(i))
+    window.localStorage.getItem(localStorage.key(i))
   )
 }
 ```
@@ -136,10 +136,10 @@ for (let i = 0; i < localStorageSize; i++) {
 
 Событие содержит свойства:
 
-- `key` - ключ, который был изменён (при вызове метода `clear()`, ключ будет `null`);
-- `oldValue` - старое значение, записанное в поле;
-- `newValue` - новое значение, записанное в поле;
-- `url` - адрес страницы, на которой вызвано изменение.
+- `key` — ключ, который был изменён (при вызове метода `clear()`, ключ будет `null`);
+- `oldValue` — старое значение, записанное в поле;
+- `newValue` — новое значение, записанное в поле;
+- `url` — адрес страницы, на которой вызвано изменение.
 
 ```js
 window.addEventListener('storage', function (evt) {
