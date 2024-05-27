@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 -6.5 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>left-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1DD47F" offset="0%">
+</stop>
+            <stop stop-color="#0DA949" offset="100%">
+</stop>
+        </linearGradient>
+    </defs>
+    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ui-gambling-website-lined-icnos-casinoshunter" transform="translate(-341.000000, -1910.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="4" transform="translate(50.000000, 1871.000000)">
+                <path d="M317.812138,39.5802109 L328.325224,50.0042713 L328.41312,50.0858421 C328.764883,50.4346574 328.96954,50.8946897 329,51.4382227 L328.998248,51.6209428 C328.97273,52.0514917 328.80819,52.4628128 328.48394,52.8313977 L328.36126,52.9580208 L317.812138,63.4197891 C317.031988,64.1934036 315.770571,64.1934036 314.990421,63.4197891 C314.205605,62.6415481 314.205605,61.3762573 314.990358,60.5980789 L322.274264,53.3739093 L292.99947,53.3746291 C291.897068,53.3746291 291,52.4850764 291,51.3835318 C291,50.2819872 291.897068,49.3924345 292.999445,49.3924345 L322.039203,49.3917152 L314.990421,42.4019837 C314.205605,41.6237427 314.205605,40.3584519 314.990421,39.5802109 C315.770571,38.8065964 317.031988,38.8065964 317.812138,39.5802109 Z" id="left-arrow" transform="translate(310.000000, 51.500000) scale(-1, 1) translate(-310.000000, -51.500000) ">
+</path>
+            </g>
+        </g>
+    </g>
+</svg>
