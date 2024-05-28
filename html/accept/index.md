@@ -86,11 +86,11 @@ tags:
 
 Тут можно пощупать как браузер ведёт себя с расширениями для всех типов избражений, видео и определёнными расширениями документов:
 
-<iframe title="Выбор файлов" src="demos/files" height="500"></iframe>
+<iframe title="Выбор файлов" src="demos/files" height="550"></iframe>
 
 А тут с определёнными расширениями изображений:
 
-<iframe title="Выбор изображений" src="demos/images" height="500"></iframe>
+<iframe title="Выбор изображений" src="demos/images" height="550"></iframe>
 
 ## Ограничения
 
