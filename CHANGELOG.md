@@ -4,6 +4,7 @@
 
 ## Май 2024
 
+- 28 мая, [`search`](https://doka.guide/a11y/role-search/), Татьяна Фокина
 - 17 мая, [`aria-disabled`](https://doka.guide/a11y/aria-disabled/), Игорь Теплостанский
 - 17 мая, [Плиточная раскладка](https://doka.guide/recipes/masonry/), Саша Тараскина
 - 10 мая, [`::backdrop`](https://doka.guide/css/backdrop/), Алёна Батицкая
