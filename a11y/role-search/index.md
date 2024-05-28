@@ -39,7 +39,7 @@ tags:
 </form>
 ```
 
-<iframe title="Простой ориентир поиска" src="demos/basic/" height="470"></iframe>
+<iframe title="Простой ориентир поиска" src="demos/basic/" height="350"></iframe>
 
 [Скринридер](/a11y/screenreaders/) не расскажет о роли области, но пользователь сможет с помощью горячих клавиш быстро перейти к ней.
 
