@@ -60,13 +60,13 @@ domain/
 Запись в примере означает, что мы хотим реэкспортировать из модуля _user_ всё, что он экспортирует сам.
 
 ```javascript
-/* domain/models/index.js */ 
+/* domain/models/index.js */
 export * from './user'
 
-/* domain/index.js */ 
+/* domain/index.js */
 export * from './models'
 
-/* other-module.js */ 
+/* other-module.js */
 
 // Изменившаяся строчка с импортом из предыдущего примера
 import { user } from '../domain'
