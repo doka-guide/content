@@ -10,6 +10,8 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - article
 ---
@@ -42,7 +44,8 @@ tags:
 Кнопки для управления погодой можно разместить в любом удобном месте сайта:
 
 ```html
-<div class="snow-toggle">
+<fieldset class="snow-toggle">
+  <legend class="snow-toggle__label">Переключатель осадков</legend>
   <label class="snow-toggle__item">
     <input class="snow-toggle__control" type="radio" name="snow" value="snowfall" checked>
     <span class="snow-toggle__text">Снег</span>
@@ -51,10 +54,81 @@ tags:
     <input class="snow-toggle__control" type="radio" name="snow" value="none">
     <span class="snow-toggle__text">Без осадков</span>
   </label>
-</div>
+</fieldset>
 ```
 
 ```css
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 50px;
+  background-color: #18191c;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
+.snow-toggle {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  gap: 40px;
+  border: 0;
+}
+
+.snow-toggle__label {
+  padding-bottom: 10px;
+}
+
+.snow-toggle__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.snow-toggle__text::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 12px);
+  width: 25px;
+  height: 25px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+}
+
+.snow-toggle__control {
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+  margin-right: 15px;
+}
+
+.snow-toggle__control:focus + .snow-toggle__text::before {
+  border-color: #C56FFF;
+}
+
+.snow-toggle__control:checked + .snow-toggle__text::before {
+  background-color: #FFFFFF;
+  background: radial-gradient(
+    circle,
+    #FFFFFF 0%,
+    #FFFFFF 40%,
+    transparent 50%,
+    transparent 100%
+  );
+}
+
 .snow {
   --animation-name: snowfall;
   position: fixed;
@@ -89,7 +163,7 @@ tags:
 }
 ```
 
-JS-код должен быть в конце страницы, чтобы загрузка HTML к моменту его выполнения уже закончилась:
+JavaScript-код должен быть в конце страницы, чтобы загрузка HTML к моменту его выполнения уже закончилась:
 
 ```javascript
 const storageKey = 'snow'
@@ -256,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### JavaScript
 
-Чтобы добавить лёгкого рандома и заставить снежинки падать с разной скоростью и разной задержкой, используем JS. Потому что в CSS пришлось бы написать довольно много строк кода для достижения того же результата.
+Чтобы добавить лёгкого рандома и заставить снежинки падать с разной скоростью и разной задержкой, используем JavaScript. Потому что в CSS пришлось бы написать довольно много строк кода для достижения того же результата.
 
 Для начала объявим переменные и найдём все нужные блоки на странице:
 
@@ -376,8 +450,11 @@ snowflakes.forEach(snowflake => {
 
 Используем в качестве переключателей радио-кнопки. Обязательно обернём их [`<label>`](/html/label/), чтобы кнопки были доступными для пользователей со [скринридерами](/a11y/screenreaders/).
 
+Так как это группа радиокнопок, используем также [`<fildset>`](/html/fieldset/) с названием группы в `<legend>`. Так мы свяжем их программно, зададим общую подпись и порадуем пользователей и [WCAG](/a11y/wcag/).
+
 ```html
-<div class="snow-toggle">
+<fieldset class="snow-toggle">
+  <legend class="snow-toggle__label">Переключатель осадков</legend>
   <label class="snow-toggle__item">
     <input class="snow-toggle__control" type="radio" name="snow" value="snowfall" checked>
     <span class="snow-toggle__text">Снег</span>
@@ -386,10 +463,10 @@ snowflakes.forEach(snowflake => {
     <input class="snow-toggle__control" type="radio" name="snow" value="none">
     <span class="snow-toggle__text">Без осадков</span>
   </label>
-</div>
+</fieldset>
 ```
 
-Чтобы радио-кнопки знали о состоянии друг друга, важно задать им одинаковое значение свойства `name`. Значение свойства `value` тоже важно. Мы будем манипулировать им при помощи JS. По умолчанию снег будет идти, поэтому первой радиокнопке добавим атрибут `checked`.
+Чтобы радио-кнопки знали о состоянии друг друга, важно задать им одинаковое значение свойства `name`. Значение свойства `value` тоже важно. Мы будем манипулировать им при помощи JavaScript. По умолчанию снег будет идти, поэтому первой радиокнопке добавим атрибут `checked`.
 
 Стилизовать кнопки можно с учётом дизайна вашего сайта. Куда важнее то, как мы будем выключать и включать анимацию.
 
@@ -450,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-Теперь поменяем состояние радиокнопок переключателей в соответствии с тем, что записано в хранилище. Ищем кнопку с классом `snow-toggle__control` и значением атрибута `value`, совпадающим с текущим значением из хранилища, и задаём ей атрибут `checked` со значением `true`. Технически значение этому атрибуту не нужно, но в JS иначе не получится. Предварительно при помощи [`if`](/js/if-else/) проверим, что значение переменной `currentStorage` не [`undefined`](/js/undefined/):
+Теперь поменяем состояние радиокнопок переключателей в соответствии с тем, что записано в хранилище. Ищем кнопку с классом `snow-toggle__control` и значением атрибута `value`, совпадающим с текущим значением из хранилища, и задаём ей атрибут `checked` со значением `true`. Технически значение этому атрибуту не нужно, но в JavaScript иначе не получится. Предварительно при помощи [`if`](/js/if-else/) проверим, что значение переменной `currentStorage` не [`undefined`](/js/undefined/):
 
 ```javascript
 document.addEventListener('DOMContentLoaded', () => {

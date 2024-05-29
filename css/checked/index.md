@@ -5,6 +5,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 editors:
   - tachisis
 keywords:
@@ -25,44 +26,44 @@ tags:
 
 ## Пример
 
-Чекбокс полупрозрачный. Будем менять прозрачность ([`opacity`](/css/opacity/)) и цвет текста у чекбокса, когда он отмечен:
-
-```html
-<span>Обратный билет</span>
-<label>
-  <input type="checkbox">
-  <span>Нужен</span>
-</label>
-```
-
-Прозрачность в дефолтном состоянии:
+Будем менять цвет фона [`option`](/html/option/), когда он выбран, и заполнять чекбокс или радиокнопку синим, когда они отмечены:
 
 ```css
-input[type="checkbox"],
-input[type="checkbox"] ~ span
-{
-  opacity: 0.5;
+.checkbox:checked + .checkbox-title::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  rotate: 45deg;
+  border-radius: 3px;
+  background-color: #2E9AFF;
+}
+
+.radio:checked + .radio-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(50% - 12px);
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(
+    circle,
+    #2E9AFF 0%,
+    #2E9AFF 40%,
+    transparent 50%,
+    transparent 100%
+  );
+}
+
+option:checked {
+  background-color: #2E9AFF;
+  color: #18191C;
 }
 ```
 
-Чекбокс становится непрозрачным, когда на него кликнули:
-
-```css
-input[type="checkbox"]:checked {
-  opacity: 1;
-}
-```
-
-Текст тоже становится непрозрачным, а цвет меняется на синий:
-
-```css
-input[type="checkbox"]:checked ~ span {
-  opacity: 1;
-  color: #2E9AFF;
-}
-```
-
-<iframe title="Чекбоксы" src="demos/check/" height="350"></iframe>
+<iframe title="Стилизация выбранных элементов" src="demos/check/" height="320"></iframe>
 
 ## Как пишется
 

@@ -17,7 +17,7 @@ tags:
 
 - [`<button>`](/html/button/),
 - [`<option>`](/html/option/),
-- `<data>`,
+- [`<data>`](/html/data/),
 - [`<input>`](/html/input/),
 - [`<li>`](/html/li/),
 - [`<meter>`](/html/meter/),

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Чат с ролью log — log — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .chat__item > p:first-of-type {
+      font-size: 0.9rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+    }
+
+    time {
+      font-size: 0.8rem;
+    }
+
+    .container, .message-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 65%;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .chat {
+      max-width: 600px;
+      max-height: 400px;
+      height: 400px;
+      gap: 1em;
+      padding: 0 10px;
+      display: grid;
+      align-items: start;
+      overflow: auto;
+    }
+
+    .chat__item {
+      min-width: 50%;
+      max-width: 50%;
+      padding: 10px;
+      word-wrap: break-word;
+      border-radius: 15px;
+    }
+
+    .chat__item--left {
+      justify-self: start;
+      background-color: #10F3AF;
+      border-bottom-left-radius: 0;
+    }
+
+    .chat__item--right {
+      justify-self: end;
+      background-color: #F498AD;
+      border-bottom-right-radius: 0;
+    }
+
+    .message {
+      margin-bottom: 25px;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .message__label {
+      margin-right: 55px;
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1;
+      align-self: center;
+      color: #FFFFFF;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      align-self: self-end;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .message__input {
+      max-width: 350px;
+      min-width: 350px;
+      min-height: 100px;
+      max-height: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+    }
+
+    .message__input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .button {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container,
+      .message-container,
+      .button {
+        width: 100%;
+      }
+
+      .message__input {
+        min-width: 100%;
+      }
+
+      .message {
+        display: block;
+      }
+
+      .message__input {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div role="log" class="chat" id="chat-log" tabindex="0">
+      <div class="chat__item chat__item--left">
+        <p>Дока</p>
+        <p>Привет, я Дока — дружелюбный справочник для фронтендеров на понятном языке 🐶 Давай дружить?</p>
+        <time datetime="2023-09-18T14:00:00">14:00</time>
+      </div>
+    </div>
+    <div class="message-container">
+      <div class="message">
+        <label class="message__label" for="user-message">Ваше сообщение:</label>
+        <textarea class="message__input" name="message" id="user-message"></textarea>
+      </div>
+      <button class="button button-aqua" id="send-button">Отправить</button>
+    </div>
+  </div>
+
+  <script>
+    const chatLog = document.getElementById('chat-log')
+    const userMessage = document.getElementById('user-message')
+    const button = document.getElementById('send-button')
+
+    button.addEventListener('click', () => {
+      sendMessage()
+    })
+
+    userMessage.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault()
+        sendMessage()
+      }
+    })
+
+    function getFormattedDate() {
+      const now = new Date()
+      const userTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`
+      const machineTime = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}T${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`
+
+      return {userTime, machineTime}
+    }
+
+    function createMessage(className, userName, text, time) {
+      const message = document.createElement('div')
+      const user = document.createElement('p')
+      const messageText = document.createElement('p')
+      const messageTime = document.createElement('time')
+
+      message.className = className
+      user.textContent = userName
+      messageText.textContent = text
+      messageTime.setAttribute('datetime', time.machineTime)
+      messageTime.textContent = time.userTime
+
+      message.appendChild(user)
+      message.appendChild(messageText)
+      message.appendChild(messageTime)
+
+      return message
+    }
+
+    let userFirstMessage = false
+
+    function sendMessage() {
+      let text = userMessage.value
+
+      if(text.trim()) {
+        const time = getFormattedDate()
+        const userMessageElement = createMessage('chat__item chat__item--right', 'Читатель Доки', text, time)
+
+        chatLog.appendChild(userMessageElement)
+        chatLog.removeAttribute('role')
+        userMessage.value = ''
+
+        setTimeout(() => {
+          chatLog.setAttribute('role', 'log')
+        }, 100)
+
+        if(!userFirstMessage) {
+          const dokaMessageElement = createMessage('chat__item chat__item--left', 'Дока', 'Надеюсь, тебе у нас понравится, и ты даже напишешь свою собственную статью.', time)
+
+          setTimeout(() => {
+            chatLog.appendChild(dokaMessageElement)
+          }, 1000)
+
+          userFirstMessage = true
+        }
+      }
+    }
+  </script>
+</body>
+</html>

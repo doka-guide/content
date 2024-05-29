@@ -27,7 +27,7 @@ tags:
 1. Проверка параметров обработки файла и формирование данных с обращением к серверу.
 1. Обработка данных на сервере и отправка ответа клиенту.
 
-Организовать полный процесс загрузки файла возможно только с использованием серверной части, реализация которой выходит за рамки данной статьи. Поэтому далее будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JS-код для передачи файла на сервер.
+Организовать полный процесс загрузки файла возможно только с использованием серверной части, реализация которой выходит за рамки данной статьи. Поэтому далее будет рассмотрена организация отправки файла на стороне клиента: HTML-разметка, стилизация элементов и JavaScript-код для передачи файла на сервер.
 
 Сама же серверная часть для обмена файлами может быть реализована на разных языках программирования. Например, про обработку файлов на стороне сервера с использованием PHP можно подробнее узнать в [документации PHP](https://www.php.net/manual/ru/features.file-upload.php).
 
@@ -36,46 +36,112 @@ tags:
 На странице разместим HTML-разметку с необходимыми элементами:
 
 ```html
-<div class="demo-wrapper">
-  <div id="dropFile_Zone" class="upload-zone">
-    <div id="uploadFile_Loader" class="upload-loader">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
-        <path fill="#fff" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50">
-          <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"/>
-        </path>
+<div id="uploadFile_Loader" class="upload-zone">
+  <form class="form-upload" id="uploadForm" method="post" enctype="multipart/form-data">
+    <div class="upload-zone_dragover">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" class="upload-loader__image">
+        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M12 12v9"/>
+        <path d="m16 16-4-4-4 4"/>
       </svg>
+      <p>Перетащи файл сюда</p>
+      <span class="form-upload__hint" id="hint">Можно загружать только картинки</span>
     </div>
-    <p id="uploadFile_Hint" class="upload-hint upload-hint_visible">Для загрузки изображения перетащите его в эту область</p>
-    <p id="uploadFile_Status" class="upload-status"></p>
-  </div>
+    <label class="form-upload__label" for="uploadForm_file">
+      <span class="form-upload__title">Или нажми кнопку</span>
+      <input class="form-upload__input" id="uploadForm_File" type="file" name="file_name" accept="image/*" aria-describedby="hint">
+    </label>
+    <div class="form-upload__container">
+      <span class="form-upload__hint" id="uploadForm_Hint"></span>
+    </div>
+  </form>
 </div>
 ```
 
 Для внешнего оформления элементов создадим следующие [CSS-правила](/css/css-rule/):
 
 ```css
-p {
-  text-align: center;
-}
-
-.upload-zone {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.form-upload {
+  display: grid;
   align-items: center;
-  width: 100%;
-  height: 250px;
-  padding: 55px 40px;
-  overflow: hidden;
-  background-color: #C56FFF;
-  color: #000000;
-  font-size: 24px;
-  font-weight: 500;
+  width: 80vw;
+  min-width: 360px;
 }
 
 .upload-zone_dragover {
+  display: grid;
+  height: 50vh;
+  min-height: 360px;
+  margin-bottom: 25px;
+  border: 1px solid currentColor;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 18px;
+  place-content: center;
+  text-align: center;
+}
+
+.upload-zone_dragover svg {
+  width: 10vw;
+  margin: auto;
+  pointer-events: none;
+}
+
+.form-upload__hint {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.upload-zone_dragover._active {
+  color: #c56fff;
+  background-color: #c56fff77;
+}
+
+.form-upload__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-upload__title {
+  margin-right: 55px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-upload__input {
+  font-family: inherit;
+  font-size: 18px;
+}
+
+.form-upload__input::file-selector-button {
+  margin-right: 30px;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 15px;
+  font-family: inherit;
+  font-weight: inherit;
+  transition: background-color 0.2s linear;
+  cursor: pointer;
+}
+
+.form-upload__input::file-selector-button:hover {
+  background-color: #c56fff;
+}
+
+.form-upload__container {
+  width: 360px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.upload-zone_gragover {
   background-color: #593273;
+}
+
+.upload-hint,
+.upload-status {
+  width: 75%;
 }
 
 .upload-hint {
@@ -107,171 +173,189 @@ p {
   width: 150px;
   height: 150px;
 }
+
+@media (max-width: 768px) {
+  .upload-zone {
+    padding: 55px 30px;
+  }
+
+  .form-upload__title {
+    display: block;
+    margin-right: 0;
+  }
+
+  .form-upload__input::file-selector-button {
+    min-width: initial;
+    margin-right: 10px;
+  }
+}
 ```
 
-В конце HTML-страницы или в отдельном JS-файле добавим код, который обеспечит связь между пользователем и сервером:
+В конце HTML-страницы или в отдельном JavaScript-файле добавим код, который обеспечит связь между пользователем и сервером:
 
 ```javascript
-const BYTES_IN_MB = 1048576
+const dropFileZone = document.querySelector(".upload-zone_dragover")
+const statusText = document.getElementById("uploadForm_Status")
+const sizeText = document.getElementById("uploadForm_Size")
+const uploadInput = document.querySelector(".form-upload__input")
 
-const dropFileZone = document.getElementById('dropFile_Zone')
-const hintText = document.getElementById('uploadFile_Hint')
-const outputText = document.getElementById('uploadFile_Status')
-const loaderImage = document.getElementById('uploadFile_Loader')
-let fileInstance
+let setStatus = (text) => {
+  statusText.textContent = text
+}
 
-['dragover', 'drop'].forEach(function(event) {
+const uploadUrl = "/unicorns";
+
+["dragover", "drop"].forEach(function(event) {
   document.addEventListener(event, function(evt) {
     evt.preventDefault()
     return false
   })
 })
 
-dropFileZone.addEventListener('dragenter', function(event) {
-  dropFileZone.classList.add('upload-zone_dragover')
+dropFileZone.addEventListener("dragenter", function() {
+  dropFileZone.classList.add("_active")
 })
 
-dropFileZone.addEventListener('dragleave', function(event) {
-  dropFileZone.classList.remove('upload-zone_dragover')
+dropFileZone.addEventListener("dragleave", function() {
+  dropFileZone.classList.remove("_active")
 })
 
-dropFileZone.addEventListener('drop', function(event) {
-  fileInstance = event.dataTransfer.files[0]
-  if (fileInstance.size > 5 * BYTES_IN_MB) {
-    alert('Принимается файл до 5 МБ')
-    return false
+dropFileZone.addEventListener("drop", function() {
+  dropFileZone.classList.remove("_active")
+  const file = event.dataTransfer?.files[0]
+  if (!file) {
+    return
   }
-  if (fileInstance.type.startsWith('image/')) {
-    processingUploadFile(fileInstance)
+
+  if (file.type.startsWith("image/")) {
+    uploadInput.files = event.dataTransfer.files
+    processingUploadFile()
   } else {
-    alert('Можно загружать только изображения')
+    setStatus("Можно загружать только изображения")
     return false
   }
 })
 
-function processingUploadFile(fileInstanceUpload) {
-  if(fileInstanceUpload != undefined) {
+uploadInput.addEventListener("change", (event) => {
+  const file = uploadInput.files?.[0]
+  if (file && file.type.startsWith("image/")) {
+    processingUploadFile()
+  } else {
+    setStatus("Можно загружать только изображения")
+    return false
+  }
+})
+
+function processingUploadFile(file) {
+  if (file) {
     const dropZoneData = new FormData()
     const xhr = new XMLHttpRequest()
 
-    dropZoneData.append('file', fileInstanceUpload)
+    dropZoneData.append("file", file)
 
-    xhr.upload.addEventListener('progress', function() {
-      hintText.classList.remove('upload-hint_visible')
-      loaderImage.classList.add('upload-loader_visible')
-    })
-
-    xhr.open('POST', 'upload_processing.php', true)
+    xhr.open("POST", uploadUrl, true)
 
     xhr.send(dropZoneData)
 
-    xhr.onload = function (event){
+    xhr.onload = function () {
       if (xhr.status == 200) {
-        loaderImage.classList.remove('upload-loader_visible')
-        outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
+        setStatus("Всё загружено")
       } else {
-        loaderImage.classList.remove('upload-loader_visible')
-        outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла.`
+        setStatus("Oшибка загрузки")
       }
+      HTMLElement.style.display = "none"
     }
   }
 }
+
+function processingDownloadFileWithFetch() {
+  fetch(url, {
+    method: "POST",
+  }).then(async (res) => {
+    const reader = res?.body?.getReader();
+    while (true && reader) {
+      const { value, done } = await reader?.read()
+      console.log("value", value)
+      if (done) break
+      console.log("Received", value)
+    }
+  })
+}
 ```
 
-<iframe title="Пример загрузки файла перетаскиванием" src="demos/dragndrop-demo/" height="330"></iframe>
+<iframe title="Пример загрузки файла перетаскиванием" src="demos/dragndrop-demo/" height="600"></iframe>
 
 Полный вариант загрузки файла с его сохранением на сервере выглядит так:
 
 <video controls width="640">
   <source src="video/dragndrop-upload.mp4" type="video/mp4">
-  <source src="video/dragndrop-upload_safari.mp4" type="video/mp4">
+  <track
+    label="Russian"
+    kind="subtitles"
+    srclang="ru"
+    src="video/closed-captions.vtt">
 </video>
 
 ## Разбор решения
 
 ### Разметка
 
-Для обработки файла используется контейнер с идентификатором `dropFile_Zone`. Внутри этого блока помещаются вспомогательные элементы, которые обеспечивают информационное взаимодействие с пользователем:
+Для обработки файла используется контейнер с идентификатором `upload-zone`. Внутри этого блока помещается форма [`<form>`](/html/form/) с элементами, которые обеспечивают информационное взаимодействие с пользователем. Например, с помощью изменения цвета фона этой области при перетаскивании элемента.
 
-- анимированный [`svg-элемент`](/html/svg/) в качестве индикатора обработки файла;
-- текстовый элемент с идентификатором `uploadFile_Status`, который покажет информацию о результате загрузки.
-
-Для каждого элемента, который участвует в процессе обработки файла, указывается атрибут [`id`](/html/global-attrs/#id) — это позволит JS-коду обращаться к нужным элементам для выполнения необходимых действий.
+Для каждого элемента, который участвует в процессе обработки файла, указывается атрибут [`id`](/html/global-attrs/#id) — это позволит JavaScript-коду обращаться к нужным элементам для выполнения необходимых действий.
 
 ```html
-<div class="demo-wrapper">
-  <div id="dropFile_Zone" class="upload-zone">
-    <div id="uploadFile_Loader" class="upload-loader">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="upload-loader__image">
-        <path fill="#fff" d="M73 50c0-12.7-10.3-23-23-23S27 37.3 27 50m3.9 0c0-10.5 8.5-19.1 19.1-19.1S69.1 39.5 69.1 50">
-          <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s" from="0 50 50" to="360 50 50" repeatCount="indefinite"/>
-        </path>
+<div id="uploadFile_Loader" class="upload-zone">
+  <form class="form-upload" id="uploadForm" method="post" enctype="multipart/form-data">
+    <div class="upload-zone_dragover">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewBox="0 0 24 24" class="upload-loader__image">
+        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M12 12v9"/>
+        <path d="m16 16-4-4-4 4"/>
       </svg>
+      <p>Перетащи файл сюда</p>
+      <span class="form-upload__hint" id="hint">Можно загружать только картинки</span>
     </div>
-    <p id="uploadFile_Hint" class="upload-hint upload-hint_visible">Для загрузки изображения перетащите его в эту область</p>
-    <p id="uploadFile_Status" class="upload-status"></p>
-  </div>
+    <label class="form-upload__label" for="uploadForm_file">
+      <span class="form-upload__title">Или нажми кнопку</span>
+      <input class="form-upload__input" id="uploadForm_File" type="file" name="file_name" accept="image/*" aria-describedby="hint">
+    </label>
+    <div class="form-upload__container">
+      <span class="form-upload__hint" id="uploadForm_Hint"></span>
+    </div>
+  </form>
 </div>
 ```
 
-Для показа процесса выполнения загрузки файла также можно использовать специальный элемент [`<progress>`](/html/progress/) — этот вариант подробно рассмотрен в рецепте «[Загрузка файла с прогресс-баром](/recipes/progress/)».
+Кроме самой области для перетаскивания файла используем специальное поле для его загрузки `<input type="file" accept="image/*">`. Так добавим альтернативный способ загрузки для тех пользователей, которые не пользуются мышкой, и заодно выполним один из критериев [WCAG](/a11y/wcag/).
+
+Поле свяжем с подсказкой о том, что можно загружать только картинки, при помощи [`aria-describedby`](/a11y/aria-describedby/). Этот атрибут программно связывает подсказку с полем и полезен для пользователей [скринридеров](/a11y/screenreaders/).
+
+Для отображения загрузки файла также можно использовать специальный элемент [`<progress>`](/html/progress/) — этот вариант подробно рассмотрен в рецепте «[Загрузка файла с прогресс-баром](/recipes/progress/)». В этот тег уже встроена роль [`progressbar`](/a11y/role-progressbar/), благодаря которой скринридеры объявляют прогресс загрузки автоматически.
 
 ### Стили
 
-Область для загрузки файла выделим фоновым цветом и укажем фиксированную высоту:
+Стилизуем область для загрузки файла. Зададим ей минимальную высоту, рамку, выровняем элементы по центру.
 
 ```css
-.upload-zone {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 250px;
-  padding: 55px 40px;
-  overflow: hidden;
-  background-color: #C56FFF;
-  color: #000000;
-  font-size: 24px;
+.upload-zone_dragover {
+  display: grid;
+  height: 50vh;
+  min-height: 360px;
+  margin-bottom: 25px;
+  border: 1px solid currentColor;
+  color: #FFFFFF;
   font-weight: 500;
+  font-size: 18px;
+  place-content: center;
+  text-align: center;
 }
 ```
 
 При перетаскивании файла в область загрузки будем менять фоновый цвет при помощи дополнительного класса:
 
 ```css
-.upload-zone_dragover {
+.upload-zone_gragover {
   background-color: #593273;
-}
-```
-
-Контейнер с индикатором обработки файла изначально скрыт и с абсолютным позиционированием занимает весь родительский блок:
-
-```css
-.upload-loader {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-```
-
-После появления файла в области загрузки и до конца его обработки, индикатор будет показываться с использованием дополнительного класса:
-
-```css
-.upload-loader_visible {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #593273;
-}
-
-.upload-loader__image {
-  width: 150px;
-  height: 150px;
 }
 ```
 
@@ -279,24 +363,24 @@ function processingUploadFile(fileInstanceUpload) {
 
 Для начала объявим переменные и получим все необходимые элементы DOM-дерева, чтобы подписываться на события:
 
-- переменная `BYTES_IN_MB`, в которой указывается количество байтов в одном мегабайте, будет использоваться при вычислении размера файла;
 - `dropFileZone` устанавливает область обработки выбранного файла;
-- `hintText` указывает на подсказку о загрузке файла;
-- в переменной `outputText` указывается элемент, в котором будет показан полученный от сервера ответ;
-- переменная `loaderImage` определяет графический элемент индикатора обработки файла;
-- в переменной `fileInstance` будут храниться данные выбранного файла.
+- `statusText` указывает на подсказку о загрузке файла;
+- `setStatus` нужна для хранения текста статуса;
+- `uploadInput` устанавливает область кнопки для загрузки файла без перетаскивания.
 
 ```javascript
-const BYTES_IN_MB = 1048576
+const dropFileZone = document.querySelector(".upload-zone_dragover")
+const statusText = document.getElementById("uploadForm_Status")
+const uploadInput = document.querySelector(".form-upload__input")
 
-const dropFileZone = document.getElementById('dropFile_Zone')
-const hintText = document.getElementById('uploadFile_Hint')
-const outputText = document.getElementById('uploadFile_Status')
-const loaderImage = document.getElementById('uploadFile_Loader')
-let fileInstance
+let setStatus = (text) => {
+  statusText.textContent = text
+}
+
+const uploadUrl = "/unicorns"
 ```
 
-Поскольку переменная `fileInstance` объявляется без присвоения значения, используется ключевое слово `let`. Об отличиях переменных и принципах работы с ними более развёрнуто рассказывается в статье «[Переменные `const`, `let` и `var`](/js/var-let/)».
+Поскольку переменная `setStatus` объявляется без присвоения значения, используется ключевое слово `let`. Об отличиях переменных и принципах работы с ними более развёрнуто рассказывается в статье «[Переменные `const`, `let` и `var`](/js/var-let/)».
 
 При отслеживании перетаскивания файла будут использоваться следующие события:
 
@@ -308,37 +392,19 @@ let fileInstance
 Когда при перетаскивании выбранный файл будет находиться в пределах активной страницы, браузер его откроет. Чтобы файл был обработан в назначенной для этого области, необходимо отменить стандартное поведение браузера для событий `dragover` и `drop` путём вызова метода `preventDefault()`:
 
 ```javascript
-['dragover', 'drop'].forEach(function(event) {
+["dragover", "drop"].forEach(function(event) {
   document.addEventListener(event, function(evt) {
     evt.preventDefault()
     return false
   })
 })
 
-dropFileZone.addEventListener('dragenter', function(event) {
-  dropFileZone.classList.add('upload-zone_dragover')
+dropFileZone.addEventListener("dragenter", function() {
+  dropFileZone.classList.add("_active")
 })
 
-dropFileZone.addEventListener('dragleave', function(event) {
-  dropFileZone.classList.remove('upload-zone_dragover')
-})
-```
-
-Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ. Проверку размера файла выполним на этапе его помещения в область загрузки. Для этого получим информацию о файле с помощью объекта `dataTransfer`, который хранит данные о событии перетаскивания. Также зададим условие, что загружать можно будет только изображения.
-
-```javascript
-dropFileZone.addEventListener('drop', function uploadFile(event) {
-  fileInstance = event.dataTransfer.files[0]
-  if (fileInstance.size > 5 * BYTES_IN_MB) {
-    alert('Принимается файл до 5 МБ')
-    return false
-  }
-  if (fileInstance.type.startsWith('image/')) {
-    processingUploadFile(fileInstance)
-  } else {
-    alert('Можно загружать только изображения')
-    return false
-  }
+dropFileZone.addEventListener("dragleave", function() {
+  dropFileZone.classList.remove("_active")
 })
 ```
 
@@ -347,10 +413,8 @@ dropFileZone.addEventListener('drop', function uploadFile(event) {
 Основную работу будет выполнять функция `processingUploadFile()`, которая принимает выбранный пользователем файл `fileInstanceUpload` и отправляет его на сервер:
 
 ```javascript
-function processingUploadFile(fileInstanceUpload) {
-  if(fileInstanceUpload != undefined) {
-    // код функции рассматривается ниже
-  }
+function processingUploadFile(file) {
+  // Код функции рассматривается ниже
 }
 ```
 
@@ -370,31 +434,25 @@ const xhr = new XMLHttpRequest()
 1. Для `XMLHttpRequest` добавляется обработчик события `progress`, который отслеживает процесс загрузки файла. Чтобы показать скрытый графический элемент индикатора загрузки, ему добавляется класс `upload-loader_visible`, а подсказка о загрузке скрывается через удаление класса `upload-hint_visible`.
 1. Метод `open()` выполняет POST-запрос к управляющему файлу, который хранится на сервере.
 1. Выбранный пользователем файл передаётся на сервер.
-1. Для `XMLHttpRequest` выполняется обработка события загрузки файла:
-    - если файл сохранён на сервере, индикатор загрузки скрывается и пользователю показывается сообщение об успешной загрузке файла;
-    - если файл не принят сервером, индикатор загрузки скрывается и пользователю показывается сообщение об ошибке.
+1. Для `XMLHttpRequest` выполняется обработка события загрузки файла.
+
+Если файл сохранён на сервере, индикатор загрузки скрывается и пользователю показывается сообщение об успешной загрузке файла. Если файл не принят сервером, индикатор загрузки скрывается и пользователю показывается сообщение об ошибке.
 
 ```javascript
-dropZoneData.append('file', fileInstanceUpload)
+dropZoneData.append("file", file)
 
-xhr.upload.addEventListener('progress', function() {
-  hintText.classList.remove('upload-hint_visible')
-  loaderImage.classList.add('upload-loader_visible')
-})
-
-xhr.open('POST', 'upload_processing.php', true)
+xhr.open("POST", uploadUrl, true)
 
 xhr.send(dropZoneData)
 
-xhr.onload = function (event){
+xhr.onload = function () {
   if (xhr.status == 200) {
-    loaderImage.classList.remove('upload-loader_visible')
-    outputText.textContent = `Файл «${fileInstanceUpload.name}» загружен успешно`
+    setStatus("Всё загружено")
   } else {
-    loaderImage.classList.remove('upload-loader_visible')
-    outputText.textContent = `Файл не загружен. Ошибка ${xhr.status} при загрузке файла.`
+    setStatus("Oшибка загрузки")
   }
+  HTMLElement.style.display = "none"
 }
 ```
 
-<iframe title="Загрузка файла перетаскиванием" src="demos/dragndrop-demo/" height="330"></iframe>
+<iframe title="Загрузка файла перетаскиванием" src="demos/dragndrop-demo/" height="600"></iframe>

@@ -14,35 +14,45 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
     body {
+      min-height: 100vh;
+      padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      padding: 100px 50px;
-      background-color: #18191c;
-      color: #ffffff;
+      background-color: #18191C;
+      color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .select-label {
       display: block;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       margin-right: 35px;
     }
 
     .select {
       position: relative;
-      width: 400px;
-      border: 1px solid #ffffff;
+      width: 300px;
+      border: 1px solid #FFFFFF;
       border-radius: 6px;
-      padding: 8px 15px;
-      background-color: #18191c;
-      color: #ffffff;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
       font-family: inherit;
-      font-size: inherit;
+      font-size: 1rem;
       font-weight: 300;
       cursor: pointer;
       -webkit-appearance: none;
@@ -63,18 +73,34 @@
       font-family: inherit;
       font-size: inherit;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        display: block;
+      }
+
+      .select-wrapper {
+        margin-top: 10px;
+      }
+    }
   </style>
 </head>
 <body>
-  <label class="select-label" for="city-select">Лишнее слово</label>
-  <div class="select-wrapper">
-    <select class="select" id="city-select" size="5" multiple>
-      <option>Красный</option>
-      <option>Классный</option>
-      <option>Зелёный</option>
-      <option>Синий</option>
-      <option>Съел иней</option>
-    </select>
+  <div class="container">
+    <label class="select-label" for="city-select">Лишнее слово:</label>
+    <div class="select-wrapper">
+      <select class="select" id="city-select" size="5" multiple>
+        <option>Красный</option>
+        <option>Классный</option>
+        <option>Зелёный</option>
+        <option>Синий</option>
+        <option>Съел иней</option>
+      </select>
+    </div>
   </div>
 </body>
 </html>

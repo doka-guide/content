@@ -3,6 +3,9 @@ title: "`<s>`"
 description: "Размечает уже неактуальный контент."
 authors:
   - xpleesid
+contributors:
+  - tatianafokina
+  - skorobaeus
 keywords:
   - зачёркивание
 related:
@@ -27,7 +30,7 @@ tags:
 </p>
 ```
 
-<iframe title="Базовый пример" src="demos/basic/" height="80"></iframe>
+<iframe title="Базовый пример" src="demos/basic/" height="400"></iframe>
 
 ## Как понять
 
@@ -37,7 +40,7 @@ tags:
 
 ## Пример
 
-Чаще всего «‎потеря актуальности»‎ отображается в меню или прейскурантах при смене цены.
+Чаще всего «потеря актуальности» отображается в меню или прейскурантах при смене цены.
 
 ```html
 <div class="menu">
@@ -54,4 +57,4 @@ tags:
 </div>
 ```
 
-<iframe title="Пример с ценами" src="demos/prices/" height="300"></iframe>
+<iframe title="Пример с ценами" src="demos/prices/" height="500"></iframe>

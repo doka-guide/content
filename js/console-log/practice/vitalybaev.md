@@ -28,7 +28,7 @@ const data = [
   { section: 'Tools', count: 211 },
 ]
 
-console.table(data);
+console.table(data)
 // ┌─────────┬──────────────┬───────┐
 // │ (index) │   section    │ count │
 // ├─────────┼──────────────┼───────┤

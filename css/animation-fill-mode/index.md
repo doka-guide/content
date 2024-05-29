@@ -3,6 +3,8 @@ title: "`animation-fill-mode`"
 description: "Свойство, решающее, что будет после окончания анимации."
 authors:
   - solarrust
+contributors:
+  - starhamster
 editors:
   - tachisis
 keywords:

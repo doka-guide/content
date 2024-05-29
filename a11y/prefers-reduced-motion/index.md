@@ -3,6 +3,8 @@ title: "`prefers-reduced-motion`"
 description: "Как управлять анимацией на сайте и сделать её доступной."
 authors:
   - katkopikat
+contributors:
+  - skorobaeus
 keywords:
   - ＠-правило
   - media
@@ -119,7 +121,8 @@ html {
 Если необходимо узнать предпочтения по анимации с помощью JavaScript, это можно сделать с помощью [`matchMedia`](/js/match-media/). Так выглядит эта же настройка поведения прокрутки в JavaScript:
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)')
 
 a.addEventListener('click', () => {
   const behavior = prefersReducedMotion.matches ? 'auto' : 'smooth'
@@ -137,13 +140,18 @@ a.addEventListener('click', () => {
 Если у вас много CSS, связанного с анимацией, можно вынести стили для её воспроизведения в отдельный файл и не грузить его пользователям, которые отказались от анимации:
 
 ```javascript
-<link rel="stylesheet" href="animations.css" media="(prefers-reduced-motion: no-preference)">
+<link
+  rel="stylesheet"
+  href="animations.css"
+  media="(prefers-reduced-motion: no-preference)"
+>
 ```
 
 Похожим способом можно предотвратить и загрузку тяжёлых библиотек для анимаций. В примере ниже, если пользователь предпочитает уменьшить количество анимации, то функция сделает `return` и её выполнение прервётся. Благодаря этому не произойдёт импорт [GreenSock](https://greensock.com/) (GSAP).
 
 ```javascript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+const prefersReducedMotion = window.matchMedia(
+  '(prefers-reduced-motion: reduce)')
 
 const loadGSAPAndInitAnimations = () => {
   if (prefersReducedMotion.matches) return
@@ -181,35 +189,35 @@ window.matchMedia('prefers-reduced-motion: reduce')
 <details>
   <summary>Windows 10</summary>
 
-  Настройки > Лёгкость доступа > Дисплей > Показать анимацию в Windows
+  Настройки > Лёгкость доступа > Дисплей > Показать анимацию в Windows.
 
 </details>
 
 <details>
   <summary>Windows 11</summary>
 
-  Настройки > Универсальный доступ > Визуальные эффекты > Эффекты анимации
+  Настройки > Универсальный доступ > Визуальные эффекты > Эффекты анимации.
 
 </details>
 
 <details>
   <summary>macOS</summary>
 
-  Системные настройки > Специальные возможности > Дисплей > Уменьшить движение
+  Системные настройки > Специальные возможности > Дисплей > Уменьшить движение.
 
 </details>
 
 <details>
   <summary>iOS</summary>
 
-  Настройки > Основные > Универсальный доступ > Уменьшить движение
+  Настройки > Основные > Универсальный доступ > Уменьшить движение.
 
 </details>
 
 <details>
   <summary>Android 9+</summary>
 
-  Настройки > Специальные возможности > Удалить анимацию
+  Настройки > Специальные возможности > Удалить анимацию.
 
 </details>
 
@@ -226,8 +234,8 @@ window.matchMedia('prefers-reduced-motion: reduce')
 
 ### Edge
 
-1. Откройте средства разработчика (<kbd>F12</kbd>) и нажмите <kbd>CTRL SHIFT P</kbd> в Windows/Linux или <kbd>COMMAND SHIFT P</kbd> в macOS — откроется меню Команд.
-1. Начните вводить __reduced__ и выберите «[Эмулировать CSS prefers-reduced-motion](https://learn.microsoft.com/ru-ru/microsoft-edge/devtools-guide-chromium/accessibility/reduced-motion-simulation-images/reduced-motion-command-menu-entry.png)», после чего нажмите <kbd>Enter</kbd>.
+1. Откройте средства разработчика (<kbd>F12</kbd>) и нажмите <kbd>Ctrl Shift P</kbd> в Windows/Linux или <kbd>Command Shift P</kbd> в macOS — откроется меню команд.
+1. Начните вводить _reduced_ и выберите «[Эмулировать CSS prefers-reduced-motion](https://learn.microsoft.com/ru-ru/microsoft-edge/devtools-guide-chromium/accessibility/reduced-motion-simulation-images/reduced-motion-command-menu-entry.png)», после чего нажмите <kbd>Enter</kbd>.
 
 Посмотрите, проигрывается ли анимация ниже. При активном режиме котик должен быть статичным.
 
@@ -240,12 +248,14 @@ window.matchMedia('prefers-reduced-motion: reduce')
     srcset="nyancat.gif"
     type="image/gif"
     media="(prefers-reduced-motion: no-preference)"
-  />
+  >
+
   <!-- Статичный котик -->
   <img
     src="nyancat.png"
-    alt="Котик с телом из печенья летит в космосе и оставляет за собой шлейф из радуги"
-  />
+    alt="Котик с телом из печенья летит в космосе
+      и оставляет за собой шлейф из радуги"
+  >
 </picture>
 ```
 

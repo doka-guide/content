@@ -4,15 +4,22 @@ groups:
   - name: 'Основы'
     items:
       - chto-takoe-a11y
+      - a11y-tree
+      - accessible-names-and-descs
       - a11y-html
+      - site-language
+      - accessible-forms
       - content-hidden
+      - how-to-describe-pictures
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
+      - speech-recognition
   - name: 'CSS и доступность'
     items:
       - css-impact-on-a11y
       - prefers-reduced-motion
+      - prefers-reduced-transparency
       - prefers-contrast
       - forced-colors
       - inverted-colors
@@ -24,6 +31,7 @@ groups:
       - aria-intro
       - aria-roles
       - aria-attrs
+      - abstract-roles
   - name: 'Другие спецификации и руководства'
     items:
       - wcag
@@ -65,11 +73,12 @@ groups:
       - role-form
       - role-search
       - role-contentinfo
-  - name: '«Живые» области'
+  - name: 'Изменяющиеся области'
     items:
+      - live-region
       - role-status
-      - role-alert
       - role-log
+      - role-alert
       - role-marquee
       - role-timer
       - aria-live

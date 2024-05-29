@@ -23,12 +23,12 @@ tags:
 ## Пример
 
 ```js
-const wm = new WeakMap();
+const wm = new WeakMap()
 {
-  const ref = {};
-  const value = 'Булочка';
-  wm.set(ref, value);
-  wm.get(ref);
+  const ref = {}
+  const value = 'Булочка'
+  wm.set(ref, value)
+  wm.get(ref)
   // Булочка
 }
 

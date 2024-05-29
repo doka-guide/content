@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Примеры использования search — <search> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
+      gap: 50px;
+      padding: 50px;
+      background-color: #663613;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    search {
+      padding: 55px 80px;
+      background-color: #18191C;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-block-start: 25px;
+    }
+
+    .row-label {
+      margin-inline-end: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input, .button, .select {
+      width: 300px;
+    }
+
+    .input {
+      flex-shrink: 0;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-inline-start: auto;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .select-form {
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .select-label {
+      display: block;
+      font-size: 24px;
+      font-weight: 500;
+      margin-right: 35px;
+    }
+
+    .select {
+      position: relative;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #18191C;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .select:focus {
+      outline: none;
+      border: 1px solid #ff8630;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    option {
+      font-weight: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      search {
+        width: 100%;
+        padding: 55px 30px;
+      }
+
+      .form-row, .select-form {
+        display: block;
+      }
+
+      .row-label, .select-label {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+        text-align: left;
+      }
+
+      .input, .button, .select {
+        width: 100%;
+      }
+    }
+    </style>
+</head>
+<body>
+  <search role="search">
+    <form>
+      <div class="form-row">
+        <label class="row-label" for="search">Форма поиска</label>
+        <input class="input" type="search" id="search" placeholder="Что вы хотите найти?">
+      </div>
+      <div class="form-row">
+        <button class="button button-orange">Поиск</button>
+      </div>
+    </form>
+  </search>
+
+  <search>
+    <form class="select-form">
+      <label class="select-label" for="color">Фильтр по цвету</label>
+      <div class="select-wrapper">
+        <select name="color" class="select" id="color">
+          <option value="red">Красный</option>
+          <option value="green">Зелёный</option>
+          <option value="blue">Синий</option>
+        </select>
+      </div>
+    </form>
+  </search>
+</body>
+</html>

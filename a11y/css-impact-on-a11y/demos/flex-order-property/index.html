@@ -6,12 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
     }
 
     body {
@@ -29,9 +34,7 @@
       margin-bottom: 17px;
       font-weight: 500;
       font-size: 1.625rem;
-      text-align: center;
     }
-
 
     .element-wrapper {
       max-width: 600px;
@@ -79,14 +82,26 @@
       flex-direction: column;
       padding: 16px;
       font-size: 1em;
-      color: #ffffff;
+      font-weight: 300;
+      font-family: inherit;
+      color: #FFFFFF;
       background-color: transparent;
-      border: 1px solid #ffffff;
-      border-radius: 8px;
+      border: 2px solid #FFFFFF;
+      transition: background-color 0.2s linear;
+    }
+
+    .item:hover {
+      color: #000000;
+      background-color: #10F3AF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
     .item:focus {
-      outline: solid 4px #10F3AF;
+      border: 0;
+      outline-width: 4px;
+      outline-style: solid;
+      outline-color: #10F3AF;
     }
 
     .item__icon {
@@ -95,7 +110,6 @@
     }
 
     @media (max-width: 768px) {
-
       .flex-list__item {
         width: calc(100%/2 - 16px);
         margin: 24px 8px 0;

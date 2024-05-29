@@ -3,6 +3,8 @@ title: "`border-color`"
 description: "Какого цвета будет рамка вокруг элемента? Решать вам!"
 authors:
   - lordoys
+contributors:
+  - starhamster
 editors:
   - tachisis
 related:

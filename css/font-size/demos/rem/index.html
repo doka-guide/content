@@ -8,21 +8,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    /* Задаём для <span> размер шрифта в единице rem, зависящей не от родительского элемента, а от размера шрифта на странице */
-    span {
-      font-size: 2rem;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Оформление */
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
     body {
-      padding: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
       background-color: #18191c;
       color: #ffffff;
       font-family: "Roboto", sans-serif;
     }
 
+    span {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #2E9AFF;
+      color: #000000;
+      /* Задаём для <span> размер шрифта в единице rem, зависящей не от родительского элемента, а от размера шрифта на странице */
+      font-size: 2rem;
+    }
+
     span span {
-      background-color: #ed6742;
+      border-radius: 3px;
+      padding: 0;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      span:has(span) {
+        width: 100%;
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>

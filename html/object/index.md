@@ -3,6 +3,8 @@ title: "`<object>`"
 description: "Встраиваем мультимедиа на страницу."
 authors:
   - kalpovskii
+contributors:
+  - skorobaeus
 keywords:
   - встраиваемый объект
 related:
@@ -15,7 +17,7 @@ tags:
 
 ## Кратко
 
-Тег `<object>` используется для встраивания на страницу других страниц или мультимедийных элементов (PDF, Flash, видео- или аудио-плееров).
+Тег `<object>` используется для встраивания на страницу других страниц или мультимедийных элементов (PDF, Flash, видео- или аудиоплееров).
 
 ## Пример
 
@@ -26,7 +28,8 @@ tags:
   type="video/mp4"
   data="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   width="1280"
-  height="720">
+  height="720"
+>
 </object>
 ```
 
@@ -35,15 +38,18 @@ tags:
 ## Как пишется
 
 ```html
-<object class="pdf_example" type="application/pdf"
+<object
+  class="pdf_example"
+  type="application/pdf"
   data="example.pdf"
-  width="300"
-  height="200">
-  <a href="example.pdf">Лунная соната №14 PDF</a>
+  width="600"
+  height="700"
+>
+  <a href="example.pdf">Лунная соната № 14 PDF</a>
 </object>
 ```
 
-<iframe title="Встроенный pdf с помощью <object>" src="./demos/show-pdf/" height="310"></iframe>
+<iframe title="Встроенный с помощью object pdf-файл" src="demos/show-pdf/" height="830"></iframe>
 
 Если браузер не поддерживает тип встроенного файла, то он покажет вложенное содержимое в качестве фолбэка. В нашем примере, если встраивание PDF-инструкции не поддерживается, то мы увидим ссылку на её скачивание.
 
@@ -52,7 +58,7 @@ tags:
 - `data` — ссылка на встраиваемый ресурс;
 - `type` — MIME-тип подгружаемого объекта;
 - `name` — имя объекта;
-- `usemap` — атрибут для связи объекта с тегом `<map>`;
+- `usemap` — атрибут для связи объекта с [тегом `<map>`](/html/map/);
 - `width` — ширина объекта;
 - `height` — высота объекта;
 - `form` — связь с одной или несколькими формами.
