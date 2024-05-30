@@ -119,6 +119,10 @@
         height: 24px;
         opacity: 0;
         padding: 0;
+        margin-block-end: 5px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        appearance: none;
       }
 
       .form__type-checkbox + .form__type-checkbox-title::before {
@@ -203,7 +207,7 @@
     </style>
   </head>
   <body>
-    <form class="form" name="form" novalidate>
+    <form class="form" name="form" method="POST" novalidate>
       <div class="form__field-container">
         <label class="form__field">
           <span class="form__label">Имя:</span>
@@ -212,7 +216,7 @@
             id="input__name"
             class="form__type-input"
             placeholder="Иван"
-            pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+            pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
             data-error-message="Разрешены символы латиницы, кириллицы, знаки дефиса и пробелы."
             aria-describedby="name-error"
             required
@@ -271,7 +275,7 @@
           <input
             type="checkbox"
             id="input__checkbox"
-            class="form__type-input form__type-checkbox"
+            class="form__type-checkbox"
             checked
             aria-describedby="checkbox-error"
             required
@@ -287,6 +291,7 @@
     <script>
       const form = document.querySelector('.form')
       const inputList = Array.from(form.querySelectorAll('.form__type-input'))
+      const checkboxElement = form.querySelector('.form__type-checkbox')
       const buttonElement = form.querySelector('.button')
       const formErrorElement = form.querySelector('.form__empty-error')
 
@@ -298,6 +303,11 @@
           event.preventDefault()
           if (hasInvalidInput()) {
             formError()
+            inputList.forEach((inputElement) => {
+              checkInputValidity(inputElement)
+              toggleInputError(inputElement)
+            })
+            toggleInputError(checkboxElement)
           }
         })
         inputList.forEach((inputElement) => {
@@ -305,7 +315,18 @@
             checkInputValidity(inputElement)
             toggleButton()
           })
+          inputElement.addEventListener('blur', () => {
+            toggleInputError(inputElement)
+          })
+          inputElement.addEventListener('focus', () => {
+            toggleErrorSpan(inputElement)
+          })
         })
+        checkboxElement.addEventListener('change', () => {
+          toggleInputError(checkboxElement)
+          toggleButton()
+        })
+
       }
 
       function checkInputValidity(inputElement) {
@@ -313,12 +334,6 @@
           inputElement.setCustomValidity(inputElement.dataset.errorMessage)
         } else {
           inputElement.setCustomValidity(checkLengthMismatch(inputElement))
-        }
-
-        if (!inputElement.validity.valid) {
-          toggleErrorSpan(inputElement, inputElement.validationMessage)
-        } else {
-          toggleErrorSpan(inputElement)
         }
       }
 
@@ -334,9 +349,17 @@
       }
 
       function hasInvalidInput() {
-        return inputList.some((inputElement) => {
-          return !inputElement.validity.valid
-        })
+        return (
+          inputList.some(inputElement => !inputElement.validity.valid) || !checkboxElement.validity.valid
+        )
+      }
+
+      function toggleInputError(inputElement) {
+        if (!inputElement.validity.valid) {
+          toggleErrorSpan(inputElement, inputElement.validationMessage)
+        } else {
+          toggleErrorSpan(inputElement)
+        }
       }
 
       function toggleErrorSpan(inputElement, errorMessage) {

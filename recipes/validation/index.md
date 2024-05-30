@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - tatianafokina
+  - kozlovtseva
 related:
   - js/forms
   - html/form
@@ -28,6 +29,7 @@ tags:
 <form
   class="form"
   name="form"
+  method="POST"
   novalidate
 >
   <div class="form__field-container">
@@ -38,7 +40,7 @@ tags:
         id="input__name"
         class="form__type-input"
         placeholder="Иван"
-        pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+        pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
         data-error-message="Разрешены символы латиницы,
         кириллицы, знаки дефиса и пробелы."
         aria-describedby="name-error"
@@ -121,7 +123,7 @@ tags:
       <input
         type="checkbox"
         id="input__checkbox"
-        class="form__type-input form__type-checkbox"
+        class="form__type-checkbox"
         checked
         aria-describedby="checkbox-error"
         required
@@ -153,6 +155,7 @@ tags:
 ``` js
 const form = document.querySelector('.form')
 const inputList = Array.from(form.querySelectorAll('.form__type-input'))
+const checkboxElement = form.querySelector('.form__type-checkbox')
 const buttonElement = form.querySelector('.button')
 const formErrorElement = form.querySelector('.form__empty-error')
 
@@ -164,11 +167,26 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+        toggleInputError(inputElement)
+      })
+      toggleInputError(checkboxElement)
     }
   })
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       checkInputValidity(inputElement)
+      toggleButton()
+    })
+    inputElement.addEventListener('blur', () => {
+      toggleInputError(inputElement)
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
+    })
+    checkboxElement.addEventListener('change', () => {
+      toggleInputError(checkboxElement)
       toggleButton()
     })
   })
@@ -179,11 +197,6 @@ function checkInputValidity(inputElement) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage)
   } else {
     inputElement.setCustomValidity(checkLengthMismatch(inputElement))
-  }
-  if (!inputElement.validity.valid) {
-    toggleErrorSpan(inputElement, inputElement.validationMessage)
-  } else {
-    toggleErrorSpan(inputElement)
   }
 }
 
@@ -199,9 +212,9 @@ function checkLengthMismatch(inputElement) {
 }
 
 function hasInvalidInput() {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid
-  })
+  return (
+    inputList.some(inputElement => !inputElement.validity.valid) || !checkboxElement.validity.valid
+  )
 }
 
 function toggleErrorSpan(inputElement, errorMessage){
@@ -297,7 +310,7 @@ CSS-стили, которые будут использоваться при в
     id="input__name"
     class="form__type-input"
     placeholder="Иван"
-    pattern="^[a-zA-Zа-яА-ЯЁё\s\-]+$"
+    pattern="^[a-zA-Zа-яА-ЯЁё \-]+$"
     data-error-message="Разрешены символы латиницы,
     кириллицы, знаки дефиса и пробелы."
     aria-describedby="name-error"
@@ -320,13 +333,15 @@ CSS-стили, которые будут использоваться при в
 ```js
 const form = document.querySelector('.form')
 const inputList = Array.from(form.querySelectorAll('.form__type-input'))
+const checkboxElement = form.querySelector('.form__type-checkbox')
 const buttonElement = form.querySelector('.button')
 const formErrorElement = form.querySelector('.form__empty-error')
 ```
 
 Функция `startValidation()` инициирует процесс валидации. Она добавляет обработчик событий для всей формы на событие [`submit`](/js/event-submit/), где используется [`event.preventDefault()`](/js/event-prevent-default/) для предотвращения стандартного поведения формы при отправке. Для дополнительной информации читайте «[Работа с формами](/js/deal-with-forms/)».
 
-На каждый элемент формы назначаются обработчики события [`input`](/js/event-input/). Они активируют функции `checkInputValidity()` и `toggleButton()` при любых изменениях в полях ввода. Их мы напишем далее.
+На каждое поле ввода назначаются обработчики событий `input`, `blur` и `focus`. При любых изменениях в полях ввода активируются функции `checkInputValidity()` и `toggleButton()`. При потере фокуса активируется функция `toggleInputError()`, а при установке фокуса сбрасывается сообщение об ошибке с помощью `toggleErrorSpan()`.
+Для чекбокса добавим отдельный обработчик `change`, при срабатывании такого события вызовутся функции `toggleInputError()` и `toggleButton()`. Все эти функции мы напишем далее.
 
 ```js
 function startValidation() {
@@ -334,6 +349,11 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+        toggleInputError(inputElement)
+      })
+      toggleInputError(checkboxElement)
     }
   })
 
@@ -342,6 +362,17 @@ function startValidation() {
       checkInputValidity(inputElement)
       toggleButton()
     })
+    inputElement.addEventListener('blur', () => {
+      toggleInputError(inputElement)
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
+    })
+  })
+
+  checkboxElement.addEventListener('change', () => {
+    toggleInputError(checkboxElement)
+    toggleButton()
   })
 }
 ```
@@ -372,7 +403,7 @@ function startValidation() {
 
 Сначала проверяется задан ли для поля ввода определённый паттерн и установлена ли минимальная длина. Если паттерн задан и не совпадает с введёнными данными, то с помощью функции [`setCustomValidity`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/setCustomValidity) передаётся кастомное сообщение об ошибке, хранящееся в атрибуте `data-error-message`. В случае соответствия введённых данных паттерну, с помощью функции `checkLengthMismatch()` также проверяется длина введённых данных, очищенная от пробелов. Если сообщение больше установленного количества символов и не пустое, то сообщение об ошибке не передаётся, в ином случае — пользователь получает сообщение с минимально необходимым количеством символов.
 
-Затем проводится стандартная проверка: если свойство `input.validity.valid` равно `false`, выводится сообщение об ошибке, а если `true` — ошибка убирается.
+В функции `toggleInputError()` реализована стандартная проверка: если свойство `input.validity.valid` равно `false`, выводится сообщение об ошибке, а если `true` — ошибка убирается.
 
 ```js
 function checkInputValidity(inputElement) {
@@ -380,11 +411,6 @@ function checkInputValidity(inputElement) {
     inputElement.setCustomValidity(inputElement.dataset.errorMessage)
   } else {
     inputElement.setCustomValidity(checkLengthMismatch(inputElement))
-  }
-  if (!inputElement.validity.valid) {
-    toggleErrorSpan(inputElement, inputElement.validationMessage)
-  } else {
-    toggleErrorSpan(inputElement)
   }
 }
 
@@ -398,16 +424,25 @@ function checkLengthMismatch(inputElement) {
   }
   return ''
 }
+
+function toggleInputError(inputElement) {
+  if (!inputElement.validity.valid) {
+    toggleErrorSpan(inputElement, inputElement.validationMessage)
+  } else {
+    toggleErrorSpan(inputElement)
+  }
+}
 ```
 
-Функция `toggleButton()` устроена просто: она блокирует кнопку, когда находит невалидные поля, и вновь активирует её, если все поля заполнены корректно. Функция `hasInvalidInput()` проверяет поля ввода на наличие ошибок и возвращает `true` или `false`, основываясь на том, обнаружены ли невалидные данные.
+Функция `toggleButton()` устроена просто: она блокирует кнопку, когда находит невалидные поля, и вновь активирует её, если все поля заполнены корректно. Функция `hasInvalidInput()` проверяет поля ввода и чекбокс на наличие ошибок и возвращает `true` или `false`, основываясь на том, обнаружены ли невалидные данные.
 
 Блокировка кнопки отправки формы — рискованный приём. Важно учитывать различные варианты поведения пользователя. Чтобы избежать ситуаций, когда пользователь не понимает причину блокировки кнопки, мы принимаем следующие меры:
 
 - Применяем класс `button-inactive`, который изменяет цвет кнопки на менее яркий, подсказывая пользователю, что нажатие невозможно.
 - Добавляем через этот класс свойства [`cursor: not-allowed;`](/css/cursor/), которое меняет форму курсора на символ запрета.
 - При клике по кнопке отправки формы или при нажатии на неё с клавиатуры показываем ошибку, которая объясняет причину блокировки. Реализуем это с помощью JavaScript.
-- В случае ввода невалидных данных в одно из полей, пользователь моментально получает обратную связь о допущенной ошибке.
+- В случае ввода невалидных данных в одно из полей, пользователь получает обратную связь о допущенной ошибке после потери фокуса на поле или после того, как снят маркер с обязательного чекбокса.
+- Как только пользователь ввёл валидные данные, кнопка становится активной.
 - Чтобы заблокированная кнопка была заметна пользователям, перемещающимся по сайту с помощью клавиши <kbd>Tab</kbd>, мы добавляем к кнопке атрибут [`aria-disabled`](/a11y/aria-disabled/).
 
 Так же напоминаем, что при блокировке кнопки отправки формы важно удостовериться, что требования к заполнению формы разумны и могут быть выполнены всеми пользователями. Следует избегать установления _чрезмерно строгих условий_ для данных, вводимых пользователем. К примеру, пользователь может столкнуться с тем, что его имя слишком длинное для установленного в форме ограничения в 10 символов, что сделает невозможным отправку формы и ограничит доступ к вашему продукту.
@@ -425,9 +460,9 @@ function toggleButton() {
 }
 
 function hasInvalidInput() {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid
-  })
+  return (
+    inputList.some(inputElement => !inputElement.validity.valid) || !checkboxElement.validity.valid
+  )
 }
 
 function formError() {
@@ -478,12 +513,16 @@ function toggleErrorSpan(inputElement, errorMessage){
 const formErrorElement = form.querySelector('.form__empty-error')
 
 function startValidation() {
-  toggleButton()
   form.addEventListener('submit', (event) => {
     event.preventDefault()
     // Показываем ошибку
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+        toggleInputError(inputElement)
+      })
+      toggleInputError(checkboxElement)
     }
   })
   inputList.forEach((inputElement) => {
@@ -491,6 +530,16 @@ function startValidation() {
       checkInputValidity(inputElement)
       toggleButton()
     })
+    inputElement.addEventListener('blur', () => {
+      toggleInputError(inputElement)
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
+    })
+  })
+  checkboxElement.addEventListener('change', () => {
+    toggleInputError(checkboxElement)
+    toggleButton()
   })
 }
 
@@ -529,6 +578,11 @@ function startValidation() {
     event.preventDefault()
     if (hasInvalidInput()) {
       formError()
+      inputList.forEach((inputElement) => {
+        checkInputValidity(inputElement)
+        toggleInputError(inputElement)
+      })
+      toggleInputError(checkboxElement)
     }
   })
 
@@ -537,6 +591,16 @@ function startValidation() {
       checkInputValidity(inputElement)
       toggleButton()
     })
+    inputElement.addEventListener('blur', () => {
+      toggleInputError(inputElement)
+    })
+    inputElement.addEventListener('focus', () => {
+      toggleErrorSpan(inputElement)
+    })
+  })
+  checkboxElement.addEventListener('change', () => {
+    toggleInputError(checkboxElement)
+    toggleButton()
   })
 }
 ```
