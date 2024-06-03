@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Плохая вёрстка — Что такое семантика? — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-weight: 300;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .nav__item,
+    .copyright__link {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #FF8630;
+      text-decoration-color: #FF8630;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    .nav__item:hover,
+    .nav__item:focus,
+    .copyright__link:hover,
+    .copyright__link:focus {
+      background-color: #FF8630;
+      color: #000000;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .card__author,
+    .card__description,
+    .copyright {
+      display: block;
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .container {
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      padding: 22px 0;
+    }
+
+    .heading {
+      display: block;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    .wrapper {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      height: 420px;
+      padding: 24px 20px 16px;
+      background-color: #252525;
+      cursor: pointer;
+    }
+
+    .card__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card__header {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .card__author {
+      display: block;
+      text-align: right;
+    }
+
+    .card__footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: end;
+    }
+
+    .card__img {
+      width: 100%;
+      margin-bottom: 12px;
+    }
+
+    .card__heading {
+      display: block;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .card {
+        width: auto;
+        height: fit-content;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="nav">
+        <a href="#" class="nav__item">
+          Главная
+        </a>
+        <a href="#" class="nav__item">
+          Блог
+        </a>
+        <a href="#" class="nav__item">
+          Контакты
+        </a>
+      </div>
+    </div>
+    <div class="main">
+      <span class="heading">Курсы компании «Гарцующий пони»</span>
+
+      <div class="wrapper">
+        <div class="card">
+          <div class="card__header">
+            <span class="card__heading">
+              SEO для начинающих
+            </span>
+            <span class="card__author">
+              Иван Иванович
+            </span>
+          </div>
+
+          <div class="card__content">
+            <img
+              src="./images/seo-course.png"
+              alt=""
+              class="card__img"
+              decoding="async"
+            >
+            <span class="card__description">
+              Благодаря этому курсу вы научитесь задавливать конкурентов с помощью ссылочной массы, а не качественного контента.
+            </span>
+          </div>
+
+          <div class="card__footer">
+            <span>13 февраля 2023</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <span class="card__heading">
+              WordPress разработка
+            </span>
+            <span class="card__author">
+              Ольга Ольгина
+            </span>
+          </div>
+
+          <div class="card__content">
+            <img
+              src="./images/wordpress-course.png"
+              alt=""
+              class="card__img"
+              decoding="async"
+            >
+            <span class="card__description">
+              WordPress — топ за свои деньги. Изучите его, чтобы стать востребованным фрилансером.
+            </span>
+          </div>
+
+          <div class="card__footer">
+            <span>23 октября 2023</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__header">
+            <span class="card__heading">
+              JavaScript для чайников
+            </span>
+            <span class="card__author">
+              М. Михайловских
+            </span>
+          </div>
+
+          <div class="card__content">
+            <img
+              src="./images/javascript-course.png"
+              alt=""
+              class="card__img"
+              decoding="async"
+            >
+            <span class="card__description">
+              Курс подойдёт для любых чайников: электрических, газовых и даже для кастрюлек, временно подменяющих сломанный чайник.
+            </span>
+          </div>
+
+          <div class="card__footer">
+            <span>30 ноября 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <span class="copyright">2023. Разработано компанией <a class="copyright__link" href="#">«Гарцующий пони»</a></span>
+    </div>
+  </div>
+</body>
+</html>

@@ -21,6 +21,7 @@ groups:
       - ternary-operator
       - spread
       - for-in
+      - for-of
       - shallow-or-deep-clone
       - iterator
       - date
@@ -38,8 +39,14 @@ groups:
     items:
       - object
       - arrays
+      - typed-array
+      - data-view
+      - array-buffer
+      - shared-array-buffer
+      - atomics
       - function-as-datatype
       - set
+      - weak-set
       - map
       - collection-weakmap
   - name: "Числа"
@@ -72,15 +79,25 @@ groups:
       - closures
       - recursion
       - function-arguments-object
+      - arrow-function
   - name: "Массивы"
     items:
       - arrays
       - array-foreach
       - array-map
       - array-reduce
+      - array-reduce-right
+      - array-fill
+      - array-keys
+      - array-values
+      - array-entries
+      - array-tosorted
       - array-filter
+      - array-at
       - array-find
+      - array-find-last
       - array-find-index
+      - array-find-last-index
       - array-flat
       - array-flatmap
       - array-every
@@ -89,16 +106,33 @@ groups:
       - includes
       - index-of
       - last-index-of
+      - array-push
+      - array-pop
+      - array-shift
+      - array-unshift
+      - array-slice
+      - array-splice
+      - array-with
+      - array-copy-within
       - array-length
       - array-from
       - array-of
+      - array-concat
+      - array-join
+      - array-to-reversed
+      - array-to-spliced
+      - array-to-string
+      - array-to-locale-string
       - array-isarray
   - name: "Объекты"
     items:
       - object
-      - object-tostring
-      - descriptors
       - objects-objects-everywhere
+      - descriptors
+      - generators
+      - object-tostring
+      - group-by
+      - intl-datetimeformat
   - name : "Множества (`Set`)"
     items:
       - set
@@ -147,15 +181,14 @@ groups:
       - clearinterval
       - window-print
       - window-open
+      - window-close
       - intersection-observer
-
   - name: "Объектная модель документа DOM"
     items:
       - dom
       - element
       - events
       - htmlcollection-and-nodelist
-
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
@@ -167,6 +200,8 @@ groups:
       - query-selector-all
       - forms
       - cookie
+      - css-style-declaration
+      - document-design-mode
   - name: "Элемент на странице (`Element`)"
     items:
       - element
@@ -177,6 +212,7 @@ groups:
       - getelementsbytagname
       - query-selector
       - query-selector-all
+      - element-closest
       - element-getattribute
       - element-focus
       - element-blur
@@ -216,13 +252,15 @@ groups:
       - element-scroll
       - element-wheel
       - element-touch
-
   - name: "Хранение данных в браузере"
     items:
       - cookie
       - local-storage
       - session-storage
-
+  - name: "Работа с памятью"
+    items:
+      - weak-ref
+      - finalization-registry
   - name: "Асинхронность"
     items:
       - async-in-js
@@ -235,17 +273,15 @@ groups:
       - promise-any
       - promise-race
       - async-await
-
   - name: "Обмен данными с API"
     items:
       - fetch
       - async-await
-
   - name: "Веб-приложение"
     items:
       - language-versions
       - modules
-
+      - web-workers
   - name: "Типовые решения"
     items:
       - deal-with-forms

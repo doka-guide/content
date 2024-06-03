@@ -53,7 +53,7 @@
 
     .button, .dialog__button {
       display: block;
-      min-width: 210px;
+      min-width: 260px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
@@ -128,13 +128,13 @@
     }
 
     .mock {
-      border: 1px solid #FFFFFF;
-      border-radius: 4px;
       padding: 20px;
       height: 130vh;
       display: grid;
       gap: 20px;
       place-content: start center;
+      background-color: #282A2E;
+      color: #E6E6E6;
     }
 
     .scroll-lock {
@@ -155,11 +155,11 @@
       Открыть модальное окно
     </button>
   </main>
-  <dialog class="dialog" id="modal-example" onclose="returnScroll()">
-    <h2 class="dialog__title">Я модальное окно</h2>
+  <dialog class="dialog" id="modal-example" onclose="returnScroll()" aria-labelledby="dialog-name">
+    <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
     <p>Теперь я не только перекрываю остальной контент, но блокирую скролл.</p>
     <form method="dialog">
-      <button class="dialog__button button-orange">Агась 🫡</button>
+      <button class="dialog__button button-orange">Агась 🙌</button>
     </form>
   </dialog>
 

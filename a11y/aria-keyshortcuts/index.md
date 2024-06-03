@@ -3,6 +3,8 @@ title: "`aria-keyshortcuts`"
 description: "Как рассказать пользователю вспомогательной технологии о вашем сочетании клавиш."
 authors:
   - tatianafokina
+contributors:
+  - skorobaeus
 related:
   - a11y/aria-intro
   - a11y/aria-attrs
@@ -45,7 +47,7 @@ tags:
 <button aria-keyshortcuts="Shift+D">Загрузить документ</button>
 ```
 
-В сочетании на первом месте должны стоять [клавиши-модификаторы](https://www.w3.org/TR/uievents-key/#keys-modifier). Например <kbd>Alt</kbd>, <kbd>Shift</kbd> или <kbd>Control</kbd>. Их нельзя использовать без других клавиш с буквами, цифрами или знаками.
+В сочетании на первом месте должны стоять [клавиши-модификаторы](https://www.w3.org/TR/uievents-key/#keys-modifier). Например, <kbd>Alt</kbd>, <kbd>Shift</kbd> или <kbd>Control</kbd>. Их нельзя использовать без других клавиш с буквами, цифрами или знаками.
 
 ```html
 <!-- ⛔ Неправильные сочетания клавиш -->

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Пример с кнопкой — aria-disabled — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:hover {
+        background-color: #ffffff;
+        cursor: pointer;
+        transition: background-color 0.2s linear;
+      }
+
+      .button:focus-visible {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .button:focus {
+        border: 2px solid #ffffff;
+        outline: none;
+      }
+
+      .button-aqua {
+        background-color: #10f3af;
+      }
+
+      [aria-disabled='true'] {
+        color: #ffffff;
+        opacity: 0.5;
+        background-color: #6c757d;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      class="button button-aqua"
+      id="toggleButton"
+      aria-disabled="false"
+      onclick="toggleDisabled()"
+    >
+      Нажми меня
+    </button>
+
+    <script>
+      function toggleDisabled() {
+        const el = document.getElementById('toggleButton')
+        if (el.getAttribute('aria-disabled') === 'true') {
+          return
+        }
+        el.setAttribute('aria-disabled', 'true')
+        el.textContent = 'Я теперь не активна'
+        el.style.pointerEvents = 'none'
+      }
+    </script>
+  </body>
+</html>

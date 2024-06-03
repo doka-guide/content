@@ -22,11 +22,11 @@ tags:
 
 ## Кратко
 
-[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что элемент раскрывает _попап_ — блок с содержимым, который появляется поверх всего остального на странице. Например, диалоговое окно или выпадающее меню как в десктопной программе.
+[Свойство виджета](/a11y/aria-attrs/#atributy-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Означает, что элемент раскрывает _попап_ — блок с содержимым, который появляется поверх всего остального на странице. Например, диалоговое окно или подменю.
 
 <aside>
 
-⚠️ `aria-haspopup` **не используют** для тултипов [`tooltp`](/a11y/role-tooltip/) и простой навигации по сайту со ссылками на другие страницы.
+⚠️ `aria-haspopup` **не используют** для тултипов [`tooltip`](/a11y/role-tooltip/) и простой навигации по сайту со ссылками на другие страницы.
 
 </aside>
 
@@ -45,10 +45,10 @@ tags:
   </button>
 
   <ul role="menu" id="fonts">
-    <!-- Элементы попапа -->
+    <!-- Элементы подменю -->
   </ul>
 
-  <!-- Остальные элементы меню -->
+  <!-- Остальные элементы строки меню -->
 </div>
 ```
 
@@ -61,7 +61,7 @@ tags:
 Добавьте к тегу или элементу с [ARIA-ролью](/a11y/aria-roles/), который открывает попап, атрибут `aria-haspopup`. У него может быть одно из шести значений:
 
 - `false` (по умолчанию) — у элемента нет попапа.
-- `true` или `menu` — попап с ролью «настоящего» меню [`menu`](/a11y/role-menu/).
+- `true` или `menu` — попап с ролью подменю [`menu`](/a11y/role-menu/).
 - `listbox` — попап с ролью выпадающего списка [`listbox`](/a11y/role-listbox/).
 - `tree` — попап с ролью древовидного списка [`tree`](/a11y/role-tree/).
 - `grid` — попап с ролью сетки [`grid`](/a11y/role-grid/).
@@ -71,7 +71,7 @@ tags:
 
 Элемент, который открывает попап, обязательно должен быть интерактивным — на нём можно сделать фокус с клавиатуры, а также кликнуть или тапнуть по нему. Вот роли и теги, которым можно задавать `aria-haspopup`:
 
-- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` c типами](/html/input/#type) `button`, `image`, `reset`, `submit` или [роли `button`](/a11y/role-button/).
+- [`<button>`](/html/button/), [`<summary>`](/html/details/), [`<input>` с типами](/html/input/#type) `button`, `image`, `reset`, `submit` или [роли `button`](/a11y/role-button/).
 - [`<a>`](/html/link/) или [роли `link`](/a11y/role-link/).
 - [`<input type="range">`](/html/input/#type) или [роли `slider`](/a11y/role-slider/).
 - [`<textarea>`](/html/textarea/), [`<input>` с типами](/html/input/#type) `text`, `email`, `tel`, `url` или [роли `textbox`](/a11y/role-textbox/).

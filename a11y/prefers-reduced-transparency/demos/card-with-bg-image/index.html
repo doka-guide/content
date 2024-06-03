@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с градиентом и фоновой картинкой — prefers-reduced-transparency — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
+</head>
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    font-size: 16px;
+  }
+
+  body {
+    min-height: 100vh;
+    padding: 50px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #18191C;
+    color: #FFFFFF;
+    font-family: "Roboto", sans-serif;
+  }
+
+  h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  code {
+    font-size: 1.125rem;
+    font-family: "Roboto Mono", monospace;
+    color: inherit;
+  }
+
+  code + article {
+    margin: 20px 0 30px;
+  }
+
+  article {
+    display: grid;
+    align-items: end;
+    grid-template-rows: 1fr auto;
+    overflow: clip;
+  }
+
+  article span {
+    display: grid;
+    width: 100%;
+    padding: 25px 20px;
+    color: #FFFFFF;
+    background: linear-gradient(to top, #000000, #0000);
+  }
+
+  img {
+    display: block;
+    width: 480px;
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  article > * {
+    grid-area: 1 / 1;
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .with-mediaquery span {
+      padding: 0;
+      background: unset;
+    }
+
+    .with-mediaquery article > * {
+      grid-area: unset;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 30px;
+    }
+  }
+</style>
+<body>
+  <div>
+    <code>no-preference</code>
+    <article>
+      <img src="./images/daycare.png" alt="">
+      <span>
+        <h3>Ясли для питомцев</h3>
+        <p>Присмотрим за животными, пока вы на работе.</p>
+      </span>
+    </article>
+  </div>
+  <div class="with-mediaquery">
+    <code>reduce</code>
+    <article>
+      <img src="./images/walking.png" alt="">
+      <span>
+        <h3>Прогулки</h3>
+        <p>Выгуляем животных вместо вас.</p>
+      </span>
+    </article>
+  </div>
+</body>
+</html>

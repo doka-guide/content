@@ -30,6 +30,7 @@ tags:
 Для начала создадим HTML-разметку со всеми необходимыми элементами:
 
 ```html
+<<<<<<< HEAD
   <div class="slider" tabindex="0" role="region" aria-roledescription="Content Slider" aria-label="Design patterns">
     <div class="controls" role="group" aria-label="Slide controls">
       <button class="button button_type_radio" tabindex="0" aria-disabled="true" aria-label="show slide 1 of 4">
@@ -69,11 +70,52 @@ tags:
         <img class="slideImg" src="./images/IMG_1948.JPG">
     </div>
   </div>
+=======
+<div class="slider" tabindex="0" role="region" aria-roledescription="Content Slider" aria-label="Design patterns">
+        <div class="controls" role="group" aria-label="Slide controls">
+            <button class="button button_type_radio" tabindex="0" aria-disabled="true" aria-label="show slide 1 of 4">
+            </button>
+            <button class="button button_type_radio" tabindex="0" aria-disabled="false" aria-label="show slide 2 of 4">
+            </button>
+            <button class="button button_type_radio" tabindex="0" aria-disabled="false" aria-label="show slide 3 of 4">
+            </button>
+            <button class="button button_type_radio" tabindex="0" aria-disabled="false" aria-label="show slide 4 of 4">
+            </button>
+            <button aria-label="show previous slide" class="button prev-button">
+                <img class="prev-button" src="./images/left-arrow-svgrepo-com.svg">
+            </button>
+            <button aria-label="show next slide" class="button next-button">
+                <img class="next-button" src="./images/right-arrow-svgrepo-com.svg">
+            </button>
+        </div>
+        <div class='slide' role="group" aria-roledescription="Slide" aria-labelledby="First design pattern"
+            id="carousel-item-1">
+            <h3 id="carousel-item-1__heading">Первый слайд</h2>
+                <img class="slideImg" src="./images/IMG_1945.JPG">
+        </div>
+        <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Second design pattern"
+            id="carousel-item-2">
+            <h3 id="carousel-item-2__heading">Второй слайд</h2>
+                <img class="slideImg" src="./images/IMG_1946.JPG">
+        </div>
+        <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
+            id="carousel-item-3">
+            <h3 id="carousel-item-3__heading">Третий слайд</h2>
+                <img class="slideImg" src="./images/IMG_1947.JPG">
+        </div>
+        <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
+            id="carousel-item-3">
+            <h3 id="Fourth design pattern">Четвертый слайд</h2>
+                <img class="slideImg" src="./images/IMG_1948.JPG">
+        </div>
+    </div>
+>>>>>>> ef2ce0d734b2d6db92d1f30d3f8918a19ac7293e
 ```
 
 Для внешнего оформления, а также правильной работы слайдера, нам понадобятся следующие [CSS-правила](/css/css-rule/):
 
 ```css
+<<<<<<< HEAD
     .button_type_radio {
       background-color: transparent;
       margin: 0;
@@ -139,6 +181,66 @@ tags:
       outline: 4px solid DodgerBlue;
       outline-offset: -6px;
     }
+=======
+        .button_type_radio {
+            background-color: transparent;
+            margin: 0;
+            padding: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #868A8F;
+            margin-right: 12px;
+        }
+
+        .button_type_radio.active {
+            background-color: #53d67b;
+        }
+
+        .prev-button,
+        .next-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 50px;
+            height: auto;
+        }
+
+        .prev-button {
+            left: -30px;
+        }
+
+        .next-button {
+            right: -30px;
+        }
+
+        .slideImg {
+            width: 250px;
+            border-radius: 50px;
+            height: auto;
+        }
+
+        .slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 250px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .slide {
+            text-align: center;
+        }
+
+        [aria-label="Design patterns"]:focus {
+            outline: 4px solid DodgerBlue;
+            outline-offset: -6px;
+        }
+>>>>>>> ef2ce0d734b2d6db92d1f30d3f8918a19ac7293e
 ```
 
 Для прокрутки слайдов с помощью стрелок, а также радио-кнопок будем использовать JavaScript:

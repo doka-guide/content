@@ -45,7 +45,7 @@
 
     .button, .dialog__button {
       display: block;
-      min-width: 210px;
+      min-width: 260px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
@@ -57,6 +57,7 @@
     }
 
     .dialog__button {
+      min-width: 300px;
       margin: 0 auto;
     }
 
@@ -135,6 +136,11 @@
         margin-bottom: 30px;
         bottom: 0;
       }
+
+      .dialog__button {
+        min-width: auto;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -143,8 +149,8 @@
   Открыть модальное окно
 </button>
 
-<dialog open="open" id="closeMe" class="dialog">
-  <h2 class="dialog__title">Закрой меня! 🙏</h2>
+<dialog open="open" id="closeMe" class="dialog" aria-labelledby="dialog-name">
+  <h2 class="dialog__title" id="dialog-name">Закрой меня! 🙏</h2>
   <p>Результат этих кнопок одинаковый.</p>
   <button class="dialog__button button-orange" type="button" onclick="window['closeMe'].close()">
     Закрыть с помощью JavaScript

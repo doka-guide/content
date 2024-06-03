@@ -322,6 +322,7 @@
     function openPopup(menuItem, popup) {
       menuItem.setAttribute('aria-expanded', 'true')
       popup.classList.add(menuPopupOpenedClass)
+      popup.setAttribute('tabindex', '0')
 
       const firstFocusableItem = popup.querySelector(focusableSelectors.join(','))
 
@@ -333,6 +334,7 @@
     function closePopup(menuItem, popup) {
       menuItem.setAttribute('aria-expanded', 'false')
       popup.classList.remove(menuPopupOpenedClass)
+      popup.setAttribute('tabindex', '-1')
     }
 
     function togglePopup(menuElement, popupElement) {
@@ -341,6 +343,7 @@
         && !popupElement.contains(event.target)
         && event.target !== menuElement) {
           closePopup(menuElement, popupElement)
+          popup.setAttribute('tabindex', '-1')
         }
       })
 
@@ -387,25 +390,31 @@
           }
         }
 
-        if (event.key === 'Home') {
+        let focusableItems = getFocusableElements(popupElement)
+        let currentIndex = focusableItems.indexOf(document.activeElement)
+
+        if (event.key === 'ArrowDown') {
           event.preventDefault()
-
-          const firstFocusableItem = popupElement.querySelector(focusableSelectors.join(','))
-
-          if (firstFocusableItem) {
-            firstFocusableItem.focus()
+          if (document.activeElement === popupElement) {
+            focusableItems[0].focus()
+          } else {
+            currentIndex = (currentIndex + 1) % focusableItems.length
+            focusableItems[currentIndex].focus()
           }
-        }
-
-        if (event.key === 'End') {
+        } else if (event.key === 'ArrowUp') {
           event.preventDefault()
-
-          const focusableItems = popupElement.querySelectorAll(focusableSelectors.join(','))
-          const lastFocusableItem = focusableItems[focusableItems.length - 1]
-
-          if (lastFocusableItem) {
-            lastFocusableItem.focus()
+          if (document.activeElement === popupElement) {
+            focusableItems[focusableItems.length - 1].focus()
+          } else {
+            currentIndex = (currentIndex - 1 + focusableItems.length) % focusableItems.length
+            focusableItems[currentIndex].focus()
           }
+        } else if (event.key === 'Home') {
+          event.preventDefault()
+          focusableItems[0].focus()
+        } else if (event.key === 'End') {
+          event.preventDefault()
+          focusableItems[focusableItems.length - 1].focus()
         }
       })
     }
@@ -517,7 +526,6 @@
           const filteredMenuItems = mainMenuItems.filter((item) => {
             const buttonText = item.textContent.trim().toLowerCase()
 
-            // return buttonText.charAt(0) === keyPressed
             return buttonText.startsWith(keyPressed)
           })
 
@@ -538,13 +546,7 @@
           let popupItems = getFocusableElements(currentPopup)
           let currentIndex = -1
 
-          if (event.key === 'ArrowDown') {
-            event.preventDefault()
-            currentIndex = (index + 1) % popupItems.length
-          } else if (event.key === 'ArrowUp') {
-            event.preventDefault()
-            currentIndex = (index - 1 + popupItems.length) % popupItems.length
-          } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
             const currentButton = document.querySelector(`button[aria-controls='${currentPopup.id}']`)
             const currentButtonIndex = mainMenuItems.indexOf(currentButton)
             let nextButtonIndex

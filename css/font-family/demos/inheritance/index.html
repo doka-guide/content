@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Шрифты с засечками и без — font-family — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossoriginЮ
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    code pre {
+      font-family: inherit;
+      white-space: break-spaces;
+    }
+
+    form {
+      padding: 55px 80px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      font-family: "Roboto Slab", serif;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .form-row + .form-row {
+      margin-block-start: 25px;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .row-label {
+      display: block;
+      margin-inline-end: 55px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .input, .select, .button {
+      width: 300px;
+      height: 46px;
+    }
+
+    .input {
+      flex-shrink: 0;
+      border: 1px solid #E6E6E6;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #E6E6E6;
+      font-size: 18px;
+      font-weight: 300;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .textarea-label {
+      align-self: baseline;
+    }
+
+    textarea {
+      flex-shrink: 0;
+      min-width: 300px;
+      max-width: 300px;
+      min-height: 100px;
+      max-height: 120px;
+      border: 1px solid #E6E6E6;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #E6E6E6;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    textarea:focus {
+      border-color: #2E9AFF;
+      outline: none;
+    }
+
+    .select {
+      position: relative;
+      border: 1px solid #E6E6E6;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #282A2E;
+      color: #E6E6E6;
+      font-size: 18px;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+      flex-shrink: 0;
+      width: 300px;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    option {
+      font-size: 18;
+      font-weight: 300;
+    }
+
+    .button {
+      flex-shrink: 0;
+      display: block;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-inline-start: auto;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #2E9AFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #2E9AFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #2E9AFF;
+      outline: none;
+    }
+
+    .button-grey {
+      background-color: #E6E6E6;
+    }
+
+    .controls {
+      position: relative;
+      border: 1px solid #FFFFFF;
+      padding: 35px 80px 25px;
+      margin-block-start: 35px;
+    }
+
+    .checkbox-label {
+      position: absolute;
+      top: -13px;
+      left: 55px;
+      display: flex;
+      align-items: center;
+      padding: 0 25px;
+      background-color: #18191c;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-inline-end: 15px;
+      padding: 0;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 25px;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #2E9AFF;
+    }
+
+    .font-family-inherited textarea,
+    .font-family-inherited input,
+    .font-family-inherited select,
+    .font-family-inherited option,
+    .font-family-inherited button {
+      font-family: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .controls {
+        padding-inline-start: 30px;
+        padding-inline-end: 30px;
+      }
+
+      form {
+        width: 100%;
+        padding: 55px 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .select-wrapper, .select, .button {
+        width: 100%;
+      }
+
+      textarea {
+        min-width: 100%;
+        max-width: 100%;
+      }
+
+      .checkbox-label {
+        left: 15px;
+        padding: 0px 15px;
+      }
+
+      .checkbox + .checkbox-title::before {
+        left: 15px;
+      }
+
+      .checkbox:checked + .checkbox-title::after {
+        left: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="">
+      <div class="form-row">
+        <label class="row-label" for="email">Как вас зовут?</label>
+        <input class="input" type="text" id="email" placeholder="Daisy Dewdrop Fluffington">
+      </div>
+      <div class="form-row">
+        <label class="row-label" for="drink-select">Напиток:</label>
+        <div class="select-wrapper">
+          <select name="drink" id="drink-select" class="select">
+            <option value="">-- Ваш напиток --</option>
+            <option value="espresso">Эспрессо</option>
+            <option value="latte">Латте</option>
+            <option value="cappucino">Капучино</option>
+            <option value="raf">Раф</option>
+            <option value="matcha">Матча</option>
+            <option value="fresh">Свежевыжатый сок</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="row-label textarea-label" for="details">Пожелания:</label>
+        <textarea id="details">Банановый сироп, пожалуйста</textarea>
+      </div>
+      <div class="form-row">
+        <button class="button button-grey">Заказать</button>
+      </div>
+    </form>
+
+    <div class="controls">
+      <label class="checkbox-label">
+        <input class="checkbox" name="must-have" type="checkbox">
+        <span class="checkbox-title">Унаследовать <code>font-family</code> от родителя</span>
+      </label>
+
+      <code class="code-sample">
+<pre>
+textarea, input, select, option, button {
+  font-family: inherit;
+}</pre>
+      </code>
+    </div>
+  </div>
+
+  <script>
+    const toggler = document.querySelector('.checkbox')
+    const form = document.querySelector('form')
+    const button = document.querySelector('.button')
+
+    toggler.addEventListener('change', () => form.classList.toggle('font-family-inherited'))
+    button.addEventListener('click', (event) => event.preventDefault())
+  </script>
+</body>
+</html>

@@ -5,6 +5,7 @@ authors:
   - bellabzhu
 contributors:
   - tatianafokina
+  - skorobaeus
 related:
   - html/mark
   - a11y/aria-roles
@@ -79,9 +80,9 @@ span[role="mark"]::after {
 }
 ```
 
-Например, в теме «Ночное небо» элементы с ролью `mark` будут выделятся фиолетовым цветом.
+Например, в теме «Ночное небо» элементы с ролью `mark` выделятся фиолетовым цветом.
 
-![Текст с выделенными фрагментами в режиме высокой контартсности.](images/night-sky-example.png)
+![Текст с выделенными фрагментами в режиме высокой контрастности.](images/night-sky-example.png)
 
 ## Как понять
 
