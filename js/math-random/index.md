@@ -24,7 +24,7 @@ tags:
 const value = Math.random()
 
 console.log(value)
-// выведет случайное число
+// Выведет случайное число
 ```
 
 <iframe title="Генерация случайного числа" src="demos/random-number/" height="300"></iframe>
