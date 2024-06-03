@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2024
+
+- 1 июня, [`banner`](https://doka.guide/a11y/role-banner/), Татьяна Фокина
+- 1 июня, [Атрибут `accept`](https://doka.guide/html/accept/), Татьяна Гладких, Игорь Теплостанский
+
 ## Май 2024
 
 - 28 мая, [`search`](https://doka.guide/a11y/role-search/), Татьяна Фокина
