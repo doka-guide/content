@@ -27,11 +27,11 @@ location: "/about/"
 - **<!-- yaspeller ignore:start -->Анастасия Шапошникова<!-- yaspeller ignore:end -->** — менеджер по развитию и коммуникациям.
 - **<!-- yaspeller ignore:start -->[Егор Левченко](/people/furtivite/)<!-- yaspeller ignore:end -->** — амбассадор в сообществе, помогает новичкам и авторам вносить свой вклад в проект.
 
-Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership).
+Поддерживать работу редакции Доки помогает сервис онлайн-образования [Яндекс Практикум](https://practicum.yandex.ru/promo/courses/programming-reskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-reskilling_doka?utm_content=about-partnership).
 
 ## Откуда мы взялись
 
-Идея Доки родилась в [Практикуме](https://practicum.yandex.ru/programming-upskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-upskilling_doka?utm_content=about-partnership), где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
+Идея Доки родилась в [Практикуме](https://practicum.yandex.ru/promo/courses/programming-reskilling/?utm_source=pr&utm_medium=content&utm_campaign=pr_content_programming-reskilling_doka?utm_content=about-partnership), где <!-- yaspeller ignore:start -->Андрей Уродов<!-- yaspeller ignore:end --> в 2019 году собрал первых участников редакции. Начали появляться тексты, приходили новые участники редакции и авторы, а к концу 2020-го Дока стала развиваться совсем активно. Разработка платформы и подготовка контента заняла год, и 12 октября 2021 года мы запустились как независимый проект.
 
 ## Чего мы хотим
 
