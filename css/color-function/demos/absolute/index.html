@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Абсолютный синтаксис — color() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      place-content: center;
+      grid-auto-columns: min(100%, 250px);
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #000;
+      gap: 20px 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .wrapper::after {
+      content: 'Пространство цветов Display P3 не поддеживается 😢';
+      position: absolute;
+      inset: 0;
+      color: #ffffff;
+      font-size: 2em;
+      text-align: center;
+    }
+
+    @media (color-gamut: p3) {
+      .wrapper::after {
+        display: none;
+      }
+    }
+
+    .color {
+      display: grid;
+      place-items: center;
+      width: 250px;
+      aspect-ratio: 1/1;
+    }
+
+    .color-text {
+      font-weight: 800;
+    }
+
+    .display-p3 {
+      background-color: color(display-p3 0 0.72 1);
+    }
+
+    .a98 {
+      background-color: color(a98-rgb 0.29 0.73 1);
+    }
+
+    .linear {
+      background-color: color(srgb-linear 0 0.5 1);
+    }
+
+    .hex {
+      background-color: #00bbff;
+    }
+
+    .alpha .display-p3 {
+      background-color: color(display-p3 0 0.72 1 / 0.5);
+    }
+
+    .alpha .a98 {
+      background-color: color(a98-rgb 0.29 0.73 1 / 0.5);
+    }
+
+    .alpha .linear {
+      background-color: color(srgb-linear 0 0.5 1 / 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="color display-p3">
+      <span class="color-text">Display P3</span>
+    </div>
+    <div class="color a98">
+      <span class="color-text">a98-rgb</span>
+    </div>
+    <div class="color linear">
+      <span class="color-text">srgb-linear</span>
+    </div>
+    <div class="color hex">
+      <span class="color-text">HEX</span>
+    </div>
+  </div>
+  <div class="wrapper alpha">
+    <div class="color display-p3">
+      <span class="color-text">Display P3 / 0.5</span>
+    </div>
+    <div class="color a98">
+      <span class="color-text">a98-rgb / 0.5</span>
+    </div>
+    <div class="color linear">
+      <span class="color-text">srgb-linear / 0.5</span>
+    </div>
+    <div class="color hex">
+      <span class="color-text">HEX без альфа-канала</span>
+    </div>
+  </div>
+</body>
+</html>

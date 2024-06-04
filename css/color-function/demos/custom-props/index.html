@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомные свойства — color() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      place-content: center;
+      grid-auto-columns: min(100%, 250px);
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #000;
+      gap: 20px 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    :root {
+      --text-color: white;
+      --background-color: #191970;
+      --accent-color: hsl(9 100% 63.9%);
+    }
+
+    .color {
+      display: grid;
+      place-items: center;
+      width: 250px;
+      aspect-ratio: 1/1;
+      font-size: 2em;
+      text-align: center;
+
+      color: color(from var(--text-color) srgb r g b / 0.5);
+      border: 1px solid color(from var(--accent-color) display-p3 r g b / 0.9);
+      background-color: color(from var(--background-color) xyz x y z / 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="color">
+    <span class="color-text">Мои цвета вычесленны из <code>var()</code></span>
+  </div>
+</body>
+</html>
