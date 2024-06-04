@@ -3,6 +3,9 @@ title: "`color()`"
 description: "Обеспечиваем поддержку p3-цветов и преобразуем один цвет в другой."
 authors:
   - solarrust
+keywords:
+  - функция color
+  - функция цвета
 related:
   - css/web-colors
   - css/color
