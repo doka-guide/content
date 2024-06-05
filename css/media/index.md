@@ -8,8 +8,14 @@ cover:
   alt: 'Схема-дерево с примерами для печати, для мобильных и для всех остальных устройств'
 authors:
   - lenaryan
+contributors:
+  - solarrust
 editors:
   - tachisis
+related:
+  - css/cascade
+  - a11y/prefers-reduced-motion
+  - js/match-media
 keywords:
   - ＠-правило
   - media
