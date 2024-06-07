@@ -87,7 +87,7 @@ for (let i = 0; i < 10_000_000; i++) {
 
 ### Реализация `Mutex` на `Atomics`
 
-В JavaScript `Mutex` на `Atomis` реализуется разными способами. Самый распространённый основан на методах `Atomics.wait`, `Atomics.waitAsync`, `Atomics.compareExchange` и `Atomics.notify`. Посмотрим на такую реализацию.
+В JavaScript `Mutex` на `Atomics` реализуется разными способами. Самый распространённый основан на методах `Atomics.wait`, `Atomics.waitAsync`, `Atomics.compareExchange` и `Atomics.notify`. Посмотрим на такую реализацию.
 
 ```js
 const INDEX = 0
