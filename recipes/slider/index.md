@@ -115,10 +115,9 @@ tags:
     }
 
     .slideImg {
-      width: auto;
-      max-height: 370px;
-      height: 100%;
-      transform: rotate(90deg);
+      width: 450px;
+      height: 225px;
+      object-fit: cover;
     }
 
     .slider {
@@ -145,7 +144,8 @@ tags:
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll('.slide');
+            const slider = document.querySelector('.slider');
+            const slides = slider.querySelectorAll('.slide')
             const controlButtons = document.querySelectorAll('.button');
             let currentSlide = 0;
 

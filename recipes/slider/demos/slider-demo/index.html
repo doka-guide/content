@@ -33,7 +33,7 @@
     }
 
     h3 {
-      margin: 37px auto 0;
+      margin: 15px auto 25px;
       font-size: 24px;
       line-height: 26px;
 
@@ -63,7 +63,7 @@
     .prev-button,
     .next-button {
       position: absolute;
-      top: 55%;
+      top: 65%;
       transform: translateY(-50%);
       background: transparent;
       border: none;
@@ -86,17 +86,16 @@
     }
 
     .slideImg {
-      width: auto;
-      max-height: 370px;
-      height: 100%;
-      transform: rotate(90deg);
+      width: 450px;
+      height: 225px;
+      object-fit: cover;
     }
 
     .slider {
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 370px;
+      max-width: 450px;
       width: 100%;
       position: relative;
     }
@@ -133,30 +132,31 @@
     </div>
     <div class='slide' role="group" aria-roledescription="Slide" aria-labelledby="First design pattern"
       id="carousel-item-1">
-      <h3 id="carousel-item-1__heading">Паттерн "Лето"</h2>
+      <h3 id="carousel-item-1__heading">Паттерн "Лето"</h3>
         <img class="slideImg" src="./images/IMG_1945.JPG">
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Second design pattern"
       id="carousel-item-2">
-      <h3 id="carousel-item-2__heading">Паттерн "Цветочное поле"</h2>
+      <h3 id="carousel-item-2__heading">Паттерн "Цветочное поле"</h3>
         <img class="slideImg" src="./images/IMG_1946.JPG">
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
       id="carousel-item-3">
       <h3 id="carousel-item-3__heading">"Паттерн Лиловый"
-        </h2>
+        </h3>
         <img class="slideImg" src="./images/IMG_1947.JPG">
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
-      id="carousel-item-3">
-      <h3 id="Fourth design pattern">"Паттерн Алый"</h2>
+      id="carousel-item-4">
+      <h3 id="Fourth design pattern">"Паттерн Алый"</h3>
         <img class="slideImg" src="./images/IMG_1948.JPG">
     </div>
   </div>
   </main>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const slides = document.querySelectorAll('.slide');
+      const slider = document.querySelector('.slider');
+      const slides = slider.querySelectorAll('.slide')
       const controlButtons = document.querySelectorAll('.button');
       let currentSlide = 0;
 
@@ -168,7 +168,7 @@
 
         controlButtons[currentSlide].setAttribute('aria-disabled', true)
 
-        document.querySelectorAll('.button_type_radio').forEach((controller, index) => {
+       slider.querySelectorAll('.button_type_radio').forEach((controller, index) => {
           if (index === currentSlide) {
             controller.classList.add('active');
           } else {
