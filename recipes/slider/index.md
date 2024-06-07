@@ -399,7 +399,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ```javascript
         document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll('.slide');
+            const slider = document.querySelector('.slider');
+            const slides = slider.querySelectorAll('.slide');
             const controlButtons = document.querySelectorAll('.button');
             let currentSlide = 0;
 
