@@ -582,7 +582,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ### CSS
 
 ```css
- .button_type_radio {
+.button_type_radio {
   background-color: transparent;
   margin: 0;
   padding: 0;
