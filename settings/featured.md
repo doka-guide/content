@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/bundlers
-  - tools/network
-  - a11y/aria-intro
-  - js/geolocation-api
-  - a11y/screenreaders
-  - recipes/lets-encrypt-nginx
-  - js/function-context
-  - js/execution-order
-  - js/array-entries
-  - js/array-reduce-right
-  - tools/oop
-  - html/video
-  - tools/static-types
-  - tools/markdown
-  - recipes/progress
-  - js/closures
-  - css/pseudoelements
-  - html/doctype
-  - js/async-in-js
-  - html/img
-  - html/div
-  - tools/how-the-browser-creates-pages
-  - html/input
-  - css/box-model
-  - a11y/aria-hidden
-  - css/media
-  - recipes/character-counter
-  - css/box-shadow
-  - css/position
-  - js/deal-with-forms
   - css/custom-properties
-  - tools/gitlab-ci-cd
   - recipes/center
-  - css/specificity
-  - html/nav
-  - recipes/snow
+  - a11y/aria-hidden
+  - tools/markdown
+  - html/input
+  - html/doctype
   - tools/webpack
-  - recipes/ajax-form
-  - recipes/popup
-  - tools/docker
-  - css/flexbox-guide
-  - tools/agile
-  - a11y/live-region
-  - css/scrollbar-gutter
-  - html/flow
-  - css/keyframes
-  - a11y/content-hidden
-  - a11y/css-impact-on-a11y
-  - js/function
-  - css/display
-  - js/infinite-scroll
-  - css/grid-guide
-  - tools/cors
-  - recipes/git-rebase-onto
-  - html/article
+  - js/deal-with-forms
+  - a11y/aria-intro
+  - css/box-model
+  - recipes/snow
   - tools/clean-architecture
-  - tools/cli
-  - html/head
-  - tools/ci-cd
-  - html/section
-  - tools/how-to-test-and-why
-  - html/form
-  - js/var-let
-  - css/transform-function
+  - tools/how-the-browser-creates-pages
+  - tools/static-types
+  - html/img
+  - tools/agile
   - js/boolean
+  - a11y/content-hidden
+  - js/array-entries
+  - tools/ci-cd
+  - tools/oop
+  - recipes/ajax-form
+  - css/flexbox-guide
+  - tools/how-to-test-and-why
+  - css/position
+  - tools/bundlers
+  - html/nav
+  - html/video
+  - tools/cors
+  - css/transform-function
+  - css/box-shadow
+  - html/flow
+  - js/geolocation-api
+  - tools/gitlab-ci-cd
+  - css/specificity
+  - css/display
+  - js/function
+  - js/execution-order
+  - html/article
+  - js/function-context
+  - tools/network
+  - html/form
+  - recipes/popup
   - css/attr
+  - js/closures
+  - css/scrollbar-gutter
+  - js/var-let
+  - a11y/live-region
+  - html/section
+  - js/infinite-scroll
+  - css/media
+  - recipes/lets-encrypt-nginx
+  - css/keyframes
+  - a11y/screenreaders
+  - tools/cli
+  - recipes/progress
+  - recipes/git-rebase-onto
+  - js/async-in-js
+  - css/grid-guide
+  - html/head
+  - html/div
+  - tools/docker
+  - js/array-reduce-right
+  - css/pseudoelements
+  - recipes/character-counter
   - css/box-sizing
+  - a11y/css-impact-on-a11y
 ---
 
