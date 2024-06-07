@@ -158,7 +158,6 @@
     </div>
   </div>
   </main>
-
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const slider = document.querySelector('.slider');
@@ -174,7 +173,7 @@
 
         controlButtons[currentSlide].setAttribute('aria-disabled', true)
 
-       slider.querySelectorAll('.button_type_radio').forEach((controller, index) => {
+        slider.querySelectorAll('.button_type_radio').forEach((controller, index) => {
           if (index === currentSlide) {
             controller.classList.add('active');
           } else {
