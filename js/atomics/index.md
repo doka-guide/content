@@ -5,7 +5,6 @@ authors:
   - doka-dog
   - vsezol
 related:
-  - js/weak-ref
   - js/array-isarray
   - js/arrays
   - js/shared-array-buffer
