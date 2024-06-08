@@ -3,6 +3,8 @@ title: "Модули, `import`/`export`"
 description: "Используем функции и переменные из других файлов."
 authors:
   - bespoyasov
+contributors:
+  - vitya-ne
 keywords:
   - module
   - импорт
@@ -91,19 +93,61 @@ function(module1, module2) {
 
 _CommonJS_ — это модульная система, которая пришла вместе с Node.js.
 
-У неё несколько другое определение импортов и экспортов. Чтобы экспортировать функциональность, назвав её каким-то именем, используют именованные экспорты. Чтобы экспортировать что-то из модуля, как одну сущность, есть экспорты по умолчанию. Для импорта функциональности используется `require`.
+Любой .js файл может рассматривать как модуль.
+
+Для экспорта из модуля применяется ключевое слово `exports`. Например:
 
 ```javascript
-const useFullConstant = 42
+// module1.js
 
-// Именованные экспорты
-exports.useFullConstant = useFullConstant
+function getName(fullname) {
+  return fullname.firstName
+}
 
-// Экспорты по умолчанию
-module.exports = useFullConstant
+exports.getName = getName
+```
 
-// Импорт функциональности
-const { importedFunction } = require('./other-module.js')
+Так же для экспорта можно использовать `module.exports`:
+
+```javascript
+// module2.js
+function showName() {
+  return 'js'
+}
+
+function calc(a) {
+  return a*2
+}
+
+module.exports = { showName, calc }
+```
+
+Оба варианта равнозначны. Такой способ экспорта называется именованным.
+
+Для импорта используется ключевое слово `require`.
+
+```javascript
+// main.js
+const { getName } = require('./module1.js')
+const { showName, calc } = require('./module2.js')
+```
+
+Если модуль экспортирует только одну сущность можно использовать  экспорт по умолчанию. В этом случае при импорте не требуется деструктуризация импортируемого объекта
+
+```javascript
+// person.js
+function Person(id) {
+  this.id = id
+}
+
+Person.prototype.setName = function(name) {
+  this.name = name
+}
+
+module.exports = Person
+
+// main.js
+const Person = require('./person.js')
 ```
 
 Именованные экспорты и экспорты по умолчанию встречаются и сейчас. Разницу между ними подробнее рассмотрим чуть дальше.
