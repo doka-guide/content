@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -32,17 +32,15 @@
       font-family: "Roboto", sans-serif;
     }
 
-    h3 {
-      margin: 15px auto 25px;
-      font-size: 24px;
+    h2 {
+      margin: 20px auto 0;
+      font-size: 22px;
+      font-weight: 500;
       line-height: 26px;
-
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
+    .controls {
+      margin-block-end: 20px;
     }
 
     .button_type_radio {
@@ -53,40 +51,48 @@
       height: 15px;
       border-radius: 50%;
       border: 1px solid #FFFFFF;
-      margin-right: 12px;
+    }
+
+    .button_type_radio + .button_type_radio {
+      margin-inline-start: 12px;
     }
 
     .button_type_radio.active {
       background-color: #C56FFF;
     }
 
+    .button_type_radio:focus-visible {
+      outline: 3px solid white;
+      outline-offset: -1px;
+    }
+
     .prev-button,
     .next-button {
       position: absolute;
-      top: 65%;
+      top: 50%;
       transform: translateY(-50%);
-      background: transparent;
       border: none;
+      width: 30px;
+      height: 42px;
+      background-color: transparent;
+      background-image: url(./images/arrow.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
       cursor: pointer;
-      width: 40px;
-      height: auto;
     }
 
     .prev-button {
-      left: -40px;
-      transform: rotate(45deg);
-      transform-origin: center;
+      left: -50px;
     }
 
     .next-button {
-      right: -40px;
-      transform: rotate(-45deg);
+      right: -50px;
+      transform: translateY(-50%) rotateY(180deg);
       transform-origin: center;
-
     }
 
     .slide-img {
-      width: 450px;
+      width: 100%;
       height: 225px;
       object-fit: cover;
     }
@@ -95,7 +101,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 450px;
+      max-width: 600px;
       width: 100%;
       position: relative;
     }
@@ -108,6 +114,28 @@
     [aria-label="Design patterns"]:focus {
       outline: 2px solid #C56FFF;
       outline-offset: 6px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .slider {
+        max-width: 260px;
+      }
+
+      .slide-img {
+        height: 400px;
+      }
+
+      .prev-button {
+        left: -40px;
+      }
+
+      .next-button {
+        right: -40px;
+      }
     }
   </style>
 </head>
@@ -125,28 +153,26 @@
       </button>
 
       <button aria-label="show previous slide" class="button prev-button">
-        <img class="prev-button" src="./images/arrow-down.svg">
       </button>
       <button aria-label="show next slide" class="button next-button">
-        <img class="next-button" src="./images/arrow-down.svg">
       </button>
     </div>
 
     <div class='slide' role="group" aria-roledescription="Slide" aria-labelledby="First design pattern" id="carousel-item-1">
-      <h3 id="carousel-item-1__heading">Паттерн «Лето»</h3>
       <img class="slide-img" src="./images/summer.jpg">
+      <h2 id="carousel-item-1__heading">Паттерн «Лето»</h2>
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Second design pattern" id="carousel-item-2">
-      <h3 id="carousel-item-2__heading">Паттерн «Цветочное поле»</h3>
       <img class="slide-img" src="./images/flowers.jpg">
+      <h2 id="carousel-item-2__heading">Паттерн «Цветочное поле»</h2>
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern" id="carousel-item-3">
-      <h3 id="carousel-item-3__heading">Паттерн «Лиловый»</h3>
       <img class="slide-img" src="./images/lilac.jpg">
+      <h2 id="carousel-item-3__heading">Паттерн «Лиловый»</h2>
     </div>
     <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern" id="carousel-item-4">
-      <h3 id="Fourth design pattern">Паттерн «Алый»</h3>
       <img class="slide-img" src="./images/scarlet.jpg">
+      <h2 id="Fourth design pattern">Паттерн «Алый»</h2>
     </div>
   </div>
 

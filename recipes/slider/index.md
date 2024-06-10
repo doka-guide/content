@@ -72,14 +72,12 @@ tags:
       aria-label="show previous slide"
       class="button prev-button"
     >
-      <img class="prev-button" src="./images/arrow-down.svg">
     </button>
 
     <button
       aria-label="show next slide"
       class="button next-button"
     >
-      <img class="next-button" src="./images/arrow-down.svg">
     </button>
   </div>
 
@@ -90,10 +88,10 @@ tags:
     aria-labelledby="First design pattern"
     id="carousel-item-1"
   >
-    <h3 id="carousel-item-1__heading">
-      Паттерн "Лето"
+    <img class="slide-img" src="./images/summer.jpg">
+    <h2 id="carousel-item-1__heading">
+      Паттерн «Лето»
     </h2>
-    <img class="slideImg" src="./images/IMG_1945.JPG">
   </div>
 
   <div
@@ -104,10 +102,10 @@ tags:
     id="carousel-item-2"
     hidden
   >
-    <h3 id="carousel-item-2__heading">
-      Паттерн "Цветочное поле"
+    <img class="slide-img" src="./images/flowers.jpg">
+    <h2 id="carousel-item-2__heading">
+      Паттерн «Цветочное поле»
     </h2>
-    <img class="slideImg" src="./images/IMG_1946.JPG">
   </div>
 
   <div
@@ -118,10 +116,10 @@ tags:
     id="carousel-item-3"
     hidden
   >
-    <h3 id="carousel-item-3__heading">
-      "Паттерн Лиловый"
+    <img class="slide-img" src="./images/lilac.jpg">
+    <h2 id="carousel-item-3__heading">
+      Паттерн «Лиловый»
     </h2>
-    <img class="slideImg" src="./images/IMG_1947.JPG">
   </div>
 
   <div
@@ -132,10 +130,10 @@ tags:
     id="carousel-item-3"
     hidden
   >
-    <h3 id="Fourth design pattern">
-      "Паттерн Алый"
+    <img class="slide-img" src="./images/scarlet.jpg">
+    <h2 id="Fourth design pattern">
+      Паттерн «Алый»
     </h2>
-    <img class="slideImg" src="./images/IMG_1948.JPG">
   </div>
 </div>
 ```
@@ -180,13 +178,6 @@ tags:
   right: -40px;
   transform: rotate(-45deg);
   transform-origin: center;
-}
-
-.slideImg {
-  width: auto;
-  max-height: 370px;
-  height: 100%;
-  transform: rotate(90deg);
 }
 
 .slider {
@@ -270,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 ```
 
-<iframe title="Пример слайдера" src="demos/slider-demo/" height="600"></iframe>
+<iframe title="Пример слайдера" src="demos/slider-demo/" height="450"></iframe>
 
 ## Разбор решения
 
@@ -287,14 +278,12 @@ document.addEventListener("DOMContentLoaded", function () {
   aria-label="show previous slide"
   class="button prev-button"
 >
-  <img class="prev-button" src="./images/arrow-down.svg">
 </button>
 
 <button
   aria-label="show next slide"
   class="button next-button"
 >
-  <img class="next-button" src="./images/arrow-down.svg">
 </button>
 ```
 
@@ -366,10 +355,10 @@ document.addEventListener("DOMContentLoaded", function () {
     aria-labelledby="First design pattern"
     id="carousel-item-1"
   >
-    <h3 id="carousel-item-1__heading">
-      Паттерн "Лето"
+    <img class="slide-img" src="./images/summer.jpg">
+    <h2 id="carousel-item-1__heading">
+      Паттерн «Лето»
     </h2>
-    <img class="slideImg" src="./images/IMG_1945.JPG">
   </div>
   <!-- Остальные слайды -->
 </div>
@@ -439,14 +428,12 @@ document.addEventListener("DOMContentLoaded", function () {
     aria-label="show previous slide"
     class="button prev-button"
   >
-    <img class="prev-button" src="./images/arrow-down.svg">
   </button>
 
   <button
     aria-label="show next slide"
     class="button next-button"
   >
-    <img class="next-button" src="./images/arrow-down.svg">
   </button>
 </div>
 ```
@@ -461,10 +448,10 @@ document.addEventListener("DOMContentLoaded", function () {
   aria-labelledby="First design pattern"
   id="carousel-item-1"
 >
-  <h3 id="carousel-item-1__heading">
-    Паттерн "Лето"
+  <img class="slide-img" src="./images/summer.jpg">
+  <h2 id="carousel-item-1__heading">
+    Паттерн «Лето»
   </h2>
-  <img class="slideImg" src="./images/IMG_1945.JPG">
 </div>
 ```
 
@@ -479,10 +466,10 @@ document.addEventListener("DOMContentLoaded", function () {
   aria-labelledby="First design pattern"
   id="carousel-item-1"
 >
-  <h3 id="carousel-item-1__heading">
-    Паттерн "Лето"
+  <img class="slide-img" src="./images/summer.jpg">
+  <h2 id="carousel-item-1__heading">
+    Паттерн «Лето»
   </h2>
-  <img class="slideImg" src="./images/IMG_1945.JPG">
 </div>
 
 <!-- Скрытые слайды -->
@@ -494,10 +481,10 @@ document.addEventListener("DOMContentLoaded", function () {
   id="carousel-item-2"
   hidden
 >
-  <h3 id="carousel-item-2__heading">
-    Паттерн "Цветочное поле"
+  <h2 id="carousel-item-2__heading">
+    Паттерн «Цветочное поле»
   </h2>
-  <img class="slideImg" src="./images/IMG_1946.JPG">
+  <img class="slide-img" src="./images/flowers.jpg">
 </div>
 
 <div
@@ -508,10 +495,10 @@ document.addEventListener("DOMContentLoaded", function () {
   id="carousel-item-3"
   hidden
 >
-  <h3 id="carousel-item-3__heading">
-    "Паттерн Лиловый"
+  <h2 id="carousel-item-3__heading">
+    Паттерн «Лиловый»
   </h2>
-  <img class="slideImg" src="./images/IMG_1947.JPG">
+  <img class="slide-img" src="./images/lilac.jpg">
 </div>
 
 <div
@@ -522,10 +509,10 @@ document.addEventListener("DOMContentLoaded", function () {
   id="carousel-item-3"
   hidden
 >
-  <h3 id="Fourth design pattern">
-    "Паттерн Алый"
+  <h2 id="Fourth design pattern">
+    Паттерн «Алый»
   </h2>
-  <img class="slideImg" src="./images/IMG_1948.JPG">
+  <img class="slide-img" src="./images/scarlet.jpg">
 </div>
 ```
 
@@ -568,14 +555,12 @@ document.addEventListener("DOMContentLoaded", function () {
   aria-label="show previous slide"
   class="button prev-button"
 >
-  <img class="prev-button" src="./images/arrow-down.svg">
 </button>
 
 <button
   aria-label="show next slide"
   class="button next-button"
 >
-  <img class="next-button" src="./images/arrow-down.svg">
 </button>
 ```
 
@@ -590,31 +575,15 @@ document.addEventListener("DOMContentLoaded", function () {
   height: 15px;
   border-radius: 50%;
   border: 1px solid #868A8F;
-  margin-right: 12px;
 }
 
 .button_type_radio.active {
   background-color: #53d67b;
 }
 
-.prev-button,
-.next-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  width: 50px;
-  height: auto;
-}
-
-.prev-button {
-  left: -30px;
-}
-
-.next-button {
-  right: -30px;
+.button_type_radio:focus-visible {
+  outline: 3px solid white;
+  outline-offset: -1px;
 }
 ```
 
@@ -626,19 +595,22 @@ document.addEventListener("DOMContentLoaded", function () {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
   border: none;
+  width: 30px;
+  height: 42px;
+  background-color: transparent;
+  background-image: url(arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
   cursor: pointer;
-  width: 50px;
-  height: auto;
 }
 
 .prev-button {
-  left: -30px;
+  left: -50px;
 }
 
 .next-button {
-  right: -30px;
+  right: -50px;
 }
 ```
 
