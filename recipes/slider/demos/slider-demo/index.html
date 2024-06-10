@@ -85,7 +85,7 @@
 
     }
 
-    .slideImg {
+    .slide-img {
       width: 450px;
       height: 225px;
       object-fit: cover;
@@ -123,6 +123,7 @@
       </button>
       <button class="button button_type_radio" tabindex="0" aria-disabled="false" aria-label="show slide 4 of 4">
       </button>
+
       <button aria-label="show previous slide" class="button prev-button">
         <img class="prev-button" src="./images/arrow-down.svg">
       </button>
@@ -130,34 +131,25 @@
         <img class="next-button" src="./images/arrow-down.svg">
       </button>
     </div>
-    <div class='slide' role="group" aria-roledescription="Slide" aria-labelledby="First design pattern"
-      id="carousel-item-1">
-      <h3 id="carousel-item-1__heading">Паттерн "Лето"</h3>
+
+    <div class='slide' role="group" aria-roledescription="Slide" aria-labelledby="First design pattern" id="carousel-item-1">
       <h3 id="carousel-item-1__heading">Паттерн «Лето»</h3>
-        <img class="slideImg" src="./images/IMG_1945.JPG">
+      <img class="slide-img" src="./images/summer.jpg">
     </div>
-    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Second design pattern"
-      id="carousel-item-2">
-      <h3 id="carousel-item-2__heading">Паттерн "Цветочное поле"</h3>
+    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Second design pattern" id="carousel-item-2">
       <h3 id="carousel-item-2__heading">Паттерн «Цветочное поле»</h3>
-        <img class="slideImg" src="./images/IMG_1946.JPG">
+      <img class="slide-img" src="./images/flowers.jpg">
     </div>
-    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
-      id="carousel-item-3">
-      <h3 id="carousel-item-3__heading">"Паттерн Лиловый"
-        </h3>
+    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern" id="carousel-item-3">
       <h3 id="carousel-item-3__heading">Паттерн «Лиловый»</h3>
-        <img class="slideImg" src="./images/IMG_1947.JPG">
+      <img class="slide-img" src="./images/lilac.jpg">
     </div>
-    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern"
-      id="carousel-item-4">
-      <h3 id="Fourth design pattern">"Паттерн Алый"</h3>
-      id="carousel-item-3">
+    <div class='slide' hidden role="group" aria-roledescription="Slide" aria-labelledby="Third design pattern" id="carousel-item-4">
       <h3 id="Fourth design pattern">Паттерн «Алый»</h3>
-        <img class="slideImg" src="./images/IMG_1948.JPG">
+      <img class="slide-img" src="./images/scarlet.jpg">
     </div>
   </div>
-  </main>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const slider = document.querySelector('.slider');
