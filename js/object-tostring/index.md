@@ -52,7 +52,7 @@ const person = {name: 'Brendan Eich', year: 1961}
 console.log('person: ', person)
 // person: { name: 'Brendan Eich', year: 1961 }
 
-// Срока как аргумент console.log
+// Строка как аргумент console.log
 console.log('person: ' + person)
 // person: [object Object]
 ```
