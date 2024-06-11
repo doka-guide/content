@@ -39,7 +39,7 @@ JavaScript имеет специальный тип для создания ун
 ```js
 function getUnique (array) {
   // Если это не массив, возвращаем пустой массив
-  if ( Array.isArray(array) === false) {
+  if (Array.isArray(array) === false) {
       return []
   }
 
