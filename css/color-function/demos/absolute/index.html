@@ -25,14 +25,21 @@
       display: grid;
       place-items: center;
       place-content: center;
-      grid-auto-columns: min(100%, 250px);
       margin: 0;
       padding: 50px;
       background-color: #18191c;
       color: #000;
-      gap: 20px 25px;
+      gap: 20px;
       -webkit-font-smoothing: antialiased;
       font-family: "Roboto", sans-serif;
+    }
+
+    body::after {
+      content: 'Пространство цветов Display P3 не поддерживается 😢';
+      display: block;
+      color: #ffffff;
+      font-size: 18px;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -41,37 +48,31 @@
       }
     }
 
+    @media (color-gamut: p3) {
+      body::after {
+        display: none;
+      }
+    }
+
     .wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 50px;
-    }
-
-    .wrapper::after {
-      content: 'Пространство цветов Display P3 не поддерживается 😢';
-      position: absolute;
-      inset: 0;
-      color: #ffffff;
-      font-size: 2em;
-      text-align: center;
-    }
-
-    @media (color-gamut: p3) {
-      .wrapper::after {
-        display: none;
-      }
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .color {
       display: grid;
       place-items: center;
-      width: 250px;
+      width: 200px;
+      padding: 20px;
+      text-align: center;
       aspect-ratio: 1/1;
     }
 
     .color-text {
-      font-weight: 800;
+      font-size: 18px;
     }
 
     .display-p3 {

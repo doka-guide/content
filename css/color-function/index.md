@@ -1,6 +1,6 @@
 ---
 title: "`color()`"
-description: "Обеспечиваем поддержку p3-цветов и преобразуем один цвет в другой."
+description: "Обеспечиваем поддержку неочевидных цветов и преобразуем один цвет в другой."
 authors:
   - solarrust
 keywords:
@@ -127,11 +127,11 @@ tags:
 
 ### Перевод в другое цветовое пространство
 
-Переведём цвет `seagreen` в цветовое пространство `display-p3` и добавим прозрачность `0.8`:
+Переведём цвет `hotpink` в цветовое пространство `display-p3` и добавим прозрачность `0.8`:
 
 ```css
 .block {
-  background-color: color(from seagreen display-p3 r g b / 0.8);
+  background-color: color(from hotpink display-p3 r g b / 0.8);
 }
 ```
 
@@ -141,7 +141,7 @@ tags:
 
 ```css
 .block {
-  background-color: color(from seagreen a98-rgb r 1 0 / 0.8);
+  background-color: color(from hotpink a98-rgb r 1 0 / 0.8);
 }
 ```
 
@@ -153,7 +153,7 @@ tags:
 
 ```css
 .block {
-  background-color: color(from seagreen xyz calc(x + 0.3) calc(y + 0.3) calc(z + 0.3));
+  background-color: color(from hotpink xyz calc(x + 0.3) calc(y + 0.3) calc(z + 0.3));
 }
 ```
 
@@ -192,14 +192,14 @@ tags:
 ```css
 :root {
   --text-color: white;
-  --background-color: #191970;
-  --accent-color: hsl(9 100% 63.9%);
+  --background-color: #2E9AFF;
+  --accent-color: hsl(346 81% 78%);
 }
 
 .block {
-  color: color(from var(--text-color) srgb r g b / 0.5);
-  border: 1px solid color(from var(--accent-color) display-p3 r g b / 0.9);
-  background-color: color(from var(--background-color) xyz x y z / 0.5);
+  color: color(from var(--text-color) srgb r g b / 0.9);
+  border: 1px solid color(from var(--accent-color) display-p3 r g b / 0.75);
+  background-color: color(from var(--background-color) xyz x y z / 0.2);
 }
 ```
 
@@ -215,12 +215,12 @@ tags:
 
 ```css
 .block {
-  color: seagreen;
+  color: hotpink;
 }
 
-@supports(color: color(display-p3 0.29 0.54 0.36)) {
+@supports(color: color(display-p3 0.93 0.45 0.7)) {
   .block {
-    color: color(display-p3 0.29 0.54 0.36);
+    color: color(display-p3 0.93 0.45 0.7);
   }
 }
 ```
@@ -229,12 +229,12 @@ tags:
 
 ```css
 .block {
-  color: seagreen;
+  color: hotpink;
 }
 
 @media (color-gamut: p3) {
   .block {
-    color: color(display-p3 0.29 0.54 0.36);
+    color: color(display-p3 0.93 0.45 0.7);
   }
 }
 ```
@@ -245,9 +245,9 @@ tags:
 
 ```css
 .block {
-  color: seagreen;
-  color: color(display-p3 0.29 0.54 0.36);
+  color: hotpink;
+  color: color(display-p3 0.93 0.45 0.7);
 }
 ```
 
-В примере выше, если браузер умеет читать `color()`, применится второе правило, поскольку оно ниже по коду. Если браузер с ним не знаком, он откинет его и применит расположенное выше правило с цветом `seagreen`.
+В примере выше, если браузер умеет читать `color()`, применится второе правило, поскольку оно ниже по коду. Если браузер с ним не знаком, он откинет его и применит расположенное выше правило с цветом `hotpink`.

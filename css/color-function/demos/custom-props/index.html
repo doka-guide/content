@@ -30,7 +30,7 @@
       padding: 50px;
       background-color: #18191c;
       color: #000;
-      gap: 20px 25px;
+      gap: 20px;
       -webkit-font-smoothing: antialiased;
       font-family: "Roboto", sans-serif;
     }
@@ -43,21 +43,22 @@
 
     :root {
       --text-color: white;
-      --background-color: #191970;
-      --accent-color: hsl(9 100% 63.9%);
+      --background-color: #2E9AFF;
+      --accent-color: hsl(346 81% 78%);
     }
 
     .color {
       display: grid;
       place-items: center;
-      width: 250px;
-      aspect-ratio: 1/1;
-      font-size: 2em;
+      width: 100%;
+      max-width: 670px;
+      padding: 55px 40px;
+      font-size: 24px;
       text-align: center;
 
-      color: color(from var(--text-color) srgb r g b / 0.5);
-      border: 1px solid color(from var(--accent-color) display-p3 r g b / 0.9);
-      background-color: color(from var(--background-color) xyz x y z / 0.5);
+      color: color(from var(--text-color) srgb r g b / 0.9);
+      border: 1px solid color(from var(--accent-color) display-p3 r g b / 0.75);
+      background-color: color(from var(--background-color) xyz x y z / 0.2);
     }
   </style>
 </head>
