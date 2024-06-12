@@ -96,7 +96,7 @@ function getUnique (collection, comparator) {
 
   // Если функция сравнения не передана, используем метод Object.is
   const isEqual = typeof comparator === 'function'
-    ? comparator : (a, b) => Object.is(a, b)
+    ? comparator :  Object.is
 
   const uniqueArray = []
 
