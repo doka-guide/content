@@ -4,6 +4,7 @@
 
 ## Июнь 2024
 
+- 10 июня, [`:is()`](https://doka.guide/css/is/), Игорь Теплостанский
 - 1 июня, [`banner`](https://doka.guide/a11y/role-banner/), Татьяна Фокина
 - 1 июня, [Атрибут `accept`](https://doka.guide/html/accept/), Татьяна Гладких, Игорь Теплостанский
 
