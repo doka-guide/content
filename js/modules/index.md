@@ -107,7 +107,7 @@ function getName(fullname) {
 exports.getName = getName
 ```
 
-Так же для экспорта можно использовать `module.exports`:
+Также для экспорта можно использовать `module.exports`:
 
 ```javascript
 // module2.js
