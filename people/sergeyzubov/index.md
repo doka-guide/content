@@ -1,7 +1,7 @@
 ---
 name: 'Сергей Зубов'
 url: https://github.com/captain-zsa
-photo: photo.jpg
+photo: photo.png
 badges:
   - first-contribution-small
 ---
