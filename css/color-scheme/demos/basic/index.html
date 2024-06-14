@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Color-scheme — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  gap: 10px;
+  margin: auto;
+  margin-top: 40px;
+}
+input {
+  font-size: 16px;
+  padding: 10px;
+}
+.dark {
+  color-scheme: dark;
+}
+.light {
+  color-scheme: light;
+}
+.normal {
+  color-scheme: light dark;
+}
+</style>
+</head>
+<body>
+  <div>
+    <input class="dark" placeholder="Светлый" />
+    <input class="light" placeholder="Тёмный" />
+    <input class="normal" placeholder="Системный"/>
+  </div>
+</body>
+</html>
