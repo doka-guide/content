@@ -193,7 +193,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 - Группа `<input type="radio">` с одинаковым `name`, но у которой ни один элемент не установлен в `checked`.
 - `<progress>`.
 
-Для `<input>` состояние `indeterminate` в HTML можно задать только через JavaScript.
+Для [`<input>`](/html/input/) состояние `indeterminate` в HTML можно задать только через JavaScript.
 
 <iframe title="Промежуточные состояния элементов форм" src="demos/indeterminate/" height="400"></iframe>
 
