@@ -16,7 +16,7 @@ tags:
 
 [Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для выпадающего списка с несколькими опциями на выбор. В таком списке может быть не только текст, но и картинки.
 
-В HTML эта роль есть у [`<datalist>`](/html/datalist/) и [`<select>`](/html/select/) с атрибутами `multiple` и `size` со значением больше 1.
+В HTML эта роль есть у [`<datalist>`](/html/datalist/) и [`<select>`](/html/select/) с атрибутами [`multiple`](/html/multiple/) и `size` со значением больше 1.
 
 ## Как пишется
 
