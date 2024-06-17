@@ -213,7 +213,7 @@ tags:
 
 Он позволяет стилизовать подсказку, которая выводится в поле ввода текста ([`<input>`](/html/input/)).
 
-Текст подсказки задаётся при помощи атрибута `placeholder` у тега `<input>`.
+Текст подсказки задаётся при помощи атрибута [`placeholder`](/html/placeholder/) у тега `<input>`.
 
 ```html
 <input type="email" placeholder="test@example.com">

@@ -16,13 +16,13 @@ tags:
 
 [Составная роль виджета](/a11y/aria-roles/#roli-vidzhetov) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для выпадающего списка с несколькими опциями на выбор. В таком списке может быть не только текст, но и картинки.
 
-В HTML эта роль есть у [`<datalist>`](/html/datalist/) и [`<select>`](/html/select/) с атрибутами [`multiple`](/html/multiple/) и `size` со значением больше 1.
+В HTML эта роль есть у [`<datalist>`](/html/datalist/) и [`<select>`](/html/select/) с атрибутами `multiple` и [`size`](/html/size/) со значением больше 1.
 
 ## Как пишется
 
 Задайте `role="listbox"` любому тегу, лучше всего [`<div>`](/html/div/), [`<span>`](/html/span/) или `<select>`.
 
-Внутри элемента с ролью `listbox` должен быть один или несколько с ролью [`option`](/a11y/role-option/). Эта роль есть у `<option>` по умолчанию.
+Внутри элемента с ролью `listbox` должен быть один или несколько с ролью [`option`](/a11y/role-option/). Эта роль есть у [`<option>`](/html/option/) по умолчанию.
 
 ARIA-роли не изменяют внешний вид и поведение элементов, поэтому не забудьте стилизовать список и добавить поддержку клавиатуры с помощью JavaScript и [`tabindex`](/html/global-attrs/#tabindex), когда используете неинтерактивный элемент.
 
