@@ -2,7 +2,7 @@
 title: "Что такое CSS-препроцессоры"
 description: "Взлёт, расцвет и закат эпохи препроцессоров, и как это связано с развитием нативного CSS."
 authors:
-  - nasty23-star
+  - anastasiayarosh
 related:
   - css/var
   - css/media
