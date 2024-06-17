@@ -91,6 +91,7 @@ groups:
       - array-keys
       - array-values
       - array-entries
+      - array-sort
       - array-tosorted
       - array-filter
       - array-at
