@@ -12,12 +12,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #18191C;
+  font-style: Roboto Mono;
+  color: lightgrey;
 }
 
-div {
+.main {
   display: flex;
   flex-direction: column;
-  max-width: 200px;
+  max-width: 500px;
   gap: 10px;
   margin: auto;
   margin-top: 40px;
@@ -25,9 +28,24 @@ div {
 input {
   font-size: 16px;
   padding: 10px;
+  font-style: Roboto;
+  width: 300px;
+  background: #e6e9ed;
+  border: none;
+}
+div {
+  display: flex;
+  width: auto;
+  gap: 30px;
+}
+span {
+  min-width: 100px;
+  display: flex;
+  align-items: end;
 }
 .dark {
   color-scheme: dark;
+  background: #3f4042;
 }
 .light {
   color-scheme: light;
@@ -38,10 +56,11 @@ input {
 </style>
 </head>
 <body>
-  <div>
-    <input class="dark" placeholder="Светлый" />
-    <input class="light" placeholder="Тёмный" />
-    <input class="normal" placeholder="Системный"/>
+  <div class="main">
+    <h1>color-scheme</h1>
+    <div><span>light</span><input class="dark" placeholder="Светлый" /></div>
+    <div><span>dark</span><input class="light" placeholder="Тёмный" /></div>
+    <div><span>light dark</span><input class="normal" placeholder="Системный"/></div>
   </div>
 </body>
 </html>
