@@ -1,6 +1,6 @@
 ﻿---
 excluded:
-  - js/promise
+  - js/promise-all
 ---
 
 ### Теория
