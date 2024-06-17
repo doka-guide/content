@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>prefers-color-scheme — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+:root {
+  --text: "Темную сторону силы в тебе ощущаю.";
+  --color-light: #fff;
+  --color-dark: #000;
+  --background: var(--color-light);
+  --font: var(--color-dark);
+}
+* {
+  margin: 0;
+  font-size: 18px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+  color: var(--font);
+}
+.btn {
+  padding: 10px 16px;
+  margin-top: 10px;
+  background-color: var(--background);
+  border: currentColor solid 3px;
+  color: inherit;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.dark-mode .wrapper {
+  --text: "Люк, я твой отец!";
+  --background: var(--color-dark);
+  --font:  var(--color-light);
+}
+.block::before {
+  content: var(--text);
+}
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="block"></div>
+    <button class="btn">выбери свою судьбу</button>
+  </div>
+
+<script>
+const button = document.querySelector(".btn");
+
+const useDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+function toggleDarkMode(state) {
+  document.documentElement.classList.toggle("dark-mode", state);
+}
+
+toggleDarkMode(useDark.matches);
+
+useDark.addListener((evt) => toggleDarkMode(evt.matches));
+
+button.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark-mode");
+});
+</script>
+</body>
+</html>
