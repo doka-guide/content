@@ -2,7 +2,7 @@
 title: "`color-scheme`"
 description: "Тёмная или светлая тема? Вы сами можете её задать!"
 authors:
-  - nasty23-star
+  - anastasiayarosh
 keywords:
   - цветовые схемы
   - тема сайта
