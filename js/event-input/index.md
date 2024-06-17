@@ -19,7 +19,7 @@ tags:
 Примеры таких полей:
 
 - [`<textarea>`](/html/textarea/);
-- `<input>` с текстовым содержимым (атрибуты `type="text"` или `type="number"`);
+- [`<input>`](/html/input/) с текстовым содержимым (атрибуты `type="text"` или `type="number"`);
 - `<input>` с нетекстовым содержимым (атрибуты `type="file"` или `type="image"`);
 - `<input>` в виде чекбокса (`type="checkbox"`) или радиокнопки (`type="radio"`);
 - [`<select>`](/html/select/).
