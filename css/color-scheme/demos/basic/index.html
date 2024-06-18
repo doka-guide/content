@@ -1,75 +1,83 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Color-scheme — Дока</title>
+  <title>Примеры нативных элементов — color-scheme — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
-<style>
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: #18191C;
-  font-style: Roboto Mono;
-  color: lightgrey;
-}
-.main {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  gap: 10px;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-input {
-  font-size: 16px;
-  padding: 10px;
-  font-style: Roboto;
-  width: 150px;
-  background: #e6e9ed;
-  border: none;
-}
-div {
-  display: flex;
-  width: auto;
-  gap: 20px;
-}
-span {
-  min-width: 100px;
-  display: flex;
-  align-items: end;
-}
-.dark {
-  color-scheme: dark;
-  background: #3f4042;
-}
-.light {
-  color-scheme: light;
-}
-.normal {
-  color-scheme: light dark;
-}
-@media (min-width: 750px) {
-  div {
-    gap: 30px;
-  }
-  input {
-    width: 300px;
-  }
-}
-</style>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background: #18191C;
+      font-style: Roboto Mono;
+      color: lightgrey;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      gap: 10px;
+      margin: auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      font-size: 16px;
+      padding: 10px;
+      font-style: Roboto;
+      width: 150px;
+      background: #e6e9ed;
+      border: none;
+    }
+
+    div {
+      display: flex;
+      width: auto;
+      gap: 20px;
+    }
+
+    span {
+      min-width: 100px;
+      display: flex;
+      align-items: end;
+    }
+
+    .dark {
+      color-scheme: dark;
+      background: #3f4042;
+    }
+
+    .light {
+      color-scheme: light;
+    }
+
+    .normal {
+      color-scheme: light dark;
+    }
+
+    @media (min-width: 750px) {
+      div {
+        gap: 30px;
+      }
+
+      input {
+        width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="main">
     <h1>color-scheme</h1>
-    <div><span>light</span><input class="dark" placeholder="Светлый" /></div>
-    <div><span>dark</span><input class="light" placeholder="Тёмный" /></div>
-    <div><span>light dark</span><input class="normal" placeholder="Системный"/></div>
+    <div><span>light</span><input class="dark" placeholder="Светлый"></div>
+    <div><span>dark</span><input class="light" placeholder="Тёмный"></div>
+    <div><span>light dark</span><input class="normal" placeholder="Системный"></div>
   </div>
 </body>
 </html>
-
