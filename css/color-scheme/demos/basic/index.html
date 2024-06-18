@@ -6,15 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background: #18191C;
-  font-style: Roboto Mono;
   color: lightgrey;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+code {
+  font-family: "Roboto Mono", monospace;
+}
+h1 {
+  font-size: 26px;
+  font-weight: 500;
 }
 .main {
   display: flex;
@@ -26,9 +36,9 @@
   margin-bottom: 20px;
 }
 input {
-  font-size: 16px;
   padding: 10px;
-  font-style: Roboto;
+  font-size: inherit;
+  font-family: inherit;
   width: 150px;
   background: #e6e9ed;
   border: none;
@@ -65,10 +75,10 @@ span {
 </head>
 <body>
   <div class="main">
-    <h1>color-scheme</h1>
-    <div><span>light</span><input class="dark" placeholder="Светлый" /></div>
-    <div><span>dark</span><input class="light" placeholder="Тёмный" /></div>
-    <div><span>light dark</span><input class="normal" placeholder="Системный"/></div>
+    <h1><code>color-scheme</code></h1>
+    <div><span><code>light</code></span><input class="dark" placeholder="Светлый" /></div>
+    <div><span><code>dark</code></span><input class="light" placeholder="Тёмный" /></div>
+    <div><span><code>light dark</code></span><input class="normal" placeholder="Системный"/></div>
   </div>
 </body>
 </html>
