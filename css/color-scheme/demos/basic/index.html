@@ -16,27 +16,27 @@
   font-style: Roboto Mono;
   color: lightgrey;
 }
-
 .main {
   display: flex;
   flex-direction: column;
   max-width: 500px;
   gap: 10px;
   margin: auto;
-  margin-top: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 input {
   font-size: 16px;
   padding: 10px;
   font-style: Roboto;
-  width: 300px;
+  width: 200px;
   background: #e6e9ed;
   border: none;
 }
 div {
   display: flex;
   width: auto;
-  gap: 30px;
+  gap: 20px;
 }
 span {
   min-width: 100px;
@@ -53,6 +53,14 @@ span {
 .normal {
   color-scheme: light dark;
 }
+@media (min-width: 750px) {
+  div {
+    gap: 30px;
+  }
+  input {
+    width: 300px;
+  }
+}
 </style>
 </head>
 <body>
@@ -64,3 +72,4 @@ span {
   </div>
 </body>
 </html>
+
