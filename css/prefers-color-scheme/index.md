@@ -76,9 +76,9 @@ tags:
 
 ```html
 <picture>
-  <source srcset="light-image.jpg" media="(prefers-color-scheme: light)" />
-  <source srcset="dark-image.jpg" media="(prefers-color-scheme: dark)" />
-  <img src="light-image.jpg" />
+  <source srcset="light-image.jpg" media="(prefers-color-scheme: light)">
+  <source srcset="dark-image.jpg" media="(prefers-color-scheme: dark)">
+  <img src="light-image.jpg" alt="">
 </picture>
 ```
 
