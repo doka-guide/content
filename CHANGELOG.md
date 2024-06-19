@@ -4,6 +4,8 @@
 
 ## Июнь 2024
 
+- 19 июня, [`prefers-color-scheme`](https://doka.guide/css/prefers-color-scheme/), Анастасия Ярош
+- 19 июня, [`color-scheme`](https://doka.guide/css/color-scheme/), Анастасия Ярош
 - 13 июня, [`color()`](https://doka.guide/css/color-function/), Алёна Батицкая
 - 10 июня, [`:is()`](https://doka.guide/css/is/), Игорь Теплостанский
 - 1 июня, [`banner`](https://doka.guide/a11y/role-banner/), Татьяна Фокина
