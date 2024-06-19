@@ -34,7 +34,7 @@ tags:
 
 С помощью свойства можно собрать небольшую демку в духе «Звёздных войн».
 
-<iframe title="Переключатель темы" src="demos/basic/" height="360"></iframe>
+<iframe title="Переключатель темы" src="demos/basic/" height="460"></iframe>
 
 ## Как понять
 

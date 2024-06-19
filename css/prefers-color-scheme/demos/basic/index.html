@@ -6,59 +6,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap">
   <style>
     :root {
-      --text: "Темную сторону силы в тебе ощущаю.";
-      --color-light: #fff;
-      --color-dark: #000;
+      --color-light: #f9f8f6;
+      --color-dark: #000000;
+      --color-accent-light: #74915a;
+      --color-accent-dark: #EE5151;
+      --text: "Тёмную сторону силы в тебе ощущаю.";
       --background: var(--color-light);
       --font: var(--color-dark);
+      --accent: var(--color-accent-light);
+    }
+
+    .dark-mode {
+      --text: "Люк, я твой отец!";
+      --background: var(--color-dark);
+      --font:  var(--color-light);
+      --accent: var(--color-accent-dark);
     }
 
     * {
       margin: 0;
-      font-size: 18px;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .wrapper {
+    html, body {
+      height: 100%;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100vw;
-      height: 100vh;
-      background-color: var(--background);
+      padding: 50px;
+      background: linear-gradient(to bottom, var(--accent) 0%, var(--background) 80%);
       color: var(--font);
+      font-family: Roboto, sans-serif;
     }
 
-    .btn {
-      padding: 10px 16px;
-      margin-top: 10px;
+    body::before, body::after {
+      content: "";
+      position: absolute;
       background-color: var(--background);
-      border: currentColor solid 3px;
-      color: inherit;
-      border-radius: 6px;
-      font-size: 18px;
-      cursor: pointer;
+      z-index: -1;
     }
 
-    .dark-mode .wrapper {
-      --text: "Люк, я твой отец!";
-      --background: var(--color-dark);
-      --font:  var(--color-light);
+    body::before {
+      inset: 0 80% 0 0;
+    }
+
+    body::after {
+      inset: 0 0 0 80%;
+    }
+
+    .block {
+      max-width: 65%;
+      font-size: 50px;
+      font-weight: 500;
+      line-height: 1;
+      text-align: center;
     }
 
     .block::before {
       content: var(--text);
     }
+
+    .btn {
+      position: absolute;
+      bottom: 50px;
+      min-width: 280px;
+      border: currentColor solid 3px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: var(--accent);
+      border-radius: 6px;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: inherit;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .block {
+        max-width: auto;
+        font-size: 40px;
+      }
+
+      .btn {
+        bottom: 30px;
+      }
+    }
+
+    @media (height < 300px) {
+      .block, .btn {
+        font-size: inherit;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="block"></div>
-    <button class="btn">выбери свою судьбу</button>
-  </div>
+  <div class="block"></div>
+  <button class="btn">выбери свою судьбу</button>
 
   <script>
     const button = document.querySelector(".btn")
