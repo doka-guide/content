@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;600;700&display=swap">
   <style>
     :root {
       --color-light: #f9f8f6;
       --color-dark: #000000;
       --color-accent-light: #74915a;
-      --color-accent-dark: #EE5151;
+      --color-accent-dark: #a12e2e;
       --text: "Тёмную сторону силы в тебе ощущаю.";
-      --background: var(--color-light);
+      --font-richness: 600;
       --font: var(--color-dark);
+      --background: var(--color-light);
       --accent: var(--color-accent-light);
     }
 
     .dark-mode {
       --text: "Люк, я твой отец!";
-      --background: var(--color-dark);
+      --font-richness: 500;
       --font:  var(--color-light);
+      --background: var(--color-dark);
       --accent: var(--color-accent-dark);
     }
 
@@ -65,7 +67,7 @@
     .block {
       max-width: 65%;
       font-size: 50px;
-      font-weight: 500;
+      font-weight: var(--font-richness);
       line-height: 1;
       text-align: center;
     }
