@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Изменение цвета — light-dark() — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        height: 100%;
+        margin: 0;
+        background-color: light-dark(#2e9aff, black);
+      }
+
+      .luminary {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin: auto;
+        border-radius: 50%;
+        background-color: light-dark(#ffcb00, #ffffff);
+        box-shadow: 0px 0px 40px 15px light-dark(#ffcb00, #ffffff);
+      }
+
+      .luminary:before {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 30px;
+        top: 30px;
+        left: 20px;
+        border-radius: 50%;
+        background-color: light-dark(#ffcb00, #ebefe7);
+      }
+
+      .luminary:after {
+        content: "";
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        bottom: 35px;
+        left: 45px;
+        border-radius: 50%;
+        background-color: light-dark(#ffcb00, #ebefe7);
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="luminary"></div>
+  </body>
+</html>
