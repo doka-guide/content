@@ -4,6 +4,7 @@
 
 ## Июнь 2024
 
+- 25 июня, [`light-dark()`](https://doka.guide/css/light-dark/), Алина Козловцева
 - 19 июня, [`prefers-color-scheme`](https://doka.guide/css/prefers-color-scheme/), Анастасия Ярош
 - 19 июня, [`color-scheme`](https://doka.guide/css/color-scheme/), Анастасия Ярош
 - 13 июня, [`color()`](https://doka.guide/css/color-function/), Алёна Батицкая
