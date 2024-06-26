@@ -291,7 +291,7 @@ foo = @block {
   width: 60px 60px;
 }
 
- .navigation .link__icon_big_secondary {
+.navigation .link__icon_big_secondary {
   color: #DDDDDD;
 }
 ```
