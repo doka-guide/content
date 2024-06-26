@@ -35,9 +35,7 @@ tags:
 
 ## Синтаксис и дополнительные возможности
 
-Less и SCSS похожи синтаксисом на современный CSS, различий немного.
-
-К примеру, если не использовать дополнительные фичи препроцессора, трудно найти отличия между CSS и SCSS:
+Less и SCSS похожи синтаксисом на современный CSS, различий немного. К примеру, если не использовать дополнительные фичи SCSS, трудно найти отличия между ним и CSS:
 
 ```scss
 @media screen and (max-width: 600px) {
@@ -102,7 +100,7 @@ Less и SCSS похожи синтаксисом на современный CSS
 ```stylus
 .message
   padding: 10px
-  border: 1px solid #eee
+  border: 1px solid #EEEEEE
 
 .warning
   @extend .message
@@ -115,11 +113,11 @@ Less и SCSS похожи синтаксисом на современный CSS
 .message,
 .warning {
   padding: 10px;
-  border: 1px solid #eee;
+  border: 1px solid #EEEEEE;
 }
 
 .warning {
-  color: #e2e21e;
+  color: #E2E21E;
 }
 ```
 
@@ -129,7 +127,7 @@ Less и SCSS похожи синтаксисом на современный CSS
 
 ```sass
 .error
-  border: 2px #ffa500
+  border: 2px #FFA500
   background-color: #DDDDDD
 
   &--serious
@@ -294,7 +292,7 @@ foo = @block {
 
     &:hover {
       background: #000000;
-      color: #ffffff;
+      color: #FFFFFF;
     }
 
     &__icon {
