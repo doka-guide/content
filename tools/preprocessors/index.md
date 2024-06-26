@@ -72,20 +72,20 @@ Less и SCSS похожи синтаксисом на современный CSS
 
 ```less
 @media {
-	screen {
-		and {
-			(max-width {
-				&:600px) {
-				  .error {
+  screen {
+    and {
+      (max-width {
+        &:600px) {
+          .error {
             width: 100%;
-				}
-			}
-		}
-	}
+        }
+      }
+    }
+  }
 }
 
 .error {
-	width: 300px;
+  width: 300px;
 }
 ```
 
