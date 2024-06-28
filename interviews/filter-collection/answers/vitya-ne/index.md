@@ -83,9 +83,10 @@ function getUnique (array) {
 
 Можно улучшить гибкость нашего решения:
 - адаптировать для использования не только массивов, но и других коллекций;
-- устранить зависимость от библиотеки Lodash и дать возможность использовать собственную функцию для проверки уникальности элемента.
+- устранить зависимость от библиотеки Lodash и дать возможность использовать собственную функцию для проверки уникальности элемента;
+- снизить сложность алгоритма до O(n).
 
-Для этого проверим что аргументом функции является итерируемый объект, а обход будем осуществлять с использованием [for..of](/js/for-of/). Кроме этого, добавим возможность передавать в качестве второго аргумента функцию сравнения. Если функция не передана, используем для сравнения метод `Object.is()`:
+Для этого проверим что аргументом функции является итерируемый объект, а обход будем осуществлять с использованием [for..of](/js/for-of/). Кроме этого, добавим возможность передавать в качестве второго аргумента функцию-компаратор. Если функция не передана, используем для сравнения метод `Set.has()`:
 
 ```js
 function getUnique (collection, comparator) {
@@ -94,20 +95,18 @@ function getUnique (collection, comparator) {
     return []
   }
 
-  // Если функция сравнения не передана, используем метод Object.is
-  const isEqual = typeof comparator === 'function'
-    ? comparator :  Object.is
+  const unique = new Set()
 
-  const uniqueArray = []
+  const isEqual = typeof comparator === 'function'
+    ? comparator : item => unique.has(item)
 
   for (const item of collection) {
-    if (uniqueArray.some(uniqueItem => isEqual(item, uniqueItem))) {
-      // Элемент уже есть, переходим к следующему элементу
+    if (isEqual(item)) {
       continue
     }
-    uniqueArray.push(item)
+    unique.add(item)
   }
 
-  return uniqueArray
+  return Array.from(unique.values())
 }
 ```
