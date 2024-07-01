@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Стилизация чекбокса</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      *,
+      *:after,
+      *:befor {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        background: #18191c;
+        font-family: Roboto, system-ui;
+      }
+
+      form {
+        display: grid;
+        gap: 20px;
+      }
+
+      .checkbox {
+        position: relative;
+        margin-left: 20px;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox-input {
+        appearance: none;
+        position: relative;
+        width: 90px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid black;
+      }
+
+      .checkbox-label {
+        padding-left: 10px;
+      }
+
+      .checkbox-new {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        width: 90px;
+        height: 40px;
+        padding: 3px;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        user-select: none;
+      }
+
+      .checkbox-new_checked,
+      .checkbox-input:checked + .checkbox-new > .checkbox-new_unchecked {
+        display: none;
+      }
+
+      .checkbox-input:checked + .checkbox-new > .checkbox-new_checked,
+      .checkbox-input:not(:checked) + .checkbox-new > .checkbox-new_unchecked {
+        display: initial;
+      }
+
+      .checkbox-input:checked {
+        background: #f498ad;
+      }
+
+      .checkbox-input:checked + .checkbox-new {
+        color: #ffffff;
+      }
+
+      .checkbox-input:checked + .checkbox-new {
+        color: #000000;
+      }
+
+      .checkbox-input:disabled {
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label class="checkbox">
+        <input class="checkbox-input" type="checkbox" id="myCheckbox" />
+        <div class="checkbox-new">
+          <div class="checkbox-new_checked">
+            U
+            <span class="eye">•</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">•</span>U
+          </div>
+          <div class="checkbox-new_unchecked">
+            U
+            <span class="eye">ˇ</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">ˇ</span>U
+          </div>
+        </div>
+        <span class="checkbox-label">Гав!</span>
+      </label>
+
+      <label class="checkbox">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          id="myCheckbox"
+          disabled
+        />
+        <div class="checkbox-new">
+          <div class="checkbox-new_checked">
+            U
+            <span class="eye">•</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">•</span>U
+          </div>
+          <div class="checkbox-new_unchecked">
+            U
+            <span class="eye">ˇ</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">ˇ</span>U
+          </div>
+        </div>
+        <span class="checkbox-label">Гав!</span>
+      </label>
+
+      <label class="checkbox">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          id="myCheckbox"
+          disabled
+          checked
+        />
+        <div class="checkbox-new">
+          <div class="checkbox-new_checked">
+            U
+            <span class="eye">•</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">•</span>U
+          </div>
+          <div class="checkbox-new_unchecked">
+            U
+            <span class="eye">ˇ</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">ˇ</span>U
+          </div>
+        </div>
+        <span class="checkbox-label">Гав!</span>
+      </label>
+    </form>
+  </body>
+</html>

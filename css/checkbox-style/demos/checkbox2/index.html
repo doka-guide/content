@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Стилизация чекбокса</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      *,
+      *:after,
+      *:befor {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        color: white;
+        background: #18191c;
+        font-family: Roboto, system-ui;
+      }
+
+      .checkbox {
+        margin-left: 20px;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox-label {
+        padding-left: 5px;
+      }
+
+      .checkbox-input {
+        appearance: none;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: #f498ad;
+        box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+        border-radius: 10px;
+        border: 1px solid white;
+        transition: 500ms;
+      }
+
+      .checkbox-input:after {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='30px' viewBox='0 -960 960 960' width='30px' stroke='%232E9AFF' stroke-width='30' fill='%232E9AFF'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        transition: 500ms;
+      }
+
+      .checkbox-input:checked:after {
+        width: 30px;
+        height: 30px;
+        transition: 500ms;
+      }
+
+      .checkbox-input:disabled {
+        background: #ccc;
+        border-color: #ccc;
+      }
+
+      .checkbox-input:disabled:after {
+        filter: grayscale(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="checkbox">
+        <input class="checkbox-input" type="checkbox" id="checkbox2" />
+        <label class="checkbox-label" for="checkbox2">Чекбокс 2</label>
+      </div>
+      <div class="checkbox">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          id="checkbox2-d"
+          disabled
+          checked
+        />
+        <label class="checkbox-label" for="checkbox2-d"
+          >Чекбокс Дизейбл Отмечен</label
+        >
+      </div>
+      <div class="checkbox">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          id="checkbox2-d"
+          disabled
+        />
+        <label class="checkbox-label" for="checkbox2-d">Чекбокс Дизейбл</label>
+      </div>
+    </form>
+  </body>
+</html>
