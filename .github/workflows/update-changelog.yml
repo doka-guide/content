@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: Ищет новые материалы и обновляет CHANGELOG
         run: sh .github/scripts/update-changelog.sh
