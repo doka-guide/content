@@ -86,7 +86,8 @@ function getUnique (array) {
 - устранить зависимость от библиотеки Lodash и дать возможность использовать собственную функцию для проверки уникальности элемента;
 - снизить сложность алгоритма до O(n).
 
-Для этого проверим что аргументом функции является итерируемый объект, а обход будем осуществлять с использованием [for..of](/js/for-of/). Кроме этого, добавим возможность передавать в качестве второго аргумента функцию-компаратор. Если функция не передана, используем для сравнения метод `Set.has()`:
+Для этого проверим что аргументом функции является итерируемый объект, а обход будем осуществлять с использованием [for..of](/js/for-of/). Коллекцию уникальных элементов будем накапливать используя [Map](/js/map/). Это позволит сохранять ключи значений для ускорения определения уникльности значений. Кроме этого, добавим возможность передавать в качестве второго аргумента функцию-компаратор. Фунция должна вернуть пару ключ/значение, которые будут добавлены в коллекцию уникальных элементов.
+Если функция не передана, вычисляем ключ, приводя значение к строке.
 
 ```js
 function getUnique (collection, comparator) {
@@ -95,18 +96,59 @@ function getUnique (collection, comparator) {
     return []
   }
 
-  const unique = new Set()
-
-  const isEqual = typeof comparator === 'function'
-    ? comparator : item => unique.has(item)
+  const unique = new Map()
+  // Функция для получения пары ключ/значение
+  const getKeyAndValue = typeof comparator === 'function'
+    ? comparator
+    : (item) => {
+      const key = `${item}`
+      return [key, item]
+    }
 
   for (const item of collection) {
-    if (isEqual(item)) {
-      continue
-    }
-    unique.add(item)
+    const [key, value] = getKeyAndValue(item, unique)
+    unique.set(key, value)
   }
 
   return Array.from(unique.values())
 }
+```
+
+Протестируем это решение без передачи компаратора:
+
+```js
+console.log(
+  getUnique([1, null, {}, [], {}, null])
+)
+
+// [ 1, null, {}, [] ]
+```
+
+Функция-компаратор пригодится для кастомизации логики, например если перед нами стоит задача объединить объекты на основе значения поля `id`:
+
+```js
+console.log(
+  getUnique(
+    [
+      { id: 2, type: 'd' },
+      { id: 3, category: null },
+      { name: 'Q', value: 42, id: 2 },
+      { width: 1024, size: 'big', id: 0 }
+    ],
+    (item, obj) => {
+      const key = item.id
+      const value = {
+        ...obj.get(key),
+        ...item
+      }
+      return [key, value]
+    }
+  )
+)
+
+// [
+//   { id: 2, type: 'd', name: 'Q', value: 42 },
+//   { id: 3, category: null },
+//   { width: 1024, size: 'big', id: 0 }
+// ]
 ```
