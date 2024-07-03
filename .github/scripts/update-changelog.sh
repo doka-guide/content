@@ -43,7 +43,7 @@ if [ -s added_dirs.txt ]; then
         fi
       done
       authors_string=$(IFS=, ; echo "${author_links[*]}")
-      echo "- ${formatted_date}, [${title}](https://doka.guide/${path#*/}/${new_folder}/), ${authors_string}" >> CHANGELOG.md
+      echo "- ${formatted_date}, [${title}](https://doka.guide/${path#*/}/${new_folder}/), ${authors_string}" >> CHANGELOG.new.md
     fi
   done < added_dirs.txt
   git config --local user.email "<hi@doka.guide>"
