@@ -26,114 +26,104 @@ tags:
 ```html
 <div
   class="slider"
-  tabindex="0"
   role="region"
-  aria-roledescription="Content Slider"
-  aria-label="Design patterns"
+  aria-label="Паттерны"
 >
   <div
     class="controls"
     role="group"
-    aria-label="Slide controls"
+    aria-label="Управление слайдами"
   >
     <button
-      class="button button_type_radio"
-      tabindex="0"
-      aria-disabled="true"
-      aria-label="show slide 1 of 4"
+      class="button button-radio"
+      aria-current="true"
+      aria-label="Показать 1 из 4"
+    >
+    </button>
+    <button
+      class="button button-radio"
+      aria-label="Показать 2 из 4"
+    >
+    </button>
+    <button
+      class="button button-radio"
+      aria-label="Показать 3 из 4"
+    >
+    </button>
+    <button
+      class="button button-radio"
+      aria-label="Показать 4 из 4"
     >
     </button>
 
     <button
-      class="button button_type_radio"
-      tabindex="0"
-      aria-disabled="false"
-      aria-label="show slide 2 of 4"
+      aria-label="Предыдущий"
+      class="button button-prev"
     >
     </button>
-
     <button
-      class="button button_type_radio"
-      tabindex="0"
-      aria-disabled="false"
-      aria-label="show slide 3 of 4"
-    >
-    </button>
-
-    <button
-      class="button button_type_radio"
-      tabindex="0"
-      aria-disabled="false"
-      aria-label="show slide 4 of 4"
-    >
-    </button>
-
-    <button
-      aria-label="show previous slide"
-      class="button prev-button"
-    >
-    </button>
-
-    <button
-      aria-label="show next slide"
-      class="button next-button"
+      aria-label="Следующий"
+      class="button button-next"
     >
     </button>
   </div>
 
-  <div
-    class="slide"
-    role="group"
-    aria-roledescription="Slide"
-    aria-labelledby="First design pattern"
-    id="carousel-item-1"
-  >
-    <img class="slide-img" src="./images/summer.jpg">
-    <h2 id="carousel-item-1__heading">
-      Паттерн «Лето»
-    </h2>
-  </div>
-
-  <div
-    class="slide"
-    role="group"
-    aria-roledescription="Slide"
-    aria-labelledby="Second design pattern"
-    id="carousel-item-2"
-    hidden
-  >
-    <img class="slide-img" src="./images/flowers.jpg">
-    <h2 id="carousel-item-2__heading">
-      Паттерн «Цветочное поле»
-    </h2>
-  </div>
-
-  <div
-    class="slide"
-    role="group"
-    aria-roledescription="Slide"
-    aria-labelledby="Third design pattern"
-    id="carousel-item-3"
-    hidden
-  >
-    <img class="slide-img" src="./images/lilac.jpg">
-    <h2 id="carousel-item-3__heading">
-      Паттерн «Лиловый»
-    </h2>
-  </div>
-
-  <div
-    class="slide"
-    role="group"
-    aria-roledescription="Slide"
-    aria-labelledby="Third design pattern"
-    id="carousel-item-3"
-    hidden
-  >
-    <img class="slide-img" src="./images/scarlet.jpg">
-    <h2 id="Fourth design pattern">
-      Паттерн «Алый»
-    </h2>
+  <div class="slides" aria-live="polite">
+    <div
+      class="slide"
+      role="group"
+      aria-labelledby="item-1-label"
+      id="carousel-item-1"
+    >
+      <img
+        class="slide-img"
+        src="./images/summer.jpg"
+        alt="Абстрактные цветы розовых, синих,
+        малиновых и оранжевых оттенков на зелёном фоне."
+      >
+      <h2 id="item-1-label">Паттерн «Лето»</h2>
+    </div>
+    <div
+      class="slide"
+      role="group"
+      aria-labelledby="item-2-label"
+      id="carousel-item-2"
+    >
+      <img
+        class="slide-img"
+        src="./images/flowers.jpg"
+        alt="Цветы с расплывчатыми контурами, похожие на маки.
+        Преобладает розовый, тёмно-зелёный, красный и фиолетовый цвет."
+      >
+      <h2 id="item-2-label">Паттерн «Цветочное поле»</h2>
+    </div>
+    <div
+      class="slide"
+      role="group"
+      aria-labelledby="item-3-label"
+      id="carousel-item-3"
+    >
+      <img
+        class="slide-img"
+        src="./images/lilac.jpg"
+        alt="Несколько пятен розовых оттенков в форме цветов.
+        На их фоне салатовые, тёмно-зелёные и фисташковые брызги."
+      >
+      <h2 id="item-3-label">Паттерн «Лиловый»</h2>
+    </div>
+    <div
+      class="slide"
+      role="group"
+      aria-labelledby="item-4-label"
+      id="carousel-item-4"
+    >
+      <img
+        class="slide-img"
+        src="./images/scarlet.jpg"
+        alt="Несколько абстрактных роз в виде пятен алого цвета."
+      >
+      <h2 id="item-4-label">Паттерн «Алый»</h2>
+    </div>
   </div>
 </div>
 ```
@@ -141,124 +131,181 @@ tags:
 Для стилизации и правильной работы слайдера используем такие [CSS-правила](/css/css-rule/):
 
 ```css
-.button_type_radio {
+.controls {
+  margin-block-end: 20px;
+}
+
+.button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.button-radio {
   background-color: transparent;
   margin: 0;
   padding: 0;
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  border: 1px solid #868A8F;
-  margin-right: 12px;
+  border: 1px solid #FFFFFF;
 }
 
-.button_type_radio.active {
-  background-color: #53d67b;
+.button-radio + .button-radio {
+  margin-inline-start: 12px;
 }
 
-.prev-button,
-.next-button {
+.button-radio.active {
+  background-color: #C56FFF;
+  pointer-events: none;
+}
+
+.button-radio:focus-visible {
+  outline: 3px solid white;
+  outline-offset: -1px;
+}
+
+.button-prev,
+.button-next {
   position: absolute;
-  top: 55%;
+  top: 50%;
   transform: translateY(-50%);
-  background: transparent;
   border: none;
-  cursor: pointer;
-  width: 40px;
-  height: auto;
+  width: 30px;
+  height: 42px;
+  background-color: transparent;
+  background-image: url(./images/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.prev-button {
-  left: -40px;
-  transform: rotate(45deg);
+.button-prev[aria-disabled="true"],
+.button-next[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.button-prev {
+  left: -50px;
+}
+
+.button-next {
+  right: -50px;
+  transform: translateY(-50%) rotateY(180deg);
   transform-origin: center;
 }
 
-.next-button {
-  right: -40px;
-  transform: rotate(-45deg);
-  transform-origin: center;
+.slide-img {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  user-select: none;
 }
 
 .slider {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 370px;
+  max-width: 600px;
   width: 100%;
   position: relative;
 }
 
-.slide {
-  text-align: center;
+.slides {
   width: 100%;
 }
 
-[aria-label="Design patterns"]:focus {
-  outline: 4px solid DodgerBlue;
-  outline-offset: -6px;
+.slide {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .slider {
+    max-width: 260px;
+  }
+
+  .slide-img {
+    height: 400px;
+  }
+
+  .button-prev {
+    left: -40px;
+  }
+
+  .button-next {
+    right: -40px;
+  }
 }
 ```
 
 Для прокрутки и перемещения по слайдам с помощью стрелок и радиокнопок используем JavaScript:
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll('.slide');
-  const controlButtons = document.querySelectorAll('.button');
-  let currentSlide = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.slider')
+  const slides = slider.querySelectorAll('.slide')
+  const slideCount = slides.length
+  const controlButtons = slider.querySelectorAll('.button-radio')
+  const prevButton = slider.querySelector('.button-prev')
+  const nextButton = slider.querySelector('.button-next')
+  const activeButton = 'active'
+  const inactiveButton = 'aria-disabled'
+  const currentButton = 'aria-current'
+  let currentSlide = 0
 
   function updateSlider() {
-    slides.forEach(slide => slide.hidden = true);
-    controlButtons.forEach(btn => btn.setAttribute('aria-disabled', false));
+    slides.forEach((slide, index) => {
+      slide.hidden = index !== currentSlide
+    })
 
-    slides[currentSlide].hidden = false;
-
-    controlButtons[currentSlide].setAttribute('aria-disabled', true)
-
-    document.querySelectorAll('.button_type_radio').forEach((controller, index) => {
+    controlButtons.forEach((button, index) => {
       if (index === currentSlide) {
-        controller.classList.add('active');
+        button.classList.add(activeButton)
+        button.setAttribute(currentButton, true)
       } else {
-        controller.classList.remove('active');
+        button.classList.remove(activeButton)
+        button.removeAttribute(currentButton, true)
       }
-    });
 
-    controlButtons[controlButtons.length - 2]
-      .setAttribute('aria-disabled', currentSlide === 0 ? "true" : "false");
-
-    controlButtons[controlButtons.length - 1]
-      .setAttribute('aria-disabled', currentSlide === slides.length - 1 ? "true" : "false");
+      prevButton.setAttribute(inactiveButton, currentSlide === 0)
+      nextButton.setAttribute(inactiveButton, currentSlide === slideCount - 1)
+    })
   }
 
   controlButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      if (index < slides.length) {
-        currentSlide = index;
-        updateSlider();
-      } else {
-        if (button.getAttribute('aria-label') === "show previous slide" && currentSlide > 0) {
-          currentSlide--;
-        } else if (button.getAttribute('aria-label') === "show next slide" && currentSlide < slides.length - 1) {
-          currentSlide++;
-        }
-        updateSlider();
+      if (index < slideCount) {
+        currentSlide = index
+        updateSlider()
       }
-    });
-  });
+    })
+  })
 
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'ArrowLeft' && currentSlide > 0) {
-      currentSlide--;
-      updateSlider();
-    } else if (event.key === 'ArrowRight' && currentSlide < slides.length - 1) {
-      currentSlide++;
-      updateSlider();
+  prevButton.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      currentSlide--
+      updateSlider()
     }
-  });
+  })
 
-  updateSlider();
-});
+  nextButton.addEventListener('click', () => {
+    if (currentSlide < slideCount - 1) {
+      currentSlide++
+      updateSlider()
+    }
+  })
+
+  slider.addEventListener('keydown', function (event) {
+    if (event.key === 'ArrowLeft' && currentSlide > 0) {
+      currentSlide--
+      updateSlider()
+    } else if (event.key === 'ArrowRight' && currentSlide < slideCount - 1) {
+      currentSlide++
+      updateSlider()
+    }
+  })
+
+  updateSlider()
+})
 ```
 
 <iframe title="Пример слайдера" src="demos/slider-demo/" height="450"></iframe>
@@ -271,18 +318,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ### HTML
 
-Мы решили исключить автопрокрутку слайдов. Вместо автоматической прокрутки используем кнопки для последовательного переключения слайдов или быстрого перехода к нужному. Важно, чтобы кнопки были хорошо различимы на фоне слайдера. Мы хотим, чтобы они контрастировали по цветам, а также были расположены за пределами области со слайдами:
+Мы решили не использовать автопрокрутку слайдов. Вместо автоматической прокрутки добавляем кнопки для последовательного переключения слайдов или быстрого перехода к нужному. Важно, чтобы кнопки были хорошо различимы на фоне слайдера. Мы хотим, чтобы они контрастировали по цветам, а также были расположены за пределами области со слайдами:
 
 ```html
 <button
-  aria-label="show previous slide"
-  class="button prev-button"
+  aria-label="Предыдущий"
+  class="button button-prev"
 >
 </button>
 
 <button
-  aria-label="show next slide"
-  class="button next-button"
+  aria-label="Следующий"
+  class="button button-next"
 >
 </button>
 ```
@@ -291,34 +338,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ```html
 <button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="true"
-  aria-label="show slide 1 of 4"
+  class="button button-radio"
+  aria-current="true"
+  aria-label="Показать 1 из 4"
 >
 </button>
 
 <button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 2 of 4"
+  class="button button-radio"
+  aria-label="Показать 2 из 4"
 >
 </button>
 
 <button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 3 of 4"
+  class="button button-radio"
+  aria-label="Показать 3 из 4"
 >
 </button>
 
 <button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 4 of 4"
+  class="button button-radio"
+  aria-label="Показать 4 из 4"
 >
 </button>
 ```
@@ -328,39 +368,40 @@ document.addEventListener("DOMContentLoaded", function () {
 ```html
 <div
   class="slider"
-  tabindex="0"
   role="region"
-  aria-roledescription="Content Slider"
-  aria-label="Design patterns"
+  aria-label="Паттерны"
 >
   <div
     class="controls"
     role="group"
-    aria-label="Slide controls"
+    aria-label="Управление слайдами"
   >
     <button
-      class="button button_type_radio"
-      tabindex="0"
-      aria-disabled="true"
-      aria-label="show slide 1 of 4"
+      class="button button-radio"
+      aria-current="true"
+      aria-label="Показать 1 из 4"
     >
     </button>
-    <!-- Остальные кнопки-->
+    <!-- Остальные кнопки, включая вперёд и назад -->
   </div>
 
-  <div
-    class="slide"
-    role="group"
-    aria-roledescription="Slide"
-    aria-labelledby="First design pattern"
-    id="carousel-item-1"
-  >
-    <img class="slide-img" src="./images/summer.jpg">
-    <h2 id="carousel-item-1__heading">
-      Паттерн «Лето»
-    </h2>
+  <div class="slides" aria-live="polite">
+    <div
+      class="slide"
+      role="group"
+      aria-labelledby="item-1-label"
+      id="carousel-item-1"
+    >
+      <img
+        class="slide-img"
+        src="./images/summer.jpg"
+        alt="Абстрактные цветы розовых, синих,
+        малиновых и оранжевых оттенков на зелёном фоне."
+      >
+      <h2 id="item-1-label">Паттерн «Лето»</h2>
+    </div>
+    <!-- Остальные слайды -->
   </div>
-  <!-- Остальные слайды -->
 </div>
 ```
 
@@ -368,71 +409,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
 В первую очередь используем семантические теги `<button>`, `<h2>` для заголовков слайдов и `<img>` для картинок с их кратким описанием в `alt`.
 
+Картинки в слайдах описываем потому, что они важны для понимания того, как именно выглядят паттерны.
+
+```html
+<img
+  class="slide-img"
+  src="./images/summer.jpg"
+  alt="Абстрактные цветы розовых, синих,
+  малиновых и оранжевых оттенков на зелёном фоне."
+>
+```
+
 Чтобы улучшить опыт пользователей [скринридеров](/a11y/screenreaders/), [голосового управления](/a11y/speech-recognition/) и других вспомогательных технологий, добавим в слайдер дополнительные ARIA-атрибуты и роли.
 
-При помощи роли `region` и названия в `aria-label` для всего элемента, мы создаём отдельную область слайдера на странице. Пользователи скринридеров смогут отслеживать, находятся ли они в какой-то области или вышли за её пределы. Код будет считываться скринридером как область или группа элементов слайдера.
+При помощи роли `region` и названия элемента в `aria-label`, мы создаём отдельную область слайдера на странице. Пользователи скринридеров смогут отслеживать, находятся ли они в какой-то области или вышли за её пределы. Код будет считываться скринридером как область или группа элементов слайдера с названием «Паттерны».
 
 ```html
 <div
   class="slider"
-  tabindex="0"
   role="region"
-  aria-roledescription="Content Slider"
-  aria-label="Design patterns"
+  aria-label="Паттерны"
 >
   <!-- Элементы слайдера -->
 </div>
 ```
 
-С помощью `role="group"` группируем элементы навигации. В паре с доступным именем группы в `aria-label` они тоже объясняют пользователю, где именно он находится внутри слайдера:
+С помощью `role="group"` группируем элементы навигации, и даём им общее название в `aria-label` — «Управление слайдами». Это упрощает навигацию по слайдеру. Так пользователи скринридеров смогут быстро найти часть слайдера со всеми кнопками для управления им.
 
 ```html
 <div
   class="controls"
   role="group"
-  aria-label="Slide controls"
+  aria-label="Управление слайдами"
 >
   <button
-    class="button button_type_radio"
-    tabindex="0"
-    aria-disabled="true"
-    aria-label="show slide 1 of 4"
+    class="button button-radio"
+    aria-current="true"
+    aria-label="Показать 1 из 4"
+  >
+  </button>
+  <button
+    class="button button-radio"
+    aria-label="Показать 2 из 4"
+  >
+  </button>
+  <button
+    class="button button-radio"
+    aria-label="Показать 3 из 4"
+  >
+  </button>
+  <button
+    class="button button-radio"
+    aria-label="Показать 4 из 4"
   >
   </button>
 
   <button
-    class="button button_type_radio"
-    tabindex="0"
-    aria-disabled="false"
-    aria-label="show slide 2 of 4"
+    aria-label="Предыдущий"
+    class="button button-prev"
   >
   </button>
-
   <button
-    class="button button_type_radio"
-    tabindex="0"
-    aria-disabled="false"
-    aria-label="show slide 3 of 4"
-  >
-  </button>
-
-  <button
-    class="button button_type_radio"
-    tabindex="0"
-    aria-disabled="false"
-    aria-label="show slide 4 of 4"
-  >
-  </button>
-
-  <button
-    aria-label="show previous slide"
-    class="button prev-button"
-  >
-  </button>
-
-  <button
-    aria-label="show next slide"
-    class="button next-button"
+    aria-label="Следующий"
+    class="button button-next"
   >
   </button>
 </div>
