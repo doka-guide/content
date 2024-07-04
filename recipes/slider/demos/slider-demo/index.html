@@ -168,19 +168,19 @@
 
     <div class="slides" aria-live="polite">
       <div class="slide" role="group" aria-labelledby="item-1-label" id="carousel-item-1">
-        <img class="slide-img" src="./images/summer.jpg" alt="">
+        <img class="slide-img" src="./images/summer.jpg" alt="Абстрактные цветы розовых, синих, малиновых и оранжевых оттенков на зелёном фоне.">
         <h2 id="item-1-label">Паттерн «Лето»</h2>
       </div>
       <div class="slide" role="group" aria-labelledby="item-2-label" id="carousel-item-2">
-        <img class="slide-img" src="./images/flowers.jpg" alt="">
+        <img class="slide-img" src="./images/flowers.jpg" alt="Цветы с расплывчатыми контурами, похожие на маки. Преобладает розовый, тёмно-зелёный, красный и фиолетовый цвет.">
         <h2 id="item-2-label">Паттерн «Цветочное поле»</h2>
       </div>
       <div class="slide" role="group" aria-labelledby="item-3-label" id="carousel-item-3">
-        <img class="slide-img" src="./images/lilac.jpg" alt="">
+        <img class="slide-img" src="./images/lilac.jpg" alt="Несколько пятен розовых оттенков в форме цветов. На их фоне салатовые, тёмно-зелёные и фисташковые брызги.">
         <h2 id="item-3-label">Паттерн «Лиловый»</h2>
       </div>
       <div class="slide" role="group" aria-labelledby="item-4-label" id="carousel-item-4">
-        <img class="slide-img" src="./images/scarlet.jpg" alt="">
+        <img class="slide-img" src="./images/scarlet.jpg" alt="Несколько абстрактных роз в виде пятен алого цвета.">
         <h2 id="item-4-label">Паттерн «Алый»</h2>
       </div>
     </div>
@@ -194,6 +194,9 @@
       const controlButtons = slider.querySelectorAll('.button-radio')
       const prevButton = slider.querySelector('.button-prev')
       const nextButton = slider.querySelector('.button-next')
+      const activeButton = 'active'
+      const inactiveButton = 'aria-disabled'
+      const currentButton = 'aria-current'
       let currentSlide = 0
 
       function updateSlider() {
@@ -202,10 +205,6 @@
         })
 
         controlButtons.forEach((button, index) => {
-          const activeButton = 'active'
-          const inactiveButton = 'aria-disabled'
-          const currentButton = 'aria-current'
-
           if (index === currentSlide) {
             button.classList.add(activeButton)
             button.setAttribute(currentButton, true)
