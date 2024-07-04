@@ -477,131 +477,128 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 ```
 
-Так же образом поступаем и с содержимым слайдов, только в их случае даём им название через `aria-labelledby`, связанный с заголовком внутри элемента.
+Так же образом поступаем и с содержимым слайдов. В их случае даём им название через атрибут `aria-labelledby`, связанный с заголовком через `id`.
 
 ```html
 <div
   class="slide"
   role="group"
-  aria-roledescription="Slide"
-  aria-labelledby="First design pattern"
+  aria-labelledby="item-1-label"
   id="carousel-item-1"
 >
-  <img class="slide-img" src="./images/summer.jpg">
-  <h2 id="carousel-item-1__heading">
-    Паттерн «Лето»
-  </h2>
+  <img
+    class="slide-img"
+    src="./images/summer.jpg"
+    alt="Абстрактные цветы розовых, синих,
+    малиновых и оранжевых оттенков на зелёном фоне."
+  >
+  <h2 id="item-1-label">Паттерн «Лето»</h2>
 </div>
 ```
 
-Слайды, которые не видны, нужно скрывать не только визуально, но и для пользователей вспомогательных технологий. Для этого используем атрибут `hidden`:
+Слайды, которые не видны, скрываем не только визуально, но и для пользователей вспомогательных технологий. Для этого используем атрибут `hidden`. Атрибут добавляем не сразу, а с помощью JavaScript только после окончания парсинга страницы.
 
 ```html
 <!-- Активный слайд -->
 <div
   class="slide"
   role="group"
-  aria-roledescription="Slide"
-  aria-labelledby="First design pattern"
+  aria-labelledby="item-1-label"
   id="carousel-item-1"
 >
-  <img class="slide-img" src="./images/summer.jpg">
-  <h2 id="carousel-item-1__heading">
-    Паттерн «Лето»
-  </h2>
+  <img
+    class="slide-img"
+    src="./images/summer.jpg"
+    alt="Абстрактные цветы розовых, синих,
+    малиновых и оранжевых оттенков на зелёном фоне."
+  >
+  <h2 id="item-1-label">Паттерн «Лето»</h2>
 </div>
 
 <!-- Скрытые слайды -->
 <div
   class="slide"
   role="group"
-  aria-roledescription="Slide"
-  aria-labelledby="Second design pattern"
+  aria-labelledby="item-2-label"
   id="carousel-item-2"
   hidden
 >
-  <h2 id="carousel-item-2__heading">
-    Паттерн «Цветочное поле»
-  </h2>
-  <img class="slide-img" src="./images/flowers.jpg">
+  <img
+    class="slide-img"
+    src="./images/flowers.jpg"
+    alt="Цветы с расплывчатыми контурами, похожие на маки.
+    Преобладает розовый, тёмно-зелёный, красный и фиолетовый цвет."
+  >
+  <h2 id="item-2-label">Паттерн «Цветочное поле»</h2>
 </div>
-
 <div
   class="slide"
   role="group"
-  aria-roledescription="Slide"
-  aria-labelledby="Third design pattern"
+  aria-labelledby="item-3-label"
   id="carousel-item-3"
   hidden
 >
-  <h2 id="carousel-item-3__heading">
-    Паттерн «Лиловый»
-  </h2>
-  <img class="slide-img" src="./images/lilac.jpg">
+  <img
+    class="slide-img"
+    src="./images/lilac.jpg"
+    alt="Несколько пятен розовых оттенков в форме цветов.
+    На их фоне салатовые, тёмно-зелёные и фисташковые брызги."
+  >
+  <h2 id="item-3-label">Паттерн «Лиловый»</h2>
 </div>
-
 <div
   class="slide"
   role="group"
-  aria-roledescription="Slide"
-  aria-labelledby="Third design pattern"
-  id="carousel-item-3"
+  aria-labelledby="item-4-label"
+  id="carousel-item-4"
   hidden
 >
-  <h2 id="Fourth design pattern">
-    Паттерн «Алый»
-  </h2>
-  <img class="slide-img" src="./images/scarlet.jpg">
+  <img
+    class="slide-img"
+    src="./images/scarlet.jpg"
+    alt="Несколько абстрактных роз в виде пятен алого цвета."
+  >
+  <h2 id="item-4-label">Паттерн «Алый»</h2>
 </div>
 ```
 
-Для навигации по слайдеру важно использовать HTML-элемент `<button>`. Он по умолчанию работает с клавиатуры, а ещё у него уже есть семантика кнопки. Так как у кнопок нет видимых подписей, называем их через `aria-label`. Имена должны чётко передавать функциональность кнопок.
+Для навигации по слайдеру важно использовать HTML-элемент `<button>`. Он по умолчанию работает с клавиатуры, а ещё у него уже есть семантика кнопки. Так как в кнопках нет видимого текста, называем их через `aria-label`. Имена должны чётко передавать функциональность элементов. Кнопки-точки для переклчения между слайдами назовём «Показать 1/2/3/4 из 4». Хорошо рассказать пользователям не только к какому слайду они переключатся, но и сколько их всего.
 
 ```html
 <button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="true"
-  aria-label="show slide 1 of 4"
->
-</button>
-
-<button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 2 of 4"
->
-</button>
-
-<button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 3 of 4"
->
-</button>
-
-<button
-  class="button button_type_radio"
-  tabindex="0"
-  aria-disabled="false"
-  aria-label="show slide 4 of 4"
->
-</button>
-
-<button
-  aria-label="show previous slide"
-  class="button prev-button"
->
-</button>
-
-<button
-  aria-label="show next slide"
-  class="button next-button"
+  class="button button-radio"
+  aria-label="Показать 1 из 4"
 >
 </button>
 ```
+
+С кнопками для пролистывания слайдов в одном направлении всё ещё проще: назовём их «Следующий» и «Предыдущий».
+
+```html
+<button
+  aria-label="Предыдущий"
+  class="button button-prev"
+>
+</button>
+<button
+  aria-label="Следующий"
+  class="button button-next"
+>
+</button>
+```
+
+Чтобы не делать неактивными кнопки-точки и передать, что пользователь вспомогательной технологии выбрал конкретный по счёту слайд, навесим атрибут `aria-current`. Он сообщает, в каком месте слайдера в данный момент находится пользователь, например, скринридера. Так как по умолчанию слайдер показывает первый слайд, добавим атрибут к первой кнопке.
+
+```html
+<button
+  class="button button-radio"
+  aria-current="true"
+  aria-label="Показать 1 из 4"
+>
+</button>
+```
+
+Теперь сложный и дискусионный момент. Кнопка для перемещения к предыдущему слайду неактивна, когда мы на первом слайде. Кнопка «Следующий» перестаёт работать, когда выбран последний слайд. Чтобы передать это не только визуально через CSS, но и в HTML, используем атрибут `aria-disabled`. Дело в том, что ARIA-атрибут для неактивных кнопок остаётся доступен для вспомогательных технологий и, при этом, на нём можно сделать клавиатурный фокус. HTML-атрибут `disabled` полностью недоступен для всех пользователей. Это иногда приводит к тому, что пользователи скринридеров неожиданно «теряют» кнопки на странице. Дополнительно, чтобы кнопки не были неактивными по умолчанию, добавляем атрибут JavaScript. Если что-то пошло не так со скриптом, они всегда будут активными.
 
 ### CSS
 
@@ -626,7 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 ```
 
-Кнопки для предыдущего и следующего слайда позиционируем с помощью `position: absolute`.
+Кнопки для предыдущего и следующего слайда позиционируем с помощью `position: absolute` и отрицательных `left` и `right` соответственно. Стрелки добавляем через свойство `background-image`.
 
 ```css
 .prev-button,
@@ -655,63 +652,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ### JavaScript
 
-На первом шаге деактивируем все кнопки и скрываем все слайды. После этого делаем активными и показываем только те элементы, которые соответствуют текущему слайду. Так навигация по слайдеру становится интуитивно понятной и предсказуемой для пользователя.
+Для начала будем слушать событие окончания парсинга страницы `DOMContentLoaded`, прежде чем добавлять все нужные атрибуты в слайдер.
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll('.slide');
-  const controlButtons = document.querySelectorAll('.button');
-  let currentSlide = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  // Тело скрипта
+})
+```
 
-  function updateSlider() {
-    slides.forEach(slide => slide.hidden = true);
-    controlButtons.forEach(btn => btn.setAttribute('aria-disabled', false));
+Теперь скрываем все слайды, кроме текущего. По умолчанию это первый слайд.
 
-    slides[currentSlide].hidden = false;
+```javascript
+const slider = document.querySelector('.slider')
+const slides = slider.querySelectorAll('.slide')
+let currentSlide = 0
 
-    controlButtons[currentSlide].setAttribute('aria-disabled', true)
+function updateSlider() {
+  slides.forEach((slide, index) => {
+    slide.hidden = index !== currentSlide
+  })
+})
+```
 
-    document.querySelectorAll('.button_type_radio').forEach((controller, index) => {
-      if (index === currentSlide) {
-        controller.classList.add('active');
-      } else {
-        controller.classList.remove('active');
-      }
-    });
+После делаем активными и показываем только те элементы, которые соответствуют текущему слайду. На этом шаге переключаем значение атрибута `aria-current` с `true` на `false` и добавляем или удаляем с кнопок `aria-disabled`.
 
-    controlButtons[controlButtons.length - 2]
-      .setAttribute('aria-disabled', currentSlide === 0 ? "true" : "false");
+```javascript
+const slideCount = slides.length
+const controlButtons = slider.querySelectorAll('.button-radio')
+const prevButton = slider.querySelector('.button-prev')
+const nextButton = slider.querySelector('.button-next')
+const activeButton = 'active'
+const inactiveButton = 'aria-disabled'
+const currentButton = 'aria-current'
 
-    controlButtons[controlButtons.length - 1]
-      .setAttribute('aria-disabled', currentSlide === slides.length - 1 ? "true" : "false");
+let currentSlide = 0
+
+controlButtons.forEach((button, index) => {
+  if (index === currentSlide) {
+    button.classList.add(activeButton)
+    button.setAttribute(currentButton, true)
+  } else {
+    button.classList.remove(activeButton)
+    button.removeAttribute(currentButton, true)
   }
 
-  controlButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      if (index < slides.length) {
-        currentSlide = index;
-        updateSlider();
-      } else {
-        if (button.getAttribute('aria-label') === "show previous slide" && currentSlide > 0) {
-          currentSlide--;
-        } else if (button.getAttribute('aria-label') === "show next slide" && currentSlide < slides.length - 1) {
-          currentSlide++;
-        }
-        updateSlider();
-      }
-    });
-  });
-
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'ArrowLeft' && currentSlide > 0) {
-      currentSlide--;
-      updateSlider();
-    } else if (event.key === 'ArrowRight' && currentSlide < slides.length - 1) {
-      currentSlide++;
-      updateSlider();
-    }
-  });
-
-  updateSlider();
-});
+  prevButton.setAttribute(inactiveButton, currentSlide === 0)
+  nextButton.setAttribute(inactiveButton, currentSlide === slideCount - 1)
+})
 ```
