@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
+  - css/specificity
+  - css/box-shadow
+  - html/nav
   - a11y/aria-hidden
-  - a11y/content-hidden
-  - tools/bundlers
-  - css/grid-guide
-  - tools/gitlab-ci-cd
-  - css/flexbox-guide
+  - recipes/popup
+  - tools/static-types
+  - js/var-let
+  - css/attr
+  - css/media
+  - html/input
+  - html/img
+  - js/execution-order
+  - a11y/aria-intro
   - tools/how-the-browser-creates-pages
+  - css/position
   - tools/markdown
-  - html/form
+  - css/scrollbar-gutter
+  - css/transform-function
+  - tools/gitlab-ci-cd
+  - a11y/screenreaders
+  - tools/agile
+  - a11y/live-region
+  - css/grid-guide
   - recipes/center
   - css/box-sizing
-  - js/execution-order
-  - html/head
-  - a11y/live-region
-  - html/flow
-  - tools/network
-  - html/div
-  - css/scrollbar-gutter
-  - html/img
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - css/box-model
-  - js/async-in-js
-  - js/function-context
+  - html/article
   - js/boolean
-  - html/nav
-  - recipes/progress
-  - css/pseudoelements
-  - css/position
-  - css/keyframes
+  - js/array-entries
+  - js/geolocation-api
+  - html/video
+  - tools/webpack
   - tools/how-to-test-and-why
   - tools/cli
-  - a11y/css-impact-on-a11y
-  - js/closures
-  - html/article
-  - html/doctype
-  - css/attr
-  - js/array-entries
-  - tools/cors
-  - recipes/character-counter
-  - a11y/screenreaders
-  - html/section
-  - css/display
-  - tools/clean-architecture
-  - css/custom-properties
-  - js/function
-  - html/input
   - recipes/git-rebase-onto
-  - css/box-shadow
-  - tools/ci-cd
-  - tools/webpack
-  - tools/static-types
-  - a11y/aria-intro
+  - css/box-model
+  - css/custom-properties
+  - html/form
+  - css/flexbox-guide
+  - a11y/css-impact-on-a11y
+  - recipes/character-counter
+  - tools/cors
+  - js/array-reduce-right
+  - tools/clean-architecture
+  - js/function
+  - js/async-in-js
+  - html/div
   - recipes/snow
-  - css/specificity
-  - js/geolocation-api
-  - tools/oop
-  - js/var-let
-  - recipes/popup
+  - css/keyframes
+  - js/deal-with-forms
+  - html/section
+  - tools/network
   - js/infinite-scroll
+  - tools/ci-cd
+  - recipes/progress
+  - css/display
+  - tools/bundlers
+  - recipes/lets-encrypt-nginx
+  - js/function-context
+  - tools/oop
+  - html/flow
+  - html/head
+  - a11y/content-hidden
   - recipes/ajax-form
   - tools/docker
-  - js/deal-with-forms
-  - css/media
-  - css/transform-function
-  - js/array-reduce-right
-  - tools/agile
+  - css/pseudoelements
+  - html/doctype
+  - js/closures
 ---
 
