@@ -1,3 +1,4 @@
+---
 title: "Слайдер"
 description: "Пишем доступный слайдер на HTML, CSS и JavaScript."
 authors:
