@@ -31,7 +31,8 @@
         gap: 20px;
       }
 
-      .checkbox {
+      .checkbox,
+      .radio {
         position: relative;
         margin-left: 20px;
         width: fit-content;
@@ -40,7 +41,8 @@
         align-items: center;
       }
 
-      .checkbox-input {
+      .checkbox-input,
+      .radio-input {
         appearance: none;
         position: relative;
         width: 90px;
@@ -49,11 +51,13 @@
         border: 1px solid black;
       }
 
-      .checkbox-label {
+      .checkbox-label,
+      .radio-label {
         padding-left: 10px;
       }
 
-      .checkbox-new {
+      .checkbox-new,
+      .radio-new {
         position: absolute;
         top: 0px;
         left: 0px;
@@ -69,28 +73,36 @@
       }
 
       .checkbox-new_checked,
-      .checkbox-input:checked + .checkbox-new > .checkbox-new_unchecked {
+      .checkbox-input:checked + .checkbox-new > .checkbox-new_unchecked,
+      .radio-new_checked,
+      .radio-input:checked + .radio-new > .radio-new_unchecked {
         display: none;
       }
 
       .checkbox-input:checked + .checkbox-new > .checkbox-new_checked,
-      .checkbox-input:not(:checked) + .checkbox-new > .checkbox-new_unchecked {
+      .checkbox-input:not(:checked) + .checkbox-new > .checkbox-new_unchecked,
+      .radio-input:checked + .radio-new > .radio-new_checked,
+      .radio-input:not(:checked) + .radio-new > .radio-new_unchecked {
         display: initial;
       }
 
-      .checkbox-input:checked {
+      .checkbox-input:checked,
+      .radio-input:checked {
         background: #f498ad;
       }
 
-      .checkbox-input:checked + .checkbox-new {
+      .checkbox-input:checked + .checkbox-new,
+      .radion-input:checked + .radio-new {
         color: #ffffff;
       }
 
-      .checkbox-input:checked + .checkbox-new {
+      .checkbox-input:checked + .checkbox-new,
+      .radio-input:checked + .radio-new {
         color: #000000;
       }
 
-      .checkbox-input:disabled {
+      .checkbox-input:disabled,
+      .radio-input:disabled {
         background: gray;
       }
     </style>
@@ -163,6 +175,44 @@
           </div>
         </div>
         <span class="checkbox-label">Гав!</span>
+      </label>
+
+      <label class="radio">
+        <input class="radio-input" type="radio" id="myRadio" name="radio" />
+        <div class="radio-new">
+          <div class="radio-new_checked">
+            U
+            <span class="eye">•</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">•</span>U
+          </div>
+          <div class="radio-new_unchecked">
+            U
+            <span class="eye">ˇ</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">ˇ</span>U
+          </div>
+        </div>
+        <span class="radio-label">Радио Гав!</span>
+      </label>
+
+      <label class="radio">
+        <input class="radio-input" type="radio" id="myRadio" name="radio" />
+        <div class="radio-new">
+          <div class="radio-new_checked">
+            U
+            <span class="eye">•</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">•</span>U
+          </div>
+          <div class="radio-new_unchecked">
+            U
+            <span class="eye">ˇ</span>
+            <span class="nose">ᴥ</span>
+            <span class="eye">ˇ</span>U
+          </div>
+        </div>
+        <span class="radio-label">Радио Гав!</span>
       </label>
     </form>
   </body>

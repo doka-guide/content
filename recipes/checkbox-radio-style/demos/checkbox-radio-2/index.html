@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Стилизация чекбокса</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <style>
+      *,
+      *::after,
+      *::befor {
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        color: white;
+        background: #18191c;
+        font-family: Roboto, system-ui;
+      }
+
+      form {
+        display: grid;
+        gap: 20px;
+      }
+
+      .checkbox,
+      .radio {
+        margin-top: 5px;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox-label,
+      .radio-label {
+        padding-left: 5px;
+      }
+
+      .checkbox-input,
+      .radio-input {
+        appearance: none;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        background: #f498ad;
+        box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+        border-radius: 10px;
+        border: 1px solid white;
+        transition: 500ms;
+      }
+
+      .radio-input {
+        border-radius: 50%;
+      }
+
+      .checkbox-input::after,
+      .radio-input::after {
+        content: "";
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='30px' viewBox='0 -960 960 960' width='30px' stroke='%232E9AFF' stroke-width='30' fill='%232E9AFF'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        transition: 500ms;
+      }
+
+      .radio-input::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='29px' viewBox='0 -960 960 960' width='29px' fill='%232E9AFF'%3E%3Cpath d='M480-28 346-160H160v-186L28-480l132-134v-186h186l134-132 134 132h186v186l132 134-132 134v186H614L480-28Zm0-252q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0-200Zm0 340 100-100h140v-140l100-100-100-100v-140H580L480-820 380-720H240v140L140-480l100 100v140h140l100 100Zm0-340Z'/%3E%3C/svg%3E");
+      }
+
+      .checkbox-input:checked::after,
+      .radio-input:checked::after {
+        width: 30px;
+        height: 30px;
+        transition: 500ms;
+      }
+
+      .checkbox-input:disabled,
+      .radio-input:disabled {
+        background: #ccc;
+        border-color: #ccc;
+      }
+
+      .checkbox-input:disabled::after,
+      .radio-input:disabled::after {
+        filter: grayscale(100%);
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <div class="checkbox">
+          <input class="checkbox-input" type="checkbox" id="checkbox2" />
+          <label class="checkbox-label" for="checkbox2">Чекбокс 2</label>
+        </div>
+        <div class="checkbox">
+          <input
+            class="checkbox-input"
+            type="checkbox"
+            id="checkbox2-d-c"
+            disabled
+            checked
+          />
+          <label class="checkbox-label" for="checkbox2-d-c"
+            >Чекбокс Дизейбл Отмечен</label
+          >
+        </div>
+        <div class="checkbox">
+          <input
+            class="checkbox-input"
+            type="checkbox"
+            id="checkbox2-d"
+            disabled
+          />
+          <label class="checkbox-label" for="checkbox2-d"
+            >Чекбокс Дизейбл</label
+          >
+        </div>
+      </div>
+      <div>
+        <div class="radio">
+          <input class="radio-input" type="radio" id="radio2" name="radio" />
+          <label class="radio-label" for="radio2">Радиокнопка 2</label>
+        </div>
+        <div class="radio">
+          <input class="radio-input" type="radio" id="radio2-2" name="radio" />
+          <label class="radio-label" for="radio2-2">Радиокнопка 2</label>
+        </div>
+        <div class="radio">
+          <input
+            class="radio-input"
+            type="radio"
+            id="radio2-d-c"
+            name="radio2"
+            disabled
+            checked
+          />
+          <label class="radio-label" for="radio2-d-c"
+            >Радиокнопка 2 Дизейбл Отмечен</label
+          >
+        </div>
+        <div class="radio">
+          <input
+            class="radio-input"
+            type="radio"
+            id="radio2-d"
+            name="radio2"
+            disabled
+          />
+          <label class="radio-label" for="radio2-d"
+            >Радиокнопка 2 Дизейбл</label
+          >
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
