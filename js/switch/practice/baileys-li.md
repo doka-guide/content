@@ -5,7 +5,7 @@
 Так и `switch` часто превращается в такой молоток. Конечно, у `switch` есть свои преимущества: можно использовать разом несколько `case`, в условиях можно написать различную логику и прочее.
 
 ```js
-function greetings(role) {
+function greet(role) {
   switch (role) {
     case 'admin':
     case 'moder':
@@ -24,14 +24,14 @@ function greetings(role) {
 Однако часто нам нужно **просто** соотнести одно значение с другим. И в таких случаях лучше завести словарь:
 
 ```js
-const greetingsDict = {
+const roleToGreeting = {
   admin: 'Приветствую, босс',
   moder: 'Приветствую, смотритель порядка',
   user: 'Здравствуй, пользователь',
   guest: 'Здравствуй, гость',
 }
 
-const greetings = (role) => greetingsDict[role] ?? 'Привет, некто'
+const greetings = (role) => roleToGreeting[role] ?? 'Привет, некто'
 ```
 
 Есть ещё шаблон `switch (true)`, который якобы сокращает `if...else if...else`:
