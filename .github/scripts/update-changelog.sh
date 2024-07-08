@@ -1,5 +1,6 @@
-git fetch origin ${{ github.base_ref }}
-git diff --name-status origin/${{ github.base_ref }} HEAD | grep '^A' | grep -E '^(html|css|js|tools|a11y|recipies)/.*/$' > added_dirs.txt
+#!/bin/bash
+git fetch origin main
+git diff --name-status origin/main HEAD | grep '^A' | | grep -E '(html|css|js|tools|a11y|recipies)\/.*\/index\.md' | sed 's/^A\t//g' > added_dirs.txt
 
 month_to_rus() {
   case "$1" in
@@ -46,9 +47,9 @@ if [ -s added_dirs.txt ]; then
       echo "- ${formatted_date}, [${title}](https://doka.guide/${path#*/}/${new_folder}/), ${authors_string}" >> CHANGELOG.new.md
     fi
   done < added_dirs.txt
-  git config --local user.email "<hi@doka.guide>"
-  git config --local user.name "Doka Dog"
-  git add CHANGELOG.md
-  git commit -m "Обновляет CHANGELOG"
-  git push
+  # git config --local user.email "<hi@doka.guide>"
+  # git config --local user.name "Doka Dog"
+  # git add CHANGELOG.md
+  # git commit -m "Обновляет CHANGELOG"
+  # git push
 fi
