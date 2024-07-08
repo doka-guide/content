@@ -15,6 +15,7 @@ groups:
       - lazy-load-with-preview
       - validation
       - masonry
+      - slider
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
