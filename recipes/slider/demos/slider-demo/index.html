@@ -198,12 +198,12 @@
       const inactiveButton = 'aria-disabled'
       const currentButton = 'aria-current'
       let currentSlide = 0
-    
+
       function updateSlider() {
         slides.forEach((slide, index) => {
           slide.hidden = index !== currentSlide
         })
-    
+
         controlButtons.forEach((button, index) => {
           if (index === currentSlide) {
             button.classList.add(activeButton)
@@ -212,12 +212,12 @@
             button.classList.remove(activeButton)
             button.removeAttribute(currentButton, true)
           }
-    
+
           prevButton.setAttribute(inactiveButton, currentSlide === 0)
           nextButton.setAttribute(inactiveButton, currentSlide === slideCount - 1)
         })
       }
-    
+
       controlButtons.forEach((button, index) => {
         button.addEventListener('click', () => {
           if (index < slideCount) {
@@ -226,21 +226,21 @@
           }
         })
       })
-    
+
       prevButton.addEventListener('click', () => {
         if (currentSlide > 0) {
           currentSlide--
           updateSlider()
         }
       })
-    
+
       nextButton.addEventListener('click', () => {
         if (currentSlide < slideCount - 1) {
           currentSlide++
           updateSlider()
         }
       })
-    
+
       slider.addEventListener('keydown', function (event) {
         if (event.key === 'ArrowLeft' && currentSlide > 0) {
           currentSlide--
@@ -250,7 +250,7 @@
           updateSlider()
         }
       })
-    
+
       updateSlider()
     })
   </script>
