@@ -60,12 +60,12 @@ const cat = {
 const cat = {
   name: 'Том',
   meow: function () {
-    console.log('Мяу мяу')
+    console.log('Мяу-мяу')
   },
 }
 
 cat.meow()
-// Мяу мяу
+// Мяу-мяу
 ```
 
 Свойства можно добавлять и после создания объекта:

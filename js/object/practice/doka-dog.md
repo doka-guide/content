@@ -4,7 +4,7 @@
 const cat = {
   name: 'Том',
   meow: function () {
-    console.log('Мяу мяу')
+    console.log('Мяу-мяу')
   },
 }
 ```
@@ -15,7 +15,7 @@ const cat = {
 const cat = {
   name: 'Том',
   meow() {
-    console.log('Мяу мяу')
+    console.log('Мяу-мяу')
   },
 }
 ```
