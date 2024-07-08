@@ -648,10 +648,8 @@ const slider = document.querySelector('.slider')
 const slides = slider.querySelectorAll('.slide')
 let currentSlide = 0
 
-function updateSlider() {
-  slides.forEach((slide, index) => {
-    slide.hidden = index !== currentSlide
-  })
+slides.forEach((slide, index) => {
+  slide.hidden = index !== currentSlide
 })
 ```
 
