@@ -7,7 +7,9 @@ contributors:
   - tatianafokina
   - skorobaeus
 keywords:
-  - доступность
+  - баннеры
+  - перелистывающиеся баннеры
+  - css-слайдер
 related:
   - a11y/aria-labelledby
   - html/button
@@ -47,33 +49,39 @@ tags:
   >
     <button
       class="button button-radio"
+      type="button"
       aria-current="true"
       aria-label="Показать 1 из 4"
     >
     </button>
     <button
       class="button button-radio"
+      type="button"
       aria-label="Показать 2 из 4"
     >
     </button>
     <button
       class="button button-radio"
+      type="button"
       aria-label="Показать 3 из 4"
     >
     </button>
     <button
       class="button button-radio"
+      type="button"
       aria-label="Показать 4 из 4"
     >
     </button>
 
     <button
       aria-label="Предыдущий"
+      type="button"
       class="button button-prev"
     >
     </button>
     <button
       aria-label="Следующий"
+      type="button"
       class="button button-next"
     >
     </button>
@@ -331,18 +339,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ### HTML
 
-Вместо автоматической прокрутки добавляем кнопки для последовательного переключения слайдов. Важно, чтобы интерактивные элементы контрастировали с фоном слайдера.
+Вместо автоматической прокрутки добавляем кнопки для последовательного переключения слайдов. Важно, чтобы интерактивные элементы контрастировали с фоном слайдера. Так как тип кнопок по умолчанию `submit`, установим руками другой тип `button`. Мы не отправляем данные на сервер, и нам не нужна перезагрузка страницы.
 
 ```html
 <button
   aria-label="Предыдущий"
   class="button button-prev"
->
-</button>
-
-<button
-  aria-label="Следующий"
-  class="button button-next"
+  type="button"
 >
 </button>
 ```
@@ -352,83 +355,47 @@ document.addEventListener('DOMContentLoaded', function () {
 ```html
 <button
   class="button button-radio"
+  type="button"
   aria-current="true"
   aria-label="Показать 1 из 4"
 >
 </button>
 
-<button
-  class="button button-radio"
-  aria-label="Показать 2 из 4"
->
-</button>
-
-<button
-  class="button button-radio"
-  aria-label="Показать 3 из 4"
->
-</button>
-
-<button
-  class="button button-radio"
-  aria-label="Показать 4 из 4"
->
-</button>
+<!-- Остальные кнопки >
 ```
 
 Расположение элементов в [DOM](/js/dom/) (Document Object Model) влияет на порядок, в котором пользователи клавиатуры перемещаются по странице. По этой причине располагаем элементы навигации перед слайдером, а не после него. В этом случае пользователю не нужно будет возвращаться назад, чтобы прокрутить слайды:
 
 ```html
 <div
-  class="slider"
-  role="region"
-  aria-label="Паттерны"
+  class="controls"
+  role="group"
+  aria-label="Управление слайдами"
 >
-  <div
-    class="controls"
-    role="group"
-    aria-label="Управление слайдами"
-  >
-    <button
-      class="button button-radio"
-      aria-current="true"
-      aria-label="Показать 1 из 4"
-    >
-    </button>
-    <!-- Остальные кнопки, включая вперёд и назад -->
-  </div>
+  <!-- Сначала кнопки-точки, потом вперёд и назад -->
+</div>
 
-  <div class="slides" aria-live="polite">
-    <!-- Слайды -->
-  </div>
+<div class="slides" aria-live="polite">
+  <!-- Слайды -->
 </div>
 ```
 
-Содержимое слайдов группируем в одном [`<div>`](/html/div/). В нашем случае это картинка [`<img>`](/html/img/) и заголовок [`<h2>`](/html/h1-h6/).
+Содержимое слайдов группируем в одном [`<div>`](/html/div/).
 
 ```html
-<div class="slides" aria-live="polite">
-  <div
-    class="slide"
-    role="group"
-    aria-labelledby="item-1-label"
-    id="carousel-item-1"
-  >
-    <img
-      class="slide-img"
-      src="./images/summer.jpg"
-      alt="Абстрактные цветы розовых, синих,
-      малиновых и оранжевых оттенков на зелёном фоне."
-    >
-    <h2 id="item-1-label">Паттерн «Лето»</h2>
-  </div>
-  <!-- Остальные слайды -->
+<div
+  class="slide"
+  role="group"
+  aria-labelledby="item-1-label"
+  id="carousel-item-1"
+>
+  <!-- Содержимое -->
 </div>
 ```
 
 ### Семантика и ARIA-разметка
 
-В первую очередь используйте семантические теги [`<button>`](/html/button/), `<h2>` для заголовков слайдов и `<img>` для картинок с их кратким описанием в `alt`.
+В первую очередь используем семантические теги [`<button>`](/html/button/), [`<h2>`](/html/h1-h6/) для заголовков слайдов и [`<img>`](/html/img/) для картинок с их кратким описанием в `alt`.
 
 Чтобы улучшить опыт пользователей [скринридеров](/a11y/screenreaders/), [голосового управления](/a11y/speech-recognition/) и других вспомогательных технологий, добавим в слайдер дополнительные [ARIA-атрибуты](/a11y/aria-attrs/) и [ARIA-роли](/a11y/aria-roles/).
 
@@ -452,40 +419,23 @@ document.addEventListener('DOMContentLoaded', function () {
   role="group"
   aria-label="Управление слайдами"
 >
-  <button
-    class="button button-radio"
-    aria-current="true"
-    aria-label="Показать 1 из 4"
-  >
-  </button>
-  <button
-    class="button button-radio"
-    aria-label="Показать 2 из 4"
-  >
-  </button>
-  <button
-    class="button button-radio"
-    aria-label="Показать 3 из 4"
-  >
-  </button>
-  <button
-    class="button button-radio"
-    aria-label="Показать 4 из 4"
-  >
-  </button>
-
-  <button
-    aria-label="Предыдущий"
-    class="button button-prev"
-  >
-  </button>
-  <button
-    aria-label="Следующий"
-    class="button button-next"
-  >
-  </button>
+  <!-- Кнопки -->
 </div>
 ```
+
+Контейнеру со всеми слайдами задаём [`aria-live="polite"`](/a11y/aria-live/). Этот атрибут делает эту часть страницы [изменяющейся область (live region)](/a11y/live-region/). Это значит, что скринридер автоматически зачитает содержимое нового слайда при пролистывании. Мы используем значение `polite`, чтобы скринридер не спешил сразу рассказать об изменениях.
+
+```html
+<div class="slides" aria-live="polite">
+  <!-- Слайды -->
+</div>
+```
+
+<aside>
+
+☝️ Если решились на автоматическую прокрутку, не забудьте переключить значение `aria-live` с `polite` на `off`, если пользователь вышел из слайдера.
+
+</aside>
 
 Так же образом поступаем и с содержимым слайдов. Группируем слайды через роль `group`, а вот название задаём через атрибут [`aria-labelledby`](/a11y/aria-labelledby/), связанный с заголовком через `id` с уникальным значением. Это лучшее решение, так как в слайде уже есть видимый заголовок.
 
@@ -496,12 +446,7 @@ document.addEventListener('DOMContentLoaded', function () {
   aria-labelledby="item-1-label"
   id="carousel-item-1"
 >
-  <img
-    class="slide-img"
-    src="./images/summer.jpg"
-    alt="Абстрактные цветы розовых, синих,
-    малиновых и оранжевых оттенков на зелёном фоне."
-  >
+  <!-- Картинка -->
   <h2 id="item-1-label">Паттерн «Лето»</h2>
 </div>
 ```
@@ -521,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 ```
 
-А это скрытые слайды:
+А это скрытый слайд:
 
 ```html
 <div
@@ -533,24 +478,6 @@ document.addEventListener('DOMContentLoaded', function () {
 >
   <!-- Содержимое слайда -->
 </div>
-<div
-  class="slide"
-  role="group"
-  aria-labelledby="item-3-label"
-  id="carousel-item-3"
-  hidden
->
-  <!-- Содержимое слайда -->
-</div>
-<div
-  class="slide"
-  role="group"
-  aria-labelledby="item-4-label"
-  id="carousel-item-4"
-  hidden
->
-  <!-- Содержимое слайда -->
-</div>
 ```
 
 Для навигации по слайдеру важно использовать настоящую кнопку `<button>`. Она работает с клавиатуры по умолчанию, а ещё у неё уже есть нужная семантика. Так как в кнопках нет видимого текста, называем их через `aria-label`. Имена должны чётко передавать функциональность элементов. Кнопки-точки для переключения между слайдами назовём «Показать 1/2/3/4 из 4». Хорошо рассказать пользователям не только к какому слайду они перейдут, но и сколько их всего.
@@ -558,7 +485,8 @@ document.addEventListener('DOMContentLoaded', function () {
 ```html
 <button
   class="button button-radio"
-  aria-label="Показать 1 из 4"
+  type="button"
+  aria-label="Показать 2 из 4"
 >
 </button>
 ```
@@ -569,11 +497,13 @@ document.addEventListener('DOMContentLoaded', function () {
 <button
   aria-label="Предыдущий"
   class="button button-prev"
+  type="button"
 >
 </button>
 <button
   aria-label="Следующий"
   class="button button-next"
+  type="button"
 >
 </button>
 ```
@@ -583,6 +513,7 @@ document.addEventListener('DOMContentLoaded', function () {
 ```html
 <button
   class="button button-radio"
+  type="button"
   aria-current="true"
   aria-label="Показать 1 из 4"
 >
@@ -698,6 +629,8 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 ```
 
+Слайдер можно анимировать на свой вкус. Если используете анимацию, оберните соответствующие правила в директиву [`@media`](/css/media/) со значением [`prefers-reduced-motion: no-preference`](/a11y/prefers-reduced-motion/). Так пользователи, которые отключили анимацию у себя в системе, не столкнутся с анимацией в слайдере.
+
 ### JavaScript
 
 Для начала будем слушать событие окончания парсинга страницы [`DOMContentLoaded`](/js/event-domcontentloaded/), прежде чем добавлять все нужные атрибуты в слайдер.
@@ -722,7 +655,7 @@ function updateSlider() {
 })
 ```
 
-После делаем активными и показываем только те элементы, которые соответствуют текущему слайду. На этом шаге переключаем значение атрибута `aria-current` с `true` на `false` и добавляем или удаляем с кнопок `aria-disabled`.
+После делаем активными и показываем только те элементы, которые соответствуют текущему слайду. На этом шаге переключаем значение атрибута `aria-current` с `true` на `false` и добавляем и удаляем с кнопок `aria-disabled`.
 
 ```javascript
 const slideCount = slides.length
@@ -755,7 +688,7 @@ function updateSlider() {
 }
 ```
 
-Чтобы кнопки начали уже переключать слайды, будем слушать событие [`click`](/js/element-click/) на них. Пройдёмся по массиву кнопок-точек. Если индекс слайда меньше индекса их всех, то тогда текущий слайд приравниваем к этому индексу и вызываем ранее написанную нами функцию `updateSlider()`.
+Чтобы кнопки начали переключать слайды, будем слушать событие [`click`](/js/element-click/) на них. Пройдёмся по массиву кнопок-точек. Проверим, что кнопке соответствует нужный слайд, а потом перейдём к слайду с тем же порядковым номером, что у кнопки.
 
 ```javascript
 const slideCount = slides.length
@@ -770,6 +703,8 @@ controlButtons.forEach((button, index) => {
   })
 })
 ```
+
+А так поступим с кнопками для переключения слайдов в одном направлении:
 
 ```javascript
 const prevButton = slider.querySelector('.button-prev')
@@ -790,7 +725,7 @@ nextButton.addEventListener('click', () => {
 })
 ```
 
-Наконец, предусматриваем дополнительное перелистывание слайдов клавиатурными стрелками. Для этого слушаем событие [`keydown`](/js/element-keydown/) для клавиш `ArrowLeft` и `ArrowRight`.
+Наконец, дополнительно предусмотрим перелистывание слайдов клавиатурными стрелками. Для этого слушаем событие [`keydown`](/js/element-keydown/) для клавиш `ArrowLeft` и `ArrowRight`.
 
 ```javascript
 slider.addEventListener('keydown', function (event) {
