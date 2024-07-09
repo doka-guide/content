@@ -42,7 +42,7 @@ tags:
 
 Самый простой способ изменить внешний вид интерактивных элементов управления в веб-формах — использовать CSS-свойство [`accent-color`](/css/accent-color/). Это свойство позволяет изменить акцентный цвет выделения элемента.
 
-<iframe title="accent-color" src="demos/checkbox-radio-1/" height="300"></iframe>
+<iframe title="accent-color" src="demos/checkbox-radio-accent-color/" height="300"></iframe>
 
 ```html
 <form>
@@ -77,7 +77,7 @@ input[type="radio"] {
 
 Этот метод использует псевдоэлементы [`::before`](/css/before/) и [`::after`](/css/after/) для создания кастомного внешнего вида чекбокса или радиокнопки, переписывая стандартные стили.
 
-<iframe title="Псевдоэлементы" src="demos/checkbox-radio-2/" height="400"></iframe>
+<iframe title="Псевдоэлементы" src="demos/checkbox-radio-pseudo-elements/" height="400"></iframe>
 
 Создаем HTML-скелет.
 
@@ -125,7 +125,7 @@ input[type="radio"] {
   position: relative;
   width: 30px;
   height: 30px;
-  background: #f498ad;
+  background: #F498AD;
   box-shadow: inset 0 0 5px rgb(0 0 0 / 0.2);
   border-radius: 10px;
   border: 1px solid black;
@@ -240,7 +240,7 @@ input[type="radio"] {
 
 Этот метод похож на предыдущий, но использует дополнительный `<div>`, который перекрывает `<input>` для создания более сложных эффектов или анимаций.
 
-<iframe title="Псевдоэлемнеты и дополнительный контейнер" src="demos/checkbox-radio-3/" height="370"></iframe>
+<iframe title="Псевдоэлемнеты и дополнительный контейнер" src="demos/checkbox-radio-pseudo-elements-div/" height="370"></iframe>
 
 Создаем HTML-скелет для кастомных чекбокса и радиокнопки. В нашем случае это мордочка Доки с открытыми и закрытыми глазками =) И не забываем указать атрибут `aria-hidden: true`, чтобы пользователям скринридеров не нужно было каждый раз слушать названия символов, которые используются в символьной иконке U•ᴥ•U.
 
