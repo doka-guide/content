@@ -102,6 +102,15 @@ tags:
 }
 ```
 
+По рекомендациям WCAG также следует выделять фокусом не только сам input range, но и отдельно ползунок, который будет перемещаться.
+
+```css
+.range-input:focus-visible::-webkit-slider-thumb,
+.range-input:focus-visible::-moz-range-thumb {
+  outline: 3px solid #41e847;
+}
+```
+
 ### Трэк
 
 <iframe title="Пример input range" src="demos/input-range-3/" height="180"></iframe>
@@ -224,17 +233,153 @@ function handleInputRange() {
 }
 ```
 
+Так как значение переменной `--value` это просто строка "80", то её нужно превратить в %. Для этого используются хитрость с умножением на 1% `calc(var(--value) * 1%)`.
+
+Чтобы не использовать подобные ухищрения можно указать тип переменной через css правило `@property`. ВОЗМОЖНО НУЖНО ПЕРЕПИСАТЬ НА НЕГО ДЕМКИ.
+
+```css
+@property --value {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 80;
+}
+```
+
 ### Текущее значение
+
+Для добавления текущего значение нужно немного изменить html структуру, добавив тэг [`output`]() сразу после `<input>`.
+
+```html
+<div class="range" style="--value: 80;">
+  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+  <div class="track"></div>
+  <div class="progress"></div>
+  <input
+    class="range-input"
+    id="tailmetr"
+    type="range"
+    min="0"
+    max="100"
+    value="80"
+    step="1"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-orientation="horizontal"
+    oninput="handleInputRange()"
+  />
+  <!-- Текущее значение input range -->
+  <output class="range-output" id="output" for="rangeInput">80</output>
+</div>
+```
+
+Дописываем в код функции обработки события `oninput`, изменение значения тэга `<output>`. Свойство `nextElementSibling` указывает на следующим элемент от текущего.
+
+```javascript
+function handleInputRange() {
+  event.target.parentNode.style.setProperty("--value", event.target.value);
+  // изменение значения тэга `<output>`
+  event.target.nextElementSibling.value = event.target.value;
+}
+```
+
+```css
+.range-output {
+  position: absolute;
+  top: 30px;
+  left: calc(var(--value) * 1%);
+  padding: 0 4px;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 18px;
+  transform: translateX(calc(var(--value) * -1%));
+  user-select: none;
+  transition: 300ms;
+}
+```
+
+```css
+.range-input:hover + .range-output,
+.range-input:focus-visible + .range-output {
+  background-color: #c56fff;
+  transition: 0ms;
+}
+```
+
+Свойство `transform: translateX(calc(var(--value) * -1%));` нужно для того, чтобы смещать немного влево число, так как оно увеличивается с однозначного 0, до трёхзначных 100.
 
 ### Шкала значений
 
+Шкалу значений нужно добавлять с помощью тэгов `<datalist>` и `<option>`. А также указать в атрибуте `list="tickmarks"` id тэга со списком значений, чтобы input range немного прилипал к этим значениям, когда пользователь проводит рядом мышкой.
+
+```html
+<div class="range" style="--value: 80;">
+  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+  <div class="track"></div>
+  <div class="progress"></div>
+  <input
+    class="range-input"
+    id="tailmetr"
+    type="range"
+    min="0"
+    max="100"
+    value="80"
+    step="1"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-orientation="horizontal"
+    oninput="handleInputRange()"
+    list="tickmarks"
+  />
+  <output class="range-output" id="output" for="tailmetr">80</output>
+  <datalist id="tickmarks">
+    <option value="0 to 20">0</option>
+    <option>20</option>
+    <option>40</option>
+    <option>60</option>
+    <option>80</option>
+    <option>100</option>
+  </datalist>
+</div>
+```
+
+```css
+#tickmarks {
+  width: calc(100% - 18px);
+  height: 30px;
+  padding-inline: 4px 0;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+option {
+  position: relative;
+  padding-top: 10px;
+  width: 10px;
+  font-size: 14px;
+}
+
+option:after {
+  content: "";
+  display: initial;
+  position: absolute;
+  top: -32px;
+  left: 10px;
+  width: 3px;
+  height: 35px;
+  margin: 0 auto;
+  background: #c6c6c6;
+  z-index: -1;
+}
+```
+
 ### Вертикальный input range
 
-aria-orientation: vertical,
+Повернуть input range вертикально можно двумя способами. Однако в обоих вариантах обязательно нужно указать атрибут `aria-orientation: vertical`.
 
 #### [`write-mode`](/css/write-mode/)
 
-#### [`rotate`](/css/rotate)
+#### [`transform: rotate();`](/css/rotate)
 
 aria-valuenow, Если значение aria-valuenowне удобно для пользователя, например, день недели представлен числом, для свойства aria-valuetext устанавливается строка, которая делает значение ползунка понятным, например, «Понедельник».
 
@@ -243,8 +388,6 @@ aria-valuenow, Если значение aria-valuenowне удобно для �
 Проговорить в подробностях про все аспекты доступности повторно
 
 ## Сложные варианты input range
-
-### Один ползунок
 
 ### Два ползунка
 
