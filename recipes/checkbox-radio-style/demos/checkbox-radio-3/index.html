@@ -13,32 +13,50 @@
     <style>
       *,
       *::after,
-      *::befor {
+      *::before {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html, body {
+        height: 100%;
       }
 
       body {
-        padding-top: 10px;
+        padding: 50px;
         display: flex;
         justify-content: center;
+        align-items: center;
         color: #ffffff;
         background: #18191c;
-        font-family: Roboto, system-ui;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
       }
 
       form {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
+      }
+
+      fieldset {
+        min-width: 350px;
+        padding: 5px 15px 15px;
       }
 
       .checkbox,
       .radio {
         position: relative;
-        margin-left: 20px;
         width: fit-content;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      label + label {
+        margin-block-start: 10px;
       }
 
       .checkbox-input,
@@ -48,12 +66,17 @@
         width: 90px;
         height: 40px;
         border-radius: 20px;
-        border: 1px solid black;
+        border: 1px solid #FFFFFF;
+      }
+
+      .checkbox-input:not([disabled]) ~ *,
+      .radio-input:not([disabled]) ~ * {
+        cursor: pointer;
       }
 
       .checkbox-label,
       .radio-label {
-        padding-left: 10px;
+        margin-inline-start: 10px;
       }
 
       .checkbox-new,
@@ -88,7 +111,7 @@
 
       .checkbox-input:checked,
       .radio-input:checked {
-        background: #f498ad;
+        background: #C56FFF;
       }
 
       .checkbox-input:checked + .checkbox-new,
@@ -105,12 +128,23 @@
       .radio-input:disabled {
         background: gray;
       }
+
+      @media (width <= 768px) {
+        body {
+          padding: 30px;
+        }
+
+        fieldset {
+          min-width: initial;
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <form>
       <fieldset>
-        <legend>Пример с Чекбоксам</legend>
+        <legend>Пример с чекбоксами</legend>
         <label class="checkbox">
           <input class="checkbox-input" type="checkbox" id="myCheckbox" />
           <div class="checkbox-new" aria-hidden="true">
@@ -180,7 +214,7 @@
         </label>
       </fieldset>
       <fieldset>
-        <legend>Пример с Радиокнопками</legend>
+        <legend>Пример с радиокнопками</legend>
         <label class="radio">
           <input class="radio-input" type="radio" id="myRadio" name="radio" />
           <div class="radio-new" aria-hidden="true">
