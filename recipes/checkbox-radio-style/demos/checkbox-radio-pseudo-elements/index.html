@@ -142,15 +142,20 @@
           <label class="checkbox-label" for="checkbox2">Чекбокс 2</label>
         </div>
         <div class="checkbox">
+          <input class="checkbox-input" type="checkbox" id="checkbox2-c" checked/>
+          <label class="checkbox-label" for="checkbox2-c">Чекбокс 2 Отмечен</label>
+        </div>
+        <div class="checkbox">
           <input
             class="checkbox-input"
             type="checkbox"
             id="checkbox2-d-c"
             disabled
             checked
+            aria-disabled="true"
           />
           <label class="checkbox-label" for="checkbox2-d-c"
-            >Чекбокс Дизейбл Отмечен</label
+            >Чекбокс Неактивен Отмечен</label
           >
         </div>
         <div class="checkbox">
@@ -159,9 +164,10 @@
             type="checkbox"
             id="checkbox2-d"
             disabled
+            aria-disabled="true"
           />
           <label class="checkbox-label" for="checkbox2-d"
-            >Чекбокс Дизейбл</label
+            >Чекбокс Неактивен</label
           >
         </div>
       </fieldset>
@@ -172,8 +178,8 @@
           <label class="radio-label" for="radio2">Радиокнопка 2</label>
         </div>
         <div class="radio">
-          <input class="radio-input" type="radio" id="radio2-2" name="radio" />
-          <label class="radio-label" for="radio2-2">Радиокнопка 2</label>
+          <input class="radio-input" type="radio" id="radio2-c" name="radio" checked />
+          <label class="radio-label" for="radio2-c">Радиокнопка 2 Отмечена</label>
         </div>
         <div class="radio">
           <input
@@ -185,7 +191,7 @@
             checked
           />
           <label class="radio-label" for="radio2-d-c"
-            >Радиокнопка 2 Дизейбл Отмечен</label
+            >Радиокнопка 2 Неактивна Отмечена</label
           >
         </div>
         <div class="radio">
@@ -197,7 +203,7 @@
             disabled
           />
           <label class="radio-label" for="radio2-d"
-            >Радиокнопка 2 Дизейбл</label
+            >Радиокнопка 2 Неактивна</label
           >
         </div>
       </fieldset>
