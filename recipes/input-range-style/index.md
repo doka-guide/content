@@ -377,6 +377,42 @@ option:after {
 
 Повернуть input range вертикально можно двумя способами. Однако в обоих вариантах обязательно нужно указать атрибут `aria-orientation: vertical`.
 
+Дорабатываем наш HTML, добавляя атрибуты `dir="ltr"` и `aria-orientation="vertical"`.
+
+```html
+<div class="range" style="--value: 80;">
+  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+  <div class="track"></div>
+  <div class="progress"></div>
+  <input
+    class="range-input"
+    id="tailmetr"
+    type="range"
+    min="0"
+    max="100"
+    value="80"
+    step="1"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-orientation="vertical"
+    dir="ltr"
+    oninput="handleInputRange()"
+    list="tickmarks"
+  />
+  <output class="range-output" id="output" for="tailmetr">80</output>
+  <datalist id="tickmarks">
+    <option value="0 to 20">0</option>
+    <option>20</option>
+    <option>40</option>
+    <option>60</option>
+    <option>80</option>
+    <option>100</option>
+  </datalist>
+</div>
+```
+
+
+
 #### [`write-mode`](/css/write-mode/)
 
 #### [`transform: rotate();`](/css/rotate)
