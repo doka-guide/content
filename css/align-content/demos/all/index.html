@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — align-content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper {
+      display: grid;
+      gap: 4rem;
+      width: 65%;
+    }
+
+    .controls {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .display-controls,
+    .value-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap:  0.5rem 2rem;
+    }
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #2E9AFF;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .radio-label:has(.radio:disabled) {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .parent {
+      position: relative;
+      display: flex;
+      grid-template-columns: repeat(3, 1fr);
+      align-content: normal;
+      flex-wrap: wrap;
+      height: 300px;
+      border: 1px solid #2E9AFF;
+    }
+
+    .parent::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-end: -1rem;
+      width: 3px;
+      background-color: white;
+    }
+
+    .parent::before {
+      content: "Поперечная ось";
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: -2.1rem;
+      writing-mode: vertical-rl;
+    }
+
+    .child {
+      flex-basis: 33%;
+      height: 20px;
+      border: 1px solid black;
+      text-align: center;
+      align-content: center;
+      color: black;
+      background-color: #F498AD;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .wrapper {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="controls">
+      <div class="display-controls">
+        <code>display: </code>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="display" value="flex" checked>
+          <span class="radio-title"><code>flex</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="display" value="grid">
+          <span class="radio-title"><code>grid</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="display" value="block">
+          <span class="radio-title"><code>block</code></span>
+        </label>
+      </div>
+      <div class="value-controls">
+        <code>align-content: </code>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="value" value="normal" checked>
+          <span class="radio-title"><code>normal</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="value" value="start">
+          <span class="radio-title"><code>start</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="value" value="center">
+          <span class="radio-title"><code>center</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio" type="radio" name="value" value="end">
+          <span class="radio-title"><code>end</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-grid" type="radio" name="value" value="stretch">
+          <span class="radio-title"><code>stretch</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-grid" type="radio" name="value" value="space-between">
+          <span class="radio-title"><code>space-between</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-grid" type="radio" name="value" value="space-around">
+          <span class="radio-title"><code>space-around</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-grid" type="radio" name="value" value="space-evenly">
+          <span class="radio-title"><code>space-evenly</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-only" type="radio" name="value" value="flex-start">
+          <span class="radio-title"><code>flex-start</code></span>
+        </label>
+        <label class="radio-label">
+          <input class="radio flex-only" type="radio" name="value" value="flex-end">
+          <span class="radio-title"><code>flex-end</code></span>
+        </label>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">1</div>
+      <div class="child">2</div>
+      <div class="child">3</div>
+      <div class="child">4</div>
+      <div class="child">5</div>
+      <div class="child">6</div>
+      <div class="child">7</div>
+      <div class="child">8</div>
+      <div class="child">9</div>
+      <div class="child">10</div>
+      <div class="child">11</div>
+    </div>
+  </div>
+
+  <script>
+    const displayControls = document.querySelectorAll('.radio[name="display"]')
+    const valueControls = document.querySelectorAll('.radio[name="value"]')
+    const parent = document.querySelector('.parent')
+
+    displayControls.forEach(control => {
+      control.addEventListener('change', (event) => {
+        valueControls.forEach(vControl => {
+            vControl.disabled = false
+
+            if (event.target.value === 'block') {
+              if (vControl.classList.contains('flex-only') || vControl.classList.contains('flex-grid')) {
+              vControl.disabled = true
+              }
+            } else if (event.target.value === 'grid') {
+              if (vControl.classList.contains('flex-only')) {
+              vControl.disabled = true
+              }
+            }
+          })
+
+        parent.style.display = event.target.value;
+      })
+    })
+
+    valueControls.forEach(control => {
+      control.addEventListener('change', (event) => {
+        parent.style.alignContent = event.target.value;
+      })
+    })
+  </script>
+</body>
+</html>
