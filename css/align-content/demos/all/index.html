@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -23,6 +23,10 @@
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
     }
 
     .wrapper {
@@ -96,7 +100,7 @@
       align-content: normal;
       flex-wrap: wrap;
       height: 300px;
-      border: 1px solid #2E9AFF;
+      background-color: #123E66;
     }
 
     .parent::after {
@@ -104,8 +108,8 @@
       position: absolute;
       inset-block: 0;
       inset-inline-end: -1rem;
-      width: 3px;
-      background-color: white;
+      width: 1px;
+      background-color: #FFFFFF;
     }
 
     .parent::before {
@@ -119,11 +123,11 @@
     .child {
       flex-basis: 33%;
       height: 20px;
-      border: 1px solid black;
+      border: 1px solid #123E66;
       text-align: center;
       align-content: center;
-      color: black;
-      background-color: #F498AD;
+      color: #000000;
+      background-color: #2E9AFF;
     }
 
     @media (max-width: 768px) {
