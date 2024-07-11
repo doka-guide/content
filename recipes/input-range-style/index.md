@@ -375,6 +375,8 @@ option:after {
 
 ### Вертикальный input range
 
+<iframe title="Пример input range" src="demos/input-range-6/" height="400"></iframe>
+
 Повернуть input range вертикально можно двумя способами. Однако в обоих вариантах обязательно нужно указать атрибут `aria-orientation: vertical`.
 
 Дорабатываем наш HTML, добавляя атрибуты `dir="ltr"` и `aria-orientation="vertical"`.
@@ -392,10 +394,10 @@ option:after {
     max="100"
     value="80"
     step="1"
+    dir="ltr"
     aria-valuemin="0"
     aria-valuemax="100"
-    aria-orientation="vertical"
-    dir="ltr"
+    aria-orientation="horizontal"
     oninput="handleInputRange()"
     list="tickmarks"
   />
@@ -411,9 +413,85 @@ option:after {
 </div>
 ```
 
-
-
 #### [`write-mode`](/css/write-mode/)
+
+```css
+/* Вариант сверху вниз (100 внизу, 0 вверху) */
+.range:has(input[aria-orientation="vertical"][dir="ltr"]) {
+  --range-w: 30px;
+  --range-h: 100%;
+
+  --range-input-write-m: vertical-lr;
+  --range-label-rotate: 180deg;
+
+  --range-track-w: 8px;
+  --range-track-h: 100%;
+  --range-track-top: 0;
+  --range-track-bottom: none;
+  --range-track-left: 75px;
+
+  --range-progress-w: 8px;
+  --range-progress-h: calc(var(--value) * 1%);
+  --range-progress-top: 0;
+  --range-progress-bottom: none;
+  --range-progress-left: 75px;
+
+  --range-output-top: calc(var(--value) * -1% + 90%);
+  --range-output-left: 28px;
+  --range-output-offset-xy: 0, calc(var(--value) * -1%);
+
+  --tickmarks-w: 30px;
+  --tickmarks-h: calc(100% - 5px);
+  --tickmarks-dir: column;
+  --tickmarks-write-mode: horizontal-tb;
+
+  --option-after-w: 35px;
+  --option-after-h: 3px;
+  --option-after-top: 15px;
+  --option-after-left: -37px;
+
+    writing-mode: vertical-lr;
+}
+```
+
+```css
+/* Вариант снизу вверх (0 внизу, 100 вверху) */
+.range:has(input[aria-orientation="vertical"][dir="rtl"]) {
+  --range-w: 30px;
+  --range-h: 100%;
+
+  --range-input-write-m: vertical-lr;
+  --range-label-rotate: 180deg;
+
+  --range-track-w: 8px;
+  --range-track-h: 100%;
+  --range-track-top: none;
+  --range-track-bottom: 0;
+  --range-track-left: 75px;
+
+  --range-progress-w: 8px;
+  --range-progress-h: calc(var(--value) * 1%);
+  --range-progress-top: none;
+  --range-progress-bottom: 0;
+  --range-progress-left: 75px;
+
+  --range-output-top: calc(var(--value) * 1%);
+  --range-output-left: 28px;
+  --range-output-offset-xy: 0, calc(var(--value) * 1%);
+
+  --tickmarks-w: 30px;
+  --tickmarks-h: calc(100% - 5px);
+  --tickmarks-dir: column-reverse;
+  --tickmarks-write-mode: horizontal-tb;
+
+  --option-after-w: 35px;
+  --option-after-h: 3px;
+  --option-after-top: 15px;
+  --option-after-left: -37px;
+
+    writing-mode: vertical-lr;
+}
+```
 
 #### [`transform: rotate();`](/css/rotate)
 
