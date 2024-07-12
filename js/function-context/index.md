@@ -73,7 +73,7 @@ console.log('This is:', this);
 
 :exclamation: Но повторимся, этот случай не интересен с практической точки зрения. Но может пригодиться на собеседовании :)
 
-## `this` и Function Environment
+### `this` и Function Environment
 
 Самое интересное, когда `this` находится внутри кода функции. Тут важно, что это за функция: [обычная](/js/function/) или [стрелочная](/js/arrow-function/)
 
