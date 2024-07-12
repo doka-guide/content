@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/specificity
-  - css/box-shadow
-  - html/nav
-  - a11y/aria-hidden
-  - recipes/popup
-  - tools/static-types
-  - js/var-let
-  - css/attr
-  - css/media
-  - html/input
-  - html/img
-  - js/execution-order
-  - a11y/aria-intro
-  - tools/how-the-browser-creates-pages
-  - css/position
-  - tools/markdown
+  - recipes/progress
   - css/scrollbar-gutter
-  - css/transform-function
-  - tools/gitlab-ci-cd
-  - a11y/screenreaders
-  - tools/agile
-  - a11y/live-region
+  - tools/how-to-test-and-why
+  - recipes/git-rebase-onto
   - css/grid-guide
-  - recipes/center
-  - css/box-sizing
-  - html/article
-  - js/boolean
+  - html/section
+  - css/custom-properties
+  - recipes/snow
+  - html/div
+  - tools/cli
+  - css/specificity
+  - tools/clean-architecture
   - js/array-entries
+  - css/position
+  - js/infinite-scroll
+  - css/pseudoelements
+  - js/execution-order
+  - tools/ci-cd
+  - a11y/css-impact-on-a11y
+  - js/closures
+  - js/deal-with-forms
+  - tools/gitlab-ci-cd
+  - html/doctype
+  - css/box-shadow
+  - tools/bundlers
+  - css/flexbox-guide
+  - html/form
+  - tools/webpack
+  - js/array-reduce-right
+  - recipes/ajax-form
+  - tools/how-the-browser-creates-pages
+  - html/nav
+  - css/keyframes
+  - js/async-in-js
+  - tools/static-types
+  - tools/markdown
+  - js/function
+  - tools/network
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - html/img
+  - html/flow
+  - recipes/center
+  - css/attr
+  - recipes/popup
+  - js/function-context
+  - a11y/aria-hidden
+  - tools/cors
+  - a11y/content-hidden
+  - css/transform-function
+  - html/head
+  - tools/docker
+  - js/var-let
+  - html/article
+  - tools/agile
+  - js/boolean
   - js/geolocation-api
   - html/video
-  - tools/webpack
-  - tools/how-to-test-and-why
-  - tools/cli
-  - recipes/git-rebase-onto
-  - css/box-model
-  - css/custom-properties
-  - html/form
-  - css/flexbox-guide
-  - a11y/css-impact-on-a11y
-  - recipes/character-counter
-  - tools/cors
-  - js/array-reduce-right
-  - tools/clean-architecture
-  - js/function
-  - js/async-in-js
-  - html/div
-  - recipes/snow
-  - css/keyframes
-  - js/deal-with-forms
-  - html/section
-  - tools/network
-  - js/infinite-scroll
-  - tools/ci-cd
-  - recipes/progress
   - css/display
-  - tools/bundlers
-  - recipes/lets-encrypt-nginx
-  - js/function-context
+  - css/box-sizing
   - tools/oop
-  - html/flow
-  - html/head
-  - a11y/content-hidden
-  - recipes/ajax-form
-  - tools/docker
-  - css/pseudoelements
-  - html/doctype
-  - js/closures
+  - recipes/character-counter
+  - css/media
+  - css/box-model
+  - recipes/lets-encrypt-nginx
+  - a11y/live-region
+  - html/input
 ---
 
