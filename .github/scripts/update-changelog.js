@@ -13,14 +13,14 @@ const contentList = addedContent
     if (fs.existsSync(fileName)) {
       const url = `https://doka.guide/${fileName.replace('index.md', '')}`
       const date = process.argv[2]
-      
+
       const content = fs.readFileSync(fileName).toString()
-      
+
       const title = content
         .match(/title: ('|"|).*('|"|)\n/)[0]
         .replace(/title: ('|"|)/, '')
         .replace(/('|"|)\n/, '')
-      
+
       const authorsSelection = /authors:\n(  - .*\n)+(contributors|cover|editors|keywords|related|tags):/
       const authors = content
         .match(authorsSelection)[0]
@@ -38,7 +38,7 @@ const contentList = addedContent
           }
           return authorFileName
         })
-      
+
       return `- ${date}, [${title}](${url}), ${authors.join(', ')}`
     }
   })
