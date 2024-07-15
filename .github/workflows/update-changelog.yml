@@ -10,6 +10,8 @@ jobs:
   update_changelog:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
