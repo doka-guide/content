@@ -10,15 +10,14 @@ jobs:
   update_changelog:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
       - name: Ищет новые материалы и обновляет CHANGELOG
         run: sh .github/scripts/update-changelog.sh
       - name: Создание коммита с обновлениями полей
