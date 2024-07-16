@@ -195,22 +195,39 @@ input[type="radio"] {
   width: 0px;
   height: 0px;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
-    height='30' viewBox='0 -960 960 960' width='30' stroke='%23FFFFFF' stroke-width='30'
-    fill='%23FFFFFF'%3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg
+    xmlns='http://www.w3.org/2000/svg'
+    height='30'
+    width='30'
+    viewBox='0 -960 960 960'
+    stroke='%23FFFFFF'
+    stroke-width='30'
+    fill='%23FFFFFF'
+    %3E%3Cpath d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z'
+    /%3E%3C/svg%3E"
+  );
   background-repeat: no-repeat;
   transition: 500ms;
 }
 
 .radio-input::after {
   background-image:
-    url("data:image/svg+xml,%3csvg width='28' height='28' viewBox='0 0 30 30' fill='none'
-    xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.88 23C12.6 23 14.2 21.32 15.52 19.52C16.84 21.32
-    18.44 23 21.16 23C22.16 23 23.04 22.72 23.04 21.8C23.04 21.24 22.6 20.72 21.96 20.72C21.72 20.72 21.28 20.8
-    21 20.8C19.72 20.8 18.2 19.12 17.36 17.92C19.08 16.08 20.96 13.72 20.96 11.12C20.96 8.12 18.68 6 15.52
-    6C12.36 6 10.08 8.12 10.08 11.12C10.08 13.72 11.96 16.08 13.68 17.92C12.84 19.12 11.32 20.8 10.04
-    20.8C9.76 20.8 9.32 20.72 9.08 20.72C8.44 20.72 8 21.24 8 21.8C8 22.72 8.88 23 9.88 23Z'
-    fill='white'/%3e%3c/svg%3e ");
+    url("data:image/svg+xml,%3csvg
+    width='28'
+    height='28'
+    viewBox='0 0 30 30'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+    fill='white'
+    %3e%3cpath d='M9.88 23C12.6 23 14.2 21.32 15.52 19.52C16.84 21.32
+    18.44 23 21.16 23C22.16 23 23.04 22.72 23.04 21.8C23.04 21.24 22.6
+    20.72 21.96 20.72C21.72 20.72 21.28 20.8 21 20.8C19.72 20.8 18.2
+    19.12 17.36 17.92C19.08 16.08 20.96 13.72 20.96 11.12C20.96 8.12 18.68
+    6 15.52 6C12.36 6 10.08 8.12 10.08 11.12C10.08 13.72 11.96 16.08 13.68
+    17.92C12.84 19.12 11.32 20.8 10.04 20.8C9.76 20.8 9.32 20.72 9.08
+    20.72C8.44 20.72 8 21.24 8 21.8C8 22.72 8.88 23 9.88 23Z'
+    /%3e%3c/svg%3e"
+  );
 }
 ```
 
