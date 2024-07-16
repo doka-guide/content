@@ -163,8 +163,8 @@ tags:
   background-color: transparent;
   margin: 0;
   padding: 0;
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   border-radius: 50%;
   border: 1px solid #FFFFFF;
 }
@@ -189,8 +189,8 @@ tags:
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  width: 30px;
-  height: 42px;
+  inline-size: 30px;
+  block-size: 42px;
   background-color: transparent;
   background-image: url(./images/arrow.svg);
   background-repeat: no-repeat;
@@ -204,18 +204,18 @@ tags:
 }
 
 .button-prev {
-  left: -50px;
+  inset-inline-start: -50px;
 }
 
 .button-next {
-  right: -50px;
+  inset-inline-end: -50px;
   transform: translateY(-50%) rotateY(180deg);
   transform-origin: center;
 }
 
 .slide-img {
-  width: 100%;
-  height: 225px;
+  inline-size: 100%;
+  block-size: 225px;
   object-fit: cover;
   user-select: none;
 }
@@ -224,13 +224,13 @@ tags:
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  width: 100%;
+  max-inline-size: 600px;
+  inline-size: 100%;
   position: relative;
 }
 
 .slides {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .slide {
@@ -239,11 +239,11 @@ tags:
 
 @media (max-width: 768px) {
   .slider {
-    max-width: 260px;
+    max-inline-size: 260px;
   }
 
   .slide-img {
-    height: 400px;
+    block-size: 400px;
   }
 
   .button-prev {
@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ```css
 .slides {
-  width: 100%;
+  inline-size: 100%;
 }
 
 .slide {
@@ -574,8 +574,8 @@ document.addEventListener('DOMContentLoaded', function () {
   background-color: transparent;
   margin: 0;
   padding: 0;
-  width: 15px;
-  height: 15px;
+  inline-size: 15px;
+  block-size: 15px;
   border-radius: 50%;
   border: 1px solid #868A8F;
 }
@@ -599,8 +599,8 @@ document.addEventListener('DOMContentLoaded', function () {
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  width: 30px;
-  height: 42px;
+  inline-size: 30px;
+  block-size: 42px;
   background-color: transparent;
   background-image: url(arrow.svg);
   background-repeat: no-repeat;
@@ -609,11 +609,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 
 .button-prev {
-  left: -50px;
+  inset-inline-start: -40px;
 }
 
 .button-next {
-  right: -50px;
+  inset-inline-end: -40px;
   transform: translateY(-50%) rotateY(180deg);
   transform-origin: center;
 }
