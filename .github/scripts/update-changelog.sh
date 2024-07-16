@@ -26,20 +26,3 @@ RUS_MONTH=$(MONTH_TO_RUS $MONTH)
 FORMATTED_DATE="$DAY $RUS_MONTH"
 
 node .github/scripts/update-changelog.js "$FORMATTED_DATE"
-
-
-if [[ -z $(git status -s) ]]
-then
-  echo $(git status)
-else
-  git config user.name "Doka Dog"
-  git config user.email "<hi@doka.guide>"
-
-  git add CHANGELOG.md
-  git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"
-
-  git pull --rebase
-  git push origin main
-
-  exit
-fi
