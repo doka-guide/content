@@ -2,14 +2,14 @@
 <html lang="ru">
   <head>
     <title>Стилизация чекбокса (псевдоэлемент) — Стилизация чекбоксов и радиокнопок — Дока</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    />
+    >
     <style>
       *,
       *::after,
@@ -43,7 +43,7 @@
 
       fieldset {
         min-width: 350px;
-        padding: 5px 15px 15px;
+        padding: 25px 15px 15px;
       }
 
       .checkbox + .checkbox, .radio + .radio {
@@ -136,14 +136,14 @@
   <body>
     <form>
       <fieldset>
-        <legend>Пример с чекбоксами</legend>
+        <legend>Чекбоксы</legend>
         <div class="checkbox">
-          <input class="checkbox-input" type="checkbox" id="checkbox2" />
+          <input class="checkbox-input" type="checkbox" id="checkbox2">
           <label class="checkbox-label" for="checkbox2">Чекбокс 2</label>
         </div>
         <div class="checkbox">
-          <input class="checkbox-input" type="checkbox" id="checkbox2-c" checked/>
-          <label class="checkbox-label" for="checkbox2-c">Чекбокс 2 Отмечен</label>
+          <input class="checkbox-input" type="checkbox" id="checkbox2-c" checked>
+          <label class="checkbox-label" for="checkbox2-c">Чекбокс 2 (отмечен)</label>
         </div>
         <div class="checkbox">
           <input
@@ -152,10 +152,9 @@
             id="checkbox2-d-c"
             disabled
             checked
-            aria-disabled="true"
-          />
+          >
           <label class="checkbox-label" for="checkbox2-d-c"
-            >Чекбокс Неактивен Отмечен</label
+            >Чекбокс 2 (отмечен и неактивен)</label
           >
         </div>
         <div class="checkbox">
@@ -164,22 +163,21 @@
             type="checkbox"
             id="checkbox2-d"
             disabled
-            aria-disabled="true"
-          />
+          >
           <label class="checkbox-label" for="checkbox2-d"
-            >Чекбокс Неактивен</label
+            >Чекбокс 2 (неактивен)</label
           >
         </div>
       </fieldset>
       <fieldset>
-        <legend>Пример с радиокнопками</legend>
+        <legend>Радиокнопки</legend>
         <div class="radio">
-          <input class="radio-input" type="radio" id="radio2" name="radio" />
+          <input class="radio-input" type="radio" id="radio2" name="radio">
           <label class="radio-label" for="radio2">Радиокнопка 2</label>
         </div>
         <div class="radio">
-          <input class="radio-input" type="radio" id="radio2-c" name="radio" checked />
-          <label class="radio-label" for="radio2-c">Радиокнопка 2 Отмечена</label>
+          <input class="radio-input" type="radio" id="radio2-c" name="radio" checked>
+          <label class="radio-label" for="radio2-c">Радиокнопка 2 (отмечена)</label>
         </div>
         <div class="radio">
           <input
@@ -189,9 +187,9 @@
             name="radio2"
             disabled
             checked
-          />
+          >
           <label class="radio-label" for="radio2-d-c"
-            >Радиокнопка 2 Неактивна Отмечена</label
+            >Радиокнопка 2 (отмечена и неактивна)</label
           >
         </div>
         <div class="radio">
@@ -201,9 +199,9 @@
             id="radio2-d"
             name="radio2"
             disabled
-          />
+          >
           <label class="radio-label" for="radio2-d"
-            >Радиокнопка 2 Неактивна</label
+            >Радиокнопка 2 (неактивна)</label
           >
         </div>
       </fieldset>
