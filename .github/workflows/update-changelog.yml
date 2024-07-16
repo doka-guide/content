@@ -13,15 +13,28 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'
-
+          node-version: "20"
       - name: Ищет новые материалы и обновляет CHANGELOG
         run: sh .github/scripts/update-changelog.sh
+      - name: Создание коммита с обновлениями полей
+        run: |
+          if [[ -z $(git status -s) ]]
+          then
+            echo $(git status)
+          else
+            git config user.name "Doka Dog"
+            git config user.email "<hi@doka.guide>"
+
+            git add CHANGELOG.md
+            git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"
+
+            git pull --rebase
+            git push origin main
+
+            exit
+          fi
