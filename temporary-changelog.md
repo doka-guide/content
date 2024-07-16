@@ -4,6 +4,8 @@
 
 ## Июль 2024
 
+- 16 июля, [`Atomics`](https://doka.guide/js/atomics/), Всеволод Золотов
+- 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
 - 1 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
 
 ## Июнь 2024
