@@ -125,7 +125,7 @@
   </style>
 </head>
 <body>
-  <form class="form" id="search" action="/some-route" method="GET">
+  <form class="form" id="search-form" action="/some-route" method="GET">
     <label class="input-label">
       <span class="input-title">Найди любимую пиццу:</span>
       <input class="input" type="search" name="query" placeholder="Маргарита" />
@@ -159,7 +159,7 @@
       }
     }
 
-    const searchForm = document.getElementById('search')
+    const searchForm = document.getElementById('search-form')
     const searchInput = searchForm.querySelector('[type="search"]')
     const searchResults = document.querySelector('.search-results')
 
