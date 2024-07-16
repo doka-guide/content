@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Слайдер input range с 4 ползунками</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+
+      .range {
+        --clr-primary: #c56fff;
+        --clr-onPrimary: #fff;
+        --clr-secondary: #41e847;
+        --clr-bg: #ababab;
+        --clr-ticks: #c6c6c6;
+        --clr-outline: #41e847;
+
+        --range-w: 100%;
+        --range-h: 30px;
+
+        --range-input-write-m: horizontal-tb;
+        --range-label-rotate: 0;
+
+        .track {
+          --range-track-w: 100%;
+          --range-track-h: 8px;
+          --range-track-top: 72px;
+          --range-track-bottom: 0px;
+          --range-track-left: 0;
+        }
+
+        --range-thumb-w: 30px;
+        --range-thumb-h: 30px;
+
+        .progress {
+          --range-progress-w: abs((var(--value-2) - var(--value-1)) * 1%);
+          --range-progress-h: 8px;
+          --range-progress-top: 75px;
+          --range-progress-bottom: 0px;
+          --range-progress-left: min(
+            calc(var(--value-1) * 1%),
+            calc(var(--value-2) * 1%)
+          );
+          --range-progress-right: none;
+        }
+
+        .range-output {
+          --range-output-top: 25px;
+          --range-output-left: calc(var(--value) * 1%);
+          --range-output-right: none;
+          --range-output-offset-xy: calc(var(--value) * -1%), 0;
+        }
+
+        #tickmarks {
+          --tickmarks-w: calc(100% - 8px);
+          --tickmarks-h: 30px;
+          --tickmarks-p: 0 0 0 12px;
+          --tickmarks-dir: row;
+          --tickmarks-write-mode: horizontal-tb;
+        }
+
+        option {
+          --option-p: 10px 0 0 0;
+          --option-after-w: 3px;
+          --option-after-h: 35px;
+          --option-after-top: -33px;
+          --option-after-left: 2px;
+        }
+
+        writing-mode: horizontal-tb;
+
+        position: relative;
+        display: grid;
+        width: 80%;
+      }
+
+      .range:has(input[aria-orientation="horizontal"][dir="rtl"]) {
+        .progress {
+          --range-progress-left: none;
+          --range-progress-right: min(
+            calc(var(--value-1) * 1%),
+            calc(var(--value-2) * 1%)
+          );
+        }
+
+        .range-output {
+          --range-output-left: none;
+          --range-output-right: calc(var(--value) * 1%);
+          --range-output-offset-xy: calc(var(--value) * 1%), 0;
+        }
+
+        #tickmarks {
+          --tickmarks-dir: row-reverse;
+          --tickmarks-write-mode: horizontal-tb;
+        }
+      }
+
+      /* Вариант сверху вниз (100 внизу, 0 вверху) */
+      .range:has(input[aria-orientation="vertical"][dir="ltr"]) {
+        --range-w: 30px;
+        --range-h: 100%;
+
+        --range-input-write-m: vertical-lr;
+        --range-label-rotate: 180deg;
+
+        .track {
+          --range-track-w: 8px;
+          --range-track-h: 100%;
+          --range-track-top: 0;
+          --range-track-bottom: none;
+          --range-track-left: 72px;
+        }
+
+        .progress {
+          --range-progress-w: 8px;
+          --range-progress-h: abs((var(--value-2) - var(--value-1)) * 1%);
+          --range-progress-top: min(
+            calc(var(--value-1) * 1%),
+            calc(var(--value-2) * 1%)
+          );
+          --range-progress-bottom: none;
+          --range-progress-left: 72px;
+        }
+
+        .range-output {
+          --range-output-top: calc(var(--value) * 1%);
+          --range-output-bottom: none;
+          --range-output-left: 20px;
+          --range-output-offset-xy: 0, calc(var(--value) * -1%);
+        }
+
+        #tickmarks {
+          --tickmarks-w: 30px;
+          --tickmarks-h: calc(100% - 8px);
+          --tickmarks-dir: column;
+          --tickmarks-write-mode: horizontal-tb;
+        }
+
+        option {
+          --option-after-w: 35px;
+          --option-after-h: 3px;
+          --option-after-top: 15px;
+          --option-after-left: -43px;
+        }
+
+        writing-mode: vertical-lr;
+        width: fit-content;
+      }
+
+      /* Вариант снизу вверх (0 внизу, 100 вверху) */
+      .range:has(input[aria-orientation="vertical"][dir="rtl"]) {
+        --range-w: 30px;
+        --range-h: 100%;
+
+        --range-input-write-m: vertical-lr;
+        --range-label-rotate: 180deg;
+
+        .track {
+          --range-track-w: 8px;
+          --range-track-h: 100%;
+          --range-track-top: none;
+          --range-track-bottom: 0;
+          --range-track-left: 72px;
+        }
+
+        .progress {
+          --range-progress-w: 8px;
+          --range-progress-h: abs((var(--value-2) - var(--value-1)) * 1%);
+          --range-progress-top: none;
+          --range-progress-bottom: min(
+            calc(var(--value-1) * 1%),
+            calc(var(--value-2) * 1%)
+          );
+          --range-progress-left: 72px;
+        }
+
+        .range-output {
+          --range-output-top: none;
+          --range-output-bottom: calc(var(--value) * 1%);
+          --range-output-left: 20px;
+          --range-output-offset-xy: 0, calc(var(--value) * 1%);
+        }
+
+        #tickmarks {
+          --tickmarks-w: 30px;
+          --tickmarks-h: calc(100% - 8px);
+          --tickmarks-dir: column-reverse;
+          --tickmarks-write-mode: horizontal-tb;
+        }
+
+        option {
+          --option-after-w: 35px;
+          --option-after-h: 3px;
+          --option-after-top: 15px;
+          --option-after-left: -37px;
+        }
+        writing-mode: vertical-lr;
+        width: fit-content;
+      }
+
+      .range-label {
+        margin-block-end: 41px;
+        transform: rotate(var(--range-label-rotate));
+      }
+
+      .thumbs {
+        display: grid;
+      }
+
+      .range-input {
+        width: var(--range-w);
+        height: var(--range-h);
+        grid-area: 1/1;
+        appearance: none;
+        background: none;
+        writing-mode: inherit;
+        pointer-events: none;
+      }
+
+      .range-input::-webkit-slider-thumb,
+      .range-input::-moz-range-thumb {
+        width: var(--range-thumb-w);
+        height: var(--range-thumb-h);
+        border: none;
+        border-radius: 50%;
+        background-color: var(--clr-onPrimary);
+        box-shadow: 0 0 0 5px inset var(--clr-primary);
+        transition: 300ms;
+        pointer-events: auto;
+      }
+
+      .range-input:hover::-webkit-slider-thumb,
+      .range-input:hover::-moz-range-thumb,
+      .range-input:focus-visible::-webkit-slider-thumb,
+      .range-input:focus-visible::-moz-range-thumb {
+        box-shadow: 0 0 0 10px inset var(--clr-primary);
+        transition: 300ms;
+
+        + .range-output {
+          background-color: var(--clr-primary);
+        }
+      }
+
+      .range-input:focus-visible::-webkit-slider-thumb,
+      .range-input:focus-visible::-moz-range-thumb {
+        outline: 3px solid var(--clr-outline);
+      }
+
+      .range-input:active::-webkit-slider-thumb,
+      .range-input:active::-moz-range-thumb {
+        box-shadow: 0 0 0 30px inset var(--clr-primary);
+        transition: 300ms;
+      }
+
+      .range-input:disabled::-webkit-slider-thumb,
+      .range-input:disabled::-moz-range-thumb {
+        box-shadow: 0 0 0 30px inset var(--clr-bg);
+      }
+
+      .track {
+        position: absolute;
+        top: var(--range-track-top);
+        bottom: var(--range-track-bottom);
+        left: var(--range-track-left);
+        right: var(--range-track-right);
+        width: var(--range-track-w);
+        height: var(--range-track-h);
+        border-radius: 10px;
+        background-color: var(--clr-bg);
+        z-index: -1;
+      }
+
+      .progress {
+        position: absolute;
+        top: var(--range-progress-top);
+        bottom: var(--range-progress-bottom);
+        left: var(--range-progress-left);
+        right: var(--range-progress-right);
+        width: var(--range-progress-w);
+        height: var(--range-progress-h);
+        border-radius: 10px;
+        background-color: var(--clr-primary);
+        z-index: -1;
+      }
+
+      .range-output {
+        position: absolute;
+        top: var(--range-output-top);
+        bottom: var(--range-output-bottom);
+        left: var(--range-output-left);
+        right: var(--range-output-right);
+        width: var(--range-thumb-w);
+        height: var(--range-thumb-h);
+        min-width: fit-content;
+        padding: 0 4px;
+        display: grid;
+        place-items: center;
+        background: transparent;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: end;
+        transform: translate(var(--range-output-offset-xy));
+        user-select: none;
+        transition: 300ms;
+        writing-mode: horizontal-tb;
+      }
+
+      .range-input:hover + .range-output,
+      .range-input:focus-visible + .range-output {
+        background-color: var(--clr-primary);
+        transition: 0ms;
+      }
+
+      #tickmarks {
+        width: var(--tickmarks-w);
+        height: var(--tickmarks-h);
+        padding: var(--tickmarks-p);
+        display: flex;
+        flex-direction: var(--tickmarks-dir);
+        justify-content: space-between;
+        color: var(--clr-onPrimary);
+        writing-mode: var(--tickmarks-write-mode);
+      }
+
+      option {
+        position: relative;
+        width: 10px;
+        padding: var(--option-p);
+        font-size: 14px;
+      }
+
+      option:after {
+        content: "";
+        display: initial;
+        position: absolute;
+        top: var(--option-after-top);
+        left: var(--option-after-left);
+        width: var(--option-after-w);
+        height: var(--option-after-h);
+        margin: 0 auto;
+        background: var(--clr-ticks);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="range"
+      style="--value-1: 20; --value-2: 40; --value-3: 60; --value-4: 80"
+    >
+      <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+      <div class="track"></div>
+      <!--   <div class="progress"></div> -->
+      <div class="thumbs">
+        <input
+          class="range-input"
+          id="tailmetr1"
+          type="range"
+          min="0"
+          max="100"
+          value="20"
+          step="1"
+          dir="rtl"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-orientation="horizontal"
+          oninput="handleInputRange1()"
+          list="tickmarks"
+        />
+        <output
+          class="range-output"
+          id="output"
+          for="tailmetr1"
+          style="--value: var(--value-1)"
+          >20</output
+        >
+        <input
+          class="range-input"
+          id="tailmetr2"
+          type="range"
+          min="0"
+          max="100"
+          value="40"
+          step="1"
+          dir="rtl"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-orientation="horizontal"
+          oninput="handleInputRange2()"
+          list="tickmarks"
+        />
+        <output
+          class="range-output"
+          id="output"
+          for="tailmetr2"
+          style="--value: var(--value-2)"
+          >40</output
+        >
+        <input
+          class="range-input"
+          id="tailmetr3"
+          type="range"
+          min="0"
+          max="100"
+          value="60"
+          step="1"
+          dir="rtl"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-orientation="horizontal"
+          oninput="handleInputRange3()"
+          list="tickmarks"
+        />
+        <output
+          class="range-output"
+          id="output"
+          for="tailmetr3"
+          style="--value: var(--value-3)"
+          >60</output
+        >
+        <input
+          class="range-input"
+          id="tailmetr4"
+          type="range"
+          min="0"
+          max="100"
+          value="80"
+          step="1"
+          dir="rtl"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-orientation="horizontal"
+          oninput="handleInputRange4()"
+          list="tickmarks"
+        />
+        <output
+          class="range-output"
+          id="output"
+          for="tailmetr4"
+          style="--value: var(--value-4)"
+          >80</output
+        >
+      </div>
+      <datalist id="tickmarks">
+        <option value="0 to 20">0</option>
+        <option>20</option>
+        <option>40</option>
+        <option>60</option>
+        <option>80</option>
+        <option>100</option>
+      </datalist>
+    </div>
+    <script>
+      function handleInputRange1() {
+        event.target.parentNode.parentNode.style.setProperty(
+          "--value-1",
+          event.target.value
+        );
+        event.target.nextElementSibling.value = event.target.value;
+      }
+
+      function handleInputRange2() {
+        event.target.parentNode.parentNode.style.setProperty(
+          "--value-2",
+          event.target.value
+        );
+        event.target.nextElementSibling.value = event.target.value;
+      }
+
+      function handleInputRange3() {
+        event.target.parentNode.parentNode.style.setProperty(
+          "--value-3",
+          event.target.value
+        );
+        event.target.nextElementSibling.value = event.target.value;
+      }
+
+      function handleInputRange4() {
+        event.target.parentNode.parentNode.style.setProperty(
+          "--value-4",
+          event.target.value
+        );
+        event.target.nextElementSibling.value = event.target.value;
+      }
+    </script>
+  </body>
+</html>
