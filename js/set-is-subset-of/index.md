@@ -1,6 +1,10 @@
 ---
 title: "`.isSubsetOf()`"
 description: Метод сравнения коллекций, который позволяет определить является текущая коллекция частью другой коллекции.
+baseline:
+  - group: set-methods
+    features:
+      - javascript.builtins.Set.isSubsetOf
 authors:
   - vitya-ne
 related:
