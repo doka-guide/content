@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Перенос для текста — text-wrap — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
+    }
+
+    .option-title {
+      margin-inline-end: 50px;
+      text-align: right;
+    }
+
+    h1,
+    .option-title {
+      inline-size: 180px;
+    }
+
+    .option {
+      inline-size: 340px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
+    }
+
+    .wrap {
+      text-wrap: wrap;
+    }
+
+    .nowrap {
+      text-wrap: nowrap;
+    }
+
+    .balance {
+      text-wrap: balance;
+    }
+
+    .pretty {
+      text-wrap: pretty;
+    }
+
+    .stable {
+      text-wrap: stable;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+      }
+
+      h1,
+      .option-title {
+        inline-size: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .option {
+        inline-size: calc(100vw - 250px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent">
+    <h1><code>text-wrap</code></h1>
+    <div class="option-container">
+      <span class="option-title"><code>wrap</code></span>
+      <p class="option wrap">- Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>- Ты забыл сказать "пожалуйста".
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>nowrap</code></span>
+      <p class="option nowrap">- Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>- Ты забыл сказать "пожалуйста".
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>balance</code></span>
+      <p class="option balance">- Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>- Ты забыл сказать "пожалуйста".
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>pretty</code></span>
+      <p class="option pretty">- Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>- Ты забыл сказать "пожалуйста".
+      </p>
+    </div>
+    <div class="option-container">
+      <span class="option-title"><code>stable</code></span>
+      <p class="option stable">- Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>- Ты забыл сказать "пожалуйста".
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
