@@ -40,31 +40,31 @@ const greetings = (role) => roleToGreeting[role] ?? 'Привет, некто'
 function getCategoryByAge(age) {
   switch (true) {
     case (age >= 0 && age <= 12):
-      return "Child";
+      return "Child"
     case (age >= 13 && age <= 19):
-      return "Teenager";
+      return "Teenager"
     case (age >= 20 && age <= 35):
-      return "Young Adult";
+      return "Young Adult"
     case (age >= 36 && age <= 55):
-      return "Adult";
+      return "Adult"
     case (age > 55):
-      return "Senior";
+      return "Senior"
     default:
-      return "Invalid age";
+      return "Invalid age"
   }
 }
 ```
 
-`switch (true)` можно считать вредной практикой. Почти всегда его применяют в функциях, и поскольку первый `return` завершает выполнение функции, код выше с обычным `if` будет проще для восприятия:
+Использование `switch (true)` является спорным вопросом. Он выглядит скорее как хак, нежели задуманный сценарий использования языка. Также учтите, что вашим коллегам эта конструкция может быть непривычна, в отличие от обычных условий, которые понятны всем. Сторонники `switch (true)` утверждают, что он позволяет сократить код, но пример выше напротив будет более лаконичным без него:
 
 ```js
 function getCategoryByAge(age) {
-  if (age >= 0 && age <= 12) return "Child";
-  if (age >= 13 && age <= 19) return "Teenager";
-  if (age >= 20 && age <= 35) return "Young Adult";
-  if (age >= 36 && age <= 55) return "Adult";
-  if (age > 55) return "Senior";
+  if (age >= 0 && age <= 12) return "Child"
+  if (age >= 13 && age <= 19) return "Teenager"
+  if (age >= 20 && age <= 35) return "Young Adult"
+  if (age >= 36 && age <= 55) return "Adult"
+  if (age > 55) return "Senior"
 
-  return "Invalid age";
+  return "Invalid age"
 }
 ```
