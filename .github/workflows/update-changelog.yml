@@ -1,0 +1,39 @@
+name: Update CHANGELOG
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  update_changelog:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Ищет новые материалы и обновляет CHANGELOG
+        run: sh .github/scripts/update-changelog.sh
+      - name: Создание коммита с обновлениями полей
+        run: |
+          if [[ -z $(git status -s) ]]
+          then
+            echo $(git status)
+          else
+            git config user.name "Doka Dog"
+            git config user.email "<hi@doka.guide>"
+
+            git add CHANGELOG.md
+            git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"
+
+            git pull --rebase
+            git push origin main
+
+            exit
+          fi
