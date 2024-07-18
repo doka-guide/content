@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>DEMO — Mobile-first vs Desktop-first — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Roboto, sans-serif;
+      margin: 0;
+      background-color: #18191c;
+    }
+
+    main {
+      margin: 8px;
+    }
+
+    h1 {
+      text-align: center;
+      color: blanchedalmond;
+    }
+
+    .container {
+      display: flex;
+      row-gap: 8px;
+
+      flex-direction: column;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        flex-direction: row;
+        column-gap: 8px;
+      }
+    }
+
+    .card {
+      padding: 4px;
+      border: 1px solid black;
+      text-align: center;
+      border-radius: 4px;
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Факты про кошек</h1>
+    <section class="container">
+      <article class="card">
+        В каждом кошачьем ухе находится более чем 30 мускулов.
+      </article>
+      <article class="card">
+        В среднем, коты спят по 16-18 часов в день, что составляет более 70% кошачьей жизни.
+      </article>
+      <article class="card">
+        Кошки не чувствуют вкуса сладкого.
+      </article>
+      <article class="card">
+        У кошек и людей за управление эмоциональным состоянием отвечают одинаковые отделы головного мозга.
+      </article>
+    </section>
+  </main>
+</body>
+
+</html>
