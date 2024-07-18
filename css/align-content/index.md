@@ -11,6 +11,8 @@ baseline:
       - css.properties.align-content.grid_context
 authors:
   - solarrust
+contributors:
+  - cheremis88
 editors:
   - tachisis
 keywords:
