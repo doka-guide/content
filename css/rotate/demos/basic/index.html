@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Свойство rotate — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: lightgrey;
+      height: 500px;
+    }
+
+    .box {
+      display: inline-block;
+      margin: 1em;
+      min-width: 6.5em;
+      line-height: 6.5em;
+      text-align: center;
+      transition: 1s ease-in-out;
+      border: 2px solid black;
+    }
+
+    #box1:hover {
+      rotate: -90deg;
+    }
+
+    #box2:hover {
+      rotate: y 180deg;
+    }
+
+    #box3:hover {
+      rotate: 1 2 1 360deg;
+    }
+
+    #box4:hover {
+      rotate: 2turn;
+    }
+
+    #box5:hover {
+      rotate: x 90deg;
+    }
+
+    #box6:hover {
+      rotate: 1.57rad;
+    }
+
+    #box7:hover {
+      rotate: 200grad;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box1">rotate Z</div>
+  <div class="box" id="box2">rotate Y</div>
+  <div class="box" id="box3">vector & angle</div>
+  <div class="box" id="box4">turn</div>
+  <div class="box" id="box5">flat</div>
+  <div class="box" id="box6">rad</div>
+  <div class="box" id="box7">grad</div>
+</body>
+
+</html>

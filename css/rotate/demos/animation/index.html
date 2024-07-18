@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Свойство rotate и анимация — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #00136c;
+    }
+
+    p {
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .box {
+      animation: loader 3s infinite;
+      background-color: #9E9FFE;
+      width: 50px;
+      height: 50px;
+      color: #00136c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes loader {
+      0% {
+        rotate: 0deg;
+      }
+
+      50% {
+        background: #4C4FFD;
+        border-radius: 25%;
+      }
+
+      100% {
+        border-radius: 50%;
+        rotate: 180deg;
+        background: #9E9FFE;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+    </div>
+  </div>
+</body>
+
+</html>
