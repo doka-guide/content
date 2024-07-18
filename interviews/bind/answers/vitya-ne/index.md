@@ -27,7 +27,7 @@ const character1 = {
 show()
 // имя: неизвестно , данные: undefined undefined
 
-// создаём функцию-обёртку и привязваем к ней:
+// создаём функцию-обёртку и привязываем к ней:
 // character1 как this и true как первый аргумент
 const boundShow = show.bind(character1, true)
 
