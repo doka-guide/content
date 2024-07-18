@@ -13,7 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
           ref: ${{ github.event.pull_request.head.ref }}
       - uses: actions/setup-node@v4
         with:
@@ -26,8 +25,9 @@ jobs:
           then
             echo $(git status)
           else
-            git config user.name "Doka Dog"
-            git config user.email "<hi@doka.guide>"
+            git config --global user.name "Doka Dog"
+            git config --global user.email "<hi@doka.guide>"
+            git config --global user.password "${{ secrets.DOKA_BOT_ACCESS_TOKEN }}"
 
             git add CHANGELOG.md
             git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"
