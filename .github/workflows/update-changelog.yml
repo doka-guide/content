@@ -25,20 +25,3 @@ jobs:
           node-version: 20
       - name: Ищет новые материалы и обновляет CHANGELOG
         run: sh .github/scripts/update-changelog.sh
-      - name: Создание коммита с обновлениями полей
-        run: |
-          if [[ -z $(git status -s) ]]
-          then
-            echo $(git status)
-          else
-            git config --global user.name "Doka Dog"
-            git config --global user.email "<hi@doka.guide>"
-
-            git add CHANGELOG.md
-            git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"
-
-            git pull --rebase
-            git push origin main
-
-            exit
-          fi
