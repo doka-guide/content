@@ -13,12 +13,8 @@
 
 - 19 июля, [`.difference()`](https://doka.guide/js/set-difference/), Viktar Nezhbart
 - 19 июля, [`.intersection()`](https://doka.guide/js/set-intersection/), Viktar Nezhbart
-- 19 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
-- 19 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
-
-
-
-
+- 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
+- 1 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
 
 ## Июнь 2024
 
