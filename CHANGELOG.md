@@ -13,6 +13,7 @@
 
 
 
+
 ## Июнь 2024
 
 - 27 июня, [CSS-препроцессоры](https://doka.guide/tools/preprocessors/), Анастасия Ярош
