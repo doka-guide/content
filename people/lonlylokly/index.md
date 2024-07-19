@@ -2,7 +2,7 @@
 name: "Михаил Кривдин"
 url: https://github.com/loonlylokly
 photo: photo.png
-photoAlt: "Некоторые тайны сами себя стерегут. И захочешь – не расскажешь. И эта аватарка не исключение."
+photoAlt: "Инвертированный круг Малевича."
 badges:
   - first-contribution-small
 ---
