@@ -1,10 +1,13 @@
 name: Update CHANGELOG
 
 on:
-  pull_request:
+  workflow_run:
+    workflows:
+      - "Frontmatter Lint"
     branches:
       - main
-    types: [closed]
+    types:
+      - completed
 
 jobs:
   update_changelog:
@@ -13,7 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -27,7 +31,6 @@ jobs:
           else
             git config --global user.name "Doka Dog"
             git config --global user.email "<hi@doka.guide>"
-            git config --global user.password "${{ secrets.DOKA_BOT_ACCESS_TOKEN }}"
 
             git add CHANGELOG.md
             git commit -m "Обновляет CHANGELOG" --author "Doka Dog <hi@doka.guide>"

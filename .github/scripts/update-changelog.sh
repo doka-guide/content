@@ -1,6 +1,5 @@
 #!/bin/bash
-git fetch origin main
-git diff --name-status origin/main HEAD | grep '^A' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^A\t//g' > added-content.txt
+git diff --name-status HEAD^ HEAD | grep '^A' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^A\t//g' > added-content.txt
 
 MONTH_TO_RUS() {
   case "$1" in
