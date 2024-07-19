@@ -5,6 +5,13 @@ const addedContent = fs
   .toString()
   .split("\n");
 
+if (
+  addedContent.length === 0 ||
+  (addedContent.length > 0 && addedContent[0] === "")
+) {
+  return;
+}
+
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 const monthNames = [
