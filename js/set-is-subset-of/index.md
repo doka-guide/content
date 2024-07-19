@@ -11,7 +11,6 @@ related:
   - js/set
   - js/set-entries
   - js/array-every
-  -
 tags:
   - doka
 ---
