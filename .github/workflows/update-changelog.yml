@@ -3,7 +3,7 @@ name: Update CHANGELOG
 on:
   workflow_run:
     workflows:
-      - "Product Deploy"
+      - "Frontmatter Lint"
     branches:
       - main
     types:
