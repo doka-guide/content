@@ -27,31 +27,11 @@ tags:
 
 `this` в JS - это **не контекст**, как в других языках.
 
-`this` в JS - это особая переменная, которая определена локально для всех функций (кроме стрелочных). Любая обычная функция вызывается минимум с 1 аргументом - `this`. Но передать его в функцию в виде аргумента нельзя. По умолчанию для обычной функции `this` равен [`undefined`](/js/undefined/). Значение `this` для обычной функции может быть изменено **только в момент вызова** этой функции и зависит от формы и способа её вызова.
-
-Для определения, чему равняется `this` есть несложный алгоритм.
-
-❗ Все примеры ниже будут для [_строгого режима_](/js/use-strict/). В не строгом режиме поведение будет местами отличаться. Строгий режим автоматически влючён для режима `module`.
-
-Кратко, чему может равняться `this` в разных ситуациях:
-
-0. `this` в глобальном окружении (не внутри функции) может быть `undefined`, global object или любым, в зависимости от хост среды (браузер, нода и т.д.)
-1. Если это стрелочная функция, то не важно, как она вызвана. Стрелочная функция не меняет `this`. Чему он равен нужно смотреть в родительском окружении - где стрелочная функция была определена.
-2. Вызов обычной (не стрелочной) функции по умолчанию связывает `this` с `undefined`.
-3. Вызов обычной функции с ключевым словом `new` свяжет `this` с пустым объектом `{}`.
-4. Явно задать `this` с помощью `call`, `apply`, `bind`.
-
-   ```js
-   func.call(thisArg, ...args);
-   func.apply(thisArg, ...args);
-   func.bind(thisArg, ...args)();
-   ```
-5. Вызов обычной функции в dot-нотации (через точку), связывает `this` со значением идентификатора, который стоит перед точкой.
-6. Внешние API могут как угодно менять значение `this`. Но только в случае, если это обычная функция для которой `this` не задан специально с помощью `call`, `apply`, `bind`.
+Можно думать о `this`, как о скрытом параметре функции, который определяется в момент её вызова.
 
 ## Алгоритм нахождения `this`
 
-Сбросим таинственность с `this` в JS! Базовое правило определения `this`: проверить как и какая функция запускается.
+❗ Все примеры ниже будут для [_строгого режима_](/js/use-strict/). В не строгом режиме значения `this` будет местами отличаться. Строгий режим автоматически влючён для режима `module`.
 
 ### `this` и Global Environment
 
@@ -74,13 +54,13 @@ console.log('This is:', this);
 
 ❗ Но повторимся, этот случай не интересен с практической точки зрения. Но может пригодиться на собеседовании :)
 
-### `this` и Function Environment
+### `this` и Arrow Function
 
-Самое интересное, когда `this` находится внутри кода функции. Тут важно, что это за функция: [обычная](/js/function/) или [стрелочная](/js/arrow-function/)
+Когда `this` находится внутри кода [стрелочной функции]((/js/arrow-function/)), то мы просто должны подняться в её родительское окружение (область видимости), где эта стрелочная функция была определена и начать алгоритм определения заново:
 
 ![this and arrow function](./images/arrow-this.png)
 
-Если `this` находится внутри стрелочной функции, то мы просто поднимаемся в родительское окружение (область видимости) - то место, где функция была определена.
+В этом примере `this` находится внутри стрелочной функции `arrowFunc`. Значит, чтобы определить, чему равен `this` нужно посмотреть где эта стрелочная функция определена. И начать выполнение алгоритма поиска заново. `arrowFunc` определена внутри функции `logThis`. Это обычная функция? Да. Переходим к определению `this` внутри обычной функции.
 
 ```js
 'use strict';
@@ -92,13 +72,17 @@ function logThis() {
 
 logThis(); // this is: ?
 ```
-В этом примере `this` находится внутри стрелочной функции `arrowFunc`. Значит, чтобы определить, чему равен `this` нужно посмотреть где эта стрелочная функция определена. И начать выполнение алгоритма поиска заново. `arrowFunc` определена внутри функции `logThis`. Это обычная функция? Да. Переходим к определению `this` внутри обычной функции.
 
-### `this` и call, apply, bind
+### `this` и Обычная функция
 
-Вызывается ли наша функция `logThis` с помощью [`call`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), [`apply`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) или [`bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)? Если да, то значение `this` будет взято из этих методов:
+Теперь нас интересует, как вызывается [обычная](/js/function/) родительская функция `logThis`
 
-![this and call, apply, bind](./images/call-apply-bind-this.png)
+
+#### `this` и call, apply
+
+Вызывается ли наша функция `logThis` с помощью [`call(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)? Если да, то `this` будет ссылаться на те данные, на которые указывает идентификатор `thisArg`.
+
+![this and call, apply](./images/call-apply-this.png)
 
 ```js
 'use strict';
@@ -111,24 +95,115 @@ function logThis() {
 var thisArg = { name: 'User' };
 logThis.call(thisArg); // this is: { name: 'User' }
 logThis.apply(thisArg); // this is: { name: 'User' }
-logThis.bind(thisArg)(); // this is: { name: 'User' }
 
 thisArg = 42;
 logThis.call(thisArg); // this is: 42
 logThis.apply(thisArg); // this is: 42
-logThis.bind(thisArg)(); // this is: 42
 
 logThis(); // this is: ?
 ```
 
-Если функция вызывается без `call`, `apply` или `bind` идём дальше по алгоритму.
+Если функция вызывается без `call` или `apply`, идём дальше по алгоритму.
+
+#### `this` и bind
+
+Если к родительской обычной функции применяется метод [`bind(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), то возвращется новая функция. При вызове эта новая функция вызывает исходную функцию с аргументами `...args` и 'нацеливает' `this` на те данные, на которые указывает идентификатор `thisArg`. Если к новой функции (которая возвращается после `.bind()`) применить `call`, `apply` или снова `bind`, то это не изменит `this`.
+
+![this and bind without new](./images/bind-no-new-this.png)
+
+Несколько примеров, чтобы показать тонкости работы js:
+
+```js
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
+}
+
+var thisArgUser = { name: 'User' };
+var thisArgAdmin = { name: 'Admin' };
+
+var logBind = logThis.bind(thisArgUser);
+logBind(); // this is: { name: User }
+
+// this уже закреплён первым bind, задать его другим нельзя
+logBind.call({ thisArgAdmin }); // this is: { name: User }
+logBind.apply({ thisArgAdmin }); // this is: { name: User }
+
+// this уже закреплён первым bind, задать его другим нельзя
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: User }
+```
+Есть важный нюас про переменные в js. Ассоциация с коробочкой и данными не очень подходит для js. Лучше думать, что переменная содержит ссылку на адрес в памяти, где данные действительно лежат:
+
+```js
+// Лучше читать так - `a` ссылается на адрес памяти,
+// где лежит структура `{name: 'User'}`
+// Знак `=` это знак связывания а не равенства сущностей.
+var a = {name: 'User'};
+
+// Переменная `b` не равна `a`, а переменная `b` связана с теми же
+// данными, что и `a`. Т.е. `b` ссылается на туже область памяти, что и `a`
+var b = a;
+
+// Мы редактируем одни и теже данные,
+// потому что и `a` и `b` суть ссылка на одну структуру в памяти
+a.name = 'SuperUser';
+console.log(a); // {name: 'SuperUser'};
+console.log(b); // {name: 'SuperUser'};
+
+b.name = 'SuperAdmin';
+console.log(a); // {name: 'SuperAdmin'};
+console.log(b); // {name: 'SuperAdmin'};
+```
+Поэтому пример ниже не противоречит алгоритму, а лишь показывает суть того, чем являются переменные в js:
+
+```js
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
+}
+
+var thisArgUser = { name: 'User' };
+var thisArgAdmin = { name: 'Admin' };
+
+var logBind = logThis.bind(thisArgUser);
+logBind(); // this is: { name: User }
+
+thisArgUser.name = 'SuperUser';
+// Поменялся не this, this ссылается на тоже, на что и `thisArgUser`
+// Если мы меням данные по адресу `thisArgUser`,
+// то this тоже показывает новое значение
+logBind(); // this is: { name: SuperUser }
+
+logBind.call({ thisArgAdmin }); // this is: { name: SuperUser }
+logBind.apply({ thisArgAdmin }); // this is: { name: SuperUser }
+
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: SuperUser }
+
+// Если мы свяжем `thisArgUser` с новыми данными в памяти,
+// то this никак не изменится. Он остался связанным
+// с теми данными, на которые стал связаться при первом `bind`
+thisArgUser = 42;
+
+logBind(); // this is: { name: SuperUser }
+
+logBind.call({ thisArgAdmin }); // this is: { name: SuperUser }
+logBind.apply({ thisArgAdmin }); // this is: { name: SuperUser }
+
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: SuperUser }
+```
 
 ### `this` и `new`
 
-Вызывается ли наша функция `logThis` с помощью ключевого слова `new`? Если да, то `this` будет связан с пустым объектом.
+Если наша родительская обычная функция `logThis` вызывается с помощью оператора `new` или иновая функця после `.bind()` вызывается с помощью оператора `new`, то в обоих случаях `this` связывается с пустым объектом `{}`
 
-
-![this and new](./images/new-this.png)
+![this, bind and new](./images/bind-with-new-this.png)
 
 ```js
 'use strict';
@@ -146,7 +221,28 @@ new logThis; // this is: {}
 logThis(); // this is: ?
 ```
 
-Если функция вызывается без `new`, то идём дальше по алгоритму.
+Ещё один хитрый пример на понимание `bind` и `this`:
+
+```js
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+  console.log(this);
+}
+
+const superThis = { z: 3 };
+const YAxisPoint = Point.bind(superThis, 1);
+
+const a = new YAxisPoint(2); // {x: 1, y: 2}
+```
+Идём по алгоритму:
+1. `this` внутри функции? Да, внутри `Point`
+2. Это обычная функция? Да, не стрелочная.
+3. `Point` вызывается с `call` или `apply`? Нет.
+4. К `Point` применяется `bind`? Да.
+5. Новая функция `YAxisPoint`, когда будет вызвана, применит аргумент `1` к своему первому входному параметру `x`. А `this` станет связан с теми данными, на которые ссылается `superThis`.
+6. Новая функция `YAxisPoint` вызывается с помощью оператора `new`? Да.
+7. Значит `this` начинает ссылаться на пустой объект `{}`, а функция `Point` вызывается с такими параметрами: `Point(1, 2)`. Поэтому присвоение `this.x` и `this.y` преобразуют `this` в объект `{x: 1, y: 2}`
 
 ### `this` и dot нотация
 
