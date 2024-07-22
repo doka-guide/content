@@ -2,6 +2,25 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2024
+
+- 22 июля, [Стилизация чекбоксов и радиокнопок](https://doka.guide/recipes/checkbox-radio-style/), Михаил Кривдин
+- 19 июля, [`.intersection()`](https://doka.guide/js/set-intersection/), Viktar Nezhbart
+- 19 июля, [`.difference()`](https://doka.guide/js/set-difference/), Viktar Nezhbart
+- 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
+- 1 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
+
+## Июнь 2024
+
+- 27 июня, [CSS-препроцессоры](https://doka.guide/tools/preprocessors/), Анастасия Ярош
+- 25 июня, [`light-dark()`](https://doka.guide/css/light-dark/), Алина Козловцева
+- 19 июня, [`prefers-color-scheme`](https://doka.guide/css/prefers-color-scheme/), Анастасия Ярош
+- 19 июня, [`color-scheme`](https://doka.guide/css/color-scheme/), Анастасия Ярош
+- 13 июня, [`color()`](https://doka.guide/css/color-function/), Алёна Батицкая
+- 10 июня, [`:is()`](https://doka.guide/css/is/), Игорь Теплостанский
+- 1 июня, [`banner`](https://doka.guide/a11y/role-banner/), Татьяна Фокина
+- 1 июня, [Атрибут `accept`](https://doka.guide/html/accept/), Татьяна Гладких, Игорь Теплостанский
+
 ## Май 2024
 
 - 28 мая, [`search`](https://doka.guide/a11y/role-search/), Татьяна Фокина
