@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -57,7 +58,7 @@
 
     h1,
     .option-title {
-      inline-size: 180px;
+      inline-size: 150px;
     }
 
     .option {
@@ -92,11 +93,13 @@
 
     @media (max-width: 768px) {
       body {
+        display: block;
         padding: 30px;
       }
 
       .option-container {
         display: block;
+        overflow: scroll;
       }
 
       h1,
@@ -109,10 +112,6 @@
         margin-inline-end: 0;
         margin-block-end: 10px;
       }
-
-      .option {
-        inline-size: calc(100vw - 250px);
-      }
     }
   </style>
 </head>
@@ -122,32 +121,32 @@
     <h1><code>text-wrap</code></h1>
     <div class="option-container">
       <span class="option-title"><code>wrap</code></span>
-      <p class="option wrap">- Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>- Ты забыл сказать "пожалуйста".
+      <p class="option wrap"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>— Ты забыл сказать «пожалуйста».</mark>
       </p>
     </div>
     <div class="option-container">
       <span class="option-title"><code>nowrap</code></span>
-      <p class="option nowrap">- Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>- Ты забыл сказать "пожалуйста".
+      <p class="option nowrap"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>— Ты забыл сказать «пожалуйста».</mark>
       </p>
     </div>
     <div class="option-container">
       <span class="option-title"><code>balance</code></span>
-      <p class="option balance">- Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>- Ты забыл сказать "пожалуйста".
+      <p class="option balance"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>— Ты забыл сказать «пожалуйста».</mark>
       </p>
     </div>
     <div class="option-container">
       <span class="option-title"><code>pretty</code></span>
-      <p class="option pretty">- Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>- Ты забыл сказать "пожалуйста".
+      <p class="option pretty"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>— Ты забыл сказать «пожалуйста».</mark>
       </p>
     </div>
     <div class="option-container">
       <span class="option-title"><code>stable</code></span>
-      <p class="option stable">- Мне нужна ваша одежда, ботинки и мотоцикл.
-        <br>- Ты забыл сказать "пожалуйста".
+      <p class="option stable"><mark>— Мне нужна ваша одежда, ботинки и мотоцикл.
+        <br>— Ты забыл сказать «пожалуйста».</mark>
       </p>
     </div>
   </div>
