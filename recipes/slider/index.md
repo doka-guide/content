@@ -217,7 +217,6 @@ tags:
   inline-size: 100%;
   block-size: 225px;
   object-fit: cover;
-  user-select: none;
 }
 
 .slider {
@@ -563,7 +562,6 @@ document.addEventListener('DOMContentLoaded', function () {
   width: 100%;
   height: 225px;
   object-fit: cover;
-  user-select: none;
 }
 ```
 
