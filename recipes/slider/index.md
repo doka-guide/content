@@ -186,7 +186,7 @@ tags:
 .button-prev,
 .button-next {
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   transform: translateY(-50%);
   border: none;
   inline-size: 30px;
@@ -247,11 +247,11 @@ tags:
   }
 
   .button-prev {
-    left: -40px;
+    inset-inline-start: -40px;
   }
 
   .button-next {
-    right: -40px;
+    inset-inline-end: -40px;
   }
 }
 ```
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
 >
 </button>
 
-<!-- Остальные кнопки >
+<!-- Остальные кнопки -->
 ```
 
 Расположение элементов в [DOM](/js/dom/) (Document Object Model) влияет на порядок, в котором пользователи клавиатуры перемещаются по странице. По этой причине располагаем элементы навигации перед слайдером, а не после него. В этом случае пользователю не нужно будет возвращаться назад, чтобы прокрутить слайды:
@@ -542,8 +542,8 @@ document.addEventListener('DOMContentLoaded', function () {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 600px;
-  width: 100%;
+  max-inline-size: 600px;
+  inline-size: 100%;
   position: relative;
 }
 ```
@@ -590,13 +590,13 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 ```
 
-Кнопки для предыдущего и следующего слайда позиционируем с помощью `position: absolute` и отрицательных `left` и `right` соответственно. Стрелки добавляем через свойство `background-image`.
+Кнопки для предыдущего и следующего слайда позиционируем с помощью [`position: absolute`](/css/position/) и отрицательных значений для [`inset-inline-start`](/css/inset/) и [`inset-inline-end`](/css/inset/) соответственно. Стрелки добавляем через свойство [`background-image`](/css/background-image/).
 
 ```css
 .prev-button,
 .next-button {
   position: absolute;
-  top: 50%;
+  inset-block-start: 50%;
   transform: translateY(-50%);
   border: none;
   inline-size: 30px;
