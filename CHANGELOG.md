@@ -4,6 +4,8 @@
 
 ## Июль 2024
 
+- 22 июля, [Стилизация чекбоксов и радиокнопок](https://doka.guide/recipes/checkbox-radio-style/), Михаил Кривдин
+
 - 19 июля, [`.intersection()`](https://doka.guide/js/set-intersection/), Viktar Nezhbart
 - 19 июля, [`.difference()`](https://doka.guide/js/set-difference/), Viktar Nezhbart
 - 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
