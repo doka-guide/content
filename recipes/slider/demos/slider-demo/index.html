@@ -103,8 +103,10 @@
     }
 
     .slide-img {
+      display: block;
       inline-size: 100%;
       block-size: 225px;
+      max-block-size: 225px;
       object-fit: cover;
     }
 
@@ -122,7 +124,12 @@
     }
 
     .slide {
+      display: none;
       text-align: center;
+    }
+
+    .slide--active {
+      display: block;
     }
 
     @media (max-width: 768px) {
@@ -189,6 +196,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       const slider = document.querySelector('.slider')
       const slides = slider.querySelectorAll('.slide')
+      const activeSlides = 'slide--active'
       const slideCount = slides.length
       const controlButtons = slider.querySelectorAll('.button-radio')
       const prevButton = slider.querySelector('.button-prev')
@@ -200,7 +208,11 @@
 
       function updateSlider() {
         slides.forEach((slide, index) => {
-          slide.hidden = index !== currentSlide
+          if(index === currentSlide) {
+            slide.classList.add(activeSlides)
+          } else {
+            slide.classList.remove(activeSlides)
+          }
         })
 
         controlButtons.forEach((button, index) => {
