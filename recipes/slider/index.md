@@ -214,8 +214,10 @@ tags:
 }
 
 .slide-img {
+  display: block;
   inline-size: 100%;
   block-size: 225px;
+  max-block-size: 225px;
   object-fit: cover;
 }
 
@@ -233,7 +235,12 @@ tags:
 }
 
 .slide {
+  display: none;
   text-align: center;
+}
+
+.slide--active {
+  display: block;
 }
 
 @media (max-width: 768px) {
@@ -261,6 +268,7 @@ tags:
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelector('.slider')
   const slides = slider.querySelectorAll('.slide')
+  const activeSlides = 'slide--active'
   const slideCount = slides.length
   const controlButtons = slider.querySelectorAll('.button-radio')
   const prevButton = slider.querySelector('.button-prev')
@@ -272,7 +280,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function updateSlider() {
     slides.forEach((slide, index) => {
-      slide.hidden = index !== currentSlide
+      if(index === currentSlide) {
+        slide.classList.add(activeSlides)
+      } else {
+        slide.classList.remove(activeSlides)
+      }
     })
 
     controlButtons.forEach((button, index) => {
@@ -450,13 +462,13 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 ```
 
-Слайды, которые не видны, скрываем не только визуально, но и для пользователей вспомогательных технологий. Для этого используем HTML-атрибут [`hidden`](/html/hidden/). Атрибут добавляем не сразу, а с помощью JavaScript только после окончания парсинга страницы.
+Слайды, которые не видны, скрываем не только визуально, но и для пользователей вспомогательных технологий. Для этого используем CSS-свойство [`display: none`](/css/display/) для всех слайдов по умолчанию. Для активного слайда добавим класс `.slide--active` с другим значением у `display` — `none`.
 
 Это активный слайд:
 
 ```html
 <div
-  class="slide"
+  class="slide slide--active"
   role="group"
   aria-labelledby="item-1-label"
   id="carousel-item-1"
@@ -465,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </div>
 ```
 
-А это скрытый слайд:
+А это все скрытые слайды:
 
 ```html
 <div
@@ -473,7 +485,6 @@ document.addEventListener('DOMContentLoaded', function () {
   role="group"
   aria-labelledby="item-2-label"
   id="carousel-item-2"
-  hidden
 >
   <!-- Содержимое слайда -->
 </div>
@@ -644,10 +655,15 @@ document.addEventListener('DOMContentLoaded', function () {
 ```javascript
 const slider = document.querySelector('.slider')
 const slides = slider.querySelectorAll('.slide')
+const activeSlides = 'slide--active'
 let currentSlide = 0
 
 slides.forEach((slide, index) => {
-  slide.hidden = index !== currentSlide
+  if(index === currentSlide) {
+    slide.classList.add(activeSlides)
+  } else {
+    slide.classList.remove(activeSlides)
+  }
 })
 ```
 
@@ -665,10 +681,6 @@ const currentButton = 'aria-current'
 let currentSlide = 0
 
 function updateSlider() {
-  slides.forEach((slide, index) => {
-    slide.hidden = index !== currentSlide
-  })
-
   controlButtons.forEach((button, index) => {
     if (index === currentSlide) {
       button.classList.add(activeButton)
