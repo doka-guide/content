@@ -15,18 +15,29 @@
     }
 
     body {
-      background: lightgrey;
+      background: #18191C;
       height: 500px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .wrapper_box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 20px;
+      align-content: center;
     }
 
     .box {
-      display: inline-block;
-      margin: 1em;
-      min-width: 6.5em;
-      line-height: 6.5em;
-      text-align: center;
+      height: 120px;
+      width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: 1s ease-in-out;
-      border: 2px solid black;
+      background-color: #2E9AFF;
     }
 
     #box1:hover {
@@ -60,13 +71,15 @@
 </head>
 
 <body>
-  <div class="box" id="box1">rotate Z</div>
-  <div class="box" id="box2">rotate Y</div>
-  <div class="box" id="box3">vector & angle</div>
-  <div class="box" id="box4">turn</div>
-  <div class="box" id="box5">flat</div>
-  <div class="box" id="box6">rad</div>
-  <div class="box" id="box7">grad</div>
+  <div class="wrapper_box">
+    <div class="box" id="box1">rotate Z</div>
+    <div class="box" id="box2">rotate Y</div>
+    <div class="box" id="box3">vector & angle</div>
+    <div class="box" id="box4">turn</div>
+    <div class="box" id="box5">flat</div>
+    <div class="box" id="box6">rad</div>
+    <div class="box" id="box7">grad</div>
+  </div>
 </body>
 
 </html>
