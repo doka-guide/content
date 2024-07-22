@@ -1,6 +1,6 @@
 ---
 title: "В поисках `this`"
-description: "Хочешь знать чему `this` равняется - проверь, как функция вызывается."
+description: "Хочешь знать чему `this` равняется - проверь, как и какая функция вызывается."
 authors:
   - bespoyasov
 editors:
@@ -40,7 +40,7 @@ tags:
 ```js
 'use strict';
 
-console.log('This is:', this);
+console.log('This is:', this); 
 ```
 ![this in global environment](./images/global-this.png)
 
