@@ -3,7 +3,7 @@ name: Update Dates
 on:
   workflow_run:
     workflows:
-      - "Frontmatter Lint"
+      - "Update CHANGELOG"
     branches:
       - main
     types:
