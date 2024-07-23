@@ -15,6 +15,7 @@ groups:
       - lazy-load-with-preview
       - validation
       - masonry
+      - slider
       - checkbox-radio-style
   - name: 'Работа с GitHub'
     items:
