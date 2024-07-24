@@ -1,5 +1,6 @@
 #!/bin/bash
 git diff --name-status HEAD^ HEAD | grep '^A' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^A\t//g' > added-content.txt
+git diff -S"placeholder" --name-status HEAD^ HEAD | grep '^M' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^M\t//g' > updated-content.txt
 
 if [ -s added-content.txt ]; then
     MONTH_TO_RUS() {
@@ -28,6 +29,7 @@ if [ -s added-content.txt ]; then
     node .github/scripts/update-changelog.js "$FORMATTED_DATE"
 
     rm -f added-content.txt
+    rm -f updated-content.txt
 
     if [[ -z $(git status -s) ]]
     then
