@@ -218,9 +218,9 @@ tags:
 
 ```css
 .range-input::-webkit-slider-thumb {
-  border-image: 
-    linear-gradient(90deg, #c56fff 50%, #ababab 0) 
-    0 1 / 
+  border-image:
+    linear-gradient(90deg, #c56fff 50%, #ababab 0)
+    0 1 /
     calc(50% - 4px)
     100vw/0 100vw;
 }
