@@ -5,10 +5,11 @@
 ## Июль 2024
 
 - 23 июля, [Слайдер](https://doka.guide/recipes/slider/), Анна Бараулина
-
 - 22 июля, [Стилизация чекбоксов и радиокнопок](https://doka.guide/recipes/checkbox-radio-style/), Михаил Кривдин
+- 19 июля, [`.isSubsetOf()`](https://doka.guide/js/set-is-subset-of/), Viktar Nezhbart
 - 19 июля, [`.intersection()`](https://doka.guide/js/set-intersection/), Viktar Nezhbart
 - 19 июля, [`.difference()`](https://doka.guide/js/set-difference/), Viktar Nezhbart
+- 16 июля, [`Atomics`](https://doka.guide/js/atomics/), Всеволод Золотов
 - 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
 - 1 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
 
