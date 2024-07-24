@@ -2,14 +2,14 @@
 <html lang="ru">
   <head>
     <title>Слайдер input range с 4 ползунками</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-    />
+    >
     <style>
       *,
       *::before,
@@ -53,6 +53,7 @@
 
         --range-input-write-m: horizontal-tb;
         --range-label-rotate: 0;
+      
 
         .track {
           --range-track-w: 100%;
@@ -362,7 +363,7 @@
         font-size: 14px;
       }
 
-      option:after {
+      option::after {
         content: "";
         display: initial;
         position: absolute;
@@ -399,14 +400,15 @@
           aria-orientation="horizontal"
           oninput="handleInputRange1()"
           list="tickmarks"
-        />
+        >
         <output
           class="range-output"
           id="output"
           for="tailmetr1"
           style="--value: var(--value-1)"
-          >20</output
         >
+          20
+        </output>
         <input
           class="range-input"
           id="tailmetr2"
@@ -421,14 +423,15 @@
           aria-orientation="horizontal"
           oninput="handleInputRange2()"
           list="tickmarks"
-        />
+        >
         <output
           class="range-output"
           id="output"
           for="tailmetr2"
           style="--value: var(--value-2)"
-          >40</output
         >
+          40
+        </output>
         <input
           class="range-input"
           id="tailmetr3"
@@ -443,14 +446,15 @@
           aria-orientation="horizontal"
           oninput="handleInputRange3()"
           list="tickmarks"
-        />
+        >
         <output
           class="range-output"
           id="output"
           for="tailmetr3"
           style="--value: var(--value-3)"
-          >60</output
         >
+          60
+        </output>
         <input
           class="range-input"
           id="tailmetr4"
@@ -465,14 +469,15 @@
           aria-orientation="horizontal"
           oninput="handleInputRange4()"
           list="tickmarks"
-        />
+        >
         <output
           class="range-output"
           id="output"
           for="tailmetr4"
           style="--value: var(--value-4)"
-          >80</output
         >
+          80
+        </output>
       </div>
       <datalist id="tickmarks">
         <option value="0 to 20">0</option>
@@ -486,34 +491,34 @@
     <script>
       function handleInputRange1() {
         event.target.parentNode.parentNode.style.setProperty(
-          "--value-1",
+          '--value-1',
           event.target.value
-        );
-        event.target.nextElementSibling.value = event.target.value;
+        )
+        event.target.nextElementSibling.value = event.target.value
       }
 
       function handleInputRange2() {
         event.target.parentNode.parentNode.style.setProperty(
-          "--value-2",
+          '--value-2',
           event.target.value
-        );
-        event.target.nextElementSibling.value = event.target.value;
+        )
+        event.target.nextElementSibling.value = event.target.value
       }
 
       function handleInputRange3() {
         event.target.parentNode.parentNode.style.setProperty(
-          "--value-3",
+          '--value-3',
           event.target.value
-        );
-        event.target.nextElementSibling.value = event.target.value;
+        )
+        event.target.nextElementSibling.value = event.target.value
       }
 
       function handleInputRange4() {
         event.target.parentNode.parentNode.style.setProperty(
-          "--value-4",
+          '--value-4',
           event.target.value
-        );
-        event.target.nextElementSibling.value = event.target.value;
+        )
+        event.target.nextElementSibling.value = event.target.value
       }
     </script>
   </body>
