@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/pseudoelements
-  - tools/static-types
-  - js/array-reduce-right
+  - recipes/ajax-form
+  - css/attr
+  - html/flow
   - css/specificity
-  - recipes/center
-  - js/execution-order
-  - html/img
+  - html/form
+  - js/boolean
+  - tools/webpack
+  - tools/how-to-test-and-why
+  - tools/gitlab-ci-cd
+  - html/doctype
+  - tools/markdown
+  - html/div
+  - js/async-in-js
+  - css/keyframes
+  - js/function-context
+  - css/transform-function
+  - html/head
   - css/box-shadow
-  - tools/cli
   - a11y/content-hidden
   - tools/agile
-  - a11y/css-impact-on-a11y
-  - js/async-in-js
-  - js/array-entries
-  - html/form
-  - tools/oop
-  - tools/bundlers
-  - tools/docker
-  - js/geolocation-api
-  - tools/ci-cd
-  - css/display
-  - recipes/ajax-form
-  - recipes/git-rebase-onto
-  - css/custom-properties
-  - css/keyframes
-  - js/closures
-  - css/attr
+  - tools/cli
+  - html/section
+  - js/execution-order
+  - js/array-reduce-right
   - recipes/snow
   - recipes/popup
-  - css/media
-  - tools/how-the-browser-creates-pages
-  - js/var-let
-  - html/div
-  - tools/webpack
-  - tools/gitlab-ci-cd
+  - js/deal-with-forms
+  - a11y/aria-intro
   - css/scrollbar-gutter
-  - recipes/progress
-  - css/grid-guide
-  - tools/cors
+  - tools/docker
+  - tools/ci-cd
   - a11y/aria-hidden
   - css/flexbox-guide
-  - css/box-model
-  - js/infinite-scroll
-  - a11y/aria-intro
-  - css/position
-  - recipes/lets-encrypt-nginx
-  - a11y/live-region
-  - html/doctype
-  - html/head
-  - tools/clean-architecture
-  - html/article
-  - recipes/character-counter
-  - html/section
-  - css/transform-function
-  - html/flow
+  - tools/how-the-browser-creates-pages
+  - recipes/git-rebase-onto
   - css/box-sizing
+  - tools/static-types
+  - html/img
   - html/input
+  - js/closures
+  - css/pseudoelements
+  - js/infinite-scroll
+  - css/media
   - a11y/screenreaders
-  - js/boolean
-  - tools/how-to-test-and-why
-  - tools/markdown
-  - tools/network
-  - js/deal-with-forms
-  - js/function-context
+  - js/array-entries
+  - recipes/progress
+  - css/display
+  - recipes/lets-encrypt-nginx
+  - css/box-model
+  - css/grid-guide
+  - css/position
+  - tools/bundlers
+  - tools/clean-architecture
+  - tools/cors
+  - a11y/css-impact-on-a11y
+  - recipes/center
+  - js/var-let
   - html/video
+  - tools/oop
   - js/function
+  - recipes/character-counter
+  - js/geolocation-api
+  - a11y/live-region
+  - tools/network
   - html/nav
+  - css/custom-properties
+  - html/article
 ---
 
