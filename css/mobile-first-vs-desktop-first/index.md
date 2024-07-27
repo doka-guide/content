@@ -3,8 +3,6 @@ title: "Mobile-first vs Desktop-first"
 description: "Mobile-first или Desktop-first?"
 authors:
   - rezn1kovAndrey
-contributors:
-  - reznikovandrey
 related:
   # TODO
   - ""
