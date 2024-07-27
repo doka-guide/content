@@ -1,6 +1,6 @@
 ---
 title: "Mobile-first vs Desktop-first"
-description: "Mobile-first или Desktop-first?"
+description: "Разбираем основные подход вёрстки, отвечающие на вопрос «С какого экрана начать верстать?»"
 authors:
   - rezn1kovAndrey
 related:
