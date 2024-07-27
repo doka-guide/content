@@ -4,8 +4,10 @@ description: "Разбираем основные подход вёрстки, �
 authors:
   - rezn1kovAndrey
 related:
-  # TODO
-  - ""
+  - css/pixel-perfect
+  - html/seo-for-beginners
+  - tools/site-readers
+  - tools/web-app-types
 tags:
   - article
 ---
