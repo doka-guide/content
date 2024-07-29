@@ -33,16 +33,12 @@ tags:
     >
       <ul class="menu">
         <li class="menu__item" data-has-children>
-          <button
-            class="menu__btn"
-            aria-expanded="false"
-            aria-controls="doka-submenu"
-          >
+          <span data-controls="doka-submenu">
             Дока
-          </button>
+          </span>
 
           <!-- Первый уровень вложенности -->
-          <ul class="menu" id="doka-submenu" hidden>
+          <ul class="menu menu-submenu" id="doka-submenu" hidden>
             <li class="menu__item">
               <a
                 href="#"
@@ -54,16 +50,12 @@ tags:
             <li>
 
             <li class="menu__item">
-              <button
-                class="menu__btn"
-                aria-expanded="false"
-                aria-controls="html-submenu"
-              >
+              <span data-controls="html-submenu">
                 HTML
-              </button>
+              </span>
 
               <!-- Второй уровень вложенности -->
-              <ul class="menu" id="html-submenu" hidden>
+              <ul class="menu menu-submenu" id="html-submenu" hidden>
                 <li class="menu__item">
                   <a href="#" class="menu__link">
                     Основы
@@ -83,16 +75,12 @@ tags:
             </li>
 
             <li class="menu__item">
-              <button
-                class="menu__btn"
-                aria-expanded="false"
-                aria-controls="css-submenu"
-              >
+              <span data-controls="css-submenu">
                 CSS
-              </button>
+              </span>
 
               <!-- Второй уровень вложенности -->
-              <ul class="menu" id="css-submenu" hidden>
+              <ul class="menu menu-submenu" id="css-submenu" hidden>
                 <li class="menu__item">
                   <a href="#" class="menu__link">
                     Основы
@@ -264,16 +252,20 @@ a[aria-current="page"] {
   top: 0;
   left: 104%;
 }
+
+.menu[hidden] {
+  display: none;
+}
 ```
 
 ```js
 const nav = document.querySelector('.site-nav')
 nav.classList.add('enhanced')
 
-const submenus = document.querySelectorAll(
+const submenus = nav.querySelectorAll(
   '.menu__item[data-has-children]'
 )
-const dropdowns = document.querySelectorAll(
+const dropdowns = nav.querySelectorAll(
   '.menu__item[data-has-children] > .menu'
 )
 
