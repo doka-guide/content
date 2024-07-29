@@ -52,7 +52,7 @@ for (const item of iterator) {
 const cities = []
 cities[2] = 'Лондон'
 
-console.log(item)
+console.log(cities)
 // [ <2 empty items>, 'Лондон' ]
 
 const iterator = cities.keys()
