@@ -3,7 +3,7 @@ name: Update Dates
 on:
   workflow_run:
     workflows:
-      - "Frontmatter Lint"
+      - "Update CHANGELOG"
     branches:
       - main
     types:
@@ -16,13 +16,13 @@ jobs:
   update-dates:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
           fetch-depth: 2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 20
       - name: Правка полей updatedAt и createdAt
         run: node .github/scripts/update-dates.js
       - name: Создание коммита с обновлениями полей

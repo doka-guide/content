@@ -12,6 +12,7 @@ contributors:
   - corocoto
   - filimonovalexey
   - starhamster
+  - skorobaeus
 editors:
   - tachisis
 keywords:
@@ -569,7 +570,7 @@ CSS Grid Layout ([спецификация](https://www.w3.org/TR/css-grid-1/)) 
 
 ![Пример реализации свойства justify-items со значением center.](images/24.png)
 
-`stretch` — растягивает элемент на всю ширину грид-ячейки.
+`stretch` — растягивает элемент на всю ширину грид-ячейки, при условии, что у него не задана фиксированная ширина.
 
 ```css
 .container {

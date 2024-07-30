@@ -17,18 +17,23 @@ jobs:
       PATH_TO_CONTENT: ./content
     steps:
       - name: Загрузка platform
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: doka-guide/platform
       - name: Загрузка контента
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: content
-      - uses: actions/setup-node@v2
+      - name: Загрузка кеша
+        uses: actions/checkout@v4
         with:
-          node-version: 16
+          repository: doka-guide/cache
+          path: cache
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
       - name: Кэширование модулей
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -49,6 +54,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no deploy@dev.doka.guide
       - name: Установка модулей
         run: npm ci
+      - name: Копирование кеша
+        run: cp ./cache/issues.json ./.issues.json
       - name: Сборка сайта
         run: |
           cp .env.example .env

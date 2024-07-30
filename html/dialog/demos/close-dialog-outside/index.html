@@ -43,7 +43,7 @@
 
     .button, .dialog__button {
       display: block;
-      min-width: 210px;
+      min-width: 260px;
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
@@ -122,9 +122,9 @@
     Открыть диалоговое окно
   </button>
 
-  <dialog class="dialog" id="my-dialog">
+  <dialog class="dialog" id="my-dialog" aria-labelledby="dialog-name">
     <form method="dialog">
-      <h2 class="dialog__title">Я диалог</h2>
+      <h2 class="dialog__title" id="dialog-name">Я диалог</h2>
       <p>Но меня можно закрыть и кликом на свободной области.</p>
       <button class="dialog__button button-orange">Угусь 🤔</button>
     </form>

@@ -65,6 +65,7 @@ groups:
       - first-line
       - selection
       - marker
+      - backdrop
   - name: 'Функции'
     items:
       - attr
@@ -82,6 +83,8 @@ groups:
       - filter-functions
       - transform-function
       - url
+      - clamp
+      - color-function
   - name: 'Директивы'
     items:
       - font-face
@@ -89,6 +92,7 @@ groups:
       - keyframes
       - media
       - supports
+      - layer
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -96,11 +100,13 @@ groups:
     items:
       - web-colors
       - currentcolor
+      - color-function
   - name: 'Единицы измерения'
     items:
       - numeric-types
       - vw-vh
       - rem-em
+      - sv-lv-dv
   - name: 'Анимации'
     items:
       - animation
@@ -235,6 +241,7 @@ groups:
   - name: 'Флексбоксы'
     items:
       - flexbox-guide
+      - flex-grow-shrink
       - flex
       - flex-basis
       - flex-direction
@@ -308,6 +315,7 @@ groups:
       - filter
       - filter-functions
       - image-rendering
+      - mix-blend-mode
   - name: 'Рамки, обводки и тени'
     items:
       - border

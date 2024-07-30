@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анализ производительности приложения – performance – Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    div {
+      width: 65%;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    kbd {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    ol {
+      list-style-type: none;
+      counter-reset: num;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      counter-increment: num;
+      line-height: 1.5;
+    }
+
+    li::before {
+      content: counter(num);
+      position: absolute;
+      top: 5px;
+      right: 100%;
+      width: 16px;
+      height: 16px;
+      padding: 2px 4px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      color: #000000;
+      background-color: #FFD829;
+    }
+
+    li::after {
+      content: ".";
+    }
+
+    .button {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 4px 14px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-yellow {
+      background-color: #FFD829;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <ol>
+      <li>Откройте инструменты разработчика и перейдите в раздел «Производительность» (Performance)</li>
+      <li>Нажмите круглую кнопку «Запись» или <kbd>Ctrl E</kbd></li>
+      <li>Нажмите кнопку для запуска специально замедленного кода — <button id="start-button" class="button button-yellow">Запустить</button></li>
+      <li>Нажмите красную кнопку «Стоп» или <kbd>Ctrl E</kbd></li>
+    </ol>
+  </div>
+  <p id="result" class="hidden" aria-live="polite">Готово 🎉</p>
+  <script>
+    const container = document.getElementById('container')
+    const startButton = document.getElementById('start-button')
+    const result = document.getElementById('result')
+
+    const performSlowCalculation = function() {
+      performance.mark('slow start')
+      for (let i = 0; i < 100000000; i++) {
+        const a = i * i
+      }
+      performance.mark('slow end')
+      performance.measure('slow duration', 'slow start', 'slow end')
+    }
+
+    function firstFunction(){
+      performance.mark('function_1 start')
+      performSlowCalculation()
+      performance.mark('function_1 end')
+      performance.measure('function_1 duration', 'function_1 start', 'function_1 end')
+    }
+
+    function secondFunction() {
+      performance.mark('function_2 start')
+      performSlowCalculation()
+      performSlowCalculation()
+      performance.mark('function_2 end')
+      performance.measure('function_2 duration', 'function_2 start', 'function_2 end')
+    }
+
+    startButton.addEventListener('click', async function(evt) {
+      evt.preventDefault()
+
+      performance.mark('start')
+
+      firstFunction()
+      secondFunction()
+      performSlowCalculation()
+
+      performance.mark('end')
+      performance.measure('duration', 'start', 'end')
+
+      result.classList.remove('hidden')
+    })
+  </script>
+</body>
+</html>

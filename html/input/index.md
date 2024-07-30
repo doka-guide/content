@@ -12,6 +12,7 @@ contributors:
   - skorobaeus
   - valeriimakhniuk
   - whyme0
+  - jag-k
 editors:
   - tachisis
 keywords:
@@ -53,7 +54,7 @@ tags:
 
 ## Как пишется
 
-Если хочется, чтобы введённые или выбранные в `<input>` данные отправились на сервер, нужно поместить этот тег в `<form>` либо связать этот элемент с формой через атрибут `id`.
+Если хочется, чтобы введённые или выбранные в `<input>` данные отправились на сервер, нужно поместить этот тег в [`<form>`](/html/form/) либо связать этот элемент с формой через атрибут `id`.
 
 Атрибут `type` определяет, какой вид примет элемент `<input>` и какую функцию будет выполнять: например, для создания поля с паролем мы напишем `type="password"`, чтобы сделать переключатель — `type="radio"`, а для создания кнопки — `type="button"`.
 
@@ -104,7 +105,7 @@ tags:
 
 Большое преимущество установки правильного значения для `type` — в мобильных браузерах будет появляться «специальная» клавиатура, упрощающая и улучшающая пользовательский опыт. Так, для `<input type=tel>` у пользователя отобразится клавиатура, содержащая лишь цифры и специальные символы, нужные для корректного ввода номера телефона. Пример такой клавиатуры можно увидеть на картинке ниже:
 
-![Пример клавиатуры для поля ввода номера телефона](images/tel.jpeg)
+![Пример клавиатуры для поля ввода номера телефона](images/tel.png)
 
 ### `value`
 
@@ -118,13 +119,13 @@ tags:
 ### Прочие атрибуты
 
 - `name` — уникальное имя элемента. Обычно имя нужно, чтобы связать `<input>` с формой и отправить данные на сервер.
-- `required` — делает поле для ввода обязательным для заполнения. Пользователь не сможет нажать «Отправить», пока не введёт сюда данные. А если попробует, то браузер выведет сообщение о необходимости заполнить поле.
+- [`required`](/html/required/) — делает поле для ввода обязательным для заполнения. Пользователь не сможет нажать «Отправить», пока не введёт сюда данные. А если попробует, то браузер выведет сообщение о необходимости заполнить поле.
 - `disabled` — отключает элемент. Пользователь не сможет, например, ввести текст или выбрать нужный параметр, а сам элемент будет отображаться в сером цвете, как неактивный.
 - `autocomplete` — разрешает автозаполнение. Автозаполнение — это когда браузер предлагает сохранить, например, пароль или номер банковской карты, чтобы данные подставлялись при следующем входе. Подробнее можно прочитать в статье про [`autocomplete`](/html/autocomplete/).
 - `autofocus` — фокусируется на элементе `<input>` сразу после загрузки страницы. Это значит, что пользователю не нужно специально нажимать на этот элемент, чтобы начать в нём что-то писать. В фокусе может быть только один элемент на странице. Но это не может быть элемент типа `hidden`.
 - `form` — связывает отдельно стоящий элемент `<input>` с формой. Для этого укажите в качестве значения имя идентификатора, который задан нужному тегу `<form>`. Например, так `form="special-form"`. Этот атрибут позволяет разместить `<input>` в любом месте на странице за пределами `<form>`. Если его не указать, элемент `<input>` будет связан с ближайшей формой.
 - `list` — связывает `<input>` с элементом [`<datalist>`](/html/datalist/) через его ID. В элементе `<datalist>` указывают значения, которые пользователь может выбрать, когда вбивает текст в пустое поле. Допустим, вы ввели букву «М» в поле ввода города, и браузер предложил варианты из `<datalist>`: «Москва», «Минск» и так далее. Этот атрибут не подходит для таких типов `<input>`, как `hidden`, `password`, `checkbox`, `radio`, `file` и любых кнопок.
-- `readonly` — не позволяет пользователю как-либо изменять элемент, оставляя его при этом рабочим. Применимо только для текстовых полей.
+- [`readonly`](/html/readonly/) — не позволяет пользователю как-либо изменять элемент, оставляя его при этом рабочим. Применимо только для текстовых полей.
 - `step` — указывает шаг, с которым будет изменяться значение поля. Задаётся в числовом формате и работает с любым из перечисленных типов: `number`, `range`, `date` и `datetime-local`.
 - `min`, `max` — указывают минимальные и максимальные числовые значения соответственно для полей с типами `number` и `range`. Минимальные и максимальные значения даты в формате `ГГГГ-ММ-ДД` для полей с типами `date` и `datetime-local`.
 - [`size`](/html/size/) — указывает ширину поля для ввода в символах.
@@ -141,38 +142,89 @@ tags:
 Вот так будет выглядеть простая форма, собранная из нескольких элементов `<input>`. Мы поместили их все в контейнер `<form>`, чтобы данные, которые введёт пользователь, можно было отправить на сервер:
 
 ```html
-<form name="test" method="post" action="input1.php">
-  <label>
-    Текстовое поле в одну строчку:
-    <input type="text" size="40">
+<form method="get" action="../result">
+  <label class="input-label">
+    <span class="input-title">Текстовое поле в одну строчку:</span>
+    <input
+      class="input"
+      type="text"
+      size="40"
+      name="one-line"
+    >
   </label>
 
-  <fieldset>
-    Радиокнопки:
-    <label class="radio-label">
-      <input type="radio" name="browser" value="ie" id="ie">
-      Вариант 1
-    </label>
-    <label class="radio-label">
-      <input type="radio" name="browser" value="opera" id="opera">
-      Вариант 2
-    </label>
-    <label class="radio-label">
-      <input type="radio" name="browser" value="firefox" id="firefox">
-      Вариант 3
-    </label>
+  <label class="input-label">
+    <span class="input-title">Поле для пароля:</span>
+    <input
+      class="input"
+      type="password"
+      size="40"
+      name="one-line-password"
+    >
+  </label>
+
+  <fieldset class="radio-set">
+    <legend class="visually-hidden">Радиокнопки:</legend>
+    <span class="radio-legend" aria-hidden="true">Радиокнопки:</span>
+    <div class="radio-container">
+      <label class="radio-label">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="ie"
+          id="ie"
+        >
+        <span class="radio-title">Вариант 1</span>
+      </label>
+      <label class="radio-label">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="opera"
+          id="opera"
+        >
+        <span class="radio-title">Вариант 2</span>
+      </label>
+      <label class="radio-label">
+        <input
+          class="radio"
+          type="radio"
+          name="browser"
+          value="firefox"
+          id="firefox"
+        >
+        <span class="radio-title">Вариант 3</span>
+      </label>
+    </div>
   </fieldset>
 
-  <label>
-    Большое текстовое поле:
-    <textarea name="comment" cols="40" rows="3"></textarea>
+  <label class="input-label">
+    <span class="input-title">Большое текстовое поле:</span>
+    <textarea
+      class="input input-textarea"
+      name="comment"
+      cols="40"
+      rows="3"
+    >
+    </textarea>
   </label>
 
-  <div>
-    <input type="reset" value="Очистить">
-    <input type="submit" value="Отправить">
+  <div class="buttons">
+    <input
+      type="reset"
+      value="Очистить"
+      class="button button-blue"
+    >
+    <input
+      type="submit"
+      value="Отправить"
+      class="button button-orange"
+      disabled
+    >
   </div>
 </form>
 ```
 
-<iframe title="Различные input" src="demos/inputs/" height="440"></iframe>
+<iframe title="Различные input" src="demos/inputs/" height="550"></iframe>

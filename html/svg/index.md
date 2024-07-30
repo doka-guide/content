@@ -96,7 +96,7 @@ SVG не может быть записано без оборачивающег�
 
 ### `<img>`
 
-Самый простой способ — использовать тег `<img>` и указать путь до svg-картинки в значении атрибута `src`.
+Самый простой способ — использовать тег [`<img>`](/html/img/) и указать путь до svg-картинки в значении атрибута `src`.
 
 ```html
 <img class="icon" src="img/svg/dots.svg" alt="dots icon">
@@ -202,11 +202,11 @@ SVG не может быть записано без оборачивающег�
 
 ### Учебные руководства
 
-- Перевод руководства от MDM Web Docs — [SVG — учебное руководство](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial);
-- Руководство от W3C с отличными иллюстрациями — [An SVG Primer for Today's Browsers.](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html).
+- Перевод руководства от MDM Web Docs — [SVG — учебное руководство](https://developer.mozilla.org/ru/docs/Web/SVG/Tutorial)
+- Руководство от W3C с отличными иллюстрациями — [An SVG Primer for Today's Browsers](https://www.w3.org/Graphics/SVG/IG/resources/svgprimer.html)
 
 ### Документация MDM Web Docs
 
-- [Справочник SVG элементов](https://developer.mozilla.org/ru/docs/Web/SVG/Element);
-- [Справочник SVG атрибутов](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute);
-- Общий список ссылок на ресурсы по SVG от MDM Web Docs  [SVG.  Документация MDM Web Docs]( https://developer.mozilla.org/ru/docs/Web/SVG).
+- [Справочник SVG элементов](https://developer.mozilla.org/ru/docs/Web/SVG/Element)
+- [Справочник SVG атрибутов](https://developer.mozilla.org/ru/docs/Web/SVG/Attribute)
+- Общий список ссылок на ресурсы по SVG от MDM Web Docs [SVG. Документация MDM Web Docs](https://developer.mozilla.org/ru/docs/Web/SVG)

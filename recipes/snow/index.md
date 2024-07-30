@@ -10,6 +10,8 @@ authors:
   - solarrust
 editors:
   - tachisis
+contributors:
+  - skorobaeus
 tags:
   - article
 ---
@@ -113,7 +115,7 @@ body {
 }
 
 .snow-toggle__control:focus + .snow-toggle__text::before {
-  border-color: #2E9AFF;
+  border-color: #C56FFF;
 }
 
 .snow-toggle__control:checked + .snow-toggle__text::before {
@@ -448,7 +450,7 @@ snowflakes.forEach(snowflake => {
 
 Используем в качестве переключателей радио-кнопки. Обязательно обернём их [`<label>`](/html/label/), чтобы кнопки были доступными для пользователей со [скринридерами](/a11y/screenreaders/).
 
-Так как это группа радиокнопок, используем также [`<fildset>`](/html/fieldset/) с названием группы в `<legend>`. Так мы свяжем их программно, зададим общую подпись и порадуем пользователей и [WCAG](/a11y/wcag/).
+Так как это группа радиокнопок, используем также [`<fildset>`](/html/fieldset/) с названием группы в [`<legend>`](/html/legend/). Так мы свяжем их программно, зададим общую подпись и порадуем пользователей и [WCAG](/a11y/wcag/).
 
 ```html
 <fieldset class="snow-toggle">

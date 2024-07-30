@@ -36,26 +36,27 @@ console.log(section.outerHTML)
 В таком случае выведется весь HTML, включая сам элемент:
 
 ```html
-<section><h1>Введение</h1><p>Параграф с текстом</p><p>Второй параграф с текстом</p></section>
+<section><h1>Введение</h1><p>Параграф с текстом</p>
+<p>Второй параграф с текстом</p></section>
 ```
 
-Если теперь заменить содержимое новым HTML
+Теперь заменим старое содержимое новым HTML:
 
 ```js
 section.outerHTML = '<h2>Второй заголовок</h2>'
 ```
 
-HTML после изменения будет:
+HTML после изменения:
 
 ```html
 <h2>Второй заголовок</h2>
 ```
 
-<iframe title="Element.outerHTML — Element.outerHTML — Дока" src="demos/index/" height="650"></iframe>
+<iframe title="Как работает свойство" src="demos/index/" height="650"></iframe>
 
 ## Как понять
 
-Свойство `outerHTML` проще понять в сравнении с другим похожим свойством – [`innerHTML`](/js/element-innerhtml/).
+Свойство `outerHTML` проще понять в сравнении с другим похожим свойством — [`innerHTML`](/js/element-innerhtml/).
 
 Свойство `innerHTML` позволяет получить только **содержимое** элемента как HTML-строку. В то время как `outerHTML` делает то же самое, но при этом возвращает и HTML самого элемента. Можно сказать, что вывод будет идентичен `innerHTML`, только в строке будет содержаться открывающий и закрывающий тег самого элемента, у которого было вызвано свойство.
 
@@ -77,7 +78,7 @@ const header = document.querySelector('header')
 header.outerHTML = '<span class="logo"></span>'
 ```
 
-HTML после изменения будет:
+HTML после изменения:
 
 ```html
 <span class="logo"></span>
@@ -92,7 +93,8 @@ HTML после изменения будет:
 </aside>
 
 ```js
-document.body.outerHTML = '<h1>Я новое содержимое страницы<h1>'
+document.body.outerHTML =
+  '<h1>Я новое содержимое страницы<h1>'
 ```
 
 В результате в документ будет такой HTML:
@@ -111,5 +113,6 @@ document.body.outerHTML = '<h1>Я новое содержимое страниц
 const html = document.querySelector('html')
 
 html.outerHTML = '<div>Я новый HTML</div>'
-// Uncaught DOMException: Failed to set the 'outerHTML' property on 'Element'
+// Uncaught DOMException:
+// Failed to set the 'outerHTML' property on 'Element'
 ```

@@ -6,49 +6,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
-      background-color: #18191c;
-      color: white;
-      font-family: "Roboto Mono", monospace;
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     .buttons-wrapper {
       display: flex;
-      flex-wrap: wrap;
-      width: 100%;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
     }
 
     button {
-      display: flex;
-      align-items: center;
-      height: 30px;
-      padding: 0 12px;
-      margin-right: 8px;
-      margin-bottom: 12px;
-      box-sizing: border-box;
-      background: none;
-      border: 1px solid white;
-      color: white;
-      cursor: pointer;
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
       font-family: inherit;
+      transition: background-color 0.2s linear;
     }
 
     button:hover {
-      background: white;
-      color: #18191c;
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
     }
 
-    .active-button,
-    .active-button:hover {
-      background: #ffd829;
-      border-color: #ffd829;
-      color: #18191c;
+    button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
     }
 
-    .text-wrapper {
-      column-count: 1;
+    button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .active-button {
+      background-color: #2E9AFF;
+    }
+
+    p {
+      padding: 55px 40px;
+      flex-grow: 1;
+      background-color: #282A2E;
+      color: #E6E6E6;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      p {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -60,11 +96,9 @@
     <button data-column-count="auto">auto</button>
   </div>
 
-  <div class="text-wrapper">
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente placeat tempore facilis eum quo iure numquam, facere obcaecati beatae in qui voluptate fugiat dolore aut eaque, officia voluptatibus alias nesciunt.
-  </div>
+  <p class="text-wrapper">
+    Не шалю, никого не трогаю, починяю примус, — недружелюбно насупившись, проговорил кот, — и еще считаю долгом предупредить, что кот древнее и неприкосновенное животное.
+  </p>
 
   <script>
     const wrapper = document.querySelector('.text-wrapper')

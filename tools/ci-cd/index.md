@@ -1,6 +1,11 @@
 ---
 title: "Что такое CI/CD"
 description: "Технологии для автоматизации доставки приложений."
+cover:
+  author: kirakusto
+  desktop: 'images/covers/desktop.svg'
+  mobile: 'images/covers/mobile.svg'
+  alt: 'Конвеер с роботом-сортировщиком: слева падают присьма, справа деляется на линии с чем-то полезным или опасным'
 authors:
   - igsekor
 editors:

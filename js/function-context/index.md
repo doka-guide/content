@@ -325,6 +325,7 @@ document.body.addEventListener('click', handleClick);
 
 // this будет { value: 42 }, потому что мы явно это задали через bind
 document.body.addEventListener('click', handleClick.bind({ value: 42 }));
+
 ```
 
 ### setTimeout

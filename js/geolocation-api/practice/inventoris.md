@@ -1,7 +1,8 @@
 🛠 С помощью `Geolocation API` можно получить координаты пользователя, а после найти по ним место на карте. Для этого создадим небольшую функцию, которая соберёт ссылку с долготой и широтой, а после вставим её в `iframe` c картой:
 
 ```js
-button.addEventListener('click', findLocation) // на клик по кнопке ищем локацию
+// На клик по кнопке ищем локацию
+button.addEventListener('click', findLocation)
 
 function findLocation() {
   if (!navigator.geolocation) {
@@ -10,13 +11,15 @@ function findLocation() {
     navigator.geolocation.getCurrentPosition(success, error)
   }
 
-  function success(position) {  // если всё хорошо, собираем ссылку
+  // Если всё хорошо, собираем ссылку
+  function success(position) {
     const { longitude, latitude }  = position.coords
 
     map.src = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude}%2C${latitude}&amp;layer=mapnik`
   }
 
-  function error() { // если всё плохо, просто напишем об этом
+  // Если всё плохо, просто напишем об этом
+  function error() {
     status.textContent = 'Не получается определить вашу геолокацию :('
   }
 }
