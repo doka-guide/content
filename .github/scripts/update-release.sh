@@ -39,20 +39,21 @@ if [[ "$CURRENT_MONTH" == "01" ]]; then
   CURRENT_YEAR="$(($CURRENT_YEAR - 1))"
   SHORT_YEAR="$(($SHORT_YEAR - 1))"
 fi
+RELEASE_MONTH="$((${CURRENT_MONTH#0} - 1))"
 
-TAG="v.$(($CURRENT_MONTH - 1)).$SHORT_YEAR"
+TAG="v.$RELEASE_MONTH.$SHORT_YEAR"
 TITLE="$(MONTH_TO_ENG $CURRENT_MONTH) $CURRENT_YEAR ($TAG)"
 
 SUBTITLE_OLD_1="## What's Changed"
 SUBTITLE_OLD_2="## New Contributors"
 SUBTITLE_OLD_3="Full Changelog"
 
-SUBTITLE_NEW_1="## Ченджлог ($(MONTH_TO_RUS $CURRENT_MONTH) $CURRENT_YEAR)"
+SUBTITLE_NEW_1="## Технический ченджлог ($(MONTH_TO_RUS $CURRENT_MONTH) $CURRENT_YEAR)"
 SUBTITLE_NEW_2="## Новые контрибьюторы"
 SUBTITLE_NEW_3="Весь ченджлог"
 
 gh repo set-default doka-guide/content
-gh release create "$TAG" --draft --title="$TITLE" --generate-notes --verify-tag
+gh release create "$TAG" --title="$TITLE" --generate-notes
 gh release view --repo=github.com/doka-guide/content >> auto-notes.md
 sed -E 's/\* /- /g' auto-notes.md | sed -E 's/'"$SUBTITLE_OLD_1"'/'"$SUBTITLE_NEW_1"'/' | sed -E 's/'"$SUBTITLE_OLD_2"'/'"$SUBTITLE_NEW_2"'/' | sed -E 's/'"$SUBTITLE_OLD_3"'/'"$SUBTITLE_NEW_3"'/' > notes.md
-gh release edit "$TAG" --draft --notes-file notes.md
+gh release edit "$TAG" --notes-file notes.md
