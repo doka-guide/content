@@ -59,11 +59,11 @@
       color: #000000;
     }
 
-    .author {
+    .title {
       padding-top: 120px;
     }
 
-    .author::before {
+    .title::before {
       content: "“";
       position: absolute;
       left: 40px;
@@ -75,7 +75,7 @@
       line-height: 1;
     }
 
-    .author::after {
+    .title::after {
       content: attr(cite);
       display: block;
       margin-top: 20px;
@@ -112,11 +112,11 @@
         padding-right: 30px;
       }
 
-      .author {
+      .title {
         padding-top: 100px;
       }
 
-      .author::before {
+      .title::before {
         left: 30px;
         font-size: 6rem;
       }
@@ -126,15 +126,15 @@
 <body>
   <div class="container">
     <code>&lt;blockquote class="<span class="color-code-blue">color</span>"&gt;</code>
-    <blockquote class="color" cite="Эрих Мария Ремарк">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
+    <blockquote class="color" cite="«Тени в раю»">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
   </div>
   <div class="container">
-    <code>&lt;blockquote class="<span class="color-code-pink">author</span>"&gt;</code>
-    <blockquote class="author" cite="Эрих Мария Ремарк">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
+    <code>&lt;blockquote class="<span class="color-code-pink">title</span>"&gt;</code>
+    <blockquote class="title" cite="«Тени в раю»">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
   </div>
   <div class="container">
-    <code>&lt;blockquote class="<span class="color-code-pink">author</span> <span class="color-code-blue">color</span>"&gt;</code>
-    <blockquote class="author color" cite="Эрих Мария Ремарк">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
+    <code>&lt;blockquote class="<span class="color-code-pink">title</span> <span class="color-code-blue">color</span>"&gt;</code>
+    <blockquote class="title color" cite="«Тени в раю»">Зима пробуждает аппетит. Пока на улицах лежит снег, шоколадное пирожное — лучшее лекарство.</blockquote>
   </div>
 </body>
 </html>
