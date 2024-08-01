@@ -48,7 +48,7 @@ SUBTITLE_OLD_1="## What's Changed"
 SUBTITLE_OLD_2="## New Contributors"
 SUBTITLE_OLD_3="Full Changelog"
 
-SUBTITLE_NEW_1="## Технический ченджлог ($(MONTH_TO_RUS $CURRENT_MONTH) $CURRENT_YEAR)"
+SUBTITLE_NEW_1="## Ченджлог ($(MONTH_TO_RUS $CURRENT_MONTH) $CURRENT_YEAR)"
 SUBTITLE_NEW_2="## Новые контрибьюторы"
 SUBTITLE_NEW_3="Весь ченджлог"
 
