@@ -1,6 +1,7 @@
 name: Create Release Draft
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 5 1 * *'
 
@@ -11,6 +12,8 @@ jobs:
   release:
     runs-on: ubuntu-22.04
     steps:
+      - name: Загрузка контента
+        uses: actions/checkout@v4
       - name: Создание черновика релиза
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
