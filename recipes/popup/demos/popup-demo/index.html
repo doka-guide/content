@@ -110,7 +110,9 @@
       transition: background-color 0.2s linear;
     }
 
-    .closeDialogBtn:hover {
+    .closeDialogBtn:hover,
+    .closeDialogBtn:focus,
+    .closeDialogBtn:focus-visible {
       border: 2px solid #000000;
     }
 
@@ -119,17 +121,9 @@
       outline: none;
     }
 
-    .closeDialogBtn:focus-visible {
-      border: 2px solid #000000;
-    }
-
     .button:focus {
       border: 2px solid #FFFFFF;
       outline: none;
-    }
-
-    .closeDialogBtn:focus {
-      border: 2px solid #000000;
     }
 
     .button-violet {
@@ -190,14 +184,13 @@
   <script>
     const dialog = document.getElementById('myDialog')
     const dialogOpener = document.querySelector('.openDialogBtn')
-    const dialogCloser = document.querySelector('.closeDialogBtn')
+    const dialogCloser = dialog.querySelector('.closeDialogBtn')
 
     function closeOnBackDropClick({ currentTarget, target }) {
       const dialog = currentTarget
       const isClickedOnBackDrop = target === dialog
       if (isClickedOnBackDrop) {
-        dialog.close()
-        returnScroll()
+        close()
       }
     }
 
@@ -216,6 +209,9 @@
     }
 
     dialog.addEventListener('click', closeOnBackDropClick)
+    dialog.addEventListener('cancel', (event) => {
+      returnScroll()
+    });
     dialogOpener.addEventListener('click', openModalAndLockScroll)
     dialogCloser.addEventListener('click', (event) => {
       event.stopPropagation()
