@@ -97,4 +97,4 @@ Google преимущественно использует мобильную в
   }
 ```
 
-<iframe title="Адаптивная верстка" src="demos/adaptive-layout/" height="300"></iframe>
+<iframe title="Адаптивная навигация" src="demos/adaptive-navbar/" height="300"></iframe>

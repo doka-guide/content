@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Адаптивная верстка - Mobile-first vs Desktop-first - Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    body {
+      font-family: Roboto, sans-serif;
+      margin: 0;
+      background-color: #18191c;
+    }
+
+    header {
+      background-color: #2E9AFF;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      color: #2E9AFF;
+      padding: 8px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    pre {
+      margin: 0;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .navbar {
+      padding: 8px;
+    }
+
+    .toggle-icon {
+      cursor: pointer;
+    }
+
+    .toggle-icon:hover,
+    a:hover {
+      opacity: .5;
+      transition: opacity 100ms ease-in-out;
+    }
+
+    .link_active {
+      text-decoration: underline;
+    }
+
+    .navbar__links_list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 8px 0 8px 0;
+      padding: 0;
+    }
+
+    .navbar__links_list>li {
+      list-style-type: none;
+    }
+
+    .navbar__links_list_hidden {
+      display: none;
+    }
+
+    .navbar__links_list_showed {
+      display: flex;
+    }
+
+    .active-styles-example {
+      width: fit-content;
+      margin-left: auto;
+      padding: 8px;
+      background-color: #ff8630;
+      color: #18191c;
+    }
+
+    #flex-direction,
+    #current-screen-width,
+    #toggle-icon {
+      text-decoration: underline;
+    }
+
+    @media (width >=640px) {
+      .toggle-icon {
+        display: none;
+      }
+
+      .navbar__links_list {
+        flex-direction: row;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <i class="fa fa-bars toggle-icon" onclick="handleClick(this)"></i>
+      <ul class="navbar__links_list">
+        <li>
+          <a href="#" class="link_active">Интересные факты</a>
+        </li>
+        <li>
+          <a href="#">Происхождение</a>
+        </li>
+        <li>
+          <a href="#">История одомашнивания</a>
+        </li>
+        <li>
+          <a href="#">Физиология</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Интересные факты</h1>
+    <ul>
+      <li>В каждом кошачьем ухе находится более чем 30 мускулов.</li>
+      <li>В среднем, коты спят по 16-18 часов в день, что составляет более 70% кошачьей жизни.</li>
+      <li>Кошки не чувствуют вкуса сладкого.</li>
+      <li> У кошек и людей за управление эмоциональным состоянием отвечают одинаковые отделы головного мозга.</li>
+    </ul>
+
+    <div class="active-styles-example">
+      <h3>Текущая ширина экрана:
+        <span id="current-screen-width"></span> px
+      </h3>
+
+      <div>.navbar__links_list {</div>
+      <div>&nbsp;&nbsp; flex-direction:
+        <span id="flex-direction"></span>;
+      </div>
+      <div>}</div>
+
+      <br />
+
+      <div>.toggle-icon {</div>
+      <div>&nbsp;&nbsp; display:
+        <span id="toggle-icon"></span>;
+      </div>
+      <div>}</div>
+    </div>
+  </main>
+
+  <script>
+    const toggleIcon = document.querySelector('i');
+    const linksList = document.querySelector('ul');
+    const flexDirection = document.getElementById('flex-direction');
+    const screenWidth = document.getElementById('current-screen-width');
+    const toggleIconStyle = document.getElementById('toggle-icon')
+
+    let isOpen = false;
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    function handleResize() {
+      screenWidth.innerText = window.innerWidth;
+
+      if (window.innerWidth >= 640) {
+        linksList.classList.remove('navbar__links_list_hidden')
+        linksList.classList.add('navbar__links_list_showed')
+        flexDirection.innerText = 'row'
+        toggleIconStyle.innerText = 'none'
+
+      } else {
+        flexDirection.innerText = 'column'
+        toggleIconStyle.innerText = 'inherit'
+
+        if (!isOpen) {
+          linksList.classList.remove('navbar__links_list_showed')
+          linksList.classList.add('navbar__links_list_hidden')
+        }
+      }
+    }
+
+    function handleClick() {
+      if (isOpen) {
+        linksList.classList.remove('navbar__links_list_showed')
+        linksList.classList.add('navbar__links_list_hidden')
+        isOpen = false
+      } else {
+        linksList.classList.remove('navbar__links_list_hidden')
+        linksList.classList.add('navbar__links_list_showed')
+        isOpen = true
+      }
+    }
+  </script>
+</body>
+
+</html>
