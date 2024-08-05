@@ -115,7 +115,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 0.8);
 }
 
 .scroll-lock {
@@ -128,13 +128,13 @@ dialog::backdrop {
 ```javascript
 const dialog = document.getElementById('myDialog')
 const dialogOpener = document.querySelector('.openDialogBtn')
-const dialogCloser = document.querySelector('.closeDialogBtn')
+const dialogCloser = dialog.querySelector('.closeDialogBtn')
 
 function closeOnBackDropClick({ currentTarget, target }) {
   const dialog = currentTarget
   const isClickedOnBackDrop = target === dialog
   if (isClickedOnBackDrop) {
-    dialog.close()
+    close()
   }
 }
 
@@ -153,6 +153,9 @@ function close() {
 }
 
 dialog.addEventListener('click', closeOnBackDropClick)
+dialog.addEventListener('cancel', (event) => {
+  returnScroll()
+});
 dialogOpener.addEventListener('click', openModalAndLockScroll)
 dialogCloser.addEventListener('click', (event) => {
   event.stopPropagation()
@@ -212,11 +215,11 @@ dialog {
 }
 ```
 
-Встроенной функцией тега `<dialog>` является его подложка. Она появляется в момент открытия попапа и имеет название `::backdrop`. С помощью этого псевдоэлемента мы можем стилизовать задник модального окна, а также реализовать его закрытие по клику на оверлей. Первое реализуем с помощью правил CSS — добавим затемнение на экран за открытым попапом:
+Встроенной функцией тега `<dialog>` является его подложка. Она появляется в момент открытия попапа и имеет название [`::backdrop`](/css/backdrop/). С помощью этого псевдоэлемента мы можем стилизовать задник модального окна, а также реализовать его закрытие по клику на оверлей. Первое реализуем с помощью правил CSS — добавим затемнение на экран за открытым попапом:
 
 ```css
 dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0 0 0 / 0.8);
 }
 ```
 
@@ -245,7 +248,7 @@ body {
 ```javascript
 const dialog = document.getElementById('myDialog')
 const dialogOpener = document.querySelector('.openDialogBtn')
-const dialogCloser = document.querySelector('.closeDialogBtn')
+const dialogCloser = dialog.querySelector('.closeDialogBtn')
 ```
 
 Напишем функции для открытия и закрытия попапа. Также поместим в них код, необходимый для блокировки скролла страницы. Не забудем вернуть скролл обратно при закрытии попапа:
@@ -283,12 +286,14 @@ function closeOnBackDropClick({ currentTarget, target }) {
   const dialog = currentTarget
   const isClickedOnBackDrop = target === dialog
   if (isClickedOnBackDrop) {
-    dialog.close()
-    returnScroll()
+    close()
   }
 }
 
 dialog.addEventListener('click', closeOnBackDropClick)
+dialog.addEventListener('cancel', (event) => {
+  returnScroll()
+});
 ```
 
-Другой функцией нашего попапа окажется его закрытие по нажатию на клавишу <kbd>Esc</kbd>. Это является встроенной функцией элемента `<dialog>` и не требует дополнительного кода.
+Другой функцией нашего попапа окажется его закрытие по нажатию на клавишу <kbd>Esc</kbd>. Это является встроенной функцией элемента `<dialog>` и не требует дополнительного кода. Несмотря на то, что закрытие произойдёт автоматически, нам нужно знать об этом событии, чтобы вернуть скролл. Для этого добавим обработку события 'cancel'.
