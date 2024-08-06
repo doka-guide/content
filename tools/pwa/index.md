@@ -79,7 +79,6 @@ Apple принципиально не использует термин Progress
 
 А ещё Диего — [автор](https://lists.w3.org/Archives/Public/public-immersive-web-wg/2019Jul/0002.html) логотипа WebXR API, который неразрывно связан с PWA.
 
-<!-- TODO: загрузить изображение -->
 ![Логотип PWA](images/pwa-logo.svg)
 
 ## Преимущества PWA
