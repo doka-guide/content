@@ -4,9 +4,9 @@ description: "Для чего нужны альтернативные описа
 authors:
   - anastasiayarosh
 related:
-  - a11y/chto-takoe-a11y
-  - a11y/screenreaders
-  - a11y/aria-intro
+  - a11y/how-to-describe-pictures
+  - html/global-attrs
+  - html/img
 tags:
   - article
 ---
