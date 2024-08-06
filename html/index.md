@@ -93,6 +93,7 @@ groups:
   - name: 'Картинки'
     items:
       - img
+      - alt
       - figure-figcaption
       - picture
       - source
