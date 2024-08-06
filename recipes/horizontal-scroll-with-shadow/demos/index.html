@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Горизонтальный скролл с тенями</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: "Roboto", sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #18191c;
+    }
+
+    .component {
+      position: relative;
+      width: 600px;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .component__container {
+      display: flex;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+    }
+
+    .component__container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .component__container::-webkit-scrollbar-track {
+      background: #1f2023;
+      border-radius: 4px;
+    }
+
+    .component__container::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    .component__container::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .component__container div {
+      min-width: 200px;
+      height: 200px;
+      margin-right: 20px;
+      background-color: #fff;
+      flex-shrink: 0;
+    }
+
+    .component__shadow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      pointer-events: none;
+    }
+
+    .scroll-shadow--left {
+      left: 0;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+    }
+
+    .scroll-shadow--right {
+      right: 0;
+      background: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+    }
+
+    .scroll-shadow__shadow--hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="component">
+    <div class="component__container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <div class="component__shadow scroll-shadow scroll-shadow--left"></div>
+    <div class="component__shadow scroll-shadow scroll-shadow--right"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.querySelector('.component__container');
+      const shadowLeft = document.querySelector('.scroll-shadow--left');
+      const shadowRight = document.querySelector('.scroll-shadow--right');
+
+      function updateShadows() {
+        const scrollLeft = container.scrollLeft;
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+        if (scrollLeft > 10) {
+          shadowLeft.classList.remove('scroll-shadow__shadow--hide');
+        } else {
+          shadowLeft.classList.add('scroll-shadow__shadow--hide');
+        }
+
+        if (scrollLeft < maxScrollLeft - 10) {
+          shadowRight.classList.remove('scroll-shadow__shadow--hide');
+        } else {
+          shadowRight.classList.add('scroll-shadow__shadow--hide');
+        }
+      }
+
+      container.addEventListener('scroll', updateShadows);
+      window.addEventListener('resize', updateShadows);
+
+      updateShadows(); // Initial shadow update
+    });
+  </script>
+</body>
+</html>
