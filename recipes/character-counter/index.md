@@ -3,6 +3,8 @@ title: "Счётчик символов в поле ввода"
 description: "Считаем символы при вводе пользователем и не перегружаем браузер."
 authors:
   - inventoris
+contributors:
+  - vitya-ne
 keywords:
   - счётчик
   - подсчёт знаков
