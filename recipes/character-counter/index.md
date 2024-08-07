@@ -37,7 +37,8 @@ tags:
   const output = document.querySelector('output')
 
   input.addEventListener('input', function () {
-    output.textContent = 0 + this.value.length
+    const str = this.value.trim()
+    output.textContent = 0 + str.length
   })
 ```
 
@@ -158,8 +159,8 @@ output {
 
 ```js
 const solution = document.querySelector('.solution')
-const input = document.querySelector('input')
-const output = document.querySelector('output')
+const input = solution.querySelector('input')
+const output = solution.querySelector('output')
 const ANSWER_LENGTH = 7
 ```
 
@@ -169,20 +170,21 @@ const ANSWER_LENGTH = 7
 input.addEventListener('input', function () {})
 ```
 
-Внутри разместим сам счётчик. С помощью [`this`](/js/function-context/) мы получим доступ к объекту события, в нашем случае к `input`. Его значение получим с помощью метода `value`, это и будут символы, которые пользователь введёт.
+Внутри разместим сам счётчик. С помощью [`this`](/js/function-context/) мы получим доступ к объекту события, в нашем случае к `input`. Его значение получим с помощью метода `value`, это и будут символы, которые пользователь введёт. Чтобы избежать подсчёта начальных и концевых пробелов используем функцию [`trim()`](/js/string-wrapper/#ochistka-stroki).
 
 Методом `length` посчитаем их количество и прибавим к нулю, а с помощью метода [`textContent`](/js/element-textcontent/) разместим число в поле вывода:
 
 ```js
 input.addEventListener('input', function () {
-  output.textContent = 0 + this.value.length
+  const str = this.value.trim()
+  output.textContent = 0 + str.length
 })
 ```
 
 Для красоты можно добавить изменение стилей на случай правильного ответа или превышения числа символов:
 
 ```js
-if (this.value.length > ANSWER_LENGTH) {
+if (str.length > ANSWER_LENGTH) {
   output.style.backgroundColor = '#a52a2a'
   solution.style.setProperty('--solution-emoji', '"❌"')
 } else {
@@ -190,7 +192,7 @@ if (this.value.length > ANSWER_LENGTH) {
   solution.style.setProperty('--solution-emoji', '"🔄"')
 }
 
-if (/^зел[её]ный$/i.test(this.value)) {
+if (/^зел[её]ный$/i.test(str)) {
   output.style.backgroundColor = '#41E847'
   solution.style.setProperty('--solution-emoji', '"✅"')
 }
@@ -289,14 +291,15 @@ output {
 
 ```js
 const solution = document.querySelector('.solution')
-const input = document.querySelector('input')
-const output = document.querySelector('output')
+const input = solution.querySelector('input')
+const output = solution.querySelector('output')
 const ANSWER_LENGTH = 7
 
 input.addEventListener('input', function () {
-  output.textContent = 0 + this.value.length
+  const str = this.value.trim()
+  output.textContent = 0 + str.length
 
-  if (this.value.length > ANSWER_LENGTH) {
+  if (str.length > ANSWER_LENGTH) {
     output.style.backgroundColor = '#a52a2a'
     solution.style.setProperty('--solution-emoji', '"❌"')
   } else {
@@ -304,7 +307,7 @@ input.addEventListener('input', function () {
     solution.style.setProperty('--solution-emoji', '"🔄"')
   }
 
-  if (/^зел[её]ный$/i.test(this.value)) {
+  if (/^зел[её]ный$/i.test(str)) {
     output.style.backgroundColor = '#41E847'
     solution.style.setProperty('--solution-emoji', '"✅"')
   }
