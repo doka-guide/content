@@ -62,8 +62,8 @@ PWA — это сайты, формально удовлетворяющие о�
 Другие браузеры, например, Safari и Firefox, самостоятельно не предлагают пользователю установить PWA.
 
 <div style="display: flex;">
-  <img src="images/chromium-promote-pwa-install-android.png" style="width: 30%;" alt="Установка PWA в Chromium для Android">
-  <img src="images/chromium-promote-pwa-install-desktop.png" style="width: 70%;" alt="Установка PWA в Chromium для настольных компьютеров">
+  <img src="images/chromium-promote-pwa-install-android.png" alt="Установка PWA в Chromium для Android">
+  <img src="images/chromium-promote-pwa-install-desktop.png" alt="Установка PWA в Chromium для настольных компьютеров">
 </div>
 
 ### История появления
