@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - tatianafokina
+  - vitya-ne
 related:
   - html/nav
   - html/ul
