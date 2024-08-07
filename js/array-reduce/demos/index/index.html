@@ -136,12 +136,13 @@ function groupNameById(result, user) {
     ...result,
     [user.id]: user.name
   }
-}</pre>
+}
+
+const groupedUsers = users.reduce(groupNameById)</pre>
 
     </div>
     <div class="does-container">
       <button id="start" class="button button-yellow">Юзеры, группируйтесь!</button>
-      <pre>users.reduce(groupNameById)</pre>
     </div>
     <h2 class="subtitle">С каким элементом работаем</h2>
     <div class="items" id="container"></div>
