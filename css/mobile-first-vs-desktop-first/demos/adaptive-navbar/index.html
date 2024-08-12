@@ -2,75 +2,86 @@
 <html lang="ru">
 
 <head>
-  <title>Адаптивная вёрстка - Mobile-first vs Desktop-first - Дока</title>
+  <title>Адаптивная вёрстка — Mobile-first vs Desktop-first — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
   <style>
     * {
       box-sizing: border-box;
-    }
-
-    a {
-      color: inherit;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: Roboto, sans-serif;
-      margin: 0;
-      background-color: #18191c;
+      font-family: "Roboto", sans-serif;
+      background-color: #18191C;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
     }
 
     header {
-      background-color: #2E9AFF;
+      background-color: #FFFFFF;
+      padding: 20px;
     }
 
     main {
-      display: flex;
-      flex-direction: column;
-      color: #2E9AFF;
-      padding: 8px;
+      color: #FFFFFF;
+      padding: 20px;
     }
 
     a {
+      border-radius: 3px;
+      color: inherit;
       text-decoration: none;
+      font-style: italic;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover {
+      outline-width: 0;
+      color: #FFFFFF;
+      background-color: #000000;
+      transition: all 0.2s linear;
     }
 
     pre {
-      margin: 0;
+      margin-block-start: 1em;
+      font-size: inherit;
     }
 
     h1 {
-      margin: 0;
-    }
-
-    .navbar {
-      padding: 8px;
+      margin-bottom: 17px;
+      font-size: 1.625rem;
+      font-weight: 500;
     }
 
     .burger-icon {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: none;
+      vertical-align: middle;
       cursor: pointer;
-    }
-
-    .burger-icon:hover,
-    a:hover {
-      opacity: .5;
-      transition: opacity 100ms ease-in-out;
     }
 
     .link_active {
       text-decoration: underline;
     }
 
+    .navbar {
+      line-height: 1;
+    }
+
     .navbar__links_list {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      margin: 8px 0 8px 0;
-      padding: 0;
+      gap: 25px;
+      margin-block-start: 25px;
     }
 
     .navbar__links_list>li {
@@ -82,20 +93,59 @@
     }
 
     .active-styles-example {
-      width: fit-content;
-      margin-left: auto;
-      padding: 8px;
-      background-color: #ff8630;
+      padding: 20px;
+      background-color: #2E9AFF;
       color: #18191c;
+      font-size: 18px;
     }
 
     #flex-direction,
     #current-screen-width,
     #burger-icon {
-      text-decoration: underline;
+      background-color: #000000;
+      color: #FFFFFF;
+      border-radius: 3px;
     }
 
-    @media (width >=640px) {
+    .text-list {
+      list-style-type: none;
+    }
+
+    .text-list-item {
+      position: relative;
+      padding-inline-start: 25px;
+      text-transform: lowercase;
+    }
+
+    .text-list-item + .text-list-item {
+      margin-block-start: 10px;
+    }
+
+    .text-list-item::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0;
+      width: 14px;
+      height: 14px;
+      background-color: currentColor;
+    }
+
+    @media (width >= 640px) {
+      header {
+        padding: 20px 40px;
+      }
+
+      main {
+        padding: 40px;
+      }
+
+      .active-styles-example {
+        margin-inline-start: auto;
+        width: 65%;
+        padding: 25px 40px;
+      }
+
       .burger-icon {
         display: none;
       }
@@ -111,7 +161,11 @@
 <body>
   <header>
     <nav class="navbar">
-      <i class="fa fa-bars burger-icon" onclick="handleClick(this)"></i>
+      <button class="burger-icon" onclick="handleClick(this)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 26 26" aria-hidden="true">
+          <path stroke="#000" stroke-linecap="round" stroke-width="4" d="M3 4h20M3 13h20M3 22h20"/>
+        </svg>
+      </button>
       <ul class="navbar__links_list">
         <li>
           <a href="#" class="link_active">Интересные факты</a>
@@ -130,33 +184,28 @@
   </header>
   <main>
     <h1>Интересные факты</h1>
-    <ul>
-      <li>В каждом кошачьем ухе находится более чем 30 мускулов.</li>
-      <li>В среднем, коты спят по 16-18 часов в день, что составляет более 70% кошачьей жизни.</li>
-      <li>Кошки не чувствуют вкуса сладкого.</li>
-      <li> У кошек и людей за управление эмоциональным состоянием отвечают одинаковые отделы головного мозга.</li>
+    <ul class="text-list">
+      <li class="text-list-item">В каждом кошачьем ухе находится более чем 30 мускулов;</li>
+      <li class="text-list-item">В среднем, коты спят по 16-18 часов в день, что составляет более 70% кошачьей жизни;</li>
+      <li class="text-list-item">Кошки не чувствуют вкуса сладкого;</li>
+      <li class="text-list-item">У кошек и людей за управление эмоциональным состоянием отвечают одинаковые отделы головного мозга.</li>
     </ul>
-
-    <div class="active-styles-example">
-      <h3>Текущая ширина экрана:
-        <span id="current-screen-width"></span> px
-      </h3>
-
-      <div>.navbar__links_list {</div>
-      <div>&nbsp;&nbsp; flex-direction:
-        <span id="flex-direction"></span>;
-      </div>
-      <div>}</div>
-
-      <br />
-
-      <div>.burger-icon {</div>
-      <div>&nbsp;&nbsp; display:
-        <span id="burger-icon"></span>;
-      </div>
-      <div>}</div>
-    </div>
   </main>
+
+  <div class="active-styles-example">
+    <p>Текущая ширина экрана:
+      <code><span id="current-screen-width"></span>px</code>
+    </p>
+<pre>
+.navbar__links_list {
+&nbsp;&nbsp; flex-direction: <span id="flex-direction"></span>;
+}
+
+.burger-icon {
+&nbsp;&nbsp; display: <span id="burger-icon"></span>;
+}
+</pre>
+  </div>
 
   <script>
     const linksList = document.querySelector('ul');

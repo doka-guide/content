@@ -69,9 +69,7 @@ Google преимущественно использует мобильную в
   .navbar__links_list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 8px 0 8px 0;
-    padding: 0;
+    gap: 25px;
   }
 
   /* стили для планшетной и десктопной версий */
@@ -102,10 +100,7 @@ Google преимущественно использует мобильную в
 
   .navbar__links_list {
     display: flex;
-    margin: 0;
-    gap: 16px;
-    margin: 8px 0 8px 0;
-    padding: 0;
+    gap: 25px;
   }
 
   /* здесь могли бы быть дополнительные стили для планшетной версии */
@@ -124,4 +119,4 @@ Google преимущественно использует мобильную в
   }
 ```
 
-<iframe title="Адаптивная навигация" src="demos/adaptive-navbar/" height="420"></iframe>
+<iframe title="Адаптивная навигация" src="demos/adaptive-navbar/" height="590"></iframe>
