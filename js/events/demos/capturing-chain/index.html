@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,12 +14,23 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-size: 16px;
       font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
     }
 
     .container {
@@ -34,8 +45,7 @@
     div {
       max-width: 100%;
       padding: 20px;
-      border: solid thin #665610;
-      border-radius: 6px;
+      border: solid thin #286C2D;
       background-color: #18191c;
       cursor: pointer;
     }
@@ -52,14 +62,24 @@
     }
 
     .active {
-      background-color: #FFD829;
+      background-color: #41E847;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
   <section class="container">
     <h1>Захват событий</h1>
-    <p>JavaScript слушает события click на всех &lt;div&gt;, изображённых ниже. Когда событие происходит, &#60;div&#62; закрашивается жёлтым цветом. Скорость срабатывания замедлена, в жизни все происходит за миллисекунды.</p>
+    <p>JavaScript слушает события click на всех <code>&lt;div&gt;</code>, изображённых ниже. Когда событие происходит, <code>&#60;div&#62;</code> закрашивается зелёным цветом. Скорость срабатывания замедлена, в жизни все происходит за миллисекунды.</p>
     <div>
       <div>
         <div>
