@@ -6,6 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - tatianafokina
+  - vitya-ne
 related:
   - html/nav
   - html/ul
@@ -28,7 +29,7 @@ tags:
 <body>
   <header class="header">
     <nav
-      class="site-nav enhanced"
+      class="site-nav"
       aria-label="Сайт"
     >
       <ul class="menu">
@@ -42,7 +43,7 @@ tags:
           </button>
 
           <!-- Первый уровень вложенности -->
-          <ul class="menu" id="doka-submenu" hidden>
+          <ul class="menu menu-submenu" id="doka-submenu">
             <li class="menu__item">
               <a
                 href="#"
@@ -53,7 +54,7 @@ tags:
               </a>
             <li>
 
-            <li class="menu__item">
+            <li class="menu__item" data-has-children>
               <button
                 class="menu__btn"
                 aria-expanded="false"
@@ -63,7 +64,7 @@ tags:
               </button>
 
               <!-- Второй уровень вложенности -->
-              <ul class="menu" id="html-submenu" hidden>
+              <ul class="menu menu-submenu" id="html-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">
                     Основы
@@ -82,7 +83,7 @@ tags:
               </ul>
             </li>
 
-            <li class="menu__item">
+            <li class="menu__item" data-has-children>
               <button
                 class="menu__btn"
                 aria-expanded="false"
@@ -92,7 +93,7 @@ tags:
               </button>
 
               <!-- Второй уровень вложенности -->
-              <ul class="menu" id="css-submenu" hidden>
+              <ul class="menu menu-submenu" id="css-submenu">
                 <li class="menu__item">
                   <a href="#" class="menu__link">
                     Основы
@@ -264,42 +265,45 @@ a[aria-current="page"] {
   top: 0;
   left: 104%;
 }
+
+.menu[hidden] {
+  display: none;
+}
 ```
 
 ```js
 const nav = document.querySelector('.site-nav')
 nav.classList.add('enhanced')
 
-const submenus = document.querySelectorAll(
+const submenus = nav.querySelectorAll(
   '.menu__item[data-has-children]'
 )
-const dropdowns = document.querySelectorAll(
+const dropdowns = nav.querySelectorAll(
   '.menu__item[data-has-children] > .menu'
 )
 
-const icon = '<svg>...</svg>'
+const icon = `
+  <svg
+    width="24px"
+    height="24px"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    class="menu__btn-icon"
+  >
+  <path fill="currentColor" d="M5.64645 8.64645c.19526-.19527.51184-.19527.7071 0L12 14.2929l5.6464-5.64645c.1953-.19527.5119-.19527.7072 0 .1952.19526.1952.51184 0 .7071L12 15.7071 5.64645 9.35355c-.19527-.19526-.19527-.51184 0-.7071Z"></path>
+  </svg>
+`
 
 // Находим подменю, заменяем в нём span на кнопку
 submenus.forEach((item) => {
   const dropdown = item.querySelector(':scope > .menu')
   dropdown.setAttribute('hidden', '')
 
-  const span = item.querySelector(':scope > span')
-  const text = span.innerText
-  const ariaControlsId = span.dataset.controls
-  const button = document.createElement('button')
-
-  // Добавляем класс и необходимые aria-атрибуты
-  button.classList.add('menu__btn')
-  button.setAttribute('aria-expanded', 'false')
-  button.setAttribute('aria-controls', ariaControlsId)
-
-  button.innerText = text
+  const button = item.querySelector(':scope > .menu__btn')
 
   // Добавляем иконку к кнопке, чтобы визуально было
   // понятно открыто меню или нет
   button.innerHTML += icon
-  span.replaceWith(button)
 
   button.addEventListener('click', function (e) {
     toggleDropdown(button, dropdown)
@@ -400,7 +404,7 @@ window.addEventListener('click', collapseDropdownsWhenClickingOutsideNav)
 ```html
 <nav class="site-nav" aria-label="Сайт">
   <ul class="menu">
-    <li class="menu__item">
+    <li class="menu__item" data-has-children>
       <button
         class="menu__btn"
         aria-expanded="false"
@@ -490,5 +494,3 @@ function toggleDropdown(button, dropdown) {
 ```
 
 Также при создании многоуровневых меню можно часто встретить вариант, когда элементы меню появляются при наведении на них курсора мыши, — по событию `hover`. В таком случае базовая вёрстка останется аналогичной примеру, только нужно будет доработать стили появления — скрывать вложенное меню по умолчанию свойством `display: none` и показывать при наведении мыши.
-
-В мобильной версии меню выглядит как аккордеон. Часто мобильное меню прячут за иконкой с тремя линиями или точками (бургер) или чем-то подобным. При такой реализации помните о доступности и скрывайте меню полностью, чтобы пользователи не могли сделать на нём фокус с помощью клавиши <kbd>Tab</kbd>. Для этого можно использовать свойство [`display: none`](/css/display/#kak-pishetsya) или HTML-атрибут [`hidden`](/html/hidden/). Данные методы прячут меню из [дерева доступности](/a11y/a11y-tree/), но не дают анимировать открытие и закрытие меню.
