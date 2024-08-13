@@ -68,7 +68,7 @@ PWA — это сайты, формально удовлетворяющие о�
 
 ### История появления
 
-Термин был придуман в 2015 году инженером Google [Алексом Расселом](https://twitter.com/slightlylate) и его супругой [Фрэнсис Берримэн](https://twitter.com/phae) и впервые публично упомянут в статье [Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/).
+Термин PWA был придуман в 2015 году инженером Google [Алексом Расселом](https://twitter.com/slightlylate) и его супругой [Фрэнсис Берримэн](https://twitter.com/phae) и впервые публично упомянут в статье [Progressive Web Apps: Escaping Tabs Without Losing Our Soul](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/).
 
 Идея PWA не нова — главные концепции были заложены и реализованы еще в Palm webOS, Firefox OS и ChromeOS, где все приложения по сути являются веб-приложениями.
 
