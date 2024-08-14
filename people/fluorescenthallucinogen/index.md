@@ -13,4 +13,4 @@ badges:
 * Евангелист PWA, Web Components, GraphQL.
 * Организатор [русскоязычного сообщества PWA](https://t.me/pwa_ru).
 * Контрибьютор Chromium.
-* Ведущий фронтенд-разработчик в Mercury Development.
+* Ведущий фронтенд-разработчик в [Mercury Development](https://mercdev.com).
