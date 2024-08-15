@@ -26,11 +26,11 @@ tags:
 У нас есть два массива строк. Определим, входят ли все элементы второго массива так же и в первый. Для решения задачи создадим [`Set-объекты`](/js/set/) из массивов и сравним их, используя метод `isSupersetOf()`:
 
 ```js
-const books1 = [ 'Дар', 'Подвиг', 'Защита Лужина', 'Отчаяние' ]
-const books2 = [ 'Подвиг', 'Защита Лужина', 'Дар' ]
+const booksOfSonya = [ "Дар", "Подвиг", "Защита Лужина", "Отчаяние" ]
+const booksOfNadya = [ "Подвиг", "Защита Лужина", "Дар" ]
 
-const set1 = new Set(books1)
-const set2 = new Set(books2)
+const set1 = new Set(booksOfSonya)
+const set2 = new Set(booksOfNadya)
 
 console.log(set1.isSupersetOf(set2))
 // true
