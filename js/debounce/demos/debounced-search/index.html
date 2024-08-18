@@ -164,16 +164,11 @@
     const searchResults = document.querySelector('.search-results')
 
     function debounce(callee, timeoutMs) {
-      return function perform(...args) {
-        let previousCall = this.lastCall
-        this.lastCall = Date.now()
-
-        if (previousCall && ((this.lastCall - previousCall) <= timeoutMs)) {
-          clearTimeout(this.lastCallTimer)
-        }
-
-        this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
-      }
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { callee.apply(this, args); }, timeoutMs);
+      };
     }
 
     function handleInput(e) {
