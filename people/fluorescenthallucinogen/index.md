@@ -1,7 +1,7 @@
 ---
 name: 'Алексей Родионов'
 url: https://twitter.com/alexey_rodionov
-photo: avatar.png
+photo: photo.png
 badges:
   - first-contribution-small
 ---
