@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Прогресс-бар загрузки файла — Рецепты — Дока</title>
+<html lang="ru">
+
+<head>
+  <title>Прогресс-бар и эмуляция загрузки файла — Рецепты — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com/">
-  <link rel="stylesheet" href="1_files/css2.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
     *,
     *::before,
@@ -210,6 +212,7 @@
 
     const form = document.getElementById('uploadForm')
     const chooseButton = form.querySelector('.form-upload__button')
+    const submitButton = form.querySelector('.form-upload__submit')
     const customInput = form.querySelector('.form-upload__custom-input')
     const fileInput = form.querySelector('.form-upload__input')
     const sizeText = form.querySelector('#uploadForm_Size')
@@ -277,6 +280,8 @@
 
       if (fileInput.files.length > 0) {
         const fileToUpload = fileInput.files[0]
+        fileInput.disabled = true
+        submitButton.disabled = true
         resetProgress()
         upload(fileToUpload)
       } else {
@@ -291,14 +296,19 @@
     }
 
     function loadHandler(event) {
+      console.log('loadHandler:');
       statusText.textContent = event.target.responseText
       progressBar.value = 0
+      fileInput.disabled = false
+      submitButton.disabled = false
     }
 
     function errorHandler(event) {
-      const showError = Math.random() > .6
+      const showError = Math.random() > .75
       if (showError) {
         resetProgress('Ошибка загрузки')
+        fileInput.disabled = false
+        submitButton.disabled = false
       } else {
         const file = fileInput.files[0]
         simulateLoading(file)
@@ -312,10 +322,15 @@
       let loaded = chunkSize
 
       for (let i = 0; i < chunkCount; i ++) {
-        let timeout = Math.floor(Math.random() * 500) + 500
+        let timeout = Math.floor(Math.random() * 500) + 1000
         setTimeout(function() {
           updateProgress(loaded, total)
           loaded+= chunkSize
+
+          if ( chunkCount - i === 1  ) {
+            fileInput.disabled = false
+            submitButton.disabled = false
+          }
         }, timeout)
       }
     }
