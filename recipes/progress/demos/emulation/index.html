@@ -322,7 +322,7 @@
       let loaded = chunkSize
 
       for (let i = 0; i < chunkCount; i ++) {
-        let timeout = Math.floor(Math.random() * 500) + 1000
+        let timeout = Math.floor(Math.random() * 500) + 500
         setTimeout(function() {
           updateProgress(loaded, total)
           loaded+= chunkSize
