@@ -296,13 +296,17 @@
     }
 
     function loadHandler(event) {
-      statusText.textContent = event.target.responseText
-      progressBar.value = 0
-      fileInput.disabled = false
-      submitButton.disabled = false
+      if (event.target.status !== 200) {
+        errorHandler()
+      } else {
+        statusText.textContent = event.target.responseText
+        progressBar.value = 0
+        fileInput.disabled = false
+        submitButton.disabled = false
+      }
     }
 
-    function errorHandler(event) {
+    function errorHandler() {
       resetProgress('Ошибка загрузки')
       fileInput.disabled = false
       submitButton.disabled = false
