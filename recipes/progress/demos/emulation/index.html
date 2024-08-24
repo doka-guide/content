@@ -323,9 +323,9 @@
       const chunkCount = Math.floor(Math.random() * 5) + 5
       const chunkSize = Math.floor(total / chunkCount)
       let loaded = chunkSize
+      let timeout = Math.floor(Math.random() * 200)
 
       for (let i = 0; i < chunkCount; i ++) {
-        let timeout = Math.floor(Math.random() * 500) + 500
         setTimeout(function() {
           updateProgress(loaded, total)
           loaded+= chunkSize
@@ -335,6 +335,8 @@
             submitButton.disabled = false
           }
         }, timeout)
+
+        timeout = Math.floor(Math.random() * 1000) + 500
       }
     }
   </script>
