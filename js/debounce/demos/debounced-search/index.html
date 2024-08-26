@@ -163,11 +163,11 @@
     const searchInput = searchForm.querySelector('[type="search"]')
     const searchResults = document.querySelector('.search-results')
 
-    function debounce(callee, timeoutMs) {
+    function debounce(callback, delay) {
       let timer;
-      return (...args) => {
+      return function perform(...args) {
         clearTimeout(timer);
-        timer = setTimeout(() => { callee.apply(this, args); }, timeoutMs);
+        timer = setTimeout(() => callback.apply(this, args), delay);
       };
     }
 
