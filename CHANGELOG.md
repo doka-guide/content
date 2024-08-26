@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2024
+
+- 26 августа, [Прогрессивные веб-приложения](https://doka.guide/tools/pwa/), Алексей Родионов
+
+
 ## Июль 2024
 
 - 23 июля, [Слайдер](https://doka.guide/recipes/slider/), Анна Бараулина
