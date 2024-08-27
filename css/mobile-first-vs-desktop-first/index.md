@@ -2,14 +2,13 @@
 title: "Mobile-first vs Desktop-first"
 description: "Разбираем основные подходы вёрстки и отвечаем на вопрос «С какого экрана начать верстать?»"
 authors:
-  - rezn1kovAndrey
+  - reznikovandrey
 contributors:
   - skorobaeus
 related:
   - css/pixel-perfect
   - html/seo-for-beginners
   - tools/site-readers
-  - tools/web-app-types
 tags:
   - article
 ---
