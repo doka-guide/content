@@ -4,6 +4,8 @@
 
 ## Август 2024
 
+- 27 августа, [Mobile-first vs Desktop-first](https://doka.guide/css/mobile-first-vs-desktop-first/), Андрей Резников
+
 - 26 августа, [Прогрессивные веб-приложения](https://doka.guide/tools/pwa/), Алексей Родионов
 
 
