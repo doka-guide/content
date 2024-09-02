@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <title>Прогресс-бар загрузки файла — Рецепты — Дока</title>
   <meta charset="utf-8">
@@ -35,8 +34,7 @@
       align-items: flex-end;
     }
 
-    .form-upload__label,
-    .form-upload__custom-input {
+    .form-upload__label {
       display: flex;
       align-items: center;
     }
@@ -49,49 +47,25 @@
       line-height: 1;
     }
 
-    .form-upload__button {
-      min-width: 190px;
-      margin-right: 30px;
-      padding: 9px 15px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .form-upload__custom-input
-    {
-      width: 360px;
-      cursor: pointer;
-    }
-
     .form-upload__input {
       text-transform: lowercase;
-      cursor: pointer;
-    }
-
-    .form-upload__input::file-selector-button,
-    .hidden {
-      opacity: 0;
-      width: 0;
-      margin: 0;
-      padding: 0;
-    }
-
-    .form-upload__button, .form-upload__input, .form-upload__placeholder {
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
     }
 
-    .is-file-selected > .form-upload__placeholder {
-      display: none;
+    .form-upload__input::file-selector-button {
+      min-width: 190px;
+      margin-right: 30px;
+      padding: 9px 15px;
+      border: none;
+      border-radius: 6px;
+      font-weight: inherit;
+      font-family: inherit;
+      cursor: pointer;
     }
 
-    .is-file-selected > .form-upload__input {
-      width: 100%;
-    }
-
-    .form-upload__submit, progress, .form-upload__container {
+    .form-upload__input, .form-upload__submit, progress, .form-upload__container {
       width: 360px;
     }
 
@@ -114,11 +88,7 @@
       transition: background-color 0.2s linear;
     }
 
-    .form-upload__submit:focus-visible {
-      border: 2px solid #ffffff;
-      outline: none;
-    }
-
+    .form-upload__submit:focus-visible,
     .form-upload__submit:focus {
       border: 2px solid #ffffff;
       outline: none;
@@ -179,11 +149,11 @@
         margin-bottom: 25px;
       }
 
-      .form-upload__label, .form-upload__custom-input, .form-upload__submit, progress, .form-upload__container {
+      .form-upload__label, .form-upload__submit, progress, .form-upload__container {
         width: 100%;
       }
 
-      .form-upload__button {
+      .form-upload__input::file-selector-button {
         min-width: initial;
         margin-right: 10px;
       }
@@ -194,11 +164,7 @@
     <form id="uploadForm" method="post" enctype="multipart/form-data" class="form-upload">
       <label for="uploadForm_File" class="form-upload__label">
         <span class="form-upload__title">Изображение:</span>
-        <div class="form-upload__custom-input">
-          <button class="form-upload__button">Обзор...</button>
-          <span class="form-upload__placeholder">файл не выбран</span>
-          <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input hidden">
-      </div>
+        <input type="file" name="file_name" id="uploadForm_File" accept="image/*" class="form-upload__input">
       </label>
 
       <input type="submit" id="uploadForm_Submit" class="form-upload__submit form-upload__submit_purple" value="Загрузить файл">
@@ -211,9 +177,7 @@
     const BYTES_IN_MB = 1048576
 
     const form = document.getElementById('uploadForm')
-    const chooseButton = form.querySelector('.form-upload__button')
     const submitButton = form.querySelector('.form-upload__submit')
-    const customInput = form.querySelector('.form-upload__custom-input')
     const fileInput = form.querySelector('.form-upload__input')
     const sizeText = form.querySelector('#uploadForm_Size')
     const statusText = form.querySelector('.form-upload__status')
@@ -223,12 +187,6 @@
       statusText.textContent = status
       sizeText.textContent = ''
       progressBar.value = 0
-    }
-
-    function updateSelectedFile(file) {
-      customInput.classList.add('is-file-selected')
-      fileInput.classList.remove('hidden')
-      resetProgress()
     }
 
     function upload(fileToUpload) {
@@ -256,23 +214,18 @@
 
     addEventListener('load', function () {
       if (fileInput.value) {
-        updateSelectedFile(fileInput.value)
+        resetProgress()
       }
     })
-
-    chooseButton.addEventListener('click',function (event) {
-      event.preventDefault()
-      fileInput.click()
-    }, true)
 
     fileInput.addEventListener('change', function () {
       const file = this.files[0]
       if (file.size > 5 * BYTES_IN_MB) {
         alert('Принимается файл до 5 МБ')
         this.value = null
-      } else {
-        updateSelectedFile(file)
       }
+
+      resetProgress()
     })
 
     form.addEventListener('submit', function (event) {
@@ -312,4 +265,5 @@
       submitButton.disabled = false
     }
   </script>
-</body></html>
+</body>
+</html>
