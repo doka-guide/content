@@ -423,7 +423,9 @@ const statusText = form.querySelector('.form-upload__status')
 const progressBar = form.querySelector('#progressBar')
 ```
 
-Создадим функцию сброса состояния загрузки. Это позволит выполнять очистку данных о предудущих загрузках:
+Приступим к определению служебных функций. Каждая из них отвечает за решение конкретной задачи. Вызов этих функций будет осуществляться с помощью обработчиков событий. Такое разделение логики, позволяет легче ориентироваться в кодовой базе и упрощает дальнейшие модификации.
+
+Создадим функцию сброса состояния загрузки, это понадобится для очистки информации о предудущих загрузках:
 ```js
 function resetProgress(status = '') {
   statusText.textContent = status
@@ -432,10 +434,55 @@ function resetProgress(status = '') {
 }
 ```
 
-В Firefox...
+Создадим функцию отправки данных. Параметром функции является выбранный для отправки файл. Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
 
+Первым делом инициализируем объекты:
+- `formSent` - объект `FormData`, в котором будут храниться данные для отправки;
+- `xhr` - объект `XMLHttpRequest`-запроса для обращения к серверу.
+```js
 
-Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
+const formSent = new FormData()
+formSent.append('uploadForm_File', fileToUpload)
+const xhr = new XMLHttpRequest()
+
+```
+После этого устанавливаем параметры `XMLHttpRequest`:
+- для `XMLHttpRequestUpload` добавляется обработчик события `progress`, который выполняет отслеживание состояния загрузки файла;
+- для `XMLHttpRequest` добавляются обработчики событий `load` и `error` позволяющие отслеживать результат загрузки;
+- метод `open()` иницализирует POST-запрос к управляющему файлу, который хранится на сервере;
+
+Отправка данных выполняется с помощью метода `XMLHttpRequest.send()`.
+
+```js
+function upload(fileToUpload) {
+  const formSent = new FormData()
+  formSent.append('uploadForm_File', fileToUpload)
+
+  const xhr = new XMLHttpRequest()
+  xhr.upload.addEventListener('progress', progressHandler, false)
+  xhr.addEventListener('load', loadHandler, false)
+  xhr.addEventListener('error', errorHandler);
+  xhr.open('POST', 'upload_processing.php')
+
+  xhr.send(formSent)
+}
+```
+
+Для показа индикации загрузки файла создадим функцию `updateProgress()`. Функция будет вызываться при загрузке каждого нового пакета. Это позволит показывать и обновлять прогресс-бар в реальном времени. Посчитаем нужные данные: сколько мегабайт уже загружено, размер файла и процент загрузки. Воспользуемся полученными значениями, чтобы обновить текст на экране.
+
+```js
+function updateProgress(loaded, total) {
+  const loadedMb = (loaded/BYTES_IN_MB).toFixed(1)
+  const totalSizeMb = (total/BYTES_IN_MB).toFixed(1)
+  const percentLoaded = Math.round((loaded / total) * 100)
+
+  progressBar.value = percentLoaded
+  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
+  statusText.textContent = `Загружено ${percentLoaded}% | `
+}
+```
+
+Основную логику будут определять функции-обработчики.
 
 Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого получим информацию о файле с помощью выражения `this.files[0]`.
 
@@ -451,52 +498,42 @@ fileInput.addEventListener('change', function () {
 });
 ```
 
-Основную работу будет выполнять функция-обработчик отправки формы. Функция выполняется после нажатия кнопки «Загрузить файл».
+После нажатия кнопки «Загрузить файл» происходит событие `submit`. В обработчике этого события мы проверяем что файл выбран и вызываем функцию `upload()`, отвечающую за отправку данных на сервер. На время выполнения запроса блокируем возможность выбора и отправки нового файла. Если файл не выбран, оповещаем об этом пользователя:
+```js
+form.addEventListener('submit', function (event) {
+  event.preventDefault()
 
-Первым делом объявляем переменные:
+  if (fileInput.files.length > 0) {
+    const fileToUpload = fileInput.files[0]
+    fileInput.disabled = true
+    submitButton.disabled = true
+    resetProgress()
+    upload(fileToUpload)
+  } else {
+    alert('Сначала выберите файл')
+  }
 
-- `fileToLoad` получает данные выбранного файла;
-- `formSent`, в которой с использованием объекта `FormData` будут храниться данные формы для отправки;
-- `xhr` для обращения к серверу с использованием `XMLHttpRequest`.
-
-```javascript
-const fileToUpload = fileInput.files[0]
-const formSent = new FormData()
-const xhr = new XMLHttpRequest()
+  return false
+})
 ```
 
-После этого указываем последовательность работы `XMLHttpRequest` при передаче файла на сервер:
+Выполнение запроса может завершиться как успешно так и в результате ошибки. С помощью обработчиков `loadHandler()` и `errorHandler()` определяем какую информацию о результате загрузки необходимо отобразить. После завершения загрузки разблокируем возможность отправки файлов:
 
-- если файл выбран — выполняется его обработка, иначе появляется предупреждение;
-- выбранный файл сохраняется для отправки;
-- для `XMLHttpRequest` добавляется обработчик события `progress`, который выполняет отслеживание состояния загрузки файла;
-- для `XMLHttpRequest` добавляется обработчик события `load`, который отслеживает статус загрузки;
-- метод `open()` выполняет POST-запрос к управляющему файлу, который хранится на сервере;
-- выбранный пользователем файл передаётся на сервер с использованием `FormData`.
-
-```javascript
-if (fileInput.files.length > 0) {
-  formSent.append('uploadForm_File', fileToUpload)
-
-  xhr.upload.addEventListener('progress', progressHandler, false)
-  xhr.addEventListener('load', loadHandler, false)
-  xhr.open('POST', 'upload_processing.php')
-  xhr.send(formSent)
-} else {
-  alert('Сначала выберите файл')
+```js
+function loadHandler(event) {
+  if (event.target.status !== 200) {
+    errorHandler()
+  } else {
+    statusText.textContent = event.target.responseText
+    progressBar.value = 0
+    fileInput.disabled = false
+    submitButton.disabled = false
+  }
 }
-```
 
-Для показа индикации загрузки файла создадим функцию `progressHandler()`. Функция будет вызываться при загрузке каждого нового пакета. Это позволит показывать и обновлять прогресс-бар в реальном времени. Посчитаем нужные данные: сколько мегабайт уже загружено, размер файла и процент загрузки. Воспользуемся полученными значениями, чтобы обновить текст на экране.
-
-```javascript
-function progressHandler(event) {
-  const loadedMb = (event.loaded/BYTES_IN_MB).toFixed(1)
-  const totalSizeMb = (event.total/BYTES_IN_MB).toFixed(1)
-  const percentLoaded = Math.round((event.loaded / event.total) * 100)
-
-  progressBar.value = percentLoaded
-  sizeText.textContent = `${loadedMb} из ${totalSizeMb} МБ`
-  statusText.textContent = `Загружено ${percentLoaded}% | `
+function errorHandler() {
+  resetProgress('Ошибка загрузки')
+  fileInput.disabled = false
+  submitButton.disabled = false
 }
 ```
