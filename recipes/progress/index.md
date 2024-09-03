@@ -271,7 +271,7 @@ function errorHandler() {
 
 <iframe title="Пример загрузки одного файла" src="demos/single-file/" height="330"></iframe>
 
-Даже без реализции кода серверной части можно протетстировать различные состояния загругки. Следующий пример демонстрирует эмуляцию загрузки. Обратите внимание с вероятностью 25% загрузка будет завершаться с ошибкой.
+Было бы удобно иметь возможность тестировать наше решение изолировано (без реализации кода серверной части).Для этого можно добавить функцию симуляции загрузки, предусмотрев вариант завершения загрузки в результате ошибки. Следующий пример демонстрирует этот подход.
 
 <iframe title="Эмуляция загрузки файла" src="demos/emulation/" height="330"></iframe>
 
@@ -388,8 +388,9 @@ progress::-moz-progress-bar {
   align-items: flex-end;
 }
 
-#uploadForm_File {
-  cursor: pointer;
+.form-upload__label {
+  display: flex;
+  align-items: center;
 }
 
 .form-upload__submit {
@@ -410,32 +411,47 @@ progress::-moz-progress-bar {
 
 Для начала объявим константы и получим все необходимые элементы DOM-дерева, чтобы подписываться на события:
 
-```javascript
+```js
 // сколько байтов в мегабайте
 const BYTES_IN_MB = 1048576
 
 const form = document.getElementById('uploadForm')
-const fileInput = document.getElementById('uploadForm_File')
-const sizeText = document.getElementById('uploadForm_Size')
-const statusText = document.getElementById('uploadForm_Status')
-const progressBar = document.getElementById('progressBar')
+const submitButton = form.querySelector('.form-upload__submit')
+const fileInput = form.querySelector('.form-upload__input')
+const sizeText = form.querySelector('#uploadForm_Size')
+const statusText = form.querySelector('.form-upload__status')
+const progressBar = form.querySelector('#progressBar')
 ```
 
-Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest). Чаще всего для отправки данных используется метод [`fetch`](/js/fetch/), но он не позволяет отслеживать прогресс загрузки файлов.
+Создадим функцию сброса состояния загрузки. Это позволит выполнять очистку данных о предудущих загрузках:
+```js
+function resetProgress(status = '') {
+  statusText.textContent = status
+  sizeText.textContent = ''
+  progressBar.value = 0
+}
+```
+
+В Firefox...
+
+
+Чтобы отправить файл на сервер без перезагрузки страницы, воспользуемся `XMLHttpRequest` — набором механизмов для обмена данными между клиентом и сервером без перезагрузки. Более подробно о нём можно почитать на [странице документации MDN](https://developer.mozilla.org/ru/docs/Web/API/XMLHttpRequest).
 
 Загрузка файлов большого размера увеличивает нагрузку на сервер, поэтому установим максимальный размер файла в 5 МБ, что составляет 5242880 Б. Проверку размера файла выполним на этапе его выбора пользователем. Для этого получим информацию о файле с помощью выражения `this.files[0]`.
 
-```javascript
+```js
 fileInput.addEventListener('change', function () {
   const file = this.files[0]
   if (file.size > 5 * BYTES_IN_MB) {
     alert('Принимается файл до 5 МБ')
     this.value = null
   }
+
+  resetProgress()
 });
 ```
 
-Основную работу будет выполнять функция-обработчик отправки формы. Она которая принимает выбранный пользователем файл и отправляет его на сервер. Функция выполняется после нажатия кнопки «Загрузить файл».
+Основную работу будет выполнять функция-обработчик отправки формы. Функция выполняется после нажатия кнопки «Загрузить файл».
 
 Первым делом объявляем переменные:
 

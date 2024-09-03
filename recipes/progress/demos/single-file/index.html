@@ -212,12 +212,6 @@
       statusText.textContent = `Загружено ${percentLoaded}% | `
     }
 
-    addEventListener('load', function () {
-      if (fileInput.value) {
-        resetProgress()
-      }
-    })
-
     fileInput.addEventListener('change', function () {
       const file = this.files[0]
       if (file.size > 5 * BYTES_IN_MB) {
