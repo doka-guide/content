@@ -40,7 +40,7 @@ const project2 = new Set(['Docker', 'JavaScript', 'Bash', 'Postgres', 'MongoDB']
 const result = project1.union(project2)
 
 console.log(result)
-// Set(9) {
+// Set(7) {
 //   'PHP',
 //   'Bash',
 //   'Docker',
