@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Прогресс-бар загрузки файла — Рецепты — Дока</title>
+  <title>Прогресс-бар и эмуляция загрузки файла — Рецепты — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -254,9 +254,37 @@
     }
 
     function errorHandler() {
-      resetProgress('Ошибка загрузки')
-      fileInput.disabled = false
-      submitButton.disabled = false
+      const showError = Math.random() > .75
+      if (showError) {
+        resetProgress('Ошибка загрузки')
+        fileInput.disabled = false
+        submitButton.disabled = false
+      } else {
+        const file = fileInput.files[0]
+        simulateLoading(file)
+      }
+    }
+
+    function simulateLoading(file) {
+      const total = file.size
+      const chunkCount = Math.floor(Math.random() * 5) + 5
+      const chunkSize = Math.floor(total / chunkCount)
+      let loaded = Math.max(chunkSize, progressBar.value)
+      let timeout = Math.floor(Math.random() * 200)
+
+      for (let i = 0; i < chunkCount; i ++) {
+        setTimeout(function() {
+          updateProgress(loaded, total)
+          loaded+= chunkSize
+
+          if ( chunkCount - i === 1  ) {
+            fileInput.disabled = false
+            submitButton.disabled = false
+          }
+        }, timeout)
+
+        timeout = Math.floor(Math.random() * 1000) + 500
+      }
     }
   </script>
 </body>
