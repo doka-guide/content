@@ -43,7 +43,7 @@ links.addEventListener('click', (event) => {
 
 ```js
 const runTimer = (inputElement) => {
-  setTimetout(() => {
+  setTimeout(() => {
     inputElement.focus()
   }, 5000)
 }
