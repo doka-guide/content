@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Сентябрь 2024
+
+- 20 сентября, [`text-wrap`](https://doka.guide/css/text-wrap/), Анастасия Ярош
+
+
 ## Август 2024
 
 - 27 августа, [Mobile-first vs Desktop-first](https://doka.guide/css/mobile-first-vs-desktop-first/), Андрей Резников
