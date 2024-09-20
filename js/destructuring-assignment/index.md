@@ -471,7 +471,7 @@ console.log(first, second)
 
 ```js
 
-const { [arr.length - 1]: last } = numbers
+const { [numbers.length - 1]: last } = numbers
 
 console.log(last)
 // 3
@@ -482,7 +482,7 @@ console.log(last)
 ```js
 const numbers = [5, 7, 9, 3]
 
-const { 0: first, [arr.length - 1]: last } = numbers
+const { 0: first, [numbers.length - 1]: last } = numbers
 
 console.log(first, last)
 // 5 3
