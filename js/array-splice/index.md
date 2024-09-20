@@ -28,7 +28,7 @@ const tasks = [
 ]
 tasks.splice(1, 2)
 
-console.tasks(tasks)
+console.log(tasks)
 // ['Проверить тесты', 'Обновить бэклог']
 ```
 
