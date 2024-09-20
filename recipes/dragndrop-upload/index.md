@@ -135,7 +135,7 @@ tags:
   font-size: 16px;
 }
 
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 
@@ -354,7 +354,7 @@ function processingDownloadFileWithFetch() {
 При перетаскивании файла в область загрузки будем менять фоновый цвет при помощи дополнительного класса:
 
 ```css
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 ```
