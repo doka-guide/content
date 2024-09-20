@@ -195,7 +195,7 @@ tags:
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
+const statusText = document.getElementById("uploadForm_Hint")
 const sizeText = document.getElementById("uploadForm_Size")
 const uploadInput = document.querySelector(".form-upload__input")
 
@@ -370,7 +370,7 @@ function processingDownloadFileWithFetch() {
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
+const statusText = document.getElementById("uploadForm_Hint")
 const uploadInput = document.querySelector(".form-upload__input")
 
 let setStatus = (text) => {
