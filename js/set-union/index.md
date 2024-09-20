@@ -40,7 +40,7 @@ const project2 = new Set(['Docker', 'JavaScript', 'Bash', 'Postgres', 'MongoDB']
 const result = project1.union(project2)
 
 console.log(result)
-// Set(9) {
+// Set(7) {
 //   'PHP',
 //   'Bash',
 //   'Docker',
@@ -49,7 +49,6 @@ console.log(result)
 //   'Postgres',
 //   'MongoDB'
 // }
-
 ```
 
 ## Как пишется
@@ -67,4 +66,3 @@ console.log(result)
 Метод `union()` позволяет объединять две коллекции элементов без необходимости писать дополнительный код обхода и сравнения.
 
 Поддержка метода `union()` в основных браузерах и в [Node.js](/tools/nodejs/) появилась в 2024 году. Если попробуете использовать метод в более ранних версиях, это приведёт к ошибке.
-
