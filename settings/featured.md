@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - recipes/git-rebase-onto
-  - css/position
-  - css/box-sizing
-  - html/form
-  - tools/cli
-  - css/specificity
-  - a11y/aria-hidden
-  - js/boolean
-  - tools/docker
-  - css/pseudoelements
-  - tools/markdown
-  - js/infinite-scroll
-  - tools/webpack
-  - a11y/screenreaders
-  - js/array-entries
-  - html/video
-  - css/display
-  - html/nav
-  - html/div
-  - css/custom-properties
-  - js/array-reduce-right
-  - recipes/lets-encrypt-nginx
-  - css/flexbox-guide
-  - recipes/center
-  - recipes/popup
-  - a11y/content-hidden
-  - css/transform-function
-  - js/var-let
-  - tools/network
-  - js/execution-order
-  - css/grid-guide
-  - tools/oop
-  - tools/gitlab-ci-cd
-  - tools/ci-cd
-  - recipes/ajax-form
+  - recipes/snow
+  - js/deal-with-forms
   - tools/bundlers
-  - a11y/css-impact-on-a11y
-  - js/closures
   - tools/cors
   - js/async-in-js
-  - js/deal-with-forms
-  - html/doctype
-  - js/function-context
-  - recipes/character-counter
-  - tools/clean-architecture
-  - recipes/snow
-  - a11y/aria-intro
-  - tools/static-types
-  - css/box-shadow
-  - js/geolocation-api
-  - html/article
-  - js/function
+  - recipes/popup
   - tools/how-to-test-and-why
+  - recipes/git-rebase-onto
+  - tools/gitlab-ci-cd
+  - js/function
+  - css/pseudoelements
+  - a11y/aria-hidden
+  - js/execution-order
+  - recipes/ajax-form
+  - recipes/progress
+  - a11y/content-hidden
+  - html/form
+  - recipes/lets-encrypt-nginx
+  - css/media
+  - css/flexbox-guide
   - html/section
   - html/flow
-  - tools/agile
-  - html/input
-  - css/keyframes
-  - recipes/progress
-  - css/scrollbar-gutter
-  - html/img
-  - html/head
-  - css/attr
-  - css/media
-  - tools/how-the-browser-creates-pages
-  - css/box-model
+  - js/infinite-scroll
   - a11y/live-region
+  - html/video
+  - css/attr
+  - css/display
+  - css/position
+  - html/img
+  - html/doctype
+  - css/box-model
+  - tools/docker
+  - js/function-context
+  - tools/agile
+  - css/transform-function
+  - a11y/css-impact-on-a11y
+  - a11y/aria-intro
+  - css/keyframes
+  - js/geolocation-api
+  - tools/clean-architecture
+  - recipes/center
+  - a11y/screenreaders
+  - css/custom-properties
+  - tools/static-types
+  - html/head
+  - css/box-sizing
+  - css/box-shadow
+  - tools/webpack
+  - js/boolean
+  - js/array-entries
+  - html/nav
+  - recipes/character-counter
+  - css/scrollbar-gutter
+  - css/grid-guide
+  - html/article
+  - tools/ci-cd
+  - tools/how-the-browser-creates-pages
+  - css/specificity
+  - html/div
+  - html/input
+  - tools/cli
+  - js/closures
+  - tools/markdown
+  - tools/oop
+  - js/var-let
+  - tools/network
+  - js/array-reduce-right
 ---
 
