@@ -133,12 +133,12 @@ console.log(restPoint)
 const creator = {
   person: {
     name: {
-      firstName: 'Brendan',
-      lastName: 'Eich'
+      firstName: "Brendan",
+      lastName: "Eich"
     },
     year: 1961
   },
-  creation: 'JavaScript'
+  creation: "JavaScript"
 }
 ```
 
@@ -195,7 +195,8 @@ const { foo, bar } = obj
 
 ```js
 let foo
-let bar
+// ⚠️ Внимание! без `;` в конце строки будет ошибка!
+let bar;
 // ...
 ( { foo } = obj )
 ```
@@ -303,17 +304,17 @@ console.log(elem10, elem11, elem12 )
 Ситуаций, когда функция принимает множество параметров, лучше избегать. При вызове такой функции легко запутаться в очерёдности аргументов, особенно если часть из них не обязательны:
 
 ```js
-function createOption(title, hint='' , description='', callback, classes) {
+function createOption(title, hint="" , description="", callback, classes) {
   // реализация
 }
 
 // пример вызова
 const loadFileOption = createOption(
-  'Открыть файл',
+  "Открыть файл",
   undefined,
   undefined,
   loadFileHandler,
-  'option'
+  "option"
 )
 ```
 
@@ -322,14 +323,14 @@ const loadFileOption = createOption(
 - нет необходимости строгого соблюдения порядка аргументов при вызове;
 
 ```js
-function createOption({title, hint='' , description='', callback, classes}) {
+function createOption({title, hint="" , description="", callback, classes}) {
   // реализация
 }
 
 // пример вызова
 const loadFileOption = createOption({
-  title: 'Открыть файл',
-  classes:'option'
+  title: "Открыть файл",
+  classes:"option"
   callback: loadFileHandler
 })
 ```
@@ -365,7 +366,7 @@ const images = [
 
 // получаем значения необходимых свойств внутри колбэк функции
 const bookImages = images.filter((item) => {
-  if (item.data.type === 'book' && item.data.size[0] > 640) {
+  if (item.data.type === "book" && item.data.size[0] > 640) {
     return true
   }
   return false
@@ -375,7 +376,7 @@ const bookImages = images.filter((item) => {
 Деструктуризация позволяет извлечь нужные свойства при передаче параметра в колбэк, упрощая код колбэк-функции:
 ```js
 const bookImages = images.filter(({data:{type, size:[width]}}) => {
-  if (type === 'book' && width > 640) {
+  if (type === "book" && width > 640) {
     return true
   }
   return false
