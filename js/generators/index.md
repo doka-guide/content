@@ -59,7 +59,9 @@ generator.next()
 generator.next()
 // { value: 'js', done: false }
 generator.next()
-// { value: 'rust', done: true }
+// { value: 'rust', done: false }
+generator.next()
+// { value: undefined, done: true }
 ```
 
 Так как генератор это ещё и **итерируемый объект**, то можно использовать его в цикле [`for..of`](/js/for-of/).
