@@ -6,6 +6,7 @@ groups:
     items:
       - api
       - web-app-types
+      - pwa
       - web-app-works
       - web-security
 

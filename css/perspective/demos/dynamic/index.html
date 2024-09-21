@@ -59,37 +59,25 @@
       margin: 5px 0;
     }
 
-    .scene {
-      position: absolute;
+    .plane {
       width: 500px;
       height: 250px;
       perspective: 500px;
-    }
-
-    .scene-wrapper {
-      width: 500px;
-      height: 250px;
       transform-style: preserve-3d;
+      background-color: #2e9aff80;
+      display: grid;
+      grid-template-rows: 40px 1fr 40px;
+      justify-items: center;
+      align-items: center;
     }
 
     .element {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       width: 500px;
-      height: 250px;
+      height: 150px;
       padding: 15px;
-    }
-
-    .element--front {
-      align-items: end;
-      background-color: #2e9aff80;
-      transform: rotateY(0) translateZ(100px);
-    }
-
-    .element--back {
-      align-items: start;
       background-color: #F498AD;
-      transform: rotateY(180deg) translateZ(100px);
+      transform: rotateY(45deg);
     }
 
     @media (max-width: 768px) {
@@ -97,7 +85,7 @@
         padding: 30px;
       }
 
-      .container, .scene, .scene-wrapper, .element {
+      .container, .plane, .element {
         width: 300px;
       }
     }
@@ -108,36 +96,28 @@
     <div class="controls">
       <label>
         <code class="value"><span id="demo"></span></code>
-        <input type="range" min="100" max="1000" value="500" class="slider" id="myRange">
+        <input type="range" min="200" max="1000" value="500" class="slider" id="myRange">
       </label>
       <p>Значение свойства <code>perspective</code></p>
     </div>
-    <div class="scene">
-      <div class="scene-wrapper">
-        <div class="element element--back">Задняя стенка экрана</div>
-      </div>
+    <div class="plane">
+      Плоскость экрана
+      <div class="element">Элемент с <code>transform: rotateY(45deg)</code></div>
     </div>
-    <div class="element element--front">Пользователь</div>
   </div>
 
   <script>
     const myRange = document.getElementById('myRange')
     const output = document.getElementById('demo')
-    const scene = document.querySelector('.scene')
-    const elementBack = document.querySelector('.element--back')
+    const plane = document.querySelector('.plane')
+    const element = document.querySelector('.element')
     output.textContent = myRange.value + 'px'
 
     myRange.onchange = myRange.oninput = function() {
       let value = myRange.value
-      elementBack.style.transform='rotateY(180deg) translateZ(100px)'
 
-      if (value === '1000') {
-        value = 'none'
-        elementBack.style.transform='rotateY(180deg) translateZ(0)'
-      }
-
-      scene.style.perspective = value === 'none' ? 'none' : `${ +value}px`
-      output.textContent = value === 'none' ? 'none' : `${ +value}px`
+      plane.style.perspective = `${ +value}px`
+      output.textContent = `${ +value}px`
     }
   </script>
 </body>
