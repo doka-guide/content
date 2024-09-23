@@ -4,10 +4,6 @@
   <title>Горизонтальный скролл с тенями</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap">
 
   <style>
     html, body {
@@ -27,14 +23,17 @@
     .component {
       position: relative;
       width: 600px;
-      height: 220px;
       overflow: hidden;
     }
 
     .component__container {
       display: flex;
+      gap: 25px;
+      padding-block-end: 25px;
       overflow-x: scroll;
       scroll-behavior: smooth;
+      scrollbar-color: #C56FFF transparent;
+      scrollbar-width: thin;
     }
 
     .component__container::-webkit-scrollbar {
@@ -42,31 +41,30 @@
     }
 
     .component__container::-webkit-scrollbar-track {
-      background: #1f2023;
+      background: #5F377D;
       border-radius: 4px;
     }
 
     .component__container::-webkit-scrollbar-thumb {
-      background: #888;
+      background: #C56FFF;
       border-radius: 4px;
     }
 
     .component__container::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: #FFFFFF;
     }
 
     .component__container div {
       min-width: 200px;
       height: 200px;
-      margin-right: 20px;
-      background-color: #fff;
+      background-color: #C56FFF;
       flex-shrink: 0;
     }
 
     .component__shadow {
       position: absolute;
       top: 0;
-      bottom: 0;
+      bottom: calc(100% - 200px);
       width: 50px;
       pointer-events: none;
     }
@@ -83,6 +81,31 @@
 
     .scroll-shadow__shadow--hide {
       display: none;
+    }
+
+    .component__container div {
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .component__container div:nth-of-type(1) {
+      background-image: url(images/dosvg.svg);
+    }
+
+    .component__container div:nth-of-type(2) {
+      background-image: url(images/dosvg-heart.svg);
+    }
+
+    .component__container div:nth-of-type(3) {
+      background-image: url(images/dosvg-look.svg);
+    }
+
+    .component__container div:nth-of-type(4) {
+      background-image: url(images/dosvg-paw.svg);
+    }
+
+    .component__container div:nth-of-type(5) {
+      background-image: url(images/dosvg-sleep.svg);
     }
   </style>
 </head>
@@ -110,17 +133,8 @@
         const scrollLeft = container.scrollLeft;
         const maxScrollLeft = container.scrollWidth - container.clientWidth;
 
-        if (scrollLeft > 10) {
-          shadowLeft.classList.remove('scroll-shadow__shadow--hide');
-        } else {
-          shadowLeft.classList.add('scroll-shadow__shadow--hide');
-        }
-
-        if (scrollLeft < maxScrollLeft - 10) {
-          shadowRight.classList.remove('scroll-shadow__shadow--hide');
-        } else {
-          shadowRight.classList.add('scroll-shadow__shadow--hide');
-        }
+        shadowLeft.classList.toggle('scroll-shadow__shadow--hide', scrollLeft <= 10);
+        shadowRight.classList.toggle('scroll-shadow__shadow--hide', scrollLeft >= maxScrollLeft - 10);
       }
 
       container.addEventListener('scroll', updateShadows);
