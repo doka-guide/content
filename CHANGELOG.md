@@ -4,6 +4,8 @@
 
 ## Сентябрь 2024
 
+- 23 сентября, [`alt`](https://doka.guide/html/alt/), Анастасия Ярош
+
 - 20 сентября, [`text-wrap`](https://doka.guide/css/text-wrap/), Анастасия Ярош
 
 
