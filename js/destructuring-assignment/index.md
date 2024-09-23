@@ -211,7 +211,7 @@ const animals = ['🐱', '🐴', '🦆', '🐶', '🐸', '🐹']
 
 const [, , duck, , frog] = animals // Пропускаем '🐱', '🐴', '🐶'
 
-console.log(cat, dog)
+console.log(duck, frog)
 // 🦆 🐸
 ```
 
