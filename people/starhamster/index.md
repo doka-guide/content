@@ -6,4 +6,5 @@ badges:
   - first-contribution-small
   - superstar
   - workafrolic
+  - merged-pr-50
 ---
