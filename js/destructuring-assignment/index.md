@@ -8,7 +8,7 @@ related:
   - js/arrays
   - js/var-let
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
