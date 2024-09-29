@@ -152,6 +152,7 @@ groups:
       - set-intersection
       - set-symmetric-difference
       - set-is-subset-of
+      - set-is-superset-of
   - name: "Обработка исключений"
     items:
       - try-catch
