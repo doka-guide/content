@@ -4,19 +4,15 @@
 
 ## Сентябрь 2024
 
+- 30 сентября, [Что такое Deno](https://doka.guide/tools/deno/), Роман Троицкий
 - 29 сентября, [`.isSupersetOf()`](https://doka.guide/js/set-is-superset-of/), Viktar Nezhbart
-
 - 23 сентября, [`alt`](https://doka.guide/html/alt/), Анастасия Ярош
-
 - 20 сентября, [`text-wrap`](https://doka.guide/css/text-wrap/), Анастасия Ярош
-
 
 ## Август 2024
 
 - 27 августа, [Mobile-first vs Desktop-first](https://doka.guide/css/mobile-first-vs-desktop-first/), Андрей Резников
-
 - 26 августа, [Прогрессивные веб-приложения](https://doka.guide/tools/pwa/), Алексей Родионов
-
 
 ## Июль 2024
 
