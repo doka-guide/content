@@ -3,7 +3,6 @@ title: "Что такое Deno"
 description: "Альтернатива Node.js от создателя Node.js."
 authors:
   - dreamshaded
-# contributors:
 keywords:
   - deno
   - js runtime
