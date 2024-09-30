@@ -23,7 +23,7 @@ Promise.all(arrayFetchUsers)
 
 Пример сначала сделает три запроса к API, с помощью `Promise.all()` дождётся их завершения и парсинга ответа в [JSON](/tools/json/), а затем выведет имя персонажа для каждого. В консоли появится:
 
-```json
+```
 Luke Skywalker
 Chewbacca
 R2-D2
