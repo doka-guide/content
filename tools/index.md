@@ -65,6 +65,7 @@ groups:
       - static-analysis
       - nodejs
       - nodejs-tooling
+      - deno
       - rollup
       - gulp
 
