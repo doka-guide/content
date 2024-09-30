@@ -9,9 +9,9 @@ keywords:
   - js runtime
   - альтернатива node js
 related:
-  - tools/Node.js
-  - tools/Node.js-tooling
-  - tools/gateway
+  - tools/nodejs
+  - tools/nodejs-tooling
+  - tools/gateway-bff
 tags:
   - article
 ---
