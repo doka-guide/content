@@ -182,7 +182,7 @@ setTimeout(() => {
 
 <details>
 
-   <summary>Подробнее про микро- и макрозадачи</summary>
+  <summary>Подробнее про микро- и макрозадачи</summary>
 
 ![схема событийного цикла](images/event-loop-schema.png)
 
