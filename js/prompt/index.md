@@ -4,9 +4,9 @@ description: "Вызываем модальное окно браузера с �
 authors:
   - doka-dog
 related:
-  - js/
+  - js/switch
   - js/console-log
-  - js/
+  - js/null-primitive
 tags:
   - doka
 ---
