@@ -25,6 +25,7 @@ tags:
   perspective-origin: 50% 100%;
 }
 ```
+<iframe title="Позиция смотрящего" src="demos/perspective-origin/" height="500"></iframe>
 
 ## Как пишется
 
