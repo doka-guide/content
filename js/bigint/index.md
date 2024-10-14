@@ -77,6 +77,7 @@ console.log(Number(biggy) + number) // 15
 
 - **Нет поддержки дробных чисел:** `BigInt` работает только с целыми числами. Дробные числа нельзя использовать с этим типом данных.
 - **Ограниченная поддержка в браузерах:** Хотя `BigInt` поддерживается большинством современных браузеров, старые версии могут не поддерживать этот тип.
+- Не поддерживаются операции [унарного плюса](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus) и [сдвига битов вправо](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift)
 
 ## Советы
 
