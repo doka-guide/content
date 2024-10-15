@@ -91,6 +91,7 @@ groups:
       - array-keys
       - array-values
       - array-entries
+      - array-sort
       - array-tosorted
       - array-filter
       - array-at
@@ -146,6 +147,12 @@ groups:
       - set-keys
       - set-entries
       - set-size
+      - set-union
+      - set-difference
+      - set-intersection
+      - set-symmetric-difference
+      - set-is-subset-of
+      - set-is-superset-of
   - name: "Обработка исключений"
     items:
       - try-catch

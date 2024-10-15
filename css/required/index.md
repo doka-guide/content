@@ -22,7 +22,7 @@ tags:
 
 ## Кратко
 
-Псевдокласс `:required`, дополняющий основной селектор, поможет выбрать элементы [`<input>`](/html/input/), [`<textarea>`](/html/textarea/) или [`<select>`](/html/select/), у которых задан атрибут `required`.
+Псевдокласс `:required`, дополняющий основной селектор, поможет выбрать элементы [`<input>`](/html/input/), [`<textarea>`](/html/textarea/) или [`<select>`](/html/select/), у которых задан атрибут [`required`](/html/required/).
 
 ## Пример
 

@@ -2,6 +2,9 @@
 name: 'Алекс Рассудихин'
 url: https://webdev.kz
 photo: photo.jpg
+badges:
+  - first-contribution-small
+  - merged-pr-10
 ---
 
 Привет! 👋

@@ -84,6 +84,7 @@ groups:
       - transform-function
       - url
       - clamp
+      - color-function
   - name: 'Директивы'
     items:
       - font-face
@@ -99,6 +100,7 @@ groups:
     items:
       - web-colors
       - currentcolor
+      - color-function
   - name: 'Единицы измерения'
     items:
       - numeric-types
