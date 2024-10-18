@@ -2,7 +2,7 @@
 title: "`paragraph`"
 description: "Роль абзаца текста."
 authors:
-  - tatianaFokina
+  - tatianafokina
 related:
   - a11y/aria-intro
   - a11y/aria-label
