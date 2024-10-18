@@ -8,77 +8,141 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Roboto, sans-serif;
-            font-size: 18px;
-        }
-
-        .card {
-            width: 40%;
-            padding: 2%;
-            line-height: 1.2;
-            border: 5px solid #2E9AFF;
-            text-align: justify;
-            float: left;
-            margin: 1%;
-        }
-
-    #left {
-        text-align-last: left;
+*, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    #right {
-        text-align-last: right; 
+    html {
+      color-scheme: dark;
+      block-size: 100%;
     }
 
-    #center {
-        text-align-last: center;
+    body {
+      min-block-size: 100%;
+      padding: 50px;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 16px;
     }
 
-    #justify {
-        text-align-last: justify; 
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
     }
 
-    #start{
-        text-align-last: start; 
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+      text-align: right;
     }
 
-    #end {
-        text-align-last: end; 
+    .option-container {
+      display: flex;
+      align-items: flex-end;
+      margin-block-start: 30px;
     }
-</style>
+
+    .option-title {
+      margin-inline-end: 50px;
+      text-align: right;
+    }
+
+    h1, .option-title {
+      inline-size: 180px;
+    }
+
+    .option {
+      inline-size: 340px;
+      padding: 35px 20px;
+      background-color: #2E9AFF;
+    }
+
+    mark {
+      background-color: #2E9AFF;
+    }
+
+    .left {
+      text-align-last: left; 
+    }
+
+    .right {
+      text-align-last: right; 
+    }
+
+    .center {
+      text-align-last: center;
+    }
+
+    .justify {
+      text-align-last: justify; 
+    }
+
+    .start {
+      text-align-last: start; 
+    }
+
+    .end {
+      text-align-last: end; 
+    }
+
+@media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .option-container {
+        display: block;
+        overflow: scroll;
+      }
+
+      h1, .option-title {
+        inline-size: 100%;
+      }
+
+      .option-title {
+        display: block;
+        margin-inline-end: 0;
+        margin-block-end: 10px;
+      }
+
+      .option {
+        inline-size: calc(100vw - 60px);
+      }
+    }
+    </style>
 </head>
 <body>
-<div>
-    <div id="left" class="card">
-    <h2>text-align-last: left; </h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
+    <div class="parent">
+        <h1><code>text-align-last</code></h1>
+        <div class="option-container">
+            <span class="option-title"><code>left</code></span>
+            <p class="option left"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
+        <div class="option-container">
+            <span class="option-title"><code>right</code></span>
+            <p class="option right"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
+        <div class="option-container">
+            <span class="option-title"><code>center</code></span>
+            <p class="option center"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
+        <div class="option-container">
+            <span class="option-title"><code>justify</code></span>
+            <p class="option justify"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
+        <div class="option-container">
+            <span class="option-title"><code>start</code></span>
+            <p class="option start"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
+        <div class="option-container">
+            <span class="option-title"><code>end</code></span>
+            <p class="option end"><mark>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей.</mark></p>
+        </div>
     </div>
-    <div id="right" class="card">
-    <h2>text-align-last: right; </h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
-    </div>
-        
-    <div id="center" class="card">
-    <h2>text-align-last: center;</h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
-    </div>
-        
-    <div id="justify" class="card">
-    <h2>text-align-last: justify;</h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
-    </div>
-        
-    <div id="start" class="card">
-    <h2>text-align-last: start;</h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
-    </div>
-    <div id="end" class="card" >
-    <h2>text-align-last: end;</h2>
-    <p>Вытаяла возле бора тропинка сухая, и рядом с ней шумит ручей; так вдоль опушки по солнцепеку и бегут, уходя вдаль, ручей и тропинка, а за ручьем на северном склоне среди хвойных деревьев лежит сибирский таежный нетронутый снег.</p>
-    </div>
-</div>
 </body>
 </html>
