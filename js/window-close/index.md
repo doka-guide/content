@@ -21,8 +21,10 @@ tags:
 let openedWindow
 
 function openWindow() {
-  openedWindow = window.open('doka.guide.html')
+  openedWindow = window.open('doka.guide/index.html')
 }
+
+openWindow()
 
 function closeOpenedWindow() {
   openedWindow.close()
