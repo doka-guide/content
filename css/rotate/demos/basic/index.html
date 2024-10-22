@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-  <title>Демонстрация разных значений свойства rotate — rotate — Дока</title>
+  <title>Возможные свойства — rotate — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +16,20 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       height: 100%;
     }
 
     body {
-      background: #18191C;
+      display: grid;
+      place-items: center;
+      gap: 1rem;
+      min-height: 100dvh;
+      padding: 50px;
+      background-color: #18191C;
       font-family: "Roboto", sans-serif;
+      color: white;
     }
 
     .wrapper_box {
@@ -31,19 +37,21 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      height: 100%;
       gap: 20px;
       align-content: center;
     }
 
     .box {
-      height: 120px;
-      width: 120px;
+      width: 150px;
+      aspect-ratio: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 1s ease-in-out;
+      text-align: center;
+      color: black;
+      transition: 2s ease-in-out;
       background-color: #2E9AFF;
+      user-select: none;
     }
 
     #box1:hover {
@@ -55,37 +63,16 @@
     }
 
     #box3:hover {
-      rotate: 1 2 1 360deg;
-    }
-
-    #box4:hover {
-      rotate: 2turn;
-    }
-
-    #box5:hover {
-      rotate: x 90deg;
-    }
-
-    #box6:hover {
-      rotate: 1.57rad;
-    }
-
-    #box7:hover {
-      rotate: 200grad;
+      rotate: 1 0 1 360deg;
     }
   </style>
 </head>
-
 <body>
+  <h1>Наведи курсор</h1>
   <div class="wrapper_box">
-    <div class="box" id="box1">rotate Z</div>
-    <div class="box" id="box2">rotate Y</div>
-    <div class="box" id="box3">vector & angle</div>
-    <div class="box" id="box4">turn</div>
-    <div class="box" id="box5">flat</div>
-    <div class="box" id="box6">rad</div>
-    <div class="box" id="box7">grad</div>
+    <div class="box" id="box1"><code>rotate: -90deg;</code></div>
+    <div class="box" id="box2"><code>rotate: y 180deg;</code></div>
+    <div class="box" id="box3"><code>rotate: 1 0 1 360deg;</code></div>
   </div>
 </body>
-
 </html>
