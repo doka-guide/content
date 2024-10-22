@@ -49,7 +49,7 @@ tags:
     console.log(paragraphs.length)
     // 2
 
-    // ищем несуществующий элемент
+    // Ищем несуществующий элемент
     const spanFromBody = document.querySelectorAll('span')
     console.log(spanFromBody.length)
     // 0
@@ -59,7 +59,7 @@ tags:
 
 Динамический пример, введи селектор в поле поиска и «Искать»:
 
-<iframe title="Название — querySelectorAll — Дока" src="demos/Lopinopulos-wbqdPe/" height="450"></iframe>
+<iframe title="Как работает querySelectorAll" src="demos/Lopinopulos-wbqdPe/" height="450"></iframe>
 
 ## Как понять
 
