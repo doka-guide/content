@@ -23,12 +23,13 @@ tags:
 
 ## Как пишется
 
-`Promise.race()` принимает итерируемую коллекцию промисов (чаще всего — [массив](/js/arrays/)) и возвращает новый промис.
-Он завершится, когда завершится самый быстрый из всех переданных. Остальные промисы будут проигнорированы.
+`Promise.race()` принимает итерируемую коллекцию промисов, чаще всего — [массив](/js/arrays/). Потом метод возвращает новый промис.
+
+Метод завершится, когда завершится самый быстрый из всех переданных. Остальные промисы будут проигнорированы.
 
 ## Как понять
 
-### Самый быстрый промис завершается успешно
+### Гонка промисов с успехом
 
 Создадим несколько промисов, завершающихся без ошибок.
 
@@ -50,14 +51,19 @@ Promise.race([slow, fast, theFastest])
 
 В консоль запишется результат выполнения `theFastest`, так как он выполнился быстрее всех.
 
-### Самый быстрый промис завершается с ошибкой
+### Гонка промисов с ошибкой
 
 Создадим несколько промисов, где `theFastest` завершается с ошибкой.
 
 ```js
-const slow = new Promise(resolve => setTimeout(() => resolve(1), 6000))
-const fast = new Promise(resolve => setTimeout(() => resolve(2), 3000))
-const theFastest = new Promise((resolve, reject) => setTimeout(() => reject('Some error'), 1000))
+const slow = new Promise(
+  resolve => setTimeout(() => resolve(1), 6000)
+)
+const fast = new Promise(
+  resolve => setTimeout(() => resolve(2), 3000)
+)
+const theFastest = new Promise(
+  (resolve, reject) => setTimeout(() => reject('Some error'), 1000))
 ```
 
 Передадим массив из созданных промисов в `Promise.race()`:
@@ -66,7 +72,8 @@ const theFastest = new Promise((resolve, reject) => setTimeout(() => reject('Som
 Promise.race([slow, fast, theFastest])
   .then((value) => {
     console.log(value)
-    // эта часть будет проигнорирована, так как быстрее всех завершился промис с ошибкой
+    // Промис с ошибкой завершился быстрее —
+    // эта часть проигнорируется
   })
   .catch((error) => {
     console.log(error)
@@ -101,9 +108,15 @@ Promise.race([])
 Создадим ещё раз несколько промисов, где `theFastest` завершается с ошибкой:
 
 ```js
-const slow = new Promise(resolve => setTimeout(() => resolve(1), 6000))
-const fast = new Promise(resolve => setTimeout(() => resolve(2), 3000))
-const theFastest = new Promise((resolve, reject) => setTimeout(() => reject('Some error'), 1000))
+const slow = new Promise(
+  resolve => setTimeout(() => resolve(1), 6000)
+)
+const fast = new Promise(
+  resolve => setTimeout(() => resolve(2), 3000)
+)
+const theFastest = new Promise(
+  (resolve, reject) => setTimeout(() => reject('Some error'), 1000)
+)
 ```
 
 Передадим массив из созданных промисов в `Promise.any()`:
@@ -116,7 +129,7 @@ Promise.any([slow, fast, theFastest])
   })
   .catch((error) => {
     console.log(error)
-    // в эту часть кода мы не попадём
+    // Сюда мы не попадём
   })
 ```
 
