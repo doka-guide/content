@@ -18,17 +18,13 @@ tags:
 ## Пример
 
 ```js
-let openedWindow
+const openWindow = () => window.open('doka.guide/index.html');
 
-function openWindow() {
-  openedWindow = window.open('doka.guide/index.html')
-}
+const closeWindow = (windowProxy) => windowProxy.close();
 
-openWindow()
+const currentProxy = openWindow();
 
-function closeOpenedWindow() {
-  openedWindow.close()
-}
+closeWindow(currentProxy);
 ```
 
 ## Как пишется
