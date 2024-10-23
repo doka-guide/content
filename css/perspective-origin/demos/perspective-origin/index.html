@@ -2,18 +2,33 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <title>perspective-origin</title>
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-      margin: 0;
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
     }
 
     h1 {
@@ -23,14 +38,14 @@
     .box-container {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-bottom: 30px;
     }
 
     .box {
       width: 150px;
       height: 150px;
-      background-color: #4CAF50;
+      background-color: #2E9AFF;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -43,11 +58,11 @@
     .box-inner {
       width: 100%;
       height: 100%;
-      background-color: #ff5722;
+      background-color: #F498AD;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
+      color: #000000;
       font-size: 24px;
       transform: rotateY(45deg);
       transition: transform 1s;
@@ -57,13 +72,37 @@
       margin-top: 20px;
     }
 
+    label {
+      margin-inline-end: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     select {
-      padding: 5px;
-      font-size: 16px;
+      padding: 10px;
+      font-size: 18px;
+      font-family: inherit;
     }
 
     .box:hover .box-inner {
       transform: rotateY(180deg);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .box-container {
+        flex-direction: column;
+      }
+
+      label {
+        display: block;
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
     }
   </style>
 </head>
