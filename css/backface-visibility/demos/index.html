@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>Работа свойства — backface-visibility — Дока</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>backface-visibility</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      color-scheme: dark;
+    }
+
     body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      background-color: #f0f0f0;
-      margin: 0;
-      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
     }
 
     h1 {
@@ -21,8 +35,8 @@
     }
 
     .card {
-      width: 200px;
-      height: 300px;
+      width: 500px;
+      height: 180px;
       perspective: 1000px;
     }
 
@@ -44,20 +58,19 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
+      color: #000000;
       font-size: 24px;
-      color: white;
     }
 
     .card-front {
-      background-color: #4CAF50;
+      background-color: #2E9AFF;
     }
 
     .card-back {
-      background-color: #ff5722;
+      background-color: #F498AD;
       transform: rotateY(180deg);
     }
 
@@ -65,26 +78,51 @@
       margin-top: 30px;
     }
 
+    label {
+      margin-inline-end: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     select {
-      padding: 5px;
-      font-size: 16px;
+      min-width: 210px;
+      padding: 10px;
+      font-size: 18px;
+      font-family: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      label {
+        display: block;
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
     }
   </style>
 </head>
 <body>
-
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-side card-front">Передняя часть</div>
-        <div class="card-side card-back">Задняя часть</div>
-      </div>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-side card-front">Передняя часть</div>
+      <div class="card-side card-back">Задняя часть</div>
     </div>
+  </div>
 
   <div class="controls">
     <label for="visibility-select">backface-visibility:</label>
     <select id="visibility-select">
+      <option value="hidden" selected>hidden</option>
       <option value="visible">visible</option>
-      <option value="hidden">hidden</option>
     </select>
   </div>
 
@@ -99,6 +137,5 @@
       });
     });
   </script>
-
 </body>
 </html>
