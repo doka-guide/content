@@ -27,7 +27,7 @@ tags:
 - `center` — по центру.
 - `justify` — по ширине, чтобы заполнить всё пространство.
 
-<iframe title="Пример выравния строки каждым из способов" src="demos/text-align-last/" height="400"></iframe>
+<iframe title="Пример выравния строки каждым из способов" src="demos/text-align-last/" height="1000"></iframe>
 
 ## Подсказки
 
