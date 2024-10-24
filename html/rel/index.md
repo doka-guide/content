@@ -1,12 +1,14 @@
 ---
-title: "Атрибут rel: Ваш Проводник в Мир Связей"
-description: ""
+title: "Атрибут rel"
+description: "Атрибут rel в HTML используется для указания отношений между ссылкой и текущей страницей. В статье описаны его значения, применение в SEO, безопасность и примеры использования."
 authors:
   - mafin1799
 related:
-  - ""
+  - "https://doka.guide/html/link/"
+  - "https://doka.guide/html/seo-for-beginners/"
+  - "https://doka.guide/html/defer-async/"
 tags:
-  - article
+  - doka
 ---
 
 <!--
