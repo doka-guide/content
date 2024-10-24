@@ -54,7 +54,7 @@ function checkboxClick(event) {
 }
 ```
 
-Мы повлияли на событие на [стадии всплытия](/js/events/#vsplytie-sobytiy). Методы `preventDefault()` и `stopPropagation()` также можно использовать при обработке событий на стадии захвата.
+Мы повлияли на событие на [стадии всплытия](/js/events/#vsplytie-sobytiy). Методы `preventDefault()` и `stopPropagation()` также можно использовать при обработке событий на [стадии захвата](/js/events/#zahvat-sobytiy).
 
 Например, мы можем отменить действие по умолчанию, используя обработчик `formClick`. Для этого [объявим его для срабатывания на стадии захвата](/js/element-addeventlistener/#kak-pishetsya):
 
