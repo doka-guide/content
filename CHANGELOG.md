@@ -2,6 +2,15 @@
 
 <!-- yaspeller ignore:start -->
 
+## Октябрь 2024
+
+- 18 октября, [`paragraph`](https://doka.guide/a11y/role-paragraph/), Татьяна Фокина
+- 23 октября, [Большое целое](https://doka.guide/js/bigint/), Матвей Романов
+- 23 октября, [`change`](https://doka.guide/js/event-change/), Матвей Романов
+- 23 октября, [`prefers-contrast`](https://doka.guide/a11y/prefers-contrast/), Матвей Романов
+- 24 октября, [`perspective-origin`](https://doka.guide/css/perspective-origin/), Матвей Романов
+- 24 октября, [`backface-visibility`](https://doka.guide/css/backface-visibility/), Матвей Романов
+
 ## Сентябрь 2024
 
 - 30 сентября, [Что такое Deno](https://doka.guide/tools/deno/), Роман Троицкий
