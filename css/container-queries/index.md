@@ -24,12 +24,12 @@ tags:
 
 ```css
 .input__icon {
-	display: none;
+  display: none;
 }
 
 @media (min-width: 580px) {
   .input__icon {
-	display: block;
+    display: block;
     width: 32px;
     height: 32px;
   }
@@ -42,7 +42,7 @@ tags:
 
 ```css
 .form__item {
-    container-type: inline-size;
+  container-type: inline-size;
 }
 ```
 
@@ -60,8 +60,8 @@ tags:
 
 ```css
 .form__item {
-    container-type: inline-size;
-    container-name: form-item;
+  container-type: inline-size;
+  container-name: form-item;
 }
 ```
 
@@ -69,7 +69,7 @@ tags:
 
 ```css
 .form__item {
-    container: form-item / inline-size;
+  container: form-item / inline-size;
 }
 ```
 
@@ -89,7 +89,7 @@ tags:
 ```css
 @container (inline-size >= 300px) {
   .input__icon {
-     /* Изменение стилей компонента */
+    /* Изменение стилей компонента */
   }
 }
 ```
@@ -98,7 +98,7 @@ tags:
 
 ```css
 @container style([свойство]: [значение свойства]) {
-    /* Новые стили */
+  /* Новые стили */
 }
 ```
 
@@ -114,22 +114,22 @@ tags:
 
 ```css
 .form__item {
-    container-type: inline-size;
-    container-name: form-item;
+  container-type: inline-size;
+  container-name: form-item;
 }
 
 .input {
-    container-type: inline-size;
-    container-name: input;
+  container-type: inline-size;
+  container-name: input;
 }
 
 .input__icon {
-   /* стили иконки поля ввода */
+  /* стили иконки поля ввода */
 }
 
 @container form-item (inline-size >= 300px) {
   .input__icon {
-     /* изменение стилей */
+    /* изменение стилей */
   }
 }
 ```
