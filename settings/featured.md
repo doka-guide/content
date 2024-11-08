@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/how-to-test-and-why
-  - js/var-let
-  - tools/gitlab-ci-cd
-  - js/boolean
-  - html/article
-  - js/infinite-scroll
-  - tools/webpack
+  - css/box-shadow
+  - recipes/popup
+  - css/transform-function
+  - recipes/character-counter
+  - js/array-entries
+  - a11y/content-hidden
+  - html/img
+  - html/doctype
+  - html/nav
   - js/async-in-js
-  - js/array-reduce-right
-  - a11y/screenreaders
+  - css/display
+  - tools/cors
+  - css/keyframes
+  - html/input
+  - recipes/git-rebase-onto
+  - css/box-sizing
+  - a11y/aria-hidden
+  - a11y/live-region
+  - js/function
+  - css/attr
+  - js/infinite-scroll
+  - tools/how-to-test-and-why
+  - tools/markdown
+  - tools/ci-cd
+  - html/flow
+  - html/article
+  - tools/agile
+  - css/flexbox-guide
+  - js/closures
+  - css/position
   - css/scrollbar-gutter
   - css/grid-guide
-  - tools/cli
-  - html/form
-  - recipes/snow
-  - css/flexbox-guide
-  - a11y/live-region
-  - js/geolocation-api
-  - css/keyframes
-  - css/box-sizing
-  - js/function-context
-  - html/doctype
-  - css/position
-  - tools/static-types
-  - css/specificity
-  - js/deal-with-forms
-  - css/custom-properties
-  - html/div
-  - recipes/character-counter
-  - css/display
-  - js/array-entries
-  - tools/oop
-  - tools/ci-cd
-  - tools/docker
-  - recipes/ajax-form
-  - recipes/lets-encrypt-nginx
-  - js/function
-  - js/execution-order
-  - html/flow
   - css/media
-  - html/img
-  - recipes/popup
-  - html/video
-  - a11y/aria-intro
-  - css/transform-function
-  - css/pseudoelements
-  - recipes/git-rebase-onto
-  - css/attr
-  - tools/cors
-  - recipes/center
-  - a11y/css-impact-on-a11y
+  - tools/webpack
+  - tools/cli
   - html/head
-  - html/nav
-  - tools/bundlers
+  - html/form
+  - js/boolean
   - tools/network
-  - css/box-model
-  - css/box-shadow
-  - html/section
-  - html/input
-  - a11y/aria-hidden
-  - a11y/content-hidden
-  - js/closures
-  - tools/agile
+  - a11y/css-impact-on-a11y
   - tools/how-the-browser-creates-pages
+  - tools/oop
   - recipes/progress
+  - a11y/aria-intro
+  - html/section
+  - tools/bundlers
+  - a11y/screenreaders
   - tools/clean-architecture
-  - tools/markdown
+  - css/specificity
+  - js/function-context
+  - recipes/snow
+  - css/custom-properties
+  - css/box-model
+  - recipes/center
+  - js/execution-order
+  - recipes/ajax-form
+  - tools/docker
+  - tools/static-types
+  - js/var-let
+  - html/div
+  - html/video
+  - css/pseudoelements
+  - js/deal-with-forms
+  - tools/gitlab-ci-cd
+  - recipes/lets-encrypt-nginx
+  - js/geolocation-api
+  - js/array-reduce-right
 ---
 
