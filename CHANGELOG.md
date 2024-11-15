@@ -2,6 +2,13 @@
 
 <!-- yaspeller ignore:start -->
 
+## Ноябрь 2024
+
+- 15 ноября, [`rotate`](https://doka.guide/css/rotate/), Анастасия Ярош
+
+- 15 ноября, [`text-align-last`](https://doka.guide/css/text-align-last/), Мария Белинская
+
+
 ## Октябрь 2024
 
 - 18 октября, [`paragraph`](https://doka.guide/a11y/role-paragraph/), Татьяна Фокина
