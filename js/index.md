@@ -25,6 +25,7 @@ groups:
       - shallow-or-deep-clone
       - iterator
       - date
+      - destructuring-assignment
   - name: "Примитивные типы данных"
     items:
       - number
