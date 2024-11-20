@@ -5,6 +5,7 @@ authors:
   - nlopin
 contributors:
   - furtivite
+  - anastasiayarosh
 related:
   - js/ref-type-vs-value-type
   - js/typecasting
@@ -170,4 +171,18 @@ console.log(episodesPerSeasons.includes(8))
 
 console.log(episodesPerSeasons.includes(6))
 // true
+```
+Интересно, что если в массиве будут ключи с пропусками (например, в результате некорректной работы с массивами), то можно получить разреженный массив. Предположим, у нас есть массив:
+
+```js
+const arr = ['d', 'o', 'k', 'a']
+```
+Добавив к этому массиву ещё один элемент, чтобы его индекс был больше длины массива, мы получим массив с дырой, имеющей значение `undefined`:
+```js
+arr[5] = '!'
+console.log(arr) // выведет ['d', 'o', 'k', 'a', , '!']
+```
+Длина массива будет включать в себя все дыры, то есть в нашем случае не 5 элементов, а 6:
+```js
+console.log(arr.length) // выведет 6
 ```
