@@ -3,6 +3,8 @@ title: "Число"
 description: "Тип данных для работы с числами"
 authors:
   - nlopin
+contributors:
+  - anastasiayarosh
 related:
   - js/typecasting
   - js/expressions-vs-statements
