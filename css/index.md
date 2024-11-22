@@ -15,6 +15,7 @@ groups:
       - adding-styles
       - display
       - all
+      - mobile-first-vs-desktop-first
   - name: 'Селекторы'
     items:
       - tag-selector
@@ -85,6 +86,7 @@ groups:
       - url
       - clamp
       - color-function
+      - light-dark
   - name: 'Директивы'
     items:
       - font-face
@@ -101,6 +103,12 @@ groups:
       - web-colors
       - currentcolor
       - color-function
+      - light-dark
+  - name: 'Тёмная тема'
+    items:
+      - color-scheme
+      - light-dark
+      - prefers-color-scheme
   - name: 'Единицы измерения'
     items:
       - numeric-types
@@ -136,6 +144,7 @@ groups:
       - perspective-origin
       - backface-visibility
       - will-change
+      - rotate
   - name: 'Фон'
     items:
       - background
@@ -164,6 +173,7 @@ groups:
       - font-size
       - line-height
       - text-align
+      - text-align-last
       - text-transform
       - vertical-align
       - font-face
@@ -181,6 +191,7 @@ groups:
       - text-decoration-skip-ink
       - text-rendering
       - text-shadow
+      - text-wrap
       - white-space
       - quotes
       - overflow-wrap
