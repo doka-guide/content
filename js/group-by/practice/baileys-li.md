@@ -12,26 +12,26 @@
 Метод `groupBy` поддерживается всеми основными браузерами, начиная с марта 2024 года. Если требуется поддержка более старых браузеров, это не проблема — написать полифил довольно легко:
 ```js
 if (!("groupBy" in Object)) {
-	Object.groupBy = (items, getKey) =>
-		Array.from(items).reduce((result, item, index) => {
-			const key = getKey(item, index);
-			result[key] ??= [];
-			result[key].push(item);
+  Object.groupBy = (items, getKey) =>
+    Array.from(items).reduce((result, item, index) => {
+      const key = getKey(item, index);
+      result[key] ??= [];
+      result[key].push(item);
 
-			return result;
-		}, {});
+      return result;
+    }, {});
 }
 
 if (!("groupBy" in Map)) {
-	Map.groupBy = (items, getKey) =>
-		Array.from(items).reduce((result, item, index) => {
-			const key = getKey(item, index);
+  Map.groupBy = (items, getKey) =>
+    Array.from(items).reduce((result, item, index) => {
+      const key = getKey(item, index);
 
-			if (result.has(key)) result.get(key).push(item);
-			else result.set(key, [item]);
+      if (result.has(key)) result.get(key).push(item);
+      else result.set(key, [item]);
 
-			return result;
-		}, new Map());
+      return result;
+    }, new Map());
 }
 ```
 
