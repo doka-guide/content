@@ -38,7 +38,7 @@ if (!("groupBy" in Map)) {
 }
 ```
 
-Если вы используете [Typescript](/tools/static-types/) в своём проекте, убедитесь, что у вас версия 5.4 или новее. Начиная с неё в стандартных библиотеках есть типизация `Object.groupBy()` и `Map.groupBy()`. Подключить типизицию можно добавлением в `tsconfig.json` библиотек `ESNext.Object` и `ESNext.Collection` (для `Object` и `Map` соотвественно):
+Если вы используете [Typescript](/tools/static-types/) в своём проекте, убедитесь, что у вас версия 5.4 или новее. Начиная с неё в стандартных библиотеках есть типизация `Object.groupBy()` и `Map.groupBy()`. Подключить типизацию можно добавлением в `tsconfig.json` библиотек `ESNext.Object` и `ESNext.Collection` (для `Object` и `Map` соответственно):
 
 ```diff
   "compilerOptions": {
