@@ -71,7 +71,7 @@ const worker = new Worker('worker.js')
 worker.postMessage({ message: '415-ый, я база, ответьте' })
 
 worker.onmessage = function (e) { // Слушаем сообщения из воркера
-  console.log(e)
+  console.log(e.data)
   // База, это 415-ый, как слышно?
 }
 ```
