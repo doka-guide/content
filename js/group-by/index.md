@@ -28,12 +28,12 @@ tags:
 const colors = [
   { value: '50% 0.2 12', name: 'oklch' },
   { value: '198, 35, 109', name: 'rgb' },
-  { value: '55% 0.2 0', name: 'oklch' },
+  { value: '55% 0.2 0', name: 'oklch' }
 ]
 
-const groupedColors = Object.groupBy(colors, (color, index) => {
-  return color.name === 'oklch' ? 'easyToUnderstand' : 'notEasyToUnderstand'
-})
+const groupedColors = Object.groupBy(colors, (color, index) =>
+  color.name === 'oklch' ? 'easyToUnderstand' : 'hardToUnderstand'
+)
 
 console.log(groupedColors)
 /*
@@ -42,7 +42,7 @@ console.log(groupedColors)
     { value: '50% 0.2 12', name: 'oklch' },
     { value: '55% 0.2 0', name: 'oklch' }
   ],
-  notEasyToUnderstand: [
+  hardToUnderstand: [
     { value: '198, 35, 109', name: 'rgb' }
   ]
 }
@@ -56,36 +56,38 @@ console.log(groupedColors)
 
 ```js
 const users = {
-  1: { id: 1, firstName: "Василий", lastName: "Пупкин", email: "vasya@pupkin.person" },
-  2: { id: 2, firstName: "Анна", lastName: "Иванова", email: "anna@ivanova.person" },
-  3: { id: 3, firstName: "Игорь", lastName: "Сидоров", email: "igor@sidorov.person" },
-};
+  1: { id: 1, firstName: 'Василий', lastName: 'Пупкин', email: 'vasya@pupkin.person' },
+  2: { id: 2, firstName: 'Анна', lastName: 'Иванова', email: 'anna@ivanova.person' },
+  3: { id: 3, firstName: 'Игорь', lastName: 'Сидоров', email: 'igor@sidorov.person' }
+}
 
 const orders = [
-  { id: 1, customerID: 1, price: 1500, goods: ["Молоко", "Хлеб"] },
-  { id: 2, customerID: 2, price: 2500, goods: ["Хлеб", "Яйца", "Сыр"] },
-  { id: 3, customerID: 1, price: 3000, goods: ["Сыр", "Картофель"] },
-  { id: 4, customerID: 3, price: 1800, goods: ["Молоко", "Картофель"] },
-  { id: 5, customerID: 2, price: 1200, goods: ["Хлеб", "Сыр"] },
-];
+  { id: 1, customerID: 1, price: 1500, goods: ['Молоко', 'Хлеб'] },
+  { id: 2, customerID: 2, price: 2500, goods: ['Хлеб', 'Яйца', 'Сыр'] },
+  { id: 3, customerID: 1, price: 3000, goods: ['Сыр', 'Картофель'] },
+  { id: 4, customerID: 3, price: 1800, goods: ['Молоко', 'Картофель'] },
+  { id: 5, customerID: 2, price: 1200, goods: ['Хлеб', 'Сыр'] }
+]
 
-const userOrders = Map.groupBy(orders, (order) => users[order.customerID]);
+const userOrders = Map.groupBy(orders, order => users[order.customerID])
 
 for (const [user, orders] of userOrders) {
-  console.groupCollapsed(`${user.firstName} ${user.lastName} (${user.email})`);
-  for (const order of orders) console.log(`Заказ #${order.id}: ${order.goods.join(", ")} на сумму ${order.price} руб.`);
+  console.groupCollapsed(`${user.firstName} ${user.lastName}`)
 
-  console.groupEnd();
+  for (const order of orders)
+    console.log(`Заказ #${order.id}: ${order.goods.join(', ')} на сумму ${order.price} руб.`)
+
+  console.groupEnd()
 }
 
 /*
-Василий Пупкин (vasya@pupkin.person)
+Василий Пупкин
   Заказ #1: Молоко, Хлеб на сумму 1500 руб.
   Заказ #3: Сыр, Картофель на сумму 3000 руб.
-Анна Иванова (anna@ivanova.person)
+Анна Иванова
   Заказ #2: Хлеб, Яйца, Сыр на сумму 2500 руб.
   Заказ #5: Хлеб, Сыр на сумму 1200 руб.
-Игорь Сидоров (igor@sidorov.person)
+Игорь Сидоров
   Заказ #4: Молоко, Картофель на сумму 1800 руб.
 */
 ```
