@@ -4,6 +4,8 @@
 
 ## Ноябрь 2024
 
+- 28 ноября, [`<menu>`](https://doka.guide/html/menu/), Алина Козловцева
+
 - 18 ноября, [Деструктуризация](https://doka.guide/js/destructuring-assignment/), Viktar Nezhbart
 
 - 15 ноября, [`rotate`](https://doka.guide/css/rotate/), Анастасия Ярош
