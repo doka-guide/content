@@ -22,9 +22,22 @@ tags:
 ## Пример
 
 ```html
-<span id="label">Ваша почта:</span>
-<span role="textbox" aria-labelledby="label" id="email" aria-required="true" contenteditable></span>
+<label for="name">Ваше имя (обязательно):</label>
+<input
+  id="name"
+  type="text"
+  name="name"
+  aria-invalid="false"
+  aria-required="true"
+  aria-describedby="error"
+>
+
+<div class="error-message" id="error">
+  Заполните это поле 🤗
+</div>
 ```
+
+<iframe title="Кастомное обязательное поле" src="demos/custom-required-field/" height="380"></iframe>
 
 ## Как пишется
 

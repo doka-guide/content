@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Кастомное обязательное поле — aria-required — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-size: 18px;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      display: block;
+      align-self: end;
+      width: 100%;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button[disabled] {
+      opacity: .8;
+      pointer-events: none;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-row {
+      width: 100%;
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .form-row + .button {
+      margin-top: 15px;
+    }
+
+    .input {
+      width: 300px;
+      margin-bottom: 15px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .input[aria-invalid=true] {
+      border-color: #F498AD;
+    }
+
+    .label {
+      margin-right: 55px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .error-message {
+      display: none;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      flex: 0;
+      min-height: 105px;
+    }
+
+    .input, .button {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .label {
+        display: inline-block;
+        margin: 0 0 10px;
+      }
+
+      .form {
+        display: block;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .form-row, .container {
+        width: 100%;
+      }
+
+      .label {
+        margin-right: 0;
+        padding-bottom: 10px;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form id="form" class="form" novalidate>
+    <div class="form-row">
+      <label class="label" for="name">Ваше имя (обязательно):</label>
+      <div class="input-container">
+        <input class="input" id="name" type="text" name="name" aria-invalid="false" aria-required="true" aria-describedby="error">
+        <div class="error-message" id="error">Заполните это поле 🤗</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="label" for="last-name">Фамилия:</label>
+      <input class="input" id="last-name" type="text" name="last-name">
+    </div>
+    <button id="button" class="button button-aqua">Отправить</button>
+  </form>
+  <script>
+    const requiredInput = document.getElementById('name')
+    const button = document.getElementById('button')
+    const error = document.getElementById('error')
+    const form = document.getElementById('form')
+
+    const markValid = () => {
+      requiredInput.setAttribute('aria-invalid', 'false')
+      error.style.display = 'none'
+    }
+
+    const markInvalid = () => {
+      requiredInput.setAttribute('aria-invalid', 'true')
+      error.style.display = 'block'
+    }
+
+    const pressOnEmptyInput = () => {
+      const value = requiredInput.value
+      if (value) {
+        markValid()
+      } else if (value) {
+        markInvalid()
+      }
+    }
+
+    const validateInput = () => {
+      const value = requiredInput.value
+      if (!value) {
+        markInvalid()
+      } else {
+        markValid()
+      }
+    }
+
+    button.addEventListener('click', () => {
+      validateInput()
+    })
+
+    requiredInput.addEventListener('keyup', pressOnEmptyInput)
+    requiredInput.addEventListener('change', validateInput)
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+
+      submit.disabled = true
+      submit.autocomplete = "off"
+
+      button.disabled = true
+      setTimeout(() => {
+        button.disabled = false
+      }, 2000)
+    })
+  </script>
+</body>
+</html>
