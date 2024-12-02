@@ -30,7 +30,7 @@ if (!('groupBy' in Map)) {
     Array.from(items).reduce((result, item, index) => {
       const key = getKey(item, index)
 
-      if (result.has(key)) result.set(key, [])
+      if (!result.has(key)) result.set(key, [])
 
       result.get(key).push(item)
 
