@@ -2,7 +2,9 @@
 name: 'Женя Кучерявый'
 url: https://kucheriavyi.ru
 photo: photo.webp
-photoAlt: 'На фотографии молодой человек в розово-бежевой кофте, он смотрит влево'
+photoAlt: 'Молодой человек в розово-бежевой кофте, он смотрит влево'
+badges:
+  - first-contribution-small
 ---
 
 Основатель LaranaTech и автор LaranaJS, директор фронтенда, организатор Moscow DrinkUp, автор статей, спикер.
