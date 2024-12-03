@@ -183,7 +183,7 @@ const arr = ['d', 'o', 'k', 'a']
 
 ```js
 arr[5] = '!'
-// Выведет ['d', 'o', 'k', 'a', , '!']
+// Выведет ['d', 'o', 'k', 'a', <1 empty slot>, '!']
 console.log(arr)
 ```
 
