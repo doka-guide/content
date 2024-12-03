@@ -78,7 +78,6 @@ console.log(itemsInCart[1] === deep[1])
 
 Проще воспользоваться готовыми решениями, например, методом [`.cloneDeep()`](https://lodash.com/docs/4.17.15#cloneDeep) из библиотеки _Lodash_. Этот метод надёжен и используется в десятках тысяч проектов каждый день. Библиотека имеет открытый код, и вы можете изучить [реализацию `.cloneDeep()`](https://github.com/lodash/lodash/blob/4.17.15/lodash.js#L2620).
 
-
 ```js
 import cloneDeep from 'lodash.clonedeep'
 
