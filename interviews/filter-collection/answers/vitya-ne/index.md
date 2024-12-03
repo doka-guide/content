@@ -59,7 +59,6 @@ console.log(new Set([{},{},{},{}]))
 
 Для сравнения объектов на «равенство» можно использовать метод [`.isEqual()`](https://lodash.info/doc/isEqual) из библиотеки _Lodash_:
 
-
 ```js
 function getUnique (array) {
   // Если это не массив, возвращаем пустой массив
