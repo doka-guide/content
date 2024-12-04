@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация появления диалога — @starting-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .button {
+        display: block;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 1.12rem;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.15s ease-in;
+        cursor: pointer;
+        background-color: #2E9AFF;
+    }
+
+    .button:hover {
+        background-color: #FFFFFF;
+    }
+
+    .dialog-button {
+        border-color: #000000;
+        width: 100%;
+    }
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+
+    dialog {
+        padding: 20px;
+        border: none;
+        border-radius: 16px;
+        margin: auto;
+    }
+
+    /* стили для открытого диалога */
+    dialog {
+        opacity: 1;
+        scale: 1;
+        transition:
+            opacity 0.4s ease-in,
+            scale 0.4s ease-in,
+            display 0.4s ease-in allow-discrete;
+    }
+
+    /* стили для открывающегося диалога */
+    @starting-style {
+        dialog {
+            opacity: 0;
+            scale: 1.1;
+        }
+    }
+
+    /* стили для закрывающегося диалога */
+    dialog:not([open]) {
+        opacity: 0;
+        scale: 0.8;
+    }
+  </style>
+</head>
+<body>
+    <button id="open-dialog" class="button">Открыть диалог</button>
+    <dialog id="animated-dialog">
+        <h3 class="mb-20">Анимированный диалог</h3>
+        <p class="mb-20">Плавно появляюсь и плавно исчезаю</p>
+        <button id="close-dialog" class="button dialog-button">Закрыть диалог</button>
+    </dialog>
+    <script>
+        const dialog = document.querySelector('#animated-dialog')
+        const openDialogButton = document.querySelector('#open-dialog')
+        const closeDialogButton = document.querySelector('#close-dialog')
+
+        openDialogButton?.addEventListener('click', () => {
+            dialog?.showModal()
+        })
+
+        closeDialogButton?.addEventListener('click', () => {
+            dialog?.close()
+        })
+    </script>
+</body>
+</html>

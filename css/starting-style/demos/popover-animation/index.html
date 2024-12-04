@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация появления поповера — @starting-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .button {
+        display: block;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 1.12rem;
+        font-weight: 300;
+        font-family: inherit;
+        transition: background-color 0.15s ease-in;
+        cursor: pointer;
+        background-color: #FF8630;;
+    }
+
+    .button:hover {
+        background-color: #FFFFFF;
+    }
+
+    .mb-150 {
+        margin-bottom: 150px;
+    }
+
+    [popover] {
+        padding: 20px;
+        border: none;
+        border-radius: 16px;
+        margin: auto;
+    }
+
+    [popover] {
+        transition:
+            opacity 0.4s ease-in,
+            scale 0.4s ease-in,
+            translate 0.4s ease-in,
+            display 0.4s ease-in allow-discrete;
+    }
+
+    /* стили для открытого поповера */
+    [popover]:popover-open {
+        opacity: 1;
+        scale: 1;
+        translate: 0;
+    }
+
+    /* стили для открывающегося поповера */
+    @starting-style {
+        [popover]:popover-open {
+            opacity: 0;
+            scale: 0.5;
+            translate: 0 70px;
+        }
+    }
+
+    /* стили для закрывающегося поповера */
+    [popover]:not(:popover-open) {
+        opacity: 0;
+        scale: 0.5;
+        translate: 0 50px;
+    }
+  </style>
+</head>
+<body>
+    <button popovertarget="animated-popover" class="button mb-150">Показать поповер</button>
+    <div popover id="animated-popover">
+        <p>Анимированный поповер</p>
+    </div>
+</body>
+</html>
