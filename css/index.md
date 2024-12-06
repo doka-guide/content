@@ -370,6 +370,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - orphans
       - widows
   - name: 'Колонки и таблицы'
     items:
