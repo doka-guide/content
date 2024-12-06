@@ -1,5 +1,5 @@
 ---
-title: "Виртуальные переменные"
+title: "Псевдоприватные кастомные свойства"
 descriptioin: "Как создать миксины на CSS"
 ---
 
@@ -23,7 +23,7 @@ descriptioin: "Как создать миксины на CSS"
 ```
 
 Ранее уникальной для препроцессоров таких как **Less, SASS и Stylus** была возможность создавать переменные прямо в стилях, что не мог предоставить CSS.  
-Но этот пункт относительно давно перестал быть уникальной частью этих библиотек – были созданы `custom variables` в CSS'е:
+Но этот пункт относительно давно перестал быть уникальной частью этих библиотек – были созданы `custom properties` в CSS'е:
 
 ```css
 :root {
@@ -77,13 +77,13 @@ span.error {
 
 На случай неуникальных, но достаточно больших стилей с возможностью кастомизации я нашёл, как мне кажется, хорошее решение.
 
-В CSS при выозове переменной через функцию `var()` можно передать второй аргумент, который вернётся, если переменная отсутствует:
+В CSS при взятии свойства через функцию `var()` можно передать второй аргумент, который вернётся, если свойство отсутствует:
 
 ```css
 color: var(--text-primary, #ddd);
 ```
 
-Пытаясь найти способ реализовать миксины на CSS'е, я набрёл на видео (ссылку потерял), в котором была концепция "виртуальных" CSS переменных. Пример:
+Пытаясь найти способ реализовать миксины на CSS'е, я набрёл на [видео](https://youtu.be/_2LwjfYc1x8?si=BvJFLYqov2LHI01X), в котором была показана концепция "псевдоприватных" CSS свойств. Пример:
 
 ```css
 span.plain-text {
@@ -92,13 +92,15 @@ span.plain-text {
 }
 ```
 
-Смысл в том, чтобы использовать атомарный класс как имя миксина, а в качестве аргументов для нашего 
-атомарного класса будут CSS переменные, которые возвращаются в переменные, которые уже и применяются.
+Смысл в том, чтобы использовать атомарный класс как имя миксина, а в качестве аргументов для нашего
+атомарного класса будут CSS свойства, которые возвращаются в псевдоприватные свойства, которые уже и применяются.
 
 Пример возможности кастомизации миксина выше:
+
 ```html
 <span class="description plain-text">Text</span>
 ```
+
 ```css
 .plain-text {
   --_text-color: var(--text-color, #ddd);
@@ -106,7 +108,7 @@ span.plain-text {
 }
 
 .description {
-    --text-color: #fff;
+  --text-color: #fff;
 }
 ```
 
@@ -116,41 +118,41 @@ span.plain-text {
 
 ```css
 [class*="static-font"] {
-    --_font-size: var(--font-size, 1em);
-    --_line-height: var(--line-height, calc(var(--_font-size) + 4px));
+  --_font-size: var(--font-size, 1em);
+  --_line-height: var(--line-height, calc(var(--_font-size) + 4px));
 
-    font-size: var(--_font-size);
-    line-height: var(--_line-height);
+  font-size: var(--_font-size);
+  line-height: var(--_line-height);
 }
 
 .static-font__M {
-    --font-size: 20px;
-    --line-height: 26px;
+  --font-size: 20px;
+  --line-height: 26px;
 
-    @media (max-width: 1024px) and (min-width: 510px) {
-        --font-size: 18px;
-        --line-height: 22px;
-    }
+  @media (width <= 1024px) and (width >= 510px) {
+    --font-size: 18px;
+    --line-height: 22px;
+  }
 
-    @media (max-width: 509px) {
-        --font-size: 16px;
-        --line-height: 20px;
-    }
+  @media (max-width < 510px) {
+    --font-size: 16px;
+    --line-height: 20px;
+  }
 }
 ```
 
-Так как CSS переменные возможно переопределять в медиа запросах, реализация отдельно размера шрифта выглядит 
+Так как CSS свойства возможно переопределять в медиа запросах, реализация отдельно размера шрифта выглядит
 лаконично и понятно.
 
 И вот ещё один небольшой "миксин" для обрезания количества строк:
 
 ```css
 .clamp-text-lines {
-    --_lines-count: var(--lines-count, 3);
+  --_lines-count: var(--lines-count, 3);
 
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(--_lines-count);
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--_lines-count);
+  overflow: hidden;
 }
 ```
