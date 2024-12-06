@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - html/nav
-  - tools/agile
-  - css/flexbox-guide
-  - css/box-sizing
-  - a11y/screenreaders
-  - tools/how-to-test-and-why
-  - recipes/popup
-  - html/form
-  - tools/ci-cd
-  - css/display
-  - tools/cors
-  - tools/gitlab-ci-cd
-  - tools/how-the-browser-creates-pages
-  - recipes/progress
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - recipes/center
-  - js/infinite-scroll
-  - js/array-entries
-  - recipes/snow
-  - js/var-let
-  - tools/webpack
-  - js/deal-with-forms
-  - recipes/ajax-form
-  - a11y/css-impact-on-a11y
-  - css/grid-guide
   - js/execution-order
-  - a11y/live-region
-  - js/closures
-  - js/array-reduce-right
-  - tools/oop
-  - a11y/content-hidden
+  - tools/gitlab-ci-cd
+  - recipes/center
+  - css/display
   - css/transform-function
-  - tools/network
-  - html/input
-  - js/function-context
-  - html/div
-  - html/head
-  - tools/bundlers
+  - js/deal-with-forms
   - recipes/character-counter
-  - tools/static-types
-  - js/function
-  - html/section
-  - css/keyframes
-  - css/attr
-  - css/custom-properties
-  - css/box-model
+  - js/closures
+  - html/video
+  - css/grid-guide
   - tools/clean-architecture
-  - tools/docker
+  - recipes/ajax-form
+  - tools/oop
+  - tools/static-types
+  - js/array-entries
   - tools/markdown
-  - html/doctype
+  - a11y/aria-intro
+  - js/async-in-js
+  - html/form
+  - css/position
+  - recipes/popup
+  - tools/network
+  - recipes/snow
+  - tools/how-to-test-and-why
+  - js/var-let
+  - css/flexbox-guide
   - html/img
+  - html/head
+  - js/geolocation-api
+  - html/input
+  - html/article
+  - a11y/content-hidden
+  - tools/docker
+  - html/flow
+  - css/box-shadow
+  - tools/cli
+  - css/specificity
+  - html/div
+  - a11y/live-region
+  - recipes/lets-encrypt-nginx
+  - css/keyframes
+  - tools/ci-cd
   - js/boolean
   - a11y/aria-hidden
-  - tools/cli
-  - css/pseudoelements
-  - js/async-in-js
-  - html/flow
-  - css/media
-  - html/article
-  - a11y/aria-intro
-  - css/position
-  - js/geolocation-api
   - css/scrollbar-gutter
-  - css/box-shadow
-  - css/specificity
+  - js/infinite-scroll
+  - tools/agile
+  - html/doctype
+  - recipes/progress
+  - js/function-context
+  - css/pseudoelements
+  - js/function
+  - a11y/screenreaders
+  - html/section
+  - css/box-sizing
+  - css/media
+  - a11y/css-impact-on-a11y
+  - css/attr
+  - css/box-model
+  - tools/cors
   - recipes/git-rebase-onto
+  - css/custom-properties
+  - html/nav
+  - tools/webpack
+  - js/array-reduce-right
+  - tools/how-the-browser-creates-pages
+  - tools/bundlers
 ---
 
