@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Декабрь 2024
+
+- 10 декабря, [`@starting-style`](https://doka.guide/css/starting-style/), Рома Ахмадуллин
+
+
 ## Ноябрь 2024
 
 - 28 ноября, [`<menu>`](https://doka.guide/html/menu/), Алина Козловцева
