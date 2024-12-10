@@ -4,6 +4,7 @@ url: https://twitter.com/pgurtovaya
 photo: photo.jpeg
 badges:
   - first-contribution-small
+  - merged-pr-50
 roles:
   - doka-core-team
 ---

@@ -55,8 +55,8 @@ worker.postMessage({ message: '415-ый, я база, ответьте' })
 ```js
 // Воркер: worker.js
 onmessage = function (e) { // Слушаем сообщения из основного потока
-  if (e.message === '415-ый, я база, ответьте') {
-    {/* Отправляем сообщение из воркера в основной поток */}
+  if (e.data.message === '415-ый, я база, ответьте') {
+    // Отправляем сообщение из воркера в основной поток
     postMessage('База, это 415-ый, как слышно?')
   }
 }
@@ -71,7 +71,7 @@ const worker = new Worker('worker.js')
 worker.postMessage({ message: '415-ый, я база, ответьте' })
 
 worker.onmessage = function (e) { // Слушаем сообщения из воркера
-  console.log(e)
+  console.log(e.data)
   // База, это 415-ый, как слышно?
 }
 ```

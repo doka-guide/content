@@ -1,0 +1,27 @@
+name: Update CHANGELOG
+
+on:
+  workflow_run:
+    workflows:
+      - "Frontmatter Lint"
+    branches:
+      - main
+    types:
+      - completed
+
+concurrency:
+  group: Update CHANGELOG
+
+jobs:
+  update_changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.DOKA_BOT_ACCESS_TOKEN }}
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Ищет новые материалы и обновляет CHANGELOG
+        run: sh .github/scripts/update-changelog.sh

@@ -9,6 +9,13 @@ location: "/newsletters/"
 
 ## 2024
 
+- [Ноябрь #20](https://api.doka.guide/digest-11-24.html)
+- [Октябрь #19](https://api.doka.guide/digest-10-24.html)
+- [Сентябрь #18](https://api.doka.guide/digest-09-24.html)
+- [Август #17](https://api.doka.guide/digest-08-24.html)
+- [Июль #16](https://api.doka.guide/digest-07-24.html)
+- [Июнь #15](https://api.doka.guide/digest-06-24.html)
+- [Май #14](https://api.doka.guide/digest-05-24.html)
 - [Апрель #13](https://api.doka.guide/digest-04-24.html)
 - [Март #12](https://api.doka.guide/digest-03-24.html)
 - [Февраль #11](https://api.doka.guide/digest-02-24.html)

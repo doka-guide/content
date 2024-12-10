@@ -42,7 +42,7 @@ tags:
 
 ## Как пишется
 
-Кроме `<title>`, внутри контейнера `<head>` можно разместить и другие элементы: [`<base>`](/html/base/), [`<link>`](/html/link/), [`<meta>`](/html/meta/), [`<script>`](/html/script/), [`<style>`](/html/style/). Вот пример того, как можно поставить фавиконку — маленькую иконку в углу вкладки браузера.
+Кроме `<title>`, внутри контейнера `<head>` можно разместить и другие элементы: [`<base>`](/html/base/), [`<link>`](/html/link/), [`<meta>`](/html/meta/), [`<script>`](/html/script/), [`<style>`](/html/style/), [`<template>`](/html/template/), [`<noscript>`](/html/noscript/). Вот пример того, как можно поставить фавиконку — маленькую иконку в углу вкладки браузера.
 
 ```html
 <head>

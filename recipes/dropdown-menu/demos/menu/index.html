@@ -236,14 +236,26 @@
     <nav class="site-nav" aria-label="Сайт">
       <ul class="menu">
         <li class="menu__item" data-has-children>
-          <span data-controls="doka-submenu">Дока</span>
+          <button
+            class="menu__btn"
+            aria-expanded="false"
+            aria-controls="doka-submenu"
+          >
+            Дока
+          </button>
 
           <ul class="menu menu-submenu" id="doka-submenu">
             <li class="menu__item">
               <a href="#" class="menu__link" aria-current="page">Рецепты</a>
             </li>
             <li class="menu__item" data-has-children>
-              <span data-controls="html-submenu">HTML</span>
+              <button
+                class="menu__btn"
+                aria-expanded="false"
+                aria-controls="html-submenu"
+              >
+                HTML
+              </button>
 
               <ul class="menu menu-submenu" id="html-submenu">
                 <li class="menu__item">
@@ -258,7 +270,13 @@
               </ul>
             </li>
             <li class="menu__item" data-has-children>
-              <span data-controls="css-submenu">CSS</span>
+              <button
+                class="menu__btn"
+                aria-expanded="false"
+                aria-controls="css-submenu"
+              >
+                CSS
+              </button>
 
               <ul class="menu menu-submenu" id="css-submenu">
                 <li class="menu__item">
@@ -302,13 +320,12 @@
   <script>
     // Следуем принципам прогрессивного улучшения.
     // Показываем пользователю простую навигацию в случае, если не удаётся загрузить JavaScript.
-    // Если JavaScript-файл загружен, заменяем span на кнопки и вешаем дополнительные ARIA-атрибуты.
 
     const nav = document.querySelector('.site-nav')
     nav.classList.add('enhanced')
 
-    const submenus = document.querySelectorAll('.menu__item[data-has-children]')
-    const dropdowns = document.querySelectorAll('.menu__item[data-has-children] > .menu')
+    const submenus = nav.querySelectorAll('.menu__item[data-has-children]')
+    const dropdowns = nav.querySelectorAll('.menu__item[data-has-children] > .menu')
 
     const icon = `
       <svg
@@ -327,23 +344,10 @@
       const dropdown = item.querySelector(':scope > .menu')
       dropdown.setAttribute('hidden', '')
 
-      const span = item.querySelector(':scope > span')
-      const text = span.innerText
-      const ariaControlsId = span.dataset.controls
-
-      const button = document.createElement('button')
-
-      // Добавляем класс и необходимые ARIA-атрибуты
-      button.classList.add('menu__btn')
-      button.setAttribute('aria-expanded', 'false')
-      button.setAttribute('aria-controls', ariaControlsId)
-
-      button.innerText = text
+      const button = item.querySelector(':scope > .menu__btn')
 
       // Добавляем иконку к кнопке, чтобы визуально было понятно открыто меню или нет
       button.innerHTML += icon
-
-      span.replaceWith(button)
 
       button.addEventListener('click', function (e) {
         toggleDropdown(button, dropdown)
