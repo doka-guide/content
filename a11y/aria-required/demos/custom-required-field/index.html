@@ -169,7 +169,7 @@
   </style>
 </head>
 <body>
-  <form id="form" class="form" novalidate>
+  <form id="form" class="form" method="post" novalidate>
     <div class="form-row">
       <label class="label" for="name">Ваше имя (обязательно):</label>
       <div class="input-container">
@@ -199,15 +199,6 @@
       error.style.display = 'block'
     }
 
-    const pressOnEmptyInput = () => {
-      const value = requiredInput.value
-      if (value) {
-        markValid()
-      } else if (value) {
-        markInvalid()
-      }
-    }
-
     const validateInput = () => {
       const value = requiredInput.value
       if (!value) {
@@ -217,20 +208,27 @@
       }
     }
 
+    const hideError = () => {
+      const value = requiredInput.value
+      if (value) {
+       markValid()
+     }
+    }
+
     button.addEventListener('click', () => {
       validateInput()
     })
 
-    requiredInput.addEventListener('keyup', pressOnEmptyInput)
     requiredInput.addEventListener('change', validateInput)
+    requiredInput.addEventListener('input', hideError)
 
     form.addEventListener('submit', (event) => {
       event.preventDefault()
 
-      submit.disabled = true
-      submit.autocomplete = "off"
-
       button.disabled = true
+      // Фикс для Firefox
+      button.autocomplete = 'off'
+
       setTimeout(() => {
         button.disabled = false
       }, 2000)
