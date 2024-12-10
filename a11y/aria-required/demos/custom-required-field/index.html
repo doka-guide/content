@@ -184,10 +184,10 @@
     <button id="button" class="button button-aqua">Отправить</button>
   </form>
   <script>
-    const requiredInput = document.getElementById('name')
-    const button = document.getElementById('button')
-    const error = document.getElementById('error')
     const form = document.getElementById('form')
+    const requiredInput = form.querySelector('#name')
+    const button = form.querySelector('#button')
+    const error = form.querySelector('#error')
 
     const markValid = () => {
       requiredInput.setAttribute('aria-invalid', 'false')
