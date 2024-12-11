@@ -193,19 +193,15 @@
         discount = Number(form.discount.value),
         checkNaN = form.failsafe.checked
 
-      priceInput.classList.remove('error')
+      let total = (price - (price / 100) * discount).toFixed(2)
 
-      let total = price - ((price / 100) * discount).toFixed(2)
-
-      if (checkNaN) {
-        if (Number.isNaN(discount)) total = price
-
-        if (Number.isNaN(price)) {
-          total = 0
-          priceInput.classList.add('error')
-        }
-      }
-
+      const isWrongPrice = checkNaN && Number.isNaN(price),
+        isWrongDiscount = checkNaN && Number.isNaN(discount)
+      
+      if (isWrongDiscount) total = price
+      if (isWrongPrice) total = 0
+      
+      priceInput.classList.toggle('error', isWrongPrice)
       form.total.value = total
     }
 
