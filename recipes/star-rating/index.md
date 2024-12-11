@@ -3,6 +3,10 @@ title: "Рейтинг «5 звёзд»"
 description: "Популярный элемент для оценки по пятибальной шкале на чистом HTML, CSS и JavaScript."
 authors:
   - solarrust
+related:
+  - css/hover
+  - js/query-selector
+  - css/cascade/
 tags:
   - article
 ---

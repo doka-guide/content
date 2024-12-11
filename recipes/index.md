@@ -17,6 +17,7 @@ groups:
       - masonry
       - slider
       - checkbox-radio-style
+      - star-rating
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
