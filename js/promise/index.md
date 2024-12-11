@@ -82,7 +82,7 @@ const errorPromise = new Promise(function (resolve, reject) {
 
 Пример ниже показывает состояние промиса, который создаётся при нажатии на кнопку купить. Промис случайным образом завершается успехом или ошибкой:
 
-<iframe title="Пример состояний промиса" src="demos/Lopinopulos-QWNLMwR/" height="250"></iframe>
+<iframe title="Пример состояний промиса" src="demos/promise-states/" height="250"></iframe>
 
 ## Методы
 
