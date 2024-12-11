@@ -17,6 +17,8 @@
 
     body {
       --main-w: 16.875rem;
+      --color-base-js: hsl(49 100% 58%);
+      --error: hsl(25, 100%, 59%);
 
       display: grid;
       place-content: center;
@@ -34,11 +36,14 @@
       row-gap: 1.5rem;
     }
 
-    .grid {
+    .wrapper {
       display: grid;
       grid-template-columns: 1fr var(--main-w);
       gap: 0.5rem 2rem;
       align-items: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1;
     }
 
     .checkbox-container {
@@ -53,29 +58,24 @@
       margin-top: 2rem;
     }
 
-    .label {
-      font-size: 1.5rem;
-      font-weight: 500;
-      line-height: 1;
-    }
-
     .input {
       border-radius: 0.375rem;
       border: 1px solid #fff;
       padding: 0.75rem;
-      background-color: #18191c;
+      background-color: transparent;
       color: #fff;
       font-family: inherit;
       font-weight: 300;
       font-size: 1.125rem;
       width: 100%;
+      cursor: pointer;
 
       &::placeholder {
-        color: rgb(255 255 255 / 60%);
+        color: hsla(0, 0%, 100%, 0.6);
       }
 
       &:focus {
-        border-color: #ffd829;
+        border-color: var(--color-base-js);
         outline: none;
       }
     }
@@ -86,8 +86,8 @@
 
     .error,
     .error:focus {
-      border-color: #ff8630;
-      background-color: rgb(255 134 48 / 10%);
+      border-color: var(--error);
+      background-color: hsl(from var(--error) h s l / 10%)
     }
 
     .total {
@@ -109,7 +109,7 @@
         content: "";
         width: 0.875rem;
         height: 0.875rem;
-        background-color: #ffd829;
+        background-color: var(--color-base-js);
         border-radius: 3px;
         scale: 0;
       }
@@ -120,7 +120,7 @@
     }
 
     @media (width < 30.5rem) {
-      .grid {
+      .wrapper {
         grid-template-columns: auto;
       }
 
@@ -147,49 +147,52 @@
 
 <body>
   <form>
-    <label class="grid">
-      <span class="label">Цена</span>
-      <input class="input" id="price" type="text" placeholder="Цена товара" oninput="check()" maxlength="5" value="100">
+    <label class="wrapper">
+      Цена
+      <input class="input" id="price" name="price" type="text" placeholder="Цена товара" maxlength="5" value="100">
     </label>
-    <label class="grid">
-      <span class="label">Скидка, %</span>
-      <input class="input" id="discount" type="text" placeholder="Скидка" oninput="check()" maxlength="2"
+    <label class="wrapper">
+      Скидка, %
+      <input class="input" id="discount" name="discount" type="text" placeholder="Скидка" maxlength="2"
         value="Скидок нет">
     </label>
     <label class="checkbox-container">
-      <input class="checkbox" id="checkNaN" type="checkbox" oninput="check()">
-      <span class="checkbox-title">включить проверку на NaN</span>
+      <input class="checkbox" name="failsafe" type="checkbox">
+      включить проверку на NaN
     </label>
-    <output class="total-container grid">
-      <span class="label">Итого, карибских тугриков</span>
-      <span class="total" id="total"></span>
-    </output>
+    <label class="total-container wrapper">
+      Итого, карибских тугриков
+      <output class="total" name="total" for="price discount"></output>
+    </label>
   </form>
 
   <script>
-    function check() {
-      const priceInput = document.querySelector('#price')
-      const priceValue = Number(document.querySelector('#price').value)
-      const discountValue = Number(document.querySelector('#discount').value)
-      const checkNaN = document.querySelector('#checkNaN').checked
-      const total = document.querySelector('#total')
+    const form = document.querySelector('form')
 
-      priceInput.classList.remove("error")
+    form.addEventListener('input', event => {
+      const priceInput = form.price
 
-      let discount = priceValue - (priceValue / 100 * discountValue).toFixed(2)
+      const price = Number(priceInput.value),
+        discount = Number(form.discount.value),
+        checkNaN = form.failsafe.checked
+
+      priceInput.classList.remove('error')
+
+      let total = price - ((price / 100) * discount).toFixed(2)
+
       if (checkNaN) {
-        if (Number.isNaN(discount)) {
-          discount = priceValue
-        }
-        if (Number.isNaN(priceValue)) {
-          discount = 0
-          priceInput.classList.add("error")
+        if (Number.isNaN(discount)) total = price
+
+        if (Number.isNaN(price)) {
+          total = 0
+          priceInput.classList.add('error')
         }
       }
-      total.innerText = discount
-    }
 
-    check()
+      form.total.value = total
+    })
+
+    form.dispatchEvent(new Event('input'))
   </script>
 </body>
 </html>
