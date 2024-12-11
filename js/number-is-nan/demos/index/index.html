@@ -29,7 +29,7 @@
     }
 
     form {
-      max-width: 430px;
+      max-width: 26.875rem;
       display: grid;
       row-gap: 1.5rem;
     }
@@ -66,7 +66,6 @@
       background-color: #18191c;
       color: #ffffff;
       font-family: inherit;
-      font-size: inherit;
       font-weight: 300;
       font-size: 1.125rem;
       width: 100%;
@@ -130,6 +129,17 @@
         justify-self: start;
         justify-content: start;
         gap: 0.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .input {
+        transition-property: color, background-color, border-color;
+        transition-duration: 0.2s;
+      }
+
+      .checkbox::after {
+        transition: scale 0.2s cubic-bezier(0.39, 0.58, 0.57, 1);
       }
     }
   </style>
