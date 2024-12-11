@@ -11,29 +11,32 @@
     *,
     *::before,
     *::after {
-      margin: 0;
       box-sizing: border-box;
+      margin: 0;
     }
 
     body {
       --main-w: 16.875rem;
-      --color-base-js: hsl(49 100% 58%);
-      --error: hsl(25, 100%, 59%);
+      --color-base-js: hsl(49deg 100% 58%);
+      --error: hsl(25deg 100% 59%);
 
       display: grid;
       place-content: center;
-      min-height: 100vh;
+
+      min-block-size: 100vb;
       padding: 1rem;
-      background-color: #18191c;
-      color: #fff;
+
       font-family: Roboto, system-ui, sans-serif;
       font-size: 1.125rem;
+      color: #fff;
+
+      background-color: #18191c;
     }
 
     form {
-      max-width: 26.875rem;
       display: grid;
       row-gap: 1.5rem;
+      max-inline-size: 26.875rem;
     }
 
     .wrapper {
@@ -41,6 +44,7 @@
       grid-template-columns: 1fr var(--main-w);
       gap: 0.5rem 2rem;
       align-items: center;
+
       font-size: 1.5rem;
       font-weight: 500;
       line-height: 1;
@@ -50,28 +54,32 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: var(--main-w);
       justify-self: end;
+
+      inline-size: var(--main-w);
     }
 
     .total-container {
-      margin-top: 2rem;
+      margin-block-start: 2rem;
     }
 
     .input {
-      border-radius: 0.375rem;
-      border: 1px solid #fff;
-      padding: 0.75rem;
-      background-color: transparent;
-      color: #fff;
-      font-family: inherit;
-      font-weight: 300;
-      font-size: 1.125rem;
-      width: 100%;
       cursor: pointer;
 
+      inline-size: 100%;
+      padding: 0.75rem;
+
+      font-family: inherit;
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: #fff;
+
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 0.375rem;
+
       &::placeholder {
-        color: hsla(0, 0%, 100%, 0.6);
+        color: hsl(0deg 0% 100% / 60%);
       }
 
       &:focus {
@@ -86,8 +94,8 @@
 
     .error,
     .error:focus {
-      border-color: var(--error);
-      background-color: hsl(from var(--error) h s l / 10%)
+      background-color: hsl(from var(--error) h s l / 10%);
+      border-color: var(--error)
     }
 
     .total {
@@ -97,21 +105,26 @@
     }
 
     .checkbox {
-      appearance: none;
       display: grid;
       place-items: center;
-      width: 1.5rem;
-      height: 1.5rem;
-      border-radius: 0.375rem;
+
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+
+      appearance: none;
       border: 1px solid #fff;
+      border-radius: 0.375rem;
 
       &::after {
         content: "";
-        width: 0.875rem;
-        height: 0.875rem;
+
+        scale: 0;
+
+        inline-size: 0.875rem;
+        block-size: 0.875rem;
+
         background-color: var(--color-base-js);
         border-radius: 3px;
-        scale: 0;
       }
 
       &:checked::after {
@@ -125,17 +138,17 @@
       }
 
       .checkbox-container {
-        width: auto;
-        justify-self: start;
-        justify-content: start;
         gap: 0.5rem;
+        justify-content: start;
+        justify-self: start;
+        inline-size: auto;
       }
     }
 
     @media (prefers-reduced-motion: no-preference) {
       .input {
-        transition-property: color, background-color, border-color;
         transition-duration: 0.2s;
+        transition-property: color, background-color, border-color;
       }
 
       .checkbox::after {
