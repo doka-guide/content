@@ -6,22 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    #promise-chain-demo {
-      margin: 1rem 0;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
+      font-size: 18px;
     }
 
     #promise-chain {
-      padding-left: 2rem;
+      padding-left: 3rem;
     }
 
     #promise-chain > div,
     #promise-chain-demo-fetch {
+      padding: 5px 15px;
       transition: all 0.3s;
-      height: 2rem;
-      width: 7rem;
-      font-family: monospace;
       user-select: none;
     }
 
@@ -30,11 +45,11 @@
     }
 
     .block-catch {
-      color: #ff0000;
+      color: #FF8630;
     }
 
     .block-then {
-      color: #ce7c00;
+      color: #FFD829;
     }
   </style>
 </head>
@@ -130,10 +145,10 @@
     }
 
     const blockColors = [
-      'rgba(255, 168, 0, .15)',
-      'rgba(235, 0, 255, .15)',
-      'rgba(0, 0, 255, .15)',
-      'rgba(0, 255, 0, .15)',
+      '#286C2D',
+      '#665610',
+      '#593273',
+      '#623D45',
     ]
 
     const colorElements = () => {
