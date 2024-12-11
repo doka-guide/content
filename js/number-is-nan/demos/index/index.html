@@ -50,19 +50,6 @@
       line-height: 1;
     }
 
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      justify-self: end;
-
-      inline-size: var(--main-w);
-    }
-
-    .total-container {
-      margin-block-start: 2rem;
-    }
-
     .input {
       cursor: pointer;
 
@@ -98,13 +85,20 @@
       border-color: var(--error)
     }
 
-    .total {
-      font-size: 6.25rem;
-      font-weight: 500;
-      line-height: 1;
+    .checkbox-container {
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      justify-self: end;
+
+      inline-size: var(--main-w);
     }
 
     .checkbox {
+      cursor: pointer;
+
       display: grid;
       place-items: center;
 
@@ -130,6 +124,16 @@
       &:checked::after {
         scale: 1;
       }
+    }
+
+    .total-container {
+      margin-block-start: 2rem;
+    }
+
+    .total {
+      font-size: 6.25rem;
+      font-weight: 500;
+      line-height: 1;
     }
 
     @media (width < 30.5rem) {
