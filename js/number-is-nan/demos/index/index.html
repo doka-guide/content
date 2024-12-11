@@ -182,7 +182,7 @@
   <script>
     const form = document.querySelector('form')
 
-    form.addEventListener('input', event => {
+    function updateTotal() {
       const priceInput = form.price
 
       const price = Number(priceInput.value),
@@ -203,9 +203,10 @@
       }
 
       form.total.value = total
-    })
+    }
 
-    form.dispatchEvent(new Event('input'))
+    form.addEventListener('input', updateTotal)
+    updateTotal()
   </script>
 </body>
 </html>
