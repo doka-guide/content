@@ -45,9 +45,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: var(--main-w);
-      width: 100%;
-      margin-left: auto;
+      width: var(--main-w);
+      justify-self: end;
     }
 
     .total-container {
@@ -98,41 +97,27 @@
       line-height: 1;
     }
 
-    .checkbox-container {
-      position: relative;
-    }
-
     .checkbox {
+      appearance: none;
+      display: grid;
+      place-items: center;
       width: 1.5rem;
       height: 1.5rem;
-      opacity: 0;
-    }
-
-    .checkbox,
-    .checkbox-title {
-      cursor: pointer;
-    }
-
-    .checkbox + .checkbox-title::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: calc(50% - 12px);
-      width: 24px;
-      height: 24px;
+      border-radius: 0.375rem;
       border: 1px solid #ffffff;
-      border-radius: 6px;
-    }
 
-    .checkbox:checked + .checkbox-title::after {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: calc(50% - 7px);
-      width: 14px;
-      height: 14px;
-      background-color: #ffd829;
-      border-radius: 3px;
+      &::after {
+        content: "";
+        width: 0.875rem;
+        height: 0.875rem;
+        background-color: #ffd829;
+        border-radius: 3px;
+        scale: 0;
+      }
+
+      &:checked::after {
+        scale: 1;
+      }
     }
 
     @media (width < 30.5rem) {
@@ -141,13 +126,12 @@
       }
 
       .checkbox-container {
-        min-width: auto;
-        max-width: none;
+        width: auto;
+        justify-self: start;
         justify-content: start;
         gap: 0.5rem;
       }
     }
-
   </style>
 </head>
 
