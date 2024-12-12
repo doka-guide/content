@@ -131,14 +131,16 @@
     }
 
     .total {
-      font-size: 6.25rem;
+      font-size: 4rem;
       font-weight: 500;
       line-height: 1;
+      text-align: end;
     }
 
     @media (width < 30.5rem) {
       .wrapper {
         grid-template-columns: auto;
+        font-size: 1.2rem;
       }
 
       .checkbox-container {
@@ -146,6 +148,11 @@
         justify-content: start;
         justify-self: start;
         inline-size: auto;
+      }
+
+      .total {
+        font-size: max(18vi, 2rem);
+        text-align: start;
       }
     }
 
