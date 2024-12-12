@@ -186,6 +186,11 @@
   <script>
     const form = document.querySelector('form')
 
+    function calcDiscount(price, discount) {
+      const percent = (100 - discount) / 100
+      return price * percent
+    }
+
     function updateTotal() {
       const priceInput = form.price
 
@@ -193,7 +198,7 @@
       const discount = Number(form.discount.value)
       const checkNaN = form.failsafe.checked
 
-      let total = (price - (price / 100) * discount).toFixed(2)
+      let total = calcDiscount(price, discount).toFixed(2)
 
       const isWrongPrice = checkNaN && Number.isNaN(price);
       const isWrongDiscount = checkNaN && Number.isNaN(discount)
