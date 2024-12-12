@@ -6,22 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
   <style>
-    #promise-chain-demo {
-      margin: 1rem 0;
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
+      font-size: 18px;
     }
 
     #promise-chain {
-      padding-left: 2rem;
+      padding-left: 3rem;
     }
 
     #promise-chain > div,
     #promise-chain-demo-fetch {
+      padding: 5px 15px;
       transition: all 0.3s;
-      height: 2rem;
-      width: 7rem;
-      font-family: monospace;
       user-select: none;
     }
 
@@ -30,11 +45,17 @@
     }
 
     .block-catch {
-      color: #ff0000;
+      color: #FF8630;
     }
 
     .block-then {
-      color: #ce7c00;
+      color: #FFD829;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -61,6 +82,7 @@
     insertZone.classList.add('insert-zone')
     insertZone.textContent = ''
     let draggedElement
+
     container.ondragend = (event) => {
       event.preventDefault()
       colorElements()
@@ -92,6 +114,32 @@
       colorElements()
     }
 
+    const touchMoveHandler = (event) => {
+      event.preventDefault();
+      const touch = event.touches[0]
+      const containerRect = container.getBoundingClientRect()
+
+      if (
+        touch.clientX < containerRect.left ||
+        touch.clientX > containerRect.right ||
+        touch.clientY < containerRect.top ||
+        touch.clientY > containerRect.bottom
+      ) return
+
+      const hoveredEl = document.elementFromPoint(touch.clientX, touch.clientY)
+
+      if (!hoveredEl || !container.contains(hoveredEl)) return
+
+      const midPoint = hoveredEl.offsetTop + hoveredEl.offsetHeight / 2
+      if (touch.clientY <= midPoint) {
+        hoveredEl.before(draggedElement)
+      } else {
+        hoveredEl.after(draggedElement)
+      }
+
+      colorElements()
+    }
+
     const onDropHandler = (event) => {
       event.preventDefault()
       draggedElement.style.scale = '1'
@@ -106,8 +154,11 @@
         if (isDragAndDropSupported) {
           block.draggable = true
           block.addEventListener('dragstart', dragStartHandler)
+          block.addEventListener('touchstart', dragStartHandler)
           block.addEventListener('dragover', dragOverHandler)
+          block.addEventListener('touchmove', touchMoveHandler)
           block.addEventListener('drop', onDropHandler)
+          block.addEventListener('touchend', onDropHandler)
         }
 
         container.appendChild(block)
@@ -130,10 +181,10 @@
     }
 
     const blockColors = [
-      'rgba(255, 168, 0, .15)',
-      'rgba(235, 0, 255, .15)',
-      'rgba(0, 0, 255, .15)',
-      'rgba(0, 255, 0, .15)',
+      '#286C2D',
+      '#665610',
+      '#593273',
+      '#623D45',
     ]
 
     const colorElements = () => {
