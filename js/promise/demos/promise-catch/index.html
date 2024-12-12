@@ -51,6 +51,12 @@
     .block-then {
       color: #FFD829;
     }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -76,6 +82,7 @@
     insertZone.classList.add('insert-zone')
     insertZone.textContent = ''
     let draggedElement
+
     container.ondragend = (event) => {
       event.preventDefault()
       colorElements()
@@ -107,6 +114,32 @@
       colorElements()
     }
 
+    const touchMoveHandler = (event) => {
+      event.preventDefault();
+      const touch = event.touches[0]
+      const containerRect = container.getBoundingClientRect()
+
+      if (
+        touch.clientX < containerRect.left ||
+        touch.clientX > containerRect.right ||
+        touch.clientY < containerRect.top ||
+        touch.clientY > containerRect.bottom
+      ) return
+
+      const hoveredEl = document.elementFromPoint(touch.clientX, touch.clientY)
+
+      if (!hoveredEl || !container.contains(hoveredEl)) return
+
+      const midPoint = hoveredEl.offsetTop + hoveredEl.offsetHeight / 2
+      if (touch.clientY <= midPoint) {
+        hoveredEl.before(draggedElement)
+      } else {
+        hoveredEl.after(draggedElement)
+      }
+
+      colorElements()
+    }
+
     const onDropHandler = (event) => {
       event.preventDefault()
       draggedElement.style.scale = '1'
@@ -121,8 +154,11 @@
         if (isDragAndDropSupported) {
           block.draggable = true
           block.addEventListener('dragstart', dragStartHandler)
+          block.addEventListener('touchstart', dragStartHandler)
           block.addEventListener('dragover', dragOverHandler)
+          block.addEventListener('touchmove', touchMoveHandler)
           block.addEventListener('drop', onDropHandler)
+          block.addEventListener('touchend', onDropHandler)
         }
 
         container.appendChild(block)
