@@ -189,18 +189,18 @@
     function updateTotal() {
       const priceInput = form.price
 
-      const price = Number(priceInput.value),
-        discount = Number(form.discount.value),
-        checkNaN = form.failsafe.checked
+      const price = Number(priceInput.value)
+      const discount = Number(form.discount.value)
+      const checkNaN = form.failsafe.checked
 
       let total = (price - (price / 100) * discount).toFixed(2)
 
-      const isWrongPrice = checkNaN && Number.isNaN(price),
-        isWrongDiscount = checkNaN && Number.isNaN(discount)
-      
+      const isWrongPrice = checkNaN && Number.isNaN(price);
+      const isWrongDiscount = checkNaN && Number.isNaN(discount)
+
       if (isWrongDiscount) total = price
       if (isWrongPrice) total = 0
-      
+
       priceInput.classList.toggle('error', isWrongPrice)
       form.total.value = total
     }
