@@ -185,6 +185,13 @@
 
   <script>
     const form = document.querySelector('form')
+    const intl = new Intl.NumberFormat('ru-RU', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    })
+
+    form.addEventListener('input', updateTotal)
+    updateTotal()
 
     function calcDiscount(price, discount) {
       const percent = (100 - discount) / 100
@@ -198,9 +205,9 @@
       const discount = Number(form.discount.value)
       const checkNaN = form.failsafe.checked
 
-      let total = calcDiscount(price, discount).toFixed(2)
+      let total = intl.format(calcDiscount(price, discount))
 
-      const isWrongPrice = checkNaN && Number.isNaN(price);
+      const isWrongPrice = checkNaN && Number.isNaN(price)
       const isWrongDiscount = checkNaN && Number.isNaN(discount)
 
       if (isWrongDiscount) total = price
@@ -209,9 +216,6 @@
       priceInput.classList.toggle('error', isWrongPrice)
       form.total.value = total
     }
-
-    form.addEventListener('input', updateTotal)
-    updateTotal()
   </script>
 </body>
 </html>
