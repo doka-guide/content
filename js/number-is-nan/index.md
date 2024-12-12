@@ -5,6 +5,7 @@ authors:
   - ruslauz
 contributors:
   - skorobaeus
+  - baileys-li
 related:
   - js/function
   - js/typecasting
