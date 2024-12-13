@@ -47,6 +47,11 @@ tags:
 Стили:
 
 ```css
+legend {
+  font-size: 24px;
+  font-weight: 500;
+}
+
 button {
   background-color: transparent;
   border: none;
@@ -417,6 +422,11 @@ stars.forEach((star, index) => {
 Стили:
 
 ```css
+legend {
+  font-size: 24px;
+  font-weight: 500;
+}
+
 button {
   background-color: transparent;
   border: none;
