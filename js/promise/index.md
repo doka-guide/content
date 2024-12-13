@@ -10,6 +10,7 @@ authors:
   - nlopin
 contributors:
   - inventoris
+  - skorobaeus
 related:
   - tools/api
   - js/infinite-scroll
