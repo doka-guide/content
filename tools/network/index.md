@@ -39,8 +39,8 @@ tags:
 
 📚 Протокол HTTP и модель OSI подробно описаны в статьях:
 
-1. «[Протокол HTTP](/tools/http-protocol/)».
-2. «[Модель OSI](/tools/network-models/)».
+- [Протокол HTTP](/tools/http-protocol/)
+- [Модель OSI](/tools/network-models/)
 
 </aside>
 
