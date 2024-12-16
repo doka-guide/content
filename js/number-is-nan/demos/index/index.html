@@ -19,17 +19,13 @@
       --main-w: 16.875rem;
       --color-base-js: hsl(49deg 100% 58%);
       --error: hsl(25deg 100% 59%);
-
       display: grid;
       place-content: center;
-
       min-block-size: 100vb;
       padding: 1rem;
-
       font-family: Roboto, system-ui, sans-serif;
       font-size: 1.125rem;
       color: #fff;
-
       background-color: #18191c;
     }
 
@@ -44,7 +40,6 @@
       grid-template-columns: 1fr var(--main-w);
       gap: 0.5rem 2rem;
       align-items: center;
-
       font-size: 1.5rem;
       font-weight: 500;
       line-height: 1;
@@ -52,15 +47,12 @@
 
     .input {
       cursor: pointer;
-
       inline-size: 100%;
       padding: 0.75rem;
-
       font-family: inherit;
       font-size: 1.125rem;
       font-weight: 300;
       color: #fff;
-
       background-color: transparent;
       border: 1px solid #fff;
       border-radius: 0.375rem;
@@ -87,36 +79,28 @@
 
     .checkbox-container {
       cursor: pointer;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
       justify-self: end;
-
       inline-size: var(--main-w);
     }
 
     .checkbox {
       cursor: pointer;
-
       display: grid;
       place-items: center;
-
       inline-size: 1.5rem;
       block-size: 1.5rem;
-
       appearance: none;
       border: 1px solid #fff;
       border-radius: 0.375rem;
 
       &::after {
         content: "";
-
         scale: 0;
-
         inline-size: 0.875rem;
         block-size: 0.875rem;
-
         background-color: var(--color-base-js);
         border-radius: 3px;
       }
