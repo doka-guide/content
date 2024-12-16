@@ -8,174 +8,205 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
-    *, *::before, *::after {
-      margin: 0;
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+      margin: 0;
     }
 
     body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 50px;
-      background-color: #18191C;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
-      font-size: 18px;
+      --main-w: 16.875rem;
+      --color-base-js: hsl(49deg 100% 58%);
+      --error: hsl(25deg 100% 59%);
+      display: grid;
+      place-content: center;
+      min-block-size: 100vb;
+      padding: 1rem;
+      font-family: Roboto, system-ui, sans-serif;
+      font-size: 1.125rem;
+      color: #fff;
+      background-color: #18191c;
     }
 
     form {
-      width: 430px;
+      display: grid;
+      row-gap: 1.5rem;
+      max-inline-size: 26.875rem;
     }
 
-    .input-container, .total-container, .checkbox-container {
-      display: flex;
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr var(--main-w);
+      gap: 0.5rem 2rem;
       align-items: center;
-      justify-content: space-between;
-    }
-
-    .input-container + .input-container, .checkbox-container {
-      margin-top: 25px;
-    }
-
-    .total-container {
-      margin-top: 50px;
-    }
-
-    .input-title, .total-title {
-      width: 125px;
-      margin-right: 35px;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 500;
       line-height: 1;
     }
 
-    .input, .checkbox-container, .total {
-      width: 270px;
-    }
-
-    .checkbox-container {
-      margin-left: auto;
-    }
-
     .input {
-      border-radius: 6px;
-      border: 1px solid #ffffff;
-      padding: 13px;
-      background-color: #18191c;
-      color: #ffffff;
+      cursor: pointer;
+      inline-size: 100%;
+      padding: 0.75rem;
       font-family: inherit;
-      font-size: inherit;
+      font-size: 1.125rem;
       font-weight: 300;
-    }
+      color: #fff;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 0.375rem;
 
-    .input::placeholder {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 18px;
-    }
+      &::placeholder {
+        color: hsl(0deg 0% 100% / 60%);
+      }
 
-    .input:focus {
-      border-color: #FFD829;
-      outline: none;
+      &:focus {
+        border-color: var(--color-base-js);
+        outline: none;
+      }
     }
 
     .error {
       position: relative;
     }
 
-    .error, .error:focus {
-      border-color: #FF8630;
-      background-color: rgb(255 134 48 / 10%);
-    }
-
-    .total {
-      font-size: 100px;
-      font-weight: 500;
-      line-height: 1;
+    .error,
+    .error:focus {
+      background-color: hsl(from var(--error) h s l / 10%);
+      border-color: var(--error);
     }
 
     .checkbox-container {
-      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      justify-self: end;
+      inline-size: var(--main-w);
     }
 
     .checkbox {
-      width: 24px;
-      height: 24px;
-      opacity: 0;
-    }
-
-    .checkbox, .checkbox-title {
       cursor: pointer;
+      display: grid;
+      place-items: center;
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+      appearance: none;
+      border: 1px solid #fff;
+      border-radius: 0.375rem;
+
+      &::after {
+        content: "";
+        scale: 0;
+        inline-size: 0.875rem;
+        block-size: 0.875rem;
+        background-color: var(--color-base-js);
+        border-radius: 3px;
+      }
+
+      &:checked::after {
+        scale: 1;
+      }
     }
 
-    .checkbox + .checkbox-title::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: calc(50% - 12px);
-      width: 24px;
-      height: 24px;
-      border: 1px solid #FFFFFF;
-      border-radius: 6px;
+    .total-container {
+      margin-block-start: 2rem;
     }
 
-    .checkbox:checked + .checkbox-title::after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: calc(50% - 7px);
-      width: 14px;
-      height: 14px;
-      background-color: #FFD829;
-      border-radius: 3px;
+    .total {
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: 1;
+      text-align: end;
+    }
+
+    @media (width < 30.5rem) {
+      .wrapper {
+        grid-template-columns: auto;
+        font-size: 1.2rem;
+      }
+
+      .checkbox-container {
+        gap: 0.5rem;
+        justify-content: start;
+        justify-self: start;
+        inline-size: auto;
+      }
+
+      .total {
+        font-size: max(18vi, 2rem);
+        text-align: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .input {
+        transition-duration: 0.2s;
+        transition-property: color, background-color, border-color;
+      }
+
+      .checkbox::after {
+        transition: scale 0.2s cubic-bezier(0.39, 0.58, 0.57, 1);
+      }
     }
   </style>
 </head>
+
 <body>
   <form>
-    <label class="input-container">
-      <span class="input-title">Цена</span>
-      <input class="input" id="price" type="text" placeholder="Цена товара" oninput="check()" maxlength="5" value="100">
+    <label class="wrapper">
+      Цена
+      <input class="input" id="price" name="price" type="text" placeholder="Цена товара" maxlength="5" value="100">
     </label>
-    <label class="input-container">
-      <span class="input-title">Скидка, %</span>
-      <input class="input" id="discount" type="text" placeholder="Скидка" oninput="check()" maxlength="2" value="Скидок нет">
+    <label class="wrapper">
+      Скидка, %
+      <input class="input" id="discount" name="discount" type="text" placeholder="Скидка" maxlength="2"
+        value="Скидок нет">
     </label>
     <label class="checkbox-container">
-      <input class="checkbox" id="checkNaN" type="checkbox" oninput="check()">
-      <span class="checkbox-title">включить проверку на NaN</span>
+      <input class="checkbox" name="failsafe" type="checkbox">
+      включить проверку на NaN
     </label>
-    <div class="total-container">
-      <span class="total-title">Итого, карибских тугриков</span>
-      <span class="total" id="total"></span>
-    </div>
+    <label class="total-container wrapper">
+      Итого, имперский кредит
+      <output class="total" name="total" for="price discount"></output>
+    </label>
   </form>
 
   <script>
-    function check() {
-      const priceInput = document.querySelector('#price')
-      const priceValue = Number(document.querySelector('#price').value)
-      const discountValue = Number(document.querySelector('#discount').value)
-      const checkNaN = document.querySelector('#checkNaN').checked
-      const total = document.querySelector('#total')
+    const form = document.querySelector('form')
+    const intl = new Intl.NumberFormat('ru-RU', {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2
+    })
 
-      priceInput.classList.remove("error")
+    form.addEventListener('input', updateTotal)
+    updateTotal()
 
-      let discount = priceValue - (priceValue / 100 * discountValue).toFixed(2)
-      if (checkNaN) {
-        if (Number.isNaN(discount)) {
-          discount = priceValue
-        }
-        if (Number.isNaN(priceValue)) {
-          discount = 0
-          priceInput.classList.add("error")
-        }
-      }
-      total.innerText = discount
+    function calcDiscount(price, discount) {
+      const percent = (100 - discount) / 100
+      return price * percent
     }
 
-    check()
+    function updateTotal() {
+      const priceInput = form.price
+
+      const price = Number(priceInput.value)
+      const discount = Number(form.discount.value)
+      const checkNaN = form.failsafe.checked
+
+      let total = intl.format(calcDiscount(price, discount))
+
+      const isWrongPrice = checkNaN && Number.isNaN(price)
+      const isWrongDiscount = checkNaN && Number.isNaN(discount)
+
+      if (isWrongDiscount) total = price
+      if (isWrongPrice) total = 0
+
+      priceInput.classList.toggle('error', isWrongPrice)
+      form.total.value = total
+    }
   </script>
 </body>
 </html>
