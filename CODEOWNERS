@@ -1,19 +1,8 @@
-# Редакция Доки
-
-css @solarrust
-html @solarrust
-js @hellsquirrel
-tools @igsekor @hellsquirrel
+css @solarrust @Inventoris
+html @solarrust @Inventoris @ra1nbow1
+js @hellsquirrel @Inventoris @ra1nbow1 @vitya-ne
+tools @igsekor @hellsquirrel @ra1nbow1
 recipes @solarrust @hellsquirrel @TatianaFokina
-a11y @TatianaFokina
+a11y @TatianaFokina @nasty23-star
 **/demos @skorobaeus
 .github @igsekor
-
-# Звёздная команда
-
-css @Inventoris
-html @Inventoris @ra1nbow1
-js @Inventoris @ra1nbow1 @vitya-ne
-tools @ra1nbow1
-a11y @nasty23-star
-
