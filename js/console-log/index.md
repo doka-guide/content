@@ -6,6 +6,7 @@ authors:
 contributors:
   - nlopin
   - corocoto
+  - egorlem
 related:
   - js/alert
   - tools/how-to-test-and-why
