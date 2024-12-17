@@ -1,4 +1,4 @@
-В JavaScript массивы — это не отдельный тип данных, а [обычные объекты](/js/objects-objects-everywhere/). Они просто имеют немного «сахара», например, создание через `[]`.
+В JavaScript массивы — это не отдельный тип данных, а просто [объекты](/js/objects-objects-everywhere/). Просто в языке есть немного «сахара» для удобной работы с ними, например, создание через `[]`.
 
 А значит, заполненые значения хранятся по ключам в виде чисел, а пустые слоты вообще не хранятся. Когда мы видим отображение `empty` в Chrome Dev Tools или `empty items` в Node.js, — это просто абстрактное представление, когда поле `.length` массива больше, чем количество заполненных ячеек.
 
@@ -23,17 +23,17 @@ test.hasOwnProperty(0) // false
 const test = new Array(5)
 test[2] = 42
 
-test.forEach(console.log)
-// 42 2 (5) [empty × 2, 42, empty × 2]
+test.forEach((value, key) => console.log(`значение по ключу ${key}: ${value}`))
+// значение по ключу 2: 42
 
-// консоль вывела значение только один раз, потому что ключ `2` заполнен
+// консоль вывела значение только один раз
 ```
 
 Таким образом, чтобы найти количество пустых слотов, достаточно от длины массива отнять число заполненных значений:
 
 ```js
-const calcExist = (items) => items.reduce(amount => ++amount, 0)
-const calcEmpty = (items) => items.length - calcExist(items)
+const calcExist = items => items.reduce(amount => ++amount, 0)
+const calcEmpty = items => items.length - calcExist(items)
 
 const test = new Array(5)
 
