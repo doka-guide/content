@@ -32,8 +32,7 @@ test.forEach((value, key) => console.log(`значение по ключу ${key
 Таким образом, чтобы найти количество пустых слотов, достаточно от длины массива отнять число заполненных значений:
 
 ```js
-const calcExist = items => items.reduce(amount => ++amount, 0)
-const calcEmpty = items => items.length - calcExist(items)
+const calcEmpty = items => items.reduce(amount => --amount, items.length)
 
 const test = new Array(5)
 
