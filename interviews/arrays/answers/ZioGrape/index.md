@@ -2,13 +2,13 @@
 
 Как это выглядит:
 ```js
-  const arr = [1,2]
+  const arr = [1, 2]
 ```
 Для движка, который обрабатывает JavaScript, массив arr выглядит примерно так:
 ```js
 const arr = {
-  "0":1
-  "1":2
+  "0": 1
+  "1": 2
   "length": 2
 }
 ```
@@ -49,11 +49,13 @@ const arr = {
 Решение задачи:
 
 ```js
-function countEmptySpacesInSparseArry(arr) {
+function countEmptySpacesInSparseArray(arr) {
   let count = 0;
   for (let i = 0; i < arr.length; i++) {
     const isEmptySpace = !arr.hasOwnProperty(i);
+    //проходясь по всей длине массива проверяем, отсутствует ли у него ключ равный индексу
     if (isEmptySpace) {
+      //в случае отсутствия ключа увеличиваем значение счетчика
       count++;
     }
   }
@@ -61,3 +63,15 @@ function countEmptySpacesInSparseArry(arr) {
 }
 ```
 
+Еще можно решить таким способом:
+
+```js
+function countEmptySpacesInSparseArray(arr) {
+  const notEmptySpacesIndexes = Object.keys(arr);
+  //получаем все 'ключи' нашего массива
+  return arr.length - notEmptySpacesIndexes.length;
+  // находим количество пустых мест, путем исключения заполненных мест из общего количества
+}
+```
+
+Примечание: оба решения имеют алгоритмическую сложность O(n).
