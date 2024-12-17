@@ -83,7 +83,7 @@ let 1number
 // SyntaxError: Invalid or unexpected token
 ```
 
-В качестве названий переменных нельзя использовать зарезервированные языком слова. Например: `class`, `super`, `throw`, `yield`, `var`, `let`, `const` и так далее. С полным списком таких слов можно ознакомиться [здесь](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Lexical_grammar#%D0%B7%D0%B0%D1%80%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%B2%D1%8B%D0%B5_%D1%81%D0%BB%D0%BE%D0%B2%D0%B0_%D0%B2_ecmascript_2015).
+В качестве названий переменных нельзя использовать зарезервированные языком слова. Например: `class`, `super`, `throw`, `yield`, `var`, `let`, `const` и так далее. С полным списком таких слов можно ознакомиться [здесь](https://tc39.es/ecma262/#prod-ReservedWord).
 
 ## Создание переменных
 
