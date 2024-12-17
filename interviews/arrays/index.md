@@ -11,7 +11,8 @@ related:
 const array = [5, undefined, 0, false, '', null, true, 1]
 ```
 
-Массив может быть разрежённый (sparse array), то есть включать незаполненные элементы (empty slots).
+Массив может быть разрежённым (sparse array), то есть включать незаполненные элементы (empty slots).
+
 Например, добавим к массиву `array` элемент с индексом 15:
 
 ```javascript
