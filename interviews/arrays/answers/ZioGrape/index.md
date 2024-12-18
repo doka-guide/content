@@ -67,11 +67,12 @@ function countEmptySpacesInSparseArray(arr) {
 
 ```js
 function countEmptySpacesInSparseArray(arr) {
+  const maxPossibleArrayLength = (2**32)-1 // 4_294_967_295
   // Получаем все 'ключи' нашего массива, дополнительно отсеивая все нечисловые ключи
-  const notEmptySpacesIndexes = Object.keys(arr).filter((element) => element !== 'Infinity' && Number(element))
+  const notEmptySpacesIndexes = Object.keys(arr).filter((element) => Number(element) <= maxPossibleArrayLength)
   // Находим количество пустых мест, путем исключения заполненных мест из общего количества
   return arr.length - notEmptySpacesIndexes.length
 }
 ```
 
-Примечание: оба решения имеют алгоритмическую сложность O(n), но во втором решении мы вынуждены делать дополнительные преобразования и проверки, что бы учесть добавление массиву каких либо свойств и предусмотреть действия "гениев" инженерной мысли.
+Примечание: оба решения имеют алгоритмическую сложность O(n), но во втором решении мы вынуждены делать дополнительные преобразования и проверку на максимальную длину массива.
