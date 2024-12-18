@@ -2,14 +2,14 @@
 
 Как это выглядит:
 ```js
-  const arr = [1,2]
+  const arr = [1, 2]
 ```
 Для движка, который обрабатывает JavaScript, массив arr выглядит примерно так:
 ```js
 const arr = {
-  "0":1
-  "1":2
-  "length": 2
+  '0': 1,
+  '1': 2,
+  'length': 2
 }
 ```
 Ключи "0" и "1" — это строки, соответствующие индексам массива.
@@ -19,28 +19,28 @@ const arr = {
 Например:
 
 ```js
-  const obj = {};
-  console.log(obj["nonexistentKey"]); // undefined
+  const obj = {}
+  console.log(obj['nonexistentKey']) // undefined
 ```
 Аналогично для массивов:
 ```js
-  const arr = [1, 2];
-  console.log(arr[10]); // undefined
+  const arr = [1, 2]
+  console.log(arr[10]) // undefined
 ```
 Но в случае массивов, если между существующими индексами есть разрывы ```например [1, , 3]```, JavaScript не создаёт ключ для пропущенного индекса. Это означает, что такие слоты считаются "пустыми".
 
 ```js
-  const sparseArr = [1, , 3];
-  console.log(sparseArr.length); // 3
-  console.log(sparseArr); // [1, empty, 3]
-  console.log(sparseArr[1]); // undefined
+  const sparseArr = [1, , 3]
+  console.log(sparseArr.length) // 3
+  console.log(sparseArr) // [1, empty, 3]
+  console.log(sparseArr[1]) // undefined
 ```
 Для движка массив sparseArr будет выглядеть так:
 ```js
 {
-  "0": 1,
-  "2": 3,
-  length: 3
+  '0': 1,
+  '2': 3,
+  'length': 3
 }
 ```
 Важно: ```empty``` — это не отдельный тип данных. Это просто обозначение отсутствия ключа для индекса в массиве.
@@ -49,15 +49,29 @@ const arr = {
 Решение задачи:
 
 ```js
-function countEmptySpacesInSparseArry(arr) {
-  let count = 0;
+function countEmptySpacesInSparseArray(arr) {
+  let count = 0
   for (let i = 0; i < arr.length; i++) {
-    const isEmptySpace = !arr.hasOwnProperty(i);
+    // Проходясь по всей длине массива проверяем, отсутствует ли у него ключ равный индексу
+    const isEmptySpace = !arr.hasOwnProperty(i)
     if (isEmptySpace) {
-      count++;
+      // В случае отсутствия ключа увеличиваем значение счетчика
+      count++
     }
   }
-  return count;
+  return count
 }
 ```
 
+Еще можно решить таким способом:
+
+```js
+function countEmptySpacesInSparseArray(arr) {
+  // Получаем все 'ключи' нашего массива, дополнительно отсеивая все нечисловые ключи
+  const notEmptySpacesIndexes = Object.keys(arr).filter((element) => element !== 'Infinity' && Number(element))
+  // Находим количество пустых мест, путем исключения заполненных мест из общего количества
+  return arr.length - notEmptySpacesIndexes.length
+}
+```
+
+Примечание: оба решения имеют алгоритмическую сложность O(n), но во втором решении мы вынуждены делать дополнительные преобразования и проверки, что бы учесть добавление массиву каких либо свойств и предусмотреть действия "гениев" инженерной мысли.
