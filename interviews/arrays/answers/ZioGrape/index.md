@@ -45,6 +45,30 @@ const arr = {
 ```
 Важно: ```empty``` — это не отдельный тип данных. Это просто обозначение отсутствия ключа для индекса в массиве.
 
+Некоторые методы массива, умеют отличать ```empty``` от хранящегося в массиве ```undefined```.
+
+Например:
+
+```js
+  const sparseArr = [1, , 3]
+  sparseArr.forEach((element) => {
+    console.log(element)
+  })
+  // 1
+  // 3
+```
+
+Так-же методы массивов по разнному воспринимают ```empty```, это можно увидеть на примере ```sort()``` и более новго ```toSorted()```.
+
+```js
+const colors = ['red', 'yellow', 'blue', undefined]
+colors[6] = 'purple'
+colors.toSorted() // ['blue', purple, 'red', 'yellow', undefined, undefined, undefined]
+colors.sort() //  ['blue', purple, 'red', 'yellow', undefined, empty x 2]
+```
+
+Как видишь, ```toSorted()``` превратил наши ```empty``` в ```undefined```.
+Но и ```sort()``` хоть и может определить ```empty```, не убирает их из массива.
 
 Решение задачи:
 
@@ -63,30 +87,16 @@ function countEmptySpacesInSparseArray(arr) {
 }
 ```
 
-Еще можно решить таким способом:
-
-Некоторые методы массива, из более ранней версии языка, умеют отличать ```empty``` от хранящегося в массиве ```undefined```.
-
-Можно увидеть на примере ```sort()``` и более новго ```toSorted()```.
-
-```js
-const colors = ['red', 'yellow', 'blue', undefined]
-colors[6] = 'purple'
-colors.toSorted() // ['blue', purple, 'red', 'yellow', undefined, undefined, undefined]
-colors.sort() //  ['blue', purple, 'red', 'yellow', undefined, empty x 2]
-```
-
-Как видишь, ```toSorted()``` превратил наши ```empty``` в ```undefined```, что в дальнейшем нам никак не поможет.
-Но и ```sort()``` хоть и может определить ```empty```, не убирает их из массива.
-
-И тут нам подойдет метод ```flat()``` который преобразует массив и его подмассивы в единый массив до заданного уровня вложенности. Его особенность заключается в рекурсивной обработке структуры массива, в отличие от других методов, которые работают итеративно. При этом ```flat()``` полностью игнорирует пустые места.
+И так-как мы знаем об особенностях методов массивов можно переписать как:
 
 ```js
 function countEmptySpacesInSparseArray(arr) {
-  const arrWithoutEmptyItems = arr.flat(0)
-  // Находим количество пустых мест, путем исключения заполненных мест из общего количества
-  return arr.length - arrWithoutEmptyItems.length
+  let count = 0
+  arr.forEach(element => {
+    count++
+  });
+  return arr.length - count;
 }
 ```
 
-Примечание: оба решения имеют алгоритмическую сложность O(n).
+Примечание: у решения алгоритмическая сложность O(n).
