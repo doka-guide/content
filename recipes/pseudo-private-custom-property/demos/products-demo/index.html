@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Demo</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+
+        .product-list__item {
+          width: 100%;
+          aspect-ratio: 4/5;
+        }
+      }
+
+      .product-card {
+        --_background-color: var(--background-color, #46ad8e);
+        --_border-color: var(--border-color, #ffffff);
+
+        background-color: var(--_background-color);
+        border: 1px solid var(--_border-color);
+        border-radius: 12px;
+
+        &.secondary {
+          --background-color: #999999;
+        }
+
+        &.advertisment {
+          --background-color: #efcf2f;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="product-list">
+      <div class="product-list__item product-card primary"></div>
+      <div class="product-list__item product-card primary"></div>
+      <div class="product-list__item product-card secondary"></div>
+      <div class="product-list__item product-card advertisment"></div>
+    </section>
+  </body>
+</html>
