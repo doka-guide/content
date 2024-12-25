@@ -57,8 +57,7 @@ const arr = {
   // 1
   // 3
 ```
-
-Так-же методы массивов по разнному воспринимают ```empty```, это можно увидеть на примере ```sort()``` и более новго ```toSorted()```.
+На примере методов ```sort()``` и ```toSorted()```, можно увидеть разницу в обработке ```empty```.
 
 ```js
 const colors = ['red', 'yellow', 'blue', undefined]
@@ -67,8 +66,7 @@ colors.toSorted() // ['blue', purple, 'red', 'yellow', undefined, undefined, und
 colors.sort() //  ['blue', purple, 'red', 'yellow', undefined, empty x 2]
 ```
 
-Как видишь, ```toSorted()``` превратил наши ```empty``` в ```undefined```.
-Но и ```sort()``` хоть и может определить ```empty```, не убирает их из массива.
+```toSorted()``` преобразовал ```empty``` в ```undefined```,  а ```sort()``` сохранил их свойства, при этом переместив все ```empty``` в конец массива.
 
 Решение задачи:
 
