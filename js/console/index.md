@@ -380,3 +380,44 @@ showItems(
 //     super
 //     wait
 ```
+
+**console.groupEnd()**
+
+Прекращает группировку сообщений текущей группы (уровеня). Последующие сообщения будут отображаться с отстуром предыдущей группы:
+
+```js
+console.group('Массивы')
+console.group('.find()')
+console.log('Метод массива find() вернёт первый найденный в массиве элемент.')
+console.groupEnd()
+console.group('.findLast()')
+console.log('Метод findLast() обходит массив, начиная от последнего элемента.')
+console.groupEnd()
+console.groupEnd()
+console.group('Функции')
+
+// Массивы
+//  .find()
+//    Метод массива find() вернёт первый найденный в массиве элемент.
+//  .findLast()
+//    Метод findLast() обходит массив, начиная от последнего элемента.
+//Функции
+```
+
+**console.groupCollapsed([label])**
+
+Создаёт новую группу (уровень) для сообщений. В отличии от метода `group()` при использовании консоли браузера, группа отображается свёрнутой.
+
+```js
+console.groupCollapsed('Массивы')
+console.groupCollapsed('.find()')
+console.log('Метод массива find() вернёт первый найденный в массиве элемент.')
+console.groupEnd()
+console.groupCollapsed('.findLast()')
+console.log('Метод findLast() обходит массив, начиная от последнего элемента.')
+console.groupEnd()
+console.groupEnd()
+console.groupCollapsed('Функции')
+```
+
+![Результат в консоли Firefox](images/console.groupCollapsed.png)
