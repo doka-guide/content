@@ -4,7 +4,7 @@ description: "Обзор методов и возможностей"
 authors:
   - vitya-ne
 related:
-  - js/console
+  - js/console-log
   - tools/object
   - tools/json
 tags:

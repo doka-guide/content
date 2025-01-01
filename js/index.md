@@ -168,6 +168,7 @@ groups:
       - dom
       - fetch
       - form-data
+      - console
       - console-log
       - window-history
       - window-location
