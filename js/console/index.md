@@ -103,8 +103,8 @@ console.dir(obj)
 В браузерах этот метод позволяет отображать DOM-элементы в виде интерактивного дерева.
 
 [Node.js](/tools/nodejs/) или [Deno](/tools/deno/) поддерживают дополнительные параметры, позволяющие изменять отображение свойств объекта:
- - depth - количество уровней вложенности свойств;
- - showHidden - флаг, отвечающий за отображение невидимых при перечислениях (non-enumerable) свойств и свойств с типом [`Symbol`](/js/symbol/)
+  - depth — количество уровней вложенности свойств;
+  - showHidden — флаг, отвечающий за отображение невидимых при перечислениях (non-enumerable) свойств и свойств с типом [`Symbol`](/js/symbol/).
 
 Пример выполнения в Node.js
 ```js
@@ -166,7 +166,7 @@ let hasMessages = true
 let isAdmin = false
 
 console.info({ isAuthorized, hasMessages, isAdmin })
- // { isAuthorized: true, hasMessages: true, isAdmin: false }
+// { isAuthorized: true, hasMessages: true, isAdmin: false }
 ```
 Firefox и Safari выделяют сообщения `console.info()` c помощью значка `(i)`
 
