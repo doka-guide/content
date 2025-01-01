@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Примеры страниц — Гайд по grid — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Roboto:wght@300;400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    /*rest*/
+    body {
+      margin: 0px;
+      padding: 50px;
+      font-family: Roboto, sans-serif;
+      background-color: #181A1B;
+      color: #FFFFFF;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+
+    }
+
+    .demo {
+      display: grid;
+      grid-template-columns: auto 50%;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .page {
+      background-color: #FFFFFF;
+      color: #181A1B;
+      display: grid;
+      grid-template-columns: 1rem auto auto auto 1rem;
+      grid-template-rows: 1rem 9rem 9rem 9rem 1rem;
+      grid-template-areas:
+        'topLeftCorner topLeft topCenter topRight topRightCorner'
+        'leftTop content content content rightTop'
+        'leftMiddle content content content rightMiddle'
+        'leftBottom content content content rightBottom'
+        'bottomLeftCorner bottomLeft bottomCenter bottomRight bottomRightCorner';
+      gap: .5rem;
+      padding: 1rem;
+    }
+
+    .top-left-corner {
+      grid-area: topLeftCorner;
+    }
+
+    .top-left {
+      grid-area: topLeft;
+    }
+
+    .top-center {
+      grid-area: topCenter;
+    }
+
+    .top-right {
+      grid-area: topRight;
+    }
+
+    .top-right-corner {
+      grid-area: topRightCorner;
+    }
+
+    .bottom-left-corner {
+      grid-area: bottomLeftCorner;
+    }
+
+    .bottom-left {
+      grid-area: bottomLeft;
+    }
+
+    .bottom-center {
+      grid-area: bottomCenter;
+    }
+
+    .bottom-right {
+      grid-area: bottomRight;
+    }
+
+    .bottom-right-corner {
+      grid-area: bottomRightCorner;
+    }
+
+    .left-top {
+      grid-area: leftTop;
+    }
+
+    .left-middle {
+      grid-area: leftMiddle;
+    }
+
+    .left-bottom {
+      grid-area: leftBottom;
+    }
+
+    .right-top {
+      grid-area: rightTop;
+    }
+
+    .right-middle {
+      grid-area: rightMiddle;
+    }
+
+    .right-bottom {
+      grid-area: rightBottom;
+    }
+
+    .at-demo {
+      border: 1px dotted #181A1B;
+    }
+
+    .at-demo.active {
+      border: 1px solid #41E847;
+      background-color: #41E847;
+    }
+
+    .content {
+      grid-area: content;
+      border: 1px dashed #181A1B;
+    }
+
+    pre {
+      font-family: "Roboto Mono";
+      white-space: pre-wrap;
+    }
+
+    .form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    button {
+      padding: .5rem 1rem;
+      background-color: #FFD829;
+      transition: background-color 0.2s linear;
+      border: none;
+      border-radius: 1rem;
+      color: #181A1B;
+    }
+
+    button.active {
+      background-color: #41E847;
+    }
+
+    button:hover {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="demo">
+      <div class="page">
+        <div class="at-demo top-left-corner active"></div>
+        <div class="at-demo top-left"></div>
+        <div class="at-demo top-center"></div>
+        <div class="at-demo top-right"></div>
+        <div class="at-demo top-right-corner"></div>
+        <div class="at-demo bottom-left-corner"></div>
+        <div class="at-demo bottom-left"></div>
+        <div class="at-demo bottom-center"></div>
+        <div class="at-demo bottom-right"></div>
+        <div class="at-demo bottom-right-corner"></div>
+        <div class="at-demo left-top"></div>
+        <div class="at-demo left-middle"></div>
+        <div class="at-demo left-bottom"></div>
+        <div class="at-demo right-top"></div>
+        <div class="at-demo right-middle"></div>
+        <div class="at-demo right-bottom"></div>
+        <div class="content"></div>
+      </div>
+      <pre>
+
+        @page {
+          @top-left-corner {
+            /* Ваше свойство */
+          }
+        }
+      </pre>
+    </div>
+    <fieldset class="size">
+      <legend>Подсветить свойство</legend>
+      <div class="form">
+        <button class="top-left-corner-btn active">@top-left-corner</button>
+        <button class="top-left-btn">@top-left</button>
+        <button class="top-center-btn">@top-center</button>
+        <button class="top-right-btn">@top-right</button>
+        <button class="top-right-corner-btn">@top-right-corner</button>
+        <button class="bottom-left-corner-btn">@bottom-left-corner</button>
+        <button class="bottom-left-btn">@bottom-left</button>
+        <button class="bottom-center-btn">@bottom-center</button>
+        <button class="bottom-right-btn">@bottom-right</button>
+        <button class="bottom-right-corner-btn">@bottom-right-corner</button>
+        <button class="left-top-btn">@left-top</button>
+        <button class="left-middle-btn">@left-middle</button>
+        <button class="left-bottom-btn">@left-bottom</button>
+        <button class="right-top-btn">@right-top</button>
+        <button class="right-middle-btn">@right-middle</button>
+        <button class="right-bottom-btn">@right-bottom</button>
+      </div>
+    </fieldset>
+  </div>
+
+  <script>
+    const atDemo = document.querySelectorAll('.at-demo')
+    const buttons = document.querySelectorAll('button')
+    const pre = document.querySelector('pre')
+
+    const topLeftCornerPlace = document.querySelector('.top-left-corner')
+    const topLeftPlace = document.querySelector('.top-left')
+    const topCenterPlace = document.querySelector('.top-center')
+    const topRightPlace = document.querySelector('.top-right')
+    const topRightCornerPlace = document.querySelector('.top-right-corner')
+    const bottomLeftCornerPlace = document.querySelector('.bottom-left-corner')
+    const bottomLeftPlace = document.querySelector('.bottom-left')
+    const bottomCenterPlace = document.querySelector('.bottom-center')
+    const bottomRightPlace = document.querySelector('.bottom-right')
+    const bottomRightCornerPlace = document.querySelector('.bottom-right-corner')
+    const leftTopPlace = document.querySelector('.left-top')
+    const leftMiddlePlace = document.querySelector('.left-middle')
+    const leftBottomPlace = document.querySelector('.left-bottom')
+    const rightTopPlace = document.querySelector('.right-top')
+    const rightMiddlePlace = document.querySelector('.right-middle')
+    const rightBottomPlace = document.querySelector('.right-bottom')
+
+    const topLeftCornerBtn = document.querySelector('.top-left-corner-btn')
+    const topLeftBtn = document.querySelector('.top-left-btn')
+    const topCenterBtn = document.querySelector('.top-center-btn')
+    const topRightBtn = document.querySelector('.top-right-btn')
+    const topRightCornerBtn = document.querySelector('.top-right-corner-btn')
+    const bottomLeftCornerBtn = document.querySelector('.bottom-left-corner-btn')
+    const bottomLeftBtn = document.querySelector('.bottom-left-btn')
+    const bottomCenterBtn = document.querySelector('.bottom-center-btn')
+    const bottomRightBtn = document.querySelector('.bottom-right-btn')
+    const bottomRightCornerBtn = document.querySelector('.bottom-right-corner-btn')
+    const leftTopBtn = document.querySelector('.left-top-btn')
+    const leftMiddleBtn = document.querySelector('.left-middle-btn')
+    const leftBottomBtn = document.querySelector('.left-bottom-btn')
+    const rightTopBtn = document.querySelector('.right-top-btn')
+    const rightMiddleBtn = document.querySelector('.right-middle-btn')
+    const rightBottomBtn = document.querySelector('.right-bottom-btn')
+
+    function makeUnActive() {
+      atDemo.forEach((el) => {
+        el.classList.remove('active');
+      })
+      buttons.forEach((el) => {
+        el.classList.remove('active');
+      })
+    }
+
+    topLeftCornerBtn.addEventListener('click', () => {
+      makeUnActive()
+      topLeftCornerPlace.classList.add('active')
+      topLeftCornerBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @top-left-corner {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    topLeftBtn.addEventListener('click', () => {
+      makeUnActive()
+      topLeftPlace.classList.add('active')
+      topLeftBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @top-left {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    topCenterBtn.addEventListener('click', () => {
+      makeUnActive()
+      topCenterPlace.classList.add('active')
+      topCenterBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @top-center {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    topRightBtn.addEventListener('click', () => {
+      makeUnActive()
+      topRightPlace.classList.add('active')
+      topRightBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @top-right {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    topRightCornerBtn.addEventListener('click', () => {
+      makeUnActive()
+      topRightCornerPlace.classList.add('active')
+      topRightCornerBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @top-right-corner {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    bottomLeftCornerBtn.addEventListener('click', () => {
+      makeUnActive()
+      bottomLeftCornerPlace.classList.add('active')
+      bottomLeftCornerBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @bottom-left-corner {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    bottomLeftBtn.addEventListener('click', () => {
+      makeUnActive()
+      bottomLeftPlace.classList.add('active')
+      bottomLeftBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @bottom-left {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    bottomCenterBtn.addEventListener('click', () => {
+      makeUnActive()
+      bottomCenterPlace.classList.add('active')
+      bottomCenterBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @bottom-center {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    bottomRightBtn.addEventListener('click', () => {
+      makeUnActive()
+      bottomRightPlace.classList.add('active')
+      bottomRightBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @bottom-right {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    bottomRightCornerBtn.addEventListener('click', () => {
+      makeUnActive()
+      bottomRightCornerPlace.classList.add('active')
+      bottomRightCornerBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @bottom-right-corner {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    leftTopBtn.addEventListener('click', () => {
+      makeUnActive()
+      leftTopPlace.classList.add('active')
+      leftTopBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @left-top {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    leftMiddleBtn.addEventListener('click', () => {
+      makeUnActive()
+      leftMiddlePlace.classList.add('active')
+      leftMiddleBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @left-middle {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    leftBottomBtn.addEventListener('click', () => {
+      makeUnActive()
+      leftBottomPlace.classList.add('active')
+      leftBottomBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @left-bottom {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    rightTopBtn.addEventListener('click', () => {
+      makeUnActive()
+      rightTopPlace.classList.add('active')
+      rightTopBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @right-top {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    rightMiddleBtn.addEventListener('click', () => {
+      makeUnActive()
+      rightMiddlePlace.classList.add('active')
+      rightMiddleBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @right-middle {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+    rightBottomBtn.addEventListener('click', () => {
+      makeUnActive()
+      rightBottomPlace.classList.add('active')
+      rightBottomBtn.classList.add('active')
+      pre.textContent = `
+      @page {
+        @right-bottom {
+          /* Ваше свойство */
+        }
+      }
+      `
+    })
+  </script>
+</body>
+
+</html>
