@@ -157,6 +157,7 @@
     </fieldset>
     <div class="code">
       <pre>
+
         @page {
           sise: A4 vertical;
         }
@@ -166,21 +167,21 @@
 
   <script>
     let currentOrientation = 'vertical'
-    let currentSize = 'a4'
-    const before = document.querySelector('.before')
-    const beforeCount = before.querySelector('.size-count')
-    const left = document.querySelector('.left')
-    const leftCount = left.querySelector('.size-count')
-    const page = document.querySelector('.page')
-    const sizeForm = document.querySelector('.size')
-    const orientationForm = document.querySelector('.orientation')
-    const makeA4Btn = document.querySelector('.makeA4')
-    const makeA5Btn = document.querySelector('.makeA5')
-    const makeLetterBtn = document.querySelector('.makeLetter')
-    const makeCustomBtn = document.querySelector('.makeCustom')
-    const makeVerticalBtn = document.querySelector('.makeVertical')
-    const makeHorizontalBtn = document.querySelector('.makeHorizontal')
-    const pre = document.querySelector('pre')
+    let currentSize = 'A4'
+
+    const container = document.querySelector('.container')
+    const sizeForm = container.querySelector('.size')
+    const a4Btn = sizeForm.querySelector('.makeA4')
+    const a5Btn = sizeForm.querySelector('.makeA5')
+    const letterBtn = sizeForm.querySelector('.makeLetter')
+    const customBtn = sizeForm.querySelector('.makeCustom')
+    const orientationForm = container.querySelector('.orientation')
+    const verticalBtn = orientationForm.querySelector('.makeVertical')
+    const horizontalBtn = orientationForm.querySelector('.makeHorizontal')
+    const sizeBtns = sizeForm.querySelectorAll('button')
+    const orientationBtns = orientationForm.querySelectorAll('button')
+    const pre = container.querySelector('pre')
+
     const sizes = {
       a4: {
         width: 210,
@@ -200,135 +201,107 @@
       }
     }
 
-    function makeSizes(width, height) {
-      before.style.width = `${width * 1.7}px`
-      page.style.width = `${width * 1.7}px`
-      page.style.height = `${height * 1.7}px`
-      sizeForm.style.width = `${width * 1.7}px`
-      orientationForm.style.width = `${width * 1.7}px`
-      beforeCount.textContent = width
-      leftCount.textContent = height
+
+    function makeClasses(arr, item) {
+      arr.forEach((el) => {
+        el.classList.remove('active');
+      })
+      item.classList.add('active')
     }
 
-    function change() {
-      if (currentSize === 'a4') {
-        if (currentOrientation === 'vertical') {
-          makeSizes(sizes.a4.width, sizes.a4.height)
-          pre.textContent = `
-          @page {
-            sise: A4 vertical;
-          }
-          `
-        } else {
-          makeSizes(sizes.a4.height, sizes.a4.width)
-          pre.textContent = `
-          @page {
-            sise: A4 horizontal;
-          }
-          `
-        }
+    function makeCode(size, orientation) {
+      pre.textContent = `
+      @page {
+        size: ${size} ${orientation}
       }
-      if (currentSize === 'a5') {
-        if (currentOrientation === 'vertical') {
-          makeSizes(sizes.a5.width, sizes.a5.height)
-          pre.textContent = `
-          @page {
-            sise: A5 vertical;
-          }
-          `
-        } else {
-          makeSizes(sizes.a5.height, sizes.a5.width)
-          pre.textContent = `
-          @page {
-            sise: A5 horizontal;
-          }
-          `
-        }
+      `
+    }
+
+    function makePageSizes() {
+      const before = container.querySelector('.before')
+      const beforeSize = before.querySelector('.size-count')
+      const left = container.querySelector('.left')
+      const leftSize = left.querySelector('.size-count')
+      const page = container.querySelector('.page')
+      const demoCount = 1.7
+
+      let width = 0
+      let height = 0
+
+      switch (currentSize) {
+        case 'A5':
+          width = sizes.a5.width
+          height = sizes.a5.height
+          break
+        case 'Letter':
+          width = sizes.letter.width
+          height = sizes.letter.height
+          break
+        case 'Custom':
+          width = sizes.custom.width
+          height = sizes.custom.height
+          break
+        default:
+          width = sizes.a4.width
+          height = sizes.a4.height
+          break
       }
-      if (currentSize === 'letter') {
-        if (currentOrientation === 'vertical') {
-          makeSizes(sizes.letter.width, sizes.letter.height)
-          pre.textContent = `
-          @page {
-            sise: Letter vertical;
-          }
-          `
-        } else {
-          makeSizes(sizes.letter.height, sizes.letter.width)
-          pre.textContent = `
-          @page {
-            sise: Letter horizontal;
-          }
-          `
-        }
-      }
-      if (currentSize === 'custom') {
-        if (currentOrientation === 'vertical') {
-          makeSizes(sizes.custom.width, sizes.custom.height)
-          pre.textContent = `
-          @page {
-            sise: 220mm 300mm vertical;
-          }
-          `
-        } else {
-          makeSizes(sizes.custom.height, sizes.custom.width)
-          pre.textContent = `
-          @page {
-            sise: 300mm 220mm horizontal;
-          }
-          `
-        }
+
+      if (currentOrientation === 'vertical') {
+        beforeSize.textContent = width
+        leftSize.textContent = height
+        before.style.width = `${width * demoCount}px`
+        page.style.width = `${width * demoCount}px`
+        page.style.height = `${height * demoCount}px`
+        left.style.height = `${height * demoCount}px`
+      } else {
+        beforeSize.textContent = height
+        leftSize.textContent = width
+        before.style.width = `${height * demoCount}px`
+        page.style.width = `${height * demoCount}px`
+        page.style.height = `${width * demoCount}px`
+        left.style.height = `${width * demoCount}px`
       }
     }
 
-    change()
+    makePageSizes()
 
-    makeVerticalBtn.addEventListener('click', () => {
+    a4Btn.addEventListener('click', () => {
+      currentSize = 'A4'
+      makeClasses(sizeBtns, a4Btn)
+      makeCode('A4', currentOrientation)
+      makePageSizes()
+    })
+    a5Btn.addEventListener('click', () => {
+      currentSize = 'A5'
+      makeClasses(sizeBtns, a5Btn)
+      makeCode('A5', currentOrientation)
+      makePageSizes()
+    })
+    letterBtn.addEventListener('click', () => {
+      currentSize = 'Letter'
+      makeClasses(sizeBtns, letterBtn)
+      makeCode('Letter', currentOrientation)
+      makePageSizes()
+    })
+    customBtn.addEventListener('click', () => {
+      currentSize = 'Custom'
+      makeClasses(sizeBtns, customBtn)
+      makeCode(`${sizes.custom.width}mm ${sizes.custom.height}mm`, currentOrientation)
+      makePageSizes()
+    })
+
+    verticalBtn.addEventListener('click', () => {
       currentOrientation = 'vertical'
-      makeHorizontalBtn.classList.toggle('active')
-      makeVerticalBtn.classList.toggle('active')
-      makeCustomBtn.classList.remove('active')
-      change()
+      makeClasses(orientationBtns, verticalBtn)
+      makeCode(currentSize === 'Custom' ? `${sizes.custom.width}mm ${sizes.custom.height}mm` : currentSize, 'vertical')
+      makePageSizes()
     })
-    makeHorizontalBtn.addEventListener('click', () => {
+    horizontalBtn.addEventListener('click', () => {
       currentOrientation = 'horizontal'
-      makeHorizontalBtn.classList.toggle('active')
-      makeVerticalBtn.classList.toggle('active')
-      makeCustomBtn.classList.remove('active')
-      change()
-    })
-
-    makeA4Btn.addEventListener('click', () => {
-      currentSize = 'a4'
-      makeA4Btn.classList.add('active')
-      makeLetterBtn.classList.remove('active')
-      makeA5Btn.classList.remove('active')
-      makeCustomBtn.classList.remove('active')
-      change()
-    })
-    makeA5Btn.addEventListener('click', () => {
-      currentSize = 'a5'
-      makeA5Btn.classList.add('active')
-      makeA4Btn.classList.remove('active')
-      makeLetterBtn.classList.remove('active')
-      makeCustomBtn.classList.remove('active')
-      change()
-    })
-    makeLetterBtn.addEventListener('click', () => {
-      currentSize = 'letter'
-      makeLetterBtn.classList.add('active')
-      makeA5Btn.classList.remove('active')
-      makeA4Btn.classList.remove('active')
-      makeCustomBtn.classList.remove('active')
-      change()
-    })
-    makeCustomBtn.addEventListener('click', () => {
-      currentSize = 'custom'
-      makeCustomBtn.classList.add('active')
-      makeLetterBtn.classList.remove('active')
-      makeA5Btn.classList.remove('active')
-      makeA4Btn.classList.remove('active')
-      change()
+      makeClasses(orientationBtns, horizontalBtn)
+      makeCode(currentSize === 'Custom' ? `${sizes.custom.width}mm ${sizes.custom.height}mm` : currentSize, 'horizontal')
+      makePageSizes()
     })
 
   </script>
