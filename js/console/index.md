@@ -205,14 +205,14 @@ console.table(project)
 ```js
 const jQuery = {
   name: 'jQuery',
-  stars: 59_275,
+  stars: 59275,
   version: '3.7.1',
   date: '28.08.2023'
 }
 
 const react = {
   name: 'React',
-  stars: 230_732,
+  stars: 230732,
   version: '19.0.0',
   date: '5.12.2024'
 }
