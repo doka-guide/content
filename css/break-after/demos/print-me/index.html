@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Свойства break-after и page-break-after — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Roboto:wght@300;400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      font-family: Roboto, sans-serif;
+    }
+
+    pre,
+    code {
+      font-family: "Roboto Mono";
+      white-space: pre-wrap;
+    }
+
+    section {
+      padding-left: 1rem;
+    }
+
+    code {
+      color: #F498AD;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 1rem;
+    }
+
+    h1,
+    h2,
+    p:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+
+    .button-place,
+    .button-config {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: .5rem 1rem;
+      background-color: #FFD829;
+      transition: background-color 0.2s linear;
+      border: none;
+      border-radius: 1rem;
+      color: #181A1B;
+    }
+
+    button.active {
+      background-color: #41E847;
+    }
+
+    button.print {
+      background-color: #F498AD;
+    }
+
+    .poem section {
+      break-after: auto;
+      page-break-after: auto;
+    }
+
+    .poem.page section {
+      break-after: page;
+      page-break-after: always;
+    }
+
+    @media print {
+      .noprint {
+        display: none !important;
+      }
+
+      body {
+        color: black;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="poem">
+      <h1>РУСЛАН И ЛЮДМИЛА</h1>
+      <code class="noprint">&lt;section&gt;</code>
+      <section>
+        <h2>ПОСВЯЩЕНИЕ</h2>
+        <p>
+          Для вас, души моей царицы,<br />
+          Красавицы, для вас одних<br />
+          Времен минувших небылицы,<br />
+          В часы досугов золотых,<br />
+          Под шепот старины болтливой,<br />
+          Рукою верной я писал;<br />
+          Примите ж вы мой труд игривый!<br />
+          Ничьих не требуя похвал,<br />
+          Счастлив уж я надеждой сладкой,<br />
+          Что дева с трепетом любви<br />
+          Посмотрит, может быть украдкой,<br />
+          На песни грешные мои.<br />
+          У лукоморья дуб зеленый;<br />
+          Златая цепь на дубе том:<br />
+          И днем и ночью кот ученый<br />
+          Все ходит по цепи кругом;<br />
+          Идет направо - песнь заводит,<br />
+          Налево - сказку говорит.
+        </p>
+        <p>
+          Там чудеса: там леший бродит,<br />
+          Русалка на ветвях сидит;<br />
+          Там на неведомых дорожках<br />
+          Следы невиданных зверей;<br />
+          Избушка там на курьих ножках<br />
+          Стоит без окон, без дверей;<br />
+          Там лес и дол видений полны;<br />
+          Там о заре прихлынут волны<br />
+          На брег песчаный и пустой,<br />
+          И тридцать витязей прекрасных<br />
+          Чредой из вод выходят ясных,<br />
+          И с ними дядька их морской;<br />
+          Там королевич мимоходом<br />
+          Пленяет грозного царя;<br />
+          Там в облаках перед народом<br />
+          Через леса, через моря<br />
+          Колдун несет богатыря;<br />
+          В темнице там царевна тужит,<br />
+          А бурый волк ей верно служит;<br />
+          Там ступа с Бабою Ягой<br />
+          Идет, бредет сама собой;<br />
+          Там царь Кащей над златом чахнет;<br />
+          Там русской дух... там Русью пахнет!<br />
+          И там я был, и мед я пил;<br />
+          У моря видел дуб зеленый;<br />
+          Под ним сидел, и кот ученый<br />
+          Свои мне сказки говорил.<br />
+          Одну я помню: сказку эту<br />
+          Поведаю теперь я свету...
+        </p>
+      </section>
+      <code class="noprint">&lt;/section&gt;</code><br />
+      <code class="noprint">&lt;section&gt;</code>
+      <section>
+        <h2>ПЕСНЬ ПЕРВАЯ</h2>
+        <p>
+          Дела давно минувших дней,<br />
+          Преданья старины глубокой.
+        </p>
+        <p>
+          В толпе могучих сыновей,<br />
+          С друзьями, в гриднице высокой<br />
+          Владимир-солнце пировал;<br />
+          Меньшую дочь он выдавал<br />
+          За князя храброго Руслана<br />
+          И мед из тяжкого стакана<br />
+          За их здоровье выпивал.<br />
+          Не скоро ели предки наши,<br />
+          Не скоро двигались кругом<br />
+          Ковши, серебряные чаши<br />
+          С кипящим пивом и вином.<br />
+          Они веселье в сердце лили,<br />
+          Шипела пена по краям,<br />
+          Их важно чашники носили<br />
+          И низко кланялись гостям.
+        </p>
+      </section>
+      <code class="noprint">&lt;/section&gt;</code>
+    </div>
+    <div class="noprint">
+      <div class="button-place">
+        <div class="button-config">
+          <p>На печати</p>
+          <button class="auto active">Текст будет вподряд</button>
+          <button class="page">Новая глава на новой странице</button>
+        </div>
+        <button class="print">Напечатать</button>
+      </div>
+      <pre>
+
+        section {
+          break-after: auto;
+          page-break-after: auto;
+        }
+      </pre>
+    </div>
+  </div>
+
+  <script>
+    const code = document.querySelector('pre')
+    const allBtns = document.querySelector('.button-place')
+    const configBtns = allBtns.querySelector('.button-config')
+    const allConfigBtns = configBtns.querySelectorAll('button')
+    const autoBtn = configBtns.querySelector('.auto')
+    const pageBtn = configBtns.querySelector('.page')
+    const pringBtn = allBtns.querySelector('.print')
+    const poem = document.querySelector('.poem')
+
+    function makeAuto() {
+      code.textContent = `
+        section {
+          break-after: auto;
+          page-break-after: auto;
+        }
+      `
+      autoBtn.classList.add('active')
+    }
+
+    function makePaged() {
+      code.textContent = `
+        section {
+          break-after: page;
+          page-break-after: always;
+        }
+      `
+      pageBtn.classList.add('active')
+    }
+
+    function makeUnDecorated() {
+      allConfigBtns.forEach(item => {
+        item.classList.remove('active')
+      });
+    }
+
+    autoBtn.addEventListener('click', () => {
+      makeUnDecorated()
+      makeAuto()
+      poem.classList.remove('page')
+    })
+
+    pageBtn.addEventListener('click', () => {
+      makeUnDecorated()
+      makePaged()
+      poem.classList.add('page')
+    })
+
+    pringBtn.addEventListener('click', () => {
+      window.print()
+    })
+  </script>
+</body>
+
+</html>
