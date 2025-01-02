@@ -1,6 +1,10 @@
 ---
 title: "`zoom`"
 description: "Меняем масштаб элемента."
+baseline:
+  - group: zoom
+    features:
+      - css.properties.zoom
 authors:
   - ivkrylova
 contributors:
