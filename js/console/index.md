@@ -49,7 +49,7 @@ tags:
 
 ```js
 function checkNumber(num) {
-  const value = +num
+  const value = Number(num)
   console.assert(!Number.isNaN(value), 'это не число. Аргумент:', num)
   return value
 }
