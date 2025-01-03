@@ -61,16 +61,48 @@ tags:
 
 ```html
 <div role="list" class="list">
-  <span role="listitem">Повелитель мух</span>
-  <span role="listitem">Чума</span>
-  <span role="listitem">Процесс</span>
-  <span role="listitem">Мамаша Кураж и её дети</span>
+  <span role="listitem" class="list__item">Повелитель мух</span>
+  <span role="listitem" class="list__item">Чума</span>
+  <span role="listitem" class="list__item">Процесс</span>
+  <span role="listitem" class="list__item">Мамаша Кураж и её дети</span>
 </div>
 ```
 
 <iframe title="Кастомный список по умолчанию" src="demos/list-without-styles/" height="350"></iframe>
 
 Так как `list` не влияет на внешний вид элемента, стилизуйте список и пункты в нём с помощью CSS.
+
+```css
+.list {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.list__item {
+  position: relative;
+  padding-left: 25px;
+  text-transform: lowercase;
+}
+
+.list__item::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #10F3AF;
+}
+
+.list__item::after {
+  content: ";";
+}
+
+.list__item:last-of-type::after {
+  content: ".";
+}
+```
 
 <iframe title="Кастомный список со стилями" src="demos/list-with-styles/" height="350"></iframe>
 
