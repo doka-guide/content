@@ -23,12 +23,24 @@ tags:
 ## Пример
 
 ```html
-<section role="list">
-  <div role="listitem">Картошка.</div>
-  <div role="listitem">Кружево.</div>
-  <div role="listitem">Мышьяк.</div>
-</section>
+<div role="list">
+  <span role="listitem">Картошка.</span>
+  <span role="listitem">Кружево.</span>
+  <span role="listitem">Мышьяк.</span>
+</div>
 ```
+
+Список с атрибутом [`aria-owns`](/a11y/aria-owns/), который связывает список-родитель с пунктами-детьми:
+
+```html
+<div role="list" aria-owns="item1 item2 item3">
+  <span role="listitem" id="item1">Картошка.</span>
+  <span role="listitem" id="item2">Кружево.</span>
+  <span role="listitem" id="item3">Мышьяк.</span>
+</div>
+```
+
+Не обязательно задавать списку `aria-owns`. Скринридеры озвучат оба примера одинаково: «Список из трёх пунктов. Картошка. Кружево. Мышьяк».
 
 ## Как пишется
 
