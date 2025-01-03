@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .clamp-text-lines {
+        --_lines-count: var(--lines-count, 3);
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: var(--_lines-count);
+        overflow: hidden;
+      }
+
+      body {
+        padding: 16px;
+      }
+
+      .article-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+
+        margin-top: 24px;
+
+        .article-item {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 8px;
+
+          padding: 12px;
+
+          border: 2px solid #444444;
+          border-radius: 12px;
+
+          .article-item__description {
+            --lines-count: 4;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="static-font__XL">Lorem, ipsum dolor.</h1>
+
+    <section class="article-list">
+      <article class="article-item">
+        <h2 class="static-font__L">Lorem ipsum dolor sit amet.</h2>
+
+        <p class="article-item__description static-font__M clamp-text-lines">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam unde
+          perspiciatis debitis corporis odit illo ducimus quasi qui saepe
+          consectetur, necessitatibus veritatis fugiat esse architecto delectus
+          exercitationem. Dolores recusandae officia quaerat illo.
+        </p>
+      </article>
+
+      <article class="article-item">
+        <h2 class="static-font__L">
+          Lorem ipsum dolor sit amet, consectetur adipisicing.
+        </h2>
+
+        <p class="article-item__description static-font__M clamp-text-lines">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit vero
+          aut, aliquid quas voluptatibus quos, libero soluta qui et odio
+          voluptatum dolor maiores veniam adipisci placeat facilis
+          necessitatibus ducimus hic repudiandae. Modi optio natus saepe
+          asperiores quos eligendi consequuntur, numquam fuga voluptatem sed
+          rerum.
+        </p>
+      </article>
+    </section>
+  </body>
+</html>
