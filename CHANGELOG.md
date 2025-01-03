@@ -2,6 +2,11 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2025
+
+- 03 января, [`Console`](https://doka.guide/js/console/), Viktar Nezhbart
+
+
 ## Декабрь 2024
 
 - 10 декабря, [`@starting-style`](https://doka.guide/css/starting-style/), Рома Ахмадуллин
