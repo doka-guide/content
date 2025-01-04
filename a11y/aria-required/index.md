@@ -100,7 +100,85 @@ tags:
 </form>
 ```
 
-Для сложных групп элементов, например радиокнопок или чекбоксов, используйте `aria-required`, а валидацию настройте через JavaScript.
+При использовании `aria-required`, настройте валидацию через JavaScript.
+
+```html
+<form
+  id="form"
+  method="post"
+  novalidate
+ >
+  <label for="name">Ваше имя (обязательно):</label>
+  <input
+    id="name"
+    type="text"
+    name="name"
+    aria-invalid="false"
+    aria-required="true"
+    aria-describedby="error"
+  >
+  <div
+    class="error-message"
+    id="error"
+  >
+    Заполните это поле 🤗
+  </div>
+
+  <button id="button">Отправить</button>
+</form>
+```
+
+```js
+const form = document.getElementById('form')
+const requiredInput = form.querySelector('#name')
+const button = form.querySelector('#button')
+const error = form.querySelector('#error')
+
+const markValid = () => {
+  requiredInput.setAttribute('aria-invalid', 'false')
+  error.style.display = 'none'
+}
+
+const markInvalid = () => {
+  requiredInput.setAttribute('aria-invalid', 'true')
+  error.style.display = 'block'
+}
+
+const validateInput = () => {
+  const value = requiredInput.value
+  if (!value) {
+    markInvalid()
+  } else {
+    markValid()
+  }
+}
+
+const hideError = () => {
+  const value = requiredInput.value
+  if (value) {
+    markValid()
+  }
+}
+
+button.addEventListener('click', () => {
+  validateInput()
+})
+
+requiredInput.addEventListener('change', validateInput)
+requiredInput.addEventListener('input', hideError)
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
+
+  button.disabled = true
+  // Исправляем поведение Firefox
+  button.autocomplete = 'off'
+
+  setTimeout(() => {
+    button.disabled = false
+  }, 2000)
+})
+```
 
 Чтобы пользователь понял, что поле обязательное, используйте текст или знак звёздочки `*` (астериск) вместе с цветом. Это важно для пользователей с особенностями зрения. Например, обязательные поля с `aria-required` можно выделить с помощью CSS-селекторов:
 
