@@ -110,7 +110,7 @@ tags:
   id="form"
   method="post"
   novalidate
- >
+>
   <label for="name">Ваше имя (обязательно):</label>
   <input
     id="name"
