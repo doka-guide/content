@@ -3,6 +3,7 @@ title: "`aria-required`"
 description: "ARIA-атрибут, который указывает на обязательность ввода данных в элемент формы."
 authors:
   - juliememe
+  - tatianafokina
 related:
   - a11y/aria-errormessage
   - a11y/aria-attrs
