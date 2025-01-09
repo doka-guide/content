@@ -5,7 +5,7 @@ authors:
   - vitya-ne
 related:
   - js/console-log
-  - tools/object
+  - js/object
   - tools/json
 tags:
   - doka
