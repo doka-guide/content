@@ -73,7 +73,7 @@ tags:
 </div>
 ```
 
-<iframe title="Подписанные ориентиры" src="demos/named-section/" height="380"></iframe>
+<iframe title="Подписанные ориентиры" src="demos/named-section/" height="560"></iframe>
 
 Если оставить элементы `region` без подписей, скринридеры не посчитают их ориентирами.
 
@@ -93,7 +93,7 @@ tags:
 </div>
 ```
 
-<iframe title="Ориентиры без названий" src="demos/unnamed-section/" height="380"></iframe>
+<iframe title="Ориентиры без названий" src="demos/unnamed-section/" height="560"></iframe>
 
 Не добавляйте на страницу слишком много секций, чтобы не перегрузить пользователей информацией и не сделать навигацию более запутанной.
 
