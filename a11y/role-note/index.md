@@ -83,7 +83,7 @@ tags:
 </aside>
 ```
 
-<iframe title="Список сносок" src="demos/footnotes/" height="800"></iframe>
+<iframe title="Список сносок" src="demos/footnotes/" height="960"></iframe>
 
 ## Как пишется
 
