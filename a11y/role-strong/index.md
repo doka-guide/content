@@ -39,7 +39,7 @@ tags:
 </p>
 ```
 
-<iframe title="Важный текст в HTML-теге" src="demos/text-with-strong-role/" height="250"></iframe>
+<iframe title="Важный текст в HTML-теге" src="demos/text-with-strong-role/" height="340"></iframe>
 
 Можете проверить, что именно браузеры думают о теге `<strong>`, в инструментах разработчика. Например, Firefox построил [дерево доступности](/a11y/a11y-tree/), куда попала роль `strong` и текст «Ни при каких обстоятельствах».
 
@@ -63,6 +63,8 @@ strong {
   font-weight: bold;
 }
 ```
+
+<iframe title="Важный текст со стилями" src="demos/text-with-bold-style/" height="340"></iframe>
 
 Элементам с ролью `strong` можно задавать [глобальные ARIA-атрибуты](/a11y/aria-attrs/#globalnye-atributy), кроме [`aria-label`](/a11y/aria-label/), [`aria-labelledby`](/a11y/aria-labelledby/) и [`aria-braillelabel`](/a11y/aria-braillelabel/).
 
