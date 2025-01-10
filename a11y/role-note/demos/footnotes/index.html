@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Список со сносками — note — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #000000;
+      font-family: "Roboto", sans-serif;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    hr {
+      margin: 34px auto 26px;
+      border: 2px solid #000000;
+    }
+
+    div {
+      width: 65%;
+      padding: 55px 40px;
+      background-color: #10F3AF;
+    }
+
+    aside {
+      font-size: 16px;
+    }
+
+    ol {
+      padding-left: 16px;
+      list-style-type: none;
+      counter-reset: num;
+    }
+
+    li {
+      position: relative;
+      padding-left: 10px;
+      counter-increment: num;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    li::before {
+      content: counter(num);
+      position: absolute;
+      top: 3px;
+      right: 100%;
+      width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-size: 16px;
+      line-height: 1;
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+
+    li::after {
+      content: ".";
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      div {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Берёзовый сок в автомобильной индустрии</h1>
+    <p>В последние годы наблюдается рост интереса к экологии и устойчивому развитию, что подтолкнуло учёных к исследованию нетрадиционных источников энергии и смазочных материалов. Одним из наиперспективнейших направлений <sup aria-describedby="note-1">1</sup> стало использование берёзового сока в автомобильной индустрии.</p>
+    <p>Исследования показали <sup aria-describedby="note-2">2</sup>, что берёзовый сок, благодаря своему уникальному химическому составу, может действовать как эффективный смазочный агент. Его использование снижает трение и износ деталей, что продлевает срок службы автомобиля.</p>
+    <p>Применение берёзового сока как альтернативного источника энергии и смазки потенциально открывает новые горизонты для автомобильной отрасли <sup aria-describedby="note-3">3</sup>, способствуя переходу на устойчивые и экологически безопасные решения.</p>
+    <hr>
+    <aside>
+      <ol>
+        <li><span role="note" id="note-1">Береста Л. Возобновляемые источники энергии будущего. — Гиперборея : Викинг Publish, 2026. — 303 с</span></li>
+        <li><span role="note" id="note-2">Лоу Д. Химический состав берёзового сока с точки зрения его позитивных характеристик для применения в производстве смазочных агентов. / Д. Лоу, Х. Грант, К. Фёрт, Л. Гага // Science. – 2028. – № 1. – С. 68-80</span></li>
+        <li><span role="note" id="note-3">Берёза И. Будущее берёзового сока как возобновляемого источника энергии / И. Берёза, Р. Сокова // Автомобильный журнал. — 2027. — № 8. — С. 32</span></li>
+      </ol>
+    </aside>
+  </div>
+</body>
+</html>
