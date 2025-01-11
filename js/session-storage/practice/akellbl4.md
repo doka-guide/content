@@ -54,7 +54,7 @@ function getItem(key, value) {
 
 function setItem(key, value) {
   try {
-    return window.sessionStorage.getItem(key, value)
+    return window.sessionStorage.setItem(key, value)
   } catch (e) {
     console.log(e)
   }
