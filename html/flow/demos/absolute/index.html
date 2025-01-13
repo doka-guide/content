@@ -51,6 +51,28 @@
       height: 200px;
       background-color: rgb(255 134 48 / 50%);
     }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: auto;
+        min-width: auto;
+      }
+
+      .positioned {
+        left: -10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body,
+      .normal-flow-child {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>
