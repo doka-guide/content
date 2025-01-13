@@ -189,6 +189,8 @@ tooltipAnchor?.addEventListener('keydown', (event) => {
 })
 ```
 
+Попробуйте проскроллить к разным краям вьюпорта – тултип сможет адаптироваться.
+
 <iframe title="Пример тултипа" src="demos/tooltip-demo/" height="480"></iframe>
 
 ## Разбор решения
