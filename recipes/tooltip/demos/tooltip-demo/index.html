@@ -195,20 +195,20 @@
         const tooltipAnchor = document.querySelector('#tooltip-anchor')
 
         const showTooltip = () => {
-            tooltip?.showPopover()
+            tooltip.showPopover()
         };
 
         const hideTooltip = () => {
-            tooltip?.hidePopover()
+            tooltip.hidePopover()
         };
 
-        tooltipAnchor?.addEventListener('mouseenter', showTooltip)
-        tooltipAnchor?.addEventListener('focus', showTooltip)
+        tooltipAnchor.addEventListener('mouseenter', showTooltip)
+        tooltipAnchor.addEventListener('focus', showTooltip)
 
-        tooltipAnchor?.addEventListener('mouseleave', hideTooltip)
-        tooltipAnchor?.addEventListener('blur', hideTooltip)
+        tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+        tooltipAnchor.addEventListener('blur', hideTooltip)
 
-        tooltipAnchor?.addEventListener('keydown', (event) => {
+        tooltipAnchor.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
                 hideTooltip()
             }
@@ -216,9 +216,9 @@
     </script>
     <script>
         const heightWrapper = document.querySelector('#height-wrapper')
-        heightWrapper?.scrollTo({
-            top: heightWrapper?.offsetHeight / 2,
-            left: heightWrapper?.offsetWidth / 2,
+        heightWrapper.scrollTo({
+            top: heightWrapper.offsetHeight / 2,
+            left: heightWrapper.offsetWidth / 2,
             behavior: 'instant',
         })
     </script>

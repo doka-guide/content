@@ -169,20 +169,20 @@ const tooltip = document.querySelector('#tooltip')
 const tooltipAnchor = document.querySelector('#tooltip-anchor')
 
 const showTooltip = () => {
-    tooltip?.showPopover()
+    tooltip.showPopover()
 };
 
 const hideTooltip = () => {
-    tooltip?.hidePopover()
+    tooltip.hidePopover()
 };
 
-tooltipAnchor?.addEventListener('mouseenter', showTooltip)
-tooltipAnchor?.addEventListener('focus', showTooltip)
+tooltipAnchor.addEventListener('mouseenter', showTooltip)
+tooltipAnchor.addEventListener('focus', showTooltip)
 
-tooltipAnchor?.addEventListener('mouseleave', hideTooltip)
-tooltipAnchor?.addEventListener('blur', hideTooltip)
+tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+tooltipAnchor.addEventListener('blur', hideTooltip)
 
-tooltipAnchor?.addEventListener('keydown', (event) => {
+tooltipAnchor.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         hideTooltip()
     }
@@ -353,24 +353,24 @@ const tooltipAnchor = document.querySelector('#tooltip-anchor')
 
 ```javascript
 const showTooltip = () => {
-    tooltip?.showPopover()
+    tooltip.showPopover()
 };
 
 const hideTooltip = () => {
-    tooltip?.hidePopover()
+    tooltip.hidePopover()
 };
 ```
 
 Навесим соответствующие обработчики событий на кнопку. Теперь она умеет показывать тултип на наведение мышью или фокусе с клавиатуры. Закрываться тултип будет при потери кнопкой ховера или фокуса, а также при нажатии на клавишу `Escape`.
 
 ```javascript
-tooltipAnchor?.addEventListener('mouseenter', showTooltip)
-tooltipAnchor?.addEventListener('focus', showTooltip)
+tooltipAnchor.addEventListener('mouseenter', showTooltip)
+tooltipAnchor.addEventListener('focus', showTooltip)
 
-tooltipAnchor?.addEventListener('mouseleave', hideTooltip)
-tooltipAnchor?.addEventListener('blur', hideTooltip)
+tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+tooltipAnchor.addEventListener('blur', hideTooltip)
 
-tooltipAnchor?.addEventListener('keydown', (event) => {
+tooltipAnchor.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
         hideTooltip()
     }
