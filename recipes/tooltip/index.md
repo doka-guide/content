@@ -349,7 +349,7 @@ const tooltip = document.querySelector('#tooltip')
 const tooltipAnchor = document.querySelector('#tooltip-anchor')
 ```
 
-Напишем функции для открытия и закрытия тултипа.
+Напишем функции для отображения и скрытия тултипа.
 
 ```javascript
 const showTooltip = () => {
