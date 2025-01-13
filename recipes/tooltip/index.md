@@ -162,7 +162,7 @@ tags:
 }
 ```
 
-Реализуем открытие и закрытие тултипа с помощью JavaScript-методов:
+Реализуем отображение и скрытие тултипа с помощью JavaScript-методов:
 
 ```javascript
 const tooltip = document.querySelector('#tooltip')
