@@ -239,6 +239,9 @@ const sadDog = Promise.reject('🐶')
 sadDog.catch(function (dog) {
   console.log(dog) // 🐶
 })
+.then(function () {
+  console.log('ok')
+})
 ```
 
 ## Асинхронная функция с промисом
