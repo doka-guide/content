@@ -11,6 +11,7 @@ groups:
       - accessible-forms
       - content-hidden
       - how-to-describe-pictures
+      - overlays
   - name: 'Вспомогательные технологии'
     items:
       - screenreaders
