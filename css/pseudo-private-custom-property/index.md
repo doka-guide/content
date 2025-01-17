@@ -1,38 +1,36 @@
 ---
 title: "Псевдоприватные кастомные свойства"
-descriptioin: "Как создать миксины на чистом CSS."
+descriptioin: "Удобный способ работать с кастомными свойствами и использовать их как аргументы миксинов у препроцессоров"
 authors:
   - alex-andr-19
 related:
   - tools/preprocessors
   - css/layer
   - css/cascade
+  - css/custom-properties
+  - css/var
 tags:
   - article
 ---
 
-## Задача
+Может возникнуть такая ситуация, когда дизайнеры создали классный дизайн для карточки продуктов. Но основной цвет может отличаться в зависимости от типа товара (скидки, популярное, новое и тд).
 
-В силу перехода CSS к встроенной вложенности, а также из-за естественного развития CSS многие преимущества препроцессоров стали отходить на второй план. Появились [кастомные свойства](/css/custom-properties/), произошёл взрыв CSS-функций (`color-mix`, [`counter`](/css/css-counters/), тригонометрические функции и другие).
-
-Миксины — последняя причина держаться за препроцессоры. Некоторые особенности миксинов всё ещё заменить не получится. Но есть решение, которое заменит собой большую часть миксинов – _псевдоприватные кастомные свойства_.
-
-## Решение
+В классическом варианте мы можем сделать следующим образом.
 
 ```html
 <section class="product-list">
-  <div class="product-list__item product-card primary"></div>
-  <div class="product-list__item product-card primary"></div>
-  <div class="product-list__item product-card secodary"></div>
-  <div class="product-list__item product-card advertisment"></div>
-  <div class="product-list__item product-card advertisment"></div>
+  <div class="product-list__item product-card">Карточка 1</div>
+  <div class="product-list__item product-card new">Карточка 2</div>
+  <div class="product-list__item product-card">Карточка 3</div>
+  <div class="product-list__item product-card">Карточка 4</div>
+  <div class="product-list__item product-card top">Карточка 5</div>
 </section>
 ```
 
 ```css
 .product-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 
   .product-list__item {
@@ -42,21 +40,120 @@ tags:
 }
 
 .product-card {
-  --_background-color: var(--background-color, #46ad8e);
-  --_border-color: var(--border-color, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background-color: var(--_background-color);
-  border: 1px solid var(--_border-color);
+  background-color: #46ad8e;
   border-radius: 12px;
+  box-shadow: 2px 5px 5px 1px #398f75;
 
-  &.secondary {
-    --background-color: #999999;
+  font-size: 48px;
+  line-height: 58px;
+  color: white;
+
+  &.new {
+    background-color: #45b9bb;
+    box-shadow: 4px 5px 5px 1px #3ba0a2;
+
+    color: black;
   }
 
-  &.advertisment {
-    --background-color: #efcf2f;
+  &.top {
+    background-color: #ffd700;
+    box-shadow: 4px 5px 5px 1px #dcbb02;
+
+    color: black;
   }
 }
 ```
 
-<iframe title="Пример использования кастомных свойств" src="demos/products-demo/" height="300"></iframe>
+<iframe title="Красивая карточка" src="demos/products-demo/default.html" height="300"></iframe>
+
+Можно увидеть, что основной цвет `#46ad8e`, `#45b9bb`, `#ffd700` влияет на бОльшую часть стилизации карточки: цвет фона, падающей тени и текста.
+Каждый раз подбирать нужный цвет тени и определять нужную степень контраста текста будет сложно, особенно когда появится необходимость масштабирования подобного рода типов карточек.
+
+## Возможное решение
+
+Классическим решением такой задачи может стать использование [кастомных свойств](/css/custom-properties/) и CSS-функции. Недостатки такого подхода станут очевидны после его реализации.
+
+```css
+:root {
+  --card-default: #46ad8e;
+  --card-new: #45b9bb;
+  --card-top: #ffd700;
+}
+
+.product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--card-default);
+  border-radius: 12px;
+  box-shadow: 2px 5px 5px 1px hsl(from var(--card-default) h s calc(l * 0.8));
+
+  font-size: 48px;
+  line-height: 58px;
+  color: hsl(from var(--card-default) 0 0 calc((50 - l) * 100));
+
+  &.new {
+    background-color: var(--card-new);
+    box-shadow: 4px 5px 5px 1px hsl(from var(--card-new) h s calc(l * 0.8));
+
+    color: hsl(from var(--card-new) 0 0 calc((50 - l) * 100));
+  }
+
+  &.top {
+    background-color: var(--card-top);
+    box-shadow: 4px 5px 5px 1px hsl(from var(--card-top) h s calc(l * 0.8));
+
+    color: hsl(from var(--card-top) 0 0 calc((50 - l) * 100));
+  }
+}
+```
+
+При таком подходе объём кода не увеличился, а читаемость стала значительно ниже. Также прямое использование кастомных свойств не дало возможности масштабирования таких классов.
+В таком случае очень хочется применить миксины или функции из препроцессоров.
+
+Приносить в проект препроцессоры для решения задачи перекраски карточек не выглядит разумным решением.
+
+В похожих ситуациях можно использовать псевдоприватные переменные:
+
+```css
+.product-card {
+  /* Псевдоприватное кастомное свойство */
+  --_background-color: var(--background-color, #46ad8e);
+  /* ---------------------------------- */
+
+  --_darker-color: hsl(from var(--_background-color) h s calc(l * 0.8));
+  --_text-color: hsl(from var(--_background-color) 0 0 calc((50 - l) * 100));
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--_background-color);
+  border-radius: 12px;
+  box-shadow: 2px 5px 5px 0 var(--_darker-color);
+
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--_text-color);
+
+  &.new {
+    /* Значение псевдоприватного кастомного свойства */
+    --background-color: #45b9bb;
+    /* --------------------------------------------- */
+  }
+  &.top {
+    /* Значение псевдоприватного кастомного свойства */
+    --background-color: #ffd700;
+    /* --------------------------------------------- */
+  }
+}
+```
+
+Таким образом можно уйти от переопределения кучи свойств, которые зависят от всего лишь одного значения.
+
+<iframe title="Красивая карточка" src="demos/products-demo/" height="300"></iframe>
