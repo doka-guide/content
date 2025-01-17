@@ -231,13 +231,16 @@ happyDog.then(function (dog) {
 })
 ```
 
-Другой метод `Promise.reject()` используется реже. Обратите внимание, что результатом выполнения `sadDog.catch()` будет промис в статусе `fulfilled`:
+Другой метод `Promise.reject()` используется реже. Обратите внимание, что результатом выполнения `sadDog.catch()` будет промис, который перейдёт в статус `fulfilled` после успешного выполнения функции переданной в `catch()`:
 
 ```js
 const sadDog = Promise.reject('🐶')
 
 sadDog.catch(function (dog) {
   console.log(dog) // 🐶
+})
+.then(function () {
+  console.log('ok')
 })
 ```
 
