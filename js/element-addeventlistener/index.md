@@ -6,6 +6,7 @@ authors:
 contributors:
   - nlopin
   - skorobaeus
+  - vladislav149
 related:
   - js/dom
   - js/events
