@@ -36,7 +36,6 @@ Promise.any = (promises) => {
 
   return new Promise((resolve, reject) => {
     const errors = [];
-    let rejectedCount = 0;
 
     promises.forEach((promise, index) => {
       // Оборачиваем каждый элемент массива в `Promise.resolve`, чтобы корректно обрабатывать непромисы
@@ -45,10 +44,9 @@ Promise.any = (promises) => {
         .then(resolve) // Резолвим с первым успешным значением
         .catch((error) => {
           errors[index] = error; // Сохраняем ошибку
-          rejectedCount += 1;
 
           // Если все промисы отклонены, формируем AggregateError
-          if (rejectedCount === promises.length) {
+          if (errors.length === promises.length) {
             reject(new AggregateError(errors, "Все промисы были отклонены"));
           }
         });
