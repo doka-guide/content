@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Demo</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+
+        font-family: sans-serif;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+
+        .product-list__item {
+          width: 100%;
+          aspect-ratio: 4/5;
+
+          text-align: center;
+        }
+      }
+
+      .product-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #46ad8e;
+        border-radius: 12px;
+        box-shadow: 4px 5px 5px 1px #398f75;
+
+        font-size: 48px;
+        line-height: 58px;
+        color: white;
+
+        &.new {
+          background-color: #45b9bb;
+          box-shadow: 4px 5px 5px 1px #3ba0a2;
+
+          color: black;
+        }
+
+        &.top {
+          background-color: #ffd700;
+          box-shadow: 4px 5px 5px 1px #dcbb02;
+
+          color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="product-list">
+      <div class="product-list__item product-card">Карточка 1</div>
+      <div class="product-list__item product-card new">Карточка 2</div>
+      <div class="product-list__item product-card">Карточка 3</div>
+      <div class="product-list__item product-card">Карточка 4</div>
+      <div class="product-list__item product-card top">Карточка 5</div>
+    </section>
+  </body>
+</html>
