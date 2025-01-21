@@ -39,7 +39,7 @@ Promise.any = (iterable) => {
     const errors = [];
 
     promises.forEach((promise, index) => {
-      // Оборачиваем каждый элемент массива в `Promise.resolve`, чтобы корректно обрабатывать непромисы
+      // Оборачиваем каждый элемент массива в Promise.resolve, чтобы корректно обрабатывать непромисы
       Promise
         .resolve(promise)
         .then(resolve) // Резолвим с первым успешным значением
@@ -123,7 +123,7 @@ Promise.any(123)
 
 ### Пример 4: Строка как аргумент
 
-И наконец проверим как Promise.any поведет себя со строкой:
+И наконец проверим как `Promise.any` поведет себя со строкой:
 
 ```js
 Promise.any("Тест")
