@@ -1,8 +1,8 @@
 ---
 title: "`Promise.try()`"
-description: ""
+description: "Выполняет и возвращает результат переданной функцию, как промис"
 baseline:
-  - group: array-at
+  - group: promises
     features:
       - javascript.builtins.Promise.try
 authors:
