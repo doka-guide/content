@@ -21,11 +21,14 @@ AggregateError — это встроенный объект ошибки в Java
 Напишем реализацию метода `Promise.any`:
 
 ```js
-Promise.any = (promises) => {
-  // Проверяем, что переданный аргумент — массив
-  if (!Array.isArray(promises)) {
-    return Promise.reject(new TypeError("Аргумент должен быть массивом"));
+Promise.any = (iterable) => {
+  // Проверяем, что переданный аргумент итерируемый.
+  if (typeof iterable?.[Symbol.iterator] !== "function") {
+    return Promise.reject(new TypeError("Аргумент должен быть итерируемым"));
   }
+
+  // Приводим итерируемый объект к массиву.
+  const promises = [...iterable];
 
   // Если массив пустой, сразу возвращаем отклонённый промис
   if (promises.length === 0) {
@@ -106,4 +109,24 @@ Promise.any(allRejected)
     console.error(error); // AggregateError: Все промисы были отклонены
     console.error(error.errors); // ["Ошибка 1", "Ошибка 2", "Ошибка 3"]
   });
+```
+
+### Пример 3: Число как аргумент
+
+Проверим поведение полифила с числом как аргументом:
+
+```js
+Promise.any(123)
+  .then(console.log)
+  .catch((error) => console.error(error)); // TypeError: "Аргумент должен быть итерируемым"
+```
+
+### Пример 4: Строка как аргумент
+
+И наконец проверим как Promise.any поведет себя со строкой:
+
+```js
+Promise.any("Тест")
+  .then(console.log) // Ожидаемый результат: "Т"
+  .catch(console.error);
 ```
