@@ -37,6 +37,7 @@ Promise.any = (iterable) => {
 
   return new Promise((resolve, reject) => {
     const errors = [];
+    let rejectedCount = 0;
 
     promises.forEach((promise, index) => {
       // Оборачиваем каждый элемент массива в Promise.resolve, чтобы корректно обрабатывать непромисы
@@ -45,9 +46,10 @@ Promise.any = (iterable) => {
         .then(resolve) // Резолвим с первым успешным значением
         .catch((error) => {
           errors[index] = error; // Сохраняем ошибку
+          rejectedCount += 1;
 
           // Если все промисы отклонены, формируем AggregateError
-          if (errors.length === promises.length) {
+          if (rejectedCount === promises.length) {
             reject(new AggregateError(errors, "Все промисы были отклонены"));
           }
         });
@@ -58,12 +60,13 @@ Promise.any = (iterable) => {
 
 ### Как это работает
 
-1. Проверяем, что входные данные — это массив. Если массив пустой, сразу возвращаем `AggregateError`.
-2. Создаём массив для хранения ошибок `errors` и счётчик отклонённых промисов `rejectedCount`.
-3. Для каждого промиса:
+1. Проверяем, что входные данные являются итерируемыми. Если аргумент не соответствует требованию, возвращаем `TypeError`.
+2. Преобразуем итерируемый объект в массив. Если он пустой, сразу возвращаем отклонённый промис с `AggregateError`.
+3. Создаём массив для хранения ошибок `errors` и счётчик отклонённых промисов `rejectedCount`.
+4. Для каждого промиса:
   - Если он выполняется успешно, вызываем `resolve` с его результатом.
   - Если он отклоняется, сохраняем ошибку в `errors` и увеличиваем счётчик `rejectedCount`.
-4. Если все промисы отклонены, вызываем `reject` с `AggregateError`, содержащим массив всех ошибок.
+5. Если все промисы отклонены, вызываем `reject` с `AggregateError`, содержащим массив всех ошибок.
 
 ## Тесты
 
@@ -83,11 +86,11 @@ const delay = (timeout, result, shouldReject = false) =>
 Представьте, что у нас есть три промиса с разным временем выполнения. Один из них завершится с ошибкой:
 
 ```js
-const p1 = delay(1000, "Первый успешный");
-const p2 = delay(500, "Второй успешный");
-const p3 = delay(1500, "Третий успешный", true);
+const promise1 = delay(1000, "Первый успешный");
+const promise2 = delay(500, "Второй успешный");
+const promise3 = delay(1500, "Третий с ошибкой", true);
 
-Promise.any([p1, p2, p3])
+Promise.any([promise1, promise2, promise3])
   .then(console.log) // Ожидаемый результат: "Второй успешный"
   .catch(console.error);
 ```
