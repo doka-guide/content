@@ -103,7 +103,7 @@ Promise.any([promise1, promise2, promise3])
 const allRejected = [
   delay(500, "Ошибка 1", true),
   delay(1000, "Ошибка 2", true),
-  delay(1500, "Ошибка 3", true),
+  delay(1500, "Ошибка 3", true)
 ];
 
 Promise.any(allRejected)
