@@ -23,39 +23,40 @@ AggregateError — это встроенный объект ошибки в Java
 ```js
 Promise.any = (iterable) => {
   // Проверяем, что переданный аргумент итерируемый.
-  if (typeof iterable?.[Symbol.iterator] !== "function") {
-    return Promise.reject(new TypeError("Аргумент должен быть итерируемым"));
+  if (typeof iterable?.[Symbol.iterator] !== 'function') {
+    return Promise.reject(new TypeError('Аргумент должен быть итерируемым'))
   }
 
   // Приводим итерируемый объект к массиву.
-  const promises = [...iterable];
+  const promises = [...iterable]
 
   // Если массив пустой, сразу возвращаем отклонённый промис
   if (promises.length === 0) {
-    return Promise.reject(new AggregateError([], "Все промисы были отклонены"));
+    return Promise.reject(new AggregateError([], 'Все промисы были отклонены'))
   }
 
   return new Promise((resolve, reject) => {
-    const errors = [];
-    let rejectedCount = 0;
+    const errors = []
+    let rejectedCount = 0
 
     promises.forEach((promise, index) => {
-      // Оборачиваем каждый элемент массива в Promise.resolve, чтобы корректно обрабатывать непромисы
+      // Оборачиваем каждый элемент массива в Promise.resolve,
+      // чтобы корректно обрабатывать непромисы
       Promise
         .resolve(promise)
         .then(resolve) // Резолвим с первым успешным значением
         .catch((error) => {
-          errors[index] = error; // Сохраняем ошибку
-          rejectedCount += 1;
+          errors[index] = error // Сохраняем ошибку
+          rejectedCount += 1
 
           // Если все промисы отклонены, формируем AggregateError
           if (rejectedCount === promises.length) {
-            reject(new AggregateError(errors, "Все промисы были отклонены"));
+            reject(new AggregateError(errors, 'Все промисы были отклонены'));
           }
-        });
-    });
-  });
-};
+        })
+    })
+  })
+}
 ```
 
 ### Как это работает
@@ -78,7 +79,7 @@ Promise.any = (iterable) => {
 const delay = (timeout, result, shouldReject = false) =>
   new Promise((resolve, reject) =>
     setTimeout(() => (shouldReject ? reject(result) : resolve(result)), timeout)
-  );
+  )
 ```
 
 ### Пример 1: Первый успешный промис
@@ -86,13 +87,13 @@ const delay = (timeout, result, shouldReject = false) =>
 Представьте, что у нас есть три промиса с разным временем выполнения. Один из них завершится с ошибкой:
 
 ```js
-const promise1 = delay(1000, "Первый успешный");
-const promise2 = delay(500, "Второй успешный");
-const promise3 = delay(1500, "Третий с ошибкой", true);
+const promise1 = delay(1000, 'Первый успешный')
+const promise2 = delay(500, 'Второй успешный')
+const promise3 = delay(1500, 'Третий с ошибкой', true)
 
 Promise.any([promise1, promise2, promise3])
-  .then(console.log) // Ожидаемый результат: "Второй успешный"
-  .catch(console.error);
+  .then(console.log) // Ожидаемый результат: 'Второй успешный'
+  .catch(console.error)
 ```
 
 ### Пример 2: Все промисы отклонены
@@ -101,17 +102,17 @@ Promise.any([promise1, promise2, promise3])
 
 ```js
 const allRejected = [
-  delay(500, "Ошибка 1", true),
-  delay(1000, "Ошибка 2", true),
-  delay(1500, "Ошибка 3", true)
-];
+  delay(500, 'Ошибка 1', true),
+  delay(1000, 'Ошибка 2', true),
+  delay(1500, 'Ошибка 3', true)
+]
 
 Promise.any(allRejected)
   .then(console.log)
   .catch((error) => {
     console.error(error); // AggregateError: Все промисы были отклонены
-    console.error(error.errors); // ["Ошибка 1", "Ошибка 2", "Ошибка 3"]
-  });
+    console.error(error.errors) // ['Ошибка 1', 'Ошибка 2', 'Ошибка 3']
+  })
 ```
 
 ### Пример 3: Число как аргумент
@@ -121,7 +122,7 @@ Promise.any(allRejected)
 ```js
 Promise.any(123)
   .then(console.log)
-  .catch((error) => console.error(error)); // TypeError: "Аргумент должен быть итерируемым"
+  .catch((error) => console.error(error)) // TypeError: 'Аргумент должен быть итерируемым'
 ```
 
 ### Пример 4: Строка как аргумент
@@ -129,7 +130,7 @@ Promise.any(123)
 И наконец проверим как `Promise.any()` поведёт себя со строкой:
 
 ```js
-Promise.any("Тест")
-  .then(console.log) // Ожидаемый результат: "Т"
-  .catch(console.error);
+Promise.any('Тест')
+  .then(console.log) // Ожидаемый результат: 'Т'
+  .catch(console.error)
 ```
