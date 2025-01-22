@@ -157,9 +157,8 @@
     </fieldset>
     <div class="code">
       <pre>
-
         @page {
-          sise: A4 vertical;
+          size: A4 vertical;
         }
       </pre>
     </div>
@@ -193,7 +192,7 @@
       },
       letter: {
         width: 216,
-        height: 280,
+        height: 280
       },
       custom: {
         width: 220,
@@ -201,10 +200,9 @@
       }
     }
 
-
     function makeClasses(arr, item) {
       arr.forEach((el) => {
-        el.classList.remove('active');
+        el.classList.remove('active')
       })
       item.classList.add('active')
     }
@@ -212,7 +210,7 @@
     function makeCode(size, orientation) {
       pre.textContent = `
       @page {
-        size: ${size} ${orientation}
+        size: ${size} ${orientation};
       }
       `
     }
