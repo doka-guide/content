@@ -42,8 +42,8 @@
     }
 
     .page {
-      background-color: #FFFFFF;
-      color: #181A1B;
+      background-color: #38393D;
+      color: #E6E6E6;
       display: grid;
       grid-template-columns: 1rem auto auto auto 1rem;
       grid-template-rows: 1rem 9rem 9rem 9rem 1rem;
@@ -122,17 +122,17 @@
     }
 
     .at-demo {
-      border: 1px dotted #181A1B;
+      border: 1px dotted #E6E6E6;
     }
 
     .at-demo.active {
-      border: 1px solid #41E847;
-      background-color: #41E847;
+      border: 1px solid #F498AD;
+      background-color: #F498AD;
     }
 
     .content {
       grid-area: content;
-      border: 1px dashed #181A1B;
+      border: 1px dashed #E6E6E6;
     }
 
     pre {
@@ -148,19 +148,20 @@
 
     button {
       padding: .5rem 1rem;
-      background-color: #FFD829;
+      background-color: #2E9AFF;
       transition: background-color 0.2s linear;
       border: none;
-      border-radius: 1rem;
+      border-radius: 6px;
       color: #181A1B;
+      font-size: 14px;
     }
 
     button.active {
-      background-color: #41E847;
+      background-color: #F498AD;
     }
 
     button:hover {
-      background-color: white;
+      background-color: #FFFFFF;
     }
   </style>
 </head>
@@ -204,17 +205,17 @@
         <button class="top-center-btn">@top-center</button>
         <button class="top-right-btn">@top-right</button>
         <button class="top-right-corner-btn">@top-right-corner</button>
-        <button class="bottom-left-corner-btn">@bottom-left-corner</button>
-        <button class="bottom-left-btn">@bottom-left</button>
-        <button class="bottom-center-btn">@bottom-center</button>
-        <button class="bottom-right-btn">@bottom-right</button>
-        <button class="bottom-right-corner-btn">@bottom-right-corner</button>
-        <button class="left-top-btn">@left-top</button>
-        <button class="left-middle-btn">@left-middle</button>
-        <button class="left-bottom-btn">@left-bottom</button>
         <button class="right-top-btn">@right-top</button>
         <button class="right-middle-btn">@right-middle</button>
         <button class="right-bottom-btn">@right-bottom</button>
+        <button class="bottom-right-corner-btn">@bottom-right-corner</button>
+        <button class="bottom-right-btn">@bottom-right</button>
+        <button class="bottom-center-btn">@bottom-center</button>
+        <button class="bottom-left-btn">@bottom-left</button>
+        <button class="bottom-left-corner-btn">@bottom-left-corner</button>
+        <button class="left-bottom-btn">@left-bottom</button>
+        <button class="left-middle-btn">@left-middle</button>
+        <button class="left-top-btn">@left-top</button>
       </div>
     </fieldset>
   </div>

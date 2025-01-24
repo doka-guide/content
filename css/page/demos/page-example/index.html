@@ -30,6 +30,11 @@
       color: #FFFFFF;
     }
 
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
     .container {
       max-width: 800px;
       display: grid;
@@ -45,8 +50,8 @@
     }
 
     .page {
-      background-color: #FFFFFF;
-      color: #181A1B;
+      background-color: #38393D;
+      color: #E6E6E6;
       padding: 10px 20px;
       grid-area: page;
     }
@@ -93,19 +98,20 @@
 
     button {
       padding: .5rem 1rem;
-      background-color: #FFD829;
+      background-color: #2E9AFF;
       transition: background-color 0.2s linear;
       border: none;
-      border-radius: 1rem;
+      border-radius: 6px;
       color: #181A1B;
+      font-size: 14px;
     }
 
     button.active {
-      background-color: #41E847;
+      background-color: #F498AD;
     }
 
     button:hover {
-      background-color: white;
+      background-color: #FFFFFF;
     }
 
     .code {
@@ -145,7 +151,7 @@
         <button class="makeA4 active">A4</button>
         <button class="makeA5">A5</button>
         <button class="makeLetter">Letter</button>
-        <button class="makeCustom">220 Х 300 мм</button>
+        <button class="makeCustom">220 х 300 мм</button>
       </div>
     </fieldset>
     <fieldset class="orientation">
