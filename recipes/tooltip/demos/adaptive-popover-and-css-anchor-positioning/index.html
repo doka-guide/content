@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Пример тултипа — Тултип — Дока</title>
+  <title>Адаптивный тултип на основе Popover API и CSS Anchor Positioning — Тултип — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
       overflow: scroll;
     }
 
-    .container {
+    .scrollable-container {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -191,7 +191,7 @@
 </head>
 <body>
   <div class="height-wrapper" id="height-wrapper">
-    <div class="container">
+    <div class="scrollable-container">
       <button class="button tooltip-anchor" id="tooltip-anchor" aria-describedby="tooltip">
         ❤️
       </button>
