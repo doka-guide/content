@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Статичный тултип, показывающийся с одной из четырёх сторон — Тултип — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .height-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+
+    .scrollable-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200vh;
+      min-width: 200vw;
+    }
+
+    .button {
+      display: block;
+      min-width: 100px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.15s ease-in;
+      cursor: pointer;
+      background-color: #C56FFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip {
+      position: absolute;
+      width: max-content;
+      max-width: 300px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+    }
+
+    /* хвостик тултипа */
+    .tooltip::after {
+      content: '';
+      position: absolute;
+      border: 7px solid transparent;
+    }
+
+    /* тутлтип сверху */
+    .tooltip[data-position=top] {
+      bottom: calc(100% + 14px);
+      left: 50%;
+      translate: -50% 0;
+    }
+
+    /* хвостик тутлтипа сверху */
+    .tooltip[data-position=top]::after {
+      bottom: -14px;
+      left: 50%;
+      translate: -50% 0;
+      border-top-color: #FFFFFF;
+    }
+
+    /* тутлтип снизу */
+    .tooltip[data-position=bottom] {
+      top: calc(100% + 14px);
+      left: 50%;
+      translate: -50% 0;
+    }
+
+    /* хвостик тутлтипа снизу */
+    .tooltip[data-position=bottom]::after {
+      top: -14px;
+      left: 50%;
+      translate: -50% 0;
+      border-bottom-color: #FFFFFF;
+    }
+
+    /* тутлтип справа */
+    .tooltip[data-position=right] {
+      left: calc(100% + 14px);
+      top: 50%;
+      translate: 0 -50%;
+      max-width: 200px;
+    }
+
+    /* хвостик тутлтипа справа */
+    .tooltip[data-position=right]::after {
+      left: -14px;
+      top: 50%;
+      translate: 0 -50%;
+      border-right-color: #FFFFFF;
+    }
+
+    /* тутлтип снизу */
+    .tooltip[data-position=left] {
+      right: calc(100% + 14px);
+      top: 50%;
+      translate: 0 -50%;
+      max-width: 200px;
+    }
+
+    /* хвостик тутлтипа снизу */
+    .tooltip[data-position=left]::after {
+      right: -14px;
+      top: 50%;
+      translate: 0 -50%;
+      border-left-color: #FFFFFF;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .layout-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+    }
+
+    @media (max-width: 768px) {
+      .button {
+        min-width: 60px;
+      }
+
+      .layout-row {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .layout-row:nth-child(2) .tooltip-container:first-child {
+        margin-left: 150px;
+      }
+
+      .layout-row:nth-child(2) .tooltip-container:last-child {
+        margin-right: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="height-wrapper" id="height-wrapper">
+    <div class="scrollable-container">
+      <div class="layout">
+        <div class="layout-row">
+          <div class="tooltip-container">
+            <button class="button tooltip-anchor" id="tooltip-top-anchor" aria-describedby="tooltip-top">
+              👆🏼
+            </button>
+            <div class="tooltip hidden" role="tooltip" id="tooltip-top" data-position="top">
+              Добавить в «Избранное»
+            </div>
+          </div>
+        </div>
+        <div class="layout-row">
+          <div class="tooltip-container">
+            <button class="button tooltip-anchor" id="tooltip-left-anchor" aria-describedby="tooltip-left">
+              👈🏼
+            </button>
+            <div class="tooltip hidden" role="tooltip" id="tooltip-left" data-position="left">
+              Добавить в «Избранное»
+            </div>
+          </div>
+          <div class="tooltip-container">
+            <button class="button tooltip-anchor" id="tooltip-right-anchor" aria-describedby="tooltip-right">
+              👉🏼
+            </button>
+            <div class="tooltip hidden" role="tooltip" id="tooltip-right" data-position="right">
+              Добавить в «Избранное»
+            </div>
+          </div>
+        </div>
+        <div class="layout-row">
+          <div class="tooltip-container">
+            <button class="button tooltip-anchor" id="tooltip-bottom-anchor" aria-describedby="tooltip-bottom">
+              👇🏼
+            </button>
+            <div class="tooltip hidden" role="tooltip" id="tooltip-bottom" data-position="bottom">
+              Добавить в «Избранное»
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const initTooltip = (position) => {
+      const tooltip = document.querySelector(`#tooltip-${position}`)
+      const tooltipAnchor = document.querySelector(`#tooltip-${position}-anchor`)
+
+      const showTooltip = () => {
+        tooltip.classList.remove('hidden')
+      }
+
+      const hideTooltip = () => {
+        tooltip.classList.add('hidden')
+      }
+
+      tooltipAnchor.addEventListener('mouseenter', showTooltip)
+      tooltipAnchor.addEventListener('focus', showTooltip)
+
+      tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+      tooltipAnchor.addEventListener('blur', hideTooltip)
+
+      tooltipAnchor.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          hideTooltip()
+        }
+      })
+    }
+
+    const tooltipPositions = ['top', 'right', 'bottom', 'left']
+
+    tooltipPositions.forEach(initTooltip)
+  </script>
+  <script>
+    const heightWrapper = document.querySelector('#height-wrapper')
+    heightWrapper.scrollTo({
+      top: heightWrapper.offsetHeight / 2,
+      left: heightWrapper.offsetWidth / 2,
+      behavior: 'instant'
+    })
+  </script>
+</body>
+</html>
