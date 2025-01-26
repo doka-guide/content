@@ -16,7 +16,7 @@ controller.abort()
 
 🛠 Отписка сразу от нескольких обработчиков.
 
-`AbortController` может быть удобнее, чем `removeEventListener` в случае, если нам нужно отписаться сразу от нескольких обработчиков 
+`AbortController` может быть удобнее, чем `removeEventListener` в случае, если нам нужно отписаться сразу от нескольких обработчиков
 
 ```js
 const abortController = new AbortController()
@@ -24,7 +24,7 @@ const element1 = document.querySelector('#element1')
 const element2 = document.querySelector('#element2')
 
 element1.addEventListener('click', () => {
-  // ...      
+  // ...
 }, {signal: abortController.signal})
 element2.addEventListener('click', () => {
   // ...
