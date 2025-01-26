@@ -578,6 +578,7 @@ const defineTooltipPosition = (boundingClientRect, intersectionRect) => {
 }
 
 const observerOptions = {
+  root: document,
   rootMargin: '-20px',
   threshold: 1
 }
@@ -640,6 +641,7 @@ const defineTooltipPosition = (boundingClientRect, intersectionRect) => {
 // отслеживаем приближение тултипа к границе вьюпорта меньше,
 // чем на 20 пикселей
 const observerOptions = {
+  root: document,
   rootMargin: '-20px',
   threshold: 1
 }
