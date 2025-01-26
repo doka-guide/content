@@ -1,5 +1,5 @@
 ---
-title: "`.isDisjointFrom()`"
+title: "`isDisjointFrom()`"
 description: "Метод сравнения коллекций, который позволяет проверить не имеют ли два множества общих элементов"
 baseline:
   - group: set-methods
@@ -17,7 +17,7 @@ tags:
 
 ## Кратко
 
-Метод `isDisjointFrom()` позволяет проверить, не имеют ли два множества общих элементов. Возвращает `true`, если множества не пересекаются, и `false` — если есть хотя бы один общий элемент.
+Метод `isDisjointFrom()` позволяет проверить, имеют ли два множества хотя бы один общий элемент. Возвращает `true`, если множества не пересекаются, и `false` — если есть хотя бы один общий элемент.
 
 ## Пример
 
@@ -27,18 +27,16 @@ tags:
 const frontendSkills = new Set(['JavaScript', 'HTML', 'CSS', 'Vue.js']);
 const backendSkills = new Set(['Python', 'Node.js', 'PostgreSQL', 'Redis']);
 
-console.log(frontendSkills.isDisjointFrom(backendSkills));
-// true, т.к. ни один из навыков не пересекается
+console.log(frontendSkills.isDisjointFrom(backendSkills)); // true, т.к. ни один из навыков не пересекается
 ```
 
-Как выяснилось, у них нет пересечений в навыках, но на самом деле frontend-разработчик забыл, что он также умеет писать код на `Node.js`.
+Как выяснилось, у них нет пересечений в навыках, но выяснилось, что frontend-разработчик забыл указать, что он также умеет писать код на `Node.js`.
 
 ```js
 // Добавим навык в существующее множество.
 frontendSkills.add('Node.js');
 
-console.log(frontendSkills.isDisjointFrom(backendSkills));
-// false, т.к. Node.js уже есть в обоих множествах
+console.log(frontendSkills.isDisjointFrom(backendSkills)); // false, т.к. Node.js уже есть в обоих множествах
 ```
 
 ## Как пишется
@@ -49,3 +47,4 @@ console.log(frontendSkills.isDisjointFrom(backendSkills));
 
 ## Как понять
 
+Метод `isDisjointFrom()` помогает проверить два множества на наличие хотя бы одного совпадающего элемента без прохода по ним с помощью [`forEach()`](/js/set-foreach/).
