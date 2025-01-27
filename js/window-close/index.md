@@ -19,9 +19,11 @@ tags:
 
 ## Пример
 
+Создадим пример, демонстрирующий создание и закрытие окна.
+
 ```js
 // Создаём функцию для открытия окна с Докой
-const openWindow = () => window.open('https://doka.guide/index.html')
+const openWindow = () => window.open('https://doka.guide/')
 // Создаём функцию для закрытия окна
 const closeWindow = (windowProxy) => windowProxy.close()
 
@@ -35,16 +37,18 @@ const currentWindow = openWindow()
 closeWindow(currentWindow)
 ```
 
-## Интерактивный пример
+<iframe title="Открываем и закрываем новое окно" src="demos/open-close-window/" height="450"></iframe>
 
-<iframe title="Закрываем открытое окно" src="demos/open-close-window/" height="450"></iframe>
+Закрыть окно можно также вызывая метод `close()` у объекта `window` в созданной окне.
+
+<iframe title="Закрываем новое окно изнутри" src="demos/close-window/" height="450"></iframe>
 
 ## Как пишется
 
 ```js
 openedWindow.close()
 ```
-`openedWindow` — `windowProxy`-объект, результат ранее выполненного `window.open()`.
+`openedWindow` — `windowProxy`-объект, результат ранее выполненного `window.open()` или глобальный объект `window`
 
 Метод `close()` не имеет параметров и возвращает `undefined`.
 
