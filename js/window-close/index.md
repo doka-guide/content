@@ -21,12 +21,12 @@ tags:
 
 ```js
 // Создаём функцию для открытия окна с Докой
-const openWindow = () => window.open('doka.guide/index.html')
+const openWindow = () => window.open('https://doka.guide/index.html')
 // Создаём функцию для закрытия окна
 const closeWindow = (windowProxy) => windowProxy.close()
 
 // Открываем окно
-const currentWindow = openWindow();
+const currentWindow = openWindow()
 
 // Работаем с новым окном
 // ...
