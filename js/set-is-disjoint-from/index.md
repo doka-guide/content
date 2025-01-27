@@ -27,7 +27,8 @@ tags:
 const frontendSkills = new Set(['JavaScript', 'HTML', 'CSS', 'Vue.js']);
 const backendSkills = new Set(['Python', 'Node.js', 'PostgreSQL', 'Redis']);
 
-console.log(frontendSkills.isDisjointFrom(backendSkills)); // true, т.к. ни один из навыков не пересекается
+console.log(frontendSkills.isDisjointFrom(backendSkills));
+// true, т.к. ни один из навыков не пересекается
 ```
 
 Как выяснилось, у них нет пересечений в навыках, но выяснилось, что frontend-разработчик забыл указать, что он также умеет писать код на `Node.js`.
@@ -36,7 +37,8 @@ console.log(frontendSkills.isDisjointFrom(backendSkills)); // true, т.к. ни 
 // Добавим навык в существующее множество.
 frontendSkills.add('Node.js');
 
-console.log(frontendSkills.isDisjointFrom(backendSkills)); // false, т.к. Node.js уже есть в обоих множествах
+console.log(frontendSkills.isDisjointFrom(backendSkills));
+// false, т.к. Node.js уже есть в обоих множествах
 ```
 
 ## Как пишется
