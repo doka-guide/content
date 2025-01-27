@@ -71,7 +71,7 @@ tags:
     aria-setsize="100"
     aria-posinset="1"
   >
-    <a href="#">Калибри спасла пчелу</a>
+    <a href="#">Стая колибри спасла пчелу</a>
   </span>
   <span
     role="listitem"
