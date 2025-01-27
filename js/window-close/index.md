@@ -37,7 +37,7 @@ closeWindow(currentWindow)
 
 ## Интерактивный пример
 
-<iframe title="Закрываем открытое окно" src="demos/open-close-window/" height="695"></iframe>
+<iframe title="Закрываем открытое окно" src="demos/open-close-window/" height="450"></iframe>
 
 ## Как пишется
 
