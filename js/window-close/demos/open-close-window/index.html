@@ -86,7 +86,16 @@
       buttonClose.disabled = false
 
       currentWindow = openWindow()
-    })
+
+      const timer = setInterval(function() {
+        if (currentWindow.closed) {
+          clearInterval(timer)
+
+          buttonClose.disabled = true
+          buttonOpen.disabled = false
+        }
+      }, 1000)
+    });
 
     buttonClose.addEventListener('click', function (event) {
       buttonClose.disabled = true
