@@ -39,7 +39,7 @@ closeWindow(currentWindow)
 
 <iframe title="Открываем и закрываем новое окно" src="demos/open-close-window/" height="450"></iframe>
 
-Закрыть окно можно также вызывая метод `close()` у объекта `window` в созданной окне.
+Также закрытие можно сделать с помощью `close()` у объекта `window` в созданном окне.
 
 <iframe title="Закрываем новое окно изнутри" src="demos/close-window/" height="450"></iframe>
 
@@ -48,7 +48,7 @@ closeWindow(currentWindow)
 ```js
 openedWindow.close()
 ```
-`openedWindow` — `windowProxy`-объект, результат ранее выполненного `window.open()` или глобальный объект `window`
+`openedWindow` — `windowProxy`-объект, результат ранее выполненного `window.open()`, или глобальный объект `window`.
 
 Метод `close()` не имеет параметров и возвращает `undefined`.
 
