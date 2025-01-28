@@ -1,6 +1,6 @@
 ---
 title: "`isDisjointFrom()`"
-description: "Метод сравнения коллекций, который позволяет проверить не имеют ли два множества общих элементов"
+description: "Метод проверки, имеют ли множества общие элементы."
 baseline:
   - group: set-methods
     features:
