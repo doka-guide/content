@@ -29,23 +29,23 @@ A ∩ B = ∅
 
 ## Пример
 
-У нас есть два набора навыков разных разработчиков, представленных в виде массивов строк. Им стало интересно, есть ли у них хотя бы один общий навык, для чего они могут использовать метод `isDisjointFrom()`:
+В одной компании два разработчика, Анна и Павел, решили организовать учебный кружок по программированию. Чтобы понять, могут ли они вести занятия вместе, им нужно проверить, есть ли у них пересекающиеся области знаний. В этом им поможет метод `isDisjointFrom()`:
 
 ```js
-const frontendSkills = new Set(['JavaScript', 'HTML', 'CSS', 'Vue.js']);
-const backendSkills = new Set(['Python', 'Node.js', 'PostgreSQL', 'Redis']);
+const annaSkills = new Set(['JavaScript', 'HTML', 'CSS', 'Vue.js']);
+const pavelSkills = new Set(['Python', 'Node.js', 'PostgreSQL', 'Redis']);
 
-console.log(frontendSkills.isDisjointFrom(backendSkills));
+console.log(annaSkills.isDisjointFrom(pavelSkills));
 // true, т.к. ни один из навыков не пересекается
 ```
 
-Как выяснилось, у них нет пересечений в навыках, но выяснилось, что frontend-разработчик забыл указать, что он также умеет писать код на `Node.js`.
+Как мы видим, у них нет общих навыках, но тут оказалось, что Анна забыла указать, что она также умеет писать код на `Node.js`.
 
 ```js
 // Добавим навык в существующее множество.
-frontendSkills.add('Node.js');
+annaSkills.add('Node.js');
 
-console.log(frontendSkills.isDisjointFrom(backendSkills));
+console.log(annaSkills.isDisjointFrom(pavelSkills));
 // false, т.к. Node.js уже есть в обоих множествах
 ```
 
