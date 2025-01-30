@@ -21,9 +21,7 @@ tags:
 <section class="product-list">
   <div class="product-list__item product-card">Карточка 1</div>
   <div class="product-list__item product-card new">Карточка 2</div>
-  <div class="product-list__item product-card">Карточка 3</div>
-  <div class="product-list__item product-card">Карточка 4</div>
-  <div class="product-list__item product-card top">Карточка 5</div>
+  <div class="product-list__item product-card top">Карточка 3</div>
 </section>
 ```
 
@@ -220,20 +218,17 @@ const someObj = {
   --_background-color: var(--background-color, #46ad8e);
   /* ---------------------------------- */
 
-  --_darker-color: hsl(from var(--_background-color) h s calc(l * 0.8));
-  --_text-color: hsl(from var(--_background-color) 0 0 calc((50 - l) * 100));
-
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: var(--_background-color);
   border-radius: 12px;
-  box-shadow: 2px 5px 5px 0 var(--_darker-color);
+  box-shadow: 2px 5px 5px 0 hsl(from var(--_background-color) h s calc(l * 0.8));
 
   font-size: 48px;
   line-height: 58px;
-  color: var(--_text-color);
+  color: hsl(from var(--_background-color) 0 0 calc((50 - l) * 100));
 
   &.new {
     /* Значение псевдоприватного кастомного свойства */
