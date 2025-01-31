@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
+  - css/display
+  - css/specificity
+  - html/article
   - tools/oop
-  - a11y/aria-hidden
-  - tools/cors
-  - js/boolean
-  - css/media
-  - css/scrollbar-gutter
-  - js/geolocation-api
   - css/flexbox-guide
-  - recipes/snow
-  - tools/bundlers
-  - js/infinite-scroll
-  - js/execution-order
-  - tools/gitlab-ci-cd
-  - css/pseudoelements
-  - js/async-in-js
-  - tools/webpack
+  - css/box-shadow
+  - css/position
+  - js/function
+  - recipes/popup
   - css/keyframes
-  - css/grid-guide
-  - html/flow
-  - html/section
-  - tools/network
+  - js/deal-with-forms
+  - tools/agile
+  - recipes/center
+  - html/video
   - css/attr
-  - css/box-model
-  - a11y/aria-intro
-  - html/nav
-  - recipes/git-rebase-onto
+  - js/infinite-scroll
+  - js/closures
+  - a11y/live-region
   - js/function-context
+  - css/custom-properties
+  - js/array-entries
+  - html/doctype
+  - html/img
+  - a11y/content-hidden
   - js/array-reduce-right
   - recipes/character-counter
-  - html/head
-  - html/article
-  - js/array-entries
-  - tools/agile
-  - tools/clean-architecture
-  - css/position
-  - recipes/ajax-form
+  - js/execution-order
+  - css/box-sizing
+  - html/flow
   - a11y/screenreaders
-  - css/specificity
   - html/div
+  - js/async-in-js
+  - a11y/css-impact-on-a11y
+  - recipes/progress
+  - html/head
+  - tools/webpack
+  - tools/network
+  - recipes/ajax-form
+  - tools/static-types
+  - html/section
+  - js/geolocation-api
+  - tools/bundlers
+  - tools/cors
+  - tools/docker
+  - recipes/git-rebase-onto
+  - tools/how-to-test-and-why
+  - css/media
+  - tools/clean-architecture
   - tools/how-the-browser-creates-pages
-  - html/doctype
+  - tools/gitlab-ci-cd
+  - css/scrollbar-gutter
+  - css/box-model
+  - js/var-let
+  - recipes/snow
   - css/transform-function
   - tools/ci-cd
-  - js/var-let
-  - js/function
-  - css/display
-  - a11y/content-hidden
   - html/input
-  - a11y/css-impact-on-a11y
-  - recipes/lets-encrypt-nginx
-  - tools/static-types
+  - html/nav
+  - css/pseudoelements
   - html/form
+  - a11y/aria-hidden
+  - recipes/lets-encrypt-nginx
+  - css/grid-guide
   - tools/markdown
-  - a11y/live-region
-  - js/deal-with-forms
-  - css/box-shadow
-  - css/custom-properties
-  - tools/docker
-  - css/box-sizing
-  - tools/how-to-test-and-why
-  - html/video
-  - js/closures
-  - html/img
-  - recipes/center
+  - a11y/aria-intro
   - tools/cli
-  - recipes/popup
-  - recipes/progress
+  - js/boolean
 ---
 
