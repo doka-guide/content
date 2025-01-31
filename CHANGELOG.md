@@ -4,6 +4,8 @@
 
 ## Январь 2025
 
+- 31 января, [Тултип](https://doka.guide/recipes/tooltip/), Рома Ахмадуллин
+
 - 16 января, [Оверлеи и отдельные версии сайтов](https://doka.guide/a11y/overlays/), Анастасия Ярош
 
 - 03 января, [`Console`](https://doka.guide/js/console/), Viktar Nezhbart
