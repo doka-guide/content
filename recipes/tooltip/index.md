@@ -638,7 +638,7 @@ const defineTooltipPosition = (boundingClientRect, intersectionRect) => {
 Далее применим этот метод внутри колбэка для `IntersectionObserver`.
 
 ```javascript
-/* 
+/*
   Отслеживаем приближение тултипа к границе вьюпорта меньше,
   чем на 20 пикселей
 */
