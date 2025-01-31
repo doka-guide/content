@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ховер при выбранном рейтинге — Рейтинг «5 звёзд» — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100dvh;
+      margin: 0;
+      padding: 50px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: "Roboto", sans-serif;
+    }
+
+    legend {
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+    }
+
+    .star-rating {
+      text-align: center;
+      border: none;
+    }
+
+    .stars {
+      list-style: none;
+      font-size: 5rem;
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
+    }
+
+    .star {
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .active,
+    .active ~ .star {
+      opacity: 1;
+    }
+
+    .stars:hover .star {
+      opacity: 0.5;
+    }
+
+    .stars .star:hover,
+    .stars .star:hover ~ .star {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <fieldset class="star-rating" role="radiogroup" data-rating-value="">
+    <legend>Оцените товар:</legend>
+    <ul class="stars">
+      <li class="star">
+        <button><span class="visually-hidden">5 звёзд</span>⭐️</button>
+      </li>
+      <li class="star">
+        <button><span class="visually-hidden">4 звезды</span>⭐️</button>
+      </li>
+      <li class="star">
+        <button><span class="visually-hidden">3 звезды</span>⭐️</button>
+      </li>
+      <li class="star">
+        <button><span class="visually-hidden">2 звезды</span>⭐️</button>
+      </li>
+      <li class="star">
+        <button><span class="visually-hidden">1 звезда</span>⭐️</button>
+      </li>
+    </ul>
+  </fieldset>
+
+  <script>
+    const rating = document.querySelector('.star-rating')
+    const stars = document.querySelectorAll('.star')
+
+    stars.forEach((star, index) => {
+      star.addEventListener('click', (event) => {
+        const activeStar = event.currentTarget
+
+        if (activeStar.classList.contains('active')) {
+          activeStar.classList.remove('active')
+          rating.dataset.ratingValue = ''
+        } else {
+          stars.forEach(star => star.classList.remove('active'))
+          activeStar.classList.add('active')
+          rating.dataset.ratingValue = parseInt(activeStar.textContent.trim())
+        }
+      })
+    })
+  </script>
+</body>
+</html>
