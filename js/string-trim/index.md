@@ -1,6 +1,6 @@
 ---
 title: ".trim()"
-description: "Метод для удаления пробелов в начале и конце строки"
+description: "Метод для удаления пробелов в начале и конце строки."
 authors:
   - punkmachine
 related:
