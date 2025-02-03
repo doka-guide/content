@@ -1,19 +1,8 @@
 ---
-title: Руководство по выражениям от контейнера
+title: "Руководство по выражениям от контейнера"
 description:
-cover:
-  author: kazakov-al
-  desktop:
-  mobile:
-  alt:
 authors:
   - kazakov-al
-contributors:
-  -
-editors:
-  -
-keywords:
-  -
 related:
   -
 tags:
