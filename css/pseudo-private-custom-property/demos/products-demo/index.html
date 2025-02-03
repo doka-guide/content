@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Решение с псевдоприватными свойствами — Псевдоприватные кастомные свойства — Дока</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+    </style>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+
+        .product-list__item {
+          width: 100%;
+          aspect-ratio: 4/5;
+
+          text-align: center;
+        }
+      }
+
+      .product-card {
+        --_background-color: var(--background-color, #46ad8e);
+
+        --_lighter-color: hsl(from var(--_background-color) h s calc(l * 1.2));
+        --_darker-color: hsl(from var(--_background-color) h s calc(l * 0.8));
+        --_text-color: hsl(
+          from var(--_background-color) 0 0 calc((50 - l) * 100)
+        );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: var(--_background-color);
+        border-radius: 12px;
+        box-shadow: 2px 5px 5px 0 var(--_darker-color);
+
+        font-size: 48px;
+        color: var(--_text-color);
+
+        &.new {
+          --background-color: #45b9bb;
+        }
+        &.top {
+          --background-color: #ffd700;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="product-list">
+      <div class="product-list__item product-card">Карточка 1</div>
+      <div class="product-list__item product-card new">Карточка 2</div>
+      <div class="product-list__item product-card top">Карточка 3</div>
+    </section>
+  </body>
+</html>
