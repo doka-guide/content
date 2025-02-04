@@ -71,7 +71,49 @@ tags:
 
 ## Как понять
 
-Для понимания логических свойств нужно отбросить привычные термины 'top', 'bottom', 'left', 'right' и заменить их на 'start', 'bottom' и так далее. Больше не используются термины 'width' или 'height', заменим их 'inline' и 'block'.
+Для понимания логических свойств нужно отбросить привычные термины 'top', 'bottom', 'left', 'right' и заменить их на 'inline-start', 'inline-end' и 'block-start', 'block-end'.
+
+Например, в русском языке чтение свойств начинается слева и идёт направо. Это строчный аспект свойств. Это можно легко запомнить, рассмотрев ряд элементов с 'display: inline' или вспомнив написание свойств 'justify-content: start'.
+
+Соответственно, привычное написание отступов будет выглядеть в разных языках так:
+
+Русский: padding-inline-start = padding-left
+Арабский: padding-inline-start = padding-right
+Японский: padding-inline-start = padding-top
+
+
+Названия логических свойств можно комбинировать в шорткаты, как мы это делаем в привычных 'padding', 'margin', 'border'.
+
+В физическом CSS код выглядит так:
+```css
+
+.block {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+```
+В новой технике код превратится в такой:
+
+```css
+. block {
+    position: fixed;
+    inset-block-start: 0;  /* top — для русского */
+    inset-block-end: 0;    /* bottom — для русского */
+    inset-inline-start: 0; /* left — для русского */
+    inset-inline-end: 0;   /* right — для русского */
+}
+```
+
+В виде шортката код выглядит так:
+```css
+.popup {
+    position: fixed;
+    inset: 0 0 0 0; /* top, right, bottom, left — для русского */
+}
+```
 
 ## А как раньше?
 
