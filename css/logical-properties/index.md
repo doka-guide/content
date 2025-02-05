@@ -192,15 +192,10 @@ left	  inset-inline-start
 right	  inset-inline-end
 bottom	inset-block-end
 
-margin-left: auto;
-margin-right: auto;	margin-inline: auto;
-margin-top: 0;
-margin-bottom: 0;	margin-block: 0;
-margin-top: 1em;
-margin-bottom: 2em;	margin-block: 1em 2em;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;	inset: 0;
-left: 10%;
-right: 10%;	inset-inline: 10%;
+margin-left: auto       margin-inline: auto
+margin-right: auto	     margin-inline: auto
+margin-top: 0, margin-bottom: 0     margin-block: 0
+margin-top: 1em, margin-bottom: 2em    	margin-block: 1em 2em
+
+top: 0, left: 0, bottom: 0, right: 0	    inset: 0
+left: 10%, right: 10%  	inset-inline: 10%
