@@ -132,7 +132,7 @@ tags:
 
 ### Мыслить логическими CSS-свойствами
 
-Для того, чтобы понять философию нового подхода, нужно немного поменять мышление и перестать опираться на привычный подход с ориентирами в виде физики, и перейти на строчно-блочную модель расположения элементов. 'inline' отвечает за ширину, а 'block' за высоту.
+Для того, чтобы понять философию нового подхода, нужно немного поменять мышление и перестать опираться на привычный подход с ориентирами в виде физики, и перейти на строчно-блочную модель расположения элементов. 'inline' отвечает за ширину, а 'block' за высоту. Если вообразить, что есть две основные оси - x для горизонтали, а y для вертикали, то значения для x будут со словом 'inline', y - 'block'. Это основное правило для понимания.
 
 ### Преимущества логических свойств CSS
 
@@ -166,38 +166,54 @@ tags:
 
 ## Список свойств для преобразования физических свойств в логические
 
-### margin
-
-margin-top	  margin-block-start
-margin-left	  margin-inline-start
+margin-top	margin-block-start
 margin-right	margin-inline-end
 margin-bottom	margin-block-end
-
-### padding
-
-padding-top	    padding-block-start
-padding-left	  padding-inline-start
-padding-right	  padding-inline-end
+margin-left	margin-inline-start
+margin-top + margin-bottom	margin-block
+margin-left + margin-right	margin-inline
+padding-top	padding-block-start
+padding-right	padding-inline-end
 padding-bottom	padding-block-end
+padding-left	padding-inline-start
+padding-top + padding-bottom	padding-block
+padding-left + padding-right	padding-inline
 
-### border
+border-top	border-block-start
+border-right	border-inline-end
+border-bottom	border-block-end
+border-left	border-inline-start
+border-top-left-radius	border-start-start-radius
+border-top-right-radius	border-end-end-radius
+border-bottom-right-radius	border-end-start-radius
+border-bottom-left-radius	border-start-end-radius
+border-top	border-block-start
+border-right	border-inline-end
+border-bottom	border-block-end
+border-left	border-inline-start
+border-top-left-radius	border-start-start-radius
+border-top-right-radius	border-end-end-radius
+border-bottom-right-radius	border-end-start-radius
+border-bottom-left-radius	border-start-end-radius
+border-top	border-block-start
+border-right	border-inline-end
+border-bottom	border-block-end
+border-left	border-inline-start
+border-top-left-radius	border-start-start-radius
+border-top-right-radius	border-end-end-radius
+border-bottom-right-radius	border-end-start-radius
+border-bottom-left-radius	border-start-end-radius
 
-border-top{-size|style|color}	    border-block-start{-size|style|color}
-border-left{-size|style|color}	  border-inline-start{-size|style|color}
-border-right{-size|style|color}	  border-inline-end{-size|style|color}
-border-bottom{-size|style|color}	border-block-end{-size|style|color}
+width	inline-size
+height	block-size
 
-### В общем
+[min/max]-width	[min/max]-inline-size
+[min/max]-height	[min/max]-block-size
 
-top	    inset-block-start
-left	  inset-inline-start
-right	  inset-inline-end
+left	inset-inline-start
+right	inset-inline-end
+top	inset-block-start
 bottom	inset-block-end
-
-margin-left: auto       margin-inline: auto
-margin-right: auto	     margin-inline: auto
-margin-top: 0, margin-bottom: 0     margin-block: 0
-margin-top: 1em, margin-bottom: 2em    	margin-block: 1em 2em
-
-top: 0, left: 0, bottom: 0, right: 0	    inset: 0
-left: 10%, right: 10%  	inset-inline: 10%
+top + bottom	inset-block
+left + right	inset-inline
+top + bottom + left + right	inset
