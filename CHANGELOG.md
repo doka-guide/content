@@ -2,16 +2,30 @@
 
 <!-- yaspeller ignore:start -->
 
+## Январь 2025
+
+- 31 января, [`aria-required`](https://doka.guide/a11y/aria-required/), juliememe
+- 31 января, [Тултип](https://doka.guide/recipes/tooltip/), Рома Ахмадуллин
+- 31 января, [`note`](https://doka.guide/a11y/role-note/), Татьяна Фокина
+- 30 января, [`readonly`](https://doka.guide/html/readonly/), Игорь Теплостанский
+- 27 января, [`list`](https://doka.guide/a11y/role-list/), Татьяна Фокина
+- 27 января, [`listitem`](https://doka.guide/a11y/role-listitem/), Татьяна Фокина
+- 27 января, [`region`](https://doka.guide/a11y/role-region/), Татьяна Фокина
+- 27 января, [`emphasis`](https://doka.guide/a11y/role-emphasis/), Татьяна Фокина
+- 27 января, [`strong`](https://doka.guide/a11y/role-strong/), Татьяна Фокина
+- 16 января, [Оверлеи и отдельные версии сайтов](https://doka.guide/a11y/overlays/), Анастасия Ярош
+- 03 января, [`Console`](https://doka.guide/js/console/), Viktar Nezhbart
+
+## Декабрь 2024
+
+- 10 декабря, [`@starting-style`](https://doka.guide/css/starting-style/), Рома Ахмадуллин
+
 ## Ноябрь 2024
 
 - 28 ноября, [`<menu>`](https://doka.guide/html/menu/), Алина Козловцева
-
 - 18 ноября, [Деструктуризация](https://doka.guide/js/destructuring-assignment/), Viktar Nezhbart
-
 - 15 ноября, [`rotate`](https://doka.guide/css/rotate/), Анастасия Ярош
-
 - 15 ноября, [`text-align-last`](https://doka.guide/css/text-align-last/), Мария Белинская
-
 
 ## Октябрь 2024
 
