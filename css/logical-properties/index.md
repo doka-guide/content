@@ -3,6 +3,7 @@ title: "`logical-properties-css`"
 description: "Как сделать свой интерфейс более универсальным и гибким, который адаптируется к любым обстоятельствам."
 authors:
   - anastasiyayarosh
+  - dachusta
 keywords:
   - logical-properties
   - логический css
@@ -11,7 +12,7 @@ keywords:
 related:
   - css/margin
   - css/padding
-  - css/root
+  - css/dir
 tags:
   - article
 ---
