@@ -1,45 +1,132 @@
 ---
 title: "`list`"
-description: "ARIA-атрибут, который добавляет тегу роль списка."
+description: "Атрибут для роли списка."
 authors:
   - o-maykova
+  - tatianafokina
 related:
   - a11y/role-listitem
   - html/ul
   - html/ol
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
-[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya). Добавляет любому тегу семантическую роль списка. Делает содержимое более доступным для скринридеров, если нет возможности использовать возможности HTML.
+[Роль структуры документа](/a11y/aria-roles/#roli-struktury-dokumenta) из [WAI-ARIA](/a11y/aria-intro/#specifikaciya) для списков.
 
-Роль есть у тегов [`<ul>`](/html/ul/) и [`<ol>`](/html/ol/) по умолчанию.
+Списки состоят из пунктов, в которых перечисляются объекты. Если при перечислении важна последовательность, используют нумерованные списки. Когда порядок не важен, добавьте маркированный список. В нумерованных списках каждый пункт начинается с цифры, в маркированных — с маркера (буллита).
+
+Роль `list` есть у тегов [`<ul>`](/html/ul/) и [`<ol>`](/html/ol/) по умолчанию.
 
 ## Пример
 
 ```html
-<section role="list">
-  <div role="listitem">Элемент списка 1</div>
-  <div role="listitem">Элемент списка 2</div>
-  <div role="listitem">Элемент списка 3</div>
-</section>
+<div role="list">
+  <span role="listitem">Картошка.</span>
+  <span role="listitem">Кружево.</span>
+  <span role="listitem">Мышьяк.</span>
+</div>
 ```
+
+Список с атрибутом [`aria-owns`](/a11y/aria-owns/), который связывает список-родитель с пунктами-детьми:
+
+```html
+<div role="list" aria-owns="item1 item2 item3">
+  <span role="listitem" id="item1">Картошка.</span>
+  <span role="listitem" id="item2">Кружево.</span>
+  <span role="listitem" id="item3">Мышьяк.</span>
+</div>
+```
+
+Не обязательно задавать списку `aria-owns`. Скринридеры озвучат оба примера одинаково: «Список из трёх пунктов. Картошка. Кружево. Мышьяк».
 
 ## Как пишется
 
-Добавьте к тегу ARIA-атрибут `role` со значением 'list'.
+Добавьте к тегу атрибут `role` со значением `list`. Лучше всего задавать роль [`<div>`](/html/div/) или [`<span>`](/html/span/).
 
-Внутри контейнера с этой ролью должен быть хотя бы один элемент с ролью [`listitem`](/a11y/role-listitem/). Также в элемент с ролью `list` можно добавить один или несколько вложенных списков с ролью `group`. Во вложенных списках также должен быть минимум один элемент с `listitem`.
+В первую очередь используйте для списков `<ul>` и `<ol>`. Роль `list` делает содержимое страницы понятным для [скринридеров](/a11y/screenreaders/) и других вспомогательных технологий, когда не хватает возможностей HTML. Явная роль списка пригодится для кастомных элементов или поддержки старого кода.
 
-Чаще всего для списков используют теги `<ul>` или `<ol>`. Если по какой-то причине не можете их использовать, тогда задавайте элементам явные роли `list` и `listitem`. Это могут быть кастомный элемент или поддержка старого кода.
+Внутри контейнера с ролью `list` должен находиться хотя бы один пункт [`listitem`](/a11y/role-listitem/), иначе скринридеры не засчитают элемент списком.
 
-Не дублируйте `role="list"` для тегов `<ul>` и `<ol>`, в них уже встроена эта роль по умолчанию.
+```html
+<div role="list">
+  <span role="listitem">Блюда.</span>
+</div>
+```
 
-Обратите внимание, `list` не означает конкретный вид списка — упорядоченный или неупорядоченный. Так как `list` не изменяет внешний вид элементов, не забудьте стилизовать элементы с ней с помощью CSS.
+Можете вкладывать в кастомные списки `list` другие списки с ролью [`group`](/a11y/role-group/). Вложенные списки должны включать минимум один пункт с ролью `listitem`.
 
-## Как понять
+```html
+<div role="list">
+  <span role="listitem">Блюда:</span>
+  <div role="group">
+    <span role="listitem">сырники со сметаной;</span>
+    <span role="listitem">запеканка;</span>
+    <span role="listitem">вареники.</span>
+  </div>
+</div>
+```
 
-Роль `list` изменяет семантику других HTML-тегов на семантику списка.
+Обратите внимание, что ARIA-роль `list` не указывает на то, какой тип у списка — упорядоченный или неупорядоченный.
+
+```html
+<div role="list" class="list">
+  <span role="listitem" class="list__item">Повелитель мух</span>
+  <span role="listitem" class="list__item">Чума</span>
+  <span role="listitem" class="list__item">Процесс</span>
+  <span role="listitem" class="list__item">Мамаша Кураж и её дети</span>
+</div>
+```
+
+<iframe title="Кастомный список по умолчанию" src="demos/list-without-styles/" height="350"></iframe>
+
+Так как `list` не влияет на внешний вид элемента, стилизуйте список и пункты в нём с помощью CSS.
+
+```css
+.list {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+}
+
+.list__item {
+  position: relative;
+  padding-left: 25px;
+  text-transform: lowercase;
+}
+
+.list__item::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background-color: #10F3AF;
+}
+
+.list__item::after {
+  content: ";";
+}
+
+.list__item:last-of-type::after {
+  content: ".";
+}
+```
+
+<iframe title="Кастомный список со стилями" src="demos/list-with-styles/" height="350"></iframe>
+
+Обычно не рекомендуется явно дублировать роль `list` для `<ul>` и `<ol>`. Единственное исключение — исправление поведения списков в Safari. Браузер сбрасывает роль `list` у `<ul>` и `<ol>` со свойством [`list-style: none`](/css/list-style/), которые не вложены в [`<nav>`](/html/nav/). Это осознанное решение разработчиков движка WebKit.
+
+Если вам _действительно_ важно сохранить семантику списка, задайте элементу `role="list"`:
+
+```html
+<!-- Фолбэк для Safari -->
+<ul role="list">
+  <li>Свобода.</li>
+  <li>Равенство.</li>
+  <li>Братство.</li>
+</ul>
+```

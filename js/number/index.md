@@ -3,6 +3,8 @@ title: "Число"
 description: "Тип данных для работы с числами."
 authors:
   - nlopin
+contributors:
+  - anastasiayarosh
 related:
   - js/typecasting
   - js/expressions-vs-statements
@@ -149,7 +151,9 @@ console.log(Number.isNaN(result))
 // true
 ```
 
-Для проверки, что значение в переменной является конечным числом, а не специальным значением, пользуйтесь функцией [`Number.isFinite()`](/js/number-isfinite/), она возвращает `true`, если переданный аргумент — число.
+Если в математическом выражении есть `NaN`, в результате тоже получится `NaN`. Единственное исключение — возведение в нулевую степень. `NaN` ** 0 = 1.
+
+Для проверки, что значение в переменной является конечным числом, а не специальным значением, используйте функцию [`Number.isFinite()`](/js/number-isfinite/). Она возвращает `true`, если переданный аргумент — число, кроме `Infinity`.
 
 ```js
 const inf = Infinity

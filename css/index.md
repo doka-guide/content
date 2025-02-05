@@ -95,6 +95,7 @@ groups:
       - media
       - supports
       - layer
+      - starting-style
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -370,6 +371,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - orphans
       - widows
   - name: 'Колонки и таблицы'
     items:
