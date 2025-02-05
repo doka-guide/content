@@ -31,11 +31,10 @@ tags:
 ```css
 .card {
   padding-inline-start: 2.5rem;
-  padding-inline-end: 1rem;
+  margin-inline-end: 1rem;
   border-inline-start: 6px solid blue;
 }
 ```
-
 
 ## Как пишется
 
@@ -154,4 +153,32 @@ tags:
 
 В Tailwind постепенно появилась поддержка логических свойств CSS, которая позволяет делает современные интерфейсы с гибкой раскладкой с помощью этого CSS-фреймворка.
 
+## Список свойств для преобразования физических свойств в логические
 
+### margin
+
+margin-top	  margin-block-start
+margin-left	  margin-inline-start
+margin-right	margin-inline-end
+margin-bottom	margin-block-end
+
+### padding
+
+padding-top	padding-block-start
+padding-left	padding-inline-start
+padding-right	padding-inline-end
+padding-bottom	padding-block-end
+
+### border
+
+border-top{-size|style|color}	border-block-start{-size|style|color}
+border-left{-size|style|color}	border-inline-start{-size|style|color}
+border-right{-size|style|color}	border-inline-end{-size|style|color}
+border-bottom{-size|style|color}	border-block-end{-size|style|color}
+
+### sides
+
+top	inset-block-start
+left	inset-inline-start
+right	inset-inline-end
+bottom	inset-block-end
