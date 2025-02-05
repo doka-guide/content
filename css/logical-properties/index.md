@@ -164,21 +164,21 @@ margin-bottom	margin-block-end
 
 ### padding
 
-padding-top	padding-block-start
-padding-left	padding-inline-start
-padding-right	padding-inline-end
+padding-top	    padding-block-start
+padding-left	  padding-inline-start
+padding-right	  padding-inline-end
 padding-bottom	padding-block-end
 
 ### border
 
-border-top{-size|style|color}	border-block-start{-size|style|color}
-border-left{-size|style|color}	border-inline-start{-size|style|color}
-border-right{-size|style|color}	border-inline-end{-size|style|color}
+border-top{-size|style|color}	    border-block-start{-size|style|color}
+border-left{-size|style|color}	  border-inline-start{-size|style|color}
+border-right{-size|style|color}	  border-inline-end{-size|style|color}
 border-bottom{-size|style|color}	border-block-end{-size|style|color}
 
 ### sides
 
-top	inset-block-start
-left	inset-inline-start
-right	inset-inline-end
+top	    inset-block-start
+left	  inset-inline-start
+right	  inset-inline-end
 bottom	inset-block-end
