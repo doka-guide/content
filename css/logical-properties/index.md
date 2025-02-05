@@ -1,5 +1,5 @@
 ---
-title: "`logical-properties-css`"
+title: "Логические свойства CSS"
 description: "Как сделать свой интерфейс более универсальным и гибким, который адаптируется к любым обстоятельствам."
 authors:
   - anastasiyayarosh
