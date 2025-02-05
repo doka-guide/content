@@ -108,10 +108,11 @@ tags:
 ```
 
 В виде шортката код выглядит так:
+
 ```css
 .popup {
-    position: fixed;
-    inset: 0 0 0 0; /* top, right, bottom, left — для русского */
+  position: fixed;
+  inset: 0; /* top, right, bottom, left — для русского */
 }
 ```
 
