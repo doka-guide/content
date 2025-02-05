@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты поведения прокрутки — scroll-snap-type — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .layout {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 30px;
+      width: 100%;
+    }
+
+    .example {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 350px;
+    }
+
+    .example_caption {
+      font-size: 14px;
+    }
+
+    .scroll-container {
+      width: 250px;
+      height: 250px;
+      display: flex;
+      overflow-x: scroll;
+    }
+
+    .scroll-snap-type-none {
+      scroll-snap-type: none;
+    }
+
+    .scroll-snap-type-mandatory {
+      scroll-snap-type: x mandatory;
+    }
+
+    .scroll-snap-type-proximity {
+      scroll-snap-type: x proximity;
+    }
+
+    .item {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: #2E9AFF;
+      color: black;
+      scroll-snap-align: start;
+      font-size: 2em;
+    }
+
+    .item:nth-child(even) {
+      background-color: #FFFFFF;
+    }
+
+    @media (width <= 890px) {
+      body {
+        padding: 30px;
+      }
+
+      .scroll-container {
+        width: 200px;
+        height: 200px;
+      }
+
+      .example_caption {
+        font-size: 12px;
+      }
+    }
+
+    @media (width <= 768px) {
+      .layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .scroll-container {
+        width: 80%;
+        height: 125px;
+      }
+
+      .example_caption {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>scroll-snap-type: none</code>
+      </figcaption>
+      <div class="scroll-container scroll-snap-type-none">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </figure>
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>scroll-snap-type: x mandatory</code>
+      </figcaption>
+      <div class="scroll-container scroll-snap-type-mandatory">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </figure>
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>scroll-snap-type: x proximity</code>
+      </figcaption>
+      <div class="scroll-container scroll-snap-type-proximity">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </figure>
+  </div>
+</body>
+</html>
