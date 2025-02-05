@@ -86,24 +86,24 @@ tags:
 
 В физическом CSS код выглядит так:
 ```css
-
 .block {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 ```
+
 В новой технике код превратится в такой:
 
 ```css
-. block {
-    position: fixed;
-    inset-block-start: 0;  /* top — для русского */
-    inset-block-end: 0;    /* bottom — для русского */
-    inset-inline-start: 0; /* left — для русского */
-    inset-inline-end: 0;   /* right — для русского */
+.block {
+  position: fixed;
+  inset-block-start: 0;  /* top — для русского */
+  inset-block-end: 0;    /* bottom — для русского */
+  inset-inline-start: 0; /* left — для русского */
+  inset-inline-end: 0;   /* right — для русского */
 }
 ```
 
