@@ -2,9 +2,12 @@
 Это значит, что если мы обратимся к переменной ещё до момента её инициализации, то получим `undefined`.
 
 ```js
-console.log(a); // Не может получить доступ к 'a' до её инициализации
-console.log(b); // Не может получить доступ к 'b' до её инициализации
-console.log(c); // undefined
+console.log(a);
+// Не может получить доступ к 'a' до её инициализации
+console.log(b);
+// Не может получить доступ к 'b' до её инициализации
+console.log(c);
+// undefined
 
 let a = 10;
 const b = 20;
@@ -22,9 +25,12 @@ if (true) {
   var c = 30;
 }
 
-console.log(a); // ReferenceError
-console.log(b); // ReferenceError
-console.log(c); // 30
+console.log(a);
+// ReferenceError
+console.log(b);
+// ReferenceError
+console.log(c);
+// 30
 ```
 
 Переменная, объявленная через `const` становиться константой и её невозможно переопределить. При попытке это сделать мы получим ошибку.
@@ -33,8 +39,10 @@ console.log(c); // 30
 let a = 10;
 const b = 20;
 
-a = 15; // Все впорядке
-b = 40; // TypeError
+a = 15;
+// Все впорядке
+b = 40;
+// TypeError
 ```
 
 Однако важно помнить, что если через `const` объявлен объект или массив, то его содержимое может быть изменено (например, можно добавить новые свойства или изменить элементы массива). Это связано с тем, что `const` фиксирует только ссылку на объект, но не делает его неизменяемым.
@@ -44,14 +52,18 @@ const obj = { name: "Nikita" };
 obj.name = "Nick";
 obj.age = 25;
 
-console.log(obj); // {name: 'Nick', age: 25}
+console.log(obj);
+// {name: 'Nick', age: 25}
 
 const arr = [1, 2, 3];
 arr.push(4);
 arr[0] = 10;
 
-console.log(arr); // [10, 2, 3, 4]
+console.log(arr);
+// [10, 2, 3, 4]
 
-obj = {}; // TypeError: Assignment to constant variable
-arr = []; // TypeError: Assignment to constant variable
+obj = {};
+// TypeError: Assignment to constant variable
+arr = [];
+// TypeError: Assignment to constant variable
 ```
