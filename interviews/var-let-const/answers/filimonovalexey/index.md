@@ -41,12 +41,16 @@ b = 40; // TypeError
 
 ```javascript
 const obj = { name: "Nikita" };
-obj.name = "Nick"; // объект изменён
-obj.age = 25; // добавлено новое свойство
+obj.name = "Nick";
+obj.age = 25;
+
+console.log(obj); // {name: 'Nick', age: 25}
 
 const arr = [1, 2, 3];
-arr.push(4); // массив изменён
-arr[0] = 10; // элемент изменён
+arr.push(4);
+arr[0] = 10;
+
+console.log(arr); // [10, 2, 3, 4]
 
 obj = {}; // TypeError: Assignment to constant variable
 arr = []; // TypeError: Assignment to constant variable
