@@ -4,9 +4,9 @@ description: "Добавляем отступ под скроллбар, что�
 baseline:
   - group: scrolling
     features:
-     - css.properties.scrollbar-gutter
-     - css.properties.scrollbar-gutter.auto
-     - css.properties.scrollbar-gutter.stable
+      - css.properties.scrollbar-gutter
+      - css.properties.scrollbar-gutter.auto
+      - css.properties.scrollbar-gutter.stable
 authors:
   - xpleesid
 keywords:
