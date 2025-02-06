@@ -1,6 +1,12 @@
 ---
 title: "`scrollbar-gutter`"
 description: "Добавляем отступ под скроллбар, чтобы его появление или скрытие не вызывало сдвиги контента."
+baseline:
+  - group: scrolling
+    features:
+      - css.properties.scrollbar-gutter
+      - css.properties.scrollbar-gutter.auto
+      - css.properties.scrollbar-gutter.stable
 authors:
   - xpleesid
 keywords:
@@ -52,7 +58,3 @@ body {
 ```
 
 <iframe title="Убираем сдвиги контента" src="demos/good" height="400"></iframe>
-
-## Поддержка
-
-`scrollbar-gutter` поддерживается всеми современными браузерами, кроме Safari. Подробнее можно посмотреть на [Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-gutter).
