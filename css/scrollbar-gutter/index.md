@@ -52,7 +52,3 @@ body {
 ```
 
 <iframe title="Убираем сдвиги контента" src="demos/good" height="400"></iframe>
-
-## Поддержка
-
-`scrollbar-gutter` поддерживается всеми современными браузерами, кроме Safari. Подробнее можно посмотреть на [Can I Use](https://caniuse.com/mdn-css_properties_scrollbar-gutter).
