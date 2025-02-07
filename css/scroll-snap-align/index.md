@@ -54,4 +54,4 @@ tags:
 
 Попробуйте прокрутить каждый из контейнеров.
 
-<iframe title="Варианты значений" src="demos/values/" height="600"></iframe>
+<iframe title="Варианты значений" src="demos/values/" height="640"></iframe>
