@@ -15,13 +15,13 @@
 ---
 title: "Название доки"
 description: "Описание для соцсетей, 160-200 символов"
+baseline:
+  - Конфигурация для отображения совместимости в популярных браузерах
 cover:
   author: nick_name
   desktop: 'images/desktop.png'
   mobile: 'images/mobile.png'
   alt: 'Альтернативное описание для обложки'
-baseline:
-  - Конфигурация для отображения совместимости в популярных браузерах
 authors:
   - Никнейм основного автора
 contributors:
