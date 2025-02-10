@@ -3,6 +3,8 @@ title: "Псевдоприватные кастомные свойства"
 descriptioin: "Удобный способ работать с кастомными свойствами и использовать их как аргументы миксинов у препроцессоров."
 authors:
   - alex-andr-19
+contributors:
+  - skorobaeus
 related:
   - tools/preprocessors
   - css/layer
@@ -19,57 +21,45 @@ tags:
 
 ```html
 <section class="product-list">
-  <div class="product-list__item product-card">Карточка 1</div>
-  <div class="product-list__item product-card new">Карточка 2</div>
-  <div class="product-list__item product-card top">Карточка 3</div>
+  <div class="product-list__item product-card">Глубина шторма</div>
+  <div class="product-list__item product-card new">Электро-лазурь</div>
+  <div class="product-list__item product-card top">Сахарная вата</div>
 </section>
 ```
 
 И затем задать стили этим уникальным классам:
 
 ```css
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
-
-  .product-list__item {
-    width: 100%;
-    aspect-ratio: 4/5;
-  }
-}
-
 .product-card {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: #46ad8e;
-  border-radius: 12px;
-  box-shadow: 2px 5px 5px 1px #398f75;
+  background-color: #123E66;
+  box-shadow: 10px 10px 0 0 #0D2B47;
 
-  font-size: 48px;
+  font-size: 18px;
   color: #FFFFFF;
 
   &.new {
-    background-color: #45b9bb;
-    box-shadow: 4px 5px 5px 1px #3ba0a2;
+    background-color: #2E9AFF;
+    box-shadow: 10px 10px 0 0 #006DD3;
 
     color: #000000;
   }
 
   &.top {
-    background-color: #ffd700;
-    box-shadow: 4px 5px 5px 1px #dcbb02;
+    background-color: #F498AD;
+    box-shadow: 10px 10px 0 0 #E92D58;
 
     color: #000000;
   }
 }
 ```
 
-<iframe title="Красивая карточка" src="demos/products-demo/default.html" height="300"></iframe>
+<iframe title="Базовое решение" src="demos/classes/" height="350"></iframe>
 
-Можно увидеть, что основные цвета (`#46ad8e`, `#45b9bb`, `#ffd700`) влияют на бОльшую часть стилизации карточки: цвет фона, падающей тени и текста.
+Можно увидеть, что основные цвета (`#123E66`, `#2E9AFF`, `#F498AD`) влияют на бОльшую часть стилизации карточки: цвет фона, падающей тени и текста.
 Каждый раз подбирать нужный цвет тени и определять нужную степень контраста текста будет сложно, особенно когда появится необходимость расширить набор карточек подобного рода.
 
 ## Возможное решение
@@ -78,9 +68,9 @@ tags:
 
 ```css
 :root {
-  --card-default: #46ad8e;
-  --card-new: #45b9bb;
-  --card-top: #ffd700;
+  --card-default: #123E66;
+  --card-new: #2E9AFF;
+  --card-top: #F498AD;
 }
 
 .product-card {
@@ -89,22 +79,21 @@ tags:
   align-items: center;
 
   background-color: var(--card-default);
-  border-radius: 12px;
-  box-shadow: 2px 5px 5px 1px hsl(from var(--card-default) h s calc(l * 0.8));
+  box-shadow: 10px 10px 0 0 hsl(from var(--card-default) h s calc(l * 0.7));
 
-  font-size: 48px;
+  font-size: 18px;
   color: hsl(from var(--card-default) 0 0 calc((50 - l) * 100));
 
   &.new {
     background-color: var(--card-new);
-    box-shadow: 4px 5px 5px 1px hsl(from var(--card-new) h s calc(l * 0.8));
+    box-shadow: 10px 10px 0 0 hsl(from var(--card-new) h s calc(l * 0.7));
 
     color: hsl(from var(--card-new) 0 0 calc((50 - l) * 100));
   }
 
   &.top {
     background-color: var(--card-top);
-    box-shadow: 4px 5px 5px 1px hsl(from var(--card-top) h s calc(l * 0.8));
+    box-shadow: 10px 10px 0 0 hsl(from var(--card-top) h s calc(l * 0.7));
 
     color: hsl(from var(--card-top) 0 0 calc((50 - l) * 100));
   }
@@ -218,7 +207,7 @@ const someObj = {
 ```css
 .product-card {
   /* Псевдоприватное кастомное свойство */
-  --_background-color: var(--background-color, #46ad8e);
+  --_background-color: var(--background-color, #123E66);
   /* ---------------------------------- */
 
   display: flex;
@@ -226,23 +215,22 @@ const someObj = {
   align-items: center;
 
   background-color: var(--_background-color);
-  border-radius: 12px;
-  box-shadow: 2px 5px 5px 0 hsl(from var(--_background-color) h s calc(l * 0.8));
+  box-shadow: 2px 5px 5px 0 hsl(from var(--_background-color) h s calc(l * 0.7));
 
   font-size: 48px;
   color: hsl(from var(--_background-color) 0 0 calc((50 - l) * 100));
 
   &.new {
     /* Значение псевдоприватного кастомного свойства */
-    --background-color: #45b9bb;
+    --background-color: #2E9AFF;
     /* --------------------------------------------- */
   }
   &.top {
     /* Значение псевдоприватного кастомного свойства */
-    --background-color: #ffd700;
+    --background-color: #F498AD;
     /* --------------------------------------------- */
   }
 }
 ```
 
-<iframe title="Красивая карточка" src="demos/products-demo/" height="300"></iframe>
+<iframe title="Решение с псевдоприватными свойствами" src="demos/pseudo-privates/" height="350"></iframe>
