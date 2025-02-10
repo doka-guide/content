@@ -96,6 +96,8 @@ tags:
 
 ![Главная страница правительства ОАЭ с включённым арабским языком, с изображениями](images/uae-main-arab-images.png)
 
+<iframe title="Как меняется направление интерфейса в зависимости от используемого языка" src="demos/languages/" height="340"></iframe>
+
 ## Как понять
 
 Для понимания логических свойств нужно отбросить привычные термины 'top', 'bottom', 'left', 'right' и заменить их на 'inline-start', 'inline-end' и 'block-start', 'block-end'.
