@@ -1,6 +1,6 @@
 # Baseline
 
-При написании статьи о новой возможности JavaScript или CSS, автор может добавить отображение информации о работоспособности новой функциональности в основных браузерах. Это упрощает понимание читателя о готовности новой фичи для использования в своих проекта.
+Когда вы пишете о новой возможности в JavaScript или CSS, можно показать, как она работает в основных браузерах. Так читатель поймёт, готова ли фича для использования в проектах.
 
 Мы используем для этого [Baseline](https://web.dev/baseline).
 
@@ -30,7 +30,7 @@ authors:
 `<baseline-group>`, — имя группы, обязательное поле;
 `<baseline-feature1>`, `<baseline-feature2>` — имена одной или нескольких фич.
 
-Данные о функциональностях JS и CSS формируются и хранятся в проекте [web-platform-dx/web-features](https://github.com/web-platform-dx/web-features) в виде конфигурационных файлов в формате `.yml`.
+Все фичи, которые поддерживает Baseline можно найти в `.yml`-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features) от W3C WebDX Community Group. А документация на английском [тут](https://github.com/web-platform-dx/web-features/tree/main/docs)
 
 ### Как найти необходимую конфигурацию
 
