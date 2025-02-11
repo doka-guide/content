@@ -10,25 +10,18 @@
 
 ## Как подключить Baseline к статье
 
-Что бы добавить Baseline к статье надо указать baseline-конфиг в заголовке статьи.
-
-Для это используется служебное поле `baseline` в заголовке. Разбирём абстрактный пример конфигурации:
+Чтобы добавить Baseline к статье надо указать baseline-конфиг в заголовке статьи. Например:
 
 ```markdown
-...
-description: "Описание для соцсетей, 160-200 символов
 baseline:
+  <!-- имя группы, обязательное поле -->
   - group: <baseline-group>
     features:
+      <!-- список названий фич -->
       - <baseline-feature1>
       - <baseline-feature2>
-authors:
-  - Никнейм основного автора
-...
 ```
-Где:
-`<baseline-group>`, — имя группы, обязательное поле;
-`<baseline-feature1>`, `<baseline-feature2>` — имена одной или нескольких фич.
+С полным перечнем полей в заголовке можно ознакомиться в [документации](examples/doka.md).
 
 Все фичи, которые поддерживает Baseline можно найти в `.yml`-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features) от W3C WebDX Community Group. А документация на английском [тут](https://github.com/web-platform-dx/web-features/tree/main/docs)
 
