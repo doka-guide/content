@@ -2,7 +2,7 @@
 title: "`scrollbar-gutter`"
 description: "Добавляем отступ под скроллбар, чтобы его появление или скрытие не вызывало сдвиги контента."
 baseline:
-  - group: scrolling
+  - group: scrollbar-gutter
     features:
       - css.properties.scrollbar-gutter
       - css.properties.scrollbar-gutter.auto
