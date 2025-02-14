@@ -371,6 +371,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - page
       - orphans
       - widows
   - name: 'Колонки и таблицы'
