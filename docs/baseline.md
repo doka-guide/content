@@ -23,7 +23,7 @@ baseline:
 ```
 С полным перечнем полей в заголовке можно ознакомиться в [документации](examples/doka.md).
 
-Все фичи, которые поддерживает Baseline можно найти в `.yml`-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features) от W3C WebDX Community Group. А документация на английском [тут](https://github.com/web-platform-dx/web-features/tree/main/docs)
+Все фичи, которые поддерживает Baseline, можно найти в `.yml`-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features) от W3C WebDX Community Group. А документация на английском [тут](https://github.com/web-platform-dx/web-features/tree/main/docs)
 
 ### Как найти необходимую конфигурацию
 
