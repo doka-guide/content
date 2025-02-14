@@ -34,7 +34,7 @@ baseline:
 Новейшие значения этого свойства: `flex` и `grid`. Их и будем использовать:
 
 1. С помощью поиска находим [страницу свойства](https://web-platform-dx.github.io/web-features-explorer/features/flexbox/);
-2. Переходим по ссылке [feature source file](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml) внизу страницы;
+2. Переходим по ссылке [View the feature source file](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml) внизу страницы;
 3. Копируем значения свойства `group` и нужные `compat_features` и вставляем в заголовок статьи:
 
 ```markdown
