@@ -25,7 +25,7 @@ baseline:
 
 Все фичи, которые поддерживает Baseline, можно найти в `.yml`-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features) от W3C WebDX Community Group. А документация на английском [тут](https://github.com/web-platform-dx/web-features/tree/main/docs)
 
-### Как найти необходимую конфигурацию
+## Как найти необходимую конфигурацию
 
 Проект обладает удобным web-поиском [web-features-explorer](https://web-platform-dx.github.io/web-features-explorer/), с помощью которого легко найти нужный конфиг.
 
@@ -34,7 +34,8 @@ baseline:
 
 1. С помощью поиска находим [страницу свойства](https://web-platform-dx.github.io/web-features-explorer/features/flexbox/);
 2. Переходим по ссылке [View the feature source file](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml) внизу страницы;
-3. Копируем значения свойства `group` и нужные `compat_features` и вставляем в заголовок статьи:
+3. Копируем имя файла конфигурации и вставляем в заголовок статьи как значение `group` ;
+4. Копируем значения свойств в списке `compat_features` и вставляем в заголовок статьи как значение `features`  :
 
 ```markdown
 baseline:
@@ -56,3 +57,8 @@ baseline:
 ```
 
 Готово!
+
+## Как проверить конфигурацию
+
+Убедиться в том, что конфигурация Baseline указана верно, поможет локальный запуск сайта. О том, как запустить Доку локально, рассказано [в инструкции](https://github.com/doka-guide/platform/blob/main/docs/how-to-run.md
+
