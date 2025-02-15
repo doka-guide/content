@@ -2,7 +2,7 @@
 title: "`Promise.try()`"
 description: "Выполняет функцию и возвращает её результат как промис."
 baseline:
-  - group: promises
+  - group: promise-try
     features:
       - javascript.builtins.Promise.try
 authors:
