@@ -34,7 +34,7 @@ baseline:
 
 1. С помощью поиска находим [страницу свойства](https://web-platform-dx.github.io/web-features-explorer/features/flexbox/);
 2. Переходим по ссылке [View the feature source file](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml) внизу страницы;
-3. Копируем имя файла конфигурации и вставляем в заголовок статьи как значение `group` ;
+3. Копируем имя файла конфигурации (без расширения) и вставляем в заголовок статьи как значение `group` ;
 4. Копируем значения свойств в списке `compat_features` и вставляем в заголовок статьи как значение `features`  :
 
 ```markdown
@@ -45,7 +45,7 @@ baseline:
       - css.properties.display.inline-flex
 ```
 
-4. Добавляем также нужные свойства из конфига файла [`grid`](https://github.com/web-platform-dx/web-features/blob/main/features/grid.yml):
+5. Добавляем также нужные свойства из конфига файла [`grid`](https://github.com/web-platform-dx/web-features/blob/main/features/grid.yml):
 ```markdown
 baseline:
   - group: flexbox
@@ -61,4 +61,25 @@ baseline:
 ## Как проверить конфигурацию
 
 Убедиться в том, что конфигурация Baseline указана верно, поможет локальный запуск сайта. О том, как запустить Доку локально, рассказано [в инструкции](https://github.com/doka-guide/platform/blob/main/docs/how-to-run.md
+Если в конфигурации нет ошибок, baseline-плашка будет отображаться в конце статьи.
 
+
+Дополнительный способ проверки — поиск с помощью npm-пакета `web-features`:
+
+1. Установите пакет:
+```sh
+npm install web-features
+```
+2. Перейдите в каталог `node_modules/web-features`
+3. Выполните поиск по полю `group` в файле `data.json`
+4. Если группа указана верно, она будет соответствовать объекту c полями:
+```js
+{
+  "compat_features": ..,
+  "description": ..,
+  "group": ..
+  "name": ..,
+  "spec": ..,
+  "status": ..
+}
+```
