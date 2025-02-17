@@ -1,8 +1,10 @@
 ---
-title: 'AbortController'
-description: 'Встроенный объект для отмены асинхронных операций и не только.'
+title: "AbortController"
+description: "Встроенный объект для отмены асинхронных операций и не только."
 authors:
   - teplostanski
+tags:
+  - doka
 ---
 
 ## Кратко
