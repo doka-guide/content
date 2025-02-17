@@ -48,7 +48,7 @@ closeWindow(currentWindow)
 ```js
 openedWindow.close()
 ```
-`openedWindow` — `windowProxy`-объект, результат ранее выполненного `window.open()`, или глобальный объект `window`.
+`openedWindow` — объект [`windowProxy`](https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-windowproxy-exotic-object), результат ранее выполненного `window.open()`, или глобальный объект `window`.
 
 Метод `close()` не имеет параметров и возвращает `undefined`.
 
