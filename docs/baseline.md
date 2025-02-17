@@ -49,10 +49,22 @@ baseline:
 
 ```markdown
 baseline:
+  - group: grid
+    features:
+      - css.properties.display.grid
+      - css.properties.display.inline-grid
+```
+
+Итоговая конфигурация:
+
+```markdown
+baseline:
   - group: flexbox
     features:
       - css.properties.display.flex
       - css.properties.display.inline-flex
+  - group: grid
+    features:
       - css.properties.display.grid
       - css.properties.display.inline-grid
 ```
