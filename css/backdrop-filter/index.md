@@ -34,13 +34,13 @@ div {
 
 ## Пример
 
-<iframe title="Песочница" src="demos/playground/" height="650"></iframe>
+<iframe title="Песочница" src="demos/playground/" height="660"></iframe>
 
 ### Эффект матового стекла (глассморфизм)
 
 Полупрозрачный фон с размытием создаёт эффект матового стекла, сквозь которое просвечивает задний фон. Такой приём часто используется в современных интерфейсах. С появлением backdrop-filter его стало гораздо проще реализовать. Попробуйте понастраивать параметры в демке!
 
-<iframe title="Интерактивный пример backdrop-filter" src="demos/frosted-glass/" height="700"></iframe>
+<iframe title="Интерактивный пример backdrop-filter" src="demos/frosted-glass/" height="650"></iframe>
 
 ## Подсказки
 
