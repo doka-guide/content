@@ -100,19 +100,20 @@ tags:
 
 ## Как понять
 
-Для понимания логических свойств нужно отбросить привычные термины 'top', 'bottom', 'left', 'right' и заменить их на 'inline-start', 'inline-end' и 'block-start', 'block-end'.
+Для понимания логических свойств нужно отбросить привычные термины `top`, `bottom`, `left`, `right` и заменить их на `inline-start` / `inline-end` и `block-start` / `block-end`.
 
-Например, в русском языке чтение свойств начинается слева и идёт направо. Это строчный аспект свойств. Это можно легко запомнить, рассмотрев ряд элементов с 'display: inline' или вспомнив написание свойств 'justify-content: start'.
+Например, в русском языке чтение свойств начинается слева и идёт направо. Это строчный аспект свойств. Это можно легко запомнить, рассмотрев ряд элементов с `display: inline` или вспомнив написание свойств `justify-content: start`.
 
 Соответственно, привычное написание отступов будет выглядеть в разных языках так:
 
-Русский: padding-inline-start = padding-left
-Арабский: padding-inline-start = padding-right
-Японский: padding-inline-start = padding-top
+Русский: `padding-inline-start` = `padding-left`
+Арабский: `padding-inline-start` = `padding-right`
+Японский: `padding-inline-start` = `padding-top`
 
-Названия логических свойств можно комбинировать в шорткаты, как мы это делаем в привычных 'padding', 'margin', 'border'.
+Названия логических свойств можно комбинировать в шорткаты, как в привычных `padding`, `margin`, `border`.
 
 В физическом CSS код выглядит так:
+
 ```css
 .block {
   position: fixed;
