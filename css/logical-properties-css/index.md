@@ -196,18 +196,18 @@ tags:
 
 ### Ручное преобразование.
 
-Логические свойства заменяют физические (например, left, right, top, bottom) на свойства, основанные на направлении текста и `writing-mode`. Вот основные замены:
+Логические свойства заменяют физические (например, `left`, `right`, `top`, `bottom`) на свойства, основанные на направлении текста и `writing-mode`. Вот основные замены:
 
-- margin-left → margin-inline-start
-- margin-right → margin-inline-end
-- padding-top → padding-block-start
-- padding-bottom → padding-block-end
-- width → inline-size
-- height → block-size
-- border-left → border-inline-start
-- border-right → border-inline-end
-- text-align: left → text-align: start
-- text-align: right → text-align: end
+- `margin-left` → `margin-inline-start`
+- `margin-right` → `margin-inline-end`
+- `padding-top` → `padding-block-start`
+- `padding-bottom` → `padding-block-end`
+- `width` → `inline-size`
+- `height` → `block-size`
+- `border-left` → `border-inline-start`
+- `border-right` → `border-inline-end`
+- `text-align: left` → `text-align: start`
+- `text-align: right` → `text-align: end`
 
 ### Плагины для редакторов кода
 
