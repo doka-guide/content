@@ -8,12 +8,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
   <style>
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -26,17 +32,16 @@
       box-sizing: border-box;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     .layout {
       display: flex;
       justify-content: space-evenly;
       gap: 30px;
       width: 100%;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 500;
     }
 
     .example {
@@ -48,7 +53,7 @@
     }
 
     .example_caption {
-      font-size: 14px;
+      font-size: 18px;
     }
 
     .scroll-container {
@@ -72,7 +77,8 @@
     }
 
     .item:nth-child(even) {
-      background-color: #FFFFFF;
+      background-color: #123E66;
+      color: #FFFFFF;
     }
 
     .scroll-snap-stop-normal {
@@ -92,13 +98,13 @@
         width: 200px;
         height: 200px;
       }
-
-      .example_caption {
-        font-size: 12px;
-      }
     }
 
     @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
       .layout {
         flex-direction: column;
         align-items: center;
@@ -109,18 +115,15 @@
         width: 80%;
         height: 125px;
       }
-
-      .example_caption {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
 <body>
+  <h1 class="title">scroll-snap-stop</h1>
   <div class="layout">
     <figure class="example">
       <figcaption class="example_caption">
-        <code>scroll-snap-stop: normal</code>
+        <code>normal</code>
       </figcaption>
       <div class="scroll-container">
         <div class="item scroll-snap-stop-normal">1</div>
@@ -132,7 +135,7 @@
     </figure>
     <figure class="example">
       <figcaption class="example_caption">
-        <code>scroll-snap-stop: always</code>
+        <code>always</code>
       </figcaption>
       <div class="scroll-container">
         <div class="item scroll-snap-stop-always">1</div>

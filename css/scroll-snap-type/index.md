@@ -62,7 +62,7 @@ tags:
 
 Попробуйте прокрутить каждый из контейнеров.
 
-<iframe title="Варианты значений" src="demos/mandatory-proximity/" height="640"></iframe>
+<iframe title="Варианты значений" src="demos/mandatory-proximity/" height="550"></iframe>
 
 ## Подсказки
 
