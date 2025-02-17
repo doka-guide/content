@@ -46,6 +46,7 @@ baseline:
 ```
 
 5. Добавляем также нужные свойства из конфига файла [`grid`](https://github.com/web-platform-dx/web-features/blob/main/features/grid.yml):
+
 ```markdown
 baseline:
   - group: flexbox
