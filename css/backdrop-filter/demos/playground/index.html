@@ -6,23 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
   <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     html, body {
       height: 100%;
     }
 
     body {
       font-family: "Roboto", sans-serif;
-      margin: 0;
       display: grid;
       place-items: center;
       background-color: #18191c;
-      color: #f1f1f1
+      color: #ffffff;
     }
 
     .filters {
-      width: 800px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1em;
@@ -32,21 +36,22 @@
       padding: 0.8em 1.2em;
       border: none;
       background-color: #2e9aff;
-      color: #ffffff;
+      color: #000000;
       text-align: left;
       font: inherit;
     }
 
     .filters__button[aria-pressed='true'] {
       z-index: 1;
-      width: calc(100% + 1.5em);
+      width: calc(100% + 1em);
       clip-path: polygon(
         0 0,
-        calc(100% - 1.5em) 0,
+        calc(100% - 1em) 0,
         100% 50%,
-        calc(100% - 1.5em) 100%,
+        calc(100% - 1em) 100%,
         0 100%
       );
+      margin-inline-start: 1em;
       background-color: #f498ad;
       color: #000000;
     }
@@ -64,14 +69,12 @@
 
     .filters__wrapper {
       display: grid;
-    }
-
-    .filters__wrapper {
       grid-column-start: 2;
-      grid-row: 1 / span 10;
+      grid-row: 1 / span 9;
       align-self: stretch;
       align-items: center;
       justify-content: center;
+      padding: 30px;
       background-image: url('../../images/image.jpg');
       background-repeat: no-repeat;
       background-size: cover;
@@ -89,6 +92,34 @@
       line-height: 1;
     }
 
+    @media (max-width: 768px) {
+      .filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5em;
+      }
+
+      .filters__wrapper {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+      }
+
+      .filters__target {
+        width: 300px;
+        height: 100px;
+      }
+
+      .filters__button {
+        max-width: 180px;
+        grid-column: span 1;
+      }
+
+      .filters__button[aria-pressed='true'] {
+        width: 100%;
+        margin: 0;
+        clip-path: none;
+      }
+    }
   </style>
 </head>
 <body>
