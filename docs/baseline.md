@@ -25,7 +25,7 @@ baseline:
 
 Все фичи, которые поддерживает Baseline, можно найти в YML-файлах проекта [web-features](https://github.com/web-platform-dx/web-features/tree/main/features). [Документация на английском](https://github.com/web-platform-dx/web-features/tree/main/docs)
 
-## Как найти необходимую конфигурацию
+## Как найти нужную конфигурацию
 
 Проект обладает удобным web-поиском [web-features-explorer](https://web-platform-dx.github.io/web-features-explorer/), с помощью которого легко найти нужный конфиг.
 
