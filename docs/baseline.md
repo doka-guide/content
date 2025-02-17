@@ -29,7 +29,7 @@ baseline:
 
 Проект обладает удобным поиском [web-features-explorer](https://web-platform-dx.github.io/web-features-explorer/), с помощью которого легко найти нужный конфиг.
 
-Попробуем, для примера, найти Baseline-конфигурацию для доки о [CSS свойстве `display`](https://doka.guide/css/display/).
+Для примера, найдём конфигурацию для доки о [CSS свойстве `display`](https://doka.guide/css/display/).
 Новейшие значения этого свойства: `flex` и `grid`. Их и будем использовать:
 
 1. С помощью поиска находим [страницу свойства](https://web-platform-dx.github.io/web-features-explorer/features/flexbox/);
