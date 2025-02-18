@@ -88,7 +88,7 @@ npm install web-features
 {
   "compat_features": ..,
   "description": ..,
-  "group": ..
+  "group": ..,
   "name": ..,
   "spec": ..,
   "status": ..
