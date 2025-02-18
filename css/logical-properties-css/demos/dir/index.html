@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример с разными направлениями письма — Логические свойства CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .vertical-rl {
+       writing-mode: vertical-rl;
+    }
+
+    .vertical-lr {
+       writing-mode: vertical-lr;
+    }
+
+    article pre {
+       background: #30353b;
+       color: white;
+       font-size: 0.8em;
+    }
+
+    pre {
+      padding: 20px;
+    }
+
+    p {
+      background: #2E9AFF;
+      line-height: 1.5em;
+    }
+
+    div {
+      height: 100px;
+      background: #e7e7e7;
+      padding: 20px;
+    }
+
+    article {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 2;
+      gap: 0;
+    }
+  </style>
+</head>
+<body>
+    <section>
+        <article>
+          <div dir="ltr">
+            <p>DOKA</p>
+          </div>
+          <pre><code>dir="ltr"</code></pre>
+        </article>
+
+        <article>
+          <div dir="rtl">
+            <p>DOKA</p>
+          </div>
+          <pre><code>dir="rtl"</code></pre>
+        </article>
+
+        <article>
+          <div class="vertical-lr">
+            <p>DOKA</p>
+          </div>
+          <pre><code>vertical-lr</code></pre>
+        </article>
+
+        <article>
+          <div class="vertical-rl">
+            <p>DOKA</p>
+          </div>
+          <pre><code>vertical-rl</code></pre>
+        </article>
+      </section>
+</body>
+</html>
+
+
