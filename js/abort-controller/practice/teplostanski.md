@@ -17,7 +17,7 @@ function SearchComponent() {
         console.error(error)
       })
 
-    // Отчистка при размонтировании и ререндере
+    // Очистка при размонтировании и ререндере
     return () => controller.abort()
   }, [search])
 
@@ -35,7 +35,7 @@ function EventComponent() {
     window.addEventListener('resize', onResize, { signal: controller.signal })
     window.addEventListener('keydown', onKeyDown, { signal: controller.signal })
 
-    // Отчистка при размонтировании
+    // Очистка при размонтировании
     return () => controller.abort()
   }, [])
 }
