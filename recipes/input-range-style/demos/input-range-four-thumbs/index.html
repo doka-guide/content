@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Слайдер input range с 4 ползунками</title>
+    <title>Слайдер input range с 4 ползунками — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -397,7 +397,6 @@
           aria-valuemin="0"
           aria-valuemax="100"
           aria-orientation="horizontal"
-          oninput="handleInputRange1()"
           list="tickmarks"
         >
         <output
@@ -420,7 +419,6 @@
           aria-valuemin="0"
           aria-valuemax="100"
           aria-orientation="horizontal"
-          oninput="handleInputRange2()"
           list="tickmarks"
         >
         <output
@@ -443,7 +441,6 @@
           aria-valuemin="0"
           aria-valuemax="100"
           aria-orientation="horizontal"
-          oninput="handleInputRange3()"
           list="tickmarks"
         >
         <output
@@ -466,7 +463,6 @@
           aria-valuemin="0"
           aria-valuemax="100"
           aria-orientation="horizontal"
-          oninput="handleInputRange4()"
           list="tickmarks"
         >
         <output
@@ -488,6 +484,19 @@
       </datalist>
     </div>
     <script>
+      const range1 = document.querySelector('#tailmetr1')
+      range1.addEventListener('input', handleInputRange1)
+
+      const range2 = document.querySelector('#tailmetr2')
+      range2.addEventListener('input', handleInputRange2)
+
+      const range3 = document.querySelector('#tailmetr3')
+      range3.addEventListener('input', handleInputRange3)
+
+      const range4 = document.querySelector('#tailmetr4')
+      range4.addEventListener('input', handleInputRange4)
+
+
       function handleInputRange1() {
         event.target.parentNode.parentNode.style.setProperty(
           '--value-1',

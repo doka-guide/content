@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Слайдер input range 3</title>
+    <title>Вертикальный и горизонтальный input range — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -140,13 +140,13 @@
         --range-track-h: 100%;
         --range-track-top: none;
         --range-track-bottom: 0;
-        --range-track-left: 75px;
+        --range-track-left: 71px;
 
         --range-progress-w: 8px;
         --range-progress-h: calc(var(--value) * 1%);
         --range-progress-top: none;
         --range-progress-bottom: 0;
-        --range-progress-left: 75px;
+        --range-progress-left: 71px;
 
         --range-output-top: calc(var(--value) * 1%);
         --range-output-left: 28px;
@@ -327,5 +327,17 @@
         <option>100</option>
       </datalist>
     </div>
+    <script>
+      const range = document.querySelector('.range-input')
+      range.addEventListener('input', handleInputRange)
+
+      function handleInputRange() {
+        event.target.parentNode.style.setProperty(
+          '--value',
+          event.target.value
+        )
+        event.target.nextElementSibling.value = event.target.value;
+      }
+    </script>
   </body>
 </html>
