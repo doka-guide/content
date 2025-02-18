@@ -192,6 +192,7 @@ groups:
       - window-open
       - window-close
       - intersection-observer
+      - abort-controller
   - name: "Объектная модель документа DOM"
     items:
       - dom
