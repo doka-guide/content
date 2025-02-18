@@ -1,6 +1,12 @@
 ---
 title: "AbortController"
 description: "Встроенный объект для отмены асинхронных операций и не только."
+baseline:
+  - group: aborting
+    features:
+      - api.AbortController
+      - api.AbortController.abort
+      - api.AbortController.signal
 authors:
   - teplostanski
 tags:
@@ -10,12 +16,6 @@ tags:
 ## Кратко
 
 `AbortController` — это встроенный объект, который позволяет отменять выполнение любых операций. Появился в ES2018 (ES9) для отмены [fetch](/js/fetch/) запросов, но позже его применение расширилось на другие операции.
-В настоящее время поддерживается во всех современных браузерах:
-
-- Chrome 66+ (апрель 2018)
-- Firefox 57+ (ноябрь 2017)
-- Safari 12.1+ (март 2019)
-- Edge 16+ (октябрь 2017)
 
 ## Как понять
 
