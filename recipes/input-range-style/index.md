@@ -36,9 +36,9 @@ tags:
 
 ### Добавляем обычный input range в html и показываем все его атрибуты
 
-<iframe title="Пример input range" src="demos/input-range-1/" height="180"></iframe>
-
 Создаем дефолтный `<input type="range"`.
+
+<iframe title="Пример input range" src="demos/input-range-1/" height="180"></iframe>
 
 ```html
 <div class="range">
@@ -59,8 +59,9 @@ tags:
 
 ```css
 .range {
-  width: 60%;
   display: grid;
+  gap: 20px;
+  width: 200px;
 }
 ```
 
@@ -76,37 +77,58 @@ tags:
 
 ### Ручка
 
-<iframe title="Пример input range" src="demos/input-range-2/" height="180"></iframe>
-
 Для создания своего ползунка нужно сбросить дефолтные стили браузера у `<input>`.
+
+<iframe title="Пример input range" src="demos/input-range-2/" height="180"></iframe>
 
 ```css
 .range-input {
   appearance: none;
+  height: 15px;
 }
 ```
 
-В данный момент стилизовать ручку можно только через псевдоэлементы с префиксов (В Webkit и Firefox они отличаются).
-Добавляем стили ручке. Лучше раздельно для браузеров, так как иначе могут возникнуть проблемы с отображением.
+Высота ползунка в Firefox определяется как высота элемента `<input>`. Для Webkit потребуются дополнительные стили.
+
+В данный момент стилизовать компонент можно только через псевдоэлементы с префиксом (В Webkit и Firefox они отличаются).
+
+Добавляем стили трэка. Лучше раздельно для браузеров, так как иначе могут возникнуть проблемы с отображением.
 
 ```css
-.range-input::-moz-range-thumb {
+.range-input::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  height: 15px;
+  background-color: #2b2a33;
+}
+
+.range-input::-moz-range-track {
+  box-sizing: border-box;
+  background-color: #2b2a33;
+}
+```
+
+Добавляем стили ручке.
+
+```css
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 30px;
   height: 30px;
+  margin-top: -7.5px;
   border: none;
   border-radius: 50%;
-  background-color: white;
+  background: white;
   box-shadow: 0 0 0 5px inset #c56fff;
   transition: 300ms;
 }
 
-.range-input::-webkit-slider-thumb {
-  appearance: none;
+.range-input::-moz-range-thumb {
   width: 30px;
   height: 30px;
+  margin-top: 0;
   border: none;
   border-radius: 50%;
-  background-color: white;
+  background: white;
   box-shadow: 0 0 0 5px inset #c56fff;
   transition: 300ms;
 }
@@ -115,16 +137,19 @@ tags:
 Стилизуем состояние фокуса (`:focus-visible`) и ховера (`:hover`).
 
 ```css
+.range-input:focus-visible {
+  outline-offset: 10px;
+  outline: 1px solid #c56fff;
+}
+
 .range-input:hover::-webkit-slider-thumb,
 .range-input:focus-visible::-webkit-slider-thumb {
   box-shadow: 0 0 0 10px inset #c56fff;
-  transition: 300ms;
 }
 
 .range-input:hover::-moz-range-thumb,
 .range-input:focus-visible::-moz-range-thumb {
   box-shadow: 0 0 0 10px inset #c56fff;
-  transition: 300ms;
 }
 ```
 
@@ -133,12 +158,9 @@ tags:
 ```css
 .range-input:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 30px inset #c56fff;
-  transition: 300ms;
 }
-
 .range-input:active::-moz-range-thumb {
   box-shadow: 0 0 0 30px inset #c56fff;
-  transition: 300ms;
 }
 ```
 
@@ -168,9 +190,10 @@ tags:
 
 ### Трэк
 
+Убираем фон у слайдера, чтобы он не перекрывал наш трэк.
+
 <iframe title="Пример input range" src="demos/input-range-3/" height="180"></iframe>
 
-Убираем фон у слайдера, чтобы он не перекрывал наш трэк.
 
 ```css
 .range-input {
