@@ -41,15 +41,23 @@
       }
 
       .range {
+        --range-track-top: 70px;
+        --range-output-left: calc(var(--value) * 1%);
+        --range-output-offset-xy: calc(var(--value) * -1%), 0;
+
         position: relative;
         display: grid;
-        gap: 15px;
         width: 200px;
+      }
+
+      .range-label {
+        margin-block-end: 40px;
       }
 
       .range-input {
         width: 100%;
         height: 30px;
+        border-radius: 10px;
         appearance: none;
         background: none;
       }
@@ -100,7 +108,7 @@
       }
 
       .range-input:focus-visible {
-        outline-offset: 15px;
+        outline-offset: 10px;
         outline: 1px solid #c56fff;
       }
 
@@ -114,7 +122,7 @@
 
       .track {
         position: absolute;
-        top: 45px;
+        top: var(--range-track-top);
         width: 100%;
         height: 8px;
         border-radius: 10px;
@@ -124,12 +132,26 @@
 
       .progress {
         position: absolute;
-        top: 45px;
+        top: var(--range-track-top);
         width: calc(var(--value) * 1%);
         height: 8px;
         border-radius: 10px;
         background-color: #c56fff;
         z-index: -1;
+      }
+
+      .range-output {
+        position: absolute;
+        bottom: 40px;
+        left: var(--range-output-left);
+        padding: 0 4px;
+        background: transparent;
+        border-radius: 10px;
+        font-size: 18px;
+        text-align: end;
+        transform: translate(var(--range-output-offset-xy));
+        user-select: none;
+        transition: 300ms;
       }
     </style>
   </head>
@@ -149,7 +171,8 @@
         aria-valuemin="0"
         aria-valuemax="100"
         aria-orientation="horizontal"
-      >
+      />
+      <output class="range-output" id="output" for="tailmetr">80</output>
     </div>
     <script>
       const range = document.querySelector('.range-input')
@@ -160,6 +183,8 @@
           '--value',
           event.target.value
         )
+
+        event.target.nextElementSibling.value = event.target.value
       }
     </script>
   </body>

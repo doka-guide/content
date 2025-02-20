@@ -298,6 +298,7 @@ tags:
 
 ```css
 .range {
+  gap: 8px;
   height: 65px;
   overflow: hidden;
 }
@@ -307,9 +308,9 @@ tags:
 }
 ```
 
-Если использовать такой вариант стилизации, то можно столкнуться с ограничениями и проблемами. Например, нет возможности скруглить края.
+Если использовать такой вариант стилизации, то можно столкнуться с ограничениями и проблемами. Например, нет возможности скруглить края, а так же нет возможности отображать состояние фокуса (`:focus-visible`) с использование свойства `outline`.
 
-### Кроссбраузерный вариант
+### Кроссбраузерный вариант и текущее значение
 
 Перепишем наш `<input type="range">` заново.
 Для удобной кроссбраузерной и читабельной версии используем отдельные тэги `<div>` для трэка и прогресс бара. А также CSS переменные для изменения заполненности прогресс бара с помощью Javascript.
@@ -350,18 +351,85 @@ range.addEventListener('input', handleInputRange)
 
 Пишем функцию обработку события изменения значения слайдера.
 
-```javascript
+```js
 function handleInputRange() {
   event.target.parentNode.parentNode.style.setProperty(
     "--value",
     event.target.value
-  );
+  )
 }
 ```
 
 Если описать подробнее, то мы обращаемся к объекту события (`event`). В нём мы обращаемся к свойству `target` (тэгу `input`), в котором произошло событие. Потом обращаемся к родительскому элементу (`parentNode`) и ещё раз к родительскому элементу (`parentNode`), в нашем случае это будет `<div class="range" style="--value: 80;">"`. И уже в нем мы меняем значение CSS переменной `--value` на новое, которое выставил пользователь (`event.target.value`).
 
-Добавляем стили для обертки нашего слайдера. Инициализируем кастомные переменные для размера и положения элементов слайдера. Эти переменные пригодятся в дальнейшем для стилизации. Указываем `relative` позиционирование и грид для последовательного расположения элементов.
+Для добавления текущего значение нужно немного изменить html структуру, добавив тэг `<output>` сразу после `<input>`.
+
+```html
+<div class="range" style="--value: 80;">
+  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+  <div class="track"></div>
+  <div class="progress"></div>
+  <div class="thumbs">
+    <input class="range-input" id="tailmetr" type="range" min="0" max="100" value="80" step="1" />
+    <!-- Текущее значение слайдера -->
+    <output class="range-output" id="output" for="tailmetr">80</output>
+  </div>
+</div>
+```
+
+Дописываем код функции обработки события `input`, изменение значения тэга `<output>`.
+
+```javascript
+function handleInputRange() {
+  event.target.parentNode.parentNode.style.setProperty(
+    "--value",
+    event.target.value
+  )
+  // изменение значения тэга `<output>`
+  event.target.nextElementSibling.value = event.target.value;
+}
+```
+
+Добавляем переменные расположения и смещения для тэга `<output>` с текущим значением. Смещение нужно, чтобы число располагалось точно над ползунком, так как оно увеличивается с однозначного 0, до трёхзначных 100.
+
+Используем дополнительные CSS переменные для указания положения элементов слайдера. Эти переменные пригодятся для дальнейшей стилизации.
+
+```css
+.range {
+  --range-track-top: 70px;
+  --range-output-left: calc(var(--value) * 1%);
+  --range-output-offset-xy: calc(var(--value) * -1%), 0;
+}
+
+.track {
+  position: absolute;
+  top: var(--range-track-top);
+}
+
+.progress {
+  position: absolute;
+  top: var(--range-track-top);
+  width: calc(var(--value) * 1%);
+}
+
+.range-output {
+  position: absolute;
+  bottom: 40px;
+  left: var(--range-output-left);
+  padding: 0 4px;
+  background: transparent;
+  border-radius: 10px;
+  font-size: 18px;
+  text-align: end;
+  transform: translate(var(--range-output-offset-xy));
+  user-select: none;
+  transition: 300ms;
+}
+```
+
+### Вертикальный и горизонтальный input range
+
+Добавляем стили для обертки нашего слайдера. Инициализируем кастомные переменные для размера и положения элементов слайдера.
 
 ```css
 .range {
@@ -536,37 +604,7 @@ function handleInputRange() {
 }
 ```
 
-### Текущее значение
 
-Для добавления текущего значение нужно немного изменить html структуру, добавив тэг `<output>` сразу после `<input>`.
-
-```html
-<div class="range" style="--value: 80;">
-  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
-  <div class="track"></div>
-  <div class="progress"></div>
-  <div class="thumbs">
-    <input class="range-input" id="tailmetr" type="range" min="0" max="100" value="20" step="1" />
-    <!-- Текущее значение слайдера -->
-    <output class="range-output" id="output" for="tailmetr">80</output>
-  </div>
-</div>
-```
-
-Дописываем в код функции обработки события `input`, изменение значения тэга `<output>`. Свойство `nextElementSibling` указывает на следующим элемент от текущего.
-
-```javascript
-function handleInputRange() {
-  event.target.parentNode.parentNode.style.setProperty(
-    "--value",
-    event.target.value
-  );
-  // изменение значения тэга `<output>`
-  event.target.nextElementSibling.value = event.target.value;
-}
-```
-
-Добавляем переменные расположения и смещения для тэга `<output>` с текущим значением. Смещение нужно, чтобы число располагалось точно над ползунком, так как оно увеличивается с однозначного 0, до трёхзначных 100.
 
 ```css
 .range {
@@ -701,8 +739,6 @@ option::after {
   z-index: -1;
 }
 ```
-
-### Вертикальный и горизонтальный input range
 
 <iframe title="Пример input range" src="demos/input-range-6/" height="400"></iframe>
 
