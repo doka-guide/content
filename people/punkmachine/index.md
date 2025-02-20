@@ -5,6 +5,7 @@ photo: photo.jpg
 badges:
   - first-contribution-small
   - merged-pr-10
+  - superstar
 ---
 
 Привет! 👋
