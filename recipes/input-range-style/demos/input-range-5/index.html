@@ -43,7 +43,8 @@
       .range {
         position: relative;
         display: grid;
-        gap: 10px;
+        gap: 15px;
+        width: 200px;
       }
 
       .range-input {
@@ -53,7 +54,17 @@
         background: none;
       }
 
-      .range-input::-webkit-slider-thumb,
+      .range-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 0 5px inset #c56fff;
+        transition: 300ms;
+      }
+
       .range-input::-moz-range-thumb {
         width: 30px;
         height: 30px;
@@ -65,31 +76,45 @@
       }
 
       .range-input:hover::-webkit-slider-thumb,
-      .range-input:hover::-moz-range-thumb {
+      .range-input:focus-visible::-webkit-slider-thumb {
         box-shadow: 0 0 0 10px inset #c56fff;
-        transition: 300ms;
       }
 
-      .range-input:focus-visible::-webkit-slider-thumb,
+      .range-input:hover::-moz-range-thumb,
       .range-input:focus-visible::-moz-range-thumb {
         box-shadow: 0 0 0 10px inset #c56fff;
-        transition: 300ms;
       }
 
-      .range-input:active::-webkit-slider-thumb,
+      .range-input:active::-webkit-slider-thumb {
+        box-shadow: 0 0 0 30px inset #c56fff;
+      }
       .range-input:active::-moz-range-thumb {
         box-shadow: 0 0 0 30px inset #c56fff;
-        transition: 300ms;
       }
 
-      .range-input:disabled::-webkit-slider-thumb,
+      .range-input:disabled::-webkit-slider-thumb {
+        box-shadow: 0 0 0 30px inset gray;
+      }
       .range-input:disabled::-moz-range-thumb {
         box-shadow: 0 0 0 30px inset gray;
       }
 
+      .range-input:focus-visible {
+        outline-offset: 15px;
+        outline: 1px solid #c56fff;
+      }
+
+      .range-input:focus-visible::-webkit-slider-thumb {
+        outline: 3px solid #41e847;
+      }
+
+      .range-input:focus-visible::-moz-range-thumb {
+        outline: 3px solid #41e847;
+      }
+
       .track {
         position: absolute;
-        top: 40px;
+        top: 45px;
         width: 100%;
         height: 8px;
         border-radius: 10px;
@@ -99,7 +124,7 @@
 
       .progress {
         position: absolute;
-        top: 40px;
+        top: 45px;
         width: calc(var(--value) * 1%);
         height: 8px;
         border-radius: 10px;

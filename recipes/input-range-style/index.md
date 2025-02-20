@@ -314,6 +314,8 @@ tags:
 Перепишем наш `<input type="range">` заново.
 Для удобной кроссбраузерной и читабельной версии используем отдельные тэги `<div>` для трэка и прогресс бара. А также CSS переменные для изменения заполненности прогресс бара с помощью Javascript.
 
+<iframe title="Пример input range" src="demos/input-range-5/" height="180"></iframe>
+
 ```html
 <div class="range" style="--value: 80;">
   <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
@@ -356,8 +358,6 @@ function handleInputRange() {
   );
 }
 ```
-
-<iframe title="Пример input range" src="demos/input-range-5/" height="180"></iframe>
 
 Если описать подробнее, то мы обращаемся к объекту события (`event`). В нём мы обращаемся к свойству `target` (тэгу `input`), в котором произошло событие. Потом обращаемся к родительскому элементу (`parentNode`) и ещё раз к родительскому элементу (`parentNode`), в нашем случае это будет `<div class="range" style="--value: 80;">"`. И уже в нем мы меняем значение CSS переменной `--value` на новое, которое выставил пользователь (`event.target.value`).
 
