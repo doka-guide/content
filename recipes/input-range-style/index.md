@@ -297,14 +297,17 @@ tags:
 Прячем то, что выходит за рамки `<input>`.
 
 ```css
-.range-input {
+.range {
+  height: 65px;
   overflow: hidden;
+}
+
+.range-input {
+  height: 30px;
 }
 ```
 
 Если использовать такой вариант стилизации, то можно столкнуться с ограничениями и проблемами. Например, нет возможности скруглить края.
-
-<iframe title="Пример input range" src="demos/input-range-4/" height="180"></iframe>
 
 ### Кроссбраузерный вариант
 
