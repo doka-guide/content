@@ -55,7 +55,7 @@ tags:
 </div>
 ```
 
-Располагаем подпись над слайдером.
+Располагаем подпись над ползунком.
 
 ```css
 .range {
@@ -65,7 +65,7 @@ tags:
 }
 ```
 
-Добавляем свои цвета с помощью свойства `accent-color`.
+Добавляем свой цвет с помощью свойства `accent-color`.
 
 ```css
 .range-input {
@@ -81,6 +81,8 @@ tags:
 
 <iframe title="Пример input range" src="demos/input-range-2/" height="180"></iframe>
 
+Высота ползунка в Firefox определяется как высота элемента `<input>`. Для Webkit потребуются дополнительные стили.
+
 ```css
 .range-input {
   appearance: none;
@@ -88,11 +90,15 @@ tags:
 }
 ```
 
-Высота ползунка в Firefox определяется как высота элемента `<input>`. Для Webkit потребуются дополнительные стили.
-
 В данный момент стилизовать компонент можно только через псевдоэлементы с префиксом (В Webkit и Firefox они отличаются).
 
-Добавляем стили трэка. Лучше раздельно для браузеров, так как иначе могут возникнуть проблемы с отображением.
+<aside>
+
+☝️ Обратите внимание, стили псевдоэлементов описаны отдельно для разных движков, так как иначе могут возникнуть проблемы с отображением.
+
+</aside>
+
+Добавляем стили трэка.
 
 ```css
 .range-input::-webkit-slider-runnable-track {
@@ -206,14 +212,43 @@ tags:
 
 ```css
 .range-input::-webkit-slider-runnable-track {
+  box-sizing: border-box;
+  height: 8px;
   background-color: #ababab;
   border-radius: 10px;
 }
 
 .range-input::-moz-range-track {
+  box-sizing: border-box;
   height: 8px;
   background-color: #ababab;
   border-radius: 10px;
+}
+```
+
+С помощью свойства `margin-top` добавим выравнивание вертикального положения ручки для Webkit.
+
+```css
+.range-input::-webkit-slider-thumb {
+  margin-top: -11px;
+}
+```
+
+Подкорректируем стилизацию состояния фокуса (`:focus-visible`).
+
+```css
+.range-input:focus-visible {
+  outline: none;
+}
+
+.range-input:focus-visible::-webkit-slider-runnable-track {
+  outline-offset: 15px;
+  outline: 1px solid #c56fff;
+}
+
+.range-input:focus-visible::-moz-range-track {
+  outline-offset: 15px;
+  outline: 1px solid #c56fff;
 }
 ```
 
