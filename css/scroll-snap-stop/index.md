@@ -48,4 +48,4 @@ tags:
 
 Попробуйте прокрутить каждый из контейнеров с небольшим ускорением.
 
-<iframe title="Варианты значений" src="demos/values/" height="550"></iframe>
+<iframe title="Варианты остановки во время прокрутки" src="demos/values/" height="550"></iframe>
