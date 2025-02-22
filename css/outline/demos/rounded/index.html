@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Обводка со скруглением — outline — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Roboto, sans-serif;
+    }
+
+    .block {
+      padding: 30px;
+      font-size: 1.5rem;
+    }
+
+    .rounded-outline {
+      border-radius: 10px;
+      outline: 5px solid #ff9b00;
+      outline-offset: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="block rounded-outline">
+    Луна — единственный естественный спутник Земли.
+  </div>
+</body>
+</html>
