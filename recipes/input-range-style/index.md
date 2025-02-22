@@ -19,8 +19,6 @@ tags:
 
 При помощи `<input type="range">` можно выбирать числовые значение из заданного диапазона. Браузерные стили этого элемента часто не соответствует дизайну и функциональности веб-приложений, поэтому приходится его кастомизировать. В рецепте ниже описан один из способов стилизации ползунка диапазона, а также приведён пример ползунка с двумя ручками. Особое внимание уделено доступности учитывая рекомендации WCAG.
 
-"ДЕМКА СО ВСЕМИ ПРИМЕРАМИ INPUT RANGE В СТАТЬЕ"
-
 ## Анатомия
 
 Сначала разберем ползунок на детали.
@@ -390,15 +388,22 @@ function handleInputRange() {
 }
 ```
 
+Используем дополнительные CSS переменные для указания положения элементов слайдера. Эти переменные пригодятся для дальнейшей стилизации.
+
 Добавляем переменные расположения и смещения для тэга `<output>` с текущим значением. Смещение нужно, чтобы число располагалось точно над ползунком, так как оно увеличивается с однозначного 0, до трёхзначных 100.
 
-Используем дополнительные CSS переменные для указания положения элементов слайдера. Эти переменные пригодятся для дальнейшей стилизации.
+Так как значение переменной `--value` это просто строка "80", то её нужно переводить в %. Для этого используются хитрость с умножением на 1% `calc(var(--value) * 1%)`.
+
 
 ```css
 .range {
   --range-track-top: 70px;
   --range-output-left: calc(var(--value) * 1%);
   --range-output-offset-xy: calc(var(--value) * -1%), 0;
+}
+
+.range-label {
+  margin-block-end: 40px;
 }
 
 .track {
@@ -411,7 +416,11 @@ function handleInputRange() {
   top: var(--range-track-top);
   width: calc(var(--value) * 1%);
 }
+```
 
+Стилизуем текущее значение. Располагаем его над ползунком, указываем размер, отступы, центрируем число в центре элемента, указываем шрифты, смещение, убираем возможность выделения.
+
+```css
 .range-output {
   position: absolute;
   bottom: 40px;
@@ -427,213 +436,35 @@ function handleInputRange() {
 }
 ```
 
-### Вертикальный и горизонтальный input range
+### Шкала значений
 
-Добавляем стили для обертки нашего слайдера. Инициализируем кастомные переменные для размера и положения элементов слайдера.
+Шкалу значений нужно добавлять с помощью тэгов `<datalist>` и `<option>`. А также указать в тэге `<input>` атрибут `list="tickmarks"` c id тэга со списком значений, чтобы ползунок немного прилипал к этим значениям, когда пользователь доводит до них.
 
-```css
-.range {
-  /* Цвета для ползунка */
-  --clr-primary: #c56fff;
-  --clr-onPrimary: #fff;
-  --clr-secondary: #41e847;
-  --clr-bg: #ababab;
-  --clr-ticks: #c6c6c6;
-  --clr-outline: #41e847;
+<iframe title="Пример input range" src="demos/input-range-6/" height="400"></iframe>
 
-  /* Размер ползунка целиком */
-  --range-w: 100%;
-  --range-h: 30px;
-
-  /* Размер ползунка */
-  --range-thumb-w: 30px;
-  --range-thumb-h: 30px;
-
-  /* Размер и положение трэка */
-  .track {
-    --range-track-w: 100%;
-    --range-track-h: 8px;
-    --range-track-top: 72px;
-    --range-track-bottom: 0px;
-    --range-track-left: 0;
-  }
-
-  /* Размер и положение прогресс-бара */
-  .progress {
-    --range-progress-w: calc(var(--value) * 1%);
-    --range-progress-h: 8px;
-    --range-progress-top: 72px;
-    --range-progress-bottom: 0px;
-    --range-progress-left: none;
-    --range-progress-right: none;
-  }
-
-  position: relative;
-  display: grid;
-  width: 80%;
-}
-```
-
-Добавляем отступ подписи от слайдера.
-
-```css
-.range-label {
-  margin-block-end: 41px;
-}
-```
-
-Добавляем стили `<input type="range">`.
-
-```css
-.range-input {
-  width: var(--range-w);
-  height: var(--range-h);
-  appearance: none;
-  background: none;
-}
-```
-
-Стилизуем ползунок. Указываем его размер, скругляем, добавляем ему фон, и внутреннюю тень.
-
-```css
-.range-input::-webkit-slider-thumb,
-.range-input::-moz-range-thumb {
-  width: var(--range-thumb-w);
-  height: var(--range-thumb-h);
-  border: none;
-  border-radius: 50%;
-  background-color: var(--clr-onPrimary);
-  box-shadow: 0 0 0 5px inset var(--clr-primary);
-  transition: 300ms;
-}
-```
-
-Стилизуем состояние фокуса (`:focus-visible`) и ховера (`:hover`).
-
-```css
-.range-input:hover::-webkit-slider-thumb,
-.range-input:hover::-moz-range-thumb,
-.range-input:focus-visible::-webkit-slider-thumb,
-.range-input:focus-visible::-moz-range-thumb {
-  box-shadow: 0 0 0 10px inset var(--clr-primary);
-  transition: 300ms;
-
-  + .range-output {
-    background-color: var(--clr-primary);
-  }
-}
-```
-
-Не забываем про рекомендации WCAG и выделяем фокусом не только сам слайдер целиком, но и отдельно ползунок, который будет перемещаться.
-
-```css
-.range-input:focus-visible::-webkit-slider-thumb,
-.range-input:focus-visible::-moz-range-thumb {
-  outline: 3px solid var(--clr-outline);
-}
-```
-
-Стилизуем активное состояние ползунка (`:active`).
-
-```css
-.range-input:active::-webkit-slider-thumb,
-.range-input:active::-moz-range-thumb {
-  box-shadow: 0 0 0 30px inset var(--clr-primary);
-  transition: 300ms;
-}
-```
-
-Стилизуем неактивное состояние (`:disabled`).
-
-```css
-.range-input:disabled::-webkit-slider-thumb,
-.range-input:disabled::-moz-range-thumb {
-  box-shadow: 0 0 0 30px inset var(--clr-bg);
-}
-```
-
-Добавляем стили трэку. Используем абсолютное расположение для гибкого перемещения внутри `.range`. Указываем размер и местоположение с помощью наших переменных созданных ранее, скругляем углы, добавляем фон и указываем `z-index: -1;`, чтобы трэк располагался под ползунком.
-
-```css
-.track {
-  position: absolute;
-  /* Положение в пространстве */
-  top: var(--range-track-top);
-  bottom: var(--range-track-bottom);
-  left: var(--range-track-left);
-  right: var(--range-track-right);
-  /* Размер */
-  width: var(--range-track-w);
-  height: var(--range-track-h);
-  border-radius: 10px;
-  background-color: var(--clr-bg);
-  z-index: -1;
-}
-```
-
-Также указываем абсолютное позиционирование для прогресс-бара. Добавляем расположение, размер, скругление углов, фон и `z-index: -1;`, чтобы прогресс-бар располагался под ползунком.
-
-```css
-.progress {
-  position: absolute;
-  /* Положение в пространстве */
-  top: var(--range-progress-top);
-  bottom: var(--range-progress-bottom);
-  left: var(--range-progress-left);
-  right: var(--range-progress-right);
-  /* Размер */
-  width: var(--range-progress-w);
-  height: var(--range-progress-h);
-  border-radius: 10px;
-  background-color: var(--clr-primary);
-  z-index: -1;
-}
-```
-
-Так как значение переменной `--value` это просто строка "80", то её нужно переводить в %. Для этого используются хитрость с умножением на 1% `calc(var(--value) * 1%)`.
-
-Чтобы не использовать подобные ухищрения можно указать тип переменной через css правило `@property`.
-
-ВОЗМОЖНО НУЖНО ПЕРЕПИСАТЬ НА НЕГО ДЕМКИ, но мне немного лень =P
-
-```css
-@property --value {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 80;
-}
-```
-
-
+Инициализируем CSS переменные для положения элементов шкалы.
+Немного корректируем вычисление положения текущего значения.
 
 ```css
 .range {
-  /* ... */
-  .range-output {
-    --range-output-top: 25px;
-    --range-output-left: calc(var(--value) * 1%);
-    --range-output-right: none;
-    --range-output-offset-xy: calc(var(--value) * -1%), 0;
-  }
-  /* ... */
+  --tickmarks-w: calc(100% - 18px);
+  --option-after-h: 30px;
+  --option-after-top: -30px;
+
+  --range-output-offset-xy: calc(var(--value) * -.95%), 0;
+  --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
 }
 ```
 
-Стилизуем текущее значение. Располагаем его над ползунком, указываем размер, отступы, центрируем число в центре элемента, указываем шрифты, смещение, убираем возможность выделения.
+Дополняем к стилям текущего состояния `margin-left` для более точной подстройки положения элемента.
 
 ```css
 .range-output {
   position: absolute;
-  top: var(--range-output-top);
-  bottom: var(--range-output-bottom);
+  top: 25px;
   left: var(--range-output-left);
-  right: var(--range-output-right);
-  width: var(--range-thumb-w);
-  height: var(--range-thumb-h);
-  min-width: fit-content;
+  margin-left: var(--range-output-margin);
   padding: 0 4px;
-  display: grid;
-  place-items: center;
   background: transparent;
   border-radius: 10px;
   font-size: 18px;
@@ -644,23 +475,26 @@ function handleInputRange() {
 }
 ```
 
-Стилизуем, когда `<input>` находится в фокусе (`:focus-visible`) или с ховером (`:hover`).
+Стилизуем, состояние когда `<input>` находится в фокусе (`:focus-visible`) или с ховером (`:hover`).
 
 ```css
 .range-input:hover + .range-output,
 .range-input:focus-visible + .range-output {
-  background-color: var(--clr-primary);
+  background-color: #c56fff;
   transition: 0ms;
 }
 ```
 
-### Шкала значений
-
-Шкалу значений нужно добавлять с помощью тэгов `<datalist>` и `<option>`. А также указать в тэге `<input>` атрибут `list="tickmarks"` c id тэга со списком значений, чтобы ползунок немного прилипал к этим значениям, когда пользователь доводит до них.
+Добавляем шкалу значений и её стили.
 
 ```html
-<div class="range" style="--value: 80;">
-  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
+<div class="range" style="--value: 80">
+  <label
+    class="range-label"
+    for="tailmetr"
+  >
+    Хвост-о-метр (cм)
+  </label>
   <div class="track"></div>
   <div class="progress"></div>
   <input
@@ -671,10 +505,12 @@ function handleInputRange() {
     max="100"
     value="80"
     step="1"
+    aria-valuemin="0"
+    aria-valuemax="100"
     list="tickmarks"
   >
   <output class="range-output" id="output" for="tailmetr">80</output>
-  <datalist id="tickmarks">
+  <datalist id="tickmarks" class="tickmarks">
     <option value="0 to 20">0</option>
     <option>20</option>
     <option>40</option>
@@ -686,224 +522,44 @@ function handleInputRange() {
 ```
 
 ```css
-.range {
-  /* ... */
-  #tickmarks {
-    --tickmarks-w: calc(100% - 8px);
-    --tickmarks-h: 30px;
-    --tickmarks-p: 0 0 0 12px;
-    --tickmarks-dir: row;
-    --tickmarks-write-mode: horizontal-tb;
-  }
-
-  option {
-    --option-p: 10px 0 0 0;
-    --option-after-w: 3px;
-    --option-after-h: 35px;
-    --option-after-top: -33px;
-    --option-after-left: 2px;
-  }
-  /* ... */
-}
-```
-
-```css
-#tickmarks {
+.tickmarks {
   width: var(--tickmarks-w);
-  height: var(--tickmarks-h);
-  padding: var(--tickmarks-p);
+  height: 30px;
+  padding-inline: 4px 0;
   display: flex;
-  flex-direction: var(--tickmarks-dir);
+  flex-direction: row;
   justify-content: space-between;
-  color: var(--clr-onPrimary);
-  writing-mode: var(--tickmarks-write-mode);
+  color: white;
 }
 
 option {
   position: relative;
+  padding-top: 10px;
+  padding-left: 4px;
   width: 10px;
-  padding: var(--option-p);
   font-size: 14px;
 }
 
-option::after {
+option:after {
   content: "";
   display: initial;
   position: absolute;
   top: var(--option-after-top);
-  left: var(--option-after-left);
-  width: var(--option-after-w);
+  left: 10px;
+  width: 3px;
   height: var(--option-after-h);
   margin: 0 auto;
-  background: var(--clr-ticks);
+  background: #c6c6c6;
   z-index: -1;
 }
 ```
-
-<iframe title="Пример input range" src="demos/input-range-6/" height="400"></iframe>
-
-Дорабатываем наш HTML, добавляя атрибуты `dir="ltr"` и `aria-orientation="horizontal"`.
-Повернуть input range вертикально можно двумя способами. Однако в обоих вариантах обязательно нужно указать атрибут `aria-orientation: vertical`.
-
-```html
-<div class="range" style="--value: 80;">
-  <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
-  <div class="track"></div>
-  <div class="progress"></div>
-  <input
-    class="range-input"
-    id="tailmetr"
-    type="range"
-    min="0"
-    max="100"
-    value="80"
-    step="1"
-    dir="ltr"
-    aria-orientation="horizontal"
-    list="tickmarks"
-  >
-  <output class="range-output" id="output" for="tailmetr">80</output>
-  <datalist id="tickmarks">
-    <option value="0 to 20">0</option>
-    <option>20</option>
-    <option>40</option>
-    <option>60</option>
-    <option>80</option>
-    <option>100</option>
-  </datalist>
-</div>
-```
-
-#### [`write-mode`](/css/write-mode/)
-
-```css
-/* Вариант справо налево (0 справа, 100 слева) */
-.range:has(input[aria-orientation="horizontal"][dir="rtl"]) {
-  .progress {
-    --range-progress-left: none;
-    --range-progress-right: min(
-      calc(var(--value-1) * 1%),
-      calc(var(--value-2) * 1%)
-    );
-  }
-
-  .range-output {
-    --range-output-left: none;
-    --range-output-right: calc(var(--value) * 1%);
-    --range-output-offset-xy: calc(var(--value) * 1%), 0;
-  }
-
-  #tickmarks {
-    --tickmarks-dir: row-reverse;
-    --tickmarks-write-mode: horizontal-tb;
-  }
-}
-```
-
-```css
-/* Вариант сверху вниз (100 внизу, 0 вверху) */
-.range:has(input[aria-orientation="vertical"][dir="ltr"]) {
-  --range-w: 30px;
-  --range-h: 100%;
-
-  --range-input-write-m: vertical-lr;
-  --range-label-rotate: 180deg;
-
-  --range-track-w: 8px;
-  --range-track-h: 100%;
-  --range-track-top: 0;
-  --range-track-bottom: none;
-  --range-track-left: 71px;
-
-  --range-progress-w: 8px;
-  --range-progress-h: calc(var(--value) * 1%);
-  --range-progress-top: 0;
-  --range-progress-bottom: none;
-  --range-progress-left: 71px;
-
-  --range-output-top: calc(var(--value) * -1% + 90%);
-  --range-output-left: 28px;
-  --range-output-offset-xy: 0, calc(var(--value) * -1%);
-
-  --tickmarks-w: 30px;
-  --tickmarks-h: calc(100% - 5px);
-  --tickmarks-dir: column;
-  --tickmarks-write-mode: horizontal-tb;
-
-  --option-after-w: 35px;
-  --option-after-h: 3px;
-  --option-after-top: 15px;
-  --option-after-left: -37px;
-
-  writing-mode: vertical-lr;
-}
-```
-
-```css
-/* Вариант снизу вверх (0 внизу, 100 вверху) */
-.range:has(input[aria-orientation="vertical"][dir="rtl"]) {
-  --range-w: 30px;
-  --range-h: 100%;
-
-  --range-input-write-m: vertical-lr;
-  --range-label-rotate: 180deg;
-
-  --range-track-w: 8px;
-  --range-track-h: 100%;
-  --range-track-top: none;
-  --range-track-bottom: 0;
-  --range-track-left: 71px;
-
-  --range-progress-w: 8px;
-  --range-progress-h: calc(var(--value) * 1%);
-  --range-progress-top: none;
-  --range-progress-bottom: 0;
-  --range-progress-left: 71px;
-
-  --range-output-top: calc(var(--value) * 1%);
-  --range-output-left: 28px;
-  --range-output-offset-xy: 0, calc(var(--value) * 1%);
-
-  --tickmarks-w: 30px;
-  --tickmarks-h: calc(100% - 5px);
-  --tickmarks-dir: column-reverse;
-  --tickmarks-write-mode: horizontal-tb;
-
-  --option-after-w: 35px;
-  --option-after-h: 3px;
-  --option-after-top: 15px;
-  --option-after-left: -37px;
-
-  writing-mode: vertical-lr;
-}
-```
-
-```css
-.range-label {
-  transform: rotate(var(--range-label-rotate));
-}
-```
-
-```css
-.range-output {
-  writing-mode: horizontal-tb;
-}
-```
-
-#### [`transform: rotate();`](/css/rotate)
-
-Если значение aria-valuenow не удобно для пользователя, например, день недели представлен числом, для свойства aria-valuetext устанавливается строка, которая делает значение ползунка понятным, например, «Понедельник».
-
-## Доступность
-
-Проговорить в подробностях про все аспекты доступности.
 
 ## Сложные варианты input range
 
 ### Две ручки
 
 Часто требуется сделать слайдер с двумя ползунками, чтобы указать диапазон чего-то. Например диапазон цен в фильтре поиска товаров.
-За основу возьмем слайдер, реализованный ранее. Он уже кроссбраузерный, доступный, с текущем значение, шкалой и может находиться в разных положениях(вертикально и горизонтально). Однако нам нехватает второго ползунка.
+За основу возьмем слайдер, реализованный ранее.
 
 ```html
 <!-- Инициализируем css переменные для обоих ползунков --value-1 и --value-2 -->
