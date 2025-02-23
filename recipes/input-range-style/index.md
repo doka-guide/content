@@ -32,7 +32,7 @@ tags:
 
 ## Простой вариант ползунка
 
-### Добавляем обычный input range в html и показываем все его атрибуты
+### Обычный input range и все его атрибуты
 
 Создаем дефолтный `<input type="range"`.
 
@@ -440,7 +440,7 @@ function handleInputRange() {
 
 Шкалу значений нужно добавлять с помощью тэгов `<datalist>` и `<option>`. А также указать в тэге `<input>` атрибут `list="tickmarks"` c id тэга со списком значений, чтобы ползунок немного прилипал к этим значениям, когда пользователь доводит до них.
 
-<iframe title="Пример input range" src="demos/input-range-6/" height="400"></iframe>
+<iframe title="Пример input range" src="demos/input-range-6/" height="180"></iframe>
 
 Инициализируем CSS переменные для положения элементов шкалы.
 Немного корректируем вычисление положения текущего значения.
@@ -558,8 +558,10 @@ option:after {
 
 ### Две ручки
 
-Часто требуется сделать слайдер с двумя ползунками, чтобы указать диапазон чего-то. Например диапазон цен в фильтре поиска товаров.
+Часто требуется сделать слайдер с двумя ручками, чтобы указать диапазон чего-то. Например диапазон цен в фильтре поиска товаров.
 За основу возьмем слайдер, реализованный ранее.
+
+<iframe title="Слайдер с 2-мя ручками" src="demos/input-range-7/" height="180"></iframe>
 
 ```html
 <!-- Инициализируем css переменные для обоих ползунков --value-1 и --value-2 -->
@@ -576,7 +578,6 @@ option:after {
       max="100"
       value="20"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -598,7 +599,6 @@ option:after {
       max="100"
       value="40"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -758,7 +758,6 @@ function handleInputRange2() {
       max="100"
       value="20"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -779,7 +778,6 @@ function handleInputRange2() {
       max="100"
       value="40"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -800,7 +798,6 @@ function handleInputRange2() {
       max="100"
       value="60"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -821,7 +818,6 @@ function handleInputRange2() {
       max="100"
       value="80"
       step="1"
-      dir="rtl"
       aria-valuemin="0"
       aria-valuemax="100"
       aria-orientation="horizontal"
@@ -896,5 +892,3 @@ function handleInputRange4() {
 
 На протяжении всей статьи мы придерживались принципов доступности, следуя рекомендациям WCAG. Это включало правильное использование ARIA-атрибутов, обеспечение клавиатурной навигации и четкую визуальную обратную связь.
 Важно отметить, что хотя мы достигли высокого уровня кастомизации, поддержание доступности и удобства использования должно оставаться приоритетом. При реализации сложных интерфейсов всегда следует учитывать баланс между эстетикой и функциональностью.
-
-### Круглый input range
