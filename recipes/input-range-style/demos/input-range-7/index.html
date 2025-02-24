@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Диапазон — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
+    <title>Диапазон значений — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,26 +46,26 @@
 
       .range {
         --range-track-top: 70px;
+
         --tickmarks-w: calc(100% - 18px);
         --option-after-h: 30px;
         --option-after-top: -30px;
 
-        position: relative;
-        display: grid;
-        width: 400px;
-
-        .progress {
-          --range-progress-w: calc((var(--value-2) - var(--value-1)) * 1%);
-          --range-progress-left: min(
-            calc(var(--value-1) * 1%),
-            calc(var(--value-2) * 1%)
-          );
-        }
+        --range-progress-w: calc((var(--value-2) - var(--value-1)) * 1%);
+        --range-progress-left: min(
+          calc(var(--value-1) * 1%),
+          calc(var(--value-2) * 1%)
+        );
 
         .range-output {
           --range-output-left: calc(var(--value) * 1%);
           --range-output-offset-xy: calc(var(--value) * -.95%), 0;
+          --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
         }
+
+        position: relative;
+        display: grid;
+        width: 400px;
       }
 
       .range-label {
@@ -130,7 +130,7 @@
       }
 
       .range-input:focus-visible {
-        outline-offset: 10px;
+        outline-offset: 7px;
         outline: 1px solid #c56fff;
       }
 
@@ -140,10 +140,6 @@
 
       .range-input:focus-visible::-moz-range-thumb {
         outline: 3px solid #41e847;
-      }
-
-      .range-output {
-
       }
 
       .track {
@@ -171,7 +167,7 @@
         position: absolute;
         top: 25px;
         left: var(--range-output-left);
-        right: none;
+        margin-left: var(--range-output-margin);
         display: grid;
         min-width: fit-content;
         padding: 0 4px;
@@ -274,7 +270,7 @@
           40
         </output>
       </div>
-      <datalist id="tickmarks">
+      <datalist id="tickmarks" class="tickmarks">
         <option value="0 to 20">0</option>
         <option>20</option>
         <option>40</option>
@@ -301,22 +297,6 @@
       function handleInputRange2() {
         event.target.parentNode.parentNode.style.setProperty(
           '--value-2',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange3() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-3',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange4() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-4',
           event.target.value
         )
         event.target.nextElementSibling.value = event.target.value

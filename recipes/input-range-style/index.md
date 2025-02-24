@@ -478,6 +478,11 @@ function handleInputRange() {
 Стилизуем, состояние когда `<input>` находится в фокусе (`:focus-visible`) или с ховером (`:hover`).
 
 ```css
+.range-input:focus-visible {
+  outline-offset: 7px;
+  outline: 1px solid #c56fff;
+}
+
 .range-input:hover + .range-output,
 .range-input:focus-visible + .range-output {
   background-color: #c56fff;
@@ -648,7 +653,7 @@ function handleInputRange2() {
 
 По сути это та же самая функция `handleInputRange()`, только в каждой из них изменяется свое значение `--value-1` и `--value-2`.
 
-Также нужно добавить немного стилей, чтобы ползунки находились на одной дорожке
+Также нужно чтобы ползунки находились на одной дорожке.
 
 ```css
 .thumbs {
@@ -659,8 +664,11 @@ function handleInputRange2() {
 ```css
 .range-input {
   grid-area: 1/1;
+  pointer-events: none;
 }
 ```
+
+Мы запрещаем элементу `<input>` реагировать на события мыши такие как ховер. Теперь эти события будут обрабатываться каждой ручкой отдельно.
 
 Изменяем положение и размер прогресс бара, чтобы он заполнял значение между левым и правым ползунками.
 
