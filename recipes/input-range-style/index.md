@@ -747,13 +747,13 @@ function handleInputRange2() {
 }
 ```
 
-### Много ползунков
+### Много ручек
 
-Ещё одним частым случаем является реализации слайдера с разным количеством ползунков.
+Ещё одним вариантом является реализации слайдера с разным количеством ручек.
 
 <iframe title="Слайдер с 4-мя ползунками" src="demos/input-range-four-thumbs/" height="200"></iframe>
 
-Возьмем предыдущий вариант слайдера с двумя ползунками без ограничений по перемещению. Спрячем прогресс бар и добавим нужное количество ползунков. В нашем случае пусть будет 4.
+Возьмем предыдущий вариант слайдера с двумя ручками без ограничений по перемещению. Спрячем прогресс бар и добавим нужное количество ручек. В нашем случае пусть будет 4.
 
 ```html
 <div
@@ -856,40 +856,20 @@ function handleInputRange2() {
 </div>
 ```
 
-Для каждого ползунка добавим свою функцию обработки.
+Что бы не писать однотипные функции обработки для каждой ручки, используем цикл и общую функцию.
 
 ```javascript
-function handleInputRange1() {
+const createHandler = (valueName) => (event) => {
   event.target.parentNode.parentNode.style.setProperty(
-    "--value-1",
+    valueName,
     event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
+  )
+  event.target.nextElementSibling.value = event.target.value
 }
 
-function handleInputRange2() {
-  event.target.parentNode.parentNode.style.setProperty(
-    "--value-2",
-    event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
-}
-
-function handleInputRange3() {
-  event.target.parentNode.parentNode.style.setProperty(
-    "--value-3",
-    event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
-}
-
-function handleInputRange4() {
-  event.target.parentNode.parentNode.style.setProperty(
-    "--value-4",
-    event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
-}
+document.querySelectorAll('.range-input').forEach((rangeInput, idx) => {
+  rangeInput.addEventListener('input', createHandler(`--value-${idx + 1}`))
+})
 ```
 
 ### Заключение

@@ -305,50 +305,17 @@
       </datalist>
     </div>
     <script>
-      const range1 = document.querySelector('#tailmetr1')
-      range1.addEventListener('input', handleInputRange1)
-
-      const range2 = document.querySelector('#tailmetr2')
-      range2.addEventListener('input', handleInputRange2)
-
-      const range3 = document.querySelector('#tailmetr3')
-      range3.addEventListener('input', handleInputRange3)
-
-      const range4 = document.querySelector('#tailmetr4')
-      range4.addEventListener('input', handleInputRange4)
-
-
-      function handleInputRange1() {
+      const createHandler = (valueName) => (event) => {
         event.target.parentNode.parentNode.style.setProperty(
-          '--value-1',
+          valueName,
           event.target.value
         )
         event.target.nextElementSibling.value = event.target.value
       }
 
-      function handleInputRange2() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-2',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange3() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-3',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange4() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-4',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
+      document.querySelectorAll('.range-input').forEach((rangeInput, idx) => {
+        rangeInput.addEventListener('input', createHandler(`--value-${idx + 1}`))
+      })
     </script>
   </body>
 </html>
