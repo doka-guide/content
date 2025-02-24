@@ -639,7 +639,7 @@ function handleInputRange1() {
     "--value-1",
     event.target.value
   );
-  event.target.nextElementSibling.value = event.target.value;
+  event.target.nextElementSibling.value = event.target.value
 }
 
 function handleInputRange2() {
@@ -647,7 +647,7 @@ function handleInputRange2() {
     "--value-2",
     event.target.value
   );
-  event.target.nextElementSibling.value = event.target.value;
+  event.target.nextElementSibling.value = event.target.value
 }
 ```
 
@@ -668,76 +668,80 @@ function handleInputRange2() {
 }
 ```
 
-Мы запрещаем элементу `<input>` реагировать на события мыши такие как ховер. Теперь эти события будут обрабатываться каждой ручкой отдельно.
+Мы запрещаем элементу `<input>` реагировать на события указателя, такие как ховер. Теперь эти события будут обрабатываться каждой ручкой отдельно.
 
 Изменяем положение и размер прогресс бара, чтобы он заполнял значение между левым и правым ползунками.
 
+Вычисляем размер прогресс бара вычитая правое значение из левого и взяв модуль от результата `calc((var(--value-2) - var(--value-1)) * 1%);`. Также вычисляем значение начального расположения прогресс бара. Для этого нам нужно взять минимальное значение из двух `и` (то, что ближе находиться к началу) `min(calc(var(--value-1) * 1%), calc(var(--value-2) * 1%));`.
+
+Определяем CSS переменные для элементов отображающих текущее значение.
+
 ```css
 .range {
-  .progress {
-    --range-progress-w: abs((var(--value-2) - var(--value-1)) * 1%);
-    --range-progress-h: 8px;
-    --range-progress-top: 75px;
-    --range-progress-bottom: 0px;
-    --range-progress-left: min(
-      calc(var(--value-1) * 1%),
-      calc(var(--value-2) * 1%)
-    );
-    --range-progress-right: none;
+  --range-progress-w: calc((var(--value-2) - var(--value-1)) * 1%);
+  --range-progress-left: min(
+    calc(var(--value-1) * 1%),
+    calc(var(--value-2) * 1%)
+  );
+
+  .range-output {
+    --range-output-left: calc(var(--value) * 1%);
+    --range-output-offset-xy: calc(var(--value) * -.95%), 0;
+    --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
   }
 }
 ```
 
-Вычисляем размер прогресс бара вычитая правое значение из левого и взяв модуль от результата `abs((var(--value-2) - var(--value-1)) * 1%);`. Также вычисляем значение начального расположения прогресс бара. Для этого нам нужно взять минимальное значение из двух `и` (то, что ближе находиться к началу) `min(calc(var(--value-1) * 1%), calc(var(--value-2) * 1%));`.
-
-#### Ограничение перемещения ползунков
+### Ограничение перемещения ручек
 
 Иногда требуется, чтобы ползунки не могли поменяться местами, а при пересечении они упирались друг в друга.
-Напишим ограничители для ползунков.
+
+<iframe title="Слайдер с ограничениями для ручек" src="demos/input-range-8/" height="180"></iframe>
+
+Напишем ограничители для ручек.
 
 ```javascript
 function handleInputRange1() {
   // Достает значение второго(правого) ползунка
   const value2 =
-    event.target.parentNode.parentNode.style.getPropertyValue("--value-2");
+    event.target.parentNode.parentNode.style.getPropertyValue('--value-2')
   // Если значение текущего(левого) ползунка больше либо равно правому, то значение текущего(левого) ползунка приравнивается значению правого
   if (parseInt(event.target.value) >= parseInt(value2)) {
-    console.log(event.target.value);
-    event.target.value = value2;
+    event.target.value = value2
   }
   // Если значение текущего(левого) ползунка равно 100(максимальному значению), то он должен находиться выше правого, чтобы пользователь мог изменить его значения, иначи ползунки будут блокировать друг друга. (css deadlock, почти как в потоках)))
-  if (event.target.value === "100") {
-    event.target.style.zIndex = "100";
+  if (event.target.value === '100') {
+    event.target.style.zIndex = '100'
   } else {
-    event.target.style.zIndex = "0";
+    event.target.style.zIndex = '0'
   }
   event.target.parentNode.parentNode.style.setProperty(
-    "--value-1",
+    '--value-1',
     event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
+  )
+  event.target.nextElementSibling.value = event.target.value
 }
 
 function handleInputRange2() {
   // Достает значение первого(левого) ползунка
   const value1 =
-    event.target.parentNode.parentNode.style.getPropertyValue("--value-1");
+    event.target.parentNode.parentNode.style.getPropertyValue('--value-1');
   // Если значение текущего(правого) ползунка меньше либо равно левому, то значение текущего(правого) ползунка приравнивается значению левого
   if (parseInt(event.target.value) <= parseInt(value1)) {
-    console.log(event.target.value);
-    event.target.value = value1;
+    console.log(event.target.value)
+    event.target.value = value1
   }
   // Если значение текущего(правого) ползунка равно 0(минимальному значению), то он должен находиться выше левого, чтобы пользователь мог изменить его значения, иначе ползунки будут блокировать друг друга. (css deadlock, почти как в потоках)))
-  if (event.target.value === "0") {
-    event.target.style.zIndex = "100";
+  if (event.target.value === '0') {
+    event.target.style.zIndex = '100'
   } else {
-    event.target.style.zIndex = "0";
+    event.target.style.zIndex = '0'
   }
   event.target.parentNode.parentNode.style.setProperty(
     "--value-2",
     event.target.value
-  );
-  event.target.nextElementSibling.value = event.target.value;
+  )
+  event.target.nextElementSibling.value = event.target.value
 }
 ```
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Слайдер input range с 4 ползунками — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
+    <title>Диапазон значений — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +50,12 @@
         --tickmarks-w: calc(100% - 18px);
         --option-after-h: 30px;
         --option-after-top: -30px;
+
+        --range-progress-w: calc((var(--value-2) - var(--value-1)) * 1%);
+        --range-progress-left: min(
+          calc(var(--value-1) * 1%),
+          calc(var(--value-2) * 1%)
+        );
 
         .range-output {
           --range-output-left: calc(var(--value) * 1%);
@@ -146,6 +152,17 @@
         z-index: -1;
       }
 
+      .progress {
+        position: absolute;
+        top: var(--range-track-top);
+        left: var(--range-progress-left);
+        width: var(--range-progress-w);
+        height: 8px;
+        border-radius: 10px;
+        background-color: #c56fff;
+        z-index: -1;
+      }
+
       .range-output {
         position: absolute;
         top: 25px;
@@ -203,12 +220,10 @@
     </style>
   </head>
   <body>
-    <div
-      class="range"
-      style="--value-1: 20; --value-2: 40; --value-3: 60; --value-4: 80"
-    >
+    <div class="range" style="--value-1: 20; --value-2: 40;">
       <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
       <div class="track"></div>
+      <div class="progress"></div>
       <div class="thumbs">
         <input
           class="range-input"
@@ -227,10 +242,11 @@
           class="range-output"
           id="output"
           for="tailmetr1"
-          style="--value: var(--value-1)"
+          style="--value: var(--value-1);"
         >
           20
         </output>
+        <!-- Второй ползунок -->
         <input
           class="range-input"
           id="tailmetr2"
@@ -244,55 +260,14 @@
           aria-orientation="horizontal"
           list="tickmarks"
         >
+        <!-- Вывод текущего значения для второго ползунка -->
         <output
           class="range-output"
           id="output"
           for="tailmetr2"
-          style="--value: var(--value-2)"
+          style="--value: var(--value-2);"
         >
           40
-        </output>
-        <input
-          class="range-input"
-          id="tailmetr3"
-          type="range"
-          min="0"
-          max="100"
-          value="60"
-          step="1"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-orientation="horizontal"
-          list="tickmarks"
-        >
-        <output
-          class="range-output"
-          id="output"
-          for="tailmetr3"
-          style="--value: var(--value-3)"
-        >
-          60
-        </output>
-        <input
-          class="range-input"
-          id="tailmetr4"
-          type="range"
-          min="0"
-          max="100"
-          value="80"
-          step="1"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-orientation="horizontal"
-          list="tickmarks"
-        >
-        <output
-          class="range-output"
-          id="output"
-          for="tailmetr4"
-          style="--value: var(--value-4)"
-        >
-          80
         </output>
       </div>
       <datalist id="tickmarks" class="tickmarks">
@@ -311,14 +286,16 @@
       const range2 = document.querySelector('#tailmetr2')
       range2.addEventListener('input', handleInputRange2)
 
-      const range3 = document.querySelector('#tailmetr3')
-      range3.addEventListener('input', handleInputRange3)
-
-      const range4 = document.querySelector('#tailmetr4')
-      range4.addEventListener('input', handleInputRange4)
-
-
       function handleInputRange1() {
+        const value2 = event.target.parentNode.parentNode.style.getPropertyValue('--value-2')
+        if (parseInt(event.target.value) >= parseInt(value2)) {
+          event.target.value = value2
+        }
+        if (event.target.value === '100') {
+          event.target.style.zIndex = '100'
+        } else {
+          event.target.style.zIndex = '0'
+        }
         event.target.parentNode.parentNode.style.setProperty(
           '--value-1',
           event.target.value
@@ -327,24 +304,18 @@
       }
 
       function handleInputRange2() {
+        const value1 = event.target.parentNode.parentNode.style.getPropertyValue('--value-1');
+        if (parseInt(event.target.value) <= parseInt(value1)) {
+          console.log(event.target.value)
+          event.target.value = value1
+        }
+        if (event.target.value === '0') {
+          event.target.style.zIndex = '100'
+        } else {
+          event.target.style.zIndex = '0'
+        }
         event.target.parentNode.parentNode.style.setProperty(
-          '--value-2',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange3() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-3',
-          event.target.value
-        )
-        event.target.nextElementSibling.value = event.target.value
-      }
-
-      function handleInputRange4() {
-        event.target.parentNode.parentNode.style.setProperty(
-          '--value-4',
+          "--value-2",
           event.target.value
         )
         event.target.nextElementSibling.value = event.target.value
