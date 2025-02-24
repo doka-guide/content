@@ -313,7 +313,7 @@ tags:
 Перепишем наш `<input type="range">` заново.
 Для удобной кроссбраузерной и читабельной версии используем отдельные тэги `<div>` для трэка и прогресс бара. А также CSS переменные для изменения заполненности прогресс бара с помощью Javascript.
 
-<iframe title="Пример input range" src="demos/input-range-5/" height="180"></iframe>
+<iframe title="Пример input range" src="demos/input-range-5/" height="200"></iframe>
 
 ```html
 <div class="range" style="--value: 80;">
@@ -440,7 +440,7 @@ function handleInputRange() {
 
 Шкалу значений нужно добавлять с помощью тэгов `<datalist>` и `<option>`. А также указать в тэге `<input>` атрибут `list="tickmarks"` c id тэга со списком значений, чтобы ползунок немного прилипал к этим значениям, когда пользователь доводит до них.
 
-<iframe title="Пример input range" src="demos/input-range-6/" height="180"></iframe>
+<iframe title="Пример input range" src="demos/input-range-6/" height="200"></iframe>
 
 Инициализируем CSS переменные для положения элементов шкалы.
 Немного корректируем вычисление положения текущего значения.
@@ -566,7 +566,7 @@ option:after {
 Часто требуется сделать слайдер с двумя ручками, чтобы указать диапазон чего-то. Например диапазон цен в фильтре поиска товаров.
 За основу возьмем слайдер, реализованный ранее.
 
-<iframe title="Слайдер с 2-мя ручками" src="demos/input-range-7/" height="180"></iframe>
+<iframe title="Слайдер с 2-мя ручками" src="demos/input-range-7/" height="200"></iframe>
 
 ```html
 <!-- Инициализируем css переменные для обоих ползунков --value-1 и --value-2 -->
@@ -696,7 +696,7 @@ function handleInputRange2() {
 
 Иногда требуется, чтобы ползунки не могли поменяться местами, а при пересечении они упирались друг в друга.
 
-<iframe title="Слайдер с ограничениями для ручек" src="demos/input-range-8/" height="180"></iframe>
+<iframe title="Слайдер с ограничениями для ручек" src="demos/input-range-8/" height="200"></iframe>
 
 Напишем ограничители для ручек.
 
