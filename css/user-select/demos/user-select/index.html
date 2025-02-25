@@ -31,9 +31,51 @@
       font-family: "Roboto", sans-serif;
     }
 
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .form {
+      flex: 0 0 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      font-size: 1rem;
+    }
+
+    .user-selector {
+      margin-left: .5rem;
+      margin-right: 2rem;
+    }
+
     p {
       font-size: 18px;
+    }
+
+    .select-none {
       user-select: none;
+    }
+
+    .select-text {
+      user-select: text;
+    }
+
+    .select-all {
+      user-select: all;
+    }
+
+    .select-auto {
+      user-select: auto;
+
+      .select-text-auto {
+        user-select: auto;
+      }
     }
 
     @media (max-width: 768px) {
@@ -45,15 +87,64 @@
 </head>
 <body>
   <div class="container">
-    <p>
-      Три — эльфийским владыкам в подзвёздный предел;
-      <br>
-      Семь — для гномов царящих в подгорном просторе;
-      <br>
-      Девять — смертным, чей выведен срок и удел;
-      <br>
-      И Одно — Властелину на чёрном престоле.
-    </p>
+    <h3 class="title">Значение user-select</h3>
+    <form class="form">
+      <label for="user-selector">Весь текст</label>
+      <select
+        name="user-selectorAll"
+        id="user-selector1"
+        class="user-selector"
+      >
+        <option value="none" selected>none</option>
+        <option value="text">text</option>
+        <option value="all">all</option>
+        <option value="auto">auto</option>
+      </select>
+
+      <label for="user-selector">Последняя строка</label>
+      <select
+        name="user-selectorLast"
+        id="user-selector2"
+        class="user-selector"
+      >
+        <option value="none">none</option>
+        <option value="text">text</option>
+        <option value="all">all</option>
+        <option value="auto" selected>auto</option>
+      </select>
+    </form>
+    <div class="content select-none">
+      <p>
+        Три — эльфийским владыкам в подзвёздный предел;
+      </p>
+      <p>
+        Семь — для гномов царящих в подгорном просторе;
+      </p>
+      <p>
+        Девять — смертным, чей выведен срок и удел;
+      </p>
+      <p class="last-string-text select-auto">
+        И Одно — Властелину на чёрном престоле.
+      </p>
+    </div>
   </div>
+  <script>
+    const container = document.querySelector('.container')
+    const selectorAllText = container.querySelector('#user-selector1')
+    const selectorLastString = container.querySelector('#user-selector2')
+    const allText = container.querySelector('.content')
+    const lastString = container.querySelector('.last-string-text')
+
+
+    selectorAllText.addEventListener('change', function (event) {
+      const selectValue = event.target.value
+      allText.className = `content select-${selectValue}`
+    })
+
+    selectorLastString.addEventListener('change', function (event) {
+      const selectValue = event.target.value
+      lastString.className = `last-string-text select-${selectValue}`
+    })
+  </script>
 </body>
 </html>
