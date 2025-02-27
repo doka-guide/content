@@ -1,6 +1,14 @@
 ---
 title: "`background-attachment`"
 description: "Одним свойством создаём эффектный параллакс."
+baseline:
+  - group: background-attachment
+    features:
+      - css.properties.background-attachment
+      - css.properties.background-attachment.fixed
+      - css.properties.background-attachment.local
+      - css.properties.background-attachment.scroll
+      - css.properties.background-attachment.multiple_backgrounds
 authors:
   - doka-dog
 keywords:
