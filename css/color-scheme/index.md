@@ -1,6 +1,16 @@
 ---
 title: "`color-scheme`"
 description: "Тёмная или светлая тема? Вы сами можете её задать!"
+baseline:
+  - group: color-scheme
+    features:
+      - html.elements.meta.name.color-scheme
+      - css.properties.color-scheme
+      - css.properties.color-scheme.only_dark
+      - css.properties.color-scheme.only_light
+      - css.properties.color-scheme.dark
+      - css.properties.color-scheme.light
+      - css.properties.color-scheme.normal
 authors:
   - anastasiayarosh
 keywords:
