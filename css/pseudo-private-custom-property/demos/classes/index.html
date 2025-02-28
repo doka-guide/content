@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Базовое решение — Псевдоприватные кастомные свойства — Дока</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+
+        .product-list__item {
+          width: 100%;
+          padding: 25px;
+          aspect-ratio: 1/1;
+
+          text-align: center;
+        }
+      }
+
+      .product-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #123E66;
+        box-shadow: 10px 10px 0 0 #0D2B47;
+
+        font-size: 18px;
+        color: #FFFFFF;
+
+        &.new {
+          background-color: #2E9AFF;
+          box-shadow: 10px 10px 0 0 #006DD3;
+
+          color: #000000;
+        }
+
+        &.top {
+          background-color: #F498AD;
+          box-shadow: 10px 10px 0 0 #E92D58;
+
+          color: #000000;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+
+        .product-list {
+          grid-template-columns: none;
+          grid-template-rows: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="product-list">
+      <div class="product-list__item product-card">Глубина шторма</div>
+      <div class="product-list__item product-card new">Электро-лазурь</div>
+      <div class="product-list__item product-card top">Сахарная вата</div>
+    </section>
+  </body>
+</html>
