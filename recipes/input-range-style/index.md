@@ -75,7 +75,7 @@ tags:
 }
 ```
 
-Если вы используете нативный интерактивный элемент `<input type="range">`, то добавлять aria-атрибуты не нужно. Однако если вы используете [`<div>`](/html/div/) или другой тег вместо [`<input>`](/html/input/), то обязательно добавьте атрибуты доступности: 
+Если вы используете нативный интерактивный элемент `<input type="range">`, то добавлять aria-атрибуты не нужно. Однако если вы используете [`<div>`](/html/div/) или другой тег вместо [`<input>`](/html/input/), то обязательно добавьте атрибуты доступности:
 
 - [`aria-valuemin`](/a11y/aria-valuemin/);
 - [`aria-valuemax`](/a11y/aria-valuemax/);
@@ -386,13 +386,13 @@ function handleInputRange() {
   <div class="track"></div>
   <div class="progress"></div>
   <div class="thumbs">
-    <input 
-      class="range-input" 
-      id="tailmetr" 
-      type="range" 
-      min="0" 
-      max="100" 
-      value="80" 
+    <input
+      class="range-input"
+      id="tailmetr"
+      type="range"
+      min="0"
+      max="100"
+      value="80"
       step="1"
     >
     <!-- Текущее значение слайдера -->
