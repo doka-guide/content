@@ -87,11 +87,11 @@ const automobileRoute: RouteStrategy = {
 ```ts
 class Context {
   // При создании укажем стратегию, которую будем использовать:
-  constructor(private routeFinder: Strategy) {}
+  constructor(private routeFinder: RouteStrategy) {}
 
   // Иногда полезно менять стратегию во время работы,
   // сделаем метод для этого
-  public use(routeFinder: Strategy) {
+  public use(routeFinder: RouteStrategy) {
     this.routeFinder = routeFinder
   }
 
