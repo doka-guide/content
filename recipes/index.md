@@ -16,6 +16,9 @@ groups:
       - validation
       - masonry
       - input-range-style
+      - slider
+      - checkbox-radio-style
+      - tooltip
   - name: 'Работа с GitHub'
     items:
       - github-new-profile

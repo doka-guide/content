@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Закрываем новое окно изнутри — window.close() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      scrollbar-gutter: stable;
+    }
+
+    html {
+      height: 100vh;
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      min-width: 210px;
+      padding: 9px 15px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      color: #000000;
+      background-color: #FFD829;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="buttonOpen" class="button">Открыть окно</button>
+  <script>
+    const buttonOpen = document.querySelector('#buttonOpen')
+
+    const openWindow = () => {
+      const newWindow = window.open('', '_blank', 'top=40, left=40, width=320, height=220')
+
+      return newWindow
+    }
+
+    buttonOpen.addEventListener('click', function (event) {
+      const newWindow = openWindow();
+
+      newWindow.document.body.innerHTML =
+`
+  <button
+    style='width: 200px; margin: 50 50; padding: 9px 15px; border: 2px solid transparent; border-radius: 6px; font-size: 1rem; font-weight: 300; font-family: sans-serif; transition: background-color 0.2s linear; color: #000000; background-color: #FFD829; cursor: pointer;'
+      onclick="window.close()">Закрыть окно</button>
+`
+    });
+  </script>
+</body>
+</html>

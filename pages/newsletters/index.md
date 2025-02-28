@@ -7,8 +7,18 @@ location: "/newsletters/"
 
 Удобнее получать письма на почту? Подписаться можно на странице [Рассылка](/subscribe/).
 
+## 2025
+
+- [Январь #22](https://api.doka.guide/digest-01-25.html)
+
 ## 2024
 
+- [Декабрь #21](https://api.doka.guide/digest-12-24.html)
+- [Ноябрь #20](https://api.doka.guide/digest-11-24.html)
+- [Октябрь #19](https://api.doka.guide/digest-10-24.html)
+- [Сентябрь #18](https://api.doka.guide/digest-09-24.html)
+- [Август #17](https://api.doka.guide/digest-08-24.html)
+- [Июль #16](https://api.doka.guide/digest-07-24.html)
 - [Июнь #15](https://api.doka.guide/digest-06-24.html)
 - [Май #14](https://api.doka.guide/digest-05-24.html)
 - [Апрель #13](https://api.doka.guide/digest-04-24.html)

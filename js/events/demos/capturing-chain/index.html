@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Распространение событий на стадии захвата — Событийная модель — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-family: "Roboto", sans-serif;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .container {
+      width: 65%;
+      margin: auto;
+    }
+
+    .container > div {
+      margin-top: 50px;
+    }
+
+    div {
+      max-width: 100%;
+      padding: 20px;
+      border: solid thin #286C2D;
+      background-color: #18191c;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 7px 0;
+      line-height: 140%;
+    }
+
+    .active {
+      background-color: #41E847;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="container">
+    <h1>Захват событий</h1>
+    <p>JavaScript слушает события <code>click</code> на всех <code>&lt;div&gt;</code>, изображённых ниже. Когда событие происходит, <code>&#60;div&#62;</code> закрашивается зелёным цветом. Скорость срабатывания замедлена, в жизни всё происходит за миллисекунды.</p>
+    <div>
+      <div>
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    let active
+    let counter = 0
+
+    // слушаем событие click на всех <div>
+    const divs = Array.from(document.querySelectorAll('div'))
+    for(let i= 0; i < divs.length; ++i) {
+      divs[i].addEventListener('click', clickHandlerGenerator(i), true)
+    }
+
+    function clickHandlerGenerator(index) {
+      return function(event) {
+        const me = this
+        setTimeout(function() {
+          if (active) {
+            active.classList.remove('active')
+          }
+          me.classList.add('active')
+
+          active = me
+
+          if (event.target === divs[index]) {
+            setTimeout(function() {
+              active.classList.remove('active')
+              active = undefined
+              counter = 0
+            }, 300)
+          }
+        }, counter * 300)
+        ++counter
+      }
+    }
+  </script>
+</body>
+</html>

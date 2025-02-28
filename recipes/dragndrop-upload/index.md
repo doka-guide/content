@@ -135,7 +135,7 @@ tags:
   font-size: 16px;
 }
 
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 
@@ -195,8 +195,7 @@ tags:
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
-const sizeText = document.getElementById("uploadForm_Size")
+const statusText = document.getElementById("uploadForm_Hint")
 const uploadInput = document.querySelector(".form-upload__input")
 
 let setStatus = (text) => {
@@ -354,7 +353,7 @@ function processingDownloadFileWithFetch() {
 При перетаскивании файла в область загрузки будем менять фоновый цвет при помощи дополнительного класса:
 
 ```css
-.upload-zone_gragover {
+.upload-zone_dragover {
   background-color: #593273;
 }
 ```
@@ -370,7 +369,7 @@ function processingDownloadFileWithFetch() {
 
 ```javascript
 const dropFileZone = document.querySelector(".upload-zone_dragover")
-const statusText = document.getElementById("uploadForm_Status")
+const statusText = document.getElementById("uploadForm_Hint")
 const uploadInput = document.querySelector(".form-upload__input")
 
 let setStatus = (text) => {

@@ -9,7 +9,7 @@
     <a class="pagination-link pagination-link--current">2</a>
   </li>
   <li class="pagination-item">
-    <a class="pagination-link" href="/page3">1</a>
+    <a class="pagination-link" href="/page3">3</a>
   </li>
 </ul>
 ```

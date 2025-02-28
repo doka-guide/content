@@ -25,6 +25,7 @@ groups:
       - shallow-or-deep-clone
       - iterator
       - date
+      - destructuring-assignment
   - name: "Примитивные типы данных"
     items:
       - number
@@ -147,6 +148,12 @@ groups:
       - set-keys
       - set-entries
       - set-size
+      - set-union
+      - set-difference
+      - set-intersection
+      - set-symmetric-difference
+      - set-is-subset-of
+      - set-is-superset-of
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -162,6 +169,7 @@ groups:
       - dom
       - fetch
       - form-data
+      - console
       - console-log
       - window-history
       - window-location

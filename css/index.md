@@ -15,6 +15,7 @@ groups:
       - adding-styles
       - display
       - all
+      - mobile-first-vs-desktop-first
   - name: 'Селекторы'
     items:
       - tag-selector
@@ -85,6 +86,7 @@ groups:
       - url
       - clamp
       - color-function
+      - light-dark
   - name: 'Директивы'
     items:
       - font-face
@@ -93,6 +95,7 @@ groups:
       - media
       - supports
       - layer
+      - starting-style
   - name: 'Глобальные ключевые слова'
     items:
       - global-keywords
@@ -101,6 +104,12 @@ groups:
       - web-colors
       - currentcolor
       - color-function
+      - light-dark
+  - name: 'Тёмная тема'
+    items:
+      - color-scheme
+      - light-dark
+      - prefers-color-scheme
   - name: 'Единицы измерения'
     items:
       - numeric-types
@@ -136,6 +145,7 @@ groups:
       - perspective-origin
       - backface-visibility
       - will-change
+      - rotate
   - name: 'Фон'
     items:
       - background
@@ -164,6 +174,7 @@ groups:
       - font-size
       - line-height
       - text-align
+      - text-align-last
       - text-transform
       - vertical-align
       - font-face
@@ -181,6 +192,7 @@ groups:
       - text-decoration-skip-ink
       - text-rendering
       - text-shadow
+      - text-wrap
       - white-space
       - quotes
       - overflow-wrap
@@ -344,6 +356,9 @@ groups:
       - resize
       - scroll-behavior
       - scroll-padding
+      - scroll-snap-type
+      - scroll-snap-align
+      - scroll-snap-stop
       - scrollbar-color
       - scrollbar-gutter
       - scrollbar-width
@@ -359,6 +374,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - orphans
       - widows
   - name: 'Колонки и таблицы'
     items:

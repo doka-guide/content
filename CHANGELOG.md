@@ -2,6 +2,70 @@
 
 <!-- yaspeller ignore:start -->
 
+## Февраль 2025
+
+- 26 февраля, [`scroll-snap-align`](https://doka.guide/css/scroll-snap-align/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-stop`](https://doka.guide/css/scroll-snap-stop/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-type`](https://doka.guide/css/scroll-snap-type/), Рома Ахмадуллин
+
+
+## Январь 2025
+
+- 31 января, [`aria-required`](https://doka.guide/a11y/aria-required/), juliememe
+- 31 января, [Тултип](https://doka.guide/recipes/tooltip/), Рома Ахмадуллин
+- 31 января, [`note`](https://doka.guide/a11y/role-note/), Татьяна Фокина
+- 30 января, [`readonly`](https://doka.guide/html/readonly/), Игорь Теплостанский
+- 27 января, [`list`](https://doka.guide/a11y/role-list/), Татьяна Фокина
+- 27 января, [`listitem`](https://doka.guide/a11y/role-listitem/), Татьяна Фокина
+- 27 января, [`region`](https://doka.guide/a11y/role-region/), Татьяна Фокина
+- 27 января, [`emphasis`](https://doka.guide/a11y/role-emphasis/), Татьяна Фокина
+- 27 января, [`strong`](https://doka.guide/a11y/role-strong/), Татьяна Фокина
+- 16 января, [Оверлеи и отдельные версии сайтов](https://doka.guide/a11y/overlays/), Анастасия Ярош
+- 03 января, [`Console`](https://doka.guide/js/console/), Viktar Nezhbart
+
+## Декабрь 2024
+
+- 10 декабря, [`@starting-style`](https://doka.guide/css/starting-style/), Рома Ахмадуллин
+
+## Ноябрь 2024
+
+- 28 ноября, [`<menu>`](https://doka.guide/html/menu/), Алина Козловцева
+- 18 ноября, [Деструктуризация](https://doka.guide/js/destructuring-assignment/), Viktar Nezhbart
+- 15 ноября, [`rotate`](https://doka.guide/css/rotate/), Анастасия Ярош
+- 15 ноября, [`text-align-last`](https://doka.guide/css/text-align-last/), Мария Белинская
+
+## Октябрь 2024
+
+- 18 октября, [`paragraph`](https://doka.guide/a11y/role-paragraph/), Татьяна Фокина
+- 23 октября, [Большое целое](https://doka.guide/js/bigint/), Матвей Романов
+- 23 октября, [`change`](https://doka.guide/js/event-change/), Матвей Романов
+- 23 октября, [`prefers-contrast`](https://doka.guide/a11y/prefers-contrast/), Матвей Романов
+- 24 октября, [`perspective-origin`](https://doka.guide/css/perspective-origin/), Матвей Романов
+- 24 октября, [`backface-visibility`](https://doka.guide/css/backface-visibility/), Матвей Романов
+
+## Сентябрь 2024
+
+- 30 сентября, [Что такое Deno](https://doka.guide/tools/deno/), Роман Троицкий
+- 29 сентября, [`.isSupersetOf()`](https://doka.guide/js/set-is-superset-of/), Viktar Nezhbart
+- 23 сентября, [`alt`](https://doka.guide/html/alt/), Анастасия Ярош
+- 20 сентября, [`text-wrap`](https://doka.guide/css/text-wrap/), Анастасия Ярош
+
+## Август 2024
+
+- 27 августа, [Mobile-first vs Desktop-first](https://doka.guide/css/mobile-first-vs-desktop-first/), Андрей Резников
+- 26 августа, [Прогрессивные веб-приложения](https://doka.guide/tools/pwa/), Алексей Родионов
+
+## Июль 2024
+
+- 23 июля, [Слайдер](https://doka.guide/recipes/slider/), Анна Бараулина
+- 22 июля, [Стилизация чекбоксов и радиокнопок](https://doka.guide/recipes/checkbox-radio-style/), Михаил Кривдин
+- 19 июля, [`.isSubsetOf()`](https://doka.guide/js/set-is-subset-of/), Viktar Nezhbart
+- 19 июля, [`.intersection()`](https://doka.guide/js/set-intersection/), Viktar Nezhbart
+- 19 июля, [`.difference()`](https://doka.guide/js/set-difference/), Viktar Nezhbart
+- 16 июля, [`Atomics`](https://doka.guide/js/atomics/), Всеволод Золотов
+- 12 июля, [`.union()`](https://doka.guide/js/set-union/), Viktar Nezhbart
+- 1 июля, [`.symmetricDifference()`](https://doka.guide/js/set-symmetric-difference/), Viktar Nezhbart
+
 ## Июнь 2024
 
 - 27 июня, [CSS-препроцессоры](https://doka.guide/tools/preprocessors/), Анастасия Ярош

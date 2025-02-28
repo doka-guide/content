@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Анимация свойства rotate — rotate — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100dvh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #18191C;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    .box {
+      animation: loader 3s linear alternate infinite;
+      background-color: #2E9AFF;
+      width: 50px;
+      height: 50px;
+      color: #00136c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes loader {
+      0% {
+        rotate: 0deg;
+      }
+
+      50% {
+        background-color: #F498AD;
+        border-radius: 25%;
+      }
+
+      100% {
+        border-radius: 50%;
+        rotate: 180deg;
+        background-color: #2E9AFF;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box"></div>
+  </div>
+</body>
+
+</html>

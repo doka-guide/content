@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -14,39 +14,57 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     body {
       min-height: 100vh;
       padding: 50px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 50px;
       background-color: #18191c;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
     }
 
+    label {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
     select {
       width: 300px;
-      margin-top: 10px;
       padding: 10px 15px;
+      font-size: 18px;
     }
 
     optgroup {
-      color: #0a0a59;
-      font-size: 20px;
-      background-color: #f4f4c9;
+      color: #FF8630;
+      font-size: 18px;
+      background-color: #000000;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        flex-direction: column;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <label for="colors">Выберите оттенок синего цвета:</label>
+  <label for="colors">Выберите оттенок оранжевого:</label>
   <select id="colors">
-    <optgroup label="Синие цвета">
-      <option>Васильковый цвет</option>
-      <option>Кобальтовый цвет</option>
-      <option>Ультрамариновый цвет</option>
+    <optgroup label="Оттенки оранжевого">
+      <option>Коралловый</option>
+      <option>Тыквенный</option>
+      <option>Морковный</option>
     </optgroup>
   </select>
 </body>

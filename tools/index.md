@@ -6,6 +6,7 @@ groups:
     items:
       - api
       - web-app-types
+      - pwa
       - web-app-works
       - web-security
 
@@ -64,6 +65,7 @@ groups:
       - static-analysis
       - nodejs
       - nodejs-tooling
+      - deno
       - rollup
       - gulp
 

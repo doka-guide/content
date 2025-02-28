@@ -189,7 +189,7 @@ h1 {
 кластеризации усилий.
 ```
 
-<iframe title="Тег nobr" src="demos/nobr/" height="280"></iframe>
+<iframe title="Тег nobr" src="demos/nobr/" height="320"></iframe>
 
 #### Чем заменить
 
@@ -362,7 +362,7 @@ h1 {
 </marquee>
 ```
 
-<iframe title="Тег marquee" src="demos/marquee/" height="240"></iframe>
+<iframe title="Тег marquee" src="demos/marquee/" height="300"></iframe>
 
 #### Чем заменить
 

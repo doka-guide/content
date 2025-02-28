@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Работа свойства — backface-visibility — Дока</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .card {
+      width: 500px;
+      height: 180px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-side {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #000000;
+      font-size: 24px;
+    }
+
+    .card-front {
+      background-color: #2E9AFF;
+    }
+
+    .card-back {
+      background-color: #F498AD;
+      transform: rotateY(180deg);
+    }
+
+    .controls {
+      margin-top: 30px;
+    }
+
+    label {
+      margin-inline-end: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    select {
+      min-width: 210px;
+      padding: 10px;
+      font-size: 18px;
+      font-family: inherit;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 500px;
+      }
+
+      label {
+        display: block;
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-side card-front">Передняя часть</div>
+      <div class="card-side card-back">Задняя часть</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="visibility-select">backface-visibility:</label>
+    <select id="visibility-select">
+      <option value="hidden" selected>hidden</option>
+      <option value="visible">visible</option>
+    </select>
+  </div>
+
+  <script>
+    const cardSides = document.querySelectorAll('.card-side');
+    const select = document.getElementById('visibility-select');
+
+    select.addEventListener('change', function () {
+      const value = this.value;
+      cardSides.forEach(side => {
+        side.style.backfaceVisibility = value;
+      });
+    });
+  </script>
+</body>
+</html>
