@@ -396,9 +396,9 @@ function handleInputRange() {
       step="1"
     >
     <!-- Текущее значение слайдера -->
-    <output 
-      class="range-output" 
-      id="output" f
+    <output
+      class="range-output"
+      id="output"
       or="tailmetr"
     >
       80
