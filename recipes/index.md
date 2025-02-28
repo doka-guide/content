@@ -15,6 +15,7 @@ groups:
       - lazy-load-with-preview
       - validation
       - masonry
+      - input-range-style
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
