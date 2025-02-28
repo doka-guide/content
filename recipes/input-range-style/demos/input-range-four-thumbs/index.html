@@ -34,7 +34,7 @@
         font-family: "Roboto", sans-serif;
       }
 
-      @media (max-width: 768px) {
+      @media (width < 768px) {
         body {
           padding: 30px;
         }
@@ -51,15 +51,15 @@
         --option-after-h: 30px;
         --option-after-top: -30px;
 
-        .range-output {
-          --range-output-left: calc(var(--value) * 1%);
-          --range-output-offset-xy: calc(var(--value) * -.95%), 0;
-          --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
-        }
-
         position: relative;
         display: grid;
         width: 400px;
+      }
+
+      .range-output {
+        --range-output-left: calc(var(--value) * 1%);
+        --range-output-offset-xy: calc(var(--value) * -0.95%), 0;
+        --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
       }
 
       .range-label {
@@ -69,7 +69,7 @@
       .range-input {
         width: 100%;
         height: 30px;
-        grid-area: 1/1;
+        grid-area: 1 / 1;
         border-radius: 10px;
         appearance: none;
         background: none;
@@ -188,7 +188,7 @@
         font-size: 14px;
       }
 
-      option:after {
+      option::after {
         content: "";
         display: initial;
         position: absolute;

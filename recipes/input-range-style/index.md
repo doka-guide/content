@@ -19,7 +19,7 @@ tags:
 
 ## Задача
 
-При помощи `<input type="range">` можно выбирать числовые значение из заданного диапазона. Браузерные стили этого элемента часто не соответствует дизайну и функциональности веб-приложений, поэтому приходится его кастомизировать. В рецепте ниже описан один из способов стилизации ползунка диапазона, а также приведён пример ползунка с двумя ручками. Особое внимание уделено доступности учитывая рекомендации WCAG.
+При помощи `<input type="range">` можно выбирать числовые значение из заданного диапазона. Браузерные стили этого элемента часто не соответствует дизайну и функциональности веб-приложений, поэтому приходится его кастомизировать. В рецепте ниже описан один из способов стилизации ползунка диапазона, а также приведён пример ползунка с двумя ручками. Особое внимание уделено доступности с учётом рекомендации WCAG.
 
 ## Анатомия
 
@@ -36,9 +36,9 @@ tags:
 
 ### Обычный ползунок и его атрибуты
 
-Создаем стандартный `<input type="range">`.
+Создадим стандартный `<input type="range">`.
 
-<iframe title="Пример input range" src="demos/input-range-1/" height="180"></iframe>
+<iframe title="Стандартный ползунок" src="demos/input-range-1/" height="180"></iframe>
 
 ```html
 <div class="range">
@@ -57,7 +57,7 @@ tags:
 </div>
 ```
 
-Располагаем подпись над ползунком.
+Расположим подпись над ползунком.
 
 ```css
 .range {
@@ -67,7 +67,7 @@ tags:
 }
 ```
 
-Добавляем свой цвет с помощью свойства `accent-color`.
+Добавим свой цвет с помощью свойства `accent-color`.
 
 ```css
 .range-input {
@@ -75,7 +75,7 @@ tags:
 }
 ```
 
-Если вы используете нативный интерактивный элемент `<input type="range">`, то добавлять aria-атрибуты не нужно. Однако если вы используете [`<div>`](/html/div/) или другой тег вместо [`<input>`](/html/input/), то обязательно добавьте атрибуты доступности:
+Если вы используете нативный интерактивный элемент `<input type="range">`, то добавлять aria-атрибуты не нужно. Однако, если вы используете [`<div>`](/html/div/) или другой тег вместо [`<input>`](/html/input/), то обязательно добавьте атрибуты доступности:
 
 - [`aria-valuemin`](/a11y/aria-valuemin/);
 - [`aria-valuemax`](/a11y/aria-valuemax/);
@@ -88,7 +88,7 @@ tags:
 
 Для создания своего ползунка нужно сбросить дефолтные стили браузера у `<input>`.
 
-<iframe title="Пример input range" src="demos/input-range-2/" height="180"></iframe>
+<iframe title="Стилизация ползунка" src="demos/input-range-2/" height="180"></iframe>
 
 Высота ползунка в Firefox определяется как высота элемента `<input>`. Для WebKit потребуются дополнительные стили.
 
@@ -110,7 +110,7 @@ tags:
 Добавляем стили трэка.
 
 ```css
-.range-input::-WebKit-slider-runnable-track {
+.range-input::-webkit-slider-runnable-track {
   box-sizing: border-box;
   height: 15px;
   background-color: #2b2a33;
@@ -125,8 +125,8 @@ tags:
 Добавляем стили ручке.
 
 ```css
-.range-input::-WebKit-slider-thumb {
-  -WebKit-appearance: none;
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
   width: 30px;
   height: 30px;
   margin-top: -7.5px;
@@ -157,8 +157,8 @@ tags:
   outline: 1px solid #c56fff;
 }
 
-.range-input:hover::-WebKit-slider-thumb,
-.range-input:focus-visible::-WebKit-slider-thumb {
+.range-input:hover::-webkit-slider-thumb,
+.range-input:focus-visible::-webkit-slider-thumb {
   box-shadow: 0 0 0 10px inset #c56fff;
 }
 
@@ -171,7 +171,7 @@ tags:
 Стилизуем активное состояние ползунка ([`:active`](/css/active/)).
 
 ```css
-.range-input:active::-WebKit-slider-thumb {
+.range-input:active::-webkit-slider-thumb {
   box-shadow: 0 0 0 30px inset #c56fff;
 }
 .range-input:active::-moz-range-thumb {
@@ -182,7 +182,7 @@ tags:
 И не забываем про неактивное состояние ([`:disabled`](/css/disabled-enabled/)).
 
 ```css
-.range-input:disabled::-WebKit-slider-thumb {
+.range-input:disabled::-webkit-slider-thumb {
   box-shadow: 0 0 0 30px inset gray;
 }
 
@@ -194,7 +194,7 @@ tags:
 По рекомендациям WCAG также следует выделять фокусом не только сам элемент, но и отдельно ползунок, который будет перемещаться.
 
 ```css
-.range-input:focus-visible::-WebKit-slider-thumb {
+.range-input:focus-visible::-webkit-slider-thumb {
   outline: 3px solid #41e847;
 }
 
@@ -205,9 +205,9 @@ tags:
 
 ### Трэк
 
-Убираем фон у слайдера, чтобы он не перекрывал наш трэк.
+Убираем фон у слайдера, чтобы он не перекрывал трэк.
 
-<iframe title="Пример input range" src="demos/input-range-3/" height="180"></iframe>
+<iframe title="Стилизация трэка" src="demos/input-range-3/" height="180"></iframe>
 
 
 ```css
@@ -220,7 +220,7 @@ tags:
 Стилизация дефолтного трэка в данный момент также доступна только через псевдоэлементы с префиксами браузеров.
 
 ```css
-.range-input::-WebKit-slider-runnable-track {
+.range-input::-webkit-slider-runnable-track {
   box-sizing: border-box;
   height: 8px;
   background-color: #ababab;
@@ -238,19 +238,19 @@ tags:
 С помощью свойства [`margin-top`](/css/margin/) добавим выравнивание вертикального положения ручки для WebKit.
 
 ```css
-.range-input::-WebKit-slider-thumb {
+.range-input::-webkit-slider-thumb {
   margin-top: -11px;
 }
 ```
 
-Подкорректируем стилизацию состояния фокуса (`:focus-visible`).
+Подкорректируем стилизацию состояния фокуса.
 
 ```css
 .range-input:focus-visible {
   outline: none;
 }
 
-.range-input:focus-visible::-WebKit-slider-runnable-track {
+.range-input:focus-visible::-webkit-slider-runnable-track {
   outline-offset: 15px;
   outline: 1px solid #c56fff;
 }
@@ -263,7 +263,7 @@ tags:
 
 ### Прогресс-бар
 
-<iframe title="Пример input range" src="demos/input-range-4/" height="180"></iframe>
+<iframe title="Стилизация прогресс-бара" src="demos/input-range-4/" height="180"></iframe>
 
 К сожалению, в современных браузерах нет кроссбраузерной поддержки стилизации прогресс-бара. В Firefox есть псевдоэлемент с префиксом `-moz-range-progress`.
 
@@ -282,7 +282,7 @@ tags:
 Добавляем ползунку границу в виде градиента в свойстве [`border-image`](/css/border-image/).
 
 ```css
-.range-input::-WebKit-slider-thumb {
+.range-input::-webkit-slider-thumb {
   border-image:
     linear-gradient(90deg, #c56fff 50%, #ababab 0)
     0 1 /
@@ -294,11 +294,11 @@ tags:
 Если разобрать это свойство по частям, то получится следующий код.
 
 ```css
-.range-input::-WebKit-slider-thumb {
+.range-input::-webkit-slider-thumb {
   border-image-outset: 0 100vw;
   border-image-repeat: stretch;
   border-image-slice: 0 1;
-  border-image-source: linear-gradient(90deg, #c56fff 50%, #ababab 0px);
+  border-image-source: linear-gradient(90deg, #c56fff 50%, #ababab 0);
   border-image-width: calc(50% - 4px) 100vw;
 }
 ```
@@ -317,7 +317,7 @@ tags:
 }
 ```
 
-Если использовать такой вариант стилизации, то можно столкнуться с ограничениями и проблемами. Например, нет возможности скруглить края, а так же нет возможности отображать состояние фокуса (`:focus-visible`) с использование свойства [`outline`](/css/outline/).
+Если использовать такой вариант стилизации, то можно столкнуться с ограничениями и проблемами. Например, нет возможности скруглить края, а так же нет возможности отображать состояние фокуса с использование свойства [`outline`](/css/outline/).
 
 ### Кроссбраузерный вариант и текущее значение
 
@@ -325,7 +325,7 @@ tags:
 
 Для удобной кроссбраузерной и читабельной версии используем отдельные теги `<div>` для трэка и прогресс-бара. А также [кастомные свойства](/css/custom-properties/) для изменения заполненности прогресс-бара с помощью JavaScript.
 
-<iframe title="Пример input range" src="demos/input-range-5/" height="200"></iframe>
+<iframe title="Кроссбраузерный вариант" src="demos/input-range-5/" height="200"></iframe>
 
 ```html
 <div class="range" style="--value: 80;">
@@ -368,7 +368,7 @@ range.addEventListener('input', handleInputRange)
 ```js
 function handleInputRange() {
   event.target.parentNode.parentNode.style.setProperty(
-    "--value",
+    '--value',
     event.target.value
   )
 }
@@ -412,7 +412,7 @@ function handleInputRange() {
 ```javascript
 function handleInputRange() {
   event.target.parentNode.parentNode.style.setProperty(
-    "--value",
+    '--value',
     event.target.value
   )
   // изменение значения тега `<output>`
@@ -422,7 +422,7 @@ function handleInputRange() {
 
 Используем дополнительные кастомные свойства для указания положения элементов слайдера. Эти переменные пригодятся для дальнейшей стилизации.
 
-Добавляем переменные расположения и смещения для тега `<output>` с текущим значением. Смещение нужно, чтобы число располагалось точно над ползунком, так как оно увеличивается с однозначного 0, до трёхзначных 100.
+Добавляем переменные расположения и смещения для тега `<output>` с текущим значением. Смещение нужно, чтобы число располагалось точно над ползунком, так как оно увеличивается с однозначного 0, до трёхзначного 100.
 
 Так как значение переменной `--value` это просто строка «80», то её нужно переводить в проценты. Для этого используются хитрость с умножением на 1% `calc(var(--value) * 1%)`.
 
@@ -472,7 +472,7 @@ function handleInputRange() {
 
 Шкалу значений нужно добавлять с помощью тегов [`<datalist>`](/html/datalist/) и [`<option>`](/html/option/). А также указать в теге `<input>` атрибут `list="tickmarks"` c идентификатором тега со списком значений, чтобы ползунок немного прилипал к этим значениям, когда пользователь доводит до них.
 
-<iframe title="Пример input range" src="demos/input-range-6/" height="200"></iframe>
+<iframe title="Стилизация шкалы значений" src="demos/input-range-6/" height="200"></iframe>
 
 Создадим кастомные свойства для положения элементов шкалы. Немного корректируем вычисление положения текущего значения.
 
@@ -482,7 +482,7 @@ function handleInputRange() {
   --option-after-h: 30px;
   --option-after-top: -30px;
 
-  --range-output-offset-xy: calc(var(--value) * -.95%), 0;
+  --range-output-offset-xy: calc(var(--value) * -0.95%), 0;
   --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
 }
 ```
@@ -506,7 +506,7 @@ function handleInputRange() {
 }
 ```
 
-Стилизуем состояние когда `<input>` находится в фокусе (`:focus-visible`) или с ховером (`:hover`).
+Стилизуем состояние когда `<input>` находится в фокусе или с ховером.
 
 ```css
 .range-input:focus-visible {
@@ -604,7 +604,7 @@ option::after {
 <div class="range" style="--value-1: 20; --value-2: 40;">
   <label class="range-label" for="tailmetr">Хвост-о-метр (cм)</label>
   <div class="track"></div>
-  <!--   <div class="progress"></div> -->
+  <div class="progress"></div>
   <div class="thumbs">
     <input
       class="range-input"
@@ -624,8 +624,9 @@ option::after {
       id="output"
       for="tailmetr1"
       style="--value: var(--value-1);"
-      >20</output
     >
+      20
+    </output>
     <!-- Второй ползунок -->
     <input
       class="range-input"
@@ -691,9 +692,7 @@ function handleInputRange2() {
 .thumbs {
   display: grid;
 }
-```
 
-```css
 .range-input {
   grid-area: 1 / 1;
   pointer-events: none;
@@ -704,7 +703,7 @@ function handleInputRange2() {
 
 Изменяем положение и размер прогресс-бара, чтобы он заполнял значение между левым и правым ползунками.
 
-Вычисляем размер прогресс-бара вычитая правое значение из левого и взяв модуль от результата `calc((var(--value-2) - var(--value-1)) * 1%);`. Также вычисляем значение начального расположения прогресс-бара. Для этого нам нужно взять минимальное значение из двух, то, что ближе находиться к началу: `min(calc(var(--value-1) * 1%), calc(var(--value-2) * 1%));`.
+Вычисляем размер прогресс-бара, вычитая правое значение из левого и взяв модуль от результата `calc((var(--value-2) - var(--value-1)) * 1%);`. Также вычисляем значение начального расположения прогресс-бара. Для этого нам нужно взять минимальное значение из двух — то, что ближе находится к началу: `min(calc(var(--value-1) * 1%), calc(var(--value-2) * 1%));`.
 
 Определяем кастомные свойства для элементов отображающих текущее значение.
 
@@ -715,12 +714,12 @@ function handleInputRange2() {
     calc(var(--value-1) * 1%),
     calc(var(--value-2) * 1%)
   );
+}
 
-  .range-output {
-    --range-output-left: calc(var(--value) * 1%);
-    --range-output-offset-xy: calc(var(--value) * -.95%), 0;
-    --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
-  }
+.range-output {
+  --range-output-left: calc(var(--value) * 1%);
+  --range-output-offset-xy: calc(var(--value) * -0.95%), 0;
+  --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
 }
 ```
 
@@ -730,18 +729,18 @@ function handleInputRange2() {
 
 <iframe title="Слайдер с ограничениями для ручек" src="demos/input-range-8/" height="200"></iframe>
 
-Напишем ограничители для ручек.
+Напишем ограничители для ручек. Если значение текущего ползунка больше либо равно значению второго, то значение текущего ползунка приравнивается значению второго. Если значение текущего ползунка равно максимальному значению, то он должен находиться выше второго, чтобы пользователь мог изменить его значения, иначи ползунки будут блокировать друг друга.
 
 ```javascript
 function handleInputRange1() {
   // Достает значение второго(правого) ползунка
   const value2 =
     event.target.parentNode.parentNode.style.getPropertyValue('--value-2')
-  // Если значение текущего(левого) ползунка больше либо равно правому, то значение текущего(левого) ползунка приравнивается значению правого
+
   if (parseInt(event.target.value) >= parseInt(value2)) {
     event.target.value = value2
   }
-  // Если значение текущего(левого) ползунка равно 100(максимальному значению), то он должен находиться выше правого, чтобы пользователь мог изменить его значения, иначи ползунки будут блокировать друг друга. (css deadlock, почти как в потоках)))
+
   if (event.target.value === '100') {
     event.target.style.zIndex = '100'
   } else {
@@ -758,12 +757,12 @@ function handleInputRange2() {
   // Достает значение первого(левого) ползунка
   const value1 =
     event.target.parentNode.parentNode.style.getPropertyValue('--value-1');
-  // Если значение текущего(правого) ползунка меньше либо равно левому, то значение текущего(правого) ползунка приравнивается значению левого
+
   if (parseInt(event.target.value) <= parseInt(value1)) {
     console.log(event.target.value)
     event.target.value = value1
   }
-  // Если значение текущего(правого) ползунка равно 0(минимальному значению), то он должен находиться выше левого, чтобы пользователь мог изменить его значения, иначе ползунки будут блокировать друг друга. (css deadlock, почти как в потоках)))
+
   if (event.target.value === '0') {
     event.target.style.zIndex = '100'
   } else {
@@ -794,7 +793,7 @@ function handleInputRange2() {
     Хвост-о-метр (cм)
   </label>
   <div class="track"></div>
-  <!--   <div class="progress"></div> -->
+  <div class="progress"></div>
   <div class="thumbs">
     <input
       class="range-input"
@@ -814,8 +813,9 @@ function handleInputRange2() {
       id="output"
       for="tailmetr1"
       style="--value: var(--value-1);"
-      >20</output
     >
+      20
+    </output>
     <input
       class="range-input"
       id="tailmetr2"
@@ -834,8 +834,9 @@ function handleInputRange2() {
       id="output"
       for="tailmetr2"
       style="--value: var(--value-2);"
-      >40</output
     >
+      40
+    </output>
     <input
       class="range-input"
       id="tailmetr3"
@@ -854,8 +855,9 @@ function handleInputRange2() {
       id="output"
       for="tailmetr3"
       style="--value: var(--value-3);"
-      >60</output
     >
+      60
+    </output>
     <input
       class="range-input"
       id="tailmetr4"
@@ -874,8 +876,9 @@ function handleInputRange2() {
       id="output"
       for="tailmetr4"
       style="--value: var(--value-4);"
-      >80</output
     >
+      80
+    </output>
   </div>
   <datalist id="tickmarks">
     <option value="0 to 20">0</option>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>Шкала значений — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
+    <title>Стилизация шкалы значений — Кастомный кроссбраузерный ползунок диапазона — Дока</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
         font-family: "Roboto", sans-serif;
       }
 
-      @media (max-width: 768px) {
+      @media (width < 768px) {
         body {
           padding: 30px;
         }
@@ -48,7 +48,7 @@
         --option-after-h: 30px;
         --option-after-top: -30px;
 
-        --range-output-offset-xy: calc(var(--value) * -.95%), 0;
+        --range-output-offset-xy: calc(var(--value) * -0.95%), 0;
         --range-output-margin: calc(6 / (var(--value) + 1) * 1px);
 
         position: relative;
@@ -185,7 +185,7 @@
         font-size: 14px;
       }
 
-      option:after {
+      option::after {
         content: "";
         display: initial;
         position: absolute;
