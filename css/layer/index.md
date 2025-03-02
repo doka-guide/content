@@ -1,6 +1,16 @@
 ---
 title: "`@layer`"
 description: "Управляем каскадными слоями своими руками."
+baseline:
+  - group: cascade-layers
+    features:
+      - api.CSSImportRule.layerName
+      - api.CSSLayerBlockRule
+      - api.CSSLayerBlockRule.name
+      - api.CSSLayerStatementRule
+      - api.CSSLayerStatementRule.nameList
+      - css.at-rules.import.layer
+      - css.at-rules.layer
 authors:
   - tatianafokina
 contributors:

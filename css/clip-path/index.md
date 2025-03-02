@@ -1,6 +1,21 @@
 ---
 title: "`clip-path`"
 description: "Красиво и быстро задаём элементу любую форму при помощи всего одного CSS-свойства."
+baseline:
+  - group: clip-path
+    features:
+      - css.properties.clip-path
+      - css.properties.clip-path.basic_shape
+      - css.properties.clip-path.html_elements
+      - css.properties.clip-path.path
+      - css.properties.clip-path.svg_elements
+      - svg.global_attributes.clip-path
+      - api.SVGClipPathElement
+      - api.SVGClipPathElement.clipPathUnits
+      - api.SVGClipPathElement.transform
+      - svg.elements.clipPath
+      - svg.elements.clipPath.clipPathUnits
+      - svg.elements.clipPath.systemLanguage
 authors:
   - spheno
   - starhamster

@@ -1,6 +1,10 @@
 ---
 title: "`repeating-conic-gradient()`"
 description: "Всего одна функция для повторяющегося конического градиента!"
+baseline:
+  - group: conic-gradients
+    features:
+      - css.types.gradient.repeating-conic-gradient
 authors:
   - solarrust
 related:
