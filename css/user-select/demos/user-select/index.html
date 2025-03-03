@@ -29,6 +29,13 @@
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
+      font-size: 16px;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
     }
 
     .container {
@@ -36,26 +43,20 @@
       flex-direction: column;
     }
 
-    .title {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
     .form {
       flex: 0 0 100px;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      font-size: 1rem;
     }
 
     .user-selector {
       margin-left: .5rem;
       margin-right: 2rem;
+      padding: 2px 4px;
+      font-size: 18px;
     }
 
     p {
-      font-size: 18px;
+      margin: 7px 0;
+      line-height: 1.4;
     }
 
     .select-none {
@@ -72,10 +73,6 @@
 
     .select-auto {
       user-select: auto;
-
-      .select-text-auto {
-        user-select: auto;
-      }
     }
 
     @media (max-width: 768px) {
@@ -87,7 +84,7 @@
 </head>
 <body>
   <div class="container">
-    <h3 class="title">Значение user-select</h3>
+    <h1 class="title">Значение user-select</h1>
     <form class="form">
       <label for="user-selector">Весь текст</label>
       <select
