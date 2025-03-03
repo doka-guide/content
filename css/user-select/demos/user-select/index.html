@@ -127,21 +127,21 @@
   </div>
   <script>
     const container = document.querySelector('.container')
-    const selectorAllText = container.querySelector('#user-selector1')
-    const selectorLastString = container.querySelector('#user-selector2')
+    const form = container.querySelector('.form')
     const allText = container.querySelector('.content')
     const lastString = container.querySelector('.last-string-text')
 
+    function onSelect(event) {
+      const { id, value } = event.target
 
-    selectorAllText.addEventListener('change', function (event) {
-      const selectValue = event.target.value
-      allText.className = `content select-${selectValue}`
-    })
+      if (id === 'user-selector1') {
+        allText.className = `content select-${value}`
+      } else if (id === 'user-selector2') {
+        lastString.className = `last-string-text select-${value}`
+      }
+    }
 
-    selectorLastString.addEventListener('change', function (event) {
-      const selectValue = event.target.value
-      lastString.className = `last-string-text select-${selectValue}`
-    })
+    form.addEventListener('change', onSelect)
   </script>
 </body>
 </html>
