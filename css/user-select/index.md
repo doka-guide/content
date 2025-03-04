@@ -38,7 +38,7 @@ p {
 }
 ```
 
-<iframe title="Свойство user-select" src="demos/user-select/" height="350"></iframe>
+<iframe title="Варианты выделения текста" src="demos/user-select/" height="450"></iframe>
 
 ## Как пишется
 
