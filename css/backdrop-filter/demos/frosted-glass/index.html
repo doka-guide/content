@@ -106,7 +106,7 @@
 <body>
   <div class="demonstration">
     <div class="frosted-glass">
-      Пример текста
+      Тепло внутри, зима снаружи
     </div>
   </div>
   <div class="generator">
@@ -133,7 +133,7 @@
       </div>
     </div>
     <code class="code-sample">
-      backdrop-filter:  <span id="backdropValue">blur(5px)</span>;<br>
+      backdrop-filter: <span id="backdropValue">blur(5px)</span>;<br>
       background-color: <span id="backgroundValue">rgba(255, 255, 255, 0.2)</span>;
     </code>
   </div>
@@ -175,7 +175,7 @@
       const frostedGlassStyle = window.getComputedStyle(frostedGlass)
       const backgroundColor = frostedGlassStyle.getPropertyValue('background-color')
       const [bgPart1, bgPart2, bgPart3] = backgroundColor.split(',')
-      const backgroundColorRGBa = `${ bgPart1 }, ${ bgPart2 }, ${ bgPart3.replace(')', '') }, ${ event.target.value })`
+      const backgroundColorRGBa = `${ bgPart1.trim() }, ${ bgPart2.trim() }, ${ bgPart3.replace(')', '').trim() }, ${ event.target.value })`
 
       backgroundValue.textContent = backgroundColorRGBa
       frostedGlass.style.backgroundColor = backgroundColorRGBa
