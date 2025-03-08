@@ -259,6 +259,8 @@ groups:
       - element-mouseover
       - event-prevent-default
       - element-scroll
+      - element-scrollsnapchange
+      - element-scrollsnapchanging
       - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
