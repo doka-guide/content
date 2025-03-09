@@ -52,10 +52,18 @@ tags:
 
 ```html
 <!-- Atom-фид -->
-<link rel="alternate" type="application/atom+xml" title="Википедия&nbsp;— Atom-лента" href="https://ru.wikipedia.org//w/index.php?title=%D0%A1%D0%BB%D1%83%D0%B6%D0%B5%D0%B1%D0%BD%D0%B0%D1%8F:%D0%A1%D0%B2%D0%B5%D0%B6%D0%B8%D0%B5_%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8&feed=atom">
+<link 
+  rel="alternate" 
+  type="application/atom+xml" 
+  title="Википедия&nbsp;— Atom-лента" 
+  href="https://ru.wikipedia.org/w/...feedformat=atom">
 
 <!-- RSS-фид -->
-<link rel="alternate" type="application/rss+xml" href="https://ria.ru/export/rss2/archive/index.xml" title="RSS-лента">
+<link 
+  rel="alternate" 
+  type="application/rss+xml" 
+  href="https://ria.ru/export/rss2/archive/index.xml" 
+  title="RSS-лента">
 ```
 **Как это работает:**
 1. Браузеры (например, Firefox) отображают иконку подписки в адресной строке.
@@ -71,14 +79,22 @@ tags:
 Поисковик Google покажет испанскую версию статьи пользователям из Мексики, а английскую — из США.
 
 ```html
-<link rel="alternate" hreflang="en" href="https://globalscience.com/en/article-quantum-physics">
-<link rel="alternate" hreflang="es" href="https://globalscience.com/es/articulo-fisica-cuantica">
+<link 
+  rel="alternate" 
+  hreflang="en" 
+  href="https://globalscience.com/en/article-quantum-physics">
+<link 
+  rel="alternate" 
+  hreflang="es" 
+  href="https://globalscience.com/es/articulo-fisica-cuantica">
 ```
 
 **PDF-версия инструкции**  
 
 ```html 
-<a href="/manual.pdf" rel="alternate" type="application/pdf">Скачать инструкцию в PDF</a>
+<a href="/manual.pdf" rel="alternate" type="application/pdf">
+  Скачать инструкцию в PDF
+</a>
 ```
 
 Пользователи сразу видят, что ссылка ведёт к документу, а не к другой странице сайта.
@@ -105,13 +121,18 @@ tags:
 <article>
   <h1>Как вырастить авокадо</h1>
   <p>
-    Автор: <a href="/profile/anna" rel="author">Анна Иванова</a>
+    Автор: 
+    <a href="/profile/anna" rel="author">
+      Анна Иванова
+    </a>
   </p>
 </article>
 
 <!-- Email автора в подвале сайта -->
 <footer>
-  <a href="mailto:contact@site.com" rel="author">Написать автору</a>
+  <a href="mailto:contact@site.com" rel="author">
+    Написать автору
+  </a>
 </footer>
 ```
 
@@ -132,13 +153,21 @@ tags:
 <!-- Ссылка на раздел без article -->
 <section>
   <h2>Советы по верстке</h2>
-  <p>Хотите узнать больше? <a href="#details" rel="bookmark">Читайте подробности</a>.</p>
+  <p>Хотите узнать больше? 
+    <a href="#details" rel="bookmark">
+      Читайте подробности.
+    </a>
+  </p>
 </section>
 
 <!-- Ссылка внутри article (запись блога) -->
 <article id="post-1">
   <h2>Как печь хлеб</h2>
-  <p>Рецепт... <a href="#post-1" rel="bookmark">Постоянная ссылка на эту запись</a>.</p>
+  <p>Рецепт... 
+    <a href="#post-1" rel="bookmark">
+      Постоянная ссылка на эту запись.
+    </a>
+  </p>
 </article>
 ```
 
@@ -251,15 +280,21 @@ tags:
 **Как это работает:**  
 Когда у элемента есть атрибут `rel="external"`, это означает, что ссылка ведет на внешний сайт.
 ```html
-<a href="https://www.wikipedia.org" rel="external" target="_blank">Посетить Wikipedia</a>
+<a href="https://www.wikipedia.org" rel="external" target="_blank">
+  Посетить Wikipedia
+</a>
 ```
 Здесь мы говорим браузеру, что ссылка ведет на внешний ресурс, и добавляем `target="_blank"`, чтобы ссылка открылась в новой вкладке.
 
 Пример с изображением, которое ведет на внешний сайт:
 ```html
 <figure>
-  <a href="https://www.unsplash.com" rel="external" target="_blank">
-    <img src="https://images.unsplash.com/photo-1729008014121-edd6672688d7" alt="Willian Justen de Vasconcellos">
+  <a 
+    href="https://www.unsplash.com" 
+    rel="external" 
+    target="_blank">
+    <img 
+      src="https://images.unsplash.com/photo-1729008014121-edd6672688d7" alt="Willian Justen de Vasconcellos">
     <figcaption>Изображение с Unsplash</figcaption>
   </a>
 </figure>
@@ -313,8 +348,16 @@ tags:
 **Ссылки на общую помощь по сайту:**
 ```html
 <ul>
-  <li><a href="help/site_navigation.html" rel="help">Помощь с навигацией</a></li>
-  <li><a href="help/content.html" rel="help">Помощь с содержимым</a></li>
+  <li>
+    <a href="help/site_navigation.html" rel="help">
+      Помощь с навигацией
+    </a>
+  </li>
+  <li>
+    <a href="help/content.html" rel="help">
+      Помощь с содержимым
+    </a>
+  </li>
 </ul>
 
 ```
@@ -339,23 +382,40 @@ tags:
 В этом примере показано, как подключить несколько иконок с разными размерами и форматами. Браузер выберет наиболее подходящую для текущего устройства:
 
 ```html
-<!DOCTYPE HTML>
-<html lang="en">
 <head>
   <title>lsForums — Inbox</title>
-  <link rel="icon" href="favicon.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="windows.ico" sizes="32x32 48x48" type="image/vnd.microsoft.icon">
-  <link rel="icon" href="mac.icns" sizes="128x128 512x512 8192x8192 32768x32768">
-  <link rel="icon" href="iphone.png" sizes="57x57" type="image/png">
-  <link rel="icon" href="gnome.svg" sizes="any" type="image/svg+xml">
-  <link rel="stylesheet" href="lsforums.css">
+  <link 
+    rel="icon" 
+    href="favicon.png" 
+    sizes="16x16" 
+    type="image/png">
+  <link 
+    rel="icon" 
+    href="windows.ico" 
+    sizes="32x32 48x48" 
+    type="image/vnd.microsoft.icon">
+  <link 
+    rel="icon" 
+    href="mac.icns" 
+    sizes="128x128 512x512 8192x8192 32768x32768">
+  <link 
+    rel="icon" 
+    href="iphone.png" 
+    sizes="57x57" 
+    type="image/png">
+  <link 
+    rel="icon" 
+    href="gnome.svg" 
+    sizes="any" 
+    type="image/svg+xml">
+  <link 
+    rel="stylesheet" 
+    href="lsforums.css">
   <script src="lsforums.js"></script>
-  <meta name="application-name" content="lsForums">
+  <meta 
+    name="application-name" 
+    content="lsForums">
 </head>
-<body>
-  ...
-</body>
-</html>
 ```
 **Особенности использования `shortcut`**
 Иногда перед `rel="icon"` добавляют слово `shortcut`. Если вы решите его использовать, убедитесь, что всё значение атрибута строго соответствует `shortcut icon` — с одним пробелом между словами и без лишних символов. Это условие не зависит от регистра символов.
@@ -367,29 +427,26 @@ tags:
 > Спецификация не даёт рекомендаций по тому, как отличить основной контент от сопутствующего. Поэтому важно самостоятельно сделать это различие понятным для пользователей.
 
 ```html
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-  <title>Exampl Pictures: Kissat</title>
-  <link rel="stylesheet" href="/style/default">
-</head>
-<body>
-  <h1>Kissat</h1>
-  <nav>
-    <a href="../">Вернуться к индексу фотографий</a>
-  </nav>
-  <figure>
-    <img src="/pix/39627052_fd8dcd98b5.jpg" alt="Kissat">
-    <figcaption>Kissat</figcaption>
-  </figure>
-  <p>Одна из них имеет шесть пальцев!</p>
-  <p><small><a rel="license" href="http://www.opensource.org/licenses/mit-license.php">Лицензия MIT</a></small></p>
-  <footer>
-    <a href="/">Главная</a> | <a href="../">Индекс фотографий</a>
-    <p><small>© 2009 Exampl Pictures. Все права защищены.</small></p>
-  </footer>
-</body>
-</html>
+<h1>Kissat</h1>
+<nav>
+  <a href="../">Вернуться к индексу фотографий</a>
+</nav>
+<figure>
+  <img src="/pix/39627052_fd8dcd98b5.jpg" alt="Kissat">
+  <figcaption>Kissat</figcaption>
+</figure>
+<p>Одна из них имеет шесть пальцев!</p>
+<p>
+  <a 
+    rel="license" 
+    href="http://www.opensource.org/licenses/mit-license.php">
+    Лицензия MIT
+  </a>
+</p>
+<footer>
+  <a href="/">Главная</a> | <a href="../">Индекс фотографий</a>
+  <p>© 2009 Exampl Pictures. Все права защищены.</p>
+</footer>
 ```
 
 **Объяснение примера**  
@@ -409,8 +466,6 @@ tags:
 - **Прочие настройки:** параметры, влияющие на поведение приложения.
 
 ```html
-<!DOCTYPE HTML>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -422,7 +477,6 @@ tags:
   <h1>Добро пожаловать!</h1>
   <p>Это пример страницы с подключенным манифестом.</p>
 </body>
-</html>
 ```
 
 **Как это работает?**
@@ -470,7 +524,13 @@ tags:
 
 **Примеры использования**
 ```html
-<p>Смотрите этот <a href="https://example.com" rel="nofollow">внешний сайт</a> для дополнительной информации.</p>
+<p>
+  Смотрите этот 
+  <a href="https://example.com" rel="nofollow">
+    внешний сайт
+  </a> 
+  для дополнительной информации.
+</p>
 ```
 
 В этом примере ссылка на сайт *example.com* помечена как `nofollow`, что означает отсутствие поддержки данного ресурса автором страницы.
@@ -481,14 +541,26 @@ tags:
   <textarea id="comment" name="comment"></textarea>
   <input type="submit" value="Отправить">
 </form>
-<p><a href="https://spammy-site.com" rel="nofollow">Ссылка на сомнительный сайт</a></p>
+<p>
+  <a href="https://spammy-site.com" rel="nofollow">
+    Ссылка на сомнительный сайт
+  </a>
+  </p>
 ```
 Здесь ссылка на сомнительный сайт также помечена nofollow, чтобы показать, что её содержимое не рекомендуется.
 
 ```html
 <ul>
-  <li><a href="https://example1.com" rel="nofollow">Example 1</a></li>
-  <li><a href="https://example2.com" rel="nofollow">Example 2</a></li>
+  <li>
+    <a href="https://example1.com" rel="nofollow">
+      Example 1
+    </a>
+  </li>
+  <li>
+    <a href="https://example2.com" rel="nofollow">
+      Example 2
+    </a>
+  </li>
 </ul>
 ```
 
@@ -509,14 +581,18 @@ tags:
 
 **Пример без `noopener`**
 ```html
-<a href="https://example.com" target="_blank">Перейти на Example.com</a>
+<a href="https://example.com" target="_blank">
+  Перейти на Example.com
+</a>
 ```
 При переходе по этой ссылке новая вкладка сможет взаимодействовать с исходной страницей через `window.opener`, что создаёт потенциальный риск.
 
 **Пример с `noopener`:**  
 
 ```html
-<a href="https://example.com" target="_blank" rel="noopener">Перейти на Example.com</a>
+<a href="https://example.com" target="_blank" rel="noopener">
+  Перейти на Example.com
+</a>
 ```
 
 Здесь добавление `rel="noopener"` защищает вашу страницу, не позволяя новой вкладке получить доступ к `window.opener`.
@@ -537,7 +613,9 @@ tags:
 **Ссылка без `noreferrer`:**  
 
 ```html
-<a href="https://example.com" target="_blank">Перейти на Example.com</a>
+<a href="https://example.com" target="_blank">
+  Перейти на Example.com
+</a>
 ```
 
 При клике по такой ссылке информация о реферере будет передана сайту *example*.com, а новая вкладка сможет получить доступ к объекту `window.opener`.
@@ -545,7 +623,9 @@ tags:
 **Ссылка с `noreferrer`**  
 
 ```html
-<a href="https://example.com" target="_blank" rel="noreferrer">Перейти на Example.com</a>
+<a href="https://example.com" target="_blank" rel="noreferrer">
+  Перейти на Example.com
+</a>
 ```
 
 Здесь информация о реферере не отправится, а доступ к `window.opener` будет заблокирован.
@@ -553,7 +633,9 @@ tags:
 **Ссылка с `noreferrer` и `noopener`**  
 
 ```html
-<a href="https://example.com" target="_blank" rel="noreferrer noopener">Перейти на Example.com</a>
+<a href="https://example.com" target="_blank" rel="noreferrer noopener">
+  Перейти на Example.com
+</a>
 ```
 
 Этот вариант дублирует защитное поведение — ссылка не передаст данные о реферере и не позволит новой странице управлять исходной.
@@ -565,7 +647,9 @@ tags:
 Это может быть полезно, если вы хотите, чтобы открывшаяся страница могла, например, обновить или изменить содержимое исходной страницы, обеспечивая удобную навигацию между связанными ресурсами или предоставляя дополнительную информацию.
 
 ```html
-<a href="help.html" rel="opener" target="_blank">Помощь!</a>
+<a href="help.html" rel="opener" target="_blank">
+  Помощь!
+</a>
 ```
 В этом примере при клике по ссылке страница `help.html` откроется в новой вкладке, которая сможет взаимодействовать с родительской страницей.
 
@@ -642,7 +726,11 @@ tags:
 
 **Пример использования:**
 ```html
-<link rel="search" type="application/opensearchdescription+xml" href="/search.xml" title="Поиск по сайту">
+<link 
+  rel="search" 
+  type="application/opensearchdescription+xml" 
+  href="/search.xml" 
+  title="Поиск по сайту">
 ```
 
 **Как это работает**  
@@ -676,7 +764,11 @@ tags:
 **Отложенная загрузка CSS**  
 Если CSS не критичен и должен загружаться без блокировки рендеринга:
 ```html
-<link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+<link 
+  rel="preload" 
+  href="styles.css" 
+  as="style" 
+  onload="this.rel='stylesheet'">
 ```
 
 ### `tag`
@@ -692,14 +784,21 @@ tags:
 
 ```html
 <footer>
-  Теги: <a rel="tag" href="https://example.com/tag/technology">Технологии</a>
+  Теги: 
+  <a rel="tag" href="https://example.com/tag/technology">
+    Технологии
+  </a>
 </footer>
 ```
 
 **Применение в блогах**
 
 ```html
-<p>Другие статьи по теме: <a rel="tag" href="https://example.com/tag/javascript">JavaScript</a></p>
+<p>Другие статьи по теме: 
+  <a rel="tag" href="https://example.com/tag/javascript">
+    JavaScript
+  </a>
+</p>
 ```
 Эта ссылка указывает, что текущая страница связана с тегом "JavaScript".
 
@@ -721,8 +820,12 @@ tags:
 **Пример использования**
 ```html
 <footer>
-    <a rel="terms-of-service" href="/terms">Условия использования</a>
-    <a rel="privacy-policy" href="/privacy">Политика конфиденциальности</a>
+    <a rel="terms-of-service" href="/terms">
+      Условия использования
+    </a>
+    <a rel="privacy-policy" href="/privacy">
+      Политика конфиденциальности
+    </a>
 </footer>
 ```
 В этом случае ссылка ведет на страницу с условиями использования, а рядом размещена политика конфиденциальности.
@@ -740,7 +843,9 @@ tags:
 **Пример:**  
 ```html
 <link rel="next" href="document2.html">
-<a rel="next" href="document2.html">Следующий документ</a>
+<a rel="next" href="document2.html">
+  Следующий документ
+</a>
 ```
 
 **Тип ссылки:** `prev`
@@ -752,7 +857,9 @@ tags:
 **Пример:**
 ```html
 <link rel="prev" href="document1.html">
-<a rel="prev" href="document1.html">Предыдущий документ</a>
+<a rel="prev" href="document1.html">
+  Предыдущий документ
+</a>
 ```
 
 **SEO и доступность**  
