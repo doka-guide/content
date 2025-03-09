@@ -224,8 +224,11 @@ tags:
 **Относительные и абсолютные URL**  
 Можно указывать домен с протоколом или без:
 ```html
-<link rel="dns-prefetch" href="//example.com"> <!-- Без протокола -->
-<link rel="dns-prefetch" href="https://api.example.com"> <!-- С протоколом -->
+<!-- Без протокола -->
+<link rel="dns-prefetch" href="//example.com"> 
+
+<!-- С протоколом -->
+<link rel="dns-prefetch" href="https://api.example.com"> 
 ```
 **Когда это полезно?**
 - **Сайты с внешними ресурсами**   
