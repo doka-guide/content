@@ -2,9 +2,11 @@
 title: "`scrollsnapchanging`"
 description: "Срабатывает во время прокрутки в момент определения потенциальной точки привязки."
 baseline:
-  - group: scrolling
+  - group: scroll-snap-events
     features:
+      - api.Document.scrollsnapchanging_event
       - api.Element.scrollsnapchanging_event
+      - api.Window.scrollsnapchanging_event
 authors:
   - akhmadullin
 related:

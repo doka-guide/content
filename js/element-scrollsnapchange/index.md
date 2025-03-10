@@ -2,9 +2,11 @@
 title: "`scrollsnapchange`"
 description: "Событие остановки прокрутки и выбора новой точки привязки."
 baseline:
-  - group: scrolling
+  - group: scroll-snap-events
     features:
+      - api.Document.scrollsnapchange_event
       - api.Element.scrollsnapchange_event
+      - api.Window.scrollsnapchange_event
 authors:
   - akhmadullin
 related:
