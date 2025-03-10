@@ -67,6 +67,7 @@ groups:
       - index-of
       - includes
       - string-length
+      - string-trim
   - name: "Булев тип"
     items:
       - boolean
