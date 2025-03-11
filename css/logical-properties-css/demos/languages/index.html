@@ -112,11 +112,7 @@
       const text = document.querySelector("#text");
       const buttons = document.querySelectorAll("button");
       buttons.forEach((btn) => {
-        if (btn.classList.contains(`button-${lang}`)) {
-          btn.classList.add("active");
-        } else {
-          btn.classList.remove("active");
-        }
+        btn.classList.toggle("active", btn.classList.contains(`button-${lang}`));
       });
       content.className = ""; // Reset classes
       if (lang === "en") {
