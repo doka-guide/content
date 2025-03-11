@@ -1,6 +1,10 @@
 ---
 title: "`::backdrop`"
 description: "Стилизуем подложку под всплывающими элементами."
+baseline:
+  - group: backdrop
+    features:
+      - css.selectors.backdrop
 authors:
   - solarrust
 contributors:

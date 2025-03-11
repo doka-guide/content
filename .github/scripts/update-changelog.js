@@ -84,7 +84,7 @@ if (addedContentList.length > 0) {
       changelog.splice(headerPosition, 0, ...[header, "", ""]);
       changelog.splice(headerPosition + 2, 0, ...addedContentList);
     }
-    fs.writeFileSync(changelogFileName, changelog.join("\n"));
+    fs.writeFileSync(changelogFileName, changelog.filter(line => line.trim() !== "").join("\n"));
     console.log("Новые материалы добавлены в CHANGELOG.md");
   }
 } else {
@@ -116,7 +116,7 @@ if (updatedContentList.length > 0) {
       changelog.splice(headerPosition, 0, ...[header, "", ""]);
       changelog.splice(headerPosition + 2, 0, ...updatedContentList);
     }
-    fs.writeFileSync(changelogFileName, changelog.join("\n"));
+    fs.writeFileSync(changelogFileName, changelog.filter(line => line.trim() !== "").join("\n"));
     console.log("Бывшие плейсхолдеры добавлены в CHANGELOG.md");
   }
 } else {

@@ -2,6 +2,13 @@
 
 <!-- yaspeller ignore:start -->
 
+## Февраль 2025
+
+- 26 февраля, [`scroll-snap-align`](https://doka.guide/css/scroll-snap-align/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-stop`](https://doka.guide/css/scroll-snap-stop/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-type`](https://doka.guide/css/scroll-snap-type/), Рома Ахмадуллин
+
+
 ## Январь 2025
 
 - 31 января, [`aria-required`](https://doka.guide/a11y/aria-required/), juliememe
