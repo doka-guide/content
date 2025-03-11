@@ -33,7 +33,7 @@
     }
 
     h1 {
-      margin-bottom: 17px;
+      margin-block-end: 17px;
       font-weight: 500;
       font-size: 1.625rem;
     }
@@ -44,14 +44,60 @@
     }
 
     .form {
-      flex: 0 0 100px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-block-end: 17px;
+    }
+
+    .user-selector-container {
+      display: flex;
+      align-items: center;
     }
 
     .user-selector {
-      margin-left: .5rem;
-      margin-right: 2rem;
-      padding: 2px 4px;
-      font-size: 18px;
+      width: 100px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      margin-inline-start: .5rem;
+      padding: 10px 15px;
+      background-color: #18191c;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .user-selector:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url(images/arrow-down.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+    }
+
+    .content {
+      padding: 55px 40px;
+      background-color: #282A2E;
+      color: #E6E6E6;
     }
 
     p {
@@ -79,6 +125,10 @@
       body {
         padding: 30px;
       }
+
+      .content {
+        padding: 55px 30px;
+      }
     }
   </style>
 </head>
@@ -86,29 +136,37 @@
   <div class="container">
     <h1 class="title">Значение user-select</h1>
     <form class="form">
-      <label for="user-selector">Весь текст</label>
-      <select
-        name="user-selectorAll"
-        id="user-selector1"
-        class="user-selector"
-      >
-        <option value="none" selected>none</option>
-        <option value="text">text</option>
-        <option value="all">all</option>
-        <option value="auto">auto</option>
-      </select>
+      <div class="user-selector-container">
+        <label for="user-selector1">Весь текст</label>
+        <div class="select-wrapper">
+          <select
+            name="user-selectorAll"
+            id="user-selector1"
+            class="user-selector"
+          >
+            <option value="none" selected>none</option>
+            <option value="text">text</option>
+            <option value="all">all</option>
+            <option value="auto">auto</option>
+          </select>
+        </div>
+      </div>
 
-      <label for="user-selector">Последняя строка</label>
-      <select
-        name="user-selectorLast"
-        id="user-selector2"
-        class="user-selector"
-      >
-        <option value="none">none</option>
-        <option value="text">text</option>
-        <option value="all">all</option>
-        <option value="auto" selected>auto</option>
-      </select>
+      <div class="user-selector-container">
+        <label for="user-selector2">Последняя строка</label>
+        <div class="select-wrapper">
+          <select
+            name="user-selectorLast"
+            id="user-selector2"
+            class="user-selector"
+          >
+            <option value="none">none</option>
+            <option value="text">text</option>
+            <option value="all">all</option>
+            <option value="auto" selected>auto</option>
+          </select>
+        </div>
+      </div>
     </form>
     <div class="content select-none">
       <p>
