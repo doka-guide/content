@@ -1,6 +1,10 @@
 ---
 title: "`backdrop-filter`"
 description: "Свойство для применения фильтров к фоновой картинке."
+baseline:
+  - group: backdrop-filter
+    features:
+      - css.properties.backdrop-filter
 authors:
   - goingtogogo
   - doka-dog
