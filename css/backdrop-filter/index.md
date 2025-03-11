@@ -7,7 +7,6 @@ baseline:
       - css.properties.backdrop-filter
 authors:
   - goingtogogo
-  - doka-dog
 keywords:
   - фильтр фона
   - размытие фона
