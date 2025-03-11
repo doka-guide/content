@@ -39,7 +39,7 @@ scrollContainer.addEventListener('scrollsnapchanging', function(event) {
 - `snapTargetInline` — в строчном направлении.
 
 ```js
-scrollContainer.addEventListener('scrollsnapchange', function(event) {
+scrollContainer.addEventListener('scrollsnapchanging', function(event) {
   // Получаем элемент, к которому может быть привязана прокрутка в блочном направлении
   console.log(event.snapTargetBlock)
 
