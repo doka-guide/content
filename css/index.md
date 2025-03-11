@@ -356,6 +356,9 @@ groups:
       - resize
       - scroll-behavior
       - scroll-padding
+      - scroll-snap-type
+      - scroll-snap-align
+      - scroll-snap-stop
       - scrollbar-color
       - scrollbar-gutter
       - scrollbar-width

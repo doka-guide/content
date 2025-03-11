@@ -5,6 +5,7 @@ photo: photo.png
 badges:
   - first-contribution-small
   - merged-pr-10
+  - superstar
 ---
 
 Отец русского программирования 🥸

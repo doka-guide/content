@@ -1,6 +1,11 @@
 ---
 title: "`conic-gradient()`"
 description: "CSS-функция создаёт конический градиент — фоновое изображение из цветовых переходов, повёрнутых вокруг центральной точки. Формы записи и примеры использования функции."
+baseline:
+  - group: conic-gradients
+    features:
+      - css.types.gradient.conic-gradient
+      - css.types.gradient.conic-gradient.doubleposition
 authors:
   - mitorun
 related:
