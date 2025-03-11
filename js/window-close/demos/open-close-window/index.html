@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Открываем и закрываем новое окно — window.close() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      scrollbar-gutter: stable;
+    }
+
+    html {
+      height: 100vh;
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .button {
+      min-width: 210px;
+      padding: 9px 15px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+      color: #000000;
+      background-color: #FFD829;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="buttonOpen" class="button">Открыть окно</button>
+  <button id="buttonClose" class="button" disabled>Закрыть окно</button>
+  <script>
+    const buttonOpen = document.querySelector('#buttonOpen')
+    const buttonClose = document.querySelector('#buttonClose')
+
+    const openWindow = () => {
+      const newWindow = window.open('https://doka.guide/', '_blank', 'top=40, left=40, width=500, height=400')
+
+      return newWindow
+    }
+    const closeWindow = (windowProxy) => windowProxy.close()
+
+    let currentWindow
+
+    buttonOpen.addEventListener('click', function (event) {
+      buttonOpen.disabled = true
+      buttonClose.disabled = false
+
+      currentWindow = openWindow()
+
+      const timer = setInterval(function() {
+        if (currentWindow.closed) {
+          clearInterval(timer)
+
+          buttonClose.disabled = true
+          buttonOpen.disabled = false
+        }
+      }, 1000)
+    })
+
+    buttonClose.addEventListener('click', function (event) {
+      buttonClose.disabled = true
+      buttonOpen.disabled = false
+
+      closeWindow(currentWindow)
+    })
+  </script>
+</body>
+</html>

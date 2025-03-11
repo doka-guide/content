@@ -2,6 +2,8 @@
 name: 'Рома Ахмадуллин'
 url: https://github.com/akhmadullin
 photo: photo.jpg
+badges:
+  - first-contribution-small
 ---
 
 Фронтенд-разработчик.
