@@ -16,7 +16,7 @@ tags:
   display: none;
 }
 
-@media (min-width: 580px) {
+@media (width <= 580px) {
   .input__icon {
     display: block;
     width: 32px;
