@@ -19,14 +19,14 @@ tags:
 
 ```js
 const phrase = '     А быть может, каждый из вас уже начал — не заметив этого — тот единственный путь, который предназначен ему судьбой.   '
-console.log(phrase.length);
+console.log(phrase.length)
 // 123
 
-const phraseWithoutSpace = phrase.trim();
-console.log(phraseWithoutSpace);
+const phraseWithoutSpaces = phrase.trim()
+console.log(phraseWithoutSpaces)
 // 'А быть может, каждый из вас уже начал — не заметив этого — тот единственный путь, который предназначен ему судьбой.'
 
-console.log(phraseWithoutSpace.length);
+console.log(phraseWithoutSpaces.length)
 // 115
 ```
 
