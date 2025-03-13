@@ -145,6 +145,19 @@ console.log(false + 10); // 10
 console.log(true + "1"); // "true1"
 ```
 
+<details>
+<summary>Как работают операторы по спецификации ECMAScript</summary>
+
+Спецификация ECMAScript (раздел [13.15.3](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-applystringornumericbinaryoperator)) описывает, как JavaScript обрабатывает бинарные операторы (`+`, `-`, `*`, `/`, `%`, `**` и др.) на низком уровне:
+
+1. Если оператор — `+`, движок сначала приводит оба операнда к примитивам с помощью [ToPrimitive()](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toprimitive). Если хотя бы один из них оказывается строкой, происходит конкатенация (склеивание). Иначе двигаться дальше как с числами;
+1. Для прочих случаев JavaScript выполняет [ToNumeric()](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tonumeric), чтобы привести операнды к числам или BigInt;
+1. Если один операнд оказался Number, а другой — BigInt, будет ошибка _TypeError_;
+1. Если оба — Number, используется соответствующая операция для чисел ([Number::add](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-number-add), [Number::multiply](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-number-multiply) и т. д.);
+1. Если оба — BigInt, вызываются операции для больших целых ([BigInt::add](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-bigint-add), [BigInt::multiply](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-bigint-multiply) и т. д.).
+
+</details>
+
 ## Приоритет операторов
 
 В JavaScript у операторов есть определённый порядок выполнения. Это означает, что некоторые операции будут выполняться раньше других, если в выражении нет дополнительных скобок.
