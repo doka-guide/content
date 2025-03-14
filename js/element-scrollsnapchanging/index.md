@@ -50,7 +50,7 @@ scrollContainer.addEventListener('scrollsnapchanging', function(event) {
 
 Событие может быть полезно, если необходимо получить информацию о пролистываемом элементе прямо во время прокрутки. Попробуйте прокрутить контейнер.
 
-<iframe title="Использование события в карусели" src="demos/carousel/" height="500"></iframe>
+<iframe title="Получение номера слайда во время прокрутки" src="demos/carousel/" height="550"></iframe>
 
 ## Подсказки
 
