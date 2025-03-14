@@ -58,9 +58,8 @@ tags:
 <form>
   <input type="text">
   <textarea cols="30" rows="10"></textarea>
+  <p contenteditable>Зелёная каретка</p>
 </form>
-
-<p contenteditable>Зелёная каретка</p>
 ```
 
 ```css
