@@ -1,6 +1,6 @@
 ---
 title: "`scrollsnapchange`"
-description: "Событие остановки прокрутки и выбора новой точки привязки."
+description: "Возникает, когда остановили прокрутку контейнера на новом месте."
 baseline:
   - group: scroll-snap-events
     features:

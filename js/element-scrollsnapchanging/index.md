@@ -1,6 +1,6 @@
 ---
 title: "`scrollsnapchanging`"
-description: "Срабатывает во время прокрутки в момент определения потенциальной точки привязки."
+description: "Срабатывает, пока скроллим контейнер."
 baseline:
   - group: scroll-snap-events
     features:
