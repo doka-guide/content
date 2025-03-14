@@ -89,16 +89,28 @@
       <div class="item">5</div>
     </div>
     <figcaption>
-      <span>Выбранный слайд:</span> <span id="caption-value" class="caption-value">1</span>
+      <span id="caption-label">Выбранный слайд:</span>
+      <span id="caption-value" class="caption-value">1</span>
     </figcaption>
   </figure>
   <script>
     const carousel = document.querySelector('#carousel')
-    const caption = document.querySelector('#caption-value')
+    const captionValue = document.querySelector('#caption-value')
 
-    carousel.addEventListener('scrollsnapchange', (event) => {
-      caption.textContent = event.snapTargetInline.textContent
-    })
+    // Проверяем поддерживает ли браузер событие
+    const supported = 'onscrollsnapchange' in carousel
+
+    if (supported) {
+      // Добавляем обработчик событий для демки
+      carousel.addEventListener('scrollsnapchange', (event) => {
+        captionValue.textContent = event.snapTargetInline.textContent
+      })
+    } else {
+      // Показываем сообщение о том, что поддержки нет
+      const captionLabel = document.querySelector('#caption-label')
+      captionLabel.textContent = `⚠️ scrollsnapchange не поддерживается браузером`
+      captionValue.textContent = ''
+    }
   </script>
 </body>
 </html>
