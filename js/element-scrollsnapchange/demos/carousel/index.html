@@ -95,8 +95,8 @@
     </figcaption>
   </figure>
   <script>
-    const carousel = document.querySelector('#carousel')
-    const captionValue = document.querySelector('#caption-value')
+    const carousel = document.getElementById('carousel')
+    const captionValue = document.getElementById('caption-value')
 
     // Проверяем поддерживает ли браузер событие
     const supported = 'onscrollsnapchange' in carousel
@@ -108,7 +108,7 @@
       })
     } else {
       // Показываем сообщение о том, что поддержки нет
-      const captionLabel = document.querySelector('#caption-label')
+      const captionLabel = document.getElementById('caption-label')
       captionLabel.textContent = `⚠️ scrollsnapchange не поддерживается браузером`
       captionValue.textContent = ''
     }
