@@ -91,28 +91,26 @@
     </ol>
     <figcaption>
       <span id="caption-label">Пролистываемый слайд:</span>
-      <span id="caption-value" class="caption-value"></span>
+      <span id="caption-value" class="caption-value">1</span>
     </figcaption>
   </figure>
   <script>
     const carousel = document.getElementById('carousel')
+    const captionValue = document.getElementById('caption-value')
 
     // Проверяем поддерживает ли браузер событие
     const supported = 'onscrollsnapchanging' in carousel
 
     if (supported) {
       // Добавляем обработчики событий для демки
-      const captionValue = document.getElementById('caption-value')
       carousel.addEventListener('scrollsnapchanging', (event) => {
         captionValue.textContent = event.snapTargetInline.textContent
-      })
-      carousel.addEventListener('scrollend', (event) => {
-        captionValue.textContent = ''
       })
     } else {
       // Показываем сообщение о том, что поддержки нет
       const captionLabel = document.getElementById('caption-label')
       captionLabel.textContent = `⚠️ scrollsnapchanging не поддерживается браузером`
+      captionValue.textContent = ''
     }
   </script>
 </body>
