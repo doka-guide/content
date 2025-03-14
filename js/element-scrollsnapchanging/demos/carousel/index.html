@@ -48,6 +48,7 @@
       display: flex;
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
+      list-style: none;
     }
 
     .item {
@@ -81,13 +82,13 @@
 </head>
 <body>
   <figure class="example">
-    <div id="carousel" class="scroll-container">
-      <div class="item">1</div>
-      <div class="item">2</div>
-      <div class="item">3</div>
-      <div class="item">4</div>
-      <div class="item">5</div>
-    </div>
+    <ol id="carousel" class="scroll-container">
+      <li class="item">1</li>
+      <li class="item">2</li>
+      <li class="item">3</li>
+      <li class="item">4</li>
+      <li class="item">5</li>
+    </ol>
     <figcaption>
       <span id="caption-label">Пролистываемый слайд:</span>
       <span id="caption-value" class="caption-value"></span>
