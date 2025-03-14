@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/attr
-  - tools/docker
-  - tools/cors
-  - html/section
-  - html/head
-  - tools/webpack
-  - css/box-shadow
-  - tools/markdown
+  - a11y/screenreaders
   - css/position
-  - tools/bundlers
+  - recipes/character-counter
   - tools/clean-architecture
+  - tools/ci-cd
+  - css/scrollbar-gutter
+  - tools/oop
+  - js/var-let
+  - html/nav
+  - js/array-entries
+  - tools/markdown
+  - html/input
+  - recipes/progress
+  - tools/how-to-test-and-why
+  - tools/how-the-browser-creates-pages
+  - tools/network
   - tools/agile
-  - html/form
-  - css/display
-  - css/media
-  - a11y/aria-hidden
+  - html/article
+  - html/flow
+  - html/img
+  - css/keyframes
+  - recipes/lets-encrypt-nginx
+  - css/attr
+  - recipes/snow
+  - css/grid-guide
+  - css/box-model
   - a11y/live-region
+  - tools/static-types
+  - a11y/aria-hidden
+  - tools/cli
+  - tools/cors
+  - js/array-reduce-right
+  - a11y/aria-intro
+  - css/display
+  - tools/gitlab-ci-cd
+  - js/boolean
+  - css/transform-function
+  - css/media
+  - html/head
+  - css/custom-properties
+  - js/function-context
+  - html/video
+  - html/form
+  - recipes/center
   - js/deal-with-forms
   - a11y/css-impact-on-a11y
-  - tools/oop
-  - html/video
-  - css/grid-guide
-  - recipes/popup
   - js/async-in-js
-  - html/img
-  - recipes/ajax-form
-  - js/execution-order
-  - a11y/content-hidden
-  - recipes/lets-encrypt-nginx
-  - js/boolean
-  - html/article
-  - tools/gitlab-ci-cd
-  - tools/network
-  - js/var-let
-  - recipes/progress
-  - tools/static-types
-  - tools/ci-cd
-  - a11y/screenreaders
-  - recipes/snow
-  - js/array-reduce-right
-  - css/keyframes
-  - css/specificity
-  - tools/how-the-browser-creates-pages
-  - js/geolocation-api
-  - css/box-model
-  - recipes/git-rebase-onto
-  - css/box-sizing
-  - html/input
-  - html/flow
-  - recipes/character-counter
-  - css/transform-function
   - js/closures
-  - html/doctype
-  - js/function-context
-  - recipes/center
-  - a11y/aria-intro
+  - js/infinite-scroll
+  - html/section
+  - js/function
+  - tools/webpack
+  - tools/docker
+  - recipes/ajax-form
   - css/pseudoelements
   - css/flexbox-guide
-  - tools/cli
   - html/div
-  - js/infinite-scroll
-  - js/function
-  - css/scrollbar-gutter
-  - js/array-entries
-  - css/custom-properties
-  - html/nav
-  - tools/how-to-test-and-why
+  - html/doctype
+  - css/box-sizing
+  - a11y/content-hidden
+  - js/execution-order
+  - css/box-shadow
+  - js/geolocation-api
+  - recipes/git-rebase-onto
+  - tools/bundlers
+  - recipes/popup
+  - css/specificity
 ---
 
