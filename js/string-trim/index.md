@@ -18,9 +18,9 @@ tags:
 ## Пример
 
 ```js
-const phrase = '     А быть может, каждый из вас уже начал — не заметив этого — тот единственный путь, который предназначен ему судьбой.   '
+const phrase = '     А быть может, каждый из вас уже начал — не заметив этого — тот единственный путь, который предназначен ему судьбой.\n   '
 console.log(phrase.length)
-// 123
+// 124
 
 const phraseWithoutSpaces = phrase.trim()
 console.log(phraseWithoutSpaces)
