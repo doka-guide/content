@@ -97,35 +97,24 @@ console.log(2 ** 5)
 JavaScript позволяет применять операторы не только к числам — на практике можно встретить ситуации, когда один или оба операнда оказываются строками, булевыми значениями или даже объектами.
 
 <details>
-<summary>Как JavaScript обрабатывает оператор <code>+</code> по спецификации ECMAScript</summary>
+<summary>Как выполнение операторов описывает спецификация ECMAScript</summary>
 
-Рассмотрим принцип работы операции [ApplyStringOrNumericBinaryOperator()](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-applystringornumericbinaryoperator) на примере оператора `+`:
+Рассмотрим шаги, определённые в [спецификации ECMAScript](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-applystringornumericbinaryoperator) на примере оператора `+`:
 
-**1. Приведение к примитивам**
-Оба операнда последовательно приводятся к примитивам с помощью [ToPrimitive()](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-toprimitive).
-
-**2. Проверка на строку**
-Если хотя бы один из операндов — строка, то второй операнд будет приведён к строке и результатом операции будет конкатенация:
+Сначала оба операнда последовательно приводятся к примитивам. Если хотя бы один из операндов — строка, то второй операнд будет приведён к строке и результатом операции будет конкатенация:
 
 ```js
 console.log(5 + '2')
 // '52'
 ```
 
-В противном случае операция рассматривается как арифметическая.
-
-**3. Приведение к Number или BigInt**
-JavaScript применяет [ToNumeric()](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-tonumeric) к обоим операндам.
-
-**4. Проверка на несовместимость**
-Если один операнд оказался Number, а другой — BigInt, будет выброшена ошибка TypeError:
+В противном случае операция рассматривается как арифметическая. JavaScript приводит оба операнда к числовому типу — Number или BigInt. Если один операнд оказался Number, а другой — BigInt, будет выброшена ошибка TypeError:
 
 ```js
 42n + 1 // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-**5. Арифметические действия**
-Если оба операнда — Number, используется [Number::add](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-number-add). Если оба операнда оказываются BigInt, вызывается [BigInt::add](https://tc39.es/ecma262/multipage/ecmascript-data-types-and-values.html#sec-numeric-types-bigint-add):
+Если оба операнда — Number, используется операция _Number::add_. Если оба операнда оказываются BigInt, вызывается _BigInt:add_:
 
 ```js
 console.log(2 + 3)
