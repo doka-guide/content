@@ -3,10 +3,10 @@ title: "Базовые операторы в JS"
 description: "Обзор ключевых операторов JavaScript: арифметика, приоритет, инкремент и декремент, присваивание."
 authors:
   - anton-fomichev
-keywords:
-  -
 related:
-  -
+  - js/typecasting
+  - js/logic-operators
+  - js/ternary-operator
 tags:
   - doka
 ---
