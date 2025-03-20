@@ -5,6 +5,7 @@ authors:
   - stegur
 contributors:
   - skorobaeus
+  - vitya-ne
 tags:
   - doka
 related:
