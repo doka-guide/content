@@ -46,7 +46,14 @@ JSON состоит из пар ключ-значение. Пары раздел
 JSON основан на JavaScript, но является независимой от языка спецификацией для данных и может использоваться почти с любым языком программирования, поэтому он **пропускает** некоторые специфические значения объектов JavaScript:
 
 - Методы объектов (функции) — `{greetings() {alert("Hello World!")}}`;
-- Ключи со значением `undefined` — `{"value": undefined}`.
+- Поля со значением, равным примитивам [`undefined`](/js/undefined/) или [`Symbol`](/js/symbol/);
+- Поля с `Symbol`-ключами.
+
+Некоторые значения будут преобразованы в `null`:
+- Поля со значением, равным [«специальным» числам»](/js/number-wrapper/#proverki-na-specialnye-znacheniya) `Infinity` и `NaN`;
+- Элементы полей-массивов равные `undefined`.
+
+Значения, равные объектам [`Map`](/js/map/) и [`Set`](/js/set/) будут преобразованы в `{}`.
 
 Если нужно сохранить JSON в файл, то используют расширение `.json`.
 
@@ -94,18 +101,35 @@ console.log(JSON.stringify(hero))
 // '{"nickname":"BestHealerEver","level":7,"age":141,"race":"Gnome","isImmortal":false,"things":["sword","helmet","belt"],"money":{"gold":6387,"silver":1264,"bronze":931,"diamonds":2}}'
 ```
 
-Результатом конвертации будет строка:
+Результатом конвертации будет строка.
 
-```json
-{
-  "nickname": "BestHealerEver",
-  "level": 7,
-  "age": 141,
-  "race": "Gnome",
-  "things": ["sword", "helmet", "belt"],
-  "isImmortal": false,
-  "money": { "gold": 6387, "silver": 1264, "bronze": 931, "diamonds": 2 }
-}
+`JSON.stringify()` также поддерживает два дополнительных аргументы:
+- `replacer` — функция или массив, позволяющие изменить стандартное преобразование. Например, если `replacer` это массив `['nickname', 'age']`, то только эти свойства объекта попадут в результирующую строку.
+- `space` — строка или число пробелов, которые будут использоваться для форматирования результата. Это позволяет улучшить читаемость и представить результат в более наглядном виде.
+
+Например, отформатируем результат предыдущего примера:
+```
+console.log(JSON.stringify(hero, null, 2))
+
+// {
+//   "nickname": "BestHealerEver",
+//   "level": 7,
+//   "age": 141,
+//   "race": "Gnome",
+//   "isImmortal": false,
+//   "things": [
+//     "sword",
+//     "helmet",
+//     "belt"
+//   ],
+//   "money": {
+//     "gold": 6387,
+//     "silver": 1264,
+//     "bronze": 931,
+//     "diamonds": 2
+//   }
+// }
+
 ```
 
 ### Пример преобразования объекта JavaScript в формат JSON
@@ -147,3 +171,5 @@ console.log(jedi.birth_year)
 ```
 
 В случае, если строка не является валидным JSON-кодом, метод `JSON.parse()` выбросит ошибку **SyntaxError.**
+
+
