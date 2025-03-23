@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Интерактивный пример с разными направлениями письма — Логические свойства CSS — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      color: #000000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #18191c;
+    }
+
+    .wrapper {
+      inline-size: 250px;
+      block-size: 250px;
+    }
+
+    #content {
+      inline-size: 250px;
+      block-size: 200px;
+      padding-block: 10px;
+      padding-inline: 20px;
+      margin: auto;
+      background-color: #2e9aff;
+      text-align: start;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      display: block;
+      inline-size: 50px;
+      block-size: 50px;
+      margin-block-end: 10px;
+      border-radius: 50%;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      border: 2px solid transparent;
+      border-radius: 6px;
+      margin-left: auto;
+      padding: 10px 20px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    button:hover {
+      background-color: #2e9aff;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    button:focus,
+    button:focus-visible {
+      border: 2px solid #ffffff;
+      outline: none;
+    }
+
+    button.active {
+      background-color: #2e9aff;
+    }
+
+    .ltr {
+      direction: ltr;
+    }
+
+    .ttb {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    }
+
+    .rtl {
+      direction: rtl;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="content">
+      <img class="logo" src="../../images/cat-logo.png">
+      <span id="text">at dawn<br>a homeless cat, too<br>cries for love</span>
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="button-en active" onclick="changeContent('en')">EN</button>
+    <button class="button-jp" onclick="changeContent('jp')">JP</button>
+    <button class="button-ar" onclick="changeContent('ar')">AR</button>
+  </div>
+  <script>
+    function changeContent(lang) {
+      const content = document.querySelector("#content");
+      const text = document.querySelector("#text");
+      const buttons = document.querySelectorAll("button");
+      buttons.forEach((btn) => {
+        btn.classList.toggle("active", btn.classList.contains(`button-${lang}`));
+      });
+      content.className = ""; // Reset classes
+      if (lang === "en") {
+        content.classList.add("ltr");
+        text.innerHTML = "at dawn<br>a homeless cat, too<br>cries for love";
+      } else if (lang === "jp") {
+        content.classList.add("ttb");
+        text.innerHTML = "有明や<br>家無し猫も<br>恋を泣く";
+      } else if (lang === "ar") {
+        content.classList.add("rtl");
+        text.innerHTML = "عند الفجر<br>قطة بلا مأوى أيضًا<br>تبكي من أجل الحب";
+      }
+    }
+  </script>
+</body>
+
+</html>
