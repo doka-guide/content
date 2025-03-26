@@ -374,6 +374,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - break-after
       - orphans
       - widows
   - name: 'Колонки и таблицы'
