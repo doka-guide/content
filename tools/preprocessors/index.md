@@ -39,7 +39,25 @@ tags:
 
 <aside>
 
-☝️ В CSS планируют внедрить [нативные миксины](https://css.oddbird.net/sasslike/mixins-functions/). [Пропозал (предложение)](https://github.com/w3c/csswg-drafts/issues/9350#issuecomment-1939628591) уже приняли, поэтому миксины в CSS — это вопрос времени. Также есть [решение с кастомными миксинами](https://kizu.dev/layered-toggles/), основанное на каскадных слоях.
+☝️ В CSS рассматривают [предложение](https://github.com/w3c/csswg-drafts/issues/9350#issuecomment-1939628591) по нативным миксинам. Сейчас миксины доступны в _канареечном_ режиме за флагом CSSMixins и будут дорабатываться. Предложенный синтаксис выглядит так:
+
+```css
+@mixin --box {
+  aspect-ratio: 1;
+  inline-size: 100px;
+  block-size: 100px;
+}
+```
+
+Дальше в коде можно будет написать так, чтобы все стили из миксина применились к элементу:
+
+```css
+.box {
+  @apply --box;
+}
+```
+
+Чем-то похоже на [решением с кастомными миксинами](https://kizu.dev/layered-toggles/), основанное на каскадных слоях.
 
 </aside>
 
