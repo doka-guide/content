@@ -58,8 +58,9 @@ tags:
 <form>
   <input type="text">
   <textarea cols="30" rows="10"></textarea>
-  <p contenteditable>Зелёная каретка</p>
 </form>
+
+<p contenteditable>Зелёная каретка</p>
 ```
 
 ```css
@@ -67,11 +68,11 @@ form {
   caret-color: #FF8630;
 }
 
-form textarea {
+textarea {
   caret-color: #2E9AFF;
 }
 
-form p {
+p {
   caret-color: #F498AD;
 }
 ```
