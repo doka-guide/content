@@ -92,7 +92,7 @@ getData(requestData)
 function getData(requestData) {
   // В функции отсутствует проверка типа аргумента
   const url = requestData.url // ❌
-  
+
   return fetch(url)
 }
 
