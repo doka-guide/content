@@ -151,7 +151,7 @@ console.log('2')
 // 2
 ```
 
-2. `new Promise(resolve => resolve(func()))` — работает так же `Promise.try()`, но обладает более сложнам синтаксисом.
+2. `new Promise(resolve => resolve(func()))` — работает так же `Promise.try()`, но обладает более сложнам синтаксисом и труднее запоминается.
 
 ## Преимущества
 
