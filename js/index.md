@@ -155,6 +155,7 @@ groups:
       - set-symmetric-difference
       - set-is-subset-of
       - set-is-superset-of
+      - set-is-disjoint-from
   - name: "Обработка исключений"
     items:
       - try-catch
