@@ -8,9 +8,9 @@
 - 23 марта, [`scrollsnapchange`](https://doka.guide/js/element-scrollsnapchange/), Рома Ахмадуллин
 - 23 марта, [`scrollsnapchanging`](https://doka.guide/js/element-scrollsnapchanging/), Рома Ахмадуллин
 - 13 марта, [Кастомный кроссбраузерный ползунок диапазона](https://doka.guide/recipes/input-range-style/), Михаил Кривдин, Viktar Nezhbart
-- 7 марта, [`AbortController`](https://doka.guide/js/abort-controller/), Игорь Теплостанский
-- 3 марта, [Псевдоприватные кастомные свойства](https://doka.guide/css/pseudo-private-custom-property/), Андрей Александрычев
-- 1 марта, [`isDisjointFrom()`](https://doka.guide/js/set-is-disjoint-from/), Алекс Рассудихин
+- 07 марта, [`AbortController`](https://doka.guide/js/abort-controller/), Игорь Теплостанский
+- 03 марта, [Псевдоприватные кастомные свойства](https://doka.guide/css/pseudo-private-custom-property/), Андрей Александрычев
+- 01 марта, [`isDisjointFrom()`](https://doka.guide/js/set-is-disjoint-from/), Алекс Рассудихин
 
 ## Февраль 2025
 
