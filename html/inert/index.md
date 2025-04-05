@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `inert`"
 description: "Элемент бездельничает? Не беда, ведь есть inert."
+baseline:
+  - group: inert
+    features:
+      api.HTMLElement.inert.ignores_find_in_page
 authors:
   - tatianafokina
 contributors:

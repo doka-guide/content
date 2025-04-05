@@ -1,6 +1,10 @@
 ---
 title: "`accent-color`"
 description: "Современный способ стилизовать чекбоксы, радиокнопки и другие контролы формы"
+baseline:
+  - group: accent-color
+    features:
+      - css.properties.accent-color
 authors:
   - solarrust
 contributors:
