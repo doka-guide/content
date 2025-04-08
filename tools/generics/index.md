@@ -55,7 +55,7 @@ function getProperty<T, K extends keyof T>(obj: T, key: K) {
 class Component<T> {
   constructor(private value: T){}
 
-  getValueWithType(){
+  getValueWithType(): string {
     return `${this.value} имеет тип ${typeof this.value}`;
   }
 }
