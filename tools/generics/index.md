@@ -36,7 +36,7 @@ function getFirstElement<T>(arr: T[]): T | null {
 Обобщённых типов может быть несколько. В таком случае их перечисляют через запятую:
 
 ```ts
-// Тип K обязательно должен быть ключом объекта K
+// Тип K обязательно должен быть ключом объекта T
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
