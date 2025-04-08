@@ -9,7 +9,7 @@ baseline:
 authors:
   - dimentoree
 keywords:
-  - изменить клавишу ввода  
+  - изменить клавишу ввода
 related:
   - html/form
   - html/inputmode
