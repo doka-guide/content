@@ -1,5 +1,5 @@
 ---
-title: "TypeScript дженерики"
+title: "TypeScript: дженерики"
 description: "В TypeScript есть дженерики. Их используют, когда необходимо написать одну и ту же логику для разных типов данных."
 authors:
   - nerozumime
