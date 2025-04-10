@@ -1,6 +1,6 @@
 ---
 title: "Атрибут `enterkeyhint`"
-description: "Меняем метку действия для клавиши ввода по назначению."
+description: "Настройка внешнего вида клавиши ввода."
 baseline:
   - group: enterkeyhint
     features:
@@ -20,7 +20,7 @@ tags:
 
 ## Кратко
 
-[Глобальный атрибут](/html/global-attrs/) `enterkeyhint` говорит браузеру на устройствах с экранной клавиатурой каким будет внешний вид кнопки ввода. Указывается для элементов управления формой (например, [`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) или для любых элементов, у которых установлен атрибут [`contenteditable`](/html/global-attrs/#contenteditable).
+[Глобальный атрибут](/html/global-attrs/) `enterkeyhint` говорит браузеру, на устройствах с экранной клавиатурой, каким будет внешний вид кнопки ввода. Указывается для элементов управления формой (например, [`<input>`](/html/input/) или [`<textarea>`](/html/textarea/)) или для любых элементов, у которых установлен атрибут [`contenteditable`](/html/global-attrs/#contenteditable).
 
 ## Пример
 
