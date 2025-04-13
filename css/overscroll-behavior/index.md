@@ -1,6 +1,29 @@
 ---
 title: "`overscroll-behavior`"
 description: "Задаёт поведение прокрутки при достижении границы элемента."
+baseline:
+  - group: overscroll-behavior
+    features:
+      - css.properties.overscroll-behavior
+      - css.properties.overscroll-behavior-block
+      - css.properties.overscroll-behavior-block.auto
+      - css.properties.overscroll-behavior-block.contain
+      - css.properties.overscroll-behavior-block.none
+      - css.properties.overscroll-behavior-inline
+      - css.properties.overscroll-behavior-inline.auto
+      - css.properties.overscroll-behavior-inline.contain
+      - css.properties.overscroll-behavior-inline.none
+      - css.properties.overscroll-behavior-x
+      - css.properties.overscroll-behavior-x.auto
+      - css.properties.overscroll-behavior-x.contain
+      - css.properties.overscroll-behavior-x.none
+      - css.properties.overscroll-behavior-y
+      - css.properties.overscroll-behavior-y.auto
+      - css.properties.overscroll-behavior-y.contain
+      - css.properties.overscroll-behavior-y.none
+      - css.properties.overscroll-behavior.auto
+      - css.properties.overscroll-behavior.contain
+      - css.properties.overscroll-behavior.none
 authors:
   - akhmadullin
 related:
