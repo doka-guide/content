@@ -22,7 +22,7 @@ const largeNumber = 860000000000000000000; // Пример большого чи
 
 console.log(largeNumber.toExponential()); // "8.6e+20"
 
-// '8.6e+20' — столько очков нужно набрать, чтобы пройти boss blind на Ante 16 в игре Balatro.
+// "8.6e+20" — столько очков нужно набрать, чтобы пройти boss blind на Ante 16 в игре Balatro.
 
 ```
 
@@ -31,8 +31,13 @@ console.log(largeNumber.toExponential()); // "8.6e+20"
 Метод `toExponential()` работает только с числами и возвращает строку. Имеет один аргумент с типом `Number`, который определяет количество цифр после десятичной точки.
 
 ```js
+
 const num = 123456;
+
 console.log(num.toExponential()); // "1.23456e+5"
+
+console.log(num.toExponential(2)); // "1.23e+5"
+
 ```
 ## Как понять
 
