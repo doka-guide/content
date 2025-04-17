@@ -1,6 +1,10 @@
 ---
 title: "`@starting-style`"
 description: "Директива для описания начальных стилей элемента в момент его появления на экране."
+baseline:
+  - group: starting-style
+    features:
+      - css.at-rules.starting-style
 authors:
   - akhmadullin
 related:
