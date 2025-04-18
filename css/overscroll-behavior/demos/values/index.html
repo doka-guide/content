@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Варианты поведения прокрутки — overscroll-behavior — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .fields {
+      width: 100%;
+      border: none;
+    }
+
+    .fields-legend {
+      margin: 0 auto 20px;
+    }
+
+    .fields-layout {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 20px;
+    }
+
+    .parent {
+      border: 2px dashed #2E9AFF;
+      border-radius: 6px;
+      padding: 20px;
+      overflow: auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    .parent-content {
+      height: 200vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .child {
+      border-radius: 6px;
+      background-color: #123E66;
+      height: 200px;
+      overflow: auto;
+    }
+
+    .child-content {
+      height: 150vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .mb-20 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <fieldset class="fields">
+    <legend class="fields-legend"><code>overscroll-behavior</code></legend>
+    <div class="fields-layout">
+      <div>
+        <input type="radio" id="auto" name="child-value" value="auto" checked />
+        <label for="auto">auto</label>
+      </div>
+      <div>
+        <input type="radio" id="contain" name="child-value" value="contain" />
+        <label for="contain">contain</label>
+      </div>
+      <div>
+        <input type="radio" id="none" name="child-value" value="none" />
+        <label for="none">none</label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="parent">
+    <div class="parent-content">
+      <div>
+        <p class="mb-20">Начало родительской прокрутки...</p>
+        <div id="child" class="child" style="overscroll-behavior: auto">
+          <div class="child-content">
+            <p>Начало дочерней прокрутки...</p>
+            <p>...конец дочерней прокрутки</p>
+          </div>
+        </div>
+      </div>
+      <p class="mb-20">...конец родительской прокрутки</p>
+    </div>
+  </div>
+  <script>
+    const childElement = document.getElementById('child')
+    const radios = document.querySelectorAll('input[name="child-value"]')
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        childElement.style.overscrollBehavior = event.target.value
+      })
+    })
+  </script>
+</body>
+</html>
