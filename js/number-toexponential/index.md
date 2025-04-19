@@ -3,6 +3,8 @@ title: "`.toExponential()`"
 description: "Метод преобразует число в строковое представление числа в экспоненциальной записи"
 authors:
   - egorlem
+contributors:
+  - vitya-ne
 related:
   - js/string
   - js/number-wrapper
