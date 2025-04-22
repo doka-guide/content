@@ -29,7 +29,7 @@ tags:
 ## Пример
 
 ```html
-<input class="with-range" type="number" min="10" max="20" step="1">
+<input class="with-range" type="number" min="0" max="23" step="1">
 ```
 
 ```css
