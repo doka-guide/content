@@ -39,7 +39,7 @@
       display: grid;
       grid-template-columns: auto 50%;
       gap: 1rem;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
     }
 
     .page {
@@ -164,11 +164,45 @@
     button:hover {
       background-color: #FFFFFF;
     }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      .demo {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <fieldset class="size">
+      <legend>Подсветить свойство</legend>
+      <div class="form">
+        <button class="top-left-corner-btn active">@top-left-corner</button>
+        <button class="top-left-btn">@top-left</button>
+        <button class="top-center-btn">@top-center</button>
+        <button class="top-right-btn">@top-right</button>
+        <button class="top-right-corner-btn">@top-right-corner</button>
+        <button class="right-top-btn">@right-top</button>
+        <button class="right-middle-btn">@right-middle</button>
+        <button class="right-bottom-btn">@right-bottom</button>
+        <button class="bottom-right-corner-btn">@bottom-right-corner</button>
+        <button class="bottom-right-btn">@bottom-right</button>
+        <button class="bottom-center-btn">@bottom-center</button>
+        <button class="bottom-left-btn">@bottom-left</button>
+        <button class="bottom-left-corner-btn">@bottom-left-corner</button>
+        <button class="left-bottom-btn">@left-bottom</button>
+        <button class="left-middle-btn">@left-middle</button>
+        <button class="left-top-btn">@left-top</button>
+      </div>
+    </fieldset>
     <div class="demo">
       <div class="page">
         <div class="at-demo top-left-corner active"></div>
@@ -198,27 +232,6 @@
         }
       </pre>
     </div>
-    <fieldset class="size">
-      <legend>Подсветить свойство</legend>
-      <div class="form">
-        <button class="top-left-corner-btn active">@top-left-corner</button>
-        <button class="top-left-btn">@top-left</button>
-        <button class="top-center-btn">@top-center</button>
-        <button class="top-right-btn">@top-right</button>
-        <button class="top-right-corner-btn">@top-right-corner</button>
-        <button class="right-top-btn">@right-top</button>
-        <button class="right-middle-btn">@right-middle</button>
-        <button class="right-bottom-btn">@right-bottom</button>
-        <button class="bottom-right-corner-btn">@bottom-right-corner</button>
-        <button class="bottom-right-btn">@bottom-right</button>
-        <button class="bottom-center-btn">@bottom-center</button>
-        <button class="bottom-left-btn">@bottom-left</button>
-        <button class="bottom-left-corner-btn">@bottom-left-corner</button>
-        <button class="left-bottom-btn">@left-bottom</button>
-        <button class="left-middle-btn">@left-middle</button>
-        <button class="left-top-btn">@left-top</button>
-      </div>
-    </fieldset>
   </div>
 
   <script>
