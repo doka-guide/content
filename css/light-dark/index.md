@@ -1,6 +1,10 @@
 ---
 title: "`light-dark()`"
 description: "Задаём цвет в зависимости от темы операционной системы пользователя."
+baseline:
+  - group: light-dark
+    features:
+      - css.types.color.light-dark
 authors:
   - kozlovtseva
 related:
