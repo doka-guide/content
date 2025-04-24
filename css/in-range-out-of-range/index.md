@@ -34,17 +34,17 @@ tags:
 
 ```css
 .with-range {
-  border: 1px solid black;
+  border: 1px solid #FFFFFF;
 }
 
 .with-range:in-range {
-  border-color: green;
-  background-color: rgb(0 255 0 / 20%);
+  border-color: #41E847;
+  background-color: rgb(65 232 71 / 20%);
 }
 
 .with-range:out-of-range {
-  border-color: red;
-  background-color: rgb(255 0 0 / 20%);
+  border-color: #FF8630;
+  background-color: rgb(255 134 48 / 20%);
 }
 ```
 
@@ -57,11 +57,11 @@ tags:
 ## Как пишется
 
 ```css
-input:in-range + span {
+input:in-range {
   color: rgb(0 255 0 / 20%);
 }
 
-input:out-of-range + span {
+input:out-of-range {
   color: rgb(255 0 0 / 20%);
 }
 ```
