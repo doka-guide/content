@@ -93,15 +93,19 @@ Env()  можно использовать и для PWA. PWA использую
 ```css
 #titlebar {
   position: fixed;
-  left: env(titlebar-area-x, 0); /* Позиция по X (если не поддерживается — 0) */
-  top: env(titlebar-area-y, 0);  /* Позиция по Y */
-  width: env(titlebar-area-width, 100%); /* Ширина заголовка */
-  height: env(titlebar-area-height, 40px); /* Высота */
-  background: #6200ee;
-  color: white;
+  inset-inline-start: 
+    env(titlebar-area-x, 0); /* Позиция по X (если не поддерживается — 0) */
+  inset-block-start: 
+    env(titlebar-area-y, 0);  /* Позиция по Y */
   display: flex;
   align-items: center;
-  padding-left: 16px;
+  padding-inline-start: 16px;
+  inline-size: 
+    env(titlebar-area-width, 100%); /* Ширина заголовка */
+  block-size: 
+    env(titlebar-area-height, 40px); /* Высота */
+  background-color: #6200ee;
+  color: white;
 }
 
 /* Сдвигаем основной контент, чтобы он не перекрывался */
