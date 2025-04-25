@@ -1,6 +1,14 @@
 ---
 title: "`env()`"
 description: "Если «бровки» и «чёлки» устройства заслоняют контент — `env()` придёт на помощь."
+baseline:
+  - group: safe-area-inset
+    features:
+      - css.types.env
+      - css.types.env.safe-area-inset-bottom
+      - css.types.env.safe-area-inset-left
+      - css.types.env.safe-area-inset-right
+      - css.types.env.safe-area-inset-top
 authors:
   - anastasiayarosh
 related:
