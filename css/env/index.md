@@ -57,19 +57,21 @@ env(safe-area-inset-right, 1em);
 
 ## Подключение
 
-Чтобы сообщить браузеру, что мы хотим использовать все доступное пространство на экране, нам нужно добавить новое метазначение для вьюпорта. Это позволит нам использовать переменные `env()`:
+Чтобы занять всё доступное пространство на экране, нужно добавить специальный параметр во вьюпорт. Он включит поддержку переменных `env()`:
 
 ```html
-<meta name="viewport" content="viewport-fit=cover" />
-
+<meta name="viewport" content="viewport-fit=cover">
 ```
 
-Потом обозначаем, чего мы хотим добиться, и задаём конкретное расположение с конкретным значением. В приведённом ниже примере элементу body задаются отступы со всех 4 сторон.
+Дальше мы указываем, какие именно отступы хотим задать, и с какими значениями. В примере ниже у тега `body` устанавливаются отступы со всех четырёх сторон:
 
 ```css
 body {
-  padding: env(safe-area-inset-top, 40px) env(safe-area-inset-right, 40px)
-    env(safe-area-inset-bottom, 40px) env(safe-area-inset-left, 40px);
+  padding: 
+    env(safe-area-inset-top, 40px) 
+    env(safe-area-inset-right, 40px)
+    env(safe-area-inset-bottom, 40px) 
+    env(safe-area-inset-left, 40px);
 }
 ```
 
