@@ -1,5 +1,5 @@
 ---
-title: "`env`"
+title: "`env()`"
 description: "Если 'бровки' и 'чёлки' устройства заслоняют контент — env придёт на помощь."
 authors:
   - anastasiayarosh
