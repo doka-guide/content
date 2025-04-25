@@ -71,10 +71,10 @@ env(safe-area-inset-right, 1em);
 
 ```css
 body {
-  padding: 
-    env(safe-area-inset-top, 40px) 
+  padding:
+    env(safe-area-inset-top, 40px)
     env(safe-area-inset-right, 40px)
-    env(safe-area-inset-bottom, 40px) 
+    env(safe-area-inset-bottom, 40px)
     env(safe-area-inset-left, 40px);
 }
 ```
@@ -108,16 +108,16 @@ body {
 ```css
 #titlebar {
   position: fixed;
-  inset-inline-start: 
+  inset-inline-start:
     env(titlebar-area-x, 0); /* Позиция по X (если не поддерживается — 0) */
-  inset-block-start: 
+  inset-block-start:
     env(titlebar-area-y, 0);  /* Позиция по Y */
   display: flex;
   align-items: center;
   padding-inline-start: 16px;
-  inline-size: 
+  inline-size:
     env(titlebar-area-width, 100%); /* Ширина заголовка */
-  block-size: 
+  block-size:
     env(titlebar-area-height, 40px); /* Высота */
   background-color: #6200ee;
   color: white;
