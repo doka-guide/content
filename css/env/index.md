@@ -139,3 +139,28 @@ main {
 ```
 
 Получаем результат, который хотели получить.
+
+## Список всех переменных окружения env():
+
+### Для iOS
+
+`safe-area-inset-top`;
+`safe-area-inset-right`;
+`safe-area-inset-bottom`;
+`safe-area-inset-left`;
+
+### Для PWA
+
+`titlebar-area-x`;
+`titlebar-area-y`;
+`titlebar-area-width`;
+`titlebar-area-height`;
+
+### Для виртуальной клавиатуры
+
+`keyboard-inset-top`;
+`keyboard-inset-right`;
+`keyboard-inset-bottom`;
+`keyboard-inset-left`;
+`keyboard-inset-width`;
+`keyboard-inset-height`;
