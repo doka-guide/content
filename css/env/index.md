@@ -94,6 +94,9 @@ body {
 Ниже — пример, как использовать переменные `titlebar-area-*`, чтобы создать свой заголовок окна, который будет корректно работать в полноэкранном режиме:
 
 ```html
+<head>
+  <meta name="viewport" content="viewport-fit=cover">
+</head>
 <body>
   <header id="titlebar">My Custom Title Bar</header>
   <main>App Content Goes Here</main>
