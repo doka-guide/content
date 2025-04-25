@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/box-sizing
-  - js/function-context
-  - css/transform-function
-  - recipes/progress
-  - recipes/lets-encrypt-nginx
-  - a11y/aria-hidden
-  - css/box-shadow
-  - css/flexbox-guide
-  - tools/network
-  - tools/markdown
-  - tools/docker
-  - recipes/character-counter
+  - a11y/live-region
+  - html/img
+  - html/article
   - js/array-entries
-  - html/nav
-  - tools/cli
-  - tools/cors
+  - js/closures
+  - js/execution-order
+  - html/div
+  - html/doctype
+  - html/flow
+  - js/boolean
+  - recipes/progress
+  - css/specificity
+  - a11y/css-impact-on-a11y
+  - js/infinite-scroll
+  - tools/network
+  - tools/clean-architecture
+  - css/box-sizing
+  - recipes/snow
+  - tools/docker
+  - recipes/git-rebase-onto
+  - tools/how-to-test-and-why
+  - html/section
   - css/keyframes
   - html/head
-  - js/array-reduce-right
-  - tools/ci-cd
-  - a11y/screenreaders
-  - css/specificity
-  - html/img
-  - js/async-in-js
-  - js/infinite-scroll
-  - tools/clean-architecture
-  - html/input
-  - js/execution-order
-  - html/form
-  - a11y/live-region
-  - html/doctype
-  - tools/how-the-browser-creates-pages
-  - css/pseudoelements
-  - recipes/center
-  - html/section
-  - a11y/aria-intro
-  - css/scrollbar-gutter
-  - css/position
-  - css/grid-guide
-  - tools/bundlers
-  - js/boolean
-  - js/deal-with-forms
-  - tools/static-types
-  - recipes/ajax-form
-  - a11y/content-hidden
-  - js/geolocation-api
-  - tools/agile
-  - recipes/git-rebase-onto
-  - css/media
-  - tools/how-to-test-and-why
-  - tools/webpack
-  - recipes/popup
-  - html/div
-  - js/closures
-  - js/var-let
-  - html/article
-  - css/custom-properties
-  - tools/gitlab-ci-cd
-  - tools/oop
-  - recipes/snow
-  - css/display
   - js/function
-  - html/flow
+  - css/grid-guide
+  - tools/cors
+  - css/box-shadow
+  - tools/ci-cd
+  - recipes/popup
+  - recipes/ajax-form
+  - html/nav
+  - a11y/content-hidden
+  - tools/markdown
+  - css/scrollbar-gutter
+  - js/array-reduce-right
   - html/video
-  - a11y/css-impact-on-a11y
+  - a11y/aria-hidden
+  - css/flexbox-guide
   - css/box-model
+  - recipes/lets-encrypt-nginx
+  - css/display
+  - js/deal-with-forms
+  - recipes/character-counter
+  - css/media
+  - css/custom-properties
+  - css/transform-function
+  - tools/static-types
+  - css/position
+  - tools/webpack
+  - tools/how-the-browser-creates-pages
   - css/attr
+  - recipes/center
+  - tools/bundlers
+  - tools/gitlab-ci-cd
+  - html/input
+  - js/function-context
+  - tools/oop
+  - js/async-in-js
+  - js/var-let
+  - css/pseudoelements
+  - a11y/aria-intro
+  - tools/cli
+  - html/form
+  - js/geolocation-api
+  - a11y/screenreaders
+  - tools/agile
 ---
 
