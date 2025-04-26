@@ -151,7 +151,7 @@ li::marker {
 }
 
 .list-item::before {
-  content: "🌝 ";
+  content: "🌝";
 }
 ```
 
