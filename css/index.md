@@ -354,6 +354,7 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - overscroll-behavior
       - scroll-behavior
       - scroll-padding
       - scroll-snap-type
