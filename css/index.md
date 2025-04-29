@@ -354,6 +354,7 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - overscroll-behavior
       - scroll-behavior
       - scroll-padding
       - scroll-snap-type
@@ -374,6 +375,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - page
       - orphans
       - widows
   - name: 'Колонки и таблицы'
