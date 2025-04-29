@@ -102,7 +102,7 @@
         </button>
         <div class="label" id="stateLabel">Состояние: false</div>
       </div>
-      
+
       <div>
         <h3>Воспроизведение</h3>
         <button
@@ -116,12 +116,12 @@
         <div class="label" id="mixedStateLabel">Состояние: false</div>
       </div>
     </div>
-    
+
     <script>
       function togglePressed(button) {
         const isPressed = button.getAttribute('aria-pressed') === 'true';
         button.setAttribute('aria-pressed', !isPressed);
-        
+
         const label = document.getElementById('stateLabel');
         if (!isPressed) {
           button.textContent = 'Включено';
@@ -131,11 +131,11 @@
           label.textContent = 'Состояние: false';
         }
       }
-      
+
       function cycleMixedState(button) {
         const currentState = button.getAttribute('aria-pressed');
         const stateLabel = document.getElementById('mixedStateLabel');
-        
+
         if (currentState === 'false') {
           button.setAttribute('aria-pressed', 'mixed');
           button.textContent = 'Пауза';
