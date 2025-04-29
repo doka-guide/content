@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Пример с кнопкой-переключателем — aria-pressed — Дока</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <style>
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        color-scheme: dark;
+      }
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191C;
+        color: #FFFFFF;
+        font-family: "Roboto", sans-serif;
+      }
+      h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: 400;
+        text-align: center;
+      }
+      .button {
+        display: block;
+        min-width: 210px;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        padding: 9px 15px;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 300;
+        font-family: inherit;
+        transition: all 0.2s linear;
+      }
+      .button:hover {
+        cursor: pointer;
+        transition: all 0.2s linear;
+      }
+      .button:focus-visible {
+        border: 2px solid #FFFFFF;
+        outline: none;
+      }
+      .button:focus {
+        border: 2px solid #FFFFFF;
+        outline: none;
+      }
+      .button-toggle {
+        background-color: #10F3AF;
+      }
+      [aria-pressed="false"] {
+        background-color: #10F3AF;
+      }
+      [aria-pressed="true"] {
+        background-color: #F498AD;
+        color: #FFFFFF;
+      }
+      [aria-pressed="mixed"] {
+        background-color: #FFD829;
+        color: #000000;
+      }
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+      }
+      .label {
+        font-size: 14px;
+        opacity: 0.8;
+        margin-top: 5px;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="button-group">
+      <div>
+        <h3>Субтитры</h3>
+        <button
+          class="button button-toggle"
+          id="toggleButton"
+          aria-pressed="false"
+          onclick="togglePressed(this)"
+        >
+          Выключено
+        </button>
+        <div class="label" id="stateLabel">Состояние: false</div>
+      </div>
+      
+      <div>
+        <h3>Воспроизведение</h3>
+        <button
+          class="button button-toggle"
+          id="mixedButton"
+          aria-pressed="false"
+          onclick="cycleMixedState(this)"
+        >
+          Плей
+        </button>
+        <div class="label" id="mixedStateLabel">Состояние: false</div>
+      </div>
+    </div>
+    
+    <script>
+      function togglePressed(button) {
+        const isPressed = button.getAttribute('aria-pressed') === 'true';
+        button.setAttribute('aria-pressed', !isPressed);
+        
+        const label = document.getElementById('stateLabel');
+        if (!isPressed) {
+          button.textContent = 'Включено';
+          label.textContent = 'Состояние: true';
+        } else {
+          button.textContent = 'Выключено';
+          label.textContent = 'Состояние: false';
+        }
+      }
+      
+      function cycleMixedState(button) {
+        const currentState = button.getAttribute('aria-pressed');
+        const stateLabel = document.getElementById('mixedStateLabel');
+        
+        if (currentState === 'false') {
+          button.setAttribute('aria-pressed', 'mixed');
+          button.textContent = 'Пауза';
+          stateLabel.textContent = 'Состояние: mixed';
+        } else if (currentState === 'mixed') {
+          button.setAttribute('aria-pressed', 'true');
+          button.textContent = 'Стоп';
+          stateLabel.textContent = 'Состояние: true';
+        } else {
+          button.setAttribute('aria-pressed', 'false');
+          button.textContent = 'Плей';
+          stateLabel.textContent = 'Состояние: false';
+        }
+      }
+    </script>
+  </body>
+</html>
