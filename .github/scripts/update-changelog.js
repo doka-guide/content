@@ -58,8 +58,8 @@ function processContent(contentFileName) {
 
   const contentList = contentFileList.map((fileName) => extractInfo(fileName))
 
-
-  const currentMonth = monthNames[3]
+  const currentDate = new Date()
+  const currentMonth = monthNames[currentDate.getMonth()]
   const header = `## ${currentMonth} ${currentYear}`
 
   if (contentList.length > 0) {
