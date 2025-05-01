@@ -1,6 +1,6 @@
 #!/bin/bash
-git diff --name-status HEAD^...HEAD | grep '^A' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^A\t//g' > added-content.txt
-git diff -S"placeholder" --name-status HEAD^...HEAD | grep '^M' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^M\t//g' > updated-content.txt
+git diff --name-status HEAD~2...HEAD | grep '^A' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^A\t//g' > added-content.txt
+git diff -S"placeholder" --name-status HEAD~2...HEAD | grep '^M' | grep -E '(html|css|js|tools|a11y|recipes)\/.*\/index\.md' | sed 's/^M\t//g' > updated-content.txt
 
 if [ -s added-content.txt ]; then
     node .github/scripts/update-changelog.js
