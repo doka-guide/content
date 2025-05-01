@@ -2,6 +2,12 @@
 
 <!-- yaspeller ignore:start -->
 
+## Апрель 2025
+
+- 28 апреля, [`overscroll-behavior`](https://doka.guide/css/overscroll-behavior/), Рома Ахмадуллин
+- 24 апреля, [`@page`](https://doka.guide/css/page/), Егор Левченко
+- 12 апреля, [`Promise.try()`](https://doka.guide/js/promise-try/), Viktar Nezhbart
+
 ## Март 2025
 
 - 28 марта, [`.trim()`](https://doka.guide/js/string-trim/), Алекс Рассудихин
