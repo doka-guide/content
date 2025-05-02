@@ -9,6 +9,7 @@ location: "/newsletters/"
 
 ## 2025
 
+- [Апрель #25](https://api.doka.guide/digest-04-25.html)
 - [Март #24](https://api.doka.guide/digest-03-25.html)
 - [Февраль #23](https://api.doka.guide/digest-02-25.html)
 - [Январь #22](https://api.doka.guide/digest-01-25.html)
