@@ -1,6 +1,6 @@
 ---
-title: "`this`: контекст выполнения функций"
-description: "Про контекст и `this` часто спрашивают на собеседованиях. Ответим подробно и разберёмся в нюансах."
+title: "В поисках `this`"
+description: "Хочешь знать чему `this` равняется - проверь, как и какая функция вызывается."
 authors:
   - bespoyasov
 editors:
@@ -25,377 +25,330 @@ tags:
 
 ## Кратко
 
-Грубо говоря, `this` — это ссылка на некий объект, к свойствам которого можно получить доступ внутри вызова функции. Этот `this` — и есть _контекст выполнения_.
+`this` в JavaScript - это **не контекст**, как в других языках.
 
-Но чтобы лучше понять, что такое `this` и контекст выполнения в JavaScript, нам потребуется зайти издалека.
+Можно думать о `this`, как о скрытом параметре функции, который определяется в момент её вызова.
 
-Сперва вспомним, как мы в принципе можем выполнить какую-то инструкцию в коде.
+## Алгоритм нахождения `this`
 
-Выполнить что-то в JS можно 4 способами:
+❗ Все примеры ниже будут для [_строгого режима_](/js/use-strict/). В не строгом режиме значения `this` будет местами отличаться. Строгий режим автоматически влючён для режима `module`.
 
-- вызвав функцию;
-- вызвав метод объекта;
-- использовав функцию-конструктор;
-- непрямым вызовом функции.
+### `this` и Global Environment
 
-## Функция
-
-Первый и самый простой способ выполнить что-то — вызвать функцию.
+Самый простой (и бесполезный с практической точки зрения) случай, когда `this` находится в глобальном окружении. Т.е. `this` находится не внутри функции, а на "самом верхнем уровне":
 
 ```js
-function hello(whom) {
-  console.log(`Hello, ${whom}!`)
+'use strict';
+
+console.log('This is:', this);
+```
+![this in global environment](./images/global-this.png)
+
+В этом случае алгоритм нахождения `this`:
+
+Код запускается в режиме `script` или `module`?
+
+- Если `module`, то `this` равен `undefined`
+- Если `script`, `this` ссылается на Global Object, но хост среда может изменять это по своему усмотрению:
+  - В браузере поведение `this` не меняется. `this` ссылается на Global Object, который равен объекту `window`
+  - Хост среда `nodejs` изменяет `this` по своей спецификации и устанавливает его равным пустому объекту `{}`
+
+❗ Но повторимся, этот случай не интересен с практической точки зрения. Но может пригодиться на собеседовании :)
+
+### `this` и Arrow Function
+
+Когда `this` находится внутри кода [стрелочной функции]((/js/arrow-function/)), то мы просто должны подняться в её родительское окружение (область видимости), где эта стрелочная функция была определена и начать алгоритм определения заново:
+
+![this and arrow function](./images/arrow-this.png)
+
+В этом примере `this` находится внутри стрелочной функции `arrowFunc`. Значит, чтобы определить, чему равен `this` нужно посмотреть где эта стрелочная функция определена. И начать выполнение алгоритма поиска заново. `arrowFunc` определена внутри функции `logThis`. Это обычная функция? Да. Переходим к определению `this` внутри обычной функции.
+
+```js
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
 }
 
-hello('World')
-// Hello, World!
+logThis(); // this is: ?
 ```
 
-Чтобы выполнить функцию, мы используем выражение `hello` и скобки с аргументами.
+### `this` и Обычная функция
 
-Когда мы вызываем _функцию_, значением `this` может быть лишь _глобальный объект_ или [`undefined`](/js/undefined/) при использовании [`'use strict'`](/js/use-strict/).
+Теперь нас интересует, как вызывается [обычная](/js/function/) родительская функция `logThis`
 
-### Глобальный объект
 
-_Глобальный объект_ — это, так скажем, корневой объект в программе.
+#### `this` и call, apply
 
-Если мы запускаем JS-код в браузере, то глобальным объектом будет `window`. Если мы запускаем код в Node-окружении, то `global`.
+Вызывается ли наша функция `logThis` с помощью [`call(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)? Если да, то `this` будет ссылаться на те данные, на которые указывает идентификатор `thisArg`.
 
-### Строгий режим
-
-Можно сказать, что [_строгий режим_](/js/use-strict/) — неказистый способ борьбы с легаси.
-
-Включается строгий режим с помощью директивы `'use strict'` в начале блока, который должен выполняться в строгом режиме:
+![this and call, apply](./images/call-apply-this.png)
 
 ```js
-function nonStrict() {
-  // Будет выполняться в нестрогом режиме
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
 }
 
-function strict() {
-  'use strict'
-  // Будет выполняться в строгом режиме
-}
+var thisArg = { name: 'User' };
+logThis.call(thisArg); // this is: { name: 'User' }
+logThis.apply(thisArg); // this is: { name: 'User' }
+
+thisArg = 42;
+logThis.call(thisArg); // this is: 42
+logThis.apply(thisArg); // this is: 42
+
+logThis(); // this is: ?
 ```
 
-Также можно настроить строгий режим для всего файла, если указать `'use strict'` в начале.
+Если функция вызывается без `call` или `apply`, идём дальше по алгоритму.
 
-### Значение `this`
+#### `this` и bind
 
-Вернёмся к `this`. В нестрогом режиме при выполнении в браузере `this` при вызове функции будет равен `window`:
+Если к родительской обычной функции применяется метод [`bind(thisArg, ...args)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), то возвращется новая функция. При вызове эта новая функция вызывает исходную функцию с аргументами `...args` и 'нацеливает' `this` на те данные, на которые указывает идентификатор `thisArg`. Если к новой функции (которая возвращается после `.bind()`) применить `call`, `apply` или снова `bind`, то это не изменит `this`.
 
-```js
-function whatsThis() {
-  console.log(this === window)
-}
+![this and bind without new](./images/bind-no-new-this.png)
 
-whatsThis()
-// true
-```
-
-То же — если функция объявлена внутри функции:
+Несколько примеров, чтобы показать тонкости работы js:
 
 ```js
-function whatsThis() {
-  function whatInside() {
-    console.log(this === window)
-  }
+'use strict';
 
-  whatInside()
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
 }
 
-whatsThis()
-// true
-```
+var thisArgUser = { name: 'User' };
+var thisArgAdmin = { name: 'Admin' };
 
-И то же — если функция будет анонимной и, например, вызвана немедленно:
+var logBind = logThis.bind(thisArgUser);
+logBind(); // this is: { name: User }
+
+// this уже закреплён первым bind, задать его другим нельзя
+logBind.call({ thisArgAdmin }); // this is: { name: User }
+logBind.apply({ thisArgAdmin }); // this is: { name: User }
+
+// this уже закреплён первым bind, задать его другим нельзя
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: User }
+```
+Есть важный нюас про переменные в js. Ассоциация с коробочкой и данными не очень подходит для js. Лучше думать, что переменная содержит ссылку на адрес в памяти, где данные действительно лежат:
 
 ```js
-;(function () {
-  console.log(this === window)
-})()
-// true
+// Лучше читать так - `a` ссылается на адрес памяти,
+// где лежит структура `{name: 'User'}`
+// Знак `=` это знак связывания а не равенства сущностей.
+var a = {name: 'User'};
+
+// Переменная `b` не равна `a`, а переменная `b` связана с теми же
+// данными, что и `a`. Т.е. `b` ссылается на туже область памяти, что и `a`
+var b = a;
+
+// Мы редактируем одни и теже данные,
+// потому что и `a` и `b` суть ссылка на одну структуру в памяти
+a.name = 'SuperUser';
+console.log(a); // {name: 'SuperUser'};
+console.log(b); // {name: 'SuperUser'};
+
+b.name = 'SuperAdmin';
+console.log(a); // {name: 'SuperAdmin'};
+console.log(b); // {name: 'SuperAdmin'};
 ```
-
-В приведённом выше примере вы можете заметить `;` перед анонимной функцией. Дело в том, что существующий механизм автоподстановки точек с запятой (ASI) срабатывает лишь в [определённых случаях](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion), в то время как строка, начинающаяся с `(`, не входит в перечень этих случаев. Поэтому опытные разработчики зачастую добавляют `;` в тех случаях, когда их код может быть скопирован и добавлен в существующий.
-
-В строгом режиме — значение будет равно `undefined`:
+Поэтому пример ниже не противоречит алгоритму, а лишь показывает суть того, чем являются переменные в js:
 
 ```js
-'use strict'
+'use strict';
 
-function whatsThis() {
-  console.log(this === undefined)
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
 }
 
-whatsThis()
-// true
+var thisArgUser = { name: 'User' };
+var thisArgAdmin = { name: 'Admin' };
+
+var logBind = logThis.bind(thisArgUser);
+logBind(); // this is: { name: User }
+
+thisArgUser.name = 'SuperUser';
+// Поменялся не this, this ссылается на тоже, на что и `thisArgUser`
+// Если мы меням данные по адресу `thisArgUser`,
+// то this тоже показывает новое значение
+logBind(); // this is: { name: SuperUser }
+
+logBind.call({ thisArgAdmin }); // this is: { name: SuperUser }
+logBind.apply({ thisArgAdmin }); // this is: { name: SuperUser }
+
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: SuperUser }
+
+// Если мы свяжем `thisArgUser` с новыми данными в памяти,
+// то this никак не изменится. Он остался связанным
+// с теми данными, на которые стал связаться при первом `bind`
+thisArgUser = 42;
+
+logBind(); // this is: { name: SuperUser }
+
+logBind.call({ thisArgAdmin }); // this is: { name: SuperUser }
+logBind.apply({ thisArgAdmin }); // this is: { name: SuperUser }
+
+var secondLogBind = logBind.bind(thisArgAdmin);
+secondLogBind(); // this is: { name: SuperUser }
 ```
 
-## Метод объекта
+### `this` и `new`
 
-Если функция хранится в объекте — это _метод этого объекта_.
+Если наша родительская обычная функция `logThis` вызывается с помощью оператора `new` или иновая функця после `.bind()` вызывается с помощью оператора `new`, то в обоих случаях `this` связывается с пустым объектом `{}`
+
+![this, bind and new](./images/bind-with-new-this.png)
 
 ```js
-const user = {
-  name: 'Alex',
-  greet() {
-    console.log('Hello, my name is Alex')
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
+}
+
+new logThis(); // this is: {}
+
+// И даже так, без скобочек. `new` принудительно вызывает функцию.
+new logThis; // this is: {}
+
+logThis(); // this is: ?
+```
+
+Ещё один хитрый пример на понимание `bind` и `this`:
+
+```js
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+  console.log(this);
+}
+
+const superThis = { z: 3 };
+const YAxisPoint = Point.bind(superThis, 1);
+
+const a = new YAxisPoint(2); // {x: 1, y: 2}
+```
+Идём по алгоритму:
+1. `this` внутри функции? Да, внутри `Point`
+2. Это обычная функция? Да, не стрелочная.
+3. `Point` вызывается с `call` или `apply`? Нет.
+4. К `Point` применяется `bind`? Да.
+5. Новая функция `YAxisPoint`, когда будет вызвана, применит аргумент `1` к своему первому входному параметру `x`. А `this` станет связан с теми данными, на которые ссылается `superThis`.
+6. Новая функция `YAxisPoint` вызывается с помощью оператора `new`? Да.
+7. Значит `this` начинает ссылаться на пустой объект `{}`, а функция `Point` вызывается с такими параметрами: `Point(1, 2)`. Поэтому присвоение `this.x` и `this.y` преобразуют `this` в объект `{x: 1, y: 2}`
+
+### `this` и dot нотация
+
+Если наша функция `logThis` вызывается через dot нотацию (т.е. через точку), как метод, то `this` будет связан с идентификатором, который расопложен слева от точки. Иными словами `this` внутри функции-метода будет ссылаться на сам объект, метод которого вызывается.
+
+Иначе `this` будет связан с `undefined`
+
+![this and dot notation](./images/dot-notation-this.png)
+
+```js
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
+}
+
+var obj = {
+  name: 'User',
+  logThis,
+}
+
+obj.logThis(); // this is: { name: 'User', logThis }
+
+logThis(); // this is: ?
+```
+
+Чтобы лучше прочувствовать разницу вот немного другой пример:
+
+```js
+'use strict';
+
+function logThis() {
+  var arrowFunc = () => console.log('this is:', this);
+  arrowFunc();
+}
+
+var obj = {
+  name: 'User',
+  logThis,
+}
+// связали идентификатор функции с новым идентификатором log. Но функция logThis не вызывается
+var log = obj.logThis;
+log(); // this is: undefined
+
+// Ура, наконец-то!
+logThis(); // this is: undefined
+```
+
+Важный нюанс - функция должна именно **вызываться** в dot нотации.
+
+В примере выше с `log` вызова функции `logThis` нет. Функция `logThis` вызывается только в самом конце листинга: `logThis()`. По алгоритму это не вызов с `call`, `apply`, `bind`, не вызов с помощью `new`, вызов без dot нотации. Значит `this` связан с `undfined`.
+
+Ура! Теперь мы всегда можем легко понять, чему равен `this`. Ну... почти всегда и легко :) Путаница начинается, когда функция передаётся во внешнее API. Тогда `this` может быть любым, всё зависит от того, как его установит внешнее API.
+
+## Внешние API
+
+Внешнее API может как угодно менять `this` в функции, которая передана в него как [callback](/js/async-in-js/#kolbeki). Но:
+1. Только если это обычная (не стрелочная) функция.
+2. `this` не установлен принудительно через `bind`.
+
+Чтобы точно узнать, чему равен `this` в случае вызова внешнего API, необходимо посмотреть документацию этого API.
+
+Пара популярных примеров внешнего API
+
+### addEventListener
+
+Относится к стандарту HTML5. `this` будет ссылаться на объект DOM, на котором висит слушатель события.
+
+```js
+'use strict';
+
+function handleClick() {
+  console.log('this is:', this);
+}
+
+// this должен быть undefined по спецификации EcmaScript (JavaScript)
+// Но будет ссылаться на body - элемент на котором висит слушатель
+document.body.addEventListener('click', handleClick);
+
+// this будет { value: 42 }, потому что мы явно это задали через bind
+document.body.addEventListener('click', handleClick.bind({ value: 42 }));
+
+```
+
+### setTimeout
+
+Внешнее API. Причём ещё более неоднозначное. Если мы в среде браузера, то это `setTimeout` из стандарта HTML5. Если мы в `nodejs`, то это уже API ноды, которое отличается от поведения в HTML5.
+
+```js
+'use strict';
+
+var obj = {
+  name: 'User',
+  logThis() {
+    console.log('this is:', this);
   },
-}
+};
 
-user.greet()
-// Hello, my name is Alex
+setTimeout(obj.logThis, 1000);
 ```
+Если этот код выполнить в браузере, то:
+- в режиме module `this` будет `undefined`
+- в режиме script `this` будет ссылаться на глобальный объект window
 
-`user.greet()` — это метод объекта `user`.
+Если этот код выполнить в `nodejs`, то `this` будет ссылаться на объект `Timeout` ноды.
 
-В этом случае значение `this` — этот объект.
-
-```js
-const user = {
-  name: 'Alex',
-  greet() {
-    console.log(`Hello, my name is ${this.name}`)
-  },
-}
-
-user.greet()
-// Hello, my name is Alex
-```
-
-Обратите внимание, что `this` определяется в момент вызова функции. Если записать метод объекта в переменную и вызвать её, значение `this` изменится.
-
-```js
-const user = {
-  name: 'Alex',
-  greet() {
-    console.log(`Hello, my name is ${this.name}`)
-  },
-}
-
-const greet = user.greet
-greet()
-// Hello, my name is
-```
-
-При вызове через точку `user.greet()` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict/) мы бы получили ошибку «Cannot read properties of undefined».
-
-Чтобы такого не происходило, [следует использовать `bind()`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Function/bind), о котором мы поговорим чуть позже.
-
-## Вызов конструктора
-
-_Конструктор_ — это функция, которую мы используем, чтобы создавать однотипные объекты. Такие функции похожи на печатный станок, который создаёт детали LEGO. Однотипные объекты — детальки, а конструктор — станок. Он как бы конструирует эти объекты, отсюда название.
-
-По соглашениям конструкторы вызывают с помощью ключевого слова `new`, а также называют с большой буквы, причём обычно не глаголом, а существительным. Существительное — это та сущность, которую создаёт конструктор.
-
-Например, если конструктор будет создавать объекты пользователей, мы можем назвать его `User`, а использовать вот так:
-
-```js
-function User() {
-  this.name = 'Alex'
-}
-
-const firstUser = new User()
-firstUser.name === 'Alex'
-// true
-```
-
-При вызове _конструктора_ `this` равен свежесозданному объекту.
-
-В примере с `User` значением `this` будет объект, который конструктор создаёт:
-
-```js
-function User() {
-  console.log(this instanceof User)
-  // true
-  this.name = 'Alex'
-}
-
-const firstUser = new User()
-firstUser instanceof User
-// true
-```
-
-На самом деле, многое происходит «за кулисами»:
-
-- При вызове сперва создаётся новый пустой объект, и он присваивается `this`.
-- Выполняется код функции. (Обычно он модифицирует `this`, добавляет туда новые свойства.)
-- Возвращается значение `this`.
-
-Если расписать все неявные шаги, то:
-
-```js
-function User() {
-  // Происходит неявно:
-  // this = {};
-
-  this.name = 'Alex'
-
-  // Происходит неявно:
-  // return this;
-}
-```
-
-То же происходит и в ES6-классах, узнать о них больше можно в [статье про объектно-ориентированное программирование](/tools/oop/).
-
-```js
-class User {
-  constructor() {
-    this.name = 'Alex'
-  }
-
-  greet() {
-    /*...*/
-  }
-}
-
-const firstUser = new User()
-```
-
-#### Как не забыть о `new`
-
-При работе с _функциями-конструкторами_ легко забыть о `new` и вызвать их неправильно:
-
-```js
-const firstUser = new User() // ✅
-const secondUser = User() // ❌
-```
-
-Хотя на первый взгляд разницы нет, и работает будто бы правильно. Но на деле разница есть:
-
-```js
-console.log(firstUser)
-// User { name: 'Alex' }
-
-console.log(secondUser)
-// undefined
-```
-
-Чтобы не попадаться в такую ловушку, в конструкторе можно прописать проверку на то, что новый объект создан:
-
-```js
-function User() {
-  if (!(this instanceof User)) {
-    throw Error('Error: Incorrect invocation!')
-  }
-
-  this.name = 'Alex'
-}
-
-// или
-
-function User() {
-  if (!new.target) {
-    throw Error('Error: Incorrect invocation!')
-  }
-
-  this.name = 'Alex'
-}
-
-const secondUser = User()
-// Error: Incorrect invocation!
-```
-
-### Непрямой вызов
-
-_Непрямым вызовом_ называют вызов функций через [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply).
-
-Оба первым аргументом принимают `this`. То есть они позволяют настроить контекст снаружи, к тому же — явно.
-
-```js
-function greet() {
-  console.log(`Hello, ${this.name}`)
-}
-
-const user1 = { name: 'Alex' }
-const user2 = { name: 'Ivan' }
-
-greet.call(user1)
-// Hello, Alex
-greet.call(user2)
-// Hello, Ivan
-
-greet.apply(user1)
-// Hello, Alex
-greet.apply(user2)
-// Hello, Ivan
-```
-
-В обоих случаях в первом вызове `this` === `user1`, во втором — `user2`.
-
-Разница между `call()` и `apply()` — в том, как они принимают аргументы для самой функции после `this`.
-
-`call()` принимает аргументы списком через запятую, `apply()` же — принимает массив аргументов. В остальном они идентичны:
-
-```js
-function greet(greetWord, emoticon) {
-  console.log(`${greetWord} ${this.name} ${emoticon}`)
-}
-
-const user1 = { name: 'Alex' }
-const user2 = { name: 'Ivan' }
-
-greet.call(user1, 'Hello,', ':-)')
-// Hello, Alex :-)
-greet.call(user2, 'Good morning,', ':-D')
-// Good morning, Ivan :-D
-greet.apply(user1, ['Hello,', ':-)'])
-// Hello, Alex :-)
-greet.apply(user2, ['Good morning,', ':-D'])
-// Good morning, Ivan :-D
-```
-
-#### Связывание функций
-
-Особняком стоит `bind()`. Это метод, который позволяет связывать контекст выполнения с функцией, чтобы «заранее и точно» определить, какое именно значение будет у `this`.
-
-```js
-function greet() {
-  console.log(`Hello, ${this.name}`)
-}
-
-const user1 = { name: 'Alex' }
-
-const greetAlex = greet.bind(user1)
-greetAlex()
-// Hello, Alex
-```
-
-Обратите внимание, что `bind()`, в отличие от `call()` и `apply()`, не вызывает функцию сразу. Вместо этого он возвращает другую функцию — связанную с указанным контекстом навсегда. Контекст у этой функции изменить невозможно.
-
-```js
-function getAge() {
-  console.log(this.age)
-}
-
-const howOldAmI = getAge.bind({age: 20}).bind({age: 30})
-
-howOldAmI()
-//20
-```
-
-#### Стрелочные функции
-
-У _стрелочных функций_ собственного контекста выполнения нет. Они связываются с ближайшим по иерархии контекстом, в котором они определены.
-
-Это удобно, когда нам нужно передать в стрелочную функцию, например, родительский контекст без использования `bind()`.
-
-```js
-function greetWaitAndAgain() {
-  console.log(`Hello, ${this.name}!`)
-  setTimeout(() => {
-    console.log(`Hello again, ${this.name}!`)
-  })
-}
-
-const user = { name: 'Alex' }
-
-user.greetWaitAndAgain = greetWaitAndAgain;
-user.greetWaitAndAgain()
-
-// Hello, Alex!
-// Hello again, Alex!
-```
-
-При использовании обычной функции внутри контекст бы потерялся, и чтобы добиться того же результата, нам бы пришлось использовать `call()`, `apply()` или `bind()`.
+Совет для интервью - если спрашивают про `this` и внешнее API, то всегда можно добавить, что внешнее API может задать `this` так, как ему хочется (за исключением принудительной установки `this`), и чтобы узнать наверняка, чему оно будет равно, нужно посмотреть документацию соответствующего API
