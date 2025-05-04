@@ -281,7 +281,6 @@
         toggleTooltip()
       }
 
-
       yearGrid.addEventListener('mousemove', showTooltip)
       yearGrid.addEventListener('mouseleave', hideTooltip)
     }
@@ -291,8 +290,16 @@
         let url = createURL()
 
         const response = await requestGitHubData(url)
+
         if (response.ok) {
           return await response.json()
+        }
+
+        if (response.status === 202 && requestMaxAttempts > 0)
+        {
+          requestMaxAttempts -= 1
+
+          return fetchCommitStat()
         }
 
       } catch (error) {
@@ -301,6 +308,8 @@
     }
 
     const parentContainer = document.querySelector('#repoGridContainer')
+
+    let requestMaxAttempts = 3
 
     fetchCommitStat().then(responseData => {
       return parseCommits(responseData)
