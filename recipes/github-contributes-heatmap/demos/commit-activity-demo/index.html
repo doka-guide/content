@@ -14,10 +14,12 @@
 
     body {
       min-height: 100vh;
+      margin: 0;
       padding: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
+      box-sizing: border-box;
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
@@ -104,9 +106,9 @@
       month: 'numeric',
       day: 'numeric',
     })
-    const COLOR_MAX_STEPS = 10
+    const COLOR_MAX_STEPS = 25
     const COLOR_MIN_STEPS = 5
-    const BASE_HSL = [90.5, 100, 49.4]
+    const BASE_HSL = [112, 100, 85]
 
     function requestGitHubData(url){
       try {
@@ -125,6 +127,29 @@
 
     function createURL() {
       return `${GITHUB_REPO_API}/${REPO}/stats/commit_activity`
+    }
+
+    async function fetchCommitStat() {
+      try {
+        let url = createURL()
+
+        const response = await requestGitHubData(url)
+
+        if (response.status === 202 && requestMaxAttempts > 0)
+        {
+          requestMaxAttempts -= 1
+
+          await new Promise(r => setTimeout(r, 1500));
+
+          return fetchCommitStat()
+        }
+
+        if (response.ok) {
+          return await response.json()
+        }
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     function getWeekDate(weekTimestamp) {
@@ -285,27 +310,7 @@
       yearGrid.addEventListener('mouseleave', hideTooltip)
     }
 
-    async function fetchCommitStat() {
-      try {
-        let url = createURL()
 
-        const response = await requestGitHubData(url)
-
-        if (response.ok) {
-          return await response.json()
-        }
-
-        if (response.status === 202 && requestMaxAttempts > 0)
-        {
-          requestMaxAttempts -= 1
-
-          return fetchCommitStat()
-        }
-
-      } catch (error) {
-        console.error(error)
-      }
-    }
 
     const parentContainer = document.querySelector('#repoGridContainer')
 
