@@ -76,7 +76,7 @@ someFn(); // Выведет: "Hello, World!"
 const fullSomeFn = createFn(someFn);
 fullSomeFn();
 // Выведет все сообщения:
-// "Ну, привет!"
+// "Hello, World!"
 // "Hello there!"
 ```
 
