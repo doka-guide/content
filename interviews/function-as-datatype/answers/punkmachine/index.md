@@ -46,6 +46,38 @@ function createFn(fn) {
 }
 ```
 
+Вот как это работает с функцией из вопроса:
+
+```js
+const sourceFn = (a, b) => {
+  // const c = a + 2
+  // return c * b
+  return a + b
+}
+
+console.log(sourceFn(5, 3)); // Выведет: 8
+
+const uncommentedFn = createFn(sourceFn);
+console.log(uncommentedFn(5, 3)); // Выведет: 21
+```
+
+А вот пример с функцией без параметров:
+
+```js
+const someFn = () => {
+  console.log('Hello, World!')
+  // console.log('Hello there!')
+}
+
+someFn(); // Выведет: "Hello, World!"
+
+const fullSomeFn = createFn(someFn);
+fullSomeFn();
+// Выведет все сообщения:
+// "Ну, привет!"
+// "Hello there!"
+```
+
 Что важно помнить при использовании этого решения:
 
 - Работает только с однострочными комментариями — многострочные `/* */` останутся нетронутыми;
