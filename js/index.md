@@ -56,6 +56,7 @@ groups:
       - parseint
       - parsefloat
       - number-wrapper
+      - number-toexponential
       - number-tostring
       - number-is-nan
       - number-isfinite
