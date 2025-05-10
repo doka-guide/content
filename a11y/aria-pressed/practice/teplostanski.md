@@ -7,10 +7,10 @@
 ```jsx
 function ToggleButton({ label, initialState = false }) {
   const [isPressed, setIsPressed] = React.useState(initialState)
-  
+
   return (
-    <button 
-      aria-pressed={isPressed} 
+    <button
+      aria-pressed={isPressed}
       onClick={() => setIsPressed(!isPressed)}
     >
       {label}
@@ -22,8 +22,8 @@ function ToggleButton({ label, initialState = false }) {
 Пример Vue-компонента:
 ```js
 <template>
-  <button 
-    :aria-pressed="isPressed" 
+  <button
+    :aria-pressed="isPressed"
     @click="togglePressed"
   >
     {{ label }}
