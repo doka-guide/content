@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Item Checkbox Example</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+    .menu {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 0.5rem 0;
+    }
+    .menuitem {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .menuitem[aria-checked="true"] .checkbox {
+      background: #007bff;
+      border-color: #007bff;
+    }
+    .menuitem[aria-checked="true"] .checkbox::after {
+      content: '\2713';
+      color: #fff;
+      font-size: 1rem;
+      position: absolute;
+      left: 2px;
+      top: -2px;
+    }
+    .menuitem[aria-checked="mixed"] .checkbox {
+      background: #ffc107;
+      border-color: #ffc107;
+    }
+    .menuitem[aria-checked="mixed"] .checkbox::after {
+      content: '\2014'; /* em dash */
+      color: #fff;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+    .menuitem:focus {
+      background: #e9ecef;
+    }
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #888;
+      border-radius: 3px;
+      margin-right: 0.75rem;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      background: #fff;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .label {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <h2>Menu with Checkbox Item</h2>
+  <div role="menu" class="menu" id="menu1">
+    <button role="menuitemcheckbox" aria-checked="false" tabindex="0" class="menuitem" id="menuitem1">
+      <span class="checkbox" aria-hidden="true"></span>
+      <span class="label">Enable notifications</span>
+    </button>
+    <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem2">
+      <span class="checkbox" aria-hidden="true"></span>
+      <span class="label">Enable advanced options</span>
+    </button>
+    <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem3">
+      <span class="checkbox" aria-hidden="true"></span>
+      <span class="label">Enable beta features</span>
+    </button>
+    <button role="menuitem" tabindex="-1" class="menuitem" id="menuitem4">
+      <span class="label">Regular menu item</span>
+    </button>
+  </div>
+  <script>
+    const menu = document.getElementById('menu1');
+    const items = Array.from(menu.querySelectorAll('.menuitem'));
+
+    // Keyboard navigation
+    menu.addEventListener('keydown', (e) => {
+      const currentIndex = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = (currentIndex + 1) % items.length;
+        items[next].focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = (currentIndex - 1 + items.length) % items.length;
+        items[prev].focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        items[0].focus();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        items[items.length - 1].focus();
+      } else if ((e.key === ' ' || e.key === 'Enter') && document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
+        e.preventDefault();
+        toggleCheckbox(document.activeElement);
+      }
+    });
+
+    // Mouse click
+    items.forEach(item => {
+      if (item.getAttribute('role') === 'menuitemcheckbox') {
+        item.addEventListener('click', () => toggleCheckbox(item));
+      }
+    });
+
+    const header = document.getElementById('menuitem1');
+    const second = document.getElementById('menuitem2');
+    const third = document.getElementById('menuitem3');
+
+    function updateHeaderState() {
+      const states = [second, third].map(item => item.getAttribute('aria-checked') === 'true');
+      const allChecked = states.every(Boolean);
+      const allUnchecked = states.every(v => !v);
+      if (allChecked) {
+        header.setAttribute('aria-checked', 'true');
+      } else if (allUnchecked) {
+        header.setAttribute('aria-checked', 'false');
+      } else {
+        header.setAttribute('aria-checked', 'mixed');
+      }
+    }
+
+    function toggleCheckbox(item) {
+      if (item === header) {
+        // Toggling header toggles all children
+        const states = [second, third].map(i => i.getAttribute('aria-checked') === 'true');
+        const allChecked = states.every(Boolean);
+        const newState = !allChecked;
+        header.setAttribute('aria-checked', newState ? 'true' : 'false');
+        second.setAttribute('aria-checked', newState ? 'true' : 'false');
+        third.setAttribute('aria-checked', newState ? 'true' : 'false');
+      } else if (item === second || item === third) {
+        // Toggle only the clicked child
+        const checked = item.getAttribute('aria-checked') === 'true';
+        item.setAttribute('aria-checked', checked ? 'false' : 'true');
+      }
+      updateHeaderState();
+    }
+
+    // Initialize all as unchecked
+    header.setAttribute('aria-checked', 'false');
+    second.setAttribute('aria-checked', 'false');
+    third.setAttribute('aria-checked', 'false');
+  </script>
+</body>
+</html>
