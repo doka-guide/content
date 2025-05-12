@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +33,8 @@
       transition: background 0.2s;
     }
     .menuitem[aria-checked="true"] .checkbox {
-      background: #007bff;
-      border-color: #007bff;
+      background: #4caf50;
+      border-color: #4caf50;
     }
     .menuitem[aria-checked="true"] .checkbox::after {
       content: '\2713';
@@ -80,18 +80,15 @@
   <div role="menu" class="menu" id="menu1">
     <button role="menuitemcheckbox" aria-checked="false" tabindex="0" class="menuitem" id="menuitem1">
       <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Enable notifications</span>
+      <span class="label">Включить все уведомления</span>
     </button>
     <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem2">
       <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Enable advanced options</span>
+      <span class="label">Уведомления из семейных чатов</span>
     </button>
     <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem3">
       <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Enable beta features</span>
-    </button>
-    <button role="menuitem" tabindex="-1" class="menuitem" id="menuitem4">
-      <span class="label">Regular menu item</span>
+      <span class="label">Уведомления из рабочих чатов</span>
     </button>
   </div>
   <script>
