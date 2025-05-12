@@ -4,11 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Демо: Переключатель (Switch) с aria-checked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     body {
-      font-family: system-ui, sans-serif;
+      font-family: "Roboto", system-ui, sans-serif;
       background: #f8f8f8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 2rem;
+    }
+    .demo-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #10F3AF;
     }
     .switch {
       display: inline-flex;
@@ -38,13 +60,13 @@
       transition: left 0.2s;
     }
     .switch[aria-checked="true"] .switch-track {
-      background: #4caf50;
+      background: #10F3AF;
     }
     .switch[aria-checked="true"] .switch-thumb {
       left: 22px;
     }
     .switch:focus {
-      outline: 2px solid #1976d2;
+      outline: 2px solid #10F3AF;
       outline-offset: 2px;
     }
     .switch-label {
@@ -53,17 +75,20 @@
   </style>
 </head>
 <body>
-  <div
-    class="switch"
-    role="switch"
-    aria-checked="false"
-    tabindex="0"
-    id="demo-switch"
-  >
-    <span class="switch-track">
-      <span class="switch-thumb"></span>
-    </span>
-    <span class="switch-label" id="switch-label">Включить уведомления</span>
+  <div class="demo-container">
+    <div class="demo-title">Переключатель (Switch) с aria-checked</div>
+    <div
+      class="switch"
+      role="switch"
+      aria-checked="false"
+      tabindex="0"
+      id="demo-switch"
+    >
+      <span class="switch-track">
+        <span class="switch-thumb"></span>
+      </span>
+      <span class="switch-label" id="switch-label">Включить уведомления</span>
+    </div>
   </div>
   <script>
     const switchEl = document.getElementById('demo-switch');

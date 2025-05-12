@@ -3,12 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu Item Checkbox Example</title>
+  <title>Меню с выбором позиций с использованием aria-checked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     body {
-      font-family: sans-serif;
-      padding: 2rem;
+      font-family: "Roboto", system-ui, sans-serif;
       background: #f8f9fa;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .demo-container {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: #10F3AF;
     }
     .menu {
       display: inline-block;
@@ -33,8 +55,8 @@
       transition: background 0.2s;
     }
     .menuitem[aria-checked="true"] .checkbox {
-      background: #4caf50;
-      border-color: #4caf50;
+      background: #10F3AF;
+      border-color: #10F3AF;
     }
     .menuitem[aria-checked="true"] .checkbox::after {
       content: '\2713';
@@ -58,6 +80,8 @@
     }
     .menuitem:focus {
       background: #e9ecef;
+      outline: 2px solid #10F3AF;
+      outline-offset: 2px;
     }
     .checkbox {
       width: 18px;
@@ -77,19 +101,22 @@
   </style>
 </head>
 <body>
-  <div role="menu" class="menu" id="menu1">
-    <button role="menuitemcheckbox" aria-checked="false" tabindex="0" class="menuitem" id="menuitem1">
-      <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Включить все уведомления</span>
-    </button>
-    <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem2">
-      <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Уведомления из семейных чатов</span>
-    </button>
-    <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem3">
-      <span class="checkbox" aria-hidden="true"></span>
-      <span class="label">Уведомления из рабочих чатов</span>
-    </button>
+  <div class="demo-container">
+    <div class="demo-title">Меню с выбором позиций с использованием aria-checked</div>
+    <div role="menu" class="menu" id="menu1">
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="0" class="menuitem" id="menuitem1">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Включить все уведомления</span>
+      </button>
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem2">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Уведомления из семейных чатов</span>
+      </button>
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem3">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Уведомления из рабочих чатов</span>
+      </button>
+    </div>
   </div>
   <script>
     const menu = document.getElementById('menu1');
