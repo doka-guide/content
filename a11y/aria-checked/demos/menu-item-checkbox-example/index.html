@@ -121,8 +121,14 @@
   <script>
     const menu = document.getElementById('menu1');
     const items = Array.from(menu.querySelectorAll('.menuitem'));
+    const header = document.getElementById('menuitem1');
+    const second = document.getElementById('menuitem2');
+    const third = document.getElementById('menuitem3');
 
-    // Keyboard navigation
+    header.setAttribute('aria-checked', 'false');
+    second.setAttribute('aria-checked', 'false');
+    third.setAttribute('aria-checked', 'false');
+
     menu.addEventListener('keydown', (e) => {
       const currentIndex = items.indexOf(document.activeElement);
       if (e.key === 'ArrowDown') {
@@ -145,16 +151,11 @@
       }
     });
 
-    // Mouse click
     items.forEach(item => {
       if (item.getAttribute('role') === 'menuitemcheckbox') {
         item.addEventListener('click', () => toggleCheckbox(item));
       }
     });
-
-    const header = document.getElementById('menuitem1');
-    const second = document.getElementById('menuitem2');
-    const third = document.getElementById('menuitem3');
 
     function updateHeaderState() {
       const states = [second, third].map(item => item.getAttribute('aria-checked') === 'true');
@@ -171,7 +172,6 @@
 
     function toggleCheckbox(item) {
       if (item === header) {
-        // Toggling header toggles all children
         const states = [second, third].map(i => i.getAttribute('aria-checked') === 'true');
         const allChecked = states.every(Boolean);
         const newState = !allChecked;
@@ -179,17 +179,12 @@
         second.setAttribute('aria-checked', newState ? 'true' : 'false');
         third.setAttribute('aria-checked', newState ? 'true' : 'false');
       } else if (item === second || item === third) {
-        // Toggle only the clicked child
         const checked = item.getAttribute('aria-checked') === 'true';
         item.setAttribute('aria-checked', checked ? 'false' : 'true');
       }
+
       updateHeaderState();
     }
-
-    // Initialize all as unchecked
-    header.setAttribute('aria-checked', 'false');
-    second.setAttribute('aria-checked', 'false');
-    third.setAttribute('aria-checked', 'false');
   </script>
 </body>
 </html>
