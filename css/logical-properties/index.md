@@ -11,7 +11,7 @@ keywords:
 related:
   - css/margin
   - css/padding
-  - css/dir
+  - css/border
 tags:
   - article
 ---
