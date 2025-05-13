@@ -99,13 +99,15 @@
       switchEl.setAttribute('aria-checked', String(!checked));
     }
 
-    switchEl.addEventListener('click', toggleSwitch);
-    switchEl.addEventListener('keydown', (e) => {
+    function keydownHandler(e) {
       if (e.key === ' ' || e.key === 'Enter') {
         e.preventDefault();
         toggleSwitch();
       }
-    });
+    }
+
+    switchEl.addEventListener('click', toggleSwitch);
+    switchEl.addEventListener('keydown', keydownHandler);
   </script>
 </body>
 </html> 

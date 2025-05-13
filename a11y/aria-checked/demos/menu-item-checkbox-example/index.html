@@ -131,6 +131,7 @@
 
     menu.addEventListener('keydown', (e) => {
       const currentIndex = items.indexOf(document.activeElement);
+      const Space = ' ';
 
       const keyActions = {
         ArrowDown: () => {
@@ -141,14 +142,14 @@
           const prev = (currentIndex - 1 + items.length) % items.length;
           items[prev].focus();
         },
-        Home: () => items[0].focus(),
-        End: () => items[items.length - 1].focus(),
+        Home: () => items.at(0).focus(),
+        End: () => items.at(-1).focus(),
         Enter: () => {
           if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
             toggleCheckbox(document.activeElement);
           }
         },
-        ' ': () => {
+        [Space]: () => {
           if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
             toggleCheckbox(document.activeElement);
           }
@@ -187,15 +188,18 @@
         const allChecked = states.every(Boolean);
         const newState = !allChecked;
 
-        header.setAttribute('aria-checked', newState ? 'true' : 'false');
-        second.setAttribute('aria-checked', newState ? 'true' : 'false');
-        third.setAttribute('aria-checked', newState ? 'true' : 'false');
+        const ariaCheckedValue = newState ? 'true' : 'false';
+
+        header.setAttribute('aria-checked', ariaCheckedValue);
+        second.setAttribute('aria-checked', ariaCheckedValue);
+        third.setAttribute('aria-checked', ariaCheckedValue);
       } else if (item === second || item === third) {
         const checked = item.getAttribute('aria-checked') === 'true';
-        item.setAttribute('aria-checked', checked ? 'false' : 'true');
-      }
+        const ariaCheckedValue = checked ? 'false' : 'true';
 
-      updateHeaderState();
+        item.setAttribute('aria-checked', ariaCheckedValue);
+        updateHeaderState();
+      }
     }
   </script>
 </body>
