@@ -2,7 +2,7 @@
 title: "Атрибут `rel`"
 description: "Какое отношение эта ссылка имеет к текущей странице?"
 authors:
-  - mafin1799
+  - maffin1799
 contributors:
   - solarrust
   - skorobaeus
