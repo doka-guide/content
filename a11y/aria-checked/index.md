@@ -42,8 +42,8 @@ baseline:
 Использование JS-свойства у DOM-элемента.
 
 ```js
-let el = document.getElementById("checkBoxInput");
-console.log(el.ariaChecked); // "false"
+const el = document.getElementById("checkBoxInput");
+console.log(el.ariaChecked); // null
 
 el.ariaChecked = "true";
 console.log(el.ariaChecked); // "true"
