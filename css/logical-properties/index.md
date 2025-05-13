@@ -184,7 +184,7 @@ tags:
 
 В Tailwind тоже появилась поддержка логических свойств CSS. Теперь можно создавать более современные интерфейсы с гибкой раскладкой с помощью этого CSS-фреймворка.
 
-Более подробно о написании интерфейсов с поддержкой RTL при помощи Tailwind можно почитать по ссылке [https://portfolio-mohanadoo.vercel.app/blog/tips-on-rtl-design](https://portfolio-mohanadoo.vercel.app/blog/tips-on-rtl-design).
+Более подробно о написании интерфейсов с поддержкой RTL при помощи Tailwind можно почитать в статье "[Tips on RTL Design (TailwindCSS)](https://portfolio-mohanadoo.vercel.app/blog/tips-on-rtl-design)".
 
 ## Инструменты для преобразования
 
