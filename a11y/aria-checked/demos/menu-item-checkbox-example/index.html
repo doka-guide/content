@@ -195,9 +195,9 @@
         third.setAttribute('aria-checked', ariaCheckedValue);
       } else if (item === second || item === third) {
         const checked = item.getAttribute('aria-checked') === 'true';
-        const ariaCheckedValue = checked ? 'false' : 'true';
+        const ariaCheckedNewValue = checked ? 'false' : 'true';
 
-        item.setAttribute('aria-checked', ariaCheckedValue);
+        item.setAttribute('aria-checked', ariaCheckedNewValue);
         updateHeaderState();
       }
     }
