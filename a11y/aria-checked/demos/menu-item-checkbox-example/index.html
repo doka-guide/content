@@ -131,23 +131,33 @@
 
     menu.addEventListener('keydown', (e) => {
       const currentIndex = items.indexOf(document.activeElement);
-      if (e.key === 'ArrowDown') {
+
+      const keyActions = {
+        ArrowDown: () => {
+          const next = (currentIndex + 1) % items.length;
+          items[next].focus();
+        },
+        ArrowUp: () => {
+          const prev = (currentIndex - 1 + items.length) % items.length;
+          items[prev].focus();
+        },
+        Home: () => items[0].focus(),
+        End: () => items[items.length - 1].focus(),
+        Enter: () => {
+          if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
+            toggleCheckbox(document.activeElement);
+          }
+        },
+        ' ': () => {
+          if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
+            toggleCheckbox(document.activeElement);
+          }
+        }
+      };
+
+      if (keyActions[e.key]) {
         e.preventDefault();
-        const next = (currentIndex + 1) % items.length;
-        items[next].focus();
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prev = (currentIndex - 1 + items.length) % items.length;
-        items[prev].focus();
-      } else if (e.key === 'Home') {
-        e.preventDefault();
-        items[0].focus();
-      } else if (e.key === 'End') {
-        e.preventDefault();
-        items[items.length - 1].focus();
-      } else if ((e.key === ' ' || e.key === 'Enter') && document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
-        e.preventDefault();
-        toggleCheckbox(document.activeElement);
+        keyActions[e.key]();
       }
     });
 
