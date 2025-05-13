@@ -42,14 +42,14 @@ tags:
 Использование JS-свойства у DOM-элемента.
 
 ```js
-const el = document.getElementById("customCheckboxElementId");
+const el = document.getElementById("customCheckboxElementId")
 
-console.log(el.ariaChecked); 
+console.log(el.ariaChecked)
 // null
 
-el.ariaChecked = "true";
+el.ariaChecked = "true"
 
-console.log(el.ariaChecked); 
+console.log(el.ariaChecked)
 // "true"
 ```
 
