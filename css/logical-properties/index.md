@@ -194,35 +194,111 @@ tags:
 
 Логические свойства заменяют физические (например, `left`, `right`, `top`, `bottom`) на свойства, основанные на направлении текста и `writing-mode`. Вот основные замены:
 
-| Физическое свойство           | Логическое свойство         | Шорткат (если есть)        | Комментарий                                                                 |
-|-------------------------------|-----------------------------|----------------------------|------------------------------------------------------------------------------|
-| `margin-left`                 | `margin-inline-start`       | `margin-inline`            | Начало строки в текущем направлении письма                                  |
-| `margin-right`                | `margin-inline-end`         | `margin-inline`            | Конец строки                                                                |
-| `margin-top`                  | `margin-block-start`        | `margin-block`             | Начало блока (обычно сверху)                                                |
-| `margin-bottom`               | `margin-block-end`          | `margin-block`             | Конец блока (обычно снизу)                                                  |
-| `padding-left`                | `padding-inline-start`      | `padding-inline`           | Начало строки                                                               |
-| `padding-right`               | `padding-inline-end`        | `padding-inline`           | Конец строки                                                                |
-| `padding-top`                 | `padding-block-start`       | `padding-block`            | Начало блока                                                                |
-| `padding-bottom`              | `padding-block-end`         | `padding-block`            | Конец блока                                                                 |
-| `border-left`                 | `border-inline-start`       | `border-inline`            | Начало строки                                                               |
-| `border-right`                | `border-inline-end`         | `border-inline`            | Конец строки                                                                |
-| `border-top`                  | `border-block-start`        | `border-block`             | Начало блока                                                                |
-| `border-bottom`               | `border-block-end`          | `border-block`             | Конец блока                                                                 |
-| `border-top-left-radius`      | `border-start-start-radius` | —                          | Верхний левый угол (в LTR)                                                  |
-| `border-top-right-radius`     | `border-start-end-radius`   | —                          | Верхний правый угол (в LTR)                                                 |
-| `border-bottom-left-radius`   | `border-end-start-radius`   | —                          | Нижний левый угол (в LTR)                                                   |
-| `border-bottom-right-radius`  | `border-end-end-radius`     | —                          | Нижний правый угол (в LTR)                                                  |
-| `width`                       | `inline-size`               | —                          | Размер по строке                                                            |
-| `height`                      | `block-size`                | —                          | Размер по блоку                                                             |
-| `min-width`                   | `min-inline-size`           | —                          | Минимальный размер по строке                                                |
-| `min-height`                  | `min-block-size`            | —                          | Минимальный размер по блоку                                                 |
-| `max-width`                   | `max-inline-size`           | —                          | Максимальный размер по строке                                               |
-| `max-height`                  | `max-block-size`            | —                          | Максимальный размер по блоку                                                |
-| `left`                        | `inset-inline-start`        | `inset-inline`             | Положение относительно начала строки                                        |
-| `right`                       | `inset-inline-end`          | `inset-inline`             | Положение относительно конца строки                                         |
-| `top`                         | `inset-block-start`         | `inset-block`              | Положение относительно начала блока                                         |
-| `bottom`                      | `inset-block-end`           | `inset-block`              | Положение относительно конца блока                                          |
+#### `margin`
+- `margin-left`
+  - **Логическое свойство:** `margin-inline-start`
+  - **Шорткат:** `margin-inline`
+  - **Комментарий:** Начало строки в текущем направлении письма
+- `margin-right`
+  - **Логическое свойство:** `margin-inline-end`
+  - **Шорткат:** `margin-inline`
+  - **Комментарий:** Конец строки
+- `margin-top`
+  - **Логическое свойство:** `margin-block-start`
+  - **Шорткат:** `margin-block`
+  - **Комментарий:** Начало блока (обычно сверху)
+- `margin-bottom`
+  - **Логическое свойство:** `margin-block-end`
+  - **Шорткат:** `margin-block`
+  - **Комментарий:** Конец блока (обычно снизу)
 
+#### `padding`
+- `padding-left`
+  - **Логическое свойство:** `padding-inline-start`
+  - **Шорткат:** `padding-inline`
+  - **Комментарий:** Начало строки
+- `padding-right`
+  - **Логическое свойство:** `padding-inline-end`
+  - **Шорткат:** `padding-inline`
+  - **Комментарий:** Конец строки
+- `padding-top`
+  - **Логическое свойство:** `padding-block-start`
+  - **Шорткат:** `padding-block`
+  - **Комментарий:** Начало блока
+- `padding-bottom`
+  - **Логическое свойство:** `padding-block-end`
+  - **Шорткат:** `padding-block`
+  - **Комментарий:** Конец блока
+
+#### `border`
+- `border-left`
+  - **Логическое свойство:** `border-inline-start`
+  - **Шорткат:** `border-inline`
+  - **Комментарий:** Начало строки
+- `border-right`
+  - **Логическое свойство:** `border-inline-end`
+  - **Шорткат:** `border-inline`
+  - **Комментарий:** Конец строки
+- `border-top`
+  - **Логическое свойство:** `border-block-start`
+  - **Шорткат:** `border-block`
+  - **Комментарий:** Начало блока
+- `border-bottom`
+  - **Логическое свойство:** `border-block-end`
+  - **Шорткат:** `border-block`
+  - **Комментарий:** Конец блока
+
+#### `border-radius`
+- `border-top-left-radius`
+  - **Логическое свойство:** `border-start-start-radius`
+  - **Комментарий:** Верхний левый угол (в LTR)
+- `border-top-right-radius`
+  - **Логическое свойство:** `border-start-end-radius`
+  - **Комментарий:** Верхний правый угол (в LTR)
+- `border-bottom-left-radius`
+  - **Логическое свойство:** `border-end-start-radius`
+  - **Комментарий:** Нижний левый угол (в LTR)
+- `border-bottom-right-radius`
+  - **Логическое свойство:** `border-end-end-radius`
+  - **Комментарий:** Нижний правый угол (в LTR)
+
+#### Размеры
+- `width`
+  - **Логическое свойство:** `inline-size`
+  - **Комментарий:** Размер по строке
+- `height`
+  - **Логическое свойство:** `block-size`
+  - **Комментарий:** Размер по блоку
+- `min-width`
+  - **Логическое свойство:** `min-inline-size`
+  - **Комментарий:** Минимальный размер по строке
+- `min-height`
+  - **Логическое свойство:** `min-block-size`
+  - **Комментарий:** Минимальный размер по блоку
+- `max-width`
+  - **Логическое свойство:** `max-inline-size`
+  - **Комментарий:** Максимальный размер по строке
+- `max-height`
+  - **Логическое свойство:** `max-block-size`
+  - **Комментарий:** Максимальный размер по блоку
+
+#### Позиционирование
+- `left`
+  - **Логическое свойство:** `inset-inline-start`
+  - **Шорткат:** `inset-inline`
+  - **Комментарий:** Положение относительно начала строки
+- `right`
+  - **Логическое свойство:** `inset-inline-end`
+  - **Шорткат:** `inset-inline`
+  - **Комментарий:** Положение относительно конца строки
+- `top`
+  - **Логическое свойство:** `inset-block-start`
+  - **Шорткат:** `inset-block`
+  - **Комментарий:** Положение относительно начала блока
+- `bottom`
+  - **Логическое свойство:** `inset-block-end`
+  - **Шорткат:** `inset-block`
+  - **Комментарий:** Положение относительно конца блока
 
 ### Плагины для редакторов кода
 
