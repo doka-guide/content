@@ -32,10 +32,14 @@ baseline:
 
 ## Пример
 
+Использование HTML-атрибута.
+
 ```html
 <span role="checkbox" aria-labelledby="label" tabindex="0" aria-checked="false"></span>
 <label id="label">Получать рассылку</label>
 ```
+
+Использование JS-свойства у DOM-элемента.
 
 ```js
 let el = document.getElementById("checkBoxInput");
