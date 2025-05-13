@@ -119,11 +119,11 @@
     </div>
   </div>
   <script>
-    const menu = document.getElementById('menu1');
+    const menu = document.querySelector('#menu1');
     const items = Array.from(menu.querySelectorAll('.menuitem'));
-    const header = document.getElementById('menuitem1');
-    const second = document.getElementById('menuitem2');
-    const third = document.getElementById('menuitem3');
+    const header = menu.querySelector('#menuitem1');
+    const second = menu.querySelector('#menuitem2');
+    const third = menu.querySelector('#menuitem3');
 
     header.setAttribute('aria-checked', 'false');
     second.setAttribute('aria-checked', 'false');
@@ -161,6 +161,7 @@
       const states = [second, third].map(item => item.getAttribute('aria-checked') === 'true');
       const allChecked = states.every(Boolean);
       const allUnchecked = states.every(v => !v);
+
       if (allChecked) {
         header.setAttribute('aria-checked', 'true');
       } else if (allUnchecked) {
@@ -175,6 +176,7 @@
         const states = [second, third].map(i => i.getAttribute('aria-checked') === 'true');
         const allChecked = states.every(Boolean);
         const newState = !allChecked;
+
         header.setAttribute('aria-checked', newState ? 'true' : 'false');
         second.setAttribute('aria-checked', newState ? 'true' : 'false');
         third.setAttribute('aria-checked', newState ? 'true' : 'false');
