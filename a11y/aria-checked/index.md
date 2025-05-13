@@ -16,12 +16,12 @@ related:
   - html/input
   - a11y/role-option
   - a11y/role-checkbox
-tags:
-  - doka
 baseline:
-  - group: js
+  - group: aria-attribute-reflection
     features:
       - api.Element.ariaChecked
+tags:
+  - doka
 ---
 
 ## Кратко
