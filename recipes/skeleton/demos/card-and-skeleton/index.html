@@ -79,10 +79,20 @@
       line-height: 1.6;
     }
 
+    .container {
+      display: flex;
+      gap: 40px;
+      padding: 20px 0;
+      overflow-x: auto;
+    }
+
+    .container > * {
+      flex-shrink: 0;
+    }
+
     @media (max-width: 768px) {
       body {
         padding: 30px;
-        flex-direction: column;
       }
     }
 
@@ -237,21 +247,25 @@
     @media (max-width: 414px) {
       .skeleton {
         width: 100%;
+        min-height: 450px;
+        height: auto;
       }
     }
   </style>
   </style>
 </head>
 <body>
-  <article class="card">
-    <img src="../images/skeleton-x1.jpg" srcset="../images/skeleton-x2.jpg 2x" class="card-image" alt="Скелетон">
-    <div class="card-text-content-container">
-      <h3 class="card-title">
-        <a href="#" class="card-title-link">Скелетон на CSS</a>
-      </h3>
-      <p class="card-text">Разберём, что за скелетоны, зачем они нужны, и как их рисовать на CSS</p>
-    </div>
-  </article>
-  <div class="skeleton"></div>
+  <div class="container">
+    <article class="card">
+      <img src="../images/skeleton-x1.jpg" srcset="../images/skeleton-x2.jpg 2x" class="card-image" alt="Скелетон">
+      <div class="card-text-content-container">
+        <h3 class="card-title">
+          <a href="#" class="card-title-link">Скелетон на CSS</a>
+        </h3>
+        <p class="card-text">Разберём, что за скелетоны, зачем они нужны, и как их рисовать на CSS</p>
+      </div>
+    </article>
+    <div class="skeleton"></div>
+  </div>
 </body>
 </html>
