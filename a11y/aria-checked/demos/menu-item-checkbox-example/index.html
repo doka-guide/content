@@ -124,7 +124,7 @@
     const header = menu.querySelector('#menuitem1');
     const items = Array.from(menu.querySelectorAll('.menuitem'));
 
-    items.forEach(item => item.setAttribute('aria-checked', 'false'));
+    items.forEach(item => item.ariaChecked = "false");
 
     menu.addEventListener('keydown', (e) => {
       const currentIndex = items.indexOf(document.activeElement);
@@ -167,34 +167,34 @@
 
     function updateHeaderState() {
       const childItems = items.filter(item => item !== header);
-      const states = childItems.map(item => item.getAttribute('aria-checked') === 'true');
+      const states = childItems.map(item => item.ariaChecked === "true");
 
       const allChecked = states.every(Boolean);
       const allUnchecked = states.every(v => !v);
 
       if (allChecked) {
-        header.setAttribute('aria-checked', 'true');
+        header.ariaChecked = "true";
       } else if (allUnchecked) {
-        header.setAttribute('aria-checked', 'false');
+        header.ariaChecked = "false";
       } else {
-        header.setAttribute('aria-checked', 'mixed');
+        header.ariaChecked = "mixed";
       }
     }
 
     function toggleCheckbox(item) {
       if (item === header) {
         const childItems = items.filter(i => i !== header);
-        const states = childItems.map(i => i.getAttribute('aria-checked') === 'true');
+        const states = childItems.map(i => i.ariaChecked === "true");
         const allChecked = states.every(Boolean);
         const newState = !allChecked;
 
-        header.setAttribute('aria-checked', newState ? 'true' : 'false');
+        header.ariaChecked = newState ? "true" : "false";
 
-        childItems.forEach(i => i.setAttribute('aria-checked', newState ? 'true' : 'false'));
+        childItems.forEach(i => i.ariaChecked = newState ? "true" : "false");
       } else {
-        const checked = item.getAttribute('aria-checked') === 'true';
+        const checked = item.ariaChecked === "true";
 
-        item.setAttribute('aria-checked', checked ? 'false' : 'true');
+        item.ariaChecked = checked ? "false" : "true";
 
         updateHeaderState();
       }
