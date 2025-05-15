@@ -120,14 +120,11 @@
   </div>
   <script>
     const menu = document.querySelector('#menu1');
-    const items = Array.from(menu.querySelectorAll('.menuitem'));
+    
     const header = menu.querySelector('#menuitem1');
-    const second = menu.querySelector('#menuitem2');
-    const third = menu.querySelector('#menuitem3');
+    const items = Array.from(menu.querySelectorAll('.menuitem'));
 
-    header.setAttribute('aria-checked', 'false');
-    second.setAttribute('aria-checked', 'false');
-    third.setAttribute('aria-checked', 'false');
+    items.forEach(item => item.setAttribute('aria-checked', 'false'));
 
     menu.addEventListener('keydown', (e) => {
       const currentIndex = items.indexOf(document.activeElement);
@@ -169,7 +166,9 @@
     });
 
     function updateHeaderState() {
-      const states = [second, third].map(item => item.getAttribute('aria-checked') === 'true');
+      const childItems = items.filter(item => item !== header);
+      const states = childItems.map(item => item.getAttribute('aria-checked') === 'true');
+
       const allChecked = states.every(Boolean);
       const allUnchecked = states.every(v => !v);
 
@@ -184,20 +183,19 @@
 
     function toggleCheckbox(item) {
       if (item === header) {
-        const states = [second, third].map(i => i.getAttribute('aria-checked') === 'true');
+        const childItems = items.filter(i => i !== header);
+        const states = childItems.map(i => i.getAttribute('aria-checked') === 'true');
         const allChecked = states.every(Boolean);
         const newState = !allChecked;
 
-        const ariaCheckedValue = newState ? 'true' : 'false';
+        header.setAttribute('aria-checked', newState ? 'true' : 'false');
 
-        header.setAttribute('aria-checked', ariaCheckedValue);
-        second.setAttribute('aria-checked', ariaCheckedValue);
-        third.setAttribute('aria-checked', ariaCheckedValue);
-      } else if (item === second || item === third) {
+        childItems.forEach(i => i.setAttribute('aria-checked', newState ? 'true' : 'false'));
+      } else {
         const checked = item.getAttribute('aria-checked') === 'true';
-        const ariaCheckedNewValue = checked ? 'false' : 'true';
 
-        item.setAttribute('aria-checked', ariaCheckedNewValue);
+        item.setAttribute('aria-checked', checked ? 'false' : 'true');
+
         updateHeaderState();
       }
     }
