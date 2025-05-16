@@ -9,14 +9,13 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
   <style>
     *, *::before, *::after {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       color-scheme: dark;
-      font-size: 16px;
     }
 
     body {
@@ -30,30 +29,29 @@
       font-family: "Roboto", sans-serif;
     }
 
-    .form-field {
+    .form-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .form-field + .form-field {
+    .form-row + .form-row {
       margin-top: 25px;
     }
 
-    .form-field__name {
-      display: inline-block;
+    .row-label {
       margin-right: 55px;
-      font-size: 1.5rem;
+      font-size: 24px;
       font-weight: 500;
       line-height: 1;
     }
 
     code {
       font-family: "Roboto Mono", monospace;
-      color: inherit;
+      font-size: calc(1em - 1px);
     }
 
-    .form-field__input {
+    input {
       border: 1px solid #FFFFFF;
       border-radius: 6px;
       padding: 10px 15px;
@@ -66,12 +64,12 @@
       appearance: none;
     }
 
-    .form-field__input:focus {
+    input:focus {
       border-color: #FF8630;
       outline: none;
     }
 
-    .form-field__input {
+    .input {
       width: 350px;
     }
 
@@ -80,50 +78,50 @@
         padding: 30px;
       }
 
-      .form-field {
+      .form-row {
         display: block;
       }
 
-      .form-field__input {
-        width: 100%;
-      }
-
-      .form-field__name {
+      .row-label {
         margin-right: 0;
         margin-bottom: 10px;
+      }
+      
+      .input {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
   <form>
-    <div class="form-field">
-      <label for="enter" class="form-field__name"><code>enter</code>:</label>
-      <input id="enter" enterkeyhint="enter" class="form-field__input">
+    <div class="form-row">
+      <label for="enter" class="row-label"><code>enter</code>:</label>
+      <input id="enter" enterkeyhint="enter" class="input">
     </div>
-    <div class="form-field">
-      <label for="done" class="form-field__name"><code>done</code>:</label>
-      <input id="done" enterkeyhint="done" class="form-field__input">
+    <div class="form-row">
+      <label for="done" class="row-label"><code>done</code>:</label>
+      <input id="done" enterkeyhint="done" class="input">
     </div>
-    <div class="form-field">
-      <label for="go" class="form-field__name"><code>go</code>:</label>
-      <input id="go" enterkeyhint="go" class="form-field__input" >
+    <div class="form-row">
+      <label for="go" class="row-label"><code>go</code>:</label>
+      <input id="go" enterkeyhint="go" class="input" >
     </div>
-    <div class="form-field">
-      <label for="next" class="form-field__name"><code>next</code>:</label>
-      <input id="next" enterkeyhint="next" class="form-field__input" >
+    <div class="form-row">
+      <label for="next" class="row-label"><code>next</code>:</label>
+      <input id="next" enterkeyhint="next" class="input" >
     </div>
-    <div class="form-field">
-      <label for="previous" class="form-field__name"><code>previous</code>:</label>
-      <input id="previous" enterkeyhint="previous" class="form-field__input">
+    <div class="form-row">
+      <label for="previous" class="row-label"><code>previous</code>:</label>
+      <input id="previous" enterkeyhint="previous" class="input">
     </div>
-    <div class="form-field">
-      <label for="search" class="form-field__name"><code>search</code>:</label>
-      <input id="search" enterkeyhint="search" class="form-field__input">
+    <div class="form-row">
+      <label for="search" class="row-label"><code>search</code>:</label>
+      <input id="search" enterkeyhint="search" class="input">
     </div>
-    <div class="form-field">
-      <label for="send" class="form-field__name"><code>send</code>:</label>
-      <input id="send" enterkeyhint="send" class="form-field__input">
+    <div class="form-row">
+      <label for="send" class="row-label"><code>send</code>:</label>
+      <input id="send" enterkeyhint="send" class="input">
     </div>
   </form>
 </body>
