@@ -94,13 +94,16 @@
     const switchEl = document.getElementById('demo-switch');
     const labelEl = document.getElementById('switch-label');
 
+    const Space = ' ';
+    const Enter = 'Enter';
+
     function toggleSwitch() {
-      const checked = switchEl.getAttribute('aria-checked') === 'true';
-      switchEl.setAttribute('aria-checked', String(!checked));
+      const checked = switchEl.ariaChecked === 'true';
+      switchEl.ariaChecked = (!checked).toString();
     }
 
     function keydownHandler(e) {
-      if (e.key === ' ' || e.key === 'Enter') {
+      if (e.key === Space || e.key === Enter) {
         e.preventDefault();
         toggleSwitch();
       }
