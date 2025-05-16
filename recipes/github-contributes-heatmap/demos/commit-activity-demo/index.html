@@ -53,11 +53,11 @@
       flex: 0 0 auto;
     }
     .day {
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       margin: 1px;
       border: 1px solid #282828;
-      border-radius: 4px;
+      border-radius: 3px;
     }
     .day:hover {
       border: 1px solid #555;
@@ -106,6 +106,7 @@
       month: 'numeric',
       day: 'numeric',
     })
+    const REQ_TIMEOUT = 25000
     const COLOR_MAX_STEPS = 25
     const COLOR_MIN_STEPS = 5
     const BASE_HSL = [112, 100, 85]
@@ -115,7 +116,7 @@
         return fetch(url, {
           method: 'GET',
           headers: {
-            'Accept': 'application/vnd.github+json',
+            'Accept': 'application/vnd.github.v3+json',
             'X-GitHub-Api-Version': '2022-11-28'
           }
         })
@@ -139,7 +140,7 @@
         {
           requestMaxAttempts -= 1
 
-          await new Promise(r => setTimeout(r, 1500));
+          await new Promise(r => setTimeout(r, REQ_TIMEOUT));
 
           return fetchCommitStat()
         }
@@ -279,10 +280,10 @@
           const date = target.getAttribute('data-date')
           const count = target.getAttribute('data-count')
 
-          tooltip.style.top = `${offsetTop - 40}px`
-          tooltip.style.left = `${offsetLeft - (count ? 90 : 45)}px`
+          tooltip.style.top = `${offsetTop - (count ? 65 : 40)}px`
+          tooltip.style.left = `${offsetLeft - 55}px`
 
-          tooltip.innerText = `${date}${count ? `, коммитов: ${count}` : ''}`
+          tooltip.innerHTML = `<div>${date}${count ?`<br>коммитов: ${count}` : ''}</div>`
         }
 
         tooltip.classList.toggle('hidden', ! show)
