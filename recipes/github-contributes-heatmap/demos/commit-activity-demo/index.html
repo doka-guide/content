@@ -43,6 +43,11 @@
       color: #5dd55d;
     }
 
+    .loading {
+      font-size: 1.5rem;
+      color: #5dd55d;
+    }
+
     .year {
       display: flex;
       margin: 1rem;
@@ -82,11 +87,10 @@
 </head>
 <body>
   <div id="repoGridContainer" class="main-container">
-    <div class="description hidden">
-      <span class="repo-label">
-        Репозиторий:
+    <div class="description">
+      <span class="loading">
+        Загрузка...
       </span>
-      <span class="repo-name" />
     </div>
 
     <div
@@ -106,12 +110,13 @@
       month: 'numeric',
       day: 'numeric',
     })
-    const REQ_TIMEOUT = 25000
+    const REQ_MAX_ATTEMPTS = 3
+    const REQ_ATTEMPTS_TIMEOUT = 1500
     const COLOR_MAX_STEPS = 25
     const COLOR_MIN_STEPS = 5
     const BASE_HSL = [112, 100, 85]
 
-    function requestGitHubData(url){
+    function requestGitHubData(url) {
       try {
         return fetch(url, {
           method: 'GET',
@@ -130,19 +135,20 @@
       return `${GITHUB_REPO_API}/${REPO}/stats/commit_activity`
     }
 
-    async function fetchCommitStat() {
+    async function fetchCommitStat(requestMaxAttempts = REQ_MAX_ATTEMPTS) {
       try {
         let url = createURL()
 
         const response = await requestGitHubData(url)
 
-        if (response.status === 202 && requestMaxAttempts > 0)
-        {
-          requestMaxAttempts -= 1
+        if (response.status === 202) {
+          if (requestMaxAttempts > 0) {
+            await new Promise(r => setTimeout(r, REQ_ATTEMPTS_TIMEOUT));
 
-          await new Promise(r => setTimeout(r, REQ_TIMEOUT));
+            return fetchCommitStat(requestMaxAttempts - 1)
+          }
 
-          return fetchCommitStat()
+          throw new Error('Данные не готовы')
         }
 
         if (response.ok) {
@@ -150,6 +156,7 @@
         }
       } catch (error) {
         console.error(error)
+        return Promise.reject()
       }
     }
 
@@ -217,11 +224,24 @@
       return generatePalette(BASE_HSL, steps)
     }
 
-    function renderRepoInfo({repoName}) {
-      const description = parentContainer.querySelector('.description')
-      description.classList.remove('hidden')
-      const repoElem = description.querySelector('.repo-name')
-      repoElem.innerText=`${repoName}`
+    function showLoading(show, description) {
+      const loadingElem = description.querySelector('.loading')
+      loadingElem?.classList.toggle('hidden', !show)
+    }
+
+    function renderRepoInfo({repoName}, description) {
+      description.innerHTML = `
+        <span class='repo-label'>
+          Репозиторий:
+        </span>
+        <span class="repo-name">
+          ${repoName}
+        </span>
+      `
+    }
+
+    function showError(description) {
+      description.innerText=`Ошибка получения данных`
     }
 
     function renderYearGrid(params, parentContainer) {
@@ -311,11 +331,10 @@
       yearGrid.addEventListener('mouseleave', hideTooltip)
     }
 
-
-
     const parentContainer = document.querySelector('#repoGridContainer')
+    const description = parentContainer.querySelector('.description')
 
-    let requestMaxAttempts = 3
+    showLoading(true, description)
 
     fetchCommitStat().then(responseData => {
       return parseCommits(responseData)
@@ -323,10 +342,17 @@
       const countsInfo = analyzeCounts(data)
       const colors = makeColors(countsInfo)
 
-      renderRepoInfo({repoName: REPO}, parentContainer)
-      const yearGrid = renderYearGrid({data, countsInfo, colors}, parentContainer)
+      renderRepoInfo({repoName: REPO}, description)
+      const yearGrid = renderYearGrid(
+        {data, countsInfo, colors},
+        parentContainer
+      )
 
       bindTooltipEvent(yearGrid, parentContainer)
+    }).catch(() => {
+      showError(description)
+    }).finally(() => {
+      showLoading(false, description)
     })
   </script>
 </body>
