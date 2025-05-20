@@ -4,9 +4,6 @@ description: "Какой будет толщина декоративной ли
 baseline:
   - group: text-decoration
     features:
-      - css.properties.text-decoration-thickness
-      - css.properties.text-decoration-thickness.auto
-      - css.properties.text-decoration-thickness.from-font
       - css.properties.text-decoration-thickness.percentage
 authors:
   - nailheart
