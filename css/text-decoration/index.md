@@ -6,6 +6,7 @@ authors:
 contributors:
   - furtivite
   - skorobaeus
+  - g455-js
 keywords:
   - декорирование текста
   - подчёркивание текста
