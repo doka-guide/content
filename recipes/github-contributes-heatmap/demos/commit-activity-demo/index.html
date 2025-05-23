@@ -104,17 +104,18 @@
   <script>
     const GITHUB_REPO_API = 'https://api.github.com/repos'
     const REPO = 'doka-guide/content'
+    const REQ_MAX_ATTEMPTS = 3
+    const REQ_ATTEMPT_TIMEOUT = 15000
+    const ERR_202 = 'Данные не готовы'
+
     const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
-      //weekday: 'long',
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',
     })
-    const REQ_MAX_ATTEMPTS = 3
-    const REQ_ATTEMPTS_TIMEOUT = 1500
     const COLOR_MAX_STEPS = 25
     const COLOR_MIN_STEPS = 5
-    const BASE_HSL = [112, 100, 85]
+    const BASE_HSL = [112, 100, 85] // #bdffb3
 
     function requestGitHubData(url) {
       try {
@@ -135,20 +136,27 @@
       return `${GITHUB_REPO_API}/${REPO}/stats/commit_activity`
     }
 
-    async function fetchCommitStat(requestMaxAttempts = REQ_MAX_ATTEMPTS) {
+    async function fetchCommitStat(requestParams = {}) {
       try {
-        let url = createURL()
+        const {
+          url = createURL(),
+          requestAttempts = REQ_MAX_ATTEMPTS,
+          requestAttemptTimeout = REQ_ATTEMPT_TIMEOUT
+        } = requestParams
 
         const response = await requestGitHubData(url)
 
         if (response.status === 202) {
-          if (requestMaxAttempts > 0) {
-            await new Promise(r => setTimeout(r, REQ_ATTEMPTS_TIMEOUT));
+          if (requestAttempts > 0) {
+            await new Promise(r => setTimeout(r, requestAttemptTimeout));
 
-            return fetchCommitStat(requestMaxAttempts - 1)
+            return fetchCommitStat({
+              url,
+              requestAttempts: requestAttempts - 1
+            })
           }
 
-          throw new Error('Данные не готовы')
+          throw new Error(ERR_202)
         }
 
         if (response.ok) {
@@ -156,7 +164,7 @@
         }
       } catch (error) {
         console.error(error)
-        return Promise.reject()
+        return Promise.reject(error)
       }
     }
 
@@ -191,7 +199,7 @@
       })
     }
 
-    function analyzeCounts(data) {
+    function analyzeCommitCounts(data) {
       const {min, max} = data.reduce((acc, weekData) => {
         const counts = weekData.days.map(item => item.count)
         acc.min = Math.min(...counts, acc.min)
@@ -240,8 +248,10 @@
       `
     }
 
-    function showError(description) {
-      description.innerText=`Ошибка получения данных`
+    function showError(error, element) {
+      const errorMessage = error?.message ?? `${error}`
+      const message = `Ошибка получения данных: ${errorMessage}`
+      element.innerText = message
     }
 
     function renderYearGrid(params, parentContainer) {
@@ -282,7 +292,7 @@
       return yearContainer
     }
 
-    function bindTooltipEvent(yearGrid, parentContainer) {
+    function bindTooltip(yearGrid, parentContainer) {
       if (! yearGrid || ! parentContainer) return
 
       const tooltip = parentContainer.querySelector('.tooltip')
@@ -339,18 +349,19 @@
     fetchCommitStat().then(responseData => {
       return parseCommits(responseData)
     }).then(data => {
-      const countsInfo = analyzeCounts(data)
+      const countsInfo = analyzeCommitCounts(data)
       const colors = makeColors(countsInfo)
 
       renderRepoInfo({repoName: REPO}, description)
+
       const yearGrid = renderYearGrid(
         {data, countsInfo, colors},
         parentContainer
       )
 
-      bindTooltipEvent(yearGrid, parentContainer)
-    }).catch(() => {
-      showError(description)
+      bindTooltip(yearGrid, parentContainer)
+    }).catch(error => {
+      showError(error, description)
     }).finally(() => {
       showLoading(false, description)
     })
