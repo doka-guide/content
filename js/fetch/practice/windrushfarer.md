@@ -91,8 +91,10 @@ fetch('https://i.imgur.com/C5QXZ7u.mp4').then(async (response) => {
       break
     }
 
-    received += value.length / contentLength * 100
+    received += (value.length / contentLength) * 100
+
     const result = Math.floor(received)
+
     if (result < 100) {
       console.log(`Получено ${result}%`)
     }
