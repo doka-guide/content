@@ -29,23 +29,28 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      background-color: #18191C;
+    }
+
+    .main-container div {
+      box-sizing: border-box;
     }
 
     .description {
       margin: 0 1rem;
       font-size: 1.5rem;
-      color: #2e8b57;
+      color: #C56FFF;
     }
 
     .repo-name {
       margin: 0 1rem 0 .5rem;
       font-size: 1.5rem;
-      color: #5dd55d;
+      color: #FFF;
     }
 
     .loading {
       font-size: 1.5rem;
-      color: #5dd55d;
+      color: #C56FFF;
     }
 
     .year {
@@ -63,11 +68,14 @@
       width: 10px;
       height: 10px;
       margin: 1px;
-      border: 1px solid #282828;
-      border-radius: 3px;
+      border: 1px solid #88888818;
+      border-radius: 2px;
     }
     .day:hover {
-      border: 1px solid #555;
+      border-color: #8885;
+    }
+    .day.has-commits:hover {
+      border-color: #888a;
     }
 
     .cell {
@@ -117,9 +125,9 @@
       month: 'numeric',
       day: 'numeric',
     })
-    const COLOR_MAX_STEPS = 25
-    const COLOR_MIN_STEPS = 5
-    const BASE_HSL = [112, 100, 85] // #bdffb3
+    const COLOR_MAX_STEPS = 10
+    const COLOR_MIN_STEPS = 4
+    const BASE_HSL = [112, 100, 80] // #a6ff99
 
     function requestGitHubData(url) {
       try {
@@ -211,21 +219,24 @@
         return acc
       }, {min: Number.POSITIVE_INFINITY, max: 0})
 
-      let steps = Math.max(Math.min(max, COLOR_MAX_STEPS), 1)
-      const stepSize = max / steps
+      let steps = Math.max(Math.min(max, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
 
-      return { min, max, steps: Math.max(steps, COLOR_MIN_STEPS), stepSize }
+      return { min, max, steps }
     }
 
     function generatePalette(hsl, steps) {
       const [h, s, lBase] = hsl
       const palette = []
 
-      for (let i = 0; i < steps; i++) {
-        let l = lBase - (lBase * i) / (steps - 1)
-        l = Math.max(0, l)
-        palette.push(`hsl(${h}, ${s}%, ${Math.round(l)}%)`)
+      for (let i = 0; i < steps - 1; i++) {
+        let lStep = lBase - (lBase * i) / steps
+        lStep = Math.max(0, lStep)
+
+        palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
       }
+
+      palette.push(`hsl(0, 0%, 12%)`)
+      console.log(':', palette);
 
       return palette.reverse()
     }
@@ -263,8 +274,8 @@
       const columns = data.length ?? 0
       if (columns === 0) return
 
-      const divider = Math.max(countsInfo.max, countsInfo.steps)
-      const factor = countsInfo.steps - 1
+      const {min, max, steps} = countsInfo
+      const factor = steps - 1
 
       const yearContainer = document.createElement('div')
       yearContainer.className = 'year'
@@ -276,16 +287,23 @@
         weekData.days.forEach(dayData => {
           const {count, date} = dayData
           let colorIndex = count > 0
-            ? Math.ceil((count / divider) * factor)
+            ? Math.min(
+                Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
+                factor
+              )
             : 0
 
+          console.log(':', (count / max) * steps, {count, colorIndex});
+
           const dayContainer = document.createElement('div')
-          dayContainer.className = 'day cell'
+          let className = 'day cell'
           dayContainer.style.background = colors[colorIndex]
           dayContainer.setAttribute('data-date', date)
           if (count) {
             dayContainer.setAttribute('data-count', count)
+            className += ' has-commits'
           }
+          dayContainer.className = className
           weekContainer.appendChild(dayContainer)
         })
 
