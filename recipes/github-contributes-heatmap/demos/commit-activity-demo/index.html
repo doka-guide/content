@@ -42,9 +42,9 @@
       color: #C56FFF;
     }
 
-    .repo-name {
+    .repo-name,
+    .error-value {
       margin: 0 1rem 0 .5rem;
-      font-size: 1.5rem;
       color: #FFF;
     }
 
@@ -55,7 +55,7 @@
 
     .year {
       display: flex;
-      margin: 2rem 1rem 1rem 1rem;
+      margin: 2.5rem 1rem 1rem 1rem;
     }
 
     .month-label {
@@ -209,24 +209,32 @@
         return []
       }
 
-      return responseData.map(item => {
-        const { days, total, week } = item
-        const weekStartDate = getWeekDate(week)
-        const day = weekStartDate.getUTCDate()
-        const isFirstWeekOfMonth = day < 8
+      let isFirstWeekOfMonth
+
+      return responseData.map((item, weekIndex) => {
+        const { days: commitsPerDay, week: weekTimestamp } = item
+        const weekDate = getWeekDate(weekTimestamp)
+        const firstDay = weekDate.getDate()
+        let dayDate
+
+        const days = commitsPerDay.map((count, dayIndex) => {
+          dayDate = new Date(weekDate)
+          dayDate.setDate(firstDay + dayIndex)
+          const date = getDateFormat(dayDate)
+
+          return {
+            count,
+            date
+          }
+        })
+
+        const lastDay = dayDate.getDate()
+        isFirstWeekOfMonth = weekIndex === 0 || lastDay <= 7
 
         return {
-          days: days.map((count, dayIndex) => {
-            const newDate = weekStartDate.setUTCDate(day + dayIndex)
-            const date = getDateFormat(newDate)
-            console.log(':', day + dayIndex, newDate.toString(), date);
-            return {
-              count,
-              date
-            }
-          }),
+          days,
           month: isFirstWeekOfMonth
-            ? getMonthName(weekStartDate)
+            ? getMonthName(dayDate)
             : ''
         }
       })
@@ -285,8 +293,14 @@
 
     function showError(error, element) {
       const errorMessage = error?.message ?? `${error}`
-      const message = `Ошибка получения данных: ${errorMessage}`
-      element.innerText = message
+      element.innerHTML = `
+        <span class='error-label'>
+          Ошибка получения данных:
+        </span>
+        <span class='error-value'>
+          ${errorMessage}
+        </span>
+      `
     }
 
     function renderYearGrid(params, parentContainer) {
