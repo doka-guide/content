@@ -55,7 +55,15 @@
 
     .year {
       display: flex;
-      margin: 1rem;
+      margin: 2rem 1rem 1rem 1rem;
+    }
+
+    .month-label {
+      width: 0;
+      margin-top: -1rem;
+      overflow-x: visible;
+      font-size: .75rem;
+      color: #FFF;
     }
 
     .week {
@@ -125,6 +133,10 @@
       month: 'numeric',
       day: 'numeric',
     })
+    const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
+      month: 'short',
+    })
+
     const COLOR_MAX_STEPS = 10
     const COLOR_MIN_STEPS = 4
     const BASE_HSL = [112, 100, 80] // #a6ff99
@@ -188,7 +200,11 @@
       return DATE_FORMATTER.format(date)
     }
 
-    function parseCommits(responseData = []) {
+    function getMonthName(date) {
+      return DATE_MONTH_FORMATTER.format(date)
+    }
+
+    function parseResponse(responseData = []) {
       if (!Array.isArray(responseData)) {
         return []
       }
@@ -196,17 +212,22 @@
       return responseData.map(item => {
         const { days, total, week } = item
         const weekStartDate = getWeekDate(week)
-        const day = weekStartDate.getDate()
+        const day = weekStartDate.getUTCDate()
+        const isFirstWeekOfMonth = day < 8
 
         return {
           days: days.map((count, dayIndex) => {
-            const newDate = weekStartDate.setDate(day + dayIndex)
+            const newDate = weekStartDate.setUTCDate(day + dayIndex)
             const date = getDateFormat(newDate)
+            console.log(':', day + dayIndex, newDate.toString(), date);
             return {
               count,
               date
             }
-          })
+          }),
+          month: isFirstWeekOfMonth
+            ? getMonthName(weekStartDate)
+            : ''
         }
       })
     }
@@ -235,8 +256,7 @@
         palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
       }
 
-      palette.push(`hsl(0, 0%, 12%)`)
-      console.log(':', palette);
+      palette.push(`hsl(0, 0%, 12%)`) //
 
       return palette.reverse()
     }
@@ -281,10 +301,17 @@
       yearContainer.className = 'year'
 
       data.forEach(weekData => {
+        const {days, month} = weekData
+        if (month) {
+          const monthLabel = document.createElement('div')
+          monthLabel.className = 'month-label'
+          monthLabel.innerText = month
+          yearContainer.appendChild(monthLabel)
+        }
         const weekContainer = document.createElement('div')
         weekContainer.className = 'week'
 
-        weekData.days.forEach(dayData => {
+        days.forEach(dayData => {
           const {count, date} = dayData
           let colorIndex = count > 0
             ? Math.min(
@@ -292,8 +319,6 @@
                 factor
               )
             : 0
-
-          console.log(':', (count / max) * steps, {count, colorIndex});
 
           const dayContainer = document.createElement('div')
           let className = 'day cell'
@@ -369,7 +394,7 @@
     showLoading(true, description)
 
     fetchCommitStat().then(responseData => {
-      return parseCommits(responseData)
+      return parseResponse(responseData)
     }).then(data => {
       const countsInfo = analyzeCommitCounts(data)
       const colors = makeColors(countsInfo)
