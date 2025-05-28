@@ -28,6 +28,7 @@
     .main-container {
       display: flex;
       flex-direction: column;
+      min-width: 200px;
       position: relative;
       background-color: #18191C;
     }
@@ -37,6 +38,9 @@
     }
 
     .description {
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
       margin: 0 1rem;
       font-size: 1.5rem;
       color: #C56FFF;
@@ -44,7 +48,6 @@
 
     .repo-name,
     .error-value {
-      margin: 0 1rem 0 .5rem;
       color: #FFF;
     }
 
@@ -54,18 +57,36 @@
     }
 
     .year {
+      flex: 1 1 ;
       display: flex;
-      margin: 2.5rem 1rem 1rem 1rem;
+      max-width: 100%;
+      min-width: 100px;
+      overflow-y: hidden;
+      overflow-x: auto;
+      margin: 1rem;
+      padding: 4rem 1rem 1rem 1rem;
+      background-color: #0C0C0E6B;
+      border: 1px solid #363636;
+      border-radius: 5px;
+    }
+
+    .weekday-label,
+    .month-label {
+      font-size: .75rem;
+      color: #FFF;
+    }
+
+    .weekday-label {
+      margin: 10px 4px 0 0;
     }
 
     .month-label {
       width: 0;
       margin-top: -1rem;
       overflow-x: visible;
-      font-size: .75rem;
-      color: #FFF;
     }
 
+    .weekday-labels,
     .week {
       display: flex;
       flex-direction: column;
@@ -136,9 +157,12 @@
     const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
       month: 'short',
     })
+    const DATE_WEEK_DAY_FORMATTER = new Intl.DateTimeFormat('ru', {
+      weekday: 'short',
+    })
 
-    const COLOR_MAX_STEPS = 10
-    const COLOR_MIN_STEPS = 4
+    const COLOR_MAX_STEPS = 15
+    const COLOR_MIN_STEPS = 5
     const BASE_HSL = [112, 100, 80] // #a6ff99
 
     function requestGitHubData(url) {
@@ -204,6 +228,10 @@
       return DATE_MONTH_FORMATTER.format(date)
     }
 
+    function getWeekDayFormat(date) {
+      return DATE_WEEK_DAY_FORMATTER.format(date)
+    }
+
     function parseResponse(responseData = []) {
       if (!Array.isArray(responseData)) {
         return []
@@ -232,6 +260,7 @@
         isFirstWeekOfMonth = weekIndex === 0 || lastDay <= 7
 
         return {
+          weekDate,
           days,
           month: isFirstWeekOfMonth
             ? getMonthName(dayDate)
@@ -256,16 +285,22 @@
     function generatePalette(hsl, steps) {
       const [h, s, lBase] = hsl
       const palette = []
+      let lStep
 
       for (let i = 0; i < steps - 1; i++) {
-        let lStep = lBase - (lBase * i) / steps
+        lStep = lBase - (lBase * i) / steps
         lStep = Math.max(0, lStep)
+
+        console.log(':', lStep);
 
         palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
       }
 
-      palette.push(`hsl(0, 0%, 12%)`) //
+      const lEmpty = Math.min(9, Math.max(9, Math.round(lStep/2)))
 
+      palette.push(`hsl(${Math.round(h/1.05)}, ${Math.round(s/4)}%, ${lEmpty}%)`) //
+
+      console.log(':', palette);
       return palette.reverse()
     }
 
@@ -303,6 +338,30 @@
       `
     }
 
+    function createWeekDays(week) {
+      const {days, weekDate} = week
+
+      const weekDaysContainer = document.createElement('div')
+      weekDaysContainer.className = 'weekday-labels'
+
+      const firstDay = weekDate.getDate()
+
+      days.forEach((dayData, dayIndex) => {
+        if (dayIndex % 2) {
+          let dayDate = new Date(weekDate)
+          dayDate.setDate(firstDay + dayIndex)
+          const weekDay = getWeekDayFormat(dayDate)
+
+          const weekDayLabel = document.createElement('div')
+          weekDayLabel.className = 'weekday-label'
+          weekDayLabel.innerText = weekDay
+          weekDaysContainer.appendChild(weekDayLabel)
+        }
+      })
+
+      return weekDaysContainer
+    }
+
     function renderYearGrid(params, parentContainer) {
       const {data = [], countsInfo = {}, colors = []} = params
       const columns = data.length ?? 0
@@ -313,6 +372,8 @@
 
       const yearContainer = document.createElement('div')
       yearContainer.className = 'year'
+
+      yearContainer.appendChild(createWeekDays(data[0]))
 
       data.forEach(weekData => {
         const {days, month} = weekData
