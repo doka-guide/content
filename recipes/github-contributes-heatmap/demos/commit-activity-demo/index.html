@@ -53,6 +53,7 @@
 
     .loading {
       font-size: 1.5rem;
+      margin: auto;
       color: #C56FFF;
     }
 
@@ -127,7 +128,7 @@
   </style>
 </head>
 <body>
-  <div id="repoGridContainer" class="main-container">
+  <div id="mainContainer" class="main-container">
     <div class="description">
       <span class="loading">
         Загрузка...
@@ -184,10 +185,10 @@
       return `${GITHUB_REPO_API}/${REPO}/stats/commit_activity`
     }
 
-    async function fetchCommitStat(requestParams = {}) {
+    async function fetchCommitActivity(requestParams = {}) {
       try {
         const {
-          url = createURL(),
+          url,
           requestAttempts = REQ_MAX_ATTEMPTS,
           requestAttemptTimeout = REQ_ATTEMPT_TIMEOUT
         } = requestParams
@@ -198,7 +199,7 @@
           if (requestAttempts > 0) {
             await new Promise(r => setTimeout(r, requestAttemptTimeout));
 
-            return fetchCommitStat({
+            return fetchCommitActivity({
               url,
               requestAttempts: requestAttempts - 1
             })
@@ -232,27 +233,27 @@
       return DATE_WEEK_DAY_FORMATTER.format(date)
     }
 
-    function parseResponse(responseData = []) {
+    function parseCommitActivity(responseData = []) {
       if (!Array.isArray(responseData)) {
-        return []
+        throw new Error('Данные не найдены')
       }
 
       let isFirstWeekOfMonth
 
-      return responseData.map((item, weekIndex) => {
-        const { days: commitsPerDay, week: weekTimestamp } = item
+      return responseData.map((weekItem, weekIndex) => {
+        const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
         const weekDate = getWeekDate(weekTimestamp)
-        const firstDay = weekDate.getDate()
+        const firstWeekDay = weekDate.getDate()
         let dayDate
 
         const days = commitsPerDay.map((count, dayIndex) => {
           dayDate = new Date(weekDate)
-          dayDate.setDate(firstDay + dayIndex)
-          const date = getDateFormat(dayDate)
+          dayDate.setDate(firstWeekDay + dayIndex)
+          const dateFormated = getDateFormat(dayDate)
 
           return {
             count,
-            date
+            dateFormated
           }
         })
 
@@ -260,6 +261,7 @@
         isFirstWeekOfMonth = weekIndex === 0 || lastDay <= 7
 
         return {
+          total,
           weekDate,
           days,
           month: isFirstWeekOfMonth
@@ -269,29 +271,24 @@
       })
     }
 
-    function analyzeCommitCounts(data) {
-      const {min, max} = data.reduce((acc, weekData) => {
+    function analyzeCommits(commitsData = []) {
+      return commitsData.reduce((acc, weekData) => {
         const counts = weekData.days.map(item => item.count)
         acc.min = Math.min(...counts, acc.min)
         acc.max = Math.max(...counts, acc.max)
+        acc.total += weekData.total
         return acc
-      }, {min: Number.POSITIVE_INFINITY, max: 0})
-
-      let steps = Math.max(Math.min(max, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
-
-      return { min, max, steps }
+      }, {min: Number.POSITIVE_INFINITY, max: 0, total: 0})
     }
 
-    function generatePalette(hsl, steps) {
-      const [h, s, lBase] = hsl
+    function generatePalette(hslColor, steps) {
+      const [h, s, lBase] = hslColor
       const palette = []
       let lStep
 
       for (let i = 0; i < steps - 1; i++) {
         lStep = lBase - (lBase * i) / steps
         lStep = Math.max(0, lStep)
-
-        console.log(':', lStep);
 
         palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
       }
@@ -300,14 +297,14 @@
 
       palette.push(`hsl(${Math.round(h/1.05)}, ${Math.round(s/4)}%, ${lEmpty}%)`) //
 
-      console.log(':', palette);
       return palette.reverse()
     }
 
-    function makeColors(countsInfo) {
-      const {steps} = countsInfo
+    function makeColors(commitCounts, baseColor = BASE_HSL) {
+      const {max} = commitCounts
+      const steps = Math.max(Math.min(max, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
 
-      return generatePalette(BASE_HSL, steps)
+      return generatePalette(baseColor, steps)
     }
 
     function showLoading(show, description) {
@@ -338,18 +335,21 @@
       `
     }
 
-    function createWeekDays(week) {
-      const {days, weekDate} = week
+    function createWeekDays(commitsData = []) {
+      const [firstWeek] = commitsData
+      if (!firstWeek) return
+
+      const {days, weekDate} = firstWeek
 
       const weekDaysContainer = document.createElement('div')
       weekDaysContainer.className = 'weekday-labels'
 
-      const firstDay = weekDate.getDate()
+      const firstWeekDay = weekDate.getDate()
 
       days.forEach((dayData, dayIndex) => {
         if (dayIndex % 2) {
           let dayDate = new Date(weekDate)
-          dayDate.setDate(firstDay + dayIndex)
+          dayDate.setDate(firstWeekDay + dayIndex)
           const weekDay = getWeekDayFormat(dayDate)
 
           const weekDayLabel = document.createElement('div')
@@ -363,19 +363,27 @@
     }
 
     function renderYearGrid(params, parentContainer) {
-      const {data = [], countsInfo = {}, colors = []} = params
-      const columns = data.length ?? 0
-      if (columns === 0) return
+      const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
+      const weekCount = commitsData.length ?? 0
+      if (weekCount === 0) return
 
-      const {min, max, steps} = countsInfo
+      const {min, max, total} = commitCounts
+
+      const totalLabel = document.createElement('span')
+      totalLabel.innerText = total
+      parentContainer.appendChild(totalLabel)
+
+      const steps = colors.length
       const factor = steps - 1
 
       const yearContainer = document.createElement('div')
       yearContainer.className = 'year'
 
-      yearContainer.appendChild(createWeekDays(data[0]))
+      if (weekDays) {
+        yearContainer.appendChild(weekDays)
+      }
 
-      data.forEach(weekData => {
+      commitsData.forEach(weekData => {
         const {days, month} = weekData
         if (month) {
           const monthLabel = document.createElement('div')
@@ -387,7 +395,7 @@
         weekContainer.className = 'week'
 
         days.forEach(dayData => {
-          const {count, date} = dayData
+          const {count, dateFormated} = dayData
           let colorIndex = count > 0
             ? Math.min(
                 Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
@@ -398,7 +406,7 @@
           const dayContainer = document.createElement('div')
           let className = 'day cell'
           dayContainer.style.background = colors[colorIndex]
-          dayContainer.setAttribute('data-date', date)
+          dayContainer.setAttribute('data-date', dateFormated)
           if (count) {
             dayContainer.setAttribute('data-count', count)
             className += ' has-commits'
@@ -463,21 +471,24 @@
       yearGrid.addEventListener('mouseleave', hideTooltip)
     }
 
-    const parentContainer = document.querySelector('#repoGridContainer')
+    const parentContainer = document.querySelector('#mainContainer')
     const description = parentContainer.querySelector('.description')
 
     showLoading(true, description)
 
-    fetchCommitStat().then(responseData => {
-      return parseResponse(responseData)
-    }).then(data => {
-      const countsInfo = analyzeCommitCounts(data)
-      const colors = makeColors(countsInfo)
-
+    fetchCommitActivity({
+      url: createURL()
+    }).then(responseData => {
+      return parseCommitActivity(responseData)
+    }).then(commitsData => {
+      const commitCounts = analyzeCommits(commitsData)
       renderRepoInfo({repoName: REPO}, description)
 
+      const colors = makeColors(commitCounts)
+      const weekDays = createWeekDays(commitsData)
+
       const yearGrid = renderYearGrid(
-        {data, countsInfo, colors},
+        {commitsData, weekDays, commitCounts, colors},
         parentContainer
       )
 
