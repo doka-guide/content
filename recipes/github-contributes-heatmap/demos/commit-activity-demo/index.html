@@ -28,7 +28,9 @@
     .main-container {
       display: flex;
       flex-direction: column;
+      gap: .5rem;
       min-width: 200px;
+      padding: 1rem;
       position: relative;
       background-color: #18191C;
     }
@@ -41,20 +43,25 @@
       display: flex;
       flex-direction: row;
       gap: .5rem;
-      margin: 0 1rem;
       font-size: 1.5rem;
-      color: #C56FFF;
     }
 
     .repo-name,
+    .total-row,
+    .tooltip,
     .error-value {
       color: #FFF;
+    }
+
+    .description,
+    .loading,
+    .total-label {
+      color: #C56FFF;
     }
 
     .loading {
       font-size: 1.5rem;
       margin: auto;
-      color: #C56FFF;
     }
 
     .year {
@@ -64,8 +71,7 @@
       min-width: 100px;
       overflow-y: hidden;
       overflow-x: auto;
-      margin: 1rem;
-      padding: 4rem 1rem 1rem 1rem;
+      padding: 2rem 1rem 1rem 1rem;
       background-color: #0C0C0E6B;
       border: 1px solid #363636;
       border-radius: 5px;
@@ -119,7 +125,6 @@
       padding: 8px 16px;
       border-radius: 4px;
       background-color: #555;
-      color: #FFF;
     }
 
     .hidden {
@@ -132,6 +137,12 @@
     <div class="description">
       <span class="loading">
         Загрузка...
+      </span>
+    </div>
+
+    <div class="total-row hidden">
+      <span class="total-label">
+        Общее количество коммитов за год:
       </span>
     </div>
 
@@ -312,8 +323,8 @@
       loadingElem?.classList.toggle('hidden', !show)
     }
 
-    function renderRepoInfo({repoName}, description) {
-      description.innerHTML = `
+    function renderRepoInfo({repoName}, element) {
+      element.innerHTML = `
         <span class='repo-label'>
           Репозиторий:
         </span>
@@ -321,6 +332,14 @@
           ${repoName}
         </span>
       `
+    }
+
+    function renderTotal({total = null}, container) {
+      const totalRow = container.querySelector('.total-row')
+      if ( totalRow && total !== null) {
+        totalRow.append(` ${total}`)
+        totalRow.classList.remove('hidden')
+      }
     }
 
     function showError(error, element) {
@@ -362,16 +381,12 @@
       return weekDaysContainer
     }
 
-    function renderYearGrid(params, parentContainer) {
+    function renderYearGrid(params, container) {
       const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
       const weekCount = commitsData.length ?? 0
       if (weekCount === 0) return
 
-      const {min, max, total} = commitCounts
-
-      const totalLabel = document.createElement('span')
-      totalLabel.innerText = total
-      parentContainer.appendChild(totalLabel)
+      const {min, max} = commitCounts
 
       const steps = colors.length
       const factor = steps - 1
@@ -418,14 +433,14 @@
         yearContainer.appendChild(weekContainer)
       })
 
-      parentContainer.appendChild(yearContainer)
+      container.appendChild(yearContainer)
       return yearContainer
     }
 
-    function bindTooltip(yearGrid, parentContainer) {
-      if (! yearGrid || ! parentContainer) return
+    function bindTooltip(yearGrid, container) {
+      if (! yearGrid || ! container) return
 
-      const tooltip = parentContainer.querySelector('.tooltip')
+      const tooltip = container.querySelector('.tooltip')
 
       if (! tooltip) return
 
@@ -471,8 +486,8 @@
       yearGrid.addEventListener('mouseleave', hideTooltip)
     }
 
-    const parentContainer = document.querySelector('#mainContainer')
-    const description = parentContainer.querySelector('.description')
+    const mainContainer = document.querySelector('#mainContainer')
+    const description = mainContainer.querySelector('.description')
 
     showLoading(true, description)
 
@@ -482,17 +497,19 @@
       return parseCommitActivity(responseData)
     }).then(commitsData => {
       const commitCounts = analyzeCommits(commitsData)
+
       renderRepoInfo({repoName: REPO}, description)
+      renderTotal(commitCounts, mainContainer)
 
       const colors = makeColors(commitCounts)
       const weekDays = createWeekDays(commitsData)
 
       const yearGrid = renderYearGrid(
         {commitsData, weekDays, commitCounts, colors},
-        parentContainer
+        mainContainer
       )
 
-      bindTooltip(yearGrid, parentContainer)
+      bindTooltip(yearGrid, mainContainer)
     }).catch(error => {
       showError(error, description)
     }).finally(() => {
