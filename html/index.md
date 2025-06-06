@@ -154,6 +154,7 @@ groups:
       - inert
       - dir
       - tabindex
+      - enterkeyhint
       - data-attributes
   - name: 'Поисковая оптимизация'
     items:
