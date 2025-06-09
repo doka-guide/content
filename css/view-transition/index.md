@@ -20,7 +20,7 @@ tags:
   :root {
     --demo-iframe-background-color: #f5f5f5;
   }
-  
+
   @media (prefers-color-scheme: light) {
     :root {
       --demo-iframe-background-color: #f5f5f5;
@@ -32,8 +32,8 @@ tags:
       --demo-iframe-background-color: #121212;
     }
   }
- 
- .demo-iframe {
+
+  .demo-iframe {
     background-color: var(--demo-iframe-background-color) !important;
   }
 </style>
@@ -128,7 +128,7 @@ header {
 
 <script>
   const initiallyNormalizedIframes = {};
-  
+
   window.addEventListener('message', ({ data }) => {
     try {
       if ('id' in data && 'height' in data) {
@@ -140,7 +140,7 @@ header {
             iframe.setAttribute('height', height);
             initiallyNormalizedIframes[id] = true;
           }
-          
+
           if (iframe.getBoundingClientRect().height < height) {
             iframe.setAttribute('height', height);
           }

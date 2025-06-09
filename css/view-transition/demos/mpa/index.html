@@ -38,14 +38,14 @@
       <a href="details.html" class="item-link">Третья статья</a>
     </article>
   </div>
-  
+
   <script>
     new ResizeObserver(() => {
       const data = {
         id: 'mpa',
         height: document.body.getBoundingClientRect().height,
       };
-      
+
       window.parent.postMessage(data);
     }).observe(document.body);
   </script>
