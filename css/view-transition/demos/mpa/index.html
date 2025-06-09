@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Transition Demo - Main</title>
+  <style>
+    @import "../common.css";
+    @import "../item.css";
+    @import "../animations.css";
+
+    ::view-transition-old(root) {
+      animation: 0.3s ease-in-out both slideOut;
+    }
+
+    ::view-transition-new(root) {
+      animation: 0.3s ease-in-out both zoomIn;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <article class="item">
+      <h2 class="item-header">Первая статья</h2>
+      <p class="item-content">Краткое описание первой статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
+      <a href="details.html" class="item-link">Первая статья</a>
+    </article>
+
+    <article class="item">
+      <h2 class="item-header">Вторая статья</h2>
+      <p class="item-content">Краткое описание второй статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
+      <a href="details.html" class="item-link">Вторая статья</a>
+    </article>
+
+    <article class="item">
+      <h2 class="item-header">Третья статья</h2>
+      <p class="item-content">Краткое описание третьей статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
+      <a href="details.html" class="item-link">Третья статья</a>
+    </article>
+  </div>
+  
+  <script>
+    new ResizeObserver(() => {
+      const data = {
+        id: 'mpa',
+        height: document.body.getBoundingClientRect().height,
+      };
+      
+      window.parent.postMessage(data);
+    }).observe(document.body);
+  </script>
+</body>
+</html>
