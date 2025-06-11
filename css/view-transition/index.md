@@ -1,6 +1,10 @@
 ---
 title: "@view-transition"
 description: "CSS-правило для создания плавных анимаций при переходе между страницами."
+baseline:
+  - group: cross-document-view-transitions
+    features:
+      - css.at-rules.view-transition
 authors:
   - kotosha-real
 keywords:
