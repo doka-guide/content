@@ -19,6 +19,7 @@ groups:
       - slider
       - checkbox-radio-style
       - tooltip
+      - skeleton
   - name: 'Работа с GitHub'
     items:
       - github-new-profile
