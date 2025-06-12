@@ -21,24 +21,8 @@ tags:
 ---
 
 <style>
-  :root {
-    --demo-iframe-background-color: #f5f5f5;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --demo-iframe-background-color: #f5f5f5;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --demo-iframe-background-color: #121212;
-    }
-  }
-
   .demo-iframe {
-    background-color: var(--demo-iframe-background-color) !important;
+    background-color: #18191C !important;
   }
 </style>
 
@@ -109,6 +93,32 @@ tags:
 ## Как понять
 
 `@view-transition` работает как контейнер для определения правил перехода между страницами. При навигации браузер автоматически создаёт анимацию перехода при указанном `@view-transition`.
+
+Обе страницы должны находиться на одном `origin`. `origin` — это комбинация протокола, домена и порта (если он указан). Например, `doka.guide` — это домен, а `https://doka.guide` — `origin`.
+
+## Опциональная анимация
+
+По умолчанию директива `@view-transition` со значением `auto` применяется всегда. При желании её можно ограничить с помощью условных директив.
+
+Например, можно пощадить пользователей, которые предпочитают минимальное количество анимаций:
+
+```css
+@media screen and (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+```
+
+Или включить плавные переходы только для определённых размеров экрана:
+
+```css
+@media screen and (width > 70em) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+```
 
 ## Гранулярная анимация
 

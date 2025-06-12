@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>View Transition Demo - Main</title>
+  <title>MPA — @view-transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
   <style>
-    @import "../common.css";
-    @import "../item.css";
-    @import "../animations.css";
+    @import "styles/common.css";
+    @import "styles/item.css";
+    @import "styles/animations.css";
+
+    body {
+      font-family: Roboto, sans-serif;
+    }
 
     ::view-transition-old(root) {
       animation: 0.3s ease-in-out both slideOut;
@@ -20,23 +27,22 @@
 </head>
 <body>
   <div class="container">
-    <article class="item">
-      <h2 class="item-header">Первая статья</h2>
-      <p class="item-content">Краткое описание первой статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
-      <a href="details.html" class="item-link">Первая статья</a>
-    </article>
+    <header>
+      <h1>Главная</h1>
+    </header>
 
-    <article class="item">
-      <h2 class="item-header">Вторая статья</h2>
-      <p class="item-content">Краткое описание второй статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
-      <a href="details.html" class="item-link">Вторая статья</a>
-    </article>
-
-    <article class="item">
-      <h2 class="item-header">Третья статья</h2>
-      <p class="item-content">Краткое описание третьей статьи. Нажмите, чтобы увидеть подробности и плавный переход.</p>
-      <a href="details.html" class="item-link">Третья статья</a>
-    </article>
+    <div class="items">
+      <article class="item">
+        <h2 class="item-header">@view-transition</h2>
+        <p class="item-content">@view-transition — это CSS-директива, которая позволяет создавать плавные переходы между страницами. Это мощный и в то же время простой инструмент.</p>
+        <a href="articles/view-transition.html" class="item-link">Первая статья</a>
+      </article>
+      <article class="item">
+        <h2 class="item-header">@view-transition + CSS-анимации = ❤️</h2>
+        <p class="item-content">Добавить свою кастомную анимацию к плавным переходам между страницами сайта очень просто. Используйте для этого <del>простые советские</del> CSS-анимации.</p>
+        <a href="articles/view-transition-plus-css-animations.html" class="item-link">Вторая статья</a>
+      </article>
+    </div>
   </div>
 
   <script>
