@@ -1,0 +1,14 @@
+.article {
+  padding: 1em;
+  border: 1px solid #2E9AFF;
+  border-radius: 12px;
+}
+
+.article-content {
+  margin: 0;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 1em;
+}
