@@ -1,6 +1,6 @@
 ---
 title: "@view-transition"
-description: "CSS-правило для создания плавных анимаций при переходе между страницами."
+description: "Создаём плавные анимации при переходе между страницами."
 baseline:
   - group: cross-document-view-transitions
     features:
@@ -32,7 +32,7 @@ tags:
 
 ## Пример
 
-Настроить переход можно в одно правило. Браузер применит дефолтную cross-fade анимацию:
+Настроить переход можно в одно правило. Браузер применит дефолтную _cross-fade_ анимацию:
 
 ```css
 @view-transition {
@@ -52,9 +52,9 @@ tags:
 }
 ```
 
-Полный пример.
+Вот что получится:
 
-<iframe id="mpa" class="demo-iframe" title="Переход между страницами" src="demos/mpa/" height="600"></iframe>
+<iframe id="mpa" class="demo-iframe" title="Переход между страницами" src="demos/mpa/" height="500"></iframe>
 
 Обратите внимание, как анимация повторяется: обе страницы исчезают и появляются одинаково. Такой эффект даёт использование парных анимаций.
 
@@ -73,12 +73,12 @@ tags:
 }
 ```
 
-Свойство `navigation` внутри директивы принимает два звачения:
+Свойство `navigation` внутри директивы принимает одно из двух значений:
 
 - `none` — значение по умолчанию, плавные переходы отключены.
 - `auto` — браузер применяет стандартную анимацию перехода.
 
-Опциональная настройка анимации перехода:
+Вот как добавить свою анимацию перехода:
 
 ```css
 ::view-transition-old(root) {
@@ -141,9 +141,9 @@ header {
 }
 ```
 
-Теперь `header` будет анимироваться независимо от основного перехода страницы. Ниже пример.
+Теперь `<header>` будет анимироваться независимо от основного перехода страницы. Ниже пример.
 
-<iframe class="demo-iframe" id="mpa-with-granular-animations" title="Гранулярная анимация" src="demos/mpa-with-granular-animations/" height="600"></iframe>
+<iframe class="demo-iframe" id="mpa-with-granular-animations" title="Гранулярная анимация" src="demos/mpa-with-granular-animations/" height="500"></iframe>
 
 <script>
   const initiallyNormalizedIframes = {};
