@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - recipes/ajax-form
-  - html/img
-  - recipes/character-counter
-  - html/article
-  - css/position
-  - css/grid-guide
-  - recipes/popup
-  - css/transform-function
-  - js/array-reduce-right
-  - html/input
-  - css/box-sizing
-  - css/box-shadow
-  - css/keyframes
-  - js/deal-with-forms
-  - js/async-in-js
-  - js/infinite-scroll
-  - a11y/screenreaders
-  - recipes/lets-encrypt-nginx
-  - recipes/center
-  - a11y/aria-hidden
-  - js/var-let
-  - tools/network
-  - tools/bundlers
-  - css/media
-  - html/video
-  - html/doctype
-  - tools/clean-architecture
-  - a11y/css-impact-on-a11y
-  - css/flexbox-guide
-  - js/closures
-  - tools/how-the-browser-creates-pages
-  - css/specificity
-  - recipes/git-rebase-onto
-  - a11y/live-region
-  - tools/gitlab-ci-cd
-  - html/form
-  - css/pseudoelements
-  - tools/how-to-test-and-why
-  - tools/cli
-  - recipes/snow
-  - tools/webpack
-  - js/execution-order
+  - tools/cors
   - tools/static-types
-  - tools/oop
+  - html/input
+  - tools/clean-architecture
+  - js/boolean
+  - css/transform-function
+  - html/section
+  - css/pseudoelements
+  - html/div
+  - html/flow
+  - recipes/popup
   - tools/ci-cd
+  - css/flexbox-guide
+  - css/display
+  - js/var-let
+  - css/box-shadow
   - html/head
+  - tools/oop
+  - tools/how-the-browser-creates-pages
+  - js/async-in-js
+  - tools/bundlers
+  - a11y/css-impact-on-a11y
+  - css/grid-guide
+  - html/article
+  - js/deal-with-forms
+  - tools/agile
   - a11y/aria-intro
-  - a11y/content-hidden
+  - a11y/aria-hidden
+  - js/array-entries
+  - html/img
+  - js/geolocation-api
+  - css/scrollbar-gutter
+  - css/custom-properties
+  - js/infinite-scroll
+  - css/position
+  - js/closures
+  - css/specificity
+  - css/attr
+  - tools/webpack
   - js/function-context
   - js/function
-  - js/array-entries
-  - html/nav
-  - css/display
-  - js/geolocation-api
-  - html/div
-  - tools/cors
-  - tools/markdown
-  - tools/agile
-  - html/flow
-  - css/box-model
-  - css/custom-properties
-  - recipes/progress
+  - css/media
+  - tools/cli
+  - recipes/character-counter
+  - recipes/lets-encrypt-nginx
+  - html/doctype
+  - recipes/center
+  - html/form
   - tools/docker
-  - html/section
-  - js/boolean
-  - css/attr
-  - css/scrollbar-gutter
+  - recipes/git-rebase-onto
+  - tools/gitlab-ci-cd
+  - css/box-sizing
+  - recipes/ajax-form
+  - tools/markdown
+  - tools/network
+  - css/box-model
+  - js/array-reduce-right
+  - js/execution-order
+  - tools/how-to-test-and-why
+  - css/keyframes
+  - recipes/progress
+  - a11y/content-hidden
+  - a11y/live-region
+  - a11y/screenreaders
+  - recipes/snow
+  - html/video
+  - html/nav
 ---
 
