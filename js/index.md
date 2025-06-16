@@ -25,6 +25,7 @@ groups:
       - shallow-or-deep-clone
       - iterator
       - date
+      - destructuring-assignment
   - name: "Примитивные типы данных"
     items:
       - number
@@ -55,6 +56,7 @@ groups:
       - parseint
       - parsefloat
       - number-wrapper
+      - number-toexponential
       - number-tostring
       - number-is-nan
       - number-isfinite
@@ -66,6 +68,7 @@ groups:
       - index-of
       - includes
       - string-length
+      - string-trim
   - name: "Булев тип"
     items:
       - boolean
@@ -153,6 +156,7 @@ groups:
       - set-symmetric-difference
       - set-is-subset-of
       - set-is-superset-of
+      - set-is-disjoint-from
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -168,6 +172,7 @@ groups:
       - dom
       - fetch
       - form-data
+      - console
       - console-log
       - window-history
       - window-location
@@ -190,6 +195,7 @@ groups:
       - window-open
       - window-close
       - intersection-observer
+      - abort-controller
   - name: "Объектная модель документа DOM"
     items:
       - dom
@@ -257,6 +263,8 @@ groups:
       - element-mouseover
       - event-prevent-default
       - element-scroll
+      - element-scrollsnapchange
+      - element-scrollsnapchanging
       - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
@@ -279,6 +287,7 @@ groups:
       - promise-allsettled
       - promise-any
       - promise-race
+      - promise-try
       - async-await
   - name: "Обмен данными с API"
     items:

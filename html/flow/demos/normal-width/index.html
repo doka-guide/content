@@ -47,6 +47,28 @@
     .normal-flow-child + .normal-flow-child {
       margin-top: 2px;
     }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .normal-flow {
+        width: auto;
+        min-width: auto;
+      }
+
+      .normal-flow-child {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body,
+      .normal-flow-child {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 <body>

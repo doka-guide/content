@@ -3,7 +3,7 @@ name: Update Index
 on:
   workflow_run:
     workflows:
-      - "Update Dates"
+      - "Update CHANGELOG"
     branches:
       - main
     types:

@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
+  - tools/cors
+  - tools/static-types
+  - html/input
+  - tools/clean-architecture
+  - js/boolean
+  - css/transform-function
+  - html/section
+  - css/pseudoelements
+  - html/div
+  - html/flow
+  - recipes/popup
+  - tools/ci-cd
+  - css/flexbox-guide
+  - css/display
+  - js/var-let
+  - css/box-shadow
+  - html/head
+  - tools/oop
+  - tools/how-the-browser-creates-pages
+  - js/async-in-js
+  - tools/bundlers
+  - a11y/css-impact-on-a11y
+  - css/grid-guide
+  - html/article
+  - js/deal-with-forms
+  - tools/agile
+  - a11y/aria-intro
+  - a11y/aria-hidden
+  - js/array-entries
+  - html/img
   - js/geolocation-api
   - css/scrollbar-gutter
-  - tools/bundlers
-  - css/flexbox-guide
-  - css/pseudoelements
-  - css/specificity
-  - html/input
-  - recipes/progress
-  - a11y/aria-intro
-  - tools/ci-cd
-  - js/function
-  - html/video
-  - js/infinite-scroll
-  - recipes/git-rebase-onto
-  - js/closures
   - css/custom-properties
-  - tools/how-to-test-and-why
-  - tools/how-the-browser-creates-pages
-  - a11y/aria-hidden
-  - css/display
-  - css/transform-function
-  - css/box-sizing
-  - a11y/live-region
-  - css/grid-guide
+  - js/infinite-scroll
+  - css/position
+  - js/closures
+  - css/specificity
+  - css/attr
+  - tools/webpack
+  - js/function-context
+  - js/function
+  - css/media
+  - tools/cli
+  - recipes/character-counter
+  - recipes/lets-encrypt-nginx
   - html/doctype
-  - html/div
-  - recipes/snow
-  - js/async-in-js
+  - recipes/center
+  - html/form
+  - tools/docker
+  - recipes/git-rebase-onto
+  - tools/gitlab-ci-cd
+  - css/box-sizing
+  - recipes/ajax-form
   - tools/markdown
-  - js/var-let
-  - html/section
   - tools/network
   - css/box-model
-  - tools/oop
-  - html/form
-  - css/media
-  - a11y/css-impact-on-a11y
-  - html/flow
-  - recipes/lets-encrypt-nginx
-  - tools/static-types
   - js/array-reduce-right
-  - tools/gitlab-ci-cd
-  - tools/cors
-  - js/function-context
-  - a11y/content-hidden
-  - css/box-shadow
-  - tools/docker
-  - recipes/ajax-form
-  - a11y/screenreaders
-  - recipes/center
   - js/execution-order
-  - tools/webpack
-  - js/boolean
-  - css/attr
-  - html/nav
-  - html/article
-  - tools/cli
-  - tools/clean-architecture
-  - tools/agile
-  - js/array-entries
-  - recipes/popup
-  - css/position
+  - tools/how-to-test-and-why
   - css/keyframes
-  - html/img
-  - js/deal-with-forms
-  - recipes/character-counter
-  - html/head
+  - recipes/progress
+  - a11y/content-hidden
+  - a11y/live-region
+  - a11y/screenreaders
+  - recipes/snow
+  - html/video
+  - html/nav
 ---
 

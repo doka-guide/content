@@ -142,12 +142,16 @@ const truthy1 = Boolean(true),
   truthy3 = Boolean('false'),
   truthy4 = Boolean('Су Лин'),
   truthy5 = Boolean([]),
-  truthy6 = Boolean({})
+  truthy6 = Boolean({}),
+  truthy7 = Boolean('0'),
+  truthy8 = Boolean(' ')
 ```
 
 Обратите внимание, что строка `'false'` преобразуется в логическое `true`. Так происходит потому, что непустая строка в JavaScript считается _truthy_ значением — то есть таким, которое приводится к `true`.
 
 То же и с пустыми массивом `[]` и объектом `{}`. Они считаются _truthy_ значениями, поэтому приводятся к `true`.
+
+Другой интересный нюанс: `'0'` превращается в `true`, как и `' '`, потому что это непустая строка.
 
 Обратите внимание на списки [truthy](https://developer.mozilla.org/ru/docs/Словарь/Truthy) и [falsy](https://developer.mozilla.org/ru/docs/Словарь/Falsy) значений в JavaScript.
 
