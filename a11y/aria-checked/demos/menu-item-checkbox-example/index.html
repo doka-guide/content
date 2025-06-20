@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Меню с выбором позиций с использованием aria-checked</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    body {
+      font-family: "Roboto", system-ui, sans-serif;
+      background: rgb(24, 25, 28);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      margin: 0;
+    }
+    .demo-container {
+      background: rgb(230, 230, 230);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .demo-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      margin-top: 0;
+      color: #000000;
+    }
+    .menu {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 220px;
+      padding: 0.5rem 0;
+    }
+    .menuitem {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .menuitem[aria-checked="true"] .checkbox {
+      background: #10F3AF;
+      border-color: #10F3AF;
+    }
+    .menuitem[aria-checked="true"] .checkbox::after {
+      content: '\2713';
+      color: #fff;
+      font-size: 1rem;
+      position: absolute;
+      left: 2px;
+      top: -2px;
+    }
+    .menuitem[aria-checked="mixed"] .checkbox {
+      background: #ffc107;
+      border-color: #ffc107;
+    }
+    .menuitem[aria-checked="mixed"] .checkbox::after {
+      content: '\2014';
+      color: #fff;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+    .menuitem:focus-visible {
+      background: #e9ecef;
+      outline: 2px solid #10F3AF;
+      outline-offset: 2px;
+    }
+    .checkbox {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #888;
+      border-radius: 3px;
+      margin-right: 0.75rem;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      background: #fff;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .label {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1 class="demo-title">Кастомное меню с множественным выбором</h1>
+    <div role="menu" class="menu" id="menu1">
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="0" class="menuitem" id="menuitem1">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Включить все уведомления</span>
+      </button>
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem2">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Уведомления из семейных чатов</span>
+      </button>
+      <button role="menuitemcheckbox" aria-checked="false" tabindex="-1" class="menuitem" id="menuitem3">
+        <span class="checkbox" aria-hidden="true"></span>
+        <span class="label">Уведомления из рабочих чатов</span>
+      </button>
+    </div>
+  </div>
+  <script>
+    const menu = document.querySelector('#menu1');
+    
+    const header = menu.querySelector('#menuitem1');
+    const items = Array.from(menu.querySelectorAll('.menuitem'));
+
+    items.forEach(item => item.ariaChecked = 'false');
+
+    menu.addEventListener('keydown', (e) => {
+      const currentIndex = items.indexOf(document.activeElement);
+      const Space = ' ';
+
+      const keyActions = {
+        ArrowDown: () => {
+          const next = (currentIndex + 1) % items.length;
+          items[next].focus();
+        },
+        ArrowUp: () => {
+          const prev = (currentIndex - 1 + items.length) % items.length;
+          items[prev].focus();
+        },
+        Home: () => items.at(0).focus(),
+        End: () => items.at(-1).focus(),
+        Enter: () => {
+          if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
+            toggleCheckbox(document.activeElement);
+          }
+        },
+        [Space]: () => {
+          if (document.activeElement.getAttribute('role') === 'menuitemcheckbox') {
+            toggleCheckbox(document.activeElement);
+          }
+        }
+      };
+
+      if (keyActions[e.key]) {
+        e.preventDefault();
+        keyActions[e.key]();
+      }
+    });
+
+    items.forEach(item => {
+      if (item.getAttribute('role') === 'menuitemcheckbox') {
+        item.addEventListener('click', () => toggleCheckbox(item));
+      }
+    });
+
+    function updateHeaderState() {
+      const childItems = items.filter(item => item !== header);
+      const states = childItems.map(item => item.ariaChecked === 'true');
+      const allChecked = states.every(Boolean);
+      const allUnchecked = states.every(v => !v);
+
+      if (allChecked) {
+        header.ariaChecked = 'true';
+      } else if (allUnchecked) {
+        header.ariaChecked = 'false';
+      } else {
+        header.ariaChecked = 'mixed';
+      }
+    }
+
+    function toggleCheckbox(item) {
+      if (item === header) {
+        const childItems = items.filter(i => i !== header);
+        const states = childItems.map(i => i.ariaChecked === 'true');
+        const allChecked = states.every(Boolean);
+
+        const newState = !allChecked;
+        header.ariaChecked = newState ? 'true' : 'false';
+
+        childItems.forEach(i => i.ariaChecked = newState ? 'true' : 'false');
+      } else {
+        const checked = item.ariaChecked === 'true';
+        item.ariaChecked = checked ? 'false' : 'true';
+
+        updateHeaderState();
+      }
+    }
+  </script>
+</body>
+</html>
