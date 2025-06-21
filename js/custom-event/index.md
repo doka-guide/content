@@ -6,7 +6,7 @@ authors:
 related:
   - js/event
   - js/events
-  - js/dom
+  - js/dispatch-event
 tags:
   - doka
 ---
@@ -40,7 +40,7 @@ const myCustomEvent = new CustomEvent('mycustomevent', {
   - `cancelable` (необязательный, по умолчанию false) — является ли событие отменяемым;
   - `composed` (необязательный, по умолчанию false) — должно ли событие переходить из теневого DOM в обычный.
 
-Отправить пользовательское событие можно с помощью [dispatchEvent](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent).
+Отправить пользовательское событие можно с помощью [`dispatchEvent()`](/js/dispatch-event/).
 
 ## Подсказки
 
