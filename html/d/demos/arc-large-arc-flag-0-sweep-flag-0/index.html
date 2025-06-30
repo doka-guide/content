@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Короткая дуга против часовой стрелки — Атрибут d — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: "Roboto", sans-serif;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg width="300" height="300">
+        <path
+          d="M 125 175 A 50 50 0 1 0 175 125"
+          stroke="grey"
+          stroke-width="4"
+          fill="none"
+        />
+        <path
+          d="M 125 175 A 50 50 0 1 1 175 125"
+          stroke="grey"
+          stroke-width="4"
+          fill="none"
+        />
+        <path
+          d="M 125 175 A 50 50 0 0 1 175 125"
+          stroke="grey"
+          stroke-width="4"
+          fill="none"
+        />
+        <path
+          d="M 125 175 A 50 50 0 0 0 175 125"
+          stroke="white"
+          stroke-width="4"
+          fill="none"
+        />
+        <circle r="5" cx="125" cy="175" fill="red" />
+        <circle r="5" cx="175" cy="125" fill="red" />
+      </svg>
+    </div>
+  </body>
+</html>
