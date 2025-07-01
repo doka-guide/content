@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимированный скелетон для карточки — Скелетон — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191c;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .skeleton {
+      /* Общий цвет для блоков внутри скетелона */
+      --skeleton-bg-color: #5F377D;
+      /* Внутренний отступ для текста внутри карточки */
+      --padding: 15px;
+
+      /* Параметры для анимации загрузки */
+      --blur-width: 600%;
+      --blur-height: 200%;
+      --blur-start-position: 130%;
+      --blur-end-position: 0%;
+      --blur-background: linear-gradient(
+          130deg,
+          transparent 0,
+          transparent 35%,
+          #18191c99 40%,
+          #18191ce6 50%,
+          #18191c99 60%,
+          transparent 70%,
+          transparent 100%
+      );
+
+      /* Параметры для скелетона картинки */
+      --image-width: 100%;
+      --image-height: 250px;
+      --image-x: 0px;
+      --image-y: 0px;
+      --image-position: var(--image-x) var(--image-y);
+      --image-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+      /* Параметры для скелетона заголовка */
+      --title-width: calc(80%);
+      --title-height: 40px;
+      --title-x: var(--padding);
+      --title-y: calc(var(--image-height) + 25px);
+      --title-position: var(--title-x) var(--title-y);
+      --title-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+      --title-margin-bottom: 25px;
+
+      /* Общие параметры скелетонов для текстовых блоков */
+      --text-gap: 16px;
+      --text-line-height: 17px;
+
+      /* Параметры для скелетона первой строки текста */
+      --text-line-first-width: calc(100% - var(--padding) - var(--padding));
+      --text-line-first-height: var(--text-line-height);
+      --text-line-first-x: var(--padding);
+      --text-line-first-y: calc(var(--title-y) + var(--title-height) + var(--title-margin-bottom));
+      --text-line-first-position: var(--text-line-first-x) var(--text-line-first-y);
+      --text-line-first-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+      /* Параметры для скелетона второй строки текста */
+      --text-line-second-width: calc(100% - var(--padding) - var(--padding));
+      --text-line-second-height: var(--text-line-height);
+      --text-line-second-x: var(--padding);
+      --text-line-second-y: calc(var(--text-line-first-y) + var(--text-line-first-height) + var(--text-gap));
+      --text-line-second-position: var(--text-line-second-x) var(--text-line-second-y);
+      --text-line-second-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+      /* Параметры для скелетона третьей строки текста */
+      --text-line-third-width: 70%;
+      --text-line-third-height: var(--text-line-height);
+      --text-line-third-x: var(--padding);
+      --text-line-third-y: calc(var(--text-line-second-y) + var(--text-line-second-height) + var(--text-gap));
+      --text-line-third-position: var(--text-line-third-x) var(--text-line-third-y);
+      --text-line-third-skeleton: linear-gradient(var(--skeleton-bg-color), var(--skeleton-bg-color));
+
+      width: 340px;
+      height: 450px;
+
+      /* Цвет фона */
+      background-color: #5F377D33;
+      /* no-repeat нужен, чтобы скелетоны вложенных блоков не повторялись */
+      background-repeat: no-repeat;
+
+      /* Задаём цвет и форму вложенных блоков */
+      background-image:
+        var(--blur-background),
+        var(--image-skeleton),
+        var(--title-skeleton),
+        var(--text-line-first-skeleton),
+        var(--text-line-second-skeleton),
+        var(--text-line-third-skeleton);
+
+      /* Задаём размеры вложенных блоков */
+      background-size:
+        var(--blur-width) var(--blur-height),
+        var(--image-width) var(--image-height),
+        var(--title-width) var(--title-height),
+        var(--text-line-first-width) var(--text-line-first-height),
+        var(--text-line-second-width) var(--text-line-second-height),
+        var(--text-line-third-width) var(--text-line-third-height);
+
+      /* Задаём расположение вложенных блоков */
+      background-position:
+        var(--blur-start-position),
+        var(--image-position),
+        var(--title-position),
+        var(--text-line-first-position),
+        var(--text-line-second-position),
+        var(--text-line-third-position);
+
+      /* Добавляем анимацию загрузки */
+      animation: loading 1.8s ease-in infinite;
+    }
+
+    /*
+      Анимация загрузки работает за счет сдвига блюра.
+      Все остальные блоки неподвижны: не меняют своей позиции.
+    */
+    @keyframes loading {
+      to {
+        background-position:
+          var(--blur-end-position),
+          var(--image-position),
+          var(--title-position),
+          var(--text-line-first-position),
+          var(--text-line-second-position),
+          var(--text-line-third-position);
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .skeleton {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="skeleton"></div>
+</body>
+</html>

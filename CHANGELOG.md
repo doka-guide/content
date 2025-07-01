@@ -2,6 +2,25 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2025
+
+- 18 июня, [`@view-transition`](https://doka.guide/css/view-transition/), Антон Субботин
+- 13 июня, [Атрибут `enterkeyhint`](https://doka.guide/html/enterkeyhint/), Дмитрий Ефимов
+- 11 июня, [Скелетон](https://doka.guide/recipes/skeleton/), Рома Ахмадуллин
+- 11 июня, [`env()`](https://doka.guide/css/env/), Анастасия Ярош
+
+## Май 2025
+
+- 13 мая, [Атрибут `rel`](https://doka.guide/html/rel/), Никита Чуйко
+- 13 мая, [Логические свойства CSS](https://doka.guide/css/logical-properties/), Анастасия Ярош, Дмитрий Чуста
+- 8 мая, [`Number.toExponential()`](https://doka.guide/js/number-toexponential/), Егор Лем
+
+## Апрель 2025
+
+- 28 апреля, [`overscroll-behavior`](https://doka.guide/css/overscroll-behavior/), Рома Ахмадуллин
+- 24 апреля, [`@page`](https://doka.guide/css/page/), Егор Левченко
+- 12 апреля, [`Promise.try()`](https://doka.guide/js/promise-try/), Viktar Nezhbart
+
 ## Март 2025
 
 - 28 марта, [`.trim()`](https://doka.guide/js/string-trim/), Алекс Рассудихин
