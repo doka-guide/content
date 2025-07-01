@@ -261,10 +261,10 @@
     const list = document.querySelector('.list');
 
     radioButtons.forEach((radioButton) => radioButton.addEventListener('click', (event) => {
-		  radioButton.setAttribute('checked', event.target.value === radioButton.value)
+      radioButton.setAttribute('checked', event.target.value === radioButton.value)
       list.setAttribute('type', event.target.value);
     }))
-    
+
     numberInput.addEventListener('input', () => {
       list.setAttribute('start', event.target.value);
     })
