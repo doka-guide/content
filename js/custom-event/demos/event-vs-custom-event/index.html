@@ -150,26 +150,26 @@
       const constructorName = event.constructor.name
       const isTrusted = event.isTrusted
       const isTrustedCaption = `isTrusted: ${isTrusted ? 'true' : 'false'}`
+      const byWhoCaption = isTrusted ? 'вызвано браузером' : 'вызвано через dispatchEvent'
       const changeValueCaption = constructorName === 'CustomEvent' ? 'не влияю на значение чекбокса' : 'меняю значение чекбокса на противоположное'
 
-      return {
-        eventTypeCaption: `${constructorName}, ${isTrustedCaption}`,
+      return [
+        `${constructorName}, ${isTrustedCaption}, ${byWhoCaption},`,
         changeValueCaption,
-      }
+      ]
     }
 
     checkbox.addEventListener('click', (event) => {
-      const logText = getLogForEvent(event)
-
-      const logElementFirstPart = document.createElement('div')
-      logElementFirstPart.textContent = logText.eventTypeCaption
-
-      const logElementSecondPart = document.createElement('div')
-      logElementSecondPart.textContent = logText.changeValueCaption
+      const logTextParts = getLogForEvent(event)
 
       const logElement = document.createElement('li')
-      logElement.appendChild(logElementFirstPart)
-      logElement.appendChild(logElementSecondPart)
+
+      logTextParts.forEach((part) => {
+        const partElement = document.createElement('div')
+        partElement.textContent = part
+        logElement.appendChild(partElement)
+      })
+
       logsContainer.prepend(logElement)
     })
 
