@@ -49,12 +49,17 @@ tags:
 Особую проблему это создаёт на мобильных устройствах: пользователь скринридера не увидит контекста вокруг поля с автофокусом — ему будет доступен только `label` этого поля. В таком случае может помочь атрибут `aria-describedby`.
 
 ```html
-<div role="alertdialog" aria-labelledby="unicorn_title" aria-describedby="unicorn_warning">
+<div 
+  role="alertdialog" 
+  aria-labelledby="unicorn_title" 
+  aria-describedby="unicorn_warning"
+>
   <h2 id="unicorn_title">
     Осторожно, волшебство!
   </h2>
   <p id="unicorn_warning">
-    Если ты отпустишь этого единорога, он ускачет и вернуть его уже не получится!
+    Если ты отпустишь этого единорога, 
+    он ускачет и вернуть его уже не получится!
   </p>
   <button autofocus>
     Обнять и не отпускать
