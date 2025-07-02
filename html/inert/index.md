@@ -4,7 +4,7 @@ description: "Элемент бездельничает? Не беда, ведь
 baseline:
   - group: inert
     features:
-      api.HTMLElement.inert.ignores_find_in_page
+      html.global_attributes.inert
 authors:
   - tatianafokina
 contributors:
