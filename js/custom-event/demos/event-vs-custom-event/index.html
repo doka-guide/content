@@ -150,11 +150,10 @@
       const constructorName = event.constructor.name
       const isTrusted = event.isTrusted
       const isTrustedCaption = `isTrusted: ${isTrusted ? 'true' : 'false'}`
-      const byWhoCaption = isTrusted ? 'вызвано браузером' : 'вызвано через dispatchEvent'
       const changeValueCaption = constructorName === 'CustomEvent' ? 'не влияю на значение чекбокса' : 'меняю значение чекбокса на противоположное'
 
       return [
-        `${constructorName}, ${isTrustedCaption}, ${byWhoCaption},`,
+        `${constructorName}, ${isTrustedCaption}`,
         changeValueCaption,
       ]
     }
