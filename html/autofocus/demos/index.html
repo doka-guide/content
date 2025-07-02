@@ -41,15 +41,22 @@
     }
 
     .dialog__button {
+      width: 100%;
       margin: 0 auto;
     }
 
     .button-blue {
-      background-color: #2E9AFF;
+      background-color: #FF8630;
+    }
+
+    .button-black {
+      background-color: #000000;
+      color: #FFFFFF;
     }
 
     .button:hover, .dialog__button:hover {
       background-color: #FFFFFF;
+      color: #000000;
       cursor: pointer;
       transition: background-color 0.2s linear;
     }
@@ -64,6 +71,7 @@
     }
 
     .dialog__input {
+      width: 100%;
       border: 1px solid #000000;
       border-radius: 6px;
       padding: 10px 15px;
@@ -76,7 +84,7 @@
     }
 
     .dialog__input:focus {
-      border-color: #10F3AF;
+      border-color: #FF8630;
       outline: none;
     }
 
@@ -120,7 +128,7 @@
     <h2 class="dialog__title" id="dialog-name">Введите волшебное слово, чтобы приманить единорога:</h2>
     <form>
       <input type="text" id="magic-word" placeholder="Например: радуга" autofocus  class="dialog__input">
-      <button type="submit" class="dialog__button button-blue">Позвать единорога!</button>
+      <button type="submit" class="dialog__button button-black">Позвать единорога!</button>
     </form>
   </dialog>
 </body>
