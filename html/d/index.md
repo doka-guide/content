@@ -19,12 +19,13 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 190 240
-       Q 90  240
-         90  190
-       T 190 140
-       L 190 40
-       Z"
+    d="
+      M 190 240
+      Q 90  240
+        90  190
+      T 190 140
+      L 190 40
+      Z"
     stroke="white"
     stroke-width="4"
     fill="none" />
@@ -60,10 +61,11 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 125
-       L 150 225
-       M 150 50
-         250 150"
+    d="
+      M 50 125
+      L 150 225
+      M 150 50
+        250 150"
     stroke="white"
     stroke-width="4"
     fill="none"
@@ -87,10 +89,11 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 50
-       V 150
-       H 150
-       L 250 250"
+    d="
+      M 50 50
+      V 150
+      H 150
+      L 250 250"
     stroke="white"
     stroke-width="4"
     fill="none"
@@ -114,12 +117,13 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 50
-        C 150 50
-          50 150
-          150 150
-        S 150 250
-          250 250"
+    d="
+      M 50 50
+      C 150 50
+        50 150
+        150 150
+      S 150 250
+        250 250"
     stroke="white"
     stroke-width="4"
     fill="none"
@@ -150,10 +154,11 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 50
-       Q 150 50
-         150 150
-       T 250 250"
+    d="
+      M 50 50
+      Q 150 50
+        150 150
+      T 250 250"
     stroke="white"
     stroke-width="4"
     fill="none"
@@ -226,9 +231,10 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 150
-       A 100 100 0 0 1 150 50
-         100 100 0 1 1 50 150"
+    d="
+      M 50 150
+      A 100 100 0 0 1 150 50
+        100 100 0 1 1 50 150"
     stroke="white"
     stroke-width="4"
     fill="none"
@@ -249,12 +255,13 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 190 240
-       Q 90  240
-         90  190
-       T 190 140
-       L 190 40
-       Z"
+    d="
+      M 190 240
+      Q 90  240
+        90  190
+      T 190 140
+      L 190 40
+      Z"
     stroke="white"
     stroke-width="4"
     fill="none" />
@@ -268,14 +275,15 @@ tags:
 ```html
 <svg width="300" height="300">
   <path
-    d="M 50 50
-       V 125
-       H 125
-       Z
-       M 250 250
-       V 175
-       H 175
-       Z"
+    d="
+      M 50 50
+      V 125
+      H 125
+      Z
+      M 250 250
+      V 175
+      H 175
+      Z"
     stroke="white"
     stroke-width="4"
     fill="none"
