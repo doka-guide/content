@@ -70,4 +70,4 @@ document.addEventListener('userlogin', (event) => {
 
 Попробуйте в демке изменить состояние чекбокса, кликнув на него и на обе кнопки.
 
-<iframe title="Сравнение new MouseEvent('click') с new CustomEvent('click')" src="demos/event-vs-custom-event/" height="520"></iframe>
+<iframe title="Сравнение new MouseEvent('click') с new CustomEvent('click')" src="demos/event-vs-custom-event/" height="540"></iframe>
