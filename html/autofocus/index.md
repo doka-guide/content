@@ -21,7 +21,7 @@ tags:
 ## Пример
 
 ```html
-<input name="name" autofocus />
+<input name="name" autofocus>
 ```
 
 ## Как понять
