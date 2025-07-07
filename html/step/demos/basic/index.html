@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация атрибута step — Дока</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+  />
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      block-size: 100%;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-block-size: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+      gap: 40px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      user-select: none;
+    }
+
+    input {
+      font-size: 1rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 2px solid #444;
+      background-color: #282c34;
+      color: #eee;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4fc3f7;
+      box-shadow: 0 0 6px #4fc3f7aa;
+    }
+
+    input:invalid {
+      border-color: #ff5252;
+      box-shadow: 0 0 8px #ff5252aa;
+    }
+
+    .desc {
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <label>
+    Число с шагом 0.5 (от 1 до 10)
+    <input type="number" step="0.5" min="1" max="10" value="1" />
+    <div class="desc">Допустимы: 1, 1.5, 2, 2.5 ... 10</div>
+  </label>
+
+  <label>
+    Время с шагом 900 секунд (15 минут)
+    <input type="time" step="900" value="12:00" />
+    <div class="desc">Допустимы: 12:00, 12:15, 12:30, 12:45 и т.д.</div>
+  </label>
+
+  <label>
+    Дата с шагом 2 дня
+    <input type="date" step="2" value="2025-07-07" />
+    <div class="desc">Допустимы: 2025-07-07, 2025-07-09, 2025-07-11 ...</div>
+  </label>
+</body>
+</html>
