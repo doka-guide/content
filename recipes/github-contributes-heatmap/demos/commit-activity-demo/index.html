@@ -276,7 +276,7 @@
         })
 
         const lastDay = dayDate.getDate()
-        isFirstWeekOfMonth = weekIndex === 0 || lastDay <= 7
+        isFirstWeekOfMonth = ( weekIndex === 0 && firstWeekDay < 10 ) || lastDay <= 7
 
         return {
           total,
