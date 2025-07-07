@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@400;500&display=swap">
     <style>
       *, *::before, *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+
       html {
         color-scheme: dark;
       }
+
       body {
         min-height: 100vh;
         padding: 50px;
@@ -26,12 +28,7 @@
         color: #FFFFFF;
         font-family: "Roboto", sans-serif;
       }
-      h3 {
-        margin-bottom: 10px;
-        font-size: 18px;
-        font-weight: 400;
-        text-align: center;
-      }
+
       .button {
         display: block;
         min-width: 210px;
@@ -44,76 +41,128 @@
         font-family: inherit;
         transition: all 0.2s linear;
       }
+
       .button:hover {
+        background-color: #FFFFFF;
         cursor: pointer;
-        transition: all 0.2s linear;
+        transition: background-color 0.2s linear;
       }
+
       .button:focus-visible {
         border: 2px solid #FFFFFF;
         outline: none;
       }
+
       .button:focus {
         border: 2px solid #FFFFFF;
         outline: none;
       }
+
       .button-toggle {
         background-color: #10F3AF;
       }
+
       [aria-pressed="false"] {
         background-color: #10F3AF;
       }
+
       [aria-pressed="true"] {
         background-color: #F498AD;
-        color: #FFFFFF;
+        color: #000000;
       }
+
       [aria-pressed="mixed"] {
         background-color: #FFD829;
         color: #000000;
       }
+
       .button-group {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        align-items: center;
+        justify-content: space-between;
       }
+
+      .group-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      .group-label {
+        margin-right: 55px;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      .group-row + .group-row {
+        margin-top: 25px;
+      }
+
+      .button-container,
+      .button,
       .label {
+        width: 350px;
+      }
+
+      .label {
+        display: inline-block;
+        font-family: "Roboto Mono", monospace;
         font-size: 14px;
         opacity: 0.8;
-        margin-top: 5px;
+        margin-top: 8px;
       }
+
       @media (max-width: 768px) {
         body {
           padding: 30px;
+        }
+
+        .group-row {
+          flex-direction: column;
+        }
+
+        .button-container,
+        .button,
+        .label {
+          width: 100%;
         }
       }
     </style>
   </head>
   <body>
     <div class="button-group">
-      <div>
-        <h3>Субтитры</h3>
-        <button
-          class="button button-toggle"
-          id="toggleButton"
-          aria-pressed="false"
-          onclick="togglePressed(this)"
-        >
-          Выключено
-        </button>
-        <div class="label" id="stateLabel">Состояние: false</div>
+      <div class="group-row">
+        <span class="group-label" id="toggleLabel">Субтитры:</span>
+        <div class="button-container">
+          <button
+            class="button button-toggle"
+            id="toggleButton"
+            aria-pressed="false"
+            onclick="togglePressed(this)"
+            aria-describedby="toggleLabel"
+          >
+            Включить
+          </button>
+          <code class="label" id="stateLabel" aria-live="polite" aria-atomic="true">aria-pressed="false"</code>
+        </div>
       </div>
 
-      <div>
-        <h3>Воспроизведение</h3>
-        <button
-          class="button button-toggle"
-          id="mixedButton"
-          aria-pressed="false"
-          onclick="cycleMixedState(this)"
-        >
-          Плей
-        </button>
-        <div class="label" id="mixedStateLabel">Состояние: false</div>
+      <div class="group-row">
+        <span class="group-label" id="mixedLabel">Воспроизведение:</span>
+        <div class="button-container">
+          <button
+            class="button button-toggle"
+            id="mixedButton"
+            aria-pressed="false"
+            onclick="cycleMixedState(this)"
+            aria-describedby="mixedLabel"
+          >
+            Начать
+          </button>
+          <code class="label" id="mixedStateLabel" aria-live="polite" aria-atomic="true">aria-pressed="false"</code>
+        </div>
       </div>
     </div>
 
@@ -124,11 +173,11 @@
 
         const label = document.getElementById('stateLabel');
         if (!isPressed) {
-          button.textContent = 'Включено';
-          label.textContent = 'Состояние: true';
+          button.textContent = 'Выключить';
+          label.textContent = 'aria-pressed="true"';
         } else {
-          button.textContent = 'Выключено';
-          label.textContent = 'Состояние: false';
+          button.textContent = 'Включить';
+          label.textContent = 'aria-pressed="false"';
         }
       }
 
@@ -139,15 +188,15 @@
         if (currentState === 'false') {
           button.setAttribute('aria-pressed', 'mixed');
           button.textContent = 'Пауза';
-          stateLabel.textContent = 'Состояние: mixed';
+          stateLabel.textContent = 'aria-pressed="mixed"';
         } else if (currentState === 'mixed') {
           button.setAttribute('aria-pressed', 'true');
           button.textContent = 'Стоп';
-          stateLabel.textContent = 'Состояние: true';
+          stateLabel.textContent = 'aria-pressed="true"';
         } else {
           button.setAttribute('aria-pressed', 'false');
-          button.textContent = 'Плей';
-          stateLabel.textContent = 'Состояние: false';
+          button.textContent = 'Начать';
+          stateLabel.textContent = 'aria-pressed="false"';
         }
       }
     </script>
