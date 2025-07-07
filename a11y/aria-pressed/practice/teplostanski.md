@@ -1,5 +1,3 @@
-### Интеграция с фреймворками
-
 В современных JavaScript-фреймворках `aria-pressed` легко интегрируется в компонентный подход.
 
 Пример React-компонента:
@@ -20,7 +18,8 @@ function ToggleButton({ label, initialState = false }) {
 ```
 
 Пример Vue-компонента:
-```js
+
+```jsx
 <template>
   <button
     :aria-pressed="isPressed"
