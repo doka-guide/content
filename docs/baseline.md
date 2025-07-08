@@ -33,7 +33,7 @@ baseline:
 Новейшие значения этого свойства: `flex` и `grid`. Их и будем использовать:
 
 1. С помощью поиска находим [страницу свойства](https://web-platform-dx.github.io/web-features-explorer/features/flexbox/).
-1. Переходим по ссылке «[View the feature source file](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml)» внизу страницы.
+1. Переходим по ссылке «[Web-features entry: dist](https://github.com/web-platform-dx/web-features/blob/main/features/flexbox.yml.dist)» внизу страницы.
 1. Копируем имя файла конфигурации (без расширения) и вставляем в заголовок статьи как значение поля `group`.
 1. Копируем значения свойств в списке `compat_features` и вставляем в заголовок статьи как значение поля `features`.
 
@@ -45,7 +45,7 @@ baseline:
       - css.properties.display.inline-flex
 ```
 
-5. Добавляем также нужные свойства из конфига файла [`grid`](https://github.com/web-platform-dx/web-features/blob/main/features/grid.yml):
+5. Добавляем также нужные свойства из конфига файла [`grid`](https://github.com/web-platform-dx/web-features/blob/main/features/grid.yml.dist):
 
 ```markdown
 baseline:
