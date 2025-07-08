@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Цвета в вебе — HSL — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #18191c;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      text-align: center;
+      font-size: 1rem;
+      padding: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .color-params {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="range"] {
+      flex-grow: 1;
+    }
+
+    input[type="number"] {
+      width: 70px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      width: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="color-block">hsl(0deg 100% 50% / 1)</div>
+    <div class="color-params">
+      <div class="input-group">
+        <label>H:</label>
+        <input type="range" id="h" min="0" max="360" value="0">
+        <input type="number" id="h-num" min="0" max="360" value="0">
+      </div>
+      <div class="input-group">
+        <label>S:</label>
+        <input type="range" id="s" min="0" max="100" value="100">
+        <input type="number" id="s-num" min="0" max="100" value="100">
+      </div>
+      <div class="input-group">
+        <label>L:</label>
+        <input type="range" id="l" min="0" max="100" value="50">
+        <input type="number" id="l-num" min="0" max="100" value="50">
+      </div>
+      <div class="input-group">
+        <label>A:</label>
+        <input type="range" id="a" min="0" max="1" step="0.01" value="1">
+        <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const refs = {
+      h: document.getElementById("h"),
+      s: document.getElementById("s"),
+      l: document.getElementById("l"),
+      a: document.getElementById("a"),
+      hNum: document.getElementById("h-num"),
+      sNum: document.getElementById("s-num"),
+      lNum: document.getElementById("l-num"),
+      aNum: document.getElementById("a-num"),
+      block: document.getElementById("color-block")
+    };
+  
+    function updateColor() {
+      const h = refs.h.value;
+      const s = refs.s.value;
+      const l = refs.l.value;
+      const a = refs.a.value;
+  
+      const hslColor = `hsl(${h}deg ${s}% ${l}% / ${a})`;
+  
+      refs.block.style.backgroundColor = hslColor;
+      refs.block.textContent = hslColor;
+
+      const lightness = parseFloat(l);
+      const alpha = parseFloat(a);
+      const contrastColor = (lightness > 50 || alpha < 0.4) ? '#000' : '#fff';
+      refs.block.style.color = contrastColor;
+    }
+  
+    function updateFromSliders() {
+      refs.hNum.value = refs.h.value;
+      refs.sNum.value = refs.s.value;
+      refs.lNum.value = refs.l.value;
+      refs.aNum.value = refs.a.value;
+      updateColor();
+    }
+  
+    function updateFromNumbers() {
+      refs.h.value = refs.hNum.value;
+      refs.s.value = refs.sNum.value;
+      refs.l.value = refs.lNum.value;
+      refs.a.value = refs.aNum.value;
+      updateColor();
+    }
+  
+    ['h', 's', 'l', 'a'].forEach(key => {
+      refs[key].addEventListener('input', updateFromSliders);
+      refs[`${key}Num`].addEventListener('input', updateFromNumbers);
+    });
+  
+    updateColor();
+  </script>
+   
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>OKLCH — Цвета в вебе — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: dark; }
+    body {
+      font-family: "Roboto", sans-serif;
+      background: #18191c;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
+      width: 100%;
+    }
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      text-align: center;
+      padding: 10px;
+    }
+    .params {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type="range"] { flex: 1; }
+    input[type="number"] { width: 70px; }
+    label { width: 25px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="color-block">oklch(0.5 0.2 180 / 1)</div>
+    <div class="params">
+      <div class="group"><label>L</label><input type="range" id="L" min="0" max="1" step="0.01" value="0.5"><input type="number" id="L-num" min="0" max="1" step="0.01" value="0.5"></div>
+      <div class="group"><label>C</label><input type="range" id="C" min="0" max="0.4" step="0.01" value="0.2"><input type="number" id="C-num" min="0" max="0.4" step="0.01" value="0.2"></div>
+      <div class="group"><label>H</label><input type="range" id="H" min="0" max="360" value="180"><input type="number" id="H-num" min="0" max="360" value="180"></div>
+      <div class="group"><label>α</label><input type="range" id="alpha" min="0" max="1" step="0.01" value="1"><input type="number" id="alpha-num" min="0" max="1" step="0.01" value="1"></div>
+    </div>
+  </div>
+
+  <script>
+    const ids = ['L', 'C', 'H', 'alpha'];
+    const refs = ids.reduce((o, id) => {
+      o[id] = document.getElementById(id);
+      o[id + 'Num'] = document.getElementById(id + '-num');
+      return o;
+    }, { block: document.getElementById('color-block') });
+
+    function updateColor() {
+      const L = refs.L.value;
+      const C = refs.C.value;
+      const H = refs.H.value;
+      const alpha = refs.alpha.value;
+      const color = `oklch(${L} ${C} ${H} / ${alpha})`;
+      refs.block.style.backgroundColor = color;
+      refs.block.textContent = color;
+
+      const [r, g, b] = getComputedStyle(refs.block).backgroundColor.match(/\d+/g).map(Number);
+      const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      refs.block.style.color = luminance > 128 ? '#000' : '#fff';
+    }
+
+    ids.forEach(id => {
+      refs[id].addEventListener('input', () => {
+        refs[id + 'Num'].value = refs[id].value;
+        updateColor();
+      });
+      refs[id + 'Num'].addEventListener('input', () => {
+        refs[id].value = refs[id + 'Num'].value;
+        updateColor();
+      });
+    });
+
+    updateColor();
+  </script>
+</body>
+</html>

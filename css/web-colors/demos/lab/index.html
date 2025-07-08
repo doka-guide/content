@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Цвета в вебе — LAB — Дока</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: dark; }
+    body {
+      font-family: "Roboto", sans-serif;
+      background: #18191c;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
+      width: 100%;
+    }
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      padding: 10px;
+      text-align: center;
+    }
+    .params {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    input[type="range"] { flex: 1; }
+    input[type="number"] { width: 70px; }
+    label { width: 25px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="color-block">lab(50 0 0 / 1)</div>
+    <div class="params">
+      <div class="group"><label for="L">L</label><input type="range" id="L" min="0" max="100" value="50"><input type="number" id="L-num" min="0" max="100" value="50"></div>
+      <div class="group"><label for="A">A</label><input type="range" id="A" min="-128" max="128" value="0"><input type="number" id="A-num" min="-128" max="128" value="0"></div>
+      <div class="group"><label for="B">B</label><input type="range" id="B" min="-128" max="128" value="0"><input type="number" id="B-num" min="-128" max="128" value="0"></div>
+      <div class="group"><label for="a">α</label><input type="range" id="a" min="0" max="1" step="0.01" value="1"><input type="number" id="a-num" min="0" max="1" step="0.01" value="1"></div>
+    </div>
+  </div>
+
+  <script>
+    const ids = ['L','A','B','a'];
+    const refs = ids.reduce((o,k) => {
+      o[k] = document.getElementById(k);
+      o[k+'Num'] = document.getElementById(k+'-num');
+      return o;
+    }, { block: document.getElementById('color-block') });
+
+    function labToXyz(L, A, B) {
+      let y = (L + 16) / 116;
+      let x = A / 500 + y;
+      let z = y - B / 200;
+      const pow3 = v => v**3 > 0.008856 ? v**3 : (v - 16/116) / 7.787;
+      return [pow3(x)*95.047, pow3(y)*100.000, pow3(z)*108.883];
+    }
+
+    function xyzToRgb([x,y,z]) {
+      x/=100; y/=100; z/=100;
+      let r = x*3.2406 + y*-1.5372 + z*-0.4986;
+      let g = x*-0.9689 + y*1.8758 + z*0.0415;
+      let b = x*0.0557 + y*-0.2040 + z*1.0570;
+      const correct = v => {
+        v = v > 0.0031308 ? 1.055 * (v**(1/2.4)) - .055 : 12.92 * v;
+        return Math.min(Math.max(0, v),1);
+      };
+      return [correct(r),correct(g),correct(b)].map(v=>v*255);
+    }
+
+    function luminance(rgb) {
+      const srgb = rgb.map(v => {
+        const u = v/255;
+        return u <= 0.03928 ? u/12.92 : ((u+0.055)/1.055)**2.4;
+      });
+      return 0.2126*srgb[0] + 0.7152*srgb[1] + 0.0722*srgb[2];
+    }
+
+    function updateColor() {
+      const L = parseFloat(refs.L.value);
+      const A = parseFloat(refs.A.value);
+      const B = parseFloat(refs.B.value);
+      const a = parseFloat(refs.a.value);
+      const css = `lab(${L} ${A} ${B} / ${a})`;
+      refs.block.style.backgroundColor = css;
+      refs.block.textContent = css;
+      const rgb = xyzToRgb(labToXyz(L,A,B));
+      const lum = luminance(rgb);
+      refs.block.style.color = lum > 0.5 ? '#000' : '#fff';
+    }
+
+    function syncSlider(e) {
+      const id = e.target.id;
+      refs[id+'Num'].value = refs[id].value;
+      updateColor();
+    }
+
+    function syncNumber(e) {
+      const id = e.target.id.replace('-num', '');
+      refs[id].value = refs[id+'Num'].value;
+      updateColor();
+    }
+
+    ids.forEach(k => {
+      refs[k].addEventListener('input', syncSlider);
+      refs[k+'Num'].addEventListener('input', syncNumber);
+    });
+    updateColor();
+  </script>
+</body>
+</html>
