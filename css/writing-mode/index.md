@@ -1,6 +1,16 @@
 ---
 title: "`writing-mode`"
 description: "«Зеркалим» сайт: блоки и текст пишутся не слева направо, а справа налево."
+baseline:
+  - group: writing-mode
+    features:
+      - css.properties.writing-mode
+      - css.properties.writing-mode.horizontal-tb
+      - css.properties.writing-mode.sideways-lr
+      - css.properties.writing-mode.sideways-rl
+      - css.properties.writing-mode.vertical-lr
+      - css.properties.writing-mode.vertical-rl
+
 authors:
   - doka-dog
 keywords:
