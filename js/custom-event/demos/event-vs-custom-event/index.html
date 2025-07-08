@@ -148,8 +148,7 @@
 
     const getLogForEvent = (event) => {
       const constructorName = event.constructor.name
-      const isTrusted = event.isTrusted
-      const isTrustedCaption = `isTrusted: ${isTrusted ? 'true' : 'false'}`
+      const isTrustedCaption = `isTrusted: ${event.isTrusted}`
       const changeValueCaption = constructorName === 'CustomEvent' ? 'не влияю на значение чекбокса' : 'меняю значение чекбокса на противоположное'
 
       return [
