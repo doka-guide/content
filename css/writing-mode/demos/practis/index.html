@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Значения writing-mode — writing-mode — Дока</title>
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+    .mode-select {
+        display: flex;
+        align-items: baseline;
+        gap: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    select {
+      font-size: 1rem;
+      padding: 0.4em;
+    }
+
+    .wrapper {
+      border: 2px dashed #aaa;
+      padding: 1rem;
+      width: 100%;
+      max-width: 700px;
+      height: 300px;
+      writing-mode: horizontal-tb;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 0.5rem;
+      overflow: auto;
+    }
+
+    .wrapper p {
+      grid-column: 1 / -1;
+      margin: 0 0 1rem 0;
+      font-weight: bold;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 1em;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="mode-select">
+    <label for="mode">Выберите значение <code>writing-mode</code>:</label>
+    <select id="mode">
+      <option value="horizontal-tb">horizontal-tb</option>
+      <option value="vertical-rl">vertical-rl</option>
+      <option value="vertical-lr">vertical-lr</option>
+      <option value="sideways-rl">sideways-rl</option>
+      <option value="sideways-lr">sideways-lr</option>
+    </select>    
+  </div>
+  <div class="wrapper" id="demo">
+    <p>Это текст внутри контейнера</p>
+    <div class="box" style="background: #FF8630; color: #18191C;">HTML</div>
+    <div class="box" style="background: #2E9AFF; color: #18191C;">CSS</div>
+    <div class="box" style="background: #FFD829; color: #18191C;">JS</div>
+    <div class="box" style="background: #41E847; color: #18191C;">Веб-платформа</div>
+    <div class="box" style="background: #C56FFF; color: #18191C;">Рецепты</div>
+    <div class="box" style="background: #10F3AF; color: #18191C;">Доступность</div>
+  </div>
+
+  <script>
+    const select = document.getElementById('mode');
+    const demo = document.getElementById('demo');
+
+    select.addEventListener('change', () => {
+      demo.style.writingMode = select.value;
+    });
+  </script>
+</body>
+</html>
