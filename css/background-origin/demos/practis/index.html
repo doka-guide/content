@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка background-origin — background-origin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    select {
+      padding: 0.4em 0.6em;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .box {
+      border: 5px solid #ccc;
+      padding: 1em;
+      border-radius: 1rem;
+      aspect-ratio: 16/9;
+      width: 100%;
+      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=400&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-origin: padding-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="controls">
+      <label for="origin-select">Выберите background-origin:</label>
+      <select id="origin-select">
+        <option value="border-box">border-box</option>
+        <option value="padding-box" selected>padding-box</option>
+        <option value="content-box">content-box</option>
+      </select>
+    </div>
+
+    <div class="box" id="demo-box">Фон внутри box</div>
+  </div>
+
+  <script>
+    const select = document.getElementById('origin-select');
+    const box = document.getElementById('demo-box');
+
+    select.addEventListener('change', () => {
+      box.style.backgroundOrigin = select.value;
+    });
+  </script>
+</body>
+</html>
