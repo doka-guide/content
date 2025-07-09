@@ -63,7 +63,7 @@
     }
 
     .input:focus {
-      border-color: #2E9AFF;
+      border-color: #FFD829;
       outline: none;
     }
 
@@ -77,7 +77,7 @@
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
-      background-color: #2E9AFF;
+      background-color: #FFD829;
       transition: background-color 0.2s linear;
     }
 
@@ -123,12 +123,12 @@
 
       <div>
         <label for="password" class="label">Пароль</label>
-        <input id="password" name="password" type="password"  class="input" required>
+        <input id="password" name="password" type="password" class="input" required>
       </div>
 
       <button type="submit" class="button">Авторизоваться</button>
     </form>
-    <div class="greeting-container">
+    <div class="greeting-container" aria-live="polite" aria-atomic="true">
       <p>Привет, <span id="username">Аноним</span>!</p>
     </div>
   </div>
