@@ -9,7 +9,7 @@ baseline:
       - css.properties.background-origin.content-box
       - css.properties.background-origin.padding-box
 authors:
-  - drakesweb
+  - drakesbot12
 keywords:
   - область положения фона
 related:
@@ -55,8 +55,6 @@ tags:
 В этом примере первое изображение (человек) будет отрисован от края содержимого, а второе — от внутреннего отступа.
 
 <iframe title="Интерактивная демка background-origin" src="demos/practis/" height="400"></iframe>
-
-## Как понять
 
 ## Как понять
 
