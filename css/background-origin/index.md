@@ -37,6 +37,18 @@ tags:
 - `padding-box` — фон начинается от внутренней границы рамки, то есть с области отступа (значение по умолчанию).
 - `content-box` — фон начинается от края содержимого, не затрагивая padding и border.
 
+Можно указать несколько значений, если в свойстве [`background-image`](css/background-image/) используется несколько изображений. Тогда порядок значений background-origin соответствует порядку фоновых изображений:
+
+```css
+.box {
+  background-image:
+    url("person.jpg"),
+    url("main-back.png");
+  background-origin: content-box, padding-box;
+}
+```
+В этом примере первое изображение (человек) будет отрисован от края содержимого, а второе — от внутреннего отступа.
+
 <iframe title="Интерактивная демка background-origin" src="demos/practis/" height="400"></iframe>
 
 ## Как понять

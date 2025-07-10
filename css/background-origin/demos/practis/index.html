@@ -21,7 +21,7 @@
     body {
       min-height: 100vh;
       padding: 50px;
-      font-size: 18px;
+      font-size: 20px;
       display: flex;
       flex-direction: column;
       gap: 30px;
@@ -32,28 +32,33 @@
       font-family: "Roboto", sans-serif;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
-    }
-
     .container {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
     }
 
     .controls {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    label {
+      display: flex;
       align-items: baseline;
-      gap: 10px;
+      gap: 1rem;
+      font-size: 0.9em;
     }
 
     select {
       padding: 0.4em 0.6em;
       border-radius: 4px;
       font-size: 1rem;
+      margin-top: 4px;
     }
 
     .box {
@@ -62,10 +67,13 @@
       border-radius: 1rem;
       aspect-ratio: 16/9;
       width: 100%;
-      background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=400&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-origin: padding-box;
+      background-image: 
+        url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=400&q=80'), 
+        url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=600&q=80');
+      background-size: 200px, cover;
+      background-repeat: no-repeat, no-repeat;
+      background-position: top left, center;
+      background-origin: padding-box, padding-box;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -76,24 +84,39 @@
 <body>
   <div class="container">
     <div class="controls">
-      <label for="origin-select">Выберите background-origin:</label>
-      <select id="origin-select">
-        <option value="border-box">border-box</option>
-        <option value="padding-box" selected>padding-box</option>
-        <option value="content-box">content-box</option>
-      </select>
+      <label>
+        Первый фон (иконка)
+        <select id="origin-1">
+          <option value="border-box">border-box</option>
+          <option value="padding-box" selected>padding-box</option>
+          <option value="content-box">content-box</option>
+        </select>
+      </label>
+      <label>
+        <select id="origin-2">
+          <option value="border-box">border-box</option>
+          <option value="padding-box" selected>padding-box</option>
+          <option value="content-box">content-box</option>
+        </select>
+        Второй фон (основной)
+      </label>
     </div>
 
-    <div class="box" id="demo-box">Фон внутри box</div>
+    <div class="box" id="demo-box"><code>background-origin: padding-box, padding-box;</code></div>
   </div>
 
   <script>
-    const select = document.getElementById('origin-select');
     const box = document.getElementById('demo-box');
+    const origin1 = document.getElementById('origin-1');
+    const origin2 = document.getElementById('origin-2');
 
-    select.addEventListener('change', () => {
-      box.style.backgroundOrigin = select.value;
-    });
+    function updateOrigin() {
+      box.style.backgroundOrigin = `${origin1.value}, ${origin2.value}`;
+      box.innerHTML = `<code>background-origin: ${origin1.value}, ${origin2.value};</code>`
+    }
+
+    origin1.addEventListener('change', updateOrigin);
+    origin2.addEventListener('change', updateOrigin);
   </script>
 </body>
 </html>
