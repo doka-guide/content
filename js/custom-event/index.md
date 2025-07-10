@@ -30,7 +30,6 @@ const myCustomEvent = new CustomEvent('mycustomevent', {
 Чтобы создать своё событие, нужно вызвать `new CustomEvent()`. Конструктор принимает в себя два аргумента:
 
 - `type` — строка с названием события;
-vitya-ne marked this conversation as resolved.
 - `options` (необязательный) — объект со свойствами события:
   - `detail` — данные любого типа, которые необходимо передать вместе с событием, но можно ничего и не передавать;
   - `bubbles` — [всплывает ли событие](/js/events/#vsplytie-sobytiy), по умолчанию `false`;
