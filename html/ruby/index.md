@@ -2,7 +2,11 @@
 title: "`ruby`"
 description: "Добавляем надстрочные подсказки к символам с помощью HTML"
 authors:
-  - drakesweb
+  - drakesbot12
+related:
+  - html/caption/
+  - html/p/ 
+  - html/pre/
 tags:
   - doka
 ---
