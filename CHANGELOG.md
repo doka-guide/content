@@ -2,21 +2,65 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июнь 2025
+
+- 18 июня, [`@view-transition`](https://doka.guide/css/view-transition/), Антон Субботин
+- 13 июня, [Атрибут `enterkeyhint`](https://doka.guide/html/enterkeyhint/), Дмитрий Ефимов
+- 11 июня, [Скелетон](https://doka.guide/recipes/skeleton/), Рома Ахмадуллин
+- 11 июня, [`env()`](https://doka.guide/css/env/), Анастасия Ярош
+
+## Май 2025
+
+- 13 мая, [Атрибут `rel`](https://doka.guide/html/rel/), Никита Чуйко
+- 13 мая, [Логические свойства CSS](https://doka.guide/css/logical-properties/), Анастасия Ярош, Дмитрий Чуста
+- 8 мая, [`Number.toExponential()`](https://doka.guide/js/number-toexponential/), Егор Лем
+
+## Апрель 2025
+
+- 28 апреля, [`overscroll-behavior`](https://doka.guide/css/overscroll-behavior/), Рома Ахмадуллин
+- 24 апреля, [`@page`](https://doka.guide/css/page/), Егор Левченко
+- 12 апреля, [`Promise.try()`](https://doka.guide/js/promise-try/), Viktar Nezhbart
+
+## Март 2025
+
+- 28 марта, [`.trim()`](https://doka.guide/js/string-trim/), Алекс Рассудихин
+- 23 марта, [`scrollsnapchange`](https://doka.guide/js/element-scrollsnapchange/), Рома Ахмадуллин
+- 23 марта, [`scrollsnapchanging`](https://doka.guide/js/element-scrollsnapchanging/), Рома Ахмадуллин
+- 13 марта, [Кастомный кроссбраузерный ползунок диапазона](https://doka.guide/recipes/input-range-style/), Михаил Кривдин, Viktar Nezhbart
+- 07 марта, [`AbortController`](https://doka.guide/js/abort-controller/), Игорь Теплостанский
+- 03 марта, [Псевдоприватные кастомные свойства](https://doka.guide/css/pseudo-private-custom-property/), Андрей Александрычев
+- 01 марта, [`isDisjointFrom()`](https://doka.guide/js/set-is-disjoint-from/), Алекс Рассудихин
+
+## Февраль 2025
+
+- 26 февраля, [`scroll-snap-align`](https://doka.guide/css/scroll-snap-align/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-stop`](https://doka.guide/css/scroll-snap-stop/), Рома Ахмадуллин
+- 26 февраля, [`scroll-snap-type`](https://doka.guide/css/scroll-snap-type/), Рома Ахмадуллин
+
+## Январь 2025
+
+- 31 января, [`aria-required`](https://doka.guide/a11y/aria-required/), juliememe
+- 31 января, [Тултип](https://doka.guide/recipes/tooltip/), Рома Ахмадуллин
+- 31 января, [`note`](https://doka.guide/a11y/role-note/), Татьяна Фокина
+- 30 января, [`readonly`](https://doka.guide/html/readonly/), Игорь Теплостанский
+- 27 января, [`list`](https://doka.guide/a11y/role-list/), Татьяна Фокина
+- 27 января, [`listitem`](https://doka.guide/a11y/role-listitem/), Татьяна Фокина
+- 27 января, [`region`](https://doka.guide/a11y/role-region/), Татьяна Фокина
+- 27 января, [`emphasis`](https://doka.guide/a11y/role-emphasis/), Татьяна Фокина
+- 27 января, [`strong`](https://doka.guide/a11y/role-strong/), Татьяна Фокина
+- 16 января, [Оверлеи и отдельные версии сайтов](https://doka.guide/a11y/overlays/), Анастасия Ярош
+- 03 января, [`Console`](https://doka.guide/js/console/), Viktar Nezhbart
+
 ## Декабрь 2024
 
 - 10 декабря, [`@starting-style`](https://doka.guide/css/starting-style/), Рома Ахмадуллин
 
-
 ## Ноябрь 2024
 
 - 28 ноября, [`<menu>`](https://doka.guide/html/menu/), Алина Козловцева
-
 - 18 ноября, [Деструктуризация](https://doka.guide/js/destructuring-assignment/), Viktar Nezhbart
-
 - 15 ноября, [`rotate`](https://doka.guide/css/rotate/), Анастасия Ярош
-
 - 15 ноября, [`text-align-last`](https://doka.guide/css/text-align-last/), Мария Белинская
-
 
 ## Октябрь 2024
 

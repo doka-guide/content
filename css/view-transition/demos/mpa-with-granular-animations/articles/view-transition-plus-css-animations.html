@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>MPA с гранулярными анимациями — @view-transition — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    a {
+      border-radius: 3px;
+      color: inherit;
+      -webkit-text-decoration-color: #2E9AFF;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+      transition: background-color 0.2s linear;
+    }
+
+    a:hover, a:focus {
+      background-color: #2E9AFF;
+      transition: background-color 0.2s linear;
+      outline-width: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 60em;
+      margin: 0 auto;
+    }
+
+    .article {
+      padding: 1em;
+      border: 1px solid #2E9AFF;
+    }
+
+    .article-content {
+      margin: 0;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    @keyframes zoomOut {
+      from {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      to {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOut {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      view-transition-name: header;
+    }
+
+    ::view-transition-old(root) {
+      animation: 0.3s ease-in-out both zoomOut;
+    }
+
+    ::view-transition-new(root) {
+      animation: 0.3s ease-in-out both slideIn;
+    }
+
+    ::view-transition-old(header) {
+      animation: 0.3s ease-in-out both fadeOut;
+    }
+
+    ::view-transition-new(header) {
+      animation: 0.3s ease-in-out both fadeIn;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>@view-transition + CSS-анимации = ❤️</h1>
+    </header>
+
+    <a href="../index.html" class="back-button">← Назад к списку</a>
+
+    <article class="article">
+      <p class="article-content">Добавить свою кастомную анимацию к плавным переходам между страницами сайта очень просто. Используйте для этого <del>простые советские</del> CSS-анимации.</p>
+    </article>
+  </div>
+
+  <script>
+    new ResizeObserver(() => {
+      const data = {
+        id: 'mpa',
+        height: document.body.getBoundingClientRect().height,
+      };
+
+      window.parent.postMessage(data);
+    }).observe(document.body);
+  </script>
+</body>
+</html>

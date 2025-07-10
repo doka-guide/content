@@ -354,8 +354,12 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - overscroll-behavior
       - scroll-behavior
       - scroll-padding
+      - scroll-snap-type
+      - scroll-snap-align
+      - scroll-snap-stop
       - scrollbar-color
       - scrollbar-gutter
       - scrollbar-width
@@ -371,6 +375,7 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - page
       - break-after
       - orphans
       - widows

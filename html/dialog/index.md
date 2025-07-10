@@ -1,6 +1,17 @@
 ---
 title: "`<dialog>`"
 description: "Тег для создания всплывающего окна без боли и страданий."
+baseline:
+  - group: dialog
+    features:
+      - api.HTMLDialogElement
+      - api.HTMLDialogElement.close
+      - api.HTMLDialogElement.open
+      - api.HTMLDialogElement.returnValue
+      - api.HTMLDialogElement.show
+      - api.HTMLDialogElement.showModal
+      - html.elements.dialog
+      - html.elements.dialog.open
 authors:
   - baileys-li
 contributors:

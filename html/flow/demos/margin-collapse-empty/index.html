@@ -32,9 +32,19 @@
 
     .controls {
       display: flex;
-      align-items: center;
       justify-content: center;
       padding-bottom: 25px;
+      gap: 25px;
+    }
+
+    .controls-block {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .controls-block:first-child {
+      flex: 1;
     }
 
     .normal-flow {
@@ -108,10 +118,6 @@
       transition: background-color 0.2s linear;
     }
 
-    .button:not(:last-child), .input-range {
-      margin-right: 25px;
-    }
-
     .button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
@@ -132,8 +138,7 @@
     }
 
     .input-range {
-      width: 300px;
-      flex-grow: 1;
+      width: 100%;
     }
 
     @keyframes blinker {
@@ -141,15 +146,49 @@
       50% {opacity: 0;}
       100% {opacity: 1.0;}
     }
+
+    @media (max-width: 868px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: auto;
+        min-width: auto;
+      }
+
+      .controls {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body,
+      .normal-flow-child {
+        padding: 20px;
+      }
+
+      .button {
+        min-width: auto;
+      }
+
+      .button, .input-range {
+        width: 50%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="controls">
-      <button class="button button-blue restart">Рестарт</button>
-      <input class="input-range" type="range" name="" value="0" min="0" max="100" id="timeline">
-      <button class="button button-blue stop">Пауза</button>
-      <button class="button button-orange play">Пуск</button>
+      <div class="controls-block">
+        <button class="button button-blue restart">Рестарт</button>
+        <input class="input-range" type="range" name="" value="0" min="0" max="100" id="timeline">
+      </div>
+      <div class="controls-block">
+        <button class="button button-blue stop">Пауза</button>
+        <button class="button button-orange play">Пуск</button>
+      </div>
     </div>
     <div class="normal-flow">
       <p class="normal-flow-child">Азимут решает метеорный дождь. Движение однократно. Зоркость наблюдателя, после осторожного анализа, гасит аргумент перигелия. Очевидно, что азимут меняет возмущающий фактор.</p>

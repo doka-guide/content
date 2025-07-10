@@ -1,6 +1,10 @@
 ---
 title: "Атрибут `inert`"
 description: "Элемент бездельничает? Не беда, ведь есть inert."
+baseline:
+  - group: inert
+    features:
+      html.global_attributes.inert
 authors:
   - tatianafokina
 contributors:

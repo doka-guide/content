@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный тултип на основе Popover API и CSS Anchor Positioning — Тултип — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .height-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+
+    .scrollable-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200vh;
+      min-width: 200vw;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.15s ease-in;
+      cursor: pointer;
+      background-color: #C56FFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .button {
+        min-width: 60px;
+      }
+    }
+
+    .tooltip-anchor {
+      /* даём якорю (кнопке) имя */
+      anchor-name: --button-el;
+    }
+
+    .tooltip {
+      inset: unset;
+      max-width: 300px;
+      margin: 10px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+
+      /* ссылаемся на якорь, к которому привязан тултип */
+      position-anchor: --button-el;
+      /* выставляем дефолтное положение относительно якоря */
+      position-area: top;
+      /* добавляем фолбэки, если дефолт не отработал */
+      position-try-fallbacks: --bottom, --left, --right;
+      /* делаем тултип якорем */
+      anchor-name: --tooltip-el;
+    }
+
+    /* описываем, что значат фолбэки */
+    @position-try --bottom {
+      position-area: bottom;
+    }
+
+    @position-try --left {
+      position-area: left;
+      max-width: 200px;
+    }
+
+    @position-try --right {
+      position-area: right;
+      max-width: 200px;
+    }
+
+    .tooltip-content {
+      background-color: inherit;
+    }
+
+    /* хвостики */
+    .tooltip::before,
+    .tooltip::after,
+    .tooltip .tooltip-content::before,
+    .tooltip .tooltip-content::after {
+      /* якоримся на тот же элемент, что и тултип */
+      position-anchor: --button-el;
+      content: '';
+      position: fixed;
+      background-color: inherit;
+      margin: auto;
+    }
+
+    /* для вертикальной ориентации */
+    .tooltip::before,
+    .tooltip::after {
+      left: anchor(--button-el start);
+      right: anchor(--button-el end);
+      width: 10px;
+      max-height: 10px;
+    }
+
+    /* для кейса, когда тултип под кнопкой */
+    .tooltip::before {
+      /* растягиваем хвостик между двумя якорями */
+      top: anchor(--button-el end);
+      bottom: anchor(--tooltip-el start);
+      translate: 0 7px;
+      rotate: 45deg;
+    }
+
+    /* для кейса, когда тултип над кнопкой */
+    .tooltip::after {
+      /* растягиваем хвостик между двумя якорями */
+      top: anchor(--tooltip-el end);
+      bottom: anchor(--button-el start);
+      translate: 0 -7px;
+      rotate: 45deg;
+    }
+
+    /* для горизонтальной ориентации */
+    .tooltip .tooltip-content::before,
+    .tooltip .tooltip-content::after {
+      top: anchor(--button-el start);
+      bottom: anchor(--button-el end);
+      height: 10px;
+      max-width: 10px;
+    }
+
+    /* для кейса, когда тултип справа от кнопки */
+    .tooltip .tooltip-content::before {
+      /* растягиваем хвостик между двумя якорями */
+      left: anchor(--button-el end);
+      right: anchor(--tooltip-el start);
+      translate: 7px;
+      rotate: 45deg;
+    }
+
+    /* для кейса, когда тултип слева от кнопки */
+    .tooltip .tooltip-content::after {
+      /* растягиваем хвостик между двумя якорями */
+      left: anchor(--tooltip-el end);
+      right: anchor(--button-el start);
+      translate: -7px;
+      rotate: 45deg;
+    }
+  </style>
+</head>
+<body>
+  <div class="height-wrapper" id="height-wrapper">
+    <div class="scrollable-container">
+      <button class="button tooltip-anchor" id="tooltip-anchor" aria-describedby="tooltip">
+        ❤️
+      </button>
+      <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
+        <div class="tooltip-content">
+          Добавить в «Избранное»
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tooltip = document.querySelector('#tooltip')
+    const tooltipAnchor = document.querySelector('#tooltip-anchor')
+
+    const showTooltip = () => {
+      tooltip.showPopover()
+    }
+
+    const hideTooltip = () => {
+      tooltip.hidePopover()
+    }
+
+    tooltipAnchor.addEventListener('mouseenter', showTooltip)
+    tooltipAnchor.addEventListener('focus', showTooltip)
+
+    tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+    tooltipAnchor.addEventListener('blur', hideTooltip)
+
+    tooltipAnchor.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        hideTooltip()
+      }
+    })
+  </script>
+  <script>
+    const heightWrapper = document.querySelector('#height-wrapper')
+    heightWrapper.scrollTo({
+      top: heightWrapper.offsetHeight / 2,
+      left: heightWrapper.offsetWidth / 2,
+      behavior: 'instant'
+    })
+  </script>
+</body>
+</html>

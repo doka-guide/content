@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Примеры страниц — Гайд по grid — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;family=Roboto:wght@300;400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    /*rest*/
+    body {
+      margin: 0px;
+      padding: 50px;
+      font-family: Roboto, sans-serif;
+      background-color: #181A1B;
+      color: #FFFFFF;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 800px;
+      display: grid;
+      grid-template-columns: 1rem 510px max-content;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        'corner1 size pre'
+        'corner1 orientation pre'
+        'corner1 before pre'
+        'left page pre';
+      gap: 1rem;
+      margin: 0 auto;
+    }
+
+    .page {
+      background-color: #38393D;
+      color: #E6E6E6;
+      padding: 10px 20px;
+      grid-area: page;
+    }
+
+    .before {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      grid-area: before;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      grid-area: left;
+    }
+
+    .left .size-text {
+      transform: rotate(-90deg);
+    }
+
+    .corner_1 {
+      grid-area: corner1;
+    }
+
+    .corner_2 {
+      display: none;
+      grid-area: corner2;
+    }
+
+    .size {
+      grid-area: size;
+    }
+
+    .orientation {
+      grid-area: orientation;
+    }
+
+    .form {
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: .5rem 1rem;
+      background-color: #2E9AFF;
+      transition: background-color 0.2s linear;
+      border: none;
+      border-radius: 6px;
+      color: #181A1B;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button.active {
+      background-color: #F498AD;
+    }
+
+    button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .code {
+      grid-area: pre;
+    }
+
+    pre {
+      font-family: "Roboto Mono";
+      white-space: pre-wrap;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        grid-template-columns: 1rem max-content;
+        grid-template-areas:
+        'corner1 size'
+        'corner1 orientation'
+        'corner1 before'
+        'left page'
+        'corner2 pre';
+      }
+
+      .corner_2 {
+        display: block;
+        grid-area: corner2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <fieldset class="size">
+      <legend>Укажите размер бумаги</legend>
+      <div class="form">
+        <button class="makeA4 active">A4</button>
+        <button class="makeA5">A5</button>
+        <button class="makeLetter">Letter</button>
+        <button class="makeCustom">220 х 300 мм</button>
+      </div>
+    </fieldset>
+    <fieldset class="orientation">
+      <legend>Укажите ориентацию страницы</legend>
+      <div class="form">
+        <button class="makeVertical active">Вертикальная</button>
+        <button class="makeHorizontal">Горизонтальная</button>
+      </div>
+    </fieldset>
+    <div class="corner corner_1"></div>
+    <div class="before">
+      <div>←</div>
+      <p><span class="size-count"></span>&nbsp;мм</p>
+      <div>→</div>
+    </div>
+    <div class="left">
+      <div>↑</div>
+      <p class="size-text"><span class="size-count"></span>&nbsp;мм</p>
+      <div>↓</div>
+    </div>
+    <section class="page">
+      <h1>Я пример страницы</h1>
+      <p>
+        Это текст на странице
+      </p>
+    </section>
+    <div class="corner corner_2"></div>
+    <div class="code">
+      <pre>
+        @page {
+          size: A4 vertical;
+        }
+      </pre>
+    </div>
+  </div>
+
+  <script>
+    let currentOrientation = 'vertical'
+    let currentSize = 'A4'
+
+    const container = document.querySelector('.container')
+    const sizeForm = container.querySelector('.size')
+    const a4Btn = sizeForm.querySelector('.makeA4')
+    const a5Btn = sizeForm.querySelector('.makeA5')
+    const letterBtn = sizeForm.querySelector('.makeLetter')
+    const customBtn = sizeForm.querySelector('.makeCustom')
+    const orientationForm = container.querySelector('.orientation')
+    const verticalBtn = orientationForm.querySelector('.makeVertical')
+    const horizontalBtn = orientationForm.querySelector('.makeHorizontal')
+    const sizeBtns = sizeForm.querySelectorAll('button')
+    const orientationBtns = orientationForm.querySelectorAll('button')
+    const pre = container.querySelector('pre')
+
+    const sizes = {
+      a4: {
+        width: 210,
+        height: 297
+      },
+      a5: {
+        width: 148,
+        height: 210
+      },
+      letter: {
+        width: 216,
+        height: 280
+      },
+      custom: {
+        width: 220,
+        height: 300
+      }
+    }
+
+    function makeClasses(arr, item) {
+      arr.forEach((el) => {
+        el.classList.remove('active')
+      })
+      item.classList.add('active')
+    }
+
+    function makeCode(size, orientation) {
+      pre.textContent = `
+      @page {
+        size: ${size} ${orientation};
+      }
+      `
+    }
+
+    function makePageSizes() {
+      const before = container.querySelector('.before')
+      const beforeSize = before.querySelector('.size-count')
+      const left = container.querySelector('.left')
+      const leftSize = left.querySelector('.size-count')
+      const page = container.querySelector('.page')
+      const demoCount = 1.7
+
+      let width = 0
+      let height = 0
+
+      switch (currentSize) {
+        case 'A5':
+          width = sizes.a5.width
+          height = sizes.a5.height
+          break
+        case 'Letter':
+          width = sizes.letter.width
+          height = sizes.letter.height
+          break
+        case 'Custom':
+          width = sizes.custom.width
+          height = sizes.custom.height
+          break
+        default:
+          width = sizes.a4.width
+          height = sizes.a4.height
+          break
+      }
+
+      if (currentOrientation === 'vertical') {
+        beforeSize.textContent = width
+        leftSize.textContent = height
+        before.style.width = `${width * demoCount}px`
+        page.style.width = `${width * demoCount}px`
+        page.style.height = `${height * demoCount}px`
+        left.style.height = `${height * demoCount}px`
+      } else {
+        beforeSize.textContent = height
+        leftSize.textContent = width
+        before.style.width = `${height * demoCount}px`
+        page.style.width = `${height * demoCount}px`
+        page.style.height = `${width * demoCount}px`
+        left.style.height = `${width * demoCount}px`
+      }
+    }
+
+    makePageSizes()
+
+    a4Btn.addEventListener('click', () => {
+      currentSize = 'A4'
+      makeClasses(sizeBtns, a4Btn)
+      makeCode('A4', currentOrientation)
+      makePageSizes()
+    })
+    a5Btn.addEventListener('click', () => {
+      currentSize = 'A5'
+      makeClasses(sizeBtns, a5Btn)
+      makeCode('A5', currentOrientation)
+      makePageSizes()
+    })
+    letterBtn.addEventListener('click', () => {
+      currentSize = 'Letter'
+      makeClasses(sizeBtns, letterBtn)
+      makeCode('Letter', currentOrientation)
+      makePageSizes()
+    })
+    customBtn.addEventListener('click', () => {
+      currentSize = 'Custom'
+      makeClasses(sizeBtns, customBtn)
+      makeCode(`${sizes.custom.width}mm ${sizes.custom.height}mm`, currentOrientation)
+      makePageSizes()
+    })
+
+    verticalBtn.addEventListener('click', () => {
+      currentOrientation = 'vertical'
+      makeClasses(orientationBtns, verticalBtn)
+      makeCode(currentSize === 'Custom' ? `${sizes.custom.width}mm ${sizes.custom.height}mm` : currentSize, 'vertical')
+      makePageSizes()
+    })
+    horizontalBtn.addEventListener('click', () => {
+      currentOrientation = 'horizontal'
+      makeClasses(orientationBtns, horizontalBtn)
+      makeCode(currentSize === 'Custom' ? `${sizes.custom.width}mm ${sizes.custom.height}mm` : currentSize, 'horizontal')
+      makePageSizes()
+    })
+
+  </script>
+</body>
+
+</html>
