@@ -1,9 +1,15 @@
 ---
 title: "`background-origin`"
-description: "Управляем тем, какую область фоновая картинка будет занимать внутри элемента.
-"
+description: "Управляем тем, какую область фоновая картинка будет занимать внутри элемента."
+baseline:
+  - group: background-origin
+    features:
+      - css.properties.background-origin
+      - css.properties.background-origin.border-box
+      - css.properties.background-origin.content-box
+      - css.properties.background-origin.padding-box
 authors:
-  - doka-dog
+  - drakesweb
 keywords:
   - область положения фона
 related:
@@ -12,7 +18,6 @@ related:
   - css/border
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
