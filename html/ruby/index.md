@@ -5,7 +5,7 @@ authors:
   - drakesbot12
 related:
   - html/caption/
-  - html/p/ 
+  - html/p/
   - html/pre/
 tags:
   - doka
