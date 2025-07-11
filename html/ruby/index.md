@@ -44,9 +44,9 @@ tags:
 
 ```html
 <ruby>
-  明日
+  雨
   <rp>(</rp>
-  <rt>завтра</rt>
+  <rt>дождь</rt>
   <rp>)</rp>
 </ruby>
 ```
