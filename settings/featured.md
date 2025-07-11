@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/gitlab-ci-cd
-  - js/array-entries
-  - a11y/content-hidden
-  - css/scrollbar-gutter
-  - tools/cli
-  - a11y/aria-hidden
-  - recipes/progress
-  - js/boolean
-  - a11y/live-region
-  - html/video
-  - html/flow
-  - recipes/ajax-form
   - recipes/lets-encrypt-nginx
-  - tools/how-the-browser-creates-pages
-  - tools/markdown
-  - js/deal-with-forms
-  - js/geolocation-api
-  - tools/webpack
-  - tools/bundlers
-  - tools/how-to-test-and-why
-  - css/box-shadow
-  - js/function
-  - js/closures
-  - css/pseudoelements
-  - html/form
-  - js/execution-order
-  - html/div
   - js/infinite-scroll
-  - tools/network
-  - css/grid-guide
-  - recipes/popup
+  - a11y/content-hidden
   - js/array-reduce-right
-  - a11y/screenreaders
-  - tools/static-types
-  - tools/agile
-  - css/specificity
-  - css/attr
-  - css/media
   - html/article
-  - tools/oop
-  - recipes/snow
-  - a11y/css-impact-on-a11y
-  - css/transform-function
-  - html/img
-  - tools/docker
-  - recipes/center
-  - html/nav
-  - css/keyframes
-  - tools/clean-architecture
-  - tools/cors
-  - js/async-in-js
-  - html/input
-  - js/function-context
-  - css/position
+  - tools/how-to-test-and-why
+  - html/form
   - css/flexbox-guide
+  - recipes/ajax-form
+  - tools/agile
   - js/var-let
-  - css/custom-properties
-  - tools/ci-cd
-  - css/box-model
-  - recipes/character-counter
-  - html/doctype
+  - js/function
+  - html/nav
+  - js/deal-with-forms
+  - css/keyframes
+  - css/media
+  - tools/webpack
+  - tools/clean-architecture
+  - tools/network
+  - recipes/progress
+  - tools/gitlab-ci-cd
+  - css/scrollbar-gutter
+  - tools/markdown
+  - tools/oop
+  - js/function-context
   - recipes/git-rebase-onto
+  - recipes/popup
   - css/display
-  - a11y/aria-intro
-  - css/box-sizing
-  - html/head
+  - js/geolocation-api
+  - tools/cli
+  - js/async-in-js
+  - css/specificity
+  - a11y/css-impact-on-a11y
+  - recipes/center
+  - recipes/character-counter
+  - js/execution-order
+  - a11y/aria-hidden
+  - css/attr
+  - css/custom-properties
   - html/section
+  - a11y/screenreaders
+  - a11y/live-region
+  - css/box-sizing
+  - tools/cors
+  - recipes/snow
+  - html/doctype
+  - tools/ci-cd
+  - html/head
+  - html/input
+  - css/box-model
+  - css/pseudoelements
+  - tools/static-types
+  - html/div
+  - css/position
+  - js/closures
+  - js/array-entries
+  - css/transform-function
+  - css/grid-guide
+  - js/boolean
+  - html/flow
+  - html/img
+  - tools/bundlers
+  - tools/how-the-browser-creates-pages
+  - a11y/aria-intro
+  - tools/docker
+  - css/box-shadow
+  - html/video
 ---
 
