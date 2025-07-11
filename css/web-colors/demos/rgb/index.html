@@ -138,7 +138,7 @@
         aNum: document.getElementById("a-num"),
         block: document.getElementById("color-block")
       };
-    
+
       function updateFromSliders() {
         refs.rNum.value = refs.r.value;
         refs.gNum.value = refs.g.value;
@@ -146,7 +146,7 @@
         refs.aNum.value = refs.a.value;
         updateColor();
       }
-    
+
       function updateFromNumbers() {
         refs.r.value = refs.rNum.value;
         refs.g.value = refs.gNum.value;
@@ -154,37 +154,37 @@
         refs.a.value = refs.aNum.value;
         updateColor();
       }
-    
+
       function getContrastColor(r, g, b) {
         const yiq = (r * 299 + g * 587 + b * 114) / 1000;
         return yiq >= 128 ? "#000000" : "#ffffff";
       }
-    
+
       function updateColor() {
         const r = +refs.r.value;
         const g = +refs.g.value;
         const b = +refs.b.value;
         const a = +refs.a.value;
-    
+
         const color = `rgb(${r} ${g} ${b} / ${a})`;
         const textColor = getContrastColor(r, g, b);
-    
+
         refs.block.style.backgroundColor = color;
         refs.block.style.color = textColor;
         refs.block.textContent = color;
       }
-    
+
       refs.r.addEventListener("input", updateFromSliders);
       refs.g.addEventListener("input", updateFromSliders);
       refs.b.addEventListener("input", updateFromSliders);
       refs.a.addEventListener("input", updateFromSliders);
-    
+
       refs.rNum.addEventListener("input", updateFromNumbers);
       refs.gNum.addEventListener("input", updateFromNumbers);
       refs.bNum.addEventListener("input", updateFromNumbers);
       refs.aNum.addEventListener("input", updateFromNumbers);
-    
+
       updateColor();
-    </script>    
+    </script>
   </body>
 </html>
