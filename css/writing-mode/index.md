@@ -12,7 +12,7 @@ baseline:
       - css.properties.writing-mode.vertical-rl
 
 authors:
-  - doka-dog
+  - drakesbot12
 keywords:
   - поворот текста
 related:
@@ -21,7 +21,6 @@ related:
   - css/text-orientation
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
