@@ -32,6 +32,7 @@ groups:
       - pre
       - code
       - dir
+      - ruby
   - name: 'Семантика'
     items:
       - semantics
