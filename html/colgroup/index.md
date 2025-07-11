@@ -1,6 +1,6 @@
 ---
 title: "`colgroup`"
-description: "Группируем колонки в таблике в один клик!"
+description: "Группируем колонки в таблице в один клик!"
 authors:
   - drakesbot12
 keywords:
