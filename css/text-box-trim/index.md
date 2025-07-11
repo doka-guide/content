@@ -37,7 +37,7 @@ tags:
 
 ```css
 .text-box-trim-syntax {
-    text-box-trim: none | trim-start | trim-end | trim-both;
+  text-box-trim: none | trim-start | trim-end | trim-both;
 }
 ```
 
