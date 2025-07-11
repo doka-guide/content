@@ -2,9 +2,9 @@
 title: "Атрибут `step`"
 authors:
   - ivkrylova
+  - drakesbot12
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
