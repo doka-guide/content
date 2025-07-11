@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример colgroup — colgroup — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    table {
+      width: 650px;
+      border-top: 7px solid #FF8630;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td, th {
+      border: 1px solid #FF8630;
+      padding: 14px;
+      vertical-align: top;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        min-width: 360px;
+        padding: 30px;
+        overflow-x: scroll;
+      }
+
+      table {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <table>
+        <colgroup>
+          <col span="2" style="background: rgba(61, 39, 0, 0.5)" />
+          <col style="background: rgba(255, 216, 41, 0.2)" />
+        </colgroup>
+        <tr>
+          <th>Имя</th>
+          <th>Возраст</th>
+          <th>Город</th>
+        </tr>
+        <tr>
+          <td>Аня</td>
+          <td>25</td>
+          <td>Москва</td>
+        </tr>
+        <tr>
+          <td>Борис</td>
+          <td>31</td>
+          <td>Санкт-Петербург</td>
+        </tr>
+        <tr>
+          <td>Виктория</td>
+          <td>28</td>
+          <td>Казань</td>
+        </tr>
+    </table>
+</body>
+</html>
