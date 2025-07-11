@@ -29,7 +29,7 @@ p {
 
 ## Как пишется
 
-```css 
+```css
 .font-shortcat {
   font: italic normal bold 16px/1.5 "Roboto", sans-serif;
 }
