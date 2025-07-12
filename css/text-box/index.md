@@ -12,6 +12,23 @@ related:
   - css/text-box-trim
   - css/text-box-edge
   - css/line-height
+baseline:
+  - group: text-box
+    features:
+      - css.properties.text-box
+      - css.properties.text-box-edge
+      - css.properties.text-box-edge.auto
+      - css.properties.text-box-trim
+      - css.properties.text-box-trim.none
+      - css.properties.text-box-trim.trim-both
+      - css.properties.text-box-trim.trim-end
+      - css.properties.text-box-trim.trim-start
+      - css.properties.text-box.normal
+      - css.types.text-edge
+      - css.types.text-edge.alphabetic
+      - css.types.text-edge.cap
+      - css.types.text-edge.ex
+      - css.types.text-edge.text
 tags:
   - doka
 ---
