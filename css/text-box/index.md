@@ -1,17 +1,6 @@
 ---
 title: "`text-box`"
 description: "Свойство шорткат, управляющее тем, сколько вертикального пространства обрезается у текстового блока, чтобы выровнять его по важным типографским линиям."
-authors:
-  - drakesbot12
-keywords:
-  - text-box-trim
-  - text-box-edge
-  - шорткат
-  - обрезка отступов
-related:
-  - css/text-box-trim
-  - css/text-box-edge
-  - css/line-height
 baseline:
   - group: text-box
     features:
@@ -29,6 +18,17 @@ baseline:
       - css.types.text-edge.cap
       - css.types.text-edge.ex
       - css.types.text-edge.text
+authors:
+  - drakesbot12
+keywords:
+  - text-box-trim
+  - text-box-edge
+  - шорткат
+  - обрезка отступов
+related:
+  - css/text-box-trim
+  - css/text-box-edge
+  - css/line-height
 tags:
   - doka
 ---
