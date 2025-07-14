@@ -61,6 +61,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
