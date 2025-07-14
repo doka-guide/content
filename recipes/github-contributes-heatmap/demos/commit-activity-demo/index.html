@@ -158,7 +158,7 @@
     const GITHUB_REPO_API = 'https://api.github.com/repos'
     const REPO = 'doka-guide/content'
     const REQ_MAX_ATTEMPTS = 3
-    const REQ_ATTEMPT_TIMEOUT = 15000
+    const REQ_ATTEMPT_TIMEOUT = 20000
     const ERR_202 = 'Данные не готовы'
 
     const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
@@ -182,7 +182,7 @@
         return fetch(url, {
           method: 'GET',
           headers: {
-            'Accept': 'application/vnd.github.v3+json',
+            'Accept': 'application/vnd.github+json',
             'X-GitHub-Api-Version': '2022-11-28'
           }
         })

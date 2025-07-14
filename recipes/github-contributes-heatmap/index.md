@@ -201,21 +201,26 @@ tags:
 
 ### Получение данных с помощью запроса к GitHub API
 
-GitHub предоставляет удобное [API](/tools/api/) и документацию по его использованию. Мы будем использовать [запрос для получения данных об активности коммитов за последний (прошедший начиная с сегодняшнего дня) год](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28&versionId=free-pro-team%40latest&category=repos&subcategory=repos#get-the-weekly-commit-activity).
+GitHub предоставляет удобное [API](/tools/api/) и документацию по его использованию. Мы будем использовать [запрос для получения данных об активности коммитов за последний (прошедший начиная с сегодняшнего дня) год](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28&versionId=free-pro-team%40latest&category=repos&subcategory=repos#get-the-last-year-of-commit-activity).
 
-Вот как выглядит запрос в общем случае:
+Вот как выглядит запрос:
 
 ```
 GET https://api.github.com/repos/{owner}/{repo}/stats/commit_activity
-
-где:
-{owner} - имя владельца репозитория
-{repo} - имя репозитория
 ```
 
-В нашем рецепте мы будем получать данные об активности [репозитория с контентом Доки](https://github.com/doka-guide/content).
+где:
+`{owner}` - имя владельца репозитория
+`{repo}` - имя репозитория
 
-Ответ будет содержать массив объектов, например:
+Документация описывает необходимые заголовки (headers):
+
+- `'X-GitHub-Api-Version': '2022-11-28'` — версия API. Этот параметр гарантирует получение задукоментированной структуры ответа, даже при изменении этой структуры в других версиях API;
+- `'Accept': 'application/vnd.github+json'` — формат файла ответа. Документация [рекомендует](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api?apiVersion=2022-11-28#accept) добавлять заголовок `Accept` для уточнения желаемого формата данных.
+
+Мы будем получать данные об активности [репозитория с контентом Доки](https://github.com/doka-guide/content).
+
+Ответ содержит массив объектов, например:
 
 ```js
 [
@@ -229,6 +234,65 @@ GET https://api.github.com/repos/{owner}/{repo}/stats/commit_activity
 ```
 
 где каждый элемент массива, это объект с информацией о неделе:
-days — массив значений количество коммитов за каждый день недели (начиная с воскресения );
+days — массив значений количества коммитов за каждый день недели (начиная с воскресения);
 total — общее количество коммитов за неделю;
-week —  дата первого дня недели.
+week —  дата первого дня недели в виде [Unix timestamp](/js/date/#poluchenie-tekushchego-vremeni)
+
+Напишем функцию выполнения запроса:
+
+```js
+function requestGitHubData(url) {
+  try {
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    })
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+}
+```
+
+Функция принимает в качестве параметра путь запроса и возвращает [промис](/js/fetch/). Обработка ответа не является задачей этой функции.
+
+Документация предупреждает о возможности получить [пустой ответ с кодом 202](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#best-practices-for-caching). Чтобы корректно обработать такую ситуацию, предусмотрим возможность выполнения повторных запросов с задержкой.
+
+Для этого нам понадобится отдельная функция:
+
+```js
+async function fetchCommitActivity(requestParams = {}) {
+  try {
+    const {
+      url,
+      requestAttempts = REQ_MAX_ATTEMPTS,
+      requestAttemptTimeout = REQ_ATTEMPT_TIMEOUT
+    } = requestParams
+
+    const response = await requestGitHubData(url)
+
+    if (response.status === 202) {
+      if (requestAttempts > 0) {
+        await new Promise(r => setTimeout(r, requestAttemptTimeout));
+
+        return fetchCommitActivity({
+          url,
+          requestAttempts: requestAttempts - 1
+        })
+      }
+
+      throw new Error(ERR_202)
+    }
+
+    if (response.ok) {
+      return await response.json()
+    }
+  } catch (error) {
+    console.error(error)
+    return Promise.reject(error)
+  }
+}
+```
