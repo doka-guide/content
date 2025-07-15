@@ -155,7 +155,6 @@
   </div>
 
   <script>
-    const GITHUB_REPO_API = 'https://api.github.com/repos'
     const REPO = 'doka-guide/content'
     const REQ_MAX_ATTEMPTS = 3
     const REQ_ATTEMPT_TIMEOUT = 20000
@@ -177,6 +176,10 @@
     const COLOR_MIN_STEPS = 5
     const BASE_HSL = [112, 100, 80] // #a6ff99
 
+    function createURL(repo = REPO) {
+      return `https://api.github.com/repo/${repo}/stats/commit_activity`
+    }
+
     function requestGitHubData(url) {
       try {
         return fetch(url, {
@@ -190,10 +193,6 @@
         console.error(error)
         return []
       }
-    }
-
-    function createURL() {
-      return `${GITHUB_REPO_API}/${REPO}/stats/commit_activity`
     }
 
     async function fetchCommitActivity(requestParams = {}) {

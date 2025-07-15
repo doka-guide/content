@@ -196,7 +196,7 @@ tags:
 
 Нашу задачу можно разделить на несколько частей:
 1. получение данных с помощью запроса к GitHub API;
-1. преобразование полученных данных для удобства отображения;
+1. преобразование полученных данных;
 1. отображение плитки.
 
 ### Получение данных с помощью запроса к GitHub API
@@ -213,32 +213,25 @@ GET https://api.github.com/repos/{owner}/{repo}/stats/commit_activity
 `{owner}` - имя владельца репозитория
 `{repo}` - имя репозитория
 
-Документация описывает необходимые заголовки (headers):
+Мы будем получать данные об активности [репозитория с контентом Доки](https://github.com/doka-guide/content).
+
+Напишем функцию формирования пути запроса. Мы используем функцию вместо константы, чтобы иметь возможность проще расширять функционал в дальнейшем:
+
+```js
+// имя в формате owner/repo
+const REPO = 'doka-guide/content'
+
+function createURL(repo = REPO) {
+  return `https://api.github.com/repos/${repo}/stats/commit_activity`
+}
+```
+
+Документация описывает необходимые заголовки (headers) API-запрса:
 
 - `'X-GitHub-Api-Version': '2022-11-28'` — версия API. Этот параметр гарантирует получение задукоментированной структуры ответа, даже при изменении этой структуры в других версиях API;
 - `'Accept': 'application/vnd.github+json'` — формат файла ответа. Документация [рекомендует](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api?apiVersion=2022-11-28#accept) добавлять заголовок `Accept` для уточнения желаемого формата данных.
 
-Мы будем получать данные об активности [репозитория с контентом Доки](https://github.com/doka-guide/content).
-
-Ответ содержит массив объектов, например:
-
-```js
-[
-  {
-    "days": [ 0, 3, 26, 20, 39, 1, 0 ],
-    "total": 89,
-    "week": 1336280400
-  },
-  ...
-]
-```
-
-где каждый элемент массива, это объект с информацией о неделе:
-days — массив значений количества коммитов за каждый день недели (начиная с воскресения);
-total — общее количество коммитов за неделю;
-week —  дата первого дня недели в виде [Unix timestamp](/js/date/#poluchenie-tekushchego-vremeni)
-
-Напишем функцию выполнения запроса:
+Напишем функцию выполнения запроса. Функция принимает в качестве параметра путь запроса и возвращает [промис](/js/fetch/):
 
 ```js
 function requestGitHubData(url) {
@@ -257,13 +250,18 @@ function requestGitHubData(url) {
 }
 ```
 
-Функция принимает в качестве параметра путь запроса и возвращает [промис](/js/fetch/). Обработка ответа не является задачей этой функции.
+Документация предупреждает о возможности получить [пустой ответ со статусом 202](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#best-practices-for-caching). Чтобы корректно обработать такую ситуацию, предусмотрим возможность выполнения повторных запросов с задержкой.
 
-Документация предупреждает о возможности получить [пустой ответ с кодом 202](https://docs.github.com/en/rest/metrics/statistics?apiVersion=2022-11-28#best-practices-for-caching). Чтобы корректно обработать такую ситуацию, предусмотрим возможность выполнения повторных запросов с задержкой.
-
-Для этого нам понадобится отдельная функция:
+Для этого нам понадобится функция, проверяющая статус ответа и выполняющая повторные запросы. Функция принимает объект параметров выполнения запроса:
 
 ```js
+// количество повторных попыток
+const REQ_MAX_ATTEMPTS = 3
+// пауза между попытками, мс
+const REQ_ATTEMPT_TIMEOUT = 20000
+// сообщение об ошибке в случае получения ответа со статусом 202
+const ERR_202 = 'Данные не готовы'
+
 async function fetchCommitActivity(requestParams = {}) {
   try {
     const {
@@ -276,14 +274,17 @@ async function fetchCommitActivity(requestParams = {}) {
 
     if (response.status === 202) {
       if (requestAttempts > 0) {
+        // пауза перед повторным запросом
         await new Promise(r => setTimeout(r, requestAttemptTimeout));
 
+        // рекурсивно вызываем функцию, уменьшая счётчик повторов
         return fetchCommitActivity({
           url,
           requestAttempts: requestAttempts - 1
         })
       }
 
+      // кидаем ошибку если все попытки были безуспешны
       throw new Error(ERR_202)
     }
 
@@ -296,3 +297,125 @@ async function fetchCommitActivity(requestParams = {}) {
   }
 }
 ```
+
+### Преобразование полученных данных
+
+Успешный ответ запроса будет содержит массив объектов, например:
+
+```js
+[
+  {
+    "days": [ 0, 3, 26, 20, 39, 1, 0 ],
+    "total": 89,
+    "week": 1336280400
+  },
+  ...
+]
+```
+
+где каждый элемент массива, это объект с информацией о неделе:
+days — массив значений количества коммитов за каждый день недели (начиная с воскресения);
+total — общее количество коммитов за неделю;
+week —  дата первого дня недели в виде [Unix timestamp](/js/date/#poluchenie-tekushchego-vremeni)
+
+Нам необходимо преобразовать полученные данные для упрощения отображения в более удобный формат:
+```js
+[
+  {
+    "total": 89,
+    "weekDate":  // Date-объект для даты начала недели
+    "days": [
+      {
+        count: 0,
+        dateFormated:
+      },
+      {
+        count: 3
+        dateFormated:
+      },
+      ...
+    ],
+    "week": 1336280400
+  },
+  ...
+]
+```
+
+Создадим функции преобразования:
+
+```js
+// формат `ГГГГ.MM.ДД`
+const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+})
+// сокращённое имя месяца
+const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
+  month: 'short',
+})
+
+// Функция преобразования timestamp в экземпляр Date
+function getWeekDate(weekTimestamp) {
+  return new Date(weekTimestamp * 1000)
+}
+
+// Функция преобразования экземпляра Date в строку формата `ГГГГ.MM.ДД`
+function getDateFormat(date) {
+  return DATE_FORMATTER.format(date)
+}
+
+// Функция преобразования экземпляра Date в строку с сокращённым именем месяца
+function getMonthName(date) {
+  return DATE_MONTH_FORMATTER.format(date)
+}
+
+function parseCommitActivity(responseData = []) {
+  if (!Array.isArray(responseData)) {
+    throw new Error('Данные не найдены')
+  }
+
+  const currDate = new Date()
+  let isFirstWeekOfMonth
+
+  return responseData.map((weekItem, weekIndex) => {
+    const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
+    const weekDate = getWeekDate(weekTimestamp)
+    const firstWeekDay = weekDate.getDate()
+    let dayDate
+
+    const days = commitsPerDay.map((count, dayIndex) => {
+      dayDate = new Date(weekDate)
+      dayDate.setDate(firstWeekDay + dayIndex)
+      if (dayDate > currDate) {
+        return {
+          isFuture: true
+        }
+      }
+
+      const dateFormated = getDateFormat(dayDate)
+
+      return {
+        count,
+        dateFormated
+      }
+    })
+
+    const lastDay = dayDate.getDate()
+    isFirstWeekOfMonth = ( weekIndex === 0 && firstWeekDay < 10 ) || lastDay <= 7
+
+    return {
+      total,
+      weekDate,
+      days,
+      month: isFirstWeekOfMonth
+        ? getMonthName(dayDate)
+        : ''
+    }
+  })
+}
+```
+
+
+
+
