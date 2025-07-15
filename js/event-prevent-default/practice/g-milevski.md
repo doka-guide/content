@@ -18,7 +18,7 @@
 const form = document.querySelector('.discount-form')
 form.addEventListener('submit', (event) => {
   event.preventDefault()
-  // Код по подготовки данных
+  // Код подготовки данных
   // и их отправка на сервер
 })
 ```
