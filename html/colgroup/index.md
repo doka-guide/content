@@ -51,7 +51,7 @@ tags:
 </table>
 ```
 
-<iframe title="Пример colgroup" src="/demos/basic/" height="300"></iframe>
+<iframe title="Пример colgroup" src="demos/basic/" height="300"></iframe>
 
 ## Как пишется
 
