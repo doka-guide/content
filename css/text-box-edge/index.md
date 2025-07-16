@@ -1,6 +1,11 @@
 ---
 title: "`text-box-edge`"
 description: "Указываем, по каким линиям обрезать вертикальные отступы текста."
+baseline:
+  - group: text-box
+    features:
+      - css.properties.text-box-edge
+      - css.properties.text-box-edge.auto
 authors:
   - drakesbot12
 related:
