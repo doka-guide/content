@@ -54,7 +54,7 @@ tags:
 ```
 В этом примере первое изображение (человек) будет отрисован от края содержимого, а второе — от внутреннего отступа.
 
-<iframe title="Интерактивная демка background-origin" src="demos/practis/" height="400"></iframe>
+<iframe title="Интерактивная демка background-origin" src="demos/practis/" height="620"></iframe>
 
 ## Как понять
 
