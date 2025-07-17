@@ -318,30 +318,30 @@ days — массив значений количества коммитов з�
 total — общее количество коммитов за неделю;
 week —  дата первого дня недели в виде [Unix timestamp](/js/date/#poluchenie-tekushchego-vremeni)
 
-Нам необходимо преобразовать полученные данные для упрощения отображения в более удобный формат:
+Преобразуем полученные данные для упрощения отображения в формат:
 ```js
 [
   {
-    "total": 89,
-    "weekDate":  // Date-объект для даты начала недели
+    "total": number,
+    "weekDate": Date // Date-объект для даты начала недели
     "days": [
       {
-        count: 0,
-        dateFormated:
+        count: number, // количество коммитов в вс.
+        dateFormated: string // дата в формате `ГГГГ.MM.ДД`
       },
       {
-        count: 3
-        dateFormated:
+        count: number // количество коммитов в пн.
+        dateFormated: string
       },
       ...
     ],
-    "week": 1336280400
+    month: string // сокращённое название месяца (для первой недели месяца)
   },
   ...
 ]
 ```
 
-Создадим функции преобразования:
+Нам понадобятся функции форматирования дат:
 
 ```js
 // формат `ГГГГ.MM.ДД`
@@ -369,18 +369,28 @@ function getDateFormat(date) {
 function getMonthName(date) {
   return DATE_MONTH_FORMATTER.format(date)
 }
+```
+
+Создадим функцию преобразования полученных данных:
+
+```js
 
 function parseCommitActivity(responseData = []) {
   if (!Array.isArray(responseData)) {
     throw new Error('Данные не найдены')
   }
 
+  // текущая дата
   const currDate = new Date()
+
   let isFirstWeekOfMonth
 
   return responseData.map((weekItem, weekIndex) => {
     const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
+
+    // Date-объект первого дня недели
     const weekDate = getWeekDate(weekTimestamp)
+
     const firstWeekDay = weekDate.getDate()
     let dayDate
 
