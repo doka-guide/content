@@ -57,7 +57,7 @@ p {
 ## Как понять
 
 Свойство font объединяет сразу несколько свойств:
-- [`font-style`](/css/font-style/) — курсив (italic), обычный (normal) и др.;
+- [`font-style`](/css/font-style/) — курсив (italic), обычный (normal) и другие;
 - [`font-variant`](/css/font-variant/) — обычно normal или small-caps;
 - [`font-weight`](/css/font-weight/) — от 100 до 900 или слова (bold, normal);
 - [`font-size`](/css/font-size/) — размер текста (например, 16px, 1em);
