@@ -1,15 +1,19 @@
 ---
 title: "`font`"
 description: "Одно свойство для всех настроек шрифта."
+baseline:
+  - group: font-shorthand
+    features:
+      - css.properties.font
+      - css.properties.font.caption
 authors:
-  - doka-dog
+  - drakesbot12
 related:
   - css/font-family
   - css/font-stretch
   - css/line-height
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
