@@ -121,7 +121,7 @@ console.log(window)
 
 <details>
   <summary>
-    Почему и как это происходит ?
+    Почему и как это происходит?
   </summary>
 
   Попадание глобальных var-переменных в глобальный объект `window` [описан в спецификации ECMAScrip](https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-createglobalvarbinding).
