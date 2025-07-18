@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+/>
+<title>Иероглифы с пояснениями</title>
+<style>
+    *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        grid-template-columns: repeat(3, 1fr);
+        font-family: "Roboto", sans-serif;
+        background-color: #18191C;
+        min-block-size: 100%;
+        place-items: center;
+        color: #FFFFFF;
+        font-size: 48px;
+        padding: 0 50px;
+        display: grid;
+        min-height: 100vh;
+        gap: 40px;
+    }
+
+  ruby {
+    display: flex;
+    font-weight: 700;
+  }
+
+  rt {
+    font-size: 0.4em;
+    color: #FF8630;
+    font-weight: normal;
+  }
+</style>
+</head>
+<body>
+    <ruby>
+        水
+        <rp>(</rp><rt>вода</rt><rp>)</rp>
+    </ruby>
+    <ruby>
+        火
+        <rp>(</rp><rt>огонь</rt><rp>)</rp>
+    </ruby>
+    <ruby>
+        山
+        <rp>(</rp><rt>гора</rt><rp>)</rp>
+    </ruby>
+</body>
+</html>
