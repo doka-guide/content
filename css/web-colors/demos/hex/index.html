@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Цвета в вебе — HEX — Дока</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;800&display=swap"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+      font-size: 20px;
+      color: #ffffff;
+      min-height: 100vh;
+      background-color: #18191c;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      text-align: center;
+      padding: 10px;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .color-params {
+      flex: 1 1 300px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 5px;
+    }
+
+    label {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    label input {
+      width: 100%;
+    }
+
+    input[type="number"] {
+      width: 15%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="color-block">#000000FF</div>
+    <div class="color-params">
+      <div class="inputs">
+        <!-- Red -->
+        <div class="input-group">
+          <label>R: <input type="range" id="r" min="0" max="255" value="0" /></label>
+          <input type="number" id="r-num" min="0" max="255" value="0" />
+        </div>
+
+        <!-- Green -->
+        <div class="input-group">
+          <label>G: <input type="range" id="g" min="0" max="255" value="0" /></label>
+          <input type="number" id="g-num" min="0" max="255" value="0" />
+        </div>
+
+        <!-- Blue -->
+        <div class="input-group">
+          <label>B: <input type="range" id="b" min="0" max="255" value="0" /></label>
+          <input type="number" id="b-num" min="0" max="255" value="0" />
+        </div>
+
+        <!-- Alpha -->
+        <div class="input-group">
+          <label>A: <input type="range" id="a" min="0" max="1" step="0.01" value="1" /></label>
+          <input type="number" id="a-num" min="0" max="1" step="0.01" value="1" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const refs = {
+      r: document.getElementById("r"),
+      g: document.getElementById("g"),
+      b: document.getElementById("b"),
+      a: document.getElementById("a"),
+      rNum: document.getElementById("r-num"),
+      gNum: document.getElementById("g-num"),
+      bNum: document.getElementById("b-num"),
+      aNum: document.getElementById("a-num"),
+      block: document.getElementById("color-block"),
+    };
+
+    function toHex(value) {
+      return Math.round(value).toString(16).padStart(2, "0").toUpperCase();
+    }
+
+    function updateFromSliders() {
+      refs.rNum.value = refs.r.value;
+      refs.gNum.value = refs.g.value;
+      refs.bNum.value = refs.b.value;
+      refs.aNum.value = refs.a.value;
+      updateColor();
+    }
+
+    function updateFromNumbers() {
+      refs.r.value = refs.rNum.value;
+      refs.g.value = refs.gNum.value;
+      refs.b.value = refs.bNum.value;
+      refs.a.value = refs.aNum.value;
+      updateColor();
+    }
+
+    function getContrastYIQ(r, g, b) {
+      const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+      return yiq >= 128 ? "#000000" : "#ffffff";
+    }
+
+    function updateColor() {
+      const r = Number(refs.r.value);
+      const g = Number(refs.g.value);
+      const b = Number(refs.b.value);
+      const a = Number(refs.a.value);
+
+      const alphaHex = a < 1 ? toHex(a * 255) : "";
+      const hex = "#" + toHex(r) + toHex(g) + toHex(b) + alphaHex;
+
+
+      refs.block.style.backgroundColor = hex;
+      refs.block.style.color = getContrastYIQ(r, g, b);
+      refs.block.textContent = hex;
+    }
+
+    refs.r.addEventListener("input", updateFromSliders);
+    refs.g.addEventListener("input", updateFromSliders);
+    refs.b.addEventListener("input", updateFromSliders);
+    refs.a.addEventListener("input", updateFromSliders);
+
+    refs.rNum.addEventListener("input", updateFromNumbers);
+    refs.gNum.addEventListener("input", updateFromNumbers);
+    refs.bNum.addEventListener("input", updateFromNumbers);
+    refs.aNum.addEventListener("input", updateFromNumbers);
+
+    updateColor();
+  </script>
+</body>
+</html>

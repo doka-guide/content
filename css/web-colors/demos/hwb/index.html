@@ -1,149 +1,203 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>HWB — Цвета в вебе — Дока</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;800&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Цвета в вебе — HWB — Дока</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --angle: -257deg;
-    }
-
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      color-scheme: dark;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: dark; }
     body {
+      font-family: "Roboto", sans-serif;
+      background: #18191c;
+      color: white;
       min-height: 100vh;
-      padding: 50px;
-      display: grid;
+      display: flex;
       align-items: center;
       justify-content: center;
-      color: #FFFFFF;
-      font-family: "Roboto", sans-serif;
-      font-size: 20px;
-      background-color: hwb(257 20% 20%);
-      accent-color: hwb(257 20% 20%);
+      padding: 50px;
     }
-
     .container {
-      position: relative;
-      padding: 2rem;
-      border-radius: 10px;
-      color: #fff;
-      filter: drop-shadow(0 2px 4px rgb(0 0 0 / 0.2));
-      background-color: #fff;
-    }
-
-    .result {
-      min-inline-size: 415px;
-      margin-block-end: 25px;
-      font-family: "Roboto Mono", monospace;
-      font-size: calc(2em - 1px);
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .controls {
-      display: grid;
-      gap: 15px;
-    }
-
-    input[type="range"] {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
       width: 100%;
     }
-
-    .circle {
-      position: absolute;
-      inset: 50% 50%;
-      inline-size: 100%;
-      border-radius: 50%;
-      z-index: -1;
-      padding: 65%;
-      color: hwb(257 0% 0%);
-      transform: translate(-50%, -50%);
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      font-size: 1rem;
+      text-align: center;
+      padding: 10px;
     }
-
-    .circle::before {
-      content: "";
-      position: absolute;
-      inset: 10px;
-      border-radius: 50%;
-      background-color: #18191C;
+    .color-params {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
     }
-
-    .circle::after {
-      content: "";
-      position: absolute;
-      inset-block-start: -6px;
-      inset-inline-end: calc(50% - 11px);
-      inline-size: 22px;
-      block-size: 22px;
-      background-color: currentColor;
-      border: 3px solid rgb(255 255 255);
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .input-group input[type="range"] {
+      flex: 1;
+    }
+    .input-group input[type="number"] {
+      width: 15%;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div class="circle" style="background: conic-gradient(from var(--angle), rgb(255, 0, 0), rgb(255, 170, 0), rgb(170, 255, 0), rgb(0, 255, 0), rgb(0, 255, 170), rgb(0, 170, 255), rgb(0, 0, 255), rgb(170, 0, 255), rgb(255, 0, 170), rgb(255, 0, 0));"></div>
-    <p class="result"><code>hwb(257 20% 20%)</code></p>
-    <div class="controls">
-      <div>
-        <label for="hue" id="hue-label">Оттенок: <span>257</span></label>
-        <input id="hue" type="range" min="0" max="360" value="257">
-      </div>
-      <div>
-        <label for="whiteness" id="whiteness-label">Количество белого: <span>20%</span></label>
-        <input id="whiteness" type="range" min="0" max="100" value="20">
-      </div>
-      <div>
-        <label for="blackness" id="blackness-label">Количество чёрного: <span>20%</span></label>
-        <input id="blackness" type="range" min="0" max="100" value="20">
+    <div id="color-block">hwb(0 0% 100% / 1)</div>
+    <div class="color-params">
+      <div class="inputs">
+        <div class="input-group">
+          <label for="h">H</label>
+          <input type="range" id="h" min="0" max="360" value="0">
+          <input type="number" id="h-num" min="0" max="360" value="0">
+        </div>
+        <div class="input-group">
+          <label for="w">W</label>
+          <input type="range" id="w" min="0" max="100" value="0">
+          <input type="number" id="w-num" min="0" max="100" value="0">
+        </div>
+        <div class="input-group">
+          <label for="b">B</label>
+          <input type="range" id="b" min="0" max="100" value="100">
+          <input type="number" id="b-num" min="0" max="100" value="100">
+        </div>
+        <div class="input-group">
+          <label for="a">A</label>
+          <input type="range" id="a" min="0" max="1" step="0.01" value="1">
+          <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
+        </div>
       </div>
     </div>
   </div>
+
   <script>
-    const controls = document.querySelector('.controls')
-    const result = document.querySelector('.result')
-    const circle = document.querySelector('.circle')
+    const refs = {
+      h: document.getElementById("h"),
+      w: document.getElementById("w"),
+      b: document.getElementById("b"),
+      a: document.getElementById("a"),
+      hNum: document.getElementById("h-num"),
+      wNum: document.getElementById("w-num"),
+      bNum: document.getElementById("b-num"),
+      aNum: document.getElementById("a-num"),
+      block: document.getElementById("color-block")
+    };
 
-    const hue = document.querySelector('#hue')
-    const whiteness = document.querySelector('#whiteness')
-    const blackness = document.querySelector('#blackness')
+    function getRelativeLuminance(r, g, b) {
+      const srgb = [r, g, b].map((v) => {
+        v /= 255;
+        return v <= 0.03928
+          ? v / 12.92
+          : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
+    }
 
-    controls.addEventListener('input', (e) => {
-      const { value, id } = e.target
+    function hwbToRgb(h, w, b) {
+      const ratio = w + b;
+      if (ratio > 100) {
+        w = (w / ratio) * 100;
+        b = (b / ratio) * 100;
+      }
 
-      document.querySelector(`#${id}-label`).lastChild.innerText = `${value}${id !== 'hue' ? '%' : ''}`
+      const c = (1 - b / 100 - w / 100);
+      const [r1, g1, b1] = hslToRgb(h, 1, 0.5);
+      const r = r1 * c + (w / 100);
+      const g = g1 * c + (w / 100);
+      const bl = b1 * c + (w / 100);
+      return [r * 255, g * 255, bl * 255];
+    }
 
-      const hwbValue = `hwb(${hue.value} ${whiteness.value}% ${blackness.value}%)`
+    function hslToRgb(h, s, l) {
+      h /= 360;
+      let r, g, b;
 
-      document.documentElement.style.setProperty('--angle', `-${hue.value}deg`)
+      if (s === 0) {
+        r = g = b = l;
+      } else {
+        const hue2rgb = (p, q, t) => {
+          if (t < 0) t += 1;
+          if (t > 1) t -= 1;
+          if (t < 1 / 6) return p + (q - p) * 6 * t;
+          if (t < 1 / 2) return q;
+          if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+          return p;
+        };
 
-      result.lastChild.innerText = hwbValue
-      document.body.style.backgroundColor = hwbValue
-      document.body.style.accentColor = hwbValue
+        const q = l < 0.5
+          ? l * (1 + s)
+          : l + s - l * s;
+        const p = 2 * l - q;
 
-      circle.style.color = `hwb(${hue.value} 0% 0%)`
+        r = hue2rgb(p, q, h + 1 / 3);
+        g = hue2rgb(p, q, h);
+        b = hue2rgb(p, q, h - 1 / 3);
+      }
+
+      return [r, g, b];
+    }
+
+    function updateColor() {
+      const h = parseFloat(refs.h.value);
+      const w = parseFloat(refs.w.value);
+      const bl = parseFloat(refs.b.value);
+      const a = parseFloat(refs.a.value);
+
+      const color = `hwb(${h} ${w}% ${bl}% / ${a})`;
+      refs.block.style.backgroundColor = color;
+      refs.block.textContent = color;
+
+      const [r, g, b] = hwbToRgb(h, w, bl);
+      const luminance = getRelativeLuminance(r, g, b);
+      refs.block.style.color = luminance > 0.5 ? "#000" : "#fff";
+    }
+
+    function syncFromSliders() {
+      refs.hNum.value = refs.h.value;
+      refs.wNum.value = refs.w.value;
+      refs.bNum.value = refs.b.value;
+      refs.aNum.value = refs.a.value;
+      updateColor();
+    }
+
+    function syncFromNumbers() {
+      refs.h.value = refs.hNum.value;
+      refs.w.value = refs.wNum.value;
+      refs.b.value = refs.bNum.value;
+      refs.a.value = refs.aNum.value;
+      updateColor();
+    }
+
+    ["h", "w", "b", "a"].forEach((key) => {
+      refs[key].addEventListener("input", syncFromSliders);
+      refs[key + "Num"].addEventListener("input", syncFromNumbers);
     });
+
+    updateColor();
   </script>
 </body>
 </html>
