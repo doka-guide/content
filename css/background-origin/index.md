@@ -12,6 +12,7 @@ authors:
   - drakesbot12
 keywords:
   - область положения фона
+  - отрисовка фона
 related:
   - css/box-model
   - css/padding
