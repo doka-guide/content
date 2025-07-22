@@ -1,6 +1,11 @@
 ---
 title: "`colgroup`"
 description: "Группируем колонки в таблице в один клик!"
+baseline:
+  - group: table
+    features:
+      - html.elements.colgroup
+      - html.elements.colgroup.span
 authors:
   - drakesbot12
 keywords:

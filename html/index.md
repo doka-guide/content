@@ -132,6 +132,7 @@ groups:
     items:
       - tables
       - caption
+      - colgroup
   - name: 'Мета'
     items:
       - head
