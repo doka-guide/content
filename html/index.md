@@ -32,6 +32,7 @@ groups:
       - pre
       - code
       - dir
+      - ruby
   - name: 'Семантика'
     items:
       - semantics
@@ -61,6 +62,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
@@ -133,6 +135,7 @@ groups:
       - tables
       - caption
       - col
+      - colgroup
   - name: 'Мета'
     items:
       - head
