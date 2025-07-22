@@ -99,17 +99,17 @@
   <output></output>
 
   <script>
-    const boxTrimSelect = document.getElementById("box-trim");
-    const trimOverSelect = document.getElementById("trim-over");
-    const trimUnderSelect = document.getElementById("trim-under");
+    const boxTrimSelect = document.getElementById('box-trim')
+    const trimOverSelect = document.getElementById('trim-over')
+    const trimUnderSelect = document.getElementById('trim-under')
 
-    const displayElem = document.querySelector("p");
-    const codeElem = document.querySelector("output");
+    const displayElem = document.querySelector('p')
+    const codeElem = document.querySelector('output')
 
     function setEdgeTrim() {
-      const textBoxTrimValue = boxTrimSelect.value;
-      const textBoxEdgeValue = `${trimOverSelect.value} ${trimUnderSelect.value}`;
-      displayElem.style.textBox = `${textBoxTrimValue} ${textBoxEdgeValue}`;
+      const textBoxTrimValue = boxTrimSelect.value
+      const textBoxEdgeValue = `${trimOverSelect.value} ${trimUnderSelect.value}`
+      displayElem.style.textBox = `${textBoxTrimValue} ${textBoxEdgeValue}`
 
       codeElem.innerHTML = `
         <span><code>text-box-trim: ${textBoxTrimValue}</code></span>
@@ -119,14 +119,14 @@
         <span>Упрощённая форма:</span>
         <br><br>
         <span><code>text-box: ${textBoxTrimValue} ${textBoxEdgeValue}</code></span>
-      `;
+      `
     }
 
-    setEdgeTrim();
+    setEdgeTrim()
 
-    boxTrimSelect.addEventListener("change", setEdgeTrim);
-    trimOverSelect.addEventListener("change", setEdgeTrim);
-    trimUnderSelect.addEventListener("change", setEdgeTrim);
+    boxTrimSelect.addEventListener('change', setEdgeTrim)
+    trimOverSelect.addEventListener('change', setEdgeTrim)
+    trimUnderSelect.addEventListener('change', setEdgeTrim)
   </script>
 </body>
 </html>
