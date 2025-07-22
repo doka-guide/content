@@ -8,6 +8,8 @@ cover:
   alt: 'На входе в лес таблички с множеством строгих правил поведения'
 authors:
   - windrushfarer
+contributors:
+  - vitya-ne
 related:
   - js/function-context
   - js/language-versions
@@ -142,6 +144,39 @@ sum(1, 2, 3)
 // 3
 // 2
 
+```
+
+### Отмена синхронизации изменения значения параметров и объекта `arguments`
+
+В строгом режиме объект `arguments` сохраняет исходные значения аргументов функции. Если в теле функции изменить значение параметра, это не отразится на элементе объекта `arguments`
+
+
+```js
+'use strict'
+
+function f(x) {
+  x = 0
+  return [x, arguments[0]]
+}
+
+const result = f(42)
+
+console.log(result)
+// [ 0, 42 ]
+```
+
+Без `use strict` элемент объекта `arguments` изменит своё значение:
+
+```js
+function f(x) {
+  x = 0
+  return [x, arguments[0]]
+}
+
+const result = f(42)
+
+console.log(result)
+// [ 0, 0 ]
 ```
 
 ### Другое поведение `this`
