@@ -1,6 +1,11 @@
 ---
 title: "`col`"
 description: "Создаём и стилизуем отдельные колонки в таблице"
+baseline:
+  - group: table
+    features:
+      - html.elements.col
+      - html.elements.col.span
 authors:
   - drakesbot12
 keywords:
