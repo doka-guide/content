@@ -67,7 +67,7 @@
       border-radius: .5rem;
       aspect-ratio: 16/9;
       width: 100%;
-      background-image: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=400&q=80'), url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&w=600&q=80');
+      background-image: url('../../images/person.avif') url('../../images/gradient.avif');
       background-size: 200px, 100% 100%;
       background-repeat: no-repeat, no-repeat;
       background-position: top left, top left;
@@ -104,17 +104,16 @@
   </div>
 
   <script>
-    const box = document.getElementById('demo-box');
-    const origin1 = document.getElementById('origin-1');
-    const origin2 = document.getElementById('origin-2');
+    const box = document.getElementById('demo-box')
+    const origin1 = document.getElementById('origin-1')
+    const origin2 = document.getElementById('origin-2')
 
     function updateOrigin() {
-      box.style.backgroundOrigin = `${origin1.value}, ${origin2.value}`;
+      box.style.backgroundOrigin = `${origin1.value}, ${origin2.value}`
       box.innerHTML = `<code>background-origin: ${origin1.value}, ${origin2.value};</code>`
     }
 
-    origin1.addEventListener('change', updateOrigin);
-    origin2.addEventListener('change', updateOrigin);
+    [origin1, origin2].forEach(el => el.addEventListener('change', updateOrigin))
   </script>
 </body>
 </html>
