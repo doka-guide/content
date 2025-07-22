@@ -112,15 +112,15 @@
       aNum: document.getElementById("a-num"),
       block: document.getElementById("color-block")
     };
-  
+
     function updateColor() {
       const h = refs.h.value;
       const s = refs.s.value;
       const l = refs.l.value;
       const a = refs.a.value;
-  
+
       const hslColor = `hsl(${h}deg ${s}% ${l}% / ${a})`;
-  
+
       refs.block.style.backgroundColor = hslColor;
       refs.block.textContent = hslColor;
 
@@ -129,7 +129,7 @@
       const contrastColor = (lightness > 50 || alpha < 0.4) ? '#000' : '#fff';
       refs.block.style.color = contrastColor;
     }
-  
+
     function updateFromSliders() {
       refs.hNum.value = refs.h.value;
       refs.sNum.value = refs.s.value;
@@ -137,7 +137,7 @@
       refs.aNum.value = refs.a.value;
       updateColor();
     }
-  
+
     function updateFromNumbers() {
       refs.h.value = refs.hNum.value;
       refs.s.value = refs.sNum.value;
@@ -145,14 +145,13 @@
       refs.a.value = refs.aNum.value;
       updateColor();
     }
-  
+
     ['h', 's', 'l', 'a'].forEach(key => {
       refs[key].addEventListener('input', updateFromSliders);
       refs[`${key}Num`].addEventListener('input', updateFromNumbers);
     });
-  
+
     updateColor();
   </script>
-   
 </body>
 </html>
