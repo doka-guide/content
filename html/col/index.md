@@ -1,6 +1,6 @@
 ---
-title: "`col`"
-description: "Создаём и стилизуем отдельные колонки в таблице"
+title: "`<col>`"
+description: "Создаём и стилизуем отдельные колонки в таблице."
 baseline:
   - group: table
     features:
@@ -9,7 +9,6 @@ baseline:
 authors:
   - drakesbot12
 keywords:
-  - col
   - таблица
   - колонка
 related:
@@ -29,9 +28,9 @@ tags:
 ```html
 <table>
   <colgroup>
-    <col />
-    <col span="2" style="background: rgba(61, 39, 0, 0.5)" />
-    <col style="background: rgba(255, 216, 41, 0.2)" />
+    <col>
+    <col span="2" style="background: rgb(61 39 0 / 0.5)">
+    <col style="background: rgb(255 216 41 / 0.2)">
   </colgroup>
   <tr>
     <th>#</th>
@@ -68,9 +67,9 @@ tags:
 
 ```html
 <colgroup>
-  <col />
-  <col span="2" style="background: rgba(61, 39, 0, 0.5)" />
-  <col style="background: rgba(255, 216, 41, 0.2)" />
+  <col>
+  <col span="2" style="background: rgb(61 39 0 / 0.5)">
+  <col style="background: rgb(255 216 41 / 0.2)">
 </colgroup>
 ```
 
@@ -86,6 +85,16 @@ tags:
 - таблица большая, и повторять стили в каждом `<td>` неудобно;
 - нужен единый цвет или ширина для всей колонки;
 - колонку нужно спрятать с помощью `display: none`.
+
+Можно использовать только ограниченный набор CSS-свойств:
+
+- [`width`](/css/width/);
+- [`background`](/css/background/);
+- [`background-color`](/css/background-color/);
+- [`visibility`](/css/visibility/);
+- [`border`](/css/border/) / `border-*` (только при `border-collapse: collapse`).
+
+Остальные свойства просто не сработают.
 
 ## Подсказки
 
