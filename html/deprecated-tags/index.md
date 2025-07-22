@@ -449,7 +449,7 @@ h1 {
 
 - Для видео — [`<video>`](/html/video/) с атрибутами autoplay, loop, controls и т. д.
 - Для встраивания другого HTML — [`<iframe>`](/html/iframe/).
-- Для сложных плееров — решения на JavaScript (например, Plyr или Video.js).
+- Для сложных плееров — решения на JavaScript (например, [Plyr](https://plyr.io/) или [Video.js](https://videojs.com/)).
 
 #### На практике
 
