@@ -4,7 +4,6 @@ description: "Группируем заголовок и обычный текс
 authors:
   - drakesbot12
 keywords:
-  - hgroup
   - группа
 related:
   - html/h1-h6
