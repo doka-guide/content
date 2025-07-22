@@ -1,6 +1,14 @@
 ---
 title: "`text-box-trim`"
 description: "Удаляем некрасивые воздушные карманы у текста."
+baseline:
+  - group: text-box
+    features:
+      - css.properties.text-box-trim
+      - css.properties.text-box-trim.none
+      - css.properties.text-box-trim.trim-both
+      - css.properties.text-box-trim.trim-end
+      - css.properties.text-box-trim.trim-start
 authors:
   - drakesbot12
 related:
