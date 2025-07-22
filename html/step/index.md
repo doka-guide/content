@@ -40,17 +40,17 @@ tags:
 ```html
 <label>
   Число с шагом 0.5 (от 1 до 10)
-  <input type="number" step="0.5" min="1" max="10" value="1" />
+  <input type="number" step="0.5" min="1" max="10" value="1">
 </label>
 
 <label>
   Время с шагом 900 секунд (15 минут)
-  <input type="time" step="900" value="12:00" />
+  <input type="time" step="900" value="12:00">
 </label>
 
 <label>
   Дата с шагом 2 дня
-  <input type="date" step="2" value="2025-07-07" />
+  <input type="date" step="2" value="2025-07-07">
 </label>
 ```
 
