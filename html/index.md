@@ -159,6 +159,7 @@ groups:
       - tabindex
       - enterkeyhint
       - data-attributes
+      - autofocus
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners
