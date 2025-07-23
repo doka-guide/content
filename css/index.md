@@ -204,6 +204,7 @@ groups:
       - text-size-adjust
       - text-underline-offset
       - text-underline-position
+      - text-box
       - word-break
       - word-spacing
       - word-wrap
