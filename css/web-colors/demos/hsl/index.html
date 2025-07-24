@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Цвета в вебе — HSL — Дока</title>
+  <title>HSL — Цвета в вебе — Дока</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     html {
@@ -69,7 +69,7 @@
     label {
       font-size: 0.9rem;
       flex-shrink: 0;
-      width: 30px;
+      width: fit-content;
     }
   </style>
 </head>
@@ -78,22 +78,22 @@
     <div id="color-block">hsl(0deg 100% 50% / 1)</div>
     <div class="color-params">
       <div class="input-group">
-        <label>H:</label>
+        <label for="h">H (оттенок):</label>
         <input type="range" id="h" min="0" max="360" value="0">
         <input type="number" id="h-num" min="0" max="360" value="0">
       </div>
       <div class="input-group">
-        <label>S:</label>
+        <label for="s">S (насыщеность):</label>
         <input type="range" id="s" min="0" max="100" value="100">
         <input type="number" id="s-num" min="0" max="100" value="100">
       </div>
       <div class="input-group">
-        <label>L:</label>
+        <label for="l">L (светлота):</label>
         <input type="range" id="l" min="0" max="100" value="50">
         <input type="number" id="l-num" min="0" max="100" value="50">
       </div>
       <div class="input-group">
-        <label>A:</label>
+        <label for="a">α (альфа канал):</label>
         <input type="range" id="a" min="0" max="1" step="0.01" value="1">
         <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
       </div>
