@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/how-the-browser-creates-pages
-  - tools/webpack
-  - css/media
-  - recipes/lets-encrypt-nginx
-  - js/array-entries
-  - html/doctype
-  - js/async-in-js
-  - a11y/aria-intro
-  - recipes/center
-  - html/section
-  - js/function
-  - tools/agile
   - tools/gitlab-ci-cd
-  - html/form
-  - a11y/css-impact-on-a11y
-  - html/img
-  - tools/ci-cd
-  - tools/clean-architecture
-  - css/pseudoelements
-  - css/box-shadow
-  - tools/network
-  - html/head
-  - html/input
-  - tools/cli
+  - html/div
+  - a11y/aria-intro
+  - js/async-in-js
   - a11y/live-region
-  - css/keyframes
-  - css/custom-properties
-  - css/box-sizing
-  - css/attr
-  - html/nav
-  - css/position
-  - recipes/git-rebase-onto
-  - js/array-reduce-right
-  - a11y/aria-hidden
-  - tools/bundlers
-  - css/flexbox-guide
-  - js/infinite-scroll
   - js/boolean
   - tools/how-to-test-and-why
-  - tools/cors
-  - html/video
   - js/geolocation-api
-  - css/scrollbar-gutter
-  - css/display
-  - recipes/popup
-  - html/flow
-  - tools/oop
-  - recipes/progress
-  - css/box-model
-  - css/specificity
-  - a11y/content-hidden
-  - js/execution-order
-  - html/div
-  - recipes/ajax-form
-  - css/transform-function
-  - tools/markdown
-  - js/function-context
-  - js/var-let
-  - js/deal-with-forms
-  - tools/static-types
   - a11y/screenreaders
+  - js/array-reduce-right
+  - a11y/content-hidden
+  - tools/bundlers
+  - recipes/lets-encrypt-nginx
+  - html/nav
+  - tools/cli
+  - html/doctype
+  - js/array-entries
+  - css/custom-properties
+  - tools/network
+  - css/box-sizing
+  - js/var-let
+  - tools/ci-cd
+  - tools/oop
+  - js/closures
+  - recipes/popup
+  - html/section
+  - html/video
+  - css/position
+  - tools/webpack
+  - js/function
+  - tools/how-the-browser-creates-pages
+  - js/deal-with-forms
+  - tools/cors
   - tools/docker
-  - css/grid-guide
-  - html/article
+  - html/flow
+  - html/img
+  - css/transform-function
+  - a11y/aria-hidden
   - recipes/character-counter
   - recipes/snow
-  - js/closures
+  - css/pseudoelements
+  - html/form
+  - css/box-model
+  - recipes/ajax-form
+  - recipes/git-rebase-onto
+  - js/infinite-scroll
+  - html/head
+  - tools/static-types
+  - recipes/progress
+  - tools/agile
+  - css/scrollbar-gutter
+  - recipes/center
+  - css/grid-guide
+  - css/display
+  - css/attr
+  - css/media
+  - tools/markdown
+  - html/input
+  - css/specificity
+  - css/box-shadow
+  - css/keyframes
+  - js/execution-order
+  - html/article
+  - tools/clean-architecture
+  - a11y/css-impact-on-a11y
+  - css/flexbox-guide
+  - js/function-context
 ---
 
