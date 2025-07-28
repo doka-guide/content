@@ -261,9 +261,7 @@
           dayDate = new Date(weekDate)
           dayDate.setDate(firstWeekDay + dayIndex)
           if (dayDate > currDate) {
-            return {
-              isFuture: true
-            }
+            return {}
           }
 
           const dateFormated = getDateFormat(dayDate)
@@ -275,13 +273,13 @@
         })
 
         const lastDay = dayDate.getDate()
-        isFirstWeekOfMonth = ( weekIndex === 0 && firstWeekDay < 10 ) || lastDay <= 7
+        showMonthName = (weekIndex === 0 && firstWeekDay < 10) || lastDay <= 7
 
         return {
           total,
           weekDate,
           days,
-          month: isFirstWeekOfMonth
+          month: showMonthName
             ? getMonthName(dayDate)
             : ''
         }
@@ -416,19 +414,21 @@
         weekContainer.className = 'week'
 
         days.forEach(dayData => {
-          const {count = 0, dateFormated = '', isFuture = false} = dayData
-          let colorIndex = count > 0
+          const {count = 0, dateFormated = ''} = dayData
+          const isFuture = dateFormated === ''
+
+          const dayContainer = document.createElement('div')
+          let className = 'day cell'
+
+          if (isFuture) {
+            className += ' hidden'
+          } else {
+            const colorIndex = count > 0
             ? Math.min(
                 Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
                 factor
               )
             : 0
-
-          const dayContainer = document.createElement('div')
-          let className = 'day cell'
-          if (isFuture) {
-            className += ' hidden'
-          } else {
             dayContainer.style.background = colors[colorIndex]
             dayContainer.setAttribute('data-date', dateFormated)
           }

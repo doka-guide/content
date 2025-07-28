@@ -197,6 +197,7 @@ tags:
 Нашу задачу можно разделить на несколько частей:
 1. получение данных с помощью запроса к GitHub API;
 1. преобразование полученных данных;
+1. определение цветов;
 1. отображение плитки.
 
 ### Получение данных с помощью запроса к GitHub API
@@ -318,7 +319,7 @@ days — массив значений количества коммитов з�
 total — общее количество коммитов за неделю;
 week —  дата первого дня недели в виде [Unix timestamp](/js/date/#poluchenie-tekushchego-vremeni)
 
-Преобразуем полученные данные для упрощения отображения в формат:
+Преобразуем полученные данные для удобства отображения названий дней недели, месяцев и даты дня в формат:
 ```js
 [
   {
@@ -374,7 +375,6 @@ function getMonthName(date) {
 Создадим функцию преобразования полученных данных:
 
 ```js
-
 function parseCommitActivity(responseData = []) {
   if (!Array.isArray(responseData)) {
     throw new Error('Данные не найдены')
@@ -385,24 +385,29 @@ function parseCommitActivity(responseData = []) {
 
   let isFirstWeekOfMonth
 
+  // массив данных о неделях
   return responseData.map((weekItem, weekIndex) => {
     const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
 
     // Date-объект первого дня недели
     const weekDate = getWeekDate(weekTimestamp)
 
+    // число месяца первого дня недели
     const firstWeekDay = weekDate.getDate()
     let dayDate
 
+    // массив данных по дням недели
     const days = commitsPerDay.map((count, dayIndex) => {
+      // Date-объект для дня недели
       dayDate = new Date(weekDate)
       dayDate.setDate(firstWeekDay + dayIndex)
+
+      // если этот день ещё не наступил, возвращяем пустой объект
       if (dayDate > currDate) {
-        return {
-          isFuture: true
-        }
+        return {}
       }
 
+      // дата дня в формате `ГГГГ.MM.ДД`
       const dateFormated = getDateFormat(dayDate)
 
       return {
@@ -411,14 +416,16 @@ function parseCommitActivity(responseData = []) {
       }
     })
 
+    // число месяца последнего дня недели
     const lastDay = dayDate.getDate()
-    isFirstWeekOfMonth = ( weekIndex === 0 && firstWeekDay < 10 ) || lastDay <= 7
+    // для этой недели требуется отображать название месяца?
+    showMonthName = (weekIndex === 0 && firstWeekDay < 10) || lastDay <= 7
 
     return {
       total,
       weekDate,
       days,
-      month: isFirstWeekOfMonth
+      month: showMonthName
         ? getMonthName(dayDate)
         : ''
     }
@@ -426,6 +433,20 @@ function parseCommitActivity(responseData = []) {
 }
 ```
 
+Мы хотим отображать общего количества комитов за год рядом с названием репозитория.
+Кроме этого определим минимального и максимального числа комитов за день. Добавим функцию анализа массива данных сформированного ранее:
 
+```js
+function analyzeCommits(commitsData = []) {
+  return commitsData.reduce((acc, weekData) => {
+    const counts = weekData.days.map(item => item.count ?? 0)
+    acc.min = Math.min(...counts, acc.min)
+    acc.max = Math.max(...counts, acc.max)
+    acc.total += weekData.total
+    return acc
+  }, {min: Number.POSITIVE_INFINITY, max: 0, total: 0})
+}
+```
 
+## Определение цветов
 
