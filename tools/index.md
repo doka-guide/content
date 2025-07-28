@@ -97,6 +97,7 @@ groups:
       - ssl-certificates
       - http-protocol
       - tcp-udp-protocols
+      - ipv6-for-webdevs
 
   - name: Безопасность
     items:
