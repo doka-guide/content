@@ -177,7 +177,7 @@
     const BASE_HSL = [112, 100, 80] // #a6ff99
 
     function createURL(repo = REPO) {
-      return `https://api.github.com/repo/${repo}/stats/commit_activity`
+      return `https://api.github.com/repos/${repo}/stats/commit_activity`
     }
 
     function requestGitHubData(url) {
