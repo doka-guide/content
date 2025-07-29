@@ -435,7 +435,12 @@ h1 {
 #### Пример
 
 ```html
-<object data="video.mp4" type="application/x-shockwave-flash" width="400" height="300">
+<object
+  data="video.mp4"
+  type="application/x-shockwave-flash"
+  width="400"
+  height="300"
+>
   <param name="autoplay" value="true">
   <param name="loop" value="false">
   <param name="quality" value="high">
@@ -445,11 +450,12 @@ h1 {
 #### Чем заменить
 
 На практике — ничем. `<param>` работал только в связке с [`<object>`](/html/object/), который сам по себе практически не применяется.
+
 Современные альтернативы зависят от контекста:
 
-- Для видео — [`<video>`](/html/video/) с атрибутами autoplay, loop, controls и т. д.
+- Для видео — [`<video>`](/html/video/) с атрибутами `autoplay`, `loop`, `controls` и т. д.
 - Для встраивания другого HTML — [`<iframe>`](/html/iframe/).
-- Для сложных плееров — решения на JavaScript (например, [Plyr](https://plyr.io/) или [Video.js](https://videojs.com/)).
+- Для сложных плееров — решения на JavaScript. Например, [Plyr](https://plyr.io/) или [Video.js](https://videojs.com/).
 
 #### На практике
 
