@@ -316,8 +316,8 @@
     }
 
     function makeColors(commitCounts, baseColor = BASE_HSL) {
-      const {max} = commitCounts
-      const steps = Math.max(Math.min(max, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
+      const {min, max} = commitCounts
+      const steps = Math.max(Math.min(max - min, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
 
       return generatePalette(baseColor, steps)
     }
@@ -390,7 +390,7 @@
       const weekCount = commitsData.length ?? 0
       if (weekCount === 0) return
 
-      const {min, max} = commitCounts
+      const {max} = commitCounts
 
       const steps = colors.length
       const factor = steps - 1
