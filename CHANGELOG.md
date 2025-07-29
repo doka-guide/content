@@ -4,7 +4,7 @@
 
 ## Июль 2025
 
-- 29 июля, [Протокол IPv6](https://doka.guide/tools/ipv6-for-webdevs/), disi
+- 29 июля, [Протокол IPv6](https://doka.guide/tools/ipv6-for-webdevs/), Disinterpreter
 - 28 июля, [`aria-checked`](https://doka.guide/a11y/aria-checked/), Владислав Аткишкин
 - 28 июля, [`aria-pressed`](https://doka.guide/a11y/aria-pressed/), Игорь Теплостанский
 - 23 июля, [`text-box-edge`](https://doka.guide/css/text-box-edge/), DrakesWeb
