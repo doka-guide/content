@@ -49,7 +49,7 @@ tags:
 </div>
 ```
 
-<iframe title="Блок с рекомендуемыми статьями" src="demos/base-example/" height="500"></iframe>
+<iframe title="Блок с рекомендуемыми статьями" src="demos/base-example/" height="760"></iframe>
 
 ## Как пишется
 
