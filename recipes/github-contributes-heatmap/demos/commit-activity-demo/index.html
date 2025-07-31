@@ -364,25 +364,18 @@
 
       const {days, weekDate} = firstWeek
 
-      const weekDaysContainer = document.createElement('div')
-      weekDaysContainer.className = 'weekday-labels'
-
       const firstWeekDay = weekDate.getDate()
 
-      days.forEach((dayData, dayIndex) => {
+      const weekDays = days.reduce((acc, dayData, dayIndex) => {
         if (dayIndex % 2) {
           let dayDate = new Date(weekDate)
           dayDate.setDate(firstWeekDay + dayIndex)
-          const weekDay = getWeekDayFormat(dayDate)
-
-          const weekDayLabel = document.createElement('div')
-          weekDayLabel.className = 'weekday-label'
-          weekDayLabel.innerText = weekDay
-          weekDaysContainer.appendChild(weekDayLabel)
+          acc.push(getWeekDayFormat(dayDate))
         }
-      })
+        return acc
+      }, [])
 
-      return weekDaysContainer
+      return weekDays
     }
 
     function renderYearGrid(params, container) {
@@ -399,7 +392,16 @@
       yearContainer.className = 'year'
 
       if (weekDays) {
-        yearContainer.appendChild(weekDays)
+        const weekDaysContainer = document.createElement('div')
+        weekDaysContainer.className = 'weekday-labels'
+
+        weekDays.forEach(weekDay => {
+          const weekDayLabel = document.createElement('div')
+          weekDayLabel.className = 'weekday-label'
+          weekDayLabel.innerText = weekDay
+          weekDaysContainer.appendChild(weekDayLabel)
+        })
+        yearContainer.appendChild(weekDaysContainer)
       }
 
       commitsData.forEach(weekData => {
