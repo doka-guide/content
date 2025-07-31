@@ -59,7 +59,11 @@ tags:
 
 VoiceOver в Safari не прочитает «Введи своё полное имя».
 
-Лучше всегда тестировать код, даже если используете только возможности HTML. Ещё можете посмотреть как скринридеры ведут себя с разными тегами в [HTML test cases](https://russmaxdesign.github.io/accessible-forms/).
+Лучше всегда тестировать код, даже если используете только возможности HTML. Если нет возможности тестировать с разными вспомогательными технологиями, можете подсмотреть поддержку HTML-элементов скринридерами по этим ссылкам:
+
+- [Тест-кейсы для HTML](https://russmaxdesign.github.io/accessible-forms/)
+- [Как NVDA поддерживает HTML](https://tetralogical.github.io/screen-reader-HTML-support/NVDA.html)
+- [Таблица поддержи HTML-элементов JAWS](https://tetralogical.github.io/screen-reader-HTML-support/JAWS.html)
 
 ## Роли, состояния и свойства
 
