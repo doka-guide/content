@@ -2,6 +2,25 @@
 
 <!-- yaspeller ignore:start -->
 
+## Июль 2025
+
+- 29 июля, [Протокол IPv6](https://doka.guide/tools/ipv6-for-webdevs/), Disinterpreter
+- 28 июля, [`aria-checked`](https://doka.guide/a11y/aria-checked/), Владислав Аткишкин
+- 28 июля, [`aria-pressed`](https://doka.guide/a11y/aria-pressed/), Игорь Теплостанский
+- 23 июля, [`text-box-edge`](https://doka.guide/css/text-box-edge/), DrakesWeb
+- 23 июля, [`text-box-trim`](https://doka.guide/css/text-box-trim/), DrakesWeb
+- 23 июля, [`col`](https://doka.guide/html/col/), DrakesWeb
+- 23 июля, [`colgroup`](https://doka.guide/html/colgroup/), DrakesWeb
+- 23 июля, [`hgroup`](https://doka.guide/html/hgroup/), DrakesWeb
+- 23 июля, [`font`](https://doka.guide/css/font/), DrakesWeb
+- 23 июля, [`background-origin`](https://doka.guide/css/background-origin/), DrakesWeb
+- 23 июля, [Атрибут `step`](https://doka.guide/html/step/), DrakesWeb
+- 23 июля, [`ruby`](https://doka.guide/html/ruby/), DrakesWeb
+- 22 июля, [`writing-mode`](https://doka.guide/css/writing-mode/), DrakesWeb
+- 22 июля, [`autofocus`](https://doka.guide/html/autofocus/), Алина Козловцева
+- 17 июля, [Атрибут `d`](https://doka.guide/html/d/), Александр Мальцев
+- 1 июля, [CSS-in-JS](https://doka.guide/tools/css-in-js/), Руслан Шевченко
+
 ## Июнь 2025
 
 - 18 июня, [`@view-transition`](https://doka.guide/css/view-transition/), Антон Субботин
