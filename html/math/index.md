@@ -22,33 +22,42 @@ tags:
 
 ## Пример
 
-Формула корней квадратного уравнения:
+Обратная гиперболическая функция синуса:
 
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
-  <mi>x</mi>
-  <mo>=</mo>
-  <mfrac>
+  <mrow>
+    <msup>
+      <mi>sinh</mi>
+      <mrow>
+        <mo>−</mo>
+        <mn>1</mn>
+      </mrow>
+    </msup>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mi>ln</mi>
+    <mo>[</mo>
     <mrow>
-      <mo>−</mo>
-      <mi>b</mi>
-      <mo>±</mo>
+      <mi>x</mi>
+      <mo>+</mo>
       <msqrt>
         <mrow>
-          <msup><mi>b</mi><mn>2</mn></msup>
-          <mo>−</mo>
-          <mn>4</mn><mi>a</mi><mi>c</mi>
+          <msup>
+            <mi>x</mi>
+            <mn>2</mn>
+          </msup>
+          <mo>+</mo>
+          <mn>1</mn>
         </mrow>
       </msqrt>
     </mrow>
-    <mrow>
-      <mn>2</mn><mi>a</mi>
-    </mrow>
-  </mfrac>
+    <mo>]</mo>
+  </mrow>
 </math>
 ```
 
-<iframe title="Формула корней квадратного уравнения в MathML" src="demos/math-quadratic/index.html" height="180"></iframe>
+<iframe title="Обратная гиперболическая функция синуса" src="demos/math-quadratic/index.html" height="180"></iframe>
 
 ## Как пишется
 
