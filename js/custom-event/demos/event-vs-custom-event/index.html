@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Создаём CustomEvent со стандартным именем события — CustomEvent — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 600px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      background-color: #FFD829;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .buttons-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .buttons-row > button {
+      flex: 1;
+    }
+
+    .logs {
+      border: 2px solid #FFFFFF;
+      width: 100%;
+      height: 300px;
+      overflow: auto;
+      padding: 20px;
+      padding-left: 40px;
+    }
+
+    .logs > li:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      opacity: 0;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #FFD829;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #FFD829;
+    }
+
+    .mb-20 {
+      margin-bottom: 20px;
+    }
+
+    .logs-title {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .buttons-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <label class="checkbox-label mb-20">
+      <input class="checkbox" type="checkbox" id="checkbox">
+      <span class="checkbox-title">Чекбокс</span>
+    </label>
+    <div class="buttons-row mb-20">
+      <button id="mouse-event-button" class="button">new MouseEvent('click')</button>
+      <button id="custom-event-button" class="button">new CustomEvent('click')</button>
+    </div>
+    <section>
+      <div class="logs-title" id="group-label">Логи:</div>
+      <ol reversed id="logs" class="logs" aria-labelledby="group-label" aria-live="polite"></ol>
+    </section>
+  </div>
+  <script>
+    const checkbox = document.getElementById('checkbox')
+    const mouseEventButton = document.getElementById('mouse-event-button')
+    const customEventButton = document.getElementById('custom-event-button')
+    const logsContainer = document.getElementById('logs')
+
+    const getLogForEvent = (event) => {
+      const constructorName = event.constructor.name
+      const isTrustedCaption = `isTrusted: ${event.isTrusted}`
+      const changeValueCaption = constructorName === 'CustomEvent' ? 'не влияю на значение чекбокса' : 'меняю значение чекбокса на противоположное'
+
+      return [
+        `${constructorName}, ${isTrustedCaption}`,
+        changeValueCaption,
+      ]
+    }
+
+    checkbox.addEventListener('click', (event) => {
+      const logTextParts = getLogForEvent(event)
+
+      const logElement = document.createElement('li')
+
+      logTextParts.forEach((part) => {
+        const partElement = document.createElement('div')
+        partElement.textContent = part
+        logElement.appendChild(partElement)
+      })
+
+      logsContainer.prepend(logElement)
+    })
+
+    mouseEventButton.addEventListener('click', () => {
+      const mouseEvent = new MouseEvent('click')
+      checkbox.dispatchEvent(mouseEvent)
+    })
+
+    customEventButton.addEventListener('click', () => {
+      const customEvent = new CustomEvent('click')
+      checkbox.dispatchEvent(customEvent)
+    })
+  </script>
+</body>
+</html>
