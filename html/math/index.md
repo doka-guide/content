@@ -3,6 +3,9 @@ title: "`<math>`"
 description: "Учимся отображать математические формулы с помощью обычного HTML!"
 baseline:
   - group: mathml
+    features:
+      - mathml.elements.math
+      - mathml.elements.math.display
 authors:
   - drakesbot12
 keywords:
