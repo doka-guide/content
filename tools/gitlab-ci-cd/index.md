@@ -3,6 +3,7 @@ title: "GitLab CI/CD"
 description: "Что-то вроде GitHub Actions, но для GitLab. Настраиваем сборку проекта."
 authors:
   - vitalybaev
+  - ikocs
 editors:
   - tachisis
 related:
