@@ -32,6 +32,7 @@ groups:
       - pre
       - code
       - dir
+      - math
   - name: 'Семантика'
     items:
       - semantics
