@@ -256,6 +256,24 @@ job:
 
 ### Публикация в Package Registry
 
+Этот раздел Gitlab предназначен для хранения конечных сборок ваших приложений. Он в том числе поддерживает хранение пакетов npm, PyPl, NuGet и др. Расположение в репозитории: `Deploy` -> `Package registry`.
+
+Простейший скрипт для джобы загрузки в Package Registry:
+
+```yaml
+variables:
+  PACKAGE_VERSION: "1.2.3"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my_package/${PACKAGE_VERSION}"
+
+upload:
+  stage: upload
+  image: curlimages/curl:latest
+  script:
+    - FILENAME=MyApp
+    - |
+      curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file build/my_app ${PACKAGE_REGISTRY_URL}/${FILENAME}
+```
+
 ### Публикация релиза
 
 ### Использование самоподписанного сертификата
