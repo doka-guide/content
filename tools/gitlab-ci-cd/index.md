@@ -276,4 +276,45 @@ upload:
 
 ### Публикация релиза
 
+Вы можете формировать релиз приложения в одноименно разделе при помощи Gitlab CI. Для этого используется отдельный скрипт `release-cli`. В примере мы получим его с помощью докера от Gitlab.
+
+Этот пример работает в связке с джобой, обпеспечивающей загрузку в Package Registry (см. раздел выше).
+
+```yaml
+variables:
+  PACKAGE_VERSION: "1.2.3"
+  PACKAGE_REGISTRY_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/my_package/${PACKAGE_VERSION}"
+  RELEASE_NAME: "MyApp"
+
+release:
+  stage: release
+
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - echo "Release ${RELEASE_NAME}"
+  release:
+    name: 'Release $PACKAGE_VERSION'
+    description: 'Description release $PACKAGE_VERSION'
+    tag_name: '$PACKAGE_VERSION'
+    ref: '$CI_COMMIT_SHA'
+    assets:
+      links:
+        - name: '${RELEASE_NAME}_${PACKAGE_VERSION}'
+          # Путь до файла должен существовать в Package Registry
+          url: '${PACKAGE_REGISTRY_URL}/${RELEASE_NAME}'
+```
+
 ### Использование самоподписанного сертификата
+
+При работе в локальном домене, может использовать самоподписанный сертификат. Чтобы докер внутри Gitlab CI узнали о нём, укажите переменную `ADDITIONAL_CA_CERT_BUNDLE`:
+
+```yaml
+    ADDITIONAL_CA_CERT_BUNDLE: |
+        -----BEGIN CERTIFICATE-----
+        MIIGqTCCBJGgAwIBAgIQI7AVxxVwg2kch4d56XNdDjANBgkqhkiG9w0BAQsFADCB
+        ...
+        jWgmPqF3vUbZE0EyScetPJquRFRKIesyJuBFMAs=
+        -----END CERTIFICATE-----
+```
+
+Также в переменную можно указать путь к файлу сертификата.
