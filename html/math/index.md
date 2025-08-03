@@ -27,37 +27,46 @@ tags:
 ```html
 <math xmlns="http://www.w3.org/1998/Math/MathML">
   <mrow>
-    <msup>
-      <mi>sinh</mi>
+    <mfrac>
       <mrow>
-        <mo>−</mo>
-        <mn>1</mn>
+        <mi>d</mi>
+        <mi>f</mi>
       </mrow>
-    </msup>
-    <mi>x</mi>
+      <mrow>
+        <mi>d</mi>
+        <mi>t</mi>
+      </mrow>
+    </mfrac>
     <mo>=</mo>
-    <mi>ln</mi>
-    <mo>[</mo>
-    <mrow>
-      <mi>x</mi>
-      <mo>+</mo>
-      <msqrt>
-        <mrow>
-          <msup>
-            <mi>x</mi>
-            <mn>2</mn>
-          </msup>
-          <mo>+</mo>
-          <mn>1</mn>
-        </mrow>
-      </msqrt>
-    </mrow>
-    <mo>]</mo>
+    <munder>
+      <mo>lim</mo>
+      <mrow>
+        <mi>h</mi>
+        <mo>&#x2192;</mo>
+        <mn>0</mn>
+      </mrow>
+    </munder>
+    <mfrac>
+      <mrow>
+        <mi>f</mi>
+        <mo>(</mo>
+        <mi>t</mi>
+        <mo>+</mo>
+        <mi>h</mi>
+        <mo>)</mo>
+        <mo>&#x2212;</mo>
+        <mi>f</mi>
+        <mo>(</mo>
+        <mi>t</mi>
+        <mo>)</mo>
+      </mrow>
+      <mi>h</mi>
+    </mfrac>
   </mrow>
 </math>
 ```
 
-<iframe title="Обратная гиперболическая функция синуса" src="demos/math-quadratic/index.html" height="180"></iframe>
+<iframe title="Производная функции по определению через предел в MathML" src="demos/math-quadratic/index.html" height="180"></iframe>
 
 ## Как пишется
 
