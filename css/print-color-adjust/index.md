@@ -1,6 +1,8 @@
 ---
 title: "`print-color-adjust`"
 description: "Говорим браузеру как обрабатывать цвета при печати."
+authors:
+  - drakesbot12
 keywords:
   - печать
   - принтер
