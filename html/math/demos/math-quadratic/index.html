@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Формула корней квадратного уравнения в MathML — math — Дока</title>
+  <title>Производная функции по определению через предел в MathML — math — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,32 +42,41 @@
   <div class="container">
     <math xmlns="http://www.w3.org/1998/Math/MathML">
       <mrow>
-        <msup>
-          <mi>sinh</mi>
+        <mfrac>
           <mrow>
-            <mo>−</mo>
-            <mn>1</mn>
-        </mrow>
-        </msup>
-        <mi>x</mi>
+            <mi>d</mi>
+            <mi>f</mi>
+          </mrow>
+          <mrow>
+            <mi>d</mi>
+            <mi>t</mi>
+          </mrow>
+        </mfrac>
         <mo>=</mo>
-        <mi>ln</mi>
-        <mo>[</mo>
-        <mrow>
-          <mi>x</mi>
-          <mo>+</mo>
-          <msqrt>
-            <mrow>
-              <msup>
-                <mi>x</mi>
-                <mn>2</mn>
-              </msup>
-              <mo>+</mo>
-              <mn>1</mn>
-            </mrow>
-          </msqrt>
-        </mrow>
-        <mo>]</mo>
+        <munder>
+          <mo>lim</mo>
+          <mrow>
+            <mi>h</mi>
+            <mo>&#x2192;</mo>
+            <mn>0</mn>
+          </mrow>
+        </munder>
+        <mfrac>
+          <mrow>
+            <mi>f</mi>
+            <mo>(</mo>
+            <mi>t</mi>
+            <mo>+</mo>
+            <mi>h</mi>
+            <mo>)</mo>
+            <mo>&#x2212;</mo>
+            <mi>f</mi>
+            <mo>(</mo>
+            <mi>t</mi>
+            <mo>)</mo>
+          </mrow>
+          <mi>h</mi>
+        </mfrac>
       </mrow>
     </math>
   </div>
