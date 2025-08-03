@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка по ruby-position — ruby-position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      font-size: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    ruby {
+      text-align: center;
+      ruby-align: center;
+    }
+
+    rt {
+      margin-bottom: .5rem;
+      color: #FF8630;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    select {
+      padding: 0.4em 0.6em;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .selector-container {
+      display: flex;
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+
+    #ruby-2 {
+        ruby-position: under;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="selector-container">
+      <div class="selector">
+        <label>
+          <select data-target="ruby-1">
+            <option value="over" selected>over</option>
+            <option value="under">under</option>
+            <option value="inter-character">inter-character</option>
+            <option value="alternate">alternate</option>
+            <option value="alternate over">alternate over</option>
+            <option value="alternate under">alternate under</option>
+          </select>
+        </label>
+      </div>
+      <ruby id="ruby-1">
+        花鳥
+        <rp> (</rp><rt>Цветы и птицы</rt><rp>) </rp>
+      </ruby>
+    </div>
+    <div class="selector-container">
+      <div class="selector">
+        <label>
+          <select data-target="ruby-2">
+            <option value="over">over</option>
+            <option value="under" selected>under</option>
+            <option value="inter-character">inter-character</option>
+            <option value="alternate">alternate</option>
+            <option value="alternate over">alternate over</option>
+            <option value="alternate under">alternate under</option>
+          </select>
+        </label>
+      </div>
+      <ruby id="ruby-2">
+        雨月
+        <rp> (</rp><rt>Дождь и луна</rt><rp>) </rp>
+      </ruby>
+    </div>
+    <div class="selector-container">
+      <div class="selector">
+        <label>
+          <select data-target="ruby-3">
+            <option value="over" selected>over</option>
+            <option value="under">under</option>
+            <option value="inter-character">inter-character</option>
+            <option value="alternate">alternate</option>
+            <option value="alternate over">alternate over</option>
+            <option value="alternate under">alternate under</option>
+          </select>
+        </label>
+      </div>
+      <ruby id="ruby-3">
+        火山
+        <rp> (</rp><rt>Огонь и гора</rt><rp>) </rp>
+      </ruby>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('select').forEach(select => {
+      select.addEventListener('change', (e) => {
+        const rubyId = e.target.dataset.target;
+        const value = e.target.value;
+        document.getElementById(rubyId).style.rubyPosition = value;
+      });
+    });
+  </script>
+</body>
+</html>
