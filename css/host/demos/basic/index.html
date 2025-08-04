@@ -113,7 +113,7 @@
       <h1 slot="title">Отключённый бокс 🚫</h1>
       <p slot="content">Этот бокс недоступен</p>
     </my-box>
-    
+
     <script>
       class MyBox extends HTMLElement {
         constructor() {
@@ -123,9 +123,9 @@
           shadow.appendChild(template.content.cloneNode(true))
         }
       }
-    
+
       customElements.define('my-box', MyBox)
-    </script>    
+    </script>
   </div>
 </body>
 </html>
