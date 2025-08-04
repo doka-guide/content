@@ -147,6 +147,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - slot
       - template
       - output
       - data-attributes
