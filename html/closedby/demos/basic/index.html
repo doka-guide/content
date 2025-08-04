@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Диалог с атрибутом closedby=any — Атрибут closedby — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, min(100%, 255px));
+      place-items: start;
+      place-content: start center;
+      background-color: #18191c;
+      color: #ffffff;
+      gap: 20px 25px;
+      -webkit-font-smoothing: antialiased;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (min-width: 580px) {
+      body {
+        align-content: center;
+        align-items: center;
+        padding: 30px;
+      }
+    }
+
+    .button, .dialog__button {
+      display: block;
+      min-width: 260px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 1.12rem;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__button {
+      min-width: 300px;
+      margin: 0 auto;
+    }
+
+    .button-orange {
+      background-color: #FF8630;
+    }
+
+    .button-blue {
+      background-color: #2E9AFF;
+    }
+
+    .button:hover, .dialog__button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .dialog__button:hover {
+      border: 2px solid #000000;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog__button:focus {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .dialog__button + form {
+      margin-top: 10px;
+    }
+
+    .dialog {
+      width: calc(100% - 40px);
+      max-width: 400px;
+      border: none;
+      inset: 0;
+      position: fixed;
+    }
+
+    .dialog::backdrop {
+      background-color: transparent;
+      -webkit-backdrop-filter: 0;
+      backdrop-filter: 0;
+    }
+
+    .dialog__title {
+      margin-top: 0;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .dialog p {
+      margin: 15px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 579px) {
+      .dialog {
+        /* Сдвигаем диалоговые окна ближе к низу страницы, чтобы они не перекрывали кнопки на демке */
+        margin-bottom: 30px;
+        bottom: 0;
+      }
+
+      .dialog__button {
+        min-width: auto;
+        width: 100%;
+      }
+    }
+
+    kbd {
+      padding: 2px 3px 1px;
+      border: 1px solid #000000;
+      border-radius: 3px;
+      font-family: "Roboto Mono", monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="button button-orange" type="button" onclick="window['closeMe'].showModal()" aria-controls="closeMe">Открыть диалоговое окно</button>
+    <dialog closedby="any" open="open" id="closeMe" class="dialog" aria-labelledby="dialog-name">
+      <h2 class="dialog__title" id="dialog-name">Закрой меня! 🙏</h2>
+      <p>Это окно можно закрыть нажатием <kbd>Esc</kbd>, кликом вне окна или любым другим способом.</p>
+      <form method="dialog">
+        <button class="dialog__button button-blue">Закрыть</button>
+      </form>
+    </dialog>
+  </div>
+</body>
+</html>
