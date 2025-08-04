@@ -159,6 +159,7 @@ groups:
       - inert
       - dir
       - part
+      - exportparts
       - tabindex
       - enterkeyhint
       - data-attributes
