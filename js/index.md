@@ -174,6 +174,7 @@ groups:
       - form-data
       - console
       - console-log
+      - window-customelements
       - window-history
       - window-location
       - window-navigator
