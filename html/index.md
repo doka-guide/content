@@ -158,6 +158,7 @@ groups:
       - hidden
       - inert
       - dir
+      - part
       - tabindex
       - enterkeyhint
       - data-attributes
