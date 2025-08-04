@@ -33,7 +33,7 @@ tags:
       margin-bottom: 8px;
       font-size: 2rem;
     }
-    
+
     ::slotted(p) {
       font-size: 1.2rem;
     }
