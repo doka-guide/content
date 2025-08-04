@@ -82,7 +82,7 @@ class MyBox extends HTMLElement {
   }
 }
 
-customElements.define('my-box', MyBox)  
+customElements.define('my-box', MyBox)
 ```
 
 <iframe title="Пример использования :host и :host()" src="demos/basic/" height="550"></iframe>
