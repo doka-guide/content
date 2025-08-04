@@ -20,7 +20,7 @@ tags:
 
 ## Кратко
 
-Свойство `.shadowRoot` возвращает корневой узел Shadow DOM, если он был создан через `attachShadow()` с `mode: "open"`. В противном случае — возвращает `null`.
+Свойство `.shadowRoot` возвращает корневой узел Shadow DOM, если он был создан через [`.attachShadow()`](/js/element-attachshadow/) с `mode: "open"`. В противном случае — возвращает `null`.
 
 ## Пример
 
@@ -51,7 +51,7 @@ tags:
 const shadow = element.shadowRoot
 ```
 
-Если теневой DOM не был создан или создан с `mode: "closed"` — вернётся `null`.
+Если Shadow DOM не был создан или создан с `mode: "closed"` — вернётся `null`.
 
 ## Как понять
 
