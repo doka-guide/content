@@ -1,6 +1,12 @@
 ---
 title: "`print-color-adjust`"
 description: "Говорим браузеру как обрабатывать цвета при печати."
+baseline:
+  - group: print-color-adjust
+    features:
+      - css.properties.print-color-adjust
+      - css.properties.print-color-adjust.economy
+      - css.properties.print-color-adjust.exact
 authors:
   - drakesbot12
 keywords:
