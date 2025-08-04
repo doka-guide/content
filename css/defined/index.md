@@ -87,7 +87,7 @@ btn.addEventListener("click", () => {
 });
 ```
 
-<iframe title="Демонстрация :defined" src="demos/basic/" height="300"></iframe>
+<iframe title="Демонстрация :defined" src="demos/basic/" height="320"></iframe>
 
 ## Как пишется
 
