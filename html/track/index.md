@@ -51,6 +51,12 @@ tags:
 <track src="captions.vtt" kind="captions" srclang="en" label="English captions" default />
 ```
 
+<aside>
+
+⚠️ На данный момент `kind='descriptions'` не поддерживается ни одним браузером, проверяйте поддержку на [MDN](https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/track#%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C_%D1%81_%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80%D0%B0%D0%BC%D0%B8)
+
+</aside>
+
 ## Как понять
 
 `<track>` — это вспомогательная надстройка над медиа: сам по себе тег не отображается, но его влияние видно при воспроизведении. Он подключает дополнительную текстовую информацию, которую плеер может отобразить поверх видео или использовать для других целей.
