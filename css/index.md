@@ -64,6 +64,7 @@ groups:
       - before
       - after
       - content
+      - part
       - slotted
       - placeholder
       - first-letter
