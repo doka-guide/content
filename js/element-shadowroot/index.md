@@ -20,7 +20,7 @@ tags:
 
 ## Кратко
 
-Свойство `Element.shadowRoot` возвращает корневой узел Shadow DOM, если он был создан через `attachShadow()` с `mode: "open"`. В противном случае — возвращает `null`.
+Свойство `.shadowRoot` возвращает корневой узел Shadow DOM, если он был создан через `attachShadow()` с `mode: "open"`. В противном случае — возвращает `null`.
 
 ## Пример
 
