@@ -219,6 +219,7 @@ groups:
   - name: "Элемент на странице (`Element`)"
     items:
       - element
+      - element-shadowroot
       - element-attachshadow
       - element-addeventlistener
       - element-removeeventlistener
