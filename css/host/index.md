@@ -1,5 +1,5 @@
 ---
-title: "Псевдоклассы `:host` и `:host()`"
+title: "`:host` и `:host()`"
 description: "Псевдоклассы `:host` и `:host()` позволяют стилизовать корневой элемент Shadow DOM компонента, в том числе с условиями на атрибуты."
 authors:
   - drakesbot12
