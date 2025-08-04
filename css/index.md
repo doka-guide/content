@@ -378,6 +378,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - page
+      - break-after
       - orphans
       - widows
   - name: 'Колонки и таблицы'
