@@ -32,6 +32,7 @@ groups:
       - pre
       - code
       - dir
+      - ruby
   - name: 'Семантика'
     items:
       - semantics
@@ -61,6 +62,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
@@ -132,6 +134,8 @@ groups:
     items:
       - tables
       - caption
+      - col
+      - colgroup
   - name: 'Мета'
     items:
       - head
@@ -157,6 +161,7 @@ groups:
       - tabindex
       - enterkeyhint
       - data-attributes
+      - autofocus
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners
