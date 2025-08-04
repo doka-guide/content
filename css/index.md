@@ -48,6 +48,7 @@ groups:
       - where
       - in-range-out-of-range
       - required
+      - defined
       - host
       - optional
       - invalid-valid
