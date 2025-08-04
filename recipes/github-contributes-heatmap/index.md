@@ -32,8 +32,6 @@ tags:
 
 ![Пример GitHub-плитки](images/GitHub-grid-example.png)
 
-## Готовое решение
-
 Создадим основу html-разметки:
 
 ```html
@@ -432,6 +430,44 @@ function parseCommitActivity(responseData = []) {
   })
 }
 ```
+Для улучшения наглядности предусмотрим возможность отображения дней недели.
+В текущей реализации будем отображать сокращённые названия чётных дней недели: `пн`, `ср`, `пт`.
+Для решения этой задачи можно добавить обычную константу, однако мы не пойдём простым путём. Сформируем массив дней недели на основе полученных данных. Это упростит дальнейшую модификацию, если потребуется изменить формат или язык представления данных:
+
+```js
+// формат даты в виде сокращённого названия дня недели
+const DATE_WEEK_DAY_FORMATTER = new Intl.DateTimeFormat('ru', {
+  weekday: 'short'
+})
+
+// Функция преобразования экземпляра Date в строку в формате дня недели
+function getWeekDayFormat(date) {
+  return DATE_WEEK_DAY_FORMATTER.format(date)
+}
+
+// функция создания массива дней недели
+function createWeekDays(commitsData = []) {
+  // получим объект с информацией о первой неделе
+  const [firstWeek] = commitsData
+  if (!firstWeek) return
+
+  const {days, weekDate} = firstWeek
+  // число месяца первого дня недели
+  const firstWeekDay = weekDate.getDate()
+  
+  // накапливаем массив названий чётных дней недели 
+  const weekDays = days.reduce((acc, dayData, dayIndex) => {
+    if (dayIndex % 2) {
+      let dayDate = new Date(weekDate)
+      dayDate.setDate(firstWeekDay + dayIndex)
+      acc.push(getWeekDayFormat(dayDate))
+    }
+    return acc
+  }, [])
+
+  return weekDays
+}
+```
 
 Мы хотим отображать общее количество коммитов за год.
 Кроме этого определим минимальное (`min`) и максимальное (`max`) число коммитов за день. Добавим функцию получения этих данных из массива сформированного ранее:
@@ -445,30 +481,6 @@ function analyzeCommits(commitsData = []) {
     acc.total += weekData.total
     return acc
   }, {min: Number.POSITIVE_INFINITY, max: 0, total: 0})
-}
-```
-
-TODO! описать функцию создания массива дней недели
-
-```js
-function createWeekDays(commitsData = []) {
-  const [firstWeek] = commitsData
-  if (!firstWeek) return
-
-  const {days, weekDate} = firstWeek
-
-  const firstWeekDay = weekDate.getDate()
-
-  const weekDays = days.reduce((acc, dayData, dayIndex) => {
-    if (dayIndex % 2) {
-      let dayDate = new Date(weekDate)
-      dayDate.setDate(firstWeekDay + dayIndex)
-      acc.push(getWeekDayFormat(dayDate))
-    }
-    return acc
-  }, [])
-
-  return weekDays
 }
 ```
 
@@ -528,3 +540,75 @@ function generatePalette(hslColor, steps) {
   return palette.reverse()
 }
 ```
+
+## Рендеринг html-элементов с помощью JavaScript
+
+Теперь когда почти всё необходимое для отображения плитки готово, приступим рендеру!
+
+Соеденим созданные ранее части и ещё не готовые в единое целое — поток получения и обработки и отображения данных:
+
+```js
+  const mainContainer = document.querySelector('#mainContainer')
+  const description = mainContainer.querySelector('.description')
+
+  showLoading(true, description)
+
+  fetchCommitActivity({
+    url: createURL()
+  }).then(responseData => {
+    return parseCommitActivity(responseData)
+  }).then(commitsData => {
+    const commitCounts = analyzeCommits(commitsData)
+    const weekDays = createWeekDays(commitsData)
+
+    const colors = makeColors(commitCounts)
+
+    renderRepoInfo({repoName: REPO}, description)
+    renderTotal(commitCounts, mainContainer)
+
+    const yearGrid = renderYearGrid(
+      {commitsData, weekDays, commitCounts, colors},
+      mainContainer
+    )
+
+    bindTooltip(yearGrid, mainContainer)
+  }).catch(error => {
+    showError(error, description)
+  }).finally(() => {
+    showLoading(false, description)
+  })
+```
+
+Создадим недостающие функции:
+
+```js
+// отображение/скрытие ожидания загрузки данных
+function showLoading(show, description) {
+  const loadingElem = description.querySelector('.loading')
+  loadingElem?.classList.toggle('hidden', !show)
+}
+
+// отображение названия репозитория
+function renderRepoInfo({repoName}, element) {
+  element.innerHTML = `
+    <span class='repo-label'>
+      Репозиторий:
+    </span>
+    <span class="repo-name">
+      ${repoName}
+    </span>
+  `
+}
+
+// отображение общего количества коммитов за год
+function renderTotal({total = null}, container) {
+  const totalRow = container.querySelector('.total-row')
+  if ( totalRow && total !== null) {
+    totalRow.append(` ${total}`)
+    totalRow.classList.remove('hidden')
+  }
+}
+```
+
+
+

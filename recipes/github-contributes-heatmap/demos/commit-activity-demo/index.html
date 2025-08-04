@@ -163,13 +163,13 @@
     const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
       year: 'numeric',
       month: 'numeric',
-      day: 'numeric',
+      day: 'numeric'
     })
     const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
-      month: 'short',
+      month: 'short'
     })
     const DATE_WEEK_DAY_FORMATTER = new Intl.DateTimeFormat('ru', {
-      weekday: 'short',
+      weekday: 'short'
     })
 
     const COLOR_MAX_STEPS = 15
@@ -511,12 +511,12 @@
       return parseCommitActivity(responseData)
     }).then(commitsData => {
       const commitCounts = analyzeCommits(commitsData)
+      const weekDays = createWeekDays(commitsData)
+
+      const colors = makeColors(commitCounts)
 
       renderRepoInfo({repoName: REPO}, description)
       renderTotal(commitCounts, mainContainer)
-
-      const colors = makeColors(commitCounts)
-      const weekDays = createWeekDays(commitsData)
 
       const yearGrid = renderYearGrid(
         {commitsData, weekDays, commitCounts, colors},
