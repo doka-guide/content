@@ -11,8 +11,8 @@ keywords:
   - теги
 related:
   - js/element-attachshadow
-  - css/part
   - html/exportparts
+  - css/part
 tags:
   - doka
 ---

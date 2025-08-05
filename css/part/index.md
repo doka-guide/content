@@ -11,9 +11,9 @@ keywords:
   - кастомные
   - элементы
 related:
-  - html/part
   - css/state
-  - css/slotted
+  - html/part
+  - js/element-shadowroot
 tags:
   - doka
 ---
