@@ -85,7 +85,7 @@ states.clear();
 
 ### Свойства
 
-#### `.size`
+- #### `.size`
 
 Возвращает количество состояний в наборе.
 
@@ -99,7 +99,7 @@ console.log(states.size); // 2
 
 ### Методы
 
-#### `.add(value)`
+- #### `.add(value)`
 
 Добавляет состояние в набор. Если состояние уже существует, ничего не происходит.
 
@@ -108,7 +108,7 @@ states.add('checked');
 states.add('disabled');
 ```
 
-#### `.clear()`
+- #### `.clear()`
 
 Удаляет все состояния из набора.
 
@@ -116,7 +116,7 @@ states.add('disabled');
 states.clear(); // Удаляет все состояния
 ```
 
-#### `.delete(value)`
+- #### `.delete(value)`
 
 Удаляет конкретное состояние из набора. Возвращает `true`, если состояние было удалено, и `false`, если его не было.
 
@@ -125,7 +125,7 @@ const wasRemoved = states.delete('checked');
 console.log(wasRemoved); // true или false
 ```
 
-#### `.has(value)`
+- #### `.has(value)`
 
 Проверяет, есть ли состояние в наборе. Возвращает `true` или `false`.
 
@@ -135,7 +135,7 @@ if (states.has('loading')) {
 }
 ```
 
-#### `.forEach(callback)`
+- #### `.forEach(callback)`
 
 Выполняет функцию для каждого состояния в наборе.
 
@@ -145,7 +145,7 @@ states.forEach((state, index) => {
 });
 ```
 
-#### `.entries()`
+- #### `.entries()`
 
 Возвращает итератор с парами `[значение, значение]` для каждого состояния.
 
@@ -155,7 +155,7 @@ for (const [key, value] of states.entries()) {
 }
 ```
 
-#### `.values()`
+- #### `.values()`
 
 Возвращает итератор со всеми значениями состояний.
 
@@ -165,7 +165,7 @@ for (const state of states.values()) {
 }
 ```
 
-#### `.keys()`
+- #### `.keys()`
 
 Алиас для `values()`. Возвращает итератор со всеми значениями состояний.
 
