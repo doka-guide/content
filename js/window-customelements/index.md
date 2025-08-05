@@ -92,7 +92,7 @@ customElements.define('my-element', class extends HTMLElement {
 ```
 
 ```js
-// Сразу становится экземпляром вашего класса 
+// Сразу становится экземпляром вашего класса
 customElements.define('my-element', class extends HTMLElement {
   connectedCallback() {
     this.textContent = 'Привет!';
