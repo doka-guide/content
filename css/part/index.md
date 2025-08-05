@@ -74,7 +74,7 @@ my-card::part(box) {
 }
 ```
 
-<iframe title="Стилизация частей веб-компонента через ::part()" src="demos/part-selector/" height="350"></iframe>
+<iframe title="Стилизация частей веб-компонента через ::part()" src="demos/basic/" height="350"></iframe>
 
 ## Как пишется
 

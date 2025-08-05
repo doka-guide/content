@@ -11,9 +11,9 @@ keywords:
   - кастомизация
   - стилизация
 related:
-  - css/part
   - html/exportparts
-  - css/host
+  - css/slotted
+  - js/element-attachshadow
 tags:
   - doka
 ---

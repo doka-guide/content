@@ -10,9 +10,9 @@ keywords:
   - веб-компоненты
   - инкапсуляция
 related:
-  - html/slot
+  - js/window-customelements
+  - html/exportparts
   - css/slotted
-  - html/part
 tags:
   - doka
 ---
@@ -39,16 +39,16 @@ tags:
 <my-box>Содержимое бокса</my-box>
 
 <script>
-  class MyBox extends HTMLElement {
-    constructor() {
-      super()
-      const shadowRoot = this.attachShadow({ mode: 'open' })
-      const template = document.getElementById('my-box-template')
-      shadowRoot.appendChild(template.content.cloneNode(true))
-    }
+class MyBox extends HTMLElement {
+  constructor() {
+    super()
+    const shadowRoot = this.attachShadow({ mode: 'open' })
+    const template = document.getElementById('my-box-template')
+    shadowRoot.appendChild(template.content.cloneNode(true))
   }
+}
 
-  customElements.define('my-box', MyBox)
+customElements.define('my-box', MyBox)
 </script>
 ```
 
@@ -62,32 +62,32 @@ element.attachShadow({ mode: 'open' })
 
 Метод принимает объект с опциями:
 
-- `mode`: (обязательно) `open` (по умолчанию) или `closed`. В режиме `open` можно получить доступ к `element.shadowRoot` извне. В `closed` — нет.
+- `mode`: (обязательно) `open` (по умолчанию) или `closed`. В режиме `open` можно получить доступ к [`.shadowRoot`](/js/element-shadowroot/) извне. В `closed` — нет.
 - `delegatesFocus`: (опционально) `true`, если нужно передавать фокус внутрь компонента.
 - `slotAssignment`: (опционально) `named` или `manual` — режим работы со слотами (по умолчанию `named`).
 - `clonable`, `serializable`: (опционально) экспериментальные, пока редко используются.
 
 ## Как понять
 
-Если вы создаёте свой HTML-элемент (`customElements.define(...)`), то скорее всего захотите добавить Shadow DOM для:
+Если вы создаёте свой HTML-элемент ([`customElements.define(...)`](/js/window-customelements/)), то скорее всего захотите добавить Shadow DOM для:
 
 - изоляции CSS от внешней среды;
 - использования слотов (`<slot>`) для вставки содержимого;
 - лучшего контроля над внутренней структурой компонента.
 
-Без вызова `attachShadow()` компонент остаётся обычным элементом.
+Без вызова `.attachShadow()` компонент остаётся обычным элементом.
 
 <aside>
 
-Есть некоторые ограничения на добавление ShadowDOM к элементам, вот список **разрешённых** элементов:
-- любой кастомный анонимный компонент с [правильным названием](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name);
+⚠️ Есть некоторые ограничения на добавление ShadowDOM к элементам, вот список **разрешённых** элементов:
+- любой кастомный анонимный элемент с [правильным названием](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name);
 - [`<article>`](/html/article/);
 - [`<aside>`](/html/aside/);
 - [`<blockquote>`](/html/blockquote/);
 - [`<body>`](/html/body/);
 - [`<div>`](/html/div/);
 - [`<footer>`](/html/footer/);
-- [`h1 - h6`](/html/h1-h6/);
+- [`h1-h6`](/html/h1-h6/);
 - [`<header>`](/html/header/);
 - [`<main>`](/html/main/);
 - [`<nav>`](/html/nav/);
@@ -96,6 +96,27 @@ element.attachShadow({ mode: 'open' })
 - [`<span>`](/html/span/).
 
 </aside>
+
+### Анонимный компонент
+
+Это такой компонент, который объявлен с помощью `HTMLElement`. Например:
+
+```js
+class MyBox extends HTMLElement { ... }
+
+customElements.define('my-box', MyBox)
+```
+
+Но уже вот такой компонент НЕ считается анонимным:
+
+```js
+class MySection extends HTMLSectionElement { ... }
+
+customElements.define('my-box', MyBox)
+```
+
+Он не считается анонимным из-за того, что он объявлен как HTML-элемент [`<section>`](/html/section/).
+
 
 ## Подсказки
 

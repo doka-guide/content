@@ -12,9 +12,9 @@ keywords:
   - shadow
   - dom
 related:
-  - html/shadow
-  - html/part
   - css/host
+  - html/part
+  - js/element-attachshadow
 tags:
   - doka
 ---
@@ -94,7 +94,7 @@ btn.addEventListener("click", () => {
 Псевдокласс используется как обычный селектор:
 
 ```css
-имя-компонента:defined {
+web-component:defined {
   /* стили, когда компонент зарегистрирован */
 }
 ```
