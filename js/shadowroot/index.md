@@ -88,7 +88,7 @@ shadowRoot.appendChild(element);
 
 ### Свойства
 
-- #### `.activeElement`
+- #### `activeElement`
 
 Возвращает элемент в Shadow Tree, который имеет фокус.
 
@@ -97,7 +97,7 @@ const focusedElement = shadowRoot.activeElement;
 console.log(focusedElement); // Элемент с фокусом или null
 ```
 
-- #### `.adoptedStyleSheets`
+- #### `adoptedStyleSheets`
 
 Массив конструктивных таблиц стилей для использования в Shadow DOM.
 
@@ -107,7 +107,7 @@ stylesheet.replaceSync('div { color: red; }');
 shadowRoot.adoptedStyleSheets = [stylesheet];
 ```
 
-- #### `.clonable`
+- #### `clonable`
 
 Булево значение, указывающее, можно ли клонировать ShadowRoot.
 
@@ -115,7 +115,7 @@ shadowRoot.adoptedStyleSheets = [stylesheet];
 console.log(shadowRoot.clonable); // true или false
 ```
 
-- #### `.delegatesFocus`
+- #### `delegatesFocus`
 
 Булево значение, указывающее, делегирует ли ShadowRoot фокус при выборе нефокусируемого узла.
 
@@ -123,7 +123,7 @@ console.log(shadowRoot.clonable); // true или false
 console.log(shadowRoot.delegatesFocus); // true или false
 ```
 
-- #### `.fullscreenElement`
+- #### `fullscreenElement`
 
 Элемент, который в данный момент находится в полноэкранном режиме в этом Shadow Tree.
 
@@ -138,7 +138,7 @@ console.log(fullscreenEl); // Элемент в полноэкранном ре�
 
 </aside>
 
-- #### `.host`
+- #### `host`
 
 Возвращает ссылку на DOM-элемент, к которому прикреплён ShadowRoot.
 
@@ -147,7 +147,7 @@ const hostElement = shadowRoot.host;
 console.log(hostElement); // Элемент-хост
 ```
 
-- #### `.innerHTML`
+- #### `innerHTML`
 
 Устанавливает или возвращает содержимое ShadowRoot.
 
@@ -159,7 +159,7 @@ console.log(shadowRoot.innerHTML);
 shadowRoot.innerHTML = '<div>Новое содержимое</div>';
 ```
 
-- #### `.mode`
+- #### `mode`
 
 Режим ShadowRoot: `'open'` или `'closed'`.
 
@@ -167,7 +167,7 @@ shadowRoot.innerHTML = '<div>Новое содержимое</div>';
 console.log(shadowRoot.mode); // 'open' или 'closed'
 ```
 
-- #### `.pictureInPictureElement`
+- #### `pictureInPictureElement`
 
 Элемент в Shadow Tree, который в данный момент представлен в режиме "картинка в картинке".
 
@@ -183,7 +183,7 @@ console.log(pipElement); // Элемент в PiP режиме или null
 </aside>
 
 
-- #### `.serializable`
+- #### `serializable`
 
 Булево значение, указывающее, можно ли сериализовать ShadowRoot.
 
@@ -191,7 +191,7 @@ console.log(pipElement); // Элемент в PiP режиме или null
 console.log(shadowRoot.serializable); // true или false
 ```
 
-- #### `.slotAssignment`
+- #### `slotAssignment`
 
 Тип назначения слотов: `'manual'` или `'named'`.
 
@@ -199,7 +199,7 @@ console.log(shadowRoot.serializable); // true или false
 console.log(shadowRoot.slotAssignment); // 'manual' или 'named'
 ```
 
-- #### `.styleSheets`
+- #### `styleSheets`
 
 Список `CSSStyleSheet` объектов для таблиц стилей в Shadow Tree.
 
@@ -210,7 +210,7 @@ console.log(stylesheets.length); // Количество таблиц стиле
 
 ### Методы
 
-- #### `.getAnimations()`
+- #### `getAnimations()`
 
 Возвращает массив всех активных анимаций в Shadow Tree.
 
