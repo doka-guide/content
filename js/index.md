@@ -174,6 +174,7 @@ groups:
       - form-data
       - console
       - console-log
+      - shadowroot
       - customstateset
       - window-customelements
       - window-history
@@ -204,7 +205,7 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
-      - shadowroot
+      - shadowdom
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
