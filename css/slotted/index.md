@@ -11,7 +11,7 @@ keywords:
   - ::slotted
 related:
   - html/part
-  - css/slot
+  - css/state
   - js/window-customelements
 tags:
   - doka

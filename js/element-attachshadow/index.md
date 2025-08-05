@@ -80,7 +80,7 @@ element.attachShadow({ mode: 'open' })
 <aside>
 
 ⚠️ Есть некоторые ограничения на добавление ShadowDOM к элементам, вот список **разрешённых** элементов:
-- любой кастомный анонимный элемент с [правильным названием](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name);
+- любой кастомный [анонимный элемент](#anonimnyy-komponent) с [правильным названием](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name);
 - [`<article>`](/html/article/);
 - [`<aside>`](/html/aside/);
 - [`<blockquote>`](/html/blockquote/);
