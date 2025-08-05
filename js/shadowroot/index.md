@@ -83,8 +83,8 @@ shadowRoot.appendChild(element);
 ### Параметры `attachShadow()`
 
 - **`mode`** — режим доступа:
-  - `'open'` — ShadowRoot доступен через `element.shadowRoot`
-  - `'closed'` — ShadowRoot недоступен извне
+  - `open` — ShadowRoot доступен через `element.shadowRoot`
+  - `closed` — ShadowRoot недоступен извне
 
 ### Свойства
 
@@ -161,7 +161,7 @@ shadowRoot.innerHTML = '<div>Новое содержимое</div>';
 
 - #### `mode`
 
-Режим ShadowRoot: `'open'` или `'closed'`.
+Режим ShadowRoot: `open` или `closed`.
 
 ```javascript
 console.log(shadowRoot.mode); // 'open' или 'closed'
@@ -193,7 +193,7 @@ console.log(shadowRoot.serializable); // true или false
 
 - #### `slotAssignment`
 
-Тип назначения слотов: `'manual'` или `'named'`.
+Тип назначения слотов: `manual` или `named`.
 
 ```javascript
 console.log(shadowRoot.slotAssignment); // 'manual' или 'named'
@@ -240,7 +240,7 @@ shadowRoot.addEventListener('slotchange', (event) => {
 `ShadowRoot` создаёт изолированное дерево [DOM](/js/dom/), которое:
 
 - **Инкапсулирует стили** — CSS внутри [Shadow DOM](/js/shadowdom/) не влияет на внешние элементы
-- **Скрывает структуру** — внутренние элементы недоступны из основного DOM
+- **Скрывает структуру** — внутренние элементы недоступны из основного [DOM](/js/dom/)
 - **Обеспечивает переиспользование** — компонент работает независимо от контекста
 
 ### Основные концепции:

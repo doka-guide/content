@@ -19,7 +19,7 @@ tags:
 
 ## Кратко
 
-`window.customElements` — это глобальный объект, который предоставляет методы для создания, регистрации и получения пользовательских HTML-элементов (Web Components).
+`window.customElements` — это глобальный объект, который предоставляет методы для создания, регистрации и получения пользовательских HTML-элементов ([Web Components](/tools/web-components/)).
 
 ## Пример
 
@@ -78,11 +78,18 @@ customElements.define('my-greeting', MyGreeting);
 Пример:
 
 ```js
+const container = document.createElement('div');
+container.innerHTML = '<my-box></my-box>';
+
+document.body.appendChild(container);
+
 customElements.define('my-box', class extends HTMLElement {
   connectedCallback() {
     this.innerHTML = '<div>📦 Это мой компонент</div>';
   }
 });
+
+customElements.upgrade(container);
 ```
 
 ## Как понять
