@@ -40,7 +40,6 @@ class MyCheckbox extends HTMLElement {
         :host(:state(checked))::before { content: '[x]'; }
         :host(:state(checked))::after { content: 'Чекбокс cheked!'; }
       </style>
-      <slot></slot>
     `;
   }
   get checked() {
