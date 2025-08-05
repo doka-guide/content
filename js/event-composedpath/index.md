@@ -31,7 +31,7 @@ customElements.define('open-shadow', class extends HTMLElement {
     super();
     const p = document.createElement('p');
     p.textContent = this.getAttribute('text');
-    
+
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(p);
   }
@@ -42,7 +42,7 @@ customElements.define('closed-shadow', class extends HTMLElement {
     super();
     const p = document.createElement('p');
     p.textContent = this.getAttribute('text');
-    
+
     const shadow = this.attachShadow({ mode: 'closed' });
     shadow.appendChild(p);
   }
