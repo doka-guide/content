@@ -23,6 +23,10 @@ tags:
 
 ## Пример
 
+```html
+<my-greeting></my-greeting>
+```
+
 ```js
 class MyGreeting extends HTMLElement {
   connectedCallback() {
@@ -33,10 +37,6 @@ class MyGreeting extends HTMLElement {
 customElements.define('my-greeting', MyGreeting);
 ```
 
-```html
-<my-greeting></my-greeting>
-```
-
 <iframe title="Создание пользовательского тега через customElements" src="demos/basic/" height="150"></iframe>
 
 ## Как пишется
@@ -44,6 +44,9 @@ customElements.define('my-greeting', MyGreeting);
 Объект `customElements` — это свойство `window`. Он предоставляет такие методы:
 
 - `.define(name, constructor, options)` — регистрирует новый элемент.
+  - `name` — строка, имя нового тега (обязательно, должно содержать дефис чтобы названия не конкурировали с обычными HTML-тегами, например, `my-element`).
+  - `constructor` — класс, который наследуется от `HTMLElement` или другого встроенного элемента (обязательно).
+  - `options` — объект с дополнительными настройками (необязательно). Обычно используется для расширения встроенных элементов через свойство `extends`, например: `{ extends: 'button' }` для создания кастомной кнопки на основе стандартной.
 - `.get(name)` — возвращает конструктор уже зарегистрированного элемента.
 - `.whenDefined(name)` — возвращает промис, который выполнится, когда элемент будет определён.
 - `.upgrade(root)` — вручную активирует пользовательские элементы внутри указанного `root`.
@@ -74,10 +77,11 @@ customElements.define('my-box', class extends HTMLElement {
 
 Так же при создании кастомных элементом, важно знать несколько важных моментов:
 
-- **Регистрация до использования**: Все пользовательские элементы должны быть зарегистрированы до их использования в DOM. Если элемент используется до регистрации, браузер создаст `HTMLUnknownElement` вместо вашего кастомного элемента.
+- **Регистрация до использования**: Все пользовательские элементы желательно должны быть зарегистрированы до их использования в DOM. Если элемент используется до регистрации, браузер создаст `HTMLUnknownElement` вместо вашего кастомного элемента, и только после регистрации он «апгрейдит» такой тег до нужного класса и вызовет, например, `connectedCallback`.
 
 ```js
-// Неправильно — элемент используется до регистрации
+//  До апгрейда браузером — элемент представлен как HTMLUnknownElement,
+//  после регистрации и апгрейда — становится экземпляром вашего класса
 document.body.innerHTML = '<my-element></my-element>';
 
 customElements.define('my-element', class extends HTMLElement {
@@ -88,7 +92,7 @@ customElements.define('my-element', class extends HTMLElement {
 ```
 
 ```js
-// Правильно — регистрация перед использованием
+// Сразу становится экземпляром вашего класса 
 customElements.define('my-element', class extends HTMLElement {
   connectedCallback() {
     this.textContent = 'Привет!';
