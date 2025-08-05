@@ -1,33 +1,20 @@
 ---
 title: "`ShadowRoot`"
 description: "Корневой узел Shadow DOM, который создаёт изолированное дерево DOM для кастомных элементов."
-baseline:
-  - Chrome: 53
-  - Firefox: 63
-  - Safari: 10
-  - Edge: 79
-cover:
-  author: drakesbot12
-  desktop: 'images/desktop.png'
-  mobile: 'images/mobile.png'
-  alt: 'ShadowRoot для изолированного DOM в Web Components'
 authors:
-  - drakesbot12
-contributors:
-  - drakesbot12
-editors:
   - drakesbot12
 keywords:
   - shadowroot
-  - shadow dom
-  - web components
+  - shadow
+  - dom
+  - web-components
   - изолированный dom
   - attachshadow
   - инкапсуляция
 related:
   - js/element-attachshadow
-  - js/window-customelements
   - html/slot
+  - css/slotted
 tags:
   - doka
 ---
