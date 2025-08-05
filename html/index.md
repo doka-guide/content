@@ -158,6 +158,7 @@ groups:
       - hidden
       - inert
       - dir
+      - is
       - part
       - exportparts
       - tabindex
