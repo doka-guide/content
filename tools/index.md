@@ -134,6 +134,7 @@ groups:
   - name: Инструменты
     items:
       - git-cli
+      - web-components
       - how-to-enter-to-vim
       - ssh
       - gulp
