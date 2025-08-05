@@ -77,7 +77,7 @@ customElements.define('my-card', MyCard);
 </my-card>
 ```
 
-<iframe title="Демонстрация ShadowRoot с изолированными стилями" src="demos/basic/" height="200"></iframe>
+<iframe title="Демонстрация ShadowRoot с изолированными стилями" src="demos/basic/" height="180"></iframe>
 
 ## Как пишется
 
