@@ -264,11 +264,11 @@
             return {}
           }
 
-          const dateFormated = getDateFormat(dayDate)
+          const dateFormatted = getDateFormat(dayDate)
 
           return {
             count,
-            dateFormated
+            dateFormatted
           }
         })
 
@@ -416,8 +416,8 @@
         weekContainer.className = 'week'
 
         days.forEach(dayData => {
-          const {count = 0, dateFormated = ''} = dayData
-          const isFuture = dateFormated === ''
+          const {count = 0, dateFormatted = ''} = dayData
+          const isFuture = dateFormatted === ''
 
           const dayContainer = document.createElement('div')
           let className = 'day cell'
@@ -432,7 +432,7 @@
               )
             : 0
             dayContainer.style.background = colors[colorIndex]
-            dayContainer.setAttribute('data-date', dateFormated)
+            dayContainer.setAttribute('data-date', dateFormatted)
           }
 
           if (count) {

@@ -13,7 +13,7 @@ tags:
 
 ## Задача
 
-«GitHub-плитка» — легко узнаваемый компонент на [странице профиля пользователя GitHub](recipes/github-new-profile/).
+«GitHub-плитка» — легко узнаваемый компонент на [странице профиля пользователя GitHub](/recipes/github-new-profile/).
 
 <aside>
 
@@ -225,7 +225,7 @@ function createURL(repo = REPO) {
 }
 ```
 
-Документация описывает необходимые заголовки (headers) API-запрса:
+Документация описывает необходимые заголовки (headers) API-запроса:
 
 - `'X-GitHub-Api-Version': '2022-11-28'` — версия API. Этот параметр гарантирует получение задукоментированной структуры ответа, даже при изменении этой структуры в других версиях API;
 - `'Accept': 'application/vnd.github+json'` — формат файла ответа. Документация [рекомендует](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api?apiVersion=2022-11-28#accept) добавлять заголовок `Accept` для уточнения желаемого формата данных.
@@ -326,11 +326,11 @@ week —  дата первого дня недели в виде [Unix timestam
     "days": [
       {
         count: number, // количество коммитов в вс.
-        dateFormated: string // дата в формате `ГГГГ.MM.ДД`
+        dateFormatted: string // дата в формате `ГГГГ.MM.ДД`
       },
       {
         count: number // количество коммитов в пн.
-        dateFormated: string
+        dateFormatted: string
       },
       ...
     ],
@@ -400,17 +400,17 @@ function parseCommitActivity(responseData = []) {
       dayDate = new Date(weekDate)
       dayDate.setDate(firstWeekDay + dayIndex)
 
-      // если этот день ещё не наступил, возвращяем пустой объект
+      // если этот день ещё не наступил, возвращаем пустой объект
       if (dayDate > currDate) {
         return {}
       }
 
       // дата дня в формате `ГГГГ.MM.ДД`
-      const dateFormated = getDateFormat(dayDate)
+      const dateFormatted = getDateFormat(dayDate)
 
       return {
         count,
-        dateFormated
+        dateFormatted
       }
     })
 
@@ -545,7 +545,7 @@ function generatePalette(hslColor, steps) {
 
 Теперь когда почти всё необходимое для отображения плитки готово, приступим рендеру!
 
-Соеденим созданные ранее части и ещё не готовые в единое целое — поток получения и обработки и отображения данных:
+Соединим созданные ранее части и ещё не готовые в единое целое — поток получения и обработки и отображения данных:
 
 ```js
   const mainContainer = document.querySelector('#mainContainer')
@@ -608,7 +608,93 @@ function renderTotal({total = null}, container) {
     totalRow.classList.remove('hidden')
   }
 }
+
+// отображение ошибки получения данных
+function showError(error, element) {
+  const errorMessage = error?.message ?? `${error}`
+  element.innerHTML = `
+    <span class='error-label'>
+      Ошибка получения данных:
+    </span>
+    <span class='error-value'>
+      ${errorMessage}
+    </span>
+  `
+}
 ```
 
+Основная часть нашего скрипта  функция `renderYearGrid()`.
 
+```js
+function renderYearGrid(params, container) {
+  const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
+  const weekCount = commitsData.length ?? 0
+  if (weekCount === 0) return
 
+  const {max} = commitCounts
+
+  const steps = colors.length
+  const factor = steps - 1
+
+  const yearContainer = document.createElement('div')
+  yearContainer.className = 'year'
+
+  if (weekDays) {
+    const weekDaysContainer = document.createElement('div')
+    weekDaysContainer.className = 'weekday-labels'
+
+    weekDays.forEach(weekDay => {
+      const weekDayLabel = document.createElement('div')
+      weekDayLabel.className = 'weekday-label'
+      weekDayLabel.innerText = weekDay
+      weekDaysContainer.appendChild(weekDayLabel)
+    })
+    yearContainer.appendChild(weekDaysContainer)
+  }
+
+  commitsData.forEach(weekData => {
+    const {days, month} = weekData
+    if (month) {
+      const monthLabel = document.createElement('div')
+      monthLabel.className = 'month-label'
+      monthLabel.innerText = month
+      yearContainer.appendChild(monthLabel)
+    }
+    const weekContainer = document.createElement('div')
+    weekContainer.className = 'week'
+
+    days.forEach(dayData => {
+      const {count = 0, dateFormatted = ''} = dayData
+      const isFuture = dateFormatted === ''
+
+      const dayContainer = document.createElement('div')
+      let className = 'day cell'
+
+      if (isFuture) {
+        className += ' hidden'
+      } else {
+        const colorIndex = count > 0
+        ? Math.min(
+            Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
+            factor
+          )
+        : 0
+        dayContainer.style.background = colors[colorIndex]
+        dayContainer.setAttribute('data-date', dateFormatted)
+      }
+
+      if (count) {
+        dayContainer.setAttribute('data-count', count)
+        className += ' has-commits'
+      }
+      dayContainer.className = className
+      weekContainer.appendChild(dayContainer)
+    })
+
+    yearContainer.appendChild(weekContainer)
+  })
+
+  container.appendChild(yearContainer)
+  return yearContainer
+}
+```
