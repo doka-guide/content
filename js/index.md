@@ -204,6 +204,7 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
+      - shadowdom
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
