@@ -187,7 +187,7 @@ class EncapsulatedComponent extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: 'open' });
-    
+
     shadow.innerHTML = `
       <style>
         /* Эти стили не повлияют на внешние элементы */
@@ -264,12 +264,12 @@ class UserCard extends HTMLElement {
     const template = document.getElementById('user-card');
     const shadow = this.attachShadow({ mode: 'open' });
     shadow.appendChild(template.content.cloneNode(true));
-    
+
     // Заполняем данными
     const avatar = shadow.querySelector('.avatar');
     const name = shadow.querySelector('.name');
     const email = shadow.querySelector('.email');
-    
+
     avatar.src = this.getAttribute('avatar') || 'default-avatar.png';
     name.textContent = this.getAttribute('name') || 'Имя не указано';
     email.textContent = this.getAttribute('email') || 'email@example.com';
