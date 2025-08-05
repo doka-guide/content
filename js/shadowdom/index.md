@@ -65,12 +65,16 @@ const shadow = element.attachShadow({ mode: 'open' });
 console.log(element.shadowRoot); // ShadowRoot
 ```
 
+Позволяет получить доступ к ShadowRoot извне через свойство [`element.shadowRoot`](/js/shadowroot/). Это удобно для отладки и взаимодействия с внутренним содержимым компонента из внешнего кода.
+
 **Закрытый режим** (`mode: 'closed'`):
 
 ```javascript
 const shadow = element.attachShadow({ mode: 'closed' });
 console.log(element.shadowRoot); // null
 ```
+
+В закрытом режиме получить доступ к ShadowRoot извне невозможно — свойство [`element.shadowRoot`](/js/shadowroot/) всегда возвращает `null`. Это обеспечивает максимальную изоляцию внутренней структуры компонента: никакой внешний скрипт не сможет напрямую обратиться к содержимому Shadow DOM.
 
 Открытый режим удобен для отладки, закрытый — для максимальной инкапсуляции.
 
@@ -132,7 +136,7 @@ shadow.innerHTML = `
 
 ### Внутренние стили
 
-Самый простой способ — добавить `<style>` прямо в Shadow DOM:
+Самый простой способ — добавить [`<style>`](/html/style/) прямо в Shadow DOM:
 
 ```javascript
 const shadow = element.attachShadow({ mode: 'open' });
@@ -187,7 +191,7 @@ shadow.adoptedStyleSheets = [sheet];
 
 ## Shadow DOM и кастомные элементы
 
-Shadow DOM особенно полезен в сочетании с кастомными элементами. Вот пример компонента с изолированной структурой:
+Shadow DOM особенно полезен в сочетании с [`customElements`](/js/window-customelements/). Вот пример компонента с изолированной структурой:
 
 ```javascript
 class MyCard extends HTMLElement {
