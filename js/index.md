@@ -249,6 +249,8 @@ groups:
     items:
       - events
       - event
+      - event-composed
+      - event-composedpath
       - event-change
       - event-reset
       - event-input
