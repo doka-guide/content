@@ -3,6 +3,10 @@ title: "Атрибут `is`"
 description: "Экспериментальный атрибут для установки поведения обычного HTML элемента как кастомного."
 authors:
   - drakesbot12
+baseline:
+  - group: customized-built-in-elements
+    features:
+      - html.global_attributes.is
 keywords:
   - is
   - атрибут

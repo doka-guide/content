@@ -3,6 +3,10 @@ title: "`composed`"
 description: "Свойство события, определяющее, может ли событие пересекать границы Shadow DOM и распространяться в обычный DOM."
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.Event.composed
 keywords:
   - composed
   - событие

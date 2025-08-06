@@ -3,6 +3,13 @@ title: "`.attachShadow()`"
 description: "Создаёт и прикрепляет Shadow DOM к элементу, позволяя инкапсулировать стили и разметку"
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.Element.attachShadow
+      - api.Element.attachShadow.options_clonable_parameter
+      - api.Element.attachShadow.options_delegatesFocus_parameter
+      - api.Element.attachShadow.options_serializable_parameter
 keywords:
   - shadow
   - attachShadow

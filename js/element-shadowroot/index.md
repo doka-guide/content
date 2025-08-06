@@ -3,6 +3,10 @@ title: "`.shadowRoot`"
 description: "Свойство возвращает корневой узел теневого DOM, если он есть, иначе — null"
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.Element.shadowRoot
 keywords:
   - shadowroot
   - теневой

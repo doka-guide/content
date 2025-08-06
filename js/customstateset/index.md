@@ -3,6 +3,20 @@ title: "`CustomStateSet`"
 description: "Интерфейс для управления внутренними состояниями кастомных элементов, позволяющий стилизовать их через CSS."
 authors:
   - drakesbot12
+baseline:
+  - group: state
+    features:
+      - api.CustomStateSet
+      - api.CustomStateSet.@@iterator
+      - api.CustomStateSet.add
+      - api.CustomStateSet.clear
+      - api.CustomStateSet.delete
+      - api.CustomStateSet.entries
+      - api.CustomStateSet.forEach
+      - api.CustomStateSet.has
+      - api.CustomStateSet.keys
+      - api.CustomStateSet.size
+      - api.CustomStateSet.values
 keywords:
   - customstateset
   - состояния

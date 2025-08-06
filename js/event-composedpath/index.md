@@ -3,6 +3,10 @@ title: "`composedPath()`"
 description: "Метод события, возвращающий массив объектов, через которые будет распространяться событие, включая элементы Shadow DOM."
 authors:
   - drakesbot12
+baseline:
+- group: shadow-dom
+  features:
+    - api.Event.composedPath
 keywords:
   - composedPath
   - событие

@@ -3,6 +3,15 @@ title: "`ShadowRoot`"
 description: "Корневой узел Shadow DOM, который создаёт изолированное дерево DOM для кастомных элементов."
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.ShadowRoot
+      - api.ShadowRoot.clonable
+      - api.ShadowRoot.delegatesFocus
+      - api.ShadowRoot.host
+      - api.ShadowRoot.mode
+      - api.ShadowRoot.serializable
 keywords:
   - shadowroot
   - shadow

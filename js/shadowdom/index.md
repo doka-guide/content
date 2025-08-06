@@ -3,6 +3,24 @@ title: "Shadow DOM"
 description: "Как Shadow DOM помогает создавать изолированные компоненты и защищает их от внешних вмешательств."
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-dom
+    features:
+      - api.Element.attachShadow
+      - api.Element.shadowRoot
+      - api.Element.attachShadow.options_clonable_parameter
+      - api.Element.attachShadow.options_delegatesFocus_parameter
+      - api.Element.attachShadow.options_serializable_parameter
+      - api.Event.composed
+      - api.Event.composedPath
+      - api.Node.getRootNode
+      - api.Node.isConnected
+      - api.ShadowRoot
+      - api.ShadowRoot.clonable
+      - api.ShadowRoot.delegatesFocus
+      - api.ShadowRoot.host
+      - api.ShadowRoot.mode
+      - api.ShadowRoot.serializable
 keywords:
   - shadow dom
   - web components

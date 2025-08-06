@@ -5,6 +5,17 @@ authors:
   - nionka
 contributors:
   - drakesbot12
+baseline:
+  - group: declarative-shadow-dom
+    features:
+      - api.HTMLTemplateElement.shadowRootClonable
+      - api.HTMLTemplateElement.shadowRootMode
+      - api.HTMLTemplateElement.shadowRootDelegatesFocus
+      - api.HTMLTemplateElement.shadowRootSerializable
+      - html.elements.template.shadowrootmode
+      - html.elements.template.shadowrootclonable
+      - html.elements.template.shadowrootdelegatesfocus
+      - html.elements.template.shadowrootserializable
 related:
   - js/dom
   - js/query-selector

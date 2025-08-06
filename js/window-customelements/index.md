@@ -3,6 +3,10 @@ title: "`window.customElements`"
 description: "Позволяет регистрировать и управлять пользовательскими HTML-элементами — Web Components"
 authors:
   - drakesbot12
+baseline:
+  - group: customized-built-in-elements
+    features:
+      - api.CustomElementRegistry.builtin_element_support
 keywords:
   - web-components
   - пользовательские
