@@ -1,5 +1,5 @@
 ---
-title: ":has-slotted"
+title: "`:has-slotted`"
 description: "CSS-псевдокласс для стилизации `<slot>` в Shadow DOM в зависимости от наличия пользовательского контента."
 authors:
   - drakesbot12
