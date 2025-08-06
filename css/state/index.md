@@ -3,6 +3,11 @@ title: "`:state()`"
 description: "Псевдокласс :state() позволяет применять стили в зависимости от пользовательского состояния компонента. Особенно полезен для стилизации кастомных элементов."
 authors:
   - drakesbot12
+baseline:
+  - group: state
+    features:
+      - css.selectors.state
+      - api.ElementInternals.states
 keywords:
   - state
   - кастомные

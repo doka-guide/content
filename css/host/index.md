@@ -3,6 +3,11 @@ title: "`:host` и `:host()`"
 description: "Псевдоклассы `:host` и `:host()` позволяют стилизовать корневой элемент Shadow DOM компонента, в том числе с условиями на атрибуты."
 authors:
   - drakesbot12
+baseline:
+  - group: host
+    features:
+      - css.selectors.host
+      - css.selectors.hostfunction
 keywords:
   - css
   - web-components

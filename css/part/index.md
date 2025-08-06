@@ -3,6 +3,10 @@ title: "`::part()`"
 description: "Селектор для стилизации отдельных частей элемента, определённых через атрибут `part` в Shadow DOM"
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-parts
+    features:
+      - css.selectors.part
 keywords:
   - shadow
   - dom

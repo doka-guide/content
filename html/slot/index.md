@@ -3,6 +3,17 @@ title: "`<slot>`"
 description: "Место для вставки пользовательского контента в Web Components."
 authors:
   - drakesbot12
+baseline:
+  - group: slot
+    features:
+      - api.Element.assignedSlot
+      - api.Element.slot
+      - api.HTMLSlotElement
+      - api.HTMLSlotElement.name
+      - api.Text.assignedSlot
+      - html.elements.slot
+      - html.elements.slot.name
+      - html.global_attributes.slot
 keywords:
   - slot
   - web

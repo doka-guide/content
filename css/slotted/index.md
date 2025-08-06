@@ -3,6 +3,10 @@ title: "`::slotted()`"
 description: "Псевдоэлемент `::slotted()` позволяет стилизовать элементы, переданные во внешний слот веб-компонента"
 authors:
   - drakesbot12
+baseline:
+  - group: slot
+    features:
+      - css.selectors.slotted
 keywords:
   - веб-компоненты
   - слот

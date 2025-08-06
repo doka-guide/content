@@ -3,6 +3,10 @@ title: "Атрибут `exportparts`"
 description: "Атрибут `exportparts` позволяет прокидывать стилизуемые части из одного веб-компонента в другой — по цепочке Shadow DOM."
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-parts
+    features:
+      - html.global_attributes.exportparts
 keywords:
   - кастомные
   - элементы

@@ -3,6 +3,11 @@ title: "Атрибут `part`"
 description: "Атрибут `part` позволяет отмечать части Shadow DOM, к которым можно применять стили из внешнего мира с помощью селектора `::part()`."
 authors:
   - drakesbot12
+baseline:
+  - group: shadow-parts
+    features:
+      - api.Element.part
+      - html.global_attributes.part
 keywords:
   - shadow-dom
   - кастомные
