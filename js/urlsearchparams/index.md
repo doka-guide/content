@@ -236,7 +236,7 @@ params.forEach((value, key, params) => {
 })
 // 10 count URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
 // lg size URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
-// xl size URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' } 
+// xl size URLSearchParams { 'count' => '10', 'size' => 'lg', 'size' => 'xl' }
 ```
 
 ### Приведение параметров к строке
