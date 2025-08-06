@@ -51,6 +51,7 @@ groups:
       - state
       - defined
       - host
+      - has-slotted
       - optional
       - invalid-valid
       - placeholder-shown
@@ -66,7 +67,6 @@ groups:
       - content
       - part
       - slotted
-      - has-slotted
       - placeholder
       - first-letter
       - first-line
