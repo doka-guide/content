@@ -66,6 +66,7 @@ groups:
       - content
       - part
       - slotted
+      - has-slotted
       - placeholder
       - first-letter
       - first-line
