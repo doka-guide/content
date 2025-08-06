@@ -117,14 +117,14 @@
     <script>
       class MyBox extends HTMLElement {
         constructor() {
-          super()
-          const shadow = this.attachShadow({ mode: 'open' })
-          const template = document.getElementById('my-box-template')
-          shadow.appendChild(template.content.cloneNode(true))
+          super();
+          const shadow = this.attachShadow({ mode: 'open' });
+          const template = document.getElementById('my-box-template');
+          shadow.appendChild(template.content.cloneNode(true));
         }
       }
 
-      customElements.define('my-box', MyBox)
+      customElements.define('my-box', MyBox);
     </script>
   </div>
 </body>
