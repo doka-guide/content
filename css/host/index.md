@@ -125,9 +125,11 @@ customElements.define('my-box', MyBox)
 💡 Псевдокласс `:host()` можно комбинировать с другими селекторами, например, `:host(.enabled):hover`. Или даже с другими псевдоклассами, такими как `:not()` и `:is()`, например:
 
 ```css
-:host(:not([disabled]))
-:host(:is(:hover, :focus-visible))
-:host(:dir(rtl))
+:host(:not([disabled])) { ... }
+
+:host(:is(:hover, :focus-visible)) { ... }
+
+:host(:dir(rtl)) { ... }
 ```
 <aside>
 
