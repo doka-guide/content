@@ -141,7 +141,7 @@ document.body.innerHTML = '<my-element></my-element>';
 // Отслеживаем момент определения элемента
 customElements.whenDefined('custom-element').then(() => {
   console.log('Элемент custom-element определен!');
-  
+
   const element = document.querySelector('custom-element');
   element.setAttribute('data-defined', 'true');
 });
