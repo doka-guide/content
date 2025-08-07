@@ -89,15 +89,15 @@
   <script>
     class MyCard extends HTMLElement {
       constructor() {
-        super()
-        const shadow = this.attachShadow({ mode: 'open' })
-        const template = document.getElementById('card-template')
-        const content = template.content.cloneNode(true)
-        shadow.appendChild(content)
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+        const template = document.getElementById('card-template');
+        const content = template.content.cloneNode(true);
+        shadow.appendChild(content);
       }
     }
 
-    customElements.define('my-card', MyCard)
+    customElements.define('my-card', MyCard);
   </script>
 </body>
 </html>
