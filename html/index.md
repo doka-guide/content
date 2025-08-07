@@ -146,6 +146,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - crossorigin
       - template
       - output
       - data-attributes
