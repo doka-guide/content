@@ -134,24 +134,7 @@
 </head>
 <body>
   <div id="mainContainer" class="main-container">
-    <div class="description">
-      <span class="loading">
-        Загрузка...
-      </span>
-    </div>
-
-    <div class="total-row hidden">
-      <span class="total-label">
-        Общее количество коммитов за год:
-      </span>
-    </div>
-
-    <div
-      class="tooltip hidden"
-      role="tooltip"
-      id="tooltip"
-      data-position="top"
-    />
+    <div class="description"></div>
   </div>
 
   <script>
@@ -322,9 +305,16 @@
       return generatePalette(baseColor, steps)
     }
 
-    function showLoading(show, description) {
-      const loadingElem = description.querySelector('.loading')
-      loadingElem?.classList.toggle('hidden', !show)
+    function showLoading(show, container) {
+      let loadingElem = container.querySelector('.loading')
+      if (!loadingElem) {
+        loadingElem = document.createElement('span')
+        loadingElem.className = 'loading hidden'
+        loadingElem.innerHTML = 'Загрузка...'
+
+        container.appendChild(loadingElem)
+      }
+      loadingElem.classList.toggle('hidden', !show)
     }
 
     function renderRepoInfo({repoName}, element) {
@@ -339,10 +329,15 @@
     }
 
     function renderTotal({total = null}, container) {
-      const totalRow = container.querySelector('.total-row')
-      if ( totalRow && total !== null) {
-        totalRow.append(` ${total}`)
-        totalRow.classList.remove('hidden')
+      if (total !== null) {
+        const totalElem = document.createElement('div')
+        totalElem.className = 'total-row'
+        totalElem.innerHTML = `
+          <span class="total-label">
+            Общее количество коммитов за год: ${total}
+          </span>
+        `
+        container.appendChild(totalElem)
       }
     }
 
@@ -451,11 +446,18 @@
     }
 
     function bindTooltip(yearGrid, container) {
-      if (! yearGrid || ! container) return
+      if (! yearGrid) return
 
-      const tooltip = container.querySelector('.tooltip')
-
-      if (! tooltip) return
+      const tooltipElem = document.createElement('div')
+      tooltipElem.innerHTML = `
+        <div
+          class="tooltip hidden"
+          role="tooltip"
+          id="tooltip"
+          data-position="top"
+        />
+      `
+      container.appendChild(tooltipElem)
 
       let top = 0
       let left = 0

@@ -227,7 +227,7 @@ function createURL(repo = REPO) {
 
 Документация описывает необходимые заголовки (headers) API-запроса:
 
-- `'X-GitHub-Api-Version': '2022-11-28'` — версия API. Этот параметр гарантирует получение задукоментированной структуры ответа, даже при изменении этой структуры в других версиях API;
+- `'X-GitHub-Api-Version': '2022-11-28'` — версия API. Этот параметр гарантирует получение ответа в формате описанном в документации, даже при изменении этой структуры в будущих версиях API;
 - `'Accept': 'application/vnd.github+json'` — формат файла ответа. Документация [рекомендует](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api?apiVersion=2022-11-28#accept) добавлять заголовок `Accept` для уточнения желаемого формата данных.
 
 Напишем функцию выполнения запроса. Функция принимает в качестве параметра путь запроса и возвращает [промис](/js/fetch/):
@@ -454,8 +454,8 @@ function createWeekDays(commitsData = []) {
   const {days, weekDate} = firstWeek
   // число месяца первого дня недели
   const firstWeekDay = weekDate.getDate()
-  
-  // накапливаем массив названий чётных дней недели 
+
+  // накапливаем массив названий чётных дней недели
   const weekDays = days.reduce((acc, dayData, dayIndex) => {
     if (dayIndex % 2) {
       let dayDate = new Date(weekDate)
@@ -543,9 +543,9 @@ function generatePalette(hslColor, steps) {
 
 ## Рендеринг html-элементов с помощью JavaScript
 
-Теперь когда почти всё необходимое для отображения плитки готово, приступим рендеру!
+Теперь когда почти всё необходимое для отображения плитки готово, приступим к её созданию!
 
-Соединим созданные ранее части и ещё не готовые в единое целое — поток получения и обработки и отображения данных:
+Соединим созданные ранее и ещё не готовые части в единое целое:
 
 ```js
   const mainContainer = document.querySelector('#mainContainer')
@@ -583,118 +583,24 @@ function generatePalette(hslColor, steps) {
 
 ```js
 // отображение/скрытие ожидания загрузки данных
-function showLoading(show, description) {
-  const loadingElem = description.querySelector('.loading')
-  loadingElem?.classList.toggle('hidden', !show)
-}
+function showLoading(show, container) {
+  let loadingElem = container.querySelector('.loading')
+  if (!loadingElem) {
+    loadingElem = document.createElement('span')
+    loadingElem.className = 'loading hidden'
+    loadingElem.innerHTML = 'Загрузка...'
 
-// отображение названия репозитория
-function renderRepoInfo({repoName}, element) {
-  element.innerHTML = `
-    <span class='repo-label'>
-      Репозиторий:
-    </span>
-    <span class="repo-name">
-      ${repoName}
-    </span>
-  `
-}
-
-// отображение общего количества коммитов за год
-function renderTotal({total = null}, container) {
-  const totalRow = container.querySelector('.total-row')
-  if ( totalRow && total !== null) {
-    totalRow.append(` ${total}`)
-    totalRow.classList.remove('hidden')
+    container.appendChild(loadingElem)
   }
+  loadingElem.classList.toggle('hidden', !show)
 }
 
-// отображение ошибки получения данных
-function showError(error, element) {
-  const errorMessage = error?.message ?? `${error}`
-  element.innerHTML = `
-    <span class='error-label'>
-      Ошибка получения данных:
-    </span>
-    <span class='error-value'>
-      ${errorMessage}
-    </span>
-  `
-}
+// TODO: добавить остальные функции
+
 ```
 
 Основная часть нашего скрипта  функция `renderYearGrid()`.
 
 ```js
-function renderYearGrid(params, container) {
-  const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
-  const weekCount = commitsData.length ?? 0
-  if (weekCount === 0) return
 
-  const {max} = commitCounts
-
-  const steps = colors.length
-  const factor = steps - 1
-
-  const yearContainer = document.createElement('div')
-  yearContainer.className = 'year'
-
-  if (weekDays) {
-    const weekDaysContainer = document.createElement('div')
-    weekDaysContainer.className = 'weekday-labels'
-
-    weekDays.forEach(weekDay => {
-      const weekDayLabel = document.createElement('div')
-      weekDayLabel.className = 'weekday-label'
-      weekDayLabel.innerText = weekDay
-      weekDaysContainer.appendChild(weekDayLabel)
-    })
-    yearContainer.appendChild(weekDaysContainer)
-  }
-
-  commitsData.forEach(weekData => {
-    const {days, month} = weekData
-    if (month) {
-      const monthLabel = document.createElement('div')
-      monthLabel.className = 'month-label'
-      monthLabel.innerText = month
-      yearContainer.appendChild(monthLabel)
-    }
-    const weekContainer = document.createElement('div')
-    weekContainer.className = 'week'
-
-    days.forEach(dayData => {
-      const {count = 0, dateFormatted = ''} = dayData
-      const isFuture = dateFormatted === ''
-
-      const dayContainer = document.createElement('div')
-      let className = 'day cell'
-
-      if (isFuture) {
-        className += ' hidden'
-      } else {
-        const colorIndex = count > 0
-        ? Math.min(
-            Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
-            factor
-          )
-        : 0
-        dayContainer.style.background = colors[colorIndex]
-        dayContainer.setAttribute('data-date', dateFormatted)
-      }
-
-      if (count) {
-        dayContainer.setAttribute('data-count', count)
-        className += ' has-commits'
-      }
-      dayContainer.className = className
-      weekContainer.appendChild(dayContainer)
-    })
-
-    yearContainer.appendChild(weekContainer)
-  })
-
-  container.appendChild(yearContainer)
-  return yearContainer
-}
 ```
