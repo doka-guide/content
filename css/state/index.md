@@ -82,9 +82,12 @@ customElements.define('toggle-box', ToggleBox)
 
 ```js
 // Внутри кастомного элемента
-this.states.add('active')    // Устанавливаем состояние
-this.states.delete('active') // Удаляем состояние
+const internals = this.attachInternals();
+internals.states.add('active');    // Устанавливаем состояние
+internals.states.delete('active'); // Удаляем состояние
 ```
+
+Для работы с состояниями кастомного элемента нужно получить объект internals через `this.attachInternals()`. Только после этого можно использовать `internals.states` для управления состояниями.
 
 ## Как понять
 

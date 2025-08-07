@@ -150,6 +150,86 @@ shadow.innerHTML = `
 
 В результате элемент в Shadow DOM будет красным с рамкой, а не синим и жирным, как в основном документе.
 
+### Исключения из инкапсуляции
+
+Несмотря на изоляцию, некоторые CSS-свойства всё же проникают в Shadow DOM:
+
+- #### CSS Custom Properties (переменные) наследуются по умолчанию:
+
+```css
+/* В основном документе */
+:root {
+  --primary-color: blue;
+}
+```
+
+```javascript
+// В Shadow DOM переменная будет доступна
+shadow.innerHTML = `
+  <style>
+    span {
+      color: var(--primary-color); /* Работает! */
+    }
+  </style>
+  <span>Текст</span>
+`;
+```
+
+- #### Наследуемые CSS-свойства также проникают через shadow boundary:
+
+```css
+/* Эти стили повлияют на Shadow DOM */
+body {
+  color: green;
+  font-family: Arial;
+  text-align: center;
+}
+```
+
+К наследуемым свойствам относятся:
+- `color`
+- `font`, `font-family`, `font-size` и другие `font-*`
+- `text-align`, `text-indent`, `text-transform`
+- `line-height`, `letter-spacing`, `word-spacing`
+- `cursor`, `direction`, `visibility`
+
+Если нужно полностью изолировать компонент от наследуемых стилей, используйте `all: initial`:
+
+```css
+:host {
+  all: initial; /* Сбрасывает все наследуемые стили */
+}
+```
+
+## Доступность
+
+Shadow DOM изолирует не только структуру и стили, но и область видимости идентификаторов (`id`). Это значит, что такие атрибуты, как `aria-labelledby`, `aria-describedby`, `for` и другие, которые ссылаются на элементы по `id`, работают только внутри одного и того же дерева (shadow tree или light DOM).
+
+Например, если у вас есть:
+
+```html
+<!-- В light DOM -->
+<div id="label">Заголовок</div>
+<my-element aria-labelledby="label"></my-element>
+```
+
+и внутри кастомного элемента:
+
+```javascript
+// Внутри shadow DOM
+<span id="label">Внутренний заголовок</span>
+<input aria-labelledby="label">
+```
+
+- Если `aria-labelledby="label"` ссылается на элемент вне текущего shadow tree, связь не сработает.
+- Аналогично, если элемент с нужным `id` находится в другом shadow tree, связь также не установится.
+
+<aside>
+
+⚠️ Используйте уникальные идентификаторы внутри каждого shadow tree и не рассчитывайте на работу ARIA-атрибутов между разными деревьями.
+
+</aside>
+
 ## Стилизация Shadow DOM
 
 ### Внутренние стили
