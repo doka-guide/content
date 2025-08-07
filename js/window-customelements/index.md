@@ -139,7 +139,7 @@ console.log(customElements.get('my-element')); // undefined
 // Ждём регистрации и выполняем действия после неё
 customElements.whenDefined('my-element').then(() => {
   console.log('Элемент зарегистрирован!');
-  
+
   // Теперь можно безопасно работать с элементом
   const element = document.querySelector('my-element');
   console.log(element.textContent); // "Привет!"
