@@ -129,29 +129,43 @@ document.body.innerHTML = '<my-element></my-element>';
 
 - **Реакция на регистрацию с помощью `whenDefined()`**: Если элемент уже есть в [DOM](/js/dom/), но ещё не зарегистрирован, можно использовать `whenDefined()`, чтобы выполнить какие-то действия сразу после его регистрации. Например, это удобно, если вы хотите заменить временный плейсхолдер на содержимое кастомного элемента:
 
-```js
-// Элемент уже в DOM, но пока пустой
-document.body.innerHTML = '<my-element></my-element>';
-
-// Проверяем, что элемент пока не зарегистрирован
-console.log(customElements.get('my-element')); // undefined
-
-// Ждём регистрации и выполняем действия после неё
-customElements.whenDefined('my-element').then(() => {
-  console.log('Элемент зарегистрирован!');
-
-  // Теперь можно безопасно работать с элементом
-  const element = document.querySelector('my-element');
-  console.log(element.textContent); // "Привет!"
-});
-
-// Регистрируем элемент позже (например, после загрузки скрипта)
-customElements.define('my-element', class extends HTMLElement {
-  connectedCallback() {
-    this.textContent = 'Привет!';
-  }
-});
+```html
+<!-- HTML с кастомным элементом -->
+<custom-element>
+  <h1 slot="title">Кастомный элемент</h1>
+  <p slot="content">Контент появился после инициализации</p>
+</custom-element>
 ```
+
+```js
+// Отслеживаем момент определения элемента
+customElements.whenDefined('custom-element').then(() => {
+  console.log('Элемент custom-element определен!');
+  
+  const element = document.querySelector('custom-element');
+  element.setAttribute('data-defined', 'true');
+});
+
+// Регистрируем элемент
+class CustomElement extends HTMLElement {
+  constructor() {
+    super()
+    const shadow = this.attachShadow({ mode: "open" })
+    const template = document.getElementById("custom-element-template")
+    shadow.appendChild(template.content.cloneNode(true))
+  }
+}
+
+customElements.define("custom-element", CustomElement);
+```
+
+<iframe title="Демонстрация whenDefined()" src="demos/define/" height="300"></iframe>
+
+<aside>
+
+💡 `whenDefined()` работает и для уже зарегистрированных элементов — в этом случае промис разрешится немедленно.
+
+</aside>
 
 - **Именование**: Названия пользовательских элементов обязательно должны содержать дефис (например, `my-card`, `user-list`), чтобы избежать конфликтов с будущими встроенными HTML-элементами.
 
