@@ -63,8 +63,12 @@
       font-size: 1.5rem;
       margin: auto;
     }
+    .loading.hidden {
+      width: 0;
+      margin: 0;
+    }
 
-    .year {
+    .year-grid {
       flex: 1 1 ;
       display: flex;
       max-width: 100%;
@@ -135,6 +139,7 @@
 <body>
   <div id="mainContainer" class="main-container">
     <div class="description"></div>
+    <div class="year-grid hidden"></div>
   </div>
 
   <script>
@@ -279,6 +284,26 @@
       }, {min: Number.POSITIVE_INFINITY, max: 0, total: 0})
     }
 
+    function createWeekDays(commitsData = []) {
+      const [firstWeek] = commitsData
+      if (!firstWeek) return
+
+      const {days, weekDate} = firstWeek
+
+      const firstWeekDay = weekDate.getDate()
+
+      const weekDays = days.reduce((acc, dayData, dayIndex) => {
+        if (dayIndex % 2) {
+          let dayDate = new Date(weekDate)
+          dayDate.setDate(firstWeekDay + dayIndex)
+          acc.push(getWeekDayFormat(dayDate))
+        }
+        return acc
+      }, [])
+
+      return weekDays
+    }
+
     function generatePalette(hslColor, steps) {
       const [h, s, lBase] = hslColor
       const palette = []
@@ -353,26 +378,6 @@
       `
     }
 
-    function createWeekDays(commitsData = []) {
-      const [firstWeek] = commitsData
-      if (!firstWeek) return
-
-      const {days, weekDate} = firstWeek
-
-      const firstWeekDay = weekDate.getDate()
-
-      const weekDays = days.reduce((acc, dayData, dayIndex) => {
-        if (dayIndex % 2) {
-          let dayDate = new Date(weekDate)
-          dayDate.setDate(firstWeekDay + dayIndex)
-          acc.push(getWeekDayFormat(dayDate))
-        }
-        return acc
-      }, [])
-
-      return weekDays
-    }
-
     function renderYearGrid(params, container) {
       const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
       const weekCount = commitsData.length ?? 0
@@ -382,9 +387,6 @@
 
       const steps = colors.length
       const factor = steps - 1
-
-      const yearContainer = document.createElement('div')
-      yearContainer.className = 'year'
 
       if (weekDays) {
         const weekDaysContainer = document.createElement('div')
@@ -396,7 +398,7 @@
           weekDayLabel.innerText = weekDay
           weekDaysContainer.appendChild(weekDayLabel)
         })
-        yearContainer.appendChild(weekDaysContainer)
+        container.appendChild(weekDaysContainer)
       }
 
       commitsData.forEach(weekData => {
@@ -405,7 +407,7 @@
           const monthLabel = document.createElement('div')
           monthLabel.className = 'month-label'
           monthLabel.innerText = month
-          yearContainer.appendChild(monthLabel)
+          container.appendChild(monthLabel)
         }
         const weekContainer = document.createElement('div')
         weekContainer.className = 'week'
@@ -421,11 +423,11 @@
             className += ' hidden'
           } else {
             const colorIndex = count > 0
-            ? Math.min(
+              ? Math.min(
                 Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
                 factor
               )
-            : 0
+              : 0
             dayContainer.style.background = colors[colorIndex]
             dayContainer.setAttribute('data-date', dateFormatted)
           }
@@ -438,16 +440,12 @@
           weekContainer.appendChild(dayContainer)
         })
 
-        yearContainer.appendChild(weekContainer)
+        container.appendChild(weekContainer)
+        container.classList.remove('hidden')
       })
-
-      container.appendChild(yearContainer)
-      return yearContainer
     }
 
-    function bindTooltip(yearGrid, container) {
-      if (! yearGrid) return
-
+    function bindTooltip(gridContainer, container) {
       const tooltipElem = document.createElement('div')
       tooltipElem.innerHTML = `
         <div
@@ -498,12 +496,13 @@
         toggleTooltip()
       }
 
-      yearGrid.addEventListener('mousemove', showTooltip)
-      yearGrid.addEventListener('mouseleave', hideTooltip)
+      gridContainer.addEventListener('mousemove', showTooltip)
+      gridContainer.addEventListener('mouseleave', hideTooltip)
     }
 
     const mainContainer = document.querySelector('#mainContainer')
     const description = mainContainer.querySelector('.description')
+    const gridContainer = mainContainer.querySelector('.year-grid')
 
     showLoading(true, description)
 
@@ -520,12 +519,12 @@
       renderRepoInfo({repoName: REPO}, description)
       renderTotal(commitCounts, mainContainer)
 
-      const yearGrid = renderYearGrid(
+      renderYearGrid(
         {commitsData, weekDays, commitCounts, colors},
-        mainContainer
+        gridContainer
       )
 
-      bindTooltip(yearGrid, mainContainer)
+      bindTooltip(gridContainer, mainContainer)
     }).catch(error => {
       showError(error, description)
     }).finally(() => {

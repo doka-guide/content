@@ -36,152 +36,140 @@ tags:
 
 ```html
 <div id="mainContainer" class="main-container">
-  <div class="description">
-    <span class="loading">
-      Загрузка...
-    </span>
-  </div>
-
-  <div class="total-row hidden">
-    <span class="total-label">
-      Общее количество коммитов за год:
-    </span>
-  </div>
-
-  <div
-    class="tooltip hidden"
-    role="tooltip"
-    id="tooltip"
-    data-position="top"
-  />
+  <div class="description"></div>
+  <div class="year-grid hidden"></div>
 </div>
 ```
 
-Добавим стили. Большинство из них потребуются в дальнейшем:
+Добавим стили:
 
 ```css
-  html {
-    color-scheme: dark;
-  }
+html {
+  color-scheme: dark;
+}
 
-  body {
-    min-height: 100vh;
-    margin: 0;
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background-color: #18191C;
-    color: #FFFFFF;
-    font-family: "Roboto", sans-serif;
-  }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #18191C;
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+}
 
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    min-width: 200px;
-    padding: 1rem;
-    position: relative;
-    background-color: #18191C;
-  }
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  min-width: 200px;
+  padding: 1rem;
+  position: relative;
+  background-color: #18191C;
+}
 
-  .main-container div {
-    box-sizing: border-box;
-  }
+.main-container div {
+  box-sizing: border-box;
+}
 
-  .description {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    font-size: 1.5rem;
-  }
+.description {
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  font-size: 1.5rem;
+}
 
-  .repo-name,
-  .total-row,
-  .tooltip,
-  .error-value {
-    color: #FFF;
-  }
+.repo-name,
+.total-row,
+.tooltip,
+.error-value {
+  color: #FFF;
+}
 
-  .description,
-  .loading,
-  .total-label {
-    color: #C56FFF;
-  }
+.description,
+.loading,
+.total-label {
+  color: #C56FFF;
+}
 
-  .loading {
-    font-size: 1.5rem;
-    margin: auto;
-  }
+.loading {
+  font-size: 1.5rem;
+  margin: auto;
+}
+.loading.hidden {
+  width: 0;
+  margin: 0;
+}
 
-  .year {
-    flex: 1 1 ;
-    display: flex;
-    max-width: 100%;
-    min-width: 100px;
-    overflow-y: hidden;
-    overflow-x: auto;
-    padding: 2rem 1rem 1rem 1rem;
-    background-color: #0C0C0E6B;
-    border: 1px solid #363636;
-    border-radius: 5px;
-  }
+.year-grid {
+  flex: 1 1 ;
+  display: flex;
+  max-width: 100%;
+  min-width: 100px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 2rem 1rem 1rem 1rem;
+  background-color: #0C0C0E6B;
+  border: 1px solid #363636;
+  border-radius: 5px;
+}
 
-  .weekday-label,
-  .month-label {
-    font-size: .75rem;
-    color: #FFF;
-  }
+.weekday-label,
+.month-label {
+  font-size: .75rem;
+  color: #FFF;
+}
 
-  .weekday-label {
-    margin: 10px 4px 0 0;
-  }
+.weekday-label {
+  margin: 10px 4px 0 0;
+}
 
-  .month-label {
-    width: 0;
-    margin-top: -1rem;
-    overflow-x: visible;
-  }
+.month-label {
+  width: 0;
+  margin-top: -1rem;
+  overflow-x: visible;
+}
 
-  .weekday-labels,
-  .week {
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 auto;
-  }
+.weekday-labels,
+.week {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+}
 
-  .day {
-    width: 10px;
-    height: 10px;
-    margin: 1px;
-    border: 1px solid #88888818;
-    border-radius: 2px;
-  }
-  .day:hover {
-    border-color: #8885;
-  }
-  .day.has-commits:hover {
-    border-color: #888a;
-  }
+.day {
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  border: 1px solid #88888818;
+  border-radius: 2px;
+}
+.day:hover {
+  border-color: #8885;
+}
+.day.has-commits:hover {
+  border-color: #888a;
+}
 
-  .cell {
-    background-color: #28e628;
-  }
+.cell {
+  background-color: #28e628;
+}
 
-  .tooltip {
-    position: absolute;
-    width: max-content;
-    max-width: 400px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: #555;
-  }
+.tooltip {
+  position: absolute;
+  width: max-content;
+  max-width: 400px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #555;
+}
 
-  .hidden {
-    visibility: hidden;
-  }
+.hidden {
+  visibility: hidden;
+}
 ```
 
 Основную работу по созданию всего компонента будет выполнять JS. Рассмотрим его далее.
@@ -217,7 +205,7 @@ GET https://api.github.com/repos/{owner}/{repo}/stats/commit_activity
 Напишем функцию формирования пути запроса. Мы используем функцию вместо константы, чтобы иметь возможность проще расширять функционал в дальнейшем:
 
 ```js
-// имя в формате owner/repo
+// Имя в формате owner/repo
 const REPO = 'doka-guide/content'
 
 function createURL(repo = REPO) {
@@ -254,11 +242,11 @@ function requestGitHubData(url) {
 Для этого нам понадобится функция, проверяющая статус ответа и выполняющая повторные запросы. Функция принимает объект параметров выполнения запроса:
 
 ```js
-// количество повторных попыток
+// Количество повторных попыток
 const REQ_MAX_ATTEMPTS = 3
-// пауза между попытками, мс
+// Пауза между попытками, мс
 const REQ_ATTEMPT_TIMEOUT = 20000
-// сообщение об ошибке в случае получения ответа со статусом 202
+// Сообщение об ошибке в случае получения ответа со статусом 202
 const ERR_202 = 'Данные не готовы'
 
 async function fetchCommitActivity(requestParams = {}) {
@@ -273,17 +261,17 @@ async function fetchCommitActivity(requestParams = {}) {
 
     if (response.status === 202) {
       if (requestAttempts > 0) {
-        // пауза перед повторным запросом
+        // Пауза перед повторным запросом
         await new Promise(r => setTimeout(r, requestAttemptTimeout));
 
-        // рекурсивно вызываем функцию, уменьшая счётчик повторов
+        // Рекурсивно вызываем функцию, уменьшая счётчик повторов
         return fetchCommitActivity({
           url,
           requestAttempts: requestAttempts - 1
         })
       }
 
-      // кидаем ошибку если все попытки были безуспешны
+      // Кидаем ошибку если все попытки были безуспешны
       throw new Error(ERR_202)
     }
 
@@ -325,16 +313,16 @@ week —  дата первого дня недели в виде [Unix timestam
     "weekDate": Date // Date-объект для даты начала недели
     "days": [
       {
-        count: number, // количество коммитов в вс.
-        dateFormatted: string // дата в формате `ГГГГ.MM.ДД`
+        count: number, // Количество коммитов в вс.
+        dateFormatted: string // Дата в формате `ГГГГ.MM.ДД`
       },
       {
-        count: number // количество коммитов в пн.
+        count: number // Количество коммитов в пн.
         dateFormatted: string
       },
       ...
     ],
-    month: string // сокращённое название месяца (для первой недели месяца)
+    month: string // Сокращённое название месяца (для первой недели месяца)
   },
   ...
 ]
@@ -343,13 +331,13 @@ week —  дата первого дня недели в виде [Unix timestam
 Нам понадобятся функции форматирования дат:
 
 ```js
-// формат `ГГГГ.MM.ДД`
+// Формат `ГГГГ.MM.ДД`
 const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
   year: 'numeric',
   month: 'numeric',
   day: 'numeric',
 })
-// сокращённое имя месяца
+// Сокращённое имя месяца
 const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
   month: 'short',
 })
@@ -378,34 +366,34 @@ function parseCommitActivity(responseData = []) {
     throw new Error('Данные не найдены')
   }
 
-  // текущая дата
+  // Текущая дата
   const currDate = new Date()
 
   let isFirstWeekOfMonth
 
-  // массив данных о неделях
+  // Массив данных о неделях
   return responseData.map((weekItem, weekIndex) => {
     const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
 
     // Date-объект первого дня недели
     const weekDate = getWeekDate(weekTimestamp)
 
-    // число месяца первого дня недели
+    // Число месяца первого дня недели
     const firstWeekDay = weekDate.getDate()
     let dayDate
 
-    // массив данных по дням недели
+    // Массив данных по дням недели
     const days = commitsPerDay.map((count, dayIndex) => {
       // Date-объект для дня недели
       dayDate = new Date(weekDate)
       dayDate.setDate(firstWeekDay + dayIndex)
 
-      // если этот день ещё не наступил, возвращаем пустой объект
+      // Если этот день ещё не наступил, возвращаем пустой объект
       if (dayDate > currDate) {
         return {}
       }
 
-      // дата дня в формате `ГГГГ.MM.ДД`
+      // Дата дня в формате `ГГГГ.MM.ДД`
       const dateFormatted = getDateFormat(dayDate)
 
       return {
@@ -414,9 +402,9 @@ function parseCommitActivity(responseData = []) {
       }
     })
 
-    // число месяца последнего дня недели
+    // Число месяца последнего дня недели
     const lastDay = dayDate.getDate()
-    // для этой недели требуется отображать название месяца?
+    // Для этой недели требуется отображать название месяца?
     showMonthName = (weekIndex === 0 && firstWeekDay < 10) || lastDay <= 7
 
     return {
@@ -435,7 +423,7 @@ function parseCommitActivity(responseData = []) {
 Для решения этой задачи можно добавить обычную константу, однако мы не пойдём простым путём. Сформируем массив дней недели на основе полученных данных. Это упростит дальнейшую модификацию, если потребуется изменить формат или язык представления данных:
 
 ```js
-// формат даты в виде сокращённого названия дня недели
+// Формат даты в виде сокращённого названия дня недели
 const DATE_WEEK_DAY_FORMATTER = new Intl.DateTimeFormat('ru', {
   weekday: 'short'
 })
@@ -445,17 +433,17 @@ function getWeekDayFormat(date) {
   return DATE_WEEK_DAY_FORMATTER.format(date)
 }
 
-// функция создания массива дней недели
+// Функция создания массива дней недели
 function createWeekDays(commitsData = []) {
-  // получим объект с информацией о первой неделе
+  // Получим объект с информацией о первой неделе
   const [firstWeek] = commitsData
   if (!firstWeek) return
 
   const {days, weekDate} = firstWeek
-  // число месяца первого дня недели
+  // Число месяца первого дня недели
   const firstWeekDay = weekDate.getDate()
 
-  // накапливаем массив названий чётных дней недели
+  // Накапливаем массив названий чётных дней недели
   const weekDays = days.reduce((acc, dayData, dayIndex) => {
     if (dayIndex % 2) {
       let dayDate = new Date(weekDate)
@@ -500,7 +488,7 @@ const COLOR_MIN_STEPS = 5
 Определим базовый цвет палитры (цвет соответствующий максимальному количеству коммитов). Для цветов мы будем использовать цветовую модель [HSL](/css/web-colors/#hsl). Эта модель подходит для нашей задачи, так как позволяет получать новый оттенок изменяя параметр светлоты (Lightness) базового цвета.
 
 ```js
-const BASE_HSL = [112, 100, 80] // ярко зелёный
+const BASE_HSL = [112, 100, 80] // Ярко зелёный
 ```
 
 Вынос этих параметров в константы позволит в дальнейшем упростить изменение палитры цветов.
@@ -524,15 +512,15 @@ function generatePalette(hslColor, steps) {
   let lStep
 
   for (let i = 0; i < steps - 1; i++) {
-    // определяем светлоту цвета
+    // Определяем светлоту цвета
     lStep = lBase - (lBase * i) / steps
     lStep = Math.max(0, lStep)
 
-    // добавляем в палитру цвет на основе базового
+    // Добавляем в палитру цвет на основе базового
     palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
   }
 
-  // добавим в палитру цвет, соответствующий отсутствию коммитов
+  // Добавим в палитру цвет, соответствующий отсутствию коммитов
   const lEmpty = Math.min(9, Math.max(9, Math.round(lStep/2)))
 
   palette.push(`hsl(${Math.round(h/1.05)}, ${Math.round(s/4)}%, ${lEmpty}%)`) //
@@ -548,41 +536,42 @@ function generatePalette(hslColor, steps) {
 Соединим созданные ранее и ещё не готовые части в единое целое:
 
 ```js
-  const mainContainer = document.querySelector('#mainContainer')
-  const description = mainContainer.querySelector('.description')
+const mainContainer = document.querySelector('#mainContainer')
+const description = mainContainer.querySelector('.description')
+const gridContainer = mainContainer.querySelector('.year-grid')
 
-  showLoading(true, description)
+showLoading(true, description)
 
-  fetchCommitActivity({
-    url: createURL()
-  }).then(responseData => {
-    return parseCommitActivity(responseData)
-  }).then(commitsData => {
-    const commitCounts = analyzeCommits(commitsData)
-    const weekDays = createWeekDays(commitsData)
+fetchCommitActivity({
+  url: createURL()
+}).then(responseData => {
+  return parseCommitActivity(responseData)
+}).then(commitsData => {
+  const commitCounts = analyzeCommits(commitsData)
+  const weekDays = createWeekDays(commitsData)
 
-    const colors = makeColors(commitCounts)
+  const colors = makeColors(commitCounts)
 
-    renderRepoInfo({repoName: REPO}, description)
-    renderTotal(commitCounts, mainContainer)
+  renderRepoInfo({repoName: REPO}, description)
+  renderTotal(commitCounts, mainContainer)
 
-    const yearGrid = renderYearGrid(
-      {commitsData, weekDays, commitCounts, colors},
-      mainContainer
-    )
+  renderYearGrid(
+    {commitsData, weekDays, commitCounts, colors},
+    gridContainer
+  )
 
-    bindTooltip(yearGrid, mainContainer)
-  }).catch(error => {
-    showError(error, description)
-  }).finally(() => {
-    showLoading(false, description)
-  })
+  bindTooltip(gridContainer, mainContainer)
+}).catch(error => {
+  showError(error, description)
+}).finally(() => {
+  showLoading(false, description)
+})
 ```
 
-Создадим недостающие функции:
+Создадим недостающие функции отображение дополнительных данных и состояния загрузки:
 
 ```js
-// отображение/скрытие ожидания загрузки данных
+// Отображение/скрытие ожидания загрузки данных
 function showLoading(show, container) {
   let loadingElem = container.querySelector('.loading')
   if (!loadingElem) {
@@ -595,12 +584,121 @@ function showLoading(show, container) {
   loadingElem.classList.toggle('hidden', !show)
 }
 
-// TODO: добавить остальные функции
+// Имя репозитория
+function renderRepoInfo({repoName}, element) {
+  element.innerHTML = `
+    <span class='repo-label'>
+      Репозиторий:
+    </span>
+    <span class="repo-name">
+      ${repoName}
+    </span>
+  `
+}
 
+// Количество коммитов
+function renderTotal({total = null}, container) {
+  if (total !== null) {
+    const totalElem = document.createElement('div')
+    totalElem.className = 'total-row'
+    totalElem.innerHTML = `
+      <span class="total-label">
+        Общее количество коммитов за год: ${total}
+      </span>
+    `
+    container.appendChild(totalElem)
+  }
+}
+
+// Информации об ошибке
+function showError(error, element) {
+  const errorMessage = error?.message ?? `${error}`
+  element.innerHTML = `
+    <span class='error-label'>
+      Ошибка получения данных:
+    </span>
+    <span class='error-value'>
+      ${errorMessage}
+    </span>
+  `
+}
 ```
 
-Основная часть нашего скрипта  функция `renderYearGrid()`.
+Основная часть нашего скрипта — функция `renderYearGrid()`:
 
 ```js
+function renderYearGrid(params, container) {
+  const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
+  const weekCount = commitsData.length ?? 0
+  if (weekCount === 0) return
 
+  const {max} = commitCounts
+
+  const steps = colors.length
+  const factor = steps - 1
+
+  // Если есть названия дней недели, отображаем их
+  if (weekDays) {
+    const weekDaysContainer = document.createElement('div')
+    weekDaysContainer.className = 'weekday-labels'
+
+    weekDays.forEach(weekDay => {
+      const weekDayLabel = document.createElement('div')
+      weekDayLabel.className = 'weekday-label'
+      weekDayLabel.innerText = weekDay
+      weekDaysContainer.appendChild(weekDayLabel)
+    })
+    container.appendChild(weekDaysContainer)
+  }
+
+  // Перебираем массив данных о неделях
+  commitsData.forEach(weekData => {
+    const {days, month} = weekData
+    // Добавляем имя месяца
+    if (month) {
+      const monthLabel = document.createElement('div')
+      monthLabel.className = 'month-label'
+      monthLabel.innerText = month
+      container.appendChild(monthLabel)
+    }
+
+    // Заполняем контейнер недели
+    const weekContainer = document.createElement('div')
+    weekContainer.className = 'week'
+
+    days.forEach(dayData => {
+      const {count = 0, dateFormatted = ''} = dayData
+      const isFuture = dateFormatted === ''
+
+      const dayContainer = document.createElement('div')
+      let className = 'day cell'
+
+      if (isFuture) {
+        className += ' hidden'
+      } else {
+        // Определяем цвет для фона плитки
+        const colorIndex = count > 0
+          ? Math.min(
+            Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
+            factor
+          )
+          : 0
+        dayContainer.style.background = colors[colorIndex]
+        // Устанавливаем атрибут для показа даты в тултипе
+        dayContainer.setAttribute('data-date', dateFormatted)
+      }
+
+      if (count) {
+        // Устанавливаем атрибут для показа количества коммитов в тултипе
+        dayContainer.setAttribute('data-count', count)
+        className += ' has-commits'
+      }
+      dayContainer.className = className
+      weekContainer.appendChild(dayContainer)
+    })
+
+    container.appendChild(weekContainer)
+    container.classList.remove('hidden')
+  })
+}
 ```
