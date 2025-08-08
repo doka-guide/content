@@ -59,11 +59,12 @@ class ToggleBox extends HTMLElement {
     const shadow = this.attachShadow({ mode: 'open' })
     shadow.appendChild(template.content.cloneNode(true))
 
+    this._internals = this.attachInternals()
     this.addEventListener('click', () => {
-      if (this.states?.has('active')) {
-        this.states.delete('active')
+      if (this._internals.states.has('active')) {
+        this._internals.states.delete('active')
       } else {
-        this.states?.add('active')
+        this._internals.states.add('active')
       }
     })
   }
