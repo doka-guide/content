@@ -148,6 +148,7 @@ groups:
       - noscript
       - defer-async
       - slot
+      - crossorigin
       - template
       - output
       - data-attributes
