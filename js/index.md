@@ -174,6 +174,9 @@ groups:
       - form-data
       - console
       - console-log
+      - shadowroot
+      - customstateset
+      - window-customelements
       - window-history
       - window-location
       - window-navigator
@@ -202,6 +205,7 @@ groups:
       - element
       - events
       - htmlcollection-and-nodelist
+      - shadowdom
   - name: "Объект страницы (`document`)"
     items:
       - element-addeventlistener
@@ -218,6 +222,8 @@ groups:
   - name: "Элемент на странице (`Element`)"
     items:
       - element
+      - element-shadowroot
+      - element-attachshadow
       - element-addeventlistener
       - element-removeeventlistener
       - element-remove-property
@@ -246,6 +252,8 @@ groups:
     items:
       - events
       - event
+      - event-composed
+      - event-composedpath
       - event-change
       - event-reset
       - event-input

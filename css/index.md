@@ -48,6 +48,10 @@ groups:
       - where
       - in-range-out-of-range
       - required
+      - state
+      - defined
+      - host
+      - has-slotted
       - optional
       - invalid-valid
       - placeholder-shown
@@ -61,6 +65,8 @@ groups:
       - before
       - after
       - content
+      - part
+      - slotted
       - placeholder
       - first-letter
       - first-line

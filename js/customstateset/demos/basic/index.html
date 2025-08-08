@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демонстрация кастомного чекбокса — CustomStateSet — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      font-size: 2rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <my-checkbox>Это не будет отображаться, потому что в кастомном элементе нету slot</my-checkbox>
+  </div>
+  <script>
+    class MyCheckbox extends HTMLElement {
+      constructor() {
+        super();
+        this._internals = this.attachInternals();
+        this.addEventListener('click', () => this.toggle());
+      }
+
+      connectedCallback() {
+        this.attachShadow({ mode: 'open' }).innerHTML = `
+          <style>
+            :host { display: flex; cursor: pointer; align-items: center; gap: .5rem; }
+            :host::before { content: '[ ]'; font-family: monospace; }
+            :host::after { content: 'Какой-то кастомный чекбокс'; font-family: monospace; }
+            :host(:state(checked))::before { content: '[x]'; }
+            :host(:state(checked))::after { content: 'Чекбокс cheсked!'; }
+          </style>
+        `;
+      }
+
+      get checked() {
+        return this._internals.states.has('checked');
+      }
+
+      set checked(value) {
+        if (value) {
+          this._internals.states.add('checked');
+        } else {
+          this._internals.states.delete('checked');
+        }
+      }
+
+      toggle() {
+        this.checked = !this.checked;
+      }
+    }
+
+    customElements.define('my-checkbox', MyCheckbox);
+  </script>
+</body>
+</html>

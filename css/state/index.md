@@ -1,0 +1,100 @@
+---
+title: "`:state()`"
+description: "Псевдокласс :state() позволяет применять стили в зависимости от пользовательского состояния компонента. Особенно полезен для стилизации кастомных элементов."
+authors:
+  - drakesbot12
+baseline:
+  - group: state
+    features:
+      - css.selectors.state
+      - api.ElementInternals.states
+keywords:
+  - state
+  - кастомные
+  - элементы
+  - web-components
+  - пользовательские
+  - состояния
+related:
+  - css/slotted
+  - html/part
+  - js/element-shadowroot
+tags:
+  - doka
+---
+
+## Кратко
+
+Псевдокласс `:state()` используется для кастомных HTML-элементов и позволяет применять стили в зависимости от их пользовательского состояния.
+
+## Пример
+
+```html
+<template id="toggle-box-template">
+  <style>
+    :host {
+      display: block;
+      padding: 1em;
+      border: 2px solid #888;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    :host(:state(active)) {
+      background: lightgreen;
+      border-color: green;
+    }
+  </style>
+  <slot></slot>
+</template>
+
+<toggle-box>Нажми меня</toggle-box>
+```
+
+```js
+class ToggleBox extends HTMLElement {
+  constructor() {
+    super()
+    const template = document.getElementById('toggle-box-template')
+    const shadow = this.attachShadow({ mode: 'open' })
+    shadow.appendChild(template.content.cloneNode(true))
+
+    this._internals = this.attachInternals()
+    this.addEventListener('click', () => {
+      if (this._internals.states.has('active')) {
+        this._internals.states.delete('active')
+      } else {
+        this._internals.states.add('active')
+      }
+    })
+  }
+}
+
+customElements.define('toggle-box', ToggleBox)
+```
+
+## Как пишется
+
+```css
+:host(:state(<состояние>)) {
+  /* Стили, когда у компонента установлено состояние */
+}
+```
+
+```js
+// Внутри кастомного элемента
+const internals = this.attachInternals();
+internals.states.add('active');    // Устанавливаем состояние
+internals.states.delete('active'); // Удаляем состояние
+```
+
+Для работы с состояниями кастомного элемента нужно получить объект internals через `this.attachInternals()`. Только после этого можно использовать `internals.states` для управления состояниями.
+
+## Как понять
+
+Селектор [`:host(:state(active))`](/css/host/) применяется к компоненту, если у него установлено внутреннее состояние через [`CustomStateSet`](/js/customstateset/), доступный по свойству `this.states` внутри кастомного элемента. Такие состояния не отображаются в виде атрибутов или классов и не видны в [DOM](/js/dom/). Управлять ими можно только из JavaScript. Механизм работает только для компонентов в [Shadow DOM](/js/shadowdom/), зарегистрированных через [`customElements.define`](/js/window-customelements/).
+
+## Подсказки
+
+💡 Можно задавать несколько состояний и применять к ним разные стили.
+💡 Используйте `:state()` для логики типа «открыт/закрыт», «активен/неактивен» без необходимости менять классы или атрибуты.
