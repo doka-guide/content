@@ -103,6 +103,7 @@ groups:
       - map
       - area
       - svg-sprite
+      - images-paste-methods
   - name: 'Ссылки'
     items:
       - a
