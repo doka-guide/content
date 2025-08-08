@@ -702,3 +702,61 @@ function renderYearGrid(params, container) {
   })
 }
 ```
+При наведении указателя на плитку будем отображать тултип с краткой информацией: дата дня и количество коммитов.
+
+```js
+function bindTooltip(gridContainer, container) {
+  const tooltipElem = document.createElement('div')
+  tooltipElem.innerHTML = `
+    <div
+      class="tooltip hidden"
+      role="tooltip"
+      id="tooltip"
+      data-position="top"
+    />
+  `
+  container.appendChild(tooltipElem)
+
+  let top = 0
+  let left = 0
+
+  const toggleTooltip = (target = null) => {
+    const show = target !== null
+
+    if (show) {
+      const {offsetTop, offsetLeft} = target
+      const date = target.getAttribute('data-date')
+      if (!date) return
+      const count = target.getAttribute('data-count')
+
+      tooltip.style.top = `${offsetTop - (count ? 65 : 40)}px`
+      tooltip.style.left = `${offsetLeft - 55}px`
+
+      tooltip.innerHTML = `<div>${date}${count ?`<br>коммитов: ${count}` : ''}</div>`
+    }
+
+    tooltip.classList.toggle('hidden', ! show)
+  }
+
+  const showTooltip = event => {
+    const target = event.target
+    if (target.classList.contains('day')) {
+      if (top !== target.offsetTop || left !== target.offsetLeft)
+      {
+        top = target.offsetTop
+        left = target.offsetLeft
+        toggleTooltip(target)
+      }
+    }
+  }
+
+  const hideTooltip = event => {
+    top = 0
+    left = 0
+    toggleTooltip()
+  }
+
+  gridContainer.addEventListener('mousemove', showTooltip)
+  gridContainer.addEventListener('mouseleave', hideTooltip)
+}
+```
