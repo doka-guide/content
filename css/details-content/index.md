@@ -9,7 +9,7 @@ authors:
   - drakesbot12
 related:
   - html/details
-  - html/summary
+  - css/opacity
   - css/pseudoelements
 keywords:
   - details
