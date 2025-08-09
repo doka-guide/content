@@ -9,7 +9,7 @@ baseline:
       - api.CSSNamespaceRule.namespaceURI
       - api.CSSNamespaceRule.prefix
 authors:
-  - ddune
+  - drakesbot12
 keywords:
   - namespace
   - пространство

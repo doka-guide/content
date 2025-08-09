@@ -13,7 +13,7 @@ baseline:
       - css.at-rules.font-feature-values.annotation
       - css.at-rules.font-feature-values.historical-forms
 authors:
-  - ddune
+  - drakesbot12
 keywords:
   - opentype
   - стилистические наборы
