@@ -9,7 +9,7 @@ baseline:
       - api.CSSScopeRule.start
       - css.at-rules.scope
 authors:
-  - ddune
+  - drakesbot12
 keywords:
   - скоуп
   - область видимости стилей
