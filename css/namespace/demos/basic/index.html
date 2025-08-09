@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Префиксы пространств имён — @namespace — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { color-scheme: dark; font-size: 16px; }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 900px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
+
+    .panel { border: 1px solid #2E3138; background-color: #1E2024; border-radius: 12px; padding: 16px; }
+    .panel h3 { font-weight: 500; margin-bottom: 8px; }
+    .panel p, .panel a { color: #C8CDD4; }
+
+    /* Пространство имён SVG с префиксом svg */
+    @namespace svg url("http://www.w3.org/2000/svg");
+
+    /* Любая ссылка */
+    *|a { color: #8AB4F8; }
+
+    /* Только SVG‑ссылки — выключаем подчёркивание */
+    svg|a { text-decoration: none; }
+
+    /* Только SVG‑круги — заливка */
+    svg|circle { fill: #2E9AFF; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <h3>HTML</h3>
+      <p>Это <a href="#">HTML‑ссылка</a> внутри абзаца.</p>
+    </div>
+
+    <div class="panel">
+      <h3>SVG</h3>
+      <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+        <a href="#"><text x="0" y="20">SVG‑ссылка</text></a>
+        <circle cx="160" cy="40" r="24" />
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
+
