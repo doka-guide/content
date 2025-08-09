@@ -1,5 +1,5 @@
 ---
-title: "`skale`"
+title: "`scale`"
 description: "Элементы интерфейса могут стать больше или меньше, стоит только захотеть и немного применить знания CSS."
 authors:
   - anastasiayarosh
@@ -29,7 +29,7 @@ tags:
 
 `x` и `y` — положительные числа, либо значение 0.
 
-<iframe title="Демонстрация разных значений свойства skale" src="demos/basic/" height="400"></iframe>
+<iframe title="Демонстрация разных значений свойства scale" src="demos/basic/" height="400"></iframe>
 
 ## Как понять
 
