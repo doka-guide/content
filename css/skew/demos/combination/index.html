@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сочетиние свойств — skew — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #2E9AFF;
+      font-family: "Roboto", sans-serif;
+      color: #18191c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #18191c;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.5s ease;
+      margin-bottom: 40px;
+    }
+
+    .demo1:hover {
+      /* skew + rotate */
+      transform: skew(20deg) rotate(15deg);
+    }
+
+    .demo2:hover {
+      /* rotate + skew */
+      transform: rotate(30deg) skew(-15deg);
+    }
+
+    .demo3:hover {
+      /* translate + skew */
+      transform: translate(30px, 20px) skew(10deg, -5deg);
+    }
+
+    .label {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #18191c;
+    }
+  </style>
+</head>
+<body>
+    <h2>Демонстрация skew(), rotate() и translate()</h2>
+    <p>Наведите курсор на каждый блок, чтобы увидеть трансформацию</p>
+    <div class="container">
+        <div>
+            <div class="box demo1">skew() + rotate()</div>
+            <div class="label">transform: skew(20deg) rotate(15deg);</div>
+        </div>
+        <div>
+            <div class="box demo2">rotate() + skew()</div>
+            <div class="label">transform: rotate(30deg) skew(-15deg);</div>
+        </div>
+        <div>
+            <div class="box demo3">translate() + skew()</div>
+            <div class="label">transform: translate(30px, 20px) skew(10deg, -5deg);</div>
+        </div>
+    </div>
+</body>
+</html>
