@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — ::target-text — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      max-width: 760px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      color: #8ab4ff;
+      text-underline-offset: 3px;
+    }
+
+    .text {
+      max-height: 260px;
+      overflow: auto;
+      padding: 16px;
+      border-radius: 12px;
+      background: #111216;
+      line-height: 1.6;
+    }
+
+    ::target-text {
+      background-color: #ffee58;
+      color: #000000;
+      text-shadow: none;
+      transition: background-color .6s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="links">
+      <a href="#:~:text=целевой%20текст">Перейти к фразе #1</a>
+      <a href="#:~:text=ещё%20один%20фрагмент">Перейти к фразе #2</a>
+    </div>
+
+    <div class="text">
+      <p>
+        Это демонстрация работы псевдоэлемента ::target-text. Кликните по одной из ссылок
+        выше — страница прокрутится к совпадению и подсветит найденный <strong>целевой текст</strong>.
+      </p>
+      <p>
+        Немного заполнителя: дизайн интерфейсов часто требует подсветки результата перехода, чтобы пользователь
+        быстрее ориентировался в контенте. Когда используется адрес с текстовым фрагментом, можно задать собственный
+        стиль подсветки через ::target-text и подогнать его под тему сайта.
+      </p>
+      <p>
+        Пример: здесь встречается словосочетание целевой текст среди прочего содержимого, чтобы можно было увидеть,
+        как срабатывает выделение. Ниже добавим ещё один фрагмент, чтобы проверить несколько ссылок подряд.
+      </p>
+      <p>
+        А вот и он — ещё один фрагмент — который также может быть найден ссылкой с фрагментом адреса. Этот подход
+        удобно применять для цитат, результатов поиска и навигации по длинным документам.
+      </p>
+      <p>
+        Ещё немного текста для прокрутки: разработчики могут настраивать контрастность и длительность перехода,
+        чтобы подсветка постепенно исчезала и не отвлекала пользователя от чтения основного контента.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
