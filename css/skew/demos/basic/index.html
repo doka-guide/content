@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Возможные свойства — skale — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background-color: #18191C;;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      background-color: #2E9AFF;;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      margin: 0 auto;
+    }
+
+    .box:hover {
+      z-index: 10;
+    }
+
+    .scale-up:hover {
+      transform: scale(2);
+    }
+
+    .scale-down:hover {
+      transform: scale(0.5);
+    }
+
+    .scale-zero:hover {
+      transform: scale(0);
+    }
+
+    .scale-negative-x:hover {
+      transform: scaleX(-1.5);
+    }
+
+    .scale-negative-y:hover {
+      transform: scaleY(-1);
+    }
+
+    .scale-different:hover {
+      transform: scale(1.8, 0.6);
+    }
+
+    .scale-negative-complex:hover {
+      transform: scale(-1.2, 1.5);
+    }
+
+    .label {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .demo-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+    <h1>Наведите курсор на квадраты, чтобы увидеть scale()</h1>
+    <div class="container">
+        <div class="demo-item">
+            <div class="box scale-up">Увеличение</div>
+            <div class="label">hover: scale(2)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-down">Уменьшение</div>
+            <div class="label">hover: scale(0.5)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-zero">Исчезновение</div>
+            <div class="label">hover: scale(0)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-negative-x">Отр. по X</div>
+            <div class="label">hover: scaleX(-1.5)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-negative-y">Отр. по Y</div>
+            <div class="label">hover: scaleY(-1)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-different">Разные значения</div>
+            <div class="label">hover: scale(1.8, 0.6)</div>
+        </div>
+        <div class="demo-item">
+            <div class="box scale-negative-complex">Комплексное</div>
+            <div class="label">hover: scale(-1.2, 1.5)</div>
+        </div>
+    </div>
+   </div>
+</body>
+</body>
+</html>
