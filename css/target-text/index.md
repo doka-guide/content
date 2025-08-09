@@ -40,7 +40,7 @@ tags:
 }
 ```
 
-<iframe title="Подсветка целевого текста через ::target-text" src="demos/basic/" height="380"></iframe>
+<iframe title="Подсветка целевого текста через ::target-text" src="demos/basic/" height="400"></iframe>
 
 <aside>
 
