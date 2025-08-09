@@ -56,7 +56,7 @@ tags:
 }
 ```
 
-<iframe title="Стили работают только внутри .article и не затрагивают .media" src="demos/basic/" height="620"></iframe>
+<iframe title="Стили работают только внутри .article и не затрагивают .media" src="demos/basic/" height="650"></iframe>
 
 ## Как пишется
 
