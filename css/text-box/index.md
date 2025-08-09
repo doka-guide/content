@@ -120,7 +120,7 @@ tags:
 
 </aside>
 
-<iframe title="Интерактивная демка text-box" src="demos/practis/" height="500"></iframe>
+<iframe title="Интерактивная демка text-box" src="demos/practice/" height="500"></iframe>
 
 ## Подсказки
 
