@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:scope — Псевдокласс — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+    }
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 840px; display: grid; gap: 20px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .row { grid-template-columns: 1fr; } }
+    .card { background: #222328; border: 1px solid #34353B; border-radius: 10px; padding: 18px; }
+    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    h2 { margin-top: 40px; margin-bottom: 17px; font-weight: 500; font-size: 1.375rem; }
+    p { margin: 7px 0; font-size: 1rem; line-height: 1.4; }
+
+    code { font-family: "Roboto Mono", monospace; font-size: calc(1em - 1px); }
+
+    @scope (.scoped) {
+      :scope { outline: 2px dashed #2E9AFF; outline-offset: 6px; }
+      :scope > h2 { color: #2E9AFF; }
+      :scope > ul > li { color: #B8D9FF; }
+    }
+
+    .highlight { background: rgba(46,154,255,0.15); border-radius: 6px; }
+    .controls { display: flex; gap: 8px; }
+    .button { min-width: 210px; border: 2px solid transparent; border-radius: 6px; padding: 9px 15px; color: #000; font-size: 18px; font-weight: 300; font-family: inherit; transition: background-color 0.2s linear; cursor: pointer; }
+    .button-blue { background: #2E9AFF; }
+    .button:hover { background: #FFFFFF; }
+    .button:focus-visible { border: 2px solid #FFFFFF; outline: none; }
+    .button:focus { border: 2px solid #FFFFFF; outline: none; }
+
+    ul, ol { padding-left: 20px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <section class="card scoped">
+        <h2>CSS: область с @scope</h2>
+        <p>Внутри <code>@scope (.scoped)</code> псевдокласс <code>:scope</code> совпадает с этим блоком.</p>
+        <ul>
+          <li>Этот пункт стилизован через <code>:scope &gt; ul &gt; li</code></li>
+          <li>И этот тоже</li>
+          <li>А заголовок окрашен через <code>:scope &gt; h2</code></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>JS: поиск относительно :scope</h2>
+        <p>Кнопка подсветит только непосредственных детей списка в правом блоке.</p>
+        <div class="controls">
+          <button class="button button-blue" id="highlight">Подсветить детей</button>
+          <button class="button" id="clear">Сбросить</button>
+        </div>
+        <ul id="js-list" style="margin-top: 12px;">
+          <li>Я — ребёнок</li>
+          <li>Я тоже — ребёнок
+            <ul>
+              <li>А я — внук</li>
+            </ul>
+          </li>
+          <li>И я — ребёнок</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const list = document.getElementById('js-list')
+    const btn = document.getElementById('highlight')
+    const clear = document.getElementById('clear')
+
+    function highlightDirectChildren() {
+      const items = list.querySelectorAll(':scope > li')
+      items.forEach((li) => li.classList.add('highlight'))
+    }
+    function clearHighlights() {
+      list.querySelectorAll('.highlight').forEach((li) => li.classList.remove('highlight'))
+    }
+
+    btn.addEventListener('click', highlightDirectChildren)
+    clear.addEventListener('click', clearHighlights)
+  </script>
+</body>
+</html>
+
+
