@@ -3,6 +3,32 @@ title: "`@counter-style`"
 description: "Создаёт собственные стили счётчиков и маркеров списков: от эмодзи‑буллетов до кастомной нумерации."
 authors:
   - drakesbot12
+baseline:
+  - group: counter-style
+    features:
+      - api.CSSCounterStyleRule
+      - api.CSSCounterStyleRule.additiveSymbols
+      - api.CSSCounterStyleRule.fallback
+      - api.CSSCounterStyleRule.name
+      - api.CSSCounterStyleRule.negative
+      - api.CSSCounterStyleRule.pad
+      - api.CSSCounterStyleRule.prefix
+      - api.CSSCounterStyleRule.range
+      - api.CSSCounterStyleRule.speakAs
+      - api.CSSCounterStyleRule.suffix
+      - api.CSSCounterStyleRule.symbols
+      - api.CSSCounterStyleRule.system
+      - css.at-rules.counter-style
+      - css.at-rules.counter-style.additive-symbols
+      - css.at-rules.counter-style.fallback
+      - css.at-rules.counter-style.negative
+      - css.at-rules.counter-style.pad
+      - css.at-rules.counter-style.prefix
+      - css.at-rules.counter-style.range
+      - css.at-rules.counter-style.suffix
+      - css.at-rules.counter-style.system
+      - css.at-rules.counter-style.speak-as
+      - css.at-rules.counter-style.symbols
 keywords:
   - счётчик
   - маркеры списков
