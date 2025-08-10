@@ -1,5 +1,5 @@
 ---
-title: "Псевдокласс `:scope`"
+title: "`:scope`"
 description: "Позволяет ссылаться на текущий элемент‑корень в сложных селекторах: в JS‑поиске через querySelector* и внутри CSS‑области @scope."
 authors:
   - drakesbot12
