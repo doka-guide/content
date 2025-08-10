@@ -1,17 +1,6 @@
 ---
 title: "`@font-feature-values`"
 description: "Задаём имена для значений OpenType‑фич конкретного шрифта и используем их через font-variant-alternates."
-baseline:
-  - group: font-feature-values
-    features:
-      - css.at-rules.font-feature-values
-      - css.at-rules.font-feature-values.styleset
-      - css.at-rules.font-feature-values.character-variant
-      - css.at-rules.font-feature-values.swash
-      - css.at-rules.font-feature-values.stylistic
-      - css.at-rules.font-feature-values.ornaments
-      - css.at-rules.font-feature-values.annotation
-      - css.at-rules.font-feature-values.historical-forms
 authors:
   - drakesbot12
 keywords:
