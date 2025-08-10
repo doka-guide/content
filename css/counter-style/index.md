@@ -37,7 +37,6 @@ keywords:
   - counter
 related:
   - css/list-style
-  - css/list-style-type
   - css/counter-increment
   - css/counter-reset
 tags:
