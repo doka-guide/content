@@ -18,7 +18,7 @@ keywords:
   - адаптивные
   - компоненты
 related:
-  - html/media
+  - css/media
   - css/has
   - css/where
 tags:
