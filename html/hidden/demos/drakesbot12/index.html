@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Скрываем рекламу для премиум — Атрибут hidden — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 30px; }
+    }
+
+    .container { display: grid; gap: 16px; max-width: 760px; width: 100%; }
+    .controls { display: flex; gap: 8px; align-items: center; }
+    .ad {
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff8a00 0%, #e52e71 50%, #8e2de2 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease-in-out infinite;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 8px 24px rgba(229, 46, 113, 0.35),
+        0 2px 8px rgba(255, 138, 0, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    .content { background: #222328; border: 1px solid #34353B; padding: 12px; border-radius: 8px; }
+    button { cursor: pointer; padding: 8px 12px; border-radius: 6px; border: 1px solid #6B6C70; background: #1E1F23; color: #fff; }
+    button:hover { background: #2B2C31; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="controls" aria-label="Переключатель премиум">
+      <button id="become-premium" type="button">Стать премиум</button>
+      <button id="cancel-premium" type="button" hidden>Отменить премиум</button>
+      <p id="premium-msg" role="status" hidden>Вы премиум! Реклама скрыта.</p>
+    </section>
+
+    <aside id="ad" class="ad" aria-label="Рекламный блок">
+      Реклама: купите слона 🐘 — только сегодня скидка 50%!
+    </aside>
+
+    <section class="content">
+      <p>Это основное содержимое. Когда включён премиум, реклама скрывается с помощью булевого атрибута <code>hidden</code>.</p>
+    </section>
+  </div>
+
+  <script>
+    let isPremium = false
+
+    const ad = document.getElementById('ad')
+    const premiumMsg = document.getElementById('premium-msg')
+    const becomeBtn = document.getElementById('become-premium')
+    const cancelBtn = document.getElementById('cancel-premium')
+
+    function render() {
+      ad.hidden = isPremium
+      premiumMsg.hidden = !isPremium
+      becomeBtn.hidden = isPremium
+      cancelBtn.hidden = !isPremium
+    }
+
+    becomeBtn.addEventListener('click', () => { isPremium = true; render() })
+    cancelBtn.addEventListener('click', () => { isPremium = false; render() })
+    render()
+  </script>
+</body>
+</html>
