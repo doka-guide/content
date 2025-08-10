@@ -1,7 +1,7 @@
 ---
 title: "`:any-link`"
 description: "Выбирает любые ссылки — посещённые и непосещённые (`<a>` и `<area>` с `href`). Удобно стилизовать все ссылки одним селектором."
-author:
+authors:
   - drakesbot12
 keywords:
   - any-link

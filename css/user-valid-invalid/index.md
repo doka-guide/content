@@ -1,7 +1,7 @@
 ---
 title: "`:user-valid` и `:user-invalid`"
 description: "Стилизуют элементы формы по валидности, но только после того, как пользователь взаимодействовал с ними."
-author:
+authors:
   - drakesbot12
 keywords:
   - user-valid

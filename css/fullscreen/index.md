@@ -1,7 +1,7 @@
 ---
 title: "`:fullscreen`"
 description: "Совпадает с элементом, который отображается в режиме полноэкранного просмотра (Fullscreen API). Полезно менять оформление контента на весь экран."
-author:
+authors:
   - drakesbot12
 keywords:
   - fullscreen
