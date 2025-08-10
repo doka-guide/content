@@ -16,10 +16,11 @@ keywords:
   - имён
   - SVG
   - MathML
-  - префикс селектора
+  - префикс
 related:
   - css/import
   - css/selector-list
+  - html/style
 tags:
   - doka
 ---

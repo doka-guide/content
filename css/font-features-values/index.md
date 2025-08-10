@@ -5,7 +5,8 @@ authors:
   - drakesbot12
 keywords:
   - opentype
-  - стилистические наборы
+  - стилистические
+  - наборы
   - stylistic
   - sets
 related:

@@ -15,6 +15,7 @@ keywords:
 related:
   - html/meta
   - css/import
+  - css/namespace
 tags:
   - doka
 ---
