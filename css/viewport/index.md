@@ -1,10 +1,6 @@
 ---
 title: "`@viewport`"
 description: "Устаревшая директива CSS Device Adaptation для управления вьюпортом. Почти нигде не поддерживается — используйте `<meta name=\"viewport\">`."
-baseline:
-  - group: viewport
-    features:
-      - css.at-rules.viewport
 authors:
   - drakesbot12
 keywords:
