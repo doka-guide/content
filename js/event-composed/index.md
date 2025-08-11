@@ -29,38 +29,18 @@ tags:
 ## Пример
 
 ```html
-<open-shadow text="Открытый дом"></open-shadow>
-
-<closed-shadow text="Закрытый дом"></closed-shadow>
+<div id="open-shadow"></div>
+<div id="closed-shadow"></div>
 ```
 
 ```javascript
-customElements.define('open-shadow', class extends HTMLElement {
-  constructor() {
-    super();
-    const p = document.createElement('p');
-    p.textContent = this.getAttribute('text');
+const openHost = document.getElementById('open-shadow');
+const openRoot = openHost.attachShadow({ mode: 'open' });
+openRoot.innerHTML = '<button>Открытый дом</button>';
 
-    const shadow = this.attachShadow({ mode: 'open' });
-    shadow.appendChild(p);
-  }
-});
-
-customElements.define('closed-shadow', class extends HTMLElement {
-  constructor() {
-    super();
-    const p = document.createElement('p');
-    p.textContent = this.getAttribute('text');
-
-    const shadow = this.attachShadow({ mode: 'closed' });
-    shadow.appendChild(p);
-  }
-});
-
-document.addEventListener('click', (e) => {
-  console.log('composed:', e.composed);
-  console.log('composedPath:', e.composedPath());
-});
+const closedHost = document.getElementById('closed-shadow');
+const closedRoot = closedHost.attachShadow({ mode: 'closed' });
+closedRoot.innerHTML = '<button>Закрытый дом</button>
 ```
 
 ## Как пишется
