@@ -1,6 +1,11 @@
 ---
 title: "`scale`"
 description: "Элементы интерфейса могут стать больше или меньше, стоит только захотеть и немного применить знания CSS."
+baseline:
+  - group: individual-transforms
+    features:
+      - css.properties.scale
+      - css.properties.scale.none
 authors:
   - anastasiayarosh
 related:
