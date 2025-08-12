@@ -30,24 +30,6 @@ tags:
 ## Пример
 
 ```html
-<template id="toggle-box-template">
-  <style>
-    :host {
-      display: block;
-      padding: 1em;
-      border: 2px solid #888;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    :host(:state(active)) {
-      background: lightgreen;
-      border-color: green;
-    }
-  </style>
-  <slot></slot>
-</template>
-
 <toggle-box>Нажми меня</toggle-box>
 ```
 
@@ -55,9 +37,6 @@ tags:
 class ToggleBox extends HTMLElement {
   constructor() {
     super()
-    const template = document.getElementById('toggle-box-template')
-    const shadow = this.attachShadow({ mode: 'open' })
-    shadow.appendChild(template.content.cloneNode(true))
 
     this._internals = this.attachInternals()
     this.addEventListener('click', () => {
@@ -71,6 +50,12 @@ class ToggleBox extends HTMLElement {
 }
 
 customElements.define('toggle-box', ToggleBox)
+```
+
+```css
+toggle-box:state(active) {
+  color: green;
+}
 ```
 
 ## Как пишется
