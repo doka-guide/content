@@ -161,7 +161,7 @@ console.log(result)
 // [ 0, 42 ]
 ```
 
-Без `use strict` элемент объекта `arguments` изменит своё значение:
+Без `'use strict'` в объекте `arguments` значение обновится:
 
 ```js
 function f(x) {
