@@ -1,6 +1,12 @@
 ---
 title: "`skew`"
 description: "Искажаем и наклоняем элементы с пониманием."
+baseline:
+  - group: transforms2d
+    features:
+      - css.types.transform-function.skew
+      - css.types.transform-function.skewX
+      - css.types.transform-function.skewY
 authors:
   - anastasiayarosh
 related:
