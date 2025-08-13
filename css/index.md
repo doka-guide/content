@@ -387,6 +387,7 @@ groups:
       - page
       - orphans
       - widows
+      - print-color-adjust
   - name: 'Колонки и таблицы'
     items:
       - columns
