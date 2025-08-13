@@ -1,6 +1,15 @@
 ---
 title: "`scroll-margin`"
 description: "Свойство CSS `scroll-margin` позволяет задать отступ между краем области прокрутки и элементом, к которому осуществляется прокрутка. Полезно при работе с якорными ссылками и scrollIntoView."
+baseline:
+  - group: scroll-snap
+    features:
+      - css.properties.scroll-margin
+      - css.properties.scroll-margin-left
+      - css.properties.scroll-margin-right
+      - css.properties.scroll-margin-top
+      - css.properties.scroll-margin-block
+      - css.properties.scroll-margin-inline
 authors:
   - drakesbot12
 keywords:
