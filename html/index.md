@@ -104,6 +104,7 @@ groups:
       - map
       - area
       - svg-sprite
+      - images-paste-methods
   - name: 'Ссылки'
     items:
       - a
@@ -148,6 +149,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - crossorigin
       - template
       - output
       - data-attributes
