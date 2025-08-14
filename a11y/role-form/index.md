@@ -36,7 +36,7 @@ tags:
 </div>
 ```
 
-<iframe title="Кастомный ориентир формы" src="demos/custom-form-landmark" height="500"></iframe>
+<iframe title="Кастомный ориентир формы" src="demos/custom-form-landmark" height="320"></iframe>
 
 ## Как пишется
 
@@ -56,7 +56,7 @@ tags:
 </form>
 ```
 
-<iframe title="Обычная форма" src="demos/native-form-landmark" height="500"></iframe>
+<iframe title="Обычная форма" src="demos/native-form-landmark" height="330"></iframe>
 
 Явная роль понадобится в редких случаях: при вёрстке сложных кастомных компонентов или для поддержки _очень_ старыми браузерами.
 
@@ -85,7 +85,7 @@ function submitForm(event) {
 button.addEventListener('click', submitForm)
 ```
 
-<iframe title="Кастомный ориентир формы" src="demos/custom-form-landmark" height="500"></iframe>
+<iframe title="Кастомный ориентир формы" src="demos/custom-form-landmark" height="320"></iframe>
 
 Пользователи скринридеров смогут быстро переместиться к форме только в случае, если форма имеет [доступное имя](/a11y/accessible-names-and-descs/). Есть два способа задать имя форме: через атрибуты [`aria-label`](/a11y/aria-label/) и [`aria-labelledby`](/a11y/aria-labelledby/).
 
