@@ -28,7 +28,7 @@ tags:
 Обратная гиперболическая функция синуса:
 
 ```html
-<math xmlns="http://www.w3.org/1998/Math/MathML">
+<math>
   <mrow>
     <mfrac>
       <mrow>
