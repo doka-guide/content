@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Обычная форма — form — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .input:focus {
+      border-color: #10F3AF;
+      outline: none;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      display: flex;
+      align-self: end;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.2s linear;
+    }
+
+    .button-aqua {
+      background-color: #10F3AF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+      cursor: pointer;
+      transition: background-color 0.2s linear;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .form-message {
+      margin-top: 10px;
+      min-height: 30px;
+      text-align: center;
+    }
+
+    .input, .button {
+      width: 350px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .input-container {
+        flex-direction: column;
+      }
+
+      .label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="container" id="custom-form" aria-label="Подписка на рассылку">
+    <div class="input-container">
+      <label class="label" for="email">Электронная почта:</label>
+      <input class="input" type="text" id="email" name="email" autocomplete="email" spellcheck="false">
+    </div>
+    <button class="button button-aqua" id="subscribe-btn" type="submit">Подписаться</button>
+    <span class="form-message" id="status-message" aria-live="polite"></span>
+  </form>
+
+  <script>
+    document.getElementById('custom-form').addEventListener('submit', function(event) {
+      event.preventDefault()
+      document.getElementById('status-message').textContent = 'Вы не смогли подписаться на рассылку. Попробуйте ещё раз через 100 лет 😢'
+    })
+  </script>
+</body>
+</html>
