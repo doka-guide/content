@@ -148,6 +148,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - slot
       - crossorigin
       - template
       - output
@@ -159,6 +160,9 @@ groups:
       - hidden
       - inert
       - dir
+      - is
+      - part
+      - exportparts
       - tabindex
       - enterkeyhint
       - data-attributes

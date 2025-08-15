@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Просто красивая карточка — Web components — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <my-card>
+      <span slot="title">Моя карточка</span>
+      <p>Это содержимое карточки</p>
+    </my-card>
+  </div>
+  <script>
+    class MyCard extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.innerHTML = `
+          <style>
+            :host {
+              display: block;
+              border: 1px solid #ccc;
+              border-radius: 8px;
+              padding: 16px;
+              max-width: 300px;
+            }
+            .title {
+              font-weight: bold;
+              margin-bottom: 8px;
+            }
+            .content {
+              color: #a5a5a5;
+            }
+          </style>
+          <div class="title">
+            <slot name="title">Заголовок</slot>
+          </div>
+          <div class="content">
+            <slot>Содержимое карточки</slot>
+          </div>
+        `;
+      }
+    }
+
+    customElements.define('my-card', MyCard);
+  </script>
+</body>
+</html>
