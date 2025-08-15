@@ -246,6 +246,8 @@ groups:
     items:
       - events
       - event
+      - custom-event
+      - dispatch-event
       - event-change
       - event-reset
       - event-input
