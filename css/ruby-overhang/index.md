@@ -1,6 +1,12 @@
 ---
 title: "`ruby-overhang`"
 description: "Позволяем (или нет) выходить руби-подписи за пределы основного текста."
+baseline:
+  - group: ruby-overhang
+    features:
+      - css.properties.ruby-overhang
+      - css.properties.ruby-overhang.auto
+      - css.properties.ruby-overhang.none
 authors:
   - drakesbot12
 keywords:

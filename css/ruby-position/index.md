@@ -1,6 +1,13 @@
 ---
 title: "`ruby-position`"
 description: "Управляем размещением аннотаций (руби-текста) относительно основного текста: над ним, под ним, между символами или в чередующемся порядке."
+baseline:
+  - group: ruby-position
+    features:
+      - css.properties.ruby-position
+      - css.properties.ruby-position.over
+      - css.properties.ruby-position.under
+      - css.properties.ruby-position.inter-character
 authors:
   - drakesbot12
 keywords:

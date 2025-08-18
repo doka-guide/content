@@ -1,6 +1,14 @@
 ---
 title: "`ruby-align`"
 description: "Выравниваем аннотаций относительно базового текста с помощью нативного CSS!"
+baseline:
+  - group: ruby-align
+    features:
+      - css.properties.ruby-align
+      - css.properties.ruby-align.center
+      - css.properties.ruby-align.space-around
+      - css.properties.ruby-align.space-between
+      - css.properties.ruby-align.start
 authors:
   - drakesbot12
 keywords:
