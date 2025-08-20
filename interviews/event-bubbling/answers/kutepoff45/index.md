@@ -91,7 +91,6 @@ function handleClick(event) {
 </html>
 ```
 
-Тогда при клике на нашу кнопку, `handleClick()` будет вызвана только один раз:
 ```js
 const button = document.querySelector('button')
 const container = document.getElementById('container')
@@ -106,8 +105,7 @@ function handleClick(event) {
   console.log(`Зарегистрировано событие на элементе ${event.currentTarget.tagName}`)
 }
 ```
-
-В консоли браузера мы увидим:
+  Тогда при клике на нашу кнопку, `handleClick()` будет вызвана только один раз. В консоли браузера мы увидим:
 ```
 Зарегистрировано событие на элементе BUTTON
 ```
