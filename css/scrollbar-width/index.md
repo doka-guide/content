@@ -1,6 +1,13 @@
 ---
 title: "`scrollbar-width`"
 description: "Изменяем ширину полосы прокрутки."
+baseline:
+  - group: scrollbar-width
+    features:
+      - css.properties.scrollbar-width
+      - css.properties.scrollbar-width.auto
+      - css.properties.scrollbar-width.none
+      - css.properties.scrollbar-width.thin
 authors:
   - xpleesid
 keywords:
