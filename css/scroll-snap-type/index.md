@@ -1,6 +1,10 @@
 ---
 title: "`scroll-snap-type`"
 description: "Задаёт направление и строгость привязки прокрутки внутри контейнера."
+baseline:
+  - group: scroll-snap
+    features:
+      - css.properties.scroll-snap-type
 authors:
   - akhmadullin
 related:
