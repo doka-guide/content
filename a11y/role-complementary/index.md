@@ -2,7 +2,7 @@
 title: "`complementary`"
 description: "Ориентируемся по дополнительному содержимому с помощью WAI-ARIA."
 authors:
-  - fokinatatiana
+  - tatianafokina
 related:
   - a11y/aria-label
   - a11y/role-status
