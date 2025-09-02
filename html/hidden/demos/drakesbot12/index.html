@@ -33,29 +33,58 @@
       body { padding: 30px; }
     }
 
-    .container { display: grid; gap: 16px; max-width: 760px; width: 100%; }
-    .controls { display: flex; gap: 8px; align-items: center; }
+    .container { 
+      display: grid; 
+      gap: 16px; 
+      max-width: 760px; 
+      width: 100%; 
+    }
+
+    .controls { 
+      display: flex; 
+      gap: 8px; 
+      align-items: center; 
+    }
+
     .ad {
       color: #ffffff;
-      background: linear-gradient(135deg, #ff8a00 0%, #e52e71 50%, #8e2de2 100%);
+      background: linear-gradient(135deg, #ff8a00, #e52e71 50%, #8e2de2);
       background-size: 200% 200%;
       animation: gradientShift 12s ease-in-out infinite;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgb(255 255 255 / 0.08);
       box-shadow:
-        0 8px 24px rgba(229, 46, 113, 0.35),
-        0 2px 8px rgba(255, 138, 0, 0.25),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        0 8px 24px rgb(229 46 113 / 0.35),
+        0 2px 8px rgb(255 138 0 / 0.25),
+        inset 0 0 0 1px rgb(255 255 255 / 0.06);
       padding: 14px 16px;
       border-radius: 10px;
-      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 1px 1px rgb(0 0 0 / 0.25);
     }
+
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       100% { background-position: 100% 50%; }
     }
-    .content { background: #222328; border: 1px solid #34353B; padding: 12px; border-radius: 8px; }
-    button { cursor: pointer; padding: 8px 12px; border-radius: 6px; border: 1px solid #6B6C70; background: #1E1F23; color: #fff; }
-    button:hover { background: #2B2C31; }
+
+    .content { 
+      background: #222328; 
+      border: 1px solid #34353B; 
+      padding: 12px; 
+      border-radius: 8px; 
+    }
+
+    button { 
+      cursor: pointer; 
+      padding: 8px 12px; 
+      border-radius: 6px; 
+      border: 1px solid #6B6C70; 
+      background: #1E1F23; 
+      color: #fff; 
+    }
+
+    button:hover { 
+      background: #2B2C31; 
+    }
   </style>
 </head>
 <body>
