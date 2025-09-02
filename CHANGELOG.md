@@ -2,6 +2,16 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2025
+
+- 29 августа, [`complementary`](https://doka.guide/a11y/role-complementary/), Татьяна Фокина
+- 16 августа, [Объект пользовательского события `CustomEvent`](https://doka.guide/js/custom-event/), Рома Ахмадуллин
+- 16 августа, [`.dispatchEvent()`](https://doka.guide/js/dispatch-event/), Рома Ахмадуллин
+- 8 августа, [`<track>`](https://doka.guide/html/track/), DrakesWeb
+- 8 августа, [`print-color-adjust`](https://doka.guide/css/print-color-adjust/), DrakesWeb
+- 7 августа, [Атрибут `crossorigin`](https://doka.guide/html/crossorigin/), DrakesWeb
+- 7 августа, [Вставка изображений в HTML](https://doka.guide/html/images-paste-methods/), DrakesWeb
+
 ## Июль 2025
 
 - 29 июля, [Протокол IPv6](https://doka.guide/tools/ipv6-for-webdevs/), Disinterpreter
