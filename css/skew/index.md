@@ -1,0 +1,88 @@
+---
+title: "`skew()`"
+description: "Искажаем и наклоняем элементы с пониманием."
+baseline:
+  - group: transforms2d
+    features:
+      - css.types.transform-function.skew
+      - css.types.transform-function.skewX
+      - css.types.transform-function.skewY
+authors:
+  - anastasiayarosh
+related:
+  - css/will-change
+  - css/rotate
+  - css/transform
+tags:
+  - doka
+---
+
+## Кратко
+
+`skew()` — это функция для CSS-трансформаций ([`transform`](/css/transform/)), которая наклоняет элемент вдоль осей _x_ и _y_, создавая эффект перекоса.
+
+<aside>
+
+📖 О других функциях CSS-трансформаций можно узнать из статьи «[Функции CSS-трансформации](/css/transform-function/)».
+
+</aside>
+
+## Пример
+
+Наклоняем элемент на 30 градусов по оси _x_:
+
+```css
+div {
+  transform: skewX(30deg);
+}
+```
+
+## Как пишется
+
+Угол наклона должен указываться в [единицах измерения углов](/css/numeric-types/#edinicy-izmereniya-uglov).
+
+`x` — угол наклона по горизонтали (ось _x_) в градусах (deg).
+
+`y` — (опционально) угол наклона по вертикали (ось _y_).
+
+```css
+/* Искажение по X на 20 градусов */
+.skew-x {
+  transform: skewX(20deg);
+}
+
+/* Искажение по Y на 10 градусов */
+.skew-y {
+  transform: skewY(10deg);
+}
+```
+
+Можно наклонять элемент сразу по обеим осям:
+
+```css
+/* Искажение по X на 20° и по Y на 10° */
+.skew-both {
+  transform: skew(20deg, 10deg);
+}
+
+/* Эквивалентная запись */
+.skew-both {
+  transform: skewX(20deg) skewY(10deg);
+}
+```
+
+<iframe title="Демонстрация разных значений skew" src="demos/basic/" height="400"></iframe>
+
+## Как понять
+
+`skew()` наклоняет стороны элемента, сохраняя параллельность линий. В отличие от [`scale()`](/css/scale/), размеры элемента остаются прежними. По умолчанию точка трансформации элемента — его центр. Можно комбинировать `skew()` с другими трансформациями ([`rotate`](/css/rotate/), [`translate()`](/css/transform-function/#translate-x-y)).
+
+<iframe title="Демонстрация свойства skew вместе с другими свойствами трансформации" src="demos/combination/" height="400"></iframe>
+
+## Важно
+
+💡 Нужно учитывать, что искажение влияет на весь элемент вместе с его содержимым. Например, текстом. Можно задать обратное искажение содержимому, если хочется сохранить его внешний вид.
+
+## Полезные инструменты
+
+Для генерации искажения можно использовать такие генераторы `skew()`, как [Webcode](https://webcode.tools/css-generator/skew), [CSS-Generator](https://css-generator.netlify.app/transform-skew) и другие.
