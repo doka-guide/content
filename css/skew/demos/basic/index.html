@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -33,6 +34,11 @@
       gap: 40px;
     }
 
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
     .circle {
       width: 100px;
       height: 100px;
@@ -43,7 +49,7 @@
       align-items: center;
       color: white;
       font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
       transition: transform 0.3s ease;
     }
 
@@ -92,22 +98,22 @@
 <body>
     <div class="container">
       <div class="circle skew-none">0°, 0°</div>
-      <div class="label">skew(0deg, 0deg)</div>
+      <div class="label"><code>skew(0deg, 0deg)</code></div>
     </div>
 
     <div class="container">
       <div class="circle skew-x">20°, 0°</div>
-      <div class="label">skew(20deg, 0deg)</div>
+      <div class="label"><code>skew(20deg, 0deg)</code></div>
     </div>
 
     <div class="container">
       <div class="circle skew-y">0°, 20°</div>
-      <div class="label">skew(0deg, 20deg)</div>
+      <div class="label"><code>skew(0deg, 20deg)</code></div>
     </div>
 
     <div class="container">
       <div class="circle skew-both">15°, 15°</div>
-      <div class="label">skew(15deg, 15deg)</div>
+      <div class="label"><code>skew(15deg, 15deg)</code></div>
     </div>
 </body>
 </html>
