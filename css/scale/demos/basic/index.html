@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
   <style>
     *,
     *::before,
@@ -35,6 +36,11 @@
       margin-bottom: 30px;
     }
 
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
     .container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -52,7 +58,7 @@
       align-items: center;
       font-weight: bold;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
       transition: transform 0.4s ease;
       margin: 0 auto;
     }
@@ -103,38 +109,36 @@
   </style>
 </head>
 <body>
-    <h1>Наведите курсор на квадраты, чтобы увидеть scale()</h1>
-    <div class="container">
-        <div class="demo-item">
-            <div class="box scale-up">Увеличение</div>
-            <div class="label">hover: scale(2)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-down">Уменьшение</div>
-            <div class="label">hover: scale(0.5)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-zero">Исчезновение</div>
-            <div class="label">hover: scale(0)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-negative-x">Отр. по X</div>
-            <div class="label">hover: scaleX(-1.5)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-negative-y">Отр. по Y</div>
-            <div class="label">hover: scaleY(-1)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-different">Разные значения</div>
-            <div class="label">hover: scale(1.8, 0.6)</div>
-        </div>
-        <div class="demo-item">
-            <div class="box scale-negative-complex">Комплексное</div>
-            <div class="label">hover: scale(-1.2, 1.5)</div>
-        </div>
+  <h1>Наведите курсор на квадраты, чтобы увидеть <code>scale()</code></h1>
+  <div class="container">
+    <div class="demo-item">
+      <div class="box scale-up">Увеличение</div>
+      <div class="label"><code>hover: scale(2)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-down">Уменьшение</div>
+      <div class="label"><code>hover: scale(0.5)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-zero">Исчезновение</div>
+      <div class="label"><code>hover: scale(0)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-negative-x">Отр. по X</div>
+      <div class="label"><code>hover: scaleX(-1.5)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-negative-y">Отр. по Y</div>
+      <div class="label"><code>hover: scaleY(-1)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-different">Разные значения</div>
+      <div class="label"><code>hover: scale(1.8, 0.6)</code></div>
+    </div>
+    <div class="demo-item">
+      <div class="box scale-negative-complex">Комплексное</div>
+      <div class="label"><code>hover: scale(-1.2, 1.5)</code></div>
     </div>
   </div>
-</body>
 </body>
 </html>
