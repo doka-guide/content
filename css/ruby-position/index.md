@@ -63,7 +63,7 @@ ruby {
 
 ```css
 .element {
-  ruby-position: over | under | inter-character | alternate | alternate over | alternate under;
+  ruby-position: over;
 }
 ```
 
