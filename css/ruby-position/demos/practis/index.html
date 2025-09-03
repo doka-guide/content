@@ -129,11 +129,11 @@
   <script>
     document.querySelectorAll('select').forEach(select => {
       select.addEventListener('change', (e) => {
-        const rubyId = e.target.dataset.target;
-        const value = e.target.value;
-        document.getElementById(rubyId).style.rubyPosition = value;
-      });
-    });
+        const rubyId = e.target.dataset.target
+        const value = e.target.value
+        document.getElementById(rubyId).style.rubyPosition = value
+      })
+    })
   </script>
 </body>
 </html>
