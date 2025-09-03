@@ -127,11 +127,11 @@
   <script>
     document.querySelectorAll('select').forEach(select => {
       select.addEventListener('change', (e) => {
-        const rubyId = e.target.dataset.target;
-        const value = e.target.value;
-        document.getElementById(rubyId).style.rubyAlign = value;
-      });
-    });
+        const rubyId = e.target.dataset.target
+        const value = e.target.value
+        document.getElementById(rubyId).style.rubyAlign = value
+      })
+    })
   </script>
 </body>
 </html>
