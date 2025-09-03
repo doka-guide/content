@@ -1,6 +1,6 @@
 ---
 title: "`ruby-align`"
-description: "Выравниваем аннотаций относительно базового текста с помощью нативного CSS!"
+description: "Выравниваем аннотации относительно базового текста с помощью нативного CSS!"
 baseline:
   - group: ruby-align
     features:
