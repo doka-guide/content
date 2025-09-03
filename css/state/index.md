@@ -77,7 +77,7 @@ internals.states.delete('active'); // Удаляем состояние
 
 ## Как понять
 
-Селектор `:state(active)` применяется к компоненту, если у него установлено внутреннее состояние через [`CustomStateSet`](/js/customstateset/), доступный по свойству `internals.states` внутри кастомного элемента. Такие состояния не отображаются в виде атрибутов или классов и не видны в [DOM](/js/dom/). Управлять ими можно только из JavaScript. Механизм работает только для компонентов в [Shadow DOM](/js/shadowdom/), зарегистрированных через [`customElements.define`](/js/window-customelements/). Для компонентов с [Shadow DOM](/js/shadowdom/) можно использовать [`:host(:state())`](/css/host/).
+Селектор `:state(active)` применяется к компоненту, если у него установлено внутреннее состояние через [`CustomStateSet`](/js/customstateset/), доступный по свойству `internals.states` внутри кастомного элемента. Такие состояния не отображаются в виде атрибутов или классов и не видны в [DOM](/js/dom/). Управлять ими можно только из JavaScript. Механизм работает только для компонентов, зарегистрированных через [`customElements.define`](/js/window-customelements/). Для компонентов с [Shadow DOM](/js/shadowdom/) можно использовать [`:host(:state())`](/css/host/).
 
 ## Подсказки
 
