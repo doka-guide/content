@@ -57,7 +57,7 @@ ruby {
 
 ```css
 .element {
-  ruby-align: start | center | space-between | space-around;
+  ruby-align: start;
 }
 ```
 
