@@ -233,7 +233,7 @@ console.log(1 + 2)
 
 ```js
 function useStrictMode() {
-  "use strict"
+  'use strict'
 
   function sum(a, b, a) {
     console.log(a, b)
@@ -246,7 +246,7 @@ useStrictMode()
 // Uncaught SyntaxError: Duplicate parameter name not allowed in this context
 ```
 
-Применить строгий режим можно только к функции, которая не использует:
+Применить строгий режим можно внутри функции, которая не использует:
 
 - параметры со значением по умолчанию;
 - [деструктуризацию параметров](/js/destructuring-assignment/);
