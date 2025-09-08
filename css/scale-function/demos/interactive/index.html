@@ -128,36 +128,91 @@
   </style>
 </head>
 <body>
-  <h1>Наведите курсор на квадраты, чтобы увидеть <code>scale()</code></h1>
-  <div class="container">
-    <div class="demo-item">
-      <div class="box scale-up">Увеличение</div>
-      <div class="label"><code>hover: scale(2)</code></div>
+      <h1>3D Cube Scale Демонстрация</h1>
+
+    <div class="controls">
+        <input type="number" id="scaleX" value="1" step="0.1" min="0.1" max="3" placeholder="X">
+        <input type="number" id="scaleY" value="1" step="0.1" min="0.1" max="3" placeholder="Y">
+        <input type="number" id="scaleZ" value="1" step="0.1" min="0.1" max="3" placeholder="Z">
     </div>
-    <div class="demo-item">
-      <div class="box scale-down">Уменьшение</div>
-      <div class="label"><code>hover: scale(0.5)</code></div>
+
+    <div class="labels">
+        <span>Ось X</span>
+        <span>Ось Y</span>
+        <span>Ось Z</span>
     </div>
-    <div class="demo-item">
-      <div class="box scale-zero">Исчезновение</div>
-      <div class="label"><code>hover: scale(0)</code></div>
+
+    <div class="rotation-controls">
+        <button onclick="rotateX()">Вращать X</button>
+        <button onclick="rotateY()">Вращать Y</button>
+        <button onclick="rotateZ()">Вращать Z</button>
+        <button onclick="resetRotation()">Сброс</button>
     </div>
-    <div class="demo-item">
-      <div class="box scale-negative-x">Отр. по X</div>
-      <div class="label"><code>hover: scaleX(-1.5)</code></div>
+
+    <div class="cube-container" id="cubeContainer">
+        <div class="cube" id="cube">
+            <div class="face front">Front</div>
+            <div class="face back">Back</div>
+            <div class="face right">Right</div>
+            <div class="face left">Left</div>
+            <div class="face top">Top</div>
+            <div class="face bottom">Bottom</div>
+        </div>
     </div>
-    <div class="demo-item">
-      <div class="box scale-negative-y">Отр. по Y</div>
-      <div class="label"><code>hover: scaleY(-1)</code></div>
+
+    <div class="info">
+        💡 Изменяйте значения масштаба и вращайте куб чтобы увидеть 3D-эффекты
     </div>
-    <div class="demo-item">
-      <div class="box scale-different">Разные значения</div>
-      <div class="label"><code>hover: scale(1.8, 0.6)</code></div>
-    </div>
-    <div class="demo-item">
-      <div class="box scale-negative-complex">Комплексное</div>
-      <div class="label"><code>hover: scale(-1.2, 1.5)</code></div>
-    </div>
-  </div>
+        <script>
+        const cube = document.getElementById('cube');
+        const cubeContainer = document.getElementById('cubeContainer');
+        const inputs = document.querySelectorAll('input');
+
+        let rotation = { x: -25, y: 25, z: 0 };
+
+        function updateCube() {
+            const x = parseFloat(document.getElementById('scaleX').value) || 1;
+            const y = parseFloat(document.getElementById('scaleY').value) || 1;
+            const z = parseFloat(document.getElementById('scaleZ').value) || 1;
+
+            // Применяем масштабирование
+            cube.style.transform = `scale3d(${x}, ${y}, ${z})`;
+
+            // Обновляем вращение контейнера
+            updateContainerRotation();
+        }
+
+        function updateContainerRotation() {
+            cubeContainer.style.transform = `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) rotateZ(${rotation.z}deg)`;
+        }
+
+        function rotateX() {
+            rotation.x += 45;
+            updateContainerRotation();
+        }
+
+        function rotateY() {
+            rotation.y += 45;
+            updateContainerRotation();
+        }
+
+        function rotateZ() {
+            rotation.z += 45;
+            updateContainerRotation();
+        }
+
+        function resetRotation() {
+            rotation = { x: -25, y: 25, z: 0 };
+            updateContainerRotation();
+        }
+
+        // Обработчики для всех полей ввода
+        inputs.forEach(input => {
+            input.addEventListener('input', updateCube);
+        });
+
+        // Инициализация
+        updateCube();
+    </script>
 </body>
 </html>
