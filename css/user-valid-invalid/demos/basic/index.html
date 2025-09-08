@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:user-valid и :user-invalid — Псевдоклассы — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+    }
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 840px; }
+    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    p { margin: 7px 0; font-size: 1rem; line-height: 1.4; }
+    code { font-family: "Roboto Mono", monospace; font-size: calc(1em - 1px); }
+
+    form { display: grid; gap: 20px; }
+    .form-row { display: flex; align-items: center; justify-content: space-between; }
+    .row-label { margin-right: 55px; font-size: 24px; font-weight: 500; line-height: 1; }
+    .input, .message { width: 350px; }
+
+    input {
+      width: 350px; border: 1px solid #FFFFFF; border-radius: 6px; padding: 10px 15px;
+      background-color: transparent; color: #FFFFFF; font-size: 18px; font-weight: 300; font-family: inherit;
+      -webkit-appearance: none; appearance: none;
+    }
+    input:focus { border-color: #2E9AFF; outline: none; }
+
+    input:user-invalid { border-color: #F498AD; }
+    input:user-valid { border-color: #41E847; }
+
+    .message { min-height: 22px; font-size: 14px; }
+    .message::before { content: ""; }
+    input:user-invalid + .message { color: #F498AD; }
+    input:user-invalid + .message::before { content: "Проверьте формат"; }
+    input:user-valid + .message { color: #41E847; }
+    input:user-valid + .message::before { content: "Отлично!"; }
+
+    .button { display: block; min-width: 210px; border: 2px solid transparent; border-radius: 6px; padding: 9px 15px; color: #000000; font-size: 18px; font-weight: 300; font-family: inherit; transition: background-color 0.2s linear; }
+    .button-blue { background-color: #2E9AFF; }
+    .button:hover:not(:disabled) { background-color: #FFFFFF; cursor: pointer; transition: background-color 0.2s linear; }
+    .button:focus-visible { border: 2px solid #FFFFFF; outline: none; }
+    .button:focus { border: 2px solid #FFFFFF; outline: none; }
+    .button:disabled { background-color: #34353B; color: #9AA0A6; cursor: not-allowed; }
+
+    @media (max-width: 768px) {
+      .form-row { display: block; }
+      .row-label { margin-right: 0; margin-bottom: 10px; }
+      .input, .message, .button { width: 100%; }
+      input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>:user-valid</code> и <code>:user-invalid</code></h1>
+    <p>Подсветка валидности появляется только после того, как вы изменили значение поля. До этого никаких «красных рамок».</p>
+
+    <form novalidate>
+      <div class="form-row">
+        <label class="row-label" for="email">Почта</label>
+        <div>
+          <input class="input" id="email" type="email" name="email" required placeholder="name@example.com">
+          <div class="message" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="row-label" for="age">Возраст (18–99)</label>
+        <div>
+          <input class="input" id="age" type="number" name="age" min="18" max="99" required placeholder="Например, 27">
+          <div class="message" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <span class="row-label">Действия</span>
+        <button class="button button-blue" id="submitBtn" type="reset" disabled>Отправить</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    const emailInput = document.getElementById('email')
+    const ageInput = document.getElementById('age')
+    const submitBtn = document.getElementById('submitBtn')
+    const form = document.querySelector('form')
+
+    function updateSubmitState() {
+      const allValid = emailInput.checkValidity() && ageInput.checkValidity()
+      submitBtn.disabled = !allValid
+    }
+
+    emailInput.addEventListener('input', updateSubmitState)
+    ageInput.addEventListener('input', updateSubmitState)
+    updateSubmitState()
+
+    form.addEventListener('submit', (e) => e.preventDefault())
+  </script>
+</body>
+</html>
