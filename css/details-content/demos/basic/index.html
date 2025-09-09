@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — ::details-content — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html { color-scheme: dark; }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 30px; }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      display: grid;
+      gap: 16px;
+    }
+
+    details {
+      border: 1px solid #2b2e33;
+      border-radius: 12px;
+      overflow: clip;
+      background: #1c1f24;
+    }
+
+    summary {
+      padding: 12px 16px;
+      list-style: none;
+      cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    @supports selector(::details-content) {
+      details::details-content {
+        padding: 12px 16px;
+        background: #111216;
+        opacity: 0;
+        transform: translateY(-4px);
+        transition: opacity .2s ease, transform .2s ease;
+      }
+
+      details[open]::details-content {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <details>
+      <summary>Подробнее</summary>
+      <p>Контент, который стилизован псевдоэлементом <code>::details-content</code>. Он отделён от заголовка <code>&lt;summary&gt;</code>, поэтому можно независимо задавать фон, отступы и анимацию появления.</p>
+      <p>В неподдерживающих браузерах будет показано базовое содержимое без анимации.</p>
+    </details>
+  </div>
+</body>
+</html>
