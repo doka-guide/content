@@ -2,7 +2,6 @@
 title: "`DataView`"
 description: "Объект для нетипизированного представления бинарных данных из буфера в нужном формате и порядке байтов"
 authors:
-  - doka-dog
   - marss-hub
 keywords:
   - typed array
@@ -15,7 +14,6 @@ related:
   - js/array-buffer
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
