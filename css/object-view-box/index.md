@@ -47,6 +47,7 @@ tags:
 
 ```css
 .object-view-box-inset {
+  object-fit: cover;
   object-view-box: inset(15% 15% 15% 15%);
 }
 ```
@@ -55,6 +56,7 @@ tags:
 
 ```css
 .object-view-box-xywh {
+  object-fit: cover;
   object-view-box: xywh(10% 10% 75% 75%);
 }
 ```
