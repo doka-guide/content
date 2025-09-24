@@ -52,7 +52,7 @@ tags:
 }
 ```
 
-<iframe title="Задаём область отображения через inset()" src="demos/inset/" height="770"></iframe>
+<iframe title="Задаём область отображения через inset()" src="demos/inset/" height="630"></iframe>
 
 ```css
 .object-view-box-xywh {
@@ -61,7 +61,7 @@ tags:
 }
 ```
 
-<iframe title="Задаём область отображения через xywh()" src="demos/xywh/" height="770"></iframe>
+<iframe title="Задаём область отображения через xywh()" src="demos/xywh/" height="630"></iframe>
 
 ## Подсказки
 
