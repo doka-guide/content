@@ -21,8 +21,6 @@ tags:
 const timerId = setTimeout(() => {
   console.log('Прошла секунда')
 }, 1000)
-
-clearTimeout(timerId)
 ```
 
 Функция `clearTimeout()` принимает один аргумент — числовой идентификатор таймаута. Этот идентификатор можно получить в результате вызова `setTimeout()`.
