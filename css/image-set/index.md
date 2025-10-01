@@ -53,38 +53,7 @@ div {
 
 ## Поддержка
 
-Firefox поддерживает свойство полностью. Поддержку в остальных браузерах можно уточнить на [Can I use](https://caniuse.com/?search=image-set).
+Свойство поддерживается всеми основными браузерами.
 
-Особенности поддержки в Chrome и Safari в данный момент:
-
-- отображение ломается при указании типов изображений в формате MIME, например `type("image/webp")`;
-- работает только с [вендорным префиксом](/css/vendor-prefixes/) `-webkit-`;
-- в Safari не отображается AVIF.
-
-Таким образом для полной поддержки код можно писать так:
-
-```css
-div {
-  /* Фолбэк */
-  background-image: url("puppy.png");
-
-  /* Для Chrome и Safari */
-  background-image: -webkit-image-set(
-      url("puppy@2x.png") 2x,
-      url("puppy@1x.png") 1x
-    );
-
-  /* Для Firefox */
-  background-image: image-set(
-      url("puppy@2x.avif") type("image/avif") 2x,
-      url("puppy@1x.avif") type("image/avif") 1x,
-      url("puppy@2x.webp") type("image/webp") 2x,
-      url("puppy@1x.webp") type("image/webp") 1x,
-      url("puppy@2x.png") 2x,
-      url("puppy@1x.png") 1x
-    );
-}
-```
-
-Проверить поддержку на данный момент вы можете в демке.
+Проверить поддержку вы можете в демке.
 <iframe title="Поддержка свойства в браузерах" src="demos/checking-support/" height="400"></iframe>
