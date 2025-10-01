@@ -1,6 +1,12 @@
 ---
 title: "`image-set()`"
 description: "Позволяет установить несколько разрешений и типов фонового изображения."
+baseline:
+  - group: image-set
+    features:
+      - css.properties.background-image.image-set
+      - css.properties.content.image-set
+      - css.types.image.image-set
 authors:
   - lattelix
 keywords:
