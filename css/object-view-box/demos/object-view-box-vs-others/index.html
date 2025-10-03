@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сравнение способов обрезки изображения — object-view-box — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      width: 100%;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 500;
+    }
+
+    .example {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      width: 350px;
+    }
+
+    .example_caption {
+      font-size: 18px;
+    }
+
+    .wrapper {
+      width: 100%;
+      height: 100%;
+      border: 4px solid #FFFFFF;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+    }
+
+    .viewbox {
+      object-fit: cover;
+      object-view-box: inset(20%);
+    }
+
+    .overflow-wrapper {
+      overflow: hidden;
+    }
+
+    .overflow-wrapper .overflow {
+      transform: translate(-100px, -50px);
+    }
+
+    .clip {
+      object-fit: cover;
+      clip-path: circle(50% at 50% 50%);
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .layout {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 class="title">Разные способы обрезки контента</h1>
+  <div class="layout">
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>object-view-box</code>
+      </figcaption>
+      <div class="wrapper">
+        <img src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image viewbox" alt="Три котёнка">
+      </div>
+    </figure>
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code id="cropped-caption">overflow: hidden</code>
+      </figcaption>
+      <div class="wrapper">
+        <div class="overflow-wrapper">
+          <img id="cropped-image" src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image overflow" alt="Три котёнка">
+        </div>
+      </div>
+    </figure>
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code id="cropped-caption">clip-path</code>
+      </figcaption>
+      <div class="wrapper">
+        <img id="cropped-image" src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image clip" alt="Три котёнка">
+      </div>
+    </figure>
+  </div>
+  <div class="layout">
+    <figure class="example">
+      <figcaption class="example_caption">
+        <code>оригинал</code>
+      </figcaption>
+      <div class="wrapper">
+        <img src="../images/cats-x1.jpg" srcset="../images/cats-x2.jpg 2x" class="image" alt="Три котёнка">
+      </div>
+    </figure>
+  </div>
+</body>
+</html>
