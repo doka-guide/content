@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Возможные свойства — skew — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #2E9AFF;
+      font-family: "Roboto", sans-serif;
+      color: white;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #3498db;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .circle:hover {
+      transform: scale(1.1);
+    }
+
+    .skew-none {
+      /* Без искажения (для сравнения) */
+      transform: skew(0deg, 0deg);
+      background: #2ecc71;
+    }
+
+    .skew-x {
+      /* Искажение по X */
+      transform: skew(20deg, 0deg);
+      background: #e74c3c;
+    }
+
+    .skew-y {
+      /* Искажение по Y */
+      transform: skew(0deg, 20deg);
+      background: #f39c12;
+    }
+
+    .skew-both {
+      /* Искажение по X и Y */
+      transform: skew(15deg, 15deg);
+      background: #9b59b6;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .label {
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <div class="circle skew-none">0°, 0°</div>
+      <div class="label"><code>skew(0deg, 0deg)</code></div>
+    </div>
+
+    <div class="container">
+      <div class="circle skew-x">20°, 0°</div>
+      <div class="label"><code>skew(20deg, 0deg)</code></div>
+    </div>
+
+    <div class="container">
+      <div class="circle skew-y">0°, 20°</div>
+      <div class="label"><code>skew(0deg, 20deg)</code></div>
+    </div>
+
+    <div class="container">
+      <div class="circle skew-both">15°, 15°</div>
+      <div class="label"><code>skew(15deg, 15deg)</code></div>
+    </div>
+</body>
+</html>
