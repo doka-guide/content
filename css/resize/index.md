@@ -1,6 +1,12 @@
 ---
 title: "`resize`"
 description: "Можно ли увеличить или уменьшить поле ввода? Управляем этим через стили."
+baseline:
+  - group: resize
+    features:
+      - css.properties.resize
+      - css.properties.resize.block
+      - css.properties.resize.inline
 authors:
   - s-dudko
 related:
@@ -36,8 +42,6 @@ tags:
 - `inline` — размер можно изменять в строковом измерении элемента.
 
 Блочное или строчное [`измерение`](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values) элемента зависит от направления текста, задаваемого свойствами [`writing-mode`](/css/writing-mode/) и [`direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction).
-
-По умолчанию поддерживается в Firefox и Safari. В браузерах Chrome и Edge необходимо включить флаг `Experimental Web Platform features`. Более подробную информацию можно узнать на [`caniuse`](https://caniuse.com/mdn-css_properties_resize_flow_relative_support).
 
 ## Пример
 

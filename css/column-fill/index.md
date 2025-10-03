@@ -1,6 +1,12 @@
 ---
 title: "`column-fill`"
 description: "Управляем разделением текста на колонки в блоках с фиксированной высотой"
+baseline:
+  - group: column-fill
+    features:
+      - css.properties.column-fill
+      - css.properties.column-fill.auto
+      - css.properties.column-fill.balance
 authors:
   - xpleesid
 related:

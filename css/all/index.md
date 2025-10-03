@@ -1,6 +1,10 @@
 ---
 title: "`all`"
 description: "Удобное свойство для сброса всех стилей сразу."
+baseline:
+  - group: all
+    features:
+      - css.properties.all
 authors:
   - xpleesid
 contributors:
@@ -69,7 +73,3 @@ p {
 <iframe src="demos/initial/" title="Пример с initial" height="400"></iframe>
 
 Все значения сбросились до дефолтных. Больше всего бросаются глаза изменения [`font-family`](/css/font-family/), [`font-size`](/css/font-size/), [`display`](/css/display/).
-
-## Поддержка
-
-`all` поддерживается всеми современными браузерами ([Can I Use](https://caniuse.com/css-all)).
