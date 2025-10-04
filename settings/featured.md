@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - css/media
-  - html/form
-  - css/specificity
-  - tools/how-to-test-and-why
-  - a11y/aria-intro
+  - js/closures
   - a11y/css-impact-on-a11y
-  - html/flow
-  - js/infinite-scroll
-  - tools/gitlab-ci-cd
   - html/video
-  - tools/bundlers
-  - css/custom-properties
-  - recipes/git-rebase-onto
-  - js/var-let
-  - html/div
-  - tools/clean-architecture
-  - tools/docker
-  - css/position
+  - html/nav
+  - a11y/live-region
   - html/input
-  - recipes/center
-  - tools/markdown
-  - html/head
-  - a11y/aria-hidden
-  - tools/cli
-  - js/function
-  - tools/ci-cd
-  - css/box-sizing
-  - tools/agile
-  - a11y/screenreaders
-  - js/execution-order
-  - css/scrollbar-gutter
-  - recipes/character-counter
-  - js/array-reduce-right
-  - css/attr
-  - css/keyframes
-  - recipes/snow
   - tools/network
-  - recipes/popup
-  - tools/cors
-  - html/doctype
-  - a11y/content-hidden
+  - html/head
+  - js/deal-with-forms
+  - recipes/ajax-form
+  - recipes/progress
+  - js/var-let
   - recipes/lets-encrypt-nginx
-  - css/display
+  - css/pseudoelements
+  - html/flow
+  - html/section
+  - js/function
+  - js/array-entries
+  - html/doctype
+  - tools/webpack
+  - css/transform-function
+  - a11y/content-hidden
+  - a11y/aria-intro
+  - js/boolean
+  - js/geolocation-api
+  - a11y/aria-hidden
+  - tools/clean-architecture
+  - css/box-sizing
+  - js/execution-order
+  - css/specificity
+  - css/box-model
   - tools/oop
   - js/async-in-js
-  - tools/static-types
-  - tools/how-the-browser-creates-pages
-  - a11y/live-region
-  - tools/webpack
-  - html/nav
-  - js/deal-with-forms
-  - js/geolocation-api
-  - css/transform-function
-  - css/pseudoelements
+  - tools/bundlers
+  - recipes/git-rebase-onto
+  - recipes/character-counter
+  - a11y/screenreaders
   - html/article
-  - css/box-model
-  - css/flexbox-guide
-  - recipes/ajax-form
-  - css/box-shadow
-  - js/array-entries
-  - js/boolean
+  - css/attr
+  - recipes/snow
   - html/img
-  - css/grid-guide
-  - recipes/progress
+  - tools/how-to-test-and-why
+  - css/position
   - js/function-context
-  - js/closures
-  - html/section
+  - css/custom-properties
+  - js/array-reduce-right
+  - html/div
+  - tools/static-types
+  - css/scrollbar-gutter
+  - recipes/popup
+  - tools/cli
+  - tools/ci-cd
+  - html/form
+  - js/infinite-scroll
+  - tools/agile
+  - tools/how-the-browser-creates-pages
+  - css/display
+  - css/keyframes
+  - tools/markdown
+  - tools/docker
+  - css/grid-guide
+  - css/flexbox-guide
+  - css/box-shadow
+  - recipes/center
+  - css/media
+  - tools/gitlab-ci-cd
+  - tools/cors
 ---
 
