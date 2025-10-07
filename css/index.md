@@ -325,6 +325,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - object-view-box
       - aspect-ratio
       - filter
       - filter-functions
