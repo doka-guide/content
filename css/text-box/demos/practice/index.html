@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка text-box — text-box — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    section {
+      display: flex;
+      gap: 20px;
+    }
+
+    select {
+      width: 6rem;
+
+      option {
+        font-family: monospace;
+      }
+    }
+
+    p {
+      margin: 0;
+      font-size: 6rem;
+      font-weight: bold;
+      border-top: 5px solid crimson;
+      border-bottom: 5px solid crimson;
+    }
+
+    output {
+      border: 2px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+      width: fit-content;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>
+      <label for="box-trim">Выберите края для обрезки:</label>
+      <select id="box-trim">
+        <option>none</option>
+        <option>trim-start</option>
+        <option>trim-end</option>
+        <option selected>trim-both</option>
+      </select>
+    </div>
+    <div>
+      <label for="trim-over">Выберите обрезку сверху:</label>
+      <select id="trim-over">
+        <option>text</option>
+        <option selected>cap</option>
+        <option>ex</option>
+      </select>
+    </div>
+  </section>
+  <p class="display" contenteditable="">Документация</p>
+  <section>
+    <div>
+      <label for="trim-under">Выберите обрезку снизу:</label>
+      <select id="trim-under">
+        <option>text</option>
+        <option selected>alphabetic</option>
+      </select>
+    </div>
+  </section>
+  <output></output>
+
+  <script>
+    const boxTrimSelect = document.getElementById('box-trim')
+    const trimOverSelect = document.getElementById('trim-over')
+    const trimUnderSelect = document.getElementById('trim-under')
+
+    const displayElem = document.querySelector('p')
+    const codeElem = document.querySelector('output')
+
+    function setEdgeTrim() {
+      const textBoxTrimValue = boxTrimSelect.value
+      const textBoxEdgeValue = `${trimOverSelect.value} ${trimUnderSelect.value}`
+      displayElem.style.textBox = `${textBoxTrimValue} ${textBoxEdgeValue}`
+
+      codeElem.innerHTML = `
+        <span><code>text-box-trim: ${textBoxTrimValue}</code></span>
+        <br>
+        <span><code>text-box-edge: ${textBoxEdgeValue}</code></span>
+        <br><br>
+        <span>Упрощённая форма:</span>
+        <br><br>
+        <span><code>text-box: ${textBoxTrimValue} ${textBoxEdgeValue}</code></span>
+      `
+    }
+
+    setEdgeTrim()
+
+    boxTrimSelect.addEventListener('change', setEdgeTrim)
+    trimOverSelect.addEventListener('change', setEdgeTrim)
+    trimUnderSelect.addEventListener('change', setEdgeTrim)
+  </script>
+</body>
+</html>
