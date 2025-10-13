@@ -9,6 +9,7 @@ authors:
   - solarrust
 contributors:
   - skorobaeus
+  - starhamster
 related:
   - html/dialog
   - css/pseudoelements
@@ -31,7 +32,7 @@ tags:
 ```css
 dialog::backdrop {
   background-image: linear-gradient(
-    130deg,
+    90deg,
     #123E66,
     #593273 41.07%,
     #623D45 76.05%
@@ -63,12 +64,12 @@ dialog::backdrop {
 
 Ничего затейливого: указываете элемент и через два двоеточия пишите `backdrop`. Для стилизации доступны все CSS-свойства, но постарайтесь не трогать позиционирование.
 
-Можно реагировать на действия пользователя. В демо ниже попробуйте понажимать <kbd>Tab</kbd> и <kbd>Shift Tab</kbd>. Когда фокус будет попадать на кнопку в открытом диалоге, цвета градиента будут меняться местами.
+Можно реагировать на действия пользователя. В демо ниже попробуйте навести курсор на [поповер](/html/popover/).
 
 ```css
-dialog:focus-within::backdrop {
+[popover]:hover::backdrop {
   background-image: linear-gradient(
-    130deg,
+    90deg,
     #123E66,
     #593273 41.07%,
     #623D45 76.05%
@@ -76,4 +77,4 @@ dialog:focus-within::backdrop {
 }
 ```
 
-<iframe title="Реагируем на фокус" src="demos/focus/" height="400"></iframe>
+<iframe title="Реагируем на наведение курсора" src="demos/hover/" height="350"></iframe>
