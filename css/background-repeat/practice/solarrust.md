@@ -10,8 +10,8 @@
 .element {
   height: 100vh;
   background-image: linear-gradient(
-    #49a16c 50px,
-    #064236 0
+    #2E9AFF 50px,
+    #F498AD 0
   );
   background-size: 100% 100px;
   background-repeat: repeat-y;
