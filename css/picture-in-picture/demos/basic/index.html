@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:picture-in-picture — Псевдокласс — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+    }
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 840px; display: grid; gap: 20px; }
+    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    p { margin: 7px 0; line-height: 1.4; }
+
+    .player { display: flex; flex-direction: column; gap: 16px; position: relative; background: #222328; border: 1px solid #34353B; border-radius: 10px; padding: 18px; }
+    video { width: 100%; height: auto; border-radius: 6px; display: block; }
+
+    /* Стили для реального PiP */
+    video:picture-in-picture { outline: 2px solid #2E9AFF; outline-offset: 6px; }
+
+    /* Индикатор PiP на странице */
+    .pip-indicator { display: none; font-size: 14px; }
+    video:picture-in-picture ~ .pip-indicator { display: block; }
+
+    .controls { margin-top: 12px; display: flex; gap: 10px; }
+    .button { display: block; min-width: 210px; border: 2px solid transparent; border-radius: 6px; padding: 9px 15px; color: #000000; font-size: 18px; font-weight: 300; font-family: inherit; transition: background-color 0.2s linear; }
+    .button-blue { background-color: #2E9AFF; }
+    .button:hover:not(:disabled) { background-color: #FFFFFF; cursor: pointer; transition: background-color 0.2s linear; }
+    .button:focus-visible { border: 2px solid #FFFFFF; outline: none; }
+    .button:focus { border: 2px solid #FFFFFF; outline: none; }
+    .button:disabled { background-color: #34353B; color: #9AA0A6; cursor: not-allowed; }
+
+    /* «Мок» для предпросмотра оформления без реального PiP */
+    .mock-pip video { outline: 2px solid #2E9AFF; outline-offset: 6px; }
+    .mock-pip .pip-indicator { display: block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>:picture-in-picture</code></h1>
+    <p>PiP позволяет вынести видео в отдельное окно. Когда видео в этом режиме, к нему применятся стили <code>:picture-in-picture</code>.</p>
+
+    <div class="player" id="player">
+      <video id="video" controls crossorigin playsinline preload="metadata">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+      </video>
+      <div class="pip-indicator">Видео сейчас в PiP</div>
+      <div class="controls">
+        <button class="button button-blue" id="btnEnter">Включить PiP</button>
+        <button class="button" id="btnExit" disabled>Выключить PiP</button>
+        <button class="button" id="btnMock">Мок PiP</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('video')
+    const player = document.getElementById('player')
+    const btnEnter = document.getElementById('btnEnter')
+    const btnExit = document.getElementById('btnExit')
+    const btnMock = document.getElementById('btnMock')
+
+    async function enterPiP() {
+      try {
+        if (document.pictureInPictureElement) await document.exitPictureInPicture()
+        if (video.readyState === 0) await video.play()
+        await video.requestPictureInPicture()
+      } catch (e) { /* noop */ }
+    }
+    async function exitPiP() {
+      try { if (document.pictureInPictureElement) await document.exitPictureInPicture() } catch (e) { /* noop */ }
+    }
+    function toggleMock() { player.classList.toggle('mock-pip') }
+
+    function syncButtons() {
+      const active = document.pictureInPictureElement === video
+      btnEnter.disabled = active
+      btnExit.disabled = !active
+      btnEnter.classList.toggle('button-blue', !active)
+      btnExit.classList.toggle('button-blue', active)
+    }
+
+    btnEnter.addEventListener('click', enterPiP)
+    btnExit.addEventListener('click', exitPiP)
+    btnMock.addEventListener('click', toggleMock)
+
+    // Синхронизация по событиям смены PiP
+    video.addEventListener('enterpictureinpicture', syncButtons)
+    video.addEventListener('leavepictureinpicture', syncButtons)
+    document.addEventListener('pictureinpictureelementchange', syncButtons)
+
+    // Инициализация
+    syncButtons()
+  </script>
+</body>
+</html>
+
+
