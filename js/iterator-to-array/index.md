@@ -1,0 +1,67 @@
+---
+title: "Iterator.prototype.toArray()"
+description: "Создаёт массив из экземпляра класса Итератор"
+baseline:
+  - group: iterator-methods
+    features:
+      - javascript.builtins.Iterator.toArray
+authors:
+  - vitya-ne
+related:
+  - js/iterator
+  - js/array-values
+  - js/generators
+tags:
+  - doka
+---
+
+## Кратко
+
+Метод `toArray()` возвращает массив, созданный из объекта-наследника класса Итератор.
+О том, что такое итератор, можно прочитать в статье [«Итератор»](/js/iterator/).
+
+## Пример
+
+Предположим у нас есть множество значений в двоичном виде:
+
+```js
+const byteSet = new Set()
+byteSet.add('000') // 0
+byteSet.add('001') // 1
+byteSet.add('010') // 2
+byteSet.add('011') // 3
+```
+
+Мы хотим получить эти значения в виде массива. Это можно сделать несколькими способами:
+- используя деструктуризацию:
+
+```js
+const arr1 = [ ...byteSet ]
+console.log(arr1)
+// [ '000', '001', '010', '011' ]
+```
+
+- используя метод `Array.from()`:
+
+```js
+const arr2 = Array.from(byteSet)
+console.log(arr2)
+// [ '000', '001', '010', '011' ]
+```
+
+Метод `toArray()` позволяет получить тот же результат. Для этого сначала преобразуем множество с помощью метода [`values()`](/js/set-values/) в объект класса Итератор. Вызовы можно объединить в цепочку:
+
+```js
+const arr3 = byteSet.values().toArray()
+console.log(arr3)
+// [ '000', '001', '010', '011' ]
+```
+
+## Как пишется
+
+
+
+## Как понять
+
+
+## Подсказки
