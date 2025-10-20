@@ -5,6 +5,7 @@ authors:
   - doka-dog
 contributors:
   - furtivite
+  - anastasiayarosh
 related:
   - tools/fp
   - js/function-as-datatype
