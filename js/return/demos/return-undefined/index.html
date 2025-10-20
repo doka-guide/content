@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация работы - return() в работе, неявный return undefined</title>
+  <style>
+    body {
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: white;
+      margin: 20px;
+    }
+    button {
+      background-color: #2E9AFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input {
+      padding: 8px 12px;
+      border: 1px solid #4E4F50;
+      border-radius: 5px;
+      background: #3A3B3C;
+      color: white;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p>Функция randomReturn иногда возвращает true,</p>
+<p>Но возврат другого значения не предусмотрен.</p>
+<p>Нажимая несколько раз на кнопку, вы можете в этом убедиться</p>
+<button onclick="randomReturnShow()">Нажми меня</button>
+<input readonly placeholder="Результат функции">
+  <script>
+    function randomReturn(){
+      if (Math.random() > 0.5) return true;
+    }
+
+    function randomReturnShow(){
+      document.querySelector('input').value = randomReturn();
+    }
+  </script>
+</body>
+</html>
