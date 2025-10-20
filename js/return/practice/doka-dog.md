@@ -32,8 +32,8 @@ if (s3 > 100) alert('игрок 3 проходит')
 
 Самый простой способ этого избежать — __всегда__ добавлять `return` с каким-либо значением перед концом функции.
 
-<iframe title="Название — return — Дока" src="../demos/return-undefined/" height="150"></iframe>
+<iframe title="Название — return — Дока" src="../demos/return-undefined/" height="400"></iframe>
 
 - Ещё `return` останавливает выполнение функции. Обычно это ожидаемое поведение, но если про это забыть — возможны баги.
 
-<iframe title="Название — return — Дока" src="../demos/return-stop/" height="300"></iframe>
+<iframe title="Название — return — Дока" src="../demos/return-stop/" height="400"></iframe>
