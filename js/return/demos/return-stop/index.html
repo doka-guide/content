@@ -61,12 +61,12 @@
     const checkNumber = () => {
       const result = document.querySelector('input').value;
       if (result < 100) {
-       return false;
+        return false;
+        // Если result < 100 то код далее не будет выполнен!
       }
-  // Если result < 100 то код далее не будет выполнен!
-     const logElement = document.querySelector('textarea');
-     logElement.value += `\nВремя проверки: ${new Date()}`;
-     return true;
+      const logElement = document.querySelector('textarea');
+      logElement.value += `\nВремя проверки: ${new Date()}`;
+      return true;
     }
 
     const checkNumberShow = () => {
