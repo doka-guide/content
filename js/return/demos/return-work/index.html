@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Демонстрация return</title>
+  <style>
+    body {
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: white;
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #2E9AFF;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .demo {
+      background: #242526;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .demo-title {
+      color: #2E9AFF;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    input {
+      background: #3A3B3C;
+      border: 2px solid #4E4F50;
+      border-radius: 8px;
+      padding: 10px 15px;
+      color: white;
+      font-size: 16px;
+      flex: 1;
+    }
+
+    button {
+      background-color: #2E9AFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .result {
+      background: #3A3B3C;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      border-left: 4px solid #2E9AFF;
+    }
+    @media (max-width: 500px) {
+      .input-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Демонстрация работы return</h1>
+
+    <div class="demo">
+      <div class="demo-title">Проверка возраста</div>
+      <div class="input-group">
+        <input id="input1" type="number" placeholder="Введите возраст">
+        <button onclick="runExample1()">Проверить</button>
+      </div>
+      <div id="example1" class="result"></div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-title">Генератор строк</div>
+      <div class="input-group">
+        <input id="input2" type="number" placeholder="Длина строки">
+        <button onclick="runExample2()">Сгенерировать</button>
+      </div>
+      <div id="example2" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function isAdult(age) {
+      return age > 18;
+    }
+
+    function randomString(len) {
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let str = [];
+      for (let i = 0; i < len; i++) {
+        str.push(letters.charAt(Math.floor(Math.random() * letters.length)));
+      }
+      return str.join('');
+    }
+
+    function runExample1() {
+      const input = document.querySelector("#input1");
+      const resultDiv = document.querySelector('#example1');
+
+      if (!input.value) {
+        resultDiv.textContent = "Введите возраст";
+        return;
+      }
+
+      const age = parseInt(input.value);
+      const result = isAdult(age);
+      resultDiv.textContent = result ? "Совершеннолетний" : "Несовершеннолетний";
+    }
+
+    function runExample2() {
+      const input = document.querySelector("#input2");
+      const resultDiv = document.querySelector('#example2');
+
+      if (!input.value) {
+        resultDiv.textContent = "Введите длину строки";
+        return;
+      }
+
+      const len = parseInt(input.value);
+      const result = randomString(len);
+      resultDiv.textContent = result;
+    }
+  </script>
+</body>
+</html>
