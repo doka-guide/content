@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Как понять - return() — Дока</title>
+  <style>
+    body {
+      background-color: #18191C;
+      font-family: "Roboto", sans-serif;
+      color: white;
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      color: #2E9AFF;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .demo {
+      background: #242526;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      background: #3A3B3C;
+      border: 2px solid #4E4F50;
+      border-radius: 8px;
+      padding: 10px 15px;
+      color: white;
+      font-size: 16px;
+      width: 200px;
+    }
+
+    button {
+      background-color: #2E9AFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1a7cdd;
+    }
+
+    .result {
+      background: #3A3B3C;
+      border-radius: 8px;
+      padding: 15px;
+      border-left: 4px solid #2E9AFF;
+      font-size: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Проверка чётности числа</h1>
+
+    <div class="demo">
+      <div class="input-group">
+        <input id="input1" type="number" placeholder="Введите число">
+        <button onclick="runExample1()">isEven</button>
+      </div>
+      <div id="example1" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function isEven(value) {
+      if ((undefined === value) || (null === value)) {
+        return false;
+      }
+      return value % 2 == 0;
+    }
+
+    function runExample1(){
+      const result = isEven(document.querySelector("#input1").value);
+      const resultDiv = document.querySelector('#example1');
+
+      if (document.querySelector("#input1").value === '') {
+        resultDiv.textContent = 'Введите число';
+      } else {
+        resultDiv.textContent = result ? 'Чётное' : 'Нечётное';
+      }
+    }
+  </script>
+</body>
+</html>
+
