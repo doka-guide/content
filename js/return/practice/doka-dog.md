@@ -36,4 +36,4 @@ if (s3 > 100) alert('игрок 3 проходит')
 
 - Ещё `return` останавливает выполнение функции. Обычно это ожидаемое поведение, но если про это забыть — возможны баги.
 
-<iframe title="Название — return — Дока" src="../demos/vindi-r-aMagpW/" height="300"></iframe>
+<iframe title="Название — return — Дока" src="../demos/return-stop/" height="300"></iframe>
