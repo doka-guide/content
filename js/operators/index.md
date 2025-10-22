@@ -8,7 +8,7 @@ related:
   - js/logic-operators
   - js/ternary-operator
 tags:
-  - doka
+  - article
 ---
 
 ## Кратко
