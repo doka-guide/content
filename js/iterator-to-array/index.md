@@ -22,12 +22,24 @@ tags:
 
 ## Пример
 
-
+Предположим у нас есть функция-генератор, возвращающая итератор:
 
 ```js
-const arr = .toArray()
-console.log(arr)
-// [ '000', '001', '010', '011' ]
+function* getArrayMethods() {
+  yield 'map';
+  yield 'filter';
+  yield 'every';
+  yield 'some';
+}
+
+const iterator = getArrayMethods()
+```
+
+Получим все значения итератора:
+
+```js
+console.log(iterator.toArray())
+// [ 'map', 'filter', 'every', 'some' ]
 ```
 
 ## Как пишется
@@ -130,19 +142,19 @@ console.log([...iterator])
 // TypeError: iterator is not iterable
 ```
 
-Получить массив всех значений с помощью `Array.from()` тоже не получится:
+Создать массив с помощью `Array.from()` тоже не получится:
 
 ```js
 console.log(Array.from(iterator))
 // []
 ```
 
-Однако мы можем получить массив всех значений с помощью `toArray()`. Метод `toArray` не содержится в цепочке прототипов объекта `iterator`, но может быть вызван через `Iterator.prototype.toArray.call`:
+Однако мы можем получить массив всех значений с помощью `Iterator.prototype.toArray()`. Метод `toArray` не содержится в цепочке прототипов объекта `iterator`, но может быть вызван через `call()`:
 
 ```js
 console.log(Iterator.prototype.toArray.call(iterator))
 // [ '00', '01', '10' ]
 ```
 
-Это работает, так как спецификация ECMAScript требует от `this` только иметь метод `next()`
+Это работает, так как при выполнении `toArray()` от объекта требуется только иметь метод `next()`.
 
