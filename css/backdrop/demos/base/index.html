@@ -46,8 +46,8 @@
       background-color: #2E9AFF;
     }
 
-    .button-pink {
-      background-color: #F498AD;
+    .button-white {
+      background-color: #FFFFFF;
     }
 
     .button:hover {
@@ -64,6 +64,20 @@
     .button:focus {
       border: 2px solid #FFFFFF;
       outline: none;
+    }
+
+    .button-white:hover {
+      border: 2px solid #FFFFFF;
+      background-color: #18191C;
+      color: #FFFFFF;
+    }
+
+    .button-white:focus-visible {
+      border: 2px solid #2E9AFF;
+    }
+
+    .button-white:focus {
+      border: 2px solid #2E9AFF;
     }
 
     .dialog {
@@ -113,7 +127,7 @@
   </style>
 </head>
 <body>
-  <button class="button button-pink" type="button" aria-controls="modal-example" onclick="window['modal-example'].showModal()">
+  <button class="button button-blue" type="button" aria-controls="modal-example" onclick="window['modal-example'].showModal()">
     Открыть модальное окно
   </button>
 
@@ -121,7 +135,7 @@
     <form class="dialog__wrapper" method="dialog">
       <h2 class="dialog__title" id="dialog-name">Я модальное окно</h2>
       <p>Полюбуйтесь на мою подложку</p>
-      <button class="button button-blue">Красотища! 💅</button>
+      <button class="button button-white">Красотища! 💅</button>
     </form>
   </dialog>
 </body>
