@@ -57,16 +57,16 @@ byteSet.add('011') // 3
 // Создаём итератор
 const byteIterator = byteSet.values()
 ```
-Для получения массива значений из итератора можно:
+Получить массив значений из итератора можно:
 
-- Применить деструктуризацию.
+- Применяя деструктуризацию.
 ```js
 const arr1 = [ ...byteIterator ]
 console.log(arr1)
 // [ '000', '001', '010', '011' ]
 ```
 
-- Использовать метод Array.from().
+- Используя метод Array.from().
 ```js
 const arr2 = Array.from(byteIterator)
 console.log(arr2)
@@ -81,20 +81,68 @@ console.log(arr3)
 // [ '000', '001', '010', '011' ]
 ```
 
-☝️ Говоря о методах итератора, важно помнить разницу между объектом, реализующим протокол итератора и итератором как наследником `Iterator.prototype`. Подробнее об этом можно прочитать в статье [«Итератор»](/js/iterator/).
+☝️ Говоря о методах итератора, важно помнить разницу между объектом, реализующим протокол итератора, итерируемым объектом и итератором как наследником `Iterator.prototype`. Подробнее об этом можно прочитать в статье [«Итератор»](/js/iterator/).
 
-Метод `toArray()` можно вызвать и для объекта, реализующего протокол итератора, но не являющегося наследником `Iterator.prototype`.
+Метод `toArray()` можно вызвать и для объекта, реализующего протокол итератора, но не являющегося итерируемым.
 
-Создадим функцию, реализующую протокол итератора:
+Предположим мы хотим работать с представлением чисел в двоичном виде.
+Напишем функцию, создания объекта реализующего протокол итератора:
 
 ```js
+function getBinary(max = 7) {
+  let number = 0
+  const size = max.toString(2).length
 
-// проверим что объект реализует протокол итератора
-console.log(typeof mySet[Symbol.iterator]())
-// object
+  return {
+    next() {
+      if (number > max) {
+        return { done: true }
+      }
+      // Преобразуем число в строку в двоичном виде
+      const value = number.toString(2).padStart(size, '0')
+      number++
+      return { value, done: false }
+    }
+  }
+}
 
-// проверим что метод `toArray()` недоступен
-console.log(typeof iterable.toArray)
-// undefined
+const iterator = getByteBinary(2)
 
+console.log(iterator.next())
+// { value: '00', done: false }
+console.log(iterator.next())
+// { value: '01', done: false }
+console.log(iterator.next())
+// { value: '10', done: false }
+console.log(iterator.next())
+// { done: true }
 ```
+
+Возвращаемый функцией `getBinary` объект имеет метод `next()`, но не является итерируемым, потому что не содержит метод `[Symbol.iterator]()`. Попытка использовать цикл `for...of` или применить деструктуризацию приведёт к ошибке:
+
+```js
+for (const x of iterator) {
+  console.log(x)
+}
+// TypeError: iterator is not iterable
+
+console.log([...iterator])
+// TypeError: iterator is not iterable
+```
+
+Получить массив всех значений с помощью `Array.from()` тоже не получится:
+
+```js
+console.log(Array.from(iterator))
+// []
+```
+
+Однако мы можем получить массив всех значений с помощью `toArray()`. Метод `toArray` не содержится в цепочке прототипов объекта `iterator`, но может быть вызван через `Iterator.prototype.toArray.call`:
+
+```js
+console.log(Iterator.prototype.toArray.call(iterator))
+// [ '00', '01', '10' ]
+```
+
+Это работает, так как спецификация ECMAScript требует от `this` только иметь метод `next()`
+
