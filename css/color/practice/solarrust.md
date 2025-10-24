@@ -25,4 +25,4 @@
 }
 ```
 
-<iframe title="Текущий цвет" src="../demos/currentcolor/" height="370"></iframe>
+<iframe title="Текущий цвет" src="../demos/currentcolor/" height="410"></iframe>
