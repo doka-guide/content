@@ -12,10 +12,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
-    }
-
     html,
     body {
       height: 100%;
@@ -45,13 +41,6 @@
     @media (color-gamut: p3) {
       body::after {
         display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-        place-content: space-evenly;
       }
     }
 
@@ -90,6 +79,44 @@
 
     .xyz {
       background-color: color(from hotpink xyz calc(x + 0.3) calc(y + 0.3) calc(z + 0.3));
+    }
+
+    @media (max-width: 1000px) {
+      .color {
+        width: 150px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        gap: 10px;
+      }
+
+      body::after {
+        width: 280px;
+      }
+
+      .wrapper {
+        width: 310px;
+        gap: 10px;
+      }
+
+      .color {
+        aspect-ratio: 3/2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .color {
+        width: 135px;
+        aspect-ratio: 4/3;
+      }
+
+      .color-text {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
