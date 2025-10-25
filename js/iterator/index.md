@@ -121,6 +121,74 @@ for (let x of person) {
 
 В некоторых случаях интерфейс итератора вызывается по умолчанию. Такие объекты, как [`String`](/js/string/), [`Array`](/js/arrays/), [`Map`](/js/map/) и [`Set`](/js/set/) итерируемые, потому что их прототипы содержат `Symbol.iterator`.
 
+## Итератор как глобальный объект
+
+Начиная с редакции ECMAScript 2025 `Iterator` является глобальным объектом. Все встроенные объекты-итераторы наследуются от `Iterator`.
+
+Проверим, что встроенный итератор `Array.values()` наследуется от `Iterator`.
+Этот код будет правильно работать в Node.js начиная с версии 22:
+
+```js
+// Создадим итератор из массива
+const arrayIterator = ['а', 'б'].values()
+
+// Проверим что объект наследуется от глобального объекта Iterator
+console.log(arrayIterator instanceof Iterator)
+// true
+```
+
+`Iterator` не является обычным классом, потому что мы не можем создать новый экземпляр через вызов его конструктора напрямую:
+
+```js
+const instance = new Iterator()
+// TypeError: Abstract class Iterator not directly constructable
+```
+
+Вместо создания экземпляров напрямую, `Iterator` используется как абстрактный класс и может использоваться как базовый класс для наследования, предоставляя доступ к `Iterator.prototype` другим объектам.
+
+Создадим свой класс для получения объектов-итераторов:
+
+```js
+class PowersOf2 extends Iterator {
+  constructor() {
+    super()
+    this.current = 2
+  }
+
+  [Symbol.iterator]() {
+    return this
+  }
+
+  next() {
+    const value = this.current
+
+    if (value <= 256) {
+      this.current = this.current * 2
+      return { value, done: false }
+    }
+    return { done: true }
+  }
+}
+```
+
+Экземпляры класса `PowersOf2()` будут являться наследниками `Iterator`:
+
+```js
+const iterator = new PowersOf2()
+
+console.log(iterator instanceof Iterator)
+// true
+```
+
+В ECMAScript 2025 добавлены новые методы доступные через `Iterator.prototype`, упрощающие работу с итераторами как с коллекцией:
+- Iterator.prototype.toArray()
+- Iterator.prototype.map()
+- Iterator.prototype.forEach()
+- Iterator.prototype.filter()
+- Iterator.prototype.reduce()
+- Iterator.prototype.take()
+- Iterator.prototype.drop()
+
 ## Где ещё встречается итератор
 
 ### Деструктуризация
