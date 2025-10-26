@@ -132,12 +132,11 @@ for (let x of person) {
 // Создадим итератор из массива
 const arrayIterator = ['а', 'б'].values()
 
-// Проверим что объект наследуется от глобального объекта Iterator
 console.log(arrayIterator instanceof Iterator)
 // true
 ```
 
-`Iterator` не является обычным классом, потому что мы не можем создать новый экземпляр через вызов его конструктора напрямую:
+`Iterator` не является обычным классом, потому что не поддерживает создание экземпляров через вызов конструктора с `new`:
 
 ```js
 const instance = new Iterator()
@@ -146,7 +145,7 @@ const instance = new Iterator()
 
 Вместо создания экземпляров напрямую, `Iterator` используется как абстрактный класс и может использоваться как базовый класс для наследования, предоставляя доступ к `Iterator.prototype` другим объектам.
 
-Создадим свой класс для получения объектов-итераторов:
+Создадим класс для получения объектов-итераторов по значениям степени числа 2:
 
 ```js
 class PowersOf2 extends Iterator {
@@ -180,14 +179,10 @@ console.log(iterator instanceof Iterator)
 // true
 ```
 
-В ECMAScript 2025 добавлены новые методы доступные через `Iterator.prototype`, упрощающие работу с итераторами как с коллекцией:
-- Iterator.prototype.toArray()
-- Iterator.prototype.map()
-- Iterator.prototype.forEach()
-- Iterator.prototype.filter()
-- Iterator.prototype.reduce()
-- Iterator.prototype.take()
-- Iterator.prototype.drop()
+В ECMAScript 2025 добавлены новые методы доступные через `Iterator.prototype`, упрощающие работу с итераторами как с коллекцией. Например:
+- `toArray()` — возвращает массив значений итератора;
+- `find()` — ищет и возвращает первое подходящее значение итератора;
+- `some()` — проверяет значения итератора и возвращает результат выполнения условия.
 
 ## Где ещё встречается итератор
 
