@@ -143,9 +143,9 @@ const instance = new Iterator()
 // TypeError: Abstract class Iterator not directly constructable
 ```
 
-Вместо создания экземпляров напрямую, `Iterator` используется как абстрактный класс и может использоваться как базовый класс для наследования, предоставляя доступ к `Iterator.prototype` другим объектам.
+Вместо создания экземпляров напрямую, `Iterator` можно использовать как базовый класс для наследования и доступа к `Iterator.prototype`
 
-Создадим класс для получения объектов-итераторов по значениям степени числа 2:
+Создадим класс для получения объектов-итераторов:
 
 ```js
 class PowersOf2 extends Iterator {
@@ -158,6 +158,7 @@ class PowersOf2 extends Iterator {
     return this
   }
 
+  // Метод возвращает значение степени числа 2
   next() {
     const value = this.current
 
