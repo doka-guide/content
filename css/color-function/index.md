@@ -1,6 +1,11 @@
 ---
 title: "`color()`"
 description: "Обеспечиваем поддержку неочевидных цветов и преобразуем один цвет в другой."
+baseline:
+  - group: color-function
+    features:
+      - css.types.color.color
+      - css.types.color.color.mixed_type_parameters
 authors:
   - solarrust
 contributors:

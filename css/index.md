@@ -204,6 +204,7 @@ groups:
       - text-size-adjust
       - text-underline-offset
       - text-underline-position
+      - text-box
       - text-box-edge
       - text-box-trim
       - word-break
@@ -325,6 +326,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - object-view-box
       - aspect-ratio
       - filter
       - filter-functions
