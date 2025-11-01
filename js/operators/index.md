@@ -293,6 +293,7 @@ console.log(x)
 
 ```js
 let count = 5
+
 console.log(++count)
 // 6 (значение уже увеличено)
 console.log(count)
