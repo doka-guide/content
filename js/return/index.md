@@ -5,6 +5,7 @@ authors:
   - doka-dog
 contributors:
   - furtivite
+  - anastasiayarosh
 related:
   - tools/fp
   - js/function-as-datatype
@@ -21,7 +22,7 @@ tags:
 
 Примеры использования return. Функция проверки возраста на совершеннолетие и функция создания строки заданной длины со случайным содержимым — просто введите произвольные числа 😎
 
-<iframe title="Название — return — Дока" src="demos/vindi-r-eXLXBz/" heigh="100"></iframe>
+<iframe title="Название — return — Дока" src="demos/return-work/" heigh="400"></iframe>
 
 ## Как пишется
 
@@ -58,7 +59,7 @@ function isEven(value) {
 
 ### Пример
 
-<iframe title="Название — return — Дока" src="demos/vindi-r-jJdQqz/" heigh="100"></iframe>
+<iframe title="Название — return — Дока" src="demos/return-understand/" heigh="400"></iframe>
 
 __Для возврата значения используется инструкция `return`__
 
@@ -79,7 +80,7 @@ function notify(msg, type) {
 
 Несмотря на отсутствие `return`, такая функция будет возвращать [`undefined`](/js/undefined/), будто бы в ней последней строчкой написано `return undefined`
 
-Ниже пример, который показывает что это действительно так:
+Ниже пример, который показывает, что это действительно так:
 
 ```js
 function notify(msg, type) {
