@@ -62,3 +62,35 @@ for ( item of limitIterator ) {
 Попытка вызвать метод без аргумента так же приведёт к ошибке `RangeError`.
 
 `Iterator.prototype.take()` возвращает новый итератор.
+
+## Как понять
+
+Работая с итераторами можно столкнуться с ситуацией, когда необходимо ограничить количество получаемых значений. Самым простым примером когда это может понадобиться является "бесконечный" итератор — итератор не имеющий конечного состояния (`{ done:true }`).
+
+Рассмотрим пример. У нас есть функция-генератор паролей:
+
+```js
+function* passwordGenerator(length = 8) {
+  charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()'
+
+  while (true) {
+    let password = '';
+    for (let i = 0; i < length; i++) {
+      const random = Math.floor(Math.random() * charset.length);
+      password += charset[random];
+    }
+    yield password;
+  }
+}
+```
+
+При её вызове будет создан итератор, возвращающий строку-пароль:
+
+```js
+const passwords = passwordGenerator()
+
+console.log(passwords.next().value)
+// Z@1pivgS
+console.log(passwords.next().value)
+// PXoDm)B8
+```
