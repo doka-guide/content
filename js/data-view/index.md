@@ -40,7 +40,6 @@ console.log(dataView.getUint16(0))
 ```js
 new DataView(buffer, [byteOffset], [byteLength]);
 ```
-
 `DataView` принимает следующие аргументы:
 - `buffer` — ссылка на бинарные данные `ArrayBuffer`;
 - `byteOffset` — позиция, с которой начинается представление (в байтах). По умолчанию — 0;
