@@ -32,6 +32,8 @@ groups:
       - pre
       - code
       - dir
+      - math
+      - ruby
   - name: 'Семантика'
     items:
       - semantics
@@ -61,6 +63,7 @@ groups:
       - dfn
       - samp
       - abbr
+      - hgroup
   - name: 'Формы'
     items:
       - form
@@ -101,6 +104,7 @@ groups:
       - map
       - area
       - svg-sprite
+      - images-paste-methods
   - name: 'Ссылки'
     items:
       - a
@@ -132,6 +136,8 @@ groups:
     items:
       - tables
       - caption
+      - col
+      - colgroup
   - name: 'Мета'
     items:
       - head
@@ -143,6 +149,7 @@ groups:
       - script
       - noscript
       - defer-async
+      - crossorigin
       - template
       - output
       - data-attributes
@@ -154,7 +161,9 @@ groups:
       - inert
       - dir
       - tabindex
+      - enterkeyhint
       - data-attributes
+      - autofocus
   - name: 'Поисковая оптимизация'
     items:
       - seo-for-beginners

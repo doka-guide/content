@@ -2,12 +2,69 @@
 
 <!-- yaspeller ignore:start -->
 
+## Август 2025
+
+- 29 августа, [`complementary`](https://doka.guide/a11y/role-complementary/), Татьяна Фокина
+- 16 августа, [Объект пользовательского события `CustomEvent`](https://doka.guide/js/custom-event/), Рома Ахмадуллин
+- 16 августа, [`.dispatchEvent()`](https://doka.guide/js/dispatch-event/), Рома Ахмадуллин
+- 8 августа, [`<track>`](https://doka.guide/html/track/), DrakesWeb
+- 8 августа, [`print-color-adjust`](https://doka.guide/css/print-color-adjust/), DrakesWeb
+- 7 августа, [Атрибут `crossorigin`](https://doka.guide/html/crossorigin/), DrakesWeb
+- 7 августа, [Вставка изображений в HTML](https://doka.guide/html/images-paste-methods/), DrakesWeb
+
+## Июль 2025
+
+- 29 июля, [Протокол IPv6](https://doka.guide/tools/ipv6-for-webdevs/), Disinterpreter
+- 28 июля, [`aria-checked`](https://doka.guide/a11y/aria-checked/), Владислав Аткишкин
+- 28 июля, [`aria-pressed`](https://doka.guide/a11y/aria-pressed/), Игорь Теплостанский
+- 23 июля, [`text-box-edge`](https://doka.guide/css/text-box-edge/), DrakesWeb
+- 23 июля, [`text-box-trim`](https://doka.guide/css/text-box-trim/), DrakesWeb
+- 23 июля, [`col`](https://doka.guide/html/col/), DrakesWeb
+- 23 июля, [`colgroup`](https://doka.guide/html/colgroup/), DrakesWeb
+- 23 июля, [`hgroup`](https://doka.guide/html/hgroup/), DrakesWeb
+- 23 июля, [`font`](https://doka.guide/css/font/), DrakesWeb
+- 23 июля, [`background-origin`](https://doka.guide/css/background-origin/), DrakesWeb
+- 23 июля, [Атрибут `step`](https://doka.guide/html/step/), DrakesWeb
+- 23 июля, [`ruby`](https://doka.guide/html/ruby/), DrakesWeb
+- 22 июля, [`writing-mode`](https://doka.guide/css/writing-mode/), DrakesWeb
+- 22 июля, [`autofocus`](https://doka.guide/html/autofocus/), Алина Козловцева
+- 17 июля, [Атрибут `d`](https://doka.guide/html/d/), Александр Мальцев
+- 1 июля, [CSS-in-JS](https://doka.guide/tools/css-in-js/), Руслан Шевченко
+
+## Июнь 2025
+
+- 18 июня, [`@view-transition`](https://doka.guide/css/view-transition/), Антон Субботин
+- 13 июня, [Атрибут `enterkeyhint`](https://doka.guide/html/enterkeyhint/), Дмитрий Ефимов
+- 11 июня, [Скелетон](https://doka.guide/recipes/skeleton/), Рома Ахмадуллин
+- 11 июня, [`env()`](https://doka.guide/css/env/), Анастасия Ярош
+
+## Май 2025
+
+- 13 мая, [Атрибут `rel`](https://doka.guide/html/rel/), Никита Чуйко
+- 13 мая, [Логические свойства CSS](https://doka.guide/css/logical-properties/), Анастасия Ярош, Дмитрий Чуста
+- 8 мая, [`Number.toExponential()`](https://doka.guide/js/number-toexponential/), Егор Лем
+
+## Апрель 2025
+
+- 28 апреля, [`overscroll-behavior`](https://doka.guide/css/overscroll-behavior/), Рома Ахмадуллин
+- 24 апреля, [`@page`](https://doka.guide/css/page/), Егор Левченко
+- 12 апреля, [`Promise.try()`](https://doka.guide/js/promise-try/), Viktar Nezhbart
+
+## Март 2025
+
+- 28 марта, [`.trim()`](https://doka.guide/js/string-trim/), Алекс Рассудихин
+- 23 марта, [`scrollsnapchange`](https://doka.guide/js/element-scrollsnapchange/), Рома Ахмадуллин
+- 23 марта, [`scrollsnapchanging`](https://doka.guide/js/element-scrollsnapchanging/), Рома Ахмадуллин
+- 13 марта, [Кастомный кроссбраузерный ползунок диапазона](https://doka.guide/recipes/input-range-style/), Михаил Кривдин, Viktar Nezhbart
+- 07 марта, [`AbortController`](https://doka.guide/js/abort-controller/), Игорь Теплостанский
+- 03 марта, [Псевдоприватные кастомные свойства](https://doka.guide/css/pseudo-private-custom-property/), Андрей Александрычев
+- 01 марта, [`isDisjointFrom()`](https://doka.guide/js/set-is-disjoint-from/), Алекс Рассудихин
+
 ## Февраль 2025
 
 - 26 февраля, [`scroll-snap-align`](https://doka.guide/css/scroll-snap-align/), Рома Ахмадуллин
 - 26 февраля, [`scroll-snap-stop`](https://doka.guide/css/scroll-snap-stop/), Рома Ахмадуллин
 - 26 февраля, [`scroll-snap-type`](https://doka.guide/css/scroll-snap-type/), Рома Ахмадуллин
-
 
 ## Январь 2025
 

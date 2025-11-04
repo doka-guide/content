@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример использования тега canvas с картинкой котика — Все способы вставки изображений в HTML — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <canvas id="myCanvas" width="259" height="194"></canvas>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('myCanvas')
+    const ctx = canvas.getContext('2d')
+    const img = new Image()
+    img.src = 'kotik.jpg'
+    img.onload = () => ctx.drawImage(img, 0, 0)
+  </script>
+</body>
+</html>

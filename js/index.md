@@ -56,6 +56,7 @@ groups:
       - parseint
       - parsefloat
       - number-wrapper
+      - number-toexponential
       - number-tostring
       - number-is-nan
       - number-isfinite
@@ -67,6 +68,7 @@ groups:
       - index-of
       - includes
       - string-length
+      - string-trim
   - name: "Булев тип"
     items:
       - boolean
@@ -154,6 +156,7 @@ groups:
       - set-symmetric-difference
       - set-is-subset-of
       - set-is-superset-of
+      - set-is-disjoint-from
   - name: "Обработка исключений"
     items:
       - try-catch
@@ -243,6 +246,8 @@ groups:
     items:
       - events
       - event
+      - custom-event
+      - dispatch-event
       - event-change
       - event-reset
       - event-input
@@ -260,6 +265,8 @@ groups:
       - element-mouseover
       - event-prevent-default
       - element-scroll
+      - element-scrollsnapchange
+      - element-scrollsnapchanging
       - element-wheel
       - element-touch
   - name: "Хранение данных в браузере"
@@ -282,6 +289,7 @@ groups:
       - promise-allsettled
       - promise-any
       - promise-race
+      - promise-try
       - async-await
   - name: "Обмен данными с API"
     items:

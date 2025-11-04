@@ -1,8 +1,6 @@
 # Контент Доки
 
 [![Статус EditorConfig](https://github.com/doka-guide/content/workflows/EditorConfig/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AEditorConfig)
-[![Статус спеллера](https://github.com/doka-guide/content/workflows/YaSpeller%20All/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AYaSpeller%20All)
-[![Статус словаря](https://github.com/doka-guide/content/workflows/Sort%20Dictionary/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3ASort%20Dictionary)
 [![Статус проверки ссылок](https://github.com/doka-guide/content/actions/workflows/link-checker-all.yml/badge.svg)](https://github.com/doka-guide/content/actions/workflows/link-checker-all.yml)
 [![Статус деплоя](https://github.com/doka-guide/content/workflows/Product%20Deploy/badge.svg)](https://github.com/doka-guide/content/actions?query=workflow%3AProduct%20Deploy)
 

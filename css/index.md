@@ -204,6 +204,9 @@ groups:
       - text-size-adjust
       - text-underline-offset
       - text-underline-position
+      - text-box
+      - text-box-edge
+      - text-box-trim
       - word-break
       - word-spacing
       - word-wrap
@@ -323,6 +326,7 @@ groups:
     items:
       - object-fit
       - object-position
+      - object-view-box
       - aspect-ratio
       - filter
       - filter-functions
@@ -354,6 +358,7 @@ groups:
       - touch-action
       - pointer-events
       - resize
+      - overscroll-behavior
       - scroll-behavior
       - scroll-padding
       - scroll-snap-type
@@ -374,8 +379,10 @@ groups:
       - var
   - name: 'Стили для печати'
     items:
+      - page
       - orphans
       - widows
+      - print-color-adjust
   - name: 'Колонки и таблицы'
     items:
       - columns

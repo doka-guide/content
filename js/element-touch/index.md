@@ -1,6 +1,13 @@
 ---
 title: "`touch`"
 description: "Сенсорные экраны отправляют не только событие клика, но и собственное — `touch`."
+baseline:
+  - group: touch-events
+    features:
+      - api.Element.touchcancel_event
+      - api.Element.touchend_event
+      - api.Element.touchmove_event
+      - api.Element.touchstart_event
 authors:
   - windrushfarer
 contributors:

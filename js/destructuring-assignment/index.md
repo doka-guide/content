@@ -238,7 +238,7 @@ const [elem0, , elem2, ...restNumbers] = numbers
 console.log(elem0, elem2)
 // 2 8
 
-console.log(second)
+console.log(restNumbers)
 // [ 16, 32, 64 ]
 ```
 

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Атрибуты упорядоченного списка — <ol> — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    input {
+      width: 300px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 300;
+      font-family: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:focus {
+      border-color: #FF8630;
+      outline: none;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .input, .container {
+      width: 350px;
+    }
+
+    .radio-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 25px;
+      height: 25px;
+      border: 1px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .radio {
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .radio:focus + .radio-title::before {
+      border-color: #FF8630;
+    }
+
+    .radio:checked + .radio-title::before {
+      background-color: #FFFFFF;
+      background: radial-gradient(
+        circle,
+        #FFFFFF 0%,
+        #FFFFFF 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    }
+
+    .checkbox-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .checkbox {
+      width: 24px;
+      height: 24px;
+      opacity: 0;
+      margin-right: 15px;
+    }
+
+    .checkbox + .checkbox-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: calc(50% - 12px);
+      width: 24px;
+      height: 24px;
+      border: 1px solid #FFFFFF;
+      border-radius: 6px;
+    }
+
+    .checkbox:focus + .checkbox-title::before {
+      border-color: #FF8630;
+    }
+
+    .checkbox:checked + .checkbox-title::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background-color: #FF8630;
+    }
+
+    li {
+      position: relative;
+      list-style-position: inside;
+      margin: 10px 0;
+    }
+
+    li::after {
+      content: ".";
+    }
+
+    li::marker {
+      color: #FF8630;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: calc(1em - 1px);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .input, .container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="form-row">
+      <label for="start" class="row-label"><code>start</code>:</label>
+      <input id="start" type="number" inputmode="numeric" placeholder="Введите число" class="input">
+    </div>
+    <div class="form-row">
+      <span class="row-label"><code>type</code>:</span>
+      <div class="container">
+        <label class="radio-label">
+          <input name="type" type="radio" value="1" checked="true" class="radio">
+          <span class="radio-title"><code>1</code></span>
+        </label>
+        <label class="radio-label">
+          <input name="type" type="radio" value="a" class="radio">
+          <span class="radio-title"><code>a</code></span>
+        </label>
+        <label class="radio-label">
+          <input name="type" type="radio" value="i" class="radio">
+          <span class="radio-title"><code>i</code></span>
+        </label>
+        <label class="radio-label">
+          <input name="type" type="radio" value="A" class="radio">
+          <span class="radio-title"><code>A</code></span>
+        </label>
+        <label class="radio-label">
+          <input name="type" type="radio" value="I" class="radio">
+          <span class="radio-title"><code>I</code></span>
+        </label>
+      </div>
+    </div>
+    <div class="form-row">
+      <span class="row-label"><code>reversed</code>:</span>
+      <div class="container">
+        <label class="checkbox-label">
+          <input name="chalk" type="checkbox" class="checkbox">
+          <span class="checkbox-title"></span>
+        </label>
+      </div>
+    </div>
+    <section>
+        <h2>Топ 5 фильмов Хаяо Миядзаки по рейтингу Кинопоиска:</h2>
+        <ol class="list">
+          <li>«Унесённые призраками» (2001), ★8.5</li>
+          <li>«Ходячий замок» (2004), ★8.3</li>
+          <li>«Шёпот сердца» (1995), ★8.3</li>
+          <li>«Небесный замок Лапута» (1986), ★8.3</li>
+          <li>«Принцесса Мононоке» (1997), ★8.3</li>
+        </ol>
+    </section>
+  </form>
+
+  <script>
+    const radioButtons = document.querySelectorAll('.radio');
+    const numberInput = document.querySelector('.input');
+    const checkbox = document.querySelector('.checkbox');
+    const list = document.querySelector('.list');
+
+    radioButtons.forEach((radioButton) => radioButton.addEventListener('click', (event) => {
+      radioButton.setAttribute('checked', event.target.value === radioButton.value)
+      list.setAttribute('type', event.target.value);
+    }))
+
+    numberInput.addEventListener('input', () => {
+      list.setAttribute('start', event.target.value);
+    })
+
+    checkbox.addEventListener('change', (event) => {
+      checkbox.setAttribute('checked', event.target.checked ? false : true);
+      list.reversed = event.target.checked ? true : false;
+    })
+  </script>
+</body>
+</html>

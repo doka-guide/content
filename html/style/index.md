@@ -73,7 +73,7 @@ tags:
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Кулинаный блог Марфы</title>
+    <title>Кулинарный блог Марфы</title>
     <style>
       h1 {
         font-size: 30px;

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Предотвращение выхода прокрутки за пределы диалога — overscroll-behavior — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    body {
+      height: 150vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 1.375rem;
+    }
+
+    .mb-20 {
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.15s ease-in;
+      cursor: pointer;
+      background-color: #2E9AFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .dialog-button {
+      width: 100%;
+    }
+
+    .dialog-button:hover {
+      border: 2px solid #000000;
+    }
+
+    .dialog-button:focus-visible {
+      border: 2px solid #000000;
+      outline: none;
+    }
+
+    .dialog {
+      padding: 20px;
+      border: none;
+      margin: auto;
+      height: 300px;
+    }
+
+    .dialog-wrapper {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dialog-content {
+      height: 100%;
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .dialog-content-height-filler {
+      height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p class="mb-20">Начало страницы...</p>
+    <button id="open-dialog" class="button">Открыть диалог</button>
+  </div>
+  <dialog id="dialog" class="dialog">
+    <div class="dialog-wrapper">
+      <h2>Диалог с длинным контентом</h2>
+      <div class="dialog-content">
+        <div class="dialog-content-height-filler">
+          <p>Начало контента...</p>
+          <p>...конец контента</p>
+        </div>
+      </div>
+      <button id="close-dialog" class="button dialog-button">Закрыть диалог</button>
+    </div>
+  </dialog>
+  <p>...конец страницы</p>
+  <script>
+    const dialog = document.getElementById('dialog')
+    const openDialogButton = document.getElementById('open-dialog')
+    const closeDialogButton = document.getElementById('close-dialog')
+
+    openDialogButton.addEventListener('click', () => {
+      dialog.showModal()
+    })
+
+    closeDialogButton.addEventListener('click', () => {
+      dialog.close()
+    })
+  </script>
+</body>
+</html>

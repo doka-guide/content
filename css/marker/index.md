@@ -1,6 +1,10 @@
 ---
 title: "`::marker`"
 description: "Псевдоэлемент для работы с маркерами элементов списка."
+baseline:
+  - group: marker
+    features:
+      - css.selectors.marker.animation_and_transition_support
 authors:
   - blueingreen68
 contributors:
@@ -98,8 +102,6 @@ li::marker {
 <aside>
 
 ⚠️ В Safari на данный момент псевдоэлемент `::marker` поддерживается не полностью. Нормально работает только свойство `color` и свойства для работы с текстом. Точно не работают свойства `content` и `direction`. А также отсутствует поддержка анимаций и переходов.
-
-Помимо Safari, анимации и переходы не поддерживаются в Firefox на Android.
 
 </aside>
 
