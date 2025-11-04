@@ -70,6 +70,8 @@ body {
   padding: 1rem;
   position: relative;
   background-color: #18191C;
+
+  --base-color: hsl(112, 100%, 50%);
 }
 
 .main-container div {
@@ -83,6 +85,25 @@ body {
   font-size: 1.5rem;
 }
 
+.loading {
+  position: absolute;
+  margin-inline: auto;
+  inset-inline: 0;
+  inset-block-start: 40%;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #ccc;
+  border-top: 4px solid var(--base-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .repo-name,
 .total-row,
 .tooltip,
@@ -91,18 +112,8 @@ body {
 }
 
 .description,
-.loading,
-.total-label {
+.value-label {
   color: #C56FFF;
-}
-
-.loading {
-  font-size: 1.5rem;
-  margin: auto;
-}
-.loading.hidden {
-  width: 0;
-  margin: 0;
 }
 
 .year-grid {
@@ -155,10 +166,6 @@ body {
   border-color: #888a;
 }
 
-.cell {
-  background-color: #28e628;
-}
-
 .tooltip {
   position: absolute;
   width: max-content;
@@ -166,6 +173,10 @@ body {
   padding: 8px 16px;
   border-radius: 4px;
   background-color: #555;
+}
+
+.tooltip .value-label {
+  color: #ccc;
 }
 
 .hidden {
@@ -483,32 +494,57 @@ function analyzeCommits(commitsData = []) {
 
 Для краткости используем термин «палитра». Палитра — это набор цветов, созданных на основе базового цвета. Цвета в палитре располагаются от тёмного (цвет для значения `0`) к светлому (соответствует максимальному значению в диапазоне).
 
-При формировании палитры следует определить оптимальное количества цветов. Чем больше цветов в палитре, тем меньше заметна разница оттенков. С другой стороны, если в палитре всего несколько цветов, контраст оттенков слишком велик. Чтобы избежать этих крайностей, добавим константы, определяющие минимальное и максимальное количество цветов.
+При формировании палитры следует определить оптимальное количества цветов. Чем больше цветов в палитре, тем меньше заметна разница оттенков. С другой стороны, если в палитре всего несколько цветов, контраст оттенков слишком велик. Чтобы избежать этих крайностей, добавим константы, определяющие минимальное и максимальное количество цветов. Вынос этих параметров в константы позволит в дальнейшем упростить изменение палитры цветов.
 
 ```js
 const COLOR_MAX_STEPS = 15
 const COLOR_MIN_STEPS = 5
 ```
 
-Определим базовый цвет палитры  — этот цвет будет соответствовать максимальному количеству коммитов. Для цветов мы будем использовать цветовую модель [HSL](/css/web-colors/#hsl). Эта модель подходит для нашей задачи, так как позволяет получать новый оттенок, изменяя параметр светлоты (Lightness) базового цвета.
+Для цветов мы будем использовать цветовую модель [HSL](/css/web-colors/#hsl). Эта модель подходит для нашей задачи, так как позволяет получать новый оттенок, изменяя параметр светлоты (Lightness) базового цвета. Для хранения базового цвета используем кастомную CSS-переменную:
 
-```js
-const BASE_HSL = [112, 100, 80] // Ярко зелёный
-```
+```css
+.main-container {
+  /* стили */
 
-Вынос этих параметров в константы позволит в дальнейшем упростить изменение палитры цветов.
-
-
-Определим требуемое количество цветов (`steps`) и сформируем палитру на основе полученных ранее значений `min` и `max`:
-
-```js
-function makeColors(commitCounts, baseColor = BASE_HSL) {
-  const {min, max} = commitCounts
-  const steps = Math.max(Math.min(max - min, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
-
-  return generatePalette(baseColor, steps)
+  --base-color: hsl(112, 100%, 50%);
 }
 ```
+
+Для доступа к значению переменной из JS используются функции [`getComputedStyle()` и `getPropertyValue()`](/js/element-get-property-value/):
+
+```js
+const baseColor = getComputedStyle(mainContainer).getPropertyValue('--base-color').trim()
+```
+
+Определим требуемое количество цветов (`steps`).
+
+```js
+function makeColors(commitCounts, baseColor) {
+  const { min, max } = commitCounts
+  const steps = Math.max(Math.min(max - min, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
+
+  const startColor = getStartColor(baseColorStr)
+
+  return generatePalette(startColor, steps)
+}
+```
+
+Из строкового значения `baseColor` получим первый (самый светлый) цвет палитры в виде массива `[h, s, l]`:
+
+```js
+function getStartColor(colorStr) {
+  const hslMatch = colorStr.match(/hsl\(\s*(\d+),\s*(\d+)%?,\s*(\d+)%?\s*\)/)
+  const [, h, s, l] = hslMatch
+  const hsl = [
+    parseInt(h, 10), // Парсим оттенок
+    100, // Переопределяем насыщенность
+    80 // Переопределяем светлоту базового цвета
+  ]
+  return hsl
+}
+```
+Сформируем палитру — массив цветов в формате `hsl`.
 
 ```js
 function generatePalette(hslColor, steps) {
@@ -544,8 +580,10 @@ function generatePalette(hslColor, steps) {
 const mainContainer = document.querySelector('#mainContainer')
 const description = mainContainer.querySelector('.description')
 const gridContainer = mainContainer.querySelector('.year-grid')
+const spinner = mainContainer.querySelector('.spinner')
+const baseColor = getComputedStyle(mainContainer).getPropertyValue('--base-color').trim()
 
-showLoading(true, description)
+showLoading(true, mainContainer)
 
 fetchCommitActivity({
   url: createURL()
@@ -555,7 +593,7 @@ fetchCommitActivity({
   const commitCounts = analyzeCommits(commitsData)
   const weekDays = createWeekDays(commitsData)
 
-  const colors = makeColors(commitCounts)
+  const colors = makeColors(commitCounts, baseColor)
 
   renderRepoInfo({repoName: REPO}, description)
   renderTotal(commitCounts, mainContainer)
@@ -569,24 +607,24 @@ fetchCommitActivity({
 }).catch(error => {
   showError(error, description)
 }).finally(() => {
-  showLoading(false, description)
+  showLoading(false, mainContainer)
 })
 ```
 
 Создадим недостающие функции отображения дополнительных данных и состояния загрузки:
 
 ```js
-// Отображение/скрытие ожидания загрузки данных
+// Отображение/скрытие ожидания загрузки данных в виде спиннера
 function showLoading(show, container) {
   let loadingElem = container.querySelector('.loading')
-  if (!loadingElem) {
+  if (!loadingElem && show) {
     loadingElem = document.createElement('span')
-    loadingElem.className = 'loading hidden'
-    loadingElem.innerHTML = 'Загрузка...'
-
+    loadingElem.classList.add('loading')
     container.appendChild(loadingElem)
   }
-  loadingElem.classList.toggle('hidden', !show)
+  else if (loadingElem && !show) {
+    loadingElem.remove()
+  }
 }
 
 // Название репозитория
@@ -607,9 +645,10 @@ function renderTotal({total = null}, container) {
     const totalElem = document.createElement('div')
     totalElem.className = 'total-row'
     totalElem.innerHTML = `
-      <span class="total-label">
-        Общее количество коммитов за год: ${total}
+      <span class="value-label">
+        Общее количество коммитов за год:
       </span>
+      <span>${total}</span>
     `
     container.appendChild(totalElem)
   }
@@ -738,7 +777,11 @@ function bindTooltip(gridContainer, container) {
       tooltip.style.top = `${offsetTop - (count ? 65 : 40)}px`
       tooltip.style.left = `${offsetLeft - 55}px`
 
-      tooltip.innerHTML = `<div>${date}${count ?`<br>коммитов: ${count}` : ''}</div>`
+      tooltip.innerHTML = `<div>
+        ${date}
+        ${count ? `<br><span class="value-label">коммитов:</span> ${count}` : ''}
+        </div>
+      `
     }
 
     tooltip.classList.toggle('hidden', ! show)
@@ -766,3 +809,15 @@ function bindTooltip(gridContainer, container) {
   gridContainer.addEventListener('mouseleave', hideTooltip)
 }
 ```
+
+Наша Github-плитка готова! Продемонстрируем как добиться «тыквенного»-стиля.
+
+Для этого потребуется изменить только базовый цвет:
+
+```css
+--base-color: hsl(34, 100%, 50%);
+```
+
+Итоговый результат выглядит так:
+
+<iframe title="GitHub-плитка активности репозитория" src="demos/commit-activity-demo/" height="600"></iframe>
