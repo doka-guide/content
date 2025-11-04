@@ -820,4 +820,4 @@ function bindTooltip(gridContainer, container) {
 
 Итоговый результат выглядит так:
 
-<iframe title="GitHub-плитка активности репозитория" src="demos/commit-activity-demo/" height="600"></iframe>
+<iframe title="GitHub-плитка активности репозитория" src="demos/commit-pumpkin-demo/" height="600"></iframe>
