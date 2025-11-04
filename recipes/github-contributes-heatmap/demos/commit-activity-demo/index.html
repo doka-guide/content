@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <title>DEMO — ARTICLE — Дока</title>
   <meta charset="utf-8">
@@ -33,6 +34,8 @@
       padding: 1rem;
       position: relative;
       background-color: #18191C;
+
+      --base-color: hsl(112, 100%, 50%);
     }
 
     .main-container div {
@@ -46,6 +49,25 @@
       font-size: 1.5rem;
     }
 
+    .loading {
+      position: absolute;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 40%;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #ccc;
+      border-top: 4px solid var(--base-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     .repo-name,
     .total-row,
     .tooltip,
@@ -54,22 +76,12 @@
     }
 
     .description,
-    .loading,
-    .total-label {
+    .value-label {
       color: #C56FFF;
     }
 
-    .loading {
-      font-size: 1.5rem;
-      margin: auto;
-    }
-    .loading.hidden {
-      width: 0;
-      margin: 0;
-    }
-
     .year-grid {
-      flex: 1 1 ;
+      flex: 1 1;
       display: flex;
       max-width: 100%;
       min-width: 100px;
@@ -111,15 +123,13 @@
       border: 1px solid #88888818;
       border-radius: 2px;
     }
+
     .day:hover {
       border-color: #8885;
     }
+
     .day.has-commits:hover {
       border-color: #888a;
-    }
-
-    .cell {
-      background-color: #28e628;
     }
 
     .tooltip {
@@ -128,7 +138,11 @@
       max-width: 400px;
       padding: 8px 16px;
       border-radius: 4px;
-      background-color: #555;
+      background-color: #444;
+    }
+
+    .tooltip .value-label {
+      color: #ccc;
     }
 
     .hidden {
@@ -136,6 +150,7 @@
     }
   </style>
 </head>
+
 <body>
   <div id="mainContainer" class="main-container">
     <div class="description"></div>
@@ -162,7 +177,6 @@
 
     const COLOR_MAX_STEPS = 15
     const COLOR_MIN_STEPS = 5
-    const BASE_HSL = [112, 100, 80] // #a6ff99
 
     function createURL(repo = REPO) {
       return `https://api.github.com/repos/${repo}/stats/commit_activity`
@@ -281,14 +295,14 @@
         acc.max = Math.max(...counts, acc.max)
         acc.total += weekData.total
         return acc
-      }, {min: Number.POSITIVE_INFINITY, max: 0, total: 0})
+      }, { min: Number.POSITIVE_INFINITY, max: 0, total: 0 })
     }
 
     function createWeekDays(commitsData = []) {
       const [firstWeek] = commitsData
       if (!firstWeek) return
 
-      const {days, weekDate} = firstWeek
+      const { days, weekDate } = firstWeek
 
       const firstWeekDay = weekDate.getDate()
 
@@ -316,33 +330,46 @@
         palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
       }
 
-      const lEmpty = Math.min(9, Math.max(9, Math.round(lStep/2)))
+      const lEmpty = Math.min(9, Math.max(9, Math.round(lStep / 2)))
 
-      palette.push(`hsl(${Math.round(h/1.05)}, ${Math.round(s/4)}%, ${lEmpty}%)`) //
+      palette.push(`hsl(${Math.round(h / 1.05)}, ${Math.round(s / 4)}%, ${lEmpty}%)`)
 
       return palette.reverse()
     }
 
-    function makeColors(commitCounts, baseColor = BASE_HSL) {
-      const {min, max} = commitCounts
+    function getStartColor(colorStr) {
+      const hslMatch = colorStr.match(/hsl\(\s*(\d+),\s*(\d+)%?,\s*(\d+)%?\s*\)/)
+      const [, h, s, l] = hslMatch
+      const hsl = [
+        parseInt(h, 10),
+        parseInt(s, 10),
+        80
+      ]
+      return hsl
+    }
+
+    function makeColors(commitCounts, baseColorStr) {
+      const { min, max } = commitCounts
       const steps = Math.max(Math.min(max - min, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
 
-      return generatePalette(baseColor, steps)
+      const startColor = getStartColor(baseColorStr)
+
+      return generatePalette(startColor, steps)
     }
 
     function showLoading(show, container) {
       let loadingElem = container.querySelector('.loading')
-      if (!loadingElem) {
+      if (!loadingElem && show) {
         loadingElem = document.createElement('span')
-        loadingElem.className = 'loading hidden'
-        loadingElem.innerHTML = 'Загрузка...'
-
+        loadingElem.classList.add('loading')
         container.appendChild(loadingElem)
       }
-      loadingElem.classList.toggle('hidden', !show)
+      else if (loadingElem && !show) {
+        loadingElem.remove()
+      }
     }
 
-    function renderRepoInfo({repoName}, element) {
+    function renderRepoInfo({ repoName }, element) {
       element.innerHTML = `
         <span class='repo-label'>
           Репозиторий:
@@ -353,14 +380,15 @@
       `
     }
 
-    function renderTotal({total = null}, container) {
+    function renderTotal({ total = null }, container) {
       if (total !== null) {
         const totalElem = document.createElement('div')
         totalElem.className = 'total-row'
         totalElem.innerHTML = `
-          <span class="total-label">
-            Общее количество коммитов за год: ${total}
+          <span class="value-label">
+            Общее количество коммитов за год:
           </span>
+          <span>${total}</span>
         `
         container.appendChild(totalElem)
       }
@@ -379,11 +407,11 @@
     }
 
     function renderYearGrid(params, container) {
-      const {commitsData = [], weekDays, commitCounts = {}, colors = []} = params
+      const { commitsData = [], weekDays, commitCounts = {}, colors = [] } = params
       const weekCount = commitsData.length ?? 0
       if (weekCount === 0) return
 
-      const {max} = commitCounts
+      const { max } = commitCounts
 
       const steps = colors.length
       const factor = steps - 1
@@ -402,7 +430,7 @@
       }
 
       commitsData.forEach(weekData => {
-        const {days, month} = weekData
+        const { days, month } = weekData
         if (month) {
           const monthLabel = document.createElement('div')
           monthLabel.className = 'month-label'
@@ -413,7 +441,7 @@
         weekContainer.className = 'week'
 
         days.forEach(dayData => {
-          const {count = 0, dateFormatted = ''} = dayData
+          const { count = 0, dateFormatted = '' } = dayData
           const isFuture = dateFormatted === ''
 
           const dayContainer = document.createElement('div')
@@ -453,7 +481,7 @@
           role="tooltip"
           id="tooltip"
           data-position="top"
-        />
+        ></div>
       `
       container.appendChild(tooltipElem)
 
@@ -464,7 +492,7 @@
         const show = target !== null
 
         if (show) {
-          const {offsetTop, offsetLeft} = target
+          const { offsetTop, offsetLeft } = target
           const date = target.getAttribute('data-date')
           if (!date) return
           const count = target.getAttribute('data-count')
@@ -472,17 +500,20 @@
           tooltip.style.top = `${offsetTop - (count ? 65 : 40)}px`
           tooltip.style.left = `${offsetLeft - 55}px`
 
-          tooltip.innerHTML = `<div>${date}${count ?`<br>коммитов: ${count}` : ''}</div>`
+          tooltip.innerHTML = `<div>
+            ${date}
+            ${count ? `<br><span class="value-label">коммитов:</span> ${count}` : ''}
+            </div>
+          `
         }
 
-        tooltip.classList.toggle('hidden', ! show)
+        tooltip.classList.toggle('hidden', !show)
       }
 
       const showTooltip = event => {
         const target = event.target
         if (target.classList.contains('day')) {
-          if (top !== target.offsetTop || left !== target.offsetLeft)
-          {
+          if (top !== target.offsetTop || left !== target.offsetLeft) {
             top = target.offsetTop
             left = target.offsetLeft
             toggleTooltip(target)
@@ -503,8 +534,10 @@
     const mainContainer = document.querySelector('#mainContainer')
     const description = mainContainer.querySelector('.description')
     const gridContainer = mainContainer.querySelector('.year-grid')
+    const spinner = mainContainer.querySelector('.spinner')
+    const baseColor = getComputedStyle(mainContainer).getPropertyValue('--base-color').trim();
 
-    showLoading(true, description)
+    showLoading(true, mainContainer)
 
     fetchCommitActivity({
       url: createURL()
@@ -514,13 +547,13 @@
       const commitCounts = analyzeCommits(commitsData)
       const weekDays = createWeekDays(commitsData)
 
-      const colors = makeColors(commitCounts)
+      const colors = makeColors(commitCounts, baseColor)
 
-      renderRepoInfo({repoName: REPO}, description)
+      renderRepoInfo({ repoName: REPO }, description)
       renderTotal(commitCounts, mainContainer)
 
       renderYearGrid(
-        {commitsData, weekDays, commitCounts, colors},
+        { commitsData, weekDays, commitCounts, colors },
         gridContainer
       )
 
@@ -528,8 +561,9 @@
     }).catch(error => {
       showError(error, description)
     }).finally(() => {
-      showLoading(false, description)
+      showLoading(false, mainContainer)
     })
   </script>
 </body>
+
 </html>

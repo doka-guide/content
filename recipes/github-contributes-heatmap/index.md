@@ -719,7 +719,7 @@ function bindTooltip(gridContainer, container) {
       role="tooltip"
       id="tooltip"
       data-position="top"
-    />
+    ></div>
   `
   container.appendChild(tooltipElem)
 
