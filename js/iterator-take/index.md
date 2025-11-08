@@ -34,21 +34,24 @@ const movies = [
 const baseIterator = movies.values()
 ```
 
-Создадим из `baseIterator` новый итератор, для обхода только части коллекции, например для получения только 2-x значений:
+Создадим из `baseIterator` новый итератор, для обхода только части коллекции, например для итерации по фильмам трилогии "Властелин Колец":
 
 ```js
-const limitIterator = baseIterator.take(2)
+const limitIterator = baseIterator.take(3)
 
 for (const item of limitIterator) {
   console.log(item)
 }
 // Братство кольца
 // Две крепости
+// Возвращение короля
 ```
 
 ## Как пишется
 
 `Iterator.prototype.take()` принимает один обязательный аргумент — число, определяющее максимальное количество значений, которые может вернуть созданный итератор.
+
+`Iterator.prototype.take()` возвращает новый итератор.
 
 При выполнении метода произойдёт преобразование аргумента в целое положительное число, поэтому тип аргумента не ограничен `Integer`. Например, равнозначными будут значения:
 
@@ -70,8 +73,6 @@ for (const item of limitIterator) {
 ```
 
 Если переданное значение не может быть преобразовано или является отрицательным числом, будет брошена ошибка `RangeError`. Попытка вызвать метод без аргумента так же приведёт к ошибке `RangeError`.
-
-`Iterator.prototype.take()` возвращает новый итератор.
 
 ## Как понять
 
@@ -133,10 +134,9 @@ const persons = [
 
 const base = persons.values()
 
-console.log(base.next().value)
-// I Гретель
-
 const limit = base.take(3)
+
+base.next()
 
 console.log(limit.next().value)
 // II Брунгильда
@@ -151,3 +151,48 @@ console.log(Array.from(limit))
 Можно сделать выводы:
 - `Iterator.prototype.take()` не создаёт независимую копию с доступом к части значений исходного итератора;
 - Каждый вызов `next()` у одного итератора влияет на состояние другого, потому что они делят общее состояние итерации.
+
+## Подсказки
+
+Если итератор не является наследником глобального объекта `Iterator`, метод `take()` можно вызвать через `call()`. Это пригодится для итераторов реализованных вручную.
+
+Допустим имеется функция для создания итератора цветов: #0000FF, #00FF00, #FFFF00, #FF0000
+
+```js
+function createColorIterator() {
+  const colors = ['001', '010', '110', '100']
+  let index = 0
+
+  return {
+    next() {
+      if (index === colors.length) {
+        return { done: true }
+      }
+      const rgb = colors[index++].split('').map(c => c * 255)
+      const value = `rgb(${rgb.join(',')})`
+      return { value, done: false }
+    }
+  }
+}
+
+const colors = createColorIterator()
+```
+
+Вызов `colors.take(2)` приведёт к ошибке `TypeError`, так как итератор `colors` не наследует методы `Iterator.prototype`:
+
+```js
+console.log(colors instanceof Iterator)
+// false
+```
+
+Вызвать `take()` можно с помощью `call()`:
+
+```js
+const limitColors = Iterator.prototype.take.call(colors, 2)
+
+for (const color of limitColors) {
+  console.log(color)
+}
+// rgb(0,0,255)
+// rgb(0,255,0)
+```
