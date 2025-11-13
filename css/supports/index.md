@@ -3,6 +3,8 @@ title: "`@supports`"
 description: "Директива позволяет проверить, поддерживает ли браузер свойство, правило или селектор."
 authors:
   - ipogorelova
+contributors:
+  - vitya-ne
 keywords:
   - ＠-правило
   - поддержка свойств
