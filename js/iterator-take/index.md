@@ -181,6 +181,8 @@ const colors = createColorIterator()
 Вызов `colors.take(2)` приведёт к ошибке `TypeError`, так как итератор `colors` не наследует методы `Iterator.prototype`:
 
 ```js
+console.log(colors.take)
+// undefined
 console.log(colors instanceof Iterator)
 // false
 ```
