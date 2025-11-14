@@ -106,7 +106,7 @@ console.log(passwords.next().value)
 // PXoDm)B8
 ```
 
-`passwords` является итерируемым объектом, но его нельзя обойти с помощью [`for...of`](/js/for-of/) потому что это приведёт к зависанию цикла. По этой же причине нельзя применить методы получения массива значений: [`Array.from()`](/js/array-from/) или [`Iterator.prototype.toArray()`](/js/iterator-to-array/).
+`passwords` является итерируемым объектом, но его нельзя обойти с помощью [`for...of`](/js/for-of/) потому что это приведёт к бесконечному циклу. По этой же причине нельзя применить методы получения массива значений: [`Array.from()`](/js/array-from/) или [`Iterator.prototype.toArray()`](/js/iterator-to-array/).
 
 `Iterator.prototype.take()` помогает получить итератор с ограниченным количеством итераций:
 
