@@ -168,7 +168,7 @@ function createColorIterator() {
       if (index === colors.length) {
         return { done: true }
       }
-      const rgb = colors[index++].split('').map(c => c * 255)
+      const rgb = colors[index++].split('').map(c => Number(c) * 255)
       const value = `rgb(${rgb.join(',')})`
       return { value, done: false }
     }
