@@ -596,7 +596,7 @@ const observer = new IntersectionObserver(observerCallback, observerOptions)
 observer.observe(tooltip)
 ```
 
-Попробуйте проскроллить к разным краям вьюпорта — тултип сможет адаптироваться.
+Попробуйте зажать кнопку и перетащить её к разным краям вьюпорта — тултип сможет адаптироваться.
 
 <iframe title="Адаптивный тултип на основе Intersection Observer" src="demos/adaptive-js/" height="480"></iframe>
 
@@ -743,7 +743,7 @@ observer.observe(tooltip)
 .tooltip {
   inset: unset;
   max-width: 300px;
-  margin: 10px;
+  bottom: 10px;
   padding: 10px 40px;
   background-color: #FFFFFF;
   color: #000000;
@@ -756,16 +756,22 @@ observer.observe(tooltip)
 
 @position-try --bottom {
   position-area: bottom;
+  bottom: unset;
+  top: 10px;
 }
 
 @position-try --left {
   position-area: left;
   max-width: 200px;
+  bottom: unset;
+  right: 10px;
 }
 
 @position-try --right {
   position-area: right;
   max-width: 200px;
+  bottom: unset;
+  left: 10px;
 }
 
 .tooltip-content {
@@ -855,7 +861,7 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 })
 ```
 
-Попробуйте проскроллить к разным краям вьюпорта — тултип сможет адаптироваться.
+Попробуйте зажать кнопку и перетащить её к разным краям вьюпорта — тултип сможет адаптироваться.
 
 <iframe title="Адаптивный тултип на основе Popover API и CSS Anchor Positioning" src="demos/adaptive-popover-and-css-anchor-positioning/" height="480"></iframe>
 
@@ -915,6 +921,7 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 .tooltip {
   /* Выставляем дефолтное положение относительно якоря */
   position-area: top;
+  bottom: 10px;
   /* Добавляем фолбэки, если дефолт не отработал */
   position-try-fallbacks: --bottom, --left, --right;
 }
@@ -922,16 +929,22 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 /* Описываем, что значат фолбэки */
 @position-try --bottom {
   position-area: bottom;
+  top: 10px;
+  bottom: unset;
 }
 
 @position-try --left {
   position-area: left;
   max-width: 200px;
+  right: 10px;
+  bottom: unset;
 }
 
 @position-try --right {
   position-area: right;
   max-width: 200px;
+  left: 10px;
+  bottom: unset;
 }
 ```
 
