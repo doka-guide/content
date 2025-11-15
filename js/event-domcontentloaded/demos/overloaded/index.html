@@ -15,7 +15,11 @@
     }
 
     body {
-      padding: 50px 100px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
       background-color: #18191C;
       color: #FFFFFF;
       font-size: 16px;
@@ -32,7 +36,8 @@
 
     .container {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      width: 100%;
     }
 
     .button-like {
@@ -40,8 +45,8 @@
       width: 100%;
       border: 2px solid transparent;
       border-radius: 6px;
-      margin-bottom: 10px;
-      padding: 8px 15px;
+      margin-block-end: 10px;
+      padding: 9px 15px;
       color: #000000;
       font-size: 18px;
       font-weight: 300;
@@ -105,14 +110,61 @@
     }
 
     .scrollable {
+      min-width: 280px;
       width: 100%;
-      height: 425px;
-      margin-left: 70px;
+      max-width: 560px;
+      height: 430px;
+      margin-inline-start: 40px;
       background-color: #282a2e;
       color: #979797;
       font-family: "Roboto Mono", monospace;
       line-height: 1.2;
       overflow: scroll;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .description {
+        width: 250px;
+      }
+
+      .scrollable {
+        min-width: 230px;
+        margin-inline-start: 30px;
+      }
+    }
+
+    @media (max-width: 570px) {
+      .container {
+        flex-wrap: wrap;
+      }
+
+      .description, .scrollable {
+        width: 100%;
+      }
+
+      .scrollable {
+        margin-inline-start: 0;
+        margin-block-start: 40px;
+        height: 100px;
+      }
+
+      .timings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .timings-line + .timings-line {
+        margin-block-start: 0;
+      }
+
+      #domloaded-time, #load-time, #difference {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
