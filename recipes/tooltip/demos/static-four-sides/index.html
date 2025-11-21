@@ -29,20 +29,6 @@
       font-size: 18px;
     }
 
-    .height-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow: scroll;
-    }
-
-    .scrollable-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 200vh;
-      min-width: 200vw;
-    }
-
     .button {
       display: block;
       min-width: 100px;
@@ -160,6 +146,15 @@
       visibility: hidden;
     }
 
+    /* нужен только для демки, чтобы работал drap'n'drop */
+    .draggable-container {
+      position: absolute;
+    }
+
+    .draggable-container * {
+      cursor: move;
+    }
+
     .layout {
       display: flex;
       flex-direction: column;
@@ -195,45 +190,43 @@
   </style>
 </head>
 <body>
-  <div class="height-wrapper" id="height-wrapper">
-    <div class="scrollable-container">
-      <div class="layout">
-        <div class="layout-row">
-          <div class="tooltip-container">
-            <button class="button tooltip-anchor" id="tooltip-top-anchor" aria-describedby="tooltip-top">
-              👆🏼
-            </button>
-            <div class="tooltip hidden" role="tooltip" id="tooltip-top" data-position="top">
-              Добавить в «Избранное»
-            </div>
+  <div class="draggable-container" id="draggable-container">
+    <div class="layout">
+      <div class="layout-row">
+        <div class="tooltip-container">
+          <button class="button tooltip-anchor" id="tooltip-top-anchor" aria-describedby="tooltip-top">
+            👆🏼
+          </button>
+          <div class="tooltip hidden" role="tooltip" id="tooltip-top" data-position="top">
+            Добавить в «Избранное»
           </div>
         </div>
-        <div class="layout-row">
-          <div class="tooltip-container">
-            <button class="button tooltip-anchor" id="tooltip-left-anchor" aria-describedby="tooltip-left">
-              👈🏼
-            </button>
-            <div class="tooltip hidden" role="tooltip" id="tooltip-left" data-position="left">
-              Добавить в «Избранное»
-            </div>
-          </div>
-          <div class="tooltip-container">
-            <button class="button tooltip-anchor" id="tooltip-right-anchor" aria-describedby="tooltip-right">
-              👉🏼
-            </button>
-            <div class="tooltip hidden" role="tooltip" id="tooltip-right" data-position="right">
-              Добавить в «Избранное»
-            </div>
+      </div>
+      <div class="layout-row">
+        <div class="tooltip-container">
+          <button class="button tooltip-anchor" id="tooltip-left-anchor" aria-describedby="tooltip-left">
+            👈🏼
+          </button>
+          <div class="tooltip hidden" role="tooltip" id="tooltip-left" data-position="left">
+            Добавить в «Избранное»
           </div>
         </div>
-        <div class="layout-row">
-          <div class="tooltip-container">
-            <button class="button tooltip-anchor" id="tooltip-bottom-anchor" aria-describedby="tooltip-bottom">
-              👇🏼
-            </button>
-            <div class="tooltip hidden" role="tooltip" id="tooltip-bottom" data-position="bottom">
-              Добавить в «Избранное»
-            </div>
+        <div class="tooltip-container">
+          <button class="button tooltip-anchor" id="tooltip-right-anchor" aria-describedby="tooltip-right">
+            👉🏼
+          </button>
+          <div class="tooltip hidden" role="tooltip" id="tooltip-right" data-position="right">
+            Добавить в «Избранное»
+          </div>
+        </div>
+      </div>
+      <div class="layout-row">
+        <div class="tooltip-container">
+          <button class="button tooltip-anchor" id="tooltip-bottom-anchor" aria-describedby="tooltip-bottom">
+            👇🏼
+          </button>
+          <div class="tooltip hidden" role="tooltip" id="tooltip-bottom" data-position="bottom">
+            Добавить в «Избранное»
           </div>
         </div>
       </div>
@@ -270,11 +263,35 @@
     tooltipPositions.forEach(initTooltip)
   </script>
   <script>
-    const heightWrapper = document.querySelector('#height-wrapper')
-    heightWrapper.scrollTo({
-      top: heightWrapper.offsetHeight / 2,
-      left: heightWrapper.offsetWidth / 2,
-      behavior: 'instant'
+    // этот скрипт реализует dran'n'drop для демки
+    let isDragging = false
+    let offsetX, offsetY
+    let target
+
+    const draggableContainer = document.querySelector('#draggable-container')
+
+    document.addEventListener('mousedown', (e) => {
+        isDragging = true
+
+        const rect = draggableContainer.getBoundingClientRect()
+        offsetX = e.clientX - rect.left
+        offsetY = e.clientY - rect.top
+
+        target = e.target;
+        target.style.cursor = 'grabbing'
+    })
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return
+
+        draggableContainer.style.left = (e.clientX - offsetX) + 'px'
+        draggableContainer.style.top = (e.clientY - offsetY) + 'px'
+    })
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false
+        target.style.cursor = 'move'
+        target = null
     })
   </script>
 </body>
