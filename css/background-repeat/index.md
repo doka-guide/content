@@ -24,10 +24,6 @@ tags:
 
 ## Пример
 
-```html
-<div class="element"></div>
-```
-
 ```css
 .element {
   background-image: url(images/pattern.png);
