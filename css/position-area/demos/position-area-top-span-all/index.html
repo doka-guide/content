@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Располагаем элемент сверху и тянем на три ячейки — position-area — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 800px;
+      height: 500px;
+      place-content: center;
+      border: 4px solid #2E9AFF;
+      position: relative;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      background-color: #123E66;
+      padding: 40px 40px;
+      font-size: 36px;
+      margin: 0 auto;
+      width: max-content;
+    }
+
+    .target {
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #2E9AFFB3;
+      position-area: top span-all;
+      width: 100%;
+      height: 100%;
+      font-size: 36px;
+      padding: 5px;
+      place-content: center;
+      text-align: center;
+    }
+
+    .line-top {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-bottom: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: top span-all;
+    }
+
+    .line-bottom {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-top: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: bottom span-all;
+    }
+
+    .line-right {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-left: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: right span-all;
+    }
+
+    .line-left {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-right: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: left span-all;
+    }
+
+    .side-caption {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: var(--position-area);
+      color: white;
+      font-size: 25px;
+    }
+
+    .side-caption-vertical {
+      align-self: center;
+      left: 111%;
+    }
+
+    .side-caption-horizontal {
+      justify-self: center;
+      top: 113%;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="anchor">Anchor</div>
+    <div id="target" class="target">Target</div>
+
+    <div class="line-bottom"></div>
+    <div class="line-top"></div>
+    <div class="line-right"></div>
+    <div class="line-left"></div>
+
+    <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: bottom right;">bottom</div>
+
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom left;">left</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
+  </div>
+</html>

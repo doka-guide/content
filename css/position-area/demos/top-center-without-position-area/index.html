@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Размещаем таргет элемент сверху по центру без position-area — position-area — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      padding: 50px 80px;
+      font-size: 36px;
+      width: max-content;
+      background: #123E66;
+      margin: 0 auto;
+    }
+
+    .target {
+      padding: 30px;
+      font-size: 36px;
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #2E9AFFBF;
+      bottom: anchor(top);
+      justify-self: anchor-center;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="anchor">Anchor</div>
+  <div class="target">Target</div>
+</body>
+</html>
