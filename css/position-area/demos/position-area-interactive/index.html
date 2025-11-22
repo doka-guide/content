@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Интерактивная демка, показывающася работу position-area — position-area — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 800px;
+      height: 500px;
+      place-content: center;
+      border: 4px solid #2E9AFF;
+      position: relative;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      background-color: #123E66;
+      padding: 40px 40px;
+      font-size: 36px;
+      margin: 0 auto;
+      width: max-content;
+    }
+
+    .target {
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #2E9AFFB3;
+      position-area: top center;
+      width: 100%;
+      height: 100%;
+      font-size: 36px;
+      padding: 5px;
+      place-content: center;
+      text-align: center;
+    }
+
+    .line-top {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-bottom: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: top span-all;
+    }
+
+    .line-bottom {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-top: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: bottom span-all;
+    }
+
+    .line-right {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-left: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: right span-all;
+    }
+
+    .line-left {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-right: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: left span-all;
+    }
+
+    .area-button {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: var(--position-area);
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border: none;
+      background-color: hsla(289, 83%, 75%, 0);
+      color: transparent;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: 20px;
+    }
+
+    .area-button:hover {
+      background-color: #FFFFFFB3;
+      color: black;
+      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .area-button.active {
+      background-color: #FFFFFFB3;
+    }
+
+    .area-button.active:hover {
+      cursor: grabbing;
+      border: 4px solid #FFFFFF;
+    }
+
+    .side-caption {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: var(--position-area);
+      color: white;
+      font-size: 25px;
+    }
+
+    .side-caption-vertical {
+      align-self: center;
+      left: 111%;
+    }
+
+    .side-caption-horizontal {
+      justify-self: center;
+      top: 113%;
+    }
+
+    .caption {
+      top: 40px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      position: absolute;
+      color: white;
+      font-size: 25px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="caption">
+    position-area: <span id="caption-value">top center</span>;
+  </div>
+
+  <div class="container">
+    <div class="anchor">Anchor</div>
+    <div id="target" class="target">Target</div>
+
+    <div class="line-bottom"></div>
+    <div class="line-top"></div>
+    <div class="line-right"></div>
+    <div class="line-left"></div>
+
+    <div id="buttons-grid">
+      <button class="area-button" style="--position-area: top left;" data-position-area="top left" data-idx="1" data-row="1" data-col="1">top left</button>
+      <button class="area-button" style="--position-area: top center;" data-position-area="top center" data-idx="2" data-row="1" data-col="2">top center</button>
+      <button class="area-button" style="--position-area: top right;" data-position-area="top right" data-idx="3" data-row="1" data-col="3">top right</button>
+
+      <button class="area-button" style="--position-area: center left;" data-position-area="center left" data-idx="4" data-row="2" data-col="1">center left</button>
+      <button class="area-button" style="--position-area: center center;" data-position-area="center center" data-idx="5" data-row="2" data-col="2">center center</button>
+      <button class="area-button" style="--position-area: center right;" data-position-area="center right" data-idx="6" data-row="2" data-col="3">center right</button>
+
+      <button class="area-button" style="--position-area: bottom left;" data-position-area="bottom left" data-idx="7" data-row="3" data-col="1">bottom left</button>
+      <button class="area-button" style="--position-area: bottom center;" data-position-area="bottom center" data-idx="8" data-row="3" data-col="2">bottom center</button>
+      <button class="area-button" style="--position-area: bottom right;" data-position-area="bottom right" data-idx="9" data-row="3" data-col="3">bottom right</button>
+    </div>
+
+    <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: bottom right;">bottom</div>
+
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom left;">left</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
+  </div>
+  <script>
+    const target = document.getElementById('target');
+    const captionValue = document.getElementById('caption-value');
+    const grid = document.getElementById('buttons-grid');
+
+    const areaButtons = Array.from(document.getElementsByClassName('area-button'));
+
+    let isDragging = false;
+    let currentHover = null;
+    let startCell = null;
+
+    const clearActive = () => {
+      areaButtons.forEach((button) => button.classList.remove('active'));
+    }
+
+    const clearStart = () => {
+      areaButtons.forEach((button) => button.classList.remove('start'));
+    }
+
+    areaButtons.forEach((button) => {
+      button.setAttribute('draggable','false');
+      button.addEventListener('click', () => {
+        target.style.setProperty('position-area', button.dataset.positionArea);
+        captionValue.textContent = button.dataset.positionArea;
+      });
+    });
+
+    const defaultPositions = [
+      'top left', 'top center', 'top right',
+      'center left', 'center center', 'center right',
+      'bottom left', 'bottom center', 'bottom right',
+    ]
+
+    const dragPositions = [
+      // top left cell (1)
+      [
+        'top left', 'top span-left', 'top span-all',
+        'span-top left', 'span-top span-left', 'span-top span-all',
+        'span-all left', 'span-all span-left', 'span-all span-all',
+      ],
+      // top center cell (2)
+      [
+        'top span-left', 'top center', 'top span-right',
+        'span-top span-left', 'span-top center', 'span-top span-right',
+        'span-all span-left', 'span-all center', 'span-all span-right',
+      ],
+      // top right cell (3)
+      [
+        'top span-all', 'top span-right', 'top right',
+        'span-top span-all', 'span-top span-right', 'span-top right',
+        'span-all span-all', 'span-all span-right', 'span-all right',
+      ],
+
+      // center left cell (4)
+      [
+        'span-top left', 'span-top span-left', 'span-top span-all',
+        'center left', 'center span-left', 'center span-all',
+        'span-bottom left', 'span-bottom span-left', 'span-bottom span-all',
+      ],
+      // center center cell (5)
+      [
+        'span-top span-left', 'span-top center', 'span-top span-right',
+        'center span-left', 'center center', 'center span-right',
+        'span-bottom span-left', 'span-bottom center', 'span-bottom span-right',
+      ],
+      // center right cell (6)
+      [
+        'span-top span-all', 'span-top span-right', 'span-top right',
+        'center span-all', 'center span-right', 'center right',
+        'span-bottom span-all', 'span-bottom span-right', 'span-bottom right',
+      ],
+
+      // bottom left cell (7)
+      [
+        'span-all left', 'span-all span-left', 'span-all span-all',
+        'span-bottom left', 'span-bottom span-left', 'span-bottom span-all',
+        'bottom left', 'bottom span-left', 'bottom span-all',
+      ],
+      // bottom center cell (8)
+      [
+        'span-all span-left', 'span-all center', 'span-all span-right',
+        'span-bottom span-left', 'span-bottom center', 'span-bottom span-right',
+        'bottom span-left', 'bottom center', 'bottom span-right',
+      ],
+      // bottom right cell (9)
+      [
+        'span-all span-all', 'span-all span-right', 'span-all right',
+        'span-bottom span-all', 'span-bottom span-right', 'span-bottom right',
+        'bottom span-all', 'bottom span-right', 'bottom right',
+      ],
+    ];
+
+    function highlightRange(start, end){
+      if (!start || !end) return;
+      const sr = Number(start.dataset.row);
+      const sc = Number(start.dataset.col);
+      const er = Number(end.dataset.row);
+      const ec = Number(end.dataset.col);
+      const r1 = Math.min(sr, er), r2 = Math.max(sr, er);
+      const c1 = Math.min(sc, ec), c2 = Math.max(sc, ec);
+      areaButtons.forEach(c => {
+        const rr = Number(c.dataset.row), cc = Number(c.dataset.col);
+        if (rr >= r1 && rr <= r2 && cc >= c1 && cc <= c2) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+    }
+
+    function onPointerMove(e){
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      const cell = el && el.closest && el.closest('.area-button');
+      if (cell !== currentHover){
+        clearActive();
+        if (cell) cell.classList.add('active');
+        currentHover = cell;
+        highlightRange(startCell, currentHover);
+      }
+    }
+
+    function onPointerUp(e){
+      document.removeEventListener('pointermove', onPointerMove);
+      document.removeEventListener('pointerup', onPointerUp);
+      document.removeEventListener('pointercancel', onPointerUp);
+
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      const areaButton = el && el.closest && el.closest('.area-button');
+      if (areaButton){
+        const posArea = areaButton.dataset.positionArea;
+        target.style.setProperty('position-area', posArea);
+        captionValue.textContent = posArea;
+      }
+      clearActive();
+      clearStart();
+      isDragging = false;
+      startCell = null;
+
+      areaButtons.forEach((button, idx) => {
+        const currentPositionArea = defaultPositions[idx];
+        button.textContent = currentPositionArea;
+        button.dataset.positionArea = currentPositionArea;
+      });
+    }
+
+    grid.addEventListener('pointerdown', (e) => {
+      const cell = e.target.closest && e.target.closest('.area-button');
+      if (!cell) return;
+      if (e.button && e.button !== 0) return;
+
+      e.preventDefault();
+      isDragging = true;
+      document.body.style.userSelect = 'none';
+      clearActive();
+      clearStart();
+      cell.classList.add('start');
+      cell.classList.add('active');
+      startCell = cell;
+      currentHover = cell;
+
+      const cellIdx = cell.dataset.idx - 1;
+      const currentPositionAreas = dragPositions[cellIdx];
+
+      areaButtons.forEach((button, idx) => {
+        const currentPositionArea = currentPositionAreas[idx];
+        button.textContent = currentPositionArea;
+        button.dataset.positionArea = currentPositionArea;
+      });
+
+      document.addEventListener('pointermove', onPointerMove);
+      document.addEventListener('pointerup', onPointerUp);
+      document.addEventListener('pointercancel', onPointerUp);
+
+      highlightRange(startCell, startCell);
+    });
+
+    grid.addEventListener('dragstart', e => e.preventDefault());
+  </script>
+</body>
+</html>
