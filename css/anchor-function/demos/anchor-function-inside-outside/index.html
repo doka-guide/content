@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Задаём top с помощью функции anchor() и значений inside, outside — anchor() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .fields-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: white;
+      margin-left: 60px;
+      accent-color: hsla(203, 97%, 65%, 1);
+    }
+
+    pre {
+      margin-left: -20px;
+    }
+
+    pre code {
+      background: none;
+      font-family: "Roboto Mono", monospace;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .fields-group * {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .fields-group label {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .fields-group label:hover {
+      opacity: 0.6;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      padding: 50px 80px;
+      margin: 0 auto;
+      font-size: 36px;
+      width: max-content;
+      background: #123E66;
+    }
+
+    .caption {
+      position: absolute;
+      position-anchor: --my-anchor;
+      color: white;
+    }
+
+    .caption-top {
+      bottom: calc(anchor(top) + 20px);
+      left: anchor(center);
+      transform: translateX(-50%);
+    }
+
+    .caption-bottom {
+      top: calc(anchor(bottom) + 20px);
+      left: anchor(center);
+      transform: translateX(-50%);
+    }
+
+    .caption-left {
+      right: calc(anchor(left) + 20px);
+      bottom: anchor(center);
+      transform: translateY(50%);
+    }
+
+    .caption-right {
+      left: calc(anchor(right) + 20px);
+      bottom: anchor(center);
+      transform: translateY(50%);
+    }
+
+    .target {
+      padding: 30px;
+      font-size: 36px;
+      position: absolute;
+      position-anchor: --my-anchor;
+      anchor-name: --my-target;
+      background-color: #2E9AFFBF;
+      transition: all .3s ease-in;
+    }
+
+    .anchor-border {
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .anchor-border-visible {
+      opacity: 1;
+    }
+
+    .anchor-border-top {
+      height: 5px;
+      bottom: anchor(top);
+      width: anchor-size(width);
+    }
+
+    .anchor-border-bottom {
+      height: 5px;
+      top: calc(anchor(bottom) - 5px);
+      width: anchor-size(width);
+    }
+
+    .target-border {
+      position: absolute;
+      position-anchor: --my-target;
+      background-color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .target-border-visible {
+      opacity: 1;
+    }
+
+    .target-border-top {
+      height: 5px;
+      left: anchor(left);
+      bottom: anchor(top);
+      width: anchor-size(width);
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div style="margin-top: -45px;">
+      <div>
+<pre><code>
+.target {
+    top:
+</code></pre>
+        <div class="fields-group" data-border="target-border-top">
+            <label>
+                <input type="radio" name="top" value="anchor(inside)" data-border="anchor-border-top">
+                anchor(inside)
+            </label>
+            <label>
+                <input type="radio" name="top" value="anchor(outside)" data-border="anchor-border-bottom" checked>
+                anchor(outside)
+            </label>
+        </div>
+      </div>
+<pre><code>}</code></pre>
+    </div>
+
+    <div>
+        <div class="anchor">Anchor</div>
+        <div id="target" class="target">Target</div>
+
+        <div class="caption caption-top">top</div>
+        <div class="caption caption-bottom">bottom</div>
+        <div class="caption caption-right">right</div>
+        <div class="caption caption-left">left</div>
+
+        <div class="target-border target-border-top"></div>
+
+        <div class="anchor-border anchor-border-top"></div>
+        <div class="anchor-border anchor-border-bottom"></div>
+    </div>
+  </div>
+  <script>
+    const target = document.getElementById('target');
+
+    const topRadio = document.getElementsByName('top');
+    topRadio.forEach((radio) => {
+      if (radio.checked) {
+        target.style.setProperty('top', radio.value);
+      }
+      radio.addEventListener('change', (event) => {
+        target.style.setProperty('top', event.target.value);
+      })
+      radio.parentElement.addEventListener('mouseenter', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.add('anchor-border-visible');
+      })
+      radio.parentElement.addEventListener('mouseleave', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.remove('anchor-border-visible');
+      })
+    })
+
+    const fieldsGroups = Array.from(document.getElementsByClassName('fields-group'));
+    fieldsGroups.forEach((item) => {
+      item.addEventListener('mouseenter', (event) => {
+        const target = event.target;
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.add('target-border-visible');
+      })
+      item.addEventListener('mouseleave', (event) => {
+        const target = event.target;
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.remove('target-border-visible');
+      })
+    })
+  </script>
+</body>
+</html>
