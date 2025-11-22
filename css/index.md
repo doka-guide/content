@@ -246,6 +246,10 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - anchor-name
+      - position-anchor
+      - anchor-function
+      - position-area
   - name: 'Списки'
     items:
       - list-style
