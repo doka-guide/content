@@ -68,36 +68,60 @@ console.log(itemsInCart[1] === clonedCart[1])
 
 Существует несколько способов выполнить глубокое копирование:
 
-- собственная функция клонирования объектов;
+- собственная функция копирования;
 - глобальная функция `structuredClone()`;
 - преобразование с помощью функций `JSON.stringify()` и `JSON.parse()`;
 - сторонние библиотечные функции, например `cloneDeep()` из библиотеки `Lodash`.
 
 У каждого способа есть свои ограничения, потому что не все значения могут быть полностью клонированы.
 
-### Своя функция клонирования объектов
+### Своя функция копирования объектов
 
 Можно написать свою функцию глубокого копирования. Скорее всего ваша функция будет [рекурсивной](/js/recursion/), и она будет работать только для конкретных данных — написать универсальную функцию не так-то просто.
 
-Создадим функцию для копирования массивов со структурой:
+Например, создадим функцию для копирования массивов со структурой:
+
+```js
+// array = [{
+//   name,
+//   author: {firstName, lastName},
+//   year,
+//   size: [width, height]
+// }]
+
+function createCopy(array) {
+  if (!Array.isArray(array)) {
+    return null
+  }
+
+  const cloneArray = array.reduce
+  (
+    (acc, item) =>
+    {
+      if (Array.isArray(item)) {
+        acc.push(cloneArray(item))
+      }
+    },
+    []
+  )
+}
+
 
 ```
-array = [{
-  name: string,
-  size: [width, height],
-  author: {firstName, lastName}
-}]
-```
+
+
 
 ### Глобальная функция `structuredClone()`
 
-В JavaScript есть функция [structuredClone()](https://developer.mozilla.org/en-US/docs/Web/API/structuredClone) для глубокого копирования массивов или объектов. На странице с документацией можно проверить доступность этой функции для разных версий: например, она доступна в NodeJS, начиная с версии 17.0.0.
+Во многих случаях предпочтительным будет применить глобальную функцию `structuredClone()`. Она не описывается спецификацией ECMAScript (и поэтому не является частью языка), но доступна в браузерах благодаря Web API, а также реализована в Node.js и в других средах исполнения кода.
 
 ```js
 const clonedCart = structuredClone(itemsInCart)
-console.log(itemsInCart[1] === deep[1])
+console.log(itemsInCart[1] === clonedCart[1])
 // false
 ```
+
+
 
 ### Преобразование с помощью функций `JSON.stringify()` и `JSON.parse()`
 
