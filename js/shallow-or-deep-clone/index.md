@@ -79,36 +79,32 @@ console.log(itemsInCart[1] === clonedCart[1])
 
 Можно написать свою функцию глубокого копирования. Скорее всего ваша функция будет [рекурсивной](/js/recursion/), и она будет работать только для конкретных данных — написать универсальную функцию не так-то просто.
 
-Например, создадим функцию для копирования массивов со структурой:
+Например, создадим функцию для копирования объектов со структурой:
 
 ```js
-// array = [{
+// object = {
 //   name,
 //   author: {firstName, lastName},
 //   year,
-//   size: [width, height]
-// }]
+//   size: [width, height],
+//   image
+// }
 
-function createCopy(array) {
-  if (!Array.isArray(array)) {
-    return null
+function createCopy(object) {
+  if (object === null || typeof object !== 'object') {
+    return object
   }
 
-  const cloneArray = array.reduce
-  (
-    (acc, item) =>
-    {
-      if (Array.isArray(item)) {
-        acc.push(cloneArray(item))
-      }
-    },
-    []
-  )
+  const keys = Object.keys(object)
+  const clonedObject = keys.reduce((acc, key) => {
+    acc[key] = createCopy(object[key])
+    return acc
+  }, Array.isArray(object) ? [] : {})
+  return clonedObject
 }
-
-
 ```
 
+Проверим как справится наша функция с копированием работ мастеров северного Возрождения.
 
 
 ### Глобальная функция `structuredClone()`
