@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — font-variant-position — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Mono&family=Coda&display=swap">
+  <style>
+    @font-face {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://mdn.github.io/css-examples/font-features/SourceSansPro-Regular.otf) format("opentype");
+    }
+
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    h1 code {
+      line-height: 1;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h1, .option-description {
+      text-transform: lowercase;
+      text-align: right;
+      inline-size: 340px;
+    }
+
+    .option {
+      display: flex;
+      align-items: baseline;
+      margin-block-start: 30px;
+    }
+
+    .option-description {
+      line-height: 1.2;
+      margin-inline-end: 50px;
+    }
+
+    .option-example {
+      margin: 0;
+      font-family: "Source Sans Pro", sans-serif;
+      font-size: 36px;
+      color: #2E9AFF;
+    }
+
+    .normal {
+      font-variant-position: normal;
+    }
+
+    .sub {
+      font-variant-position: sub;
+    }
+
+    .super {
+      font-variant-position: super;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .option-description {
+        inline-size: 100%;
+      }
+
+      .option {
+        flex-direction: row-reverse;
+        margin-block-start: 50px;
+      }
+
+      .option-description {
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
+
+      .option-example {
+        white-space: nowrap;
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>font-variant-position</code></h1>
+    <div class="options">
+      <div class="option">
+        <p class="option-description"><code>normal</code></p>
+        <p class="option-example normal">H2O x2</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>sub</code></p>
+        <p class="option-example">H<sub class="sub">2</sub>O</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>super</code></p>
+        <p class="option-example">x<sup class="super">2</sup></p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>&lt;sub&gt;</code> без свойства</p>
+        <p class="option-example">H<sub>2</sub>O</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>&lt;sup&gt;</code> без свойства</p>
+        <p class="option-example">x<sup>2</sup></p>
+      </div>
+    </div>
+  </div>
+  <script></script>
+</body>
+</html>
