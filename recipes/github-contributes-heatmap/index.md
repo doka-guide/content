@@ -210,8 +210,8 @@ GET https://api.github.com/repos/{owner}/{repo}/stats/commit_activity
 ```
 
 где:
-`{owner}` - имя владельца репозитория
-`{repo}` - название репозитория
+`{owner}` — имя владельца репозитория
+`{repo}` — название репозитория
 
 Для примера возьмём данные об активности [репозитория с контентом Доки](https://github.com/doka-guide/content).
 
