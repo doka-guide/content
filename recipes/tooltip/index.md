@@ -389,7 +389,7 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 
 ## Адаптивный на основе Intersection Observer
 
-Пользователь может по-разному взаимодействовать с интерфейсом. Он может вызвать всплывающую подсказку в начале страницы или пролистав её почти до конца. В этот момент статично заданое положение тултипа может быть скрыто за границами вьюпорта. Избежать подобной ситуации поможет тултип, который умеет адаптироваться под свободное место на экране.
+Пользователь может по-разному взаимодействовать с интерфейсом. Он может вызвать всплывающую подсказку в начале страницы или пролистав её почти до конца. В этот момент статично заданное положение тултипа может быть скрыто за границами вьюпорта. Избежать подобной ситуации поможет тултип, который умеет адаптироваться под свободное место на экране.
 
 Разберём рецент адаптивного тултипа.
 
@@ -596,7 +596,7 @@ const observer = new IntersectionObserver(observerCallback, observerOptions)
 observer.observe(tooltip)
 ```
 
-Попробуйте проскроллить к разным краям вьюпорта — тултип сможет адаптироваться.
+Попробуйте зажать кнопку и перетащить её к разным краям вьюпорта — тултип сможет адаптироваться.
 
 <iframe title="Адаптивный тултип на основе Intersection Observer" src="demos/adaptive-js/" height="480"></iframe>
 
@@ -664,7 +664,7 @@ observer.observe(tooltip)
 
 ## Адаптивный на основе Popover API и CSS Anchor Positioning
 
-В предыдущих рецептах мы управляли видимостью тултипа с помощью смены [CSS-классов](/css/class-selector/) и меняли расположние тултипа с помощью [Intersection Observer](/js/intersection-observer/).
+В предыдущих рецептах мы управляли видимостью тултипа с помощью смены [CSS-классов](/css/class-selector/) и меняли расположение тултипа с помощью [Intersection Observer](/js/intersection-observer/).
 
 Теперь подобную функциональность можно реализовать проще и с меньшим количеством JavaScript благодаря [Popover API](/html/popover/) и CSS Anchor Positioning.
 
@@ -743,7 +743,7 @@ observer.observe(tooltip)
 .tooltip {
   inset: unset;
   max-width: 300px;
-  margin: 10px;
+  bottom: 10px;
   padding: 10px 40px;
   background-color: #FFFFFF;
   color: #000000;
@@ -756,16 +756,22 @@ observer.observe(tooltip)
 
 @position-try --bottom {
   position-area: bottom;
+  bottom: unset;
+  top: 10px;
 }
 
 @position-try --left {
   position-area: left;
   max-width: 200px;
+  bottom: unset;
+  right: 10px;
 }
 
 @position-try --right {
   position-area: right;
   max-width: 200px;
+  bottom: unset;
+  left: 10px;
 }
 
 .tooltip-content {
@@ -855,7 +861,7 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 })
 ```
 
-Попробуйте проскроллить к разным краям вьюпорта — тултип сможет адаптироваться.
+Попробуйте зажать кнопку и перетащить её к разным краям вьюпорта — тултип сможет адаптироваться.
 
 <iframe title="Адаптивный тултип на основе Popover API и CSS Anchor Positioning" src="demos/adaptive-popover-and-css-anchor-positioning/" height="480"></iframe>
 
@@ -915,6 +921,7 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 .tooltip {
   /* Выставляем дефолтное положение относительно якоря */
   position-area: top;
+  bottom: 10px;
   /* Добавляем фолбэки, если дефолт не отработал */
   position-try-fallbacks: --bottom, --left, --right;
 }
@@ -922,16 +929,22 @@ tooltipAnchor.addEventListener('keydown', (event) => {
 /* Описываем, что значат фолбэки */
 @position-try --bottom {
   position-area: bottom;
+  top: 10px;
+  bottom: unset;
 }
 
 @position-try --left {
   position-area: left;
   max-width: 200px;
+  right: 10px;
+  bottom: unset;
 }
 
 @position-try --right {
   position-area: right;
   max-width: 200px;
+  left: 10px;
+  bottom: unset;
 }
 ```
 
