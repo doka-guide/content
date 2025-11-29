@@ -69,9 +69,10 @@ body {
   min-width: 200px;
   padding: 1rem;
   position: relative;
-  background-color: #18191C;
 
-  --base-color: hsl(112, 100%, 50%);
+  --base-color: hsl(112 100% 50%);
+  --text-color: #FFFFFF;
+  --label-color: #C56FFF;
 }
 
 .main-container div {
@@ -92,7 +93,7 @@ body {
   inset-block-start: 40%;
   width: 20px;
   height: 20px;
-  border: 4px solid #ccc;
+  border: 4px solid #454545;
   border-top: 4px solid var(--base-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -108,23 +109,23 @@ body {
 .total-row,
 .tooltip,
 .error-value {
-  color: #FFF;
+  color: var(--text-color);
 }
 
 .description,
 .value-label {
-  color: #C56FFF;
+  color: var(--label-color);
 }
 
 .year-grid {
-  flex: 1 1 ;
+  flex: 1 1;
   display: flex;
   max-width: 100%;
   min-width: 100px;
   overflow-y: hidden;
   overflow-x: auto;
   padding: 2rem 1rem 1rem 1rem;
-  background-color: #0C0C0E6B;
+  background-color: #121316;
   border: 1px solid #363636;
   border-radius: 5px;
 }
@@ -132,7 +133,7 @@ body {
 .weekday-label,
 .month-label {
   font-size: .75rem;
-  color: #FFF;
+  color: var(--text-color);
 }
 
 .weekday-label {
@@ -159,11 +160,13 @@ body {
   border: 1px solid #88888818;
   border-radius: 2px;
 }
+
 .day:hover {
-  border-color: #8885;
+  border-color: #88888855;
 }
+
 .day.has-commits:hover {
-  border-color: #888a;
+  border-color: #888888AA;
 }
 
 .tooltip {
@@ -172,11 +175,11 @@ body {
   max-width: 400px;
   padding: 8px 16px;
   border-radius: 4px;
-  background-color: #555;
+  background-color: #454545;
 }
 
 .tooltip .value-label {
-  color: #ccc;
+  color: #CCCCCC;
 }
 
 .hidden {
@@ -534,7 +537,7 @@ function makeColors(commitCounts, baseColor) {
 
 ```js
 function getStartColor(colorStr) {
-  const hslMatch = colorStr.match(/hsl\(\s*(\d+),\s*(\d+)%?,\s*(\d+)%?\s*\)/)
+  const hslMatch = colorStr.match(/hsl\(\s*(\d+)\s*(\d+)%?\s*(\d+)%?\s*\)/)
   const [, h, s, l] = hslMatch
   const hsl = [
     parseInt(h, 10), // Парсим оттенок
