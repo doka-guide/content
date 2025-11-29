@@ -174,16 +174,35 @@ console.log(itemsInCart[1] === clonedCart[1])
 // false
 ```
 
-Метод `cloneDeep()` не поддерживает полноценное клонирование в нескольких случаях:
+`cloneDeep()` корректно сохраняет ссылку на прототип исходного объекта. Это может быть важным при работе с объектами-экземплярами классов:
 
-- будут проигнорированы и не попадут в копию:
-  - `WeakMap`
-  - `WeakSet`
-  - `Proxy`
-  - `DOM-элемент`
-- будут сохранены по ссылке:
-  - `Symbol` как значение;
-  - `Function` как значение;
-  - `Function` как имя ключа в `Map`;
-- значения будут сохранены как строка:
-  - `Function` как имя ключа в объекте.
+```js
+import cloneDeep from 'lodash.clonedeep'
+
+class Person {
+    constructor(name) {
+        this.name = name
+    }
+}
+
+const person = new Person('Адам')
+
+const clonedPerson1 = cloneDeep(person)
+
+console.log(clonedPerson1 instanceof Person)
+// true
+
+const clonedPerson2 = structuredClone(person)
+
+console.log(clonedPerson2 instanceof Person)
+// false
+```
+
+Метод `cloneDeep()` имеет некоторые ограничения. По ссылке сохраняются:
+
+  - DOM-элементы;
+  - `Symbol`;
+  - `Function`;
+  - `WeakMap`-объекты;
+  - `WeakSet`-объекты;
+  - `Proxy`-объекты.
