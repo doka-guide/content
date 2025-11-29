@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Смотрим, как работает функция anchor-size() — anchor-size() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+
+      --color-code-selector: hsl(95 38% 62% / 1);
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+      --color-code-function: hsl(209deg 100% 59%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .fields-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: white;
+      margin-left: 60px;
+      accent-color: #2E9AFF;
+    }
+
+    pre {
+      margin-left: -20px;
+    }
+
+    pre code {
+      background: none;
+      font-family: "Roboto Mono", monospace;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__selector {
+      color: var(--color-code-selector);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    .code__function {
+      color: var(--color-code-function);
+    }
+
+    .fields-group * {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .fields-group label {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .fields-group label:hover {
+      opacity: 0.6;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      padding: 60px 120px;
+      margin: 0 auto;
+      font-size: 36px;
+      width: max-content;
+      background: #123E66;
+    }
+
+    .target {
+      padding: 30px;
+      font-size: 36px;
+      position: absolute;
+      position-anchor: --my-anchor;
+      top: anchor(bottom);
+      text-align: center;
+      background-color: #2E9AFFBF;
+      transition: all .3s ease-in;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="code" style="margin-top: 70px;">
+      <div>
+<pre><code>
+<span class="code__selector">.target</span> {
+    <span class="code__properties">width</span>:
+</code></pre>
+        <div class="fields-group">
+            <label>
+                <input type="radio" name="width" value="anchor-size(width)" checked>
+                <span class="code__function">anchor-size</span><span class="code__value">(width)</span>;
+            </label>
+            <label>
+              <input type="radio" name="width" value="anchor-size(height)">
+              <span class="code__function">anchor-size</span><span class="code__value">(height)</span>;
+            </label>
+            <label>
+              <input type="radio" name="width" value="calc(anchor-size(width) * 1.2)">
+              <span class="code__function">calc</span>(<span class="code__function">anchor-size</span><span class="code__value">(width)</span> * 1.2);
+            </label>
+        </div>
+      </div>
+<pre><code>}</code></pre>
+    </div>
+
+    <div>
+        <div class="anchor">Anchor</div>
+        <div id="target" class="target">Target</div>
+    </div>
+  </div>
+  <script>
+    const target = document.getElementById('target');
+
+    const widthRadio = document.getElementsByName('width');
+    widthRadio.forEach((radio) => {
+      if (radio.checked) {
+        target.style.setProperty('width', radio.value);
+      }
+      radio.addEventListener('change', (event) => {
+        target.style.setProperty('width', event.target.value);
+      })
+    })
+  </script>
+</body>
+</html>
