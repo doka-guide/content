@@ -83,6 +83,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: .5rem;
+  flex-wrap: wrap;
   font-size: 1.5rem;
 }
 
@@ -184,6 +185,15 @@ body {
 
 .hidden {
   visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+  .main-container {
+    padding: 0;
+  }
 }
 ```
 
