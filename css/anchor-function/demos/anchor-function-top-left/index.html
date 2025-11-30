@@ -25,6 +25,12 @@
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
+
+      --color-code-selector: hsl(95 38% 62% / 1);
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+      --color-code-function: hsl(209deg 100% 59%);
     }
 
     *, *::before, *::after {
@@ -58,6 +64,26 @@
       font-family: "Roboto Mono", monospace;
       line-height: 1.7;
       padding: 0;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__selector {
+      color: var(--color-code-selector);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    .code__function {
+      color: var(--color-code-function);
     }
 
     .fields-group * {
@@ -212,43 +238,43 @@
 </head>
 <body>
   <div class="layout">
-    <div>
+    <div class="code">
       <div>
 <pre><code>
-.target {
-    top:
+<span class="code__selector">.target</span> {
+    <span class="code__properties">top</span>:
 </code></pre>
         <div class="fields-group" data-border="target-border-top">
             <label>
                 <input type="radio" name="top" value="anchor(top)" data-border="anchor-border-top">
-                anchor(top)
+                <span class="code__function">anchor</span><span class="code__value">(top)</span>
             </label>
             <label>
                 <input type="radio" name="top" value="anchor(center)" data-border="anchor-border-center-vertical">
-                anchor(center)
+                <span class="code__function">anchor</span><span class="code__value">(center)</span>
             </label>
             <label>
                 <input type="radio" name="top" value="anchor(bottom)" data-border="anchor-border-bottom" checked>
-                anchor(bottom)
+                <span class="code__function">anchor</span><span class="code__value">(bottom)</span>
             </label>
         </div>
       </div>
       <div>
 <pre><code>
-    left:
+  <span class="code__properties">left</span>:
 </code></pre>
         <div class="fields-group" data-border="target-border-left">
             <label>
                 <input type="radio" name="left" value="anchor(left)" checked data-border="anchor-border-left">
-                anchor(left)
+                <span class="code__function">anchor</span><span class="code__value">(left)</span>
             </label>
             <label>
                 <input type="radio" name="left" value="anchor(center)" data-border="anchor-border-center-horizontal">
-                anchor(center)
+                <span class="code__function">anchor</span><span class="code__value">(center)</span>
             </label>
             <label>
                 <input type="radio" name="left" value="anchor(right)" data-border="anchor-border-right" checked>
-                anchor(right)
+                <span class="code__function">anchor</span><span class="code__value">(right)</span>
             </label>
         </div>
 <pre><code>}</code></pre>
