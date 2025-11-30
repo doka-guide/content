@@ -103,4 +103,4 @@ tags:
 
 Лучше понять работу функции `anhor-size` поможет демка ниже.
 
-<iframe title="Демонстрация работы функции anchor-size()" src="demos/anchor-size/" height="440"></iframe>
+<iframe title="Демонстрация работы функции anchor-size()" src="demos/anchor-size/" height="500"></iframe>
