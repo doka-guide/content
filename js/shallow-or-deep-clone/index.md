@@ -118,8 +118,8 @@ console.log(itemsInCart[1] === clonedCart[1])
 Ещё один способ глубокого копирования звучит достаточно глупо — нужно сериализовать копируемый объект в JSON и тут же распарсить его. В результате появится полная копия объекта:
 
 ```js
-const deep = JSON.parse(JSON.stringify(itemsInCart))
-console.log(itemsInCart[1] === deep[1])
+const clonedCart = JSON.parse(JSON.stringify(itemsInCart))
+console.log(itemsInCart[1] === clonedCart[1])
 // false
 ```
 
@@ -133,6 +133,8 @@ console.log(itemsInCart[1] === deep[1])
 
 - для массивов: такие значения будут превращены в null;
 - для объектов: такие значения будут опущены, а если symbol является ключом объекта, то он будет проигнорирован, даже при использовании функции `replacer`.
+
+Подробнее об ограничениях `JSON.stringify()` можно прочитать в статье [JSON](/tools/json/#kak-ponyat)
 
 ```js
 const arr = [
