@@ -84,7 +84,6 @@ body {
   flex-direction: row;
   gap: .5rem;
   flex-wrap: wrap;
-  font-size: 1.5rem;
 }
 
 .loading {
