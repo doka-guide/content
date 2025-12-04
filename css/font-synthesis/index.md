@@ -6,7 +6,7 @@ baseline:
     features:
       - css.properties.font-synthesis
 authors:
-  - ruslan gaziev
+  - gazievri
 keywords:
   - синтез шрифтов
   - искусственный bold
@@ -132,29 +132,5 @@ https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
 body {
   font-family: 'MyFont', sans-serif;
   /* Синтеза не будет — браузер найдёт все начертания */
-}
-```
-
-## На практике
-
-<people-dropdown nickname="ruslan" />
-
-В проектах с кастомными шрифтами всегда добавляю `font-synthesis: none` для брендовых шрифтов. Это помогает сразу увидеть проблему, если забыл подключить нужное начертание — текст останется в базовом виде, а не превратится в кривой синтетический bold.
-```css
-@font-face {
-  font-family: 'ProjectFont';
-  src: url('project-regular.woff2');
-  font-weight: 400;
-}
-
-body {
-  font-family: 'ProjectFont', sans-serif;
-  font-synthesis: none;
-}
-
-/* Если нужен акцент без bold-файла */
-strong {
-  color: var(--primary-color);
-  font-weight: 400;
 }
 ```
