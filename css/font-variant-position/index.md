@@ -1,6 +1,13 @@
 ---
 title: "`font-variant-position`"
 description: "Включаем красивые надстрочные и подстрочные буквы."
+baseline:
+  - group: font-variant-position
+    features:
+      - css.properties.font-variant-position
+      - css.properties.font-variant-position.normal
+      - css.properties.font-variant-position.sub
+      - css.properties.font-variant-position.super
 authors:
   - goingtogogo
 keywords:
