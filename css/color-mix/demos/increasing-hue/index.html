@@ -77,7 +77,7 @@
         stroke-width: 4;
         fill: none;
         stroke-linecap: round;
-        filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+        filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.3));
       }
 
       .arc__point {
@@ -152,7 +152,7 @@
         background: #2e9aff;
         border-radius: 50%;
         cursor: pointer;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
       }
 
       .slider--thumb-start-angle::-moz-range-thumb {
@@ -162,7 +162,7 @@
         border-radius: 50%;
         cursor: pointer;
         border: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
       }
 
       .slider--thumb-end-angle::-webkit-slider-thumb {
@@ -172,7 +172,7 @@
         background: #f498ad;
         border-radius: 50%;
         cursor: pointer;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
       }
 
       .slider--thumb-end-angle::-moz-range-thumb {
@@ -182,7 +182,7 @@
         border-radius: 50%;
         cursor: pointer;
         border: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
       }
 
       .label {
@@ -193,7 +193,7 @@
         font-weight: bold;
       }
 
-      @media (min-width: 425px) {
+      @media (width >= 425px) {
         .color-wheel__container {
           width: 300px;
           height: 300px;
@@ -215,7 +215,7 @@
         }
       }
 
-      @media (min-width: 768px) {
+      @media (width >= 768px) {
         body {
           padding: 50px;
           font-size: 18px;
