@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Показываем работу значения no-overlow — position-visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .height-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    .container {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        height: 220%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      background-color: #123E66;;
+      text-align: center;
+      padding: 30px 70px;
+      width: auto;
+      font-size: 36px;
+      user-select: none;
+    }
+
+    .target {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: top center;
+      position-try: flip-block;
+      background-color: #2E9AFF;
+      padding: 20px 60px;
+      font-size: 36px;
+      user-select: none;
+    }
+
+    .no-overflow {
+      position-visibility: no-overflow;
+    }
+
+    .high-height {
+      height: 280px;
+    }
+  </style>
+</head>
+<body>
+  <div id="height-wrapper" class="height-wrapper">
+    <div class="container">
+      <div class="box anchor">Anchor</div>
+      <div id="target" class="box target">Target</div>
+    </div>
+  </div>
+<script>
+    const heightWrapper = document.getElementById('height-wrapper');
+      heightWrapper?.scrollTo({
+        top: heightWrapper?.offsetHeight / 2,
+        left: heightWrapper?.offsetWidth / 2,
+        behavior: 'instant',
+      });
+    </script>
+    <script>
+      const target = document.getElementById('target');
+      window.addEventListener('message', (e) => {
+        console.log('e', e);
+        if (e.data === 'add-no-overflow') {
+          target.classList.add('no-overflow');
+        } else if (e.data === 'remove-no-overflow') {
+          target.classList.remove('no-overflow');
+        } else if (e.data === 'add-height') {
+          target.classList.add('high-height');
+        } else if (e.data === 'remove-height') {
+          target.classList.remove('high-height');
+        }
+      });
+    </script>
+</body>
+</html>
