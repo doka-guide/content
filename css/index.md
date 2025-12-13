@@ -246,6 +246,7 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - position-visibility
   - name: 'Списки'
     items:
       - list-style
