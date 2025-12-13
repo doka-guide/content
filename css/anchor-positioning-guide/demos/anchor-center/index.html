@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Значение anchor-center для justify, align свойств — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+
+      --color-code-selector: hsl(95 38% 62% / 1);
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+      --color-code-function: hsl(209deg 100% 59%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .fields-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: white;
+      margin-left: 60px;
+      accent-color: #2E9AFF;
+    }
+
+    pre {
+      margin-left: -20px;
+    }
+
+    pre code {
+      background: none;
+      font-family: "Roboto Mono", monospace;
+      line-height: 1.7;
+      padding: 0;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__selector {
+      color: var(--color-code-selector);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    .code__function {
+      color: var(--color-code-function);
+    }
+
+    .fields-group * {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .fields-group label {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .fields-group label:hover {
+      opacity: 0.6;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      padding: 50px 80px;
+      margin: 0 auto;
+      font-size: 36px;
+      width: max-content;
+      background: #123E66;
+    }
+
+    .caption {
+      position: absolute;
+      position-anchor: --my-anchor;
+      color: white;
+    }
+
+    .caption-top {
+      bottom: calc(anchor(top) + 20px);
+      left: anchor(center);
+      transform: translateX(-50%);
+    }
+
+    .caption-bottom {
+      top: calc(anchor(bottom) + 20px);
+      left: anchor(center);
+      transform: translateX(-50%);
+    }
+
+    .caption-left {
+      right: calc(anchor(left) + 20px);
+      bottom: anchor(center);
+      transform: translateY(50%);
+    }
+
+    .caption-right {
+      left: calc(anchor(right) + 20px);
+      bottom: anchor(center);
+      transform: translateY(50%);
+    }
+
+    .target {
+      padding: 30px;
+      font-size: 36px;
+      position: absolute;
+      position-anchor: --my-anchor;
+      anchor-name: --my-target;
+      background-color: #2E9AFFBF;
+      transition: all .3s ease-in;
+    }
+
+    .anchor-border {
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #FFFFFF;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .anchor-border-visible {
+      opacity: 1;
+    }
+
+    .anchor-border-top {
+      height: 5px;
+      bottom: anchor(top);
+      width: anchor-size(width);
+    }
+
+    .anchor-border-center-vertical {
+      height: 5px;
+      bottom: anchor(center);
+      width: anchor-size(width);
+    }
+
+    .anchor-border-bottom {
+      height: 5px;
+      top: calc(anchor(bottom) - 5px);
+      width: anchor-size(width);
+    }
+
+    .anchor-border-left {
+      width: 5px;
+      top: anchor(top);
+      right: anchor(left);
+      height: anchor-size(height);
+    }
+
+    .anchor-border-center-horizontal {
+      width: 5px;
+      top: anchor(top);
+      right: anchor(center);
+      height: anchor-size(height);
+    }
+
+    .anchor-border-right {
+      width: 5px;
+      top: anchor(top);
+      left: anchor(right);
+      height: anchor-size(height);
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .layout {
+        flex-direction: column;
+        gap: 60px;
+      }
+
+      .anchor {
+        anchor-name: --my-anchor;
+        padding: 30px 60px;
+        font-size: 24px;
+      }
+
+      .target {
+        padding: 20px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="code">
+      <div>
+<pre><code>
+<span class="code__selector">.target</span> {
+    <span class="code__properties">justify-self</span>:
+</code></pre>
+        <div class="fields-group">
+            <label>
+                <input type="radio" name="justify-self" value="auto" data-border="anchor-border-left" checked>
+                <span class="code__value">auto</span>;
+            </label>
+            <label>
+                <input type="radio" name="justify-self" value="anchor-center" data-border="anchor-border-center-horizontal">
+                <span class="code__value">anchor-center</span>;
+            </label>
+        </div>
+      </div>
+      <div>
+<pre><code>
+  <span class="code__properties">align-self</span>:
+</code></pre>
+        <div class="fields-group">
+            <label>
+                <input type="radio" name="align-self" value="auto" checked data-border="anchor-border-bottom" checked>
+                <span class="code__value">auto</span>;
+            </label>
+            <label>
+                <input type="radio" name="align-self" value="anchor-center" data-border="anchor-border-center-vertical">
+                <span class="code__value">anchor-center</span>;
+            </label>
+        </div>
+<pre><code>}</code></pre>
+        </div>
+    </div>
+
+    <div>
+        <div class="anchor">Anchor</div>
+        <div id="target" class="target">Target</div>
+
+        <div class="anchor-border anchor-border-top"></div>
+        <div class="anchor-border anchor-border-center-vertical"></div>
+        <div class="anchor-border anchor-border-bottom"></div>
+        <div class="anchor-border anchor-border-left"></div>
+        <div class="anchor-border anchor-border-center-horizontal"></div>
+        <div class="anchor-border anchor-border-right"></div>
+    </div>
+  </div>
+  <script>
+    const target = document.getElementById('target');
+
+    const justifySelfRadio = document.getElementsByName('justify-self');
+      justifySelfRadio.forEach((radio) => {
+      if (radio.checked) {
+        target.style.setProperty('justify-self', radio.value);
+      }
+      radio.addEventListener('change', (event) => {
+        target.style.setProperty('justify-self', event.target.value);
+      })
+      radio.parentElement.addEventListener('mouseenter', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.add('anchor-border-visible');
+      })
+      radio.parentElement.addEventListener('mouseleave', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.remove('anchor-border-visible');
+      })
+    })
+
+
+    const alignSelfRadio = document.getElementsByName('align-self');
+    alignSelfRadio.forEach((radio) => {
+      if (radio.checked) {
+        target.style.setProperty('align-self', radio.value);
+      }
+      radio.addEventListener('change', (event) => {
+        target.style.setProperty('align-self', event.target.value);
+      })
+      radio.parentElement.addEventListener('mouseenter', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.add('anchor-border-visible');
+      })
+      radio.parentElement.addEventListener('mouseleave', (event) => {
+        const target = event.target.children[0];
+        const border = target.dataset.border;
+        const borderEl = document.getElementsByClassName(border)[0];
+        borderEl.classList.remove('anchor-border-visible');
+      })
+    })
+  </script>
+</body>
+</html>
