@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демка меню на базе Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .height-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: scroll;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 200vh;
+      min-width: 200vw;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: inherit;
+      font-family: inherit;
+      transition: background-color 0.15s ease-in;
+      cursor: pointer;
+      background-color: #2E9AFF;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .button {
+        min-width: 60px;
+      }
+    }
+
+    .menu {
+      --menu-button-anchor-name: unset;
+      position-anchor: var(--menu-button-anchor-name);
+      inset: auto;
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: --menu-left;
+      margin: 0;
+      padding: 5px;
+      border-radius: 6px;
+      box-sizing: border-box;
+      min-width: 180px;
+      border: none;
+      border: 2px solid hsl(240, 6%, 90%);
+      list-style: none;
+    }
+
+    @position-try --menu-left {
+      position-area: block-start span-inline-end;
+    }
+
+    .menu-option {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-option-button {
+      background-color: inherit;
+      padding: 8px 12px;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      background-color: transparent;
+      text-align: left;
+      font-size: inherit;
+      user-select: none;
+    }
+
+    .menu-option-button:hover {
+      background-color: hsl(217, 12%, 92%);
+    }
+
+    .menu-option-button-with-sub-menu {
+      position: relative;
+      padding-right: 25px;
+    }
+
+    .menu-option-button-with-sub-menu::before {
+      position: absolute;
+      content: '';
+      width: 16px;
+      height: 8px;
+      top: 16px;
+      right: 2px;
+      transition: transform 0.2s ease-in;
+      transform: rotate(-90deg);
+      mask-image: url(./assets/arrow-down.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: 16px 8px;
+      background-color: hsl(0, 0%, 30%);
+    }
+
+    .menu-option-button-with-sub-menu[aria-expanded='true']::before {
+      transform: rotate(0deg);
+    }
+
+    .menu-sub-menu {
+      position-area: inline-end span-block-end;
+      position-try-fallbacks: --submenu-left, --submenu-left2, --submenu-right2;
+      margin: 0 10px;
+    }
+
+    .menu:not(.menu-sub-menu) {
+      margin: 5px 0;
+    }
+
+    @position-try --submenu-left {
+      position-area: inline-start span-block-end;
+    }
+
+    @position-try --submenu-left2 {
+      position-area: inline-start span-block-start;
+    }
+
+    @position-try --submenu-right2 {
+      position-area: inline-end span-block-start;
+    }
+  </style>
+</head>
+<body>
+  <div id="height-wrapper" class="height-wrapper">
+    <div class="container">
+      <button class="button" type="button" popovertarget="menuId" style="anchor-name:--menu-button-anchor">Открыть меню</button>
+      <ul aria-label="Действия" class="menu" id="menuId" popover="auto" role="menu" style="--menu-button-anchor-name:--menu-button-anchor">
+        <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="0" role="menuitem" tabindex="-1">Открыть</button>
+        <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="1" role="menuitem" tabindex="-1">Редактировать</button>
+        <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="2" role="menuitem" tabindex="-1">Закрыть</button>
+        <li class="menu-option" role="none" style="anchor-name:--submenu-button-more">
+          <button class="menu-option-button menu-option-button-with-sub-menu" type="button" data-idx="3" role="menuitem" tabindex="-1" aria-expanded="false" aria-haspopup="true" popovertarget="more-submenu">Ещё</button>
+          <ul aria-label="Еще" class="menu menu-sub-menu" id="more-submenu" popover="auto" role="menu" style="--menu-button-anchor-name:--submenu-button-more">
+            <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="0" role="menuitem" tabindex="-1">Действие раз</button>
+            <li class="menu-option" role="none" style="anchor-name:--submenu-button-a2">
+              <button class="menu-option-button menu-option-button-with-sub-menu" type="button" data-idx="1" role="menuitem" tabindex="-1" aria-expanded="false" aria-haspopup="true" popovertarget="a2-submenu">Действие два</button>
+              <ul aria-label="Действие два" class="menu menu-sub-menu" id="a2-submenu" popover="auto" role="menu" style="--menu-button-anchor-name:--submenu-button-a2">
+                <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="0" role="menuitem" tabindex="-1">Поддействие раз</button>
+                <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="1" role="menuitem" tabindex="-1">Поддействие два</button>
+                <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="2" role="menuitem" tabindex="-1">Поддействие три</button>
+              </ul>
+            <li class="menu-option" role="none"><button class="menu-option-button" type="button" data-idx="2" role="menuitem" tabindex="-1">Действие три</button>
+          </ul>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const TAB = 9
+    const ENTER = 13
+    const ESCAPE = 27
+    const SPACE = 32
+    const ARROW_DOWN = 40
+    const ARROW_UP = 38
+    const step = 1
+    const menuElements = Array.from(document.querySelectorAll('.menu'))
+    const handleMenu = (menuElement) => {
+      const isSubMenu = menuElement.classList.contains('menu-sub-menu')
+      const menuOptions = Array.from(menuElement.children)
+
+      const focusFirstItem = (event) => {
+        if (event.newState === 'open') {
+          const firstOption = menuOptions[0]
+          firstOption.children[0].focus()
+        } else {
+          event.target.previousElementSibling?.focus()
+        }
+      }
+
+      menuElement.addEventListener('toggle', focusFirstItem)
+
+      if (isSubMenu) {
+        const updateAriaExpanded = (event) => {
+          if (event.newState === 'open') {
+            menuElement.previousElementSibling?.setAttribute('aria-expanded', true)
+          } else {
+            menuElement.previousElementSibling?.setAttribute('aria-expanded', false)
+          }
+        };
+
+        menuElement.addEventListener('beforetoggle', updateAriaExpanded)
+      }
+
+      const onMenuKeyDown = (event) => {
+        if (event.keyCode === TAB) {
+          menuElement.hidePopover()
+        }
+      };
+
+      menuElement.addEventListener('keydown', onMenuKeyDown)
+
+      const onItemKeyDown = (event) => {
+        const menuItem = event.target
+
+        switch (event.keyCode) {
+          case ARROW_DOWN: {
+            event.preventDefault()
+            const idx = Number(menuItem.dataset.idx);
+
+            let newIndex = idx === 0 ? 1 : idx + step
+
+            if (newIndex >= menuOptions.length) {
+              newIndex = 0
+            }
+
+            const nextItem = menuOptions[newIndex].children[0]
+            nextItem.focus()
+            break;
+          }
+          case ARROW_UP: {
+            event.preventDefault()
+            const idx = Number(menuItem.dataset.idx)
+
+            let newIndex = idx - step
+
+            if (newIndex < 0) {
+              newIndex = menuOptions.length - 1
+            }
+
+            const nextItem = menuOptions[newIndex].children[0]
+            nextItem.focus()
+            break
+          }
+          case ESCAPE: {
+            if (!isSubMenu) {
+              return
+            }
+
+            menuItem.parentNode?.parentNode?.previousSibling?.focus()
+
+            break;
+          }
+          default:
+        }
+      };
+
+      menuOptions.forEach((option) => {
+        option.children[0].addEventListener('keydown', onItemKeyDown)
+      })
+    }
+
+    menuElements.forEach(handleMenu)
+  </script>
+  <script>
+    const heightWrapper = document.querySelector('#height-wrapper');
+    heightWrapper?.scrollTo({
+      top: heightWrapper?.offsetHeight / 2 + 200,
+      left: heightWrapper?.offsetWidth / 2 + 250,
+      behavior: 'instant',
+    });
+  </script>
+</body>
+</html>

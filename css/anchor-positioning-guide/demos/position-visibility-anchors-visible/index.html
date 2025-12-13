@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Показываем работу значения anchors-visible — position-visibility — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      padding: 0 60px;
+
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+
+    .text-container {
+      border: 3px solid #FFFFFF;
+      padding: 0 20px;
+      height: 300px;
+      overflow: scroll;
+      line-height: 1.6;
+    }
+
+    .notes-container {
+      flex: 0 0 150px;
+      height: 100%;
+    }
+
+    .anchor {
+      anchor-name: --anchor;
+      background-color: #123E66;;
+      padding: 4px 8px;
+      border-radius: 6px;
+    }
+
+    .target {
+      padding: 20px;
+      background-color: #2E9AFF;
+      position: absolute;
+      position-anchor: --anchor;
+      top: anchor(top);
+      position-visibility: always;
+    }
+
+    .anchors-visible {
+      position-visibility: anchors-visible;
+    }
+
+    .checkbox-container {
+      margin-bottom: 40px;
+    }
+
+    label {
+      cursor: pointer;
+      font-family: "Roboto Mono", monospace;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      line-height: 1;
+    }
+
+    input[type="checkbox"] {
+      width: 24px;
+      height: 24px;
+      accent-color: #2E9AFF;
+      flex-shrink: 0;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        font-size: 18px;
+      }
+
+      .checkbox-container {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 470px) {
+      label {
+        align-items: start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <div class="checkbox-container">
+        <label class="code">
+          <input type="checkbox" id="visibility-toggler"><span><span class="code__properties">position-visibility</span>: <span class="code__value">anchors-visible</span>;</span>
+        </label>
+      </div>
+      <div class="text-container">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum <span class="anchor">Anchor</span> dolor sit amet, adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus totam vel at delectus culpa dolorum, sint, accusantium, quam sit voluptatem aliquid explicabo id necessitatibus veniam voluptate. Magni facilis blanditiis nemo.
+      </div>
+    </div>
+    <div class="notes-container">
+      <div id="target" class="target">
+        Target
+      </div>
+    </div>
+  </div>
+  <script>
+    const target = document.getElementById('target');
+    const visibilityToggler = document.getElementById('visibility-toggler');
+
+    visibilityToggler.addEventListener('click', (event) => {
+        const method = event.target.checked ? 'add' : 'remove';
+        target.classList[method]('anchors-visible');
+    });
+  </script>
+</body>
+</html>
