@@ -15,7 +15,6 @@ keywords:
   - position-try-fallbacks
   - position-try-order
   - position-try
-  - @position-try
   - anchor-scope
   - якорь
   - якорный элемент
