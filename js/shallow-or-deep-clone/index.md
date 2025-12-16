@@ -96,7 +96,7 @@ function createCopy(object) {
 }
 ```
 
-Функция `createCopy()` подойдёт для копирования простых объектов (plain objects) или массивов различной вложенности, при условии, что исходный объект:
+Функция `createCopy()` подойдёт для копирования простого объекта (plain object) или массива, но при условии, что исходный объект:
 
 - не содержит [Symbol](/js/symbol/)-ключи;
 - хранит в качестве значений вложенные массивы, простые объекты или примитивы (кроме `Symbol`);
@@ -178,7 +178,7 @@ console.log(itemsInCart[1] === clonedCart[1])
 
 В отличии от `structuredClone()` и копирования с помощью `JSON.stringify()`, метод `cloneDeep()` не вызовет ошибки при копировании объекта содержащего функции, `Symbol`-значения или циклические ссылки.
 
-`cloneDeep()` корректно сохраняет ссылку на прототип исходного объекта. Это может быть важным при работе с объектами-экземплярами классов:
+`cloneDeep()` корректно сохраняет ссылку на прототип исходного объекта. Это может быть важным при копировании объекта-экземпляра класса:
 
 ```js
 import cloneDeep from 'lodash.clonedeep'
@@ -190,14 +190,15 @@ class Person {
 }
 
 const person = new Person('Адам')
-
+// Создадим копию объекта с помощью cloneDeep
 const clonedPerson1 = cloneDeep(person)
-
+// Проверим пренадлежность копии объекта к классу Person
 console.log(clonedPerson1 instanceof Person)
 // true
 
+// Создадим копию объекта с помощью structuredClone
 const clonedPerson2 = structuredClone(person)
-
+// Проверим пренадлежность копии объекта к классу Person
 console.log(clonedPerson2 instanceof Person)
 // false
 ```
