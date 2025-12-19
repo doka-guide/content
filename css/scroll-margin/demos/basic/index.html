@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Отступ сверху при прокрутке к элементу — scroll-margin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+      .container {
+        width: 80%;
+      }
+    }
+
+    .container {
+      display: flex;
+      scroll-behavior: smooth;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+      height: 200px;
+      background: #FFFFFF;
+      padding: 1rem;
+      overflow-y: scroll;
+      gap: 100vh;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    }
+
+    h2 {
+      scroll-margin-bottom: 2rem;
+      margin: 0;
+      padding: 1rem;
+      background: #2E9AFF;
+      border-radius: 8px;
+    }
+
+    a {
+      margin-bottom: 1rem;
+      text-decoration: none;
+      color: #2E9AFF;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="#target">Перейти к секции</a>
+    <h2 id="target">Заголовок секции</h2>
+  </div>
+</body>
+</html>
