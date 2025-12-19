@@ -98,7 +98,7 @@ function createCopy(object) {
 
 Функция `createCopy()` подойдёт для копирования при условии, что исходный объект:
 
-- хранит в качестве значений вложенные массивы, простые объекты или примитивы (кроме `Symbol`);
+- содержит в качестве значений вложенные массивы, простые объекты или примитивы (кроме `Symbol`);
 - не содержит [Symbol](/js/symbol/)-ключи;
 - не содержит циклических ссылок;
 - не наследует изменений в прототипах.
@@ -115,11 +115,45 @@ console.log(itemsInCart[1] === clonedCart[1])
 
 Возможности `structuredClone()`:
 
-- поддержка копирования множества типов, например: Map, Set, Date, ArrayBuffer, TypedArray, DateView;
+- поддержка копирования значений множества типов, например: Map, Set, Date, ArrayBuffer, TypedArray, DateView;
 - корректная обработка циклических ссылок;
-- реализация перемещения ресурсов от исходного объекта к копии (Transferring objects).
+- реализация перемещения ресурсов (transferable objects) от исходного объекта к копии.
 
-Рассмотрим на примере как работает перемещение:
+Перемещение обеспечивает безопасность доступа к ресурсу. Например, при передаче  [типизированного массива](/js/typed-array/) в сообщении от основного потока к [веб-воркеру](/js/web-workers/) буфер двоичных данных будет перемещён и доступен только веб-воркеру.
+
+Рассмотрим на примере как `structuredClone()` помогает перемещать ReadableStream-объект:
+
+```js
+const stream = new ReadableStream({
+  start(controller) {
+    controller.enqueue("<header>")
+    controller.enqueue("<span>")
+    controller.enqueue("<button>")
+    controller.enqueue("<div>")
+    controller.close()
+  }
+})
+
+// Объект с потоком
+const obj = { stream };
+
+// Копируем с передачей (transfer)
+const cloned = structuredClone(obj, { transfer: [obj.stream] })
+
+// Получим дынные потока из копии объекта
+const reader2 = cloned.stream.getReader()
+
+console.log(await reader2.read());
+
+
+try {
+  const reader = obj.stream.getReader()
+  await reader.read()
+} catch (e) {
+   // Ошибка: поток уже передан
+  console.log("Оригинальный поток недоступен:", e.message)
+}
+```
 
 
 ### Преобразование с помощью функций `JSON.stringify()` и `JSON.parse()`
