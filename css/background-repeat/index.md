@@ -7,6 +7,7 @@ editors:
   - tachisis
 contributors:
   - skorobaeus
+  - starhamster
 keywords:
   - повторение фона
 related:
@@ -23,19 +24,13 @@ tags:
 
 ## Пример
 
-```html
-<div class="element"></div>
-```
-
 ```css
 .element {
-  height: 100vh;
   background-image: url(images/pattern.png);
-  background-size: 64px auto;
 }
 ```
 
-<iframe title="Повтор по осям x и y" src="demos/repeat/" height="250"></iframe>
+<iframe title="Повтор по осям x и y" src="demos/repeat/" height="160"></iframe>
 
 Получился красивый паттерн. Изображение повторяется по горизонтали и по вертикали.
 
@@ -47,7 +42,7 @@ tags:
 }
 ```
 
-<iframe title="Повтор по оси x" src="demos/repeat-x/" height="250"></iframe>
+<iframe title="Повтор по оси x" src="demos/repeat-x/" height="160"></iframe>
 
 Теперь картинка повторяется только по горизонтали. Аналогично можно повторить картинку по вертикали при помощи значения `repeat-y`.
 
