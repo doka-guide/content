@@ -25,6 +25,9 @@
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
     }
 
     *, *::before, *::after {
@@ -33,12 +36,18 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
     .container {
       width: 800px;
       height: 500px;
       place-content: center;
       border: 4px solid #2E9AFF;
       position: relative;
+      anchor-name: --container;
     }
 
     .anchor {
@@ -61,6 +70,9 @@
       padding: 5px;
       place-content: center;
       text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .line-top {
@@ -108,21 +120,24 @@
       font-family: inherit;
       font-weight: inherit;
       font-size: 20px;
+      touch-action: none;
     }
 
-    .area-button:hover {
-      background-color: #FFFFFFB3;
-      color: black;
-      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+    @media (hover: hover) {
+      .area-button:hover {
+        background-color: #FFFFFFB3;
+        color: black;
+        text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .area-button.active:hover {
+        cursor: grabbing;
+        border: 4px solid #FFFFFF;
+        }
     }
 
     .area-button.active {
       background-color: #FFFFFFB3;
-    }
-
-    .area-button.active:hover {
-      cursor: grabbing;
-      border: 4px solid #FFFFFF;
     }
 
     .side-caption {
@@ -144,25 +159,99 @@
     }
 
     .caption {
-      top: 40px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      position: absolute;
       color: white;
       font-size: 25px;
+      position: absolute;
+      position-anchor: --container;
+      position-area: top center;
+      width: 100%;
+      left: 50%;
+      margin-bottom: 40px;
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .code {
+      color: var(--color-code);
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    @media (width <= 1080px) {
+      .container {
+        width: 80%;
+        height: 55%;
+      }
+
+      .anchor {
+        padding: 30px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 30px;
+      }
     }
 
     @media (width <= 768px) {
       body {
         padding: 30px;
       }
+
+      .anchor {
+        padding: 20px 20px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 24px;
+      }
+
+      .caption {
+        margin-bottom: 20px;
+        left: unset;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 18px;
+      }
+
+      .area-button {
+        font-size: 16px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container {
+        width: 70%;
+        height: 50%;
+      }
+
+      .anchor {
+        padding: 15px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 18px;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="caption">
-    position-area: <span id="caption-value">top center</span>;
+  <div class="caption code">
+    <span class="code__properties">position-area</span>: <span id="caption-value" class="code__value">top center</span>;
   </div>
 
   <div class="container">
@@ -203,7 +292,6 @@
 
     const areaButtons = Array.from(document.getElementsByClassName('area-button'));
 
-    let isDragging = false;
     let currentHover = null;
     let startCell = null;
 
@@ -308,7 +396,9 @@
       const cell = el && el.closest && el.closest('.area-button');
       if (cell !== currentHover){
         clearActive();
-        if (cell) cell.classList.add('active');
+        if (cell) {
+          cell.classList.add('active');
+        }
         currentHover = cell;
         highlightRange(startCell, currentHover);
       }
@@ -328,7 +418,6 @@
       }
       clearActive();
       clearStart();
-      isDragging = false;
       startCell = null;
 
       areaButtons.forEach((button, idx) => {
@@ -344,11 +433,9 @@
       if (e.button && e.button !== 0) return;
 
       e.preventDefault();
-      isDragging = true;
       document.body.style.userSelect = 'none';
       clearActive();
       clearStart();
-      cell.classList.add('start');
       cell.classList.add('active');
       startCell = cell;
       currentHover = cell;

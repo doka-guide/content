@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <title>Задаём значение для top, left с помощью функции anchor() — anchor() — Дока</title>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,6 +228,22 @@
     @media (width <= 768px) {
       body {
         padding: 30px;
+      }
+
+      .layout {
+        flex-direction: column;
+        gap: 60px;
+      }
+
+      .anchor {
+        anchor-name: --my-anchor;
+        padding: 30px 60px;
+        font-size: 24px;
+      }
+
+      .target {
+        padding: 20px;
+        font-size: 24px;
       }
     }
   </style>

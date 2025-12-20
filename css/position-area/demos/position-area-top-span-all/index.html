@@ -33,6 +33,11 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
     .container {
       width: 800px;
       height: 500px;
@@ -113,9 +118,69 @@
       top: 113%;
     }
 
+    @media (width <= 1080px) {
+      .container {
+        width: 80%;
+        height: 55%;
+      }
+
+      .anchor {
+        padding: 30px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 30px;
+      }
+    }
+
     @media (width <= 768px) {
       body {
         padding: 30px;
+      }
+
+      .anchor {
+        padding: 20px 20px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 24px;
+      }
+
+      .caption {
+        margin-bottom: 20px;
+        left: unset;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 18px;
+      }
+
+      .area-button {
+        font-size: 16px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container {
+        width: 70%;
+        height: 50%;
+      }
+
+      .anchor {
+        padding: 15px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 18px;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 16px;
       }
     }
   </style>
