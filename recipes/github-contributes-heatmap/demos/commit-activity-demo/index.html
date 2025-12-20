@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Базовый вариант — GitHub-плитка — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      min-width: 200px;
+      padding: 1rem;
+      position: relative;
+
+      --base-color: hsl(112 100% 50%);
+      --text-color: #FFFFFF;
+      --label-color: #C56FFF;
+    }
+
+    .main-container div {
+      box-sizing: border-box;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: row;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+
+    .loading {
+      position: absolute;
+      margin-inline: auto;
+      inset-inline: 0;
+      inset-block-start: 40%;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #454545;
+      border-top: 4px solid var(--base-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .repo-name,
+    .total-row,
+    .tooltip,
+    .error-value {
+      color: var(--text-color);
+    }
+
+    .description,
+    .value-label {
+      color: var(--label-color);
+    }
+
+    .year-grid {
+      flex: 1 1;
+      display: flex;
+      max-width: 100%;
+      min-width: 100px;
+      overflow-y: hidden;
+      overflow-x: auto;
+      padding: 2rem 1rem 1rem 1rem;
+      background-color: #121316;
+      border: 1px solid #363636;
+      border-radius: 5px;
+    }
+
+    .weekday-label,
+    .month-label {
+      font-size: .75rem;
+      color: var(--text-color);
+    }
+
+    .weekday-label {
+      margin: 10px 4px 0 0;
+    }
+
+    .month-label {
+      width: 0;
+      margin-top: -1rem;
+      overflow-x: visible;
+    }
+
+    .weekday-labels,
+    .week {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 auto;
+    }
+
+    .day {
+      width: 10px;
+      height: 10px;
+      margin: 1px;
+      border: 1px solid #88888818;
+      border-radius: 2px;
+    }
+
+    .day:hover {
+      border-color: #88888855;
+    }
+
+    .day.has-commits:hover {
+      border-color: #888888AA;
+    }
+
+    .tooltip {
+      position: absolute;
+      width: max-content;
+      max-width: 400px;
+      padding: 8px 16px;
+      border-radius: 4px;
+      background-color: #454545;
+    }
+
+    .tooltip .value-label {
+      color: #CCCCCC;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+      .main-container {
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mainContainer" class="main-container">
+    <div class="description"></div>
+    <div class="year-grid hidden"></div>
+  </div>
+
+  <script>
+    const REPO = 'doka-guide/content'
+    const REQ_MAX_ATTEMPTS = 3
+    const REQ_ATTEMPT_TIMEOUT = 20000
+    const ERR_202 = 'Данные не готовы'
+
+    const DATE_FORMATTER = new Intl.DateTimeFormat('ru', {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    })
+    const DATE_MONTH_FORMATTER = new Intl.DateTimeFormat('ru', {
+      month: 'short'
+    })
+    const DATE_WEEK_DAY_FORMATTER = new Intl.DateTimeFormat('ru', {
+      weekday: 'short'
+    })
+
+    const COLOR_MAX_STEPS = 15
+    const COLOR_MIN_STEPS = 5
+
+    function createURL(repo = REPO) {
+      return `https://api.github.com/repos/${repo}/stats/commit_activity`
+    }
+
+    function requestGitHubData(url) {
+      try {
+        return fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28'
+          }
+        })
+      } catch (error) {
+        console.error(error)
+        return []
+      }
+    }
+
+    async function fetchCommitActivity(requestParams = {}) {
+      try {
+        const {
+          url,
+          requestAttempts = REQ_MAX_ATTEMPTS,
+          requestAttemptTimeout = REQ_ATTEMPT_TIMEOUT
+        } = requestParams
+
+        const response = await requestGitHubData(url)
+
+        if (response.status === 202) {
+          if (requestAttempts > 0) {
+            await new Promise(r => setTimeout(r, requestAttemptTimeout))
+
+            return fetchCommitActivity({
+              url,
+              requestAttempts: requestAttempts - 1
+            })
+          }
+
+          throw new Error(ERR_202)
+        }
+
+        if (response.ok) {
+          return await response.json()
+        }
+      } catch (error) {
+        console.error(error)
+        return Promise.reject(error)
+      }
+    }
+
+    function getWeekDate(weekTimestamp) {
+      return new Date(weekTimestamp * 1000)
+    }
+
+    function getDateFormat(date) {
+      return DATE_FORMATTER.format(date)
+    }
+
+    function getMonthName(date) {
+      return DATE_MONTH_FORMATTER.format(date)
+    }
+
+    function getWeekDayFormat(date) {
+      return DATE_WEEK_DAY_FORMATTER.format(date)
+    }
+
+    function parseCommitActivity(responseData = []) {
+      if (!Array.isArray(responseData)) {
+        throw new Error('Данные не найдены')
+      }
+
+      const currDate = new Date()
+      let isFirstWeekOfMonth
+
+      return responseData.map((weekItem, weekIndex) => {
+        const { total, days: commitsPerDay, week: weekTimestamp } = weekItem
+        const weekDate = getWeekDate(weekTimestamp)
+        const firstWeekDay = weekDate.getDate()
+        let dayDate
+
+        const days = commitsPerDay.map((count, dayIndex) => {
+          dayDate = new Date(weekDate)
+          dayDate.setDate(firstWeekDay + dayIndex)
+          if (dayDate > currDate) {
+            return {}
+          }
+
+          const dateFormatted = getDateFormat(dayDate)
+
+          return {
+            count,
+            dateFormatted
+          }
+        })
+
+        const lastDay = dayDate.getDate()
+        showMonthName = (weekIndex === 0 && firstWeekDay < 10) || lastDay <= 7
+
+        return {
+          total,
+          weekDate,
+          days,
+          month: showMonthName
+            ? getMonthName(dayDate)
+            : ''
+        }
+      })
+    }
+
+    function analyzeCommits(commitsData = []) {
+      return commitsData.reduce((acc, weekData) => {
+        const counts = weekData.days.map(item => item.count ?? 0)
+        acc.min = Math.min(...counts, acc.min)
+        acc.max = Math.max(...counts, acc.max)
+        acc.total += weekData.total
+        return acc
+      }, { min: Number.POSITIVE_INFINITY, max: 0, total: 0 })
+    }
+
+    function createWeekDays(commitsData = []) {
+      const [firstWeek] = commitsData
+      if (!firstWeek) return
+
+      const { days, weekDate } = firstWeek
+
+      const firstWeekDay = weekDate.getDate()
+
+      const weekDays = days.reduce((acc, dayData, dayIndex) => {
+        if (dayIndex % 2) {
+          let dayDate = new Date(weekDate)
+          dayDate.setDate(firstWeekDay + dayIndex)
+          acc.push(getWeekDayFormat(dayDate))
+        }
+        return acc
+      }, [])
+
+      return weekDays
+    }
+
+    function generatePalette(hslColor, steps) {
+      const [h, s, lBase] = hslColor
+      const palette = []
+      let lStep
+
+      for (let i = 0; i < steps - 1; i++) {
+        lStep = lBase - (lBase * i) / steps
+        lStep = Math.max(0, lStep)
+
+        palette.push(`hsl(${h}, ${s}%, ${Math.round(lStep)}%)`)
+      }
+
+      const lEmpty = Math.min(9, Math.max(9, Math.round(lStep / 2)))
+
+      palette.push(`hsl(${Math.round(h / 1.05)}, ${Math.round(s / 4)}%, ${lEmpty}%)`)
+
+      return palette.reverse()
+    }
+
+    function getStartColor(colorStr) {
+      const hslMatch = colorStr.match(/hsl\(\s*(\d+)\s*(\d+)%?\s*(\d+)%?\s*\)/)
+      const [, h ] = hslMatch
+      const hsl = [
+        parseInt(h, 10),
+        100,
+        80
+      ]
+      return hsl
+    }
+
+    function makeColors(commitCounts, baseColorStr) {
+      const { min, max } = commitCounts
+      const steps = Math.max(Math.min(max - min, COLOR_MAX_STEPS), COLOR_MIN_STEPS)
+
+      const startColor = getStartColor(baseColorStr)
+
+      return generatePalette(startColor, steps)
+    }
+
+    function showLoading(show, container) {
+      let loadingElem = container.querySelector('.loading')
+      if (!loadingElem && show) {
+        loadingElem = document.createElement('span')
+        loadingElem.classList.add('loading')
+        container.appendChild(loadingElem)
+      }
+      else if (loadingElem && !show) {
+        loadingElem.remove()
+      }
+    }
+
+    function renderRepoInfo({ repoName }, element) {
+      element.innerHTML = `
+        <span class='repo-label'>
+          Репозиторий:
+        </span>
+        <span class="repo-name">
+          ${repoName}
+        </span>
+      `
+    }
+
+    function renderTotal({ total = null }, container) {
+      if (total !== null) {
+        const totalElem = document.createElement('div')
+        totalElem.className = 'total-row'
+        totalElem.innerHTML = `
+          <span class="value-label">
+            Общее количество коммитов за год:
+          </span>
+          <span>${total}</span>
+        `
+        container.appendChild(totalElem)
+      }
+    }
+
+    function showError(error, element) {
+      const errorMessage = error?.message ?? `${error}`
+      element.innerHTML = `
+        <span class='error-label'>
+          Ошибка получения данных:
+        </span>
+        <span class='error-value'>
+          ${errorMessage}
+        </span>
+      `
+    }
+
+    function renderYearGrid(params, container) {
+      const { commitsData = [], weekDays, commitCounts = {}, colors = [] } = params
+      const weekCount = commitsData.length ?? 0
+      if (weekCount === 0) return
+
+      const { max } = commitCounts
+
+      const steps = colors.length
+      const factor = steps - 1
+
+      if (weekDays) {
+        const weekDaysContainer = document.createElement('div')
+        weekDaysContainer.className = 'weekday-labels'
+
+        weekDays.forEach(weekDay => {
+          const weekDayLabel = document.createElement('div')
+          weekDayLabel.className = 'weekday-label'
+          weekDayLabel.innerText = weekDay
+          weekDaysContainer.appendChild(weekDayLabel)
+        })
+        container.appendChild(weekDaysContainer)
+      }
+
+      commitsData.forEach(weekData => {
+        const { days, month } = weekData
+        if (month) {
+          const monthLabel = document.createElement('div')
+          monthLabel.className = 'month-label'
+          monthLabel.innerText = month
+          container.appendChild(monthLabel)
+        }
+        const weekContainer = document.createElement('div')
+        weekContainer.className = 'week'
+
+        days.forEach(dayData => {
+          const { count = 0, dateFormatted = '' } = dayData
+          const isFuture = dateFormatted === ''
+
+          const dayContainer = document.createElement('div')
+          let className = 'day cell'
+
+          if (isFuture) {
+            className += ' hidden'
+          } else {
+            const colorIndex = count > 0
+              ? Math.min(
+                Math.ceil((count / max) * steps) + (count > 1 ? 1 : 0),
+                factor
+              )
+              : 0
+            dayContainer.style.background = colors[colorIndex]
+            dayContainer.setAttribute('data-date', dateFormatted)
+          }
+
+          if (count) {
+            dayContainer.setAttribute('data-count', count)
+            className += ' has-commits'
+          }
+          dayContainer.className = className
+          weekContainer.appendChild(dayContainer)
+        })
+
+        container.appendChild(weekContainer)
+        container.classList.remove('hidden')
+      })
+    }
+
+    function bindTooltip(gridContainer, container) {
+      const tooltipElem = document.createElement('div')
+      tooltipElem.innerHTML = `
+        <div
+          class="tooltip hidden"
+          role="tooltip"
+          id="tooltip"
+          data-position="top"
+        ></div>
+      `
+      container.appendChild(tooltipElem)
+
+      let top = 0
+      let left = 0
+
+      const toggleTooltip = (target = null) => {
+        const show = target !== null
+
+        if (show) {
+          const { offsetTop, offsetLeft } = target
+          const date = target.getAttribute('data-date')
+          if (!date) return
+          const count = target.getAttribute('data-count')
+
+          tooltip.style.top = `${offsetTop - (count ? 65 : 40)}px`
+          tooltip.style.left = `${offsetLeft - 55}px`
+
+          tooltip.innerHTML = `<div>
+            ${date}
+            ${count ? `<br><span class="value-label">коммитов:</span> ${count}` : ''}
+            </div>
+          `
+        }
+
+        tooltip.classList.toggle('hidden', !show)
+      }
+
+      const showTooltip = event => {
+        const target = event.target
+        if (target.classList.contains('day')) {
+          if (top !== target.offsetTop || left !== target.offsetLeft) {
+            top = target.offsetTop
+            left = target.offsetLeft
+            toggleTooltip(target)
+          }
+        }
+      }
+
+      const hideTooltip = event => {
+        top = 0
+        left = 0
+        toggleTooltip()
+      }
+
+      gridContainer.addEventListener('mousemove', showTooltip)
+      gridContainer.addEventListener('mouseleave', hideTooltip)
+    }
+
+    const mainContainer = document.querySelector('#mainContainer')
+    const description = mainContainer.querySelector('.description')
+    const gridContainer = mainContainer.querySelector('.year-grid')
+    const spinner = mainContainer.querySelector('.spinner')
+    const baseColor = getComputedStyle(mainContainer).getPropertyValue('--base-color').trim()
+
+    showLoading(true, mainContainer)
+
+    fetchCommitActivity({
+      url: createURL()
+    }).then(responseData => {
+      return parseCommitActivity(responseData)
+    }).then(commitsData => {
+      const commitCounts = analyzeCommits(commitsData)
+      const weekDays = createWeekDays(commitsData)
+
+      const colors = makeColors(commitCounts, baseColor)
+
+      renderRepoInfo({ repoName: REPO }, description)
+      renderTotal(commitCounts, mainContainer)
+
+      renderYearGrid(
+        { commitsData, weekDays, commitCounts, colors },
+        gridContainer
+      )
+
+      bindTooltip(gridContainer, mainContainer)
+    }).catch(error => {
+      showError(error, description)
+    }).finally(() => {
+      showLoading(false, mainContainer)
+    })
+  </script>
+</body>
+
+</html>

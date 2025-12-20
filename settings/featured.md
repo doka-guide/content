@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - tools/network
-  - css/position
-  - tools/ci-cd
-  - recipes/popup
-  - a11y/aria-intro
-  - a11y/content-hidden
-  - js/function-context
-  - js/infinite-scroll
-  - js/geolocation-api
-  - css/box-sizing
-  - a11y/live-region
-  - html/doctype
-  - a11y/screenreaders
-  - tools/oop
-  - css/scrollbar-gutter
-  - a11y/css-impact-on-a11y
-  - css/pseudoelements
-  - tools/markdown
+  - tools/webpack
   - js/function
+  - html/div
+  - tools/how-to-test-and-why
   - tools/cli
-  - js/execution-order
   - recipes/ajax-form
-  - css/grid-guide
+  - recipes/center
+  - tools/clean-architecture
+  - recipes/git-rebase-onto
+  - js/execution-order
+  - html/head
   - tools/how-the-browser-creates-pages
-  - tools/gitlab-ci-cd
+  - recipes/snow
+  - css/flexbox-guide
+  - a11y/content-hidden
+  - css/attr
+  - js/function-context
+  - css/pseudoelements
+  - css/transform-function
+  - tools/agile
+  - a11y/aria-intro
+  - css/custom-properties
+  - html/article
   - a11y/aria-hidden
+  - css/position
+  - a11y/css-impact-on-a11y
+  - tools/ci-cd
+  - js/deal-with-forms
+  - tools/static-types
+  - html/flow
+  - html/doctype
+  - js/async-in-js
   - css/display
+  - html/img
+  - js/array-entries
+  - a11y/live-region
+  - html/nav
+  - css/grid-guide
+  - tools/network
   - recipes/character-counter
   - css/keyframes
-  - js/closures
-  - html/img
-  - css/specificity
-  - tools/cors
-  - css/media
-  - js/var-let
-  - css/attr
-  - recipes/git-rebase-onto
-  - js/boolean
-  - tools/bundlers
-  - css/box-shadow
   - html/input
-  - css/custom-properties
-  - recipes/progress
-  - js/async-in-js
-  - html/flow
-  - tools/static-types
-  - css/transform-function
-  - css/box-model
-  - tools/agile
-  - css/flexbox-guide
-  - html/section
-  - html/div
-  - recipes/center
-  - tools/docker
-  - tools/clean-architecture
-  - html/video
-  - js/array-reduce-right
-  - recipes/lets-encrypt-nginx
-  - html/head
-  - tools/webpack
-  - tools/how-to-test-and-why
-  - html/nav
   - html/form
-  - html/article
-  - js/array-entries
-  - js/deal-with-forms
-  - recipes/snow
+  - css/media
+  - recipes/popup
+  - tools/gitlab-ci-cd
+  - js/geolocation-api
+  - js/boolean
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - css/box-shadow
+  - css/box-sizing
+  - tools/cors
+  - html/video
+  - html/section
+  - a11y/screenreaders
+  - css/specificity
+  - recipes/progress
+  - tools/oop
+  - js/infinite-scroll
+  - tools/markdown
+  - js/var-let
+  - css/box-model
+  - tools/bundlers
+  - tools/docker
+  - js/array-reduce-right
+  - js/closures
 ---
 
