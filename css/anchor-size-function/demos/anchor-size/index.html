@@ -41,9 +41,14 @@
 
     .layout {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       gap: 100px;
+      flex-grow: 1;
+    }
+
+    .code-container {
+      margin-top: 55px;
     }
 
     .fields-group {
@@ -102,11 +107,9 @@
     .anchor {
       anchor-name: --my-anchor;
       padding: 60px 120px;
-      margin: 0 auto;
       font-size: 36px;
       width: max-content;
       background: #123E66;
-      margin-top: -100px;
     }
 
     .target {
@@ -115,21 +118,29 @@
       position: absolute;
       position-anchor: --my-anchor;
       top: anchor(bottom);
+      left: anchor(left);
       text-align: center;
       background-color: #2E9AFFBF;
       transition: all .3s ease-in;
     }
 
-    @media (width <= 768px) {
-      body {
-        padding: 30px;
+    @media (width <= 986px) {
+      .layout {
+        flex-direction: column;
+        gap: 40px;
+        padding-bottom: 40px;
+      }
+
+      .code-container {
+        margin-top: 0;
+        margin-left: 50px;
       }
     }
   </style>
 </head>
 <body>
   <div class="layout">
-    <div class="code" style="margin-top: -40px;">
+    <div class="code-container code">
       <div>
 <pre><code>
 <span class="code__selector">.target</span> {
@@ -152,11 +163,8 @@
       </div>
 <pre><code>}</code></pre>
     </div>
-
-    <div>
-        <div class="anchor">Anchor</div>
-        <div id="target" class="target">Target</div>
-    </div>
+    <div class="anchor">Anchor</div>
+    <div id="target" class="target">Target</div>
   </div>
   <script>
     const target = document.getElementById('target');
