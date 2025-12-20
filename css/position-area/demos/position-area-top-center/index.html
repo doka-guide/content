@@ -183,6 +183,32 @@
         font-size: 16px;
       }
     }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -203,4 +229,13 @@
     <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
     <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
   </div>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+  </body>
 </html>
