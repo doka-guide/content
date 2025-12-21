@@ -39,7 +39,7 @@
     }
 
     .container {
-      width: 80%;
+      width: 60%;
       height: 90%;
       max-width: 800px;
       max-height: 500px;
@@ -122,9 +122,23 @@
       top: 113%;
     }
 
+    @media (width <= 950px) {
+      .container {
+        width: 70%;
+      }
+
+      .side-caption {
+        font-size: 20px;
+      }
+    }
+
     @media (width <= 768px) {
       body {
         padding: 30px;
+      }
+
+      .container {
+        width: 80%;
       }
 
       .anchor {
@@ -146,17 +160,23 @@
       }
     }
 
-    @media (width <= 520px) {
+    @media (width <= 580px) {
       .anchor {
         width: 100px;
         height: 80px;
       }
     }
 
+    @media (width <= 460px) {
+      .side-caption {
+        font-size: 14px;
+      }
+    }
+
     @media (width <= 414px) {
       .container {
         width: 70%;
-        height: 70%;
+        height: 60%;
       }
 
       .anchor {
@@ -170,7 +190,7 @@
       }
 
       .side-caption {
-        font-size: 14px;
+        font-size: 13px;
       }
 
       .side-caption-vertical {

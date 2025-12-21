@@ -42,7 +42,7 @@
     }
 
     .container {
-      width: 80%;
+      width: 60%;
       height: 90%;
       max-width: 800px;
       max-height: 500px;
@@ -149,7 +149,7 @@
       position-anchor: --my-anchor;
       position-area: var(--position-area);
       color: white;
-      font-size: 25px;
+      font-size: 22px;
     }
 
     .side-caption-vertical {
@@ -164,12 +164,12 @@
 
     .caption {
       color: white;
-      font-size: 24px;
+      font-size: 22px;
       position: absolute;
       position-anchor: --container;
       position-area: top center;
       width: 100%;
-      left: 50%;
+      /* left: 50%; */
       margin-bottom: 20px;
       font-family: "Roboto Mono", monospace;
     }
@@ -186,12 +186,24 @@
       color: var(--color-code-value);
     }
 
+    @media (width <= 950px) {
+      .container {
+        width: 70%;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 20px;
+      }
+    }
+
     @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
       .container {
+        width: 80%;
         height: 85%;
       }
 
@@ -205,11 +217,6 @@
         font-size: 24px;
       }
 
-      .caption {
-        margin-bottom: 20px;
-        left: unset;
-      }
-
       .caption,
       .side-caption {
         font-size: 18px;
@@ -220,7 +227,7 @@
       }
     }
 
-    @media (width <= 520px) {
+    @media (width <= 580px) {
       .container {
         height: 75%;
       }
@@ -256,7 +263,7 @@
     @media (width <= 414px) {
       .container {
         width: 80%;
-        height: 70%;
+        height: 60%;
       }
 
       .anchor {
