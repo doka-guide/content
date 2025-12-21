@@ -88,7 +88,6 @@
       position: absolute;
       position-anchor: --container;
       position-area: top center;
-      /* bottom: 40px; */
       font-size: 20px;
       display: flex;
       align-items: center;
@@ -141,6 +140,10 @@
       color: var(--color-code-value);
     }
 
+    .nowrap {
+      white-space: nowrap;
+    }
+
     @media (width <= 768px) {
       body {
         padding: 30px;
@@ -155,10 +158,6 @@
         height: 120px;
         font-size: 24px;
       }
-
-      /* .checkbox-container {
-        bottom: 20px;
-      } */
 
       .container li {
         padding-top: 180px;
@@ -206,6 +205,10 @@
         padding-top: 130px;
       }
 
+      .checkbox-container {
+        font-size: 14px;
+      }
+
       .box {
         width: 70px;
         height: 70px;
@@ -248,7 +251,7 @@
 <body>
   <div class="checkbox-container code">
     <input type="checkbox" id="anchor-scope">
-    <label for="anchor-scope"><span class="code__properties">anchor-scope</span>: <span class="code__value">all</span>;</label>
+    <label for="anchor-scope"><span class="code__properties">anchor-scope</span>: <span class="code__value nowrap">--anchor</span>;</label>
   </div>
   <ul id="list" class="container">
     <li>
