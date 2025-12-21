@@ -72,11 +72,11 @@ tags:
 
 Запускаем код в браузере и видим, что на экране отображен только третий таргет элемент. Куда же подевались ещё два?
 
-<iframe title="Используем несколько раз один и тот же anchor-name без anchor-scope – таргет элементы прилипают к последнему якорю" src="demos/without-anchor-scope-1/" height="500"></iframe>
+<iframe title="Используем несколько раз один и тот же anchor-name без anchor-scope – таргет элементы прилипают к последнему якорю" src="demos/without-anchor-scope-1/" height="480"></iframe>
 
 Если добавим отступов для дебага, то увидим, что, на самом деле все, три таргет элемента присутствуют на экране, просто они почему-то прикрепились к последнему якорю. Почему так происходит?
 
-<iframe title="Используем несколько раз один и тот же anchor-name без anchor-scope – таргет элементы прилипают к последнему якорю (с отступами)" src="demos/without-anchor-scope-2/" height="500"></iframe>
+<iframe title="Используем несколько раз один и тот же anchor-name без anchor-scope – таргет элементы прилипают к последнему якорю (с отступами)" src="demos/without-anchor-scope-2/" height="480"></iframe>
 
 В данном примере мы использовали одно и то же якорное имя для нескольких элементов.
 
@@ -123,4 +123,4 @@ ul li {
 }
 ```
 
-<iframe title="Используем несколько раз один и тот же anchor-name с anchor-scope – таргет элементы прилипают к своему якорю" src="demos/with-anchor-scope/" height="540"></iframe>
+<iframe title="Используем несколько раз один и тот же anchor-name с anchor-scope – таргет элементы прилипают к своему якорю" src="demos/with-anchor-scope/" height="500"></iframe>

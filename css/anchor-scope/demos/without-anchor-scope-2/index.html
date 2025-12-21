@@ -64,6 +64,9 @@
     }
 
     .target {
+      --left-offset-size: 20px;
+      --bottom-offset-size: 10px;
+
       background-color: #2E9AFF;
       position: absolute;
       position-anchor: --anchor;
@@ -71,8 +74,8 @@
       bottom: 20px;
 
       box-shadow: -8px 8px 8px 0px rgba(3, 12, 18, 0.4);
-      margin-left: calc(20px * (var(--index) - 1));
-      margin-bottom: calc(10px * (var(--index) - 1));
+      margin-left: calc(var(--left-offset-size) * (var(--index) - 1));
+      margin-bottom: calc(var(--bottom-offset-size) * (var(--index) - 1));
     }
 
     @media (width <= 768px) {
@@ -119,6 +122,23 @@
       .box {
         width: 90px;
         height: 90px;
+      }
+    }
+
+    @media (width <= 354px) {
+      .container li {
+        padding-top: 110px;
+      }
+
+      .box {
+        width: 70px;
+        height: 70px;
+        font-size: 16px;
+      }
+
+      .target {
+        --left-offset-size: 12px;
+        --bottom-offset-size: 7px;
       }
     }
 
