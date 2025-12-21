@@ -14,8 +14,10 @@
     }
 
     body {
+      min-width: 100vw;
       min-height: 100vh;
       padding: 50px;
+      padding-bottom: 150px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -91,7 +93,8 @@
       color: var(--color-code-function);
     }
 
-    .fields-group * {
+    .fields-group *,
+    .fields-group-caption {
       font-family: "Roboto Mono", monospace;
     }
 
@@ -106,34 +109,134 @@
 
     .anchor {
       anchor-name: --my-anchor;
-      padding: 60px 120px;
+      width: 275px;
+      height: 140px;
+      margin: 0 auto;
       font-size: 36px;
-      width: max-content;
       background: #123E66;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .target {
-      padding: 30px;
+      height: 100px;
       font-size: 36px;
       position: absolute;
       position-anchor: --my-anchor;
       top: anchor(bottom);
       left: anchor(left);
-      text-align: center;
       background-color: #2E9AFFBF;
       transition: all .3s ease-in;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    @media (width <= 986px) {
+    .fields-group-caption {
+      display: none;
+    }
+
+    @media (width <= 1030px) {
+      body {
+        align-items: start;
+      }
+
+      .layout {
+        gap: 80px;
+      }
+
+      .anchor {
+        width: 240px;
+      }
+    }
+
+    @media (width <= 878px) {
+      body {
+        padding: 30px;
+        padding-bottom: 110px;
+        align-items: center;
+        justify-content: start;
+      }
+
       .layout {
         flex-direction: column;
         gap: 40px;
-        padding-bottom: 40px;
+      }
+
+      .anchor {
+        anchor-name: --my-anchor;
+        width: 300px;
+        height: 120px;
+        font-size: 24px;
+      }
+
+      .target {
+        height: 80px;
+        font-size: 24px;
+      }
+
+      pre {
+        display: none;
       }
 
       .code-container {
         margin-top: 0;
-        margin-left: 50px;
+      }
+
+      .fields-group-caption {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .fields-group {
+        margin-bottom: 20px;
+        margin-left: 0;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (width <= 580px) {
+      body {
+        font-size: 16px;
+        padding-bottom: 100px;
+      }
+
+      .anchor {
+        width: 260px;
+        height: 100px;
+        font-size: 20px;
+      }
+
+      .target {
+        height: 70px;
+        font-size: 20px;
+      }
+    }
+
+    @media (width <= 460px) {
+      body {
+        font-size: 14px;
+      }
+
+      .anchor {
+        width: 220px;
+        height: 120px;
+        font-size: 18px;
+      }
+
+      .target {
+        font-size: 18px;
+      }
+    }
+
+    @media (width <= 354px) {
+      body {
+        font-size: 13px;
+      }
+
+      .anchor {
+        width: 190px;
       }
     }
 
@@ -172,6 +275,9 @@
 <span class="code__selector">.target</span> {
     <span class="code__properties">width</span>:
 </code></pre>
+        <div class="fields-group-caption">
+          <span class="code__properties">width</span>:
+        </div>
         <div class="fields-group">
             <label>
                 <input type="radio" name="width" value="anchor-size(width)" checked>
