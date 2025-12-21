@@ -91,7 +91,7 @@ tags:
 }
 ```
 
-<iframe title="Позиционируем элемент с помощью функции anchor()" src="demos/anchor-function-top-left/" height="540"></iframe>
+<iframe title="Позиционируем элемент с помощью функции anchor()" src="demos/anchor-function-top-left/" height="490"></iframe>
 
 Стоит отметить, что в качестве аргумента `<anchor-side>` в функцию можно передавать только значения, соответствующие оси inset-свойства, для которого функция применяется.
 

@@ -14,6 +14,7 @@
     }
 
     body {
+      min-width: 100vw;
       min-height: 100vh;
       padding: 50px;
       display: flex;
@@ -86,7 +87,8 @@
       color: var(--color-code-function);
     }
 
-    .fields-group * {
+    .fields-group *,
+    .fields-group-caption {
       font-family: "Roboto Mono", monospace;
     }
 
@@ -101,11 +103,14 @@
 
     .anchor {
       anchor-name: --my-anchor;
-      padding: 50px 80px;
+      width: 275px;
+      height: 140px;
       margin: 0 auto;
       font-size: 36px;
-      width: max-content;
       background: #123E66;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .caption {
@@ -139,13 +144,17 @@
     }
 
     .target {
-      padding: 30px;
+      width: 160px;
+      height: 100px;
       font-size: 36px;
       position: absolute;
       position-anchor: --my-anchor;
       anchor-name: --my-target;
       background-color: #2E9AFFBF;
       transition: all .3s ease-in;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .anchor-border {
@@ -154,10 +163,6 @@
       background-color: #FFFFFF;
       opacity: 0;
       transition: opacity 0.2s;
-    }
-
-    .anchor-border-visible {
-      opacity: 1;
     }
 
     .anchor-border-top {
@@ -180,10 +185,6 @@
       transition: opacity 0.2s;
     }
 
-    .target-border-visible {
-      opacity: 1;
-    }
-
     .target-border-top {
       height: 5px;
       left: anchor(left);
@@ -191,25 +192,114 @@
       width: anchor-size(width);
     }
 
-    @media (width <= 768px) {
+    @media (hover: hover) {
+      .anchor-border-visible {
+        opacity: 1;
+      }
+
+      .target-border-visible {
+        opacity: 1;
+      }
+    }
+
+    .fields-group-caption {
+      display: none;
+    }
+
+    @media (width <= 1030px) {
+      body {
+        align-items: start;
+      }
+    }
+
+    @media (width <= 878px) {
       body {
         padding: 30px;
+        align-items: center;
+        justify-content: start;
       }
 
       .layout {
         flex-direction: column;
         gap: 60px;
+        padding-bottom: 80px;
       }
 
       .anchor {
         anchor-name: --my-anchor;
-        padding: 30px 60px;
+        width: 230px;
+        height: 120px;
         font-size: 24px;
       }
 
       .target {
-        padding: 20px;
+        width: 140px;
+        height: 80px;
         font-size: 24px;
+      }
+
+      pre {
+        display: none;
+      }
+
+      .fields-group-caption {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .fields-group {
+        margin-bottom: 20px;
+        margin-left: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .hidden-on-small-screens {
+        display: none;
+      }
+    }
+
+    @media (width <= 580px) {
+      body {
+        font-size: 16px;
+      }
+
+      .anchor {
+        width: 190px;
+        height: 100px;
+        font-size: 20px;
+      }
+
+      .target {
+        width: 110px;
+        height: 70px;
+        font-size: 20px;
+      }
+
+      .layout {
+        padding-bottom: 70px;
+      }
+    }
+
+    @media (width <= 460px) {
+      body {
+        font-size: 14px;
+      }
+
+      .anchor {
+        width: 160px;
+        height: 140px;
+        font-size: 18px;
+      }
+
+      .target {
+        width: 80px;
+        height: 70px;
+        font-size: 18px;
+      }
+
+      .layout {
+        padding-bottom: 70px;
       }
     }
 
@@ -242,20 +332,23 @@
 </head>
 <body>
   <div class="layout">
-    <div class="code" style="margin-top: -45px;">
+    <div class="code">
       <div>
 <pre><code>
 <span class="code__selector">.target</span> {
     <span class="code__properties">top</span>:
 </code></pre>
+        <div class="fields-group-caption">
+          <span class="code__properties">top</span>: <span class="code__function">anchor</span><span class="code__value">(...)</span>;
+        </div>
         <div class="fields-group" data-border="target-border-top">
             <label>
                 <input type="radio" name="top" value="anchor(inside)" data-border="anchor-border-top">
-                <span class="code__function">anchor</span><span class="code__value">(inside)</span>;
+                <span class="code__function hidden-on-small-screens">anchor</span><span class="code__value"><span class="hidden-on-small-screens">(</span>inside<span class="hidden-on-small-screens">)</span></span><span class="hidden-on-small-screens">;</span>
             </label>
             <label>
                 <input type="radio" name="top" value="anchor(outside)" data-border="anchor-border-bottom" checked>
-                <span class="code__function">anchor</span><span class="code__value">(outside)</span>;
+                <span class="code__function hidden-on-small-screens">anchor</span><span class="code__value"><span class="hidden-on-small-screens">(</span>outside<span class="hidden-on-small-screens">)</span></span><span class="hidden-on-small-screens">;</span>
             </label>
         </div>
       </div>
