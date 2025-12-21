@@ -59,7 +59,7 @@ authors:
 related:
   - css/position-anchor
   - css/anchor-function
-  # - css/position-try
+  - css/position-try
 tags:
   - doka
 ---
@@ -92,7 +92,7 @@ tags:
 }
 ```
 
-<iframe title="Размещаем элемент сверху слева без position-area" src="demos/top-left-without-position-area/" height="440"></iframe>
+<iframe title="Размещаем элемент сверху слева без position-area" src="demos/top-left-without-position-area/" height="350"></iframe>
 
 Если нам нужно расположить элемент по центру одной из осей, можем использовать связку из функции [`anchor()`](/css/anchor-function/) и значения `anchor-center` для свойств [`justify-self`](/css/justify-self/), [`align-self`](/css/align-self/):
 
@@ -104,7 +104,7 @@ tags:
 }
 ```
 
-<iframe title="Размещаем элемент сверху по центру без position-area" src="demos/top-center-without-position-area/" height="440"></iframe>
+<iframe title="Размещаем элемент сверху по центру без position-area" src="demos/top-center-without-position-area/" height="350"></iframe>
 
 В обоих случаях нам потребовалось использовать два свойства, чтобы расположить элемент в нужном месте. Не очень удобно. Чтобы решить эту проблему было создано свойство `position-area`. С помощью него можно расположить таргет элемент относительно якоря используя концепцию сетки.
 
@@ -124,7 +124,7 @@ tags:
 }
 ```
 
-<iframe title="Располагаем элемент сверху по центру" src="demos/position-area-top-center/" height="680"></iframe>
+<iframe title="Располагаем элемент сверху по центру" src="demos/position-area-top-center/" height="450"></iframe>
 
 расположит элемент сверху по центру.
 
@@ -136,7 +136,7 @@ tags:
 }
 ```
 
-<iframe title="Располагаем элемент сверху и тянем на две ячейки" src="demos/position-area-top-span-left/" height="680"></iframe>
+<iframe title="Располагаем элемент сверху и тянем на две ячейки" src="demos/position-area-top-span-left/" height="450"></iframe>
 
 А если хочется растянуть элемент на все три ячейки – в этом поможет значение `span-all`.
 
@@ -146,7 +146,7 @@ tags:
 }
 ```
 
-<iframe title="Располагаем элемент сверху и тянем на три ячейки" src="demos/position-area-top-span-all/" height="680"></iframe>
+<iframe title="Располагаем элемент сверху и тянем на три ячейки" src="demos/position-area-top-span-all/" height="450"></iframe>
 
 При этом `span-all` можно опустить, так как оно применяется по умолчанию.
 
@@ -156,10 +156,10 @@ tags:
 }
 ```
 
-<iframe title="Располагаем элемент сверху и тянем на три ячейки" src="demos/position-area-top/" height="680"></iframe>
+<iframe title="Располагаем элемент сверху и тянем на три ячейки" src="demos/position-area-top/" height="450"></iframe>
 
 Важно помнить, что элемент растянется на все три ячейки, только если у него будет достаточно для этого ширины. Значение `span-all` само по себе не увеличит ширину таргет элемента.
 
 Лучше понять, какое значение прописать для свойства, чтобы расположить его в нужной месте поможет интерективная демка ниже. В ней можно кликать на любую из ячеек, чтобы выбрать одну ячейку. Также зажать и тянуть, чтобы выбрать несколько ячеек.
 
-<iframe title="Интерактивная демка, показывающася работу position-area" src="demos/position-area-interactive/" height="700"></iframe>
+<iframe title="Интерактивная демка, показывающася работу position-area" src="demos/position-area-interactive/" height="500"></iframe>

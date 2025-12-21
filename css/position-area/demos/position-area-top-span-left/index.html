@@ -39,8 +39,10 @@
     }
 
     .container {
-      width: 800px;
-      height: 500px;
+      width: 80%;
+      height: 90%;
+      max-width: 800px;
+      max-height: 500px;
       place-content: center;
       border: 4px solid #2E9AFF;
       position: relative;
@@ -49,10 +51,12 @@
     .anchor {
       anchor-name: --my-anchor;
       background-color: #123E66;
-      padding: 40px 40px;
-      font-size: 36px;
+      width: 180px;
+      height: 100px;
+      font-size: 30px;
       margin: 0 auto;
-      width: max-content;
+      place-content: center;
+      text-align: center;
     }
 
     .target {
@@ -62,7 +66,7 @@
       position-area: top span-left;
       width: 100%;
       height: 100%;
-      font-size: 36px;
+      font-size: 30px;
       padding: 5px;
       place-content: center;
       text-align: center;
@@ -118,29 +122,14 @@
       top: 113%;
     }
 
-    @media (width <= 1080px) {
-      .container {
-        width: 80%;
-        height: 55%;
-      }
-
-      .anchor {
-        padding: 30px;
-      }
-
-      .anchor,
-      .target {
-        font-size: 30px;
-      }
-    }
-
     @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
       .anchor {
-        padding: 20px 20px;
+        width: 140px;
+        height: 90px;
       }
 
       .anchor,
@@ -148,12 +137,6 @@
         font-size: 24px;
       }
 
-      .caption {
-        margin-bottom: 20px;
-        left: unset;
-      }
-
-      .caption,
       .side-caption {
         font-size: 18px;
       }
@@ -163,14 +146,22 @@
       }
     }
 
+    @media (width <= 520px) {
+      .anchor {
+        width: 100px;
+        height: 80px;
+      }
+    }
+
     @media (width <= 414px) {
       .container {
         width: 70%;
-        height: 50%;
+        height: 70%;
       }
 
       .anchor {
-        padding: 15px;
+        width: 80px;
+        height: 70px;
       }
 
       .anchor,
@@ -178,9 +169,12 @@
         font-size: 18px;
       }
 
-      .caption,
       .side-caption {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .side-caption-vertical {
+        left: 120%;
       }
     }
 
@@ -214,12 +208,13 @@
 <body>
   <div class="container">
     <div class="anchor">Anchor</div>
-    <div id="target" class="target">Target</div>
 
     <div class="line-bottom"></div>
     <div class="line-top"></div>
     <div class="line-right"></div>
     <div class="line-left"></div>
+
+    <div id="target" class="target">Target</div>
 
     <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
     <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>

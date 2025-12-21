@@ -16,6 +16,7 @@
     body {
       min-height: 100vh;
       padding: 50px;
+      padding-top: 150px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -34,34 +35,44 @@
 
     .anchor {
       anchor-name: --my-anchor;
-      padding: 50px 80px;
-      font-size: 36px;
-      width: max-content;
+      width: 270px;
+      height: 140px;
+      font-size: 30px;
       background: #123E66;
       margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .target {
-      padding: 30px;
-      font-size: 36px;
+      width: 160px;
+      height: 100px;
+      font-size: 30px;
       position: absolute;
       position-anchor: --my-anchor;
       background-color: #2E9AFFBF;
       bottom: anchor(top);
       left: anchor(left);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     @media (width <= 768px) {
       body {
         padding: 30px;
+        padding-top: 130px;
       }
 
       .anchor {
-        padding: 40px 60px;
+        width: 200px;
+        height: 100px;
       }
 
       .target {
-        padding: 20px;
+        width: 120px;
+        height: 80px;
       }
 
       .anchor,

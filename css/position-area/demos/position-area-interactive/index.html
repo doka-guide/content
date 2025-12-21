@@ -42,8 +42,10 @@
     }
 
     .container {
-      width: 800px;
-      height: 500px;
+      width: 80%;
+      height: 90%;
+      max-width: 800px;
+      max-height: 500px;
       place-content: center;
       border: 4px solid #2E9AFF;
       position: relative;
@@ -53,10 +55,12 @@
     .anchor {
       anchor-name: --my-anchor;
       background-color: #123E66;
-      padding: 40px 40px;
-      font-size: 36px;
+      width: 180px;
+      height: 100px;
+      font-size: 30px;
       margin: 0 auto;
-      width: max-content;
+      place-content: center;
+      text-align: center;
     }
 
     .target {
@@ -66,7 +70,7 @@
       position-area: top center;
       width: 100%;
       height: 100%;
-      font-size: 36px;
+      font-size: 30px;
       padding: 5px;
       place-content: center;
       text-align: center;
@@ -160,13 +164,13 @@
 
     .caption {
       color: white;
-      font-size: 25px;
+      font-size: 24px;
       position: absolute;
       position-anchor: --container;
       position-area: top center;
       width: 100%;
       left: 50%;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-family: "Roboto Mono", monospace;
     }
 
@@ -182,29 +186,18 @@
       color: var(--color-code-value);
     }
 
-    @media (width <= 1080px) {
-      .container {
-        width: 80%;
-        height: 55%;
-      }
-
-      .anchor {
-        padding: 30px;
-      }
-
-      .anchor,
-      .target {
-        font-size: 30px;
-      }
-    }
-
     @media (width <= 768px) {
       body {
         padding: 30px;
       }
 
+      .container {
+        height: 85%;
+      }
+
       .anchor {
-        padding: 20px 20px;
+        width: 140px;
+        height: 90px;
       }
 
       .anchor,
@@ -227,14 +220,48 @@
       }
     }
 
-    @media (width <= 414px) {
+    @media (width <= 520px) {
       .container {
-        width: 70%;
-        height: 50%;
+        height: 75%;
       }
 
       .anchor {
-        padding: 15px;
+        width: 120px;
+        height: 80px;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 16px;
+      }
+
+      .caption {
+        min-height: 43px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (width <= 460px) {
+      .caption,
+      .side-caption {
+        font-size: 14px;
+      }
+
+      .caption {
+        min-height: 36px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container {
+        width: 80%;
+        height: 70%;
+      }
+
+      .anchor {
+        width: 80px;
+        height: 70px;
       }
 
       .anchor,
@@ -244,7 +271,11 @@
 
       .caption,
       .side-caption {
-        font-size: 16px;
+        font-size: 13px;
+      }
+
+      .side-caption-vertical {
+        left: 120%;
       }
     }
 
@@ -282,12 +313,13 @@
 
   <div class="container">
     <div class="anchor">Anchor</div>
-    <div id="target" class="target">Target</div>
 
     <div class="line-bottom"></div>
     <div class="line-top"></div>
     <div class="line-right"></div>
     <div class="line-left"></div>
+
+    <div id="target" class="target">Target</div>
 
     <div id="buttons-grid">
       <button class="area-button" style="--position-area: top left;" data-position-area="top left" data-idx="1" data-row="1" data-col="1">top left</button>
