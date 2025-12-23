@@ -3,6 +3,8 @@ title: "Поверхностное и глубокое копирование"
 description: "При копировании объектов и массивов в JavaScript, данные копируются только на один уровень вглубь."
 authors:
   - nlopin
+contributors:
+  - vitya-ne
 related:
   - js/spread
   - js/ref-type-vs-value-type
