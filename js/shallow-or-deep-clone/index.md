@@ -121,40 +121,70 @@ console.log(itemsInCart[1] === clonedCart[1])
 
 Перемещение обеспечивает безопасность доступа к ресурсу. Например, при передаче  [типизированного массива](/js/typed-array/) в сообщении от основного потока к [веб-воркеру](/js/web-workers/) буфер двоичных данных будет перемещён и доступен только веб-воркеру.
 
-Рассмотрим на примере как `structuredClone()` помогает перемещать ReadableStream-объект:
+Рассмотрим на примере как `structuredClone()` помогает перемещать ReadableStream-данные при копировании:
 
 ```js
+// Создадим поток данных
 const stream = new ReadableStream({
   start(controller) {
     controller.enqueue("<header>")
-    controller.enqueue("<span>")
-    controller.enqueue("<button>")
-    controller.enqueue("<div>")
+    controller.enqueue("<main>")
+    controller.enqueue("<footer>")
     controller.close()
   }
 })
 
-// Объект с потоком
-const obj = { stream };
+// Добавим потоком к объекту
+const obj = { stream }
 
-// Копируем с передачей (transfer)
+// Копируем объект с передачей (transfer) потока
 const cloned = structuredClone(obj, { transfer: [obj.stream] })
+
+try {
+  // Попытаемся получить данные потока из оригинального объекта
+  const reader1 = obj.stream.getReader()
+  console.log('Читаем поток из оригинала:', await reader1.read())
+} catch (e) {
+  console.log('Ошибка доступа к потоку:', e.message)
+}
+// Ошибка доступа к потоку: Invalid state: ReadableStream is locked
 
 // Получим дынные потока из копии объекта
 const reader2 = cloned.stream.getReader()
+console.log('Читаем поток из копии:')
 
-console.log(await reader2.read());
+while (true) {
+  const { value, done } = await reader2.read()
+  if (done) break
 
-
-try {
-  const reader = obj.stream.getReader()
-  await reader.read()
-} catch (e) {
-   // Ошибка: поток уже передан
-  console.log("Оригинальный поток недоступен:", e.message)
+  console.log(value)
 }
+// <header>
+// <main>
+// <footer>
 ```
 
+Если попытаться выполнить копирование объекта без указания перемещаемого ресурса, получим ошибку:
+
+```js
+const obj = { stream }
+const cloned = structuredClone(obj)
+// DOMException [DataCloneError]: Object that needs transfer was found in message but not listed in transferList
+```
+
+Выполнение `structuredClone()` завершится ошибкой `DataCloneError` если копируемый объект содержит:
+
+- DOM-элементы;
+- `Function`;
+- `Symbol`-значения;
+- `WeakMap`-объекты;
+- `WeakSet`-объекты;
+- `Proxy`-объекты.
+
+В копии не сохранятся:
+- `Symbol`-ключи;
+- изменения прототипов копируемого объекта;
+- приватные поля экземпляров классов.
 
 ### Преобразование с помощью функций `JSON.stringify()` и `JSON.parse()`
 
@@ -233,15 +263,15 @@ class Person {
 }
 
 const person = new Person('Адам')
-// Создадим копию объекта с помощью cloneDeep
+// Создадим копию объекта с помощью cloneDeep()
 const clonedPerson1 = cloneDeep(person)
-// Проверим пренадлежность копии объекта к классу Person
+// Проверим принадлежность копии объекта к классу Person
 console.log(clonedPerson1 instanceof Person)
 // true
 
-// Создадим копию объекта с помощью structuredClone
+// Создадим копию объекта с помощью structuredClone()
 const clonedPerson2 = structuredClone(person)
-// Проверим пренадлежность копии объекта к классу Person
+// Проверим принадлежность копии объекта к классу Person
 console.log(clonedPerson2 instanceof Person)
 // false
 ```
