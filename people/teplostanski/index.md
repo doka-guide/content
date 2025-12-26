@@ -6,5 +6,5 @@ badges:
   - first-contribution-small
 ---
 
-Я frontend developer. В свободное время разрабатываю vite-plugin-pretty-module-classnames, Moonbloom Theme и поддерживаю русскоязычную документацию tsdown.
+Я frontend developer. В свободное время разрабатываю vite-plugin-readable-classnames, Moonbloom Theme и поддерживаю русскоязычную документацию tsdown.
 Мне нравится создавать приложения и проекты с открытым исходным кодом.

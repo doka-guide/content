@@ -87,6 +87,7 @@ groups:
       - clamp
       - color-function
       - light-dark
+      - color-mix
   - name: 'Директивы'
     items:
       - font-face
@@ -105,6 +106,7 @@ groups:
       - currentcolor
       - color-function
       - light-dark
+      - color-mix
   - name: 'Тёмная тема'
     items:
       - color-scheme
