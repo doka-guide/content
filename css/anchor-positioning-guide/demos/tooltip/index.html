@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     html, body {
       width: 100%;
       height: 100%;
@@ -47,6 +51,7 @@
     /* эти стили нужны только для демки, чтобы работал dran'n'drop */
     .button {
       position: absolute;
+      touch-action: none;
     }
 
     .button:hover {
@@ -184,6 +189,32 @@
       translate: -7px;
       rotate: 45deg;
     }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -226,7 +257,7 @@
 
     tooltipAnchor.style.cursor = 'move'
 
-    document.addEventListener('mousedown', (e) => {
+    document.addEventListener('pointerdown', (e) => {
         isDragging = true
 
         const rect = tooltipAnchor.getBoundingClientRect();
@@ -236,17 +267,25 @@
         tooltipAnchor.style.cursor = 'grabbing'
     });
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (!isDragging) return
 
         tooltipAnchor.style.left = (e.clientX - offsetX) + 'px'
         tooltipAnchor.style.top = (e.clientY - offsetY) + 'px'
     });
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         isDragging = false
         tooltipAnchor.style.cursor = 'move'
     })
   </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
 </body>
 </html>

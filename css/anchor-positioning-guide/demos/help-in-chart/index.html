@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      color-scheme: dark;
+    }
+
     html, body {
       width: 100%;
       height: 100%;
@@ -26,7 +30,7 @@
       background-color: #18191C;
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
-      font-size: 25px;
+      font-size: 24px;
     }
 
     .container {
@@ -146,6 +150,86 @@
         padding: 30px;
       }
     }
+
+    @media (max-width: 720px) {
+      .chart {
+        width: 60%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        font-size: 18px;
+      }
+
+      .chart {
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 414px) {
+      body {
+        font-size: 16px;
+      }
+
+      .chart {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .chart__bar:nth-of-type(3),
+      input[type="range"]:nth-of-type(3) {
+        display: none;
+      }
+
+      .chart__tooltip--max {
+        bottom: max(
+          anchor(--anchor-1 top),
+          anchor(--anchor-2 top)
+        );
+      }
+      .chart__tooltip--min {
+        bottom: min(
+          anchor(--anchor-1 top),
+          anchor(--anchor-2 top)
+        );
+      }
+    }
+
+    @media (max-width: 320px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -174,5 +258,13 @@
       input.addEventListener("input", update);
     });
   </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
 </body>
 </html>

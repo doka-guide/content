@@ -14,6 +14,7 @@
     }
 
     body {
+      min-width: 100vw;
       min-height: 100vh;
       padding: 50px;
       display: flex;
@@ -86,7 +87,8 @@
       color: var(--color-code-function);
     }
 
-    .fields-group * {
+    .fields-group *,
+    .fields-group-caption {
       font-family: "Roboto Mono", monospace;
     }
 
@@ -101,51 +103,28 @@
 
     .anchor {
       anchor-name: --my-anchor;
-      padding: 50px 80px;
+      width: 275px;
+      height: 140px;
       margin: 0 auto;
-      font-size: 36px;
-      width: max-content;
+      font-size: 30px;
       background: #123E66;
-    }
-
-    .caption {
-      position: absolute;
-      position-anchor: --my-anchor;
-      color: white;
-    }
-
-    .caption-top {
-      bottom: calc(anchor(top) + 20px);
-      left: anchor(center);
-      transform: translateX(-50%);
-    }
-
-    .caption-bottom {
-      top: calc(anchor(bottom) + 20px);
-      left: anchor(center);
-      transform: translateX(-50%);
-    }
-
-    .caption-left {
-      right: calc(anchor(left) + 20px);
-      bottom: anchor(center);
-      transform: translateY(50%);
-    }
-
-    .caption-right {
-      left: calc(anchor(right) + 20px);
-      bottom: anchor(center);
-      transform: translateY(50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .target {
-      padding: 30px;
-      font-size: 36px;
+      width: 160px;
+      height: 100px;
+      font-size: 30px;
       position: absolute;
       position-anchor: --my-anchor;
       anchor-name: --my-target;
       background-color: #2E9AFFBF;
       transition: all .3s ease-in;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .anchor-border {
@@ -154,10 +133,6 @@
       background-color: #FFFFFF;
       opacity: 0;
       transition: opacity 0.2s;
-    }
-
-    .anchor-border-visible {
-      opacity: 1;
     }
 
     .anchor-border-top {
@@ -199,25 +174,144 @@
       height: anchor-size(height);
     }
 
-    @media (width <= 768px) {
+    @media (hover: hover) {
+      .anchor-border-visible {
+        opacity: 1;
+      }
+
+      .target-border-visible {
+        opacity: 1;
+      }
+    }
+
+    body:has(input[name="left"][value="anchor(right)"]:checked) .target-border-left {
+      right: calc(anchor(left) - 5px);
+    }
+
+    .fields-group-caption {
+      display: none;
+    }
+
+    @media (width <= 1030px) {
+      body {
+        align-items: start;
+      }
+    }
+
+    @media (width <= 878px) {
       body {
         padding: 30px;
+        align-items: center;
+        justify-content: start;
       }
 
       .layout {
         flex-direction: column;
         gap: 60px;
+        padding-bottom: 80px;
       }
 
       .anchor {
         anchor-name: --my-anchor;
-        padding: 30px 60px;
+        width: 230px;
+        height: 120px;
         font-size: 24px;
       }
 
       .target {
-        padding: 20px;
+        width: 140px;
+        height: 80px;
         font-size: 24px;
+      }
+
+      pre {
+        display: none;
+      }
+
+      .fields-group-caption {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .fields-group {
+        margin-bottom: 20px;
+        margin-left: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .hidden-on-small-screens {
+        display: none;
+      }
+    }
+
+    @media (width <= 580px) {
+      body {
+        font-size: 16px;
+      }
+
+      .anchor {
+        width: 190px;
+        height: 100px;
+        font-size: 20px;
+      }
+
+      .target {
+        width: 110px;
+        height: 70px;
+        font-size: 20px;
+      }
+
+      .layout {
+        padding-bottom: 70px;
+      }
+    }
+
+    @media (width <= 460px) {
+      body {
+        font-size: 14px;
+      }
+
+      .anchor {
+        width: 160px;
+        height: 140px;
+        font-size: 18px;
+      }
+
+      .target {
+        width: 80px;
+        height: 70px;
+        font-size: 18px;
+      }
+
+      .layout {
+        padding-bottom: 70px;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
       }
     }
   </style>
@@ -230,37 +324,44 @@
 <span class="code__selector">.target</span> {
     <span class="code__properties">justify-self</span>:
 </code></pre>
+        <div class="fields-group-caption">
+          <span class="code__properties">justify-self</span>:
+        </div>
         <div class="fields-group">
-            <label>
-                <input type="radio" name="justify-self" value="auto" data-border="anchor-border-left" checked>
-                <span class="code__value">auto</span>;
-            </label>
-            <label>
-                <input type="radio" name="justify-self" value="anchor-center" data-border="anchor-border-center-horizontal">
-                <span class="code__value">anchor-center</span>;
-            </label>
+          <label>
+              <input type="radio" name="justify-self" value="auto" data-border="anchor-border-left" checked>
+              <span class="code__value">auto</span>;
+          </label>
+          <label>
+              <input type="radio" name="justify-self" value="anchor-center" data-border="anchor-border-center-horizontal">
+              <span class="code__value">anchor-center</span>;
+          </label>
         </div>
       </div>
       <div>
 <pre><code>
   <span class="code__properties">align-self</span>:
 </code></pre>
-        <div class="fields-group">
-            <label>
-                <input type="radio" name="align-self" value="auto" checked data-border="anchor-border-bottom" checked>
-                <span class="code__value">auto</span>;
-            </label>
-            <label>
-                <input type="radio" name="align-self" value="anchor-center" data-border="anchor-border-center-vertical">
-                <span class="code__value">anchor-center</span>;
-            </label>
+        <div class="fields-group-caption">
+          <span class="code__properties">align-self</span>:
         </div>
+        <div class="fields-group">
+          <label>
+              <input type="radio" name="align-self" value="auto" checked data-border="anchor-border-bottom" checked>
+              <span class="code__value">auto</span>;
+          </label>
+          <label>
+              <input type="radio" name="align-self" value="anchor-center" data-border="anchor-border-center-vertical">
+              <span class="code__value">anchor-center</span>;
+          </label>
+      </div>
 <pre><code>}</code></pre>
         </div>
     </div>
 
     <div>
         <div class="anchor">Anchor</div>
+
         <div id="target" class="target">Target</div>
 
         <div class="anchor-border anchor-border-top"></div>
@@ -319,5 +420,13 @@
       })
     })
   </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
