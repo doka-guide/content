@@ -24,6 +24,7 @@
       color: #FFFFFF;
       font-family: "Roboto", sans-serif;
       font-size: 18px;
+      padding-left: 40px;
 
       --color-code-selector: hsl(95 38% 62% / 1);
       --color-code-properties: hsl(355 65% 65% / 1);
@@ -58,8 +59,8 @@
     }
 
     .iframe {
-      width: 430px;
-      height: 430px;
+      width: 380px;
+      height: 380px;
       border: 6px solid #FFFFFF;
     }
 
@@ -107,8 +108,21 @@
       color: var(--color-code-value);
     }
 
-    @media (max-width: 980px) {
+    @media (width <= 1030px) {
       body {
+        align-items: start;
+      }
+    }
+
+    @media (width <= 920px) {
+      .container {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 878px) {
+      body {
+        align-items: center;
         padding: 30px;
       }
 
@@ -119,6 +133,29 @@
 
       .iframe {
         width: 100%;
+        height: 340px;
+      }
+
+      pre code {
+        display: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .iframe {
+        height: 320px;
       }
     }
   </style>
