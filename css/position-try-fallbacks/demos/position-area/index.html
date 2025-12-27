@@ -71,7 +71,7 @@
 
     anchor.style.cursor = 'move'
 
-    document.addEventListener('mousedown', (e) => {
+    document.addEventListener('pointerdown', (e) => {
         isDragging = true
 
         const rect = anchor.getBoundingClientRect()
@@ -81,14 +81,14 @@
         anchor.style.cursor = 'grabbing'
     })
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (!isDragging) return
 
         anchor.style.left = (e.clientX - offsetX) + 'px'
         anchor.style.top = (e.clientY - offsetY) + 'px'
     })
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         isDragging = false
         anchor.style.cursor = 'move'
     })
