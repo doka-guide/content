@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Используем одно и то же якорное имя с anchor-scope() — anchor-scope() — Дока</title>
+  <title>Используем одно и то же якорное имя с anchor-scope() — Anchor Positioning — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +39,7 @@
       height: 100px;
       resize: both;
       overflow: hidden;
+      touch-action: manipulation;
     }
 
     .anchor::after {
@@ -79,11 +80,62 @@
       bottom: anchor(--anchor-2 top);
       overflow: hidden;
     }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .target {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .anchor {
+        width: 80px;
+        height: 80px;
+      }
+
+      .target {
+        font-size: 30px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div disabled class="anchor" id="anchor-1"></div>
-  <div disabled class="anchor" id="anchor-2"></div>
+  <div class="anchor" id="anchor-1"></div>
+  <div class="anchor" id="anchor-2"></div>
   <div class="target">Target</div>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
 </body>
 </html>

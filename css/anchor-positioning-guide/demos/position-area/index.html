@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>Интерактивная демка, показывающася работу position-area — position-area — Дока</title>
+  <title>Интерактивная демка, показывающася работу position-area — Anchor Positioning — Дока</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,8 +42,10 @@
     }
 
     .container {
-      width: 800px;
-      height: 500px;
+      width: 60%;
+      height: 90%;
+      max-width: 800px;
+      max-height: 500px;
       place-content: center;
       border: 4px solid #2E9AFF;
       position: relative;
@@ -53,10 +55,12 @@
     .anchor {
       anchor-name: --my-anchor;
       background-color: #123E66;
-      padding: 40px 40px;
-      font-size: 36px;
+      width: 180px;
+      height: 100px;
+      font-size: 30px;
       margin: 0 auto;
-      width: max-content;
+      place-content: center;
+      text-align: center;
     }
 
     .target {
@@ -66,10 +70,13 @@
       position-area: top center;
       width: 100%;
       height: 100%;
-      font-size: 36px;
+      font-size: 30px;
       padding: 5px;
       place-content: center;
       text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .line-top {
@@ -117,21 +124,24 @@
       font-family: inherit;
       font-weight: inherit;
       font-size: 20px;
+      touch-action: none;
     }
 
-    .area-button:hover {
-      background-color: #FFFFFFB3;
-      color: black;
-      text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+    @media (hover: hover) {
+      .area-button:hover {
+        background-color: #FFFFFFB3;
+        color: black;
+        text-shadow: 1px 1px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .area-button.active:hover {
+        cursor: grabbing;
+        border: 4px solid #FFFFFF;
+        }
     }
 
     .area-button.active {
       background-color: #FFFFFFB3;
-    }
-
-    .area-button.active:hover {
-      cursor: grabbing;
-      border: 4px solid #FFFFFF;
     }
 
     .side-caption {
@@ -139,7 +149,7 @@
       position-anchor: --my-anchor;
       position-area: var(--position-area);
       color: white;
-      font-size: 25px;
+      font-size: 22px;
     }
 
     .side-caption-vertical {
@@ -154,13 +164,12 @@
 
     .caption {
       color: white;
-      font-size: 25px;
+      font-size: 22px;
       position: absolute;
       position-anchor: --container;
       position-area: top center;
       width: 100%;
-      left: 50%;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       font-family: "Roboto Mono", monospace;
     }
 
@@ -176,19 +185,14 @@
       color: var(--color-code-value);
     }
 
-    @media (width <= 1080px) {
+    @media (width <= 950px) {
       .container {
-        width: 80%;
-        height: 55%;
+        width: 70%;
       }
 
-      .anchor {
-        padding: 30px;
-      }
-
-      .anchor,
-      .target {
-        font-size: 30px;
+      .caption,
+      .side-caption {
+        font-size: 20px;
       }
     }
 
@@ -197,18 +201,19 @@
         padding: 30px;
       }
 
+      .container {
+        width: 80%;
+        height: 85%;
+      }
+
       .anchor {
-        padding: 20px 20px;
+        width: 140px;
+        height: 90px;
       }
 
       .anchor,
       .target {
         font-size: 24px;
-      }
-
-      .caption {
-        margin-bottom: 20px;
-        left: unset;
       }
 
       .caption,
@@ -220,6 +225,91 @@
         font-size: 16px;
       }
     }
+
+    @media (width <= 580px) {
+      .container {
+        height: 75%;
+      }
+
+      .anchor {
+        width: 120px;
+        height: 80px;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 16px;
+      }
+
+      .caption {
+        min-height: 43px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (width <= 460px) {
+      .caption,
+      .side-caption {
+        font-size: 14px;
+      }
+
+      .caption {
+        min-height: 36px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container {
+        width: 80%;
+        height: 60%;
+      }
+
+      .anchor {
+        width: 80px;
+        height: 70px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 18px;
+      }
+
+      .caption,
+      .side-caption {
+        font-size: 13px;
+      }
+
+      .side-caption-vertical {
+        left: 120%;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -229,12 +319,13 @@
 
   <div class="container">
     <div class="anchor">Anchor</div>
-    <div id="target" class="target">Target</div>
 
     <div class="line-bottom"></div>
     <div class="line-top"></div>
     <div class="line-right"></div>
     <div class="line-left"></div>
+
+    <div id="target" class="target">Target</div>
 
     <div id="buttons-grid">
       <button class="area-button" style="--position-area: top left;" data-position-area="top left" data-idx="1" data-row="1" data-col="1">top left</button>
@@ -265,7 +356,6 @@
 
     const areaButtons = Array.from(document.getElementsByClassName('area-button'));
 
-    let isDragging = false;
     let currentHover = null;
     let startCell = null;
 
@@ -370,7 +460,9 @@
       const cell = el && el.closest && el.closest('.area-button');
       if (cell !== currentHover){
         clearActive();
-        if (cell) cell.classList.add('active');
+        if (cell) {
+          cell.classList.add('active');
+        }
         currentHover = cell;
         highlightRange(startCell, currentHover);
       }
@@ -390,7 +482,6 @@
       }
       clearActive();
       clearStart();
-      isDragging = false;
       startCell = null;
 
       areaButtons.forEach((button, idx) => {
@@ -406,11 +497,9 @@
       if (e.button && e.button !== 0) return;
 
       e.preventDefault();
-      isDragging = true;
       document.body.style.userSelect = 'none';
       clearActive();
       clearStart();
-      cell.classList.add('start');
       cell.classList.add('active');
       startCell = cell;
       currentHover = cell;
@@ -433,5 +522,13 @@
 
     grid.addEventListener('dragstart', e => e.preventDefault());
   </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
 </body>
 </html>
