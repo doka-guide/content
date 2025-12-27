@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подсказки для графика на базе Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 24px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .actions {
+      width: 60vmin;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem;
+      padding: 1rem;
+    }
+
+    input {
+      min-width: 0;
+    }
+
+    .chart {
+      width: 90vmin;
+      aspect-ratio: 4 / 3;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      align-items: end;
+      border-left: 4px solid #FFFFFF;
+      border-bottom: 4px solid #FFFFFF;
+    }
+
+    .chart__bar {
+      background: var(--bg);
+      height: calc(var(--height, 100) * 1%);
+    }
+
+    .chart__bar:nth-of-type(1) {
+      anchor-name: --anchor-1;
+      height: 90%;
+    }
+
+    .chart__bar:nth-of-type(2) {
+      anchor-name: --anchor-2;
+      height: 25%;
+    }
+
+    .chart__bar:nth-of-type(3) {
+      anchor-name: --anchor-3;
+      height: 75%;
+    }
+
+    .chart__bar:nth-of-type(1),
+    input[type="range"]:nth-of-type(1) {
+      --bg: #2E9AFF;
+    }
+
+    .chart__bar:nth-of-type(2),
+    input[type="range"]:nth-of-type(2) {
+      --bg: #41E847;
+    }
+
+    .chart__bar:nth-of-type(3),
+    input[type="range"]:nth-of-type(3) {
+      --bg: #C56FFF;
+    }
+
+    .chart__tooltip {
+    }
+
+    .chart__bar:nth-of-type(1) {
+      anchor-name: --anchor-1;
+    }
+
+    .chart__bar:nth-of-type(2) {
+      anchor-name: --anchor-2;
+    }
+
+    .chart__bar:nth-of-type(3) {
+      anchor-name: --anchor-3;
+    }
+
+    .chart {
+      anchor-name: --chart;
+    }
+
+    .chart__tooltip--max {
+      position: absolute;
+      left: anchor(--chart right);
+      bottom: max(
+        anchor(--anchor-1 top),
+        anchor(--anchor-2 top),
+        anchor(--anchor-3 top)
+      );
+      translate: 0 50%;
+    }
+    .chart__tooltip--min {
+      position: absolute;
+      right: calc(anchor(--chart left) + 1rem);
+      bottom: min(
+        anchor(--anchor-1 top),
+        anchor(--anchor-2 top),
+        anchor(--anchor-3 top)
+      );
+      translate: 0 50%;
+    }
+
+    input[type="range"] {
+      accent-color: var(--bg);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .chart {
+        width: 60%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        font-size: 18px;
+      }
+
+      .chart {
+        width: 70%;
+      }
+    }
+
+    @media (max-width: 414px) {
+      body {
+        font-size: 16px;
+      }
+
+      .chart {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .actions {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .chart__bar:nth-of-type(3),
+      input[type="range"]:nth-of-type(3) {
+        display: none;
+      }
+
+      .chart__tooltip--max {
+        bottom: max(
+          anchor(--anchor-1 top),
+          anchor(--anchor-2 top)
+        );
+      }
+      .chart__tooltip--min {
+        bottom: min(
+          anchor(--anchor-1 top),
+          anchor(--anchor-2 top)
+        );
+      }
+    }
+
+    @media (max-width: 320px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="chart">
+      <div class="chart__bar" id="bar-1"></div>
+      <div class="chart__bar" id="bar-2"></div>
+      <div class="chart__bar" id="bar-3"></div>
+    </div>
+    <div class="chart__tooltip chart__tooltip--max">👈 Max!</div>
+    <div class="chart__tooltip chart__tooltip--min">Min! 👉</div>
+    <div class="actions">
+      <input data-bar-id="bar-1" type="range" min="0" max="100" value="90" />
+      <input data-bar-id="bar-2" type="range" min="0" max="100" value="25" />
+      <input data-bar-id="bar-3" type="range" min="0" max="100" value="75" />
+    </div>
+  </div>
+  <script>
+    const inputs = document.querySelectorAll("input");
+
+    const update = (e) => {
+      document.querySelector(`#${e.target.getAttribute("data-bar-id")}`).style.height = `${e.target.value}%`;
+    };
+
+    inputs.forEach((input) => {
+      input.addEventListener("input", update);
+    });
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

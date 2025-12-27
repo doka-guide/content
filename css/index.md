@@ -248,6 +248,7 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - anchor-positioning-guide
   - name: 'Списки'
     items:
       - list-style
