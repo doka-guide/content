@@ -41,11 +41,12 @@
       anchor-name: --my-anchor;
       background-color: #123E66;;
       text-align: center;
-      padding: 60px 80px;
+      padding: 40px 60px;
       width: auto;
-      font-size: 36px;
+      font-size: 30px;
       position: absolute;
       user-select: none;
+      touch-action: none;
       left: 30%;
     }
 
@@ -55,10 +56,10 @@
       position-area: top center;
       position-try-order: normal;
       position-try-fallbacks: --left, --bottom, --right;
-      padding: 40px;
+      padding: 25px;
       text-align: center;
       background-color: #2E9AFF;
-      font-size: 36px;
+      font-size: 30px;
       user-select: none;
       margin-top: 6px;
     }
@@ -124,6 +125,7 @@
       padding: 20px;
       top: 0;
       left: 0;
+      width: 100%;
       background-color: hsla(0, 0%, 100%, 0.4);
     }
 
@@ -142,20 +144,58 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+
       .anchor {
         padding: 30px 40px;
         font-size: 24px;
+      }
+
+      .picker-container {
+        width: 100%;
       }
 
       .target {
         padding: 20px;
         font-size: 24px;
       }
+    }
+
+    @media (max-width: 600px) {
+      .picker-container {
+        width: auto;
+      }
+      .radio-label {
+        display: block;
+        margin-right: 0;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .anchor {
+        padding: 20px 30px;
+        font-size: 20px;
+      }
+
+      .target {
+        padding: 15px;
+        font-size: 20px;
+      }
 
       .radio-label {
         display: block;
         margin-right: 0;
         margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .anchor {
+        padding: 15px 20px;
+        font-size: 20px;
       }
     }
   </style>
@@ -192,7 +232,7 @@
 
     anchor.style.cursor = 'move'
 
-    document.addEventListener('mousedown', (e) => {
+    document.addEventListener('pointerdown', (e) => {
         isDragging = true
 
         const rect = anchor.getBoundingClientRect()
@@ -202,14 +242,14 @@
         anchor.style.cursor = 'grabbing'
     })
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (!isDragging) return
 
         anchor.style.left = (e.clientX - offsetX) + 'px'
         anchor.style.top = (e.clientY - offsetY) + 'px'
     })
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         isDragging = false
         anchor.style.cursor = 'move'
     })

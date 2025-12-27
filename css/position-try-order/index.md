@@ -182,4 +182,4 @@ tags:
 
 Закрепим разобранные примеры с помощью интерактивной демки. Попробуйте перетащить якорный элемент к верху вьюпорта – в зависимости от выбранного значения `position-try-order` он будет пытаться переместиться влево, вниз или вправо.
 
-<iframe title="Показываем работу свойства position-try-order" src="demos/position-try-order/" height="620"></iframe>
+<iframe title="Показываем работу свойства position-try-order" src="demos/position-try-order/" height="450"></iframe>

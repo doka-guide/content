@@ -77,4 +77,4 @@ tags:
 
 Попробуйте переместить якорный элемент сверху-вниз и обратно.
 
-<iframe title="Показываем работу директивы @position-try" src="demos/position-try-rule/" height="580"></iframe>
+<iframe title="Показываем работу директивы @position-try" src="demos/position-try-rule/" height="400"></iframe>

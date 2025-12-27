@@ -40,12 +40,13 @@
     .anchor {
       anchor-name: --my-anchor;
       background-color: #123E66;;
+      padding: 40px 70px;
+      font-size: 30px;
+      place-content: center;
       text-align: center;
-      padding: 60px;
-      width: auto;
-      font-size: 36px;
       position: absolute;
       user-select: none;
+      touch-action: none;
     }
 
     .target {
@@ -54,9 +55,34 @@
       position-area: top center;
       position-try-fallbacks: flip-block;
       background-color: #2E9AFF;
-      padding: 30px;
-      font-size: 36px;
+      padding: 20px 30px;
+      font-size: 30px;
+      place-content: center;
+      text-align: center;
       user-select: none;
+    }
+
+    @media (width <= 640px) {
+      .anchor {
+        padding: 30px 55px;
+        font-size: 24px;
+      }
+
+      .target {
+        padding: 15px 20px;
+        font-size: 24px;
+      }
+    }
+
+    @media (width <= 420px) {
+      .anchor {
+        padding: 20px 25px;
+        font-size: 20px;
+      }
+      .target {
+        padding: 10px 15px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
@@ -71,7 +97,7 @@
 
     anchor.style.cursor = 'move'
 
-    document.addEventListener('mousedown', (e) => {
+    document.addEventListener('pointerdown', (e) => {
         isDragging = true
 
         const rect = anchor.getBoundingClientRect()
@@ -81,14 +107,14 @@
         anchor.style.cursor = 'grabbing'
     })
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('pointermove', (e) => {
         if (!isDragging) return
 
         anchor.style.left = (e.clientX - offsetX) + 'px'
         anchor.style.top = (e.clientY - offsetY) + 'px'
     })
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         isDragging = false
         anchor.style.cursor = 'move'
     })
