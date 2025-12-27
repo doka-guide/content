@@ -248,6 +248,10 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - position-try-fallbacks
+      - position-try-rule
+      - position-try-order
+      - position-try
   - name: 'Списки'
     items:
       - list-style
