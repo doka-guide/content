@@ -324,7 +324,7 @@
     const heightWrapper = document.querySelector('#height-wrapper');
     heightWrapper?.scrollTo({
       top: heightWrapper?.offsetHeight / 2 + 150,
-      left: heightWrapper?.offsetWidth / 2 + 250,
+      left: heightWrapper?.offsetWidth / 2 + (window.innerWidth > 500 ? 150 : 50),
       behavior: 'instant',
     });
   </script>
