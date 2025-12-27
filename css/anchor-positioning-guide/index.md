@@ -221,6 +221,10 @@ tags:
 
 Также для `most-width` и `most-height` существуют логические эквиваленты `most-block-size` и `most-inline-size`.
 
+Посмотреть на работу свойства `position-try-order` можно в демке ниже.
+
+<iframe title="Показываем работу свойства position-try-order" src="demos/position-try-order/" height="450"></iframe>
+
 Более подробно про свойство `position-try-order` читайте в отдельной [доке](/css/position-try-order/).
 
 ### `position-try`
