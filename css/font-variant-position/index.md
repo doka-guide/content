@@ -1,23 +1,59 @@
 ---
 title: "`font-variant-position`"
 description: "Включаем красивые надстрочные и подстрочные буквы."
+baseline:
+  - group: font-variant-position
+    features:
+      - css.properties.font-variant-position
+      - css.properties.font-variant-position.normal
+      - css.properties.font-variant-position.sub
+      - css.properties.font-variant-position.super
 authors:
-  - doka-dog
+  - goingtogogo
+keywords:
+  - надстрочный текст
+  - подстрочный текст
+  - sub
+  - super
+  - opentype
 related:
   - html/sub
   - html/sup
-  - css/vertical-align
+  - css/font-feature-settings
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
-Свойство `font-variant-position` управляют альтернативными глифами надстрочных или подстрочных символов.
+Свойство `font-variant-position` управляет альтернативными глифами надстрочных или подстрочных символов. При этом базовая линия текста не меняется меняется, только положение и размер самих символов.
+
+## Пример
+
+```css
+.selector {
+  font-variant-position: super;
+}
+```
 
 ## Как пишется
 
-- `normal` — отключает альтернативные глифы для надстрочных и подстрочных символов (значение по умолчанию).
-- `sub` — включает альтернативные глифы для надстрочных символов.
-- `super` — включает альтернативные глифы для подстрочных символов.
+Свойство `font-variant-position` принимает одно из следующих значений:
+
+- `normal` — отключает альтернативное начертание (значение по умолчанию);
+- `sub` — включает подстрочные символы, например для химических формул `(H₂O)`;
+- `super` — включает надстрочные символы, например для степеней `(x²)`.
+
+Вот как выглядят эти значения на примере:
+
+<iframe title="Песочница" src="demos/playground/" height="400"></iframe>
+
+## Как понять
+
+Свойство помогает корректно отображать символы в математических и химических формулах, а также, например, в сносках и примечаниях. Лучше всего его использовать в связке с html-тегами [`<sup`](/html/sup/) и [`<sub>`](/html/sub/): теги будут отвечать за семантику, а `font-variant-position` делать отображение аккуратным и типографически правильным (как это задумал дизайнер шрифта).
+
+## Подсказки
+
+💡 Свойство пока поддерживается не во всех браузерах и работает только со шрифтами, в которых заложены [OpenType](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_fonts/OpenType_fonts_guide). Если шрифт их не поддерживает, свойство не сработает.
+
+💡 Того же поведения можно добиться с помощью `font-feature-settings: "sups" 1; и "subs" 1;`, однако в будущем лучше использовать именно `font-variant-position` для более [предсказуемого и точного управления](https://drafts.csswg.org/css-fonts/#font-feature-settings-prop).
