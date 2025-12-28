@@ -33,10 +33,10 @@ tags:
 При вызове метода `abort([reason])` `reason` будет доступен через `signal.reason`. В `reason` можно передать любое значение: строку, число, объект, ошибку и т.д.
 
 2. Свойства `signal`, возвращает объект, который является экземпляром [`AbortSignal`](https://developer.mozilla.org/ru/docs/Web/API/AbortSignal) со следующими свойствами и методами:
-  - `aborted` - булево значение, указывающее было ли выполнено прерывание;
-  - `reason` - причина отмены;
-  - `onabort` - обработчик события отмены;
-  - `throwIfAborted()` - выбрасывает ошибку с причиной отмены, если сигнал в состоянии "отменён".
+  - `aborted` — булево значение, указывающее было ли выполнено прерывание;
+  - `reason` — причина отмены;
+  - `onabort` — обработчик события отмены;
+  - `throwIfAborted()` — выбрасывает ошибку с причиной отмены, если сигнал в состоянии "отменён".
 
 При отмене операций чаще всего возникает ошибка типа "AbortError". Она появляется в трёх случаях:
 
@@ -48,9 +48,9 @@ tags:
 
 Также у [`AbortSignal`](https://developer.mozilla.org/ru/docs/Web/API/AbortSignal) есть статические методы:
 
-- `AbortSignal.abort([reason])` - создаёт уже отменённый сигнал;
-- `AbortSignal.timeout(milliseconds)` - создаёт сигнал, который будет отменён через указанное время;
-- `AbortSignal.any(signals)` - создаёт сигнал, который будет отменён, если хотя бы один из переданных сигналов отменён.
+- `AbortSignal.abort([reason])` — создаёт уже отменённый сигнал;
+- `AbortSignal.timeout(milliseconds)` — создаёт сигнал, который будет отменён через указанное время;
+- `AbortSignal.any(signals)` — создаёт сигнал, который будет отменён, если хотя бы один из переданных сигналов отменён.
 
 Статические методы используются в случаях, когда не нужен контроллер для ручной отмены.
 
@@ -70,10 +70,10 @@ fetch(`${API_URL}/posts/1`, { signal: controller.signal })
     }
   })
 
-// Отменяем запрос через 5 секунд
+// Отменяем запрос через 2 секунды
 setTimeout(() => {
   controller.abort()
-}, 5000)
+}, 2000)
 ```
 
 ### Использование с событиями
@@ -124,7 +124,7 @@ controller.abort()
 Можно указать причину отмены, передав её в метод `abort()`:
 
 ```js
-controller.abort('Операция устарела')
+controller.abort({ name: 'AbortError', message: 'Операция устарела' })
 
 // В обработчике ошибки
 try {
@@ -132,6 +132,21 @@ try {
 } catch (error) {
   if (error.name === 'AbortError') {
     console.log(error.message) // "Операция устарела"
+  }
+}
+```
+
+Если передать в качестве `reason` строку, а не объект, то и в обработчик ошибок попадёт строка:
+
+```js
+controller.abort('Операция устарела')
+
+// В обработчике ошибки
+try {
+  ...
+} catch (error) {
+  if (error === 'Операция устарела') {
+    console.log(error)
   }
 }
 ```
@@ -180,7 +195,7 @@ try {
   // Этот код не выполнится, если сигнал отменён
   await someAsyncOperation()
 } catch (error) {
-  console.log(error.message) // "Операция устарела"
+  console.log(error) // "Операция устарела"
 }
 ```
 
@@ -208,8 +223,8 @@ fetch(url, { signal })
   })
 
 // Отмена любого из контроллеров приведёт к отмене запроса
-controller1.abort('Отмена через первый контроллер')
-controller2.abort('Отмена через второй контроллер')
+controller1.abort({ name: 'AbortError', message:'Отмена через первый контроллер'})
+  controller2.abort({ name: 'AbortError', message:'Отмена через второй контроллер'})
 ```
 
 Это полезно для отмены нескольких операций, которые могут быть отменены независимо друг от друга.
@@ -220,13 +235,13 @@ controller2.abort('Отмена через второй контроллер')
 
 ```js
 // Создаем сигнал с таймаутом в 5 секунд
-const signal = AbortSignal.timeout(5000)
+const signal = AbortSignal.timeout(2000)
 
 // Используем сигнал для запроса
 fetch(url, { signal })
   .then((response) => response.json())
   .catch((error) => {
-    if (error.name === 'AbortError') {
+    if (error.name === 'TimeoutError') {
       // При таймауте reason будет установлен как "TimeoutError" DOMException
       console.log('Запрос отменён по таймауту:', error.message)
     }
