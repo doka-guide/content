@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - a11y/content-hidden
-  - js/var-let
-  - js/boolean
-  - recipes/popup
-  - js/geolocation-api
-  - css/specificity
+  - tools/cors
   - css/display
-  - html/head
-  - css/attr
-  - recipes/ajax-form
-  - css/transform-function
-  - js/closures
-  - recipes/git-rebase-onto
-  - a11y/css-impact-on-a11y
-  - tools/clean-architecture
-  - css/media
-  - html/video
-  - tools/network
-  - tools/markdown
-  - html/doctype
-  - js/function-context
-  - a11y/aria-intro
-  - a11y/live-region
-  - tools/static-types
-  - recipes/character-counter
-  - css/position
   - recipes/center
-  - tools/oop
-  - html/form
-  - js/array-entries
+  - recipes/snow
+  - html/head
+  - a11y/live-region
+  - html/flow
+  - css/box-model
+  - recipes/character-counter
+  - js/deal-with-forms
+  - css/transform-function
+  - tools/webpack
+  - tools/clean-architecture
+  - html/video
+  - css/custom-properties
+  - css/pseudoelements
+  - js/boolean
+  - a11y/aria-intro
+  - js/execution-order
+  - a11y/aria-hidden
+  - tools/how-to-test-and-why
+  - recipes/lets-encrypt-nginx
+  - a11y/screenreaders
+  - recipes/popup
   - tools/cli
-  - css/grid-guide
   - html/input
   - tools/bundlers
-  - tools/how-to-test-and-why
-  - html/article
-  - css/scrollbar-gutter
-  - a11y/screenreaders
-  - tools/webpack
-  - js/execution-order
-  - recipes/snow
-  - js/deal-with-forms
-  - html/img
-  - js/infinite-scroll
-  - css/custom-properties
-  - a11y/aria-hidden
-  - js/function
-  - css/box-sizing
-  - tools/gitlab-ci-cd
-  - tools/docker
-  - html/section
-  - recipes/progress
-  - js/array-reduce-right
-  - tools/cors
+  - js/geolocation-api
+  - tools/oop
+  - tools/markdown
+  - html/doctype
   - tools/ci-cd
-  - tools/how-the-browser-creates-pages
-  - recipes/lets-encrypt-nginx
-  - css/box-shadow
+  - tools/network
+  - js/array-reduce-right
+  - recipes/ajax-form
+  - html/section
+  - tools/docker
+  - js/function
   - css/flexbox-guide
-  - css/keyframes
+  - tools/gitlab-ci-cd
+  - css/box-sizing
+  - html/img
   - js/async-in-js
+  - recipes/git-rebase-onto
+  - html/article
+  - css/keyframes
+  - js/array-entries
+  - a11y/content-hidden
+  - js/closures
+  - a11y/css-impact-on-a11y
   - html/nav
-  - css/pseudoelements
-  - css/box-model
-  - html/flow
-  - html/div
+  - js/var-let
+  - js/infinite-scroll
+  - tools/how-the-browser-creates-pages
+  - css/grid-guide
+  - css/attr
+  - css/media
+  - css/scrollbar-gutter
   - tools/agile
+  - css/position
+  - js/function-context
+  - tools/static-types
+  - css/box-shadow
+  - css/specificity
+  - recipes/progress
+  - html/div
+  - html/form
 ---
 
