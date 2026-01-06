@@ -47,7 +47,7 @@
       .color-mixer {
         max-width: 1024px;
         display: grid;
-        gap: 15px 10px;
+        gap: 25px 10px;
         grid-template-columns: minmax(70px, 20%) minmax(0, 1fr) minmax(0, 1fr) minmax(
             70px,
             20%
@@ -166,7 +166,8 @@
       .mix-output-text {
         font-family: "Roboto Mono", monospace;
         font-size: calc(1em - 1px);
-        min-height: 2rem;
+        line-height: 1.3em;
+        min-height: 2.6em;
         width: 100%;
       }
 
@@ -176,8 +177,6 @@
 
       #computed-color-text {
         grid-area: computed-color-text;
-        border-bottom: 1px solid #979797;
-        padding-bottom: 15px;
       }
 
       .percentage-range-wrapper {
@@ -315,6 +314,14 @@
         font-size: inherit;
       }
 
+      .disabled {
+        opacity: 0.25;
+      }
+
+      .disabled * {
+        cursor: not-allowed;
+      }
+
       @media (max-width: 768px) {
         body {
           padding: 30px;
@@ -322,6 +329,13 @@
 
         .color-container {
           font-size: 16px;
+        }
+      }
+
+      @media (max-width: 425px) {
+        body {
+          align-items: flex-start;
+          padding-block-start: 10dvh;
         }
       }
     </style>
@@ -501,6 +515,12 @@
       const percentageOne = document.getElementById('percentage-one');
       const percentageTwo = document.getElementById('percentage-two');
 
+      function formatting(value) {
+        const n = Number(value);
+        if (!Number.isFinite(n)) return '0,0%';
+        return n.toFixed(1) + '%';
+      }
+
       function updateColorMix() {
         let colorMixFunction = 'color-mix(in ';
         root.style.setProperty('--color-space', colorSpace.value);
@@ -516,13 +536,16 @@
           colorMixFunction += `, `;
         }
 
+        const p1 = formatting(percentageOne.value);
+        const p2 = formatting(percentageTwo.value);
+
         root.style.setProperty('--color-one', colorOne.value);
-        root.style.setProperty('--percentage-one', percentageOne.value + '%');
-        colorMixFunction += `${colorOne.value} ${percentageOne.value}%, `;
+        root.style.setProperty('--percentage-one', p1);
+        colorMixFunction += `${colorOne.value} ${p1}, `;
 
         root.style.setProperty('--color-two', colorTwo.value);
-        root.style.setProperty('--percentage-two', percentageTwo.value + '%');
-        colorMixFunction += `${colorTwo.value} ${percentageTwo.value}%)`;
+        root.style.setProperty('--percentage-two', p2);
+        colorMixFunction += `${colorTwo.value} ${p2})`;
 
         mixedColor.style.backgroundColor = colorMixFunction;
 
@@ -530,6 +553,9 @@
           window.getComputedStyle(mixedColor).backgroundColor;
         colorMixFunctionText.textContent = `${colorMixFunction}`;
         computedColorText.textContent = `${computedColor}`;
+
+        percentageOneLabel.textContent = p1;
+        percentageTwoLabel.textContent = p2;
       }
 
       function init() {
@@ -537,20 +563,22 @@
         colorTwo.addEventListener('input', updateColorMix);
 
         percentageOne.addEventListener('input', (e) => {
-          percentageOneLabel.textContent = e.target.value + '%';
+          percentageOneLabel.textContent = formatting(e.target.value);
           updateColorMix();
         });
 
         percentageTwo.addEventListener('input', (e) => {
-          percentageTwoLabel.textContent = e.target.value + '%';
+          percentageTwoLabel.textContent = formatting(e.target.value);
           updateColorMix();
         });
 
         colorSpace.addEventListener('change', (e) => {
           if (polarColorSpaces.includes(e.target.value)) {
-            interpolationMethodWrapper.style.visibility = 'visible';
+            interpolationMethodWrapper.classList.remove('disabled');
+            interpolationMethod.disabled = false;
           } else {
-            interpolationMethodWrapper.style.visibility = 'hidden';
+            interpolationMethodWrapper.classList.add('disabled');
+            interpolationMethod.disabled = true;
           }
           updateColorMix();
         });
@@ -558,7 +586,8 @@
         interpolationMethod.addEventListener('change', updateColorMix);
 
         if (!polarColorSpaces.includes(colorSpace.value)) {
-          interpolationMethodWrapper.style.visibility = 'hidden';
+          interpolationMethodWrapper.classList.add('disabled');
+          interpolationMethod.disabled = true;
         }
 
         updateColorMix();
