@@ -55,7 +55,7 @@ tags:
 
 ```css
 .text-block {
-  background-color: rgba(141, 104, 75, 0.6);
+  background-color: rgb(141 104 75 / 0.6);
 }
 
 @supports (backdrop-filter: blur(8px)) {
