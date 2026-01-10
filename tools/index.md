@@ -117,6 +117,7 @@ groups:
       - web-server
       - apache-web-server
       - nginx-web-server
+      - waf
 
   - name: Базы данных
     items:
