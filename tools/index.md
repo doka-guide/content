@@ -104,7 +104,8 @@ groups:
       - web-security
       - ssl-certificates
       - cors
-
+      - waf
+      
   - name: Форматы данных
     items:
       - json
@@ -117,7 +118,6 @@ groups:
       - web-server
       - apache-web-server
       - nginx-web-server
-      - waf
 
   - name: Базы данных
     items:
