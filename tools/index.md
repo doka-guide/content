@@ -105,7 +105,7 @@ groups:
       - ssl-certificates
       - cors
       - waf
-      
+
   - name: Форматы данных
     items:
       - json
