@@ -129,7 +129,7 @@ tags:
 
 Лучше понять, какое значение прописать для свойства `position-area`, чтобы расположить его в нужном месте поможет интерактивная демка ниже. В ней можно кликать на любую из ячеек, чтобы выбрать одну ячейку. Также можно зажать и тянуть, чтобы выбрать несколько ячеек.
 
-<iframe title="Интерактивная демка, показывающая работу position-area" src="demos/position-area/" height="500"></iframe>
+<iframe title="Позиционируем элемент с помощью свойства position-area" src="demos/position-area/" height="500"></iframe>
 
 Более подробно про свойство `position-area` читайте в отдельной [доке](/css/position-area/).
 
@@ -165,7 +165,7 @@ tags:
 
 Попробуйте в демке ниже перетащить якорь к разным границам экрана.
 
-<iframe title="Показываем работу свойства position-try-fallbacks" src="demos/position-try-fallbacks/" height="400"></iframe>
+<iframe title="Добавляем альтернативное расположение элемента с помощью position-try-fallbacks" src="demos/position-try-fallbacks/" height="400"></iframe>
 
 Более подробно про свойство `position-try-fallbacks` читайте в отдельной [доке](/css/position-try-fallbacks/).
 
@@ -197,7 +197,7 @@ tags:
 
 Попробуйте в демке ниже переместить якорный элемент сверху-вниз и обратно. Увидите, что в нижней позиции ширина таргета увеличивается и появляется отступ, которого не было в начальной позиции.
 
-<iframe title="Показываем работу директивы @position-try" src="demos/position-try-rule/" height="400"></iframe>
+<iframe title="Добавляем кастомные стили для позиционирования с помощью директивы @position-try" src="demos/position-try-rule/" height="400"></iframe>
 
 Более подробно про директиву `@position-try` читайте в отдельной [доке](/css/position-try-rule/).
 
@@ -223,7 +223,7 @@ tags:
 
 Посмотреть на работу свойства `position-try-order` можно в демке ниже.
 
-<iframe title="Показываем работу свойства position-try-order" src="demos/position-try-order/" height="450"></iframe>
+<iframe title="Влияем на порядок применения фолбэков расположения с помощью свойства position-try-order" src="demos/position-try-order/" height="450"></iframe>
 
 Более подробно про свойство `position-try-order` читайте в отдельной [доке](/css/position-try-order/).
 
@@ -271,7 +271,7 @@ tags:
 
 С помощью `anchor-size()` можно получить значения ширины и высоты якорного элемента. Функция пригодится, если размеры таргет элемента должны зависеть от размеров якоря.
 
-<iframe title="Демонстрация работы функции anchor-size()" src="demos/anchor-size-function/" height="480"></iframe>
+<iframe title="Задаём размер таргет элемента с помощью anchor-size()" src="demos/anchor-size-function/" height="480"></iframe>
 
 Более подробно про функцию `anchor-size()` читайте в отдельной [доке](/css/anchor-size-function/).
 
@@ -287,7 +287,7 @@ tags:
 
 Свойство `anchor-scope` ограничивает область применения указанных якорных имён поддеревом текущего элемента. За счёт этого можно использовать одно и то же якорное имя на разных элементах, например, в списках.
 
-<iframe title="Показываем работу свойства anchor-scope" src="demos/anchor-scope/" height="500"></iframe>
+<iframe title="Ограничиваем область видимости якорей с помощью anchor-scope" src="demos/anchor-scope/" height="500"></iframe>
 
 В демке выше три раза используется одно и то же якорное имя: в каждом элементе списка оно повторяется. Без использования `anchor-scope` все таргет элементы будут ссылаться на последний якорь в DOM-дереве. `anchor-scope` помогает это всё разрулить, ограничивая область видимости якорного имени поддеревом элемента списка.
 
@@ -325,7 +325,7 @@ Anchor Positioning позволяет привязывать один и тот 
 
 Использовать эту механику можно и при реализации UI-компонентов. Например, используя несколько якорей одновременно, можно сверстать тултип, который умеет показываться с каждой из четырёх сторон, при этом его хвостик всегда будет направлен в нужную сторону. Попробуйте в демке ниже перетащить кнопку к разным границам экрана – тултип будет адаптироваться.
 
-<iframe title="Тултип на базе anchor positioning" src="demos/tooltip/" height="400"></iframe>
+<iframe title="Тултип на базе Anchor Positioning" src="demos/tooltip/" height="400"></iframe>
 
 Кстати, разбор реализации такого тултипа можете найти в нашем [рецепте](/recipes/tooltip/#adaptivnyy-na-osnove-popover-api-i-css-anchor-positioning).
 
@@ -339,31 +339,31 @@ Anchor Positioning открывает перед разработчиками о
 
 Как мы уже убедились в этом гайде выше, Anchor Positioning может быть полезен при проектировании тултипа. Также можно реализовать и другие компоненты, части которых, должны быть привязаны друг к другу. Например, меню. Попробуйте открыть несколько вложенных уровней меню и проскроллить к разным частям экрана – выпадающие списки смогут адаптироваться.
 
-<iframe title="Меню на базе anchor positioning" src="demos/menu/" height="450"></iframe>
+<iframe title="Меню на базе Anchor Positioning" src="demos/menu/" height="450"></iframe>
 
 ### Transition-переходы
 
 Также можно использовать Anchor Positioning для реализации классных transition-переходов. Например, для ховера элементов навигации. Попробуйте навести последовательно на несколько ссылок в демке ниже – задний фон будет перетекать от одного элемента к другому.
 
-<iframe title="Transition-эффект на ховер элементов навигации" src="demos/nav-with-transition/" height="320"></iframe>
+<iframe title="Transition-эффект на ховер элементов навигации реализованный с помощью Anchor Positioning" src="demos/nav-with-transition/" height="320"></iframe>
 
 ### Визуальные подсказки
 
 Можно реализовать различные визуальные подсказки в интерфейсе. Например, подсказки, указывающие на максимальное и минимальное значения в графике.
 
-<iframe title="Подсказки для графика" src="demos/help-in-chart/" height="400"></iframe>
+<iframe title="Подсказки для графика, реализованные на Anchor Positioning" src="demos/help-in-chart/" height="400"></iframe>
 
 ### Графы
 
 На базе Anchor Positioning можно построить граф. Если добавить поверх drag'n'drop, то вершины можно двигать в разные стороны и ничего не будет отваливаться.
 
-<iframe title="Граф" src="demos/graph/" height="420"></iframe>
+<iframe title="Граф, реализованный на Anchor Positioning" src="demos/graph/" height="420"></iframe>
 
 ### Анимации
 
 И какой-же фронтенд без крутилок и свистелок? Anchor Positioning можно использовать и для построения классных анимацией.
 
-<iframe title="Граф" src="demos/animation/" height="400"></iframe>
+<iframe title="Анимация на базе Anchor Positioning" src="demos/animation/" height="400"></iframe>
 
 ## Доступность
 
