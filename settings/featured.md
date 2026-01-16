@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
+  - html/doctype
+  - css/attr
+  - css/pseudoelements
+  - tools/cors
+  - tools/static-types
+  - a11y/aria-hidden
+  - tools/network
+  - html/div
+  - js/execution-order
+  - css/specificity
+  - js/infinite-scroll
+  - html/input
+  - recipes/lets-encrypt-nginx
+  - html/section
+  - css/flexbox-guide
+  - css/display
+  - a11y/aria-intro
+  - tools/cli
+  - js/closures
+  - a11y/content-hidden
+  - tools/webpack
+  - css/keyframes
+  - js/function
+  - css/custom-properties
+  - html/article
+  - recipes/ajax-form
+  - html/head
+  - css/box-shadow
+  - css/transform-function
+  - html/flow
+  - a11y/live-region
+  - js/array-reduce-right
+  - recipes/progress
+  - js/async-in-js
+  - html/video
+  - js/boolean
+  - a11y/screenreaders
+  - tools/agile
+  - tools/gitlab-ci-cd
   - css/box-sizing
   - tools/bundlers
-  - tools/how-the-browser-creates-pages
-  - js/function
-  - recipes/lets-encrypt-nginx
-  - tools/clean-architecture
+  - js/array-entries
+  - tools/markdown
+  - tools/ci-cd
+  - js/function-context
+  - tools/docker
+  - a11y/css-impact-on-a11y
+  - js/deal-with-forms
+  - css/grid-guide
+  - tools/how-to-test-and-why
+  - recipes/character-counter
   - html/nav
   - js/var-let
-  - recipes/ajax-form
-  - js/deal-with-forms
-  - js/array-entries
   - css/position
-  - js/geolocation-api
-  - tools/oop
-  - css/box-shadow
-  - tools/cors
-  - css/pseudoelements
-  - js/execution-order
-  - recipes/character-counter
-  - tools/gitlab-ci-cd
-  - recipes/center
-  - a11y/live-region
-  - html/head
-  - css/attr
-  - html/form
-  - a11y/content-hidden
-  - css/keyframes
-  - tools/agile
-  - css/box-model
-  - html/section
-  - css/grid-guide
-  - a11y/css-impact-on-a11y
-  - html/article
-  - html/div
-  - js/closures
   - css/media
-  - tools/static-types
-  - html/video
-  - tools/network
-  - css/flexbox-guide
-  - css/transform-function
-  - recipes/progress
-  - js/function-context
-  - js/array-reduce-right
-  - js/boolean
-  - html/img
-  - tools/ci-cd
-  - a11y/screenreaders
-  - tools/markdown
-  - tools/webpack
-  - html/input
-  - a11y/aria-intro
-  - tools/docker
   - css/scrollbar-gutter
-  - tools/cli
+  - html/form
+  - tools/oop
+  - html/img
+  - tools/clean-architecture
+  - js/geolocation-api
   - recipes/git-rebase-onto
-  - css/custom-properties
-  - css/specificity
-  - a11y/aria-hidden
-  - html/doctype
-  - css/display
-  - js/async-in-js
-  - tools/how-to-test-and-why
+  - css/box-model
+  - recipes/center
+  - tools/how-the-browser-creates-pages
   - recipes/popup
   - recipes/snow
-  - js/infinite-scroll
-  - html/flow
 ---
 
