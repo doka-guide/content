@@ -158,7 +158,7 @@ color-mix(in hsl increasing hue, red, blue);
 - [Именованные цвета (например, `red`, `blue`)](/css/web-colors/#nazvanie-cveta)
 - Функции: [`rgb()`](/css/web-colors/#rgb), [`rgba()`](/css/web-colors/#rgb), [`hsl()`](/css/web-colors/#hsl), [`hsla()`](/css/web-colors/#hsl), [`hwb()`](/css/web-colors/#hwb), `lab()`, `lch()`, `oklab()`, `oklch()`
 - Функция [`color()`](/css/color-function/)
-- [`transparent​`](/css/web-colors/#transparent​)
+- [`transparent​`](/css/web-colors/#transparent)
 
 **Нельзя передавать:​**
 
