@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Смешивание цветов — color-mix() — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 22px;
+        font-weight: 500;
+      }
+
+      .color-mixer {
+        max-width: 1024px;
+        display: grid;
+        gap: 25px 10px;
+        grid-template-columns: minmax(70px, 20%) minmax(0, 1fr) minmax(0, 1fr) minmax(
+            70px,
+            20%
+          );
+        grid-template-areas:
+          'header            header          header              header'
+          'text              text            text                text'
+          'color-one         color-mix       color-mix           color-two'
+          'percent-range       percent-range     percent-range         percent-range'
+          'color-setting-wrapper color-setting-wrapper color-setting-wrapper color-setting-wrapper'
+          'color-mix-function-text color-mix-function-text color-mix-function-text color-mix-function-text'
+          'computed-color-text computed-color-text computed-color-text computed-color-text';
+      }
+
+      .color-mixer__header {
+        grid-area: header;
+        text-align: center;
+      }
+
+      .color-mixer__text {
+        grid-area: text;
+      }
+
+      .color-container {
+        align-content: center;
+        position: relative;
+        line-height: 1;
+      }
+
+      .color-one-container {
+        grid-area: color-one;
+      }
+
+      .color-mix-container {
+        grid-area: color-mix;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .color-two-container {
+        grid-area: color-two;
+      }
+
+      .color-mixer__color-one-text {
+        grid-area: color-one-text;
+      }
+
+      .color-mixer__mix-text {
+        grid-area: mix-text;
+      }
+
+      .color-mixer__color-two-text {
+        grid-area: color-two-text;
+      }
+
+      .color-mixer__color-one-text,
+      .color-mixer__mix-text,
+      .color-mixer__color-two-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        color: #000000;
+      }
+
+      .color-mixer__color-one-text,
+      .color-mixer__color-two-text {
+        cursor: pointer;
+      }
+
+      .color-one {
+        grid-area: color-picker-one;
+      }
+
+      .color-two {
+        grid-area: color-picker-two;
+      }
+
+      .color-one:focus,
+      .color-two:focus {
+        outline: 2px solid #2e9aff;
+        outline-offset: 2px;
+      }
+
+      .color-one,
+      .color-two {
+        width: 100%;
+        height: 70px;
+        cursor: pointer;
+        border: 1px solid #FFFFFF;
+        border-radius: 6px;
+        padding: 0;
+        appearance: none;
+      }
+
+      .color-one::-webkit-color-swatch-wrapper,
+      .color-two::-webkit-color-swatch-wrapper {
+        padding: 0;
+        border-radius: inherit;
+      }
+
+      .color-one::-webkit-color-swatch,
+      .color-two::-webkit-color-swatch {
+        border-radius: inherit;
+      }
+
+      .mixed-color {
+        grid-area: mix-output;
+        width: 100%;
+        height: 50px;
+      }
+
+      .mix-output-text {
+        font-family: "Roboto Mono", monospace;
+        font-size: calc(1em - 1px);
+        line-height: 1.3em;
+        min-height: 2.6em;
+        width: 100%;
+      }
+
+      #color-mix-function-text {
+        grid-area: color-mix-function-text;
+      }
+
+      #computed-color-text {
+        grid-area: computed-color-text;
+      }
+
+      .percentage-range-wrapper {
+        grid-area: percent-range;
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .percentage-one-wrapper,
+      .percentage-two-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+      }
+
+      .percentage-one-wrapper {
+        justify-content: start;
+      }
+
+      .percentage-two-wrapper {
+        justify-content: end;
+      }
+
+      .percentage-one-label,
+      .percentage-two-label {
+        width: 3rem;
+        text-align: center;
+        user-select: none;
+      }
+
+      .percentage-range {
+        width: 65%;
+        max-width: 200px;
+        height: 6px;
+        background: #282a2e;
+        border-radius: 3px;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .percentage-range:focus {
+        outline: none;
+      }
+
+      .percentage-range:focus::-webkit-slider-thumb {
+        outline: 2px solid #2e9aff;
+        outline-offset: 0.125rem;
+      }
+
+      .percentage-range:focus::-moz-range-thumb {
+        outline: 2px solid #2e9aff;
+        outline-offset: 0.125rem;
+      }
+
+      .percentage-range--thumb::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #2e9aff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .percentage-range--thumb::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #2e9aff;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .color-setting-wrapper {
+        grid-area: color-setting-wrapper;
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+      }
+
+      .color-setting {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .select {
+        position: relative;
+        width: max-content;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
+        padding: 10px 35px 10px 15px;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 300;
+        line-height: 1;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      .select:focus {
+        outline: none;
+        border: 1px solid #2e9aff;
+      }
+
+      .select-wrapper {
+        position: relative;
+        width: max-content;
+      }
+
+      .select-wrapper::after {
+        content: '';
+        position: absolute;
+        top: calc(50% - 4px);
+        right: 15px;
+        width: 14px;
+        height: 8px;
+        background-image: url('images/arrow-down.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100%;
+        pointer-events: none;
+      }
+
+      option {
+        font-weight: inherit;
+        font-family: inherit;
+        font-size: inherit;
+      }
+
+      .disabled {
+        opacity: 0.25;
+      }
+
+      .disabled * {
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 30px;
+        }
+
+        .color-container {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 425px) {
+        body {
+          align-items: flex-start;
+          padding-block-start: 10dvh;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="color-mixer">
+        <h2 class="color-mixer__header">Смешивание цветов</h2>
+        <p class="color-mixer__text">
+          Нажмите на палитры для выбора цветов, регулируйте соотношение с
+          помощью ползунков.
+        </p>
+
+        <div class="color-container color-one-container">
+          <label
+            class="color-mixer__color-one-text"
+            id="color-one-text"
+            for="color-one"
+            >Первый цвет</label
+          >
+          <input
+            class="color-one"
+            id="color-one"
+            type="color"
+            value="#2E9AFF"
+            aria-label="Выберите первый цвет"
+            title="Нажмите, чтобы выбрать первый цвет"
+          />
+        </div>
+
+        <div class="color-container color-mix-container">
+          <div class="color-mixer__mix-text">Смешанный цвет</div>
+          <div class="mixed-color" id="mixed-color"></div>
+        </div>
+
+        <div class="color-container color-two-container">
+          <label
+            class="color-mixer__color-two-text"
+            id="color-two-text"
+            for="color-two"
+            >Второй цвет</label
+          >
+          <input
+            class="color-container color-two"
+            id="color-two"
+            type="color"
+            value="#F498AD"
+            aria-label="Выберите второй цвет"
+            title="Нажмите, чтобы выбрать второй цвет"
+          />
+        </div>
+
+        <div class="percentage-range-wrapper">
+          <div class="percentage-one-wrapper">
+            <label
+              class="percentage-one-label"
+              id="percentage-one-label"
+              for="percentage-one"
+              >50%</label
+            >
+            <input
+              class="percentage-range percentage-range--thumb"
+              id="percentage-one"
+              type="range"
+              name="percent1"
+              step="0.1"
+              value="50"
+              min="0"
+              max="100"
+            />
+          </div>
+          <div class="percentage-two-wrapper">
+            <label
+              class="percentage-two-label"
+              id="percentage-two-label"
+              for="percentage-two"
+              >50%</label
+            >
+            <input
+              class="percentage-range percentage-range--thumb"
+              id="percentage-two"
+              type="range"
+              name="percent2"
+              step="0.1"
+              value="50"
+              min="0"
+              max="100"
+            />
+          </div>
+        </div>
+
+        <div class="color-setting-wrapper">
+          <div class="color-setting color-space">
+            <label id="color-space-label" for="color-space"
+              >Цветовое пространство:
+            </label>
+            <div class="select-wrapper">
+              <select class="select" id="color-space">
+                <option value="srgb">srgb</option>
+                <option value="srgb-linear">srgb-linear</option>
+                <option value="lab">lab</option>
+                <option value="oklab" selected>oklab</option>
+                <option value="xyz">xyz</option>
+                <option value="xyz-d50">xyz-d50</option>
+                <option value="xyz-d65">xyz-d65</option>
+                <option value="hsl">hsl</option>
+                <option value="hwb">hwb</option>
+                <option value="lch">lch</option>
+                <option value="oklch">oklch</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="color-setting interpolation-method"
+            id="interpolation-method-wrapper"
+          >
+            <label id="interpolation-method-label" for="interpolation-method"
+              >Метод интерполяции:
+            </label>
+            <div class="select-wrapper">
+              <select class="select" id="interpolation-method">
+                <option value="shorter hue" selected>shorter hue</option>
+                <option value="longer hue">longer hue</option>
+                <option value="increasing hue">increasing hue</option>
+                <option value="decreasing hue">decreasing hue</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <samp
+          class="mix-output-text"
+          id="color-mix-function-text"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+        </samp>
+
+        <samp
+          class="mix-output-text"
+          id="computed-color-text"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+        </samp>
+      </div>
+    </div>
+
+    <script>
+      const polarColorSpaces = ['hsl', 'hwb', 'lch', 'oklch'];
+      const root = document.documentElement;
+
+      const colorSpace = document.getElementById('color-space');
+      const interpolationMethod = document.getElementById(
+        'interpolation-method'
+      );
+      const interpolationMethodWrapper = document.getElementById(
+        'interpolation-method-wrapper'
+      );
+      const colorOne = document.getElementById('color-one');
+      const colorTwo = document.getElementById('color-two');
+      const mixedColor = document.getElementById('mixed-color');
+
+      const colorMixFunctionText = document.getElementById(
+        'color-mix-function-text'
+      );
+      const computedColorText = document.getElementById('computed-color-text');
+
+      const percentageOneLabel = document.getElementById(
+        'percentage-one-label'
+      );
+      const percentageTwoLabel = document.getElementById(
+        'percentage-two-label'
+      );
+      const percentageOne = document.getElementById('percentage-one');
+      const percentageTwo = document.getElementById('percentage-two');
+
+      function formatting(value) {
+        const n = Number(value);
+        if (!Number.isFinite(n)) return '0,0%';
+        return n.toFixed(1) + '%';
+      }
+
+      function updateColorMix() {
+        let colorMixFunction = 'color-mix(in ';
+        root.style.setProperty('--color-space', colorSpace.value);
+        colorMixFunction += colorSpace.value;
+        if (polarColorSpaces.includes(colorSpace.value)) {
+          root.style.setProperty(
+            '--interpolation-method',
+            interpolationMethod.value
+          );
+          colorMixFunction += ` ${interpolationMethod.value}, `;
+        } else {
+          root.style.setProperty('--interpolation-method', '');
+          colorMixFunction += `, `;
+        }
+
+        const p1 = formatting(percentageOne.value);
+        const p2 = formatting(percentageTwo.value);
+
+        root.style.setProperty('--color-one', colorOne.value);
+        root.style.setProperty('--percentage-one', p1);
+        colorMixFunction += `${colorOne.value} ${p1}, `;
+
+        root.style.setProperty('--color-two', colorTwo.value);
+        root.style.setProperty('--percentage-two', p2);
+        colorMixFunction += `${colorTwo.value} ${p2})`;
+
+        mixedColor.style.backgroundColor = colorMixFunction;
+
+        const computedColor =
+          window.getComputedStyle(mixedColor).backgroundColor;
+        colorMixFunctionText.textContent = `${colorMixFunction}`;
+        computedColorText.textContent = `${computedColor}`;
+
+        percentageOneLabel.textContent = p1;
+        percentageTwoLabel.textContent = p2;
+      }
+
+      function init() {
+        colorOne.addEventListener('input', updateColorMix);
+        colorTwo.addEventListener('input', updateColorMix);
+
+        percentageOne.addEventListener('input', (e) => {
+          percentageOneLabel.textContent = formatting(e.target.value);
+          updateColorMix();
+        });
+
+        percentageTwo.addEventListener('input', (e) => {
+          percentageTwoLabel.textContent = formatting(e.target.value);
+          updateColorMix();
+        });
+
+        colorSpace.addEventListener('change', (e) => {
+          if (polarColorSpaces.includes(e.target.value)) {
+            interpolationMethodWrapper.classList.remove('disabled');
+            interpolationMethod.disabled = false;
+          } else {
+            interpolationMethodWrapper.classList.add('disabled');
+            interpolationMethod.disabled = true;
+          }
+          updateColorMix();
+        });
+
+        interpolationMethod.addEventListener('change', updateColorMix);
+
+        if (!polarColorSpaces.includes(colorSpace.value)) {
+          interpolationMethodWrapper.classList.add('disabled');
+          interpolationMethod.disabled = true;
+        }
+
+        updateColorMix();
+      }
+
+      init();
+    </script>
+  </body>
+</html>
