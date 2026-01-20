@@ -59,7 +59,6 @@ authors:
 related:
   - css/position-anchor
   - css/anchor-function
-  - css/position-try
 tags:
   - doka
 ---
