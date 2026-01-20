@@ -5,6 +5,7 @@ authors:
   - igsekor
 contributors:
   - furtivite
+  - disinterpreter
 related:
   - recipes/short-links
   - tools/http-protocol
