@@ -2,7 +2,7 @@
 title: "Web Application Firewall"
 description: "Web Application Firewall, инструмент защиты для веб-сайтов."
 authors:
-  - disi
+  - disinterpreter
 keywords:
   - веб-сервер
   - waf
@@ -10,7 +10,7 @@ keywords:
 related:
   - tools/web-server
   - tools/tcp-udp-protocols
-  - tools/ipv6-for-webdevs
+  - tools/nginx-web-server
 tags:
   - article
 ---
