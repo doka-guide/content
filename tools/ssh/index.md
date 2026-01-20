@@ -3,6 +3,8 @@ title: "Доступ по SSH"
 description: "Удалённое управление операционной системой и организация туннелей для передачи данных."
 authors:
   - igsekor
+contributors:
+  - disinterpreter
 keywords:
   - telnet
   - прикладной уровень
