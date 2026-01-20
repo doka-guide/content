@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Два фоновых изображения — background-origin — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto Mono", monospace;
+      font-size: 16px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    code {
+      font-family: inherit;
+    }
+
+    .select-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    select {
+      margin-left: 15px;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      padding: 10px 15px;
+      width: 150px;
+      background-color: #18191C;
+      border: 1px solid #18191C;
+      border-bottom: 1px solid #979797;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .select-wrapper::after {
+      content: "";
+      position: absolute;
+      top: calc(50% - 4px);
+      right: 15px;
+      width: 14px;
+      height: 8px;
+      background-image: url("images/arrow-down.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100%;
+      pointer-events: none;
+    }
+
+    select:focus {
+      outline: none;
+      border: 1px solid #2E9AFF;
+      border-radius: 6px;
+    }
+
+    .comment {
+      margin-left: -6px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .box {
+      border: 10px dashed currentColor;
+      margin-top: 20px;
+      padding: 20px;
+      aspect-ratio: 2 / 1;
+      background-image: url('images/doka.svg'), linear-gradient(#2E9AFF, #F498AD);
+      background-size: 100% 100%, 100% 100%;
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-origin: content-box, padding-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+
+      select {
+        width: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="controls">
+      <code>background-origin:</code>
+      <label>
+        <span class="select-wrapper">
+          <select id="origin-1">
+            <option value="border-box">border-box</option>
+            <option value="padding-box">padding-box</option>
+            <option value="content-box" selected>content-box</option>
+          </select>
+        </span>
+        <code class="comment">, /* Дока */</code>
+      </label>
+      <label>
+        <span class="select-wrapper">
+          <select id="origin-2">
+            <option value="border-box">border-box</option>
+            <option value="padding-box" selected>padding-box</option>
+            <option value="content-box">content-box</option>
+          </select>
+        </span>
+        <code class="comment">/* градиент */</code>
+      </label>
+    </div>
+
+
+    <div class="box" id="demo-box"></div>
+  </div>
+
+  <script>
+    const box = document.getElementById('demo-box')
+    const origin1 = document.getElementById('origin-1')
+    const origin2 = document.getElementById('origin-2')
+
+    function updateOrigin() {
+      box.style.backgroundOrigin = `${origin1.value}, ${origin2.value}`
+    }
+
+    [origin1, origin2].forEach(el => el.addEventListener('change', updateOrigin))
+  </script>
+</body>
+</html>
