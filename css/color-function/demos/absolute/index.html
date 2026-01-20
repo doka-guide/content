@@ -12,10 +12,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
-    }
-
     html,
     body {
       height: 100%;
@@ -42,17 +38,16 @@
       text-align: center;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-        place-content: space-evenly;
-      }
-    }
-
     @media (color-gamut: p3) {
       body::after {
         display: none;
       }
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
     }
 
     .wrapper {
@@ -103,35 +98,81 @@
     .alpha .linear {
       background-color: color(srgb-linear 0 0.5 1 / 0.5);
     }
+
+    @media (max-width: 1000px) {
+      .color {
+        width: 150px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        gap: 10px;
+      }
+
+      body::after {
+        width: 280px;
+      }
+
+      .container {
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      .wrapper {
+        flex-direction: row;
+        width: min-content;
+        gap: 10px;
+      }
+
+      .color {
+        aspect-ratio: 3/2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .color {
+        width: 135px;
+        aspect-ratio: 4/3;
+      }
+
+      .color-text {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="color display-p3">
-      <span class="color-text">Display P3</span>
+  <div class="container">
+    <div class="wrapper">
+      <div class="color display-p3">
+        <span class="color-text">Display P3</span>
+      </div>
+      <div class="color a98">
+        <span class="color-text">a98-rgb</span>
+      </div>
+      <div class="color linear">
+        <span class="color-text">srgb-linear</span>
+      </div>
+      <div class="color hex">
+        <span class="color-text">HEX</span>
+      </div>
     </div>
-    <div class="color a98">
-      <span class="color-text">a98-rgb</span>
-    </div>
-    <div class="color linear">
-      <span class="color-text">srgb-linear</span>
-    </div>
-    <div class="color hex">
-      <span class="color-text">HEX</span>
-    </div>
-  </div>
-  <div class="wrapper alpha">
-    <div class="color display-p3">
-      <span class="color-text">Display P3 / 0.5</span>
-    </div>
-    <div class="color a98">
-      <span class="color-text">a98-rgb / 0.5</span>
-    </div>
-    <div class="color linear">
-      <span class="color-text">srgb-linear / 0.5</span>
-    </div>
-    <div class="color hex">
-      <span class="color-text">HEX без альфа-канала</span>
+    <div class="wrapper alpha">
+      <div class="color display-p3">
+        <span class="color-text">Display P3 / 0.5</span>
+      </div>
+      <div class="color a98">
+        <span class="color-text">a98-rgb / 0.5</span>
+      </div>
+      <div class="color linear">
+        <span class="color-text">srgb-linear / 0.5</span>
+      </div>
+      <div class="color hex">
+        <span class="color-text">HEX без альфа-канала</span>
+      </div>
     </div>
   </div>
 </body>
