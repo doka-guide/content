@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Используем одно и то же якорное имя с anchor-scope() — anchor-scope() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+
+      --color-code-properties: hsl(355 65% 65% / 1);
+      --color-code-value: hsl(0 0% 100% / 1);
+      --color-code: hsl(219 14% 71%);
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      --gap: 60px;
+
+      display: flex;
+      gap: var(--gap);
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+
+      anchor-name: --container;
+    }
+
+    .container li {
+      padding-top: 230px;
+    }
+
+    .box {
+      width: 170px;
+      height: 170px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    .anchor {
+      background-color: #123E66;
+      anchor-name: --anchor;
+    }
+
+    .target {
+      --left-offset-size: 20px;
+      --bottom-offset-size: 10px;
+
+      background-color: #2E9AFF;
+      position: absolute;
+      position-anchor: --anchor;
+      position-area: top;
+      bottom: 20px;
+
+      box-shadow: -8px 8px 8px 0px rgba(3, 12, 18, 0.4);
+      margin-left: calc(var(--left-offset-size) * (var(--index) - 1));
+      margin-bottom: calc(var(--bottom-offset-size) * (var(--index) - 1));
+    }
+
+    .checkbox-container {
+      position: absolute;
+      position-anchor: --container;
+      position-area: top center;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .checkbox-container input {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 1;
+      accent-color: #2E9AFF;
+    }
+
+    ul.with-transition li .target {
+      transition: all .3s ease-in;
+    }
+
+    ul.with-animated-position li .target {
+      margin-left: 0;
+      margin-bottom: 0;
+      box-shadow: unset;
+
+      --k: calc(3 - var(--index));
+      --targets-width-space: calc(var(--k) * 100%);
+      --gap-space: calc(var(--k) * var(--gap));
+
+      --space-to-translate: calc(var(--targets-width-space) + var(--gap-space));
+
+      transform: translateX(calc(-1 * var(--space-to-translate)));
+    }
+
+    ul.with-anchor-scope li {
+      anchor-scope: all;
+    }
+
+    ul.with-animated-position.with-anchor-scope li .target {
+      transform: unset;
+    }
+
+    .code {
+      color: var(--color-code);
+      font-family: "Roboto Mono", monospace;
+    }
+
+    .code__properties {
+      color: var(--color-code-properties);
+    }
+
+    .code__value {
+      color: var(--color-code-value);
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        --gap: 30px;
+      }
+
+      .box {
+        width: 120px;
+        height: 120px;
+        font-size: 24px;
+      }
+
+      .container li {
+        padding-top: 180px;
+      }
+    }
+
+    @media (width <= 540px) {
+      .container {
+        --gap: 15px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        font-size: 18px;
+      }
+
+      .container li {
+        padding-top: 160px;
+      }
+
+      .checkbox-container {
+        font-size: 16px;
+      }
+
+      .checkbox-container input {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container li {
+        padding-top: 150px;
+      }
+
+      .box {
+        width: 90px;
+        height: 90px;
+      }
+    }
+
+    @media (width <= 354px) {
+      .container li {
+        padding-top: 130px;
+      }
+
+      .checkbox-container {
+        font-size: 14px;
+      }
+
+      .box {
+        width: 70px;
+        height: 70px;
+        font-size: 16px;
+      }
+
+      .target {
+        --left-offset-size: 12px;
+        --bottom-offset-size: 7px;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="checkbox-container code">
+    <input type="checkbox" id="anchor-scope">
+    <label for="anchor-scope"><span class="code__properties">anchor-scope</span>: <span class="code__value nowrap">--anchor</span>;</label>
+  </div>
+  <ul id="list" class="container">
+    <li>
+      <div class="anchor box">Anchor 1</div>
+      <div class="target box" style="--index: 1;">Target 1</div>
+    </li>
+    <li>
+      <div class="anchor box">Anchor 2</div>
+      <div class="target box" style="--index: 2;">Target 2</div>
+    </li>
+    <li>
+      <div class="anchor box">Anchor 3</div>
+      <div class="target box" style="--index: 3;">Target 3</div>
+    </li>
+  </ul>
+  <script>
+    const list = document.getElementById('list')
+    const target = document.querySelector('.target')
+    const anchorScopeCheckbox = document.getElementById('anchor-scope')
+
+    anchorScopeCheckbox.addEventListener('change', (event) => {
+      const isChecked = event.target.checked
+
+      if (isChecked) {
+        // вручную через транзишн анимируем переход каждого таргета к нужному якорю
+        // делаем это только ради красоты демки,
+        // так как свойство position-area не анимируется
+        list.classList.add('with-transition')
+        list.classList.add('with-animated-position')
+
+        // когда анимания закончилась, выставляем anchor-scope,
+        // чтобы position-area начал привязывать каждый таргет к нужному якорю
+        target.addEventListener('transitionend', () => {
+          list.classList.remove('with-transition')
+          list.classList.add('with-anchor-scope')
+        }, { once: true})
+      } else {
+        // убираем anchor-scope
+        list.classList.remove('with-anchor-scope')
+        // реализуем через транзишн плавный переход всех таргетов к третьему якорю
+        requestAnimationFrame(() => {
+          list.classList.add('with-transition')
+          list.classList.remove('with-animated-position')
+
+          target.addEventListener('transitionend', () => {
+            list.classList.remove('with-transition')
+          }, { once: true})
+        })
+      }
+    })
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

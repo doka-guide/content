@@ -248,6 +248,8 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - anchor-size-function
+      - anchor-scope
       - anchor-name
       - position-anchor
       - anchor-function
