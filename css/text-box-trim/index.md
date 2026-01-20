@@ -56,7 +56,7 @@ tags:
 - `trim-end` — убирает снизу;
 - `trim-both` — убирает сверху и снизу.
 
-Можно использовать шорткат [`text-box`](css/text-box/), чтобы задать [`text-box-trim`](css/text-box-trim/) и `text-box-edge` одной строкой:
+Можно использовать шорткат [`text-box`](/css/text-box/), чтобы задать [`text-box-trim`](/css/text-box-trim/) и `text-box-edge` одной строкой:
 
 ```css
 .tip {
