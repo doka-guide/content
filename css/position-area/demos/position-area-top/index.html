@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Располагаем элемент сверху и тянем на три ячейки — position-area — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .container {
+      width: 60%;
+      height: 90%;
+      max-width: 800px;
+      max-height: 500px;
+      place-content: center;
+      border: 4px solid #2E9AFF;
+      position: relative;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      background-color: #123E66;
+      width: 180px;
+      height: 100px;
+      font-size: 30px;
+      margin: 0 auto;
+      place-content: center;
+      text-align: center;
+    }
+
+    .target {
+      position: absolute;
+      position-anchor: --my-anchor;
+      background-color: #2E9AFFB3;
+      position-area: top;
+      width: 100%;
+      height: 100%;
+      font-size: 30px;
+      padding: 5px;
+      place-content: center;
+      text-align: center;
+    }
+
+    .line-top {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-bottom: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: top span-all;
+    }
+
+    .line-bottom {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-top: 3px solid #2E9AFF;
+      width: 100%;
+      position-area: bottom span-all;
+    }
+
+    .line-right {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-left: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: right span-all;
+    }
+
+    .line-left {
+      position: absolute;
+      position-anchor: --my-anchor;
+      border-right: 3px solid #2E9AFF;
+      height: 100%;
+      position-area: left span-all;
+    }
+
+    .side-caption {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: var(--position-area);
+      color: white;
+      font-size: 25px;
+    }
+
+    .side-caption-vertical {
+      align-self: center;
+      left: 111%;
+    }
+
+    .side-caption-horizontal {
+      justify-self: center;
+      top: 113%;
+    }
+
+    @media (width <= 950px) {
+      .container {
+        width: 70%;
+      }
+
+      .side-caption {
+        font-size: 20px;
+      }
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 80%;
+      }
+
+      .anchor {
+        width: 140px;
+        height: 90px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 24px;
+      }
+
+      .side-caption {
+        font-size: 18px;
+      }
+
+      .area-button {
+        font-size: 16px;
+      }
+    }
+
+    @media (width <= 580px) {
+      .anchor {
+        width: 100px;
+        height: 80px;
+      }
+    }
+
+    @media (width <= 460px) {
+      .side-caption {
+        font-size: 14px;
+      }
+    }
+
+    @media (width <= 414px) {
+      .container {
+        width: 70%;
+        height: 60%;
+      }
+
+      .anchor {
+        width: 80px;
+        height: 70px;
+      }
+
+      .anchor,
+      .target {
+        font-size: 18px;
+      }
+
+      .side-caption {
+        font-size: 13px;
+      }
+
+      .side-caption-vertical {
+        left: 120%;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="anchor">Anchor</div>
+
+    <div class="line-bottom"></div>
+    <div class="line-top"></div>
+    <div class="line-right"></div>
+    <div class="line-left"></div>
+
+    <div id="target" class="target">Target</div>
+
+    <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>
+    <div class="side-caption side-caption-vertical" style="--position-area: bottom right;">bottom</div>
+
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom left;">left</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
+    <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
+  </div>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
