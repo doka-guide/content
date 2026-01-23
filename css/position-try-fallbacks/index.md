@@ -58,7 +58,7 @@ tags:
 
 <iframe title="Показываем отсутствие адаптивности расположения" src="demos/without-fallback/" height="400"></iframe>
 
-В большинстве случаев этого будет достаточно, чтобы верстка выглядела хорошо, однако, не всегда. Например, если начать перемещать якорный элемент к верху экрана, то в какой-то момент таргет элемент скроется за пределами вьюпорта. А хотелось бы, чтобы он мог адаптироваться и переместиться вниз, как на картинке ниже.
+В большинстве случаев этого будет достаточно, чтобы вёрстка выглядела хорошо, однако, не всегда. Например, если начать перемещать якорный элемент к верху экрана, то в какой-то момент таргет элемент скроется за пределами вьюпорта. А хотелось бы, чтобы он мог адаптироваться и переместиться вниз, как на картинке ниже.
 
 ![Схема, показывающая как может меняться расположение таргет элемента при скролле страницы.](images/adaptive-position.png)
 
@@ -72,16 +72,16 @@ tags:
 
 ```css
 .target {
-    position-area: top center;
-    position-try-fallbacks: flip-block;
+  position-area: top center;
+  position-try-fallbacks: flip-block;
 }
 ```
 
-Попробуйте переместить якорный элемент сверху-вниз, снизу-вверх.
+Попробуйте переместить якорный элемент сверху вниз, потом снизу вверх.
 
 <iframe title="Показываем работу значения flip-block" src="demos/flip-block/" height="400"></iframe>
 
-При использовании `flip-block` значения таргет элемент будет менять свое местоположение в блочном направлении (то есть по вертикали для системы письменности справо-налево).
+При использовании `flip-block` значения таргет элемент будет менять свое местоположение в блочном направлении (то есть по вертикали для системы письменности справа налево).
 
 ![Схема, показывающая, как работает flip-block значение.](images/flip-block.png)
 
@@ -89,14 +89,14 @@ tags:
 
 ```css
 .target {
-    position-area: right center;
-    position-try-fallbacks: flip-inline;
+  position-area: right center;
+  position-try-fallbacks: flip-inline;
 }
 ```
 
 <iframe title="Показываем работу значения flip-inline" src="demos/flip-inline/" height="400"></iframe>
 
-При использовании `flip-inline` значения таргет элемент будет менять свое местоположение в строчном направлении (то есть по горизонтали для системы письменности справа-налево).
+При использовании `flip-inline` значения таргет элемент будет менять своё местоположение в строчном направлении (то есть по горизонтали для системы письменности справа налево).
 
 ![Схема, показывающая, как работает flip-inline значение.](images/flip-inline.png)
 
@@ -104,8 +104,8 @@ tags:
 
 ```css
 .target {
-    position-area: top center;
-    position-try-fallbacks: flip-start;
+  position-area: top center;
+  position-try-fallbacks: flip-start;
 }
 ```
 
@@ -113,8 +113,8 @@ tags:
 
 ```css
 .target {
-    position-area: bottom center;
-    position-try-fallbacks: flip-start;
+  position-area: bottom center;
+  position-try-fallbacks: flip-start;
 }
 ```
 
@@ -130,8 +130,8 @@ tags:
 
 ```css
 .target {
-    position-area: top span-left;
-    position-try-fallbacks: bottom span-right;
+  position-area: top span-left;
+  position-try-fallbacks: bottom span-right;
 }
 ```
 
