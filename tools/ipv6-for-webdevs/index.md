@@ -2,7 +2,7 @@
 title: "Протокол IPv6"
 description: "О протоколе IPv6 с разбором ситуаций для веб-разработчиков."
 authors:
-  - disi
+  - disinterpreter
 keywords:
   - прикладной уровень
   - subnet
