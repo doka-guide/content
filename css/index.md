@@ -254,6 +254,7 @@ groups:
       - position-anchor
       - anchor-function
       - position-area
+      - position-visibility
   - name: 'Списки'
     items:
       - list-style
