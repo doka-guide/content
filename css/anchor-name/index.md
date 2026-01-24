@@ -11,7 +11,7 @@ authors:
 related:
   - css/position
   - css/position-anchor
-  # - css/anchor-scope
+  - css/anchor-scope
 tags:
   - doka
 ---
