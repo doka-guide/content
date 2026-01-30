@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/infinite-scroll
-  - html/head
-  - js/deal-with-forms
-  - recipes/snow
-  - css/attr
-  - html/img
-  - a11y/aria-intro
-  - tools/bundlers
-  - tools/cli
-  - css/specificity
-  - recipes/center
-  - tools/static-types
+  - js/array-reduce-right
+  - html/nav
   - recipes/ajax-form
-  - css/media
-  - a11y/content-hidden
-  - js/closures
+  - css/pseudoelements
+  - html/img
+  - tools/cors
+  - html/form
   - tools/ci-cd
-  - recipes/popup
+  - js/closures
+  - html/div
+  - tools/markdown
+  - a11y/aria-hidden
+  - js/async-in-js
+  - tools/bundlers
+  - js/execution-order
+  - html/input
+  - css/custom-properties
+  - a11y/screenreaders
+  - html/doctype
+  - tools/how-the-browser-creates-pages
   - css/box-sizing
   - js/geolocation-api
   - css/flexbox-guide
-  - css/display
+  - html/head
+  - js/deal-with-forms
+  - tools/oop
   - tools/network
-  - css/box-shadow
-  - html/div
-  - html/video
-  - tools/webpack
-  - tools/agile
+  - recipes/center
+  - css/transform-function
+  - css/grid-guide
   - recipes/progress
-  - js/async-in-js
-  - html/input
+  - recipes/snow
   - recipes/character-counter
-  - a11y/css-impact-on-a11y
-  - html/doctype
-  - recipes/git-rebase-onto
-  - tools/how-to-test-and-why
-  - html/article
-  - tools/cors
-  - css/pseudoelements
-  - a11y/aria-hidden
+  - a11y/content-hidden
+  - js/array-entries
+  - a11y/aria-intro
+  - recipes/lets-encrypt-nginx
+  - js/function-context
+  - html/video
   - a11y/live-region
+  - css/keyframes
+  - a11y/css-impact-on-a11y
+  - tools/docker
+  - tools/cli
+  - tools/agile
   - js/boolean
-  - css/scrollbar-gutter
-  - css/custom-properties
-  - html/form
+  - css/position
+  - css/box-model
+  - html/section
+  - js/function
+  - tools/clean-architecture
   - html/flow
   - js/var-let
-  - css/keyframes
-  - js/function
-  - css/grid-guide
-  - html/section
-  - tools/how-the-browser-creates-pages
-  - js/function-context
-  - js/execution-order
-  - a11y/screenreaders
-  - css/position
-  - html/nav
+  - css/attr
+  - js/infinite-scroll
+  - css/specificity
+  - recipes/popup
+  - tools/how-to-test-and-why
   - tools/gitlab-ci-cd
-  - tools/clean-architecture
-  - css/transform-function
-  - tools/docker
-  - recipes/lets-encrypt-nginx
-  - tools/oop
-  - tools/markdown
-  - js/array-reduce-right
-  - js/array-entries
-  - css/box-model
+  - css/scrollbar-gutter
+  - tools/static-types
+  - tools/webpack
+  - css/media
+  - html/article
+  - css/display
+  - css/box-shadow
+  - recipes/git-rebase-onto
 ---
 
