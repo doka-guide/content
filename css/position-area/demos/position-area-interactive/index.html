@@ -41,14 +41,19 @@
       height: 100%;
     }
 
-    .container {
+    .wrapper {
+      position: relative;
       width: 60%;
       height: 90%;
       max-width: 800px;
       max-height: 500px;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
       place-content: center;
       border: 4px solid #2E9AFF;
-      position: relative;
       anchor-name: --container;
     }
 
@@ -154,12 +159,14 @@
 
     .side-caption-vertical {
       align-self: center;
-      left: 111%;
+      justify-self: stretch;
+      left: calc(anchor(--container right) + 4px + 0.5em);
     }
 
     .side-caption-horizontal {
+      align-self: stretch;
       justify-self: center;
-      top: 113%;
+      top: calc(anchor(--container bottom) + 4px + 0.2em);
     }
 
     .caption {
@@ -187,7 +194,7 @@
     }
 
     @media (width <= 950px) {
-      .container {
+      .wrapper {
         width: 70%;
       }
 
@@ -202,7 +209,7 @@
         padding: 30px;
       }
 
-      .container {
+      .wrapper {
         width: 80%;
         height: 85%;
       }
@@ -228,7 +235,7 @@
     }
 
     @media (width <= 580px) {
-      .container {
+      .wrapper {
         height: 75%;
       }
 
@@ -261,7 +268,7 @@
     }
 
     @media (width <= 414px) {
-      .container {
+      .wrapper {
         width: 80%;
         height: 60%;
       }
@@ -279,10 +286,6 @@
       .caption,
       .side-caption {
         font-size: 13px;
-      }
-
-      .side-caption-vertical {
-        left: 120%;
       }
     }
 
@@ -318,37 +321,39 @@
     <span class="code__properties">position-area</span>: <span id="caption-value" class="code__value">top center</span>;
   </div>
 
-  <div class="container">
-    <div class="anchor">Anchor</div>
+  <div class="wrapper">
+    <div class="container">
+      <div class="anchor">Anchor</div>
 
-    <div class="line-bottom"></div>
-    <div class="line-top"></div>
-    <div class="line-right"></div>
-    <div class="line-left"></div>
+      <div class="line-bottom"></div>
+      <div class="line-top"></div>
+      <div class="line-right"></div>
+      <div class="line-left"></div>
 
-    <div id="target" class="target">Target</div>
+      <div id="target" class="target">Target</div>
 
-    <div id="buttons-grid">
-      <button class="area-button" style="--position-area: top left;" data-position-area="top left" data-idx="1" data-row="1" data-col="1">top left</button>
-      <button class="area-button" style="--position-area: top center;" data-position-area="top center" data-idx="2" data-row="1" data-col="2">top center</button>
-      <button class="area-button" style="--position-area: top right;" data-position-area="top right" data-idx="3" data-row="1" data-col="3">top right</button>
+      <div id="buttons-grid">
+        <button class="area-button" style="--position-area: top left;" data-position-area="top left" data-idx="1" data-row="1" data-col="1">top left</button>
+        <button class="area-button" style="--position-area: top center;" data-position-area="top center" data-idx="2" data-row="1" data-col="2">top center</button>
+        <button class="area-button" style="--position-area: top right;" data-position-area="top right" data-idx="3" data-row="1" data-col="3">top right</button>
 
-      <button class="area-button" style="--position-area: center left;" data-position-area="center left" data-idx="4" data-row="2" data-col="1">center left</button>
-      <button class="area-button" style="--position-area: center center;" data-position-area="center center" data-idx="5" data-row="2" data-col="2">center center</button>
-      <button class="area-button" style="--position-area: center right;" data-position-area="center right" data-idx="6" data-row="2" data-col="3">center right</button>
+        <button class="area-button" style="--position-area: center left;" data-position-area="center left" data-idx="4" data-row="2" data-col="1">center left</button>
+        <button class="area-button" style="--position-area: center center;" data-position-area="center center" data-idx="5" data-row="2" data-col="2">center center</button>
+        <button class="area-button" style="--position-area: center right;" data-position-area="center right" data-idx="6" data-row="2" data-col="3">center right</button>
 
-      <button class="area-button" style="--position-area: bottom left;" data-position-area="bottom left" data-idx="7" data-row="3" data-col="1">bottom left</button>
-      <button class="area-button" style="--position-area: bottom center;" data-position-area="bottom center" data-idx="8" data-row="3" data-col="2">bottom center</button>
-      <button class="area-button" style="--position-area: bottom right;" data-position-area="bottom right" data-idx="9" data-row="3" data-col="3">bottom right</button>
+        <button class="area-button" style="--position-area: bottom left;" data-position-area="bottom left" data-idx="7" data-row="3" data-col="1">bottom left</button>
+        <button class="area-button" style="--position-area: bottom center;" data-position-area="bottom center" data-idx="8" data-row="3" data-col="2">bottom center</button>
+        <button class="area-button" style="--position-area: bottom right;" data-position-area="bottom right" data-idx="9" data-row="3" data-col="3">bottom right</button>
+      </div>
+
+      <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
+      <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>
+      <div class="side-caption side-caption-vertical" style="--position-area: bottom right;">bottom</div>
+
+      <div class="side-caption side-caption-horizontal" style="--position-area: bottom left;">left</div>
+      <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
+      <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
     </div>
-
-    <div class="side-caption side-caption-vertical" style="--position-area: top right;">top</div>
-    <div class="side-caption side-caption-vertical" style="--position-area: center right;">center</div>
-    <div class="side-caption side-caption-vertical" style="--position-area: bottom right;">bottom</div>
-
-    <div class="side-caption side-caption-horizontal" style="--position-area: bottom left;">left</div>
-    <div class="side-caption side-caption-horizontal" style="--position-area: bottom center;">center</div>
-    <div class="side-caption side-caption-horizontal" style="--position-area: bottom right;">right</div>
   </div>
   <script>
     const target = document.getElementById('target');
