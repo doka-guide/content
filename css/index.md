@@ -87,6 +87,7 @@ groups:
       - clamp
       - color-function
       - light-dark
+      - color-mix
   - name: 'Директивы'
     items:
       - font-face
@@ -105,6 +106,7 @@ groups:
       - currentcolor
       - color-function
       - light-dark
+      - color-mix
   - name: 'Тёмная тема'
     items:
       - color-scheme
@@ -246,6 +248,12 @@ groups:
       - stacking-context
       - z-index
       - inset
+      - anchor-size-function
+      - anchor-scope
+      - anchor-name
+      - position-anchor
+      - anchor-function
+      - position-area
   - name: 'Списки'
     items:
       - list-style

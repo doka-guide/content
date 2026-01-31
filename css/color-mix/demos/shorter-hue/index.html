@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>shorter hue — color-mix() — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #18191c;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+      }
+
+      .color-wheel {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(
+          hsl(0deg 50% 50%),
+          hsl(60deg 50% 50%),
+          hsl(120deg 50% 50%),
+          hsl(180deg 50% 50%),
+          hsl(240deg 50% 50%),
+          hsl(300deg 50% 50%),
+          hsl(360deg 50% 50%)
+        );
+      }
+
+      .color-wheel__container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        flex-shrink: 0;
+      }
+
+      .arc {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .arc__line {
+        stroke: #ffffff;
+        stroke-width: 4;
+        fill: none;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.3));
+      }
+
+      .arc__point {
+        stroke: #333333;
+        stroke-width: 2;
+      }
+
+      .arc__point--start {
+        fill: #2e9aff;
+      }
+
+      .arc__point--end {
+        fill: #f498ad;
+      }
+
+      .controls {
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+      }
+
+      .slider {
+        width: 100%;
+        max-width: 200px;
+        height: 6px;
+        background: #282a2e;
+        border-radius: 3px;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .slider:focus {
+        outline: none;
+      }
+
+      .slider--thumb-start-angle:focus::-webkit-slider-thumb {
+        outline: 2px solid #2e9aff;
+        outline-offset: 0.125rem;
+      }
+
+      .slider--thumb-start-angle:focus::-moz-range-thumb {
+        outline: 2px solid #2e9aff;
+        outline-offset: 0.125rem;
+      }
+
+      .slider--thumb-end-angle:focus::-webkit-slider-thumb {
+        outline: 2px solid #f498ad;
+        outline-offset: 0.125rem;
+      }
+
+      .slider--thumb-end-angle:focus::-moz-range-thumb {
+        outline: 2px solid #f498ad;
+        outline-offset: 0.125rem;
+      }
+
+      .slider--thumb-start-angle::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #2e9aff;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .slider--thumb-start-angle::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #2e9aff;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .slider--thumb-end-angle::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #f498ad;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .slider--thumb-end-angle::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #f498ad;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+      }
+
+      .label {
+        color: #e6e6e6;
+      }
+
+      .value-display {
+        font-weight: bold;
+      }
+
+      @media (width >= 425px) {
+        .color-wheel__container {
+          width: 300px;
+          height: 300px;
+        }
+
+        .controls {
+          margin-top: 50px;
+          flex-direction: row;
+          gap: 30px;
+          max-width: 400px;
+        }
+
+        .group {
+          gap: 20px;
+        }
+
+        .slider {
+          max-width: 180px;
+        }
+      }
+
+      @media (width >= 768px) {
+        body {
+          padding: 50px;
+          font-size: 18px;
+        }
+
+        .color-wheel__container {
+          width: 400px;
+          height: 400px;
+        }
+
+        .controls {
+          gap: 40px;
+          max-width: 500px;
+        }
+
+        .slider {
+          max-width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <span>0°</span>
+      <div class="color-wheel__container">
+        <div class="color-wheel"></div>
+        <svg class="arc" viewBox="0 0 400 400" width="100%" height="100%">
+          <path class="arc__line" d="" />
+          <circle
+            class="arc__point arc__point--start"
+            cx="200"
+            cy="200"
+            r="6"
+          />
+          <circle class="arc__point arc__point--end" cx="200" cy="200" r="6" />
+        </svg>
+      </div>
+
+      <div class="controls">
+        <div class="group">
+          <label class="label">Начальная точка</label>
+          <input
+            class="slider slider--thumb-start-angle"
+            type="range"
+            id="startAngle"
+            min="0"
+            max="360"
+            value="0"
+            step="1"
+          />
+          <span class="value-display" id="startValue">0°</span>
+        </div>
+
+        <div class="group">
+          <label class="label">Конечная точка</label>
+          <input
+            class="slider slider--thumb-end-angle"
+            type="range"
+            id="endAngle"
+            min="0"
+            max="360"
+            value="240"
+            step="1"
+          />
+          <span class="value-display" id="endValue">240°</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const startSlider = document.getElementById('startAngle');
+      const endSlider = document.getElementById('endAngle');
+      const startValue = document.getElementById('startValue');
+      const endValue = document.getElementById('endValue');
+      const arcLine = document.querySelector('.arc__line');
+      const startPoint = document.querySelector('.arc__point--start');
+      const endPoint = document.querySelector('.arc__point--end');
+
+      const SVG_SIZE = 400;
+      const centerX = SVG_SIZE / 2; // 200
+      const centerY = SVG_SIZE / 2; // 200
+      const radius = SVG_SIZE * 0.4; // 160
+
+      function angleToCoords(angle) {
+        const radian = ((angle - 90) * Math.PI) / 180;
+        const x = centerX + radius * Math.cos(radian);
+        const y = centerY + radius * Math.sin(radian);
+        return { x, y };
+      }
+
+      function calculateShortestPath(start, end) {
+        let diff = end - start;
+
+        if (diff > 180) diff -= 360;
+        if (diff < -180) diff += 360;
+
+        return diff;
+      }
+
+      function updateVisualization() {
+        const startAngle = parseInt(startSlider.value);
+        const endAngle = parseInt(endSlider.value);
+
+        startValue.textContent = startAngle + '°';
+        endValue.textContent = endAngle + '°';
+
+        const startCoords = angleToCoords(startAngle);
+        const endCoords = angleToCoords(endAngle);
+
+        startPoint.setAttribute('cx', startCoords.x);
+        startPoint.setAttribute('cy', startCoords.y);
+        endPoint.setAttribute('cx', endCoords.x);
+        endPoint.setAttribute('cy', endCoords.y);
+
+        const shortestDiff = calculateShortestPath(startAngle, endAngle);
+        const absArcAngle = Math.abs(shortestDiff);
+
+        const largeArcFlag = absArcAngle > 180 ? 1 : 0;
+        const sweepFlag = shortestDiff > 0 ? 1 : 0;
+
+        const pathData = `M ${startCoords.x} ${startCoords.y} A ${radius} ${radius} 0 ${largeArcFlag} ${sweepFlag} ${endCoords.x} ${endCoords.y}`;
+
+        arcLine.setAttribute('d', pathData);
+      }
+
+      window.addEventListener('resize', updateVisualization);
+      startSlider.addEventListener('input', updateVisualization);
+      endSlider.addEventListener('input', updateVisualization);
+
+      updateVisualization();
+    </script>
+  </body>
+</html>

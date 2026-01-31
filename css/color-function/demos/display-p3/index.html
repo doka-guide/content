@@ -12,10 +12,6 @@
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
-    }
-
     html,
     body {
       height: 100%;
@@ -40,12 +36,6 @@
       color: #ffffff;
       font-size: 18px;
       text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px;
-      }
     }
 
     @media (color-gamut: p3) {
@@ -81,6 +71,31 @@
 
     .hex {
       background-color: #00bbff;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+        gap: 10px;
+      }
+
+      body::after {
+        width: 280px;
+      }
+
+      .wrapper {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .color {
+        width: 135px;
+      }
+
+      .color-text {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
