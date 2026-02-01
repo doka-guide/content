@@ -5,7 +5,7 @@ on:
 
 jobs:
   prepare:
-    name: Файлы
+    name: Подготовка списка файлов
     runs-on: ubuntu-latest
     outputs:
       files: ${{ steps.files.outputs.all }}
