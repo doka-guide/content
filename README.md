@@ -26,4 +26,4 @@
 
 ---
 
-Распространяется под лицензиями [CC BY-NC-SA 4.0](LICENSE-SA.md) и [CC BY-NC-ND 4.0](LICENSE-ND.md), подробнее читайте в разделе о [лицензиях](docs/license.md).
+Распространяется под лицензиями [CC BY-NC-SA 4.0](LICENSE-SA.md) и [CC BY-NC-ND 4.0](LICENSE-ND.md), подробнее читайте [в разделе о лицензиях](docs/license.md).
