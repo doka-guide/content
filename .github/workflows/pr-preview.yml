@@ -22,7 +22,7 @@ jobs:
           echo "::set-output name=all::$returnReplaced"
           echo $returnReplaced
   pr-preview:
-    name: Превью
+    name: Сборка и загрузка превью
     runs-on: ubuntu-latest
     needs:
       - prepare
