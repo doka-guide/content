@@ -160,6 +160,7 @@ groups:
   - name: "Итераторы"
     items:
       - iterator
+      - iterator-take
       - iterator-to-array
   - name: "Обработка исключений"
     items:
