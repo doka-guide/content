@@ -5,6 +5,7 @@ on:
 
 jobs:
   prepare:
+    name: Подготовка списка файлов
     runs-on: ubuntu-latest
     outputs:
       files: ${{ steps.files.outputs.all }}
@@ -21,6 +22,7 @@ jobs:
           echo "::set-output name=all::$returnReplaced"
           echo $returnReplaced
   pr-preview:
+    name: Сборка и загрузка превью
     runs-on: ubuntu-latest
     needs:
       - prepare
