@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демка навигации с ховер эффектом на базе Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+    }
+
+    ul::before {
+      content: '';
+      position: absolute;
+      position-anchor: --anchor;
+      top: anchor(top);
+      left: anchor(left);
+      right: anchor(right);
+      bottom: anchor(bottom);
+      background: #2E9AFF;
+      border-radius: 20px;
+      transition: all 0.4s;
+      z-index: -1;
+    }
+
+    button {
+      border: none;
+      background: none;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      color: #FFFFFF;
+      padding: 15px 25px;
+      transition: color 0.4s;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    ul:not(:has(button:hover)) button:focus-visible {
+      anchor-name: --anchor;
+      outline: none;
+    }
+
+    ul:has(button:hover) button:focus-visible {
+      outline-color: #2E9AFF;
+      outline-offset: 0px;
+      outline-width: 3px;
+    }
+
+    button:hover {
+      anchor-name: --anchor;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      ul {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 380px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .hide-on-small {
+        display: none;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <!-- Так-то должны быть ссылки, но сделано через кнопки, чтобы на ховер браузер не показывал урл, куда ведет ссылка (чтобы не отвлекала внимание лишняя плашка на странцие) -->
+          <button>Главная</button>
+        </li>
+        <li>
+          <button>О нас</button>
+        </li>
+        <li>
+          <button>Каталог<span class="hide-on-small">-каталог-каталожище</span></button>
+        </li>
+        <li>
+          <button>Контакты</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
