@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Именованные значения OpenType‑фич — @font-feature-values — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { color-scheme: dark; font-size: 16px; }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Source Serif 4", serif;
+    }
+
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 900px; display: grid; gap: 24px; grid-template-columns: 1fr 1fr; }
+
+    .panel { border: 1px solid #2E3138; background-color: #1E2024; border-radius: 12px; padding: 16px; }
+    .panel h3 { font-weight: 500; margin-bottom: 8px; }
+    .sample { font-size: 40px; line-height: 1.2; color: #ECEFF4; }
+
+    /* Именуем значения фич для конкретного семейства */
+    @font-feature-values "Source Serif 4" {
+      @styleset {
+        alt-a: 1; /* ss01 */
+        alt-g: 2; /* ss02 */
+      }
+      @character-variant {
+        cv-g: 1; /* cv01 */
+      }
+    }
+
+    .sample--alt {
+      font-variant-alternates: styleset(alt-a, alt-g), character-variant(cv-g);
+    }
+
+    /* Фолбэк, если font-variant-alternates не подхватится */
+    @supports not (font-variant-alternates: styleset(x)) {
+      .sample--alt { font-feature-settings: "ss01" 1, "ss02" 1, "cv01" 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="panel">
+      <h3>По умолчанию</h3>
+      <p class="sample">Hamburgefonstiv 012345</p>
+    </div>
+    <div class="panel">
+      <h3>Именованные альтернативы</h3>
+      <p class="sample sample--alt">Hamburgefonstiv 012345</p>
+    </div>
+  </div>
+</body>
+</html>
