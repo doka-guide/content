@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — ::file-selector-button — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+        display: grid;
+        gap: 16px;
+    }
+
+    .container label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.1rem;
+        font-size: 2rem;
+        color: #FF8630;
+        font-weight: 500;
+    }
+
+    .uploader {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    .uploader::file-selector-button {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #2e6be6;
+      border-radius: 0.5rem;
+      background: #2e6be6;
+      color: #ffffff;
+      font: inherit;
+      cursor: pointer;
+      transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+
+    .uploader::file-selector-button:hover {
+      background: #1f4fb3;
+      border-color: #1f4fb3;
+    }
+
+    .uploader::file-selector-button:focus {
+      outline: 2px solid #94b6ff;
+      outline-offset: 2px;
+    }
+  </style>
+  </head>
+<body>
+  <div class="container">
+    <label>
+      Загрузить файл
+      <input class="uploader" type="file">
+    </label>
+  </div>
+</body>
+</html>
