@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>OKLAB — Цвета в вебе — Дока</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #18191c;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 800px;
+      width: 100%;
+      padding: 20px;
+    }
+
+    #color-block {
+      flex: 1 1 300px;
+      height: 200px;
+      border-radius: 8px;
+      border: 1px solid #ffffff33;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: monospace;
+      text-align: center;
+      font-size: 1rem;
+      padding: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .color-params {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="range"] {
+      flex-grow: 1;
+    }
+
+    input[type="number"] {
+      width: 70px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      width: fit-content;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="color-block">oklab(0.5 0.2 0.1 / 1)</div>
+      <div class="color-params">
+        <div class="input-group">
+          <label for="L">L (светлота):</label>
+          <input type="range" id="L" min="0" max="1" step="0.01" value="0.5">
+          <input type="number" id="L-num" min="0" max="1" step="0.01" value="0.5">
+        </div>
+        <div class="input-group">
+          <label for="A">A (от зелёного до красного):</label>
+          <input type="range" id="A" min="-0.4" max="0.4" step="0.01" value="0.2">
+          <input type="number" id="A-num" min="-0.4" max="0.4" step="0.01" value="0.2">
+        </div>
+        <div class="input-group">
+          <label for="B">B (от синего до жёлтого):</label>
+          <input type="range" id="B" min="-0.4" max="0.4" step="0.01" value="0.1">
+          <input type="number" id="B-num" min="-0.4" max="0.4" step="0.01" value="0.1">
+        </div>
+        <div class="input-group">
+          <label for="alpha">α (альфа канал):</label>
+          <input type="range" id="alpha" min="0" max="1" step="0.01" value="1">
+          <input type="number" id="alpha-num" min="0" max="1" step="0.01" value="1">
+        </div>
+      </div>
+    </div>
+
+  <script>
+    const ids = ['L', 'A', 'B', 'alpha'];
+    const refs = ids.reduce((o, id) => {
+      o[id] = document.getElementById(id);
+      o[id + 'Num'] = document.getElementById(id + '-num');
+      return o;
+    }, { block: document.getElementById('color-block') });
+
+    function updateColor() {
+      const L = refs.L.value;
+      const A = refs.A.value;
+      const B = refs.B.value;
+      const alpha = refs.alpha.value;
+      const color = `oklab(${L} ${A} ${B} / ${alpha})`;
+      refs.block.style.backgroundColor = color;
+      refs.block.textContent = color;
+
+      const [r, g, b] = getComputedStyle(refs.block).backgroundColor.match(/\d+/g).map(Number);
+      const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      refs.block.style.color = luminance > 128 ? '#000' : '#fff';
+    }
+
+    ids.forEach(id => {
+      refs[id].addEventListener('input', () => {
+        refs[id + 'Num'].value = refs[id].value;
+        updateColor();
+      });
+      refs[id + 'Num'].addEventListener('input', () => {
+        refs[id].value = refs[id + 'Num'].value;
+        updateColor();
+      });
+    });
+
+    updateColor();
+  </script>
+</body>
+</html>
