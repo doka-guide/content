@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример работы директивы @scope — @scope — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border: 1px solid #2E3138;
+      background-color: #1E2024;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .title {
+      font-weight: 500;
+    }
+
+    .media {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: #26292F;
+    }
+
+    .media img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+
+    .media .title {
+      color: #9AA0A6;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    p { color: #C8CDD4; }
+
+    @scope (.article) to (.media) {
+      .title { color: #FF8D59; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="section article">
+      <h2 class="title">Заголовок статьи</h2>
+      <figure class="media">
+        <img src="https://i.pinimg.com/originals/4a/e9/be/4ae9bebdae6385973feda9fcbfc8c85b.jpg" alt="Котик">
+        <figcaption class="title">Подпись к изображению (не окрашивается)</figcaption>
+      </figure>
+      <p>Абзац внутри статьи получает стили из @scope.</p>
+    </section>
+
+    <section class="section aside">
+      <h2 class="title">Боковая колонка (вне области)</h2>
+      <p>Эти стили не затронуты, так как область ограничена .article.</p>
+    </section>
+  </div>
+</body>
+</html>
+

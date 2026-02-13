@@ -96,6 +96,13 @@ groups:
       - media
       - supports
       - layer
+      - scope
+      - container
+      - namespace
+      - font-features-values
+      - charset
+      - viewport
+      - counter-style
       - starting-style
   - name: 'Глобальные ключевые слова'
     items:

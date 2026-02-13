@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пользовательские стили счётчиков — @counter-style — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 30px; }
+    }
+
+    .container { width: 100%; max-width: 820px; }
+    h1 { width: 100%; text-align: center; margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    h2 { margin-top: 8px; margin-bottom: 12px; font-weight: 500; font-size: 1.25rem; }
+    p { width: 100%; text-align: center; margin: 7px 0; line-height: 1.4; }
+
+    .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 768px) { .demo-grid { grid-template-columns: 1fr; } }
+
+    .card { padding: 18px; background: #222328; border: 1px solid #34353B; border-radius: 10px; }
+
+    /* Определения пользовательских счётчиков */
+    @counter-style yummy {
+      system: cyclic;
+      symbols: "🍊" "🍋" "🍇";
+      suffix: " ";
+    }
+
+    @counter-style romans {
+      system: additive;
+      additive-symbols: 10 "X", 5 "V", 1 "I";
+      suffix: ". ";
+      fallback: decimal;
+    }
+
+    /* Применение в списках */
+    ul.yummy-list { list-style: yummy; }
+    ol.roman { list-style: romans; }
+
+    ul, ol { padding-left: 24px; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Пользовательские стили счётчиков (<code>@counter-style</code>)</h1>
+    <p>Слева — эмодзи‑буллеты, справа — упрощённые римские цифры.</p>
+
+    <div class="demo-grid">
+      <section class="card">
+        <h2>Эмодзи‑буллеты</h2>
+        <ul class="yummy-list">
+          <li>Апельсин</li>
+          <li>Лимон</li>
+          <li>Виноград</li>
+          <li>Повторяемся по кругу</li>
+          <li>И снова по кругу</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Римская нумерация</h2>
+        <ol class="roman">
+          <li>Пункт</li>
+          <li>Пункт</li>
+          <li>Пункт</li>
+          <li>Пункт</li>
+          <li>Пункт</li>
+        </ol>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
