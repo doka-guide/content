@@ -1,6 +1,13 @@
 ---
 title: "`text-size-adjust`"
 description: "Может ли браузер на мобильных самовольно увеличить шрифт страницы?"
+baseline:
+  - group: text-size-adjust
+    features:
+      - css.properties.text-size-adjust
+      - css.properties.text-size-adjust.auto
+      - css.properties.text-size-adjust.none
+      - css.properties.text-size-adjust.percentages
 authors:
   - doka-dog
 keywords:

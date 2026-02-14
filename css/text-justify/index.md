@@ -1,6 +1,14 @@
 ---
 title: "`text-justify`"
 description: "Как будем текст выравнивать? Добавим пробелы между словами или между символами?"
+baseline:
+  - group: text-justify
+    features:
+      - css.properties.text-justify
+      - css.properties.text-justify.auto
+      - css.properties.text-justify.inter-character
+      - css.properties.text-justify.inter-word
+      - css.properties.text-justify.none
 authors:
   - kalpovskii
   - starhamster
@@ -38,7 +46,7 @@ p {
 
 <aside>
 
-⚠️ Поддержка этого свойства по умолчанию выключена в Chrome, поэтому демка будет работать только в Edge или Firefox.
+⚠️ Свойство может не поддерживаться всеми браузерами. Актуальную информацию о поддержке можно посмотреть на [Can I Use](https://caniuse.com/css-text-justify).
 
 </aside>
 
