@@ -255,6 +255,10 @@ groups:
       - anchor-function
       - position-area
       - position-visibility
+      - position-try-fallbacks
+      - position-try-rule
+      - position-try-order
+      - position-try
   - name: 'Списки'
     items:
       - list-style
