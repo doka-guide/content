@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Показываем работу свойства position-try-order — position-try-order — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@300;400;500&display=swap">
+
+  <style>
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .anchor {
+      anchor-name: --my-anchor;
+      background-color: #123E66;;
+      text-align: center;
+      padding: 40px 60px;
+      width: auto;
+      font-size: 30px;
+      position: absolute;
+      user-select: none;
+      touch-action: none;
+      left: 30%;
+    }
+
+    .target {
+      position: absolute;
+      position-anchor: --my-anchor;
+      position-area: top center;
+      position-try-order: normal;
+      position-try-fallbacks: --left, --bottom, --right;
+      padding: 25px;
+      text-align: center;
+      background-color: #2E9AFF;
+      font-size: 30px;
+      user-select: none;
+      margin-top: 6px;
+    }
+
+    @position-try --left {
+      position-area: left center;
+      margin: 0;
+      margin-left: 6px;
+    }
+
+    @position-try --bottom {
+      position-area: bottom center;
+      margin: 0;
+      margin-bottom: 6px;
+    }
+
+    @position-try --right {
+      position-area: right center;
+      margin: 0;
+      margin-right: 6px;
+    }
+
+    .viewport {
+      position: fixed;
+      inset: 0;
+      border: 6px solid #FFFFFF;
+    }
+
+    .line-top {
+      position: fixed;
+      position-anchor: --my-anchor;
+      border-bottom: 3px solid #FFFFFF;
+      width: 200%;
+      position-area: top span-all;
+    }
+
+    .line-bottom {
+      position: fixed;
+      position-anchor: --my-anchor;
+      border-top: 3px solid #FFFFFF;
+      width: 200%;
+      position-area: bottom span-all;
+    }
+
+    .line-right {
+      position: fixed;
+      position-anchor: --my-anchor;
+      border-left: 3px solid #FFFFFF;
+      height: 200%;
+      position-area: right span-all;
+    }
+
+    .line-left {
+      position: fixed;
+      position-anchor: --my-anchor;
+      border-right: 3px solid #FFFFFF;
+      height: 200%;
+      position-area: left span-all;
+    }
+
+    .picker-container {
+      position: absolute;
+      padding: 20px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: hsla(0, 0%, 100%, 0.4);
+    }
+
+    input {
+      accent-color: #2E9AFF;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      text-shadow: 1px 1px 15px #000000;
+    }
+
+    .radio-label {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+
+      .anchor {
+        padding: 30px 40px;
+        font-size: 24px;
+      }
+
+      .picker-container {
+        width: 100%;
+      }
+
+      .target {
+        padding: 20px;
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .picker-container {
+        width: auto;
+      }
+      .radio-label {
+        display: block;
+        margin-right: 0;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 414px) {
+      .anchor {
+        padding: 20px 30px;
+        font-size: 20px;
+      }
+
+      .target {
+        padding: 15px;
+        font-size: 20px;
+      }
+
+      .radio-label {
+        display: block;
+        margin-right: 0;
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .anchor {
+        padding: 15px 20px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="viewport"></div>
+  <div id="anchor" class="anchor">Anchor</div>
+  <div id="target" class="target">Target</div>
+  <div class="line-bottom"></div>
+  <div class="line-top"></div>
+  <div class="line-right"></div>
+  <div class="line-left"></div>
+
+  <div id="picker-container" class="picker-container">
+    <code>position-try-order: </code>
+    <label class="radio-label">
+      <input type="radio" name="position-try-order" value="normal" checked>
+      <code>normal</code>
+    </label>
+    <label class="radio-label">
+      <input type="radio" name="position-try-order" value="most-width">
+      <code>most-width</code>
+    </label>
+    <label class="radio-label">
+      <input type="radio" name="position-try-order" value="most-height">
+      <code>most-height</code>
+    </label>
+  </div>
+  <script>
+    let isDragging = false
+    let offsetX, offsetY
+
+    const anchor = document.querySelector('#anchor')
+
+    anchor.style.cursor = 'move'
+
+    document.addEventListener('pointerdown', (e) => {
+        isDragging = true
+
+        const rect = anchor.getBoundingClientRect()
+        offsetX = e.clientX - rect.left
+        offsetY = e.clientY - rect.top
+
+        anchor.style.cursor = 'grabbing'
+    })
+
+    document.addEventListener('pointermove', (e) => {
+        if (!isDragging) return
+
+        anchor.style.left = (e.clientX - offsetX) + 'px'
+        anchor.style.top = (e.clientY - offsetY) + 'px'
+    })
+
+    document.addEventListener('pointerup', () => {
+        isDragging = false
+        anchor.style.cursor = 'move'
+    })
+  </script>
+  <script>
+    const target = document.getElementById('target')
+    const radios = document.querySelectorAll('input[name="position-try-order"]')
+    radios.forEach((radio) => {
+      radio.addEventListener('change', (event) => {
+        target.style.positionTryOrder = event.target.value
+      })
+    })
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
