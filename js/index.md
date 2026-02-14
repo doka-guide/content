@@ -157,6 +157,11 @@ groups:
       - set-is-subset-of
       - set-is-superset-of
       - set-is-disjoint-from
+  - name: "Итераторы"
+    items:
+      - iterator
+      - iterator-take
+      - iterator-to-array
   - name: "Обработка исключений"
     items:
       - try-catch
