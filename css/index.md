@@ -254,6 +254,7 @@ groups:
       - position-anchor
       - anchor-function
       - position-area
+      - anchor-positioning-guide
       - position-visibility
       - position-try-fallbacks
       - position-try-rule
