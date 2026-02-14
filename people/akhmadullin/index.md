@@ -1,6 +1,6 @@
 ---
 name: 'Рома Ахмадуллин'
-url: https://github.com/akhmadullin
+url: https://t.me/roma_akhmadullin
 photo: photo.jpg
 badges:
   - first-contribution-small

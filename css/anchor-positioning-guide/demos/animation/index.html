@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Подсказки для графика на базе Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 25px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    @property --x {
+      syntax: "<number>";
+      initial-value: 0;
+      inherits: true;
+    }
+
+    @property --y {
+      syntax: "<number>";
+      initial-value: 0;
+      inherits: true;
+    }
+
+    .graph-container {
+      width: 80vmin;
+      aspect-ratio: 1;
+      background-size: 10px;
+      position: relative;
+    }
+
+    .graph-container::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      top: 0px;
+      left: -4px;
+      width: 4px;
+      background-color: white;
+    }
+
+    .graph-container::before {
+      content: '';
+      position: absolute;
+      right: 0px;
+      left: -4px;
+      bottom: -4px;
+      height: 4px;
+      background-color: white;
+    }
+
+    .circle {
+      border-radius: 50%;
+      --size: 55px;
+      width: var(--size);
+      height: var(--size);
+      border: solid 8px hsla(209, 100%, 59%, 1);
+      position: absolute;
+      left: anchor(--anchor-x left);
+      top: anchor(--anchor-y top);
+      transform: translate(-50%, -13%);
+      z-index: 2;
+    }
+
+    .triangle {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: anchor(--anchor-x left);
+      top: anchor(--anchor-y bottom);
+      background: hsla(209, 100%, 59%, 0.5);
+      clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%);
+      will-change: right, top;
+    }
+
+    .x::before,
+    .y::before {
+      content: '';
+      position: absolute;
+    }
+
+    .x {
+      position: absolute;
+      bottom: 0;
+      left: calc(var(--x) / 100 * 80vmin);
+      width: 20px;
+      aspect-ratio: 1;
+      background: white;
+      transform: translate(-50%, 50%);
+      animation: update-x 3s ease-in-out infinite alternate;
+      anchor-name: --anchor-x;
+      will-change: left;
+      z-index: 1;
+    }
+
+    .x::before {
+      height: 80vmin;
+      width: 2px;
+      bottom: 10px;
+      left: 10px;
+      background: hsla(0, 0%, 100%, 0.5);
+    }
+
+    .y {
+      background: white;
+      anchor-name: --anchor-y;
+      position: absolute;
+      width: 20px;
+      aspect-ratio: 1;
+      left: 0;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+      bottom: calc(var(--y) / 100 * 80vmin);
+      animation: update-y 6s ease-in-out infinite alternate;
+      will-change: bottom;
+      z-index: 1;
+    }
+
+    .y::before {
+      height: 2px;
+      left: 10px;
+      width: 80vmin;
+      background: hsla(0, 0%, 100%, 0.5);
+      top: 10px;
+    }
+
+    @keyframes update-x {
+      to {
+        --x: 100;
+      }
+    }
+
+    @keyframes update-y {
+      to {
+        --y: 100;
+      }
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+      font-size: 18px;
+      z-index: 100;
+      color-scheme: dark;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+        .graph-container {
+          scale: 0.8;
+        }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="graph-container">
+      <div class="x"></div>
+      <div class="y"></div>
+      <div class="circle"></div>
+      <div class="triangle"></div>
+    </div>
+  </div>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

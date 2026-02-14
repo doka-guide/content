@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Адаптивный тултип на основе Popover API и CSS Anchor Positioning — Anchor Positioning — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+      font-size: 18px;
+    }
+
+    .button {
+      display: block;
+      min-width: 210px;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      padding: 9px 15px;
+      color: #000000;
+      font-size: inherit;
+      font-weight: 300;
+      font-family: inherit;
+      transition: background-color 0.15s ease-in;
+      cursor: pointer;
+      background-color: #2E9AFF;
+    }
+
+    /* эти стили нужны только для демки, чтобы работал dran'n'drop */
+    .button {
+      position: absolute;
+      touch-action: none;
+    }
+
+    .button:hover {
+      background-color: #FFFFFF;
+    }
+
+    .button:focus-visible {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    .button:focus {
+      border: 2px solid #FFFFFF;
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      .button {
+        min-width: 60px;
+      }
+    }
+
+    .tooltip-anchor {
+      /* даём якорю (кнопке) имя */
+      anchor-name: --button-el;
+    }
+
+    .tooltip {
+      inset: unset;
+      max-width: 300px;
+      bottom: 10px;
+      padding: 10px 40px;
+      background-color: #FFFFFF;
+      color: #000000;
+      text-align: center;
+
+      /* ссылаемся на якорь, к которому привязан тултип */
+      position-anchor: --button-el;
+      /* выставляем дефолтное положение относительно якоря */
+      position-area: top;
+      /* добавляем фолбэки, если дефолт не отработал */
+      position-try-fallbacks: --bottom, --left, --right;
+      /* делаем тултип якорем */
+      anchor-name: --tooltip-el;
+    }
+
+    /* описываем, что значат фолбэки */
+    @position-try --bottom {
+      position-area: bottom;
+      bottom: unset;
+      top: 10px;
+    }
+
+    @position-try --left {
+      position-area: left;
+      max-width: 200px;
+      bottom: unset;
+      right: 10px;
+    }
+
+    @position-try --right {
+      position-area: right;
+      max-width: 200px;
+      bottom: unset;
+      left: 10px;
+    }
+
+    .tooltip-content {
+      background-color: inherit;
+    }
+
+    /* хвостики */
+    .tooltip::before,
+    .tooltip::after,
+    .tooltip .tooltip-content::before,
+    .tooltip .tooltip-content::after {
+      /* якоримся на тот же элемент, что и тултип */
+      position-anchor: --button-el;
+      content: '';
+      position: fixed;
+      background-color: inherit;
+      margin: auto;
+    }
+
+    /* для вертикальной ориентации */
+    .tooltip::before,
+    .tooltip::after {
+      left: anchor(--button-el start);
+      right: anchor(--button-el end);
+      width: 10px;
+      max-height: 10px;
+    }
+
+    /* для кейса, когда тултип под кнопкой */
+    .tooltip::before {
+      /* растягиваем хвостик между двумя якорями */
+      top: anchor(--button-el end);
+      bottom: anchor(--tooltip-el start);
+      translate: 0 7px;
+      rotate: 45deg;
+    }
+
+    /* для кейса, когда тултип над кнопкой */
+    .tooltip::after {
+      /* растягиваем хвостик между двумя якорями */
+      top: anchor(--tooltip-el end);
+      bottom: anchor(--button-el start);
+      translate: 0 -7px;
+      rotate: 45deg;
+    }
+
+    /* для горизонтальной ориентации */
+    .tooltip .tooltip-content::before,
+    .tooltip .tooltip-content::after {
+      top: anchor(--button-el start);
+      bottom: anchor(--button-el end);
+      height: 10px;
+      max-width: 10px;
+    }
+
+    /* для кейса, когда тултип справа от кнопки */
+    .tooltip .tooltip-content::before {
+      /* растягиваем хвостик между двумя якорями */
+      left: anchor(--button-el end);
+      right: anchor(--tooltip-el start);
+      translate: 7px;
+      rotate: 45deg;
+    }
+
+    /* для кейса, когда тултип слева от кнопки */
+    .tooltip .tooltip-content::after {
+      /* растягиваем хвостик между двумя якорями */
+      left: anchor(--tooltip-el end);
+      right: anchor(--button-el start);
+      translate: -7px;
+      rotate: 45deg;
+    }
+
+    .cap-supports-notification-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(5px);
+      padding: 30px;
+    }
+
+    .cap-supports-notification {
+      padding: 20px;
+      background-color: #42464c;
+    }
+
+    .cap-supports-notification h3 {
+      margin: 0 0 20px;
+    }
+
+    @supports (anchor-name: --test) {
+      .cap-supports-notification-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="button tooltip-anchor" id="tooltip-anchor" aria-describedby="tooltip">
+    ❤️
+  </button>
+  <div class="tooltip" id="tooltip" role="tooltip" popover="manual">
+    <div class="tooltip-content">
+      Добавить в «Избранное»
+    </div>
+  </div>
+  <script>
+    const tooltip = document.querySelector('#tooltip')
+    const tooltipAnchor = document.querySelector('#tooltip-anchor')
+
+    const showTooltip = () => {
+      tooltip.showPopover()
+    }
+
+    const hideTooltip = () => {
+      tooltip.hidePopover()
+    }
+
+    tooltipAnchor.addEventListener('mouseenter', showTooltip)
+    tooltipAnchor.addEventListener('focus', showTooltip)
+
+    tooltipAnchor.addEventListener('mouseleave', hideTooltip)
+    tooltipAnchor.addEventListener('blur', hideTooltip)
+
+    tooltipAnchor.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        hideTooltip()
+      }
+    })
+  </script>
+  <script>
+    // этот скрипт реализует dran'n'drop для демки
+    let isDragging = false
+    let offsetX, offsetY
+
+    tooltipAnchor.style.cursor = 'move'
+
+    document.addEventListener('pointerdown', (e) => {
+        isDragging = true
+
+        const rect = tooltipAnchor.getBoundingClientRect();
+        offsetX = e.clientX - rect.left
+        offsetY = e.clientY - rect.top
+
+        tooltipAnchor.style.cursor = 'grabbing'
+    });
+
+    document.addEventListener('pointermove', (e) => {
+        if (!isDragging) return
+
+        tooltipAnchor.style.left = (e.clientX - offsetX) + 'px'
+        tooltipAnchor.style.top = (e.clientY - offsetY) + 'px'
+    });
+
+    document.addEventListener('pointerup', () => {
+        isDragging = false
+        tooltipAnchor.style.cursor = 'move'
+    })
+  </script>
+  <div class="cap-supports-notification-container">
+    <div class="cap-supports-notification">
+      <h3>Ваш браузер не поддерживает Anchor Positioning&nbsp;😢</h3>
+      <p>
+          Откройте демо в браузере, имеющем <a href="https://caniuse.com/css-anchor-positioning">поддержку</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
