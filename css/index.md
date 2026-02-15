@@ -248,18 +248,20 @@ groups:
       - stacking-context
       - z-index
       - inset
-      - anchor-size-function
-      - anchor-scope
+  - name: 'Якорное позиционирование'
+    items:
+      - anchor-positioning-guide
       - anchor-name
       - position-anchor
       - anchor-function
       - position-area
-      - anchor-positioning-guide
-      - position-visibility
       - position-try-fallbacks
       - position-try-rule
       - position-try-order
       - position-try
+      - position-visibility
+      - anchor-size-function
+      - anchor-scope
   - name: 'Списки'
     items:
       - list-style
