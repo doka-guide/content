@@ -110,8 +110,8 @@ function createCopy(object) {
 Во многих случаях предпочтительным будет применить глобальную функцию `structuredClone()`. Она не описывается спецификацией ECMAScript (и поэтому не является частью языка), но доступна в браузерах благодаря Web API, а также реализована в Node.js и в других средах исполнения кода.
 
 ```js
-const clonedCart = structuredClone(itemsInCart)
-console.log(itemsInCart[1] === clonedCart[1])
+const deep = structuredClone(itemsInCart)
+console.log(itemsInCart[1] === deep[1])
 // false
 ```
 
