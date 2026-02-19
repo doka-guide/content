@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>RGB — Цвета в вебе — Дока</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;800&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        color-scheme: dark;
+      }
+
+      body {
+        font-family: sans-serif;
+        background: #18191c;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+      }
+
+      #color-block {
+        flex: 1 1 300px;
+        height: 200px;
+        border-radius: 8px;
+        border: 1px solid #ffffff33;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: monospace;
+        text-align: center;
+        font-size: 1rem;
+        padding: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .color-params {
+        flex: 1 1 300px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      input[type="range"] {
+        flex-grow: 1;
+      }
+
+      input[type="number"] {
+        width: 70px;
+      }
+
+      label {
+        font-size: 0.9rem;
+        flex-shrink: 0;
+        width: fit-content;
+      }
+    </style>
+    </head>
+    <body>
+      <div class="container">
+        <div id="color-block">rgb(0, 0, 0 / 1)</div>
+        <div class="color-params">
+          <div class="input-group">
+            <label for="r">R (красный):</label>
+            <input type="range" id="r" min="0" max="255" value="0">
+            <input type="number" id="r-num" min="0" max="255" value="0">
+          </div>
+          <div class="input-group">
+            <label for="g">G (зелёный):</label>
+            <input type="range" id="g" min="0" max="255" value="0">
+            <input type="number" id="g-num" min="0" max="255" value="0">
+          </div>
+          <div class="input-group">
+            <label for="b">B (синий):</label>
+            <input type="range" id="b" min="0" max="255" value="0">
+            <input type="number" id="b-num" min="0" max="255" value="0">
+          </div>
+          <div class="input-group">
+            <label for="a">α (альфа канал):</label>
+            <input type="range" id="a" min="0" max="1" step="0.01" value="1">
+            <input type="number" id="a-num" min="0" max="1" step="0.01" value="1">
+          </div>
+        </div>
+      </div>
+    <script>
+      const refs = {
+        r: document.getElementById("r"),
+        g: document.getElementById("g"),
+        b: document.getElementById("b"),
+        a: document.getElementById("a"),
+        rNum: document.getElementById("r-num"),
+        gNum: document.getElementById("g-num"),
+        bNum: document.getElementById("b-num"),
+        aNum: document.getElementById("a-num"),
+        block: document.getElementById("color-block")
+      };
+
+      function updateFromSliders() {
+        refs.rNum.value = refs.r.value;
+        refs.gNum.value = refs.g.value;
+        refs.bNum.value = refs.b.value;
+        refs.aNum.value = refs.a.value;
+        updateColor();
+      }
+
+      function updateFromNumbers() {
+        refs.r.value = refs.rNum.value;
+        refs.g.value = refs.gNum.value;
+        refs.b.value = refs.bNum.value;
+        refs.a.value = refs.aNum.value;
+        updateColor();
+      }
+
+      function getContrastColor(r, g, b) {
+        const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+        return yiq >= 128 ? "#000000" : "#ffffff";
+      }
+
+      function updateColor() {
+        const r = +refs.r.value;
+        const g = +refs.g.value;
+        const b = +refs.b.value;
+        const a = +refs.a.value;
+
+        const color = `rgb(${r} ${g} ${b} / ${a})`;
+        const textColor = getContrastColor(r, g, b);
+
+        refs.block.style.backgroundColor = color;
+        refs.block.style.color = textColor;
+        refs.block.textContent = color;
+      }
+
+      refs.r.addEventListener("input", updateFromSliders);
+      refs.g.addEventListener("input", updateFromSliders);
+      refs.b.addEventListener("input", updateFromSliders);
+      refs.a.addEventListener("input", updateFromSliders);
+
+      refs.rNum.addEventListener("input", updateFromNumbers);
+      refs.gNum.addEventListener("input", updateFromNumbers);
+      refs.bNum.addEventListener("input", updateFromNumbers);
+      refs.aNum.addEventListener("input", updateFromNumbers);
+
+      updateColor();
+    </script>
+  </body>
+</html>
