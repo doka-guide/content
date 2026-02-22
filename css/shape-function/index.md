@@ -6,7 +6,7 @@ baseline:
     features:
       - css.types.basic-shape.shape
 authors:
-  - nailheart
+  - NailGilmanov
 related:
   - css/clip-path
   - css/offset-path
