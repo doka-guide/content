@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Волна — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .wave-top {
+      width: 300px;
+      height: 150px;
+      background: linear-gradient(180deg, #667eea, #764ba2);
+      clip-path: shape(
+        from 0 30%,
+        curve to 25% 50% with 10% 30% / 15% 50%,
+        curve to 50% 30% with 35% 50% / 40% 30%,
+        curve to 75% 50% with 60% 30% / 65% 50%,
+        curve to 100% 30% with 85% 50% / 90% 30%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .wave-animated {
+      width: 300px;
+      height: 150px;
+      background: linear-gradient(180deg, #11998e, #38ef7d);
+      clip-path: shape(
+        from 0 40%,
+        curve to 25% 60% with 10% 40% / 15% 60%,
+        curve to 50% 40% with 35% 60% / 40% 40%,
+        curve to 75% 60% with 60% 40% / 65% 60%,
+        curve to 100% 40% with 85% 60% / 90% 40%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+      animation: wave 3s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        clip-path: shape(
+          from 0 40%,
+          curve to 25% 60% with 10% 40% / 15% 60%,
+          curve to 50% 40% with 35% 60% / 40% 40%,
+          curve to 75% 60% with 60% 40% / 65% 60%,
+          curve to 100% 40% with 85% 60% / 90% 40%,
+          line to 100% 100%,
+          line to 0 100%,
+          close
+        );
+      }
+      50% {
+        clip-path: shape(
+          from 0 60%,
+          curve to 25% 40% with 10% 60% / 15% 40%,
+          curve to 50% 60% with 35% 40% / 40% 60%,
+          curve to 75% 40% with 60% 60% / 65% 40%,
+          curve to 100% 60% with 85% 40% / 90% 60%,
+          line to 100% 100%,
+          line to 0 100%,
+          close
+        );
+      }
+    }
+
+    .double-wave {
+      position: relative;
+      width: 300px;
+      height: 150px;
+    }
+
+    .double-wave::before,
+    .double-wave::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .double-wave::before {
+      background: rgba(102, 126, 234, 0.5);
+      clip-path: shape(
+        from 0 50%,
+        curve to 33% 30% with 16% 50% / 16% 30%,
+        curve to 66% 50% with 50% 30% / 50% 50%,
+        curve to 100% 30% with 83% 50% / 83% 30%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .double-wave::after {
+      background: rgba(118, 75, 162, 0.5);
+      clip-path: shape(
+        from 0 30%,
+        curve to 33% 50% with 16% 30% / 16% 50%,
+        curve to 66% 30% with 50% 50% / 50% 30%,
+        curve to 100% 50% with 83% 30% / 83% 50%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wave-top"></div>
+    <span class="label">Статичная волна</span>
+  </div>
+  <div class="container">
+    <div class="wave-animated"></div>
+    <span class="label">Анимированная волна</span>
+  </div>
+  <div class="container">
+    <div class="double-wave"></div>
+    <span class="label">Двойная волна</span>
+  </div>
+</body>
+</html>

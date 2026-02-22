@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Анимация по пути — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+    }
+
+    .path-container {
+      position: relative;
+      width: 300px;
+      height: 200px;
+    }
+
+    .path-visual {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px dashed rgba(46, 154, 255, 0.3);
+      border-radius: 50%;
+    }
+
+    .moving-element {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      border-radius: 50%;
+      offset-path: shape(
+        from 0 50%,
+        curve to 50% 0 with 0 0,
+        curve to 100% 50% with 100% 0,
+        curve to 50% 100% with 100% 100%,
+        curve to 0 50% with 0 100%,
+        close
+      );
+      offset-anchor: center;
+      animation: move 4s linear infinite;
+    }
+
+    @keyframes move {
+      0% {
+        offset-distance: 0%;
+      }
+      100% {
+        offset-distance: 100%;
+      }
+    }
+
+    .label {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="path-container">
+    <div class="path-visual"></div>
+    <div class="moving-element"></div>
+    <span class="label">Элемент движется по пути shape()</span>
+  </div>
+</body>
+</html>

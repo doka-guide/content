@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Сердце — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .heart {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      clip-path: shape(
+        from 50% 20%,
+        curve to 90% 40% with 65% 0 / 90% 15%,
+        curve to 50% 95% with 90% 70% / 65% 95%,
+        curve to 10% 40% with 35% 95% / 10% 70%,
+        curve to 50% 20% with 10% 15% / 35% 0,
+        close
+      );
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .heart-outline {
+      width: 200px;
+      height: 200px;
+      background: transparent;
+      border: 4px solid #ff416c;
+      clip-path: shape(
+        from 50% 20%,
+        curve to 90% 40% with 65% 0 / 90% 15%,
+        curve to 50% 95% with 90% 70% / 65% 95%,
+        curve to 10% 40% with 35% 95% / 10% 70%,
+        curve to 50% 20% with 10% 15% / 35% 0,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="heart"></div>
+    <span class="label">Сердце с анимацией</span>
+  </div>
+</body>
+</html>

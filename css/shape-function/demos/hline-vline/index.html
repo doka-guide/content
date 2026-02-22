@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команды hline и vline — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .step-shape {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      clip-path: shape(
+        from 0 0,
+        hline to 50%,
+        vline to 50%,
+        hline to 100%,
+        vline to 100%,
+        hline to 0,
+        close
+      );
+    }
+
+    .l-shape {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #fc4a1a, #f7b733);
+      clip-path: shape(
+        from 0 0,
+        hline to 40%,
+        vline to 60%,
+        hline to 100%,
+        vline to 100%,
+        hline to 0,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="step-shape"></div>
+    <span class="label">Ступенька</span>
+  </div>
+  <div class="container">
+    <div class="l-shape"></div>
+    <span class="label">L-образная форма</span>
+  </div>
+</body>
+</html>

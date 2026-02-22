@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команда arc — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .row {
+      display: flex;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .semicircle {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #f5af19, #f12711);
+      clip-path: shape(
+        from 0 50%,
+        arc to 100% 50% of 50%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .pacman {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #f7ff00, #db36a4);
+      clip-path: shape(
+        from 50% 50%,
+        line to 85% 25%,
+        arc to 85% 75% of 50% cw large,
+        close
+      );
+    }
+
+    .pie {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      clip-path: shape(
+        from 50% 50%,
+        line to 50% 0,
+        arc to 100% 50% of 50% cw,
+        close
+      );
+    }
+
+    .moon {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+      clip-path: shape(
+        from 30% 10%,
+        arc to 30% 90% of 45% cw large,
+        arc to 30% 10% of 35% ccw large,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="container">
+      <div class="semicircle"></div>
+      <span class="label">Полукруг</span>
+    </div>
+    <div class="container">
+      <div class="pacman"></div>
+      <span class="label">Пакман</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="pie"></div>
+      <span class="label">Сектор круга</span>
+    </div>
+    <div class="container">
+      <div class="moon"></div>
+      <span class="label">Луна</span>
+    </div>
+  </div>
+</body>
+</html>

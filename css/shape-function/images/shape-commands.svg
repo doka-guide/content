@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">Команды shape()</text>
+  
+  <!-- Line command -->
+  <g transform="translate(50, 80)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#667eea" font-family="monospace" font-size="14">line</text>
+    <line x1="30" y1="50" x2="120" y2="100" stroke="#667eea" stroke-width="3"/>
+    <circle cx="30" cy="50" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="100" r="5" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Прямая линия</text>
+  </g>
+  
+  <!-- Curve command -->
+  <g transform="translate(220, 80)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#764ba2" font-family="monospace" font-size="14">curve</text>
+    <path d="M 30 100 Q 75 30 120 100" stroke="#764ba2" stroke-width="3" fill="none"/>
+    <circle cx="30" cy="100" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="100" r="5" fill="#ffffff"/>
+    <circle cx="75" cy="30" r="4" fill="#ff6b6b" opacity="0.7"/>
+    <line x1="30" y1="100" x2="75" y2="30" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4"/>
+    <line x1="75" y1="30" x2="120" y2="100" stroke="#ff6b6b" stroke-width="1" stroke-dasharray="4"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Кривая Безье</text>
+  </g>
+  
+  <!-- Arc command -->
+  <g transform="translate(390, 80)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#4ecdc4" font-family="monospace" font-size="14">arc</text>
+    <path d="M 30 80 A 45 35 0 0 1 120 80" stroke="#4ecdc4" stroke-width="3" fill="none"/>
+    <circle cx="30" cy="80" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="80" r="5" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Дуга эллипса</text>
+  </g>
+  
+  <!-- Close command -->
+  <g transform="translate(560, 80)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#f093fb" font-family="monospace" font-size="14">close</text>
+    <polygon points="75,40 120,100 30,100" stroke="#f093fb" stroke-width="3" fill="none"/>
+    <circle cx="75" cy="40" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="100" r="5" fill="#ffffff"/>
+    <circle cx="30" cy="100" r="5" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Замыкание пути</text>
+  </g>
+  
+  <!-- hline/vline commands -->
+  <g transform="translate(50, 230)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#38ef7d" font-family="monospace" font-size="14">hline / vline</text>
+    <line x1="30" y1="60" x2="120" y2="60" stroke="#38ef7d" stroke-width="3"/>
+    <line x1="120" y1="60" x2="120" y2="100" stroke="#11998e" stroke-width="3"/>
+    <circle cx="30" cy="60" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="60" r="5" fill="#ffffff"/>
+    <circle cx="120" cy="100" r="5" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Горизонт./вертик.</text>
+  </g>
+  
+  <!-- Smooth command -->
+  <g transform="translate(220, 230)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#f5576c" font-family="monospace" font-size="14">smooth</text>
+    <path d="M 20 80 Q 40 40 60 80 T 100 80 T 140 80" stroke="#f5576c" stroke-width="3" fill="none" transform="translate(-5, 0)"/>
+    <circle cx="15" cy="80" r="4" fill="#ffffff"/>
+    <circle cx="55" cy="80" r="4" fill="#ffffff"/>
+    <circle cx="95" cy="80" r="4" fill="#ffffff"/>
+    <circle cx="135" cy="80" r="4" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Плавная кривая</text>
+  </g>
+  
+  <!-- from command -->
+  <g transform="translate(390, 230)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#ffd200" font-family="monospace" font-size="14">from</text>
+    <circle cx="75" cy="70" r="15" fill="none" stroke="#ffd200" stroke-width="3"/>
+    <circle cx="75" cy="70" r="5" fill="#ffd200"/>
+    <text x="75" y="100" text-anchor="middle" fill="#ffd200" font-family="system-ui" font-size="11">START</text>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Начальная точка</text>
+  </g>
+  
+  <!-- by keyword -->
+  <g transform="translate(560, 230)">
+    <rect width="150" height="120" fill="#2a2a4a" rx="8"/>
+    <text x="75" y="25" text-anchor="middle" fill="#00c9ff" font-family="monospace" font-size="14">by (относит.)</text>
+    <line x1="40" y1="70" x2="110" y2="70" stroke="#00c9ff" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="75" y="60" text-anchor="middle" fill="#00c9ff" font-family="monospace" font-size="10">+100px</text>
+    <circle cx="40" cy="70" r="5" fill="#ffffff"/>
+    <text x="75" y="115" text-anchor="middle" fill="#888" font-family="system-ui" font-size="10">Относит. координаты</text>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00c9ff"/>
+    </marker>
+  </defs>
+</svg>
