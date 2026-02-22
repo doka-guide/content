@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команда line — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .before {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #2E9AFF;
+      opacity: 0.2;
+    }
+
+    .shape {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      clip-path: shape(from 0 0, line to 100% 0, line to 100% 100%, line to 0 100%, close);
+    }
+
+    .arrow {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(45deg, #f093fb, #f5576c);
+      clip-path: shape(from 0 30%, line to 60% 30%, line to 60% 0, line to 100% 50%, line to 60% 100%, line to 60% 70%, line to 0 70%, close);
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="shape"></div>
+    <span class="label">Прямоугольник</span>
+  </div>
+  <div class="container">
+    <div class="arrow"></div>
+    <span class="label">Стрелка</span>
+  </div>
+</body>
+</html>

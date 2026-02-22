@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команда smooth — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .smooth-wave {
+      width: 250px;
+      height: 150px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      clip-path: shape(
+        from 0 50%,
+        curve to 25% 30% with 12% 50%,
+        smooth to 50% 50%,
+        smooth to 75% 70%,
+        smooth to 100% 50%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .smooth-blob {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      clip-path: shape(
+        from 50% 5%,
+        curve to 95% 40% with 75% 5%,
+        smooth to 80% 90%,
+        smooth to 20% 90%,
+        smooth to 5% 40%,
+        smooth to 50% 5%,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="smooth-wave"></div>
+    <span class="label">Плавная волна</span>
+  </div>
+  <div class="container">
+    <div class="smooth-blob"></div>
+    <span class="label">Плавный blob</span>
+  </div>
+</body>
+</html>

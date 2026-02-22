@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Команда curve — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .row {
+      display: flex;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quadratic {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #a8edea, #fed6e3);
+      clip-path: shape(
+        from 0 100%,
+        curve to 100% 100% with 50% 0,
+        line to 100% 100%,
+        close
+      );
+    }
+
+    .cubic {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #d299c2, #fef9d7);
+      clip-path: shape(
+        from 0 50%,
+        curve to 100% 50% with 25% 0 / 75% 100%,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .blob {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      clip-path: shape(
+        from 50% 0,
+        curve to 100% 50% with 80% 0 / 100% 20%,
+        curve to 50% 100% with 100% 80% / 80% 100%,
+        curve to 0 50% with 20% 100% / 0 80%,
+        curve to 50% 0 with 0 20% / 20% 0,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="container">
+      <div class="quadratic"></div>
+      <span class="label">Квадратичная кривая<br>(1 контрольная точка)</span>
+    </div>
+    <div class="container">
+      <div class="cubic"></div>
+      <span class="label">Кубическая кривая<br>(2 контрольные точки)</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="blob"></div>
+      <span class="label">Blob-форма<br>(несколько кривых)</span>
+    </div>
+  </div>
+</body>
+</html>

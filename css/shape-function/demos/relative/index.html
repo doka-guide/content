@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Относительные координаты — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .absolute {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      clip-path: shape(
+        from 0 0,
+        line to 100% 0,
+        line to 100% 100%,
+        line to 0 100%,
+        close
+      );
+    }
+
+    .relative {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #ee0979, #ff6a00);
+      clip-path: shape(
+        from 0 0,
+        line by 100% 0,
+        line by 0 100%,
+        line by -100% 0,
+        close
+      );
+    }
+
+    .zigzag {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      clip-path: shape(
+        from 0 0,
+        line by 33% 50%,
+        line by 33% -50%,
+        line by 34% 50%,
+        line by 0 50%,
+        line by -100% 0,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    .code {
+      color: #2E9AFF;
+      font-family: monospace;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="absolute"></div>
+    <span class="label">Абсолютные координаты<br><span class="code">line to 100% 0</span></span>
+  </div>
+  <div class="container">
+    <div class="relative"></div>
+    <span class="label">Относительные координаты<br><span class="code">line by 100% 0</span></span>
+  </div>
+  <div class="container">
+    <div class="zigzag"></div>
+    <span class="label">Зигзаг с by</span>
+  </div>
+</body>
+</html>

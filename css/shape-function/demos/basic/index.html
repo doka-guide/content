@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Базовый пример — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .before {
+      width: 200px;
+      height: 200px;
+      background-color: #2E9AFF;
+      opacity: 0.2;
+    }
+
+    .triangle {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+      clip-path: shape(from 50% 0, line to 100% 100%, line to 0 100%, close);
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="before"></div>
+    <span class="label">Исходный элемент</span>
+  </div>
+  <div class="container">
+    <div class="triangle"></div>
+    <span class="label">С shape()</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Звезда — shape() — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      gap: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .star-5 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #f7971e, #ffd200);
+      clip-path: shape(
+        from 50% 0,
+        line to 61% 35%,
+        line to 98% 35%,
+        line to 68% 57%,
+        line to 79% 91%,
+        line to 50% 70%,
+        line to 21% 91%,
+        line to 32% 57%,
+        line to 2% 35%,
+        line to 39% 35%,
+        close
+      );
+    }
+
+    .star-6 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      clip-path: shape(
+        from 50% 0,
+        line to 65% 25%,
+        line to 100% 25%,
+        line to 75% 50%,
+        line to 100% 75%,
+        line to 65% 75%,
+        line to 50% 100%,
+        line to 35% 75%,
+        line to 0 75%,
+        line to 25% 50%,
+        line to 0 25%,
+        line to 35% 25%,
+        close
+      );
+    }
+
+    .star-8 {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #fc466b, #3f5efb);
+      clip-path: shape(
+        from 50% 0,
+        line to 60% 30%,
+        line to 85% 15%,
+        line to 70% 40%,
+        line to 100% 50%,
+        line to 70% 60%,
+        line to 85% 85%,
+        line to 60% 70%,
+        line to 50% 100%,
+        line to 40% 70%,
+        line to 15% 85%,
+        line to 30% 60%,
+        line to 0 50%,
+        line to 30% 40%,
+        line to 15% 15%,
+        line to 40% 30%,
+        close
+      );
+    }
+
+    .label {
+      color: #FFFFFF;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="star-5"></div>
+    <span class="label">5-конечная звезда</span>
+  </div>
+  <div class="container">
+    <div class="star-6"></div>
+    <span class="label">6-конечная звезда</span>
+  </div>
+  <div class="container">
+    <div class="star-8"></div>
+    <span class="label">8-конечная звезда</span>
+  </div>
+</body>
+</html>
