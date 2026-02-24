@@ -31,26 +31,26 @@
       gap: 15px;
     }
 
-    .before {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background-color: #2E9AFF;
-      opacity: 0.2;
-    }
-
     .shape {
       width: 200px;
       height: 200px;
       background: linear-gradient(45deg, #667eea, #764ba2);
-      clip-path: shape(from 0 0, line to 100% 0, line to 100% 100%, line to 0 100%, close);
     }
 
     .arrow {
       width: 200px;
       height: 200px;
       background: linear-gradient(45deg, #f093fb, #f5576c);
-      clip-path: shape(from 0 30%, line to 60% 30%, line to 60% 0, line to 100% 50%, line to 60% 100%, line to 60% 70%, line to 0 70%, close);
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .shape {
+        clip-path: shape(from 0 0, line to 100% 0, line to 100% 100%, line to 0 100%, close);
+      }
+
+      .arrow {
+        clip-path: shape(from 0 30%, line to 60% 30%, line to 60% 0, line to 100% 50%, line to 60% 100%, line to 60% 70%, line to 0 70%, close);
+      }
     }
 
     .label {
@@ -59,9 +59,34 @@
       font-size: 14px;
       opacity: 0.7;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="container">
     <div class="shape"></div>
     <span class="label">Прямоугольник</span>

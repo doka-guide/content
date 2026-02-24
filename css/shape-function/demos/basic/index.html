@@ -42,7 +42,12 @@
       width: 200px;
       height: 200px;
       background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
-      clip-path: shape(from 50% 0, line to 100% 100%, line to 0 100%, close);
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .triangle {
+        clip-path: shape(from 50% 0, line to 100% 100%, line to 0 100%, close);
+      }
     }
 
     .label {
@@ -51,9 +56,34 @@
       font-size: 14px;
       opacity: 0.7;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="container">
     <div class="before"></div>
     <span class="label">Исходный элемент</span>

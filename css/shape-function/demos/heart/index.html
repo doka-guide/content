@@ -35,15 +35,20 @@
       width: 200px;
       height: 200px;
       background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      clip-path: shape(
-        from 50% 20%,
-        curve to 90% 40% with 65% 0 / 90% 15%,
-        curve to 50% 95% with 90% 70% / 65% 95%,
-        curve to 10% 40% with 35% 95% / 10% 70%,
-        curve to 50% 20% with 10% 15% / 35% 0,
-        close
-      );
-      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .heart {
+        clip-path: shape(
+          from 50% 20%,
+          curve to 90% 40% with 65% 0 / 90% 15%,
+          curve to 50% 95% with 90% 70% / 65% 95%,
+          curve to 10% 40% with 35% 95% / 10% 70%,
+          curve to 50% 20% with 10% 15% / 35% 0,
+          close
+        );
+        animation: pulse 1.5s ease-in-out infinite;
+      }
     }
 
     @keyframes pulse {
@@ -55,30 +60,40 @@
       }
     }
 
-    .heart-outline {
-      width: 200px;
-      height: 200px;
-      background: transparent;
-      border: 4px solid #ff416c;
-      clip-path: shape(
-        from 50% 20%,
-        curve to 90% 40% with 65% 0 / 90% 15%,
-        curve to 50% 95% with 90% 70% / 65% 95%,
-        curve to 10% 40% with 35% 95% / 10% 70%,
-        curve to 50% 20% with 10% 15% / 35% 0,
-        close
-      );
-    }
-
     .label {
       color: #FFFFFF;
       font-family: system-ui, sans-serif;
       font-size: 14px;
       opacity: 0.7;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="container">
     <div class="heart"></div>
     <span class="label">Сердце с анимацией</span>

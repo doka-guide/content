@@ -42,39 +42,50 @@
       width: 180px;
       height: 180px;
       background: linear-gradient(135deg, #a8edea, #fed6e3);
-      clip-path: shape(
-        from 0 100%,
-        curve to 100% 100% with 50% 0,
-        line to 100% 100%,
-        close
-      );
     }
 
     .cubic {
       width: 180px;
       height: 180px;
       background: linear-gradient(135deg, #d299c2, #fef9d7);
-      clip-path: shape(
-        from 0 50%,
-        curve to 100% 50% with 25% 0 / 75% 100%,
-        line to 100% 100%,
-        line to 0 100%,
-        close
-      );
     }
 
     .blob {
       width: 180px;
       height: 180px;
       background: linear-gradient(135deg, #89f7fe, #66a6ff);
-      clip-path: shape(
-        from 50% 0,
-        curve to 100% 50% with 80% 0 / 100% 20%,
-        curve to 50% 100% with 100% 80% / 80% 100%,
-        curve to 0 50% with 20% 100% / 0 80%,
-        curve to 50% 0 with 0 20% / 20% 0,
-        close
-      );
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .quadratic {
+        clip-path: shape(
+          from 0 100%,
+          curve to 100% 100% with 50% 0,
+          line to 100% 100%,
+          close
+        );
+      }
+
+      .cubic {
+        clip-path: shape(
+          from 0 50%,
+          curve to 100% 50% with 25% 0 / 75% 100%,
+          line to 100% 100%,
+          line to 0 100%,
+          close
+        );
+      }
+
+      .blob {
+        clip-path: shape(
+          from 50% 0,
+          curve to 100% 50% with 80% 0 / 100% 20%,
+          curve to 50% 100% with 100% 80% / 80% 100%,
+          curve to 0 50% with 20% 100% / 0 80%,
+          curve to 50% 0 with 0 20% / 20% 0,
+          close
+        );
+      }
     }
 
     .label {
@@ -84,9 +95,34 @@
       opacity: 0.7;
       text-align: center;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .row {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="row">
     <div class="container">
       <div class="quadratic"></div>

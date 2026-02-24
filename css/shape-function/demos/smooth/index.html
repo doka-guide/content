@@ -35,31 +35,39 @@
       width: 250px;
       height: 150px;
       background: linear-gradient(135deg, #667eea, #764ba2);
-      clip-path: shape(
-        from 0 50%,
-        curve to 25% 30% with 12% 50%,
-        smooth to 50% 50%,
-        smooth to 75% 70%,
-        smooth to 100% 50%,
-        line to 100% 100%,
-        line to 0 100%,
-        close
-      );
     }
 
     .smooth-blob {
       width: 200px;
       height: 200px;
       background: linear-gradient(135deg, #f093fb, #f5576c);
-      clip-path: shape(
-        from 50% 5%,
-        curve to 95% 40% with 75% 5%,
-        smooth to 80% 90%,
-        smooth to 20% 90%,
-        smooth to 5% 40%,
-        smooth to 50% 5%,
-        close
-      );
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .smooth-wave {
+        clip-path: shape(
+          from 0 50%,
+          curve to 25% 30% with 12% 50%,
+          smooth to 50% 50%,
+          smooth to 75% 70%,
+          smooth to 100% 50%,
+          line to 100% 100%,
+          line to 0 100%,
+          close
+        );
+      }
+
+      .smooth-blob {
+        clip-path: shape(
+          from 50% 5%,
+          curve to 95% 40% with 75% 5%,
+          smooth to 80% 90%,
+          smooth to 20% 90%,
+          smooth to 5% 40%,
+          smooth to 50% 5%,
+          close
+        );
+      }
     }
 
     .label {
@@ -69,9 +77,34 @@
       opacity: 0.7;
       text-align: center;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="container">
     <div class="smooth-wave"></div>
     <span class="label">Плавная волна</span>

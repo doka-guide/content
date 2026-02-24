@@ -42,16 +42,21 @@
       height: 40px;
       background: linear-gradient(135deg, #f093fb, #f5576c);
       border-radius: 50%;
-      offset-path: shape(
-        from 0 50%,
-        curve to 50% 0 with 0 0,
-        curve to 100% 50% with 100% 0,
-        curve to 50% 100% with 100% 100%,
-        curve to 0 50% with 0 100%,
-        close
-      );
       offset-anchor: center;
-      animation: move 4s linear infinite;
+    }
+
+    @supports (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .moving-element {
+        offset-path: shape(
+          from 0 50%,
+          curve to 50% 0 with 0 0,
+          curve to 100% 50% with 100% 0,
+          curve to 50% 100% with 100% 100%,
+          curve to 0 50% with 0 100%,
+          close
+        );
+        animation: move 4s linear infinite;
+      }
     }
 
     @keyframes move {
@@ -74,9 +79,34 @@
       opacity: 0.7;
       white-space: nowrap;
     }
+
+    /* Сообщение о неподдержке */
+    .not-supported {
+      display: none;
+      padding: 20px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 8px;
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    @supports not (clip-path: shape(from 0 0, line to 100% 100%)) {
+      .not-supported {
+        display: block;
+      }
+      .path-container {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="not-supported">
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
+    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+  </div>
   <div class="path-container">
     <div class="path-visual"></div>
     <div class="moving-element"></div>
