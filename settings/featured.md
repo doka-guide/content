@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/geolocation-api
-  - js/infinite-scroll
-  - tools/ci-cd
-  - tools/docker
-  - recipes/progress
+  - tools/network
+  - recipes/character-counter
+  - html/video
   - a11y/css-impact-on-a11y
   - a11y/live-region
-  - css/box-sizing
+  - html/section
+  - js/var-let
   - tools/gitlab-ci-cd
-  - recipes/center
-  - recipes/character-counter
-  - css/box-model
-  - tools/how-the-browser-creates-pages
-  - tools/cors
-  - js/array-entries
-  - css/flexbox-guide
-  - js/execution-order
-  - a11y/aria-intro
-  - html/video
-  - a11y/screenreaders
+  - recipes/lets-encrypt-nginx
+  - recipes/ajax-form
+  - tools/markdown
+  - css/specificity
+  - css/grid-guide
   - a11y/content-hidden
   - tools/webpack
-  - css/specificity
-  - tools/markdown
+  - html/head
+  - css/pseudoelements
+  - css/scrollbar-gutter
+  - html/div
+  - js/geolocation-api
+  - js/array-entries
+  - css/flexbox-guide
+  - js/deal-with-forms
+  - js/array-reduce-right
+  - css/media
+  - tools/oop
+  - css/box-sizing
+  - html/form
+  - recipes/center
+  - tools/clean-architecture
+  - html/flow
+  - tools/how-the-browser-creates-pages
+  - recipes/snow
+  - recipes/progress
+  - tools/ci-cd
+  - css/box-model
+  - css/keyframes
+  - js/function-context
+  - recipes/git-rebase-onto
+  - css/attr
+  - js/infinite-scroll
+  - js/function
+  - js/boolean
+  - tools/bundlers
+  - tools/cli
+  - html/nav
+  - js/execution-order
+  - css/position
+  - html/doctype
+  - css/display
+  - a11y/screenreaders
+  - a11y/aria-intro
+  - css/transform-function
+  - html/input
+  - html/article
+  - tools/agile
   - css/box-shadow
   - html/img
-  - js/closures
-  - tools/agile
-  - js/async-in-js
-  - tools/cli
-  - recipes/ajax-form
-  - css/keyframes
-  - html/article
-  - recipes/git-rebase-onto
-  - js/var-let
-  - html/input
-  - css/transform-function
-  - html/form
-  - css/scrollbar-gutter
-  - html/head
-  - css/grid-guide
-  - tools/clean-architecture
-  - css/display
-  - tools/bundlers
-  - a11y/aria-hidden
-  - recipes/snow
-  - tools/network
-  - html/flow
-  - tools/oop
-  - css/position
-  - html/nav
-  - html/doctype
-  - html/section
-  - js/function-context
-  - tools/how-to-test-and-why
-  - tools/static-types
-  - html/div
-  - js/function
-  - css/pseudoelements
-  - css/media
-  - recipes/lets-encrypt-nginx
-  - js/array-reduce-right
-  - js/deal-with-forms
   - recipes/popup
-  - js/boolean
-  - css/attr
+  - js/closures
+  - js/async-in-js
   - css/custom-properties
+  - a11y/aria-hidden
+  - tools/docker
+  - tools/static-types
+  - tools/cors
+  - tools/how-to-test-and-why
 ---
 
