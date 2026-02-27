@@ -34,20 +34,20 @@
     }
 
     .wave-top {
-      width: 300px;
+      width: min(300px, 90vw);
       height: 150px;
       background: linear-gradient(180deg, #667eea, #764ba2);
     }
 
     .wave-animated {
-      width: 300px;
+      width: min(300px, 90vw);
       height: 150px;
       background: linear-gradient(180deg, #11998e, #38ef7d);
     }
 
     .double-wave {
       position: relative;
-      width: 300px;
+      width: min(300px, 90vw);
       height: 150px;
     }
 
@@ -178,8 +178,8 @@
 </head>
 <body>
   <div class="not-supported">
-    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>. 
-    Попробуйте открыть в Chrome 137+ или другом современном браузере.
+    ⚠️ Ваш браузер пока не поддерживает функцию <code>shape()</code>.<br>
+    Проверьте <a href="https://caniuse.com/mdn-css_types_basic-shape_shape" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">актуальную поддержку</a> на Can I use.
   </div>
   <div class="container">
     <div class="wave-top"></div>
