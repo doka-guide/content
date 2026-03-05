@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример паттерна "HEX" — Атрибут `pattern` — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <form class="form" action="javascript:alert('Всё верно!');">
+    <div class="form-row">
+      <label for="date" class="row-label">Введите hex-цвет:</label>
+      <input id="date" class="input" type="text" pattern="#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})" title="Введите цвет в формате #RGB или #RRGGBB">
+    </div>
+    <button class="button button-orange" type="submit">Сохранить</button>
+  </form>
+</body>
+</html>
