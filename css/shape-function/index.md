@@ -25,8 +25,6 @@ tags:
 
 </aside>
 
-![Сравнение shape() и path()](images/shape-vs-path.svg)
-
 ## Пример
 
 Создадим треугольник с помощью `shape()`:
@@ -55,7 +53,7 @@ tags:
 
 Координаты можно указывать в любых CSS-единицах: `px`, `%`, `em`, `rem`, `vw` и других.
 
-![Все команды shape()](images/shape-commands.svg)
+<iframe title="Все команды shape()" src="demos/commands-overview/" height="600"></iframe>
 
 ### Команда `line`
 
