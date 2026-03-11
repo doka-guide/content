@@ -269,3 +269,28 @@ fetch('https://jsonplaceholder.typicode.com/there-is-no-such-route')
 )
 // Error: Error occurred!
 ```
+
+В большинстве случаев, ошибки, возникающие при выполнении `fetch()` можно обработать с помощью `.catch()` потому что они асинхронные: промис переходит в состояние _rejected_. Следует помнить, что при подготовке данных запроса может возникнуть и синхронная ошибка, например:
+
+```js
+try {
+  // Объект с циклической ссылкой
+  const invalidBody = { key: "value" }
+  invalidBody.self = invalidBody
+
+  fetch('https://dummyjson.com/posts/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    // Пытаемся преобразовать объект в JSON
+    // Здесь возникнет синхронная ошибка
+    body: JSON.stringify(invalidBody)
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log('Асинхронная ошибка:', error))
+} catch (error) {
+  // Ловим синхронную ошибку
+  console.log('Синхронная ошибка:', error.message)
+}
+// Синхронная ошибка: Converting circular structure to JSON
+```
