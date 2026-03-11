@@ -27,13 +27,11 @@ tags:
 Проверим доступ к тестовому [API](/tools/api/) с помощью GET-запроса:
 
 ```js
-try {
-  fetch('https://dummyjson.com/test')
-    .then(response => response.json())
-    .then(data => console.log(data))
-} catch (error) {
-  console.error(error.message)
-}
+fetch('https://dummyjson.com/test')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error.message))
+
 // { status: 'ok', method: 'GET' }
 ```
 
@@ -84,7 +82,7 @@ fetch(resource, options)
 
 Функция `fetch()` принимает два параметра:
 
-- `resource` — строка, содержащая [URL](/tools/url/)-адрес, по которому нужно сделать запрос или специальный Request-объект, хранящий данные запроса;
+- `resource` — строка, содержащая [URL](/tools/url/)-адрес, по которому нужно сделать запрос, или специальный Request-объект, хранящий данные запроса;
 - `options` (необязательный) — объект конфигурации, в котором можно настроить метод и тело запроса, заголовки и многое другое.
 
 Для выполнения GET-запроса к серверу по url-адресу можно использовать краткий синтаксис: `fetch(url)`.
