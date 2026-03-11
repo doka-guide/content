@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример делегирования blur — blur — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    form {
+      width: 630px;
+      margin: auto;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 350px;
+      flex-shrink: 0;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      background-color: transparent;
+      outline: none;
+    }
+
+    input.green {
+      border-color: #41E847;
+      background-color: rgb(65 232 71 / 0.1);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        margin-top: 25px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+      }
+
+      .input {
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form class="form" id="form1">
+      <div class="form-row">
+        <label for="name1" class="row-label">Делегирование не работает</label>
+        <input id="name1" class="input" type="text">
+      </div>
+    </form>
+    <form class="form" id="form2">
+      <div class="form-row">
+        <label for="name2" class="row-label">Делегирование работает</label>
+        <input id="name2" class="input" type="text">
+      </div>
+    </form>
+  </div>
+  <script>
+    const form1 = document.getElementById("form1");
+    const form2 = document.getElementById("form2");
+
+    function blurHandler(event) {
+      event.target.classList.add('green')
+    }
+
+    form1.addEventListener('blur', blurHandler);
+    form2.addEventListener('blur', blurHandler, true);
+  </script>
+</body>
+</html>

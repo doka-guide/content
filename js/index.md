@@ -258,6 +258,7 @@ groups:
       - event-input
       - event-dblclick
       - element-click
+      - event-blur
       - event-invalid
       - event-submit
       - event-domcontentloaded
