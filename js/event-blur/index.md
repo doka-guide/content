@@ -39,7 +39,9 @@ element.addEventListener('blur', (event) => {
 
 ## Делегирование события
 
-Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так делегировать родительскому элементу. Вариант решения этой проблемы — установить параметр `useCapture` метода `addEventListener` на `true`.
+Из-за того, что у события `blur` нет фазы всплытия, его нельзя просто так [делегировать родительскому элементу](/js/events/#lira-sovetuet). Вариант решения этой проблемы — в методе `addEventListener` установить параметр `capture: true`.
+
+Обычно слушатель ловит события на [фазе всплытия](/js/events/#vsplytie-sobytiy), но, если установлен флаг `capture: true`, будет ловить событие раньше, на [фазе захвата](/js/events/#zahvat-sobytiy). Надо понимать, что в этом случае обработчик события сначала сработает на слушателе, а уже потом - на цели.
 
 ```js
 parentElement.addEventListener(
@@ -47,11 +49,21 @@ parentElement.addEventListener(
   (event) => {
     console.log('Элемент потерял фокус')
   },
-  true // useCapture
-)
+  { capture: true }
+  )
+
+//либо эквивалентная запись:
+
+parentElement.addEventListener(
+  'blur',
+  (event) => {
+    console.log('Элемент потерял фокус')
+  },
+  true //тоже самое, что прописать { capture: true }
+  )
 ```
 
-В примере ниже одинаковый обработчик события, окрашивающий поле в зелёный цвет при потере фокуса, вешается на две формы. В первой `useCapture` не установлено, во второй установлено.
+В примере ниже одинаковый обработчик события, окрашивающий поле в зелёный цвет при потере фокуса, вешается на две формы. В первой параметр `capture: true` не установлен, во второй установлен.
 
 ```html
 <form class="form" id="form1">
@@ -77,7 +89,7 @@ function blurHandler(event) {
 }
 
 form1.addEventListener('blur', blurHandler);
-form2.addEventListener('blur', blurHandler, true);
+form2.addEventListener('blur', blurHandler, { capture: true });
 ```
 
-<iframe title="Пример делегирования blur" src="demos/delegation/" height="250"></iframe>
+<iframe title="Пример делегирования blur" src="demos/delegation/" height="270"></iframe>

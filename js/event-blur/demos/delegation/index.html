@@ -43,7 +43,6 @@
 
     .form-row {
       display: flex;
-      align-items: start;
       justify-content: space-between;
     }
 
@@ -136,7 +135,7 @@
     }
 
     form1.addEventListener('blur', blurHandler);
-    form2.addEventListener('blur', blurHandler, true);
+    form2.addEventListener('blur', blurHandler, { capture: true });
   </script>
 </body>
 </html>
