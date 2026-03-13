@@ -262,7 +262,7 @@ container.addEventListener('click', function(event) {
 
 <iframe title="Захват событий" src="demos/capturing/" height="460"></iframe>
 
-Чтобы обработать событие на стадии захвата, установите параметр `capture: true` в вызове [`addEventListener()`](/js/element-addeventlistener/#kak-pishetsya):
+Чтобы обработать событие на стадии захвата, добавьте параметр `{ capture: true }` в вызове [`addEventListener()`](/js/element-addeventlistener/#kak-pishetsya):
 
 ```js
 element.addEventListener(
