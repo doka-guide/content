@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример паттерна "Российский номер телефона" — Атрибут `pattern` — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <form class="form" action="javascript:alert('Всё верно!');">
+    <div class="form-row">
+      <label for="phone" class="row-label">Введите номер телефона:</label>
+      <input id="phone" class="input" type="tel" pattern="(\+7|8)[\(\s]?\d{3}[\)\s]?\d{3}[\-\s]?\d{2}[\-\s]?\d{2}" title="Номер должен начинаться на +7 или 8, содержать 11 цифр, может содержать скобки, пробелы и дефисы">
+    </div>
+    <button class="button button-orange" type="submit">Сохранить</button>
+  </form>
+</body>
+</html>
