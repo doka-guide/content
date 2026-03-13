@@ -32,37 +32,46 @@
 
     .container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
       gap: 50px;
     }
 
+    .column {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      height: 60px;
+    }
+
     form {
-      width: 630px;
-      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
     }
 
     .form-row {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
     }
 
-    .form-row + .form-row {
-      margin-top: 25px;
+    label {
+      margin-bottom: 20px;
     }
 
-    .row-label {
-      margin-right: 55px;
-      font-size: 24px;
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .input {
+    input {
       width: 350px;
       flex-shrink: 0;
       border: 1px solid #ffffff;
       border-radius: 6px;
-      margin-bottom: 15px;
       padding: 10px 15px;
       background-color: transparent;
       color: #ffffff;
@@ -71,15 +80,21 @@
       font-weight: 300;
     }
 
-    .input:focus {
+    input:focus {
       border-color: #FFD829;
       background-color: transparent;
       outline: none;
     }
 
-    input.green {
-      border-color: #41E847;
-      background-color: rgb(65 232 71 / 0.1);
+    input.invalid {
+      border-color: #FF8630;
+      background-color: rgb(255 134 48 / 0.1);
+    }
+
+    .error-message {
+      margin-top: 5px;
+      color: #FF8630;
+      font-size: 14px;
     }
 
     @media (max-width: 768px) {
@@ -89,53 +104,74 @@
 
       .container {
         width: 100%;
-        margin-top: 25px;
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      form {
+      .column, form, .form-row, input {
         width: 100%;
-      }
-
-      .form-row {
-        display: block;
-      }
-
-      .row-label {
-        margin-right: 0;
-      }
-
-      .input {
-        width: 100%;
-        margin-top: 25px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <form class="form" id="form1">
-      <div class="form-row">
-        <label for="name1" class="row-label">Делегирование не работает</label>
-        <input id="name1" class="input" type="text">
-      </div>
-    </form>
-    <form class="form" id="form2">
-      <div class="form-row">
-        <label for="name2" class="row-label">Делегирование работает</label>
-        <input id="name2" class="input" type="text">
-      </div>
-    </form>
+    <div class="column">
+      <h4>⛔ Делегирование не работает</h4>
+      <form class="form" id="form1">
+        <div class="form-row">
+          <label for="name1">Введите имя:</label>
+          <input id="name1" type="text">
+        </div>
+        <div class="form-row">
+          <label for="city1">Введите город:</label>
+          <input id="city1" type="text">
+        </div>
+      </form>
+    </div>
+    <div class="column">
+      <h4>✅ Делегирование работает</h4>
+      <form class="form" id="form2">
+        <div class="form-row">
+          <label for="name1">Введите имя:</label>
+          <input id="name1" type="text">
+        </div>
+        <div class="form-row">
+          <label for="city1">Введите город:</label>
+          <input id="city1" type="text">
+        </div>
+      </form>
+    </div>
   </div>
   <script>
     const form1 = document.getElementById("form1");
     const form2 = document.getElementById("form2");
 
     function blurHandler(event) {
-      event.target.classList.add('green')
+      const input = event.target;
+
+      if (!event.target.value) {
+        input.classList.add('invalid');
+        const error = document.createElement('div');
+        error.textContent = 'Поле обязательно для заполнения!';
+        error.classList.add('error-message');
+        input.insertAdjacentElement('afterend', error);
+      }
     }
 
     form1.addEventListener('blur', blurHandler);
     form2.addEventListener('blur', blurHandler, { capture: true });
+
+    function focusHandler(event) {
+      const input = event.target;
+      input.classList.remove('invalid');
+      const error = input.nextElementSibling;
+      if (error) {
+        error.remove();
+      }
+    }
+
+    form2.addEventListener('focus', focusHandler, { capture: true });
   </script>
 </body>
 </html>
