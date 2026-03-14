@@ -100,7 +100,7 @@ parentElement.addEventListener(
     console.log('Элемент потерял фокус')
   },
   { capture: true }
-  )
+)
 
 //либо эквивалентная запись:
 
