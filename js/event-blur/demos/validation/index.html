@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример валидации с помощью blur — blur — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    form {
+      width: 630px;
+      margin: auto;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .form-row + .form-row {
+      margin-top: 25px;
+    }
+
+    .row-label {
+      margin-right: 55px;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .input {
+      width: 100%;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    .input:focus {
+      border-color: #FFD829;
+      background-color: transparent;
+      outline: none;
+    }
+
+    input.invalid {
+      border-color: #FF8630;
+      background-color: rgb(255 134 48 / 0.1);
+    }
+
+    .container {
+      width: 350px;
+      min-height: 100px;
+      flex-shrink: 0;
+    }
+
+    .error-message {
+      display: none;
+      color: #FF8630;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .form-row {
+        display: block;
+      }
+
+      .row-label {
+        margin-right: 0;
+      }
+
+      .container {
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="form">
+    <div class="form-row">
+      <label for="name" class="row-label">Введите больше 3-х символов:</label>
+      <div class="container">
+        <input id="name" class="input" type="text" title="Введите больше 3-х символов">
+        <span class="error-message" id="error">Нужно ввести больше 3-х символов!</span>
+      </div>
+    </div>
+  </form>
+  <script>
+    const input = document.getElementById("name");
+    const error = document.getElementById('error')
+
+    input.addEventListener('blur', (event) => {
+      if (event.target.value.length <= 3) {
+        error.style.display = 'block';
+        input.classList.add('invalid');
+      } else {
+        error.style.display = 'none';
+        input.classList.remove('invalid');
+      }
+    });
+
+    input.addEventListener('focus', () => {
+      error.style.display = 'none';
+      input.classList.remove('invalid');
+    });
+  </script>
+</body>
+</html>

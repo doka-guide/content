@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример добавления blur на div — blur — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 20px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .block {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFD829;
+      border-radius: 5px;
+    }
+
+    .block:hover {
+      cursor: pointer;
+      background-color: rgb(255 216 41 / 0.1);
+    }
+
+    .block.green {
+      border-color: #41E847;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        margin-top: 25px;
+      }
+
+      .input {
+        width: 100%;
+        margin-top: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="column">
+      <div>Блок не может потерять фокус:</div>
+      <div class="block" id="block1"></div>
+    </div>
+    <div class="column">
+      <div>Блок может потерять фокус:</div>
+      <div class="block" id="block2" tabindex="0"></div>
+    </div>
+  </div>
+  <script>
+    const block1 = document.getElementById("block1");
+    const block2 = document.getElementById("block2");
+
+    function blurHandler(event) {
+      event.target.classList.add('green')
+      event.target.innerHTML = '👋 Я потерял фокус'
+    }
+
+    block1.addEventListener('blur', blurHandler);
+    block2.addEventListener('blur', blurHandler);
+  </script>
+</body>
+</html>

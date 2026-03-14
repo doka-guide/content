@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример делегирования blur — blur — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+      font-size: 18px;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .column {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 1.2rem;
+      height: 60px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    label {
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 350px;
+      flex-shrink: 0;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: transparent;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 300;
+    }
+
+    input:focus {
+      border-color: #FFD829;
+      background-color: transparent;
+      outline: none;
+    }
+
+    input.invalid {
+      border-color: #FF8630;
+      background-color: rgb(255 134 48 / 0.1);
+    }
+
+    .error-message {
+      margin-top: 5px;
+      color: #FF8630;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .column, form, .form-row, input {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="column">
+      <h4>⛔ Делегирование не работает</h4>
+      <form class="form" id="form1">
+        <div class="form-row">
+          <label for="name1">Введите имя:</label>
+          <input id="name1" type="text">
+        </div>
+        <div class="form-row">
+          <label for="city1">Введите город:</label>
+          <input id="city1" type="text">
+        </div>
+      </form>
+    </div>
+    <div class="column">
+      <h4>✅ Делегирование работает</h4>
+      <form class="form" id="form2">
+        <div class="form-row">
+          <label for="name1">Введите имя:</label>
+          <input id="name1" type="text">
+        </div>
+        <div class="form-row">
+          <label for="city1">Введите город:</label>
+          <input id="city1" type="text">
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
+    const form1 = document.getElementById("form1");
+    const form2 = document.getElementById("form2");
+
+    function blurHandler(event) {
+      const input = event.target;
+
+      if (!event.target.value) {
+        input.classList.add('invalid');
+        const error = document.createElement('div');
+        error.textContent = 'Поле обязательно для заполнения!';
+        error.classList.add('error-message');
+        input.insertAdjacentElement('afterend', error);
+      }
+    }
+
+    form1.addEventListener('blur', blurHandler);
+    form2.addEventListener('blur', blurHandler, { capture: true });
+
+    function focusHandler(event) {
+      const input = event.target;
+      input.classList.remove('invalid');
+      const error = input.nextElementSibling;
+      if (error) {
+        error.remove();
+      }
+    }
+
+    form2.addEventListener('focus', focusHandler, { capture: true });
+  </script>
+</body>
+</html>
