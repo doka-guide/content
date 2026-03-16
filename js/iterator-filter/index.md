@@ -23,6 +23,7 @@ tags:
 
 
 
+
 ## Как пишется
 
 `Iterator.prototype.filter()` принимает один обязательный аргумент — функцию.
@@ -32,6 +33,28 @@ tags:
 
 ## Как понять
 
+Итератор, созданный методом `Iterator.prototype.filter()`, использует исходный итератор как источник данных.
+
+
+
+У нас есть функция-генератор id, состоящих из 4-х цифр:
+
+```js
+function* idGenerator(length = 4) {
+  const charset = '0123456789'
+
+  while (true) {
+    let id = '';
+    for (let i = 0; i < length; i++) {
+      const random = Math.floor(Math.random() * charset.length);
+      id += charset[random];
+    }
+    yield id;
+  }
+}
+```
+
+Необходимо получить 10 id-значений в которых одна из цифр повторятся не менее 2 раз.
 
 
 ## Подсказки
