@@ -36,7 +36,7 @@
       gap: 20px;
     }
 
-    .column {
+    .wrapper {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -50,6 +50,7 @@
       justify-content: center;
       border: 2px solid #FFD829;
       border-radius: 5px;
+      padding: 5px;
     }
 
     .block:hover {
@@ -80,18 +81,23 @@
 </head>
 <body>
   <div class="container">
-    <div class="column">
-      <div>Блок не может потерять фокус:</div>
+    <div class="wrapper">
+      <div>Блок не может получить и потерять фокус:</div>
       <div class="block" id="block1"></div>
     </div>
-    <div class="column">
-      <div>Блок может потерять фокус:</div>
+    <div class="wrapper">
+      <div>Блок может получить и потерять фокус (с tabindex):</div>
       <div class="block" id="block2" tabindex="0"></div>
+    </div>
+    <div class="wrapper">
+      <div>Блок может получить и потерять фокус (с contenteditable):</div>
+      <div class="block" id="block3" contenteditable="true"></div>
     </div>
   </div>
   <script>
     const block1 = document.getElementById("block1");
     const block2 = document.getElementById("block2");
+    const block3 = document.getElementById("block3");
 
     function blurHandler(event) {
       event.target.classList.add('green')
@@ -100,6 +106,16 @@
 
     block1.addEventListener('blur', blurHandler);
     block2.addEventListener('blur', blurHandler);
+    block3.addEventListener('blur', blurHandler);
+
+    function focusHandler(event) {
+      event.target.classList.remove('green');
+      event.target.innerHTML = '';
+    }
+
+    block1.addEventListener('focus', focusHandler);
+    block2.addEventListener('focus', focusHandler);
+    block3.addEventListener('focus', focusHandler);
   </script>
 </body>
 </html>

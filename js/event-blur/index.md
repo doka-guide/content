@@ -21,6 +21,12 @@ tags:
 
 </aside>
 
+## Пример
+
+`blur` удобно использовать, например, для валидации введённых данных:
+
+<iframe title="Пример валидации с помощью blur" src="demos/validation/" height="200"></iframe>
+
 ## Как пишется
 
 ```js
@@ -33,7 +39,9 @@ element.addEventListener('blur', (event) => {
 
 Событие `blur` инициируется в момент, когда интерактивный элемент теряет фокус и он перемещается на другой элемент (например, по клику или нажатию `Tab`).
 
-Событие срабатывает только на тех html-элементах, которые имеют [атрибут tabindex](/html/tabindex/). Некоторые html-элементы по умолчанию имеют `tabindex="0"`:
+Событие срабатывает на тех html-элементах, которые имеют атрибут [tabindex](/html/tabindex/), либо атрибут [contenteditable](/html/global-attrs/#contenteditable).
+
+Некоторые html-элементы по умолчанию имеют `tabindex="0"`:
 - `<button>`;
 - `<input>`;
 - `<textarea>`;
@@ -44,37 +52,46 @@ element.addEventListener('blur', (event) => {
 - `<a>` или `<area>` с атрибутом `href`;
 - `<summary>` в связке с `<details>`.
 
-## Пример
-
-`blur` удобно использовать, например, для валидации введённых данных:
-
-<iframe title="Пример валидации с помощью blur" src="demos/validation/" height="250"></iframe>
-
 ## Как добавить событие на любой элемент
 
-Чтобы `blur` работал на произвольном элементе (например, на `<div>`), добавьте ему `tabindex="0"` — это сделает его фокусируемым, а, значит, также способным потерять фокус.
+Чтобы `blur` работал на произвольном элементе (например, на `<div>`), добавьте ему атрибут `tabindex="0"` или атрибут `contenteditable="true"`.
+
+`tabindex="0"` указывает браузеру, что на элементе можно сфокусироваться (а, значит, и потерять фокус).
+
+`contenteditable="true"` указывает браузеру, что элемент может редактироваться пользователем.
 
 ```html
-<div tabindex="0">Здесь можно сфокусироваться и потерять фокус</div>
+<div tabindex="0">
+  Здесь можно сфокусироваться и потерять фокус
+</div>
+
+<div contenteditable="true">
+  Здесь так же можно сфокусироваться и потерять фокус
+</div>
 ```
 ### Пример
 
 В примере ниже одинаковый обработчик события окрашивает границы блока при потере фокуса. Кликните на блок, а затем на любое другое место:
 
 ```html
-<div class="column">
-  <div>Блок не может потерять фокус:</div>
+<div class="wrapper">
+  <div>Блок не может получить и потерять фокус:</div>
   <div class="block" id="block1"></div>
 </div>
-<div class="column">
-  <div>Блок может потерять фокус:</div>
+<div class="wrapper">
+  <div>Блок может получить и потерять фокус (с tabindex):</div>
   <div class="block" id="block2" tabindex="0"></div>
+</div>
+<div class="wrapper">
+  <div>Блок может получить и потерять фокус (с contenteditable):</div>
+  <div class="block" id="block3" contenteditable="true"></div>
 </div>
 ```
 
 ```js
 const block1 = document.getElementById("block1");
 const block2 = document.getElementById("block2");
+const block3 = document.getElementById("block3");
 
 function blurHandler(event) {
   event.target.classList.add('green')
@@ -83,9 +100,10 @@ function blurHandler(event) {
 
 block1.addEventListener('blur', blurHandler);
 block2.addEventListener('blur', blurHandler);
+block3.addEventListener('blur', blurHandler);
 ```
 
-<iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="270"></iframe>
+<iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="370"></iframe>
 
 ## Делегирование события
 

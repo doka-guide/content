@@ -37,7 +37,6 @@
 
     .form-row {
       display: flex;
-      align-items: start;
       justify-content: space-between;
     }
 
@@ -47,7 +46,7 @@
 
     .row-label {
       margin-right: 55px;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 500;
       line-height: 1;
     }
@@ -111,9 +110,9 @@
 <body>
   <form class="form">
     <div class="form-row">
-      <label for="name" class="row-label">Введите больше 3-х символов:</label>
+      <label for="name" class="row-label">Введите больше 3-х символов и уберите фокус с поля:</label>
       <div class="container">
-        <input id="name" class="input" type="text" title="Введите больше 3-х символов">
+        <input id="name" class="input" type="text" title="Введите больше 3-х символов и уберите фокус с поля">
         <span class="error-message" id="error">Нужно ввести больше 3-х символов!</span>
       </div>
     </div>
