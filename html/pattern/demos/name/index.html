@@ -13,7 +13,14 @@
   <form class="form" action="javascript:alert('Всё верно!');">
     <div class="form-row">
       <label for="name" class="row-label">Введите имя:</label>
-      <input id="name" class="input" type="text" pattern="[А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)?" title="Введите имя с большой буквы">
+      <input
+        id="name"
+        class="input"
+        type="text"
+        pattern="[А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)?"
+        title="Введите имя с большой буквы"
+        required
+      >
     </div>
     <button class="button button-orange" type="submit">Сохранить</button>
   </form>

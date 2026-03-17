@@ -13,7 +13,14 @@
   <form class="form" action="javascript:alert('Всё верно!');">
     <div class="form-row">
       <label for="phone" class="row-label">Введите номер телефона:</label>
-      <input id="phone" class="input" type="tel" pattern="\+\d{8,15}" title="Номер должен начинаться с + и содержать о 8 до 15 цифр">
+      <input
+        id="phone"
+        class="input"
+        type="tel"
+        pattern="\+\d{8,15}"
+        title="Номер должен начинаться с + и содержать о 8 до 15 цифр"
+        required
+      >
     </div>
     <button class="button button-orange" type="submit">Сохранить</button>
   </form>

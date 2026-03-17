@@ -13,7 +13,14 @@
   <form class="form" action="javascript:alert('Всё верно!');">
     <div class="form-row">
       <label for="url" class="row-label">Введите url:</label>
-      <input id="url" class="input" type="text" pattern="https?://[a-zA-Z0-9]+[a-zA-Z0-9.\-]*\.[a-zA-Z]{2,}" title="Адрес должен начинаться с http:// или https:// и содержать домен">
+      <input
+        id="url"
+        class="input"
+        type="text"
+        pattern="https?://[a-zA-Z0-9]+[a-zA-Z0-9.\-]*\.[a-zA-Z]{2,}"
+        title="Адрес должен начинаться с http:// или https:// и содержать домен"
+        required
+      >
     </div>
     <button class="button button-orange" type="submit">Сохранить</button>
   </form>
