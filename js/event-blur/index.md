@@ -33,6 +33,12 @@ tags:
 element.addEventListener('blur', (event) => {
   console.log('Элемент потерял фокус')
 })
+
+//либо
+
+elenemt.onblur = (event) => {
+  console.log('Элемент потерял фокус')
+}
 ```
 
 ## Как понять
