@@ -14,7 +14,7 @@ tags:
 
 ## Кратко
 
-Метод [`removeProperty()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty) позволяет удалить определенное CSS-свойство у элемента, возвращая его к значению по умолчанию или удаляя его полностью из стиля элемента.
+Метод [`removeProperty()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty) позволяет удалить определённое CSS-свойство у элемента, возвращая его к значению по умолчанию или удаляя его полностью из стиля элемента.
 
 ## Пример
 
