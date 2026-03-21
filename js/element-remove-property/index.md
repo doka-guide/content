@@ -7,10 +7,9 @@ authors:
 related:
   - js/element-style
   - js/css-style-declaration
-  - /js/element-classlist/
+  - js/element-classlist
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
@@ -21,12 +20,12 @@ tags:
 
 <iframe title="Демонстрация работы метода" src="demos/index.html" height="270"></iframe>
 
-Превращаем круг в квадрат.
+Превращаем круг в квадрат:
 
 ```js
 const circle = document.getElementById('round')
 
-function turnToSquare () {
+function turnToSquare() {
   circle.style.removeProperty('border-radius')
 }
 ```
@@ -35,26 +34,27 @@ function turnToSquare () {
 
 `removeProperty()` принимает один аргумент — строку с именем свойства. Пишем названия так же, как в CSS: `background-color`, а не `backgroundColor`.
 
-Метод возвращает строку со старым значением удаленного свойства. Если свойство не было установлено, метод вернёт пустую строку `''`.
+Метод возвращает строку со старым значением удаленного свойства. Если свойство не было установлено, метод вернёт пустую строку `''`
 ```js
-vampire.style.removeProperty('box-shadow')
+const oldShadow = vampire.style.removeProperty('box-shadow')
+console.log(oldShadow) // '0 0 10px rgba(0,0,0,0.5)'
 ```
 
 ## Как понять
 
-Метод `removeProperty()` удаляет отдельное CSS-свойство элемента. Доступен метод в интерфейсе [CSSStyleDeclaration]("js/css-style-declaration/").
+Метод `removeProperty()` удаляет отдельное CSS-свойство элемента. Доступен метод в интерфейсе [CSSStyleDeclaration](/js/css-style-declaration/).
 
-### Инлайн-стили и вычисленные стили
-
-Удалить свойство получится только для `inline` стилей. Для вычисленных стилей выбрасывается ошибка `NoModificationAllowedError`, потому что свойство элемента находится в режиме `read-only`, и изменять их напрямую не получится.
+Удалить свойство получится только для `inline` стилей. Для вычисленных стилей выбрасывается ошибка `NoModificationAllowedError`, потому что свойства элемента находятся в режиме `read-only`, и изменять их напрямую не получится.
 
 ```js
 const circle = document.getElementById('round')
-// ❌ Так работать не будет
+// ❌ Ошибка! Uncaught NoModificationAllowedError
 window.getComputedStyle(circle).removeProperty('border-radius')
 ```
 
-Однако удалять свойства из таблиц стилей всё же можно, обратившись к CSSRule
+Однако удалять свойства из таблиц стилей всё же можно, обратившись к CSSRules. 
+
+⚠️ **Важно**: этот способ требует точного знания структуры таблиц стилей и может быть ненадёжным в случае подключения новых стилей.
 ```js
 const circle = document.getElementById('round')
 // ✅ Так работать будет
@@ -62,7 +62,7 @@ const declaration = document.styleSheets[0].cssRules[1].style;
 declaration.removeProperty('border-radius')
 ```
 
-Один из полезных сценариев использования `removeProperty()` — управление подсказками для браузера с помощью свойства `will-change`:
+🚀 Один из полезных сценариев использования `removeProperty()` — управление подсказками для браузера с помощью свойства `will-change`:
 
 ```js
 const animatedElement = document.getElementById('animated')
@@ -75,6 +75,7 @@ function startAnimation() {
   animatedElement.classList.add('animate')
   
   // После завершения анимации удаляем подсказку, чтобы освободить память
+  // и не занимать ресурсы браузера излишними обещаниями анимации
   setTimeout(() => {
     animatedElement.style.removeProperty('will-change')
   }, 1000)
@@ -83,8 +84,8 @@ function startAnimation() {
 
 Есть альтернатива — можно использовать [`style`](/js/element-style/) и указать свойству значение `null`. Названия в этом случае пишем через _camelCase_:
 
-Чтобы управлять отображением элемента и менять вычисленные стили, лучше использовать другой подход, устанавливая элементу классы-модификаторы с нужным набором стилей. Для этого можно использовать [ClassList](/js/element-classlist/)
-
 ```js
 vampire.style.boxShadow = null
 ```
+
+Чтобы управлять отображением элемента и менять вычисленные стили, лучше использовать другой подход, устанавливая элементу классы-модификаторы с нужным набором стилей. Для этого можно использовать [ClassList](/js/element-classlist/)
