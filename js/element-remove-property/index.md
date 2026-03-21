@@ -62,7 +62,7 @@ const declaration = document.styleSheets[0].cssRules[1].style;
 declaration.removeProperty('border-radius')
 ```
 
-🚀 Один из полезных сценариев использования `removeProperty()` — управление подсказками для браузера с помощью свойства `will-change`:
+🚀 Один из полезных сценариев использования `removeProperty()` — управление подсказками для браузера с помощью свойства [`will-change`](/css/will-change/):
 
 ```js
 const animatedElement = document.getElementById('animated')
