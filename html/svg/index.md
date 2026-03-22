@@ -6,7 +6,7 @@ authors:
 contributors:
   - skorobaeus
   - parus7
-  - Kiryshka1922
+  - kiryshka1922
 keywords:
   - свг
   - векторная графика
