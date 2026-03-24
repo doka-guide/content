@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -32,39 +32,40 @@
 
     .container {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      flex-direction: column;
       gap: 50px;
     }
 
-    .column {
-      width: 45%;
+    .row {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 50px;
     }
 
-    h4 {
+    h2 {
+      width: 200px;
       font-weight: 500;
-      font-size: 1.2rem;
-      height: 60px;
+      font-size: 1.375rem;
+      padding-block-end: 19px;
     }
 
     form {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 20px;
+      gap: 5px;
     }
 
     .form-row {
-      display: flex;
-      flex-direction: column;
-      min-height: 110px;
+      min-height: 100px;
     }
 
     label {
-      margin-bottom: 20px;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 500;
     }
 
     input {
@@ -102,6 +103,15 @@
         padding: 30px;
       }
 
+      .row {
+        gap: 25px;
+      }
+
+      h2 {
+        width: 100%;
+        padding-block-end: 0;
+      }
+
       .container {
         width: 100%;
         flex-direction: column;
@@ -116,8 +126,8 @@
 </head>
 <body>
   <div class="container">
-    <div class="column">
-      <h4>⛔ Делегирование не работает</h4>
+    <div class="row">
+      <h2>⛔<br>Делегирование не работает</h2>
       <form class="form" id="form1">
         <div class="form-row">
           <label for="name1">Введите имя:</label>
@@ -129,8 +139,8 @@
         </div>
       </form>
     </div>
-    <div class="column">
-      <h4>✅ Делегирование работает</h4>
+    <div class="row">
+      <h2>✅<br>Делегирование работает</h2>
       <form class="form" id="form2">
         <div class="form-row">
           <label for="name2">Введите имя:</label>

@@ -16,7 +16,7 @@
 
     html {
       color-scheme: dark;
-      font-size: 20px;
+      font-size: 18px;
     }
 
     body {
@@ -33,7 +33,7 @@
     .container {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px;
     }
 
     .wrapper {
@@ -48,18 +48,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid #FFD829;
-      border-radius: 5px;
+      background-color: #FFD829;
+      color: #000;
       padding: 5px;
     }
 
     .block:hover {
       cursor: pointer;
-      background-color: rgb(255 216 41 / 0.1);
+      transform: scale(1.05);
     }
 
     .block.green {
-      border-color: #41E847;
+      background-color: #41E847;
     }
 
     @media (max-width: 768px) {

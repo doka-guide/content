@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -35,17 +35,9 @@
       margin: auto;
     }
 
-    .form-row {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .form-row + .form-row {
-      margin-top: 25px;
-    }
-
-    .row-label {
-      margin-right: 55px;
+    .form-label {
+      display: block;
+      margin-block-end: 10px;
       font-size: 20px;
       font-weight: 500;
       line-height: 1;
@@ -55,7 +47,7 @@
       width: 100%;
       border: 1px solid #ffffff;
       border-radius: 6px;
-      margin-bottom: 15px;
+      margin-block-end: 10px;
       padding: 10px 15px;
       background-color: transparent;
       color: #ffffff;
@@ -76,9 +68,7 @@
     }
 
     .container {
-      width: 350px;
-      min-height: 100px;
-      flex-shrink: 0;
+      min-height: 80px;
     }
 
     .error-message {
@@ -91,30 +81,15 @@
       body {
         padding: 30px;
       }
-
-      .form-row {
-        display: block;
-      }
-
-      .row-label {
-        margin-right: 0;
-      }
-
-      .container {
-        width: 100%;
-        margin-top: 25px;
-      }
     }
   </style>
 </head>
 <body>
   <form class="form">
-    <div class="form-row">
-      <label for="name" class="row-label">Введите меньше 3-х символов и уберите фокус с поля:</label>
-      <div class="container">
-        <input id="name" class="input" type="text" title="Введите меньше 3-х символов и уберите фокус с поля">
-        <span class="error-message" id="error">Нужно ввести больше 3-х символов!</span>
-      </div>
+    <label for="name" class="form-label">Введите меньше 3-х символов и уберите фокус с поля:</label>
+    <div class="container">
+      <input id="name" class="input" type="text" title="Введите меньше 3-х символов и уберите фокус с поля">
+      <span class="error-message" id="error">Нужно ввести больше 3-х символов!</span>
     </div>
   </form>
   <script>
