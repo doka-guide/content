@@ -7,6 +7,7 @@ contributors:
   - furtivite
   - skorobaeus
   - vitya-ne
+  - lira-bazh
 keywords:
   - эвенты
 related:
@@ -261,7 +262,7 @@ container.addEventListener('click', function(event) {
 
 <iframe title="Захват событий" src="demos/capturing/" height="460"></iframe>
 
-Чтобы обработать событие на стадии захвата, добавьте `true` в вызов [`addEventListener()`](/js/element-addeventlistener/#kak-pishetsya) в качестве третьего параметра:
+Чтобы обработать событие на стадии захвата, добавьте параметр `{ capture: true }` в вызове [`addEventListener()`](/js/element-addeventlistener/#kak-pishetsya):
 
 ```js
 element.addEventListener(
@@ -270,9 +271,23 @@ element.addEventListener(
     // Код обработки
   },
   // Регистрация обработчика для срабатывания на стадии захвата
-  true
+  { capture: true }
 )
 ```
+
+Эквивалент этой записи - указать true вместо третьего аргумента:
+
+```js
+element.addEventListener(
+  'click', // Событие
+  function (event) {
+    // Код обработки
+  },
+  // Регистрация обработчика для срабатывания на стадии захвата
+  true //тоже самое, что прописать { capture: true }
+)
+```
+
 
 Теперь событие будет обработано сначала родительским элементом `<div>`, а затем, если не будет остановлено, станет доступно целевому элементу `<video>`.
 
