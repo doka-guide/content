@@ -264,9 +264,9 @@ tags:
 ```html
 <head>
   <!-- Блокировка до парсинга элемента #lead-content -->
-  <link rel="expect" href="#lead-content" blocking="render" />  
+  <link rel="expect" href="#lead-content" blocking="render" />
   <!-- Блокировка для разных размеров экрана -->
-  <link rel="expect" href="#first-section" blocking="render" 
+  <link rel="expect" href="#first-section" blocking="render"
     media="screen and (min-width: 641px)" />
 </head>
 <body>
