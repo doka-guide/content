@@ -25,7 +25,7 @@ tags:
 
 `blur` удобно использовать, например, для валидации введённых данных:
 
-<iframe title="Пример валидации с помощью blur" src="demos/validation/" height="200"></iframe>
+<iframe title="Пример валидации с помощью blur" src="demos/validation/" height="220"></iframe>
 
 ## Как пишется
 
@@ -103,7 +103,7 @@ block2.addEventListener('blur', blurHandler);
 block3.addEventListener('blur', blurHandler);
 ```
 
-<iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="370"></iframe>
+<iframe title="Пример добавления blur на div" src="demos/focusable-elements/" height="400"></iframe>
 
 ## Делегирование события
 
@@ -167,4 +167,4 @@ form1.addEventListener('blur', blurHandler);
 form2.addEventListener('blur', blurHandler, { capture: true });
 ```
 
-<iframe title="Пример делегирования blur" src="demos/delegation/" height="500"></iframe>
+<iframe title="Пример делегирования blur" src="demos/delegation/" height="600"></iframe>
