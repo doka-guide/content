@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - html/video
-  - recipes/lets-encrypt-nginx
-  - recipes/git-rebase-onto
-  - css/box-shadow
-  - css/custom-properties
-  - html/section
-  - css/media
-  - css/pseudoelements
-  - css/transform-function
-  - js/array-entries
-  - tools/docker
   - recipes/ajax-form
-  - tools/how-to-test-and-why
-  - js/boolean
-  - tools/gitlab-ci-cd
-  - css/flexbox-guide
+  - a11y/css-impact-on-a11y
+  - tools/cors
+  - html/head
+  - html/flow
   - html/form
-  - tools/webpack
-  - js/execution-order
-  - tools/bundlers
+  - recipes/git-rebase-onto
+  - js/infinite-scroll
+  - html/section
+  - recipes/center
+  - a11y/screenreaders
+  - css/display
+  - html/doctype
+  - tools/ci-cd
+  - js/deal-with-forms
   - tools/network
   - js/function
-  - css/keyframes
-  - tools/how-the-browser-creates-pages
-  - tools/cors
-  - a11y/aria-intro
-  - recipes/progress
-  - js/var-let
-  - css/scrollbar-gutter
-  - recipes/character-counter
-  - recipes/center
-  - css/box-model
-  - tools/markdown
+  - js/array-entries
+  - css/pseudoelements
   - css/grid-guide
-  - html/flow
-  - tools/ci-cd
-  - html/article
-  - tools/oop
-  - css/position
-  - tools/static-types
-  - js/function-context
-  - recipes/popup
-  - recipes/snow
-  - js/infinite-scroll
-  - a11y/screenreaders
-  - html/doctype
-  - tools/cli
-  - html/img
-  - a11y/content-hidden
-  - a11y/css-impact-on-a11y
-  - tools/agile
-  - html/div
-  - html/head
-  - a11y/aria-hidden
-  - js/closures
-  - js/deal-with-forms
-  - html/nav
   - css/specificity
-  - tools/clean-architecture
+  - css/flexbox-guide
+  - js/boolean
+  - html/img
   - css/box-sizing
-  - js/array-reduce-right
-  - html/input
+  - css/box-shadow
   - js/geolocation-api
-  - js/async-in-js
-  - a11y/live-region
+  - css/box-model
+  - css/media
+  - js/execution-order
+  - js/array-reduce-right
+  - html/video
+  - tools/bundlers
+  - tools/agile
+  - tools/how-the-browser-creates-pages
+  - tools/how-to-test-and-why
+  - css/custom-properties
+  - css/transform-function
+  - html/input
+  - css/position
+  - js/closures
+  - recipes/snow
+  - recipes/popup
+  - tools/clean-architecture
+  - tools/oop
+  - tools/gitlab-ci-cd
+  - a11y/aria-hidden
+  - css/scrollbar-gutter
+  - tools/markdown
+  - tools/webpack
+  - js/function-context
   - css/attr
-  - css/display
+  - a11y/aria-intro
+  - css/keyframes
+  - js/var-let
+  - recipes/progress
+  - a11y/content-hidden
+  - tools/static-types
+  - recipes/lets-encrypt-nginx
+  - tools/cli
+  - a11y/live-region
+  - html/article
+  - tools/docker
+  - recipes/character-counter
+  - html/div
+  - js/async-in-js
+  - html/nav
 ---
 
