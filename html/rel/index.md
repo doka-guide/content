@@ -6,6 +6,7 @@ authors:
 contributors:
   - solarrust
   - skorobaeus
+  - beluch-dev
 related:
   - html/link
   - html/seo-for-beginners
