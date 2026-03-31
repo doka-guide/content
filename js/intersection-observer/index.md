@@ -75,7 +75,9 @@ const observer = new IntersectionObserver(callback, options)
 
 Колбэк принимает два аргумента:
 
-1️⃣ _entries_ — список объектов с информацией о пересечении. Для каждого наблюдаемого элемента создаётся один объект [_IntersectionObserverEntry_](https://w3c.github.io/IntersectionObserver/#intersection-observer-entry).
+1️⃣ _entries_ — массив объектов [_IntersectionObserverEntry_](https://w3c.github.io/IntersectionObserver/#intersection-observer-entry) с информацией о пересечении.
+
+Первый вызов колбэк-функции происходит когда `IntersectionObserver` начинает наблюдать за элементами. В этом случае массив `entries` содержит объекты для всех наблюдаемых элементов. В дальнейшем колбэк-функция вызывается только для тех элементов, у которых изменилось состояние видимости.
 
 Объект содержит несколько свойств. Самые полезные:
 
