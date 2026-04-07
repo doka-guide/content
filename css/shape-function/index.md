@@ -9,8 +9,8 @@ authors:
   - nailgilmanov
 related:
   - css/clip-path
-  - css/offset-path
-  - css/polygon
+  - html/svg
+  - css/fill
 tags:
   - doka
 ---
@@ -21,7 +21,7 @@ tags:
 
 <aside>
 
-⚠️ Функция `shape()` пока имеет ограниченную поддержку браузерами. Проверяйте актуальную поддержку на [Can I use](https://caniuse.com/). Демки в этой статье используют `@supports` для проверки поддержки.
+⚠️ Функция `shape()` пока имеет ограниченную поддержку браузерами. Проверяйте актуальную поддержку на [Can I use](https://caniuse.com/wf-shape-function). Демки в этой статье используют [`@supports`](/css/supports/) для проверки поддержки.
 
 </aside>
 
@@ -112,7 +112,7 @@ tags:
 }
 ```
 
-<iframe title="Команда curve" src="demos/curve/" height="400"></iframe>
+<iframe title="Команда curve" src="demos/curve/" height="550"></iframe>
 
 ### Команда `arc`
 
@@ -145,7 +145,7 @@ tags:
 }
 ```
 
-<iframe title="Команда arc" src="demos/arc/" height="400"></iframe>
+<iframe title="Команда arc" src="demos/arc/" height="500"></iframe>
 
 ### Команда `smooth`
 
@@ -243,7 +243,13 @@ tags:
 
 /* shape() — CSS-синтаксис */
 .element {
-  clip-path: shape(from 0 0, line to 100px 0, line to 100px 100px, line to 0 100px, close);
+  clip-path: shape(
+    from 0 0, 
+    line to 100px 0, 
+    line to 100px 100px, 
+    line to 0 100px, 
+    close
+  );
 }
 ```
 
@@ -305,7 +311,7 @@ tags:
 }
 ```
 
-<iframe title="Волна" src="demos/wave/" height="350"></iframe>
+<iframe title="Волна" src="demos/wave/" height="650"></iframe>
 
 ## Подсказки
 
