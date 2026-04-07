@@ -244,10 +244,10 @@ tags:
 /* shape() — CSS-синтаксис */
 .element {
   clip-path: shape(
-    from 0 0, 
-    line to 100px 0, 
-    line to 100px 100px, 
-    line to 0 100px, 
+    from 0 0,
+    line to 100px 0,
+    line to 100px 100px,
+    line to 0 100px,
     close
   );
 }
