@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Песочница — font-variant-ligatures — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive&family=Roboto:wght@400;500&family=Roboto+Mono&display=swap">
+  <style>
+    @font-face {
+      font-family: "Girassol";
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url("https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/girassol/Girassol-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "EB Garamond";
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+      src: url("https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/ebgaramond/EBGaramond[wght].ttf") format("truetype");
+    }
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      place-items: center;
+      background-color: #18191c;
+      color: #ffffff;
+    }
+
+    code {
+      font-family: "Roboto Mono", monospace;
+      font-size: 17px;
+    }
+
+    h1 code {
+      line-height: 1;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    h1, .option-description {
+      text-transform: lowercase;
+      text-align: right;
+      inline-size: 360px;
+    }
+
+    .option {
+      display: flex;
+      align-items: baseline;
+      margin-block-start: 20px;
+    }
+
+    .option-description {
+      line-height: 1.2;
+      margin-inline-end: 50px;
+    }
+
+    .option-example {
+      margin: 0;
+      font-size: 36px;
+      color: #2E9AFF;
+    }
+
+    .normal {
+      font-family: "EB Garamond", serif;
+      font-variant-ligatures: normal;
+    }
+
+    .common {
+      font-family: "EB Garamond", serif;
+      font-variant-ligatures: common-ligatures;
+    }
+
+    .no-common {
+      font-family: "EB Garamond", serif;
+      font-variant-ligatures: no-common-ligatures;
+    }
+
+    .discretionary {
+      font-family: "Girassol", serif;
+      font-variant-ligatures: discretionary-ligatures;
+    }
+
+    .no-discretionary {
+      font-family: "Girassol", serif;
+      font-variant-ligatures: no-discretionary-ligatures;
+    }
+
+    .historical {
+      font-family: "EB Garamond", serif;
+      font-variant-ligatures: historical-ligatures;
+    }
+
+    .no-historical {
+      font-family: "EB Garamond", serif;
+      font-variant-ligatures: no-historical-ligatures;
+    }
+
+    .contextual {
+      font-family: "Edu NSW ACT Cursive", cursive;
+      font-variant-ligatures: contextual;
+    }
+
+    .no-contextual {
+      font-family: "Edu NSW ACT Cursive", cursive;
+      font-variant-ligatures: no-contextual;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      h1, .option-description {
+        inline-size: 100%;
+      }
+
+      .option {
+        flex-direction: column;
+        align-items: flex-end;
+        margin-block-start: 20px;
+      }
+
+      .option-description {
+        margin-inline-end: auto;
+        margin-block-end: 10px;
+      }
+
+      .option-example {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>font-variant-ligatures</code></h1>
+    <div class="options">
+      <div class="option">
+        <p class="option-description"><code>normal</code></p>
+        <p class="option-example normal">ff fi fl ffi ffl</p>
+      </div>
+
+      <div class="option">
+        <p class="option-description"><code>common-ligatures</code></p>
+        <p class="option-example common">ff fi fl ffi ffl</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>no-common-ligatures</code></p>
+        <p class="option-example no-common">ff fi fl ffi ffl</p>
+      </div>
+
+      <div class="option">
+        <p class="option-description"><code>discretionary-ligatures</code></p>
+        <p class="option-example discretionary">DE EA LA TE</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>no-discretionary-ligatures</code></p>
+        <p class="option-example no-discretionary">DE EA LA TE</p>
+      </div>
+
+      <div class="option">
+        <p class="option-description"><code>historical-ligatures</code></p>
+        <p class="option-example historical">ſinful ſingular</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>no-historical-ligatures</code></p>
+        <p class="option-example no-historical">ſinful ſingular</p>
+      </div>
+
+      <div class="option">
+        <p class="option-description"><code>contextual</code></p>
+        <p class="option-example contextual">The bloom has gone off the rose</p>
+      </div>
+      <div class="option">
+        <p class="option-description"><code>no-contextual</code></p>
+        <p class="option-example no-contextual">The bloom has gone off the rose</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
