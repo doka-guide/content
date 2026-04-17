@@ -515,6 +515,7 @@ foo = @block {
 - [CSS Portal](https://www.cssportal.com)
 - [JSON formatter](https://jsonformatter.org)
 - [Code Beautify](https://codebeautify.org)
+- [99Tools](https://99tools.net)
 
 Можно найти конвертеры и в виде npm- и pnpm-пакетов, например, [npm-конвертер для Stylus](https://www.npmjs.com/package/stylus-converter). Однако у пакетов может быть немного скачиваний, и их сложнее использовать, чем просто онлайн-конвертер. Сложность в основном в том, что любой новый пакет создаёт свои зависимости, включая препроцессоры. Чем больше зависимостей, тем больше вероятность, что появятся сложности в версионировании.
 
