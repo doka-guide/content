@@ -274,20 +274,18 @@
   </div>
 
   <script>
+    const content = document.querySelector('.content--main')
+    const sideContent = document.querySelector('.content--side')
 
     const syncScroll = ({ target }) => {
-      const sideContent = document.querySelector('.content--side')
-
       sideContent.scrollTop = target.scrollTop
     }
-
-    const content = document.querySelector('.content')
 
     content.addEventListener('scroll', syncScroll)
 
     const callback = (entries, observer) => {
       entries.forEach((entry) => {
-        const sideTarget = document.querySelector(`.content--side .content__lazy-image[data-order="${entry.target.dataset.order}"]`)
+        const sideTarget = sideContent.querySelector(`.content__lazy-image[data-order="${entry.target.dataset.order}"]`)
 
         if (entry.isIntersecting) {
 
@@ -315,14 +313,14 @@
     }
 
     const options = {
-      root: document.querySelector('.content'),
+      root: content,
       rootMargin: '0px 0px 75px 0px',
-      threshold: [0, 1],
+      threshold: [0, 1]
     }
 
     const observer = new IntersectionObserver(callback, options)
 
-    const lazyImages = document.querySelectorAll('.content__lazy-image')
+    const lazyImages = content.querySelectorAll('.content__lazy-image')
 
     lazyImages.forEach((image) => observer.observe(image))
   </script>
