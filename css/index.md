@@ -55,6 +55,8 @@ groups:
       - lang
       - root
       - indeterminate
+      - read-only
+      - read-write
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
@@ -67,6 +69,11 @@ groups:
       - selection
       - marker
       - backdrop
+      - cue
+      - target-text
+      - details-content
+      - scrollbar
+      - file-selector-button
   - name: 'Функции'
     items:
       - attr
