@@ -14,15 +14,25 @@
       box-sizing: border-box;
     }
 
+    #round {
+      display: block;
+      width: 120px;
+      height: 120px;
+      background-color: rgb(59, 163, 253);
+      transition: border-radius 0.2s linear;
+      flex-shrink: 0;
+    }
+
     body {
-      min-height: 100vh;
+      max-height: 100vh;
       padding: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 20px;
       background-color: #18191c;
-      color: #FFFFFF;
+      color: #000000;
       font-family: "Roboto", sans-serif;
     }
 
@@ -32,7 +42,6 @@
       border: 2px solid transparent;
       border-radius: 6px;
       padding: 9px 15px;
-      color: #000000;
       font-size: 18px;
       font-weight: 300;
       font-family: inherit;
@@ -42,7 +51,6 @@
     .button:hover {
       background-color: #FFFFFF;
       cursor: pointer;
-      transition: background-color 0.2s linear;
     }
 
     .button:focus-visible {
@@ -67,15 +75,7 @@
   </style>
 </head>
 <body>
-  <div id="round" style="
-    display: block;
-    margin-bottom: 20px;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: rgb(59, 163, 253);
-    transition: border-radius 0.2s linear
-  "></div>
+  <div id="round" style="border-radius: 50%;"></div>
   <button class="button button-yellow" onclick="turnToSquare()">
     Превратить в квадрат
   </button>
