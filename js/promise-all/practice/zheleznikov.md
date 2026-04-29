@@ -12,6 +12,7 @@ Promise.all([
     enableSubmitButton()
   })
   .catch((error) => {
+    disableSubmitButton()
     showValidationError(error)
   })
 ```
