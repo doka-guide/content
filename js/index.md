@@ -253,28 +253,28 @@ groups:
       - event
       - custom-event
       - dispatch-event
-      - event-change
-      - event-reset
-      - event-input
-      - event-dblclick
-      - element-click
-      - event-blur
-      - event-invalid
-      - event-submit
+      - event-prevent-default
       - event-domcontentloaded
-      - event-load
-      - event-unload
       - event-beforeunload
+      - event-blur
+      - event-change
+      - element-click
+      - event-dblclick
+      - event-input
+      - event-invalid
       - element-keydown
       - element-keyup
+      - event-load
       - element-mouseout
       - element-mouseover
-      - event-prevent-default
+      - event-reset
       - element-scroll
       - element-scrollsnapchange
       - element-scrollsnapchanging
-      - element-wheel
+      - event-submit
       - element-touch
+      - event-unload
+      - element-wheel
   - name: "Хранение данных в браузере"
     items:
       - cookie
