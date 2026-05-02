@@ -23,11 +23,22 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 const divEl = document.getElementsByTagName('div')[0]
+
 divEl.addEventListener('mouseover', function () {
   alert('курсор вошёл в границы элемента!')
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+divEl.onmouseover = function () {
+  alert('курсор вошёл в границы элемента!')
+}
 ```
 
 ## Как понять

@@ -17,10 +17,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 window.addEventListener('unload', function () {
   // ...
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+window.onunload = function () {
+  // ...
+}
 ```
 
 ## Как понять

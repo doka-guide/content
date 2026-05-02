@@ -25,6 +25,14 @@ document.addEventListener('submit', function () {
 })
 ```
 
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+document.onsubmit = function () {
+  alert('Спасибо, что заполнили форму!')
+}
+```
+
 ## Как понять
 
 Пользователь может отправить форму (и создать для нас событие `submit`) разными способами. Например, нажать клавишу <kbd>Enter</kbd> внутри поля [`<input>`](/html/input/) или кликнуть по кнопке [`<button>`](/html/button/).

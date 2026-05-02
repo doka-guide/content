@@ -23,11 +23,22 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 const divEl = document.getElementsByTagName('div')[0]
+
 divEl.addEventListener('mouseout', function () {
   console.log('курсор вышел за границы элемента!')
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+divEl.onmouseout = function () {
+  console.log('курсор вышел за границы элемента!')
+}
 ```
 
 ## Как понять
