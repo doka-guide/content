@@ -17,7 +17,7 @@ tags:
 
 ## Как пишется
 
-Современный способ с [addEventListener](/js/element-addeventlistener/):
+Способ с [addEventListener](/js/element-addeventlistener/):
 
 ```js
 window.addEventListener('unload', function () {
