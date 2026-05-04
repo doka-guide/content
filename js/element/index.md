@@ -123,7 +123,7 @@ divElement.innerHTML = '<p>Добавлен из кода</p>'
 Современный способ обработки событий - это [addEventListener](/js/element-addeventlistener/).
 
 ```js
-element.('click', (event) => {
+element.addEventListener('click', (event) => {
   console.log('Клик по элементу')
 })
 ```
