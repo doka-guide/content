@@ -174,7 +174,7 @@ console.log(Array.from(iterator))
 // []
 ```
 
-Однако мы можем получить массив значений с помощью `Iterator.prototype.toArray()`. Метод `toArray` не содержится в цепочке прототипов объекта `iterator`, но может быть вызван через `call()`:
+Однако мы можем получить массив значений с помощью `Iterator.prototype.toArray()`. Метод `toArray` не содержится в цепочке прототипов объекта `iterator`, но может быть вызван через [`call()`](/js/bind-call-apply/#call):
 
 ```js
 console.log(Iterator.prototype.toArray.call(iterator))
