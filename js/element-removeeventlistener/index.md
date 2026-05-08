@@ -6,6 +6,7 @@ authors:
 contributors:
   - nlopin
   - skorobaeus
+  - lira_bazh
 related:
   - js/events
   - js/dom
@@ -104,17 +105,16 @@ window.removeEventListener('click', (event) => {
 
 Всегда сохраняйте функцию-обработчик в переменную, чтобы позже убрать обработчик. Делать это необязательно, только если вы делаете быстрый прототип или проверяете свою идею прямо в браузере.
 
-Браузер сравнивает опции, когда ищет обработчик события для удаления. Посмотрим ещё раз на пример выше, когда в `.addEventListener()` передали в опциях `true`, а в `.removeEventListener()` нет опций.
+Браузер идентифицирует обработчик события по [трём параметрам](/js/element-addeventlistener/#identifikaciya-obrabotchikov-sobytiy), поэтому при удалении нужно указать всё то же самое, что и при добавлении. Если ошибиться в `capture` — обработчик не удалится.
 
 ```js
 function handleMouseClick(event) {
   console.log('Вы нажали на элемент:', event.target)
 }
 
+//неявно capture = true
 window.addEventListener('click', handleMouseClick, true)
 
-// Обработчик не удалится, потому что опции не совпадают
+//неявно capture = false, поэтому обработчик не удалится
 window.removeEventListener('click', handleMouseClick)
 ```
-
-Так происходит потому, что третий аргумент неявно устанавливается в [`undefined`](/js/undefined/), а `undefined` превращается в `false` при [конвертации в булев тип](/js/typecasting/). Когда браузер ищет обработчик на удаление, он сравнивает опции и видит, что `true !== false`, значит, обработчик не будет удалён.
