@@ -5,6 +5,8 @@ authors:
   - bespoyasov
 editors:
   - tachisis
+contributors:
+  - lira_bazh
 keywords:
   - use strict
   - строгий режим
@@ -297,7 +299,7 @@ const secondUser = User()
 // Error: Incorrect invocation!
 ```
 
-### Непрямой вызов
+## Непрямой вызов
 
 _Непрямым вызовом_ называют вызов функций через [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply).
 
@@ -346,7 +348,7 @@ greet.apply(user2, ['Good morning,', ':-D'])
 // Good morning, Ivan :-D
 ```
 
-#### Связывание функций
+### Связывание функций
 
 Особняком стоит [`bind()`](/js/bind-call-apply/#bind). Это метод, который позволяет связывать контекст выполнения с функцией, чтобы «заранее и точно» определить, какое именно значение будет у `this`.
 
@@ -375,9 +377,9 @@ howOldAmI()
 //20
 ```
 
-#### Стрелочные функции
+## Стрелочные функции
 
-У _стрелочных функций_ собственного контекста выполнения нет. Они связываются с ближайшим по иерархии контекстом, в котором они определены.
+У _стрелочных функций_ собственного контекста выполнения нет. Они связываются с ближайшим по иерархии контекстом, в котором они определены и его нельзя переопределить.
 
 Это удобно, когда нам нужно передать в стрелочную функцию, например, родительский контекст без использования [`bind()`](/js/bind-call-apply/#bind).
 
@@ -399,3 +401,79 @@ user.greetWaitAndAgain()
 ```
 
 При использовании обычной функции внутри контекст бы потерялся, и чтобы добиться того же результата, нам бы пришлось использовать [`call()`](/js/bind-call-apply/#call), [`apply()`](/js/bind-call-apply/#apply) или [`bind()`](/js/bind-call-apply/#bind).
+
+## Потеря контекста
+
+Потеря контекста происходит, когда функция забывает, к какому объекту она была привязана, и `this` внутри неё начинает указывать на что-то другое (обычно на глобальный объект или `undefined`).
+
+### setTimeout и setInterval
+
+При вызове функции через [setTimeout](/js/settimeout/) и [setInterval](/js/setinterval/) она теряет контекст. Обе функции принимают функцию-колбэк и вызывают её не как метод объекта, а как обычную функцию.
+
+Упрощённо обе функции работают так:
+
+```js
+function setTimeout(callback, delay) {
+  // ожидание delay миллисекунд, потом вызывем переданную функцию
+  callback()
+}
+```
+
+Обратите внимание на `callback()` — это вызов без точки, без объекта слева. Именно это и вызывает потерю контекста. JavaScript видит вызов `callback()` и решает: раз нет объекта слева, значит `this` внутри `callback()` будет глобальным объектом или `undefined` (в строгом режиме).
+
+Предотвратить потерю контекста можно с помощью использования стрелочной функции или [`bind()`](/js/bind-call-apply/#bind):
+
+```js
+const user = {
+  name: 'Анна',
+  show() {
+    console.log(`Привет, я ${this.name}`)
+  }
+}
+
+// ❌ Потеря контекста
+setTimeout(user.show, 1000)
+// "Привет, я undefined"
+
+// ✅ Исправление
+setTimeout(() => user.show(), 1000)
+// "Привет, я Анна"
+setTimeout(user.show.bind(user), 1000)
+// "Привет, я Анна"
+```
+
+### addEventListener
+
+При добавлении функции как обработчика событий через [addEventListener](/js/element-addeventlistener/) она меняет контекст выполнения.
+
+[addEventListener](/js/element-addeventlistener/) намеренно вызывает ваш колбэк с `this` целевого html-элемента. Это сделано для удобства, чтобы внутри обработчика можно было легко обратиться к самому элементу через `this`:
+
+```js
+// Упрощённая логика addEventListener
+function addEventListener(type, callback) {
+  // при наступлении события специально привязывает this к элементу
+  callback.call(element)
+}
+```
+
+Предотвратить изменение контекста можно с помощью использования стрелочной функции или [`bind()`](/js/bind-call-apply/#bind):
+
+```js
+const handler = {
+  message: 'Клик!',
+  log() {
+    console.log(this.message)
+  }
+}
+
+window.addEventListener('click', handler.log)
+
+// ❌ this = window, а не handler
+// при клике выведет undefined (у window нет свойства message)
+
+// ✅ Исправление
+window.addEventListener('click', () => handler.log())
+// "Клик!"
+window.addEventListener('click', handler.log.bind(handler))
+// "Клик!"
+```
