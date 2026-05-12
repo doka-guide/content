@@ -181,7 +181,7 @@ greet()
 // Hello, my name is
 ```
 
-При вызове через точку `user.greet()` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict/) мы бы получили ошибку «Cannot read properties of undefined».
+При вызове через точку `user.greet()` значение `this` равняется объекту до точки (`user`). Без этого объекта `this` равняется глобальному объекту (в обычном режиме). В [строгом режиме](/js/use-strict/) `this` будет undefined, и при попытке обратиться к его свойству возникнет ошибка «Cannot read properties of undefined»
 
 Чтобы такого не происходило, следует использовать [`bind()`](/js/bind-call-apply/#bind), о котором мы поговорим чуть позже.
 
@@ -301,7 +301,7 @@ const secondUser = User()
 
 ## Непрямой вызов
 
-_Непрямым вызовом_ называют вызов функций через [`call()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) или [`apply()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply).
+_Непрямым вызовом_ называют вызов функций через [`call()`](/js/bind-call-apply/#call) или [`apply()`](/js/bind-call-apply/#apply).
 
 Оба первым аргументом принимают `this`. То есть они позволяют настроить контекст снаружи, к тому же — явно.
 
@@ -326,9 +326,9 @@ greet.apply(user2)
 
 В обоих случаях в первом вызове `this` === `user1`, во втором — `user2`.
 
-Разница между `call()` и `apply()` — в том, как они принимают аргументы для самой функции после `this`.
+Разница между [`call()`](/js/bind-call-apply/#call) и [`apply()`](/js/bind-call-apply/#apply) — в том, как они принимают аргументы для самой функции после `this`.
 
-`call()` принимает аргументы списком через запятую, `apply()` же — принимает массив аргументов. В остальном они идентичны:
+[`call()`](/js/bind-call-apply/#call) принимает аргументы списком через запятую, [`apply()`](/js/bind-call-apply/#apply) же — принимает массив аргументов. В остальном они идентичны:
 
 ```js
 function greet(greetWord, emoticon) {
@@ -350,7 +350,7 @@ greet.apply(user2, ['Good morning,', ':-D'])
 
 ### Связывание функций
 
-Особняком стоит [`bind()`](/js/bind-call-apply/#bind). Это метод, который позволяет связывать контекст выполнения с функцией, чтобы «заранее и точно» определить, какое именно значение будет у `this`.
+Особняком стоит [`bind()`](/js/bind-call-apply/#bind). Это метод, который позволяет связывать контекст выполнения с функцией, чтобы заранее и точно определить, какое именно значение будет у `this`.
 
 ```js
 function greet() {

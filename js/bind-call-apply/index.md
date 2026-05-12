@@ -36,7 +36,7 @@ const newFunc = func.bind(context, arg1, arg2, ...)
 
 ### Как понять
 
-Возвращает новую функцию. Первый аргумент становится [`this`](/js/function-context/) внутри функции - и его нельзя изменить повторным вызовом `bind()`.
+Возвращает новую функцию. Первый аргумент становится [`this`](/js/function-context/) внутри функции — и его нельзя изменить повторным вызовом `bind()`.
 
 ```js
 const cat = { name: 'Барсик' }
@@ -104,8 +104,8 @@ setTimeout(bakery.order.bind(bakery, 'Анна', 'багет'), 1000)
 
 // 2. Фиксация this
 const placeOrder = bakery.order.bind(bakery)
-placeOrder('Петр', 'круассан')
-// "Петр заказал(а) круассан в пекарне «Хлебница»"
+placeOrder('Пётр', 'круассан')
+// "Пётр заказал(а) круассан в пекарне «Хлебница»"
 
 // 3. Каррирование (фиксация клиента пекарни)
 const annaOrder = bakery.order.bind(bakery, 'Анна')
@@ -128,6 +128,21 @@ func.call(context, arg1, arg2, ...)
 
 Метод выполняет функцию. Первый аргумент становится [`this`](/js/function-context/) внутри функции, а все остальные аргументы передаются в функцию по порядку.
 
+```js
+function addOrder(ingredient1, ingredient2) {
+  console.log(`${this.customer} заказал(а) пиццу с ${ingredient1} и ${ingredient2}`);
+}
+
+const order1 = { customer: "Мария" };
+const order2 = { customer: "Пётр" };
+
+addOrder.call(order1, "сыром", "грибами");
+// Мария заказал(а) пиццу с сыром и грибами
+
+addOrder.call(order2, "ветчиной", "ананасами");
+// Пётр заказал(а) пиццу с ветчиной и ананасами
+```
+
 ### Когда использовать
 
 Для вызова функции с конкретным [`this`](/js/function-context/), если аргументы находятся не в массиве.
@@ -146,9 +161,43 @@ func.apply(context, [arg1, arg2, ...])
 
 Метод выполняет функцию. Первый аргумент становится [`this`](/js/function-context/) внутри функции, а второй (массив) — её аргументами.
 
+```js
+function makePizza(...toppings) {
+  console.log(`${this.chef} готовит пиццу с: ${toppings.join(", ")}`);
+}
+
+const pizzeria1 = { chef: "Алессандро" };
+const pizzeria2 = { chef: "Фабрицио" };
+
+const toppings1 = ["пепперони", "сыром", "базиликом"];
+const toppings2 = ["курицей", "ананасами"]
+
+makePizza.apply(pizzeria1, toppings1);
+// Алессандро готовит пиццу с: пепперони, сыром, базиликом
+makePizza.apply(pizzeria2, toppings2);
+// Фабрицио готовит пиццу с: курицей, ананасами
+```
+
 ### Когда использовать
 
 Для вызова функции с конкретным [`this`](/js/function-context/), если аргументы уже в массиве.
+
+До появления [spread-оператора](/js/spread/) `apply()` был единственным удобным способом найти максимум/минимум в массиве чисел, т. к. в `Math.max()` и `Math.min()` нельзя передать массив:
+
+```js
+const prices = [12, 18, 14, 22, 16];
+
+// Математическая функция ожидает отдельные числа, а не массив
+console.log(Math.max(prices))
+// NaN — не работает!
+
+// Математическая функция не использует this, поэтому можно передать null
+console.log(Math.max.apply(null, prices))
+// 22 — всё работает!
+
+// Современный способ — spread-оператор:
+console.log(Math.max(...prices))
+```
 
 ## Сравнение методов
 
