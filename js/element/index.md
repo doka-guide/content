@@ -145,7 +145,7 @@ element.addEventListener('click', (event) => {
 Это свойства DOM-элементов, которые начинаются с приставки `on` (`onclick`, `onchange`, `onsubmit` и т. п.). В значении пишется JavaScript-код, который выполнится при наступлении события. Сейчас этот способ считается устаревшим, мы не рекомендуем его использовать.
 
 ```js
-elenemt.onclick = (event) => {
+element.onclick = (event) => {
   console.log('Клик по элементу')
 }
 ```
