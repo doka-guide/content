@@ -145,11 +145,10 @@ function handlerClick () {
   console.log('click')
 }
 
-//неявно capture = true
+// неявно { capture = true }
 document.addEventListener('click', handlerClick, true)
-//дубль для той же фазы не добавится
+// второй обработчик для той же фазы не добавится
 document.addEventListener('click', handlerClick, { once: true, capture: true })
-```
 
 В этом примере добавится сразу два обработчика событий (один будет срабатывать на фазе погружения, другой на фазе всплытия):
 
