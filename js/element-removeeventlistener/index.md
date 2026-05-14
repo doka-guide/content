@@ -112,7 +112,7 @@ function handleMouseClick(event) {
   console.log('Вы нажали на элемент:', event.target)
 }
 
-//неявно capture = true
+// неявно { capture: true }
 window.addEventListener('click', handleMouseClick, true)
 
 //неявно capture = false, поэтому обработчик не удалится
