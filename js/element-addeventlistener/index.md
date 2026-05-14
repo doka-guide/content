@@ -164,10 +164,7 @@ document.addEventListener('click', handlerClick, { passive: true, capture: false
 
 ### Улучшение производительности скролла
 
-В JavaScript существуют отменяемые события ([cancelable event](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)) - это события, в которых с помощью [`preventDefault()`](/js/event-prevent-default/) можно отменить действие по умолчанию (клик, прокрутку, переход по ссылке и т. п.). В таких событиях выполнение действия по-умолчанию откладывается до завершения работы обработчиков. Браузер ждёт выполнения вашего обработчика, чтобы понять:
-
-- Нужно ли останавливать действие по-умолчанию (если встретится [`preventDefault()`](/js/event-prevent-default/))?
-- Или разрешить действие по-умолчанию?
+В JavaScript существуют отменяемые события ([cancelable event](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)) - это события, в которых с помощью [`preventDefault()`](/js/event-prevent-default/) можно отменить действие по умолчанию (клик, прокрутку, переход по ссылке и т. п.). В таких событиях выполнение действия по-умолчанию откладывается до завершения работы обработчиков. Браузер ждёт выполнения всех обработчиков события, чтобы убедиться, что ни один из них не вызывает [`preventDefault()`](/js/event-prevent-default/).
 
 Из-за этой особенности при обработке событий, связанных с прокруткой страницы ([`touchmove`](/js/element-touch/), [`touchstart`](/js/element-touch/), [`wheel`](/js/element-wheel/) и `mousewheel`), может возникать заметная задержка при прокрутке, особенно на мобильных устройствах.
 
@@ -176,7 +173,10 @@ document.addEventListener('click', handlerClick, { passive: true, capture: false
 ```js
 element.addEventListener('wheel', handleScroll, { passive: true });
 ```
-💡 Важное ограничение: если вы укажете `{ passive: true }`, но попытаетесь вызвать [`preventDefault()`](/js/event-prevent-default/), браузер:
+
+Чтобы не было задержки, все обработчики таких событий на элементе и его родителях должны быть пассивными слушателями.
+
+💡 Если вы укажете `{ passive: true }`, но попытаетесь вызвать [`preventDefault()`](/js/event-prevent-default/), браузер:
 
 - проигнорирует вызов (в консоли может быть предупреждение);
 - скролл всё равно произойдёт.
