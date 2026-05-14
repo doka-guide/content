@@ -115,6 +115,6 @@ function handleMouseClick(event) {
 // неявно { capture: true }
 window.addEventListener('click', handleMouseClick, true)
 
-//неявно capture = false, поэтому обработчик не удалится
+// неявно { capture: false }, поэтому обработчик не удалится
 window.removeEventListener('click', handleMouseClick)
 ```
