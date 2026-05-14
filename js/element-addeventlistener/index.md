@@ -145,7 +145,7 @@ function handlerClick () {
   console.log('click')
 }
 
-// неявно { capture = true }
+// неявно { capture: true }
 document.addEventListener('click', handlerClick, true)
 // второй обработчик для той же фазы не добавится
 document.addEventListener('click', handlerClick, { once: true, capture: true })
