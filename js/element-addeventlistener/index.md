@@ -166,7 +166,7 @@ document.addEventListener('click', handlerClick, { passive: true, capture: false
 
 В JavaScript существуют отменяемые события ([cancelable event](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)) - это события, в которых с помощью [`preventDefault()`](/js/event-prevent-default/) можно отменить действие по умолчанию (клик, прокрутку, переход по ссылке и т. п.). В таких событиях выполнение действия по-умолчанию откладывается до завершения работы обработчиков. Браузер ждёт выполнения всех обработчиков события, чтобы убедиться, что ни один из них не вызывает [`preventDefault()`](/js/event-prevent-default/).
 
-Из-за этой особенности при обработке событий, связанных с прокруткой страницы ([`touchmove`](/js/element-touch/), [`touchstart`](/js/element-touch/), [`wheel`](/js/element-wheel/) и `mousewheel`), может возникать заметная задержка при прокрутке, особенно на мобильных устройствах.
+Например, при обработке событий ([`touchmove`](/js/element-touch/), [`touchstart`](/js/element-touch/), [`wheel`](/js/element-wheel/) и `mousewheel`), может возникать заметная задержка прокрутки, особенно на мобильных устройствах.
 
 Флаг `{ passive: true }` решает эту проблему. Вы говорите браузеру: «Обещаю, я не буду вызывать [`preventDefault()`](/js/event-prevent-default/) внутри этого обработчика». Получив такое обещание, браузер больше не ждёт и начинает прокручивать немедленно, параллельно выполняя ваш код. Такой обработчик событий также называется «пассивный слушатель».
 
