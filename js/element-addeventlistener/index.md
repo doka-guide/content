@@ -164,7 +164,7 @@ document.addEventListener('click', handlerClick, { passive: true, capture: false
 
 ### Улучшение производительности скролла
 
-В JavaScript существуют отменяемые события ([cancelable event](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)) - это события, в которых с помощью [`preventDefault()`](/js/event-prevent-default/) можно отменить действие по умолчанию (клик, прокрутку, переход по ссылке и т. п.). В таких событиях выполнение действия по-умолчанию откладывается до завершения работы обработчиков. Браузер ждёт выполнения всех обработчиков события, чтобы убедиться, что ни один из них не вызывает [`preventDefault()`](/js/event-prevent-default/).
+В JavaScript существуют отменяемые события ([cancelable event](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)) - это события, в которых с помощью [`preventDefault()`](/js/event-prevent-default/) можно отменить действие по умолчанию (прокрутку, переход по ссылке, отправку формы и т. п.). В таких событиях выполнение действия по-умолчанию откладывается до завершения работы обработчиков. Браузер ждёт выполнения всех обработчиков события, чтобы убедиться, что ни один из них не вызывает [`preventDefault()`](/js/event-prevent-default/).
 
 Например, при обработке событий ([`touchmove`](/js/element-touch/), [`touchstart`](/js/element-touch/), [`wheel`](/js/element-wheel/) и `mousewheel`), может возникать заметная задержка прокрутки, особенно на мобильных устройствах.
 
