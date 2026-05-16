@@ -79,6 +79,7 @@ groups:
       - function
       - return
       - function-context
+      - bind-call-apply
       - closures
       - recursion
       - function-arguments-object
