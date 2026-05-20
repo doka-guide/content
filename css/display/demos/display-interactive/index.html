@@ -1,0 +1,71 @@
+---
+title: "Интерактивная демка: значения CSS-свойства display"
+description: "Попробуйте разные значения display и посмотрите, как меняется поведение элементов"
+---
+
+<div style="background: #f5f5f5; padding: 20px; border-radius: 12px; margin: 20px 0;">
+    <style>
+        .demo-controls { margin-bottom: 20px; }
+        .demo-controls select { padding: 8px 12px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc; }
+        .demo-boxes { background: #fff; padding: 20px; border-radius: 12px; border: 2px dashed #ccc; transition: all 0.3s; }
+        .demo-box { background: #3498db; color: white; text-align: center; padding: 15px; margin: 8px; border-radius: 8px; }
+        .demo-box:nth-child(2) { background: #2ecc71; }
+        .demo-box:nth-child(3) { background: #e74c3c; }
+        .demo-info { margin-top: 15px; padding: 10px; background: #e8f4fd; border-radius: 8px; font-size: 14px; }
+    </style>
+    
+    <div class="demo-controls">
+        <label>🎮 Выберите значение <code>display</code>: </label>
+        <select id="demoDisplaySelect">
+            <option value="block">block</option>
+            <option value="inline">inline</option>
+            <option value="inline-block">inline-block</option>
+            <option value="flex">flex</option>
+            <option value="grid">grid</option>
+        </select>
+    </div>
+    
+    <div class="demo-boxes" id="demoDisplayBoxes">
+        <div class="demo-box">Блок 1</div>
+        <div class="demo-box">Блок 2</div>
+        <div class="demo-box">Блок 3</div>
+        <div class="demo-box">Блок 4</div>
+    </div>
+    
+    <div class="demo-info" id="demoDisplayInfo">
+        Текущее значение: <code>block</code>
+    </div>
+    
+    <script>
+        const select = document.getElementById('demoDisplaySelect');
+        const container = document.getElementById('demoDisplayBoxes');
+        const info = document.getElementById('demoDisplayInfo');
+        
+        function updateDisplay() {
+            const value = select.value;
+            container.style.display = value;
+            info.innerHTML = `Текущее значение: <code>${value}</code><br><br>`;
+            
+            if (value === 'flex') {
+                container.style.gap = '8px';
+                container.style.flexWrap = 'wrap';
+                info.innerHTML += 'Включён режим <strong>flex</strong> — элементы выстраиваются в гибкую строку.';
+            } else if (value === 'grid') {
+                container.style.display = 'grid';
+                container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(150px, 1fr))';
+                container.style.gap = '12px';
+                info.innerHTML += 'Включён режим <strong>grid</strong> — элементы располагаются в адаптивной сетке.';
+            } else {
+                container.style.gap = '';
+                container.style.flexWrap = '';
+                container.style.gridTemplateColumns = '';
+                if (value === 'inline') info.innerHTML += 'Режим <strong>inline</strong> — элементы располагаются в строку.';
+                else if (value === 'inline-block') info.innerHTML += ' Режим <strong>inline-block</strong> — как inline, но с размерами.';
+                else info.innerHTML += 'Режим <strong>block</strong> — каждый элемент с новой строки.';
+            }
+        }
+        
+        select.addEventListener('change', updateDisplay);
+        updateDisplay();
+    </script>
+</div>
