@@ -163,17 +163,12 @@
     const searchInput = searchForm.querySelector('[type="search"]')
     const searchResults = document.querySelector('.search-results')
 
-    function debounce(callee, timeoutMs) {
+    function debounce(callback, delay) {
+      let timer;
       return function perform(...args) {
-        let previousCall = this.lastCall
-        this.lastCall = Date.now()
-
-        if (previousCall && ((this.lastCall - previousCall) <= timeoutMs)) {
-          clearTimeout(this.lastCallTimer)
-        }
-
-        this.lastCallTimer = setTimeout(() => callee(...args), timeoutMs)
-      }
+        clearTimeout(timer);
+        timer = setTimeout(() => callback.apply(this, args), delay);
+      };
     }
 
     function handleInput(e) {
