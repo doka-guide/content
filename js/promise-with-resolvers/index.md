@@ -27,6 +27,53 @@ tags:
 
 ## Пример
 
+Допустим, мы используем WebSocket. Получение ответа от сервера реализовано как асинхронная функция. Для изменения состояния промиса применяем колбэк-функции: `resolve()` — при успешном получении сообщения и `reject()` — в случае ошибки.
+
+```js
+
+function waitForWebSocketMessage(ws, expectedType) {
+  // Создаём новый промис и получаем колбэк-функции
+  const { promise, resolve, reject } = Promise.withResolvers()
+
+  ws.onmessage = (event) => {
+    const data = JSON.parse(event.data)
+    if (data.type === expectedType) {
+      // Успешный результат
+      resolve(data)
+    }
+  };
+
+  ws.onerror = (error) => {
+    // Ошибка
+    reject(error)
+  }
+  return promise
+}
+
+const socket = new WebSocket('wss://example.com')
+
+waitForWebSocketMessage(socket, 'auth_success')
+  .then(data => console.log('Получен ответ:', data))
+  .catch(error => console.error('Ошибка:', error))
+```
+
+## Как пишется
+
+```js
+const { promise, resolve, reject } = Promise.withResolvers()
+```
+
+`Promise.withResolvers()` не имеет аргументов.
+
+`Promise.withResolvers()` возвращает объект, содержащий:
+
+- promise — новый промис;
+- resolve
+- reject
+
+
+## Как понять
+
 Представим, что нам необходимо обрабатывать события как промисы. Создадим функцию `addEventPromise`, которая добавляет слушателя для однократной обработки события и возвращает промис. Когда событие произойдёт, промис перейдёт в состояние выполнено (fulfilled), с результатом в виде объекта события `event`.
 
 ```js
@@ -71,14 +118,3 @@ function addEventPromise(element, eventName) {
   return promise
 }
 ```
-
-## Как пишется
-
-```js
-const { promise, resolve, reject } =Promise.withResolvers()
-```
-
-
-
-## Как понять
-
