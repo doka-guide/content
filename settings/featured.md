@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/array-reduce-right
-  - tools/how-the-browser-creates-pages
-  - html/doctype
-  - recipes/lets-encrypt-nginx
-  - tools/network
-  - recipes/popup
-  - tools/webpack
-  - tools/cors
-  - tools/docker
-  - css/box-shadow
-  - js/function-context
-  - html/section
   - tools/bundlers
-  - tools/markdown
-  - tools/how-to-test-and-why
+  - html/input
+  - tools/cli
+  - recipes/lets-encrypt-nginx
+  - tools/docker
+  - css/specificity
+  - html/doctype
   - js/deal-with-forms
-  - css/scrollbar-gutter
+  - js/var-let
+  - a11y/content-hidden
+  - css/box-shadow
+  - recipes/center
+  - tools/webpack
+  - tools/clean-architecture
+  - a11y/aria-hidden
+  - html/flow
+  - css/pseudoelements
   - css/custom-properties
   - css/transform-function
-  - recipes/snow
-  - html/input
-  - html/article
-  - js/execution-order
-  - css/display
-  - tools/static-types
-  - a11y/aria-hidden
-  - html/img
-  - css/grid-guide
-  - a11y/css-impact-on-a11y
-  - recipes/center
-  - html/nav
-  - js/boolean
-  - html/head
   - tools/ci-cd
-  - a11y/content-hidden
-  - css/media
-  - recipes/character-counter
-  - a11y/aria-intro
-  - js/async-in-js
-  - js/infinite-scroll
-  - html/form
-  - css/box-model
-  - js/var-let
-  - html/video
-  - tools/oop
-  - js/array-entries
-  - js/function
-  - recipes/progress
-  - tools/cli
-  - css/attr
-  - tools/clean-architecture
-  - html/div
-  - css/specificity
-  - css/pseudoelements
-  - html/flow
-  - css/keyframes
-  - recipes/ajax-form
-  - css/position
-  - recipes/git-rebase-onto
-  - tools/agile
-  - tools/gitlab-ci-cd
+  - js/function-context
   - js/geolocation-api
-  - a11y/live-region
-  - a11y/screenreaders
-  - js/closures
+  - css/grid-guide
   - css/flexbox-guide
+  - html/head
+  - css/display
+  - css/media
+  - tools/how-to-test-and-why
+  - a11y/screenreaders
+  - recipes/progress
+  - css/keyframes
+  - css/position
+  - html/article
+  - a11y/css-impact-on-a11y
+  - js/function
+  - css/attr
+  - tools/static-types
+  - tools/network
+  - tools/agile
   - css/box-sizing
+  - recipes/ajax-form
+  - html/form
+  - tools/markdown
+  - html/img
+  - css/scrollbar-gutter
+  - js/boolean
+  - js/execution-order
+  - html/div
+  - recipes/snow
+  - js/async-in-js
+  - js/array-entries
+  - html/nav
+  - recipes/git-rebase-onto
+  - js/infinite-scroll
+  - tools/cors
+  - html/section
+  - js/array-reduce-right
+  - recipes/character-counter
+  - html/video
+  - a11y/live-region
+  - recipes/popup
+  - tools/how-the-browser-creates-pages
+  - js/closures
+  - tools/oop
+  - a11y/aria-intro
+  - css/box-model
+  - tools/gitlab-ci-cd
 ---
 
