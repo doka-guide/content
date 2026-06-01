@@ -298,6 +298,7 @@ groups:
       - promise-any
       - promise-race
       - promise-try
+      - promise-with-resolvers
       - async-await
   - name: "Обмен данными с API"
     items:
