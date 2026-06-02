@@ -46,7 +46,7 @@ tags:
 
 Вот как каждое значение влияет на отображение текста:
 
-<iframe title="Песочница" src="demos/playground/" height="700"></iframe>
+<iframe title="Песочница" src="demos/playground/" height="785"></iframe>
 
 ## Как понять
 
