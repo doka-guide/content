@@ -29,10 +29,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 element.addEventListener('blur', (event) => {
   console.log('Элемент потерял фокус')
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+element.onblur = (event) => {
+  console.log('Элемент потерял фокус')
+}
 ```
 
 ## Как понять

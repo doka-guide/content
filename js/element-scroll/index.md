@@ -26,10 +26,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 document.addEventListener('scroll', function(event) {
   console.log(event)
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+document.onscroll = function(event) {
+  console.log(event)
+}
 ```
 
 ## Как понять
