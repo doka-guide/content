@@ -19,10 +19,20 @@ tags:
 
 ## Как пишется
 
+Современный способ с [addEventListener](/js/element-addeventlistener/):
+
 ```js
 window.addEventListener('beforeunload', function () {
   // ...
 })
+```
+
+Также можно обработать событие через [встроенный обработчик событий](/js/element/#vstroennye-obrabotchiki-sobytiy), но этот способ считается устаревшим.
+
+```js
+window.onbeforeunload = function () {
+  // ...
+}
 ```
 
 ## Как понять
