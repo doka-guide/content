@@ -4,9 +4,9 @@ description: "Событие потери фокуса элементом"
 authors:
   - lira_bazh
 related:
-  - js/events
   - js/event-change
   - js/element-blur
+  - js/event-focus
 tags:
   - doka
 ---
@@ -17,7 +17,7 @@ tags:
 
 <aside>
 
-💡 Похожее событие — `focusout` (вызывается перед потерей элементом фокуса, всплывает). Противоположное событие — `focus` (получение фокуса).
+💡 Похожее событие — `focusout` (вызывается перед потерей элементом фокуса, всплывает). Противоположное событие — [`focus`](/js/element-focus/) (получение фокуса).
 
 </aside>
 
