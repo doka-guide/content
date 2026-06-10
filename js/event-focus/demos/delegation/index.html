@@ -47,7 +47,7 @@
     }
 
     h2 {
-      min-width: 320px;
+      width: 320px;
       font-weight: 500;
       font-size: 1.375rem;
       padding-block-end: 19px;
@@ -104,13 +104,22 @@
 
     @media (max-width: 768px) {
       body {
-        padding: 30px;
+        padding: 20px;
       }
 
       .container {
         width: 100%;
         flex-direction: column;
         align-items: flex-start;
+        gap: 20px;
+      }
+
+      .row {
+        gap: 20px;
+      }
+
+      h2 {
+        width: 100%;
       }
 
       .column,
@@ -118,6 +127,10 @@
       .form-row,
       input {
         width: 100%;
+      }
+
+      .logs {
+        margin-top: 20px;
       }
     }
   </style>

@@ -1,6 +1,6 @@
 ---
 title: "focus"
-description: ""
+description: "Событие получения фокуса элементом"
 authors:
   - lira_bazh
 related:
@@ -192,4 +192,4 @@ form2.addEventListener("focus", focusHandler, { capture: true });
 
 ```
 
-<iframe title="Пример делегирования focus" src="demos/delegation/" height="950"></iframe>
+<iframe title="Пример делегирования focus" src="demos/delegation/" height="800"></iframe>
