@@ -125,7 +125,7 @@ block3.addEventListener("focus", focusHandler);
 parentElement.addEventListener(
   "focus",
   (event) => {
-    console.log("Элемент потерял фокус")
+    console.log("Элемент получил фокус")
   },
   { capture: true }
 )
