@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Контейнерные запросы в гриде — @container — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { color-scheme: dark; font-size: 16px; }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .frame {
+      /* контейнер, по ширине которого срабатывает @container */
+      container-type: inline-size;
+      border: 1px solid #2E3138;
+      background-color: #1E2024;
+      border-radius: 12px;
+      padding: 16px;
+      /* Ресайз ширины контейнера */
+      width: 560px;
+      min-width: 240px;
+      max-width: 100%;
+      overflow: auto;
+      resize: horizontal;
+    }
+
+    .demo {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: #26292F;
+      border: 1px solid #2E3138;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      color: #C8CDD4;
+    }
+
+    /* Меняем сетку в зависимости от ширины КОНТЕЙНЕРА (.frame), а не окна */
+    @container (max-width: 420px) {
+      .frame .demo { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @container (max-width: 250px) {
+      .frame .demo { grid-template-columns: 1fr; }
+    }
+
+    .hint { grid-column: 1 / -1; color: #9AA0A6; font-size: 14px; }
+
+    .aside {
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed #2E3138;
+      border-radius: 12px;
+      color: #9AA0A6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="frame" aria-label="Ресайзабельный контейнер">
+      <div class="demo">
+      <div class="card">1</div>
+      <div class="card">2</div>
+      <div class="card">3</div>
+      <div class="card">4</div>
+      <div class="card">5</div>
+      <div class="card">6</div>
+      <p class="hint">Потяните за правый край блока, колонки перестраиваются по ширине контейнера.</p>
+      </div>
+    </div>
+    <div class="aside">Вне контейнера</div>
+  </div>
+</body>
+</html>
