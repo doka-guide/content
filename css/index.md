@@ -396,6 +396,7 @@ groups:
   - name: 'Стили для печати'
     items:
       - page
+      - break-after
       - orphans
       - widows
       - print-color-adjust
