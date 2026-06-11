@@ -33,7 +33,7 @@ tags:
 </span>
 ```
 
-<iframe title="Пример иконочного шрифта" src="demos/how-understand/" height="200"></iframe>
+<iframe title="Пример иконочного шрифта" src="demos/how-understand/" height="480"></iframe>
 
 Иконка появляется на экране как будто это текст: она масштабируется через [`font-size`](/css/font-size/), окрашивается через [`color`](/css/color/) и ведёт себя как обычная буква.
 
