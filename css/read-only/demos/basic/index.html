@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Демо :read-only — Псевдокласс :read-only — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 17px;
+      font-weight: 500;
+      font-size: 1.625rem;
+    }
+
+    p {
+      margin: 7px 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .form-group {
+      margin-top: 30px;
+      background-color: #FFFFFF;
+      color: #333;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+
+    .form-row:last-child {
+      margin-bottom: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      padding: 10px 15px;
+      background-color: #FFFFFF;
+      color: #333;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #2E9AFF;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    /* Стили для полей только для чтения */
+    input:read-only, textarea:read-only {
+      background-color: #f5f5f5;
+      color: #666;
+      border-color: #ddd;
+      cursor: not-allowed;
+    }
+
+    /* Firefox поддержка */
+    input:-moz-read-only, textarea:-moz-read-only {
+      background-color: #f5f5f5;
+      color: #666;
+      border-color: #ddd;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #E3F2FD;
+      border: 1px solid #2196F3;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      color: #1976D2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 55px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-group">
+      <div class="form-row">
+        <label for="readonly-input">Поле только для чтения:</label>
+        <input type="text" id="readonly-input" value="Это поле нельзя редактировать" readonly>
+      </div>
+
+      <div class="form-row">
+        <label for="readonly-textarea">Текстовое поле только для чтения:</label>
+        <textarea id="readonly-textarea" readonly>Это текстовое поле тоже нельзя редактировать. Пользователь может выделить и скопировать текст, но не может изменить содержимое.</textarea>
+      </div>
+
+      <div class="form-row">
+        <label for="normal-input">Обычное поле для ввода:</label>
+        <input type="text" id="normal-input" value="Это поле можно редактировать">
+      </div>
+
+      <div class="status">
+        💡 Попробуйте кликнуть по полям и ввести текст. Поля только для чтения имеют серый фон и курсор "not-allowed".
+      </div>
+    </div>
+  </div>
+</body>
+</html>
