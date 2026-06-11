@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - fullscreen
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
