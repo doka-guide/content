@@ -158,7 +158,19 @@
         const color = `rgb(${r} ${g} ${b} / ${a})`;
         const textColor = getContrastColor(r, g, b);
 
-        refs.block.style.backgroundColor = color;
+        refs.block.style.background = `
+          linear-gradient(${color}, ${color}),
+          url("../../images/grid.png")
+        `;
+        refs.block.style.backgroundSize = `
+          100% 100%,
+          cover
+        `;
+
+        refs.block.style.backgroundPosition = `
+          center,
+          center
+        `;
         refs.block.style.color = textColor;
         refs.block.textContent = color;
       }
