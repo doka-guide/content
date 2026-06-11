@@ -55,6 +55,7 @@ groups:
       - lang
       - root
       - indeterminate
+      - autofill
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
