@@ -57,6 +57,7 @@ groups:
       - indeterminate
       - past
       - future
+      - current
   - name: 'Псевдоэлементы'
     items:
       - pseudoelements
