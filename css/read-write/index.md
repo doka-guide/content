@@ -46,7 +46,7 @@ textarea:read-write {
 }
 ```
 
-<iframe title="Демонстрация работы :target" src="demos/basic/" height="420"></iframe>
+<iframe title="Демонстрация работы :read-write" src="demos/basic/" height="420"></iframe>
 
 ## Как пишется
 
