@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>:dir() — Псевдокласс — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { color-scheme: dark; }
+    body {
+      min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+    }
+    @media (max-width: 768px) { body { padding: 30px; } }
+
+    .container { width: 100%; max-width: 840px; }
+    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
+    p { margin: 7px 0; font-size: 1rem; line-height: 1.4; }
+
+    .grid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+    .card { background: #222328; border: 1px solid #34353B; border-radius: 10px; padding: 18px; }
+    .title { margin-bottom: 10px; font-weight: 500; }
+
+    blockquote { background: #1E2024; border-radius: 8px; padding: 12px 14px; }
+
+    /* Акцент в зависимости от направления */
+    blockquote:dir(ltr) { border-left: 3px solid #2E9AFF; padding-left: 14px; }
+    blockquote:dir(rtl) { border-right: 3px solid #2E9AFF; padding-right: 14px; text-align: right; }
+
+    .lang { opacity: 0.85; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><code>:dir()</code></h1>
+    <p>Два блока с разными направлениями письма. Граница и отступ встают к «началу строки».</p>
+
+    <div class="grid">
+      <section class="card">
+        <div class="title">LTR (русский)</div>
+        <blockquote dir="ltr">
+          <p>Ничего на свете лучше нету, чем бродить друзьям по белу свету.</p>
+          <div class="lang">dir=ltr</div>
+        </blockquote>
+      </section>
+
+      <section class="card">
+        <div class="title">RTL (арабский)</div>
+        <blockquote dir="rtl">
+          <p>السَّلَامُ عَلَيْكُمْ — مثال على نص باللغة العربية.</p>
+          <div class="lang">dir=rtl</div>
+        </blockquote>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
+
+
