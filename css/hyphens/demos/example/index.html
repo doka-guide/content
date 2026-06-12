@@ -48,7 +48,6 @@
 
     .col-text {
       padding: 16px;
-      overflow: hidden;
       background-color: #282A2E;
       font-size: 15px;
       line-height: 1.5;
@@ -58,7 +57,28 @@
     .manual { hyphens: manual; }
     .auto   { hyphens: auto; }
 
-    @media (max-width: 768px) {
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
       body {
         padding: 30px;
       }
@@ -92,5 +112,16 @@
       <p class="col-text auto" lang="ru">Высококвалифицированный специалист.</p>
     </div>
   </div>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/hyphens/">hyphens — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">solarrust</a>
+  </footer>
+
+  <script>
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
