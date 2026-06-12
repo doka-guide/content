@@ -24,7 +24,7 @@ tags:
 
 ## Кратко
 
-Свойство `composed` события возвращает булево значение, которое указывает, может ли событие пересекать границы [Shadow DOM](/js/shadowdom/) и распространяться в обычный [DOM](/js/dom/).
+Свойство `composed` события возвращает булево значение, которое указывает, может ли событие пересекать границы [Shadow DOM](/js/shadowdom/) при всплытии границы  и распространяться в обычный [DOM](/js/dom/).
 
 ## Пример
 
@@ -40,7 +40,7 @@ openRoot.innerHTML = '<button>Открытый дом</button>';
 
 const closedHost = document.getElementById('closed-shadow');
 const closedRoot = closedHost.attachShadow({ mode: 'closed' });
-closedRoot.innerHTML = '<button>Закрытый дом</button>
+closedRoot.innerHTML = '<button>Закрытый дом</button>';
 ```
 
 ## Как пишется
@@ -58,7 +58,7 @@ event.composed
 - `true` — событие может пересекать границы [Shadow DOM](/js/shadowdom/) и распространяться в обычный [DOM](/js/dom/)
 - `false` — событие останавливается на границе [Shadow DOM](/js/shadowdom/)
 
-Все события пользовательского интерфейса (`click`, `touch`, `mouseover`, `copy`, `paste` и др.) имеют `composed: true`. Большинство других типов событий имеют `composed: false`.
+Большинство событий пользовательского интерфейса (`click`, `touch`, `mouseover`, `copy`, `paste` и др.) имеют `composed: true`
 
 Распространение происходит только если свойство `bubbles` также равно `true`.
 

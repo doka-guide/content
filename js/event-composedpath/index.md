@@ -29,42 +29,22 @@ tags:
 
 ## Пример
 
-```javascript
-customElements.define('open-shadow', class extends HTMLElement {
-  constructor() {
-    super();
-    const p = document.createElement('p');
-    p.textContent = this.getAttribute('text');
-
-    const shadow = this.attachShadow({ mode: 'open' });
-    shadow.appendChild(p);
-  }
-});
-
-customElements.define('closed-shadow', class extends HTMLElement {
-  constructor() {
-    super();
-    const p = document.createElement('p');
-    p.textContent = this.getAttribute('text');
-
-    const shadow = this.attachShadow({ mode: 'closed' });
-    shadow.appendChild(p);
-  }
-});
-
-document.addEventListener('click', (e) => {
-  console.log('composedPath:', e.composedPath());
-});
+```html
+<div id="open-shadow"></div>
+<div id="closed-shadow"></div>
 ```
 
-```html
-<open-shadow text="Открытый Shadow DOM"></open-shadow>
-<closed-shadow text="Закрытый Shadow DOM"></closed-shadow>
+```js
+const openHost = document.getElementById('open-shadow');
+openHost.attachShadow({ mode: 'open' }).innerHTML = '<button>Open shadow</button>';
+
+const closedHost = document.getElementById('closed-shadow');
+closedHost.attachShadow({ mode: 'closed' }).innerHTML = '<button>Closed shadow</button>';
 ```
 
 ## Как пишется
 
-```javascript
+```js
 event.composedPath()
 ```
 
@@ -74,10 +54,10 @@ event.composedPath()
 
 Метод `composedPath()` показывает полный путь распространения события от целевого элемента до корня документа:
 
-- **Открытый [Shadow DOM](/js/shadowdom/)**: Включает все узлы, включая элементы внутри [Shadow DOM](/js/shadowdom/)
-- **Закрытый [Shadow DOM](/js/shadowdom/)**: Исключает узлы из закрытого [Shadow DOM](/js/shadowdom/)
+- **Открытый [Shadow DOM](/js/shadowdom/)**: внутренние узлы видны в `composedPath()`
+- **Закрытый [Shadow DOM](/js/shadowdom/)**: внутренние узлы скрыты из `composedPath()`
 
-Путь всегда начинается с целевого элемента и заканчивается `Window`.
+Путь начинается с целевого элемента и заканчивается `window` (для событий, которые распространяются до глобального объекта).
 
 ## Подсказки
 
