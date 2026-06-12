@@ -79,72 +79,72 @@ active:
   - html/semantics
   - js/web-workers
   - tools/algorithm-complexity
-  - js/infinite-scroll
-  - tools/webpack
+  - tools/agile
+  - css/pseudoelements
   - tools/bundlers
-  - html/img
-  - css/box-sizing
-  - js/function-context
-  - tools/network
-  - css/display
-  - tools/clean-architecture
-  - js/deal-with-forms
+  - recipes/progress
   - tools/oop
+  - css/position
+  - html/div
+  - a11y/live-region
+  - tools/markdown
+  - recipes/character-counter
+  - js/async-in-js
+  - tools/cors
+  - html/head
+  - js/execution-order
+  - js/infinite-scroll
+  - js/boolean
+  - recipes/lets-encrypt-nginx
+  - css/scrollbar-gutter
+  - a11y/aria-intro
+  - css/custom-properties
+  - tools/how-to-test-and-why
+  - html/doctype
+  - css/box-sizing
+  - js/var-let
+  - js/array-entries
+  - js/function
+  - tools/gitlab-ci-cd
+  - recipes/ajax-form
+  - html/video
+  - tools/webpack
+  - css/attr
+  - a11y/content-hidden
+  - tools/clean-architecture
+  - js/function-context
+  - css/display
+  - html/article
+  - a11y/screenreaders
+  - recipes/git-rebase-onto
+  - css/transform-function
   - css/box-model
   - html/form
-  - js/array-reduce-right
-  - tools/how-the-browser-creates-pages
-  - css/pseudoelements
-  - html/div
-  - recipes/center
-  - css/specificity
-  - a11y/aria-hidden
-  - tools/cors
-  - css/keyframes
-  - a11y/content-hidden
-  - css/grid-guide
-  - css/attr
-  - tools/ci-cd
-  - js/async-in-js
-  - tools/gitlab-ci-cd
-  - tools/how-to-test-and-why
-  - html/input
-  - css/position
-  - a11y/live-region
-  - tools/static-types
-  - recipes/popup
-  - html/section
-  - js/function
-  - js/execution-order
-  - css/flexbox-guide
-  - js/boolean
-  - html/article
-  - tools/markdown
-  - html/nav
-  - js/closures
-  - recipes/lets-encrypt-nginx
-  - recipes/git-rebase-onto
-  - js/var-let
-  - recipes/progress
-  - recipes/ajax-form
-  - tools/cli
-  - tools/docker
-  - tools/agile
-  - html/head
   - css/box-shadow
-  - html/video
-  - css/transform-function
-  - a11y/aria-intro
-  - js/geolocation-api
-  - css/media
-  - recipes/snow
-  - a11y/screenreaders
-  - html/doctype
+  - recipes/popup
+  - js/array-reduce-right
+  - html/section
+  - a11y/aria-hidden
+  - tools/network
+  - html/img
+  - js/deal-with-forms
+  - css/keyframes
+  - css/flexbox-guide
+  - html/nav
+  - tools/static-types
+  - tools/docker
+  - tools/how-the-browser-creates-pages
   - html/flow
-  - css/custom-properties
-  - css/scrollbar-gutter
-  - js/array-entries
   - a11y/css-impact-on-a11y
-  - recipes/character-counter
+  - css/media
+  - tools/ci-cd
+  - css/grid-guide
+  - css/specificity
+  - tools/cli
+  - recipes/snow
+  - js/geolocation-api
+  - js/closures
+  - recipes/center
+  - html/input
 ---
 
