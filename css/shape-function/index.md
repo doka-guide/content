@@ -2,7 +2,7 @@
 title: "`shape()`"
 description: "Создаём сложные формы с помощью команд, похожих на SVG, но с поддержкой CSS-единиц измерения."
 baseline:
-  - group: shape-function
+  - group: clipping-shapes-masking
     features:
       - css.types.basic-shape.shape
 authors:
