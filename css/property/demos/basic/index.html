@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Пример анимации с типизированной переменной — @property — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 30px;
+      }
+    }
+
+    @property --angle {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
+    }
+
+    .conic-effect {
+      --color: #2E9AFF;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+
+      background: conic-gradient(
+        var(--color) var(--angle),
+        transparent 0
+      );
+
+      animation: conic-effect 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes conic-effect {
+      0% { --angle: 0deg; }
+      100% { --angle: 360deg; }
+    }
+  </style>
+</head>
+<body>
+  <div class="conic-effect"></div>
+</body>
+</html>
