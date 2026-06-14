@@ -203,6 +203,7 @@ groups:
       - window-close
       - intersection-observer
       - abort-controller
+      - window-structuredclone
   - name: "Объектная модель документа DOM"
     items:
       - dom
