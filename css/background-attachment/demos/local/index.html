@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>local против scroll — background-attachment — Дока</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      color-scheme: dark;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px 24px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background-color: #18191C;
+      color: #FFFFFF;
+      font-family: "Roboto", sans-serif;
+    }
+
+    /* === стили демо === */
+
+    .hint {
+      font-size: 12px;
+      color: rgb(255 255 255 / 0.4);
+      letter-spacing: 0.03em;
+    }
+
+    .box-wrapper {
+      position: relative;
+    }
+
+    .box {
+      width: 320px;
+      height: 220px;
+      overflow-y: scroll;
+      border-radius: 8px;
+      border: 1px solid rgb(255 255 255 / 0.08);
+      /* Сетка крестиков в акцентном цвете */
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Cline x1='16' y1='10' x2='16' y2='22' stroke='rgba(46,154,255,0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='10' y1='16' x2='22' y2='16' stroke='rgba(46,154,255,0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-color: #1C1D21;
+      background-attachment: local;
+    }
+
+    .fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, #1C1D21);
+      border-radius: 0 0 8px 8px;
+      pointer-events: none;
+    }
+
+    .box-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .box-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.7);
+    }
+
+    .box-item-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgb(46 154 255 / 0.15);
+      border: 1px solid rgb(46 154 255 / 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #2E9AFF;
+      flex-shrink: 0;
+    }
+
+    .description {
+      font-size: 13px;
+      color: rgb(255 255 255 / 0.5);
+      font-style: italic;
+      text-align: center;
+      max-width: 320px;
+      min-height: 20px;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-label {
+      font-size: 13px;
+      font-family: monospace;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #282A2E;
+      border: 1px solid rgb(255 255 255 / 0.15);
+      border-radius: 24px;
+      transition: background-color 0.15s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      transition: transform 0.15s;
+    }
+
+    .switch input:checked + .slider {
+      background-color: #2E9AFF;
+      border-color: #2E9AFF;
+    }
+
+    .switch input:checked + .slider::before {
+      transform: translateX(20px);
+    }
+
+    .demo-logo {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.15s;
+    }
+
+    .demo-logo:hover {
+      opacity: 1;
+    }
+
+    .demo-meta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 20px;
+      border-top: 2px solid #2E9AFF;
+      background-color: #18191C;
+      font-size: 13px;
+      font-style: italic;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .demo-meta a {
+      color: inherit;
+      text-decoration-color: #2E9AFF;
+      text-decoration-thickness: 2px;
+    }
+
+    @media (width <= 768px) {
+      body {
+        padding: 30px 16px 70px;
+      }
+
+      .box {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <p class="hint">↓ прокрути содержимое блока</p>
+
+  <div class="box-wrapper">
+    <div class="box" id="box">
+      <div class="box-content">
+        <div class="box-item"><span class="box-item-num">1</span>Первый элемент списка</div>
+        <div class="box-item"><span class="box-item-num">2</span>Второй элемент списка</div>
+        <div class="box-item"><span class="box-item-num">3</span>Третий элемент списка</div>
+        <div class="box-item"><span class="box-item-num">4</span>Четвёртый элемент списка</div>
+        <div class="box-item"><span class="box-item-num">5</span>Пятый элемент списка</div>
+        <div class="box-item"><span class="box-item-num">6</span>Шестой элемент списка</div>
+        <div class="box-item"><span class="box-item-num">7</span>Седьмой элемент списка</div>
+        <div class="box-item"><span class="box-item-num">8</span>Восьмой элемент списка</div>
+      </div>
+    </div>
+    <div class="fade"></div>
+  </div>
+
+  <div class="controls">
+    <label class="switch">
+      <input type="checkbox" id="toggle" checked>
+      <span class="slider"></span>
+    </label>
+    <span class="toggle-label" id="label">background-attachment: local</span>
+  </div>
+
+  <p class="description" id="desc">Паттерн движется вместе с содержимым</p>
+
+  <a class="demo-logo" href="https://doka.guide/">U•ᴥ•U Дока</a>
+
+  <footer class="demo-meta">
+    <a href="https://doka.guide/css/background-attachment/">background-attachment — Дока</a>
+    <a href="https://doka.guide/people/solarrust/">Алёна Батицкая</a>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const box = document.getElementById('box');
+    const label = document.getElementById('label');
+    const desc = document.getElementById('desc');
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        box.style.backgroundAttachment = 'local';
+        label.textContent = 'background-attachment: local';
+        desc.textContent = 'Паттерн движется вместе с содержимым';
+      } else {
+        box.style.backgroundAttachment = 'scroll';
+        label.textContent = 'background-attachment: scroll';
+        desc.textContent = 'Паттерн стоит на месте — содержимое скроллится отдельно';
+      }
+      box.scrollTop = 0;
+    });
+
+    if (!new URLSearchParams(window.location.search).has('embed')) {
+      document.querySelector('.demo-meta').style.display = 'flex';
+      document.querySelector('.demo-logo').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
