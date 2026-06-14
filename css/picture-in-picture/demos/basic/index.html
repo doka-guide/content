@@ -12,26 +12,25 @@
     html { color-scheme: dark; }
     body {
       min-height: 100vh; padding: 50px; display: flex; align-items: center; justify-content: center;
-      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif; font-size: 16px;
+      background-color: #18191C; color: #FFFFFF; font-family: "Roboto", sans-serif;
     }
     @media (max-width: 768px) { body { padding: 30px; } }
 
-    .container { width: 100%; max-width: 840px; display: grid; gap: 20px; }
-    h1 { margin-bottom: 17px; font-weight: 500; font-size: 1.625rem; }
-    p { margin: 7px 0; line-height: 1.4; }
+    .container { width: 100%; max-width: 580px; display: grid; gap: 20px; }
+    h1 { font-weight: 500; font-size: 1.625rem; }
+    p { line-height: 1.4; }
 
     .player { display: flex; flex-direction: column; gap: 16px; position: relative; background: #222328; border: 1px solid #34353B; border-radius: 10px; padding: 18px; }
-    video { width: 100%; height: auto; border-radius: 6px; display: block; }
+    video { width: 100%; height: auto; border-radius: 6px; }
 
     /* Стили для реального PiP */
     video:picture-in-picture { outline: 2px solid #2E9AFF; outline-offset: 6px; }
 
     /* Индикатор PiP на странице */
     .pip-indicator { display: none; font-size: 14px; }
-    video:picture-in-picture ~ .pip-indicator { display: block; }
 
-    .controls { margin-top: 12px; display: flex; gap: 10px; }
-    .button { display: block; min-width: 210px; border: 2px solid transparent; border-radius: 6px; padding: 9px 15px; color: #000000; font-size: 18px; font-weight: 300; font-family: inherit; transition: background-color 0.2s linear; }
+    .controls { display: flex; gap: 10px; }
+    .button { width: 100%; border: 2px solid transparent; border-radius: 6px; padding: 9px 15px; color: #000000; font-size: 14px; font-weight: 300; font-family: inherit; transition: background-color 0.2s linear; }
     .button-blue { background-color: #2E9AFF; }
     .button:hover:not(:disabled) { background-color: #FFFFFF; cursor: pointer; transition: background-color 0.2s linear; }
     .button:focus-visible { border: 2px solid #FFFFFF; outline: none; }
@@ -94,5 +93,3 @@
   </script>
 </body>
 </html>
-
-
