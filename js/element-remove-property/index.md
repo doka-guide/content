@@ -3,53 +3,90 @@ title: ".removeProperty()"
 description: "Удаляем CSS-свойство у элемента."
 authors:
   - bellabzhu
+  - kiryshka1922
 related:
   - js/element-style
-  - css/specificity
   - js/css-style-declaration
+  - js/element-classlist
 tags:
   - doka
-  - placeholder
 ---
 
 ## Кратко
 
-Метод [`removeProperty()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty) удаляет указанное CSS-свойство у элемента и возвращает значение этого свойства.
+Метод [`removeProperty()`](https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleDeclaration/removeProperty) позволяет удалить определённое CSS-свойство у элемента, возвращая его к значению по умолчанию или удаляя его полностью из стиля элемента.
 
 ## Пример
 
 <iframe title="Демонстрация работы метода" src="demos/index.html" height="270"></iframe>
 
-Превращаем круг в квадрат.
+Превращаем круг в квадрат:
 
 ```js
 const circle = document.getElementById('round')
 
-function turnToSquare () {
+function turnToSquare() {
   circle.style.removeProperty('border-radius')
 }
 ```
 
 ## Как пишется
 
-`removeProperty()` принимает один аргумент — строку с именем свойства. Пишем названия так же, как в CSS: `background-color`, а не `backgroundColor`.
+`removeProperty()` принимает один аргумент — строку с именем свойства. Название должно соответствовать CSS-формату: `background-color`, а не `backgroundColor`. Регистр букв значения не имеет — `BACKGROUND-COLOR` тоже сработает.
 
+Метод возвращает строку со старым значением удалённого свойства. Если свойство не было установлено, метод вернёт пустую строку `''`.
 ```js
-vampire.style.removeProperty('box-shadow')
+const oldShadow = vampire.style.removeProperty('box-shadow')
+console.log(oldShadow) // '0 0 10px rgba(0,0,0,0.5)'
 ```
 
 ## Как понять
 
-Метод `removeProperty()` удаляет отдельное CSS-свойство элемента.
+Метод `removeProperty()` удаляет отдельное CSS-свойство элемента. Доступен метод в интерфейсе [CSSStyleDeclaration](/js/css-style-declaration/).
 
-Чтобы управлять отображением элемента, лучше использовать чистый CSS, устанавливая элементу классы-модификаторы с нужным набором стилей.
+Удалить свойство получится только для `inline` стилей. Для `read-only` свойств выбрасывается ошибка `NoModificationAllowedError`, изменять их напрямую не получится.
 
-Иногда полезно программно изменять CSS-свойства. Например, если в нужный момент установить элементу свойство `will-change`, а потом удалить его, то можно получить выигрыш по производительности.
+Например, вычисленные стили (`computed styles`) — это то, что браузер рассчитал, применив все CSS-правила к элементу. Их нельзя изменить напрямую:
+```js
+const circle = document.getElementById('round')
+// ❌ Ошибка! Uncaught NoModificationAllowedError
+window.getComputedStyle(circle).removeProperty('border-radius')
+```
 
-Если с помощью метода `removeProperty()` не выходит удалить свойство, и вы получаете ошибку `NoModificationAllowedError`, значит элемент или его свойство находится в режиме `read-only`.
+Однако удалять свойства из таблиц стилей всё же можно, обратившись к CSSRules.
+
+⚠️ **Важно**: этот способ требует точного знания структуры таблиц стилей и может быть ненадёжным в случае подключения новых стилей.
+```js
+const circle = document.getElementById('round')
+// ✅ Так работать будет
+const declaration = document.styleSheets[0].cssRules[1].style;
+declaration.removeProperty('border-radius')
+```
+
+🚀 Один из полезных сценариев использования `removeProperty()` — управление подсказками для браузера с помощью свойства [`will-change`](/css/will-change/):
+
+```js
+const animatedElement = document.getElementById('animated')
+
+function startAnimation() {
+  // Подсказываем браузеру, что свойство transform будет анимироваться
+  animatedElement.style.willChange = 'transform'
+  
+  // Запускаем анимацию
+  animatedElement.classList.add('animate')
+  
+  // После завершения анимации удаляем подсказку, чтобы освободить память
+  // и не занимать ресурсы браузера излишними обещаниями анимации
+  setTimeout(() => {
+    animatedElement.style.removeProperty('will-change')
+  }, 1000)
+}
+```
 
 Есть альтернатива — можно использовать [`style`](/js/element-style/) и указать свойству значение `null`. Названия в этом случае пишем через _camelCase_:
 
 ```js
 vampire.style.boxShadow = null
 ```
+
+Чтобы управлять отображением элемента и менять вычисленные стили, лучше использовать другой подход, устанавливая элементу классы-модификаторы с нужным набором стилей. Для этого можно использовать [ClassList](/js/element-classlist/).
