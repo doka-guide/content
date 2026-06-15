@@ -3,6 +3,10 @@ title: "Атрибут `step`"
 description: "Помогает, если в поля формы можно было вводить только определённые значения."
 authors:
   - ivkrylova
+related:
+  - html/input
+  - a11y/aria-describedby
+  - html/form
 tags:
   - doka
   - placeholder

@@ -6,6 +6,10 @@ authors:
 keywords:
   - курсив
   - италик
+related:
+  - html/strong
+  - html/em
+  - css/font-style
 tags:
   - doka
 ---
