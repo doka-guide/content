@@ -1,6 +1,11 @@
 ---
 title: "`background-blend-mode`"
 description: "Смешиваем картинки и цвет почти как в Photoshop, но только в CSS."
+baseline:
+  - group: background-blend-mode
+    features:
+      - css.properties.background-blend-mode
+      - css.types.blend-mode
 authors:
   - solarrust
 keywords:
